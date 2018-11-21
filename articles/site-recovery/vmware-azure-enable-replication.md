@@ -1,8 +1,18 @@
 ---
-title: Activer la réplication de machines virtuelles VMware pour la reprise d’activité de VMware sur Azure avec Azure Site Recovery | Microsoft Docs description: Cet article décrit comment activer la réplication de machines virtuelles VMware pour la reprise d’activité sur Azure avec Azure Site Recovery.
-author: asgang ms.service: site-recovery ms.date: 07/06/2018 ms.topic: conceptual ms.author: asgang
-
-
+title: Activer la réplication des machines virtuelles VMware pour la récupération d’urgence VMware sur Azure à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Cet article décrit la procédure d’activation de la réplication de machines virtuelles VMware pour la récupération d’urgence dans Azure à l’aide d’Azure Site Recovery.
+author: asgang
+ms.service: site-recovery
+ms.date: 07/06/2018
+ms.topic: conceptual
+ms.author: asgang
+ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566351"
+---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
 
@@ -68,10 +78,7 @@ Lors de la réplication de machines virtuelles VMware :
     ![Activer la réplication](./media/vmware-azure-enable-replication/enable-replication7.png)
 14. Cliquez sur **Activer la réplication**. Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 
-> [!NOTE]
-> Si la machine est prête pour l’installation Push, le composant du service Mobilité est installé dès que la protection est activée. Une fois le composant installé sur la machine, une tâche de protection démarre et échoue. Après cet échec, vous devez redémarrer manuellement chaque machine. Après le redémarrage, la tâche de protection recommence et la réplication initiale se produit.
->
->
+
 
 ## <a name="view-and-manage-vm-properties"></a>Afficher et gérer les propriétés des machines virtuelles
 

@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 3ca7897455f763237533aa15680fbfcf805cdaf9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4ef653a603bccc001a5bbbb4c2af97e5ca0b20a8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834724"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344431"
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Découvrir et partager des didacticiels dans la galerie Azure AI
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="tutorials"></a>Didacticiels
-La galerie Azure AI offre plusieurs [didacticiels](https://gallery.cortanaintelligence.com/tutorials) qui peuvent vous aider à maîtriser les concepts et les technologies de Machine Learning. Les didacticiels peuvent également décrire des méthodes avancées pour résoudre les problèmes de Machine Learning.
+La [galerie Azure AI](http://gallery.cortanaintelligence.com) offre plusieurs [didacticiels](https://gallery.cortanaintelligence.com/tutorials) qui peuvent vous aider à maîtriser les concepts et les technologies de Machine Learning. Les didacticiels peuvent également décrire des méthodes avancées pour résoudre les problèmes de Machine Learning.
 
 ## <a name="discover"></a>Découvrez
 Pour rechercher des didacticiels [dans la galerie](http://gallery.cortanaintelligence.com), sous **Plus**, sélectionnez **didacticiels**.

@@ -12,24 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 3a9f27a92a4bc808ff9bcf04b66523a92f1bcf03
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3fe268b6491a2a3cc1237173506ef5a91beb7d26
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354824"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625079"
 ---
-# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Comment choisir le type d’application à utiliser lors de l’ajout d’une application
+# <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Choix du type d’application lors de l’ajout d’une application dans Azure Active Directory
+Découvrez les quatre types d’applications que vous pouvez ajouter dans Azure Active Directory (Azure AD). Lorsque vous ajoutez une application dans Azure Active Directory, vous êtes invité à choisir l’un des quatre types d’application. 
 
-Cet article vous aide à comprendre les quatre principaux types d’applications que vous pouvez intégrer à Azure AD :
-
-* Ce qui est pris en charge par chacun d’eux
-* Pourquoi choisir telle ou telle application
-* Comment configurer les principales propriétés de cette application, par exemple la façon dont les utilisateurs sont **configurés** ou la technologie d’**authentification unique** à utiliser.
-
-## <a name="supported-application-types-in-azure-ad"></a>Types d’applications pris en charge dans Azure AD
+## <a name="what-are-the-types-of-applications"></a>Quels sont les types d’application ?
 
 Azure AD prend en charge quatre types d’applications principaux que vous pouvez ajouter à l’aide de la fonction **Ajouter** qui se trouve sous **Applications d’entreprise**. Il s’agit des actions suivantes :
 
@@ -41,7 +36,7 @@ Azure AD prend en charge quatre types d’applications principaux que vous pouve
 
 -   **Applications hors galerie** : créez vos propres applications ! Tous les liens web et toutes les applications disposant d’un champ de nom d’utilisateur et de mot de passe prennent en charge les protocoles SAML ou OpenID Connect, ou prennent en charge SCIM pour l’intégration à l’authentification unique avec Azure AD.
 
-## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>Fonctionnalités et capacités prises en charge par tous les types d’applications précédents
+## <a name="features-and-capabilities-supported-by-the-application-types"></a>Fonctions et capacités prises en charge par tous les types d’applications
 
 Les fonctionnalités ci-après sont prises en charge par les quatre types d’applications précédents dans Azure AD :
 

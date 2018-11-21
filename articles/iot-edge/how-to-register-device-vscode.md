@@ -2,18 +2,18 @@
 title: Inscrire un nouvel appareil Azure IoT Edge (VS Code) | Microsoft Docs
 description: Utiliser Visual Studio Code pour créer un appareil IoT Edge dans votre hub Azure IoT
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7902461f58df1b4fe0c3ed3b577f668fe8be4cc2
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034962"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578703"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Inscrire un nouvel appareil Azure IoT Edge à partir de Visual Studio Code
 
@@ -37,7 +37,7 @@ Vous pouvez utiliser les extensions Azure IoT pour Visual Studio Code afin d’e
 
    ![Développer Appareils Azure IoT Hub](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-3. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, pointez sur l’en-tête. 
+3. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, cliquez ou pointez sur l’en-tête. 
 
 4. Choisissez **Sélectionner un hub IoT**.
 
@@ -51,7 +51,7 @@ Vous pouvez utiliser les extensions Azure IoT pour Visual Studio Code afin d’e
 
 1. Dans l’Explorateur VS Code, développez la section **Appareils Azure IoT Hub**. 
 
-2. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, pointez sur l’en-tête. 
+2. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, cliquez ou pointez sur l’en-tête. 
 
 3. Sélectionnez **Créer un appareil IoT Edge**. 
 

@@ -13,44 +13,44 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/15/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b81c66acc0a90ba9b74cf1f4fb34ef7a545837f9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736604"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623177"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
 
-Dans Azure Active Directory, la [création de rapports](../active-directory-preview-explainer.md) vous permet d’obtenir toutes les informations dont vous avez besoin pour déterminer l’état de votre environnement. Le temps nécessaire pour que les données de rapport s’affichent dans le portail Azure est également appelé latence. 
-
-Cette rubrique répertorie les informations de latence pour toutes les catégories de rapports dans le portail Azure. 
-
+La latence est le temps qu’il faut pour que les données de rapport Azure Active Directory (Azure AD) s’affichent dans le [portail Azure](https://portal.azure.com). Cet article répertorie la latence attendue pour les différents types de rapports. 
 
 ## <a name="activity-reports"></a>Rapports d’activité
 
-Il existe deux zones de rapports d’activité :
+Il existe deux types de rapports d’activité :
 
-- **Activités de connexion** – Informations sur l’utilisation des applications gérées et les activités de connexion des utilisateurs
-- **Activités du système** – Informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, à vos applications gérées et aux activités de répertoire
+- [Connexions](concept-sign-ins.md) – Fournit des informations sur l’utilisation des applications gérées et les activités de connexion des utilisateurs
+- [Activités du système](concept-audit-logs.md) – Fournit des informations sur les utilisateurs et les groupes, les applications gérées et les activités de répertoire
 
-Le tableau suivant répertorie les informations de latence pour les rapports d’activité.
+Le tableau suivant répertorie les informations de latence pour les rapports d’activité. 
 
-| Rapport | Latence (95 %) |Latence (99 %)|
+> [!NOTE]
+> **Latence (95e centile)** fait référence au délai auquel 95 % des journaux seront déclarés et **Latence (99e centile)** fait référence au délai auquel 99 % des journaux seront déclarés. 
+>
+
+| Rapport | Latence (95e centile) |Latence (99e centile)|
 | :-- | --- | --- | 
 | Journaux d’audit | 2 minutes  | 5 minutes  |
 | Connexions | 2 minutes  | 5 minutes |
 
-
 ## <a name="security-reports"></a>Rapports de sécurité
 
-Il existe deux zones de rapports de sécurité :
+Il existe deux types de rapports de sécurité :
 
-- **Connexions risquées** : une connexion risquée est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. 
-- **Utilisateurs avec indicateur de risque** : il s’agit d’un compte d’utilisateur susceptible d’être compromis. 
+- [Connexions risquées](concept-risky-sign-ins.md) : une connexion risquée est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. 
+- [Utilisateurs avec indicateur de risque](concept-user-at-risk.md) : il s’agit d’un compte d’utilisateur susceptible d’être compromis. 
 
 Le tableau suivant répertorie les informations de latence pour les rapports de sécurité.
 
@@ -61,7 +61,7 @@ Le tableau suivant répertorie les informations de latence pour les rapports de 
 
 ## <a name="risk-events"></a>Événements à risque
 
-Azure Active Directory utilise les algorithmes Machine Learning et des modèles heuristiques adaptatifs pour détecter les actions suspectes liées aux comptes de votre utilisateur. Chaque action suspecte détectée est stockée dans un enregistrement appelé événement à risque.
+Azure AD utilise les algorithmes Machine Learning et des modèles heuristiques adaptatifs pour détecter les actions suspectes liées aux comptes de votre utilisateur. Chaque action suspecte détectée est stockée dans un enregistrement appelé **événement à risque**.
 
 Le tableau suivant répertorie les informations de latence pour les événements à risque.
 
@@ -75,17 +75,8 @@ Le tableau suivant répertorie les informations de latence pour les événements
 | Connexions depuis des adresses IP avec des activités suspectes |2 heures |4 heures |8 heures  |
 
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les rapports d’activité dans le portail Azure, consultez :
-
-- [Rapports d’activité de connexion dans le portail Azure Active Directory](concept-sign-ins.md)
-- [Rapports d’activité d’audit dans le portail Azure Active Directory](concept-audit-logs.md)
-
-Pour en savoir plus sur les rapports de sécurité dans le portail Azure, consultez :
-
-- [Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory](concept-user-at-risk.md)
-- [Rapport de connexions à risque dans le portail Azure Active Directory ](concept-risky-sign-ins.md)
-
-Pour en savoir plus sur les événements à risque, consultez [Événements à risque dans Azure Active Directory](concept-risk-events.md).
+* [Vue d’ensemble des rapports Azure AD](overview-reports.md)
+* [Accès par programmation aux rapports Azure AD](concept-reporting-api.md)
+* [Événements à risque dans Azure Active Directory](concept-risk-events.md)

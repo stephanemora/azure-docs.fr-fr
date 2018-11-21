@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049974"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300164"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrer un nom DNS actif vers Azure App Service
 
@@ -60,6 +60,13 @@ L’enregistrement TXT dont vous avez besoin dépend de l’enregistrement DNS q
 | \* (caractère générique) | _awverify.\*_ | _&lt;nomapplication&gt;.azurewebsites.net_ |
 
 Dans la page des enregistrements DNS, notez le type d’enregistrement du nom DNS que vous souhaitez migrer. App Service prend en charge les mappages d’enregistrements CNAME et A.
+
+> [!NOTE]
+> Pour certains fournisseurs, tels que CloudFlare, `awverify.*` n’est pas un enregistrement valide. Utilisez `*` uniquement à la place.
+
+> [!NOTE]
+> Les enregistrements `*` génériques ne valideront pas les sous-domaines avec un enregistrement CNAME existant. Vous devrez peut-être créer explicitement un enregistrement TXT pour chaque sous-domaine.
+
 
 ### <a name="enable-the-domain-for-your-app"></a>Activer le domaine pour votre application
 

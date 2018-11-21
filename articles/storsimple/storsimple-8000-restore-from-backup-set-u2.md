@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: aff0710ead4f76bb80c38e2d88fe9cd3ce6a7b48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55a4b150471b87289cdd67dc8fbce92336850364
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109257"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568816"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel décrit la restauration d’un appareil de la gamme StorSimple 8000 à l’aide d’un jeu de sauvegarde existant. Utilisez le panneau **Catalogue de sauvegarde** pour restaurer un volume à partir d’une sauvegarde locale ou cloud. Le panneau **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. L’opération de restauration à partir d’un jeu de sauvegarde met le volume en ligne immédiatement pendant le téléchargement des données en arrière-plan.
 

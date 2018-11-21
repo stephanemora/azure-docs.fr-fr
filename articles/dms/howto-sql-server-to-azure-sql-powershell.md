@@ -1,6 +1,6 @@
 ---
-title: Utiliser le module Azure Database Migration Service dans Microsoft Azure PowerShell pour migrer l’instance SQL Server locale vers Azure SQL DB | Microsoft Docs
-description: Apprenez à migrer l’instance SQL Server vers SQL Azure à l’aide d’Azure PowerShell.
+title: Migrer SQL Server vers Azure SQL Database avec Database Migration Service et PowerShell | Microsoft Docs
+description: Apprenez à migrer SQL Server local vers Azure SQL Database à l’aide d’Azure PowerShell.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -10,15 +10,15 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: ffa4d5f87a722ed3cb95d873d02707ed1c797dc6
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 11/10/2018
+ms.openlocfilehash: 771b89fda4e37d9e8ba47df95f7fd57b41f792a3
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886664"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515537"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrer l’instance SQL Server locale vers la base de données SQL Azure à l’aide d’Azure PowerShell
+# <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrer SQL Server local vers Azure SQL Database à l’aide d’Azure PowerShell
 Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou une version ultérieure ou Microsoft Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Microsoft Azure SQL Database, à l’aide du module `AzureRM.DataMigration`, dans Microsoft Azure PowerShell.
 
 Dans cet article, vous apprendrez comment :
@@ -61,7 +61,7 @@ Vous pouvez créer une instance Azure Database Migration Service à l’aide de 
 - *Nom du groupe de ressources Azure*. Vous pouvez utiliser la commande [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) pour créer le groupe de ressources Azure indiqué précédemment et indiquez son nom en tant que paramètre.
 - *Nom du service*. Chaîne qui correspond au nom de service unique à donner à l’instance Azure Database Migration Service. 
 - *Emplacement*. Spécifie l’emplacement du service. Indiquez un emplacement de centre de données Azure, tel que USA Ouest ou Asie Sud-Est.
-- *Référence SKU*. Ce paramètre correspond au nom de référence SKU DMS. Les noms de référence SKU actuellement pris en charge sont *Basic_1vCore*, *Basic_2vCores* et *GeneralPurpose_4vCores*.
+- *Référence SKU*. Ce paramètre correspond au nom de référence SKU DMS. Le nom de référence SKU actuellement pris en charge est *GeneralPurpose_4vCores*.
 - *Identificateur de sous-réseau virtuel*. Créez un sous-réseau avec la cmdlet [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1). 
 
 L’exemple suivant crée un service nommé *MyDMS* dans le groupe de ressources *MyDMSResourceGroup*, qui se trouve dans la région *USA Est* à l’aide d’un réseau virtuel appelé *MyVNET* et d’un sous-réseau appelé *MySubnet*.

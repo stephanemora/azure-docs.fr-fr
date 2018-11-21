@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/06/2018
+ms.date: 11/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3948c226f13f0ff358f9ca467f19cf0e48795911
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bed053f812cc5c14e6cfe76b8a08b1ffe0cadcb3
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429881"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289119"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -64,7 +64,7 @@ Les termes suivants sont utilisés dans le document :
 * Composant SAP : application SAP individuelle telle que ECC, BW, Solution Manager ou EP.  Les composants SAP peuvent être basés sur des technologies ABAP ou Java traditionnelles ou une application non basée sur NetWeaver telle que Business Objects.
 * Environnement SAP : un ou plusieurs composants SAP regroupés de manière logique pour exécuter une fonction métier telle que le développement, l’assurance qualité, la formation, la récupération d’urgence ou la production.
 * Paysage SAP : ce terme fait référence à l’ensemble des ressources SAP dans le paysage informatique d’un client. Le paysage SAP comprend tous les environnements de production et les autres types d’environnements.
-* Système SAP : ensemble couche SGBD/couche Application, tel que celui d’un système de développement SAP ERP, d’un système de test SAP BW, d’un système de production SAP CRM, etc. Dans les déploiements Azure, il n’est pas possible de répartir ces deux couches entre un système local et Azure. Cela signifie qu’un système SAP doit être déployé en local ou dans Azure. Vous pouvez toutefois déployer les différents systèmes d’un paysage SAP dans Azure ou en local. Par exemple, vous pouvez déployer les systèmes de test et de développement SAP CRM dans Azure et le système de production SAP CRM en local.
+* Système SAP : ensemble couche SGBD/couche Application, tel que celui d’un système de développement SAP ERP, d’un système de test SAP BW, d’un système de production SAP CRM, etc. Dans les déploiements Azure, il n’est pas possible de répartir ces deux couches entre des sites locaux et Azure. Par conséquent, un système SAP est déployé localement ou dans Azure. Vous pouvez toutefois déployer les différents systèmes d’un paysage SAP dans Azure ou en local. Par exemple, vous pouvez déployer les systèmes de test et de développement SAP CRM dans Azure et le système de production SAP CRM en local.
 * Déploiement entre différents locaux : décrit un scénario dans lequel les machines virtuelles sont déployées dans un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les différents centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites. La connexion a pour but d’étendre les domaines locaux, les instances locales d’Active Directory et le serveur DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services (SGBD, par exemple) sur ces machines virtuelles. La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure est possible. Ce scénario est le plus souvent utilisé pour le déploiement de ressources SAP sur Azure. Pour plus d’informations, consultez [Planification et conception de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 > [!NOTE]
@@ -141,7 +141,7 @@ Comme indiqué précédemment, si vos exigences en termes d’IOPS dépassent ce
 
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 > 
 > Nous recommandons l’utilisation de Windows Storage Spaces pour créer ces franges sur plusieurs disques durs virtuels Azure. Il est recommandé d’utiliser au moins Windows Server 2012 R2 ou Windows Server 2016.
 > 
@@ -219,7 +219,7 @@ Pour les déploiements de machines virtuelles de série M, il est recommandé d�
 Les machines virtuelles Azure proposent des disques non persistants suite au déploiement d’une machine virtuelle. Dans le cas du redémarrage d’une machine virtuelle, tout le contenu de ces lecteurs est effacé. Par conséquent, les fichiers de données et les fichiers journaux/de restauration ne doivent en aucun cas se trouver sur ces lecteurs. Il peut exister des exceptions pour certaines des bases de données, où ces lecteurs non persistants peuvent être appropriés pour les espaces de stockage tempdb et temp. Toutefois, évitez d’utiliser ces lecteurs pour les machines virtuelles de série A dans la mesure où ces lecteurs non persistants sont limités en débit avec cette famille de machines virtuelles. Pour plus d’informations, consultez l’article [Understanding the temporary drive on Windows Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) (Comprendre le lecteur temporaire sur les machines virtuelles Microsoft Azure)
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 > 
 > Dans une machine virtuelle Azure, le lecteur D:\ est un lecteur non persistant soutenu par des disques locaux présents sur le nœud de calcul Azure. Comme il est non persistant, cela signifie que toutes les modifications apportées au contenu sur le lecteur D:\ sont perdues lors du redémarrage de la machine virtuelle. Par « modifications », nous entendons les fichiers enregistrés, les répertoires créés, les applications installées, etc.
 > 
@@ -276,7 +276,10 @@ Voici plusieurs pratiques recommandées issues de centaines de déploiements cli
 > [!NOTE]
 > Vous devez attribuer des adresses IP statiques aux cartes réseau virtuelles individuelles à l’aide des outils Azure. Vous ne devez pas attribuer d’adresses IP statiques au sein du système d’exploitation invité à une carte réseau virtuelle. Certains services Azure, comme le service de Sauvegarde Azure, s’appuient sur le fait que la carte réseau virtuelle principale est définie sur la DHCP et non sur des adresses IP statiques. Consultez également le document [Dépannage de la sauvegarde de machine virtuelle Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Si vous avez besoin d’attribuer plusieurs adresses IP statiques à une machine virtuelle, vous devez attribuer plusieurs cartes réseau virtuelles à une machine virtuelle.
 >
->
+
+
+> [!IMPORTANT]
+> Par manque de fonctionnalités, mais surtout pour des raisons de performances, il n’est pas prévu de configurer [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) dans le chemin d’accès de communication entre l’application SAP et la couche SGBD d’un système SAP NetWeaver, Hybris ou S/4HANA basé sur SAP. D’autres scénarios qui ne prennent pas en charge les appliances virtuelles réseau résident dans les chemins de communication entre les machines virtuelles Azure qui représentent les nœuds de cluster Linux Pacemaker et les appareils SBD comme décrit dans [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou bien, dans les chemins de communication entre les machines virtuelles Azure et les systèmes SOFS Windows Server configurés comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). Les appliances virtuelles réseau dans les chemins de communication peuvent facilement doubler la latence du réseau entre deux partenaires de communication et limiter le débit dans les chemins d’accès critiques entre la couche application SAP et la couche SGBD. Dans certains scénarios observés avec les clients, les machines virtuelles Azure peuvent provoquer des défaillances de clusters Pacemaker Linux dans les cas où les communications entre les nœuds du cluster Linux Pacemaker doivent communiquer avec leur appareil SBD via un machine virtuelle Azure.   
 
 En utilisant deux machines virtuelles pour le déploiement SGBD de production au sein d’un groupe à haute disponibilité Azure et un routage distinct pour la couche Application SAP ainsi que le trafic des opérations et de gestion vers les deux machines virtuelles SGBD, le diagramme ressemblerait à ce qui suit :
 
@@ -304,7 +307,7 @@ Afin de réduire davantage la latence du réseau entre les machines virtuelles A
 >  
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 > 
 > Pour Windows, consultez l’article [Créer une machine virtuelle Windows avec la mise en réseau accélérée](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) pour comprendre les concepts et la façon de déployer des machines virtuelles avec mise en réseau accélérée
 > 

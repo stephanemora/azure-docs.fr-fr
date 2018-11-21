@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a6c2ffa619eeff8b455df8a8b2157525af12c640
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 6ac37c3a53b0cc71bdab85fb86e0e85d998867aa
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27600886"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300606"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Afficher la latence relative aux régions Azure à partir d’emplacements spécifiques
 
@@ -29,13 +29,13 @@ Dans ce didacticiel, vous apprenez à utiliser le service Azure [Network Watcher
         
 ## <a name="create-a-network-watcher"></a>Créer un observateur réseau (network watcher)
 
-Si vous disposez déjà d’un observateur réseau dans au moins une [région](https://azure.microsoft.com/regions) Azure, vous pouvez ignorer les tâches de cette section. Créez un groupe de ressources pour l’observateur réseau. Dans cet exemple, le groupe de ressources est créé dans la région Est des États-Unis, mais vous pouvez créer le groupe de ressources dans n’importe quelle région Azure.
+Si vous disposez déjà d’un observateur réseau dans au moins une [région](https://azure.microsoft.com/regions) Azure, vous pouvez ignorer les tâches de cette section. Créez un groupe de ressources pour l’observateur réseau. Dans cet exemple, le groupe de ressources est créé dans la région USA Est, mais vous pouvez créer le groupe de ressources dans n’importe quelle région Azure.
 
 ```powershell
 New-AzureRmResourceGroup -Name NetworkWatcherRG -Location eastus
 ```
 
-Créez un observateur réseau. Vous devez disposer d’un observateur réseau créé dans au moins une région Azure. Dans cet exemple, un observateur de réseau est créé dans la région Azure Est des États-Unis.
+Créez un observateur réseau. Vous devez disposer d’un observateur réseau créé dans au moins une région Azure. Dans cet exemple, un observateur de réseau est créé dans la région Azure USA Est.
 
 ```powershell
 New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
@@ -43,7 +43,7 @@ New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName Network
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Comparer les latences réseau relatives à une seule région Azure à partir d’un emplacement spécifique
 
-Évaluez les fournisseurs de services, ou aidez un utilisateur à résoudre un problème de type « le site était lent », à partir d’un emplacement spécifique à la région Azure où un service est déployé. Par exemple, la commande suivante retourne les latences relatives moyennes des fournisseurs de services Internet entre l’état de Washington aux États-Unis et la région Azure Ouest des États-Unis 2 entre le 13 et le 15 décembre 2017 :
+Évaluez les fournisseurs de services, ou aidez un utilisateur à résoudre un problème de type « le site était lent », à partir d’un emplacement spécifique à la région Azure où un service est déployé. Par exemple, la commande suivante retourne les latences relatives moyennes des fournisseurs de services Internet entre l’état de Washington aux États-Unis et la région Azure USA Ouest 2 entre le 13 et le 15 décembre 2017 :
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityReport `
@@ -60,7 +60,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 > La région que vous spécifiez dans la commande précédente n’a pas besoin de correspondre à la région que vous avez spécifiée lorsque vous avez extrait l’observateur réseau. La commande précédente nécessite seulement qu’un observateur réseau existant soit spécifié. L’observateur réseau peut se situer dans n’importe quelle région. Si vous spécifiez des valeurs pour `-Country` et `-State`, elles doivent être valides. Les valeurs respectent la casse. Les données sont disponibles pour un nombre limité de pays, d’états et de villes. Exécutez les commandes dans [Afficher les pays, les états, les villes et les fournisseurs disponibles](#view-available) pour afficher la liste des pays, villes et états disponibles à utiliser avec la commande précédente. 
 
 > [!WARNING]
-> Vous devez spécifier une date postérieure au 14 novembre 2017 pour `-StartTime` et `-EndTime`. En spécifiant une date avant le 14 novembre 2017, aucune donnée n’est retournée. 
+> Vous devez spécifier une date située dans les 30 derniers jours pour `-StartTime` et `-EndTime`. Si vous indiquez une date antérieure, aucune donnée ne sera retournée.
 
 Voici la sortie de la commande précédente :
 
@@ -102,7 +102,7 @@ ReachabilityReport : [
                      ]
 ```
 
-Dans la sortie retournée, la valeur de **Score** est la latence relative entre les régions et les fournisseurs. Un score de 1 correspond à la pire latence (la plus élevée), tandis que 100 correspond à la latence la plus faible. Les latences relatives moyennes sont calculées sur la journée. Dans l’exemple précédent, alors qu’il est clair que les latences étaient les mêmes au cours des deux jours et qu’il existe une petite différence entre la latence des deux fournisseurs, il est également clair que les latences des deux fournisseurs sont faibles sur l’échelle allant de 1 à 100. Bien que ce comportement soit attendu, étant donné que l’état de Washington aux États-Unis est physiquement proche de la région Azure Ouest des États-Unis 2, parfois les résultats sont imprévisibles. Plus la plage de dates que vous spécifiez est étendue, plus vous pouvez calculer la latence moyenne dans le temps.
+Dans la sortie retournée, la valeur de **Score** est la latence relative entre les régions et les fournisseurs. Un score de 1 correspond à la pire latence (la plus élevée), tandis que 100 correspond à la latence la plus faible. Les latences relatives moyennes sont calculées sur la journée. Dans l’exemple précédent, alors qu’il est clair que les latences étaient les mêmes au cours des deux jours et qu’il existe une petite différence entre la latence des deux fournisseurs, il est également clair que les latences des deux fournisseurs sont faibles sur l’échelle allant de 1 à 100. Bien que ce comportement soit attendu, étant donné que l’état de Washington aux États-Unis est physiquement proche de la région Azure USA Ouest 2, parfois les résultats sont imprévisibles. Plus la plage de dates que vous spécifiez est étendue, plus vous pouvez calculer la latence moyenne dans le temps.
 
 ## <a name="compare-relative-network-latencies-across-azure-regions-from-a-specific-location"></a>Comparer les latences réseau relatives entre des régions Azure à partir d’un emplacement spécifique
 
@@ -120,7 +120,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 ```
 
 >[!NOTE]
-Contrairement au fait de spécifier un emplacement unique, si vous ne spécifiez aucun emplacement ou si vous spécifiez plusieurs emplacements, par exemple « Ouest des États-Unis 2 », « Ouest des États-Unis », vous devez spécifier un fournisseur de services Internet lorsque vous exécutez la commande. 
+Contrairement au fait de spécifier un emplacement unique, si vous ne spécifiez aucun emplacement ou si vous spécifiez plusieurs emplacements, par exemple « USA Ouest 2 », « USA Ouest », vous devez spécifier un fournisseur de services Internet lorsque vous exécutez la commande. 
 
 ## <a name="view-available"></a>Afficher les pays, les états, les villes et les fournisseurs disponibles
 

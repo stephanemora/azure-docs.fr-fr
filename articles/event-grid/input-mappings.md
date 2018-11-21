@@ -6,18 +6,20 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: ce9df1d45de82c759883dc90d50c28551bf62cdf
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043390"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287302"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapper des champs personnalisés au schéma Event Grid
 
 Si vos données d’événement ne correspondent pas au [schéma Event Grid](event-schema.md) attendu, vous pouvez toujours utiliser Event Grid pour acheminer l’événement vers les abonnés. Cet article décrit comment mapper votre schéma au schéma Event Grid.
+
+## <a name="install-preview-feature"></a>Installer la fonctionnalité d'évaluation
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -39,18 +41,18 @@ Bien que ce format ne corresponde pas au schéma requis, Event Grid vous permet 
 
 ## <a name="create-custom-topic-with-mapped-fields"></a>Créer une rubrique personnalisée avec des champs mappés
 
-Quand vous créez une rubrique personnalisée, spécifiez comment mapper les champs à partir de l’événement d’origine au schéma de grille d’événement. Vous disposez de trois propriétés pour personnaliser le mappage :
+Quand vous créez une rubrique personnalisée, spécifiez comment mapper les champs à partir de l’événement d’origine au schéma de grille d’événement. Vous disposez de trois valeurs pour personnaliser le mappage :
 
-* Le paramètre `--input-schema` spécifie le type de schéma. Les options disponibles sont *cloudeventv01schema*, *customeventschema* et *eventgridschema*. La valeur par défaut est eventgridschema. Quand vous créez un mappage personnalisé entre votre schéma et le schéma de grille d’événement, utilisez customeventschema. Quand les événements se trouvent dans le schéma CloudEvents, utilisez cloudeventv01schema.
+* La valeur du **schéma d’entrée** spécifie le type de schéma. Le schéma CloudEvents, le schéma d’événement personnalisé et le schéma Event Grid sont les options disponibles. La valeur par défaut est le schéma Event Grid. Quand vous créez un mappage personnalisé entre votre schéma et le schéma de grille d’événement, utilisez le schéma d’événement personnalisé. Quand les événements se trouvent dans le schéma CloudEvents, utilisez le schéma Cloudevents.
 
-* Le paramètre `--input-mapping-default-values` spécifie les valeurs par défaut des champs dans le schéma Event Grid. Vous pouvez définir des valeurs par défaut pour `subject`, `eventtype` et `dataversion`. En règle générale, vous utilisez ce paramètre quand votre schéma personnalisé ne contient aucun champ correspondant à l’un de ces trois champs. Par exemple, vous pouvez spécifier que le paramètre dataversion est toujours défini sur **1.0**.
+* Le paramètre des **valeurs par défaut de mappage** spécifie les valeurs par défaut des champs dans le schéma Event Grid. Vous pouvez définir des valeurs par défaut pour `subject`, `eventtype` et `dataversion`. En règle générale, vous utilisez ce paramètre quand votre schéma personnalisé ne contient aucun champ correspondant à l’un de ces trois champs. Par exemple, vous pouvez spécifier que le paramètre dataversion est toujours défini sur **1.0**.
 
-* Le paramètre `--input-mapping-fields` mappe les champs à partir de votre schéma au schéma de grille d’événement. Vous spécifiez les valeurs sous la forme de paires clé/valeur séparées par des espaces. En guise de nom de clé, utilisez le nom du champ de la grille d’événement. En guise de valeur, utilisez le nom de votre champ. Vous pouvez utiliser des noms de clé pour `id`, `topic`, `eventtime`, `subject`, `eventtype` et `dataversion`.
+* La valeur des **champs de mappage** mappe les champs à partir de votre schéma au schéma de grille d’événement. Vous spécifiez les valeurs sous la forme de paires clé/valeur séparées par des espaces. En guise de nom de clé, utilisez le nom du champ de la grille d’événement. En guise de valeur, utilisez le nom de votre champ. Vous pouvez utiliser des noms de clé pour `id`, `topic`, `eventtime`, `subject`, `eventtype` et `dataversion`.
 
-L’exemple suivant crée une rubrique personnalisée avec certains champs mappés et par défaut :
+Pour créer une rubrique personnalisée Azure CLI, utilisez :
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
@@ -63,39 +65,77 @@ az eventgrid topic create \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
 
+Pour PowerShell, utilisez la commande suivante :
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridTopic `
+  -ResourceGroupName myResourceGroup `
+  -Name demotopic `
+  -Location eastus2 `
+  -InputSchema CustomEventSchema `
+  -InputMappingField @{eventType="myEventTypeField"} `
+  -InputMappingDefaultValue @{subject="DefaultSubject"; dataVersion="1.0" }
+```
+
 ## <a name="subscribe-to-event-grid-topic"></a>S’abonner à une rubrique de grille d’événement
 
-Durant l’abonnement à la rubrique personnalisée, vous spécifiez le schéma que vous souhaitez utiliser pour recevoir les événements. Vous utilisez le paramètre `--event-delivery-schema` et le définissez sur *cloudeventv01schema*, *eventgridschema* ou *inputeventschema*. La valeur par défaut est eventgridschema.
+Durant l’abonnement à la rubrique personnalisée, vous spécifiez le schéma que vous souhaitez utiliser pour recevoir les événements. Vous spécifiez le schéma CloudEvents, le schéma d’événement personnalisé ou le schéma Event Grid. La valeur par défaut est le schéma Event Grid.
 
-Les exemples de cette section utilisent un stockage File d’attente pour le gestionnaire d’événements. Pour plus d’informations, consultez [Acheminer des événements personnalisés vers le stockage File d’attente Azure](custom-event-to-queue-storage.md).
-
-L’exemple suivant illustre un abonnement à une rubrique Event Grid et l’utilisation du schéma Event Grid :
+L’exemple suivant illustre un abonnement à une rubrique Event Grid et l’utilisation du schéma Event Grid. Pour l’interface de ligne de commande Azure, consultez :
 
 ```azurecli-interactive
+topicid=$(az eventgrid topic show --name demoTopic -g myResourceGroup --query id --output tsv)
+
 az eventgrid event-subscription create \
-  --topic-name demotopic \
-  -g myResourceGroup \
+  --source-resource-id $topicid \
   --name eventsub1 \
   --event-delivery-schema eventgridschema \
-  --endpoint-type storagequeue \
-  --endpoint <storage-queue-url>
+  --endpoint <endpoint_URL>
 ```
 
 L’exemple suivant utilise le schéma d’entrée de l’événement :
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
-  --topic-name demotopic \
-  -g myResourceGroup \
+  --source-resource-id $topicid \
   --name eventsub2 \
   --event-delivery-schema inputeventschema \
-  --endpoint-type storagequeue \
-  --endpoint <storage-queue-url>
+  --endpoint <endpoint_URL>
+```
+
+L’exemple suivant illustre un abonnement à une rubrique Event Grid et l’utilisation du schéma Event Grid. Pour PowerShell, utilisez la commande suivante :
+
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName eventsub1 `
+  -EndpointType webhook `
+  -Endpoint <endpoint-url> `
+  -DeliverySchema EventGridSchema
+```
+
+L’exemple suivant utilise le schéma d’entrée de l’événement :
+
+```azurepowershell-interactive
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName eventsub2 `
+  -EndpointType webhook `
+  -Endpoint <endpoint-url> `
+  -DeliverySchema CustomInputSchema
 ```
 
 ## <a name="publish-event-to-topic"></a>Publier un événement sur la rubrique
 
 Vous êtes maintenant prêt à envoyer un événement à la rubrique personnalisée et à voir le résultat du mappage. Le script suivant permet de publier un événement dans [l’exemple de schéma](#original-event-schema) :
+
+Pour l’interface de ligne de commande Azure, consultez :
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
@@ -106,23 +146,43 @@ event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
-À présent, examinez votre stockage File d’attente. Les deux abonnements ont remis des événements dans des schémas différents.
+Pour PowerShell, utilisez la commande suivante :
+
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+
+$htbody = @{
+    myEventTypeField="Created"
+    resource="Users/example/Messages/1000"
+    resourceData= @{
+        someDataField1="SomeDataFieldValue"
+    }
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
+
+À présent, examinez votre point de terminaison WebHook. Les deux abonnements ont remis des événements dans des schémas différents.
 
 Le premier abonnement a utilisé le schéma de grille d’événement. Le format de l’événement remis est :
 
 ```json
 {
-  "Id": "016b3d68-881f-4ea3-8a9c-ed9246582abe",
-  "EventTime": "2018-05-01T20:00:25.2606434Z",
-  "EventType": "Created",
-  "DataVersion": "1.0",
-  "MetadataVersion": "1",
-  "Topic": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.EventGrid/topics/demotopic",
-  "Subject": "DefaultSubject",
-  "Data": {
+  "id": "aa5b8e2a-1235-4032-be8f-5223395b9eae",
+  "eventTime": "2018-11-07T23:59:14.7997564Z",
+  "eventType": "Created",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.EventGrid/topics/demotopic",
+  "subject": "DefaultSubject",
+  "data": {
     "myEventTypeField": "Created",
     "resource": "Users/example/Messages/1000",
-    "resourceData": { "someDataField1": "SomeDataFieldValue" } 
+    "resourceData": {
+      "someDataField1": "SomeDataFieldValue"
+    }
   }
 }
 ```
@@ -135,7 +195,9 @@ Le second abonnement a utilisé le schéma d’événement d’entrée. Le forma
 {
   "myEventTypeField": "Created",
   "resource": "Users/example/Messages/1000",
-  "resourceData": { "someDataField1": "SomeDataFieldValue" }
+  "resourceData": {
+    "someDataField1": "SomeDataFieldValue"
+  }
 }
 ```
 

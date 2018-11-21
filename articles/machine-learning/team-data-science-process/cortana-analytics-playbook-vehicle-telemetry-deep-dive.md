@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055469"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300946"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Guide de la solution Vehicle Telemetry Analytics : découverte approfondie de la solution
-Ce menu contient des liens vers les sections de ce manuel : 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+Cet article explore chacune des étapes mentionnées dans l’architecture de solution. Il contient également des instructions et des pointeurs de personnalisation. 
 
-Ce document explore chacune des étapes mentionnées dans l’architecture de solution. Il contient également des instructions et des pointeurs de personnalisation. 
+Pour consulter la description sommaire de cette solution, voir le [Guide de la solution Vehicle Telemetry Analytics](cortana-analytics-playbook-vehicle-telemetry.md).
+
 
 ## <a name="data-sources"></a>Sources de données
 La solution utilise deux sources de données différentes :
@@ -123,7 +123,7 @@ La requête Stream Analytics suivante est utilisée pour conserver les données 
 
 
 ### <a name="batch-analysis"></a>Analyse en mode batch
-Un volume supplémentaire de signaux de véhicules simulés et un jeu de données de diagnostic sont également générés pour permettre une analytique en mode batch approfondie. Ce volume supplémentaire est nécessaire pour garantir un volume de données représentatif dans le cadre d’un traitement par lots. Nous utilisons pour cela PrepareSampleDataPipeline dans le flux de travail Data Factory pour générer l’équivalent d’une année de signaux et de diagnostics de véhicules simulés. Pour télécharger la solution Visual Studio Activité .NET personnalisée Data Factory afin de la personnaliser en fonction de vos besoins, accédez à la page web [Activité personnalisée Data Factory](http://go.microsoft.com/fwlink/?LinkId=717077). 
+Un volume supplémentaire de signaux de véhicules simulés et un jeu de données de diagnostic sont également générés pour permettre une analytique en mode batch approfondie. Ce volume supplémentaire est nécessaire pour garantir un volume de données représentatif dans le cadre d’un traitement par lots. Nous utilisons pour cela PrepareSampleDataPipeline dans le flux de travail Data Factory pour générer l’équivalent d’une année de signaux et de diagnostics de véhicules simulés. Pour télécharger la solution Visual Studio Activité .NET personnalisée Data Factory afin de la personnaliser en fonction de vos besoins, accédez à la page web [Activité personnalisée Data Factory](https://go.microsoft.com/fwlink/?LinkId=717077). 
 
 Ce flux de travail montre des exemples de données préparés pour le traitement par lots.
 
@@ -674,4 +674,8 @@ Ce document explore de façon détaillée la solution Vehicle Telemetry Analytic
 * [SDK Azure Event Hubs pour l’ingestion de flux](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Fonctionnalités de déplacement de données d’Azure Data Factory](../../data-factory/copy-activity-overview.md)
 * [Activité .NET Azure Data Factory](../../data-factory/transform-data-using-dotnet-custom-activity.md)
-* [Solution Visual Studio d’activité .NET Azure Data Factory utilisée pour la préparation des exemples de données](http://go.microsoft.com/fwlink/?LinkId=717077) 
+* [Solution Visual Studio d’activité .NET Azure Data Factory utilisée pour la préparation des exemples de données](https://go.microsoft.com/fwlink/?LinkId=717077) 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour apprendre à configurer les rapports et les tableaux de bord Power BI pour cette solution, reportez-vous aux [Instructions de configuration du tableau de bord Power BI pour le modèle de solution Vehicle Telemetry Analytics](cortana-analytics-playbook-vehicle-telemetry-powerbi.md).

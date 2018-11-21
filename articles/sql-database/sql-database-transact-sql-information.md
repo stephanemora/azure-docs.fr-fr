@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 89466d8774698028c8574e90f5a58e1678c9b938
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: fc8336a46f61a7c9ab7c174b5f24d907369f481c
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343552"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567568"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Résolution des différences de Transact-SQL durant la migration vers SQL Database
 
@@ -31,7 +31,7 @@ Par ailleurs, Azure SQL Database étant conçu pour isoler les fonctionnalités 
 
 Par exemple, la haute disponibilité est intégrée à Azure SQL Database à l’aide d’une technologie similaire aux [groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Les instructions T-SQL relatives aux groupes de disponibilité ne sont pas prises en charge par SQL Database, de même que les vues de gestion dynamique associées aux groupes de disponibilité Always On.
 
-Pour obtenir la liste des fonctionnalités prises en charge et non prises en charge par SQL Database, consultez [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md). Cette liste, qui porte sur les instructions Transact-SQL, vient compléter l’article traitant des instructions et des fonctionnalités.
+Pour obtenir la liste des fonctionnalités prises en charge et non prises en charge par SQL Database, consultez  [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md). Cette liste, qui porte sur les instructions Transact-SQL, vient compléter l’article traitant des instructions et des fonctionnalités.
 
 ## <a name="transact-sql-syntax-statements-with-partial-differences"></a>Instructions Transact-SQL avec des différences partielles
 
@@ -43,50 +43,38 @@ Les principales instructions DDL sont disponibles, mais certaines présentent de
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Syntaxe Transact-SQL non prise en charge dans Azure SQL Database
 
-Outre les instructions Transact-SQL liées aux fonctionnalités non prises en charge décrites dans [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md), les instructions et groupes d’instructions suivants ne sont pas pris en charge. Si la base de données à migrer utilise les fonctionnalités et instructions T-SQL suivantes, vous devez donc changer votre code T-SQL pour les éliminer.
+Outre les instructions Transact-SQL liées aux fonctionnalités non prises en charge décrites dans  [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md), les instructions et groupes d’instructions suivants ne sont pas pris en charge. Si la base de données à migrer utilise les fonctionnalités et instructions T-SQL suivantes, vous devez donc changer votre code T-SQL pour les éliminer.
 
-- Classement des objets système
-- Connexions associées : instructions de point de terminaison. SQL Database ne prend pas en charge l’authentification Windows, mais prend en charge l’authentification Azure Active Directory similaire. Certains types d’authentification nécessitent la version la plus récente de SSMS. Pour plus d’informations, voir [Connexion à SQL Database ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
-- Requêtes dans plusieurs bases de données à l’aide de noms à trois ou quatre parties. (Les requêtes sur plusieurs bases de données en lecture seule sont prises en charge à l’aide d’une [requête de base de données élastique](sql-database-elastic-query-overview.md).)
-- Chaînage d’appartenance entre plusieurs bases de données, paramètre `TRUSTWORTHY`
-- `EXECUTE AS LOGIN` Utilisez « EXECUTE AS USER » à la place.
-- Le chiffrement est pris en charge, à l’exception de la gestion de clés extensible.
-- Gestion des événements : événements, notifications d’événements, notifications de requête.
-- Emplacement des fichiers : syntaxe liée à l’emplacement du fichier de la base de données, à la taille et aux fichiers de la base de données qui sont gérés automatiquement par Microsoft Azure.
+- Collation d'objets système - Connexion associée : énoncés du point de terminaison. SQL Database ne prend pas en charge l’authentification Windows, mais prend en charge l’authentification Azure Active Directory similaire. Certains types d’authentification nécessitent la version la plus récente de SSMS. Pour en savoir plus, consultez  [Connexion à SQL Database ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
+- Requêtes dans plusieurs bases de données à l’aide de noms à trois ou quatre parties. (Les requêtes en lecture seule entre bases de données sont prises en charge en utilisant [la requête élastique de base de données](sql-database-elastic-query-overview.md).) - Enchaînement de propriétés de base de données croisée, `TRUSTWORTHY` réglage - `EXECUTE AS LOGIN` Utilisez « EXÉCUTER EN TANT QU’UTILISATEUR » à la place.
+- Le chiffrement est pris en charge, sauf pour la gestion des clés extensibles - Création d’événement : événements, notifications d'événements, notifications d'interrogations - Placement de fichiers : syntaxe liée au placement, à la taille et à la gestion automatique des fichiers de base de données par Microsoft Azure.
 - Haute disponibilité : syntaxe liée à haute disponibilité, qui est gérée par le biais de votre compte Microsoft Azure. Cela inclut la syntaxe pour la sauvegarde, la restauration, la fonctionnalité AlwaysOn, la mise en miroir de bases de données, la copie des journaux de transaction et les modes de récupération.
-- Lecture du journal : syntaxe reposant sur le lecteur de journal, qui n’est pas disponible dans SQL Database (réplication par émission, modification de la capture de données). SQL Database peut être un abonné d’un article de réplication par émission.
-- Fonctions : `fn_get_sql`, `fn_virtualfilestats`,`fn_virtualservernodes`
-- Matériel : syntaxe pour les paramètres du serveur relatifs au matériel (mémoire, threads de travail, affinité du processeur, indicateurs de trace, etc.). Utilisez plutôt des niveaux de service et des tailles de calcul.
-- `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` et noms en quatre parties
-- .NET Framework : intégration du CLR à SQL Server
-- Recherche sémantique
-- Informations d’identification du serveur : utilisez à la place les [informations d’identification incluses dans l’étendue de la base de données](https://msdn.microsoft.com/library/mt270260.aspx).
-- Éléments au niveau du serveur : rôles de serveur, `sys.login_token`. `GRANT`, `REVOKE` et `DENY` des autorisations de niveau serveur ne sont pas disponibles, bien que certains soient remplacés par des autorisations au niveau base de données. Certaines vues de gestion dynamique utiles au niveau du serveur ont des vues de gestion dynamique équivalentes au niveau de la base de données.
-- `SET REMOTE_PROC_TRANSACTIONS`
-- `SHUTDOWN`
-- `sp_addmessage`
-- Options `sp_configure` et `RECONFIGURE`. Certaines options sont disponibles à l’aide [d’ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
-- `sp_helpuser`
-- `sp_migrate_user_to_contained`
+- Lecture du journal : syntaxe reposant sur le lecteur de journal, qui n’est pas disponible dans SQL Database (réplication par émission, modification de la capture de données). SQL Database peut être un abonné d’un article de réplication par émission.
+- Fonctions : `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes` - Matériel : syntaxe pour les paramètres du serveur relatifs au matériel (mémoire, threads de travail, affinité du processeur, indicateurs de trace, etc.). Utilisez plutôt des niveaux de service et des tailles de calcul.
+- `KILL STATS JOB`
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` et noms en quatre parties - .NET Framework : intégration CLR avec les informations d’identification du serveur SQL Server - Recherche sémantique - Informations d’identification du serveur : Utilisez [Informations d'identification incluses dans l'étendue de la base de données](https://msdn.microsoft.com/library/mt270260.aspx) à la place.
+- Éléments au niveau du serveur : rôles de serveur, `sys.login_token`. `GRANT`, `REVOKE` et `DENY` des autorisations de niveau serveur ne sont pas disponibles, bien que certains soient remplacés par des autorisations au niveau base de données. Certaines vues de gestion dynamique utiles au niveau du serveur ont des vues de gestion dynamique équivalentes au niveau de la base de données.Options
+- `SET REMOTE_PROC_TRANSACTIONS`
+- `SHUTDOWN`
+- `sp_addmessage`
+- `sp_configure`  et  `RECONFIGURE`. Certaines options sont disponibles à l’aide d’ [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
+- `sp_helpuser`
+- `sp_migrate_user_to_contained`
 - SQL Server Agent : syntaxe reposant sur SQL Server Agent ou la base de données MSDB (alertes, opérateurs, serveurs d’administration centrale). Utilisez des scripts tels qu’Azure PowerShell à la place.
-- Audit SQL Server : utilisez plutôt l’audit SQL Database.
-- SQL Server trace
-- Indicateurs de trace : certains éléments d’indicateur de trace ont été déplacés vers les modes de compatibilité.
-- Débogage Transact-SQL
-- Déclencheurs : déclencheurs au niveau du serveur ou de connexion
-- Instruction `USE` : pour basculer le contexte de base de données vers une autre base de données, vous devez établir une nouvelle connexion à la nouvelle base de données.
+- Audit SQL Server : utilisez plutôt l’audit SQL Database.
+- Trace SQL Server - Indicateurs de trace : certains éléments d’indicateur de trace ont été déplacés vers les modes de compatibilité.
+- Débogage Transact-SQL - Déclencheurs : déclencheurs au niveau du serveur ou de connexion - `USE` instruction : pour basculer le contexte de base de données vers une autre base de données, vous devez établir une nouvelle connexion à la nouvelle base de données.
 
 ## <a name="full-transact-sql-reference"></a>Référence complète Transact-SQL
 
-Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transact-SQL, consultez [Référence Transact-SQL (moteur de la base de données)](https://msdn.microsoft.com/library/bb510741.aspx) dans la documentation en ligne de SQL Server.
+Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transact-SQL, consultez  [Référence Transact-SQL (moteur de la base de données)](https://msdn.microsoft.com/library/bb510741.aspx)  dans la documentation en ligne de SQL Server.
 
 ### <a name="about-the-applies-to-tags"></a>À propos des balises « S’applique à »
 
-La référence sur Transact-SQL comprend des articles relatifs aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de l’article se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. L’article [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) indique que l’instruction s’applique à **SQL Server (à partir de 2012)**. L’instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse ni à Parallel Data Warehouse.
+La référence sur Transact-SQL comprend des articles relatifs aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de l’article se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. L’article  [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  indique que l’instruction s’applique à  **SQL Server (à partir de 2012)**. L’instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse ni à Parallel Data Warehouse.
 
 Dans certains cas, le sujet général d'un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Dans certains cas, le sujet général d'un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Par exemple, l’article CREATE TRIGGER est disponible dans SQL Database. Mais l’option **ALL SERVER** pour les déclencheurs de niveau serveur indique que ces derniers ne peuvent pas être utilisés dans SQL Database. Utilisez plutôt des déclencheurs de niveau base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir la liste des fonctionnalités prises en charge et non prises en charge par SQL Database, consultez [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md). Cette liste, qui porte sur les instructions Transact-SQL, vient compléter l’article traitant des instructions et des fonctionnalités.
+Pour obtenir la liste des fonctionnalités prises en charge et non prises en charge par SQL Database, consultez  [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md). Cette liste, qui porte sur les instructions Transact-SQL, vient compléter l’article traitant des instructions et des fonctionnalités.

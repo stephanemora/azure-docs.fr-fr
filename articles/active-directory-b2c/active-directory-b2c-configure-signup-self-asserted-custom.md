@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336853"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344993"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C : Modifier l’inscription pour ajouter de nouvelles recommandations et configurer la saisie utilisateur.
 
@@ -277,8 +277,8 @@ La vérification de l’adresse e-mail est activée par défaut dans `<Technical
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ajoutez la nouvelle revendication aux flux des connexions aux comptes sociaux en modifiant les éléments TechnicalProfiles répertoriés ci-dessous. Ces derniers sont utilisés par les connexions aux comptes sociaux/fédérés pour écrire et lire les données utilisateur avec alternativeSecurityId en tant que localisateur.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+Si votre stratégie appuie les comptes sociaux, ajoutez la nouvelle revendication aux flux des connexions aux comptes sociaux en modifiant les profils techniques répertoriés ci-dessous. Ces revendications sont utilisées par les connexions de compte social pour collecter et écrire des données à partir de l’utilisateur.
+
+1. Recherchez le profil technique **SelfAsserted-Social** et ajoutez la revendication de sortie. L’ordre des revendications dans **OutputClaims** détermine l’ordre dans lequel Azure AD B2C affiche les revendications à l’écran. Par exemple : `<OutputClaim ClaimTypeReferenceId="city" />`.
+2. Recherchez le profil technique **AAD-UserWriteUsingAlternativeSecurityId** et ajoutez la revendication de persistance. Par exemple : `<PersistedClaim ClaimTypeReferenceId="city" />`.
+3. Recherchez le profil technique **AAD-UserReadUsingAlternativeSecurityId** et ajoutez la revendication de sortie. Par exemple : `<OutputClaim ClaimTypeReferenceId="city" />`.

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: eae7f97799e38d5a4b09e3f193a84b423dced780
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/09/2018
+ms.openlocfilehash: 44d6135c8a259d3d4c791d359136963483088c5a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869327"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567891"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Réplication des bases de données uniques et mises en pool SQL Database
 
@@ -65,7 +65,7 @@ La réplication SQL Server peut être configurée pour les bases de données uni
 
 1. Créez une publication de réplication transactionnelle sur une base de données SQL Server locale.  
 2. Sur l’instance locale de SQL Server, servez-vous de **l’Assistant Nouvel abonnement** ou utilisez des instructions Transact-SQL pour envoyer l’abonnement vers Azure SQL Database.  
-3. Le jeu de données initial est généralement un instantané créé par l’Agent d’instantané, puis distribué et appliqué par l’Agent de distribution. Le jeu de données initial peut également être fourni par une sauvegarde ou par un autre biais, comme SQL Server Integration Services.  
+3. Avec des bases de données simples et groupées dans Azure SQL Database, le jeu de données initial est un instantané créé par l’Agent d’instantané, puis distribué et appliqué par l’Agent de distribution. Avec Azure SQL Database Managed Instance, vous pouvez également utiliser une sauvegarde de la base de données pour alimenter la base de données des abonnés.
 
 ### <a name="data-migration-scenario"></a>Scénario de migration des données  
 

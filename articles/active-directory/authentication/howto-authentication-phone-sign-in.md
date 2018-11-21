@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804325"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287181"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator (préversion publique)
 
@@ -37,11 +37,16 @@ Pour la préversion publique, un administrateur doit commencer par ajouter une s
 
 ### <a name="steps-to-enable"></a>Procédure d’activation
 
-1. Installez la [préversion publique du module Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/).  
-2. Dans PowerShell, exécutez deux commandes :
-   1. `Connect-AzureAD`
-      1. Dans la boîte de dialogue d’authentification, connectez-vous à l’aide d’un compte dans le locataire. Vous devez utiliser un compte d’administrateur de la sécurité ou d’administrateur général.
-   2. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+Assurez-vous de disposer de la dernière version du module PowerShell d’Azure Active Directory V2 en préversion publique. Vous pouvez effectuer une désinstallation, puis une réinstallation pour le confirmer. À cette fin, exécutez les commandes suivantes :
+
+1. `Uninstall-Module -Name AzureADPreview`
+2. `Install-Module -Name AzureADPreview`
+
+Vous pouvez activer l’aperçu de connexion sans mot de passe téléphonique en utilisant les commandes PowerShell suivantes :
+
+1. `Connect-AzureAD`
+   1. Dans la boîte de dialogue d’authentification, connectez-vous à l’aide d’un compte dans le locataire. Vous devez utiliser un compte d’administrateur de la sécurité ou d’administrateur général.
+1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Comment mes utilisateurs finals activent-ils la connexion par téléphone ?
 
@@ -61,7 +66,7 @@ Une fois que le compte MFA avec notifications Push est configuré pour l’utili
 
 ### <a name="ad-fs-integration"></a>Intégration AD FS
 
-Lorsqu’un utilisateur a activé les informations d’identification sans mot de passe de Microsoft Authenticator, l’authentification de cet utilisateur implique toujours par défaut l’envoi d’une notification pour approbation. Cette logique empêche les utilisateurs d’un locataire hybride d’être dirigés vers ADFS pour la vérification de la connexion si ces utilisateurs ne suivent pas une étape supplémentaire consistant à cliquer sur « Utilisez votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. Il existe une exception à ce processus : si un paramètre login_hint est spécifié, un utilisateur est automatiquement transféré vers AD FS et contourne la possibilité d’utiliser les informations d’identification sans mot de passe.
+Lorsqu’un utilisateur a activé les informations d’identification sans mot de passe de Microsoft Authenticator, l’authentification de cet utilisateur implique toujours par défaut l’envoi d’une notification pour approbation. Cette logique empêche les utilisateurs d’un locataire hybride d’être dirigés vers ADFS pour la vérification de la connexion si ces utilisateurs ne suivent pas une étape supplémentaire consistant à cliquer sur « Utilisez votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. Il existe une exception à ce processus : si un paramètre login_hint est spécifié, un utilisateur est automatiquement transféré vers AD FS et contourne la possibilité d’utiliser les informations d’identification sans mot de passe.
 
 ### <a name="azure-mfa-server"></a>Serveur Azure MFA
 

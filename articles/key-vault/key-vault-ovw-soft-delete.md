@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 12b14b87a02619b21e80436c80a284c4011f8b33
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407873"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300317"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Vue d’ensemble de la suppression réversible d’Azure Key Vault
 
@@ -44,7 +44,9 @@ La suppression réversible est un comportement facultatif de Key Vault et **n�
 ### <a name="purge-protection--flag"></a>Indicateur de protection contre le vidage
 L’indicateur de protection contre le vidage (**--enable-purge-protection** dans Azure CLI) est désactivé par défaut. Quand cet indicateur est activé, un coffre ou un objet dans un état supprimé ne peut pas être purgé tant que la période de conservation de 90 jours ne s’est pas écoulée. Ce type de coffre ou d’objet peut toujours être récupéré. Cet indicateur donne aux clients l’assurance qu’un coffre ou objet ne peut jamais être supprimé définitivement tant que la période de conservation ne s’est pas écoulée. Vous ne pouvez activer l’indicateur de protection contre le vidage que si l’indicateur de suppression réversible est activé. Ou bien, au moment de la création du coffre, vous activez à la fois la suppression réversible et la protection contre le vidage.
 
-[!NOTE] La protection contre le vidage ne peut être activée que si la suppression réversible l’est également. La commande pour effectuer cette opération dans Azure CLI 2 est la suivante :
+> [!NOTE] 
+   La protection contre le vidage ne peut être activée que si la suppression réversible l’est également.
+La commande pour effectuer cette opération dans Azure CLI 2 est la suivante :
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

@@ -12,19 +12,16 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 94502cbb0946ad1568cf33716480406b17fd57ac
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 19cbb27221bfb95a0900eb7a604e540cb066037e
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833952"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345553"
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Créer et partager un espace de travail Azure Machine Learning
-Ce menu pointe vers des rubriques qui décrivent comment configurer les différents environnements de science de données utilisés par le processus d’analyse Cortana (CAP).
 
-[!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
-
-Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace de travail Machine Learning. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.
+Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace de travail Machine Learning Studio. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

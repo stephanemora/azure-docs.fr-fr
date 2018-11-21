@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 10/01/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b1333eda0fa0bffdf3852f24414511f55acc090e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395485"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624639"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installer et utiliser les vues Log Analytics pour Azure Active Directory
 
@@ -42,7 +42,7 @@ Pour utiliser les vues Log Analytics, vous devez préalablement :
 
 1. Accédez à votre espace de travail Log Analytics. Pour cela, accédez d’abord au [portail Azure](https://portal.azure.com) et sélectionnez **Tous les services**. Entrez **Log Analytics** dans la zone de texte, puis sélectionnez **Log Analytics**. Sélectionnez l’espace de travail vers lequel vous avez envoyé les journaux d’activité (voir les prérequis).
 2. Sélectionnez **Concepteur de vues**, sélectionnez **Importer**, puis sélectionnez **Choisir un fichier** pour importer les vues à partir de votre ordinateur local.
-3. Sélectionnez les vues que vous avez téléchargées (voir les prérequis) et sélectionnez **Enregistrer** pour enregistrer les vues importées. Effectuez cette opération pour la vue **Événements de provisionnement de compte Azure AD**, la vue **Événements de connexion** et la vue **Consentement des utilisateurs**.
+3. Sélectionnez les vues que vous avez téléchargées (voir les prérequis) et sélectionnez **Enregistrer** pour enregistrer les vues importées. Effectuez cette opération pour la vue **Événements de provisionnement de compte Azure AD** et la vue **Événements de connexion**.
 
 ## <a name="use-the-views"></a>Utiliser les vues
 
@@ -52,7 +52,6 @@ Pour utiliser les vues Log Analytics, vous devez préalablement :
 
     * **Événements de provisionnement de compte Azure AD** : cette vue affiche les rapports d’audit de l’activité de provisionnement. Elle indique notamment le nombre de nouveaux utilisateurs attribués et les échecs d’attribution, le nombre d’utilisateurs mis à jour et les échecs de mise à jour, ainsi que le nombre d’utilisateurs dont l’attribution a été annulée et les échecs d’annulation d’attribution.    
     * **Événements de connexion** : cette vue affiche les rapports les plus pertinents relatifs à la supervision de l’activité de connexion, par exemple, les connexions par application, utilisateur et appareil, ainsi qu’un récapitulatif de l’ensemble des connexions effectuées.
-    * **Consentement des utilisateurs** : cette vue affiche les rapports relatifs au consentement des utilisateurs, comme le consentement donné par utilisateur, les connexions par les utilisateurs qui ont donné leur consentement ainsi que les connexions par application pour toutes les applications basées sur le consentement. 
 
 3. Sélectionnez la vue qui vous intéresse pour accéder aux différents rapports associés. Vous pouvez également définir des alertes sur les paramètres de rapport de votre choix. Par exemple, définissons une alerte pour chaque erreur de connexion rencontrée. Pour ce faire, sélectionnez la vue **Événements de connexion**, sélectionnez le rapport **Erreurs de connexion rencontrées**, puis sélectionnez **Analytics** pour ouvrir la page de détails, avec la requête actuelle sous-jacente au rapport. 
 

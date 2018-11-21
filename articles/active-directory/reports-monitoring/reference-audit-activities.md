@@ -13,32 +13,31 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 818f4f4d8ea51cb278190d6e41953f0b04b2e995
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42142280"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622872"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
-Dans Azure Active Directory (Azure AD), vous pouvez obtenir toutes les informations dont vous avez besoin pour déterminer l’état de votre environnement.
+Avec les rapports Azure Active Directory (Azure AD), vous pouvez obtenir toutes les informations dont vous avez besoin pour déterminer l’état de votre environnement.
 
 L’architecture de création de rapports dans Azure AD comprend les composants suivants :
 
-- **Activité** 
-    - **Activités de connexion** – Informations sur l’utilisation des applications gérées et les activités de connexion des utilisateurs
-    - **Journaux d’audit** : traçabilité proposée via des journaux pour toutes les modifications effectuées par diverses fonctionnalités au sein d’Azure AD. Par exemple, les journaux d’audit peuvent inclure les modifications apportées à des ressources dans Azure AD comme des utilisateurs, des applications, des groupes, des rôles, des stratégies, des authentifications, etc.
-- **Sécurité** 
-    - **Connexions risquées** : une connexion risquée est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. Pour en savoir plus, consultez Connexions risquées.
-    - **Utilisateurs avec indicateur de risque** : il s’agit d’un compte d’utilisateur susceptible d’être compromis. Pour en savoir plus, consultez Utilisateurs avec indicateur de risque.
+- **Rapports d’activité** 
+    - [Connexions](concept-sign-ins.md) – Fournit des informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs
+    - [Journaux d’audit](concept-audit-logs.md) : traçabilité proposée via des journaux pour toutes les modifications effectuées par diverses fonctionnalités au sein d’Azure AD. 
+    
+- **Rapports de sécurité** 
+    - [Connexions risquées](concept-risky-sign-ins.md) : une connexion risquée est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. 
+    - [Utilisateurs avec indicateur de risque](concept-user-at-risk.md) : il s’agit d’un compte d’utilisateur susceptible d’être compromis. 
 
 Cet article répertorie les activités d’audit qui peuvent être enregistrées dans vos journaux d’audit.
- 
-
 
 ## <a name="access-reviews"></a>Révisions d’accès
 
@@ -72,9 +71,6 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |User Management|Obtenir des applications V1|
 |User Management|Obtenir une application V2|
 |User Management|Obtenir des applications V2|
-
-
-
 
 ## <a name="account-provisioning"></a>Approvisionnement des comptes
 
@@ -593,13 +589,8 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Gestion des stratégies|Utilisateur enregistré pour la réinitialisation de mot de passe en libre-service|
 
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour une vue d’ensemble de :
-
-- Reporting, consultez le [Guide Azure Active Directory Reporting Guide](overview-reports.md).
-
-- Rapports d’activité d’audit, consultez [Rapports d’activité d’audit dans le portail Azure Active Directory](concept-audit-logs.md). 
-
+- [Vue d’ensemble des rapports Azure AD](overview-reports.md).
+- [Rapport de journaux d’audit](concept-audit-logs.md) 
+- [Accès par programme aux rapports Azure AD](concept-reporting-api.md)

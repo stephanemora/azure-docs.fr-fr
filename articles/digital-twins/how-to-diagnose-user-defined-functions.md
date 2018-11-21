@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946094"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636269"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour résoudre les problèmes liés aux fonctions définies par l’utilisateur dans Azure Digital Twins
 
@@ -42,12 +42,12 @@ Après avoir envoyé les données de télémétrie, ouvrez Azure Log Analytics p
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'yourCorrelationIdentifier'
+| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| Nom de l’attribut personnalisé | Remplacer par |
+| Valeur de la requête | Remplacer par |
 | --- | --- |
-| *yourCorrelationIdentifier* | ID de corrélation qui a été spécifié dans les données d’événement |
+| YOUR_CORRELATION_IDENTIFIER | ID de corrélation qui a été spécifié dans les données d’événement |
 
 Si vous journalisez votre fonction définie par l’utilisateur, les journaux correspondants apparaissent dans votre instance Azure Log Analytics avec la catégorie `UserDefinedFunction`. Pour les récupérer, entrez la condition de requête suivante dans Azure Log Analytics :
 
@@ -62,6 +62,8 @@ Pour plus d’informations sur les opérations de requêtes puissantes, consulte
 
 Le diagnostic et l’identification des problèmes courants sont importants pour résoudre les problèmes liés à votre solution. Plusieurs problèmes couramment rencontrés durant le développement de fonctions définies par l’utilisateur sont récapitulés ci-dessous.
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### <a name="ensure-a-role-assignment-was-created"></a>Vérifier qu’une attribution de rôle a été créée
 
 Si aucune attribution de rôle n’est créée dans l’API de gestion, la fonction définie par l’utilisateur ne peut pas effectuer d’actions telles que l’envoi de notifications, la récupération de métadonnées et la définition de valeurs calculées au sein de la topologie.
@@ -69,13 +71,12 @@ Si aucune attribution de rôle n’est créée dans l’API de gestion, la fonct
 Vérifiez s’il existe une attribution de rôle pour votre fonction définie par l’utilisateur par le biais de votre API de gestion :
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Nom de l’attribut personnalisé | Remplacer par |
+| Paramètre | Remplacer par |
 | --- | --- |
-| *yourManagementApiUrl* | Chemin d’URL complet pour votre API de gestion  |
-| *yourUserDefinedFunctionId* | ID de la fonction définie par l’utilisateur pour laquelle récupérer les attributions de rôle|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | ID de la fonction définie par l’utilisateur pour laquelle récupérer les attributions de rôle|
 
 Si aucune attribution de rôle n’est récupérée, suivez cet article sur la [façon de créer une attribution de rôle pour votre fonction définie par l’utilisateur](./how-to-user-defined-functions.md).
 
@@ -84,14 +85,13 @@ Si aucune attribution de rôle n’est récupérée, suivez cet article sur la [
 En utilisant l’appel suivant sur l’API de gestion de vos instances Azure Digital Twins, vous pouvez déterminer si un matcher donné s’applique pour le capteur donné.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| Nom de l’attribut personnalisé | Remplacer par |
+| Paramètre | Remplacer par |
 | --- | --- |
-| *yourManagementApiUrl* | Chemin d’URL complet pour votre API de gestion  |
-| *yourMatcherIdentifier* | ID du matcher à évaluer |
-| *yourSensorIdentifier* | ID du capteur à évaluer |
+| *YOUR_MATCHER_IDENTIFIER* | ID du matcher à évaluer |
+| *YOUR_SENSOR_IDENTIFIER* | ID du capteur à évaluer |
 
 Réponse :
 
@@ -109,13 +109,12 @@ Réponse :
 En utilisant l’appel suivant sur l’API de gestion de vos instances Azure Digital Twins, vous pouvez déterminer les identificateurs de vos fonctions définies par l’utilisateur qui sont déclenchées par les données de télémétrie entrantes du capteur donné :
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| Nom de l’attribut personnalisé | Remplacer par |
+| Paramètre | Remplacer par |
 | --- | --- |
-| *yourManagementApiUrl* | Chemin d’URL complet pour votre API de gestion  |
-| *yourSensorIdentifier* | ID du capteur qui envoie les données de télémétrie |
+| *YOUR_SENSOR_IDENTIFIER* | ID du capteur qui envoie les données de télémétrie |
 
 Réponse :
 

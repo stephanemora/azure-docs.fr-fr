@@ -3,18 +3,18 @@ title: Écriture Apache Storm dans le stockage/Data Lake Store - Azure HDInsight
 description: Découvrez comment utiliser Apache Storm pour écrire dans le stockage compatible HDFS pour HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 4e99ed88eb6a58308ecd972931ca877493504fea
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d38b4e511defbb50dd5f74ae72e71d3316a57b3c
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419829"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567126"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Écrire dans un stockage HDFS à partir d’Apache Storm sur HDInsight
 

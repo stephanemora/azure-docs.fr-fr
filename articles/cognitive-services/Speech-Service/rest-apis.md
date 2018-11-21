@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
-ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038601"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566616"
 ---
 # <a name="speech-service-rest-apis"></a>API REST du service Speech
 
@@ -127,14 +127,43 @@ Code HTTP|Signification|Raison possible
 
 ### <a name="json-response"></a>Réponse JSON
 
-Les résultats sont retournés au format JSON. Le format `simple` inclut uniquement les champs de niveau supérieur suivants.
+Les résultats sont retournés au format JSON. En fonction de vos paramètres de requête, un format `simple` ou `detailed` est retourné.
+
+#### <a name="the-simple-format"></a>Format `simple` 
+
+Ce format inclut les champs de niveau supérieur suivants.
 
 |Nom du champ|Contenu|
 |-|-|
-|`RecognitionStatus`|État, tel que `Success` pour une reconnaissance ayant réussi. Voir le tableau suivant.|
+|`RecognitionStatus`|État, tel que `Success` pour une reconnaissance ayant réussi. Consultez ce [tableau](rest-apis.md#recognitionstatus).|
 |`DisplayText`|Le texte reconnu après mise en majuscules, ponctuation, normalisation du texte inversée (conversion de texte lu en formes plus courtes, par exemple 200 pour « deux cents » ou « Dr. Smith » pour « docteur smith ») et masquage des grossièretés. Présent uniquement en cas de réussite.|
 |`Offset`|Moment (en unités de 100 nanosecondes) à partir duquel la voix identifiée commence dans le flux audio.|
 |`Duration`|Durée (en unités de 100 nanosecondes) de la voix reconnue dans le flux audio.|
+
+#### <a name="the-detailed-format"></a>Format `detailed` 
+
+Ce format inclut les champs de niveau supérieur suivants.
+
+|Nom du champ|Contenu|
+|-|-|
+|`RecognitionStatus`|État, tel que `Success` pour une reconnaissance ayant réussi. Consultez ce [tableau](rest-apis.md#recognition-status).|
+|`Offset`|Moment (en unités de 100 nanosecondes) à partir duquel la voix identifiée commence dans le flux audio.|
+|`Duration`|Durée (en unités de 100 nanosecondes) de la voix reconnue dans le flux audio.|
+|`NBest`|Liste d’interprétations alternatives du même discours, classées de la plus probable à la moins probable. Consultez la [description de NBest](rest-apis.md#nbest).|
+
+#### <a name="nbest"></a>NBest
+
+Le champ `NBest` est une liste d’interprétations alternatives du même discours, classées de la plus probable à la moins probable. La première entrée est identique au principal résultat de reconnaissance. Chaque entrée contient les champs suivants :
+
+|Nom du champ|Contenu|
+|-|-|
+|`Confidence`|Le score de confiance de l’entrée, compris entre 0,0 (aucun niveau de confiance) et 1,0 (confiance totale)
+|`Lexical`|La forme lexicale du texte reconnu : les mots reconnus.
+|`ITN`|La forme « normalisation du texte inversée » (canonique) du texte reconnu, avec numéros de téléphone, chiffres, abréviations (« docteur smith » en « dr smith ») et autres transformations appliquées.
+|`MaskedITN`| La forme « normalisation du texte inversée » avec masquage des grossièretés appliqué, si nécessaire.
+|`Display`| La forme d’affichage du texte reconnu, avec signes de ponctuation et mise en majuscules ajoutés.
+
+#### <a name="recognitionstatus"></a>RecognitionStatus
 
 Le champ `RecognitionStatus` peut contenir les valeurs suivantes.
 
@@ -148,17 +177,6 @@ Le champ `RecognitionStatus` peut contenir les valeurs suivantes.
 
 > [!NOTE]
 > Si l’audio est composé uniquement de grossièretés et que le paramètre de requête `profanity` a la valeur `remove`, le service ne retourne pas de résultat de reconnaissance vocale.
-
-
-Le format `detailed` inclut les mêmes champs que le format `simple`, ainsi qu’un champ `NBest`. Le champ `NBest` est une liste d’interprétations alternatives du même discours, classées de la plus probable à la moins probable. La première entrée est identique au principal résultat de reconnaissance. Chaque entrée contient les champs suivants :
-
-|Nom du champ|Contenu|
-|-|-|
-|`Confidence`|Le score de confiance de l’entrée, compris entre 0,0 (aucun niveau de confiance) et 1,0 (confiance totale)
-|`Lexical`|La forme lexicale du texte reconnu : les mots reconnus.
-|`ITN`|La forme « normalisation du texte inversée » (canonique) du texte reconnu, avec numéros de téléphone, chiffres, abréviations (« docteur smith » en « dr smith ») et autres transformations appliquées.
-|`MaskedITN`| La forme « normalisation du texte inversée » avec masquage des grossièretés appliqué, si nécessaire.
-|`Display`| La forme d’affichage du texte reconnu, avec signes de ponctuation et mise en majuscules ajoutés. Identique à `DisplayText` dans le résultat de niveau supérieur.
 
 ### <a name="sample-responses"></a>Exemples de réponses
 

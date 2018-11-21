@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: raiye
-ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 35888b205822e5d7c9576c9855610bad814901b6
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978738"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346165"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -42,6 +42,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas comment mettre à jour votre système d’exploitation invité ? Consultez [cet article][cloud updates].
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+###### <a name="november-8-2018"></a>**8 novembre 2018**
+Publication de l’OS invité octobre.
 
 ###### <a name="october-12-2018"></a>**12 octobre 2018**
 Publication du système d’exploitation invité du mois de septembre.
@@ -74,8 +77,9 @@ Le système d’exploitation invité d’avril a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-5.24_201810-01 |8 novembre 2018 |Post 5.26 |
 | WA-GUEST-OS-5.23_201809-01 |12 octobre 2018 |Post 5.25 |
-| WA-GUEST-OS-5.22_201808-01 |12 septembre 2018 |Post 5.24 |
+|~~WA-GUEST-OS-5.22_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
 |~~WA-GUEST-OS-5.19_201805-01~~ |1er juin 2018 |3 août 2018 |
@@ -88,8 +92,9 @@ Le système d’exploitation invité d’avril a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-4.59_201810-01 |8 novembre 2018 |POST 4.61 |
 | WA-GUEST-OS-4.58_201809-01 |12 octobre 2018 |Post 4.60 |
-| WA-GUEST-OS-4.57_201808-01 |12 septembre 2018 |Post 4.59 |
+|~~WA-GUEST-OS-4.57_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
 |~~WA-GUEST-OS-4.54_201805-01~~ |1er juin 2018 |3 août 2018 |
@@ -102,8 +107,9 @@ Le système d’exploitation invité d’avril a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-3.66_201810-01 |8 novembre 2018 |Post 3.68 |
 | WA-GUEST-OS-3.65_201809-01 |12 octobre 2018 |Post 3.67 |
-| WA-GUEST-OS-3.64_201808-01 |12 septembre 2018 |Post 3.66 |
+|~~WA-GUEST-OS-3.64_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
 |~~WA-GUEST-OS-3.61_201805-01~~ |1er juin 2018 |3 août 2018 |
@@ -116,8 +122,9 @@ Le système d’exploitation invité d’avril a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-2.79_201810-01 |8 novembre 2018 |Post 2.81 |
 | WA-GUEST-OS-2.78_201809-01 |12 octobre 2018 |Post 2.80 |
-| WA-GUEST-OS-2.77_201808-01 |12 septembre 2018 |Post 2.79 |
+|~~WA-GUEST-OS-2.77_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
 |~~WA-GUEST-OS-2.74_201805-01~~ |1er juin 2018 |3 août 2018|
@@ -148,13 +155,13 @@ Après la date **d’expiration** du SE invité, tous les services cloud qui uti
 Les familles de SE invité sont basées sur les versions publiées de Microsoft Windows Server. Le SE invité est le système d’exploitation sous-jacent sur lequel s’exécute Azure Cloud Services. Chaque SE invité possède un numéro de famille, de version et de publication.
 
 * **Guest OS family**  
-  Version du système d’exploitation Windows Server sur laquelle est basé un SE invité. Par exemple, la *famille 3* est basée sur Windows Server 2012.
+   Version du système d’exploitation Windows Server sur laquelle est basé un SE invité. Par exemple, la *famille 3* est basée sur Windows Server 2012.
 * **Version de SE invité**  
   Correspond à l’image de la famille de SE invité et aux correctifs [Microsoft Security Response Center (MSRC)][msrc] appropriés qui sont disponibles à la date de production de la nouvelle version du SE invité. Il est possible que les correctifs ne soient pas tous inclus.
 
     Les numéros commencent à 0 et augmentent de 1 chaque fois qu’un nouvel ensemble de mises à jour est ajouté. Les zéros à droite sont uniquement affichés s’ils sont importants. Autrement dit, la version 2.10 est une version différente, bien plus récente, que la version 2.1.
 * **Publication de SE invité**  
-  Nouvelle publication d’une version de SE invité. Une nouvelle publication est produite si Microsoft détecte des problèmes pendant les tests nécessitant des modifications. La publication la plus récente remplace toujours les publications précédentes, publiques ou non. Le portail Azure permet uniquement aux utilisateurs de choisir la publication la plus récente pour une version donnée. Les déploiements s’exécutant sur une publication antérieure ne sont généralement pas mis à niveau de force en fonction de la gravité du bogue.
+   Nouvelle publication d’une version de SE invité. Une nouvelle publication est produite si Microsoft détecte des problèmes pendant les tests nécessitant des modifications. La publication la plus récente remplace toujours les publications précédentes, publiques ou non. Le portail Azure permet uniquement aux utilisateurs de choisir la publication la plus récente pour une version donnée. Les déploiements s’exécutant sur une publication antérieure ne sont généralement pas mis à niveau de force en fonction de la gravité du bogue.
 
 Dans l’exemple ci-dessous, 2 est la famille, 12 est la version et « rel2 » est la publication.
 

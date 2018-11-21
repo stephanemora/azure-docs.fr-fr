@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219893"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597604"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -45,11 +45,11 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Réseaux virtuels |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |3000 |
 | Homologations VNet par réseau virtuel |100 |
-| Serveurs DNS par réseau virtuel |25 |
+| Serveurs DNS par réseau virtuel |20 |
 | Adresses IP privées par réseau virtuel |65536 |
 | Adresses IP privées par interface réseau |256 |
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500K |
-| Interfaces réseau (NIC) |24 000 |
+| Interfaces réseau (NIC) |65536 |
 | Groupes de sécurité réseau (NSG) |5 000 |
 | Règles de groupe de sécurité réseau par groupe de sécurité réseau |1 000 |
 | Adresses IP et plages spécifiées pour la source et la destination dans un groupe de sécurité |4000 |
@@ -64,28 +64,27 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Configurations TAP d’interface réseau de chaque réseau virtuel TAP |100 |
 
 #### <a name="publicip-address"></a>Limites de l’adresse IP publique
-
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
-| Adresses IP publiques (dynamiques) |(De base) 200 |contacter le support |
+| Adresses IP publiques (dynamiques) |(De base) 1 000 |contacter le support |
 | Adresses IP publiques (statiques) |(De base) 200 |contacter le support |
 | Adresses IP publiques (statiques) |(Standard) 200 |contacter le support |
 
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md)
 
-| Ressource | Limite par défaut | Limite maximale |
+| Ressource | Limite par défaut |
 | --- | --- | --- |
-| Équilibreurs de charge | 100 | 1 000 |
-| Règles par ressource, De base | 250 | 250 |
-| Règles par ressource, Standard | 1 500 | 1 500 |
-| Règles par configuration IP | 299 |299 |
-| Configurations d’adresses IP frontales, De base | 10 | 200 |
-| Configurations d’adresses IP frontales, Standard | 10 | 600 |
-| Pool principal, De base | 100, un seul groupe à haute disponibilité | 100, un seul groupe à haute disponibilité |
-| Pool principal, Standard | 1000, un seul réseau virtuel | 1000, un seul réseau virtuel |
-| Ressources backend par équilibreur de charge, Standard* | 150 | 150 |
-| Ports à haute disponibilité, Standard | 1 par serveur frontal interne | 1 par serveur frontal interne |
+| Équilibreurs de charge | 1 000 | 
+| Règles par ressource, De base | 250 |
+| Règles par ressource, Standard | 1 500 | 
+| Règles par configuration IP | 299 |
+| Configurations d’adresses IP frontales, De base | 200 |
+| Configurations d’adresses IP frontales, Standard | 600 |
+| Pool principal, De base | 100, un seul groupe à haute disponibilité |
+| Pool principal, Standard | 1000, un seul réseau virtuel |
+| Ressources backend par équilibreur de charge, Standard* | 150 |
+| Ports à haute disponibilité, Standard | 1 par serveur frontal interne |
 
 ** Jusqu’à 150 ressources, toute combinaison de machines virtuelles autonomes, groupes à haute disponibilité et groupes de machines virtuelles identiques.
 

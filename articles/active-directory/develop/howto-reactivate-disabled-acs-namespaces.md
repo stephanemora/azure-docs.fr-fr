@@ -15,12 +15,12 @@ ms.date: 11/07/2018
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 298afda7549690a9ea0314bff63a714be50a33b9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019784"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577944"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Comment : réactiver des espaces de noms Access Control Service désactivés
 
@@ -28,14 +28,14 @@ En novembre 2017, nous avons annoncé la mise hors service de Microsoft Azure A
 
 Depuis, nous avons envoyé plusieurs e-mails aux administrateurs des abonnements ACS sur cette mise hors service : 12 mois, 9 mois, 6 mois, 3 mois, 1 mois, 2 semaines, 1 semaine et 1 jour avant la date de mise hors service du 7 novembre 2018.
 
-Le 3 octobre 2018, nous avons annoncé (par e-mail et dans [un billet de blog](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) une offre d’extension pour les clients n'étant pas en mesure de terminer leur migration avant le 7 novembre 2018. Cette annonce contenait également les instructions relatives à la demande d'extension.
+Le 3 octobre 2018, nous avons annoncé (par e-mail et dans [un billet de blog](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) une offre d’extension pour les clients n'étant pas en mesure de terminer leur migration avant le 7 novembre 2018. Cette annonce contenait également les instructions relatives à la demande d’extension.
 
 ## <a name="why-your-namespace-is-disabled"></a>Pourquoi votre espace de noms est-il désactivé ?
 
-Si vous n’avez pas opté pour l'extension, nous avons commencé à désactiver les espaces de noms ACS à partir du 7 novembre 2018. Si vous n'avez pas pris connaissance de différentes communications et souhaitez profiter de l'extension jusqu'au 4 février 2019, suivez les instructions des sections ci-dessous.
+Si vous n’avez pas opté pour l’extension, nous avons commencé à désactiver les espaces de noms ACS à partir du 7 novembre 2018. Si vous n'avez pas pris connaissance de différentes communications et souhaitez profiter de l'extension jusqu'au 4 février 2019, suivez les instructions des sections ci-dessous.
 
 > [!NOTE]
-> Vous devez être un administrateur de l'abonnement pour exécuter les commandes PowerShell et demander une extension.
+> Vous devez être administrateur de service ou coadministrateur de l’abonnement pour exécuter les commandes PowerShell et demander une extension.
 
 ## <a name="find-and-enable-your-acs-namespaces"></a>Rechercher et activer vos espaces de noms ACS
 
@@ -62,6 +62,9 @@ Vous pouvez utiliser ACS PowerShell pour répertorier tous vos espaces de noms A
         ```
     
         où `[Command-Name]` est le nom de la commande ACS.
+1. Connectez-vous à ACS à l’aide de l’applet de commande **Connect-AcsAccount**. 
+
+    Vous devrez peut-être modifier votre stratégie d’exécution en exécutant **Set-ExecutionPolicy** avant de pouvoir exécuter la commande.
 1. Obtenez la liste de vos abonnements Azure disponibles à l’aide de l’applet de commande **Get-AcsSubscription**.
 1. Obtenez la liste de vos espaces de noms ACS en utilisant l’applet de commande **Get-AcsNamespace**.
 1. Assurez-vous que les espaces de noms sont désactivés en vérifiant que `State` est `Disabled`.

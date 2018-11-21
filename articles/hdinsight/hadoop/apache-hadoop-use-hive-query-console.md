@@ -1,25 +1,25 @@
 ---
-title: Utiliser Hadoop Hive sur la console de requêtes dans HDInsight - Azure
-description: Découvrez comment utiliser la console de requêtes Web pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
+title: Utiliser Apache Hive sur la console de requêtes dans HDInsight - Azure
+description: Découvrez comment utiliser la console de requêtes Web pour exécuter des requêtes Apache Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 36bf64e44103c8568c7cb47b18e32e8f7f879e5c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: da270792c8987ff43c422c5b03eb8b789b8bda5e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249150"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634586"
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>Exécution de requêtes Hive à l'aide de la console de requêtes
+# <a name="run-apache-hive-queries-using-the-query-console"></a>Exécution de requêtes Apache Hive à l’aide de la console de requêtes
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Dans cet article, vous découvrirez comment utiliser la console de requêtes HDInsight pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
+Dans cet article, vous découvrirez comment utiliser la console de requêtes HDInsight pour exécuter des requêtes Apache Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
 
 > [!IMPORTANT]
 > La console de requêtes HDInsight n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

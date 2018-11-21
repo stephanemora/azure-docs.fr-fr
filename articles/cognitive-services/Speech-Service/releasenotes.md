@@ -8,16 +8,47 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 11/12/2018
 ms.author: wolfma
-ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 706f51ae1e2d81e2003f2fcd637def95c7a42f8e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471134"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567534"
 ---
 # <a name="release-notes"></a>Notes de publication
+
+## <a name="speech-service-sdk-110"></a>Kit de développement logiciel (SDK) 1.1.0 du service Speech
+
+**Nouvelles fonctionnalités**
+
+* Prise en charge d'Android x86/x64.
+* Prise en charge du proxy : dans l’objet SpeechConfig, vous pouvez maintenant appeler une fonction pour définir les informations du proxy (nom d’hôte, port, nom d’utilisateur et mot de passe). Cette fonctionnalité n'est pas encore disponible sous iOS.
+* Amélioration du code d’erreur et des messages. Si une reconnaissance a renvoyé une erreur, celle-ci a déjà défini `Reason` (dans l’événement annulé) ou `CancellationDetails` (dans le résultat de la reconnaissance) sur `Error`. L’événement annulé contient maintenant deux membres supplémentaires, `ErrorCode` et `ErrorDetails`. Si le serveur a renvoyé des informations d’erreur supplémentaires avec l’erreur signalée, elles sont désormais disponibles dans les nouveaux membres.
+
+**Améliorations**
+
+* Ajout d'une vérification supplémentaire dans la configuration du module de reconnaissance, et ajout d'un message d’erreur supplémentaire.
+* Amélioration de la gestion des longs silences au milieu d’un fichier audio.
+* Package NuGet : pour les projets .NET Framework, toute génération est impossible avec une configuration AnyCPU.
+
+**Résolution des bogues**
+
+* Correction de plusieurs exceptions détectées dans les modules de reconnaissance. En outre, les exceptions sont interceptées et converties en événement annulé.
+* Correction d'une fuite de mémoire dans la gestion des propriétés.
+* Correction d’un bogue dans lequel un fichier d’entrée audio pouvait bloquer le module de reconnaissance.
+* Correction d’un bogue dans lequel des événements pouvaient être reçus après un événement d’arrêt de session.
+* Correction de certaines conditions de concurrence dans le thread.
+* Correction d’un problème de compatibilité avec iOS qui pouvait entraîner un blocage.
+* Améliorations de la stabilité dans la prise en charge du microphone Android.
+* Correction d’un bogue dans lequel un module de reconnaissance de JavaScript ignorait la langue de reconnaissance.
+* Correction d’un bogue qui empêchait de définir EndpointId (dans certains cas) dans JavaScript.
+* Modification de l'ordre des paramètres dans AddIntent dans JavaScript, et ajout de la signature AddIntent JavaScript manquante.
+
+**Exemples**
+
+* Ajout d’un exemple C++ et C# pour la diffusion en continu dans l’[exemple de référentiel](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-service-sdk-101"></a>Kit de développement logiciel (SDK) 1.0.1 du service Speech
 

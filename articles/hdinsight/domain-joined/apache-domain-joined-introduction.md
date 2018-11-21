@@ -1,5 +1,5 @@
 ---
-title: Introduction à la sécurité de Hadoop avec le Pack Sécurité Entreprise
+title: Introduction à la sécurité Apache Hadoop avec le Pack Sécurité Entreprise
 description: Découvrez comment le Pack Sécurité Entreprise prend en charge les quatre piliers de la sécurité d’entreprise.
 services: hdinsight
 ms.service: hdinsight
@@ -9,23 +9,23 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf94ba73d57763f5e05ed9b33d10bb335103400a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946389"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631997"
 ---
-# <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>Introduction à la sécurité de Hadoop avec le Pack Sécurité Entreprise
+# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Introduction à la sécurité Apache Hadoop avec le Pack Sécurité Entreprise
 
-Auparavant, Azure HDInsight ne prenait en charge qu’un seul utilisateur : l’administrateur local. Cela fonctionnait à merveille pour les petites équipes d’application ou les services. Avec le gain en popularité des charges de travail Hadoop dans le secteur de l’entreprise, les besoins en fonctionnalités de niveau entreprise, comme l’authentification basée sur Active Directory, la prise en charge multi-utilisateur et le contrôle d’accès en fonction du rôle sont devenus de plus en plus importants. 
+Auparavant, Azure HDInsight ne prenait en charge qu’un seul utilisateur : l’administrateur local. Cela fonctionnait à merveille pour les petites équipes d’application ou les services. Avec le gain en popularité des charges de travail Apache Hadoop dans le secteur de l’entreprise, les besoins en fonctionnalités de classe Entreprise, comme l’authentification basée sur Active Directory, la prise en charge multi-utilisateur et le contrôle d’accès en fonction du rôle sont devenus de plus en plus importants. 
 
 Vous pouvez créer un cluster HDInsight avec le Pack Sécurité Entreprise (ESP) qui est joint à un domaine Active Directory. Vous pouvez désormais configurer une liste d’employés de l’entreprise qui peuvent s’authentifier par le biais d’Azure Active Directory pour se connecter au cluster HDInsight. Aucune personne étrangère à l’entreprise ne peut ni se connecter ni accéder au cluster HDInsight. 
 
-L’administrateur d’entreprise peut configurer le contrôle d’accès en fonction du rôle (RBAC) pour assurer la sécurité de Hive avec [Apache Ranger](http://hortonworks.com/apache/ranger/). La configuration de RBAC limite l’accès des données au strict nécessaire. Enfin, l’administrateur peut auditer l’accès des données par les employés, et les modifications apportées aux stratégies de contrôle d’accès. L’administrateur peut ainsi atteindre un degré élevé de gouvernance des ressources de l’entreprise.
+L’administrateur d’entreprise peut configurer le contrôle d’accès en fonction du rôle (RBAC) pour assurer la sécurité de Apache Hive avec [Apache Ranger](http://hortonworks.com/apache/ranger/). La configuration de RBAC limite l’accès des données au strict nécessaire. Enfin, l’administrateur peut auditer l’accès des données par les employés, et les modifications apportées aux stratégies de contrôle d’accès. L’administrateur peut ainsi atteindre un degré élevé de gouvernance des ressources de l’entreprise.
 
 > [!NOTE]
-> Les nouvelles fonctionnalités décrites dans cet article sont disponibles en préversion uniquement sur les types de cluster suivants : Hadoop, Spark et Interactive Query. Oozie est maintenant activé sur les clusters ESP. Pour accéder à l’interface utilisateur web d’Oozie, les utilisateurs doivent activer le [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
+> Oozie est maintenant activé sur les clusters ESP. Pour accéder à l’interface utilisateur web d’Oozie, les utilisateurs doivent activer le [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 La sécurité d’entreprise est constituée de quatre piliers majeurs : la sécurité du périmètre, l’authentification, l’autorisation et le chiffrement.
 

@@ -154,12 +154,12 @@ items:
       href: access-secrets-from-keyvault.md
   - name: Préparation pour l’entreprise
     items:
+    - name: Sauvegarde et restauration en ligne
+      href: online-backup-and-restore.md
     - name: Conformité
       href: compliance.md
   - name: Prépayer pour une capacité de réserve
     href: cosmos-db-reserved-capacity.md
-  - name: Sauvegarde et restauration
-    href: online-backup-and-restore.md
 - name: API multi-modèles
   items:
   - name: Documents API SQL
@@ -453,6 +453,10 @@ items:
       href: how-to-configure-firewall.md
     - name: Configurer l’accès à partir de réseaux virtuels
       href: how-to-configure-vnet-service-endpoint.md
+  - name: Préparation pour l’entreprise
+    items:
+    - name: Restauration des données à partir d’une sauvegarde
+      href: how-to-backup-and-restore.md
   - name: gérer
     items:
     - name: Gérer à l’aide de PowerShell
@@ -573,9 +577,9 @@ items:
       href: use-cases.md
     - name: Applications de réseaux sociaux
       href: social-media-apps.md
-ms.openlocfilehash: 39b551b12f80a54a8c374e0ac0980c8c746ef3b3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: be2c50fb19746f15d879ada3ccbdc4366a4c4763
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162504"
+ms.locfileid: "52262531"

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 11/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 362ee7e84229c421f69ff0db0c8cfb040b105c97
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 95b63b525365a5a31856c2f14ac965aaa1113cff
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394508"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515622"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Forum aux questions sur l’API d’utilisation d’Azure Stack
 
@@ -65,7 +65,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **ID du compteur** : B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90  
 **Nom du compteur** : TableTransactions  
 **Unité** : Nombre de requêtes en 10 000 s  
-**Remarques** : Requêtes de service de Table (en 10 000 s).  
+**Remarques** : Requêtes de service de Table (par 10 000).  
   
 **ID du compteur** : 50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D  
 **Nom du compteur** : TableDataTransIn  
@@ -80,7 +80,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **ID du compteur** : 43DAF82B-4618-444A-B994-40C23F7CD438  
 **Nom du compteur** : BlobTransactions  
 **Unité** : Nombre de requêtes en 10 000 s  
-**Remarques** : Demandes de service BLOB (en 10 000 s).  
+**Remarques** : Demandes de service BLOB (par 10 000).  
   
 **ID du compteur** : 9764F92C-E44A-498E-8DC1-AAD66587A810  
 **Nom du compteur** : BlobDataTransIn  
@@ -95,7 +95,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **ID du compteur** : EB43DD12-1AA6-4C4B-872C-FAF15A6785EA  
 **Nom du compteur** : QueueTransactions  
 **Unité** : Nombre de requêtes en 10 000 s  
-**Remarques** : Demandes de service de File d’attente (en 10 000 s).  
+**Remarques** : Demandes de service de File d’attente (par 10 000).  
   
 **ID du compteur** : E518E809-E369-4A45-9274-2017B29FFF25  
 **Nom du compteur** : QueueDataTransIn  
@@ -126,105 +126,165 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
   
 ### <a name="managed-disks"></a>Managed Disks
 
+**ID du compteur** : 380874f9-300c-48e0-95a0-d2d9a21ade8f   
+**Nom du compteur** : S4   
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Standard (32 Go) 
+
+**ID du compteur** : 1b77d90f-427b-4435-b4f1-d78adec53222   
+**Nom du compteur** : S6   
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Standard (64 Go) 
+
+**ID du compteur** : d5f7731b-f639-404a-89d0-e46186e22c8d   
+**Nom du compteur** : S10   
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Standard (128 Go) 
+
+**ID du compteur** : ff85ef31-da5b-4eac-95dd-a69d6f97b18a   
+**Nom du compteur** : S15   
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Standard (256 Go) 
+
+**ID du compteur** : 88ea9228-457a-4091-adc9-ad5194f30b6e   
+**Nom du compteur** : S20   
+**Unité** : Nombre de disques\*mois      
+**Remarques** : Disque managé Standard (512 Go) 
+
+**ID du compteur** : 5b1db88a-8596-4002-8052-347947c26940   
+**Nom du compteur** : S30   
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Standard (1 024 Go) 
+
+**ID du compteur** : 7660b45b-b29d-49cb-b816-59f30fbab011   
+**Nom du compteur** : P4   
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Premium (32 Go) 
+
+**ID du compteur** : 817007fd-a077-477f-bc01-b876f27205fd   
+**Nom du compteur** : P6   
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Premium (64 Go) 
+
+**ID du compteur** : e554b6bc-96cd-4938-a5b5-0da990278519   
+**Nom du compteur** : P10   
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Premium (128 Go)  
+
+**ID du compteur** : cdc0f53a-62a9-4472-a06c-e99a23b02907   
+**Nom du compteur** : P15  
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Premium (256 Go) 
+
+**ID du compteur** : b9cb2d1a-84c2-4275-aa8b-70d2145d59aa   
+**Nom du compteur** : P20   
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Premium (512 Go) 
+
+**ID du compteur** : 06bde724-9f94-43c0-84c3-d0fc54538369   
+**Nom du compteur** : P30   
+**Unité** : Nombre de disques\*mois   
+**Remarques** : Disque managé Premium (1 024 Go) 
+
+**ID du compteur** : 7ba084ec-ef9c-4d64-a179-7732c6cb5e28   
+**Nom du compteur** : ActualStandardDiskSize   
+**Unité** : Go\*mois      
+**Remarques** : Taille réelle du disque managé Standard  
+
+**ID du compteur** : daef389a-06e5-4684-a7f7-8813d9f792d5  
+**Nom du compteur** : ActualPremiumDiskSize   
+**Unité** : Go\*mois      
+**Remarques** : Taille réelle du disque managé Premium 
+
+**ID du compteur** : 75d4b707-1027-4403-9986-6ec7c05579c8  
+**Nom du compteur** : ActualStandardSnapshotSize   
+**Unité** : Go\*mois   
+**Remarques** : Taille réelle de l’instantané sur le disque managé Standard.  
+
+**ID du compteur** : 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**Nom du compteur** : ActualPremiumSnapshotSize   
+**Unité** : Go\*mois   
+**Remarques** : Taille réelle de l’instantané sur le disque managé Premium.   
+
 **ID du compteur** : 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Nom du compteur** : S4   
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Standard (32 Go) 
+**Remarques** : Disque managé Standard - 32 Go - Déprécié 
 
 **ID du compteur** : dc9fc6a9-0782-432a-b8dc-978130457494   
 **Nom du compteur** : S6   
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Standard (64 Go) 
+**Remarques** : Disque managé Standard - 64 Go - Déprécié 
 
 **ID du compteur** : e5572fce-9f58-49d7-840c-b168c0f01fff   
 **Nom du compteur** : S10   
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Standard (128 Go) 
+**Remarques** : Disque managé Standard - 128 Go - Déprécié 
 
 **ID du compteur** : 9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
 **Nom du compteur** : S15   
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Standard (256 Go) 
+**Remarques** : Disque managé Standard - 256 Go - Déprécié 
 
 **ID du compteur** : 5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
 **Nom du compteur** : S20   
 **Unité** : Nombre de disques\*heures      
-**Remarques** : Disque managé Standard (512 Go) 
+**Remarques** : Disque managé Standard - 512 Go - Déprécié 
 
 **ID du compteur** : 7705a158-bd8b-4b2b-b4c2-0782343b81e6   
 **Nom du compteur** : S30   
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Standard (1 024 Go) 
-
-**ID du compteur** : d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
-**Nom du compteur** : S40   
-**Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Standard (2 048 Go) 
-
-**ID du compteur** : a54899dd-458e-4a40-9abd-f57cafd936a7   
-**Nom du compteur** : S50   
-**Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Standard (4 096 Go) 
+**Remarques** : Disque managé Standard - 1 024 Go - Déprécié 
 
 **ID du compteur** : 5c105f5f-cbdf-435c-b49b-3c7174856dcc   
 **Nom du compteur** : P4   
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Premium (32 Go) 
+**Remarques** : Disque managé Premium - 32 Go - Déprécié 
 
 **ID du compteur** : 518b412b-1927-4f25-985f-4aea24e55c4f   
 **Nom du compteur** : P6   
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Premium (64 Go) 
+**Remarques** : Disque managé Premium - 64 Go - Déprécié 
 
 **ID du compteur** : 5cfb1fed-0902-49e3-8217-9add946fd624   
 **Nom du compteur** : P10   
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Premium (128 Go)  
+**Remarques** : Disque managé Premium - 128 Go - Déprécié  
 
 **ID du compteur** : 8de91c94-f740-4d9a-b665-bd5974fa08d4   
 **Nom du compteur** : P15  
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Premium (256 Go) 
+**Remarques** : Disque managé Premium - 256 Go - Déprécié 
 
 **ID du compteur** : c7e7839c-293b-4761-ae4c-848eda91130b   
 **Nom du compteur** : P20   
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Premium (512 Go) 
+**Remarques** : Disque managé Premium - 512 Go - Déprécié 
 
 **ID du compteur** : 9f502103-adf4-4488-b494-456c95d23a9f   
 **Nom du compteur** : P30   
 **Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Premium (1 024 Go) 
-
-**ID du compteur** : 043757fc-049f-4e8b-8379-45bb203c36b1   
-**Nom du compteur** : P40   
-**Unité** : Nombre de disques\*heures    
-**Remarques** : Disque managé Premium (2 048 Go) 
-
-**ID du compteur** : c0342c6f-810b-4942-85d3-6eaa561b6570   
-**Nom du compteur** : P50   
-**Unité** : Nombre de disques\*heures   
-**Remarques** : Disque managé Premium (4 096 Go) 
+**Remarques** : Disque managé Premium - 1 024 Go - Déprécié 
 
 **ID du compteur** : 8a409390-1913-40ae-917b-08d0f16f3c38   
 **Nom du compteur** : ActualStandardDiskSize   
 **Unité** : Octet\*heures      
-**Remarques** : Taille réelle du disque managé Standard  
+**Remarques** : Taille réelle du disque managé Standard (déprécié)  
 
 **ID du compteur** : 1273b16f-8458-4c34-8ce2-a515de551ef6  
 **Nom du compteur** : ActualPremiumDiskSize   
 **Unité** : Octet\*heures      
-**Remarques** : Taille réelle du disque managé Premium 
+**Remarques** : Taille réelle du disque managé Premium (déprécié) 
 
 **ID du compteur** : 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
 **Nom du compteur** : ActualStandardSnapshotSize   
 **Unité** : Octet\*heures   
-**Remarques** : Taille réelle de l’instantané sur le disque managé Standard.  
+**Remarques** : Taille réelle de l’instantané sur le disque managé Standard (déprécié) 
 
 **ID du compteur** : 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Nom du compteur** : ActualPremiumSnapshotSize   
 **Unité** : Octet\*heures   
-**Remarques** : Taille réelle de l’instantané sur le disque managé Premium.   
+**Remarques** : Taille réelle de l’instantané sur le disque managé Premium (déprécié) 
 
 ### <a name="sql-rp"></a>Sql RP
   

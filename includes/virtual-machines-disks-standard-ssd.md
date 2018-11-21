@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264167"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572097"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Disques managés SSD Standard pour les charges de travail des machines virtuelles Azure
 
@@ -46,9 +46,9 @@ Le tableau suivant contient les tailles de disque qui sont actuellement proposé
 |E70 *    |16 384 Gio      |Jusqu’à 2 000       |Jusqu’à 500 Mio par seconde        |
 |E80 *    |32 767 Gio      |Jusqu’à 2 000       |Jusqu’à 500 Mio par seconde        |
 
-Les disques SSD Standard sont conçus pour fournir des latences en millisecondes à un chiffre pour la plupart des opérations d’E/S et offrir les E/S et le débit dans les limites décrites dans le tableau ci-dessus. Les E/S et le débit réels peuvent parfois varier selon les modèles de trafic. Les disques SSD Standard offrent des performances plus cohérentes que les disques HDD avec une latence plus faible.
+Les disques SSD Standard sont conçus pour fournir des latences en millisecondes à un chiffre pour la plupart des opérations d’E/S et offrir les E/S et le débit dans les limites décrites dans le tableau ci-dessus 99 % du temps. Les E/S et le débit réels peuvent parfois varier selon les modèles de trafic. Les disques SSD Standard offrent des performances plus cohérentes que les disques HDD avec une latence plus faible.
 
-Par contre, les disques SSD Premium sont meilleurs que les disques SSD Standard, avec des latences faibles, des IOPS/débit élevés et une cohérence encore meilleure des performances de disque provisionné. Ce type de disque est recommandé pour les charge de travail de production critiques. Si votre charge de travail exige la prise en charge des disques hautes performances à faible latence, vous devez envisager d’utiliser le stockage Premium.
+Par contre, les disques SSD Premium sont meilleurs que les disques SSD Standard, avec des latences faibles, des IOPS/débit élevés et une cohérence encore meilleure des performances de disque provisionné. Ce type de disque SSD Premium est recommandé pour les charge de travail de production critiques. Si votre charge de travail exige la prise en charge des disques hautes performances à faible latence, vous devez envisager d’utiliser le stockage Premium.
 
 Comme les disques SSD Premium, les disques SSD Standard utilisent la taille d’unité d’E/S de 256 Kio. Si les données transférées sont inférieures à 256 Kio, elles sont considérées comme 1 unité d’E/S. Les tailles d’E/S supérieures sont divisées en plusieurs unités d’E/S de 256 Kio. Par exemple, une E/S de 1 100 Kio correspond à cinq unités d’E/S.
 

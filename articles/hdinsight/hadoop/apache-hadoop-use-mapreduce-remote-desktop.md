@@ -1,25 +1,25 @@
 ---
-title: MapReduce et le Bureau à distance avec Hadoop dans HDInsight - Azure
-description: Apprenez à utiliser le Bureau à distance pour vous connecter à Hadoop sur HDInsight et exécuter des tâches MapReduce.
+title: MapReduce et le Bureau à distance avec Apache Hadoop dans HDInsight - Azure
+description: Apprenez à utiliser le Bureau à distance pour vous connecter à Apache Hadoop sur HDInsight et exécuter des tâches MapReduce.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2ff0677117f67c63ab0dbf050d81db0b3b75d86b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051685"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634479"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Utilisation de MapReduce dans Hadoop sur HDInsight avec le Bureau à distance
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Utilisation de MapReduce dans Apache Hadoop sur HDInsight avec le Bureau à distance
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Dans cet article, vous allez apprendre à vous connecter à un Hadoop sur le cluster HDInsight en utilisant le Bureau à distance et exécuter les tâches MapReduce à l’aide de la commande Hadoop.
+Dans cet article, vous allez apprendre à vous connecter à un Apache Hadoop sur le cluster HDInsight en utilisant le Bureau à distance et exécuter les tâches MapReduce à l’aide de la commande Hadoop.
 
 > [!IMPORTANT]
 > Le Bureau à distance n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee92a5dd474cdf4f32ed2c7327d732a2cfbbbf79
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238827"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632932"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Résolution des problèmes liés à l’utilisation du SDK Java Async avec des comptes d’API SQL Azure Cosmos DB
 Cet article traite des problèmes courants, des solutions de contournement, des étapes de diagnostic et des outils lors de l’utilisation du [SDK Java Async](sql-api-sdk-async-java.md) avec des comptes d’API SQL Azure Cosmos DB.
@@ -148,7 +148,7 @@ Le certificat HTTPS de l’émulateur Cosmos DB est auto-signé. Pour que le SDK
 
 ## <a name="enable-client-sice-logging"></a>Activer la journalisation de SDK client
 
-Le SDK Java asynchrone utilise SLF4j en tant que façade de journalisation qui prend en charge la journalisation dans les frameworks de journalisation populaires comme log4j et logback.
+Le SDK Java Async utilise SLF4j en tant que façade de journalisation qui prend en charge la journalisation dans les frameworks de journalisation populaires comme log4j et logback.
 
 Par exemple, si vous souhaitez utiliser log4j en tant que framework de journalisation, ajoutez les bibliothèques suivantes dans votre chemin de classe Java :
 

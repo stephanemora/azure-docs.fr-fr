@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637863"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685648"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
@@ -36,7 +36,7 @@ L’authentification directe est une fonctionnalité gratuite. Il est inutile de
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L’authentification directe est-elle disponible dans le [cloud Microsoft Azure Allemagne](http://www.microsoft.de/cloud-deutschland) et le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) ?
 
-Non. L’authentification directe est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
+ Non. L’authentification directe est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[L’accès conditionnel](../active-directory-conditional-access-azure-portal.md) fonctionne-t-il avec l’authentification directe ?
 
@@ -48,7 +48,7 @@ Oui. L’authentification directe prend en charge `Alternate ID` comme nom d’u
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La synchronisation du hachage de mot de passe agit-elle comme solution de secours pour l’authentification directe ?
 
-Non. L’authentification directe _ne bascule pas_ automatiquement vers la synchronisation de hachage de mot de passe. Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+ Non. L’authentification directe _ne bascule pas_ automatiquement vers la synchronisation de hachage de mot de passe. Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Puis-je installer un connecteur de [proxy d’application Azure AD](../manage-apps/application-proxy.md) sur le même serveur qu’un agent d’authentification directe ?
 
@@ -79,6 +79,23 @@ Si la réécriture du mot de passe n’est pas configurée pour un utilisateur s
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Les agents d’authentification directe peuvent-ils communiquer sur un serveur proxy web sortant ?
 
 Oui. Si Web Proxy Auto-Discovery (WPAD) est activé dans votre environnement sur site, les agents d’authentification essayent automatiquement de localiser et d’utiliser un serveur proxy web sur le réseau.
+
+Si vous ne disposez pas de WPAD dans votre environnement, vous pouvez ajouter des informations de proxy (comme indiqué ci-dessous) pour permettre à un agent d'authentification directe de communiquer avec Azure AD :
+- Configurez les informations de proxy dans Internet Explorer avant d'installer l'agent d'authentification directe sur le serveur. Cela vous permettra de terminer l'installation de l'agent d’authentification, mais celui-ci apparaîtra toujours comme **Inactif** sur le portail d'administration.
+- Sur le serveur, accédez à « C:\Program Files\Microsoft Azure AD Connect Authentication Agent ».
+- Modifiez le fichier de configuration « AzureADConnectAuthenticationAgentService » et ajoutez les lignes suivantes (remplacez « http://contosoproxy.com:8080 » par votre adresse proxy réelle) :
+
+```
+   <system.net>
+      <defaultProxy enabled="true" useDefaultCredentials="true">
+         <proxy
+            usesystemdefault="true"
+            proxyaddress="http://contosoproxy.com:8080"
+            bypassonlocal="true"
+         />
+     </defaultProxy>
+   </system.net>
+```
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Puis-je installer deux ou plusieurs agents d’authentification directe sur le même serveur ?
 

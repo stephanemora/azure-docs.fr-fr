@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 65495209714c37e5e166545ed7ed029e36c258c0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2fad3ad8bc6e1c0ca87038af6c461d863065fc95
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038284"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345961"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen2 Preview avec Azure Data Factory (Preview)
 
@@ -34,6 +34,9 @@ Plus précisément, ce connecteur prend en charge ce qui suit :
 
 >[!TIP]
 >Si vous activez l’espace de noms hiérarchique, il n’existe actuellement aucune interopérabilité des opérations entre les API Blob et ADLS Gen2. Si vous recevez l’erreur « ErrorCode=FilesystemNotFound » avec le message détaillé « Le système de fichiers spécifié n’existe pas », celle-ci vient du fait que le système de fichiers du récepteur spécifié a été créé par le biais de l’API Blob et non pas par le biais de l’API ADLS Gen2 comme partout ailleurs. Pour résoudre ce problème, spécifiez un nouveau système de fichiers avec un nom qui n’existe pas en tant que nom d’un conteneur Blob. ADF créera automatiquement ce système de fichiers pendant la copie des données.
+
+>[!NOTE]
+>Si vous activez _Allow trusted Microsoft services to access this storage account_ (Autoriser les services Microsoft autorisés à accéder à ce compte de stockage) dans les paramètres du pare-feu Stockage Azure, l’utilisation d’Azure Integration Runtime pour se connecter à Data Lake Storage Gen2 échoue avec une erreur d’interdiction, car les fichiers de définition d’application ne sont pas traités en tant que service Microsoft autorisé. Veuillez utiliser le runtime d’intégration auto-hébergé comme moyen de connexion.
 
 ## <a name="get-started"></a>Prise en main
 
@@ -84,7 +87,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **AzureBlobFSFile**. |Oui |
-| folderPath | Chemin vers le dossier dans Data Lake Storage Gen2. Le filtre de caractères génériques n'est pas pris en charge. Exemple : dossier_racine/sous-dossier/. |Oui |
+| folderPath | Chemin vers le dossier dans Data Lake Storage Gen2. Le filtre de caractères génériques n'est pas pris en charge. Si non spécifié, il pointe vers la racine. Exemple : dossier_racine/sous-dossier/. |Non  |
 | fileName | **Filtre de nom ou de caractère générique** pour les fichiers sous le « folderPath » spécifié. Si vous ne spécifiez pas de valeur pour cette propriété, le jeu de données pointe vers tous les fichiers du dossier. <br/><br/>Dans le filtre, les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plus) et `?` (correspond à zéro ou un caractère).<br/>- Exemple 1 : `"fileName": "*.csv"`<br/>- Exemple 2 : `"fileName": "???20180427.txt"`<br/>Utilisez `^` comme caractère d’échappement si votre nom de fichier réel contient des caractères génériques ou ce caractère d’échappement.<br/><br/>Quand fileName n’est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur de l’activité, l’activité de copie génère automatiquement le nom de fichier avec le modèle suivant : « *Data.[GUID d’id d’exécution d’activité].[GUID si FlattenHierarchy].[format si configuré].[compression si configurée]* ». Par exemple, « Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz ». |Non  |
 | format | Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser ou générer des fichiers d’un format spécifique, les types de formats de fichier pris en charge sont les suivants : **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous **Format** sur l’une de ces valeurs. Pour en savoir plus, voir les sections [Format Text](supported-file-formats-and-compression-codecs.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs.md#orc-format) et [Format Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
 | compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**.<br/>Les niveaux pris en charge sont **Optimal** et **Fastest**. |Non  |

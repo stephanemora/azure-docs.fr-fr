@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 1a61d8f4008b0183ab5ddb51332d887217f52f48
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8c47c4a59f03328b1dc8d3df7771bac81864bb34
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435336"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566633"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>Prise en charge de la région et de la langue pour QnA Maker
 
@@ -34,6 +34,8 @@ QnA Maker prend en charge l’extraction de questions/réponses dans n’import
 
 ## <a name="query-matching-and-relevance"></a>Correspondance et pertinence des requêtes
 QnA Maker dépend des [analyseurs de langue](https://docs.microsoft.com/rest/api/searchservice/language-support) de la recherche Azure pour fournir des résultats. Des fonctionnalités spéciales générant un nouveau classement sont disponibles pour les langues en-* afin d’améliorer la pertinence.
+
+Même si les fonctionnalités de Recherche Azure sont à égalité pour les langues prises en charge, QnA Maker possède un outil de classement supplémentaire qui se trouve au-dessus des résultats de recherche Azure. Dans ce modèle d’outil de classement, nous utilisons une sémantique spéciale et des fonctionnalités basées sur des mots en en-*, qui ne sont pas encore disponibles pour d’autres langues. Nous ne les mettons pas à disposition, car elles font partie du fonctionnement interne de l’outil de classement. 
 
 QnA Maker détecte automatiquement la langue de la base de connaissances lors de la création et définit l’analyseur en conséquence. Vous pouvez créer des bases de connaissances dans les langues suivantes. Lisez [cet article](../How-To/language-knowledge-base.md) pour plus d’informations sur la façon dont QnA Maker gère les langues.
 

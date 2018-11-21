@@ -1,46 +1,65 @@
 ---
-title: Guide pratique pour gérer de grands ensembles de rubriques dans Azure Event Grid et y publier des événements à l’aide de domaines d’événement
-description: Montre comment créer et gérer des rubriques dans Azure Event Grid et y publier des événements à l’aide de domaines d’événement.
+title: Gérer de grands ensembles de rubriques dans Azure Event Grid à l’aide de domaines d’événement
+description: Explique comment gérer de grands ensembles de rubriques dans Azure Event Grid et y publier des événements à l’aide de domaines d’événements.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: 48a5356b03e38e864ba76f048febdb0b040893f5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/08/2018
+ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669296"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298527"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gérer des rubriques et publier des événements à l’aide de domaines de l’événement
 
 Cet article montre comment :
 
 * Créer un domaine Event Grid
-* S’abonner à des rubriques
-* Lister les clés
+* S’abonner aux rubriques de grille d’événement
+* List keys (Afficher la liste des clés)
 * Publier des événements sur un domaine
+
+Pour en savoir plus sur les domaines d’événements, consultez [Comprendre les domaines d’événements pour gérer les rubriques Event Grid](event-domains.md).
+
+## <a name="install-preview-feature"></a>Installer la fonctionnalité d'évaluation
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-an-event-domain"></a>Créer un domaine d’événement
 
-Vous pouvez créer un domaine d’événement par le biais de l’extension `eventgrid` pour [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Une fois que vous avez créé un domaine, vous pouvez l’utiliser pour gérer de grands ensembles de rubriques.
+Pour gérer de grands ensembles de rubriques, créez un domaine d’événements.
+
+Pour l’interface de ligne de commande Azure, consultez :
 
 ```azurecli-interactive
-# if you haven't already installed the extension, do it now.
+# If you haven't already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
 az eventgrid domain create \
   -g <my-resource-group> \
-  --name <my-domain-name>
+  --name <my-domain-name> \
   -l <location>
 ```
 
-Une création réussie retourne le résultat suivant :
+Pour PowerShell, utilisez la commande suivante :
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain-name> `
+  -Location <location>
+```
+
+Une création réussie retourne les valeurs suivantes :
 
 ```json
 {
@@ -57,24 +76,59 @@ Une création réussie retourne le résultat suivant :
 }
 ```
 
-Notez les paramètres `endpoint` et `id`, dont vous aurez besoin pour gérer le domaine et publier des événements.
+Notez les paramètres `endpoint` et `id`, dont vous avez besoin pour gérer le domaine et publier des événements.
+
+## <a name="manage-access-to-topics"></a>Gérer l’accès aux rubriques
+
+La gestion de l’accès aux rubriques est effectuée par le biais d’une [attribution de rôle](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). L’attribution de rôle utilise le contrôle d’accès en fonction du rôle pour limiter les opérations sur les ressources Azure aux utilisateurs autorisés dans une étendue donnée.
+
+Event Grid a deux rôles intégrés que vous pouvez utiliser pour attribuer à des utilisateurs spécifiques l’accès à différentes rubriques au sein d’un domaine. Ces rôles sont `EventGrid EventSubscription Contributor (Preview)`, qui permet de créer et de supprimer des abonnements, et `EventGrid EventSubscription Reader (Preview)`, qui permet uniquement de répertorier les abonnements aux événements.
+
+La commande Azure CLI suivante limite `alice@contoso.com` à la création et à la suppression d’abonnements aux événements uniquement sur la rubrique `demotopic1` :
+
+```azurecli-interactive
+az role assignment create \
+  --assignee alice@contoso.com \
+  --role "EventGrid EventSubscription Contributor (Preview)" \
+  --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+La commande PowerShell suivante limite `alice@contoso.com` à la création et à la suppression d’abonnements aux événements uniquement sur la rubrique `demotopic1` :
+
+```azurepowershell-interactive
+New-AzureRmRoleAssignment `
+  -SignInName alice@contoso.com `
+  -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
+  -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+Pour plus d’informations sur la gestion des accès pour les opérations Event Grid, consultez la page [Sécurité et authentification Azure Event Grid](./security-authentication.md).
 
 ## <a name="create-topics-and-subscriptions"></a>Créer des rubriques et des abonnements
 
 Le service Event Grid crée et gère automatiquement la rubrique correspondante dans un domaine en fonction de l’appel destiné à créer un abonnement aux événements pour une rubrique de domaine. Il n’existe pas d’autre étape pour créer une rubrique dans un domaine. De même, quand le dernier abonnement aux événements pour une rubrique est supprimé, celle-ci est également supprimée.
 
-L’abonnement à une rubrique dans un domaine est identique à l’abonnement à toute autre ressource Azure :
+L’abonnement à une rubrique dans un domaine est identique à l’abonnement à toute autre ressource Azure. Pour un ID de ressource source, spécifiez l’ID de domaine d’événements retourné au moment de la création du domaine. Pour spécifier la rubrique à laquelle vous voulez vous abonner, ajoutez `/topics/<my-topic>` à la fin de l’ID de ressource de la source. Pour créer un abonnement d’événement de portée de domaine qui reçoit tous les événements dans le domaine, indiquez l’ID de domaine d’événements sans spécifier de rubriques.
+
+Généralement, l’utilisateur auquel vous avez accordé l’accès dans la section précédente créera l’abonnement. Pour plus de simplicité dans cet article, c’est vous qui créez l’abonnement. 
+
+Pour l’interface de ligne de commande Azure, consultez :
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --name <event-subscription> \
-  --resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/<my-topic>" \
-  --endpoint https://contoso.azurewebsites.net/api/f1?code=code
+  --source-resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" \
+  --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-L’ID de ressource donné est le même ID que celui retourné au moment de la création du domaine. Pour spécifier la rubrique à laquelle vous voulez vous abonner, ajoutez `/topics/<my-topic>` à la fin de l’ID de ressource.
+Pour PowerShell, utilisez la commande suivante :
 
-Pour créer un abonnement d’événement de portée de domaine qui reçoit tous les événements dans le domaine, indiquez celui-ci en guise de `resource-id` sans spécifier de rubriques, par exemple `/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>`.
+```azurepowershell-interactive
+New-AzureRmEventGridSubscription `
+  -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
+  -EventSubscriptionName <event-subscription> `
+  -Endpoint https://contoso.azurewebsites.net/api/updates
+```
 
 Si vous avez besoin d’un point de terminaison de test auquel abonner vos événements, vous pouvez toujours déployer une [application web prédéfinie](https://github.com/Azure-Samples/azure-event-grid-viewer) qui affiche les événements entrants. Vous pouvez envoyer vos événements à votre site web de test à l’adresse `https://<your-site-name>.azurewebsites.net/api/updates`.
 
@@ -82,23 +136,6 @@ Si vous avez besoin d’un point de terminaison de test auquel abonner vos évé
 
 Les autorisations définies pour une rubrique sont stockées dans Azure Active Directory et doivent être supprimées explicitement. La suppression d’un abonnement aux événements ne révoque pas l’accès des utilisateurs à la création d’abonnements aux événements s’ils ont un accès en écriture à une rubrique.
 
-## <a name="manage-access-to-topics"></a>Gérer l’accès aux rubriques
-
-La gestion de l’accès aux rubriques est effectuée par le biais d’une [attribution de rôle](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-cli). L’attribution de rôle utilise le contrôle d’accès en fonction du rôle pour limiter les opérations sur les ressources Azure aux utilisateurs autorisés dans une étendue donnée.
-
-Event Grid a deux rôles intégrés que vous pouvez utiliser pour attribuer à des utilisateurs spécifiques l’accès à différentes rubriques au sein d’un domaine. Ces rôles sont `EventGrid EventSubscription Contributor (Preview)`, qui permet de créer et de supprimer des abonnements, et `EventGrid EventSubscription Reader (Preview)`, qui permet uniquement de répertorier les abonnements aux événements.
-
-La commande suivante limite `alice@contoso.com` à la création et à la suppression d’abonnements aux événements uniquement sur la rubrique `foo` :
-
-```azurecli-interactive
-az role assignment create --assignee alice@contoso.com --role "EventGrid EventSubscription Contributor (Preview)" --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/foo
-```
-
-Consultez [Sécurité et authentification pour Event Grid](./security-authentication.md) pour en savoir plus sur les thèmes suivants :
-
-* Contrôle d’accès à la gestion
-* Types d’opération
-* Création de définitions de rôle personnalisées
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Publier des événements sur un domaine Event Grid
 
@@ -106,7 +143,7 @@ La publication d’événements sur un domaine est similaire à la [publication 
 
 ```json
 [{
-  "topic": "foo",
+  "topic": "demotopic1",
   "id": "1111",
   "eventType": "maintenanceRequested",
   "subject": "myapp/vehicles/diggers",
@@ -118,7 +155,7 @@ La publication d’événements sur un domaine est similaire à la [publication 
   "dataVersion": "1.0"
 },
 {
-  "topic": "bar",
+  "topic": "demotopic2",
   "id": "2222",
   "eventType": "maintenanceCompleted",
   "subject": "myapp/vehicles/tractors",
@@ -131,7 +168,7 @@ La publication d’événements sur un domaine est similaire à la [publication 
 }]
 ```
 
-Pour obtenir les clés d’un domaine, utilisez :
+Pour obtenir les clés d’un domaine avec Azure CLI, utilisez :
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -139,8 +176,16 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
+Pour PowerShell, utilisez la commande suivante :
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomainKey `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
 Ensuite, publiez vos événements sur votre domaine Event Grid en effectuant une requête HTTP POST selon la méthode de votre choix.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur les concepts généraux des domaines d’événement et sur ce qui fait leur utilité, consultez la [vue d’ensemble conceptuelle des domaines d’événement](./event-domains.md).
+* Pour plus d’informations sur les concepts généraux des domaines d’événement et sur ce qui fait leur utilité, consultez la [vue d’ensemble conceptuelle des domaines d’événement](event-domains.md).

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 8c669e13ec3345ff75024c54eda8c13ad194705a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2e254faae0289cd00c7e66d430ec3148fccb364a
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741128"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Didacticiel : Intégration d’Azure Active Directory à Confluence SAML SSO by Microsoft
 
@@ -65,9 +65,17 @@ Les versions suivantes de Confluence sont actuellement prises en charge :
 
 - Confluence : 5.0 à 5.10
 - Confluence : 6.0.1
+- Confluence : 6.1.1
 - Confluence : 6.2.1
+- Confluence : 6.3.4
+- Confluence : 6.4.0
+- Confluence : 6.5.0
 - Confluence : 6.6.2
+- Confluence : 6.7.0
 - Confluence : 6.8.1
+- Confluence : 6.9.0
+- Confluence : 6.10.0
+- Confluence : 6.11.0
 - Confluence : 6.12.0
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -144,7 +152,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Le port est facultatif s’il s’agit d’une URL nommée. Ces valeurs sont reçues durant la configuration du plug-in Confluence qui est décrite plus loin dans le didacticiel.
 
-5. Sur la page **Certificat de signature SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération de l’application** , puis collez-la dans le bloc-notes.
+5. Sur la page **Certificat de signature SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération de l’application** , puis collez-la dans le Bloc-notes.
 
     ![Lien Téléchargement de certificat](./media/confluencemicrosoft-tutorial/tutorial_metadataurl.png)
 
@@ -275,7 +283,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Confluence SAML SSO by Microsoft dans le volet d’accès, vous devez être connecté automatiquement à votre application Confluence SAML SSO by Microsoft.
-Pour plus d’informations concernant le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

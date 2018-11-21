@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 2f5c0ef63ba150fdad4aea1a0c65269611d56815
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247685"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616008"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -45,7 +45,7 @@ Si vous avez un service vidéo développé aujourd’hui sur la base des [API h�
 * Introduit le concept de [transformations](transforms-jobs-concept.md) pour le traitement de travaux basé sur fichier. Vous pouvez utiliser une transformation pour créer des configurations réutilisables, créer des modèles Azure Resource Manager, et isoler des paramètres de traitement entre plusieurs clients ou locataires.
 * Une ressource peut avoir [plusieurs StreamingLocators](streaming-locators-concept.md), chacun avec des paramètres différents d’empaquetage dynamique et de chiffrement dynamique.
 * La [protection du contenu](content-key-policy-concept.md) prend en charge les fonctionnalités à plusieurs clés.
-* Vous pouvez diffuser en continu des événements en direct durant jusqu’à 24 heures.
+* Vous pouvez diffuser en continu des événements en direct d’une durée maximale de 24 heures lorsque vous utilisez Media Services pour transcoder un flux de contribution à débit binaire unique en un flux de sortie à débits binaires multiples.
 * Nouvelle prise en charge du streaming en direct à faible latence d’événements LiveEvent.
 * L’aperçu LiveEvent prend en charge l’empaquetage dynamique et le chiffrement dynamique. Ceci permet la protection du contenu sur l’aperçu, ainsi que l’empaquetage DASH et HLS.
 * LiveOutput est plus simple à utiliser que l’entité Program dans les API v2. 
@@ -59,6 +59,7 @@ Si vous avez un service vidéo développé aujourd’hui sur la base des [API h�
 * Les kits de développement logiciel (SDK) v3 sont dissociés du Storage SDK, ce qui vous offre davantage de contrôle sur la version de SDK Stockage à utiliser, et évite les problèmes de gestion de version. 
 * Dans les API v3, toutes les vitesses d’encodage sont exprimées en bits par seconde. Ceci diffère des préréglages de Media Encoder Standard v2. Par exemple, un débit en bits dans v2 exprimé sous la forme 128 Kbits/s, sera exprimé dans v3 sous la forme 128000 (bits/seconde). 
 * Les entités AssetFiles, AccessPolicies et IngestManifests n’existent pas dans v3.
+* La propriété IAsset.ParentAssets n’existe pas dans la version 3.
 * ContentKey n’est plus une entité, mais une propriété du StreamingLocator.
 * La prise en charge de la grille d’événements remplace NotificationEndpoints.
 * Les entités suivantes ont été renommées :

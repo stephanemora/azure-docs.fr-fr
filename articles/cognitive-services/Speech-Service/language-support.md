@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: 5adc0e39c271b71d6c003eaba6cb5b8a71531bd7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471439"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622514"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Prise en charge de la région et de la langue pour l’API du service de reconnaissance vocale
 
@@ -160,7 +160,7 @@ La personnalisation vocale est disponible pour l’anglais américain (en-US), l
 
 ## <a name="speech-translation"></a>Traduction vocale
 
-L’API **Traduction vocale** prend en charge différentes langues pour la traduction de parole en parole et de parole en texte. La langue source doit toujours figurer dans le tableau des langues vocales suivant. Les langues cibles disponibles dépendent selon que cible de la traduction est de la parole ou du texte.
+L’API **Traduction vocale** prend en charge différentes langues pour la traduction de parole en parole et de parole en texte. La langue source doit toujours figurer dans le tableau des langues vocales suivant. Les langues cibles disponibles dépendent selon que cible de la traduction est de la parole ou du texte. Vous pouvez traduire les conversations entrantes dans plus de [60 langues](https://www.microsoft.com/translator/business/languages/). Un sous-ensemble de ces langues est disponible pour la [synthèse vocale](language-support.md#text-languages). 
 
 ### <a name="speech-languages"></a>Langues de synthèse vocale
 

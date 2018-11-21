@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c2e50362de48991c818017b59632be3b0e74cb0b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: adb53bb5722bff2374097626e8a3f1679ca00788
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282065"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633527"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -352,7 +352,7 @@ Les attributs d’appareil suivants peuvent être utilisés.
  deviceCategory | Un nom de catégorie d’appareil valide. | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Toute valeur de chaîne. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Toute valeur de chaîne. | (device.deviceModel -eq "iPad Air")
- deviceOwnership | Personnel, Entreprise, Inconnu | (device.deviceOwnership -eq "Company")
+ deviceOwnership | Personnel, Entreprise, Inconnu | (device.deviceOwnership -eq "Entreprise")
  domainName | Toute valeur de chaîne. | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Nom du profil d’inscription des appareils Apple ou du profil AutoPilot Windows | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)

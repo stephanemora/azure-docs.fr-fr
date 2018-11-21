@@ -1,6 +1,6 @@
 ---
-title: Utiliser Hadoop Hive avec PowerShell dans HDInsight - Azure
-description: Utilisez PowerShell pour exécuter des requêtes Hive dans Hadoop sur HDInsight.
+title: Utiliser Apache Hive avec PowerShell dans HDInsight - Azure
+description: Utilisez PowerShell pour exécuter des requêtes Hive dans Apache Hadoop sur HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e02f6b17dff93ce2df1f06ad9681e3086c35300c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257865"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633109"
 ---
-# <a name="run-hive-queries-using-powershell"></a>Exécution de requêtes Hive avec PowerShell
+# <a name="run-apache-hive-queries-using-powershell"></a>Exécuter des requêtes Apache Hive avec PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mode Groupe de ressources Azure pour exécuter des requêtes Hive sur un cluster Hadoop sur HDInsight.
+Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mode Groupe de ressources Azure pour exécuter des requêtes Hive sur un cluster Apache Hadoop sur HDInsight.
 
 > [!NOTE]
 > Ce document ne fournit pas de description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez la page [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
+* Un cluster Apache Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 
   > [!IMPORTANT]
   > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

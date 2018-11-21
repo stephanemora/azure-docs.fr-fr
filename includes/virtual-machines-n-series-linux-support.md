@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 11/08/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: dc03f49a684bfeb43ffd8bac9f551a67f034a04f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c829b8d6fedaabfb9b43c6352c8188128cf36701
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042875"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51333753"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributions et pilotes pris en charge
 
@@ -30,13 +30,11 @@ Les pilotes CUDA NVIDIA pour les machines virtuelles des séries NC, NCv2, NCv3 
 
 ### <a name="nvidia-grid-drivers"></a>Pilotes NVIDIA GRID
 
-Microsoft redistribue les programmes d’installation du pilote GRID NVIDIA pour les machines virtuelles de série NV et NVv2 utilisées comme stations de travail virtuelles ou pour les applications virtuelles. Installez uniquement ces pilotes GRID sur des machines virtuelles Azure NV, et uniquement sur les distributions répertoriées dans le tableau suivant. Ces pilotes incluent les licences des logiciels GRID Virtual GPU dans Azure.
+Microsoft redistribue les programmes d’installation du pilote GRID NVIDIA pour les machines virtuelles de série NV et NVv2 utilisées comme stations de travail virtuelles ou pour les applications virtuelles. Installez uniquement ces pilotes GRID sur des machines virtuelles Azure NV, et uniquement sur les systèmes d’exploitation répertoriés dans le tableau suivant. Ces pilotes incluent les licences des logiciels GRID Virtual GPU dans Azure. Vous n’avez pas besoin de configurer un serveur de licences logicielles NVIDIA vGPU.
 
 | Distribution | Pilote |
 | --- | -- |
 | Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/>Basé sur CentOS 7.3 ou 7.4 | NVIDIA GRID 6.2, branche pilote R390|
-
-
 
 > [!WARNING] 
 > L’installation de logiciels tiers sur des produits Red Hat peut affecter les conditions de prise en charge de Red Hat. Consultez l’[article de la Base de connaissances Red Hat](https://access.redhat.com/articles/1067).

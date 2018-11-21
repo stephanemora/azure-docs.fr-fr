@@ -1,6 +1,6 @@
 ---
-title: Utiliser Hadoop Pig et le Bureau à distance dans HDInsight - Azure
-description: Apprenez à utiliser la commande Pig pour exécuter les instructions Pig Latin à partir d'une connexion Bureau à distance vers un cluster Windows Hadoop sur HDInsight.
+title: Utiliser Apache Pig et le Bureau à distance dans HDInsight - Azure
+description: Apprenez à utiliser la commande Pig pour exécuter les instructions Apache Pig Latin à partir d'une connexion Bureau à distance vers un cluster Windows Apache Hadoop sur HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a7dff2c44b7cc8ccd921d2371666cb19acffbb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007227"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633340"
 ---
-# <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Exécution de tâches Pig depuis une connexion Bureau à distance
+# <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>Exécution de tâches Apache Pig depuis une connexion Bureau à distance
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Ce document fournit une procédure pas à pas de l'utilisation de la commande Pig pour exécuter les instructions Pig Latin à partir d'une connexion Bureau à distance vers un cluster HDInsight Windows. Pig Latin permet de créer des applications MapReduce en décrivant les transformations de données, plutôt que de mapper et de réduire les fonctions.
+Ce document fournit une procédure pas à pas de l’utilisation de la commande Apache Pig pour exécuter les instructions Pig Latin à partir d’une connexion Bureau à distance vers un cluster HDInsight Windows. Pig Latin permet de créer des applications MapReduce en décrivant les transformations de données, plutôt que de mapper et de réduire les fonctions.
 
 > [!IMPORTANT]
 > Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

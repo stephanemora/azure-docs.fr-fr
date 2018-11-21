@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962382"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344972"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -44,11 +44,11 @@ Si vous le souhaitez, vous pouvez également appliquer un **filtrage dynamique**
 
 La dernière version a fait l’objet des améliorations suivantes.
 
-- Nouveau mode de faible latence pour le direct (10 secondes de bout en bout).
+- Nouveau mode de latence faible. Pour plus d’informations, consultez [latence](#latency).
 - Prise en charge améliorée de RTMP (stabilité accrue et meilleure prise en charge de l’encodeur source).
 - Ingestion sécurisée RTMPS.
 
-    Quand vous créez un événement en direct, vous obtenez maintenant 4 URL d’ingestion. Les 4 URL d’ingestion sont presque identiques, ont le même jeton de streaming (AppId) ; seule la partie du numéro de port est différente. Il existe deux URL principales et de secours pour RTMPS.   
+    Quand vous créez un événement en direct, vous obtenez 4 URL d’ingestion. Les 4 URL d’ingestion sont presque identiques, ont le même jeton de streaming (AppId) ; seule la partie du numéro de port est différente. Il existe deux URL principales et de secours pour RTMPS.   
 - Prise en charge d’un transcodage de 24 heures. 
 - Prise en charge améliorée de la signalisation des annonces dans RTMP via SCTE35.
 
@@ -82,7 +82,7 @@ Lorsque vous créez ce type d’événement en temps réel, spécifiez le param�
 
 Le tableau suivant compare les fonctionnalités des deux types d’événements en temps réel.
 
-| Fonctionnalité | Événement en temps réel à transmission directe | Événement en temps réel de base |
+| Fonctionnalité | Événement en temps réel à transmission directe | Événement en temps réel standard |
 | --- | --- | --- |
 | L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud |Non  |Oui |
 | Résolution maximale, nombre de couches |4Kp30  |720p, 6 couches, 30 i/s |
@@ -94,7 +94,7 @@ Le tableau suivant compare les fonctionnalités des deux types d’événements 
 | Prise en charge de la signalisation des annonces via le protocole SCTE35 intrabande|Oui |Oui |
 | Légendes CEA 608/708 pass-through |Oui |Oui |
 | Capacité de récupération suite à de brèves interruptions du flux de contribution |Oui |Non (défaillance de l’événement en temps réel après plus de six secondes sans données d’entrée)|
-| Prise en charge des groupes d’images d’entrée non uniformes |Oui |Non. L’entrée doit être constituée de groupes d’images fixes de 2 secondes |
+| Prise en charge des groupes d’images d’entrée non uniformes |Oui |Non. L’entrée doit être constituée de groupes d’images fixes de 2 secondes |
 | Prise en charge de l’entrée à fréquence d’images variable |Oui |Non. L’entrée doit avoir une fréquence d’images fixe.<br/>Les variations mineures sont tolérées, par exemple pendant les scènes à mouvement élevé. Cependant, l’encodeur ne doit pas descendre à 10 images par seconde. |
 | Auto-fermeture des événements en temps réel en cas de perte du flux d’entrée |Non  |Après 12 heures si aucune sortie en temps réel n’est en cours d’exécution |
 
@@ -126,6 +126,20 @@ Un événement en temps réel prend en charge jusqu’à trois sorties en temps 
 Une fois que le flux transite dans l’événement en temps réel, vous pouvez commencer l’événement de streaming en créant une ressource, une sortie en temps réel et un localisateur de streaming. Le flux est alors archivé et mis à la disposition des utilisateurs via le [point de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
 Une fois votre compte Media Services créé, un point de terminaison de streaming par défaut est ajouté à votre compte à l’état Arrêté. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état En cours d’exécution.
+
+## <a name="latency"></a>Latence
+
+Cette section traite des résultats typiques que vous obtenez lorsque vous utilisez les paramètres de faible latence et différents lecteurs. Les résultats varient en fonction de la latence réseau et du CDN.
+
+Pour utiliser la nouvelle fonction LowLatency, vous pouvez définir le paramètre **StreamOptionsFlag** sur **LowLatency** dans le LiveEvent. Une fois que le flux de données est opérationnel et actif, vous pouvez ouvrir la page de démonstration du [lecteur multimédia Azure](http://ampdemo.azureedge.net/) et configurez les options de lecture afin d’utiliser le profil heuristique à faible latence (« Low Latency Heuristics Profile »).
+
+### <a name="pass-through-liveevents"></a>Événements en temps réel à transmission directe
+
+||GOP 2 s à faible latence|GOP 1 s à faible latence|
+|---|---|---|
+|DASH dans AMP|10 s|8 s|
+|HLS sur lecteur iOS natif|14 s|10 s|
+|HLS.JS dans le lecteur Mixer|30 s|16 s|
 
 ## <a name="billing"></a>Facturation
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fa5b5e1998d54c7b22d01e7cc70e84059d482cfb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279707"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623544"
 ---
 # <a name="edit-a-knowledge-base"></a>Modifier une base de connaissances
 
@@ -29,30 +29,25 @@ QnA Maker vous permet de gérer le contenu de votre base de connaissances en fou
 
     ![Mes bases de connaissances](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
-2. Sélectionnez une base de connaissances particulière pour y apporter des modifications.
+1. Sélectionnez une base de connaissances particulière pour y apporter des modifications.
  
-3. Cliquez sur **Paramètres**.
-
-   Ici, vous pouvez modifier le champ obligatoire Nom du service.
+1. Sélectionnez **Paramètres**. Ici, vous pouvez modifier le champ obligatoire Nom du service.
   
-   Vous pouvez ajouter de nouvelles URL pour ajouter du nouveau contenu de FAQ à la base de connaissances en cliquant sur le lien **Gérer la base de connaissances -> « + Ajouter une URL »**.
-   
-   Vous pouvez supprimer des URL existantes en cliquant sur l’**icône de suppression**.
-   
-   Si vous souhaitez que la base de connaissances analyse le contenu le plus récent des URL existantes, cochez la case **Refresh** (Actualiser) afin de mettre à jour la base de connaissances avec le contenu d’URL le plus récent.
-   
-Vous pouvez ajouter un document pris en charge pour qu’il fasse partie de la base de connaissances en cliquant sur **Manage knowledgebase -> Add File** (Gérer la base de connaissances -> + Ajouter un fichier).
+    |Objectif|Action|
+    |--|--|
+    |Ajouter une URL|Vous pouvez ajouter de nouvelles URL pour ajouter du nouveau contenu de FAQ à la base de connaissances en cliquant sur le lien **Manage knowledge base -> '+ Add URL'** (Gérer la base de connaissances -> « + Ajouter une URL »).|
+    |Supprimer une URL|Vous pouvez supprimer des URL existantes en sélectionnant l’icône supprimer, la corbeille.|
+    |Actualiser le contenu de l’URL|Si vous souhaitez que la base de connaissances analyse le contenu le plus récent des URL existantes, cochez la case **Refresh** (Actualiser). Cela met à jour la base de connaissances avec le contenu d’URL le plus récent.|
+    |Ajouter un fichier|Vous pouvez ajouter un document pris en charge pour qu’il fasse partie de la base de connaissances en sélectionnant **Manage knowledge base** (Gérer la base de connaissance), puis -> **+ Add File** (+ Ajouter un fichier).|
+    |Importer|Vous pouvez également importer n’importe quelle base de connaissances existante en sélectionnant le bouton **Import Knowledgebase** (Importer la base de connaissances). |
+    |Mettre à jour|La mise à jour de la base de connaissances dépend du **niveau tarifaire de gestion** utilisé lors de la création du service QnA Maker associé à votre base de connaissances. Vous pouvez également mettre à jour le niveau de gestion à partir du portail Azure si nécessaire.
 
-Vous pouvez également importer n’importe quelle base de connaissances existante en cliquant sur le bouton **Import Knowledgebase** (Importer la base de connaissances). 
-   
-La mise à jour de la base de connaissances dépend du **niveau tarifaire de gestion** utilisé lors de la création du service QnA Maker associé à votre base de connaissances. Vous pouvez également mettre à jour le niveau de gestion à partir du portail Azure si nécessaire.
-
-4. Une fois que vous avez terminé d’apporter des modifications à la base de connaissances, cliquez sur **Save and train** (Enregistrer et former) dans le coin supérieur droit de la page afin de conserver les modifications.    
+1. Une fois que vous avez fini d’apporter des modifications à la base de connaissances, sélectionnez **Save and train** (Enregistrer et former) dans le coin supérieur droit de la page afin de conserver les modifications.    
 
     ![Enregistrer et former](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
-    >[!NOTE]
-    Quitter la page avant de cliquer sur Save and train (Enregistrer et former) ne conserve pas les modifications.
+    >[!CAUTION]
+    >Si vous quittez la page avant de sélectionner **Save and train** (Enregistrer et former), toutes les modifications seront perdues.
 
 ## <a name="add-a-qna-pair"></a>Ajouter une paire QnA
 
@@ -62,7 +57,7 @@ Sélectionnez **Add QnA pair** (Ajouter une paire QnA) pour ajouter une nouvelle
 
 ## <a name="delete-a-qna-pair"></a>Supprimer une paire QnA
 
-Pour supprimer un QnA, cliquez sur l’icône **Supprimer** à l’extrême droite de la ligne QnA.
+Pour supprimer un QnA, cliquez sur l’icône **Supprimer** à l’extrême droite de la ligne QnA. Il s’agit d’une opération définitive. Elle ne peut pas être annulée. Envisagez d’exporter votre base de connaissances à partir de la page **Publier** avant de supprimer des paires. 
 
 ![Supprimer une paire QnA](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -95,6 +90,10 @@ Ajouter des paires de métadonnées en sélectionnant l’icône de filtre
 La suppression d’une base de connaissances (KB) est une opération définitive. Elle ne peut pas être annulée. Avant de supprimer une base de connaissances, exportez-la à partir de la page **Paramètres** page du portail QnA Maker. 
 
 Si vous partagez votre base de connaissances avec d’autres [collaborateurs](collaborate-knowledge-base.md) puis que vous la supprimez, tous les utilisateurs perdent l’accès à cette base de connaissances. 
+
+## <a name="delete-azure-resources"></a>Supprimer les ressources Azure 
+
+Si vous supprimez l’une des ressources Azure utilisées pour vos bases de connaissances QnA Maker, celles-ci ne fonctionneront plus. Avant de supprimer des ressources, veillez à exporter vos bases de connaissances à partir de la page **Paramètres**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

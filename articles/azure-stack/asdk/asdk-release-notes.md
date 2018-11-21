@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 8e8518cdf95e1b97bd4b641322c1b2a3fdc3bf9e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282456"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515758"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK  
 Cet article fournit des informations sur des améliorations, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,7 +46,7 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
 <!-- TBD - IS ASDK --> 
 - Le problème a été résolu, dans lequel le portail affichait un nombre incorrect de disques de données que vous pouvez attacher à une machine virtuelle de la série DS lorsque vous créez des machines virtuelles sur le portail utilisateur Azure Stack. Les machines virtuelles de série DS peuvent prendre en charge autant de disques de données que la configuration Azure.
 
-- Les problèmes de disque managé suivants ont été corrigés dans 1809 ainsi que dans 1808 [Correctif Azure Stack 1.1808.5.110](https://support.microsoft.com/help/4468920/) : 
+- Les problèmes de disque managé suivants ont été corrigés dans la mise à jour 1809 ainsi que dans la mise à jour 1808 [Correctif Azure Stack 1.1808.7.113](https://support.microsoft.com/help/4471992/) : 
 
    <!--  2966665 – IS, ASDK --> 
    - Le problème a été résolu, dans lequel l’attachement de disques de données SSD à des machines virtuelles avec des disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échouait avec une erreur : *Échec de la mise à jour des disques pour la machine virtuelle ’vmname’ Erreur : l’opération demandée ne peut pas être effectuée, car le type de compte de stockage ’Premium_LRS’ n’est pas pris en charge pour la taille de machine virtuelle ’Standard_DS/Ds_V2/FS/Fs_v2)’*. 
@@ -59,6 +59,16 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
 - <!-- 2702741 -  IS, ASDK --> Problème résolu de la conservation des adresses IP publiques déployées à l’aide de la méthode d’allocation dynamique qui n’était pas garantie après l’émission d’une commande d’arrêt/libération. Elles sont désormais conservées.
 
 - <!-- 3078022 - IS, ASDK --> Si une machine virtuelle était arrêtée/libérée avant la mise à jour 1808, il n’était pas possible de la réallouer après cette mise à jour.  Ce problème a été résolu dans la mise à jour 1809. Grâce à ce correctif introduit dans la mise à jour 1809, les instances qui se trouvaient dans cet état empêchant leur démarrage peuvent désormais être démarrées. Le correctif empêche également que ce problème se reproduise.
+
+<!-- 3090289 – IS, ASDK --> 
+- Après avoir appliqué la mise à jour 1808 qui corrige une erreur, vous rencontrerez peut-être les problèmes suivants lors du déploiement de machines virtuelles avec le service Managed Disks :
+
+   1. Si l’abonnement a été créé avant la mise à jour 1808, le déploiement de machines virtuelles avec Managed Disks peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes pour chaque abonnement :
+      1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
+      2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack – Managed Disks** est répertorié.
+   2. Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes :
+      1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4471992).
+      2. Effectuez les étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) pour reconfigurer chacun de vos annuaires invités.
 
 - **Divers correctifs** pour les performances, la stabilité, la sécurité et le système d’exploitation utilisé par Azure Stack
 
@@ -100,24 +110,14 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
 
 #### <a name="compute"></a>Calcul 
 
-<!-- TBD – IS, ASDK -->
-- Le rattachement d’un disque détaché à la même machine virtuelle (VM) portant le même nom et numéro d’unité logique échoue et affiche une erreur de type **Impossible d’attacher le disque de données « datadisk » à la machine virtuelle « vm1 »**. Cette erreur se produit en raison du fait que le disque est en cours de détachement ou que la dernière opération de détachement a échoué. Veuillez attendre que le disque soit complètement détaché, puis réessayez ou supprimez/détachez explicitement le disque une nouvelle fois. La solution de contournement consiste à le rattacher en utilisant un nom ou un numéro d’unité logique différent. 
+<!-- 3164607 – IS, ASDK -->
+- Le rattachement d’un disque détaché à la même machine virtuelle (VM) avec les mêmes nom et numéro d’unité logique échoue et affiche une erreur de type **Impossible d’attacher le disque de données « datadisk » à la machine virtuelle « vm1 »**. Cette erreur est due au fait que le disque est en cours de détachement ou que la dernière opération de détachement a échoué. Veuillez attendre que le disque soit complètement détaché, puis réessayez ou supprimez/détachez explicitement le disque une nouvelle fois. La solution de contournement consiste à le rattacher en utilisant un nom ou un numéro d’unité logique différent. 
 
 <!-- 3235634 – IS, ASDK -->
 - Pour déployer des machines virtuelles avec des tailles contenant un suffixe **v2** ; par exemple, **Standard_A2_v2**, spécifiez le suffixe sous la forme **Standard_A2_v2** (v minuscule). N’utilisez pas **Standard_A2_V2** (V majuscule). Cette méthode fonctionne dans Azure global et constitue une incohérence sur Azure Stack.
 
 <!-- 3099544 – IS, ASDK --> 
 - Quand vous créez une machine virtuelle à l’aide du portail Azure Stack et sélectionnez la taille de machine virtuelle, la colonne EUR/mois s’affiche avec le message **Indisponible**. Cette colonne ne devrait pas s’afficher, car l’affichage de la colonne des prix des machines virtuelles n’est pas pris en charge dans Azure Stack.
-
-<!-- 3090289 – IS, ASDK --> 
-- Après avoir appliqué la mise à jour 1808, vous rencontrerez peut-être les problèmes suivants lors du déploiement de machines virtuelles avec le service Managed Disks :
-
-   1. Si l’abonnement a été créé avant la mise à jour 1808, le déploiement de machines virtuelles avec Managed Disks peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes pour chaque abonnement :
-      1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
-      2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack – Managed Disks** est répertorié.
-   2. Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes :
-      1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4468920).
-      2. Effectuez les étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) pour reconfigurer chacun de vos annuaires invités.
 
 <!-- 2869209 – IS, ASDK --> 
 - Quand vous utilisez [l’applet de commande **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, la cmdlet échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état 'Failed'*. 

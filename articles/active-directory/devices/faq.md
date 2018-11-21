@@ -15,37 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144818"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515639"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
-**Q : Puis-je inscrire des appareils BYOD Android ou iOS ?**
-
-**R :** Oui, mais seulement avec le service d’inscription d’appareils d’Azure et seulement pour les clients hybrides. Cette inscription n’est pas prise en charge par le service local d’inscription d’appareils d’AD FS.
-
-**Q : Comment puis-je inscrire un appareil macOS ?**
-
-**R :** Pour inscrire un appareil macOS :
-
-1.  [Créez une stratégie de conformité](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [Définissez une stratégie d’accès conditionnel pour les appareils macOS](../active-directory-conditional-access-azure-portal.md) 
-
-**Remarques :**
-
-- Les utilisateurs qui sont inclus dans votre stratégie d’accès conditionnel ont besoin d’une [version d’Office pour macOS prise en charge](../conditional-access/technical-reference.md#client-apps-condition) pour accéder aux ressources. 
-
-- Lors de la première tentative d’accès, vos utilisateurs sont invités à inscrire l’appareil par l’intermédiaire du portail d’entreprise.
-
----
-
-**Q : J’ai enregistré récemment l’appareil. Pourquoi ne puis-je pas voir l’appareil sous mes informations d’utilisateur dans le portail Azure ?**
-
-**R :** Les appareils Windows 10 qui sont joints à Azure AD hybride ne s’affichent pas en tant qu’appareils UTILISATEUR.
+**Q : J’ai enregistré récemment l’appareil. Pourquoi ne puis-je pas voir l’appareil sous mes informations d’utilisateur dans le portail Azure ? Ou : Pourquoi le propriétaire de l’appareil est-il marqué N/A pour les appareils hybrides Azure AD joints  ?**
+**R :** Les appareils Windows 10 qui sont joints à Azure AD hybride ne s’affichent pas en tant qu’appareils UTILISATEUR.
 Vous devez utiliser la vue Tous les appareils dans le portail Azure. Vous pouvez également utiliser la cmdlet PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 Seuls les appareils suivants sont répertoriés en tant qu’appareils UTILISATEUR :
@@ -58,12 +38,16 @@ Seuls les appareils suivants sont répertoriés en tant qu’appareils UTILISATE
 
 **Q : Comment puis-je connaître l’état de l’inscription d’appareils du client ?**
 
-**R :** Vous pouvez utiliser le portail Azure, accéder à Tous les appareils et rechercher l’appareil à l’aide de son ID. Vérifiez la valeur dans la colonne de type de jointure.
-
-Si vous souhaitez vérifier l’état de l’inscription de l’appareil local à partir d’un appareil inscrit :
+**R :** Vous pouvez utiliser le portail Azure, accéder à Tous les appareils et rechercher l’appareil à l’aide de son ID. Vérifiez la valeur dans la colonne de type de jointure. Parfois, l’appareil peut avoir été réinitialisé ou reconfiguré. Il est donc essentiel de vérifier également l’état d’enregistrement de l’appareil sur l’appareil :
 
 - Pour les appareils Windows 10 et Windows Server 2016 ou versions ultérieures, exécutez dsregcmd.exe /status.
 - Pour les versions de système d’exploitation de niveau inférieur, exécutez « %programFiles%\Microsoft Workplace Join\autoworkplace.exe »
+
+---
+
+**Q : Je vois l’enregistrement d’appareil sous les informations UTILISATEUR dans le portail Azure, ainsi que l’état Inscrit sur l’appareil. Ma configuration est-elle correcte pour l’utilisation de l’accès conditionnel ?**
+
+**R :** L’état de jointure de l’appareil, reflété par l’ID d’appareil, doit correspondre à celui d’Azure AD et répondre à tous les critères d’évaluation pour l’accès conditionnel. Pour plus d’informations, consultez [Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -88,25 +72,6 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 3.  Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-**Q : Comment disjoindre un appareil joint à Azure AD localement sur l’appareil ?**
-
-**R :** 
-- Pour les appareils joints à Azure AD hybride, veillez à désactiver l’inscription automatique afin que la tâche planifiée n’inscrive pas à nouveau l’appareil. Ensuite, ouvrez une invite de commandes en tant qu’administrateur et saisissez `dsregcmd.exe /debug /leave`. Cette commande peut également être exécutée en tant que script entre plusieurs appareils pour disjoindre en bloc.
-
-- Pour les appareils uniquement joints à Azure AD, assurez-vous d’avoir un administrateur local en mode hors connexion de compte ou créez-en un, car vous ne pourrez pas vous connecter avec des informations d’identification d’utilisateur Azure AD. Ensuite, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez votre compte et cliquez sur **Se déconnecter**. Suivez les invites et fournissez les informations d’identification de l’administrateur local lorsque vous y êtes invité. Redémarrez l’appareil pour terminer le processus de disjonction.
-
----
-
-**Q : Mes utilisateurs ne peuvent pas rechercher d’imprimantes à partir d’appareils joints à Azure AD. Comment activer l’impression à partir d’appareils joints à Azure AD ?**
-
-**R :** Pour le déploiement d’imprimantes pour les appareils joints à Azure AD, consultez [Impression cloud hybride](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
-
----
-
-**Q : Comment puis-je me connecter à un appareil distant joint à Azure AD?**
-**R :** Pour le savoir, consultez l’article https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc.
-
----
 
 **Q : Pourquoi le portail Azure affiche-t-il des entrées d’appareils dupliquées ?**
 
@@ -128,7 +93,27 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 >[!Note] 
 >Pour les appareils inscrits, nous vous recommandons de réinitialiser l’appareil pour vous assurer que les utilisateurs ne puissent pas accéder aux ressources. Pour plus d’informations, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+---
 
+# <a name="azure-ad-join-faq"></a>FAQ Azure AD Join
+
+**Q : Comment disjoindre un appareil joint à Azure AD localement sur l’appareil ?**
+
+**R :** 
+- Pour les appareils joints à Azure AD hybride, veillez à désactiver l’inscription automatique afin que la tâche planifiée n’inscrive pas à nouveau l’appareil. Ensuite, ouvrez une invite de commandes en tant qu’administrateur et saisissez `dsregcmd.exe /debug /leave`. Cette commande peut également être exécutée en tant que script entre plusieurs appareils pour disjoindre en bloc.
+
+- Pour les appareils uniquement joints à Azure AD, assurez-vous d’avoir un administrateur local en mode hors connexion de compte ou créez-en un, car vous ne pourrez pas vous connecter avec des informations d’identification d’utilisateur Azure AD. Ensuite, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez votre compte et cliquez sur **Se déconnecter**. Suivez les invites et fournissez les informations d’identification de l’administrateur local lorsque vous y êtes invité. Redémarrez l’appareil pour terminer le processus de disjonction.
+
+---
+
+**Q : Mes utilisateurs ne peuvent pas rechercher d’imprimantes à partir d’appareils joints à Azure AD. Comment activer l’impression à partir d’appareils joints à Azure AD ?**
+
+**R :** Pour le déploiement d’imprimantes pour les appareils joints à Azure AD, consultez [Impression cloud hybride](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
+
+---
+
+**Q : Comment puis-je me connecter à un appareil distant joint à Azure AD?**
+**R :** Pour le savoir, consultez l’article https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc.
 
 ---
 
@@ -144,12 +129,6 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 ---
 
-**Q : Je vois l’enregistrement d’appareil sous les informations UTILISATEUR dans le portail Azure, ainsi que l’état Inscrit sur l’appareil. Ma configuration est-elle correcte pour l’utilisation de l’accès conditionnel ?**
-
-**R :** L’état de jointure de l’appareil, reflété par l’ID d’appareil, doit correspondre à celui d’Azure AD et répondre à tous les critères d’évaluation pour l’accès conditionnel. Pour plus d’informations, consultez [Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel](../conditional-access/require-managed-devices.md).
-
----
-
 **Q : Pourquoi est-ce que je reçois le message « nom d’utilisateur ou mot de passe incorrect » pour un appareil que je viens juste de joindre à Azure AD ?**
 
 **R :** Les raisons les plus courantes sont les suivantes :
@@ -158,7 +137,7 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 - Votre ordinateur n’est pas en mesure de communiquer avec Azure Active Directory. Vérifiez les éventuels problèmes de connectivité réseau.
 
-- Les connexions fédérées nécessitent que votre serveur de fédération prenne en charge un point de terminaison WS-Trust actif. 
+- Les connexions fédérées nécessitent que votre serveur de fédération prenne en charge des points de terminaison WS-Trust activés et accessibles. 
 
 - Vous avez activé l’authentification directe et l’utilisateur a un mot de passe temporaire qui doit être modifié à l’ouverture de session.
 
@@ -170,14 +149,15 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 ---
 
-**Q : Pourquoi ma tentative d’inscription d’un ordinateur a-t-elle échoué alors que je n’ai reçu aucune information d’erreur ?**
+**Q : Pourquoi ma tentative d’inscription Azure AD d’un ordinateur a-t-elle échoué alors que je n’ai reçu aucune information d’erreur ?**
 
 **R :** Une cause possible est que l’utilisateur est connecté à l’appareil à l’aide du compte administrateur local intégré. Créez un compte local distinct avant d’utiliser Azure Active Directory Join pour terminer la configuration. 
 
-
 ---
 
-**Q : Où puis-je trouver des informations de résolution des problèmes concernant l’inscription d’appareils automatique ?**
+# <a name="hybrid-azure-ad-join-faq"></a>FAQ sur les jointures Azure AD hybrides
+
+**Q : Où puis-je trouver des informations de résolution des problèmes concernant le diagnostic d’échecs de jointures AD ?**
 
 **R :** Pour obtenir des informations de résolution des problèmes, consultez :
 
@@ -188,3 +168,23 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 ---
 
+# <a name="azure-ad-register-faq"></a>FAQ sur les inscriptions Azure AD
+
+**Q : Puis-je inscrire des appareils BYOD Android ou iOS ?**
+
+**R :** Oui, mais seulement avec le service d’inscription d’appareils d’Azure et seulement pour les clients hybrides. Cette inscription n’est pas prise en charge par le service local d’inscription d’appareils d’AD FS.
+
+**Q : Comment puis-je inscrire un appareil macOS ?**
+
+**R :** Pour inscrire un appareil macOS :
+
+1.  [Créez une stratégie de conformité](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [Définissez une stratégie d’accès conditionnel pour les appareils macOS](../active-directory-conditional-access-azure-portal.md) 
+
+**Remarques :**
+
+- Les utilisateurs qui sont inclus dans votre stratégie d’accès conditionnel ont besoin d’une [version d’Office pour macOS prise en charge](../conditional-access/technical-reference.md#client-apps-condition) pour accéder aux ressources. 
+
+- Lors de la première tentative d’accès, vos utilisateurs sont invités à inscrire l’appareil par l’intermédiaire du portail d’entreprise.
+
+---

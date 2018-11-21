@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: b180acfb74f503447212044f0b6be5589e2dd452
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 76d472ff75f66973b3e680d8a30d7691c1cd36dc
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158787"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622565"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises prévoient d’utiliser le Centre de sécurité Azure.
@@ -126,7 +126,7 @@ Une stratégie de sécurité définit la configuration souhaitée de vos charges
 
 Les stratégies Security Center comprennent les composants suivant :
 - [Collecte des données](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) : paramètres de l’approvisionnement d’agent et de la collecte de données.
-- [Stratégie de sécurité](https://docs.microsoft.com/azure/security-center/security-center-policies) : [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) qui détermine les contrôles surveillés et recommandés par Security Center. Vous pouvez aussi utiliser une stratégie Azure pour créer des définitions, définir des stratégies supplémentaires et assigner des stratégies à des groupes d’administration.
+- [Stratégie de sécurité](https://docs.microsoft.com/azure/security-center/security-center-policies) : [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) qui détermine les contrôles surveillés et recommandés par Security Center. Vous pouvez aussi utiliser une stratégie Azure pour créer des définitions, définir des stratégies supplémentaires et assigner des stratégies à des groupes d’administration.
 - [Notifications par e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) : paramètres des contacts de sécurité et des notifications.
 - [Niveau de tarification](https://docs.microsoft.com/azure/security-center/security-center-pricing) : sélection de tarification gratuite ou standard, qui détermine les fonctionnalités Security Center disponibles pour les ressources visées (à spécifier pour les abonnements, les groupes de ressources et les espaces de travail).
 
@@ -162,7 +162,7 @@ Les données collectées à partir de Microsoft Monitoring Agent (pour le compte
 Dans le portail Azure, vous pouvez parcourir le contenu pour afficher la liste de vos espaces de travail Log Analytics, y compris ceux créés par Azure Security Center. Un groupe de ressources associées sera créé pour les nouveaux espaces de travail. Les deux respecteront la convention d’affectation de noms suivante : 
 
 * Espace de travail : *DefaultWorkspace-[ID d’abonnement]-[zone géographique]*
-* Groupe de ressources : *DefaultResouceGroup-[zone géographique]*
+* Groupe de ressources : *DefaultResourceGroup-[geo]*
 
 Pour les espaces de travail créés par Azure Security Center, les données sont conservées pendant 30 jours. Pour les espaces de travail existants, la rétention dépend du niveau tarifaire de l’espace de travail. Si vous le souhaitez, vous pouvez aussi utiliser un espace de travail existant.
 
@@ -262,5 +262,5 @@ Dans ce document, vous avez vu comment planifier l’adoption du Centre de sécu
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
 * [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
-* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
+* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 

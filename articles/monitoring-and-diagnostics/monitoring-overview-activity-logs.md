@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f69a7f5e7aef4da798ec7c9ce3b7af3a456c00e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006020"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613356"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Surveiller l’activité d’abonnement avec le journal d’activité Azure
 
@@ -33,7 +33,7 @@ Le journal d’activité est différent des [journaux de diagnostic](monitoring-
 Vous pouvez extraire des événements de votre journal d’activité à l’aide du portail Azure, de l’interface de ligne de commande, des applets de commande PowerShell et de l’API REST Azure Monitor.
 
 > [!NOTE]
->  Les [alertes les plus récentes](monitoring-overview-unified-alerts.md) offrent actuellement une expérience améliorée de création et de gestion des règles d’alerte du journal d’activité.  [Plus d’informations](alert-activity-log.md)
+> Les [alertes les plus récentes](monitoring-overview-alerts.md) offrent actuellement une expérience améliorée de création et de gestion des règles d’alerte du journal d’activité.  [Plus d’informations](alert-activity-log.md)
 
 
 ## <a name="categories-in-the-activity-log"></a>Catégories dans le journal d’activité

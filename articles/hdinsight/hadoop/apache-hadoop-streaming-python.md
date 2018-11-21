@@ -1,29 +1,29 @@
 ---
 title: Développer des travaux MapReduce de streaming Python avec HDInsight - Azure
-description: Découvrez comment utiliser Python dans des travaux MapReduce de diffusion en continu. Hadoop fournit une API de diffusion en continu pour MapReduce pour l’écriture dans des langages autres que Java.
+description: Découvrez comment utiliser Python dans des travaux MapReduce de diffusion en continu. Apache Hadoop fournit une API de streaming pour MapReduce pour l’écriture dans des langages autres que Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
-ms.openlocfilehash: 8e2d13e0d9e51855bc8945db61c78a2fec736c33
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041708"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634020"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Développer des programmes MapReduce de diffusion en continu Python pour HDInsight
 
-Découvrez comment utiliser Python dans des opérations MapReduce de diffusion en continu. Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'écrire des fonctions de mappage et de réduction dans d'autres langages que Java. Les étapes décrites dans ce document implémentent les composants de mappage et de réduction dans Python.
+Découvrez comment utiliser Python dans des opérations MapReduce de diffusion en continu. Apache Hadoop fournit une API de streaming pour MapReduce qui vous permet d’écrire des fonctions de mappage et de réduction dans d’autres langages que Java. Les étapes décrites dans ce document implémentent les composants de mappage et de réduction dans Python.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Hadoop Linux sur HDInsight
+* Un cluster Apache Hadoop Linux sur HDInsight
 
   > [!IMPORTANT]
   > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -145,7 +145,7 @@ Utilisez le script PowerShell suivant pour charger les fichiers, exécuter la t�
     Avec cette commande, les fichiers du système local sont copiés dans le nœud principal.
 
     > [!NOTE]
-    > Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous êtes invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
+    > Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous êtes invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Connectez-vous au cluster à l’aide de SSH :
 

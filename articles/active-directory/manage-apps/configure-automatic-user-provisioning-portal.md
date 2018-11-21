@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 11/13/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13ce1a7c9008a7893892e5d7e6b67a243c381c9f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349141"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622004"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le portail Azure
-Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour gérer l’approvisionnement et l’annulation de l’approvisionnement automatiques de comptes d’utilisateur pour les applications qui les prennent en charge, en particulier celles qui ont été ajoutées depuis la catégorie « Sélection » de la [galerie d’applications Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Pour en savoir plus sur l’approvisionnement automatique de comptes d’utilisateur, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](user-provisioning.md).
+Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour gérer l’approvisionnement et l’annulation de l’approvisionnement automatiques de comptes d’utilisateur pour les applications qui les prennent en charge. Pour en savoir plus sur l’approvisionnement automatique de comptes d’utilisateur, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Recherche de vos applications dans le portail
-Toutes les applications configurées pour une l’authentification unique dans un répertoire par un administrateur d’annuaire à l’aide de la [Galerie d’applications Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery) peuvent être affichées et gérées dans le [portail Azure](https://portal.azure.com). Les applications figurent dans la section **Tous les services** &gt; **Applications d’entreprise** du portail. Les applications d’entreprise sont des applications qui sont déployées et utilisées au sein de votre organisation.
+Toutes les applications d’entreprise qui sont configurées pour l’authentification unique peuvent être affichées et gérées dans le [portail Azure](https://portal.azure.com). Les applications figurent dans la section **Tous les services** &gt; **Applications d’entreprise** du portail. Les applications d’entreprise sont des applications qui sont déployées et utilisées au sein de votre organisation.
 
 ![Volet Applications d’entreprise](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
 
@@ -77,7 +77,5 @@ Cette section fournit des informations supplémentaires sur le fonctionnement du
 
 Elle contient également des liens vers le **rapport d’activité d’approvisionnement**, qui fournit un journal de tous les utilisateurs et les groupes créés, mis à jour et supprimés entre Azure AD et l’application cible, et vers le **rapport d’erreurs d’approvisionnement**, qui fournit des messages d’erreur plus détaillés pour les objets utilisateur et groupe dont la lecture, la création, la mise à jour ou la suppression a échoué. 
 
-## <a name="feedback"></a>Commentaires
 
-Continuez à nous faire part de vos commentaires. Publiez vos commentaires et vos idées d’amélioration dans la section du **portail Admin** de notre [forum de commentaires](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  L’équipe d’ingénierie est très heureuse de créer chaque jour des nouveautés et de pouvoir bénéficier de vos commentaires pour concevoir et définir de nouvelles créations.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093959"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299858"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 
@@ -42,7 +42,7 @@ La liste suivante décrit les exigences de certificat nécessaires pour déploye
 - Pour le déploiement et la rotation, vous pouvez utiliser un certificat unique couvrant tous les espaces de noms dans les champs Nom de l’objet et Autre nom de l’objet du certificat OU vous pouvez utiliser des certificats individuels pour chaque espace de noms ci-dessous que les services Azure Stack que vous envisagez d’utiliser nécessitent. Les deux approches requièrent l’utilisation de caractères génériques pour les points de terminaison où ils sont requis, comme **KeyVault** et **KeyVaultInternal**. 
 - Le chiffrement PFX du certificat doit être 3DES. 
 - L’algorithme de signature de certificat ne doit pas être SHA1. 
-- Le format du certificat doit être PFX, car les clés publiques et privées sont requises pour l’installation d’Azure Stack. 
+- Le format du certificat doit être PFX, car les clés publiques et privées sont requises pour l’installation d’Azure Stack. La clé privée doit être définie pour l’attribut de clé Ordinateur local.
 - Le chiffrement PFX doit être 3DES (paramètre par défaut en cas d’exportation depuis un client Windows 10 ou un magasin de certificats Windows Server 2016).
 - Les fichiers pfx de certificat doivent avoir une valeur « Signature numérique » et « KeyEncipherment » dans le champ « Utilisation de la clé ».
 - Dans le champ « Utilisation avancée de la clé », les fichiers pfx de certificat doivent avoir les valeurs « Authentification du serveur (1.3.6.1.5.5.7.3.1) » et « Authentification du client (1.3.6.1.5.5.7.3.2) ».

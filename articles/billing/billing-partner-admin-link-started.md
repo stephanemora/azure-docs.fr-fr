@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8226ff956db1b21c308d184e8d5876a59d1b646d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391776"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686992"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
@@ -136,4 +136,4 @@ Le lien entre l’ID partenaire et le compte est établi pour chaque locataire c
 
 **Un autre partenaire ou client peut-il modifier ou supprimer le lien vers l’ID partenaire ?**
 
-Le lien est associé au niveau du compte. Vous seul pouvez modifier ou supprimer le lien vers l’ID partenaire. Le client et l’autre partenaire ne peuvent pas modifier le lien vers l’ID partenaire. 
+Le lien est associé au niveau du compte d'utilisateur. Vous seul pouvez modifier ou supprimer le lien vers l’ID partenaire. Le client et l’autre partenaire ne peuvent pas modifier le lien vers l’ID partenaire. 

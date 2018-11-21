@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0b40b8018715e6b680f42676dfaead0ac6e5bf7a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 37fb4c330004ce87afd900d9cafebb337261ec06
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279141"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568231"
 ---
 # <a name="azure-stack-1808-update"></a>Mise à jour 1808 d’Azure Stack
 
@@ -69,7 +69,8 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
 <!-- | IS ASDK--> 
 - **Le profil de version d’API 2017-03-09-profile a été mis à jour vers 2018-03-01-hybrid**. Les profils d’API précisent le fournisseur de ressources Azure ainsi que la version d’API des points de terminaison Azure REST. Pour plus d’informations sur les profils, consultez [Gérer les profils de version des API dans Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
- ### <a name="fixed-issues"></a>Problèmes résolus
+### <a name="fixed-issues"></a>Problèmes résolus
+
 <!-- IS ASDK--> 
 - Nous avons résolu le problème de la création d’un groupe à haute disponibilité dans le portail qui aboutissait à un groupe avec un domaine d’erreur et un domaine de mise à jour 1. 
 
@@ -162,7 +163,7 @@ Cette mise à jour contient également l’atténuation de la vulnérabilité du
 > Préparez votre déploiement Azure Stack pour l'hôte d’extension. Préparez votre système en utilisant les instructions suivantes, [Préparer l’hôte d’extension pour Azure Stack](azure-stack-extension-host-prepare.md).
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md). 
-- [KB 4468920 – Correctif logiciel Azure Stack 1.1808.5.110](https://support.microsoft.com/help/4468920/)
+- [KB 4468920 – Correctif logiciel Azure Stack 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
@@ -219,6 +220,8 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
    
   Exécutez l’applet de commande [Test-AzureStack](azure-stack-diagnostic-test.md) pour vérifier l’intégrité des instances de rôle d’infrastructure et des nœuds d’unité d’échelle. Si aucun problème n’est détecté par [Test-AzureStack](azure-stack-diagnostic-test.md), vous pouvez ignorer ces alertes. Si un problème est détecté, vous pouvez tenter de démarrer l’instance de rôle d’infrastructure ou le nœud à l’aide du portail d’administration ou de PowerShell.
 
+  Ce problème est résolu dans la dernière [version de correctif logiciel 1808](https://support.microsoft.com/help/4471992/), par conséquent, veillez à installer ce correctif logiciel si vous rencontrez le problème.
+
 <!-- 1264761 - IS ASDK --> 
 - Vous risquez de recevoir des alertes pour le composant **Contrôleur d’intégrité** contenant les informations suivantes :  
 
@@ -253,7 +256,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
 ### <a name="compute"></a>Calcul
 
-<!-- TBD – IS, ASDK -->
+<!-- 3164607 – IS, ASDK -->
 - Le rattachement d’un disque détaché à la même machine virtuelle (VM) avec les mêmes nom et numéro d’unité logique échoue et affiche une erreur de type **Impossible d’attacher le disque de données « datadisk » à la machine virtuelle « vm1 »**. Cette erreur est due au fait que le disque est en cours de détachement ou que la dernière opération de détachement a échoué. Veuillez attendre que le disque soit complètement détaché, puis réessayez ou supprimez/détachez explicitement le disque une nouvelle fois. La solution de contournement consiste à le rattacher en utilisant un nom ou un numéro d'unité logique différent. 
 
 <!-- 3099544 – IS, ASDK --> 
@@ -266,7 +269,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
       1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
       2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack – Managed Disks** est répertorié.
    2. Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes :
-      1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4468920/).
+      1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4471992/).
       2. Effectuez les étapes décrites dans [cet article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) pour reconfigurer chacun de vos annuaires invités.
       
 <!-- 3179561 - IS --> 

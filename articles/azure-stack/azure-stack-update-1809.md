@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: cca9307fd849f6b8537cf7484d2e56e1a710295b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257188"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567908"
 ---
 # <a name="azure-stack-1809-update"></a>Mise à jour 1809 d’Azure Stack
 
@@ -62,14 +62,25 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack :
    <!--  2966665 – IS, ASDK --> 
    - Le problème a été résolu, dans lequel l’attachement de disques de données SSD à des machines virtuelles avec des disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échouait avec une erreur : *Échec de la mise à jour des disques pour la machine virtuelle ’vmname’ Erreur : l’opération demandée ne peut pas être effectuée, car le type de compte de stockage ’Premium_LRS’ n’est pas pris en charge pour la taille de machine virtuelle ’Standard_DS/Ds_V2/FS/Fs_v2)’*. 
    
-   - La création d’une machine virtuelle avec disque managé à l’aide de **createOption**: **Attach** échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état 'Failed'. Informations supplémentaires : 'Une erreur d'exécution interne s'est produite.'*
-   ErrorCode: InternalExecutionError ErrorMessage: une erreur d’exécution interne s’est produite.
+   - La création d’une machine virtuelle avec disque managé à l’aide de **createOption** : **Attacher** échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état 'Failed'. Informations supplémentaires : 'Une erreur d'exécution interne s'est produite.'*
+   ErrorCode: InternalExecutionError ErrorMessage : une erreur d’exécution interne s’est produite.
    
    Ce problème est à présent résolu.
 
 - <!-- 2702741 -  IS, ASDK --> Problème résolu de la conservation des adresses IP publiques déployées à l’aide de la méthode d’allocation dynamique qui n’était pas garantie après l’émission d’une commande d’arrêt/libération. Elles sont désormais conservées.
 
 - <!-- 3078022 - IS, ASDK --> Si une machine virtuelle était arrêtée/libérée avant la mise à jour 1808, il n’était pas possible de la réallouer après cette mise à jour.  Ce problème a été résolu dans la mise à jour 1809. Grâce à ce correctif introduit dans la mise à jour 1809, les instances qui se trouvaient dans cet état empêchant leur démarrage peuvent désormais être démarrées. Le correctif empêche également que ce problème se reproduise.
+
+<!-- 3090289 – IS, ASDK --> 
+- Après avoir appliqué la mise à jour 1808 qui corrige l’erreur, vous rencontrerez peut-être les problèmes suivants lors du déploiement de machines virtuelles avec le service Managed Disks :
+
+   1. Si l’abonnement a été créé avant la mise à jour 1808, le déploiement de machines virtuelles avec Managed Disks peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes pour chaque abonnement :
+      1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
+      2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack – Managed Disks** est répertorié.
+   2. Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes :
+      1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4471992).
+      2. Effectuez les étapes décrites dans [cet article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) pour reconfigurer chacun de vos annuaires invités.
+
 
 ### <a name="changes"></a>Changements
 
@@ -128,7 +139,7 @@ Pour plus d’informations sur ces vulnérabilités, cliquez sur les liens préc
 
 ### <a name="prerequisites"></a>Prérequis
 
-- Installez le dernier correctif Azure Stack pour 1808 avant d’appliquer 1809. Pour plus d’informations, consultez [KB 4468920 – Correctif Azure Stack 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920).
+- Installez le dernier correctif Azure Stack pour 1808 avant d’appliquer 1809. Pour plus d’informations, consultez [KB 4471992 – Correctif Azure Stack 1.1808.7.113](https://support.microsoft.com/help/4471992/).
 
   > [!TIP]  
   > Abonnez-vous aux flux *RRS* ou *Atom* suivants pour vous tenir informés des correctifs logiciels Azure Stack :
@@ -155,11 +166,10 @@ Pour plus d’informations sur ces vulnérabilités, cliquez sur les liens préc
 ### <a name="post-update-steps"></a>Étapes après la mise à jour
 
 > [!Important]  
-> Préparer votre déploiement Azure Stack pour l’hôte d’extension qui est activé par le prochain package de mise à jour. Préparer votre système en utilisant les instructions suivantes, [Préparer l’hôte d’extension pour Azure Stack](azure-stack-extension-host-prepare.md).
+> Préparer votre déploiement Azure Stack pour l’hôte d’extension qui est activé par le prochain package de mise à jour. Préparez votre système en utilisant les instructions suivantes, [Préparer l’hôte d’extension pour Azure Stack](azure-stack-extension-host-prepare.md).
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md).  
+- [KB 4471993 – Correctif logiciel Azure Stack 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
 
 ## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
@@ -211,6 +221,8 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
    - *Nœud d’unité d’échelle hors ligne*
    
   Exécutez l’applet de commande [Test-AzureStack](azure-stack-diagnostic-test.md) pour vérifier l’intégrité des instances de rôle d’infrastructure et des nœuds d’unité d’échelle. Si aucun problème n’est détecté par [Test-AzureStack](azure-stack-diagnostic-test.md), vous pouvez ignorer ces alertes. Si un problème est détecté, vous pouvez tenter de démarrer l’instance de rôle d’infrastructure ou le nœud à l’aide du portail d’administration ou de PowerShell.
+
+  Ce problème est résolu dans la dernière [version de correctif logiciel 1809](https://support.microsoft.com/help/4471993/), par conséquent, veillez à installer ce correctif logiciel si vous rencontrez le problème. 
 
 <!-- 1264761 - IS ASDK -->  
 - Vous risquez de recevoir des alertes pour le composant **Contrôleur d’intégrité** contenant les informations suivantes :  

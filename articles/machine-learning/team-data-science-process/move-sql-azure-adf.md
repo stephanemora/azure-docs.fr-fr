@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: f67bab33413b0048fc93d5f62e88984acaa25fd6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0afa8d92aaa60cd70f378595054506c8e9f7daee
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393233"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344686"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory
-Cette rubrique montre comment déplacer des données d’une base de données SQL Server locale vers une base de données SQL Azure via le stockage d’objets blob Azure à l’aide d’Azure Data Factory (ADF).
+
+Cet article montre comment déplacer des données d’une base de données SQL Server locale vers une base de données SQL Azure via le stockage d’objets blob Azure à l’aide d’Azure Data Factory (ADF).
 
 Pour accéder à un tableau résumant les différentes options de déplacement de données dans une base de données SQL Azure, consultez [Déplacer des données dans une base de données SQL Azure pour Azure Machine Learning](move-sql-azure.md).
 

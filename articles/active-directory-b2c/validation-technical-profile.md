@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: c21a5c5b23b709ce6683c51cf96f0e6ff89efc78
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543137"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568674"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de validation dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -53,14 +53,14 @@ L’élément **ValidationTechnicalProfile** contient l’attribut suivant :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | ReferenceId | Oui | L’identificateur d’un profil technique déjà défini dans la stratégie ou dans la stratégie parente. |
-|ContinueOnError|Non | Indique si la validation des profils techniques de validation suivants doit se poursuivre si ce profil technique de validation génère une erreur. Valeurs possibles : `true` ou `false` (par défaut, arrête le traitement des profils de validation suivants et renvoie une erreur). 
-|ContinueOnSuccess | Non  | Indique si la validation des profils de validation suivants doit se poursuivre si ce profil technique de validation réussit. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`, ce qui signifie que le traitement des profils de validation suivants continue. |
+|ContinueOnError|Non | Indique si la validation des profils techniques de validation suivants doit se poursuivre si ce profil technique de validation génère une erreur. Valeurs possibles : `true` ou `false` (par défaut, arrête le traitement des profils de validation suivants et renvoie une erreur). 
+|ContinueOnSuccess | Non  | Indique si la validation des profils de validation suivants doit se poursuivre si ce profil technique de validation réussit. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`, ce qui signifie que le traitement des profils de validation suivants continue. |
 
 L’élément **ValidationTechnicalProfile** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Conditions préalables | 0:1 | Une liste de conditions préalables qui doivent être satisfaites pour que le profil technique de validation puisse s’exécuter. |
+| Preconditions | 0:1 | Une liste de conditions préalables qui doivent être satisfaites pour que le profil technique de validation puisse s’exécuter. |
 
 L’élément **Precondition** contient l’attribut suivant :
 

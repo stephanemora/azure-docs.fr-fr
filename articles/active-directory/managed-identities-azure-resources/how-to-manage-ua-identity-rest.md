@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: dc7abd4bdec30ae870ff6add33d4b9b1c08b5bbd
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4bf77cd34ba985dfcfa568db0543150c0510c406
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159637"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300096"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant des appels d’API REST
 
@@ -31,19 +31,18 @@ Dans cet article, découvrez comment créer, répertorier et supprimer une ident
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, voir la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Si vous utilisez Windows, installez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) dans le portail Azure.
 - Si vous utilisez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou un [système d’exploitation de distribution Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installez la console locale Azure CLI](/cli/azure/install-azure-cli).
 - Si vous utilisez la console locale Azure CLI, connectez-vous à Azure à l’aide de `az login` avec un compte associé à l’abonnement Azure sous lequel vous souhaitez déployer ou récupérer des informations sur les identités managées affectées par l’utilisateur.
-- Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer des attributions des rôles suivants :
-    - [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) pour créer, lire (répertorier), mettre à jour et supprimer une identité managée affectée par l’utilisateur.
-    - [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator) pour lire (répertorier) les propriétés d’une identité managée affectée par l’utilisateur.
 - Récupérez un jeton d’accès de porteur en utilisant `az account get-access-token` pour effectuer les opérations suivantes d’identité managée affectée par l’utilisateur.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-a-user-assigned-managed-identity"></a>Créer une identité managée affectée par l’utilisateur 
+## <a name="create-a-user-assigned-managed-identity"></a>Créer une identité managée attribuée par l’utilisateur 
+
+Pour créer une identité managée affectée par l’utilisateur, votre compte a besoin de l’affectation de rôle [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
 Pour créer une identité managée affectée par l’utilisateur, utilisez la requête CURL suivante dans l’API Azure Resource Manager. Remplacez les valeurs `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`, `<LOCATION>` et `<ACCESS TOKEN>` par vos propres valeurs :
 
@@ -57,12 +56,16 @@ ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Be
 
 ## <a name="list-user-assigned-managed-identities"></a>Répertorier les identités managées affectées par l’utilisateur
 
+Pour créer une identité managée affectée par l’utilisateur, votre compte a besoin de l’affectation de rôle [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator) ou [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
+
 Pour répertorier les identités managées affectées par l’utilisateur, utilisez la requête CURL suivante dans l’API Azure Resource Manager. Remplacez les valeurs `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` et `<ACCESS TOKEN>` par vos propres valeurs :
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 ## <a name="delete-a-user-assigned-managed-identity"></a>Supprimer une identité managée affectée par l’utilisateur
+
+Pour supprimer une identité managée affectée par l’utilisateur, votre compte a besoin de l’affectation de rôle [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
 Pour supprimer une identité managée affectée par l’utilisateur, utilisez la requête CURL suivante dans l’API Azure Resource Manager. Remplacez les paramètres `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` et `<ACCESS TOKEN>` par vos propres valeurs :
 

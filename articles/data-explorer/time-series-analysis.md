@@ -1,6 +1,6 @@
 ---
 title: Analyse de séries chronologiques dans Azure Data Explorer
-description: Découvrir l’analyse de séries chronologiques dans Azure Data Explorer
+description: 'Découvrir l’analyse de séries chronologiques dans Azure Data Explorer '
 services: data-explorer
 author: orspod
 ms.author: v-orspod
@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: fafaf0b4721c45b002e67896223877da43d66e56
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51220012"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636675"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analyse des séries chronologiques dans Azure Data Explorer
 
@@ -57,10 +57,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- Utilisez l’opérateur [`make-series`](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator) pour créer un ensemble de trois séries chronologiques dans lequel :
+- Utilisez l’opérateur [`make-series`](/azure/kusto/query/make-seriesoperator) pour créer un ensemble de trois séries chronologiques dans lequel :
     - `num=count()` : est la série chronologique du trafic
     - `range(min_t, max_t, 1h)` : la série chronologique est créée en compartiments de 1 heure dans l’intervalle de temps (timestamps les plus anciens et les plus récents des enregistrements de la table)
-    - `default=0` : spécifie la méthode de remplissage des compartiments manquants pour créer une série chronologique régulière. Vous pouvez également utiliser [`series_fill_const()`](https://docs.microsoft.com/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-backwardfunction) et [`series_fill_linear()`](https://docs.microsoft.com/azure/kusto/query/series-fill-linearfunction) pour des modifications
+    - `default=0` : spécifie la méthode de remplissage des compartiments manquants pour créer une série chronologique régulière. Vous pouvez également utiliser [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) et [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) pour des modifications
     - `byOsVer` : partitionne par système d’exploitation
 - La structure de données d’une série chronologique réelle est un tableau numérique de la valeur agrégée par compartiment de temps. Nous utilisons `render timechart` pour la visualisation.
 
@@ -71,14 +71,14 @@ Dans le tableau ci-dessus, nous avons trois partitions. Nous pouvons créer une 
 ## <a name="time-series-analysis-functions"></a>Fonctions d’analyse de séries chronologiques
 
 Dans le cadre de cette section, nous allons exécuter des fonctions de traitement de série classiques.
-Une fois qu’un ensemble de séries chronologiques est créé, Azure Data Explorer prend en charge une liste croissante de fonctions de traitement et d’analyse de celles-ci, qui figure dans la [documentation sur les séries chronologiques](https://docs.microsoft.com/azure/kusto/query/machine-learning-and-tsa). Nous allons décrire quelques fonctions représentatives de traitement et d’analyse des séries chronologiques.
+Une fois qu’un ensemble de séries chronologiques est créé, Azure Data Explorer prend en charge une liste croissante de fonctions de traitement et d’analyse de celles-ci, qui figure dans la [documentation sur les séries chronologiques](/azure/kusto/query/machine-learning-and-tsa). Nous allons décrire quelques fonctions représentatives de traitement et d’analyse des séries chronologiques.
 
 ### <a name="filtering"></a>Filtrage
 
 Le filtrage est une pratique courante dans le traitement de signal, utile pour les tâches de traitement de séries chronologiques (par exemple, lissage d’un signal bruyant, détection de modifications).
 - Il existe deux fonctions de filtrage génériques :
-    - [`series_fir()`](https://docs.microsoft.com/azure/kusto/query/series-firfunction) : appliquant un filtre FIR. Utilisée pour effectuer un calcul simple de moyenne mobile et de différenciation des séries chronologiques pour la détection des modifications.
-    - [`series_iir()`](https://docs.microsoft.com/azure/kusto/query/series-iirfunction) : appliquant un filtre IIR. Utilisée pour effectuer un lissage exponentiel et calculer une somme cumulée.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction) : appliquant un filtre FIR. Utilisée pour effectuer un calcul simple de moyenne mobile et de différenciation des séries chronologiques pour la détection des modifications.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction) : appliquant un filtre IIR. Utilisée pour effectuer un lissage exponentiel et calculer une somme cumulée.
 - Étendre (`Extend`) l’ensemble de séries chronologiques en ajoutant une nouvelle série de moyennes mobiles de 5 compartiments (nommée *ma_num*) à la requête :
 
 ```kusto
@@ -95,8 +95,8 @@ demo_make_series1
 ### <a name="regression-analysis"></a>Analyse de régression
 
 Azure Data Explorer prend en charge l’analyse de régression linéaire segmentée pour estimer la tendance des séries chronologiques.
-- Utilisez [series_fit_line()](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction) pour ajuster la meilleure droite à une série chronologique afin d’obtenir une détection de tendance générale.
-- Utilisez [series_fit_2lines()](https://docs.microsoft.com/azure/kusto/query/series-fit-2linesfunction) pour détecter des changements de tendances par rapport à une ligne de base, qui sont utiles dans les scénarios de surveillance.
+- Utilisez [series_fit_line()](/azure/kusto/query/series-fit-linefunction) pour ajuster la meilleure droite à une série chronologique afin d’obtenir une détection de tendance générale.
+- Utilisez [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction) pour détecter des changements de tendances par rapport à une ligne de base, qui sont utiles dans les scénarios de surveillance.
 
 Exemple de fonctions `series_fit_line()` et `series_fit_2lines()` dans une requête de série chronologique :
 
@@ -128,8 +128,9 @@ demo_series3
 
 ![Saisonnalité de série chronologique](media/time-series-analysis/time-series-seasonality.png)
 
-- Utilisez [series_periods_detect()](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction) pour détecter automatiquement des périodes dans la série chronologique. 
-- Utilisez [series_periods_validate()](https://docs.microsoft.com/azure/kusto/query/series-periods-validatefunction) si vous savez qu’une métrique doit comporter des périodes distinctes spécifiques et souhaitez vérifier qu’elles existent.
+- Utilisez [series_periods_detect()](/azure/kusto/query/series-periods-detectfunction) pour détecter automatiquement des périodes dans la série chronologique. 
+- Utilisez [series_periods_validate()](/azure/kusto/query/series-periods-validatefunction) si vous savez qu’une métrique doit comporter des périodes distinctes spécifiques et souhaitez vérifier qu’elles existent.
+
 > [!NOTE]
 > L’inexistence de périodes distinctes constitue une anomalie.
 
@@ -150,7 +151,7 @@ La fonction détecte les saisonnalités quotidienne et hebdomadaire. La saisonna
 
 ### <a name="element-wise-functions"></a>Fonctions par élément
 
-Des opérations arithmétiques et logiques peuvent être appliquées à une série chronologique. À l’aide de [series_subtract()](https://docs.microsoft.com/azure/kusto/query/series-subtractfunction), vous pouvez calculer une série chronologique résiduelle, qui est la différence entre une métrique brute d’origine et une métrique lissée, puis rechercher des anomalies dans le signal résiduel :
+Des opérations arithmétiques et logiques peuvent être appliquées à une série chronologique. À l’aide de [series_subtract()](/azure/kusto/query/series-subtractfunction), vous pouvez calculer une série chronologique résiduelle, qui est la différence entre une métrique brute d’origine et une métrique lissée, puis rechercher des anomalies dans le signal résiduel :
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -165,7 +166,9 @@ demo_make_series1
 
 ![Opérations de série chronologique](media/time-series-analysis/time-series-operations.png)
 
-Bleu : série chronologique d’origine Rouge : série chronologique lissée Vert : série chronologique résiduelle
+- Bleu : série chronologique d’origine
+- Rouge : série chronologique lissée
+- Vert : série chronologique résiduelle
 
 ## <a name="time-series-workflow-at-scale"></a>Workflow de série chronologique à grande échelle
 
@@ -255,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-En moins de deux minutes, Azure Data Explorer a détecté deux séries chronologiques anormales (sur 23115) dans lesquelles le nombre de lectures chutait soudainement.
+En moins de deux minutes, Azure Data Explorer a analysé plus de 20 000 séries chronologiques et détecté deux séries chronologiques anormales dans lesquelles le nombre de lectures chutait soudainement.
 
 Ces fonctionnalités avancées combinées avec la rapidité des performances d’Azure Data Explorer produisent une solution unique et puissante pour l’analyse de séries chronologiques.

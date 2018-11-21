@@ -11,21 +11,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2016
+ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f943f0e371b3092717a62a2e83a98211723e5302
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4b7b663b95bee12848f4afe2d2f48504a4408266
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304405"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515169"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotations sur les graphiques de métriques dans Application Insights
+
 Des annotations sur les graphiques [Metrics Explorer](app-insights-metrics-explorer.md) montrent les endroits où vous avez déployé une nouvelle build ou tout autre événement majeur. Elles vous permettent de mieux voir l’effet de vos modifications sur les performances de votre application. Elles peuvent être créées automatiquement par le [système de génération Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Vous pouvez également créer des annotations pour tout événement en [les créant à partir de PowerShell](#create-annotations-from-powershell).
 
+> [!NOTE]
+> Cet article reflète **l’expérience de métriques classique** qui est obsolète. Les annotations ne sont actuellement disponibles que dans l’expérience classique et dans les **[classeurs](app-insights-usage-workbooks.md)**. Pour en savoir plus sur l’expérience actuelle des métriques, vous pouvez consulter [cet article](../monitoring-and-diagnostics/monitoring-metric-charts.md).
+
 ![Exemples d’annotations avec corrélation visible avec le délai de réponse de serveur](./media/app-insights-annotations/00.png)
-
-
 
 ## <a name="release-annotations-with-azure-devops-services-build"></a>Annotations de version avec la build Azure DevOps Services
 

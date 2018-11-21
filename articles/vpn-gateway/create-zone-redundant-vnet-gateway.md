@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: f531be5a814ed1805a2938daec1d210f9daccfa5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 400ac3232b7e7dcd594734d818e3cafef09188fd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949772"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614546"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
 
@@ -93,7 +93,7 @@ $getvnet | Set-AzureRmVirtualNetwork
  
 Dans cette étape, choisissez les instructions qui s’appliquent à la passerelle que vous souhaitez créer. La sélection des zones pour le déploiement des passerelles varie selon les zones spécifiées pour l’adresse IP publique.
 
-### <a name="ipzoneredundant"></a>Pour les passerelles redondantes dans une zone
+### <a name="ipzoneredundant"></a>Pour les passerelles redondantes interzone
 
 Demandez une adresse IP publique avec une référence SKU PublicIpaddress **Standard** et ne spécifiez aucune zone. Dans ce cas, l’adresse IP publique Standard créée sera une adresse IP publique redondante interzone.   
 
@@ -142,15 +142,15 @@ New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name 
 
 ## <a name="faq"></a>Forum Aux Questions
 
-### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Qu’est-ce qui va changer lorsque je vais déployer ces nouvelles références SKU ?
+### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Qu’est-ce qui va changer lorsque je déploierai ces nouvelles références SKU ?
 
 De votre point de vue, vous pouvez déployer vos passerelles avec la redondance dans une zone. Cela signifie que toutes les instances des passerelles seront déployées sur des zones de disponibilité Azure, et que chaque zone de disponibilité est un autre domaine d’erreur et de mise à jour. Cela rend vos passerelles plus fiables, disponibles et résilientes aux défaillances de zone.
 
 ### <a name="can-i-use-the-azure-portal"></a>Puis-je utiliser le portail Azure ?
 
-Oui, vous pouvez utiliser le portail Azure pour déployer les nouvelles références SKU. Toutefois, vous ne les verrez que dans les régions Azure disposant de zones de disponibilité Azure.
+Oui, vous pouvez utiliser le Portail Azure pour déployer les nouvelles références SKU. Toutefois, vous ne les verrez que dans les régions Azure disposant de Zones de disponibilité Azure.
 
-### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Dans quelles régions puis-je utiliser les nouvelles références SKU ?
+### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Dans quelles régions puis-je utiliser les nouvelles références SKU ?
 
 Les nouvelles références SKU sont disponibles dans les régions Azure ayant des zones de disponibilité Azure, c’est-à-dire les régions USA Centre, France Centre et Europe Ouest. Prochainement, des passerelles redondantes interzone seront disponibles dans d’autres régions Azure publiques.
 
@@ -160,4 +160,4 @@ La migration de vos passerelles de réseau virtuel existantes vers des passerell
 
 ### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Puis-je déployer des passerelles VPN et ExpressRoute dans le même réseau virtuel ?
 
-La coexistence des passerelles VPN et ExpressRoute dans le même réseau virtuel est prise en charge. Toutefois, vous devez réserver une plage d’adresse IP de /27 pour le sous-réseau de passerelle.
+La coexistence de passerelles VPN et ExpressRoute dans le même réseau virtuel est prise en charge. Toutefois, vous devez réserver une plage d’adresses IP de /27 pour le sous-réseau de passerelle.

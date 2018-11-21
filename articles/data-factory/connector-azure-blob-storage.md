@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 83be53edf240220726639b51381b487c5b742cee
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 3109cad0e00b6ec5af47210f2c8d094659bd4553
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754084"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345774"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,9 @@ Plus précisément, ce connecteur de stockage Blob prend en charge ce qui suit :
 - La copie d’objets blob à l’aide d’une clé de compte, d’une signature d’accès partagé de service ou d’identités managées pour les authentifications de ressources Azure.
 - La copie d’objets blob à partir d’objets blob de blocs, d’ajout ou de page, et la copie de données uniquement vers des objets blob de blocs. Le stockage Azure Premium n’est pas pris en charge en tant que récepteur, car il repose sur des objets blob de pages.
 - La copie d’objets blob en l’état ou l’analyse ou la génération d’objets blob avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
+
+>[!NOTE]
+>Si vous activez _Allow trusted Microsoft services to access this storage account_ (Autoriser les services Microsoft autorisés à accéder à ce compte de stockage) dans les paramètres du pare-feu Azure Storage, l’utilisation d’Azure Integration Runtime pour se connecter au stockage Blob échouera avec une erreur d’interdiction, car les fichiers de définition d’application ne sont pas traités en tant que service Microsoft autorisé. Veuillez utiliser le runtime d’intégration auto-hébergé comme moyen de connexion.
 
 ## <a name="get-started"></a>Prise en main
 
@@ -247,7 +250,7 @@ Pour copier des données vers et depuis le stockage Blob, définissez la propri�
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du jeu de données doit être définie sur **AzureBlob**. |OUI |
-| folderPath | Chemin d'accès au conteneur et au dossier dans le stockage des objets Blobs. Le filtre de caractères génériques n'est pas pris en charge. Un exemple est myblobcontainer/myblobfolder/. |OUI |
+| folderPath | Chemin d'accès au conteneur et au dossier dans le stockage des objets Blobs. Le filtre de caractères génériques n'est pas pris en charge. Un exemple est myblobcontainer/myblobfolder/. |Oui pour la copie/Activité Lookup/Non pour l’activité GetMetadata |
 | fileName | **Filtre de nom ou de caractères génériques** pour les objets blob sous le "folderPath" spécifié. Si vous ne spécifiez pas de valeur pour cette propriété, le jeu de données pointe vers tous les objets blob du dossier. <br/><br/>Dans le filtre, les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plus) et `?` (correspond à zéro ou un caractère).<br/>- Exemple 1 : `"fileName": "*.csv"`<br/>- Exemple 2 : `"fileName": "???20180427.txt"`<br/>Utilisez `^` comme caractère d’échappement si votre nom de fichier réel contient des caractères génériques ou ce caractère d’échappement.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, l’activité de copie génère automatiquement le nom d’objet blob avec le modèle suivant : "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*". Par exemple, « Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz ». |Non  |
 | format | Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser ou générer des fichiers d’un format spécifique, les types de formats de fichier pris en charge sont les suivants : **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous **Format** sur l’une de ces valeurs. Pour en savoir plus, voir les sections [Format Text](supported-file-formats-and-compression-codecs.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs.md#orc-format) et [Format Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
 | compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**.<br/>Les niveaux pris en charge sont **Optimal** et **Fastest**. |Non  |

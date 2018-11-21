@@ -1,6 +1,6 @@
 ---
 title: Présentation d’Apache Hive et HiveQL - Azure HDInsight
-description: Apache Hive est un système d’entrepôt de données pour Hadoop. Vous pouvez interroger les données stockées dans Hive à l’aide de HiveQL, qui est similaire à Transact-SQL. Dans ce document, découvrez comment utiliser Hive et HiveQL avec Azure HDInsight.
+description: Apache Hive est un système d’entrepôt de données pour Apache Hadoop. Vous pouvez interroger les données stockées dans Hive à l’aide de HiveQL, qui est similaire à Transact-SQL. Dans ce document, découvrez comment utiliser Hive et HiveQL avec Azure HDInsight.
 keywords: hiveql,présentation de hive,hadoop hiveql,utilisation de hive,découvrir hive,présentation de hive
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241104"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633714"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Présentation d’Apache Hive et HiveQL sur Azure HDInsight
 
-[Apache Hive](http://hive.apache.org/) est un système d’entrepôt de données pour Hadoop. Hive permet la synthèse, l’interrogation et l’analyse des données. Les requêtes Hive sont écrites dans le langage HiveQL, qui est un langage de requête semblable à SQL.
+[Apache Hive](http://hive.apache.org/) est un système d’entrepôt de données pour Apache Hadoop. Hive permet la synthèse, l’interrogation et l’analyse des données. Les requêtes Hive sont écrites dans le langage HiveQL, qui est un langage de requête semblable à SQL.
 
 Hive vous permet de concevoir une structure sur des données largement non structurées. Une fois que vous avez défini la structure, vous pouvez utiliser HiveQL pour interroger les données sans connaître Java ou MapReduce.
 
@@ -40,11 +40,11 @@ Consultez le tableau suivant pour découvrir les différentes façon d’utilise
 | **Utilisez cette méthode** si vous souhaitez... | ... des requêtes **interactives** | ... un traitement par **lots** | ...avec ce **système d’exploitation cluster** | ...depuis ce **système d’exploitation cluster** |
 |:--- |:---:|:---:|:--- |:--- |
 | [HDInsight Tools pour Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X ou Windows |
-| [Outils HDInsight pour Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux ou Windows* |Windows |
+| [Outils HDInsight pour Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux ou Windows* | Windows |
 | [Affichage Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |N’importe lequel (basé sur le navigateur) |
 | [Client Beeline](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X ou Windows |
 | [API REST](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux ou Windows* |Linux, Unix, Mac OS X ou Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux ou Windows* |Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux ou Windows* | Windows |
 
 > [!IMPORTANT]
 > \* Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

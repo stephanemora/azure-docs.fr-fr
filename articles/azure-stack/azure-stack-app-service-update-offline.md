@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: f48872d1853dfd4c40022f42c8e237973ac70fe6
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41946514"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614801"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Mise à jour hors connexion d’Azure App Service sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1807 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.3.
+> Appliquez la mise à jour 1809 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.4.
 >
 >
 
@@ -44,7 +44,7 @@ En suivant les instructions de cet article, vous pouvez mettre à niveau le [fou
 
 Pour mettre à niveau le fournisseur de ressources App Service dans un environnement Azure Stack, vous devez effectuer les tâches suivantes :
 
-1. Télécharger le [Programme d’installation App Service](https://aka.ms/appsvcupdate3installer)
+1. Télécharger le [Programme d’installation App Service](https://aka.ms/appsvcupdate4installer)
 2. Créer un package de mise à niveau en mode hors connexion
 3. Exécuter le programme d’installation App Service (appservice.exe) et procéder à la mise à niveau
 
@@ -93,7 +93,7 @@ Pour mettre à niveau App Service dans un environnement déconnecté, vous devez
 
 5. Consultez et acceptez les termes du contrat de licence tiers, puis cliquez sur **Suivant**.
 
-6. Assurez-vous que le point de terminaison Azure Stack Azure Resource Manager et les informations sur le locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut au cours du déploiement du Kit de développement Azure Stack, vous pouvez accepter les valeurs par défaut ici. Toutefois, si vous avez personnalisé les options lors du déploiement d’Azure Stack, vous devez modifier les valeurs dans cette fenêtre pour les faire correspondre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com*, vous devez modifier votre point de terminaison Azure Stack Azure Resource Manager sur *management.region.mycloud.com*. Après avoir confirmé vos informations, cliquez sur **suivant**.
+6. Assurez-vous que le point de terminaison Azure Stack Azure Resource Manager et les informations sur le locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut au cours du déploiement du Kit de développement Azure Stack, vous pouvez accepter les valeurs par défaut ici. Toutefois, si vous avez personnalisé les options lors du déploiement d’Azure Stack, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com*, vous devez modifier votre point de terminaison Azure Stack Azure Resource Manager sur *management.region.mycloud.com*. Après avoir confirmé vos informations, cliquez sur **suivant**.
 
     ![Informations sur Azure Stack Cloud][3]
 

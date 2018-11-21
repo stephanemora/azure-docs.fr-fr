@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: c682b61a39224f2c80db8fe5fa153ea5e5d82922
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958552"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514823"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Types de conflits et stratégies de résolution
 
 Les conflits et les stratégies de résolution des conflits sont applicables si votre compte Cosmos est configuré avec plusieurs régions d’écriture.
 
-Pour les comptes Cosmos DB configurés avec plusieurs régions d’écriture, des conflits de mise à jour peuvent se produire lorsque plusieurs rédacteurs mettent à jour simultanément le même élément dans plusieurs régions. Les conflits de mise à jour sont classés selon les trois types suivants :
+Pour les comptes Cosmos configurés avec plusieurs régions d’écriture, des conflits de mise à jour peuvent se produire lorsque plusieurs rédacteurs mettent à jour simultanément le même élément dans plusieurs régions. Les conflits de mise à jour sont classés selon les trois types suivants :
 
 1. **Conflits d’insertion** : ces conflits peuvent se produire quand une application insère simultanément deux éléments, ou plus, avec le même index unique (par exemple, propriété ID) à partir de deux régions, ou plus. Dans ce cas, toutes les écritures peuvent réussir initialement dans leur région locale respective, mais en fonction de la stratégie de résolution des conflits que vous choisissez, un seul élément avec l’ID d’origine est validé.
 

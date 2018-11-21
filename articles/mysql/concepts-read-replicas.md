@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 283b529aa8c6431ea725b066c9b5cb3db19a929b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/13/2018
+ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969442"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632558"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -31,9 +31,13 @@ Un scénario courant est d’avoir les charges de travail décisionnelles et ana
 
 ## <a name="considerations-and-limitations"></a>Considérations et limitations
 
-### <a name="pricing-tiers"></a>Niveaux tarifaires
+### <a name="pricing-tiers"></a>Niveaux de tarification
 
 Les réplicas en lecture ne sont actuellement disponibles que dans les niveaux tarifaires Usage général et Mémoire optimisée.
+
+### <a name="master-server-restart"></a>Redémarrage du serveur maître
+
+Avec cette préversion, lorsque vous créez un réplica pour un serveur maître qui ne dispose d’aucun réplica existant, le maître commence par redémarrer pour se préparer pour la réplication. Veuillez prendre cela en compte et effectuer ces opérations pendant une période creuse.
 
 ### <a name="stopping-replication"></a>Arrêt de la réplication
 
@@ -53,15 +57,18 @@ Les serveurs réplicas sont créés à l’aide des mêmes configurations de ser
 - Génération de calcul
 - vCores
 - Stockage
-- Période de conservation des sauvegardes
+- Période de rétention des sauvegardes
 - Option de redondance de sauvegarde
 - Version du moteur MySQL
+- Règles de pare-feu
 
 Une fois un réplica créé, vous pouvez changer le niveau tarifaire (sauf vers et à partir du niveau De base), la génération de calcul, les vCores, le stockage et la conservation des sauvegardes indépendamment du serveur maître.
 
 ### <a name="master-server-configuration"></a>Configuration d’un serveur maître
 
-Si la configuration d’un maître serveur (par exemple, les vCores ou le stockage) est mise à jour, la configuration des réplicas doit également être mise à jour avec des valeurs égales ou supérieures. Sans cela, le serveur de réplication n’est peut-être pas en mesure de s’adapter aux changements apportés au serveur maître et peut, en conséquence, se bloquer. 
+Si la configuration d’un maître serveur (par exemple, les vCores ou le stockage) est mise à jour, la configuration des réplicas doit également être mise à jour avec des valeurs égales ou supérieures. Sans cela, le serveur de réplication n’est peut-être pas en mesure de s’adapter aux changements apportés au serveur maître et peut, en conséquence, se bloquer.
+
+Les nouvelles règles de pare-feu ajoutées au serveur maître après la création d’un serveur de réplication ne sont pas répliquées sur le serveur réplica. Celui-ci doit également être mis à jour avec cette nouvelle règle de pare-feu.
 
 ### <a name="deleting-the-master-server"></a>Suppression du serveur maître
 
@@ -83,7 +90,4 @@ Les utilisateurs sur le serveur maître sont répliqués sur les réplicas en le
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrir comment [créer et gérer des réplicas en lecture clusters avec le portail Azure](howto-read-replicas-portal.md)
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- Découvrir comment [créer et gérer des réplicas en lecture avec l’interface de ligne de commande Azure](howto-read-replicas-cli.md)

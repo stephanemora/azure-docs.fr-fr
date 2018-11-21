@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d341f7328eb4a977d266c25f6746d4173393b54e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ef0becd55df43d7ae648a4cbaa5e1a2358fc1910
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887210"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636932"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -56,11 +56,11 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
 Vous devez stocker la clé d’application que vous avez créée dans votre locataire Azure AD B2C.
 
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-2. Dans le coin supérieur gauche du portail Azure, choisissez **Tous les services**, puis recherchez et sélectionnez **Azure Active Directory B2C**.
+2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 3. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
 4. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 5. Pour **Options**, choisissez `Manual`.
-6. Entrez le **nom** de la clé de stratégie. Par exemple : `ContosoAppSecret`.  Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
+6. Entrez un **nom** pour la clé de stratégie. Par exemple : `ContosoAppSecret`.  Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
 7. Dans **Secret**, entrez la clé d’application que vous avez enregistrée.
 8. Pour **Utilisation de la clé**, sélectionnez `Signature`.
 9. Cliquez sur **Créer**.
@@ -143,7 +143,7 @@ Vous devez mettre à jour la liste des émetteurs de jetons valides et restreind
 
 À ce stade, vous avez configuré votre stratégie afin qu’Azure AD B2C sache comment communiquer avec votre répertoire Azure AD. Essayez de télécharger le fichier d’extension de votre stratégie juste pour confirmer qu’il ne présente aucun problème pour le moment.
 
-1. Dans la page **Stratégies personnalisées** dans votre locataire Azure AD B2C, sélectionnez **Charger une stratégie**.
+1. Sur la page **Stratégies personnalisées** dans votre locataire Azure AD B2C, sélectionnez **Charger une stratégie**.
 2. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
 3. Cliquez sur **Télécharger**.
 
@@ -173,33 +173,33 @@ L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisse
 Maintenant que vous avez un bouton en place, vous devez le lier à une action. L’action est, dans ce cas, la communication d’Azure AD B2C avec Azure AD pour recevoir un jeton. Associez le bouton à une action en liant le profil technique de votre fournisseur de revendications Azure AD.
 
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
-2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour **l’ID** la valeur que vous avez utilisée pour **TargetClaimsExchangeId** :
+2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’**ID** la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
 
     ```XML
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
     
-    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur **l’ID** du profil technique que vous avez créé. Par exemple : `Common-AAD`.
+    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur **l’ID** du profil technique que vous avez créé précédemment. Par exemple : `Common-AAD`.
 
 3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Création d’une application Azure AD B2C
 
-La communication avec Azure AD B2C s’effectue via une application que vous créez dans votre locataire. Cette section indique les étapes facultatives que vous pouvez effectuer pour créer une application de test si vous ne l’avez pas déjà fait.
+La communication avec Azure AD B2C s’effectue par le biais d’une application que vous créez dans votre locataire. Cette section indique les étapes facultatives que vous pouvez effectuer pour créer une application de test si vous ne l’avez pas déjà fait.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Dans le coin supérieur gauche du portail Azure, choisissez **Tous les services**, puis recherchez et sélectionnez **Azure Active Directory B2C**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
-5. Entrez un nom pour l’application, par exemple, *testapp1*.
-6. Pour **Application/API web**, sélectionnez `Yes`, puis entrez `https://jwt.ms` pour **l’URL de réponse**.
+5. Entrez un nom pour l’application (par exemple, *testapp1*).
+6. Pour **Application/API web**, sélectionnez `Yes`, puis entrez `https://jwt.ms` pour l’**URL de réponse**.
 7. Cliquez sur **Créer**.
 
 ## <a name="update-and-test-the-relying-party-file"></a>Mettre à jour et tester le fichier de partie de confiance
 
 Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé.
 
-1. Faites une copie du fichier *SignUpOrSignIn.xml* dans votre répertoire de travail, puis renommez-le. Par exemple, attribuez-lui le nouveau nom *SignUpSignInADFS.xml*.
+1. Faites une copie de *SignUpOrSignIn.xml* dans votre répertoire de travail, puis renommez-le. Par exemple, attribuez-lui le nouveau nom *SignUpSignInADFS.xml*.
 2. Ouvrez le nouveau fichier et définissez une valeur unique pour l’attribut **PolicyId** de **TrustFrameworkPolicy**. Par exemple : `SignUpSignInContoso`.
 3. Mettez à jour la valeur de **PublicPolicyUri** avec l’URI de la stratégie. Exemple : `http://contoso.com/B2C_1A_signup_signin_contoso`
 4. Définissez l’attribut **ReferenceId** dans **DefaultUserJourney** sur l’ID du parcours utilisateur que vous avez créé (SignUpSignContoso).

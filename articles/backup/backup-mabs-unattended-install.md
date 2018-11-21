@@ -1,29 +1,29 @@
 ---
-title: Installation sans assistance du serveur de sauvegarde Azure v2
-description: Utilisez un script PowerShell pour installer sans assistance le Serveur de sauvegarde Azure v2. Ce type d’installation est également appelé « installation silencieuse ».
+title: Installation sans assistance du serveur de sauvegarde Azure V2
+description: Utilisez un script PowerShell pour installer sans assistance le Serveur de sauvegarde Azure V2. Ce type d’installation est également appelé « installation silencieuse ».
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/30/2017
+ms.date: 11/13/2018
 ms.author: markgal
-ms.openlocfilehash: 126c1971d83a8874c096caf407231fb6dee2ff59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f7bda070e613e5495d3733dd1610cb291e12c36
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606407"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612693"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Effectuer une installation sans assistance du Serveur de sauvegarde Azure v2
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Effectuer une installation sans assistance du Serveur de sauvegarde Azure
 
-Découvrez comment effectuer une installation sans assistance du Serveur de sauvegarde Azure v2. 
+Découvrez comment effectuer une installation sans assistance du Serveur de sauvegarde Azure.
 
-Ces étapes ne s’appliquent pas si vous installez le Serveur de sauvegarde Azure v1.
+Ces étapes ne s’appliquent pas si vous installez le Serveur de sauvegarde Azure V1.
 
-## <a name="install-backup-server-v2"></a>Installer le Serveur de sauvegarde v2
+## <a name="install-backup-server"></a>Installer le Serveur de sauvegarde
 
-1. Sur le serveur hébergeant le Serveur de sauvegarde Azure v2, créez un fichier texte (vous pouvez créer le fichier dans Bloc-notes ou dans un autre éditeur de texte). Enregistrez le fichier sous MABSSetup.ini. 
+1. Sur le serveur hébergeant le Serveur de sauvegarde Azure V2 ou versions ultérieures, créez un fichier texte. (vous pouvez créer le fichier dans Bloc-notes ou dans un autre éditeur de texte). Enregistrez le fichier sous MABSSetup.ini.
 
 2. Collez le code suivant dans le fichier MABSSetup.ini. Remplacez le texte entre crochets (\< \>) par des valeurs de votre environnement. Voici un exemple de texte :
 

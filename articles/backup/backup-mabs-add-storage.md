@@ -1,32 +1,33 @@
 ---
-title: Utiliser un stockage de sauvegarde moderne avec un Serveur de sauvegarde Azure v2
-description: Découvrez les nouvelles fonctionnalités du Serveur de sauvegarde Azure v2. Cet article décrit comment mettre à niveau votre installation de serveur de sauvegarde.
+title: Utiliser un stockage de sauvegarde moderne avec un Serveur de sauvegarde Azure
+description: Découvrez les nouvelles fonctionnalités du Serveur de sauvegarde Azure. Cet article décrit comment mettre à niveau votre installation de serveur de sauvegarde.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.author: markgal
-ms.openlocfilehash: 7c583ea048ed1837c662869c62039165aaa3c024
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 11/13/2018
+ms.author: markgal; adigan; kasinh
+ms.openlocfilehash: da9b3d22dce3f92ff6d1a588d283d47f22fca736
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606752"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612965"
 ---
-# <a name="add-storage-to-azure-backup-server-v2"></a>Ajouter du stockage au Serveur de sauvegarde Azure v2
+# <a name="add-storage-to-azure-backup-server"></a>Ajouter du stockage à un serveur de sauvegarde Azure
 
-Le Serveur de sauvegarde Azure v2 est fourni avec le stockage de sauvegarde moderne du Data Protection Manager de System Center 2016. Le stockage de sauvegarde moderne offre des économies de stockage de 50 %, des sauvegardes trois fois plus rapides et un stockage plus efficace. Il s’agit également d’un stockage prenant en compte la charge de travail. 
+Le Serveur de sauvegarde Azure V2 et versions ultérieures est fourni avec le stockage de sauvegarde moderne du Data Protection Manager de System Center 2016. Le stockage de sauvegarde moderne offre des économies de stockage de 50 %, des sauvegardes trois fois plus rapides et un stockage plus efficace. Il s’agit également d’un stockage prenant en compte la charge de travail.
 
 > [!NOTE]
-> Pour utiliser le stockage de sauvegarde moderne, vous devez exécuter le Serveur de sauvegarde v2 sur Windows Server 2016. Si vous exécutez le Serveur de sauvegarde v2 sur une version antérieure de Windows Server, le Serveur de sauvegarde Azure ne peut pas tirer parti du stockage de sauvegarde moderne. Au lieu de cela, il protège les charges de travail comme il le fait avec le Serveur de sauvegarde v1. Pour plus d’informations, voir la [matrice protection](backup-mabs-protection-matrix.md) de la version du Serveur de sauvegarde.
+> Pour utiliser le stockage de sauvegarde moderne, vous devez exécuter le Serveur de sauvegarde V2 ou V3 sur Windows Server 2016 ou V3 sur Windows Server 2019.
+> Si vous exécutez le Serveur de sauvegarde V2 sur une version antérieure de Windows Server, le Serveur de sauvegarde Azure ne peut pas tirer parti du stockage de sauvegarde moderne. Au lieu de cela, il protège les charges de travail comme il le fait avec le Serveur de sauvegarde V1. Pour plus d’informations, voir la [matrice protection](backup-mabs-protection-matrix.md) de la version du Serveur de sauvegarde.
 
-## <a name="volumes-in-backup-server-v2"></a>Volumes dans le Serveur de sauvegarde v2
+## <a name="volumes-in-backup-server"></a>Volumes dans le Serveur de sauvegarde
 
-Le Serveur de sauvegarde v2 accepte les volumes de stockage. Lorsque vous ajoutez un volume, le Serveur de sauvegarde formate le volume au format Resilient File System (ReFS) que nécessite le stockage de sauvegarde moderne. Pour ajouter un volume et le développer ultérieurement si nécessaire, nous vous suggérons d’utiliser flux de travail suivant :
+Le Serveur de sauvegarde V2 ou versions ultérieures accepte les volumes de stockage. Lorsque vous ajoutez un volume, le Serveur de sauvegarde formate le volume au format Resilient File System (ReFS) que nécessite le stockage de sauvegarde moderne. Pour ajouter un volume et le développer ultérieurement si nécessaire, nous vous suggérons d’utiliser flux de travail suivant :
 
-1.  Configurez le Serveur de sauvegarde v2 sur une machine virtuelle.
+1.  Configurez le Serveur de sauvegarde sur une machine virtuelle.
 2.  Créez un volume sur un disque virtuel dans un pool de stockage :
     1.  Ajoutez un disque à un pool de stockage, et créez un disque virtuel avec une disposition de stockage simple.
     2.  Ajoutez des disques supplémentaires, puis étendez le disque virtuel.
@@ -36,9 +37,9 @@ Le Serveur de sauvegarde v2 accepte les volumes de stockage. Lorsque vous ajout
 
 ## <a name="create-a-volume-for-modern-backup-storage"></a>Créer un volume pour le stockage de sauvegarde moderne
 
-L’utilisation du Serveur de sauvegarde v2 avec des volumes tels qu’un stockage sur disque peut vous aider à contrôler le stockage. Un volume peut être un disque unique. Toutefois, si vous souhaitez étendre le stockage à l’avenir, créez un volume à partir d’un disque créé à l’aide d’espaces de stockage. Cela peut être utile si vous souhaitez étendre le volume du stockage de sauvegarde. Cette section présente les meilleures pratiques en matière de création de volume avec ce programme d’installation.
+L’utilisation du Serveur de sauvegarde V2 ou versions ultérieures avec des volumes tels qu’un stockage sur disque peut vous aider à contrôler le stockage. Un volume peut être un disque unique. Toutefois, si vous souhaitez étendre le stockage à l’avenir, créez un volume à partir d’un disque créé à l’aide d’espaces de stockage. Cela peut être utile si vous souhaitez étendre le volume du stockage de sauvegarde. Cette section présente les meilleures pratiques en matière de création de volume avec ce programme d’installation.
 
-1. Dans le Gestionnaire de serveur, sélectionnez **Services de fichiers et de stockage** > **Volumes** > **Pools de stockage**. Sous **Disques physiques**, sélectionnez **Nouveau pool de stockage**. 
+1. Dans le Gestionnaire de serveur, sélectionnez **Services de fichiers et de stockage** > **Volumes** > **Pools de stockage**. Sous **Disques physiques**, sélectionnez **Nouveau pool de stockage**.
 
     ![Créer un pool de stockage](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -91,10 +92,41 @@ Les modifications apportées à l’aide de PowerShell apparaissent sur la Conso
 
 ![Disques et volumes dans la Console Administrateur](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
+
+## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrer un stockage existant vers Modern Backup Storage
+Après avoir installé le serveur de sauvegarde V2 ou effectué la mise à niveau vers ce dernier et mis à niveau le système d’exploitation vers Windows Server 2016, mettez à jour vos groupes de protection pour qu’ils utilisent Modern Backup Storage. Par défaut, les groupes de protection ne sont pas modifiés. Ils continuent de fonctionner comme ils ont été initialement configurés.
+
+La mise à jour des groupes de protection pour qu’ils utilisent Modern Backup Storage est facultative. Pour mettre à jour le groupe de protection, arrêtez la protection de toutes les sources de données à l’aide de l’option de conservation des données. Ensuite, ajoutez les sources de données à un nouveau groupe de protection.
+
+1. Dans la console Administrateur du serveur de sauvegarde, sélectionnez la fonctionnalité **Protection**. Dans la liste **Membre du groupe de Protection**, cliquez sur le membre, puis sélectionnez **Arrêter la protection du membre**.
+
+  ![Arrêter la protection du membre](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+
+2. Dans la boîte de dialogue **Supprimer du groupe**, vérifiez l’espace disque utilisé et l’espace libre disponible pour le pool de stockage. La valeur par défaut consiste à conserver les points de récupération sur le disque et à les laisser expirer suivant la stratégie de rétention associée. Cliquez sur **OK**.
+
+  Si vous souhaitez restituer immédiatement l’espace disque utilisé pour le pool de stockage libre, sélectionnez la case à cocher **Supprimer le réplica sur le disque** pour supprimer les données de sauvegarde (et les points de récupération) associées à ce membre.
+
+  ![Boîte de dialogue Supprimer du groupe](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+
+3. Créez un groupe de protection qui utilise Modern Backup Storage. Incluez les sources de données non protégées.
+
+## <a name="add-disks-to-increase-legacy-storage"></a>Ajouter des disques pour augmenter le stockage existant
+
+Si vous souhaitez utiliser un stockage existant avec le serveur de sauvegarde, vous devrez peut-être ajouter des disques pour augmenter la capacité de stockage.
+
+Pour ajouter un stockage sur disque :
+
+1. Dans la console Administrateur, sélectionnez **Gestion** > **Stockage sur disque** > **Ajouter**.
+
+    ![Boîte de dialogue Ajouter un stockage sur disque](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+
+4. Dans la boîte de dialogue **Ajouter un stockage sur disque**, sélectionnez **Ajouter des disques**.
+
+5. Dans la liste des disques disponibles, sélectionnez les disques à ajouter, choisissez **Ajouter**, puis sélectionnez **OK**.
+
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir installé le Serveur de sauvegarde, apprenez à préparer votre serveur ou commencez à protéger une charge de travail.
 
 - [Préparer les charges de travail du Serveur de sauvegarde](backup-azure-microsoft-azure-backup.md)
 - [Utiliser le Serveur de sauvegarde pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md)
 - [Utiliser le serveur de sauvegarde pour sauvegarder SQL Server](backup-azure-sql-mabs.md)
-

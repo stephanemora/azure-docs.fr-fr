@@ -14,16 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9d3e579cd58bc6c7d67b29998ea5a48a65548b0a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903998"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615199"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Créer une instance d’Azure Network Watcher
 
-Network Watcher est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans, vers et depuis Azure. La surveillance au niveau des scénarios vous permet de diagnostiquer les problèmes avec une vue de bout en bout du réseau. Les outils de visualisation et de diagnostic réseau disponibles avec Network Watcher vous aident à comprendre, diagnostiquer et obtenir des informations sur votre réseau dans Azure.
+Network Watcher est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans, vers et depuis Azure. La surveillance au niveau des scénarios vous permet de diagnostiquer les problèmes avec une vue de bout en bout du réseau. Les outils de visualisation et de diagnostic réseau disponibles avec Network Watcher vous aident à comprendre, diagnostiquer et obtenir des informations sur votre réseau dans Azure. Network Watcher est activé par la création d’une ressource Network Watcher. Cette ressource vous permet d’utiliser les fonctionnalités de Network Watcher.
+
+## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher est activé automatiquement
+Lorsque vous créez ou mettez à jour un réseau virtuel dans votre abonnement, Network Watcher sera automatiquement activé dans la région de votre réseau virtuel. L’activation automatique de Network Watcher n’a aucun impact sur vos ressources ni sur les frais associés.
+
+#### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Refus d’activation automatique de Network Watcher
+Si vous souhaitez désactiver l’activation automatique de Network Watcher, vous pouvez le faire en exécutant les commandes suivantes :
+
+> [!WARNING]
+> Le refus d’activation automatique de Network Watcher est définitif. Si vous changez d’avis après avoir fait ce choix, vous devrez [recontacter le support](https://azure.microsoft.com/support/options/)
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+```azurecli-interactive
+az feature register --name DisableNetworkWatcherAutocreation --namespace Microsoft.Network
+az provider register -n Microsoft.Network
+```
+
+
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Créer un Network Watcher dans le portail
 
@@ -31,7 +52,7 @@ Accédez à **Tous les services** > **Mise en réseau** > **Network Watcher**. V
 
 ![créer un Network Watcher](./media/network-watcher-create/figure1.png)
 
-Lorsque vous activez Network Watcher en utilisant le portail, le nom de l’instance de Network Watcher est automatiquement défini comme *NetworkWatcher_nom_région*, où *nom_région* correspond à la région Azure dans laquelle l’instance est activée. Par exemple, une instance de Network Watcher activée dans la région États-Unis Centre-Ouest est nommée *NetworkWatcher_westcentralus*.
+Lorsque vous activez Network Watcher en utilisant le portail, le nom de l’instance de Network Watcher est automatiquement défini comme *NetworkWatcher_nom_région*, où *nom_région* correspond à la région Azure dans laquelle l’instance est activée. Par exemple, une instance de Network Watcher activée dans la région USA Centre-Ouest est nommée *NetworkWatcher_westcentralus*.
 
 L’instance de Network Watcher est automatiquement créée dans un groupe de ressources nommé *NetworkWatcherRG*. Ce groupe de ressources est créé s’il n’existe pas déjà.
 

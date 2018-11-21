@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: bda1a9df8a58833a544dc065dee0110bccf3ec59
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0497cba4cae66e63f710c9678f6d87c2f9fb8fb1
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138858"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515078"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Comment gérer les appareils dans le portail Azure
 
@@ -151,7 +151,7 @@ Pour activer/désactiver un appareil, vous avez deux options :
 **Remarques :**
 
 - Vous devez être administrateur général dans Azure AD pour activer/désactiver un appareil. 
-- Si vous désactivez un appareil, vous l’empêchez d’accéder à vos ressources Azure AD. 
+- La désactivation d’un périphérique empêche celui-ci de s’authentifier à Azure AD et, par conséquent, d’accéder à vos ressources Azure AD qui sont protégées par l’autorité de certification du périphérique ou d’utiliser vos informations d’identification WH4B. 
 
 
 

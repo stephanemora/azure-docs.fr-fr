@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
-ms.openlocfilehash: 178f4314f9ede86444ee60fd2a64f85dc283080b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5beb952c2330d44ffe090fc422afa6da67376b0d
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138526"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288048"
 ---
 # <a name="create-entities-without-utterances"></a>Créer des entités sans énoncés
 
@@ -116,7 +116,7 @@ Dans l’énoncé `Where is Request relocation from employee new to the company 
 
 1. Dans la section **Build**, sélectionnez **Entities** dans le volet gauche, puis **Create new entity**.
 
-1. Dans la boîte de dialogue **Add Entity**, tapez  dans la zone Entity name et sélectionnez **Pattern.any** comme **Entity type**.
+1. Dans la boîte de dialogue **Add Entity**, tapez `HumanResourcesFormTitle` dans la zone **Entity name** et sélectionnez **Pattern.any** comme **Entity type**.
 
     Pour utiliser l’entité Pattern.any, ajoutez un modèle dans la page **Patterns**, dans la section **Improve app performance** (Améliorer les performances de l’application) avec la syntaxe entre accolades correcte, par exemple `Where is **{HumanResourcesFormTitle}** on the server?`.
 

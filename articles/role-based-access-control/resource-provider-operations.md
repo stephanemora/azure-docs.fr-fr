@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7d044559d72b07dc86a5ee1c2269452a9059de61
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f2fc320d0d66e19ec8a1e591377c482a7ec64d9
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471507"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626131"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -77,7 +77,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ADHybridHealthService/addsservices/action | Crée une forêt pour le locataire. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | Obtient tous les serveurs pour le nom de service spécifié. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/alerts/read | Obtient les détails de l’alerte pour la forêt, comme l’ID d’alerte, la date de déclenchement de l’alerte, la dernière alerte détectée, la description de l’alerte, la dernière alerte mise à jour, le niveau d’alerte, l’état de l’alerte, les liens de résolution des problèmes relatifs à l’alerte, etc. |
-> | Action | Microsoft.ADHybridHealthService/addsservices/configuration/read | Obtient la configuration de service pour la forêt. Exemple : nom de la forêt, niveau fonctionnel, rôle FSMO du maître d’opérations des noms de domaine, rôle FSMO du contrôleur de schéma, etc. |
+> | Action | Microsoft.ADHybridHealthService/addsservices/configuration/read | Obtient la configuration de service pour la forêt. Exemple : nom de la forêt, niveau fonctionnel, rôle FSMO du maître d’opérations des noms de domaine, rôle FSMO du contrôleur de schéma, etc. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/delete | Supprime un service et ses serveurs, ainsi que les données de contrôle d’intégrité. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/dimensions/read | Obtient les détails des domaines et des sites de la forêt. Exemple : état d’intégrité, alertes actives, alertes résolues, propriétés telles que Niveau fonctionnel du domaine, Forêt, Maître d’infrastructure, Contrôleur de domaine principal, Maître RID, etc.  |
 > | Action | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Obtient le paramètre de préférence utilisateur pour la forêt.<br>Exemple : MetricCounterName, comme ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes ou ldapsearches.<br>Paramètres des graphiques de l’interface utilisateur, etc. |
@@ -552,7 +552,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | --- | --- | --- |
 > | Action | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Supprime une ressource de répertoire B2C |
 > | Action | Microsoft.AzureActiveDirectory/b2cDirectories/read | Affiche une ressource de répertoire B2C |
-> | Action | Microsoft.AzureActiveDirectory/b2cDirectories/write | Crée ou met à jour une ressource de répertoire B2C |
+> | Action | Microsoft.AzureActiveDirectory/b2cDirectories/write | Créer ou mettre à jour une ressource d’annuaire B2C |
 > | Action | Microsoft.AzureActiveDirectory/operations/read | Lit toutes les opérations d’API disponibles pour le fournisseur de ressources Microsoft.AzureActiveDirectory |
 > | Action | Microsoft.AzureActiveDirectory/register/action | Enregistre l’abonnement à un fournisseur de ressources Microsoft.AzureActiveDirectory |
 
@@ -975,7 +975,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/delete | Supprime le groupe de sécurité réseau. |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | Lit l’état de l’opération pour le groupe de sécurité réseau. |
 > | Action | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Obtient les paramètres de diagnostic des groupes de sécurité réseau |
-> | Action | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour les paramètres de diagnostic des groupes de sécurité réseau, cette opération étant complétée par le fournisseur de ressources Insights. |
+> | Action | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour les paramètres de diagnostic des groupes de sécurité réseau, cette opération étant complétée par le fournisseur de ressources Insights. | 
 > | Action | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Obtient les événements pour le groupe de sécurité réseau |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/read | Obtient le groupe de sécurité réseau. |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete | Supprime la règle de sécurité. |
@@ -1100,7 +1100,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.CognitiveServices/accounts/skus/read | Lit les références disponibles pour une ressource existante. |
 > | Action | Microsoft.CognitiveServices/accounts/usages/read | Obtenir l’utilisation du quota pour une ressource existante. |
 > | Action | Microsoft.CognitiveServices/accounts/write | Écrit les comptes d’API. |
-> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Lit les références (SKU) disponibles pour un abonnement |
+> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Lit les références (SKU) disponibles pour un abonnement. |
 > | Action | Microsoft.CognitiveServices/Operations/read | Répertorie toutes les opérations disponibles |
 > | Action | Microsoft.CognitiveServices/register/action | Enregistre l’abonnement à Cognitive Services |
 > | Action | Microsoft.CognitiveServices/skus/read | Lit les références (SKU) disponibles pour Cognitive Services |
@@ -1214,7 +1214,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour le groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour le groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux disponibles pour les groupes de machines virtuelles identiques |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Lit les définitions de métrique du groupe de machines virtuelles identiques |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Lit les définitions de métrique du groupe de machines virtuelles identiques. |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | Obtient les propriétés de toutes les adresses IP publiques d’un groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/read | Obtient les propriétés d’un groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/redeploy/action | Redéploie les instances du groupe de machines virtuelles identiques |

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036544"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567143"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -419,7 +419,7 @@ Le tableau suivant montre la version de Node.js qui est utilisée par chaque ver
 | Version de Functions | Version de Node.js | 
 |---|---|
 | 1.x | 6.11.2 (verrouillée par le runtime) |
-| 2.x  | Versions de Node.js _Active LTS_ et _Current_ (8.11.1 et 10.6.0 sont recommandées). Définissez la version à l’aide du [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION.|
+| 2.x  | Versions de Node.js _Active LTS_ et _Current_ paires (8.11.1 et 10.6.0 sont recommandées). Définissez la version à l’aide du [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION.|
 
 Vous pouvez voir la version que le runtime utilise en vérifiant le paramètre d’application ci-dessus ou en affichant `process.version` à partir de n’importe quelle fonction.
 

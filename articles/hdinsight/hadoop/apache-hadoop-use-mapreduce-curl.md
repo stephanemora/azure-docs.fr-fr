@@ -1,6 +1,6 @@
 ---
-title: Utiliser MapReduce et Curl avec Hadoop dans HDInsight - Azure
-description: Apprenez à exécuter à distance des tâches MapReduce avec Hadoop sur HDInsight à l’aide de Curl.
+title: Utiliser MapReduce et Curl avec Apache Hadoop dans HDInsight - Azure
+description: Découvrez comment exécuter à distance des tâches MapReduce avec Apache Hadoop sur HDInsight à l’aide de Curl.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 496b7dacdb30507fe5eb2d4d7c5602003a944269
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010896"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632292"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Exécution des tâches MapReduce avec Hadoop sur HDInsight avec REST
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Exécuter des tâches MapReduce avec Apache Hadoop sur HDInsight avec REST
 
-Découvrez comment utiliser l’API REST WebHCat pour exécuter des tâches MapReduce sur un Hadoop sur le cluster HDInsight. Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant des requêtes HTTP brutes pour exécuter des tâches MapReduce.
+Découvrez comment utiliser l’API REST WebHCat pour exécuter des tâches MapReduce sur un Apache Hadoop sur le cluster HDInsight. Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant des requêtes HTTP brutes pour exécuter des tâches MapReduce.
 
 > [!NOTE]
 > Si vous vous êtes déjà familiarisé avec l’utilisation de serveurs Hadoop sous Linux, mais que vous découvrez HDInsight, consultez le document [Ce qu’il faut savoir sur Hadoop dans HDInsight sous Linux](../hdinsight-hadoop-linux-information.md).

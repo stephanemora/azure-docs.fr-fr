@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ea9167404034911a0e917374fbdb9962da1578d5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257831"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636065"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
 
-Lorsque vous déployez votre application web, votre application web Linux, votre mobile backend ou votre API dans [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez cibler un autre emplacement de déploiement que l’emplacement de production par défaut lorsque vous exécutez le niveau de plan **Standard** ou **Premium** d’App Service. Les emplacements de déploiement sont en fait des applications dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
+Lorsque vous déployez votre application web, votre application web Linux, votre backend mobile ou votre API dans [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez cibler un autre emplacement de déploiement que l’emplacement de production par défaut lorsque vous exécutez le niveau de plan **Standard**, **Premium** ou **Isolé** d’App Service. Les emplacements de déploiement sont en fait des applications dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
 
 * Vous pouvez valider les modifications d’une application dans un emplacement de déploiement intermédiaire avant de l’échanger avec l’emplacement de production.
 * Déployer d’abord une application vers un emplacement et la basculer ensuite en production garantit que toutes les instances de l’emplacement sont initialisées avant d’être basculées en production. Cela permet d’éliminer les temps d’arrêt lors du déploiement de l’application. La redirection du trafic est transparente et aucune demande n'est abandonnée durant les opérations de basculement. Ce flux de travail peut être entièrement automatisé en configurant [Échange automatique](#Auto-Swap) lorsqu’aucune validation n’est requise avant l’échange.
@@ -36,7 +36,7 @@ Chaque niveau de plan App Service prend en charge un nombre différent d’empla
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Ajouter un emplacement de déploiement
-Pour que vous puissiez activer plusieurs emplacements de déploiement, l’application doit s’exécuter au niveau **Standard** ou **Premium**.
+Pour que vous puissiez activer plusieurs emplacements de déploiement, l’application doit s’exécuter au niveau **Standard**, **Premium** ou **Isolé*.
 
 1. Dans le [portail Azure](https://portal.azure.com/), ouvrez le [panneau de ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
 2. Choisissez l’option **Emplacements de déploiement**, puis cliquez sur **Ajouter un emplacement**.
@@ -44,7 +44,7 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
     ![Add a new deployment slot][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Si l’application ne s’exécute pas au niveau **Standard** ou **Premium**, vous recevez un message indiquant les niveaux pris en charge pour l’activation de la publication intermédiaire. À ce stade, vous pouvez sélectionner **Mettre à niveau** et accéder à l’onglet **Mettre à l’échelle** de votre application avant de continuer.
+   > Si l’application ne s’exécute pas au niveau **Standard**, **Premium** ou **Isolé*, vous recevez un message indiquant les niveaux pris en charge pour l’activation de la publication intermédiaire. À ce stade, vous pouvez sélectionner **Mettre à niveau** et accéder à l’onglet **Mettre à l’échelle** de votre application avant de continuer.
    > 
    > 
 3. Dans le panneau **Ajouter un emplacement**, nommez l’emplacement, puis indiquez si vous souhaitez cloner la configuration de l’application à partir d’un autre emplacement de déploiement. Cliquez sur la coche pour continuer.

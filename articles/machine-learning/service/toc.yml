@@ -3,50 +3,64 @@ items:
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Qu'est-ce que Azure Machine Learning ?
+  - name: Qu'est-ce que le service Azure Machine Learning ?
+    displayName: AML, services, overview
     href: overview-what-is-azure-ml.md
-  - name: Qu’est devenu Workbench ?
+  - name: Fonctionnement du service
+    displayName: architecture
+    href: concept-azure-machine-learning-architecture.md
+  - name: Que se passe-t-il sur Workbench ?
+    displayName: desktop
     href: overview-what-happened-to-workbench.md
-  - name: Migration
-    href: how-to-migrate.md
-  - name: Comparer les produits ML de Microsoft
-    href: overview-more-machine-learning.md
   expanded: true
 - name: Démarrages rapides
   items:
   - name: Bien démarrer - Portail
     href: quickstart-get-started.md
-- name: Tutoriels
+  - name: Bien démarrer - Python
+    displayName: create workspace
+    href: quickstart-create-workspace-with-python.md
+- name: Didacticiels
   items:
-  - name: 1. Entraîner des modèles
+  - name: 'Entraîner des modèles : partie 1'
     href: tutorial-train-models-with-aml.md
-  - name: 2. Déployer des modèles
+  - name: 'Déployer des modèles : partie 2'
     href: tutorial-deploy-models-with-aml.md
   - name: Entraîner des modèles ML automatisés
+    displayName: automl
     href: tutorial-auto-train-models.md
+- name: Exemples
+  items:
+  - name: Bloc-notes Jupyter (GitHub)
+    displayName: example, examples
+    href: https://aka.ms/aml-notebooks
 - name: Concepts
   items:
-  - name: Architecture et terminologie
-    href: concept-azure-machine-learning-architecture.md
   - name: Gestion des modèles
+    displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
-  - name: Accélérations FPGA
+  - name: Accélérer avec les FPGA
     href: concept-accelerate-with-fpgas.md
-  - name: Pipelines ML
+  - name: Pipelines de Machine Learning
     href: concept-ml-pipelines.md
 - name: Procédures
   items:
   - name: Gestion des espaces de travail
     href: how-to-manage-workspace.md
-  - name: 'Configurer l’environnement de développement '
+  - name: Configurer l’environnement de développement 
     items:
-    - name: Choisir un environnement
-      href: how-to-choose-a-dev-environment.md
     - name: Configurer un environnement
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
       href: how-to-configure-environment.md
-  - name: Configurer des environnements d’entraînement
-    href: how-to-set-up-training-targets.md
+    - name: VS Code Tools for AI
+      displayName: Visual Studio Code, vscode
+      items:
+      - name: Prise en main
+        href: how-to-vscode-tools.md
+      - name: Former et déployer
+        href: how-to-vscode-train-deploy.md
   - name: Préparer les données
+    displayName: data prep, etl, elt, data preparation
     href: how-to-data-prep.md
     items:
     - name: Charger des données
@@ -55,55 +69,84 @@ items:
       href: how-to-transform-data.md
     - name: Écrire des données
       href: how-to-write-data.md
-  - name: Entraîner et optimiser
+  - name: Entraîner des modèles
     items:
-    - name: Accéder aux données
+    - name: Configurer des environnements d’entraînement
+      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      href: how-to-set-up-training-targets.md
+    - name: Accéder aux données lors d’une formation
       href: how-to-access-data.md
-    - name: Entraîner des modèles ML
+    - name: Créer des estimateurs
       href: how-to-train-ml-models.md
       items:
-      - name: Entraîner des modèles PyTorch
+      - name: PyTorch
         href: how-to-train-pytorch.md
-      - name: Entraîner des modèles TensorFlow
+      - name: TensorFlow
         href: how-to-train-tensorflow.md
-    - name: Créer et déployer des modèles ONNX
-      href: how-to-build-deploy-onnx.md
     - name: Optimiser les hyperparamètres
+      displayName: parameter
       href: how-to-tune-hyperparameters.md
     - name: Suivre les expériences et les métriques
       href: how-to-track-experiments.md
   - name: Automatiser l’apprentissage automatique
+    displayName: automl, auto ml
     href: how-to-automated-ml.md
     items:
     - name: Configurer l’entraînement automatique
       href: how-to-configure-auto-train.md
     - name: Utiliser des cibles de calcul distantes
       href: how-to-auto-train-remote.md
-  - name: Déployer et superviser
+  - name: Modèles ONNX
+    items:
+    - name: Création et déploiement
+      href: how-to-build-deploy-onnx.md
+  - name: Déployer des modèles
     items:
     - name: Où déployer les modèles
+      displayName: publish
       href: how-to-deploy-and-where.md
-      items:
-      - name: Déployer sur ACI
-        href: how-to-deploy-to-aci.md
-      - name: Déployer sur AKS
-        href: how-to-deploy-to-aks.md
-      - name: Déployer sur des FPGA
-        href: how-to-deploy-fpga-web-service.md
-      - name: Déployer sur IoT Edge
-        href: how-to-deploy-to-iot.md
-    - name: Collecter des données en production
+    - name: Déployer sur ACI
+      displayName: Azure Container Instances
+      href: how-to-deploy-to-aci.md
+    - name: Déployer sur AKS
+      displayName: Azure Kubernetes
+      href: how-to-deploy-to-aks.md
+    - name: Déployer sur des FPGA
+      href: how-to-deploy-fpga-web-service.md
+    - name: Déployer sur IoT Edge
+      href: how-to-deploy-to-iot.md
+    - name: Résolution des problèmes
+      href: how-to-troubleshoot-deployment.md
+    - name: Sécuriser avec SSL
+      href: how-to-secure-web-service.md
+  - name: Utiliser des services web
+    items:
+    - name: Consommer en temps réel
+      displayName: create client, client, consume
+      href: how-to-consume-web-service.md
+  - name: Surveiller des services web
+    items:
+    - name: Collecter et évaluer des données
       href: how-to-enable-data-collection.md
+    - name: Surveiller avec Application Insights
+      href: how-to-enable-app-insights.md
   - name: Gérer les quotas de ressources
+    displayName: limits
     href: how-to-manage-quotas.md
-  - name: Exporter et supprimer des données
-    href: how-to-export-delete-data.md
+  - name: Utiliser l’interface CLI Machine Learning
+    displayName: cli, command line, command-line, az,
+    href: reference-azure-machine-learning-cli.md
 - name: Informations de référence
   items:
   - name: SDK Machine Learning
-    href: http://aka.ms/aml-sdk
-  - name: Interface CLI de Machine Learning
-    href: reference-azure-machine-learning-cli.md
+    displayName: api, core, package
+    href: https://aka.ms/aml-sdk
+  - name: Kit de développement logiciel (SDK) pour préparation des données
+    displayName: api, preparation, package
+    href: https://aka.ms/data-prep-sdk
+  - name: Kit de développement logiciel (SDK) de supervision
+    displayName: api, package
+    href: https://aka.ms/aml-monitoring-sdk
 - name: Ressources
   items:
   - name: Feuille de route Azure
@@ -112,15 +155,24 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/regions/services/
-  - name: Exporter ou supprimer des données de compte
-    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+  - name: Notes de publication
+    displayName: what's new
+    href: azure-machine-learning-release-notes.md
   - name: Problèmes connus
     href: resource-known-issues.md
   - name: Obtenir de l’aide
     href: support-for-aml-services.md
+  - name: Exporter et supprimer des données
+    displayName: gdpr
+    href: how-to-export-delete-data.md
   - name: Documents dépréciés
     items:
-    - name: Démarrage rapide de Workbench
+    - name: Migration
+      displayName: Workbench, upgrade, update, transfer
+      href: how-to-migrate.md
+    - name: Exporter ou supprimer des données de compte (déconseillé)
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+    - name: Démarrage rapide de Workbench (déconseillé)
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Tutoriel 1 : Préparer les données'
       href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
@@ -132,7 +184,7 @@ items:
       href: ../desktop-workbench/tutorial-bikeshare-dataprep.md
     - name: Présentation de la gestion de modèles
       href: ../desktop-workbench/model-management-overview.md
-    - name: Tâches d’interface de ligne de commande supérieures
+    - name: Tâches d’interface de ligne de commande principales
       href: ../desktop-workbench/cli-for-azure-machine-learning.md
     - name: Utiliser Workbench
       items:
@@ -160,7 +212,7 @@ items:
         href: ../desktop-workbench/experimentation-service-configuration.md
       - name: Créer un cluster Spark DSVM et HDI
         href: ../desktop-workbench/how-to-create-dsvm-hdi.md
-      - name: Entraîner avec des GPU
+      - name: Effectuer l'apprentissage avec des GPU
         href: ../desktop-workbench/how-to-use-gpu.md
     - name: Acquérir et comprendre les données
       items:
@@ -213,7 +265,7 @@ items:
         href: ../desktop-workbench/how-to-use-model-data-collection.md
       - name: Guide de résolution des problèmes liés au déploiement
         href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-    - name: Procédures du monde réel
+    - name: Anciens exemples
       items:
       - name: Analyse de collection de document
         href: ../desktop-workbench/scenario-document-collection-analysis.md
@@ -239,9 +291,9 @@ items:
         href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
       - name: Classification d’images à l’aide de CNTK
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
-      - name: Apprentissage profond pour la maintenance prédictive
+      - name: Apprentissage approfondi pour la maintenance prédictive
         href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: Informations de référence
+    - name: Anciennes références
       items:
       - name: Extensions Python pour la préparation des données
         href: ../desktop-workbench/data-prep-python-extensibility-overview.md
@@ -279,12 +331,12 @@ items:
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: API de collection de données de modèle
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Concepts clés
+    - name: Anciens concepts
       href: ../desktop-workbench/overview-general-concepts.md
     - name: Packages de domaine
       href: ../desktop-workbench/reference-python-package-overview.md
       items:
-      - name: Package Vision par ordinateur
+      - name: Package Vision par ordinateur déconseillé
         items:
         - name: Installation de package
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
@@ -298,7 +350,7 @@ items:
             href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
           - name: Améliorer la précision du modèle
             href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
-      - name: Package de prévisions
+      - name: Package de prévisions déconseillé
         items:
         - name: Vue d’ensemble et installation
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
@@ -308,21 +360,17 @@ items:
         href: reference-fpga-package-overview.md
       - name: Package d’analyse de texte
         items:
-        - name: Vue d’ensemble et installation
+        - name: Package de vue d’ensemble et d’installation déconseillé
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Création et déploiement de modèles de classification du texte
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
-    - name: Notes de publication plus anciennes
-      href: azure-machine-learning-release-notes.md
     - name: FAQ
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Anciens problèmes
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-    - name: Support
-      href: support-for-aml-services.md
-ms.openlocfilehash: c5b69eaab82c2649eb1cb30438899999449c92a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 14ba5fa2b31c6695737b3250521d0904c950cf30
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992828"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264894"

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264137"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51293182"
 ---
-# <a name="internet-of-things-security-architecture"></a>Architecture de sécurité de l’Internet des objets
+# <a name="internet-of-things-iot-security-architecture"></a>Architecture de sécurité de l’Internet des objets (IdO)
 
 Lorsque vous concevez un système, il est important de comprendre les menaces potentielles qui pèsent sur ce dernier et d’ajouter les défenses appropriées en conséquence, à mesure de sa conception et de la création de son architecture. Il est particulièrement important de concevoir le produit dès le début dans une optique de sécurité : comprendre comment une personne malveillante peut compromettre un système contribue à s’assurer que les préventions adéquates sont en place dès le début.
 
@@ -27,23 +27,23 @@ L’objectif de la modélisation des menaces est de comprendre comment une perso
 
 De nombreuses équipes de développement font un excellent travail en prenant en compte les exigences fonctionnelles du système dont bénéficient les clients. Néanmoins, l’identification des modes non évidents de compromission du système par une personne malveillante se révèle plus difficile. La modélisation des menaces peut aider les équipes de développement à comprendre ce qu’une personne malveillante peut effectuer et pourquoi. La modélisation des menaces est un processus structuré qui crée une discussion sur les décisions en matière de conception de la sécurité dans le système, et qui apporte des modifications tout au long de la conception qui ont des incidences sur la sécurité. Si un modèle de menace consiste tout simplement en un document, celui-ci représente un moyen idéal de s’assurer de la continuité des connaissances et de la conservation des leçons retenues. Par ailleurs, il contribue à l’intégration rapide des nouvelles équipes. Enfin, la modélisation des menaces vous permet de prendre en considération d’autres aspects de la sécurité, par exemple les engagements en termes de sécurité que vous souhaitez fournir à vos clients. Ces engagements pris conjointement avec la modélisation des menaces documentent et orientent les tests de votre solution IoT.
 
-### <a name="when-to-threat-model"></a>Quand mettre en place un modèle de menace
+### <a name="when-to-do-threat-modeling"></a>Quand modéliser les menaces
 
 La [modélisation des menaces](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) apporte davantage de valeur si elle est incorporée dans la phase de conception. Lors de la conception, vous bénéficiez d’une plus grande flexibilité pour apporter les modifications qui élimineront les menaces. L’élimination des menaces au cours de la conception est en effet le résultat souhaité. C’est en effet bien plus facile que d’ajouter des préventions, les tester et s’assurer qu’elles restent en cours. Par ailleurs, procéder à de telles éliminations n’est pas toujours possible. Il est plus difficile d’éliminer des menaces lorsqu’un produit progresse dans son cycle de vie, et cela nécessite plus de travail et des compromis beaucoup plus difficiles que la mise en place d’une modélisation des menaces au début du développement.
 
-### <a name="what-to-threat-model"></a>Quels éléments inclure dans le modèle de menace
+### <a name="what-to-consider-for-threat-modeling"></a>Quels facteurs intégrer dans la modélisation des menaces
 
-Vous devez inclure la solution dans son ensemble dans le modèle de menace et vous concentrer sur les domaines suivants :
+Vous devez envisager la solution dans son ensemble dans le modèle de menace et vous concentrer sur les domaines suivants :
 
 * Les fonctionnalités de sécurité et de confidentialité
 * Les fonctionnalités dont les échecs relèvent de la sécurité
 * Les fonctionnalités qui touchent une délimitation d’approbation
 
-### <a name="who-threat-models"></a>Qui doit réaliser le modèle de menace
+### <a name="who-performs-threat-modeling"></a>Qui effectue la modélisation des menaces
 
 La modélisation des menaces est un processus comme un autre. Il est judicieux de traiter le document de modèle de menace comme tout autre composant de la solution et de le valider. De nombreuses équipes de développement font un excellent travail en prenant en compte les exigences fonctionnelles du système dont bénéficient les clients. Néanmoins, l’identification des modes non évidents de compromission du système par une personne malveillante se révèle plus difficile. La modélisation des menaces peut aider les équipes de développement à comprendre ce qu’une personne malveillante peut effectuer et pourquoi.
 
-### <a name="how-to-threat-model"></a>Procédure à suivre pour modéliser les menaces
+### <a name="how-to-perform-threat-modeling"></a>Comment effectuer la modélisation des menaces
 
 Le processus de modélisation des menaces est composé des quatre étapes suivantes :
 
@@ -57,16 +57,21 @@ Le processus de modélisation des menaces est composé des quatre étapes suivan
 Vous devez garder à l’esprit trois règles élémentaires lorsque vous créez un modèle de menace :
 
 1. Créez un diagramme de l’architecture de référence.
-1. Commencez par la logique de largeur. Obtenez d’abord une vue d’ensemble du système pour le comprendre avant de l’explorer en profondeur. Cette approche garantit que vous explorez en profondeur les bons emplacements.
-1. C’est vous qui conduisez le processus, et non l’inverse. Si vous rencontrez un problème lors de la phase de modélisation et souhaitez l’examiner, n’hésitez pas ! Ne vous sentez pas obligé de suivre ces étapes à la lettre.
+
+2. Commencez par la logique de largeur. Obtenez d’abord une vue d’ensemble du système pour le comprendre avant de l’explorer en profondeur. Cette approche garantit que vous explorez en profondeur les bons emplacements.
+
+3. C’est vous qui conduisez le processus, et non l’inverse. Si vous rencontrez un problème lors de la phase de modélisation et souhaitez l’examiner, n’hésitez pas ! Ne vous sentez pas obligé de suivre ces étapes à la lettre.
 
 #### <a name="threats"></a>Menaces
 
 Les quatre éléments principaux d’un modèle de menace sont les suivants :
 
 * Processus, comme les services web, services Win32 et démons *nix. Certaines entités complexes (comme les passerelles et capteurs sur site) peuvent être résumées sous la forme d’un processus lorsque l’exploration technique de ces zones n’est pas possible.
+
 * Magasins de données (tout emplacement de stockage des données, par exemple un fichier de configuration ou une base de données)
+
 * Flux de données (lorsque des données circulent entre d’autres éléments de l’application)
+
 * Entités externes (tout ce qui interagit avec le système sans être sous le contrôle de l’application, par exemple des flux d’utilisateur et des programmes transmis par satellite)
 
 Tous les éléments du diagramme architectural sont exposés à différentes menaces ; nous allons utiliser le mnémonique STRIDE dans cet article. Lisez le blog [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) (Modélisation des menaces, STRIDE) pour en savoir plus sur les éléments STRIDE.
@@ -135,7 +140,7 @@ Les périphériques connectés à usage spécifique présentent un nombre import
 
 À mesure que vous explorez les modèles d’interaction, examinez les termes « contrôle d’appareil » et « données d’appareil » avec le même niveau d’attention en créant la modélisation des menaces. Le terme « contrôle de périphérique » désigne les informations qui sont fournies à un périphérique par un tiers dans le but de modifier ou d’influencer son comportement quant à son état ou l’état de son environnement. Le terme « données de périphérique » désigne les informations qu’un périphérique transmet à un tiers sur son état et l’état observé de son environnement.
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Modélisation des menaces pour l’architecture de référence Microsoft Azure IoT
+## <a name="performing-threat-modeling-for-the-azure-iot-reference-architecture"></a>Modélisation des menaces pour l’architecture de référence Microsoft Azure IoT
 
 Microsoft utilise l’infrastructure décrite précédemment pour effectuer la modélisation des menaces pour Azure IoT. La section suivante utilise l’exemple concret de l’architecture de référence Azure IoT pour montrer comment réfléchir à la modélisation des menaces pour IoT et comment traiter les menaces identifiées. Cet exemple identifie quatre domaines principaux :
 

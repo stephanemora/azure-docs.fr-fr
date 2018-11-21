@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: d57e780fbf5187f2481d40bde28b113181c15b4a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 22432a98a7ac5ecba46201d0166940e069f6031b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834656"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346437"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Découvrir des expériences dans la galerie Azure AI
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="experiments-for-machine-learning-studio"></a>Expériences pour Machine Learning Studio
-La galerie contient une grande variété d’[expériences](https://gallery.cortanaintelligence.com/experiments) qui ont été développées dans [Azure Machine Learning Studio](https://studio.azureml.net). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) contient une grande variété d’[expériences](https://gallery.cortanaintelligence.com/experiments) qui ont été développées dans [Azure Machine Learning Studio](https://studio.azureml.net). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
 
 > [!NOTE]
 > Une ***expérience*** est un canevas dans Machine Learning Studio que vous pouvez utiliser pour créer un modèle d’analyse prédictive. Vous créez le modèle en connectant des données avec divers modules d’analyse. Vous pouvez essayer différentes idées, effectuer des essais, puis publier votre modèle sous la forme d’un service Web dans Azure. Pour obtenir un exemple de création d’une expérience simple, consultez la rubrique [Didacticiel de Machine Learning : Création de votre première expérience dans Azure Machine Learning Studio](create-experiment.md). Pour une description plus complète de la création d’une solution d’analyse prédictive, consultez la rubrique [Procédure pas à pas : Développement d’une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](walkthrough-develop-predictive-solution.md).

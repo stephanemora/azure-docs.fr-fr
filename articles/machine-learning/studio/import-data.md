@@ -16,31 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: a5750555802489b41b007831164767beb953ebc4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 575e17f214561bde06b70bf87c4895ae379659f2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34837461"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344720"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importation de vos données d’apprentissage Azure Machine Learning Studio depuis différentes sources de données
-Pour utiliser vos propres données dans Machine Learning Studio afin de développer et de tester une solution d'analyse prédictive, vous pouvez : 
 
-* télécharger par avance les données d’un **fichier local** sur votre disque dur pour créer un module de jeu de données dans votre espace de travail
-* accéder aux données à partir d’une des nombreuses **sources de données en ligne** pendant que votre expérience s’exécute à l’aide du module [Importer des données][import-data] 
-* utiliser les données d’une autre **expérience** Azure Machine Learning enregistrée en tant que jeu de données
-* utiliser les données depuis une **base de données SQL Server** locale
+Pour utiliser vos propres données dans Machine Learning Studio afin de développer et de tester une solution d’analyse prédictive, vous pouvez utiliser les données des ressources suivantes : 
 
-Chacune de ces options est décrite dans l’une des rubriques du menu ci-dessous. Ces rubriques montrent comment importer des données à partir de différentes sources afin de les utiliser dans Machine Learning Studio. 
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
+* Un [**fichier local**](import-data-from-local-file.md) - Charger en avance les données locale sur votre disque dur pour créer un module de jeu de données dans votre espace de travail
+* [**Sources de données en ligne**](import-data-from-online-sources.md) - Utiliser le module [Importer les données][import-data] pour accéder aux données à partir d’une des nombreuses sources en ligne pendant que votre expérience s’exécute
+* [**Expérience Machine Learning Studio**](import-data-from-an-experiment.md) - Utiliser les données qui ont été enregistrées en tant que jeu de données dans Machine Learning Studio
+* [**Base de données SQL Server locale**](use-data-from-an-on-premises-sql-server.md) - Utiliser les données d’une base de données SQL Server locale sans avoir à copier les données manuellement
 
 > [!NOTE]
 > Un certain nombre d’exemples de jeux de données sont disponibles dans Machine Learning Studio et vous pouvez les utiliser comme données de formation. Pour plus d’informations, consultez [Utilisation des exemples de jeux de données dans Azure Machine Learning Studio](use-sample-datasets.md).
 > 
 > 
 
-Cette rubrique d’introduction traite également de la préparation des données afin de les utiliser dans Machine Learning Studio, et décrit les formats et les types de données pris en charge. 
+Cet article d’introduction traite également de la préparation des données afin de les utiliser dans Machine Learning Studio, et décrit les formats et les types de données pris en charge.
 
 > [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 > 

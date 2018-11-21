@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f064521929bdaf0565a2993e12be62a3959ad567
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945295"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300436"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 
@@ -55,7 +55,7 @@ Avant de commencer cette procédure pour un système intégré, vérifiez que vo
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - Si vous exécutez le Kit ADSK, connectez-vous à l’hôte du Kit de développement.
+    - Si vous exécutez le Kit ASDK, connectez-vous à l’hôte du Kit de développement.
 
 2. Sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
  
@@ -67,7 +67,7 @@ Avant de commencer cette procédure pour un système intégré, vérifiez que vo
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge un point de terminaison privilégié. 
-    - Si vous exécutez le Kit ADSK :
+    - Si vous exécutez le Kit ADSK :
      
       ````PowerShell
         $cred = Get-Credential
@@ -127,7 +127,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - Si vous exécutez le Kit ADSK, connectez-vous à l’hôte du Kit de développement.
+    - Si vous exécutez le Kit ASDK, connectez-vous à l’hôte du Kit de développement.
 
 2. Sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
  
@@ -139,7 +139,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge un point de terminaison privilégié. 
-    - Si vous exécutez le Kit ADSK :
+    - Si vous exécutez le Kit ADSK :
      
       ````PowerShell
        $cred = Get-Credential

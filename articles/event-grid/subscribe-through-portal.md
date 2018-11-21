@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72eaa17e78086a4e5338bb3198ef7471c44b785f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: eb48e40007a25992a9a399176b6a4f93be89efc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234691"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344080"
 ---
 # <a name="subscribe-to-events-through-portal"></a>S’abonner à des événements via le portail
 
@@ -45,6 +45,16 @@ Pour créer un abonnement Event Grid pour une des [sources d’événements](eve
 1. Spécifiez des détails supplémentaires sur l’abonnement aux événements, comme le point de terminaison pour la gestion des événements et un nom d’abonnement.
 
    ![Spécifier les détails de l’abonnement](./media/subscribe-through-portal/provide-subscription-details.png)
+
+1. Pour activer le lettrage mort et personnaliser les stratégies de nouvelle tentative, sélectionnez **Fonctionnalités supplémentaires**.
+
+   ![Sélectionner des fonctionnalités supplémentaires](./media/subscribe-through-portal/select-additional-features.png)
+
+1. Sélectionnez un conteneur à utiliser pour stocker les événements qui ne sont pas livrés et définissez le mode d’envoi des nouvelles tentatives.
+
+   ![Activer les stratégies de lettres mortes et de nouvelles tentatives](./media/subscribe-through-portal/set-deadletter-retry.png)
+
+1. Quand vous avez terminé, sélectionnez **Créer**.
 
 ## <a name="create-subscription-on-resource"></a>Créer un abonnement sur une ressource
 

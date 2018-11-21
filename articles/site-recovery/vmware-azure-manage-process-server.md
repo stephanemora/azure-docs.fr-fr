@@ -1,17 +1,17 @@
 ---
-title: Gérer un serveur de processus dans Azure Site Recovery | Microsoft Docs
-description: Cet article explique comment gérer un serveur de processus configuré pour la réplication d’une machine virtuelle VMware et d’un serveur physique dans Azure Site Recovery.
+title: Gérer un serveur de processus pour la récupération d’urgence de machines virtuelles VMware et de serveurs physiques sur Azure avec Azure Site Recovery | Microsoft Docs
+description: Cet article explique comment gérer un serveur de processus configuré pour la récupération d’urgence de machines virtuelles VMware et d’un serveur physique sur Azure avec Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/21/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: b3c6f1d130a6f5427fe8377bd70de743f0700052
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434838"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568850"
 ---
 # <a name="manage-process-servers"></a>Gérer des serveurs de processus
 
@@ -79,4 +79,16 @@ Si le serveur de processus utilise un proxy pour se connecter à Site Recovery d
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
+## <a name="manage-anti-virus-software-on-process-servers"></a>Gérer un logiciel antivirus sur les serveurs de processus
+
+Si un logiciel antivirus est actif sur un serveur de processus autonome ou un serveur cible maître, excluez les dossiers suivants des opérations antivirus :
+
+
+- C:\Program Files\Microsoft Azure Recovery Services Agent
+- C:\ProgramData\ASR
+- C:\ProgramData\ASRLogs
+- C:\ProgramData\ASRSetupLogs
+- C:\ProgramData\LogUploadServiceLogs
+- C:\ProgramData\Microsoft Azure Site Recovery
+- Répertoire d’installation du serveur de processus, par exemple : C:\Program Files (x86)\Microsoft Azure Site Recovery
 

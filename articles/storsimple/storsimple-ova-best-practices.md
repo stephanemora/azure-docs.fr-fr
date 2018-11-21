@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 11/08/2018
 ms.author: alkohli
-ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972838"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300912"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Bonnes pratiques liées à StorSimple Virtual Array
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée qui gère les tâches de stockage entre un appareil virtuel local exécuté dans un hyperviseur et le stockage cloud Microsoft Azure. StorSimple Virtual Array représente une alternative efficace et économique à la baie de stockage physique de la gamme 8000. La baie virtuelle peut s’exécuter sur votre infrastructure de l’hyperviseur, prend en charge les protocoles SMB et iSCSI, et est adaptée aux scénarios de bureaux distants. Pour plus d’informations sur les solutions StorSimple, consultez [Vue d’ensemble de Microsoft Azure StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
 Cet article aborde les bonnes pratiques à implémenter au cours de l’installation initiale, du déploiement et de la gestion de la baie virtuelle StorSimple Virtual Array. Ces bonnes pratiques fournissent des instructions validées pour l’installation et la gestion de votre baie virtuelle. Cet article est destiné aux administrateurs informatiques qui déploient et gèrent les baies virtuelles dans leurs centres de données.
@@ -63,17 +63,17 @@ Les exemples suivants illustrent la façon de dimensionner une baie virtuelle se
 #### <a name="example-1"></a>Exemple 1 :
 Sur votre baie virtuelle, vous souhaitez être en mesure de
 
-* configurer un partage ou un volume hiérarchisé de 2 To ;
-* configurer un partage ou un volume hiérarchisé de 1 To ;
-* configurer un partage ou un volume épinglé localement de 300 Go.
+* configurer un partage ou un volume hiérarchisé de 2 To ;
+* configurer un partage ou un volume hiérarchisé de 1 To ;
+* configurer un partage ou un volume épinglé localement de 300 Go.
 
 Pour les partages ou volumes précédents, calculons l’espace nécessaire au niveau local.
 
 Tout d’abord, pour chaque partage/volume hiérarchisé, la réservation locale serait égale à 12 % de la taille du partage/volume. Pour le volume/partage épinglé localement, la réservation locale représente 10 % de la taille du volume/partage épinglé localement (en plus de la taille approvisionnée). Dans cet exemple, vous avez besoin
 
-* d’une réservation locale de 240 Go (pour un partage/volume hiérarchisé de 2 To) ;
-* d’une réservation locale de 120 Go (pour un partage/volume hiérarchisé de 1 To) ;
-* de 330 Go pour le volume ou le partage épinglé localement (en ajoutant 10 % de réservation locale à la taille approvisionnée de 300 Go)
+* d’une réservation locale de 240 Go (pour un partage/volume hiérarchisé de 2 To) ;
+* d’une réservation locale de 120 Go (pour un partage/volume hiérarchisé de 1 To) ;
+* de 330 Go pour le volume ou le partage épinglé localement (en ajoutant 10 % de réservation locale à la taille approvisionnée de 300 Go) ;
 
 L’espace total requis à ce stade au niveau local est de : 240 Go + 120 Go + 330 Go = 690 Go.
 
@@ -91,12 +91,12 @@ En tenant compte de la croissance inattendue et de nouvelles restaurations, vous
 #### <a name="example-2"></a>Exemple 2 :
 Sur votre baie virtuelle, vous souhaitez être en mesure de
 
-* configurer un volume hiérarchisé de 2 To ;
-* configurer un volume épinglé localement de 300 Go.
+* configurer un volume hiérarchisé de 2 To ;
+* configurer un volume épinglé localement de 300 Go.
 
 En tenant compte des 12 % de réservation de l’espace local pour les partages/volumes hiérarchisés et des 10 % pour les partages/volumes épinglés localement, nous avons besoin
 
-* d’une réservation locale de 240 Go (pour un partage/volume hiérarchisé de 2 To) ;
+* d’une réservation locale de 240 Go (pour un partage/volume hiérarchisé de 2 To) ;
 * de 330 Go pour le volume ou le partage épinglé localement (en ajoutant 10 % de réservation locale à l’espace approvisionné de 300 Go)
 
 L’espace total requis au niveau local est de : 240 Go + 330 Go = 570 Go.
@@ -122,7 +122,7 @@ La configuration réseau de votre baie virtuelle s’effectue via l’interface 
 
 Lorsque vous déployez une baie virtuelle, nous vous recommandons d’appliquer les bonnes pratiques suivantes :
 
-* Assurez-vous que le réseau dans lequel la baie virtuelle est déployée a toujours la capacité de dédier une bande passante Internet de 5 Mbits/s (ou plus).
+* Assurez-vous que le réseau dans lequel la baie virtuelle est déployée a toujours la capacité de dédier une bande passante Internet de 5 Mbits/s (ou plus).
   
   * La bande passante Internet requise varie selon les caractéristiques de votre charge de travail et le taux de modification des données.
   * La modification des données qui peut être gérée est directement proportionnelle à la bande passante Internet. Par exemple, lorsque vous effectuez une sauvegarde, une bande passante de 5 Mbits/s peut prendre en charge une modification des données d’environ 18 Go en 8 heures. Avec une bande passante quatre fois supérieure (20 Mbits/s), vous pouvez gérer une modification des données quatre fois supérieure (72 Go).
@@ -168,7 +168,7 @@ StorSimple prend en charge deux types de volume/partage en fonction de l’utili
 Nous vous recommandons d’implémenter les bonnes pratiques suivantes lors de la configuration de volumes/partages StorSimple :
 
 * Identifiez le type de volume en fonction des charges de travail que vous envisagez de déployer avant de créer un volume. Utilisez des volumes épinglés localement pour les charges de travail qui requièrent des garanties locales de données (même pendant une panne du cloud) et qui nécessitent de faibles temps de latence du cloud. Une fois que vous avez créé un volume sur votre baie virtuelle, vous ne pouvez pas modifier le type de volume en remplaçant le type épinglé localement par le type hiérarchisé, ou *inversement*. Par exemple, créez des volumes épinglés localement lors du déploiement de charges de travail SQL ou de charges de travail hébergeant des machines virtuelles ; utilisez des volumes hiérarchisés pour des charges de travail de partage de fichiers.
-* Activez l’option pour les données d’archivage moins fréquemment utilisées lors du traitement de fichiers volumineux. Une plus grande taille de segment de déduplication de 512 Ko est utilisée lorsque cette option est activée, afin d’accélérer le transfert des données vers le cloud.
+
 
 #### <a name="volume-format"></a>Format des volumes
 Après avoir créé des volumes StorSimple sur votre serveur iSCSI, vous devez initialiser, monter et formater ces volumes. Cette opération est effectuée sur l’hôte connecté à votre appareil StorSimple. Les bonnes pratiques suivantes sont recommandées lors du montage et du formatage des volumes sur l’hôte StorSimple.
@@ -249,7 +249,7 @@ Tenez compte des bonnes pratiques suivantes lors de la désactivation de votre b
 ### <a name="monitoring"></a>Surveillance
 Pour vous assurer que votre baie virtuelle StorSimple Virtual Array est en permanence dans un état sain, vous devez surveiller la baie et vérifier que vous recevez des informations à partir du système, y compris les alertes. Pour surveiller l’intégrité globale de la baie virtuelle, mettez en œuvre les bonnes pratiques suivantes :
 
-* Configurez la surveillance pour effectuer le suivi de l’utilisation du disque de données de votre baie virtuelle, ainsi que du disque du système d’exploitation. Si vous exécutez Hyper-V, vous pouvez utiliser une combinaison de System Center Virtual Machine Manager (SCVMM) et de System Center Operations Manager (SCOM) pour surveiller vos hôtes de virtualisation.
+* Configurez la surveillance pour effectuer le suivi de l’utilisation du disque de données de votre baie virtuelle, ainsi que du disque du système d’exploitation. Si vous exécutez Hyper-V, vous pouvez utiliser une combinaison de System Center Virtual Machine Manager (SCVMM) et de System Center Operations Manager pour surveiller vos hôtes de virtualisation.
 * Configurez les notifications par courrier électronique sur votre baie virtuelle pour envoyer des alertes à certains niveaux d’utilisation.                                                                                                                                                                                                
 
 ### <a name="index-search-and-virus-scan-applications"></a>Applications d’analyse antivirus et de recherche d’index

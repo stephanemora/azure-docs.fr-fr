@@ -14,12 +14,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 35737b91d8ef0b58223f51530f56408df1c7eb8e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138790"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564916"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes Application Insights
 
@@ -49,9 +49,9 @@ Votre équipe définit un utilisateur engagé comme une personne qui utilise vot
     Cette cohorte a trois paramètres :
     * **Activities** (Activités) : permet de choisir les événements et les pages consultées qui doivent être comptabilisés dans l’utilisation.
     * **Period** (Période) : définition d’un mois.
-    * **UsedAtleastCustom** (Nombre d’utilisations) : nombre de fois qu’un utilisateur doit se servir d’un même élément au cours d’une période pour être considéré comme un utilisateur engagé.
+    * **UsedAtleastCustom** (Nombre d’utilisations) : nombre de fois qu’un utilisateur doit se servir d’un même élément au cours d’une période pour être considéré comme un utilisateur engagé.
 
-4. Sélectionnez **5+ days** (+ de 5 jours) dans **UsedAtleastCustom** et conservez la valeur par défaut de 28 jours dans **Period** (Période).
+4. Sélectionnez **5+ days** (+ de 5 jours) dans **UsedAtLeastCustom** et conservez la valeur par défaut de 28 jours dans **Period** (Période).
 
     ![Utilisateurs engagés](.\media\app-insights-usage-cohorts\003.png)
 

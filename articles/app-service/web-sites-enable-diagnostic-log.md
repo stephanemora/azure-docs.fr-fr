@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231617"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636956"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications web dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
 Azure fournit des diagnostics intégrés pour aider au débogage d'une [application Web App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
-Cet article utilise le [portail Azure](https://portal.azure.com), Azure PowerShell et l’interface de ligne de commande Azure pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -65,7 +65,7 @@ Pour **Journal des applications**, vous pouvez temporairement activer l’option
 
 Pour **Journalisation du serveur web**, vous pouvez sélectionner **Stockage** ou **Système de fichiers**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d’objets blob dans lequel les journaux sont écrits. 
 
-Si vous stockez les journaux sur le système de fichiers, vous pouvez accéder à ces fichiers par FTP ou les télécharger sous forme d’archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure (Azure CLI).
+Si vous stockez les journaux sur le système de fichiers, vous pouvez accéder à ces fichiers par FTP ou les télécharger sous forme d’archive ZIP en utilisant Azure PowerShell ou Azure CLI.
 
 Par défaut, les journaux ne sont pas automatiquement supprimés (à l’exception du **Journal des applications (Système de fichiers)**). Pour supprimer automatiquement les journaux, définissez le champ **Période de rétention (jours)**.
 
@@ -73,24 +73,20 @@ Par défaut, les journaux ne sont pas automatiquement supprimés (à l’excepti
 > Si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-create-storage-account.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés mises à jour. Pour ce faire :
 >
 > 1. Sous l’onglet **Configurer**, définissez la fonctionnalité de journalisation correspondante sur **Désactivé**. Enregistrez votre paramètre.
-> 2. Réactivez la journalisation de l’objet blob ou de la table du compte de stockage. Enregistrez votre paramètre.
+> 2. Réactivez la journalisation de l’objet blob du compte de stockage. Enregistrez votre paramètre.
 >
 >
 
-Vous pouvez activer simultanément toute combinaison de système de fichiers, stockage de tables ou stockage d’objets blob. Des configurations de niveau de journalisation individuelles sont également possibles. Vous pouvez, par exemple, consigner les erreurs et les avertissements dans le stockage d'objets blob dans le cadre d'une solution de journalisation à long terme, tout en activant un niveau de journalisation détaillé du système de fichiers.
+Vous pouvez activer simultanément toute combinaison de système de fichiers ou stockage d’objets blob. Des configurations de niveau de journalisation individuelles sont également possibles. Vous pouvez, par exemple, consigner les erreurs et les avertissements dans le stockage d'objets blob dans le cadre d'une solution de journalisation à long terme, tout en activant un niveau de journalisation détaillé du système de fichiers.
 
-Bien que ces trois emplacements de stockage fournissent les mêmes informations de base pour les événements consignés, le **stockage table** et le **stockage blob** consignent davantage d’informations, telles que l’ID d’instance, l’ID de thread et un horodatage plus précis, que lorsque vous optez pour la journalisation dans le **système de fichiers**.
+Bien que ces deux emplacements de stockage fournissent les mêmes informations de base pour les événements consignés, le **stockage blob** consigne des informations supplémentaires, telles que l’ID d’instance, l’ID de thread et un horodatage plus précis que lorsque vous optez pour la journalisation dans le **système de fichiers**.
 
 > [!NOTE]
-> Les informations stockées dans le **stockage table** ou le **stockage blob** ne sont accessibles qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
->
-> [!NOTE]
-> Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite** . Si vous n’avez pas installé Azure PowerShell ou si vous ne l’avez pas configuré pour utiliser votre abonnement Azure, consultez [Installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
+> Les informations stockées dans le **stockage blob** n’est accessible qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage d’objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d’objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
 >
 
 ## <a name="download"></a> Téléchargement de journaux
-Les informations de diagnostic stockées dans le système de fichiers d’application web sont directement accessibles via FTP. Vous pouvez également les télécharger sous la forme d’une archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure.
+Les informations de diagnostic stockées dans le système de fichiers d’application web sont directement accessibles via FTP. Vous pouvez également les télécharger sous la forme d’une archive ZIP en utilisant Azure CLI.
 
 La structure de répertoires dans laquelle les journaux sont stockés est la suivante :
 
@@ -106,19 +102,7 @@ Pour ouvrir une connexion FTP sur le serveur FTP de votre application, consultez
 
 Une fois connecté au serveur FTP/S de votre application web, ouvrez le dossier **LogFiles**, où les fichiers journaux sont stockés.
 
-### <a name="download-with-azure-powershell"></a>Téléchargement avec Azure PowerShell
-Pour télécharger les fichiers journaux, démarrez une nouvelle instance du module Azure PowerShell et utilisez la commande suivante :
-
-    Save-AzureWebSiteLog -Name webappname
-
-Cette commande enregistre les journaux de l’application web spécifiée par le paramètre **-Name** dans un fichier nommé **logs.zip** du répertoire actif.
-
-> [!NOTE]
-> Si vous n’avez pas installé Azure PowerShell ou si vous ne l’avez pas configuré pour utiliser votre abonnement Azure, consultez [Installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
-
-### <a name="download-with-azure-command-line-interface"></a>Téléchargement avec l’interface de ligne de commande Azure
+### <a name="download-with-azure-cli"></a>Téléchargement avec Azure CLI
 Pour télécharger les fichiers journaux à l’aide de l’interface de ligne de commande Azure, ouvrez une nouvelle session d’invite de commandes, PowerShell, Bash ou Terminal, puis entrez la commande suivante :
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,7 +110,7 @@ Pour télécharger les fichiers journaux à l’aide de l’interface de ligne d
 Cette commande enregistre les journaux de l’application web nommée « webappname » dans un fichier **diagnostics.zip** du répertoire actif.
 
 > [!NOTE]
-> Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -143,7 +127,7 @@ Visual Studio Application Insights fournit des outils de filtrage et de reche
 [En savoir plus sur le suivi des performances avec Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Diffusion en continu des journaux
-Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Vous pouvez diffuser ces informations vers votre environnement de développement en utilisant Azure PowerShell ou l’interface de ligne de commande Azure.
+Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Vous pouvez diffuser ces informations vers votre environnement de développement en utilisant Azure CLI.
 
 > [!NOTE]
 > Certains types de mémoire tampon de journalisation sont écrits dans le fichier journal. Dès lors, il se peut que les événements apparaissent de manière désordonnée dans le flux. Ainsi, il est possible qu'une entrée du journal d'application qui se produit lorsqu'un utilisateur visite une page soit affichée dans le flux avant l'entrée de journal HTTP correspondante pour la demande de page.
@@ -153,29 +137,7 @@ Lors du développement d’une application, il est utile de visualiser des infor
 >
 >
 
-### <a name="streaming-with-azure-powershell"></a>Diffusion d'informations en continu avec Azure PowerShell
-Pour diffuser des informations de journalisation en continu, démarrez une nouvelle instance du module Azure PowerShell et utilisez la commande suivante :
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-Cette commande établit une connexion avec l’application web spécifiée par le paramètre **-Name**, puis diffuse les informations vers la fenêtre PowerShell à mesure que des événements de journalisation se produisent sur l’application web. Toute information enregistrée dans un fichier ayant l’extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
-
-Pour filtrer des événements spécifiques, tels que des erreurs, utilisez le paramètre **-Message** . Par exemple : 
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le paramètre **-Path** . Par exemple : 
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-Pour afficher la liste des chemins disponibles, utilisez le paramètre -ListPath.
-
-> [!NOTE]
-> Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
->
->
-
-### <a name="streaming-with-azure-command-line-interface"></a>Diffusion d’informations en continu avec l’interface de ligne de commande Azure
+### <a name="streaming-with-azure-cli"></a>Diffusion en continu à l’aide d’Azure CLI
 Pour diffuser des informations de journalisation, ouvrez une nouvelle session d'invite de commandes, PowerShell, Bash ou Terminal, puis entrez la commande suivante :
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -191,13 +153,15 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../cli-install-nodejs.md).
+> Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure CLI](../cli-install-nodejs.md).
 >
 >
 
 ## <a name="understandlogs"></a> Présentation des journaux de diagnostic
 ### <a name="application-diagnostics-logs"></a>Journaux de diagnostic d'application
-Le diagnostic d'application stocke les informations dans un format spécifique pour les applications .NET selon que vous stockez les journaux dans le système de fichiers, le stockage de tables ou le stockage d'objets blob. L’ensemble de base des données stockées est le même dans les trois types de stockage, à savoir : date et heure auxquelles l’événement s’est produit, ID de processus qui a généré l’événement, type d’événement (informations, avertissement, erreur) et message d’événement.
+Le diagnostic d’application stocke les informations dans un format spécifique pour les applications .NET selon que vous stockez les journaux dans le système de fichiers ou le stockage d’objets blob. 
+
+L’ensemble de base des données stockées est le même dans les deux types de stockage, à savoir : date et heure auxquelles l’événement s’est produit, ID de processus qui a généré l’événement, type d’événement (informations, avertissement, erreur) et message d’événement. L’utilisation du système de fichiers pour le stockage des journaux est utile lorsque vous avez besoin d’un accès immédiat pour résoudre un problème car les fichiers journaux sont mis à jour presque instantanément. Le stockage Blob est utilisé à des fins d’archivage parce que les fichiers sont mis en cache et sont ensuite acheminés vers le conteneur de stockage selon un calendrier précis.
 
 **Système de fichiers**
 
@@ -211,27 +175,9 @@ Par exemple, un événement d’erreur peut se présenter comme suit :
 
 Parmi les trois méthodes disponibles, la journalisation d’informations dans le système de fichiers est celle qui fournit les informations les plus élémentaires. L’heure, l’ID de processus, le niveau d’événement et le message sont, en effet, les seules informations fournies.
 
-**Stockage Table**
+**Stockage Blob**
 
-Lorsque vous consignez des informations dans le stockage de tables, des propriétés supplémentaires sont utilisées pour faciliter la recherche des données stockées dans la table, ainsi que des informations plus précises sur l'événement. Les propriétés suivantes (colonnes) sont utilisées pour chaque entité (ligne) stockée dans la table.
-
-| Nom de la propriété | Valeur/format |
-| --- | --- |
-| PartitionKey |Date/heure de l'événement au format aaaaMMjjHH |
-| RowKey |Valeur GUID qui identifie cette entité de façon unique |
-| Timestamp |Date et heure auxquelles l'événement s'est produit |
-| EventTickCount |Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue) |
-| ApplicationName |Nom de l’application web |
-| Niveau |Niveau d’événement (par exemple, erreur, avertissement ou information) |
-| EventId |ID de cet événement<p><p>Il est, par défaut, défini sur 0 |
-| InstanceId |Instance de l’application web sur laquelle l’événement s’est produit |
-| Pid |ID du processus |
-| Tid |ID de thread qui a généré l'événement |
-| Message |Message détaillé sur l'événement |
-
-**Stockage d’objets blob**
-
-Lorsque vous consignez des données dans un stockage d'objets blob, elles sont stockées au format CSV (valeurs séparées par des virgules). Comme c'est le cas avec le stockage de tables, des champs supplémentaires sont consignés afin de fournir des informations plus précises sur l'événement. Les propriétés suivantes sont utilisées pour chaque ligne du fichier CSV :
+Lorsque vous consignez des données dans un stockage d'objets blob, elles sont stockées au format CSV (valeurs séparées par des virgules). Des champs supplémentaires sont consignés afin de fournir des informations plus précises sur l’événement. Les propriétés suivantes sont utilisées pour chaque ligne du fichier CSV :
 
 | Nom de la propriété | Valeur/format |
 | --- | --- |
@@ -251,7 +197,7 @@ Les données stockées dans un objet blob peuvent se présenter comme suit :
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> La première ligne du journal contient les en-têtes de colonne, tels qu’ils sont représentés dans cet exemple.
+> Pour ASP.NET Core, la journalisation s’effectue à l’aide du fournisseur [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Ce fournisseur dépose des fichiers journaux supplémentaires dans le conteneur blob. Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure) (Journalisation ASP.NET Core dans Azure).
 >
 >
 

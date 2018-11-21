@@ -1,6 +1,6 @@
 ---
 title: Déplacer des données vers et depuis un stockage Azure Blob | Microsoft Docs
-description: Déplacer des données vers et depuis un stockage Azure Blob
+description: Déplacer des données vers et depuis Stockage Blob Azure
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,19 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 717fdd2053cae28234458e197f8211ef25cf7f9d
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7d0111b22df45577fccc3f4491f375ddd2e8b40f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394389"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344465"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Déplacer des données vers et depuis Stockage Blob Azure
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
-<!-- just in case, adding this to separate these two include references -->
+Le processus Team Data Science nécessite que les données soient reçues ou chargées dans différents environnements de stockage pour y être traitées ou analysées de la façon la plus appropriée à chaque étape du processus.
+Les articles suivants décrivent la procédure de déplacement des données vers et depuis le stockage Azure Blob en utilisant des technologies différentes.
 
-[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
+* [Explorateur d’Azure Storage](move-data-to-azure-blob-using-azure-storage-explorer.md)
+* [AZCopy](move-data-to-azure-blob-using-azcopy.md)
+* [Python](move-data-to-azure-blob-using-python.md)
+* [SSIS](move-data-to-azure-blob-using-ssis.md)
 
 La méthode la mieux adaptée à vos besoins dépend de votre scénario. L’article sur les [Scénarios d’analyses avancées dans Azure Machine Learning](plan-sample-scenarios.md) vous aide à déterminer les ressources dont vous avez besoin pour les différents flux de travail utilisés dans le processus d’analyse avancée.
 

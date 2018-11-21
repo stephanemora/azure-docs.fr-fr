@@ -1,26 +1,26 @@
 ---
-title: Utiliser Apache DataFu avec Pig sur HDInsight - Azure
-description: Apache DataFu Pig est un ensemble de bibliothèques utilisables avec Pig sur Hadoop. Découvrez comment vous pouvez utiliser DataFu avec Pig sur votre cluster HDInsight.
+title: Utiliser Apache DataFu avec Apache Pig sur HDInsight - Azure
+description: Apache DataFu Pig est un ensemble de bibliothèques utilisables avec Apache Pig sur Apache Hadoop. Découvrez comment vous pouvez utiliser DataFu avec Pig sur votre cluster HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 3d276de1910289e1f79d07c111eee1ac33e247ba
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 0c7e8b7ab10771c611f80d36fb1c9ed0cf3e6f1b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045850"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632354"
 ---
-# <a name="use-apache-datafu-pig-with-pig-on-hdinsight"></a>Utiliser Apache DataFu Pig avec Pig sur HDInsight
+# <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>Utiliser Apache DataFu Pig avec Apache Pig sur HDInsight
 
 Découvrez comment utiliser Apache DataFu Pig avec HDInsight.
 
-DataFu Pig est un ensemble de bibliothèques open source utilisables avec Pig sur Hadoop.
+Apache DataFu Pig est un ensemble de bibliothèques open source utilisables avec Apache Pig sur Apache Hadoop.
 Pour plus d’informations sur DataFu Pig, consultez [https://datafu.apache.org/](https://datafu.apache.org/).
 
 ## <a name="prerequisites"></a>Prérequis
@@ -88,9 +88,9 @@ Les étapes de cette section supposent que vous êtes familiarisé avec l’util
 > [!IMPORTANT]
 > Si vous avez installé DataFu manuellement en suivant les étapes de la section précédente, vous devez l’enregistrer avant de l’utiliser.
 >
-> * Si votre cluster utilise le stockage Azure, utilisez un chemin d’accès `wasb://`. Par exemple : `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
+> * Si votre cluster utilise le stockage Azure, utilisez un chemin d’accès `wasb://`. Par exemple : `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
 >
-> * Si votre cluster utilise Azure Data Lake Store, utilisez un chemin d’accès `adl://`. Par exemple : `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
+> * Si votre cluster utilise Azure Data Lake Store, utilisez un chemin d’accès `adl://`. Par exemple : `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
 
 Vous définissez souvent un alias pour les fonctions DataFu. L’exemple suivant définit un alias de `SHA` :
 

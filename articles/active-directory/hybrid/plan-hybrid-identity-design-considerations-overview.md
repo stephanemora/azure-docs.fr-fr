@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d916e884e7764a1ba5ebaf224750f38e7d7673e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308658"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344880"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Considérations relatives à la conception d'identités hybrides Azure Active Directory
 Les périphériques grand public se multiplient dans le monde de l'entreprise et les applications cloud software-as-a-service (SaaS) sont faciles à adopter. Par conséquent, le maintien du contrôle d'accès des utilisateurs aux applications sur les plateformes cloud et les centres de données internes est difficile.  
@@ -60,8 +60,8 @@ Vous n'atteindrez la conception idéale en fonction de vos exigences qu'après a
 | --- | --- |
 | Déterminer les exigences en matière d'identité |[Déterminer les besoins métier](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Déterminer les exigences de synchronisation de répertoire](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Déterminer les exigences d’authentification multifacteur](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Définir une stratégie d'adoption des identités hybrides](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
 | Planifier l'amélioration de la sécurité des données grâce à une solution d'identité solide |[Déterminer les exigences de protection des données](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Déterminer les exigences de gestion de contenu](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Déterminer les exigences de contrôle d’accès](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Déterminer les exigences de réponse aux incidents](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Définir les options de protection des données](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
-| Planifier le cycle de vie des identités hybrides |[Déterminer les tâches de gestion des identités hybrides](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Gestion de la synchronisation](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Déterminer la stratégie d’adoption de la gestion des identités hybrides](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
+| Planifier le cycle de vie des identités hybrides |[Déterminer les tâches de gestion des identités hybrides](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Gestion de la synchronisation](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Déterminer la stratégie d'adoption de la gestion des identités hybrides](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
-## <a name="download-this-guide"></a>Télécharger ce guide
-Vous pouvez télécharger une version pdf du guide sur les considérations pour la conception d'une identité hybride à partir de la [galerie Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
+## <a name="next-steps"></a>Étapes suivantes
+[Déterminer les exigences en matière d’identité](plan-hybrid-identity-design-considerations-business-needs.md)
 

@@ -3,22 +3,22 @@ title: Corrélation de télémétrie dans Azure Application Insights | Microsoft
 description: Corrélation de télémétrie dans Application Insights
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
+author: lgayhardt
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/09/2018
+ms.date: 10/31/2018
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.author: lagayhar
+ms.openlocfilehash: b61163f7e2bc4cf4e7029c9852e5baad431fa0e0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341121"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615838"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -66,7 +66,7 @@ Maintenant lorsque l’appel `GET /api/stock/value` est établi vers un service 
 
 ## <a name="correlation-headers"></a>En-têtes de corrélation
 
-Nous travaillons actuellement sur la proposition RFC pour le [protocole HTTP de corrélation](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Cette proposition définit deux en-têtes :
+Nous travaillons actuellement sur la proposition RFC pour le [protocole HTTP de corrélation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Cette proposition définit deux en-têtes :
 
 - `Request-Id` transporte le GUID de l’appel
 - `Correlation-Context` transporte la collection de paires nom/valeur des propriétés de trace distribuée
@@ -77,7 +77,7 @@ Application Insights définit [l’extension](https://github.com/lmolkova/correl
 
 ### <a name="w3c-distributed-tracing"></a>Traçage distribué W3C
 
-Nous migrons vers (format de traçage distribué W3C) [https://w3c.github.io/distributed-tracing/report-trace-context.html]. Il définit :
+Nous migrons vers le [format de traçage distribué W3C](https://w3c.github.io/trace-context/). Il définit :
 - `traceparent` : exécute un ID d’opération et un identificateur de l’appel uniques au niveau global
 - `tracestate` : exécute un contexte spécifique de système de traçage.
 
@@ -146,19 +146,15 @@ Actuellement, la propagation automatique de contexte entre les technologies de m
 ### <a name="role-name"></a>Nom du rôle
 Dans certains cas, vous souhaiterez peut-être personnaliser la façon dont les noms de composant sont affichés dans la [cartographie d’application](app-insights-app-map.md). Pour ce faire, vous pouvez définir manuellement l’élément `cloud_roleName` en effectuant l’une des opérations suivantes :
 
-Via un initialiseur de télémétrie (tous les éléments de télémétrie sont balisés)
-```Java
-public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
-
-    @Override
-    protected void onInitializeTelemetry(Telemetry telemetry) {
-        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
-    }
-  }
+Si vous utilisez `WebRequestTrackingFilter`, `WebAppNameContextInitializer` définit automatiquement le nom de l’application. Ajoutez ce qui suit à votre fichier de configuration (ApplicationInsights.xml) :
+```XML
+<ContextInitializers>
+  <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
+</ContextInitializers>
 ```
-Via la [classe de contexte d’appareil](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (seul cet élément de télémétrie est balisé)
+Par le biais de la classe du contexte cloud :
 ```Java
-telemetry.getContext().getDevice().setRoleName("My Component Name");
+telemetryClient.getContext().getCloud().setRole("My Component Name");
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

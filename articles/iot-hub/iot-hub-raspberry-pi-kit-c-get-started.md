@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: c8e2dcfef1db8bfe3d76ac917f8c14a4060e3968
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 20c26c5daa66edd7705e850f14a79a2cbe2964fc
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318756"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515673"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Connecter Raspberry Pi à Azure IoT Hub (C)
 
@@ -43,7 +43,7 @@ Connectez Raspberry Pi à un IoT Hub créé à cette fin. Exécutez ensuite un e
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-![Ce dont vous avez besoin](media/iot-hub-raspberry-pi-kit-c-get-started/0_starter_kit.jpg)
+![Ce dont vous avez besoin](./media/iot-hub-raspberry-pi-kit-c-get-started/0_starter_kit.jpg)
 
 * Une carte Raspberry Pi 2 ou Raspberry Pi 3.
 * Un abonnement Azure actif. Si vous ne possédez pas de compte Azure, vous pouvez [créer un compte d’évaluation Azure gratuit](https://azure.microsoft.com/free/) en quelques minutes.
@@ -65,7 +65,17 @@ Les éléments suivants sont facultatifs :
 > Ces éléments sont facultatifs, car l’exemple de code prend en charge les données de capteur simulées.
 >
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>Créer un hub IoT
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Récupérer la chaîne de connexion pour le hub IoT
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Inscrire un nouvel appareil dans le hub IoT
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="setup-raspberry-pi"></a>Configuration de Raspberry Pi
 
@@ -89,11 +99,11 @@ Préparez la carte microSD pour l’installation de l’image Raspbian.
 1. Connectez Pi au moniteur, au clavier et à la souris, démarrez Pi puis connectez-vous à Raspbian en utilisant `pi` comme nom d’utilisateur et `raspberry` comme mot de passe.
 1. Cliquez sur l’icône Raspberry > **Préférences** > **Configuration de Raspberry Pi**.
 
-   ![Le menu Préférences de Raspbian](media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
+   ![Le menu Préférences de Raspbian](./media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
 1. Sur l’onglet **Interfaces**, définissez **SPI** et **SSH** sur **Activer**, puis cliquez sur **OK**. Si vous n’avez pas de capteurs physiques et que vous souhaitez utiliser des données de capteur simulé, cette étape est facultative.
 
-   ![Activer SPI et SSH sur Raspberry Pi](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
+   ![Activer SPI et SSH sur Raspberry Pi](./media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
 > Pour activer SSH et SPI, vous trouverez d’autres documents de référence sur [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) et [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
@@ -103,7 +113,7 @@ Préparez la carte microSD pour l’installation de l’image Raspbian.
 
 Utilisez la platine d’expérimentation et les câbles de liaison pour connecter une LED et un BME280 à Pi comme suit. Si vous ne disposez pas de ce capteur, [ignorez cette section](#connect-pi-to-the-network).
 
-![La connexion entre Raspberry Pi et le capteur](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+![La connexion entre Raspberry Pi et le capteur](./media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
 
 Le capteur BME280 peut collecter des données sur la température et l’humidité. Et la DEL clignote s’il existe une communication entre l’appareil et le cloud. 
 
@@ -124,13 +134,13 @@ Cliquez pour afficher les [mappages de broches de Raspberry Pi 2 et 3](https://d
 
 Une fois le BME280 connecté à votre Raspberry Pi, il doit se présenter comme sur l’image ci-dessous.
 
-![Pi et BME280 connectés](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
+![Pi et BME280 connectés](./media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>Connexion de Pi au réseau
 
 Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. Utilisez le câble Ethernet pour connecter Pi à votre réseau câblé ou suivez les [instructions fournies par la Fondation Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/wifi/) pour connecter Pi à votre réseau sans fil. Une fois que votre Pi est correctement connecté au réseau, vous devez relever son [adresse IP](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Connecté au réseau câblé](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
+![Connecté au réseau câblé](./media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
 
 
 ## <a name="run-a-sample-application-on-pi"></a>Exécuter un exemple d’application sur Pi
@@ -143,7 +153,7 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
    1. Téléchargez et installez [PuTTY](http://www.putty.org/) pour Windows. 
    1. Copiez l’adresse IP de votre Pi dans la section du nom d’hôte (ou adresse IP) et sélectionnez le type de connexion SSH.
    
-   ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
    
    **Utilisateurs Mac et Ubuntu**
    
@@ -181,7 +191,7 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
    cmake . && make
    ```
    
-   ![Sortie de la génération](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
+   ![Sortie de la génération](./media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
 1. Exécutez l’exemple d’application en exécutant la commande suivante :
 
@@ -195,7 +205,7 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
 
 Vous devriez voir le résultat suivant, qui affiche les données de capteur et les messages envoyés à votre IoT Hub.
 
-![Sortie - données de capteur envoyées depuis Raspberry Pi vers votre IoT Hub](media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
+![Sortie - données de capteur envoyées depuis Raspberry Pi vers votre IoT Hub](./media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

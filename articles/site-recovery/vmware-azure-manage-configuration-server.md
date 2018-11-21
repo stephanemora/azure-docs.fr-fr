@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/11/2018
 ms.author: raynew
-ms.openlocfilehash: f76a55778a5d4c00060192bfaa704724d5fe1045
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219480"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568452"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vms"></a>Gérer le serveur de configuration pour les machines virtuelles VMware
+# <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d’urgence de machines virtuelles VMware
 
 Quand vous utilisez [Azure Site Recovery](site-recovery-overview.md) pour la reprise après sinistre de machines virtuelles VMware et de serveurs physiques sur Azure, vous devez configurer un serveur de configuration local. Le serveur de configuration coordonne la communication entre les machines locales VMware et Azure, et gère la réplication des données. Cet article récapitule les tâches courantes de gestion du serveur de configuration que vous devez effectuer après son déploiement.
 
@@ -124,7 +124,7 @@ Vous pouvez réinscrire le serveur de configuration dans le même coffre, si né
 2. Ouvrez une fenêtre Commande d’administration PowerShell, puis exécutez la commande suivante :
 
     ```
-    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    reg delete "HKLM\Software\Microsoft\Azure Site Recovery\Registration"
     net stop dra
     ```
 3. Lancez le portail du navigateur de l’appliance du serveur de configuration à l’aide du raccourci sur votre bureau.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.component: files
-ms.openlocfilehash: a11e0a1c20617f3065d5b3f8cf59d67cf7aa0179
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a0f427ef84a6540522f521cd365e2422a70eb0cd
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241185"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623649"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
 La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui met en cache sur le serveur local les fichiers faisant l’objet d’accès fréquents, tous les autres fichiers étant hiérarchisés sur Azure Files en fonction de paramètres de stratégie. Quand un fichier est hiérarchisé, le filtre du système de fichiers Azure File Sync (StorageSync.sys) remplace le fichier local par un pointeur, ou point d’analyse. Le point d’analyse représente une URL vers le fichier dans Azure Files. Un fichier hiérarchisé a l’attribut « offline » (hors connexion), et son attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS est défini dans le système de fichiers NTFS de façon à ce que des applications tierces puissent identifier sûrement des fichiers hiérarchisés.
@@ -31,6 +31,8 @@ Azure File Sync ne prend pas en charge la hiérarchisation de fichiers d’une t
 ### <a name="how-does-cloud-tiering-work"></a>Comment fonctionne la hiérarchisation cloud ?
 Le filtre du système Azure File Sync génère une « carte thermique » de votre espace de noms sur chaque point de terminaison de serveur. Il surveille les accès (opérations de lecture et d’écriture) au fil du temps, puis, selon la fréquence et la nouveauté des accès, attribue un score de chaleur à chaque fichier. Un fichier faisant l’objet d’accès fréquents qui a été récemment ouvert est considéré comme chaud, tandis qu’un fichier à peine touché et qui n’a plus été utilisé depuis un certain temps est considéré comme froid. Quand le volume de fichiers sur un serveur dépasse le seuil d’espace libre du volume que vous définissez, il hiérarchise les fichiers les plus froids sur Azure Files jusqu’à ce que votre pourcentage d’espace libre soit atteint.
 
+Les versions 4.0 et ultérieures de l’agent Azure File Sync, permettent de spécifier une stratégie de date sur chaque point de terminaison de serveur. Elle hiérarchise tous les fichiers non ouverts ou modifiés au sein d’un nombre de jours spécifié.
+
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Comment fonctionne la stratégie de hiérarchisation de l’espace libre du volume ?
 L’espace libre du volume est la quantité d’espace libre que vous souhaitez réserver sur le volume sur lequel se trouve un point de terminaison de serveur. Par exemple, si l’espace libre défini du volume est de 20 % sur un volume qui comporte un point de terminaison de serveur, jusqu’à 80 % de l’espace du volume sont occupés par les derniers fichiers utilisés le plus récemment, et tous les fichiers restants ne tenant pas dans cet espace sont hiérarchisés sur Azure. L’espace libre du volume s’applique au niveau du volume plutôt qu’au niveau des répertoires ou des groupes de synchronisation individuels. 
@@ -43,11 +45,21 @@ Quand un point de terminaison de serveur vient d’être approvisionné et conne
 ### <a name="how-is-volume-free-space-interpreted-when-i-have-multiple-server-endpoints-on-a-volume"></a>Comment l’espace libre du volume est-il interprété quand il y a plusieurs points de terminaison de serveur sur un volume ?
 Quand il y a plusieurs point de terminaison de serveur sur un volume, le seuil d’espace libre de volume effectif est l’espace libre de volume le plus élevé spécifié sur tous les points de terminaison de serveur sur ce volume. Les fichiers sont hiérarchisés en fonction de leurs modèles d’utilisation, quel que soit le point de terminaison de serveur auquel ils appartiennent. Par exemple, si vous avez deux points de terminaison de serveur sur un volume, Point1 et Point2, où Point1 a un seuil d’espace libre de volume de 25 % et Point2 a un seuil d’espace libre de volume de 50 %, le seuil d’espace libre de volume pour les deux points de terminaison de serveur est de 50 %. 
 
+<a id="date-tiering-policy"></a>
+### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Comment la stratégie de hiérarchisation de dates fonctionne-t-elle conjointement à la stratégie de hiérarchisation d’espace disponible sur le volume ? 
+Lorsque vous activez la hiérarchisation cloud sur un point de terminaison de serveur, vous définissez une stratégie d’espace disponible sur le volume. Elle est toujours prioritaire sur toutes les autres stratégies, y compris la stratégie de date. Si vous le souhaitez, vous pouvez activer une stratégie de date pour chaque point de terminaison du serveur sur ce volume, ce qui signifie que seuls les fichiers ouverts (c'est-à-dire lus ou écrits) dans la plage de jours définie dans cette stratégie seront conservés en local, avec tous les fichiers hiérarchisés. N’oubliez pas que la stratégie d’espace disponible sur le volume est toujours prioritaire, et lorsqu’il n’y a pas suffisamment d’espace disponible sur le volume pour conserver les fichiers autant de jours que défini par la stratégie de date, Azure File Sync poursuivra la hiérarchisation les fichiers les plus anciens jusqu'à ce que le pourcentage d’espace disponible sur le volume requis soit atteint.
+
+Par exemple, si vous avez une stratégie de hiérarchisation par date de 60 jours et une stratégie d’espace disponible sur le volume de 20 % : après avoir appliqué la stratégie de date, il reste moins de 20 % d’espace disponible sur le volume. La stratégie d’espace disponible sur le volume s’active et remplace la stratégie de date. Cela augmentera la hiérarchisation des fichiers, de telle sorte que la durée de conservation des données sur le serveur peut passer de 60 à 45 jours. Inversement, cette stratégie force la hiérarchisation des fichiers qui se situent en dehors de l’intervalle de temps, même si vous n’avez pas atteint votre seuil d’espace libre : un fichier est hiérarchisé au bout de 61 jours, même si votre volume est vide.
+
 <a id="volume-free-space-guidelines"></a>
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Comment faire pour déterminer la quantité d’espace libre du volume appropriée ?
 La quantité de données à conserver localement est déterminée par la bande passante, le modèle d’accès au jeu de données et le budget. Si vous avez une connexion à bande passante étroite, vous pouvez conserver davantage de vos données localement afin de minimiser la latence pour vos utilisateurs. Autrement, vous pouvez baser la quantité d’espace libre du volume sur le taux de variation sur une période donnée. Par exemple, si vous savez qu’environ 10 % de votre jeu de données de 1 To changent ou sont activement utilisés chaque mois, vous pouvez conserver 100 Go localement de façon à ne pas rappeler fréquemment des fichiers. Si votre volume est de 2 To, vous pouvez conserver 5 % (soit 100 Go) localement, de sorte que les 95 % restants constituent votre pourcentage d’espace libre du volume. Toutefois, nous vous recommandons d’ajouter une mémoire tampon pour prendre en compte des périodes de variations plus importantes, c’est-à-dire en commençant par un pourcentage d’espace libre du volume inférieur, puis en l’ajustant si nécessaire par la suite. 
 
 La conservation de davantage de données localement implique une baisse des coûts de sortie car moins de fichiers sont rappelés à partir d’Azure, mais requiert que vous conserviez davantage de stockage local, ce qui a un coût. Une fois qu’une instance d’Azure File Sync est déployée, vous pouvez examiner la sortie de votre compte de stockage pour évaluer sommairement si vos paramètres d’espace libre du volume sont appropriés pour votre utilisation. En supposant que le compte de stockage ne contient que votre point de terminaison cloud Azure File Sync (c’est-à-dire votre partage de synchronisation), une sortie élevée signifie que de nombreux fichiers sont rappelés à partir du cloud et que vous devez envisager d’augmenter votre cache local.
+
+<a id="how-long-until-my-files-tier"></a>
+### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>J’ai ajouté un nouveau point de terminaison de serveur. Au bout de combien de temps surviendra la hiérarchisation sur ce serveur ?
+Dans les versions 4.0 et ultérieures de l’agent Azure File Sync, lorsque vos fichiers sont téléchargés vers le partage de fichiers Azure, ils sont hiérarchisés en fonction de vos stratégies dès l’exécution de la prochaine session de hiérarchisation, c’est à dire toutes les heures. Sur les agents plus anciens, l’intervalle entre deux hiérarchisations peut prendre jusqu'à 24 heures.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Comment déterminer si un fichier a été hiérarchisé ?

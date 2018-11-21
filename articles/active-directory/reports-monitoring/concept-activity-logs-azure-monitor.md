@@ -1,6 +1,6 @@
 ---
 title: Journaux d’activité Azure Active Directory dans Azure Monitor (préversion) | Microsoft Docs
-description: Présentation des journaux d’activité Azure Active Directory dans Azure Monitor (préversion)
+description: Introduction aux journaux d’activité Azure Active Directory dans Azure Monitor (préversion)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,30 +13,30 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3a4fc814a40bf370a137a2045c6218d3ee4b8778
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395482"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625434"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Journaux d’activité Azure Active Directory dans Azure Monitor (préversion)
 
-À l’aide d’Azure Monitor, vous pouvez maintenant acheminer les journaux d’activité Azure AD vers votre propre compte de stockage ou Event Hub. Avec la préversion publique des journaux Azure Active Directory disponible dans Azure Monitor, vous pouvez :
+Vous pouvez maintenant acheminer les journaux d’activité Azure Active Directory (Azure AD) vers plusieurs points de terminaison pour une rétention à long terme et l’analyse des données. La préversion publique des journaux Azure AD dans Azure Monitor vous permet de :
 
-* Archiver vos journaux d’audit d’un compte de stockage Azure, ce qui vous permet de conserver les données longtemps.
-* Diffuser vos journaux d’audit vers un Event Hub Azure pour analyser des données à l’aide des outils populaires de Security Information and Event Management (SIEM), comme Splunk et QRadar.
-* Intégrer vos journaux d’audit à vos propres solutions de journaux personnalisés en les diffusant en continu vers un Event Hub.
+* Archiver les journaux d’activité Azure AD vers un compte de stockage Azure afin conserver les données pendant longtemps.
+* Diffuser les journaux d’activité Azure AD vers un Event Hub Azure pour analyser des données à l’aide des outils populaires de Security Information and Event Management (SIEM), comme Splunk et QRadar.
+* Intégrer vos journaux d’activité Azure AD à vos propres solutions de journaux personnalisés en les diffusant en continu vers un Event Hub.
 * Envoyer vos journaux d’activité Azure AD à Log Analytics pour permettre les visualisations enrichies, la supervision et les alertes sur les données connectées.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Rapports pris en charge
 
-Vous pouvez acheminer les journaux d’activité d’audit et authentifier des journaux d’activité vers votre compte de stockage Azure, un Event Hub ou une solution personnalisée à l’aide de cette fonctionnalité. 
+Vous pouvez acheminer les journaux d’audit Azure et authentifier des journaux vers votre compte de stockage Azure, un Event Hub, Log Analytics ou une solution personnalisée à l’aide de cette fonctionnalité. 
 
 * **Journaux d’audit** : les [rapports d’activité de journaux d’audit](concept-audit-logs.md) vous permettent d’accéder à l’historique de toutes les tâches effectuées dans votre locataire.
 * **Journaux d’identification** : le [rapport d’activité de connexions](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches signalées par les journaux d’audit.
@@ -101,25 +101,19 @@ Pour connaître les coûts liés à la gestion des données dans l’espace de t
 
 Cette section répond aux questions fréquemment posées et traitent des problèmes rencontrés avec les journaux Azure Active Directory dans Azure Monitor.
 
-**Q : Par quoi dois-je commencer ?** 
-
-**R** : Cet article décrit les fonctionnalités que vous devez déployer. Une fois que vous avez rempli les conditions préalables, accédez aux didacticiels qui peuvent aider à configurer et à acheminer vos journaux vers un Event Hub.
-
----
-
 **Q : Quels sont les journaux inclus ?**
 
 **R** : Les journaux d’audit et d’activité de connexion sont disponibles pour le routage via cette fonctionnalité. Néanmoins, les événements d’audit associés à B2C ne sont pas inclus à l’heure actuelle. Consultez le [Schéma des journaux d’audit](reference-azure-monitor-audit-log-schema.md) et le [Schéma des journaux de connexion](reference-azure-monitor-sign-ins-log-schema.md) pour savoir quels types de journaux et quelles fonctionnalités de ces journaux sont actuellement pris en charge. 
 
 ---
 
-**Q : Combien de temps après une action les journaux correspondants s’affichent-ils dans Event Hubs ?**
+**Q : Combien de temps après une action les journaux correspondants s’affichent-ils dans mon Event Hub ?**
 
 **R** : les journaux apparaissent normalement dans votre Event Hub dans les deux à cinq minutes après que l’action soit effectuée. Pour plus d’informations sur Event Hubs, consultez la section [Qu’est-ce qu’Event Hubs ?](../../event-hubs/event-hubs-about.md).
 
 ---
 
-**Q : Combien de temps après une action les journaux correspondants s’affichent-ils dans les comptes de stockage ?**
+**Q : Combien de temps après une action les journaux correspondants s’affichent-ils dans mon compte de stockage ?**
 
 **R** : Pour les comptes de stockage Azure, la latence est d’environ 5 à 15 minutes après l’exécution de l’action.
 

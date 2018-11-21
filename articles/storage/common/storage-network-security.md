@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 51404c35b42d1c98116e74b5b7a47afe05b7d2a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470062"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300555"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feu et des réseaux virtuels dans Stockage Azure
 Le service Stockage Azure fournit un modèle de sécurité en couche qui vous permet de sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.  Quand des règles de réseau sont configurées, seules les applications des réseaux autorisés peuvent accéder à un compte de stockage.  En cas d’appel à partir d’un réseau autorisé, les applications continuent à demander une autorisation appropriée (une clé d’accès ou un jeton SAS valide) pour accéder au compte de stockage.
@@ -201,7 +201,7 @@ Chaque compte de stockage peut prendre en charge jusqu’à 100 règles de rése
 ### <a name="configuring-access-from-on-premises-networks"></a>Configuration de l’accès à partir de réseaux locaux
 Pour accorder l’accès à votre compte de stockage à partir de réseaux locaux avec une règle de réseau IP, vous devez identifier les adresses IP Internet utilisées par votre réseau.  Contactez votre administrateur réseau pour obtenir de l’aide.
 
-Si votre réseau est connecté au réseau Azure à l’aide d’[ExpressRoute](/azure/expressroute/expressroute-introduction), chaque circuit est configuré avec deux adresses IP publiques sur Microsoft Edge qui sont utilisées pour se connecter aux services Microsoft comme Stockage Azure au moyen de l’[Appairage public Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Pour permettre la communication de votre circuit avec Stockage Azure, vous devez créer des règles de réseau IP pour les adresses IP publiques de vos circuits.  Pour rechercher les adresses IP publiques de votre circuit ExpressRoute, [ouvrez un ticket de support avec ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) dans le portail Azure.
+Si votre réseau est connecté au réseau Azure à l’aide d’[ExpressRoute](/azure/expressroute/expressroute-introduction), chaque circuit est configuré avec deux adresses IP publiques sur Microsoft Edge qui sont utilisées pour se connecter aux services Microsoft comme Stockage Azure au moyen de l’[Appairage public Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Pour permettre la communication de votre circuit avec Stockage Azure, vous devez créer des règles de réseau IP pour les adresses IP publiques de vos circuits.  Pour rechercher les adresses IP publiques de votre circuit ExpressRoute, [ouvrez un ticket de support avec ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) dans le portail Azure.
 
 
 ### <a name="managing-ip-network-rules"></a>Gestion des règles de réseau IP

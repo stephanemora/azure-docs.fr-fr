@@ -1,22 +1,22 @@
 ---
-title: MapReduce avec Hadoop sur HDInsight
-description: Apprenez à exécuter des tâches MapReduce sur Hadoop dans des clusters HDInsight.
+title: MapReduce avec Apache Hadoop sur HDInsight
+description: Apprenez à exécuter des tâches MapReduce sur Apache Hadoop dans des clusters HDInsight.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 3b9cc70a1adc55850923f2313f17be435257117d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044867"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632650"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Utilisation de MapReduce sur Hadoop sur HDInsight
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Utiliser MapReduce dans Apache Hadoop sur HDInsight
 
 Apprenez à exécuter des tâches MapReduce sur des clusters HDInsight. Utilisez le tableau suivant pour découvrir les différentes façons d’utiliser MapReduce avec HDInsight :
 
@@ -24,7 +24,7 @@ Apprenez à exécuter des tâches MapReduce sur des clusters HDInsight. Utilisez
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Utilisation de la commande Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
 | [REST](apache-hadoop-use-mapreduce-curl.md) |Envoyer la tâche à distance à l’aide de **REST** (dans les exemples, cURL est utilisé) |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Envoyer la tâche à distance à l'aide de **Windows PowerShell** |Linux ou Windows |Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Envoyer la tâche à distance à l'aide de **Windows PowerShell** |Linux ou Windows | Windows |
 
 > [!IMPORTANT]
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -32,7 +32,7 @@ Apprenez à exécuter des tâches MapReduce sur des clusters HDInsight. Utilisez
 
 ## <a id="whatis"></a>Qu’est-ce que MapReduce ?
 
-Hadoop MapReduce est une infrastructure logicielle qui permet d'écrire des tâches traitant d'importantes quantités de données. Les données d’entrée sont fractionnées en blocs indépendants. Chaque bloc est traité en parallèle sur les nœuds de votre cluster. Une tâche MapReduce se compose de deux fonctions :
+Apache Hadoop MapReduce est une infrastructure logicielle qui permet d’écrire des tâches traitant d’importantes quantités de données. Les données d’entrée sont fractionnées en blocs indépendants. Chaque bloc est traité en parallèle sur les nœuds de votre cluster. Une tâche MapReduce se compose de deux fonctions :
 
 * **Mappeur**: il consomme les données d'entrée, les analyse (généralement avec les opérations de tri et de filtre) et émet des tuples (paires clé-valeur)
 
@@ -161,7 +161,7 @@ HDInsight peut exécuter des tâches HiveQL de différentes manières. Utilisez 
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Utilisation de la commande Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Envoyer la tâche à distance à l'aide de **REST** |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Envoyer la tâche à distance à l'aide de **Windows PowerShell** |Linux ou Windows |Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Envoyer la tâche à distance à l'aide de **Windows PowerShell** |Linux ou Windows | Windows |
 
 > [!IMPORTANT]
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

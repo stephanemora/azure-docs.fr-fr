@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: 36d74c7fba472956d57344977de79a4cbfd2cf02
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648511"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624875"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Sources de données pour le contenu QnA Maker
 
@@ -26,9 +26,9 @@ Le tableau ci-dessous récapitule les types de contenu et formats de fichiers pr
 |Type de source|Type de contenu| Exemples|
 |--|--|--|
 |URL|Questions fréquentes (FAQ) (plates, avec des sections ou une page d’accueil de rubriques)|[FAQ simple](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [FAQ avec des liens](https://www.microsoft.com/software-download/faq), [FAQ avec une page d’accueil de rubriques](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF / DOC|FAQ, manuel de produit, brochures, livres blancs, stratégie de prospectus, guide de prise en charge, QnA structurés, etc.|[Structured QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [Sample Product Manual.pdf](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [Sample semi-structured.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [Sample white paper.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
-|Excel|Fichier QnA structuré (notamment prise en charge RTF, HTML)|[Sample QnA FAQ.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|Fichier QnA structuré|[Sample chit-chat.tsv](https://raw.githubusercontent.com/Microsoft/BotBuilder-PersonalityChat/master/CSharp/Datasets/Queries_Responses_Friendly_QnAMaker.tsv)|
+|PDF / DOC|FAQ, manuel de produit, brochures, livres blancs, stratégie de prospectus, guide de prise en charge, QnA structurés, etc.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|Fichier QnA structuré (notamment prise en charge RTF, HTML)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|TXT/TSV|Fichier QnA structuré|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="faq-urls"></a>URL de FAQ
 
@@ -131,6 +131,10 @@ L’importation d’une base de connaissances remplace le contenu de la base de 
 ## <a name="editorially-add-to-knowledge-base"></a>Ajouter à la base de connaissances de manière éditoriale
 
 Si vous ne possédez aucun contenu pour alimenter la base de connaissances, vous pouvez ajouter du contenu QnA éditorial dans la base de connaissances QnA Maker. Découvrez comment mettre à jour votre base de connaissances [ici](../How-To/edit-knowledge-base.md).
+
+## <a name="formatting-considerations"></a>Mise en forme - Éléments à prendre en compte
+
+Après l’importation d’un fichier ou d’une URL, celui-ci est converti en Markdown et stocké dans ce format. Si le processus de conversion ne convertit pas correctement les liens dans vos fichiers et les URL, vous devez modifier les questions et réponses dans la page **Editer**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

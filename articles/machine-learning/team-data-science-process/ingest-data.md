@@ -15,19 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: d045bd37a4b3192672cc1bd37bc4bd14ea8d5402
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a5db14b99a81c373fbc72f523798e1f3bbdf9285
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837182"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344499"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Charger des données dans des environnements de stockage à des fins d’analyse
+
 Le processus Team Data Science nécessite que les données soient reçues ou chargées dans différents environnements de stockage pour y être traitées ou analysées de la façon la plus appropriée à chaque étape du processus. Les destinations de données couramment utilisées pour le traitement sont le stockage d’objets blob Azure, les bases de données SQL Azure, SQL Server sur machine virtuelle Azure, HDInsight (Hadoop) et Azure Machine Learning. 
 
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+Les articles suivantes expliquent comment recevoir les données dans les environnements cibles où les données sont stockées et traitées.
 
-Ce **menu** pointe vers des rubriques qui décrivent comment recevoir les données dans les environnements cibles où les données sont stockées et traitées.
+* Vers/À partir d’[Azure Blob Storage](move-azure-blob.md)
+* Vers [SQL Server dans les machines virtuelles Azure](move-sql-server-virtual-machine.md)
+* Vers la [base de données Azure SQL](move-sql-azure.md)
+* Vers les [tables Hive](move-hive-tables.md)
+* Vers les [tables partitionnées SQL](parallel-load-sql-partitioned-tables.md)
+* À partir du [Serveur SQL Server local](move-sql-azure-adf.md)
 
 Les besoins techniques et ceux de l’entreprise, ainsi que l’emplacement initial, le format et la taille de vos données déterminent l’environnement cible dans lequel les données doivent être reçues pour atteindre les objectifs de votre analyse. Il n’est pas rare pour un scénario d’exiger le déplacement des données entre plusieurs environnements pour arriver à effectuer les différentes tâches nécessaires pour construire un modèle prédictif. Cette suite de tâches peut par exemple inclure l’exploration des données, leur prétraitement, leur nettoyage, l’échantillonnage et l’apprentissage du modèle.
-

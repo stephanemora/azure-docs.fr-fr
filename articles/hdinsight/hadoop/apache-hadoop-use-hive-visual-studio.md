@@ -1,28 +1,28 @@
 ---
-title: Hive avec les outils Data Lake (Hadoop) pour Visual Studio - Azure HDInsight
+title: Apache Hive avec les outils Data Lake (Apache Hadoop) pour Visual Studio - Azure HDInsight
 description: Découvrez comment utiliser les outils Data Lake pour Visual Studio pour exécuter des requêtes Apache Hive avec Apache Hadoop sur Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: d4fd75030a1d90e1543ba4a1713bb2d84a35c87b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.author: hrasheed
+ms.openlocfilehash: bfb53ddf666426253cce08e6f09a5297f5d2f4d3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248660"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634105"
 ---
-# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Exécution de requêtes Hive à l’aide des outils Data Lake pour Visual Studio
+# <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Exécution de requêtes Apache Hive à l’aide des outils Data Lake pour Visual Studio
 
-Découvrez comment utiliser les outils Data Lake pour Visual Studio pour interroger Apache Hive. Les outils Data Lake vous permettent de facilement créer, soumettre et surveiller les requêtes Hive à Hadoop sur Azure HDInsight.
+Découvrez comment utiliser les outils Data Lake pour Visual Studio pour interroger Apache Hive. Les outils Data Lake vous permettent de facilement créer, soumettre et surveiller les requêtes Hive à Apache Hadoop sur Azure HDInsight.
 
 ## <a id="prereq"></a>Configuration requise
 
-* Un cluster Azure HDInsight sous Linux (Hadoop sur HDInsight)
+* Un cluster Azure HDInsight (Apache Hadoop sur HDInsight)
 
   > [!IMPORTANT]
   > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

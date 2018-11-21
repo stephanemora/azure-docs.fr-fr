@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: b4194ef5ab1c2c09206ea0acf78cb539bc2fc0b7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fd3f010c3fccca679daa6639c1427d17ae64a0d1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836515"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51343990"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingénierie des caractéristiques dans la science des données
 Cet article explique les finalités de l’ingénierie de caractéristiques et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Les exemples utilisés pour illustrer ce processus sont tirés d’Azure Machine Learning Studio. 
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
-
-Ce **menu** pointe vers des articles qui expliquent comment créer des caractéristiques pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 La conception de fonctionnalités tente d'augmenter la puissance prédictive des algorithmes d'apprentissage en créant des fonctionnalités à partir de données brutes qui facilitent le processus d'apprentissage. L’ingénierie et la sélection de caractéristiques constituent une partie du processus TDSP présenté dans [Qu’est ce que le cycle de vie du processus TDSP (Team Data Science Process) ?](overview.md). La conception et la sélection de fonctionnalités sont des parties de l’étape de **développement de fonctionnalités** du processus TDSP. 
 
@@ -37,6 +35,11 @@ La conception de fonctionnalités tente d'augmenter la puissance prédictive des
 En général, **l’ingénierie des caractéristiques** s’applique d’abord à la génération de caractéristiques supplémentaires. L’étape de **sélection de caractéristiques** est alors effectuée pour éliminer les caractéristiques inutiles, redondantes ou fortement corrélées.
 
 Les données d'apprentissage utilisées dans l'apprentissage automatique peuvent souvent être améliorées par l'extraction de fonctionnalités à partir des données brutes collectées. Un exemple de conception de fonctionnalité dans le cadre de l'apprentissage de la classification des images de caractères écrits à la main est la création d'une carte de densité de bits construite à partir des données brutes de distribution de bits. Cette carte peut aider à localiser les bords des caractères plus efficacement que l'utilisation de la distribution brute directement.
+
+Pour créer des fonctionnalités pour les données dans des environnements spécifiques, consultez les articles suivants :
+
+* [Créer des fonctionnalités pour les données dans SQL Server](create-features-sql-server.md)
+* [Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive](create-features-hive.md)
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

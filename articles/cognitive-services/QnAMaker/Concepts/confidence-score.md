@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 46b6b789b2bab7e647e10a61939bd16b5ea8726d
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b1126b2cdb7a5cd7451a916558bc928653bc0027
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209690"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577921"
 ---
 # <a name="confidence-score"></a>Score de confiance
 Quand une requête d’utilisateur trouve une correspondance dans une base de connaissances, QnA Maker renvoie des réponses pertinentes, ainsi qu’un score de confiance. Ce score indique la probabilité que la réponse corresponde à la requête de l’utilisateur. 
@@ -53,6 +53,8 @@ Lorsque vous choisissez votre seuil, n’oubliez pas l’équilibre entre exacti
 
 - Si la **couverture** (ou rappel) est primordiale et que vous souhaitez répondre au plus grand nombre possible de questions, même si la réponse n’a qu’une relation très vague ou lointaine avec la question, ABAISSEZ le seuil. Cela signifie qu’il pourrait y avoir davantage de cas où la réponse ne correspond pas à la requête réelle de l’utilisateur, mais fournit des informations vaguement associées à la question. *Par exemple :* si vous fixez le seuil à **30**, vous risquez de fournir des réponses n’ayant qu’un lointain rapport à des requêtes telles que « Où puis-je modifier ma base de connaissances ? »
 
+> [!NOTE]
+> Les nouvelles versions de QnA Maker incluent des améliorations à la logique de notation, et pourraient affecter votre seuil. Chaque fois que vous mettez à jour le service, assurez-vous de tester et d’ajuster le seuil si nécessaire. Vous pouvez vérifier votre version du service QnA [ici](https://www.qnamaker.ai/UserSettings) et voir comment obtenir les dernières mises à jour [ici](../How-To/troubleshooting-runtime.md).
 
 ## <a name="improve-confidence-scores"></a>Améliorer les scores de confiance
 Pour améliorer le score de confiance d’une réponse spécifique à une question de l’utilisateur, vous pouvez ajouter la question de l’utilisateur à la base de connaissances en tant que question alternative liée à cette réponse.

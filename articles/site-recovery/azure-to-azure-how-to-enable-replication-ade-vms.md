@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043275"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300572"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
 
@@ -27,7 +27,7 @@ Cet article décrit comment activer la réplication de machines virtuelles prena
 
 Pour activer la réplication de machines virtuelles Azure Disk Encryption à partir du portail, l’utilisateur doit disposer des autorisations ci-dessous.
 - Autorisations d’accès au coffre de clés
-    - Liste
+    - list
     - Créer
     - Obtenir
 
@@ -104,7 +104,7 @@ Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Rec
 
 1. Cliquez sur **Personnaliser :** à côté de « Abonnement cible » pour modifier l’abonnement cible par défaut. Sélectionnez l’abonnement dans la liste de tous ceux disponibles, dans le même locataire Azure Active Directory (AAD).
 
-2. Cliquez sur **Personnaliser** en regard de Groupe de ressources, Stockage, Réseau et Groupes à haute disponibilité pour modifier les paramètres par défaut ci-dessous :
+2. Cliquez sur **Personnaliser** en regard de Groupe de ressources, Réseau, Stockage et Groupes à haute disponibilité pour modifier les paramètres par défaut ci-dessous :
     - Dans **Groupe de ressources cible**, sélectionnez le groupe de ressources dans la liste de tous les groupes de ressources à l’emplacement cible de l’abonnement.
     - Dans **Réseau virtuel cible**, sélectionnez le réseau à partir d’une liste de tous les réseaux virtuels dans l’emplacement cible.
     - Dans **Groupe à haute disponibilité**, vous pouvez ajouter les paramètres de groupe à haute disponibilité de la machine virtuelle, s’ils font partie d’un groupe à haute disponibilité dans la zone source.

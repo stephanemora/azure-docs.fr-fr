@@ -3,7 +3,7 @@ title: Gouvernance des ressources Azure Service Fabric pour les conteneurs et le
 description: Azure Service Fabric vous permet de spécifier des limites de ressources pour les services en cours d’exécution à l’intérieur ou à l’extérieur de conteneurs.
 services: service-fabric
 documentationcenter: .net
-author: masnider
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: subramar
-ms.openlocfilehash: 49c7e2c99cce13880781a67806543b1cde0c12b6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney, subramar
+ms.openlocfilehash: f2898de030a70d578eb45e81c9ccbef90bce96c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208010"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300470"
 ---
 # <a name="resource-governance"></a>Gouvernance des ressources 
 
@@ -78,12 +78,12 @@ Voici un exemple qui montre comment ordonner à Service Fabric d’utiliser 50 
 Si vous avez besoin de procéder à une configuration entièrement manuelle de la capacité des nœuds, vous pouvez utiliser le mécanisme standard de description des nœuds du cluster. Voici un exemple de configuration du nœud avec quatre cœurs et 2 Go de mémoire : 
 
 ```xml
-    <NodeType Name="MyNodeType">
-      <Capacities>
-        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
-        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
-      </Capacities>
-    </NodeType>
+    <NodeType Name="MyNodeType">
+      <Capacities>
+        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
+        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
+      </Capacities>
+    </NodeType>
 ```
 
 Quand la détection automatique des ressources disponibles est activée et que la capacité du nœud est définie manuellement dans le manifeste de cluster, Service Fabric vérifie que le nœud a suffisamment de ressources pour prendre en charge la capacité définie par l’utilisateur :
@@ -102,8 +102,8 @@ La détection automatique des ressources disponibles peut être désactivée si 
 Pour des performances optimales, le paramètre suivant doit également être activé dans le manifeste du cluster : 
 
 ```xml
-<Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
@@ -131,7 +131,7 @@ Les limites de gouvernance des ressources sont spécifiées dans le manifeste d�
     </Policies>
   </ServiceManifestImport>
 ```
-  
+  
 Dans cet exemple, le package de service nommé **ServicePackageA** obtient un cœur sur les nœuds où il est placé. Ce package de service contient deux packages de code (**CodeA1** et **CodeA2**), et tous deux spécifient le paramètre `CpuShares`. La proportion de CpuShares 512:256 divise le cœur entre les deux packages de code. 
 
 Dans cet exemple, CodeA1 obtient les deux tiers d’un cœur et CodeA2 obtient un tiers d’un cœur (avec une garantie de réservation identique). Si les CpuShares ne sont pas spécifiés pour les packages de code, Service Fabric divise les cœurs équitablement entre eux.
@@ -180,8 +180,7 @@ Dans cet exemple, les valeurs par défaut sont définies pour l’environnement 
 </Application>
 ```
 
-> [!IMPORTANT] 
-> La spécification de la gouvernance des ressources avec des paramètres d’application est disponible à partir de Service Fabric version 6.1.<br> 
+> [!IMPORTANT]  La spécification de la gouvernance des ressources avec des paramètres d’application est disponible à partir de Service Fabric version 6.1.<br> 
 >
 > Lorsque les paramètres de l’application sont utilisés pour spécifier la gouvernance des ressources, Service Fabric ne peut pas être rétrogradé à une version antérieure à la version 6.1. 
 
