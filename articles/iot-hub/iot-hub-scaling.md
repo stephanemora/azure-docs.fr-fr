@@ -1,23 +1,23 @@
 ---
 title: Mise à l’échelle Azure IoT Hub | Microsoft Docs
 description: Comment mettre à l’échelle votre IoT Hub pour gérer le débit de messages prévu et les fonctionnalités souhaitées. Inclut un résumé du débit pris en charge pour chaque niveau et des options pour le partitionnement.
-author: kgremban
+author: wesmc7777
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: kgremban
-ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.author: wesmc
+ms.openlocfilehash: c37492a42322ffc386751c4c63b981c9d93a72f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143646"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633374"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
-Chaque solution IoT étant différente, Azure IoT Hub offre plusieurs options en fonction de la tarification et de la mise à l’échelle. Cet article vous aide à évaluer vos besoins IoT Hub. Pour plus d’informations sur les niveaux IoT Hub, consultez la [tarification IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub). 
+Chaque solution IoT étant différente, Azure IoT Hub offre plusieurs options en fonction de la tarification et de la mise à l’échelle. Cet article vous aide à évaluer vos besoins IoT Hub. Pour plus d’informations sur les niveaux IoT Hub, consultez [Tarification IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub). 
 
 Pour déterminer le niveau IoT Hub adapté à votre solution, vous devez vous poser deux questions :
 
@@ -31,7 +31,7 @@ Chaque niveau IoT Hub est disponible en trois tailles, en fonction du débit de 
 
 Le niveau standard de IoT Hub active toutes les fonctionnalités. Il est requis pour toutes les solutions IoT qui comptent utiliser les fonctionnalités de communication bidirectionnelle. Le niveau de base active un sous-ensemble de fonctionnalités. Il est destiné aux solutions IoT qui nécessitent uniquement une communication unidirectionnelle, des appareils vers le cloud. Ces deux niveaux offrent les mêmes fonctionnalités de sécurité et d’authentification.
 
-Une fois votre IoT Hub créé, vous pouvez le faire évoluer et passer du niveau de base au niveau standard sans interrompre vos opérations existantes. Pour plus d’informations, consultez [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md). Notez que le nombre de partitions est limité à 8 pour le niveau de base d’IoT Hub, et à 32 pour le niveau Standard. La plupart des hubs IoT n’ont besoin que de 4 partitions. Le nombre maximal de partitions est choisi au moment de la création du hub IoT, et il associe les messages appareil-à-cloud au nombre de lecteurs simultanés de ces messages. Cette limite ne change pas quand vous migrez du niveau De base vers le niveau Standard. Notez également que, dans un niveau, vous ne pouvez choisir qu’un seul type [d’édition](https://azure.microsoft.com/pricing/details/iot-hub/) par hub IoT. Par exemple, vous pouvez créer un hub IoT avec plusieurs unités de S1, mais pas avec plusieurs unités de différentes éditions, telles que S1 et B3, ou S1 et S2.
+Dans un niveau, vous ne pouvez choisir qu’un seul type [d’édition](https://azure.microsoft.com/pricing/details/iot-hub/) par hub IoT. Par exemple, vous pouvez créer un hub IoT avec plusieurs unités de S1, mais pas avec plusieurs unités de différentes éditions, telles que S1 et B3, ou S1 et S2.
 
 | Fonctionnalité | Niveau de base | Niveau standard |
 | ---------- | ---------- | ------------- |
@@ -47,7 +47,22 @@ Une fois votre IoT Hub créé, vous pouvez le faire évoluer et passer du niveau
 
 IoT Hub propose également un niveau gratuit à des fins de test et d’évaluation. Il possède toutes les fonctionnalités du niveau standard, mais ses allocations en termes de messages sont limitées. Vous ne pouvez pas faire évoluer le niveau gratuit vers le niveau de base ou standard. 
 
-### <a name="iot-hub-rest-apis"></a>API REST IoT Hub
+
+## <a name="partitions"></a>Partitions
+
+Les Azure IoT Hubs contiennent de nombreux composants de base [Azure Event Hubs](../event-hubs/event-hubs-features.md), y compris des [partitions](../event-hubs/event-hubs-features.md#partitions). Les flux d’événements pour IoT Hubs sont généralement renseignés à l'aide des données de télémétrie entrantes signalées par différents appareils IoT. Le partitionnement du flux d’événements est utilisé pour réduire les conflits qui se produisent lors des opérations simultanées de lecture et d'écriture dans les flux d’événements. 
+
+Le nombre de partitions est choisi lors de la création de l'IoT Hub et ne peut pas être modifié. Le nombre de partitions est limité à 8 pour le niveau de base d’IoT Hub, et à 32 pour le niveau Standard. La plupart des hubs IoT n’ont besoin que de 4 partitions. Pour plus d’informations sur les partitions, consultez le Forum aux questions relatif aux Event Hubs [De combien de partitions ai-je besoin ?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+
+
+## <a name="tier-upgrade"></a>Évolution des niveaux
+
+Une fois votre IoT Hub créé, vous pouvez le faire évoluer et passer du niveau de base au niveau standard sans interrompre vos opérations existantes. Pour plus d’informations, consultez [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md).
+
+La configuration des partitions n'évolue pas lorsque vous migrez du niveau De base vers le niveau Standard.
+
+
+## <a name="iot-hub-rest-apis"></a>API REST IoT Hub
 
 La différence de fonctionnalités prises en charge entre les niveaux de base et standard de IoT Hub réside dans le fait que certains appels d’API ne fonctionnent pas avec des hubs utilisant le niveau de base. Le tableau suivant présente les API disponibles : 
 
@@ -111,11 +126,11 @@ Pour obtenir les pics de performances spécifiques, consultez [Quotas et limitat
 Si vous approchez le nombre maximal autorisé de messages pour votre hub IoT, vous pouvez utiliser ces [étapes pour une mise à l’échelle automatique](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/), afin d’incrémenter une unité IoT Hub dans le même niveau IoT Hub.
 
 ## <a name="sharding"></a>Partitionnement
-Un hub IoT unique peut recevoir des millions d’appareils, mais votre solution nécessite parfois des caractéristiques de performances spécifiques qu’un seul hub IoT ne peut pas assurer. Dans ce cas, vous pouvez partitionner vos appareils sur plusieurs IoT Hub. L’utilisation de plusieurs IoT Hubs permet de simplifier les pics de trafic et d’obtenir le débit requis ou les taux d’opération requis.
+Un hub IoT unique peut recevoir des millions d’appareils, mais votre solution nécessite parfois des caractéristiques de performances spécifiques qu’un seul hub IoT ne peut pas assurer. Dans ce cas, vous pouvez partitionner vos appareils sur plusieurs IoT Hubs. L’utilisation de plusieurs IoT Hubs permet de simplifier les pics de trafic et d’obtenir le débit requis ou les taux d’opération requis.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur les fonctionnalités IoT Hub et des détails sur les performances, consultez [IoT Hub pricing][link-pricing] ou [Quotas et limitations IoT Hub][IoT Hub quotas and throttles].
+* Pour plus d’informations sur les fonctionnalités IoT Hub et des détails sur les performances, consultez [Tarification IoT Hub][lnk-pricing] ou [Quotas et limitations IoT Hub][IoT Hub quotas and throttles].
 * Pour modifier votre niveau IoT Hub, suivez les étapes décrites dans [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md).
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

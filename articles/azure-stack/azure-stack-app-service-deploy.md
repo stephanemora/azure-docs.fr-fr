@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166880"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614053"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Ajouter un fournisseur de ressources App Service à Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49166880"
 Utilisez les instructions de cet article pour déployer App Service dans Azure Stack.
 
 > [!IMPORTANT]  
-> Appliquez la mise à jour 1807 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.3.
+> Appliquez la mise à jour 1809 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.4.
 
 Vous pouvez donner à vos utilisateurs la possibilité de créer des applications web et API. Pour permettre aux utilisateurs de créer ces applications, vous devez :
 
@@ -74,8 +74,8 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
    b. Dans **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
 
-     >[!NOTE]
-     >Le déploiement d’App Service n’est possible à l’heure actuelle que sur **l’abonnement du fournisseur par défaut**.
+     > [!IMPORTANT]  
+     > App Service **doit** être déployé sur **l’abonnement du fournisseur par défaut**.
 
    c. Dans **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
 

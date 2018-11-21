@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 51c76c552ef3a79f48637598a12f7a7be1823996
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961124"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515826"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Valider des certificats PKI Azure Stack
 
@@ -244,6 +244,22 @@ Utilisez ces étapes pour préparer et valider les certificats PKI Azure Stack p
         Key Usage: OK
         Key Size: OK
     ```
+
+## <a name="certificates"></a>Certificats
+
+| Répertoire | Certificat |
+| ---    | ----        |
+| acsBlob | wildcard_blob_\< region>\< externalFQDN> |
+| ACSQueue  |  wildcard_queue\< region>\< externalFQDN> |
+| ACSTable  |  wildcard_table\< region>\< externalFQDN> |
+| Hôte d’extension d’administration  |  wildcard_adminhosting\< region>\< externalFQDN> |
+| Portail d’administration  |  adminportal\< region>\< externalFQDN> |
+| Administrateur ARM  |  adminmanagement\< region>\< externalFQDN> |
+| ARM Public  |  management\< region>\< externalFQDN> |
+| KeyVault  |  wildcard_vault\< region>\< externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault\< region>\< externalFQDN> |
+| Hôte d’extension public  |  wildcard_hosting\< region>\< externalFQDN> |
+| Portail public  |  portal\< region>_\< externalFQDN> |
 
 ## <a name="using-validated-certificates"></a>Utilisation des certificats validés
 

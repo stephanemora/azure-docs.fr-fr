@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2f22500a4e557cb89bac7ed114d8c76ca8d9f9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715548"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567415"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure
 Cet article présente les étapes pour sauvegarder et restaurer des machines virtuelles à l’aide de Sauvegarde Azure. Il fournit également des détails sur les scénarios pris en charge, les composants requis et les étapes de dépannage en cas d’erreur.
@@ -76,47 +76,47 @@ Si vous êtes un **utilisateur membre**, l’activation du processus de sauvegar
    Si vous êtes un **utilisateur invité**, pour que les sauvegardes fonctionnent, vous devez fournir des autorisations d’accès au coffre de clés au service de sauvegarde. Vous pouvez fournir ces autorisations en suivant les [étapes mentionnées dans la section suivante](#provide-permissions-to-backup).
 
    ![Message Machines virtuelles chiffrées](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
- 
+
     Maintenant que vous avez défini tous les paramètres du coffre, sélectionnez **Activer la sauvegarde** en bas de la page. L’option **Activer la sauvegarde** déploie la stratégie dans le coffre et les machines virtuelles.
-  
+
 1. La prochaine phase de préparation est l’installation de l’Agent de machine virtuelle ou s’assurer que l’Agent de machine virtuelle est installé. Pour faire de même, suivez les étapes de l’article [Préparation de l’environnement pour la sauvegarde](backup-azure-arm-vms-prepare.md).
 
 ### <a name="trigger-a-backup-job"></a>Déclencher une tâche de sauvegarde
 Suivez les étapes de l’article [Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services](backup-azure-arm-vms.md) pour déclencher un travail de sauvegarde.
 
 ### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>Continuer les sauvegardes des machines virtuelles déjà sauvegardées avec le chiffrement activé  
-Si vous avez déjà des machines virtuelles en cours de sauvegarde dans un coffre Recovery Services et que leur chiffrement sera activé ultérieurement, vous devez accorder des autorisations à Sauvegarde Azure pour qu’il puisse accéder au coffre de clés et que les sauvegardes continuent. Vous pouvez fournir ces autorisations en suivant le [les étapes de la section suivante](#provide-permissions-to-azure-backup). Ou vous pouvez suivre les étapes PowerShell dans la section « Activer la sauvegarde » de la [documentation PowerShell](backup-azure-vms-automation.md). 
+Si vous avez déjà des machines virtuelles en cours de sauvegarde dans un coffre Recovery Services et que leur chiffrement sera activé ultérieurement, vous devez accorder des autorisations à Sauvegarde Azure pour qu’il puisse accéder au coffre de clés et que les sauvegardes continuent. Vous pouvez fournir ces autorisations en suivant le [les étapes de la section suivante](#provide-permissions-to-azure-backup). Ou vous pouvez suivre les étapes PowerShell dans la section « Activer la sauvegarde » de la [documentation PowerShell](backup-azure-vms-automation.md).
 
-## <a name="provide-permissions-to-backup"></a>Fournir des autorisations à Sauvegarde Azure
+## <a name="provide-permissions-to-azure-backup"></a>Fournir des autorisations à Sauvegarde Azure
 Utilisez les étapes suivantes pour fournir à Azure Sauvegarde Azure des autorisations d’accès appropriées au coffre de clés et lui permettre d’effectuer la sauvegarde des machines virtuelles chiffrée.
 1. Sélectionnez **Tous les services**, puis recherchez **Coffres de clés**.
 
     ![Coffres de clés](./media/backup-azure-vms-encryption/search-key-vault.png)
-    
+
 1. Dans la liste des coffres de clés, sélectionnez celui qui est associé aux machines virtuelles chiffrées et qui doit être sauvegardé.
 
      ![Sélection de coffre de clés](./media/backup-azure-vms-encryption/select-key-vault.png)
-     
+
 1. Sélectionnez des **Stratégies d’accès** puis choisissez **Ajouter un nouveau**.
 
     ![Ajouter un nouveau](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
-    
-1. Choisissez **Sélectionner le principal** puis tapez **Service de gestion de sauvegarde** dans la zone de recherche. 
+
+1. Choisissez **Sélectionner le principal** puis tapez **Service de gestion de sauvegarde** dans la zone de recherche.
 
     ![Rechercher le service de sauvegarde](./media/backup-azure-vms-encryption/search-backup-service.png)
-    
+
 1. Sélectionnez **Service de gestion de sauvegarde** puis choisissez **Sélectionner**.
 
     ![Sélection du service de sauvegarde](./media/backup-azure-vms-encryption/select-backup-service.png)
-    
+
 1. Sous **Configurer à partir du modèle (facultatif)**, sélectionnez **Sauvegarde Azure**. Les autorisations requises sont préremplies dans les listes déroulantes **Autorisations de clé** et **Autorisations du secret**. Si votre machine virtuelle est chiffrée à l’aide de **BEK uniquement**, seules les autorisations du secret sont nécessaires, vous devez donc supprimer la sélection pour les **autorisations de clé**.
 
     ![Sélection de Sauvegarde Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
-    
-1. Sélectionnez **OK**. Notez que le **service de gestion de sauvegarde** est ajouté aux **stratégies d’accès**. 
+
+1. Sélectionnez **OK**. Notez que le **service de gestion de sauvegarde** est ajouté aux **stratégies d’accès**.
 
     ![Stratégies d’accès](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
-    
+
 1. Sélectionnez **Enregistrer** pour accorder les autorisations requises à Sauvegarde Azure.
 
     ![Stratégie d’accès Azure Backup](./media/backup-azure-vms-encryption/save-access-policy.png)

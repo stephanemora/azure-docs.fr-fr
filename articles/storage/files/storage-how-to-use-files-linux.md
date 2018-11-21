@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: bbd250e9ee987403d670b2605fdb8deda8c19092
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4b844fe50623782f23c1819c14eb7626eb9506cf
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782046"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614942"
 ---
 # <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans des distributions Linux à l’aide du [client SMB en mode noyau](https://wiki.samba.org/index.php/LinuxCIFS). Cet article présente deux méthodes de montage d’un partage de fichiers Azure : à la demande avec la commande `mount` et au démarrage en créant une entrée dans `/etc/fstab`.
@@ -142,4 +142,4 @@ Consultez ces liens pour en savoir plus sur Azure Files.
 * [Présentation d’Azure Files](storage-files-introduction.md)
 * [Planification d’un déploiement Azure Files](storage-files-planning.md)
 * [FORUM AUX QUESTIONS](../storage-files-faq.md)
-* [Résolution des problèmes](storage-troubleshoot-linux-file-connection-problems.md)
+* [Dépannage](storage-troubleshoot-linux-file-connection-problems.md)

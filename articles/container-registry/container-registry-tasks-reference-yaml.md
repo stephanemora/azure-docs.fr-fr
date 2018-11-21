@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: de543798702137905ee5243c6ca8e502152f9c44
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854947"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634377"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
 
@@ -112,7 +112,7 @@ steps:
       [property]: [value]
 ```
 
-Le type d’étape `build` prend en charge les paramètres suivants :
+Le type d’étape `build` prend en charge les paramètres du tableau suivant. Le type d'étape `build` prend également en charge toutes les options de build de la commande [docker build](https://docs.docker.com/engine/reference/commandline/build/), comme `--build-arg` pour définir des variables de build.
 
 | Paramètre | Description | Facultatif |
 | --------- | ----------- | :-------: |
@@ -122,7 +122,7 @@ Le type d’étape `build` prend en charge les paramètres suivants :
 
 ### <a name="properties-build"></a>Propriétés : build
 
-Le type d’étape `build` prend en charge les propriétés suivantes. Vous trouverez les détails de ces propriétés dans la section [Propriétés d’étape de tâche](#task-step-properties) de cet article.
+Le type d’étape `build` prend en charge les propriétés suivantes : Vous trouverez les détails de ces propriétés dans la section [Propriétés d’étape de tâche](#task-step-properties) de cet article.
 
 | | | |
 | -------- | ---- | -------- |

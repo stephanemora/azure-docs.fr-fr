@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 9f88e71df7697156e0745aeaf6b989548bcc223f
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a4a9fefa98d30d0f9815a935f000c8a663dffd21
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945109"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514194"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Génération de CSR Azure Stack
 
@@ -29,7 +29,7 @@ L’outil Azure Stack Readiness Checker (AzsReadinessChecker) exécute les requ�
  - **Requêtes de certificat standard**  
     Requête conforme à [Générer des certificats d’infrastructure à clé publique pour le déploiement d’Azure Stack](azure-stack-get-pki-certs.md).
  - **Plateforme en tant que service (PaaS)**  
-    Vous pouvez également demander des noms PaaS aux certificats comme spécifié dans [Exigences de certificat pour infrastructure à clé publique Azure Stack - Certificats PaaS facultatifs](azure-stack-pki-certs.md#optional-paas-certificates).
+    Vous pouvez demander des noms PaaS pour les certificats comme spécifié dans [Exigences de certificat pour infrastructure à clé publique Azure Stack - Certificats PaaS facultatifs](azure-stack-pki-certs.md#optional-paas-certificates).
 
 
 
@@ -102,7 +102,7 @@ Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack :
 
     Pour inclure des Services PaaS, spécifiez le commutateur ```-IncludePaaS```
 
-7. Méthode alternative pour les environnements Dev/Test : pour générer une requête de certificat unique avec plusieurs autres noms d’objets, ajoutez le paramètre **-RequestType SingleCSR** et la valeur (**non** recommandé pour les environnements de production) :
+7. Pour les environnements Dev/Test, afin de générer une requête de certificat unique avec plusieurs autres noms d’objets, vous pouvez ajouter le paramètre **-RequestType SingleCSR** et la valeur (**non** recommandé pour les environnements de production) :
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem

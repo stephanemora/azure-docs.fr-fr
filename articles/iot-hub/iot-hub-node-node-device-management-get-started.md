@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: juanpere
-ms.openlocfilehash: d9985aaefbb664f42b63fc25daff3ea2b37221fb
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b2ab88f467de1fd1f94b46d3e45a108e237acc94
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219371"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514280"
 ---
 # <a name="get-started-with-device-management-node"></a>Prise en main de la gestion d’appareils (Node)
 
@@ -21,9 +21,9 @@ ms.locfileid: "47219371"
 
 Ce didacticiel vous explique les procédures suivantes :
 
-* Utiliser le portail Azure pour créer un hub IoT et une identité d’appareil dans celui-ci.
+* Utiliser le portail Azure pour créer un IoT Hub et une identité d’appareil dans celui-ci.
 * Créer une application d’appareil simulé disposant d’une méthode directe permettant le redémarrage de cet appareil. Les méthodes directes sont appelées à partir du cloud.
-* Créer une application console Node.js qui appelle une méthode directe de redémarrage sur l’application d’appareil simulé via votre hub IoT.
+* Créer une application console Node.js qui appelle une méthode directe de redémarrage sur l’application d’appareil simulé via votre IoT Hub.
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
 
@@ -36,11 +36,17 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * Node.js version 4.0.x ou version ultérieure. <br/>  L’article [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>Créer un hub IoT
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Récupérer la chaîne de connexion pour le hub IoT
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-a-simulated-device-app"></a>Créer une application d’appareil simulé
+## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
 Dans cette section, vous allez :
 
 * Créer une application console Node.js qui répond à une méthode directe appelée par le cloud

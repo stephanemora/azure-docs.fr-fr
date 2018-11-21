@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870476"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514959"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à Azure SQL Database Managed Instance
 
@@ -83,6 +83,10 @@ L’intégration d’Azure App Service à un réseau homologué avec un réseau 
 Ce scénario est illustré dans le diagramme suivant :
 
 ![homologation d’applications intégrées](./media/sql-database-managed-instance/integrated-app-peering.png)
+
+>[!NOTE]
+>La fonctionnalité d’intégration au réseau virtuel n’intègre pas d’application à un réseau virtuel doté d’une passerelle ExpressRoute. Même si la passerelle ExpressRoute est configurée en mode de coexistence, l’intégration du réseau virtuel ne fonctionnera pas. S'il vous faut accéder aux ressources via une connexion ExpressRoute, vous pouvez utiliser un App Service Environment s’exécutant dans votre réseau virtuel.
+>
  
 ## <a name="troubleshooting-connectivity-issues"></a>Résolution des problèmes de connectivité
 

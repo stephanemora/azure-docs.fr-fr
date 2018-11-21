@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161815"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567058"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -37,7 +37,7 @@ L’élément **UserJourney** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | Oui | Identificateur d’un parcours utilisateur qui peut être utilisé pour le référencer à partir d’autres éléments dans la stratégie. L’élément **DefaultUserJourney** de la [stratégie de partie de confiance](relyingparty.md) pointe vers cet attribut. |
+| ID | Oui | Identificateur d’un parcours utilisateur qui peut être utilisé pour le référencer à partir d’autres éléments dans la stratégie. L’élément **DefaultUserJourney** de la [stratégie de partie de confiance](relyingparty.md) pointe vers cet attribut. |
 
 L’élément **UserJourney** contient les éléments suivants :
 
@@ -51,7 +51,6 @@ Un parcours utilisateur est représenté en tant que séquence d’orchestration
 
 Les étapes d’orchestration peuvent être exécutées de manière conditionnelle, en fonction de conditions préalables définies dans l’élément d’étape d’orchestration. Par exemple, vous pouvez effectuer une étape d’orchestration uniquement si une revendication spécifique existe, ou si une revendication est égale ou non à la valeur spécifiée. 
 
-
 Pour spécifier la liste ordonnée d’étapes d’orchestration, un élément **OrchestrationSteps** est ajouté à la stratégie. Cet élément est obligatoire.
 
 L’élément **OrchestrationSteps** contient l’élément suivant :
@@ -64,8 +63,8 @@ L’élément **OrchestrationSteps** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Order | Oui | Ordre des étapes d’orchestration. | 
-| Type | Oui | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> | 
+| Ordre | Oui | Ordre des étapes d’orchestration. | 
+| type | Oui | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> | 
 | ContentDefinitionReferenceId | Non  | Identificateur de la [définition de contenu](contentdefinitions.md) associée à cette étape d’orchestration. L’identificateur de référence de définition de contenu est généralement défini dans le profil technique autodéclaré, mais il existe certains cas où Azure AD B2C doit afficher quelque chose sans profil technique, par exemple si le type de l’étape d’orchestration est `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`. Azure AD B2C doit afficher la sélection du fournisseur d’identité sans avoir de profil technique. | 
 | CpimIssuerTechnicalProfileReferenceId | Non  | Le type de l’étape d’orchestration est `SendClaims`. Cette propriété définit l’identificateur de profil technique du fournisseur de revendications qui émet le jeton pour la partie de confiance.  Si elle est absente, aucun jeton de partie de confiance n’est créé. |
 
@@ -93,14 +92,14 @@ L’élément **Precondition** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Type | Oui | Type de vérification ou de requête à exécuter pour cette condition préalable. La valeur peut être **ClaimsExist**, qui indique que les actions doivent être effectuées si les revendications spécifiées existent dans le jeu de revendications actuel de l’utilisateur, ou **ClaimEquals**, qui indique que les actions doivent être effectuées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
+| type | Oui | Type de vérification ou de requête à exécuter pour cette condition préalable. La valeur peut être **ClaimsExist**, qui indique que les actions doivent être effectuées si les revendications spécifiées existent dans le jeu de revendications actuel de l’utilisateur, ou **ClaimEquals**, qui indique que les actions doivent être effectuées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
 | ExecuteActionsIf | Oui | Utilisez un test true ou false pour décider si les actions mentionnées dans la condition préalable doivent être effectuées. | 
 
 L’élément **Precondition** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Value | 1:n | ClaimTypeReferenceId à interroger. Un autre élément de valeur contient la valeur à vérifier.</li></ul>|
+| Valeur | 1:n | ClaimTypeReferenceId à interroger. Un autre élément de valeur contient la valeur à vérifier.</li></ul>|
 | Action | 1:1 | Action à effectuer si la vérification de condition préalable dans une étape d’orchestration a la valeur true. Si la valeur de `Action` est `SkipThisOrchestrationStep`, l’élément `OrchestrationStep` associé ne doit pas être exécuté. | 
 
 ### <a name="preconditions-examples"></a>Exemples de conditions préalables
@@ -225,7 +224,7 @@ L’élément **ClaimsExchange** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | Oui | Identificateur de l’étape d’échange de revendications. L’identificateur est utilisé pour référencer l’échange de revendications à partir d’une étape de sélection de fournisseur de revendications dans la stratégie. | 
+| ID | Oui | Identificateur de l’étape d’échange de revendications. L’identificateur est utilisé pour référencer l’échange de revendications à partir d’une étape de sélection de fournisseur de revendications dans la stratégie. | 
 | TechnicalProfileReferenceId | Oui | Identificateur du profil technique qui doit être exécuté. |
  
 

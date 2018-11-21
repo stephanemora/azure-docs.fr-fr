@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c65cfedd398bbb18d65f36a3f2a768e11443687a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962532"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636507"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2
 
@@ -86,15 +86,42 @@ Exécutez les applets de commande suivantes à partir d’un terminal PowerShell
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+### <a name="cli"></a>Interface de ligne de commande
+À partir d'un interpréteur de commandes, exécutez les commandes suivantes :
+1.  Connectez-vous à votre compte Azure :
+
+    ```
+    az login
+    ```
+
+2.  Sélectionnez l’abonnement à inscrire :
+
+    ```
+    az account set --subscription "Subscription Name"
+    ```
+
+3.  Inscrivez cet abonnement :
+
+    ```
+    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+    ```
 
 ## <a name="verify-that-the-upgrade-is-finished"></a>Vérifier si la mise à niveau est terminée
+### <a name="powershell"></a>PowerShell
 À partir d’un terminal PowerShell avec élévation des privilèges, exécutez l’applet de commande suivante :
 
 ```
 Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-Si la sortie indique « Registered », votre abonnement est mis à niveau vers le modèle de déploiement Resource Manager pour la pile de sauvegarde de machine virtuelle.
+### <a name="cli"></a>Interface de ligne de commande
+À partir d'un interpréteur de commandes, exécutez la commande suivante :
+
+```
+az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+```
+
+Si la sortie indique « Registered », votre abonnement est mis à niveau vers la pile de sauvegarde  V2.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 

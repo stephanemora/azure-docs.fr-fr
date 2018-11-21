@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801010"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344482"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Sécuriser les services web Azure Machine Learning avec SSL
 
@@ -53,9 +53,8 @@ Lorsque vous demandez un certificat, vous devez fournir le nom de domaine comple
 > [!TIP]
 > Si l’autorité de certification ne peut pas fournir le certificat et la clé sous forme de fichiers PEM, vous pouvez utiliser un utilitaire tel que [OpenSSL](https://www.openssl.org/) pour modifier le format.
 
-> [!IMPORTANT]
-> Les certificats auto-signés doivent être utilisés uniquement pour le développement. Ils ne doivent pas être utilisés en production. Si vous utilisez un certificat auto-signé, consultez la section [Utilisation des services web avec des certificats auto-signés](#self-signed) pour obtenir des instructions spécifiques.
-
+> [!WARNING]
+> Les certificats auto-signés doivent être utilisés uniquement pour le développement. Ils ne doivent pas être utilisés en production. Les certificats autosignés peuvent entraîner des problèmes dans vos applications clientes. Pour plus d’informations, consultez la documentation relative aux bibliothèques réseau utilisées dans votre application cliente.
 
 ## <a name="enable-ssl-and-deploy"></a>Activer le protocole SSL et le déployer
 
@@ -119,91 +118,8 @@ Vous devez ensuite mettre à jour votre DNS afin qu’il pointe vers le service 
 
   Mettez à jour le DNS sous l’onglet « Configuration » de l’« adresse IP publique » du cluster AKS, comme illustré dans l’image. Vous pouvez trouver l’adresse IP publique comme l’un des types de ressources créés sous le groupe de ressources qui contient les nœuds d’agent AKS et d’autres ressources de mise en réseau.
 
-  ![Service Azure Machine Learning : Sécuriser les services web avec SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Service Azure Machine Learning : Sécuriser les services web avec SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)self-
 
-## <a name="consume-authenticated-services"></a>Utiliser des services authentifiés
+## <a name="next-steps"></a>Étapes suivantes
 
-### <a name="how-to-consume"></a>Mode d’utilisation 
-+ **Pour ACI et AKS** : 
-
-  Pour les services web ACI et AKS, découvrez comment utiliser les services web dans les articles suivants :
-  + [Déployer sur ACI](how-to-deploy-to-aci.md)
-
-  + [Déployer sur AKS](how-to-deploy-to-aks.md)
-
-+ **Pour FPGA** :  
-
-  Les exemples suivants montrent comment utiliser un service FPGA authentifié à l’aide de Python et de C#.
-  Remplacez `authkey` par la clé primaire ou secondaire retournée lors du déploiement du service.
-
-  Exemple Python :
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  Exemple en code C# :
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### <a name="set-the-authorization-header"></a>Définir l’en-tête d’autorisation
-D’autres clients gRPC peuvent authentifier les demandes en définissant un en-tête d’autorisation. L’approche générale consiste à créer un objet `ChannelCredentials` qui associe `SslCredentials` à `CallCredentials`. Celui-ci est ajouté à l’en-tête d’autorisation de la demande. Pour plus d’informations sur l’implémentation de la prise en charge pour vos en-têtes spécifiques, consultez [https://grpc.io/docs/guides/auth.html](https://grpc.io/docs/guides/auth.html).
-
-Les exemples suivants montrent comment définir l’en-tête en C# et Go :
-
-+ Utilisez C# pour définir l’en-tête :
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ Utilisez Go pour définir l’en-tête :
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## <a name="consume-services-with-self-signed-certificates"></a>Utiliser des services avec des certificats auto-signés
-
-Il existe deux façons de permettre au client de s’authentifier auprès d’un serveur sécurisé avec un certificat auto-signé :
-
-* Sur le système client, définissez la variable d’environnement `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` sur le système client pour pointer vers le fichier de certificat.
-
-* Lorsque vous construisez un objet `SslCredentials`, passez le contenu du fichier de certificat au constructeur.
-
-Ces deux méthodes obligent gRPC à utiliser le certificat en tant que certificat racine.
-
-> [!IMPORTANT]
-> gRPC n’accepte pas les certificats non approuvés. L’utilisation d’un certificat non approuvé entraîne un échec avec un code d’état `Unavailable`. Les détails de l’échec contiennent `Connection Failed`.
+Découvrez comment [utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md).

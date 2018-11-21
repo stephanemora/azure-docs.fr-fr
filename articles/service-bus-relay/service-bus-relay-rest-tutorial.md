@@ -12,26 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232441"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614470"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Didacticiel Azure WCF Relay REST
-
 Ce didacticiel explique comment créer une simple application hôte Azure Relay qui expose une interface de type REST. REST permet à un client web, par exemple un navigateur web, d’accéder aux API Service Bus via des requêtes HTTP.
 
 Ce didacticiel utilise le modèle de programmation REST WCF (Windows Communication Foundation) pour construire un service REST dans Azure Relay. Pour plus d’informations, consultez les rubriques [Modèle de programmation REST WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) et [Conception et implémentation de services](/dotnet/framework/wcf/designing-and-implementing-services) dans la documentation WCF.
 
-## <a name="step-1-create-a-namespace"></a>Étape 1 : Création d’un espace de noms
+Dans ce didacticiel, vous allez effectuer les étapes suivantes :
+
+> [!div class="checklist"]
+> * Créer un espace de noms Relay
+> * Définir un contrat de service WCF basé sur REST
+> * Implémenter le contrat WCF basé sur REST
+> * Héberger et exécuter le service WCF basé sur REST
+> * Exécuter et tester le pipeline
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
+
+- Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+- [Visual Studio 2015 ou version ultérieure](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017.
+- SDK Azure pour .NET. Installez-le à partir de la [page de téléchargement des SDK](https://azure.microsoft.com/downloads/).
+
+## <a name="create-a-relay-namespace"></a>Créer un espace de noms Relay
 
 Pour commencer à utiliser les fonctionnalités de relais dans Azure, vous devez d’abord créer un espace de noms de service. Un espace de noms fournit un conteneur d’étendue pour l’adressage des ressources Azure au sein de votre application. Suivez les [instructions fournies ici](relay-create-namespace-portal.md) pour créer un espace de noms Relay.
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Étape 2 : Définition d’un contrat de service REST WCF à utiliser avec Azure Relay
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Définir un contrat de service WCF basé sur REST à utiliser avec Azure Relay
 
 Lorsque vous créez un service de type REST WCF, vous devez définir le contrat. Le contrat spécifie les opérations prises en charge par l'hôte. Une opération de service peut être considérée comme une méthode de service web. Les contrats sont créés en définissant une interface C++, C# ou Visual Basic. Chaque méthode dans l'interface correspond à une opération de service spécifique. L’attribut [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) doit être appliqué à chaque interface et l’attribut [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) doit être appliqué à chaque opération. Si une méthode dans une interface qui contient l’attribut [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) n’a pas l’attribut [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), cette méthode n’est pas exposée. Le code utilisé pour effectuer ces tâches est indiqué dans l'exemple suivant la procédure.
 
@@ -136,7 +152,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Étape 3 : Implémentation d’un contrat de service REST WCF à utiliser avec Service Bus
+## <a name="implement-the-rest-based-wcf-service-contract"></a>Implémenter le contrat de service WCF basé sur REST
 La création d’un service WCF Relay de type REST nécessite la création au préalable du contrat défini à l’aide d’une interface. L'étape suivante consiste à implémenter l'interface. Cela implique la création d’une classe nommée **ImageService** qui implémente l’interface **IImageContract** définie par l’utilisateur. Une fois le contrat implémenté, vous configurez ensuite l'interface à l'aide d'un fichier App.config. Le fichier de configuration contient les informations nécessaires à l’application, notamment le nom du service, le nom du contrat et le type de protocole utilisé pour communiquer avec le service de relais. Le code utilisé pour effectuer ces tâches est fourni dans l'exemple suivant la procédure.
 
 Comme pour les étapes précédentes, il y a très peu de différences entre l’implémentation d’un contrat de type REST et un contrat WCF Relay.
@@ -430,7 +446,7 @@ L'exemple suivant montre le fichier App.config associé au service.
 </configuration>
 ```
 
-## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>Étape 4 : Hébergement du service WCF REST pour utiliser Azure Relay
+## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>Héberger le service WCF basé sur REST pour utiliser Azure Relay
 Cette étape décrit comment exécuter un service web à l’aide d’une application console avec WCF Relay. Une liste complète du code écrit dans cette étape est fournie dans l'exemple suivant la procédure.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Création d’une adresse de base pour le service
@@ -476,7 +492,7 @@ Cette étape décrit comment exécuter un service web à l’aide d’une applic
     host.Close();
     ```
 
-## <a name="example"></a>Exemples
+### <a name="example"></a>Exemples
 L'exemple suivant inclut le contrat de service et l'implémentation des étapes précédentes du didacticiel et héberge le service dans une application console. Compilez le code suivant dans un fichier exécutable nommé ImageListener.exe.
 
 ```csharp
@@ -551,7 +567,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### <a name="compiling-the-code"></a>Compilation du code
+## <a name="run-and-test-the-service"></a>Exécuter et tester le pipeline
 Après avoir créé la solution, procédez comme suit pour exécuter l'application :
 
 1. Appuyez sur **F5** ou accédez à l’emplacement du fichier exécutable (ImageListener\bin\Debug\ImageListener.exe), pour exécuter le service. Ne fermez pas l’application en cours d’exécution, car l’étape suivante est obligatoire.

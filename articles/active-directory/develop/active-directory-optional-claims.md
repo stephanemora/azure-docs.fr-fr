@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914649"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345485"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Comment : fournir des revendications facultatives à votre application Azure AD (Préversion publique) ?
 
@@ -42,7 +42,7 @@ L’un des objectifs du point de terminaison [v2.0 Azure AD](active-directory-ap
 | Type de compte | Point de terminaison V1.0 | Point de terminaison V2.0  |
 |--------------|---------------|----------------|
 | Compte Microsoft personnel  | N/A - Des tickets RPS sont utilisés à la place | Bientôt pris en charge |
-| Compte Azure AD          | Pris en charge                          | Pris en charge avec des mises en garde      |
+| Compte Azure AD          | Pris en charge                          | Pris en charge avec des mises en garde |
 
 > [!IMPORTANT]
 > Les applications qui prennent en charge à la fois les comptes personnels et Azure AD (enregistrées via le [portail d’inscription des applications](https://apps.dev.microsoft.com)) ne peuvent pas utiliser de revendications facultatives. Cependant, les applications enregistrées uniquement pour Azure AD à l’aide du point de terminaison v2.0 peuvent obtenir les revendications facultatives requises dans le manifeste. Dans le portail Azure, vous pouvez utiliser l’éditeur de manifeste d’application dans l’espace **Inscriptions d'applications** existant pour modifier vos revendications facultatives. Toutefois, cette fonctionnalité n’est pas encore disponible avec l’éditeur de manifeste d’application dans le nouvel espace **Inscriptions d’applications**.
@@ -60,8 +60,6 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Heure de dernière authentification de l’utilisateur. Voir les spécifications OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Région du locataire de ressource. | JWT        |           | |
-| `signin_state`             | Revendication d’état de connexion.   | JWT        |           | Six valeurs de retour, comme indiqué :<br> « dvc_mngd » : l’appareil est géré.<br> « dvc_cmp » : l’appareil est conforme.<br> « dvc_dmjd » : l’appareil est joint à un domaine.<br> « dvc_mngd_app » : l’appareil est géré par le biais de la Gestion des appareils mobiles.<br> « inknownntwk » : l’appareil est à l’intérieur d’un réseau connu.<br> « kmsi » : Maintenir la connexion a été utilisé. <br> |
-| `controls`                 | Revendication à valeurs multiples contenant les contrôles de session appliqués par les stratégies d’accès conditionnel. | JWT        |           | Trois valeurs :<br> « app_res » : l’application doit appliquer des restrictions plus granulaires. <br> « ca_enf » : l’application de l’accès conditionnel a été différée et est toujours nécessaire. <br> « type no_cookie » : ce jeton est insuffisant pour l’échange d’un cookie dans le navigateur. <br>  |
 | `home_oid`                 | Pour les utilisateurs invités, il s’agit de l’ID d’objet de l’utilisateur dans le locataire de base de l’utilisateur.| JWT        |           | |
 | `sid`                      | ID de session utilisé pour la déconnexion utilisateur pour chaque session. | JWT        |           |         |
 | `platf`                    | Plateforme d’appareil.    | JWT        |           | Limité aux appareils gérés qui peuvent vérifier le type d’appareil.|
@@ -76,6 +74,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 | `xms_pl`                   | Langue par défaut de l’utilisateur  | JWT ||La langue par défaut de l’utilisateur, si celle-ci a été définie. Dans les scénarios d’accès invité, provient du locataire de base. Au format langue-pays (« fr-fr »). |
 | `xms_tpl`                  | Langue par défaut du locataire| JWT | | Langue par défaut du locataire de la ressource, si celle-ci est définie. Au format langue (« fr »). |
 | `ztdid`                    | ID de déploiement sans intervention | JWT | | Identité d’appareil utilisée pour [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+|`email`                     | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Statut du compte utilisateur dans le client. | JWT, SAML | | Si l’utilisateur est membre du client, la valeur est `0`. S’il est un invité, la valeur est `1`. |
 | `upn`                      | Revendication UserPrincipalName. | JWT, SAML  |           | Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité. <br> Propriétés supplémentaires : <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

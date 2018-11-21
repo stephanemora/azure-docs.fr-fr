@@ -10,33 +10,281 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: bc23f2e5d8304400802c74093d4d78a1fcd8cf22
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: ff529e7b828c195be89c9d11fc5f50e04104642e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219481"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567347"
 ---
 # <a name="entities-per-culture"></a>Entités par culture
 
 Language Understanding (LUIS) fournit des entités prédéfinies. Quand une entité prédéfinie est incluse dans votre application, LUIS inclut la prédiction d’entité correspondante dans la réponse du point de terminaison. Tous les exemples d’énoncés sont également étiquetés avec l’entité. Le comportement des entités prédéfinies **ne peut pas** être modifié. Sauf indication contraire, les entités prédéfinies sont disponibles dans tous les paramètres régionaux de l’application LUIS (cultures). Le tableau suivant montre les entités prédéfinies qui sont pris en charge pour chaque culture.
 
-Entité prédéfinie   |   Anglais (États-Unis)<br>```En-us```   |   Français (France)<br>```fr-FR```   |   Italien (Italie)<br>```it-IT```   |   Espagnol (Espagne)<br>```es-ES```   |   Chinois<br>```zh-CN```   |   Allemand<br>```de-DE```   |   Portugais (Brésil)<br>```pt-BR```   |   Japonais (Japon)<br>```ja-JP```   |   Coréen (Corée)<br>```ko-kr```   | Français (Canada)<br>```fr-CA```   |   Espagnol (Mexique)<br>```es-MX```   |   Néerlandais (Pays-Bas)<br>```nl-NL```   |
-------|:------:|------|------|------|------|------|------|------|------|------|------|------|
-[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   ✔   |
-[Devise](luis-reference-prebuilt-currency.md) :<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   ✔   |
-[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   -   |   ✔   |   -   |   -   |   -   |   -   |   -   |
-[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   ✔   |
-[E-mail](luis-reference-prebuilt-email.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   |   ✔   |   ✔   |   ✔   |   -   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |
-[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   ✔   |
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   ✔   |
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   ✔   |
-[PersonName](luis-reference-prebuilt-person.md)   |    ✔   |    -   |    -   |    -   |    ✔   |    -   |    -   |    -   |   -   |   -   |   -   |   -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   ✔   |
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+|Culture|Sous-cultures|
+|--|--|
+|Chinois|[zh-CN](#chinese-entity-support)|
+|Néerlandais|[nl-NL](#dutch-entity-support)|
+|Français|[en-US (États-Unis)](#english-american-entity-support)|
+|Français|[fr-CA (Canada)](#french-canadian-entity-support), [fr-FR (France)](#french-france-entity-support), |
+|Allemand|[de-DE](#german-entity-support)|
+|Italien|[it-IT](#italian-entity-support)|
+|Japonais|[ja-JP](#japanese-entity-support)|
+|Coréen|[ko-KR](#korean-entity-support)|
+|Portugais|[pt-BR (Brésil)](#portuguese-brazil-entity-support)|
+|Espagnol|[es-ES (Espagne)](#spanish-spain-entity-support), [es-MX (Mexique)](#spanish-mexico-entity-support)|
+
+## <a name="chinese-entity-support"></a>Prise en charge de l'entité Chinois
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```zh-CN``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="dutch-entity-support"></a>Prise en charge de l’entité Néerlandais
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```nl-NL``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    -   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="english-american-entity-support"></a>Prise en charge de l’entité Anglais (États-Unis)
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```en-US``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="french-france-entity-support"></a>Prise en charge de l'entité Français (France)
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```fr-FR``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="french-canadian-entity-support"></a>Prise en charge de l'entité Français (Canada)
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```fr-CA``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="german-entity-support"></a>Prise en charge de l’entité Allemand
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```de-DE``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="italian-entity-support"></a>Prise en charge de l’entité Italien
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```it-IT``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="japanese-entity-support"></a>Prise en charge de l’entité Japonais
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```ja-JP``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="korean-entity-support"></a>Prise en charge de l’entité Coréen
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```ko-KR``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    -   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    -   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    -   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    -   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    -   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="portuguese-brazil-entity-support"></a>Prise en charge de l'entité Portugais (Brésil)
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```pt-BR``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="spanish-spain-entity-support"></a>Prise en charge de l'entité Espagnol (Espagne)
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```es-ES``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## <a name="spanish-mexico-entity-support"></a>Prise en charge de l'entité Espagnol (Mexique)
+
+Les entités suivantes sont prises en charge :
+
+|Entité prédéfinie|```es-MX``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    -   |
+[Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    -   |
+[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    -   | 
+[Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    -   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Nombre](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md) :<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
 Voir les notes sur [entités prédéfinies désapprouvée](luis-reference-prebuilt-deprecated.md)
 

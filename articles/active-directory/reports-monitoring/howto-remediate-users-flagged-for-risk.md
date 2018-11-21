@@ -11,59 +11,56 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 13d81e655b98771d985277974bd3081437e2a3e8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c43497a69b3188b4bc38e91b6ff9b1cc8b6bd21a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255777"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624146"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Résoudre des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 
-Grâce aux rapports sur la sécurité dans Azure Active Directory (Azure AD), vous pouvez obtenir des informations sur les risques de compromission des comptes d’utilisateur au sein de votre environnement. Un utilisateur signalé comme présentant un risque indique qu’un compte d’utilisateur est susceptible d’avoir été compromis.
+Grâce aux rapports sur la sécurité dans Azure Active Directory (Azure AD), vous pouvez évaluer les risques de compromission des comptes d’utilisateur au sein de votre environnement. Un utilisateur signalé comme présentant un risque indique qu’un compte d’utilisateur est susceptible d’avoir été compromis.
 
 Microsoft s’engage à vous aider à conserver un environnement protégé. Dans le cadre de cet engagement, Microsoft surveille continuellement les activités inhabituelles ou qui correspondent à des modèles d’attaque connus. 
 
-
-Si des activités inhabituelles indiquant un accès non autorisé à des comptes de vos utilisateurs sont détectées, vous recevez des notifications qui vous permettent d’agir. Le fait que Microsoft vous envoie des notifications ne signifie pas que ses systèmes ont été compromis d’une quelconque façon.
- 
+Si des activités inhabituelles indiquant un accès non autorisé à des comptes de vos utilisateurs sont détectées, vous recevez des notifications qui vous permettent d’agir. Cela ne signifie pas que les systèmes Microsoft ont été compromis.
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Accéder au rapport des utilisateurs avec indicateur de risque
 
-Vous pouvez analyser les utilisateurs signalés comme présentant un risque par le biais du [rapport](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) lié dans Azure Active Directory (AD). Si vous n’êtes pas abonné à Azure AD, vous pouvez vous inscrire gratuitement à l’adresse [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). Dans ce rapport, vous pouvez effectuer diverses actions telles que :
+Vous pouvez analyser les utilisateurs signalés comme présentant un risque par le biais du [rapport sur les utilisateurs à risque](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) dans le portail Azure. Si vous n'avez pas Azure AD, vous pouvez vous inscrire gratuitement sur [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
+
+À partir du rapport sur les utilisateurs signalés comme présentant un risque, vous pouvez effectuer les actions suivantes pour chaque utilisateur :
 
 - Générer un mot de passe temporaire
 - Demander à l’utilisateur de réinitialiser son mot de passe la prochaine fois qu’il se connecte
 - Supprimer le risque de l’utilisateur sans aucune action de correction.
 
-Pour plus d’informations, consultez le [rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory](concept-user-at-risk.md).
+Pour plus d’informations, consultez [Rapport de sécurité des utilisateurs associés à un indicateur de risque](concept-user-at-risk.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Abonnement Azure AD de clients Office 365
 
-Une fois inscrit, vous pouvez utiliser vos informations d’identification Office 365 pour accéder au centre d’administration Azure. Lorsque votre accès à Azure AD est activé, vous êtes redirigé vers le portail Azure AD. Au niveau d’inscription de base, la quantité d’informations fournies dans les rapports est limitée. Des analyses et données supplémentaires sont disponibles pour les abonnés Azure Premium.
+Vous pouvez également utiliser vos informations d’identification Office 365 pour accéder au **centre d’administration Azure**. Lorsque votre accès à Azure AD est activé, vous êtes redirigé vers le portail Azure AD. Au niveau d’inscription de base, la quantité d’informations fournies dans les rapports est limitée. Des analyses et données supplémentaires sont disponibles pour les abonnés Azure Premium.
 
+Pour accéder aux **rapports sur les utilisateurs avec indicateur de risque** dans le centre d’administration Office 365 :
 
-**Pour accéder aux rapports sur les utilisateurs avec indicateur de risque dans le centre d’administration Office 365 :**
-
-1.  À gauche du menu de navigation, cliquez sur **Centres d’administration**. 
-2.  Cliquez sur **Azure AD**.
+1.  À gauche du menu de navigation, sélectionnez **Centres d’administration**. 
+2.  Sélectionnez ensuite **Azure AD**.
 3.  Connectez-vous au **centre d’administration Azure Active Directory**.
-4.  Si une bannière s’affiche en haut de la page, indiquant **Vérifier le nouveau portail**, cliquez sur le lien.
-4.  Dans le menu de navigation gauche, cliquez sur **Azure Active Directory**. 
-5.  Dans le volet de navigation, sous **Sécurité**, cliquez sur **Utilisateurs avec indicateur de risque**.
-
-Analysez les informations affichées. Vous devez réinitialiser le mot de passe de chaque compte répertorié. 
+4.  Si une bannière s’affiche en haut de la page, indiquant **Vérifier le nouveau portail**, sélectionnez le lien.
+4.  Dans le menu de navigation situé à gauche, sélectionnez **Azure Active Directory**. 
+5.  Dans le volet de navigation, sélectionnez **Utilisateurs associés à un indicateur de risque** depuis la section **Sécurité**.
 
 ## <a name="remediation-actions"></a>Actions de correction
 
 Effectuez les actions suivantes pour aider à rectifier les comptes affectés et à sécuriser votre environnement :
 
-1.  [Validez](https://aka.ms/MFAValid) les informations correctes pour l’authentification multifacteur et la réinitialisation de mot de passe libre-service. 
-2.  [Activez](https://aka.ms/MFAuth) l’authentification multifacteur (MFA) pour tous les utilisateurs. 
-3.  Avec ce [script de correction](https://aka.ms/remediate), pour chaque compte affecté, vous pouvez automatiquement effectuer les étapes suivantes : 
+1.  [Validez les informations correctes](http://aka.ms/MFAValid) pour l’authentification multifacteur et la réinitialisation de mot de passe libre-service. 
+2.  [Activez l’authentification multifacteur](http://aka.ms/MFAuth) pour tous les utilisateurs. 
+3.  Utilisez ce [script de correction](http://aka.ms/remediate) pour chaque compte affecté afin d'effectuer les étapes suivantes : 
 
     a. Réinitialisez le mot de passe pour sécuriser le compte et éliminez les sessions actives.
 
@@ -79,22 +76,20 @@ Effectuez les actions suivantes pour aider à rectifier les comptes affectés et
 
     g. Activez l’audit de la boîte aux lettres.
 
-    h. Générez le journal d’audit pour que l’administrateur puisse l’analyser.
+    h. Générez un journal d’audit pour permettre à l'administrateur de l’analyser.
 
 4. Dans votre abonné Office 365 et autres infrastructure informatique, analysez tous les paramètres d’abonné, comptes d’utilisateurs et les paramètres de configuration par utilisateur et cherchez toute modification éventuelle. Vérifiez les indicateurs de méthodes ou de persistance, ainsi que tout signe qu’un intrus aurait pu mettre la main sur des informations d’identification VPN, ou accéder à d’autres ressources organisationnelles. 
 
-5.  Lors de votre enquête, vous devrez décider si vous devez ou devriez avertir les autorités gouvernementales, concernant les lois en vigueur.
+5.  Lors de votre enquête, vous devrez décider si vous devez avertir les autorités gouvernementales, concernant les lois en vigueur.
 
 De plus, vous devez :
 
-- Lire et implémenter ce [conseil](https://aka.ms/fixaccount) sur la gestion d’activités inhabituelles. 
-- [Activer le pipeline d’audit](https://aka.ms/improvesecurity) pour vous aider à analyser l’activité sur votre abonnement. Une fois fini, votre banque d’informations d’audit commence à remplir tous les journaux d’activités. À ce stade, vous êtes également capable de tirer profit de la [recherche et enquête du centre de sécurité et de conformité](https://aka.ms/sccsearch). 
-- Utilisez ce [script](https://aka.ms/mailboxaudit1) pour activer l’audit de la boîte aux lettres pour tous vos comptes. 
-- Vérifiez les autorisations des délégués et les règles d’envoi de courrier pour toutes vos boîtes aux lettres. Vous pouvez utiliser ce [script PowerShell](https://aka.ms/delegateforwardrules) pour réaliser cette tâche. 
-
-
+- Lire et implémenter ce [conseil sur la gestion d’activités inhabituelles](http://aka.ms/fixaccount). 
+- [Activer le pipeline d’audit](http://aka.ms/improvesecurity) pour vous aider à analyser l’activité sur votre abonnement. Une fois fini, votre banque d’informations d’audit commence à remplir les journaux d’activités. À ce stade, vous pouvez également tirer parti de la [ressource de recherche et d'enquête du centre de sécurité et de conformité](http://aka.ms/sccsearch). 
+- Utilisez ce [script pour activer l’audit de la boîte aux lettres](http://aka.ms/mailboxaudit1) pour tous vos comptes. 
+- Vérifiez les autorisations des délégués et les règles d’envoi de courrier pour toutes vos boîtes aux lettres. Vous pouvez utiliser ce [script PowerShell](http://aka.ms/delegateforwardrules) pour réaliser cette tâche. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur Azure Active Directory Identity Protection, voir [Protection de l’identité Azure Active Directory](../active-directory-identityprotection.md).
-
+* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+* [Utilisateurs associés à un indicateur de risque](concept-user-at-risk.md)

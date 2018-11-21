@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718727"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614036"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Ajouter un fournisseur de ressources App Service à un environnement Azure Stack déconnecté sécurisé par AD FS
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1807 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.3.
+> Appliquez la mise à jour 1809 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.4.
 >
 >
 
@@ -80,12 +80,11 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
 7. Sur la page suivante :
     1. Cliquez sur le bouton **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
-        - Indiquez votre compte Administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
+        - Indiquez votre compte Administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
     2. Dans la zone **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
     
     > [!NOTE]
-    > App Service peut uniquement être déployé sur **l’abonnement Fournisseur par défaut** pour l’instant.  Dans une prochaine mise à jour, App Service se déploiera sur le nouvel abonnement À l’usage introduit dans Azure Stack 1804, et tous les déploiements existants seront également migrés vers ce nouvel abonnement.
-    >
+    > Le déploiement d’App Service n’est possible que sur l’**abonnement du fournisseur par défaut**.
     >
     
     3. Dans la zone **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
@@ -170,7 +169,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
     ![Programme d’installation App Service][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core n’est pas une image de plateforme prise en charge pour une utilisation avec Azure App Service sur Azure Stack.  N’utilisez pas d’images d’évaluation pour les déploiements de production.  Azure App Service sur Azure Stack nécessite l’activation de Microsoft.NET 3.5.1 SP1 sur l’image utilisée pour le déploiement.   Cette fonctionnalité n’est pas activée sur les images Windows Server 2016 syndiquées sur la Place de marché.**
+    > **Windows Server 2016 Core n’est pas une image de plateforme prise en charge pour une utilisation avec Azure App Service sur Azure Stack.  N’utilisez pas d’images d’évaluation pour les déploiements de production.  Azure App Service sur Azure Stack nécessite l’activation de Microsoft.NET 3.5.1 SP1 sur l’image utilisée pour le déploiement.   Cette fonctionnalité n’est pas activée sur les images Windows Server 2016 syndiquées sur la Place de marché. Dès lors, vous devez créer et utiliser une image Windows Server 2016 avec cette fonctionnalité pré-activée.**
 
 14. Dans la zone **Sélectionnez l’image de plate-forme**, choisissez votre image de machine virtuelle Windows Server 2016 de déploiement parmi celles disponibles dans le fournisseur de ressources de calcul pour le cloud App Service. Cliquez sur **Suivant**.
 

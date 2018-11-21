@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3b350deff2883761af6a3a2b3c5c9ef22235bde0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038098"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614257"
 ---
 # <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Stocker un état dans une application Service Fabric Mesh en montant un volume basé sur Azure Files à l’intérieur du conteneur
 
@@ -62,10 +62,10 @@ Créez l’application et les ressources associées au moyen de la commande suiv
 
 Le paramètre `storageAccountKey` dans le modèle est une chaîne sécurisée. Il n’apparaîtra pas dans l’état du déploiement et les commandes `az mesh service show`. Assurez-vous qu’il est correctement spécifié dans la commande suivante.
 
-La commande suivante déploie une application Linux à l’aide du [modèle mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). Pour déployer une application Windows, utilisez le [modèle mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). N’oubliez pas que le déploiement d’images de conteneur plus grandes peut prendre plus de temps.
+La commande suivante déploie une application Linux à l’aide du [modèle counter.azurefilesvolume.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). Pour déployer une application Windows, utilisez le [modèle counter.azurefilesvolume.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). N’oubliez pas que le déploiement d’images de conteneur plus grandes peut prendre plus de temps.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
 Dans quelques minutes, votre commande devrait retourner le message suivant `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
@@ -88,7 +88,7 @@ Le fichier peut être téléchargé à l’aide de n’importe quel outil permet
 
 ## <a name="delete-the-resources"></a>Supprimer les ressources
 
-Supprimez régulièrement les ressources que vous n’utilisez plus dans Azure. Pour supprimer les ressources liées à cet exemple, supprimez le groupe de ressources dans lequel elles ont été déployées (ce qui supprime tous les éléments associés au groupe de ressources) avec la commande suivante :
+Supprimez régulièrement les ressources que vous n’utilisez plus dans Azure. Pour supprimer les ressources liées à cet exemple, supprimez le groupe de ressources dans lequel elles ont été déployées (ce qui supprime tous les éléments associés au groupe de ressources) avec la commande suivante :
 
 ```azurecli-interactive
 az group delete --resource-group myResourceGroup

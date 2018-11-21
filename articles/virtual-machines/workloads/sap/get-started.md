@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2deacb7d15f370c9182c3239493ed60f735d738c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6fbb09d41535bf811a42b204f4e3d38b87c2846c
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736833"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287946"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilisation d’Azure pour l’hébergement et l’exécution de scénarios de charge de travail SAP
 
@@ -35,6 +35,11 @@ L’unicité d’Azure pour SAP HANA est une offre unique qui permet à Azure de
 L’hébergement de scénarios de charge de travail SAP dans Azure peut aussi créer des exigences d’intégration d’identité et d’authentification unique à l’aide d’Azure Activity Directory pour différents composants SAP et SaaS SAP ou offres PaaS. Une liste de ces scénarios d’intégration et d’authentification unique avec Azure Active Directory (AAD) et des entités SAP est décrite et documentée dans la section « Intégration d’identité AAD SAP et authentification unique ».
 
 ## <a name="latest-changes"></a>Dernières modifications
+
+Précision liée à l’utilisation et à la configuration d'[appliances virtuelles réseau Azure](https://azure.microsoft.com/solutions/network-appliances/) dans les chemins de communication critique en termes de latence des systèmes SAP dans :
+
+- [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [Configurations et opérations de l’infrastructure SAP HANA sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 Documentation relative à SAP HANA Dynamic Tiering pour les machines virtuelles Azure
 
@@ -64,9 +69,9 @@ Une série de documents vous guide dans l’utilisation de SAP HANA sur Azure (g
 
 
 ## <a name="sap-hana-on-azure-virtual-machines"></a>SAP HANA sur des machines virtuelles Azure
-Cette partie de la documentation couvre différents aspects de SAP HANA. Vous devez avoir une bonne connaissance des principaux services d’Azure qui fournissent les services de base de la plateforme IaaS Azure, à savoir les ressources de calcul, de stockage et de mise en réseau Azure. Un grand nombre de ces aspects sont abordés dans le [Guide de planification Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) associé à SAP NetWeaver. 
+Cette partie de la documentation couvre différents aspects de SAP HANA. Vous devez avoir une bonne connaissance des principaux services d’Azure qui fournissent les services de base de la plateforme IaaS Azure, à savoir les ressources de calcul, de stockage et de mise en réseau Azure. Bon nombre de ces aspects sont abordés dans le [Guide de planification Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) associé à SAP NetWeaver. 
 
-La documentation spécifique à la solution HANA sur Azure se compose de cette liste d’articles et de leurs sous-articles :
+La documentation spécifique à la solution HANA sur Azure se compose de cette liste d’articles et de leurs sous-articles :
 
 - [Démarrage rapide : installation manuelle d’un système SAP HANA à instance unique sur des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Déploiement de SAP S/4HANA ou BW/4HANA sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)

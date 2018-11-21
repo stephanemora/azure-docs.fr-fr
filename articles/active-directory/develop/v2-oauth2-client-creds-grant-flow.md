@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/13/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2dc1be6b861515cf34f8dd799fa732da530e82a1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3ecf837af735b97e269eb3fdc01d2e56ec40fb6e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985390"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624503"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 et le flux d'informations d'identification du client OAuth 2.0
 
@@ -30,29 +30,38 @@ ms.locfileid: "49985390"
 
 Vous pouvez utiliser [l’octroi des informations d’identification du client OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4) spécifié dans RFC 6749, parfois appelé *OAuth à deux branches* pour accéder à des ressources hébergées sur le web à l’aide de l’identité d’une application. Ce type d'octroi est couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l'interaction immédiate d’un utilisateur. Ces types d’application sont souvent appelés *démons* (daemons) ou *comptes de service*.
 
+Le flux d’octroi des informations d’identification du client OAuth 2.0 permet à un service web (client confidentiel) d’utiliser ses propres informations d’identification pour s’authentifier lorsqu’il appelle un autre service web, au lieu d’emprunter l’identité d’un utilisateur. Dans ce scénario, le client est généralement un service web de niveau intermédiaire, un service démon ou un site web. Pour augmenter le niveau d’assurance, Azure Active Directory autorise également le service d’appel à utiliser un certificat (au lieu d’un secret partagé) comme une information d’identification.
+
 > [!NOTE]
-> Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
->
->
+> Le point de terminaison v2.0 ne prend pas en charge tous les scénarios et fonctionnalités d’Azure AD. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
 
 Dans l’octroi *OAuth à trois branches* le plus courant, une application cliente est autorisée à accéder à une ressource pour le compte d’un utilisateur spécifique. L’autorisation est déléguée de l’utilisateur à l’application, en général, durant le processus de [consentement](v2-permissions-and-consent.md). Toutefois, dans le flux des informations d’identification du client, les autorisations sont accordées directement à l’application elle-même. Lorsque l’application présente un jeton à une ressource, la ressource impose que l’application elle-même, et non pas l'utilisateur, ait l’autorisation d’effectuer une action.
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
+
 Le flux d’informations d’identification client complet est similaire à l’illustration suivante. Nous décrirons en détail chacune des étapes plus loin dans cet article.
 
 ![Flux des informations d’identification du client](./media/v2-oauth2-client-creds-grant-flow/convergence_scenarios_client_creds.png)
 
 ## <a name="get-direct-authorization"></a>Obtenir l’autorisation directe
-Une application reçoit généralement l’autorisation directe d’accéder à une ressource de deux manières : via une liste de contrôle d’accès (ACL) sur la ressource, ou via l’attribution de l’autorisation d’application dans Azure Active Directory (Azure AD). Ces deux méthodes sont les plus courantes dans Azure AD et sont recommandées pour les clients et les ressources qui exécutent le flux des informations d’identification du client. Toutefois, une ressource peut choisir d’autoriser ses clients d’autres manières. Chaque serveur de ressources peut choisir la méthode la plus logique pour son application.
+
+Une application reçoit généralement l’autorisation directe d’accéder à une ressource de deux manières : 
+
+* Via une liste de contrôle d’accès (ACL) sur la ressource
+* Via l’attribution de l'autorisation d'application dans Azure AD
+
+Ces deux méthodes sont les plus courantes dans Azure AD et sont recommandées pour les clients et les ressources qui exécutent le flux des informations d’identification du client. Toutefois, une ressource peut choisir d’autoriser ses clients d’autres manières. Chaque serveur de ressources peut choisir la méthode la plus logique pour son application.
 
 ### <a name="access-control-lists"></a>Listes de contrôle d'accès
-Un fournisseur de ressources peut appliquer une vérification d’autorisation basée sur une liste d’ID d’application qu’il connaît et octroyer un niveau d’accès spécifique. Lorsque la ressource reçoit un jeton à partir du point de terminaison v2.0, elle peut décoder le jeton et extraire l’ID d’application du client à partir des revendications `appid` et `iss`. Elle compare ensuite l’application par rapport à une liste ACL qu’elle gère. La granularité et la méthode ACL peuvent varier considérablement entre les ressources.
 
-Un cas d’utilisation typique consiste à utiliser une liste ACL afin d'exécuter des tests pour une application web ou une API Web. L’API Web peut accorder uniquement un sous-ensemble d'autorisations complètes à un client spécifique. Pour exécuter des tests de bout en bout sur l’API, créez un client de test qui acquiert des jetons à partir du point de terminaison v2.0 puis envoie ceux-ci à l’API. L’API vérifie ensuite l’ID d’application du client de test dans la liste ACL pour lui accorder un accès complet à toutes les fonctionnalités de l’API. Si vous utilisez ce type d’ACL, veillez à valider non seulement la valeur `appid` de l'appelant, mais également que la valeur `iss` du jeton approuvé.
+Un fournisseur de ressources peut appliquer une vérification d’autorisation basée sur une liste d’ID d’application (client) qu’il connaît et octroyer un niveau d’accès spécifique. Lorsque la ressource reçoit un jeton à partir du point de terminaison v2.0, elle peut décoder le jeton et extraire l’ID d’application du client à partir des revendications `appid` et `iss`. Elle compare ensuite l’application par rapport à une liste de contrôle d'accès qu’elle gère. La granularité et la méthode ACL peuvent varier considérablement entre les ressources.
+
+Un cas d’utilisation typique consiste à utiliser une liste ACL afin d'exécuter des tests pour une application web ou une API Web. L’API Web peut accorder uniquement un sous-ensemble d'autorisations complètes à un client spécifique. Pour exécuter des tests de bout en bout sur l’API, créez un client de test qui acquiert des jetons à partir du point de terminaison v2.0 puis envoie ceux-ci à l’API. L’API vérifie ensuite l’ID d’application du client de test dans la liste de contrôle d'accès pour lui accorder un accès complet à toutes les fonctionnalités de l’API. Si vous utilisez ce type de liste de contrôle d'accès, veillez à valider non seulement la valeur `appid` de l'appelant, mais également que la valeur `iss` du jeton est approuvée.
 
 Ce type d’autorisation est courant pour les démons et les comptes de service qui doivent accéder à des données qui appartiennent à des utilisateurs avec des comptes Microsoft personnels. Pour les données appartenant à des organisations, nous vous recommandons d’acquérir l’autorisation requise via les autorisations de l’application.
 
 ### <a name="application-permissions"></a>Autorisations de l’application
+
 Au lieu d’utiliser des listes ACL, vous pouvez utiliser l’API pour exposer un ensemble d’autorisations de l’application. Une autorisation de l’application est accordée à une application par un administrateur d’une organisation et peut uniquement être utilisée pour accéder aux données appartenant à cette organisation et ses employés. Par exemple, Microsoft Graph expose plusieurs autorisations d’application pour effectuer les opérations suivantes :
 
 * Lire les messages dans toutes les boîtes aux lettres
@@ -60,21 +69,25 @@ Au lieu d’utiliser des listes ACL, vous pouvez utiliser l’API pour exposer u
 * Envoyer des messages en tant que n’importe quel utilisateur
 * Lire les données du répertoire
 
-Pour plus d’informations sur les autorisations d’application, consultez la page [Microsoft Graph](https://graph.microsoft.io).
+Pour plus d’informations sur les autorisations d’application, consultez la page [Microsoft Graph](https://developer.microsoft.com/graph).
 
-Pour utiliser les autorisations d’application dans votre application, effectuez les étapes abordées dans les sections suivantes.
+Pour utiliser les autorisations d’application dans votre application, suivez la procédure décrite dans les sections suivantes.
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Demander les autorisations dans le portail d’inscription de l’application
-1. Accédez à votre application dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou [créez une application](quickstart-v2-register-an-app.md), si ce n’est déjà fait. Vous devez utiliser au moins une clé secrète d’application lorsque vous créez votre application.
+
+1. Créez et inscrivez une application via le [portail d’inscription des applications](quickstart-v2-register-an-app.md) ou la nouvelle [expérience Inscriptions d’applications (préversion)](quickstart-register-app.md).
+1. Accédez à votre application dans le portail que vous avez utilisé pour créer ou inscrire votre application. Vous devez utiliser au moins une clé secrète d’application lorsque vous créez votre application.
 2. Recherchez la section **Autorisations pour Microsoft Graph**, puis ajoutez les **autorisations d’application** nécessaires à votre application.
 3. **Enregistrez** l’inscription de l’application.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Recommandé : connectez l’utilisateur à votre application
+
 En général, lorsque vous créez une application qui utilise des autorisations d’application, l’application doit disposer d’une page/vue qui permet à l’administrateur d’approuver les autorisations de l’application. Cette page peut faire partie du flux d’inscription de l’application, des paramètres de l’application ou d’un flux de connexion dédié. Dans de nombreux cas, il est judicieux pour l’application d’afficher la vue de « connexion » uniquement après qu’un utilisateur se soit connecté avec un compte Microsoft professionnel ou scolaire.
 
 Si vous connectez l’utilisateur à votre application vous pouvez identifier l’organisation à laquelle l’utilisateur appartient avant de lui demander d’approuver les autorisations d'application. Bien que cela ne soit pas strictement nécessaire, cela peut vous aider à créer une expérience plus intuitive pour vos utilisateurs. Pour connecter l’utilisateur, suivez nos [didacticiels sur le protocole v2.0](active-directory-v2-protocols.md).
 
 #### <a name="request-the-permissions-from-a-directory-admin"></a>Demander les autorisations à un administrateur d’annuaire
+
 Lorsque vous êtes prêt à demander les autorisations à l’administrateur de l'organisation, vous pouvez rediriger l’utilisateur vers le *point de terminaison de consentement de l’administrateur* v2.0.
 
 ```
@@ -96,14 +109,15 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Paramètre | Condition | Description |
 | --- | --- | --- |
-| locataire |Obligatoire |Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être au format GUID ou sous forme de nom convivial. Si vous ne savez pas à quel client appartient l’utilisateur et si vous souhaitez lui permettre de se connecter avec n’importe quel client, utilisez `common`. |
-| client_id |Obligatoire |ID d’application que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
-| redirect_uri |Obligatoire |L'URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL, et peut avoir des segments de chemin d’accès supplémentaires. |
-| state |Recommandé |Une valeur incluse dans la requête, qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
+| `tenant` | Obligatoire | Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être au format GUID ou sous forme de nom convivial. Si vous ne savez pas à quel client appartient l’utilisateur et si vous souhaitez lui permettre de se connecter avec n’importe quel client, utilisez `common`. |
+| `client_id` | Obligatoire | L'ID d'application (client) affecté à votre application. Ces informations sont disponibles dans le portail où vous avez inscrit votre application. |
+| `redirect_uri` | Obligatoire | L'URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL, et peut avoir des segments de chemin d’accès supplémentaires. |
+| `state` | Recommandé | Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 
 À ce stade, Azure AD impose que seul un administrateur de client peut se connecter pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations directes d’application demandées pour votre application dans le portail d’inscription des applications.
 
 ##### <a name="successful-response"></a>Réponse correcte
+
 Si l’administrateur approuve les autorisations pour votre application, la réponse correcte sera :
 
 ```
@@ -111,12 +125,13 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 ```
 
 | Paramètre | Description |
-| --- | --- | --- |
-| locataire |Le client d’annuaire ayant accordé à votre application les autorisations demandées, au format GUID. |
-| state |Une valeur incluse dans la requête, qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
-| admin_consent |Défini sur **true**. |
+| --- | --- |
+| `tenant` | Le client d’annuaire ayant accordé à votre application les autorisations demandées, au format GUID. |
+| `state` | Une valeur incluse dans la requête, qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
+| `admin_consent` | Défini sur **true**. |
 
 ##### <a name="error-response"></a>Réponse d’erreur
+
 Si l’administrateur n’approuve pas les autorisations pour votre application, la réponse d’échec ressemble à ce qui suit :
 
 ```
@@ -124,13 +139,14 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 ```
 
 | Paramètre | Description |
-| --- | --- | --- |
-| error |Une chaîne de code d’erreur que vous pouvez utiliser pour classer les types d’erreur et pour intervenir face aux erreurs. |
-| error_description |Un message d’erreur spécifique qui peut vous aider à identifier la cause principale d’une erreur. |
+| --- | --- |
+| `error` | Une chaîne de code d’erreur que vous pouvez utiliser pour classer les types d’erreur et pour intervenir face aux erreurs. |
+| `error_description` | Un message d’erreur spécifique qui peut vous aider à identifier la cause principale d’une erreur. |
 
 Une fois que vous avez reçu une réponse correcte du point de terminaison de mise en service de l’application, votre application a acquis les autorisations directes d’application qu’elle avait demandées. Vous pouvez désormais demander un jeton pour la ressource que vous souhaitez.
 
 ## <a name="get-a-token"></a>Obtention d’un jeton
+
 Une fois que vous avez acquis l’autorisation nécessaire pour votre application, passez à l’acquisition des jetons d’accès pour les API. Pour obtenir un jeton à l’aide de l’octroi des informations d’identification du client, envoyez une demande POST au point de terminaison v2.0 `/token` :
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : demande de jeton d’accès avec un secret partagé
@@ -152,11 +168,11 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Paramètre | Condition | Description |
 | --- | --- | --- |
-| locataire |Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
-| client_id |Obligatoire |ID d’application que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
-| scope |Obligatoire |La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. Cette valeur indique au point de terminaison v2.0 que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, il doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. |
-| client_secret |Obligatoire |La clé secrète que vous avez créée pour votre application dans le portail d’inscription des applications. Le secret du client doit être codé en URL avant d’être envoyé.|
-| grant_type |Obligatoire |Doit être `client_credentials`. |
+| `tenant` | Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
+| `client_id` | Obligatoire | Copiez l’ID d’application affecté à votre application. Ces informations sont disponibles dans le portail où vous avez inscrit votre application. |
+| `scope` | Obligatoire |La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. Cette valeur indique au point de terminaison v2.0 que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, il doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. |
+| `client_secret` | Obligatoire | La clé secrète que vous avez générée pour votre application dans le portail d’inscription des applications. Le secret du client doit être codé en URL avant d’être envoyé. |
+| `grant_type` | Obligatoire | Doit être `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : demande de jeton d’accès avec un certificat
 
@@ -174,16 +190,17 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 | Paramètre | Condition | Description |
 | --- | --- | --- |
-| locataire |Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
-| client_id |Obligatoire |ID d’application que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
-| scope |Obligatoire |La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. Cette valeur indique au point de terminaison v2.0 que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, il doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. |
-| client_assertion_type |required |La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| client_assertion |required | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la rubrique traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
-| grant_type |Obligatoire |Doit être `client_credentials`. |
+| `tenant` | Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
+| `client_id` | Obligatoire |Copiez l’ID d’application affecté à votre application. |
+| `scope` | Obligatoire | La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. <br>Cette valeur indique au point de terminaison v2.0 que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, il doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. |
+| `client_assertion_type` | Obligatoire | La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Obligatoire | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la rubrique traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
+| `grant_type` | Obligatoire | Cette propriété doit être définie sur `client_credentials`. |
 
 Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
 
 ### <a name="successful-response"></a>Réponse correcte
+
 Une réponse correcte se présente ainsi :
 
 ```
@@ -196,11 +213,12 @@ Une réponse correcte se présente ainsi :
 
 | Paramètre | Description |
 | --- | --- |
-| access_token |Le jeton d’accès demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, par exemple une API Web. |
-| token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est `bearer`. |
-| expires_in |La durée de validité (en secondes) du jeton d’accès. |
+| `access_token` | Le jeton d’accès demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, par exemple une API Web. |
+| `token_type` | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est `bearer`. |
+| `expires_in` | Durée de validité du jeton d’accès (en secondes). |
 
 ### <a name="error-response"></a>Réponse d’erreur
+
 Une réponse d’erreur ressemble à ceci :
 
 ```
@@ -218,14 +236,15 @@ Une réponse d’erreur ressemble à ceci :
 
 | Paramètre | Description |
 | --- | --- |
-| error |Une chaîne de code d’erreur que vous pouvez utiliser pour classer les types d’erreur se produisant et pour intervenir face aux erreurs. |
-| error_description |Un message d’erreur spécifique qui peut vous aider à identifier la cause principale d’une erreur d’authentification. |
-| error_codes |Liste des codes d’erreur STS spécifiques pouvant être utiles dans les tests de diagnostic. |
-| timestamp |Heure à laquelle l’erreur s’est produite. |
-| trace_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
-| correlation_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
+| `error` | Une chaîne de code d’erreur que vous pouvez utiliser pour classer les types d’erreur se produisant et pour intervenir face aux erreurs. |
+| `error_description` | Un message d’erreur spécifique qui peut vous aider à identifier la cause principale d’une erreur d’authentification. |
+| `error_codes` | Liste des codes d’erreur STS spécifiques pouvant être utiles dans les tests de diagnostic. |
+| `timestamp` | Heure à laquelle l'erreur s'est produite. |
+| `trace_id` | Identifiant unique de la demande pour faciliter les tests de diagnostic. |
+| `correlation_id` | Identifiant unique de la demande pour faciliter les tests de diagnostic sur les différents composants. |
 
 ## <a name="use-a-token"></a>Utilisation d’un jeton
+
 Maintenant que vous avez acquis un jeton, utilisez-le pour effectuer des demandes auprès de la ressource. Lorsque le jeton expire, répétez la demande auprès du point de terminaison `/token` pour acquérir un nouveau jeton d’accès.
 
 ```
@@ -243,4 +262,5 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 ```
 
 ## <a name="code-sample"></a>Exemple de code
+
 Pour voir un exemple d’application qui implémente l’octroi client_credentials à l’aide du point de terminaison de consentement de l’administrateur, consultez notre [exemple de code de démon v2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

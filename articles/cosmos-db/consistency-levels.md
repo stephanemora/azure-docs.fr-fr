@@ -11,26 +11,22 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2611c25764503551c4da918d06bcaabe315cbf7c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963079"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624825"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 
-Les bases de données distribuées qui reposent sur la réplication afin d’offrir une haute disponibilité, une faible latence ou les deux, constituent le compromis fondamental entre la cohérence de la lecture et la disponibilité, la latence et le débit. La plupart des bases de données distribuées commercialisées demandent aux développeurs de choisir entre les deux modèles de cohérence extrêmes : une cohérence forte et une cohérence éventuelle. Même si la  [linéarisabilité](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) ou le modèle de cohérence forte constitue la référence en matière de programmabilité des données, il faut payer le prix de la latence plus élevée (dans un état stable) et de la disponibilité moindre (lors des défaillances). Dans le même temps, la cohérence éventuelle offre une plus haute disponibilité et de meilleures performances, mais la programmation des applications est difficile.
+Les bases de données distribuées qui reposent sur la réplication afin d’offrir une haute disponibilité, une faible latence ou les deux, constituent le compromis fondamental entre la cohérence de la lecture et la disponibilité, la latence et le débit. La plupart des bases de données distribuées commercialisées demandent aux développeurs de choisir entre les deux modèles de cohérence extrêmes : une cohérence forte et une cohérence éventuelle. Même si la  [linéarisabilité](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) ou le modèle de cohérence forte constitue la référence en matière de programmabilité des données, il faut payer le prix de la latence plus élevée (dans un état stable) et de la disponibilité moindre (lors des défaillances). Dans le même temps, la cohérence éventuelle offre une plus haute disponibilité et de meilleures performances, mais la programmation des applications est difficile.
 
-Cosmos DB aborde la cohérence des données sous forme d’un éventail de choix, plutôt que de ne proposer que deux extrêmes. La cohérence forte et la cohérence éventuelle constituent les deux extrémités du spectre, mais il existe de nombreuses possibilités entre les deux. Ces options de cohérence permettent aux développeurs de faire des choix précis et des compromis granulaires en termes de haute disponibilité ou de performance. Cosmos DB a permis aux développeurs de choisir parmi les cinq modèles de cohérence bien définis couvrant tout l’éventail de cohérence (du plus fort au plus faible) : **fort**, **obsolescence limitée**, **session**, **préfixe cohérent** et **à terme**. Chacun de ces modèles de cohérence est bien défini, intuitif, et peut être utilisé pour des scénarios réels spécifiques. Chacun des cinq modèles de cohérence propose des [compromis clairs entre disponibilité et performances](consistency-levels-tradeoffs.md) et est appuyé par des contrats de niveau de service complets.
+Cosmos DB aborde la cohérence des données sous forme d’un éventail de choix, plutôt que de ne proposer que deux extrêmes. La cohérence forte et la cohérence éventuelle constituent les deux extrémités du spectre, mais il existe de nombreuses possibilités entre les deux. Ces options de cohérence permettent aux développeurs de faire des choix précis et des compromis granulaires en termes de haute disponibilité ou de performance. Cosmos DB a permis aux développeurs de choisir parmi les cinq modèles de cohérence bien définis couvrant tout l’éventail de cohérence (du plus fort au plus faible) : **fort**, **obsolescence limitée**, **session**, **préfixe cohérent** et **à terme**. Chacun de ces modèles de cohérence est bien défini, intuitif, et peut être utilisé pour des scénarios réels spécifiques. Chacun des cinq modèles de cohérence propose des [compromis clairs entre disponibilité et performances](consistency-levels-tradeoffs.md) et est appuyé par des contrats de niveau de service complets. L’illustration suivante montre les différents niveaux de cohérence en tant que spectre :
 
 ![La cohérence en tant que spectre](./media/consistency-levels/five-consistency-levels.png)
 
-Les niveaux de cohérence ne dépendent pas des régions. Le niveau de cohérence de votre compte Cosmos DB est garanti pour toutes les opérations de lecture, indépendamment des propriétés suivantes :
-
-- Région d’émission des lectures et des écritures
-- Nombre de régions associées à votre compte Cosmos
-- Que votre compte soit configuré avec une ou plusieurs régions d’écriture
+Les niveaux de cohérence ne dépendent pas des régions. Le niveau de cohérence de votre compte Cosmos DB est garanti pour toutes les opérations de lecture, indépendamment de la région d'émission des lectures et des écritures, du nombre de régions associées à votre compte Cosmos ou de la configuration de votre compte avec une ou plusieurs régions d'écriture.
 
 ## <a name="scope-of-the-read-consistency"></a>Étendue de la cohérence de lecture
 

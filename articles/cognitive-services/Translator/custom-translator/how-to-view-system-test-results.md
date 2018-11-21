@@ -1,0 +1,89 @@
+---
+title: Afficher les résultats des tests système et du déploiement - Custom Translator
+titleSuffix: Azure Cognitive Services
+description: Au terme de votre apprentissage, passez en revue les tests système pour analyser vos résultats. Si ces résultats vous conviennent, faites une demande de déploiement pour le modèle concerné.
+author: rajdeep-in
+manager: christw
+ms.service: cognitive-services
+ms.component: custom-translator
+ms.date: 11/13/2018
+ms.author: v-rada
+ms.topic: article
+ms.openlocfilehash: 61d3869559d88e14c0b9a3c3e23cd8a1f9c2b6c4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626801"
+---
+# <a name="view-system-test-results"></a>Afficher les résultats de test système
+
+Au terme de votre apprentissage, passez en revue les tests système pour analyser vos résultats. Si ces résultats vous conviennent, faites une demande de déploiement pour le modèle concerné. 
+
+## <a name="system-test-results-page"></a>Page relative aux résultats des tests système
+
+Sélectionnez un projet, puis l’onglet Modèles de ce projet. Recherchez le modèle que vous souhaitez utiliser, puis sélectionnez l’onglet Test.
+
+L’onglet Test affiche ce qui suit :
+
+1.  Résultats des tests système : le résultat du processus de test d'apprentissage. Le processus de test génère le score BLEU.
+
+    **Nombre de phrases :** nombre de phrases parallèles utilisées dans le jeu de test.
+
+     **Score BLEU :** score BLEU généré pour un modèle au terme de l'apprentissage.
+
+    **État :** indique si le processus de test est terminé ou en cours.
+
+    ![Résultats des tests système](media/how-to/how-to-system-test-results.png)
+
+2.  Cliquez sur les résultats des tests système pour accéder à la page des détails correspondants. Cette page affiche la traduction automatique de phrases qui faisaient partie du jeu de données de test.
+
+3.  Le tableau de la page de détails des résultats des tests présente deux colonnes : une par langue. La colonne correspondant à la langue source affiche la phrase à traduire. La colonne correspondant à la langue cible contient deux phrases par ligne.
+
+    **Ref :** cette phrase correspond à la traduction de référence de la phrase source comme indiqué dans le jeu de données de test.
+
+    **MT :** cette phrase correspond à la traduction automatique de la phrase source effectuée par le modèle généré au terme de l'apprentissage.
+
+    ![Comparaison des résultats des tests système](media/how-to/how-to-system-test-results-2.png)
+
+## <a name="download-test"></a>Télécharger le test
+
+Cliquez sur le lien Télécharger les traductions pour télécharger un fichier zip. Le fichier zip contient la traduction automatique de phrases source du jeu de données de test.
+
+![Télécharger le test](media/how-to/how-to-system-test-download.png)
+
+Cette archive zip téléchargée contient trois fichiers.
+
+1.  custom.mt.txt : ce fichier contient la traduction automatique des phrases de la langue source vers la langue cible effectuée par le modèle formé avec les données de l’utilisateur.
+
+2.  ref.txt : ce fichier contient les traductions fournies par l’utilisateur des phrases de la langue source vers la langue cible.
+
+3.  source.txt : ce fichier contient des phrases dans la langue source.
+
+    ![Résultats des tests système téléchargés](media/how-to/how-to-download-system-test.png)
+
+## <a name="deploy-a-model"></a>Déployer un modèle
+
+Pour demander un déploiement :
+
+1.  Sélectionnez un projet, accédez à l’onglet Modèles.
+
+2. Pour un modèle formé réussi, il affiche le bouton « Déployer », s'il n'est pas déployé.
+
+    ![Déployer le modèle](media/how-to/how-to-deploy-model.png)
+
+3.  Cliquez sur Déployer.
+4.  Sélectionnez la(les) région(s) où vous souhaitez déployer votre modèle, puis cliquez sur Enregistrer. Vous pouvez sélectionner plusieurs régions.
+
+    ![Déployer le modèle](media/how-to/how-to-deploy-model-regions.png)
+
+5.  Vous pouvez afficher l’état de votre modèle dans la colonne « État ».
+
+>[!Note]
+>Si un modèle est déjà déployé, le bouton « Annuler le déploiement » s'affiche. Pour annuler le déploiement d'un modèle, cliquez sur « Annuler le déploiement ».
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Commencez à utiliser votre modèle Custom Translator déployé via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Découvrez [comment gérer les paramètres](how-to-manage-settings.md) pour partager votre espace de travail, gérer la clé d’abonnement.
+- Découvrez [comment migrer votre espace de travail et le projet](how-to-migrate.md) depuis [Microsoft Translator Hub](https://hub.microsofttranslator.com)

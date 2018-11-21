@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/11/2018
-ms.openlocfilehash: 1ae350e74a9b56aaaa72b38a9e3a43bddfbefefc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232271"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346693"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -321,9 +321,9 @@ Toutes les applications logiques dans une région utilisent les mêmes plages d�
 | Ouest du Royaume-Uni | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | | |
 
-### <a name="connectors"></a>Connecteurs
+### <a name="managed-connectors"></a>Connecteurs gérés
 
-Pour prendre en charge les appels passés par les [connecteurs](../connectors/apis-list.md), configurez vos configurations de pare-feu afin qu’elles incluent ces adresses IP sortantes, selon l’emplacement de vos applications logiques.
+Pour prendre en charge les appels que passent les [connecteurs gérés par Microsoft](../connectors/apis-list.md), configurez vos configurations de pare-feu afin qu’elles incluent ces adresses IP sortantes, selon l’emplacement de vos applications logiques.
 
 > [!IMPORTANT]
 > Si vous avez des configurations existantes, mettez-les à jour **dès que possible avant le 1er septembre 2018** afin qu’elles incluent et fassent correspondre les adresses IP dans cette liste pour les régions où se trouvent vos applications logiques. 
