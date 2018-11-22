@@ -6,12 +6,12 @@ description: Découvrez comment créer et gérer des applications performantes �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 1cb70c75dfb2d738227cc2052ba653288cac1fb3
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 189e1745a0768f36dd776ba88230a2d47037f9c2
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219798"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285167"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -280,7 +280,7 @@ Terraform </a>
                                                     <li>
                                                         <a class="barLink" href="/azure/devops-project/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-Azure DevOps Project </a>
+Azure DevOps Projects </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -1272,7 +1272,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                         <li>
                                             <a href="/azure/devops-project">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Azure DevOps Project</p>
+                                                <p>Azure DevOps Projects</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4846,7 +4846,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure DevOps Project</h3>
+                                                    <h3>Azure DevOps Projects</h3>
                                                     <p>Déployez rapidement n’importe quel langage sur n’importe quelle plateforme dans Azure</p>
                                                 </div>
                                             </div>
@@ -5986,12 +5986,36 @@ Azure CLI </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_visual-studio.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/visualstudio/azure/">Visual Studio</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=navigation+cta&utm_content=download+vs2017">Téléchargement pour Windows</a>
+                                                </p>
+                                                 <p>
+                                                    <a href="https://visualstudio.microsoft.com/vs/mac/">Téléchargement pour Mac</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio Code</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio                             Code</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">App Service</a>
@@ -6135,13 +6159,13 @@ Azure Resource Manager </h3>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Prise en main</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=722418">Téléchargement pour Linux</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=722418">Téléchargement pour Linux</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Téléchargement pour Mac</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">Téléchargement pour Mac</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Téléchargement pour Windows</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Téléchargement pour Windows</a>
                                                 </p>
                                             </div>
                                         </div>

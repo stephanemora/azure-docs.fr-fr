@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979503"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623942"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Référence sur la syntaxe SQL Azure Cosmos DB
 
-Azure Cosmos DB prend en charge l’interrogation de documents suivant une grammaire familière de type SQL (Structured Query Language) sur des documents JSON hiérarchiques sans nécessiter de schéma explicite ou de création d’index secondaires. Cet article constitue la documentation de référence/syntaxe relative au langage de requête SQL, qui est compatible avec les comptes d’API SQL. Pour découvrir une description pas à pas de différentes requêtes SQL avec des exemples de données, consultez l’article [Interroger des données Azure Cosmos DB avec des requêtes SQL](sql-api-sql-query.md).  
+Azure Cosmos DB prend en charge l’interrogation de documents suivant une grammaire familière de type SQL (Structured Query Language) sur des documents JSON hiérarchiques sans nécessiter de schéma explicite ou de création d’index secondaires. Cet article constitue la documentation relative à la syntaxe du langage de requête SQL, qui est compatible avec les comptes d’API SQL. Pour obtenir une description des exemples de requêtes SQL, consultez [Requêtes SQL dans Cosmos DB](sql-api-sql-query.md).  
   
-Visitez le [Query Playground](http://www.documentdb.com/sql/demo), qui vous permet d’essayer Azure Cosmos DB et d’exécuter des requêtes SQL sur notre jeu de données.  
+Visitez le [Playground de test de requêtes](http://www.documentdb.com/sql/demo), qui vous permet d’essayer Cosmos DB et d’exécuter des requêtes SQL sur notre jeu de données.  
   
 ## <a name="select-query"></a>Requête SELECT  
 Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facultatives conformes aux normes ANSI-SQL. Généralement, pour chaque requête, la source de la clause FROM est énumérée. Puis le filtre de la clause WHERE est appliqué sur la source pour extraire un sous-ensemble de documents JSON. Finalement, la clause SELECT est utilisée pour projeter les valeurs JSON demandées dans la liste sélectionnée. Les conventions utilisées pour décrire les instructions SELECT sont présentées sous forme de tableau dans la section Conventions de syntaxe. Pour découvrir des exemples, consultez les [exemples de requêtes SELECT](sql-api-sql-query.md#SelectClause).
@@ -112,7 +112,7 @@ SELECT <select_specification>
   
 La syntaxe `SELECT *` est valide uniquement si la clause FROM a déclaré exactement un alias. `SELECT *` fournit une projection d’identité, ce qui peut être utile si aucune projection n’est nécessaire. SELECT * est valide uniquement si la clause FROM est spécifiée et n’a introduit qu’une seule source d’entrée.  
   
-Notez que `SELECT <select_list>` et `SELECT *` sont ce qu’on appelle du « sucre syntaxique » et que vous pouvez également les exprimer à l’aide d’instructions SELECT simples, comme indiqué ci-dessous.  
+`SELECT <select_list>` et `SELECT *` sont ce qu’on appelle du « sucre syntaxique » et que vous pouvez également les exprimer à l’aide d’instructions SELECT simples, comme indiqué ci-dessous.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
@@ -132,7 +132,7 @@ Notez que `SELECT <select_list>` et `SELECT *` sont ce qu’on appelle du « su
 [Clause SELECT](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> Clause FROM  
-Spécifie la ou les sources de jointure. La clause FROM est facultative, sauf si la source est filtrée ou projetée plus loin dans la requête. L'objectif de cette clause est de spécifier la source des données à partir de laquelle la requête doit fonctionner. Généralement, l'intégralité de la collection est la source, mais parfois, il peut s'agir plutôt d'un sous-ensemble de la collection. Si cette clause n’est pas spécifiée, les autres clauses sont exécutées comme si la clause FROM fournissait un document unique. Pour découvrir des exemples, consultez les [exemples de clauses FROM](sql-api-sql-query.md#FromClause).
+Spécifie la ou les sources de jointure. La clause FROM est facultative, sauf si la source est filtrée ou projetée plus loin dans la requête. L'objectif de cette clause est de spécifier la source des données à partir de laquelle la requête doit fonctionner. Généralement, l’intégralité du conteneur est la source, mais parfois, il peut s’agir plutôt d’un sous-ensemble du conteneur. Si cette clause n’est pas spécifiée, les autres clauses sont exécutées comme si la clause FROM fournissait un document unique. Pour découvrir des exemples, consultez les [exemples de clauses FROM](sql-api-sql-query.md#FromClause).
   
 **Syntaxe**  
   
@@ -143,98 +143,98 @@ FROM <from_specification>
         <from_source> {[ JOIN <from_source>][,...n]}  
   
 <from_source> ::=   
-          <collection_expression> [[AS] input_alias]  
-        | input_alias IN <collection_expression>  
+          <container_expression> [[AS] input_alias]  
+        | input_alias IN <container_expression>  
   
-<collection_expression> ::=   
+<container_expression> ::=   
         ROOT   
-     | collection_name  
+     | container_name  
      | input_alias  
-     | <collection_expression> '.' property_name  
-     | <collection_expression> '[' "property_name" | array_index ']'  
+     | <container_expression> '.' property_name  
+     | <container_expression> '[' "property_name" | array_index ']'  
 ```  
   
 **Arguments**  
   
 - `<from_source>`  
   
-  Spécifie une source de données, avec ou sans alias. Si aucun alias n’est spécifié, il est déduit à partir de `<collection_expression>` à l’aide des règles suivantes :  
+  Spécifie une source de données, avec ou sans alias. Si aucun alias n’est spécifié, il est déduit à partir de `<container_expression>` à l’aide des règles suivantes :  
   
-  -  Si l’expression est un collection_name, collection_name sera être utilisé en tant qu’alias.  
+  -  Si l’expression est un container_name, alors container_name sera être utilisé en tant qu’alias.  
   
-  -  Si l’expression est `<collection_expression>`, puis property_name, alors property_name sera être utilisé en tant qu’alias. Si l’expression est un collection_name, collection_name sera être utilisé en tant qu’alias.  
+  -  Si l’expression est `<container_expression>`, puis property_name, alors property_name sera être utilisé en tant qu’alias. Si l’expression est un container_name, alors container_name sera être utilisé en tant qu’alias.  
   
 - AS `input_alias`  
   
-  Spécifie que `input_alias` est un ensemble de valeurs renvoyées par l’expression de collection sous-jacente.  
+  Spécifie que `input_alias` est un ensemble de valeurs renvoyées par l’expression de conteneur sous-jacent.  
  
 - `input_alias` IN  
   
-  Spécifie que `input_alias` doit représenter l’ensemble des valeurs obtenues en effectuant une itération sur tous les éléments de tableau de chaque tableau retourné par l’expression de collection sous-jacente. Toute valeur retournée par l’expression de collection sous-jacente qui n’est pas un tableau est ignorée.  
+  Spécifie que `input_alias` doit représenter l’ensemble des valeurs obtenues en effectuant une itération sur tous les éléments de tableau de chaque tableau retourné par l’expression de conteneur sous-jacent. Toute valeur retournée par l’expression de conteneur sous-jacent qui n’est pas un tableau est ignorée.  
   
-- `<collection_expression>`  
+- `<container_expression>`  
   
-  Spécifie l’expression de collection à utiliser pour récupérer les documents.  
+  Spécifie l’expression de conteneur à utiliser pour récupérer les documents.  
   
 - `ROOT`  
   
-  Spécifie qu’un document doit être récupéré à partir de la collection par défaut, actuellement connectée.  
+  Spécifie qu’un document doit être récupéré à partir du conteneur par défaut, actuellement connecté.  
   
-- `collection_name`  
+- `container_name`  
   
-  Spécifie qu’un document doit être récupéré à partir de la collection fournie. Le nom de la collection doit correspondre au nom de la collection actuellement connectée.  
+  Spécifie qu’un document doit être récupéré à partir du conteneur fourni. Le nom du conteneur doit correspondre au nom du conteneur actuellement connecté.  
   
 - `input_alias`  
   
   Spécifie que le document doit être récupéré à partir de l’autre source définie par l’alias fourni.  
   
-- `<collection_expression> '.' property_`  
+- `<container_expression> '.' property_`  
   
-  Spécifie que le document doit être récupéré en accédant à la propriété `property_name` ou à l’élément de tableau array_index pour tous les documents récupérés par l’expression de collection spécifiée.  
+  Spécifie que le document doit être récupéré en accédant à la propriété `property_name` ou à l’élément de tableau array_index pour tous les documents récupérés par l’expression de conteneur spécifiée.  
   
-- `<collection_expression> '[' "property_name" | array_index ']'`  
+- `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Spécifie que le document doit être récupéré en accédant à la propriété `property_name` ou à l’élément de tableau array_index pour tous les documents récupérés par l’expression de collection spécifiée.  
+  Spécifie que le document doit être récupéré en accédant à la propriété `property_name` ou à l’élément de tableau array_index pour tous les documents récupérés par l’expression de conteneur spécifiée.  
   
 **Remarques**  
   
-Tous les alias fournis ou déduits dans la ou les `<from_source>(` doivent être uniques. La syntaxe `<collection_expression>.`property_name est identique à `<collection_expression>' ['"property_name"']'`. Toutefois, cette dernière syntaxe peut être utilisée si un nom de propriété contient des caractères hors identificateur.  
+Tous les alias fournis ou déduits dans la ou les `<from_source>(` doivent être uniques. La syntaxe `<container_expression>.`property_name est identique à `<container_expression>' ['"property_name"']'`. Toutefois, cette dernière syntaxe peut être utilisée si un nom de propriété contient un caractère hors identificateur.  
   
 ### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>Gestion des propriétés manquantes, des éléments de tableau manquants et des valeurs non définies
   
-Si une expression de collection accède à des propriétés ou éléments de tableau et que la valeur n’existe pas, cette valeur sera ignorée et n’est plus traitée.  
+Si une expression de conteneur accède à des propriétés ou éléments de tableau et que la valeur n’existe pas, cette valeur sera ignorée et n’est plus traitée.  
   
-### <a name="collection-expression-context-scoping"></a>Étendue de contexte d’expression de collection  
+### <a name="container-expression-context-scoping"></a>Étendue de contexte d’expression de conteneur  
   
-Une expression de collection peut avoir une étendue de document ou de collection :  
+Une expression de conteneur peut avoir une étendue de document ou de conteneur :  
   
--   Une expression est étendue à une collection si la source sous-jacente de l’expression de collection est ROOT ou `collection_name`. Une telle expression représente un ensemble de documents récupérés directement à partir de la collection, et n’est pas dépendante du traitement d’autres expressions de collection.  
+-   Une expression est étendue à un conteneur si la source sous-jacente de l’expression de conteneur est ROOT ou `container_name`. Une telle expression représente un ensemble de documents récupérés directement à partir du conteneur, et n’est pas dépendante du traitement d’autres expressions de conteneur.  
   
--   Une expression est étendue à un document si la source sous-jacente de l’expression de collection est `input_alias`, introduit plus tôt dans la requête. Une telle expression représente un ensemble de documents obtenus en évaluant l’expression de collection dans l’étendue de chaque document appartenant au jeu associé à la collection avec alias.  Le jeu résultant sera une union de jeux obtenus en évaluant l’expression de collection pour chacun des documents du jeu sous-jacent.  
+-   Une expression est étendue à un document si la source sous-jacente de l’expression de conteneur est `input_alias`, introduit plus tôt dans la requête. Une telle expression représente un ensemble de documents obtenus en évaluant l’expression de conteneur dans l’étendue de chaque document appartenant au jeu associé au conteneur avec alias.  Le jeu résultant sera une union de jeux obtenus en évaluant l’expression de conteneur pour chacun des documents du jeu sous-jacent.  
   
 ### <a name="joins"></a>Jointures 
   
-Dans la version actuelle, Azure Cosmos DB prend en charge les jointures internes. Des fonctionnalités de jointure supplémentaires sont à venir. 
+Dans la version actuelle, Cosmos DB prend en charge les jointures internes. Des fonctionnalités de jointure supplémentaires sont à venir. 
 
 Les jointures internes aboutissent à un produit croisé complet des ensembles participants à la jointure. Le résultat d’une jointure à N voies est un jeu de tuples à N éléments, où chaque valeur dans le tuple est associée à l’alias défini participant à la jointure et est accessible en référençant cet alias dans d’autres clauses. Pour découvrir des exemples, consultez les [exemples de mots clés JOIN](sql-api-sql-query.md#Joins).
   
 L’évaluation de la jointure dépend de l’étendue du contexte des jeux qui participent :  
   
--  Une jointure entre un jeu de collection A et un jeu à étendue de collection B aboutit à un produit croisé de tous les éléments des jeux A et B.
+-  Une jointure entre un jeu de conteneur A et un jeu à étendue de conteneur B aboutit à un produit croisé de tous les éléments des jeux A et B.
   
 -   Une jointure entre le jeu A et le jeu à étendue de document B aboutit à une union de tous les jeux obtenus en évaluant le jeu à étendue de document B pour chaque document du jeu A.  
   
- Dans la version actuelle, un maximum d’une expression à étendue de collection est pris en charge par le processeur de requêtes.  
+ Dans la version actuelle, un maximum d’une expression à étendue de conteneur est pris en charge par le processeur de requêtes.  
   
 ### <a name="examples-of-joins"></a>Exemples de jointures  
   
 Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Laissez chaque source définir `input_alias1, input_alias2, …, input_aliasN`. La close FROM renvoie un ensemble de N-tuples (un tuple avec N valeurs). Les valeurs de chaque tuple sont produites par l'itération de tous les alias de la collection sur leurs ensembles respectifs.  
+ Laissez chaque source définir `input_alias1, input_alias2, …, input_aliasN`. La close FROM renvoie un ensemble de N-tuples (un tuple avec N valeurs). Les valeurs de chaque tuple sont produites par l’itération de tous les alias du conteneur sur leurs ensembles respectifs.  
   
 **Exemple 1** - 2 sources  
   
-- Laissez `<from_source1>` être étendu à une collection et représenter le jeu {A, B, C}.  
+- Laissez `<from_source1>` être étendu à un conteneur et représenter le jeu {A, B, C}.  
   
 - Laissez `<from_source2>` être étendu à un document référençant input_alias1 et représenter les jeux :  
   
@@ -252,7 +252,7 @@ Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ...
   
 **Exemple 2** - 3 sources  
   
-- Laissez `<from_source1>` être étendu à une collection et représenter le jeu {A, B, C}.  
+- Laissez `<from_source1>` être étendu à un conteneur et représenter le jeu {A, B, C}.  
   
 - Laissez `<from_source2>` être étendu à un document référençant input_`input_alias1` et représenter les jeux :  
   
@@ -279,9 +279,9 @@ Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ...
   
 **Exemple 3** - 3 sources  
   
-- Laissez <from_source1> être étendu à une collection et représenter le jeu {A, B, C}.  
+- Laissez <from_source1> être étendu à un conteneur et représenter le jeu {A, B, C}.  
   
-- Laissez `<from_source1>` être étendu à une collection et représenter le jeu {A, B, C}.  
+- Laissez `<from_source1>` être étendu à un conteneur et représenter le jeu {A, B, C}.  
   
 - Laissez <from_source2> être étendu à un document référençant input_source1 et représenter les jeux :  
   
@@ -371,12 +371,12 @@ ORDER BY <sort_specification>
   
  **Remarques**  
   
- Même si la grammaire de la requête prend en charge plusieurs propriétés Order by, l’exécution de la requête Azure Cosmos DB prend seulement en charge le tri sur une seule propriété et uniquement sur les noms de propriété (autrement dit, pas sur les propriétés calculées). Le tri requiert également que la stratégie d’indexation comprenne un index de plage pour la propriété et le type spécifiés, avec la précision maximale. Consultez la documentation sur la stratégie d’indexation pour plus de détails.  
+ Même si la grammaire de la requête prend en charge plusieurs propriétés Order by, l’exécution de la requête Cosmos DB prend seulement en charge le tri sur une seule propriété et uniquement sur les noms de propriété (pas sur les propriétés calculées). Le tri requiert également que la stratégie d’indexation comprenne un index de plage pour la propriété et le type spécifiés, avec la précision maximale. Consultez la documentation sur la stratégie d’indexation pour plus de détails.  
   
 ##  <a name="bk_scalar_expressions"></a> Expressions scalaires  
  Une expression scalaire est une combinaison de symboles et d’opérateurs qui peut être évaluée pour obtenir une valeur unique. Les expressions simples peuvent être des constantes, des références de propriété, des références d’élément de tableau, des références d’alias ou des appels de fonction. Les expressions simples peuvent être combinées dans des expressions complexes utilisant des opérateurs. Pour découvrir des exemples, consultez les [exemples d’expressions scalaires](sql-api-sql-query.md#scalar-expressions).
   
- Pour plus d’informations sur les valeurs qu’une expression scalaire peut avoir, consultez la section [constantes](#bk_constants).  
+ Pour plus d’informations sur les valeurs qu’une expression scalaire peut avoir, consultez la section [Constantes](#bk_constants).  
   
  **Syntaxe**  
   
@@ -517,9 +517,9 @@ ORDER BY <sort_specification>
   
  **Remarques**  
   
- Dans la base de données Azure Cosmos, les types des valeurs sont souvent inconnus jusqu'à leur récupération effective à partir de la base de données. Afin d’assurer l’exécution des requêtes de manière efficace, la plupart des opérateurs ont des exigences de type strictes. De plus, les opérateurs n’effectuent pas de conversions implicites eux-mêmes.  
+ Dans Cosmos DB, les types des valeurs sont souvent inconnus jusqu'à leur récupération à partir de la base de données. Afin d’assurer l’exécution des requêtes de manière efficace, la plupart des opérateurs ont des exigences de type strictes. De plus, les opérateurs n’effectuent pas de conversions implicites eux-mêmes.  
   
- Cela signifie qu’une requête, comme : SELECT * FROM ROOT r WHERE r.Age = 21 retourne uniquement les documents dont la propriété Age est égale au nombre 21. Les documents dont la propriété Age est égale à la chaîne "21" ou à la chaîne "0021" ne correspondent pas, car l’expression "21" = 21 produit le résultat Undefined. Cela permet une meilleure utilisation des index, car la recherche d’une valeur spécifique (c'est-à-dire le numéro 21) est plus rapide que la recherche d’un nombre indéfini de correspondances potentielles (à savoir le nombre 21 ou des chaînes de type "21", "021", "21.0"...). Cela est différent de la manière dont JavaScript évalue les opérateurs sur les valeurs de types différents.  
+ Cela signifie qu’une requête, comme : SELECT * FROM ROOT r WHERE r.Age = 21 retourne uniquement les documents dont la propriété Age est égale au nombre 21. Les documents dont la propriété Age est égale à la chaîne "21" ou à la chaîne "0021" ne correspondent pas, car l’expression "21" = 21 produit le résultat Undefined. Cela permet une meilleure utilisation des index, car la recherche d’une valeur spécifique (comme le nombre 21) est plus rapide que la recherche d’un nombre indéfini de correspondances potentielles (le nombre 21 ou des chaînes de type "21", "021", "21.0"...). Cela est différent de la manière dont JavaScript évalue les opérateurs sur les valeurs de types différents.  
   
  **Comparaison et égalité pour les objets et tableaux**  
   
@@ -632,7 +632,7 @@ ORDER BY <sort_specification>
 |\uXXXX|Un caractère Unicode défini par 4 chiffres hexadécimaux.|U+XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a> Instructions relatives aux performances de requête  
- Pour qu’une requête puisse s’exécuter efficacement sur une grande collection, elle doit utiliser des filtres qui peuvent être appliqués via un ou plusieurs index.  
+ Pour qu’une requête puisse s’exécuter efficacement sur un grand conteneur, elle doit utiliser des filtres qui peuvent être appliqués via un ou plusieurs index.  
   
  Les filtres suivants sont considérés pour la recherche d’index :  
   
@@ -640,15 +640,15 @@ ORDER BY <sort_specification>
   
 -   Utilisez les opérateurs de plage (<, \<=, >, > =) avec une expression de chemin d’accès de document et des constantes numériques.  
   
--   L’expression de chemin d’accès de document représente toute expression qui identifie un chemin d’accès constant dans les documents de la collecte de base de données référencée.  
+-   L’expression de chemin d’accès de document représente toute expression qui identifie un chemin d’accès constant dans les documents du conteneur de base de données référencé.  
   
  **Expression de chemin d’accès à un document**  
   
- Les expressions de chemin d’accès à un document sont des expressions qu’un chemin d’accès de propriété ou indexeur de tableau évalue sur un document provenant des documents de la collecte de base de données. Ce chemin d’accès peut être utilisé pour identifier l’emplacement des valeurs référencées dans un filtre directement dans les documents de la collection de la base de données.  
+ Les expressions de chemin d’accès à un document sont des expressions qu’un chemin d’accès de propriété ou indexeur de tableau évalue sur un document provenant des documents du conteneur de base de données. Ce chemin d’accès peut être utilisé pour identifier l’emplacement des valeurs référencées dans un filtre directement dans les documents du conteneur de base de données.  
   
  Pour qu’une expression soit considérée comme une expression de chemin d’accès de document, elle doit :  
   
-1.  Faire référence directement à la racine de la collection.  
+1.  Faire référence directement à la racine du conteneur.  
   
 2.  Référencer la propriété ou l’indexeur de tableau de constantes d’une expression de chemin d’accès de document  
   
@@ -674,7 +674,7 @@ ORDER BY <sort_specification>
     |[ ...n ]|Indique que l’élément précédent peut être répété n fois. Les occurrences sont séparées par des espaces.|  
   
 ##  <a name="bk_built_in_functions"></a> Fonctions intégrées  
- Azure Cosmos DB fournit de nombreuses fonctions SQL intégrées. Les catégories de fonctions intégrées sont répertoriées ci-dessous.  
+ Cosmos DB fournit de nombreuses fonctions SQL intégrées. Les catégories de fonctions intégrées sont répertoriées ci-dessous.  
   
 |Fonction|Description|  
 |--------------|-----------------|  
@@ -1051,7 +1051,7 @@ EXP (<numeric_expression>)
   
  La constante **e** (2,718281...), est la base des logarithmes naturels.  
   
- L’exposant d’un nombre correspond à la constante **e** élevée à la puissance du nombre. Par exemple EXP(1.0) = e ^ 1,0 = 2,71828182845905 et EXP(10) = e ^ 10 = 22026,4657948067.  
+ L’exposant d’un nombre correspond à la constante **e** élevée à la puissance du nombre. Par exemple, EXP(1.0) = e^1.0 = 2.71828182845905 et EXP(10) = e^10 = 22026.4657948067.  
   
  La valeur exponentielle du logarithme naturel d’un nombre est le nombre lui-même : EXP (LOG (n)) = n. Et le logarithme naturel de la valeur exponentielle d’un nombre est le nombre lui-même : LOG (EXP (n)) = n.  
   
@@ -2904,7 +2904,7 @@ SELECT ST_ISVALIDDETAILED({
 ```  
   
 ## <a name="next-steps"></a>Étapes suivantes  
- [Syntaxe SQL et requête SQL pour Azure Cosmos DB](sql-api-sql-query.md)   
- [Documentation Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  
-  
-  
+
+- [Syntaxe SQL et requête SQL pour Cosmos DB](sql-api-sql-query.md)
+
+- [Documentation Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

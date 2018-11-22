@@ -7,110 +7,89 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1e8bad9a7a194c96c39be0ab4f1c2f40d79031ea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 683f8ef89b02679d1f3f1a66f867f0dde757ada1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209587"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564967"
 ---
-# <a name="map-virtual-networks-in-different-azure-regions"></a>Mapper des réseaux virtuels dans différentes régions Azure
+# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurer le mappage réseau et l’adressage IP pour les réseaux virtuels
 
-
-Cet article explique comment mapper deux instances de réseau virtuel Azure dans différentes régions Azure entre elles. Le mappage réseau garantit que, quand une machine virtuelle répliquée est créée dans la région Azure cible, elle est aussi créée sur le réseau virtuel qui est mappé au réseau virtuel de la machine virtuelle source.  
+Cet article explique comment mapper deux instances de réseaux virtuels Azure situés dans différentes régions Azure et comment configurer l’adressage IP entre les réseaux. Le mappage réseau garantit qu’une machine virtuelle répliquée est créée dans la région Azure cible dans le réseau virtuel qui est mappé au réseau virtuel de la machine virtuelle source.
 
 ## <a name="prerequisites"></a>Prérequis
-Avant de mapper des réseaux, vérifiez que vous avez créé des [réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md) dans les régions Azure source et cible.
 
-## <a name="map-virtual-networks"></a>Mappage des réseaux virtuels
+Avant de mapper des réseaux, vous devez avoir des [réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md) dans les régions Azure source et cible. 
 
-Pour mapper un réseau virtuel Azure qui se trouve dans une région Azure (réseau source) à un réseau virtuel qui se trouve dans une autre région (réseau cible), pour les machines virtuelles Azure, accédez à **Infrastructure Site Recovery** > **Mappage de réseaux**. Créez un mappage réseau.
+## <a name="set-up-network-mapping"></a>Configurer le mappage réseau
 
-![Fenêtre Mappages réseau - Créer un mappage réseau](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
+Mappez les réseaux comme suit :
 
+1. Dans **Infrastructure Site Recovery**, cliquez sur **+Mappage réseau**.
 
-Dans l’exemple suivant, la machine virtuelle est en cours d’exécution dans la région Asie Est. La machine virtuelle est en cours de réplication pour la région Asie Sud-Est.
+    ![ Créer un mappage réseau](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-Pour créer un mappage réseau de la région Asie Est vers la région Asie Sud-Est, sélectionnez l’emplacement du réseau source et l’emplacement du réseau cible. Ensuite, sélectionnez **OK**.
+3. Dans **Ajouter un mappage réseau**, sélectionnez les emplacements source et cible. Dans notre exemple, la machine virtuelle source est en cours d’exécution dans la région Asie Est et elle est répliquée dans la région Asie Sud-Est.
 
-![Ajouter la fenêtre de mappage réseau - Sélectionner les emplacements source et cible pour le réseau source](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Sélectionner la source et la cible ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+3. Maintenant, créez un mappage réseau dans le répertoire opposé. Dans notre exemple, la source sera désormais la région Asie Sud-Est, et la cible dans la région Asie Est.
 
-
-Répétez la procédure précédente pour créer un mappage réseau de la région Asie Sud-Est vers la région Asie Est.
-
-![Volet Ajouter mappage réseau - Sélectionner les emplacements source et cible pour le réseau cible](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+    ![Volet Ajouter mappage réseau - Sélectionner les emplacements source et cible pour le réseau cible](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
-## <a name="map-a-network-when-you-enable-replication"></a>Mapper un réseau lorsque vous activez la réplication
+## <a name="map-networks-when-you-enable-replication"></a>Mapper des réseaux lorsque vous activez la réplication
 
-Lorsque vous répliquez une machine virtuelle d’une région Azure vers une autre région pour la première fois, si aucun mappage réseau n’existe, vous pouvez définir le réseau cible lorsque vous configurez la réplication. Site Recovery crée des mappages réseau de la région source à la région cible et de la région cible à la région source, en fonction de ce paramètre.   
+Si vous n’avez pas préparé le mappage réseau avant de configurer la récupération d’urgence pour les machines virtuelles Azure, vous pouvez spécifier un réseaux cible lorsque vous [configurez et activez la réplication](azure-to-azure-how-to-enable-replication.md). Quand vous procédez ainsi, voici ce qui se passe :
 
-![Volet Configurer les paramètres - Choisir l’emplacement cible](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
+- En fonction de la cible sélectionnée, Site Recovery crée automatiquement des mappages réseau de la région source à la région cible et de la région cible à la région source.
+- Par défaut, Site Recovery crée dans la région cible un réseau qui est identique au réseau source. Site Recovery ajoute **-asr** comme suffixe au nom du réseau source. Vous pouvez personnaliser le réseau cible.
+- Si le mappage réseau est déjà survenu, vous ne pouvez pas changer le réseau virtuel cible lors de l’activation de la réplication. Pour modifier le réseau virtuel cible, vous devez modifier le mappage réseau existant.
+- Si vous modifiez un mappage réseau de la région A à la région B, assurez-vous que vous modifiez également le mappage réseau de la région B à la région A. ]
 
-Par défaut, Site Recovery crée dans la région cible un réseau qui est identique au réseau source. Site Recovery crée un réseau ajoutant **-asr** comme suffixe au nom du réseau source. Pour choisir un réseau qui a déjà été créé, sélectionnez **Personnaliser**.
+## <a name="specify-a-subnet"></a>Spécifier un sous-réseau
 
-![Personnaliser le volet de paramètres cible - Définir le nom de groupe de ressources cible et le nom de réseau virtuel cible](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+Le sous-réseau de la machine virtuelle cible est sélectionné en fonction du nom du sous-réseau de la machine virtuelle source.
 
-Si le mappage réseau est déjà survenu, vous ne pouvez pas changer le réseau virtuel cible lors de l’activation de la réplication. Dans ce cas, pour modifier le réseau virtuel cible, vous devez modifier le mappage réseau existant.  
+- S’il existe sur le réseau cible un sous-réseau portant le même nom que le sous-réseau de la machine virtuelle source, il sera défini pour la machine virtuelle cible.
+- S’il n’y a aucun sous-réseau du même nom sur le réseau cible, le premier sous-réseau dans l’ordre alphabétique est défini comme sous-réseau cible.
+- Vous pouvez modifier cela dans les paramètres **Calcul et réseau** de la machine virtuelle.
 
-![Personnaliser le volet de paramètres cible - Définir le nom de groupe de ressources cible](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
-
-![Modifier le volet de mappage réseau - Modifier un nom de réseau virtuel cible existant](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
-
-> [!IMPORTANT]
-> Si vous modifiez un mappage réseau de la région A à la région B, assurez-vous que vous modifiez également le mappage réseau de la région B à la région A.
->
->
+    ![Fenêtre Propriétés de calcul et réseau](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
-## <a name="subnet-selection"></a>Sélection de sous-réseau
-Le sous-réseau de la machine virtuelle cible est sélectionné en fonction du nom du sous-réseau de la machine virtuelle source. S’il existe sur le réseau cible un sous-réseau portant le même nom que la machine virtuelle source, il sera défini pour la machine virtuelle cible. S’il n’y a aucun sous-réseau du même nom sur le réseau cible, le premier sous-réseau dans l’ordre alphabétique est défini comme sous-réseau cible.
+## <a name="set-up-ip-addressing-for-target-vms"></a>Configurer l’adressage IP pour les machines virtuelles cibles
 
-Pour modifier le sous-réseau, accédez aux paramètres **Calcul et Réseau** de la machine virtuelle.
+L’adresse IP pour chaque carte réseau sur une machine virtuelle cible est configurée comme suit :
 
-![Fenêtre Propriétés de calcul et réseau](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
-
-
-## <a name="ip-address"></a>Adresse IP
-
-L’adresse IP de chacune des interfaces réseau de la machine virtuelle cible est définie comme expliqué dans les sections suivantes.
-
-### <a name="dhcp"></a>DHCP
-Si l’interface réseau de la machine virtuelle source utilise le protocole DHCP, l’interface réseau de la machine virtuelle cible est également réglée pour utiliser DHCP.
-
-### <a name="static-ip-address"></a>Adresse IP statique
-Si l’interface réseau de la machine virtuelle source utilise une adresse IP statique, l’interface réseau de la machine virtuelle cible est également configurée pour utiliser une adresse IP statique. Les sections suivantes décrivent la façon dont une adresse IP statique est définie.
-
-### <a name="ip-assignment-behavior-during-failover"></a>Comportement de l’affectation des adresses IP pendant le basculement
-#### <a name="1-same-address-space"></a>1. Même espace d’adressage
-
-Si les sous-réseaux source et cible ont le même espace d’adressage, l’adresse IP de l’interface réseau de la machine virtuelle source est définie comme adresse IP cible. S’il n’existe pas d’adresse IP identique, l’adresse IP suivante est définie comme adresse IP cible.
-
-#### <a name="2-different-address-spaces"></a>2. Espaces d’adressage différents
-
-Si les sous-réseaux source et cible ont un espace d’adressage différent, l’adresse IP suivante disponible sur le sous-réseau cible est définie comme adresse IP cible.
+- **DHCP** : si la carte réseau de la machine virtuelle source utilise le protocole DHCP, la carte réseau de la machine virtuelle cible est également configurée pour utiliser DHCP.
+- **Adresse IP statique** : si la carte réseau de la machine virtuelle source utilise un adressage IP statique, la carte réseau de la machine virtuelle cible utilise également une adresse IP statique.
 
 
-### <a name="ip-assignment-behavior-during-test-failover"></a>Comportement de l’affectation des adresses IP pendant le test de basculement
-#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Si le réseau cible choisi est le réseau virtuel de production
-- L’adresse IP de récupération (adresse IP cible) sera une adresse IP statique, mais **ce ne sera pas la même adresse IP** que celle réservée pour le basculement.
-- L’adresse IP attribuée sera la prochaine adresse IP disponible à partir de la fin de la plage d’adresses du sous-réseau.
-- Par exemple, si l’adresse IP statique de la machine virtuelle source est configurée pour être : 10.0.0.19 et si le test de basculement a été tenté avec le réseau de production configuré : ***dr-PROD-nw***, avec une plage de sous-réseau de 10.0.0.0/24. </br>
-La machine virtuelle basculée serait affectée avec : la prochaine adresse IP disponible à partir de la fin de la plage d’adresses de sous-réseau, soit : 10.0.0.254 </br>
+## <a name="ip-address-assignment-during-failover"></a>Affectation d’adresses IP lors du basculement
 
-**Remarque :** le terme **réseau virtuel de production** est appelé « réseau cible » mappé lors de la configuration de la récupération d’urgence.
-#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Si le réseau cible choisi n’est pas le réseau virtuel de production, mais dispose de la même plage de sous-réseau en tant que réseau de production
-
-- L’adresse IP de récupération (adresse IP cible) sera une adresse IP statique avec la **même adresse IP** (c’est-à-dire, l’adresse IP statique configurée) que celle réservée pour le basculement. À condition que la même adresse IP soit disponible.
-- Si l’adresse IP statique configurée est déjà affectée à une autre machine virtuelle/périphérique, l’adresse IP de récupération sera la prochaine adresse IP disponible à partir de la fin de la plage d’adresses du sous-réseau.
-- Par exemple, si l’adresse IP statique de la machine virtuelle source est configurée pour être : 10.0.0.19 et si le test de basculement a été tenté avec un réseau test : ***dr-NON-PROD-nw***, avec une plage de sous-réseau identique au réseau de production : 10.0.0.0/24. </br>
-  L’adresse IP statique suivante serait assignée à la machine virtuelle basculée </br>
-    - adresse IP statique configuré : 10.0.0.19 si l’adresse IP est disponible.
-    - Prochaine adresse IP disponible : 10.0.0.254 si l’adresse IP 10.0.0.19 est déjà en cours d’utilisation.
+**Sous-réseaux source et cible** | **Détails**
+--- | ---
+Même espace d’adressage | L’adresse IP de la carte réseau de la machine virtuelle source est définie comme l’adresse IP de la carte réseau de la machine virtuelle cible.<br/><br/> Si l’adresse n’est pas disponible, l’adresse IP suivante disponible est définie comme cible.
+Espace d’adressage différent<br/><br/> L’adresse IP suivante disponible dans le sous-réseau cible est définie comme adresse de la carte réseau de la machine virtuelle cible.
 
 
-Pour modifier l’adresse IP cible sur chacune des interfaces réseau, accédez aux paramètres **Calcul et Réseau** de la machine virtuelle.</br>
-À titre de meilleure pratique, il est toujours recommandé de choisir un réseau de test pour effectuer le test de basculement.
+
+## <a name="ip-address-assignment-during-test-failover"></a>Affectation d’adresses IP lors du test de basculement
+
+**Réseau cible** | **Détails**
+--- | ---
+Le réseau cible est le réseau virtuel pour le basculement | - L’adresse IP cible est statique, mais n’est pas la même adresse IP que celle réservée pour le basculement.<br/><br/>  - L’adresse attribuée est la prochaine adresse disponible à partir de la fin de la plage du sous-réseau.<br/><br/> Par exemple : si l’adresse IP source est 10.0.0.19 et si le réseau de basculement utilise la plage 10.0.0.0/24, alors l’adresse IP suivante attribuée à la machine virtuelle cible est 10.0.0.254.
+Le réseau cible n’est pas le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP réservée pour le basculement.<br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible dans la plage du sous-réseau.<br/><br/> Par exemple : si l’adresse IP source est 10.0.0.19 et si le basculement se trouve sur un réseau qui n’est pas le réseau de basculement, avec la plage 10.0.0.0/24, alors l’adresse IP statique cible sera 10.0.0.0.19 si elle est disponible, et dans le cas contraire, elle sera 10.0.0.254.
+
+- Le réseau virtuel de basculement est le réseau cible que vous sélectionnez lorsque vous configurez la récupération d’urgence.
+- Nous vous recommandons de toujours utiliser un réseau de non production pour le test de basculement.
+- Vous pouvez modifier l’adresse IP cible dans les paramètres **Calcul et réseau** de la machine virtuelle.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vérifiez [Aide à la mise en réseau pour la réplication des machines virtuelles Azure](site-recovery-azure-to-azure-networking-guidance.md).
+- Consultez les [conseils sur la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md) pour la récupération d’urgence de machines virtuelles Azure.
+- [En savoir plus](site-recovery-retain-ip-azure-vm-failover.md) sur la conservation des adresses IP après le basculement.
+
+Si le réseau cible choisi est le réseau virtuel de basculement » et 2e point pour indiquer « Si le réseau cible choisi est différent du réseau virtuel de basculement mais avec la même plage de sous-réseau que le réseau virtuel de basculement »
