@@ -3,19 +3,19 @@ title: 'Tutoriel : Créer une application web monopage - API Recherche Web Bin
 titleSuffix: Azure Cognitive Services
 description: Cette application monopage montre comment l’API Recherche Web Bing peut être utilisée pour récupérer, analyser et afficher des résultats de recherche pertinents dans une application monopage.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: tutorial
 ms.date: 09/12/2018
-ms.author: erhopf
-ms.openlocfilehash: 670f02cbd8e994664e7c4edd75940ff43f9616b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: b94e6f70d4a28dc59ddaa62cfad55c6c8383b761
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126477"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161920"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutoriel : Créer une application monopage avec l’API Recherche Web Bing
 
@@ -28,7 +28,7 @@ Cet exemple d’application peut :
 > * Afficher des résultats de recherche web, d’images, d’actualités et de vidéos
 > * Paginer les résultats
 > * Gérer les clés d’abonnement
-> * Gérer les erreurs
+> * des erreurs
 
 Pour utiliser cette application, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec des API Recherche Bing. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) pour obtenir une clé d’abonnement.
 

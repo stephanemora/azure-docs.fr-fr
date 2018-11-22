@@ -1,22 +1,21 @@
 ---
 title: Créer un espace de développement Kubernetes dans le cloud | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: ghogen
+ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-manager: douge
-ms.openlocfilehash: abceef1d73cafdc24099f9ac9ca67bb36e7e96d1
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 0638f908150c90c3b73dc3036f4407d17cceb9e3
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318059"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705699"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Guide de démarrage rapide : créer un espace de développement Kubernetes avec Azure Dev Spaces (.NET Core et Visual Studio Code)
 
@@ -34,7 +33,7 @@ Dans ce guide, vous allez apprendre à :
 - Un abonnement Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.43 ou ultérieure.
-- Un cluster Kubernetes, qui exécute Kubernetes 1.9.6 ou ultérieure dans les régions EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral ou CanadaEast, avec le **routage d’application HTTP** activé.
+- Un cluster Kubernetes, qui exécute Kubernetes 1.9.6 ou une version ultérieure dans les régions EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral ou CanadaEast, avec le **routage d’application HTTP** activé.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>

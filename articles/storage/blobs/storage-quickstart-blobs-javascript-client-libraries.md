@@ -7,22 +7,25 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.author: tamram
-ms.date: 10/18/2018
+ms.date: 11/14/2018
 ms.topic: quickstart
 ms.component: blobs
-ms.openlocfilehash: 3b4bf95b0f5d275f6c8b4325e88a7ac326efa16b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139456"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711480"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Démarrage rapide : Télécharger, répertorier et supprimer des objets blob à l’aide de JavaScript/HTML dans le navigateur
+
 Ce guide de démarrage rapide explique comment gérer des objets blob à partir d’un code s’exécutant entièrement dans le navigateur. L’approche utilisée ici montre comment utiliser des mesures de sécurité requises pour sécuriser l’accès à votre compte de stockage Blob. Pour suivre ce guide de démarrage rapide, vous devez disposer d’un [abonnement Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configuration des règles CORS du compte de stockage 
 Avant que votre application Web puisse accéder à un stockage d’objets BLOB à partir du client, le compte doit être configuré pour activer le [partage des ressources cross-origin](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS. 

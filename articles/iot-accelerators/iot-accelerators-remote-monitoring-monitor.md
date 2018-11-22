@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1f9e5885e79e184b621ba2be7e2a8f329e31a6b1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d8afe474f88f0881de5b0e7b132009c6e03ac2af
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284487"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824742"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Tutoriel : Surveiller vos appareils IoT
 
@@ -41,7 +41,7 @@ Pour sélectionner les appareils connectés à afficher dans la page **Tableau d
 
 [![Filtrer les camions sur le tableau de bord](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-Quand vous appliquez un filtre, seuls les appareils qui correspondent aux conditions du filtre sont affichés sur la carte et dans le panneau de télémétrie de la page **Tableau de bord**. Vous pouvez constater que deux camions sont connectés à l’accélérateur de solution, dont truck-02 :
+Lorsque vous appliquez un filtre, seuls les appareils qui respectent les conditions de filtre s’affichent sur la carte et dans le panneau de télémétrie. Vous pouvez constater que deux camions sont connectés à l’accélérateur de solution, dont truck-02 :
 
 [![Seuls les camions sont affichés sur la carte](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 

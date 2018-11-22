@@ -1,22 +1,21 @@
 ---
 title: Créer un espace de développement Kubernetes dans le cloud | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: ghogen
+ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-manager: douge
-ms.openlocfilehash: 0e58fb23aded66a44deb0d520151c98903cffe18
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: eebec24702456ec1062a1ac4b3cb9bc6d6580c29
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433325"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705070"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Démarrage rapide : créer un espace de développement Kubernetes avec Azure Dev Spaces (.NET Core et Visual Studio)
 
@@ -31,7 +30,7 @@ Dans ce guide, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un cluster Kubernetes, qui exécute Kubernetes 1.9.6 ou ultérieure dans les régions EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral ou CanadaEast, avec le routage d’application HTTP activé.
+- Un cluster Kubernetes, qui exécute Kubernetes 1.9.6 ou version ultérieure dans les régions EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral ou CanadaEast, avec le routage d’application HTTP activé.
 
   ![Veillez à activer le routage d’application HTTP.](media/common/Kubernetes-Create-Cluster-3.PNG)
 

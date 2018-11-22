@@ -1,95 +1,88 @@
 ---
-title: 'Didacticiel : Créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Custom Vision pour Python'
+title: 'Guide de démarrage rapide : créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Vision personnalisée pour Python'
 titlesuffix: Azure Cognitive Services
-description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage votre projet ainsi qu’une prédiction en utilisant le point de terminaison par défaut.
+description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage de votre projet ainsi qu’une prédiction avec le kit de développement logiciel (SDK) Python.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 08/28/2018
+ms.topic: quickstart
+ms.date: 11/2/2018
 ms.author: areddish
-ms.openlocfilehash: 96125ba1c54f742bb9ddf32a1588173217be0766
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c110abd9354134d52d4f82f7c828fc5e13f218a8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953110"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262985"
 ---
-# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-python"></a>Didacticiel : Créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Custom Vision pour Python
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Guide de démarrage rapide : créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Vision personnalisée pour Python
 
-Découvrez comment créer un projet de classification d’images avec le service Vision personnalisé et un script Python de base. Après la création du projet, vous pouvez ajouter des étiquettes, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester une image par programmation. Utilisez cet exemple open source comme modèle de création pour votre propre application au moyen de l’API Vision personnalisée.
-
-
+Cet article fournit des informations et un exemple de code pour vous aider à prendre en main le kit de développement logiciel (SDK) de Vision personnalisée avec Python, afin de générer un modèle de classification d’images. Après la création du projet, vous pouvez ajouter des mots clés, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester par programmation une image. Utilisez cet exemple comme modèle pour générer votre propre application Python. Si vous voulez générer et utiliser un modèle de classification _sans_ code, consultez le [guide basé sur navigateur](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Python 2.7+ ou Python 3.5.x.
-- L’outil pip.
+- [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
+- Outil [pip](https://pip.pypa.io/en/stable/installing/)
 
-## <a name="get-the-training-and-prediction-keys"></a>Obtenir les clés d’entraînement et de prédiction
+## <a name="install-the-custom-vision-sdk"></a>Installer le kit de développement logiciel (SDK) Vision personnalisée
 
-Pour obtenir les clés utilisées dans cet exemple, visitez la [page web Custom Vision](https://customvision.ai) et sélectionnez l’__icône d’engrenage__ dans le coin supérieur droit. Dans la section __Accounts__ (Comptes), copiez les valeurs des champs __Training Key__ (Clé de formation) et __Prediction Key__ (Clé de prédiction).
+Pour installer le SDK Service Vision personnalisée pour Python, exécutez la commande suivante dans PowerShell :
 
-![Image de l’interface utilisateur des clés](./media/python-tutorial/training-prediction-keys.png)
-
-## <a name="install-the-custom-vision-service-sdk"></a>Installer le kit SDK Service Vision personnalisée
-
-Pour installer le SDK Service Vision personnalisée, utilisez la commande suivante :
-
-```
+```PowerShell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-## <a name="get-example-images"></a>Obtenir des exemples d’images
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-Cet exemple utilise les images du répertoire `Samples/Images` du projet [https://github.com/Microsoft/Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images). Clonez ou téléchargez et extrayez le projet sur votre environnement de développement.
+[!INCLUDE [python-get-images](includes/python-get-images.md)]
 
-## <a name="create-a-custom-vision-service-project"></a>Créer un projet Service Vision personnalisée
 
-Pour créer un projet Service Vision personnalisée, créez un fichier nommé `sample.py`. Utilisez le code suivant comme contenu du fichier :
+## <a name="add-the-code"></a>Ajouter le code
 
-> [!IMPORTANT]
-> Affectez à `training_key` la valeur de la clé d’entraînement que vous avez récupérée précédemment.
->
-> Affectez à `prediction_key` la valeur de la clé de prédiction que vous avez récupérée précédemment.
+Créez un nouveau fichier nommé *sample.py* dans le répertoire de projet de votre choix.
 
-```python
-from azure.cognitiveservices.vision.customvision.training import training_api
+### <a name="create-the-custom-vision-service-project"></a>Créer le projet Service Vision personnalisée
+
+Pour créer un nouveau projet Service Vision personnalisée, ajoutez le code suivant à votre script. Insérez vos clés d’abonnement dans les définitions appropriées.
+
+```Python
+from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
 from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
+
+ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
 
-trainer = training_api.TrainingApi(training_key)
+trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Create a new project
 print ("Creating project...")
-project = trainer.create_project("My Project")
+project = trainer.create_project("My New Project")
 ```
 
-## <a name="add-tags-to-your-project"></a>Ajouter des mots clés à votre projet
+### <a name="create-tags-in-the-project"></a>Créer des balises dans un projet
 
-Pour ajouter des mots clés à votre projet, ajoutez le code suivant à la fin du fichier `sample.py` :
+Pour créer des balises de classification à votre projet, ajoutez le code suivant à la fin du fichier *sample.py* :
 
-```python
+```Python
 # Make two tags in the new project
 hemlock_tag = trainer.create_tag(project.id, "Hemlock")
 cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 ```
 
-## <a name="upload-images-to-the-project"></a>Charger des images dans le projet
+### <a name="upload-and-tag-images"></a>Charger et étiqueter des images
 
-Pour ajouter les exemples d’images au projet, insérez le code suivant après la création de mots clés. Ce code charge l’image avec le mot clé correspondant :
+Pour ajouter les exemples d’images au projet, insérez le code suivant après la création de mots clés. Ce code charge chaque image avec la balise correspondante. Vous devez entrer le chemin d’accès de l’URL de base de l’image, en fonction d’où vous avez téléchargé le projet d’exemple du kit de développement logiciel (SDK) Cognitive Services pour Python.
 
-> [!IMPORTANT]
->
-> Modifiez le chemin aux images en fonction de l’emplacement où vous avez précédemment téléchargé le projet Cognitive-CustomVision-Windows.
+> [!NOTE]
+> Vous devez changer le chemin d'accès aux images, en fonction d’où vous avez téléchargé le projet d’exemple du kit de développement logiciel (SDK) Cognitive Services pour Python.
 
-```python
-base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVision-Windows/master/Samples/"
+```Python
+base_image_url = "<path to project>"
 
 print ("Adding images...")
 for image_num in range(1,10):
@@ -99,28 +92,13 @@ for image_num in range(1,10):
 for image_num in range(1,10):
     image_url = base_image_url + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num)
     trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ cherry_tag.id ] ) ])
-
-
-# Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
-# they can be added by using the following:
-#
-#import os
-#hemlock_dir = "Images\\Hemlock"
-#for image in os.listdir(os.fsencode("Images\\Hemlock")):
-#    with open(hemlock_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data, [ hemlock_tag.id ])
-#
-#cherry_dir = "Images\\Japanese Cherry"
-#for image in os.listdir(os.fsencode("Images\\Japanese Cherry")):
-#    with open(cherry_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data, [ cherry_tag.id ])
 ```
 
-## <a name="train-the-project"></a>Entraîner le projet
+### <a name="train-the-classifier"></a>Former le classifieur
 
-Pour entraîner le classifieur, ajoutez le code suivant à la fin du fichier `sample.py` :
+Ce code crée la première itération du projet et la marque comme l’itération par défaut. L’itération par défaut correspond à la version du modèle qui répondra aux requêtes de prédiction. Vous devez la mettre à jour à chaque fois que vous réentraînez le modèle.
 
-```python
+```Python
 import time
 
 print ("Training...")
@@ -135,42 +113,35 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="get-and-use-the-default-prediction-endpoint"></a>Obtenir et utiliser le point de terminaison de prédiction par défaut
+### <a name="get-and-use-the-default-prediction-endpoint"></a>Obtenir et utiliser le point de terminaison de prédiction par défaut
 
-Pour envoyer une image au point de terminaison de prédiction et récupérer la prédiction, ajoutez le code suivant à la fin du fichier `sample.py` :
+Pour envoyer une image au point de terminaison de prédiction et récupérer la prédiction, ajoutez le code suivant à la fin du fichier :
 
 ```python
-from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
+from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
 
 # Now there is a trained endpoint that can be used to make a prediction
 
-predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
+predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 test_img_url = base_image_url + "Images/Test/test_image.jpg"
 results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url)
-
-# Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
-# they can be added by using the following.
-#
-# Open the sample image and get back the prediction results.
-# with open("Images\\test\\test_image.jpg", mode="rb") as test_data:
-#     results = predictor.predict_image(project.id, test_data, iteration.id)
 
 # Display the results.
 for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
-## <a name="run-the-example"></a>Exécuter l’exemple
+## <a name="run-the-application"></a>Exécution de l'application
 
-Exécutez la solution. Les résultats de prédiction s’affichent sur la console.
+Exécutez *sample.py*.
 
-```
+```PowerShell
 python sample.py
 ```
 
-Le résultat de l’application ressemble au texte suivant :
+Le résultat de l’application ressemble au texte suivant :
 
 ```
 Creating project...
@@ -182,3 +153,14 @@ Done!
         Hemlock: 93.53%
         Japanese Cherry: 0.01%
 ```
+
+Vous pouvez ensuite vérifier que l’image test (trouvée dans **<base_image_url>/Images/Test**) est balisée de façon appropriée. Vous pouvez aussi revenir sur le [site web Custom Vision](https://customvision.ai) et consulter l’état actuel de votre nouveau projet.
+
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Vous savez maintenant comment effectuer la classification d’images dans le code. Cet exemple exécute une itération d’apprentissage unique, mais vous aurez souvent besoin d’entraîner et de tester votre modèle à plusieurs reprises pour plus de précision.
+
+> [!div class="nextstepaction"]
+> [Tester et réentraîner un modèle](test-your-model.md)

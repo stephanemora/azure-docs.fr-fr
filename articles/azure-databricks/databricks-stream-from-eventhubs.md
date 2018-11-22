@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: a5415ed8f2440a52d18004a31b87487cdb584c03
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6e75e549486fb260f3ccbdead7fe1dea02593f3c
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415452"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707144"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Didacticiel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
 
@@ -367,7 +367,7 @@ Une fois le tutoriel terminé, vous pouvez arrêter le cluster. Pour cela, dans 
 
 ![Arrêter un cluster Databricks](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Arrêter un cluster Databricks")
 
-Si vous n’arrêtez pas le cluster manuellement, il s’arrêtera automatiquement, à condition d’avoir coché **Arrêter après __ minutes d’inactivité** lors de la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
+Si vous n’arrêtez pas le cluster manuellement, il s’arrête automatiquement, à condition d’avoir coché la case **Arrêter après \_\_ minutes d’inactivité** durant la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce tutoriel, vous avez appris à :

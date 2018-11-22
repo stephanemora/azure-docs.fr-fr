@@ -3,19 +3,19 @@ title: 'Tutoriel : Créer une application web à page unique - Recherche visuel
 titleSuffix: Azure Cognitive Services
 description: Montre comment utiliser l’API Recherche visuelle Bing dans une application web à page unique.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
-ms.author: bking
-ms.openlocfilehash: a63107b86e82bf0bcd89523588414b45e6e21d5a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: aahi
+ms.openlocfilehash: b493f65e47f5e4c932ed1229e4c00ee1af3cd5ab
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465195"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161852"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Tutoriel : application web à page unique Recherche visuelle
 

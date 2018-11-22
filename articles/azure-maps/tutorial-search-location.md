@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e879e096fb990e4567b43b1938909449820edd42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412718"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262055"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -178,7 +178,7 @@ Cette section montre comment utiliser l’API Maps Search pour rechercher un poi
      client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. Ajoutez ensuite le bloc de script suivant pour générer la requête de recherche. Il utilise le service Fuzzy Search, qui est l’API de recherche de base de Search Service. Le service Fuzzy Search gère la plupart des entrées partielles comme des adresses, des lieux et des points d’intérêt (POI). Ce code recherche les stations-service à proximité dans le rayon spécifié. La réponse est ensuite analysée au format GeoJSON et ajoutée à la source de données, les données sont alors automatiquement restituées sur la carte par le biais de la couche de symbole. La dernière partie du script définit la vue de caméra de la carte en utilisant le rectangle englobant des résultats à l’aide de la propriété [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) de la carte. Une marge intérieure est ajoutée pour compenser les dimensions en pixels des icônes de symbole, car le rectangle englobant est calculé sur la base des coordonnées. 
+2. Ajoutez ensuite le bloc de script suivant pour générer la requête de recherche. Il utilise le service Fuzzy Search, qui est l’API de recherche de base de Search Service. Le service Fuzzy Search gère la plupart des entrées partielles comme des adresses, des lieux et des points d’intérêt (POI). Ce code recherche les stations-service à proximité dans le rayon spécifié. La réponse est ensuite analysée au format GeoJSON et ajoutée à la source de données, les données sont alors automatiquement restituées sur la carte par le biais de la couche de symbole. La dernière partie du script définit la vue de caméra de la carte en utilisant le rectangle englobant des résultats à l’aide de la propriété [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte. Une marge intérieure est ajoutée pour compenser les dimensions en pixels des icônes de symbole, car le rectangle englobant est calculé sur la base des coordonnées. 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.

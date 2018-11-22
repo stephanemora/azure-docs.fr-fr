@@ -9,13 +9,13 @@ ms.date: 08/07/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
-manager: dougeby
-ms.openlocfilehash: e49be3d61cfbbf71a0e9cbeef4c171f3af222544
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 4b0c0a6fdf8d84b6519d1228f148342b8486c282
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979554"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276395"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Inscrire un abonnement Azure individuel et afficher les données de coût
 
@@ -25,10 +25,10 @@ Utilisez votre abonnement Azure pour l’inscrire auprès de Cloudyn. Votre insc
 
 - Connectez-vous au portail Azure sur http://portal.azure.com.
 
-## <a name="register-with-cloudyn"></a>S’inscrire auprès de Cloudyn
+## <a name="register-with-cloudyn"></a>S’inscrire à Cloudyn
 
 1. Dans le portail Azure, cliquez sur **Gestion des coûts + Facturation** dans la liste des services.
-2. Sous **Vue d’ensemble**, cliquez sur **Cloudyn**.  
+2. Sous **Vue d’ensemble**, cliquez sur **Cloudyn**  
     ![Page de Cloudyn](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
 3. Dans la page **Gestion des coûts**, cliquez sur **Accéder à Cloudyn** pour ouvrir la page d’inscription de Cloudyn dans une nouvelle fenêtre.
 4. Sur la page d’inscription à une évaluation du portail Cloudyn, tapez le nom de votre société, sélectionnez **Azure Individual Subscription Owner** (Propriétaire d’abonnement individuel Azure), puis cliquez sur **Next** (Suivant). Vos nom de compte et ID de client sont automatiquement ajoutés au formulaire.  

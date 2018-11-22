@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: fdeb58d72e15f563fd70ae94804de0773dd603c7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5d1e86630ff9143a75e5b0502a64c7661cc2822c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387343"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161076"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Présentation d’Azure Cosmos DB : API SQL
 
@@ -24,7 +24,7 @@ ms.locfileid: "49387343"
 
 ![API SQL Azure](./media/sql-api-introduction/cosmosdb-sql-api.png) 
 
-Avec l’API SQL, Azure Cosmos DB fournit des [fonctionnalités de requête SQL](sql-api-sql-query.md) enrichies et familières avec une faible latence sur les données JSON sans schéma. Dans cet article, nous proposons une vue d’ensemble de l’API SQL d’Azure Cosmos DB, et expliquons comment l’utiliser pour stocker d’immenses volumes de données JSON, les interroger avec une latence de quelques millisecondes, et faire évoluer facilement le schéma. 
+Avec l’API SQL, Azure Cosmos DB fournit des [fonctionnalités de requête SQL](how-to-sql-query.md) enrichies et familières avec une faible latence sur les données JSON sans schéma. Dans cet article, nous proposons une vue d’ensemble de l’API SQL d’Azure Cosmos DB, et expliquons comment l’utiliser pour stocker d’immenses volumes de données JSON, les interroger avec une latence de quelques millisecondes, et faire évoluer facilement le schéma. 
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Quelles fonctionnalités et caractéristiques clés sont offertes par Azure Cosmos DB ?
 Azure Cosmos DB, via l’API SQL, offre les avantages et fonctionnalités clés suivants :
@@ -34,7 +34,7 @@ Azure Cosmos DB, via l’API SQL, offre les avantages et fonctionnalités clés 
 
 * **Réplication dans plusieurs régions :** Azure Cosmos DB réplique en toute transparence vos données dans toutes les régions associées à votre compte Azure Cosmos DB, ce qui vous permet de développer des applications qui requièrent l’accès global aux données tout en offrant un compromis entre cohérence, disponibilité et performances, le tout avec les garanties correspondantes. Azure Cosmos DB fournit un basculement régional transparent avec les API multihébergement et la possibilité de mettre à l’échelle de manière élastique le débit et le stockage dans le monde entier. Pour en savoir plus, consultez [Azure Cosmos DB, un service de base de données mondialement distribué sur Azure](distribute-data-globally.md).
 
-* **Requêtes ad hoc à l’aide de la syntaxe SQL familière :** stockez des documents JSON hétérogènes et interrogez-les via la syntaxe SQL. Azure Cosmos DB utilise une technologie d’indexation parallèle, structurée par des journaux et sans verrouillage qui permet d’indexer automatiquement tout le contenu des documents. Celle-ci autorise les requêtes enrichies en temps réel sans qu’il soit nécessaire de spécifier des indicateurs de schéma, des index secondaires ou des vues. Pour en savoir plus, consultez [Requête SQL et syntaxe SQL dans Azure Cosmos DB](sql-api-sql-query.md). 
+* **Requêtes ad hoc à l’aide de la syntaxe SQL familière :** stockez des documents JSON hétérogènes et interrogez-les via la syntaxe SQL. Azure Cosmos DB utilise une technologie d’indexation parallèle, structurée par des journaux et sans verrouillage qui permet d’indexer automatiquement tout le contenu des documents. Celle-ci autorise les requêtes enrichies en temps réel sans qu’il soit nécessaire de spécifier des indicateurs de schéma, des index secondaires ou des vues. Pour en savoir plus, consultez [Requête SQL et syntaxe SQL dans Azure Cosmos DB](how-to-sql-query.md). 
 * **Exécution de JavaScript dans la base de données :** exprimez la logique d’application en tant que procédures stockées, déclencheurs et fonctions définies par l’utilisateur à l’aide du code JavaScript standard. Cela permet à la logique d’application d’opérer via les données sans se soucier des incompatibilités entre l’application et le schéma de base de données. L’API SQL fournit l’exécution transactionnelle complète de la logique d’application JavaScript directement dans le moteur de base de données. Cette intégration approfondie de JavaScript permet l’exécution des opérations INSERT, REPLACE, DELETE et SELECT à partir d’un programme JavaScript en tant que transaction isolée. Pour plus d’informations, consultez la rubrique [Programmation Azure Cosmos DB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur](programming.md).
 
 * **Niveaux de cohérence ajustables** : opérez un choix parmi cinq niveaux de cohérence bien définis pour obtenir un équilibre optimal entre cohérence et performances. Pour les requêtes et les opérations de lecture, Azure Cosmos DB propose cinq niveaux de cohérence distincts : Fort, En fonction de l’obsolescence, Par session, Préfixe cohérent et Éventuel. Ces niveaux de cohérence bien définis et granulaires vous permettent de trouver un bon compromis entre cohérence, disponibilité et latence. Pour en savoir plus, consultez [Niveaux de cohérence des données analysables dans Azure Cosmos DB](consistency-levels.md).
@@ -67,8 +67,8 @@ Azure Cosmos DB expose les ressources via l’API REST qui peut être appelée p
 
 | Download | Documentation |
 | --- | --- |
-| [Kit de développement logiciel (SDK) .NET](http://go.microsoft.com/fwlink/?LinkID=402989) |[Documents de référence .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Kit SDK Java](http://go.microsoft.com/fwlink/?LinkID=402380) |[Documents de référence Java](/java/api/com.microsoft.azure.documentdb) |
+| [Kit de développement logiciel (SDK) .NET](https://go.microsoft.com/fwlink/?LinkID=402989) |[Documents de référence .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
+| [Kit SDK Java](https://go.microsoft.com/fwlink/?LinkID=402380) |[Documents de référence Java](/java/api/com.microsoft.azure.documentdb) |
 | [Kit de développement logiciel (SDK) JavaScript](https://www.npmjs.com/package/@azure/cosmos) |[Documents de référence JavaScript](https://docs.microsoft.com/javascript/api/@azure/cosmos/?view=azure-node-latest) |
 | [Kit de développement logiciel (SDK) Python](https://pypi.python.org/pypi/pydocumentdb) |[Documents de référence Python](https://github.com/Azure/azure-cosmos-python) |
 

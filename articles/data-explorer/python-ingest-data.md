@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: faf7ba745b57fb6e0155afe8cee52cef81ba5896
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b6aa2dd16b1731c24b5f24068fa825500589a2e2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138641"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711172"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure
 
@@ -161,8 +161,8 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 Connectez-vous à [https://dataexplorer.azure.com](https://dataexplorer.azure.com) et à votre cluster. Exécutez la commande suivante dans votre base de données pour voir si des échecs d’ingestion se sont produits ces quatre dernières heures. Remplacez le nom de la base de données avant l’exécution.
 
 ```Kusto
-    .show ingestion failures
-    | where FailedOn > ago(4h) and Database == "<DatabaseName>"
+.show ingestion failures
+| where FailedOn > ago(4h) and Database == "<DatabaseName>"
 ```
 
 Exécutez la commande suivante pour voir l’état de toutes les opérations d’ingestion des quatre dernières heures. Remplacez le nom de la base de données avant l’exécution.

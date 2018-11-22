@@ -9,28 +9,28 @@ ms.date: 09/14/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
-manager: dougeby
-ms.openlocfilehash: bed1ea3785c35d1053a0ff2147c3bdd797e28581
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996626"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273561"
 ---
-# <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Inscrire un contrat Entreprise Azure et afficher les données de coût
+# <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Inscrire un Accord Entreprise Azure et afficher les données de coût
 
 Utilisez votre contrat Entreprise Azure pour l’inscrire auprès de Cloudyn. Votre inscription vous donne accès au portail Cloudyn. Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn. Il explique également comment afficher immédiatement des données de coût.
 
-Azure Cost Management offre des fonctionnalités similaires à Cloudyn. Azure Cost Management est une solution de gestion des coûts Azure native. Il vous permet d’analyser les coûts, de créer et de gérer des budgets, d’exporter des données, et de consulter des recommandations d’optimisation et d’agir en conséquence pour dépenser moins. Pour plus d’informations, consultez [Azure Cost Management](overview-cost-mgt.md).
+Azure Cost Management offre des fonctionnalités similaires à Cloudyn. Azure Cost Management est une solution native de gestion des coûts Azure. Il vous permet d’analyser les coûts, de créer et de gérer des budgets, d’exporter des données, et de consulter des recommandations d’optimisation et d’agir en conséquence pour dépenser moins. Pour plus d’informations, consultez [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 - Connectez-vous au portail Azure sur http://portal.azure.com.
 
-## <a name="register-with-cloudyn"></a>S’inscrire auprès de Cloudyn
+## <a name="register-with-cloudyn"></a>S’inscrire à Cloudyn
 
 1. Dans le portail Azure, cliquez sur **Gestion des coûts + Facturation** dans la liste des services.
-2. Sous **Vue d’ensemble**, cliquez sur **Cloudyn**.  
+2. Sous **Vue d’ensemble**, cliquez sur **Cloudyn**  
     ![Page de Cloudyn](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. Dans la page **Cloudyn**, cliquez sur **Accéder à Cloudyn** pour ouvrir la page d’inscription de Cloudyn dans une nouvelle fenêtre.
 4. Sur la page d’inscription à une évaluation du portail Cloudyn, tapez le nom de votre société, sélectionnez **Azure Individual Subscription Owner** (Propriétaire d’abonnement individuel Azure).  

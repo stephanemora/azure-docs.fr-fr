@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: ca2f855166d9a36f600889059368ebeb313e789c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: feb44920c36f2d17dafb1d33ef1c1e680fd37db4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636286"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163552"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-azure-cosmos-db-sql-api-data"></a>Tutoriel : Créer une application .Net Core pour gérer les données de l’API SQL Azure Cosmos DB
 
@@ -399,7 +399,7 @@ Félicitations ! Vous avez créé deux documents Azure Cosmos DB.
 
 ## <a id="Query"></a>Étape 7 : interroger les ressources Azure Cosmos DB
 
-Azure Cosmos DB prend en charge les [requêtes](sql-api-sql-query.md) enrichies sur les documents JSON stockés dans chaque collection. L’exemple de code suivant affiche différentes requêtes (à l’aide de la syntaxe SQL d’Azure Cosmos DB et de LINQ) que nous pouvons exécuter sur les documents insérés à l’étape précédente.
+Azure Cosmos DB prend en charge les [requêtes](how-to-sql-query.md) enrichies sur les documents JSON stockés dans chaque collection. L’exemple de code suivant affiche différentes requêtes (à l’aide de la syntaxe SQL d’Azure Cosmos DB et de LINQ) que nous pouvons exécuter sur les documents insérés à l’étape précédente.
 
 Copiez et collez la méthode **ExecuteSimpleQuery** sous votre méthode **CreateFamilyDocumentIfNotExists**.
 
@@ -456,7 +456,7 @@ Le schéma suivant montre comment la syntaxe de requête SQL d’Azure Cosmos DB
 
 ![Diagramme illustrant l’étendue et la signification de la requête utilisée par le didacticiel NoSQL pour créer une application de console C#](./media/sql-api-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-Le mot clé [FROM](sql-api-sql-query.md#FromClause) est facultatif dans la requête, car les requêtes Azure Cosmos DB sont déjà étendues à une collection unique. Par conséquent, « FROM Families f » peut être remplacé par «FROM root r » ou par tout autre nom de variable que vous choisissez. Azure Cosmos DB déduit alors que Families, root, ou le nom de variable choisi, référencent par défaut la collection actuelle.
+Le mot clé [FROM](how-to-sql-query.md#FromClause) est facultatif dans la requête, car les requêtes Azure Cosmos DB sont déjà étendues à une collection unique. Par conséquent, « FROM Families f » peut être remplacé par «FROM root r » ou par tout autre nom de variable que vous choisissez. Azure Cosmos DB déduit alors que Families, root, ou le nom de variable choisi, référencent par défaut la collection actuelle.
 
 ## <a id="ReplaceDocument"></a>Étape 8 : remplacer le document JSON
 

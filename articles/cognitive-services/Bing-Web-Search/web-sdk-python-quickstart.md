@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Utiliser le kit de développement logiciel de l’A
 titleSuffix: Azure Cognitive Services
 description: Le kit de développement logiciel de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application Python. Dans ce démarrage rapide, vous allez apprendre à envoyer une requête, recevoir une réponse JSON et filtrer et analyser les résultats.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
-ms.openlocfilehash: c83848bc3c8f14aa49c1f87f1cd44224bb3e8081
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: d810704d0f18915d805a4db46818df30147c8dfa
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127634"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283281"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Démarrage rapide : Utiliser le kit de développement logiciel de l’API Recherche Web Bing pour Python
 
@@ -206,7 +206,7 @@ Cet exemple utilise les paramètres `count` et `offset` pour limiter le nombre d
 
 ### <a name="filter-for-news-and-freshness"></a>Filtrer les actualités et l’actualisation
 
-Cet exemple utilise les paramètres `response_filter` et `freshness` pour filtrer des résultats de recherche à l’aide de la [`search`méthode](https://docs.microsoft.com//api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search) du kit de développement logiciel. Les résultats de recherche retournés sont limités aux articles d’actualité et aux pages découverts par Bing au cours des dernières 24 heures. Le `name` et `URL` pour le premier résultat sont imprimés.
+Cet exemple utilise les paramètres `response_filter` et `freshness` pour filtrer des résultats de recherche à l’aide de la [`search`méthode](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations#search) du kit de développement logiciel. Les résultats de recherche retournés sont limités aux articles d’actualité et aux pages découverts par Bing au cours des dernières 24 heures. Le `name` et `URL` pour le premier résultat sont imprimés.
 
 1. Ajoutez ce code à votre projet Python :
     ```python

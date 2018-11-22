@@ -1,6 +1,17 @@
-
-
-Les notifications Push sont normalement envoyées dans un service principal tel que Mobile Apps ou ASP.NET à l’aide d’une bibliothèque compatible. Si aucune bibliothèque n’est disponible pour votre serveur principal, vous pouvez également utiliser l’API REST directement pour envoyer des messages de notification.
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: spelluru
+ms.openlocfilehash: 6c424f1ac77e70b8f1fd561ad5134ec86f652fa6
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52269985"
+---
+Les notifications Push sont normalement envoyées dans un service principal tel que Mobile Apps ou ASP.NET à l’aide d’une bibliothèque compatible. Si aucune bibliothèque n’est disponible pour votre backend, vous pouvez également utiliser l’API REST directement pour envoyer des messages de notification.
 
 La liste ci-dessous répertorie certains autres didacticiels, que vous pouvez consulter pour envoyer des notifications :
 

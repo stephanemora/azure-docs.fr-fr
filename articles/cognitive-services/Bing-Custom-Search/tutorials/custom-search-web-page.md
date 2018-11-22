@@ -3,19 +3,19 @@ title: 'Didacticiel : Créer une page web de recherche personnalisée - Recherc
 titlesuffix: Azure Cognitive Services
 description: Décrit la configuration d’une instance de recherche personnalisée et son intégration à une page web.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
-ms.author: v-brapel
-ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: ebc4779876a52113c20e2ace50b3333e254a744e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815373"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161784"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Didacticiel : Créer une page web de recherche personnalisée
 
@@ -79,7 +79,7 @@ Pour exclure les résultats d’URL ou de sites web particuliers, ajoutez-les à
 
 ## <a name="add-pinned-entries"></a>Ajout d’entrées épinglées
 
-Pour épingler une page web spécifique au début des résultats de recherche, ajoutez la page web et le terme de requête dans l’onglet **Pinned** (Éléments épinglés). L’onglet **Pinned** (Éléments épinglés) contient une liste de paires, constituées de termes de requête associés à des pages web, qui spécifient la page web devant s’afficher en tant que meilleur résultat pour une requête particulière. La page web est épinglée uniquement si la chaîne de requête de l’utilisateur correspond à la chaîne de requête de l’épingle selon la condition de correspondance de l’épingle. [En savoir plus](../define-your-custom-view.md#pin-to-top).
+Pour épingler une page web spécifique au début des résultats de recherche, ajoutez la page web et le terme de requête dans l’onglet **Pinned** (Éléments épinglés). L’onglet **Pinned** (Éléments épinglés) contient une liste de paires, constituées de termes de requête associés à des pages web, qui spécifient la page web devant s’afficher en tant que meilleur résultat pour une requête particulière. La page web est épinglée uniquement si la chaîne de requête de l’utilisateur correspond à la chaîne de requête de l’épingle selon la condition de correspondance de l’épingle. Seules les pages web indexées apparaîtront dans les recherches. Consultez [Définir votre affichage personnalisé](../define-your-custom-view.md#pin-to-top) pour en savoir plus.
 
 1. Dans la page **Configuration**, cliquez sur l’onglet **Pinned** et entrez la page web et le terme de requête de la page web que vous voulez voir retourner comme premier résultat.  
   

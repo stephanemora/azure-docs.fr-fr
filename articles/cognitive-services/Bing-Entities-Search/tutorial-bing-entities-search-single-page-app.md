@@ -3,19 +3,19 @@ title: 'Didacticiel : Recherche d’entités Bing dans une application web à pa
 titlesuffix: Azure Cognitive Services
 description: Montre comment utiliser l’API Recherche d’entités Bing dans une application web à page unique.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: tutorial
 ms.date: 12/08/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 6bf3944017075ee04fe6ed3472a0cbe12d7f8ba0
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815543"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162005"
 ---
 # <a name="tutorial-single-page-web-app"></a>Didacticiel : Application web à page unique
 
@@ -167,7 +167,7 @@ L’API Bing Maps offre une [`locationQuery`méthode](//msdn.microsoft.com/libra
 
 Nous ne pouvons pas accéder à l’API Bing Maps en utilisant une requête `XMLHttpRequest` ordinaire dans une application web, car le service ne prend pas en charge les requêtes cross-origin. Heureusement, il prend en charge JSONP (« P » pour « padded » qui signifie « rempli »). Une réponse JSONP est une réponse JSON ordinaire encapsulée dans un appel de fonction. La requête est effectuée en insérant une balise `<script>` dans le document. (Le chargement des scripts n’est pas soumis aux stratégies de sécurité de navigateur.)
 
-La fonction `bingMapsLocate()` crée et insère la balise `<script>` pour la requête. Le segment `jsonp=bingMapsCallback` de la chaîne de requête spécifie le nom de la fonction qui doit être appelée avec la réponse.
+La fonction `bingMapsLocate()` crée et insère la balise `<script>` pour la requête. Le segment `jsonp=bingMapsCallback` de la chaîne de requête spécifie le nom de la fonction qui soit être appelée avec la réponse.
 
 ```javascript
 function bingMapsLocate(where) {

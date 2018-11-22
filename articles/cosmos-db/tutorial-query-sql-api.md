@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 5f5a98f0f28eba499b7ea3fa76944c21cf8bf8db
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: a56147432d4ef1cc9ac2568259cc2bbf2c7da7ab
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958866"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162668"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API SQL
 
 L’[API SQL](documentdb-introduction.md) Azure Cosmos DB prend en charge l’interrogation de documents à l’aide de SQL. Cet article fournit un exemple de document et deux exemples de requêtes SQL et de résultats.
 
-Cet article décrit les tâches suivantes : 
+Cet article décrit les tâches suivantes : 
 
 > [!div class="checklist"]
 > * Interrogation des données avec SQL
@@ -65,11 +65,11 @@ L’exemple de document suivant est utilisé pour les interrogations SQL de cet 
 Vous pouvez exécuter des requêtes à l’aide de l’Explorateur de données dans le portail Azure, via l’[API REST et Kits de développement logiciel (SDK) ](sql-api-sdk-dotnet.md)et même l’[interface de requête](https://www.documentdb.com/sql/demo), qui exécute des requêtes sur un ensemble d’exemples de données existant.
 
 Pour plus d’informations sur les requêtes SQL, consultez :
-* [Requête SQL et syntaxe SQL](sql-api-sql-query.md)
+* [Requête SQL et syntaxe SQL](how-to-sql-query.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB. Cela n’est pas le cas ? Procédez au [démarrage rapide en 5 minutes](create-mongodb-nodejs.md).
+Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB. Cela n’est pas le cas ? Procédez au [démarrage rapide en 5 minutes](create-mongodb-nodejs.md).
 
 ## <a name="example-query-1"></a>Exemple de requête 1
 
@@ -130,7 +130,7 @@ La requête suivante renvoie tous les noms donnés des enfants de la famille don
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez :
+Dans ce tutoriel, vous avez :
 
 > [!div class="checklist"]
 > * Effectuer des interrogations à l’aide de SQL  

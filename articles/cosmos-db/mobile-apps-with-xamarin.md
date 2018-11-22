@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 0187bf51d36f16001f0f7f67f4f72f5f3df2e05d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6311316ab5aeab4685ca820ef5dbec4832896dcd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974134"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164504"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Créer des applications mobiles avec Xamarin et Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Azure Cosmos DB fournit les fonctionnalités clés suivantes aux développeurs d
 
 ![Fonctionnalités d’Azure Cosmos DB pour les applications mobiles](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
-* Requêtes riches sur des données sans schéma. Azure Cosmos DB stocke les données sous la forme de documents JSON sans schéma dans des collections hétérogènes. Il propose des [requêtes riches et rapides](sql-api-sql-query.md), qui ne nécessitent aucun schéma ou index.
+* Requêtes riches sur des données sans schéma. Azure Cosmos DB stocke les données sous la forme de documents JSON sans schéma dans des collections hétérogènes. Il propose des [requêtes riches et rapides](how-to-sql-query.md), qui ne nécessitent aucun schéma ou index.
 * Débit rapide. Seules quelques millisecondes sont nécessaires pour lire et écrire des documents avec Azure Cosmos DB. Les développeurs peuvent spécifier le débit dont ils ont besoin, et Azure Cosmos DB l’honore avec une disponibilité à 99,99 % pour tous les comptes à région unique et à plusieurs régions avec cohérence souple, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions.
 * Mise à l’échelle illimitée. Vos collections Azure Cosmos DB [augmentent à mesure que votre application grandit](partition-data.md). Vous pouvez commencer par des données de petite taille et un débit réduit, soit quelques centaines de requêtes par seconde. Vos collections ou bases de données peuvent inclure jusqu’à plusieurs pétaoctets de données et un débit arbitrairement élevé, soit des centaines de millions de requêtes par seconde.
 * Distribution globale. Les utilisateurs d’applications mobiles sont en déplacement, souvent aux quatre coins du monde. Azure Cosmos DB est une [base de données mondialement distribuée](distribute-data-globally.md). Cliquez sur la carte pour rendre les données accessibles à vos utilisateurs.
@@ -85,7 +85,7 @@ Pour transformer l’application de liste de tâches en liste multi-utilisateur,
 
   4. Modifiez l’application pour qu’elle propose une authentification auprès de Resource Token Broker avec Facebook et demande les jetons de ressource pour l’utilisateur Facebook connecté. Vous pouvez ensuite accéder à leurs données dans la collection UserItems.  
 
-Un exemple de code complet de ce modèle est disponible sur [Resource Token Broker sur GitHub](http://aka.ms/documentdb-xamarin-todouser). Ce diagramme illustre la solution :
+Un exemple de code complet de ce modèle est disponible sur [Resource Token Broker sur GitHub](https://aka.ms/documentdb-xamarin-todouser). Ce diagramme illustre la solution :
 
 ![Utilisateurs d’Azure Cosmos DB et répartiteur d’autorisations](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 
@@ -107,7 +107,7 @@ Félicitations ! Vous avez terminé la solution et vous disposez d’une applic
 * Affichez le code source de [Xamarin et Azure Cosmos DB sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 * Téléchargez le [SDK .NET Core Azure Cosmos DB](sql-api-sdk-dotnet-core.md).
 * Consultez davantage d’exemples de code pour les [applications .NET](sql-api-dotnet-samples.md).
-* Découvrez plus en détail les [riches fonctionnalités d’interrogation d’Azure Cosmos DB](sql-api-sql-query.md).
+* Découvrez plus en détail les [riches fonctionnalités d’interrogation d’Azure Cosmos DB](how-to-sql-query.md).
 * Découvrez plus en détail la [prise en charge géospatiale dans Azure Cosmos DB](geospatial.md).
 
 

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 92e200f358098d5516246d057d1cef406750e326
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623194"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264680"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>En quoi consiste la surveillance d’Azure Active Directory ? (préversion)
 
@@ -32,6 +32,8 @@ Actuellement, vous pouvez acheminer les journaux vers :
 - Un compte de stockage Azure.
 - Un Azure Event Hub pour vous permettre d’intégrer vos instances Splunk et Sumologic.
 - Espace de travail Azure Log Analytics, dans lequel vous pouvez analyser les données, créer un tableau de bord et signaler des événements spécifiques
+
+> [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="diagnostic-settings-configuration"></a>Configuration des paramètres de diagnostic
 

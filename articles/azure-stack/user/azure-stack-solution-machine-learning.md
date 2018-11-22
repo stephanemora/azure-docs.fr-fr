@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8a5ca4f94a6f1186b6d1a26b1c7e12357cd9e799
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616365"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285116"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Didacticiel : Créer une solution de périphérie de Machine Learning avec Azure et Azure Stack
 
@@ -89,7 +89,7 @@ Il est nécessaire de bien connaître Azure et Azure Stack au préalable. Pour e
 
  -  Système intégré Azure Stack ou déploiement du Kit de développement Azure Stack.
 
-    - La page [Installer le Kit de développement Azure Stack](/articles/azure-stack/asdk/asdk-install) comporte des instructions permettant d’installer Azure Stack.
+    - La page [Installer le Kit de développement Azure Stack](../asdk/asdk-install.md) comporte des instructions permettant d’installer Azure Stack.
      - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Cette installation peut nécessiter plusieurs heures.
 
  -  Déploiement des services PaaS [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) sur Azure Stack
