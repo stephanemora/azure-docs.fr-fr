@@ -1,4 +1,16 @@
-
+---
+author: MightyPen
+ms.service: sql-database
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: genemi
+ms.openlocfilehash: c4329b9efef3cdb2911466e64ac6c9f07a1e9b31
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52270009"
+---
 <a name="cs_0_csharpprogramexample_h2"/>
 
 ## <a name="c-program-example"></a>Exemple de programme C#
@@ -24,7 +36,7 @@ Le programme C# contient :
 Ce programme C# est, en toute logique, un fichier .cs. Dans ce cas, le programme est physiquement divisé en plusieurs blocs de code, ce qui rend chaque bloc plus facile à repérer et à interpréter. Pour compiler et exécuter ce programme, procédez comme suit :
 
 1. Créez un projet C# dans Visual Studio.
-    - Le type de projet doit être une application *console*, disposant de la hiérarchie suivante : **Modèles** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
+    - Le type de projet doit être une application *console*, disposant de la hiérarchie suivante : **Modèles** > **Visual C#**  > **Windows Classic Desktop** > **Console App (.NET Framework)**.
 3. Dans le fichier **Program.cs**, supprimez les lignes de codes de démarrage.
 3. Dans le fichier Program.cs, copiez, puis collez chacun des blocs suivants, dans le même ordre.
 4. Dans Program.cs, modifiez les valeurs suivantes dans la méthode **principale** :

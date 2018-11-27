@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 930f5dc0369c998039b9cc0c089f60de17993be0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 415652739c4987deafe820c31499132ec3829c8b
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435152"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263313"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Didacticiel : créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell
 
@@ -50,7 +50,7 @@ Pour créer une image de machine virtuelle, vous devez préparer la machine virt
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>Généraliser la machine virtuelle Windows à l’aide de Sysprep
 
-Sysprep supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](https://technet.microsoft.com/library/bb457073.aspx).
 
 
 1. Connectez-vous à la machine virtuelle.
@@ -101,7 +101,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Créer des machines virtuelles à partir de l’image
 
-Maintenant que vous avez une image, vous pouvez créer une ou plusieurs nouvelles machines virtuelles à partir de l’image. La création d’une machine virtuelle à partir d’une image personnalisée est similaire à la création d’une machine virtuelle à l’aide d’une image de la Place de marché. Lorsque vous utilisez une image de la Place de marché, vous devez fournir les informations sur l’image, le fournisseur de l’image, l’offre, la référence et la version. Avec le jeu de paramètres simplifié de la cmdlet [New-AzureRMVM](), il suffit de fournir le nom de l’image personnalisée, tant qu’elle se trouve dans le même groupe de ressources. 
+Maintenant que vous avez une image, vous pouvez créer une ou plusieurs nouvelles machines virtuelles à partir de l’image. La création d’une machine virtuelle à partir d’une image personnalisée est similaire à la création d’une machine virtuelle à l’aide d’une image de la Place de marché. Lorsque vous utilisez une image de la Place de marché, vous devez fournir les informations sur l’image, le fournisseur de l’image, l’offre, la référence et la version. Avec le jeu de paramètres simplifié de la cmdlet [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm), il suffit de fournir le nom de l’image personnalisée, tant qu’elle se trouve dans le même groupe de ressources. 
 
 Cet exemple crée une machine virtuelle nommée *myVMfromImage* à partir de l’image *myImage*, dans le groupe de ressources *myResourceGroup*.
 
@@ -130,11 +130,11 @@ $images = Get-AzureRMResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-Supprimez une image. Cet exemple supprime l’image nommée *myOldImage* à partir du groupe *myResourceGroup*.
+Supprimez une image. Cet exemple supprime l’image nommée *myImage* du groupe *myResourceGroup*.
 
 ```azurepowershell-interactive
 Remove-AzureRmImage `
-    -ImageName myOldImage `
+    -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: c675b6d50cf6bf5c4e7ea064f3741cae7a091946
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c21d5618b3e3223297ddd97dc5c98e5eb8c18c0b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578312"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974816"
 ---
 # <a name="get-started"></a>Démarrage rapide : Créer un équilibreur de charge public à l’aide d’Azure PowerShell
 Ce démarrage rapide vous montre comment créer un équilibreur de charge de base à l’aide d’Azure PowerShell. Pour tester l’équilibreur de charge, vous déployez deux machines virtuelles exécutant un serveur Windows, puis vous équilibrez la charge d’une application web entre les machines virtuelles.
@@ -44,7 +44,7 @@ Pour accéder à votre application sur Internet, vous avez besoin d’une adress
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
+  -AllocationMethod "Static" `
   -Name "myPublicIP"
 ```
 ## <a name="create-basic-load-balancer"></a>Créer un équilibreur de charge de base
@@ -251,7 +251,7 @@ Définissez un nom d’utilisateur administrateur et un mot de passe pour les ma
 $cred = Get-Credential
 ```
 
-Vous pouvez maintenant créer les machines virtuelles avec [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). L’exemple suivant crée deux machines virtuelles et les composants de réseau virtuel requis s’ils n’existent pas déjà :
+Vous pouvez maintenant créer les machines virtuelles avec [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). L’exemple suivant crée deux machines virtuelles ainsi que les composants de réseau virtuel nécessaires s’ils n’existent pas encore. Lors de la création de la machine virtuelle dans l’exemple ci-dessous, les cartes réseau créées précédemment sont associées aux machines virtuelles dans la mesure où le même réseau virtuel (*myVnet*) et le même sous-réseau (*mySubnet*) leur sont affectés :
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -270,7 +270,7 @@ for ($i=1; $i -le 2; $i++)
 }
 ```
 
-Le paramètre `-AsJob` crée la machine virtuelle en tant que tâche en arrière-plan. Vous recevez donc les invites PowerShell. Vous pouvez afficher les détails des travaux en arrière-plan à l’aide du cmdlet `Job`. La création et la configuration des deux machines virtuelles prennent quelques minutes.
+Le paramètre `-AsJob` crée la machine virtuelle en tant que tâche en arrière-plan. Vous recevez donc les invites PowerShell. Vous pouvez afficher les détails des travaux en arrière-plan à l’aide de l’applet de commande `Job`. La création et la configuration des deux machines virtuelles prennent quelques minutes.
 
 ### <a name="install-iis-with-custom-web-page"></a>Installer IIS avec une page web personnalisée
  

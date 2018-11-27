@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: 65dc420b6832b7b0a4cf14d63203d4c66e2a4254
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6b8bf4a0bc6b5e5e9b9ad7f91ba409aaf922e8e9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993593"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822228"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -75,7 +75,7 @@ Les adresses IP publiques de référence SKU standard :
 
 - Sont assignées à l’aide de la méthode d’allocation statique uniquement.
 - Sont sécurisées par défaut et fermées au trafic entrant. Vous devez expliciter le trafic entrant autorisé sur liste verte avec un [groupe de sécurité réseau](security-overview.md#network-security-groups).
-- Sont assignées à des interfaces réseau ou à des équilibreurs de charge standard publics. Pour plus d’informations sur les équilibreurs de charge standard, consultez [Équilibreur de charge Azure standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Sont assignées à des interfaces réseau, des équilibreurs de charge standard publics, des passerelles d’application ou des passerelles VPN. Pour plus d’informations sur les équilibreurs de charge standard, consultez [Équilibreur de charge Azure standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Sont redondantes dans une zone par défaut. Peuvent être créées pour une zone et garanties dans une zone de disponibilité spécifique. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
@@ -132,10 +132,10 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 | --- | --- | --- | --- |
 | Machine virtuelle |interface réseau |Oui |Oui |
 | Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
-| passerelle VPN |Configuration IP de la passerelle |Oui |Non  |
-| passerelle d’application |Configuration frontale |Oui |Non  |
+| passerelle VPN |Configuration IP de la passerelle |Oui |Oui |
+| passerelle d’application |Configuration frontale |Oui |Oui |
 
-## <a name="private-ip-addresses"></a>Adresses IP privées
+## <a name="private-ip-addresses"></a>Adresses IP privées
 Les adresses IP privées permettent aux ressources Azure de communiquer avec d’autres ressources dans un [réseau virtuel](virtual-networks-overview.md) ou dans un réseau local par le biais d’une passerelle VPN ou d’un circuit ExpressRoute, sans utiliser d’adresse IP accessible via Internet.
 
 Dans le modèle de déploiement Azure Resource Manager, une adresse IP privée est associée aux types ressources Azure suivants.

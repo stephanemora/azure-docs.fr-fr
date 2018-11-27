@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41917702"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822464"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Didacticiel : enregistrer le trafic réseau vers et depuis une machine virtuelle à l’aide du portail Azure
 
@@ -36,6 +36,9 @@ Un groupe de sécurité réseau (NSG) permet de filtrer le trafic entrant vers u
 > * Afficher les données enregistrées
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+> [!NOTE] 
+> Les journaux de flux version 2 sont disponibles dans la région USA Centre-Ouest. La configuration est disponible via le portail Azure et l’API REST. Si vous activez les journaux version 2 dans une région non prise en charge, des journaux version 1 seront enregistrés dans votre compte de stockage.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -100,8 +103,9 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 
 6. Dans la liste des groupes de sécurité réseau, sélectionnez le groupe de sécurité réseau nommé **myVm-nsg**.
 7. Sous **Paramètres des journaux de flux**, sélectionnez **Activé**.
-8. Sélectionnez le compte de stockage que vous avez créé à l’étape 3.
-9. Définissez le paramètre **Rétention (jours)** sur 5, puis sélectionnez **Enregistrer**.
+8. Sélectionnez la version de journalisation des flux. La version 2 contient des statistiques de session des flux (octets et paquets). ![Sélection de la version des journaux de flux](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+9. Sélectionnez le compte de stockage que vous avez créé à l’étape 3.
+10. Définissez le paramètre **Rétention (jours)** sur 5, puis sélectionnez **Enregistrer**.
 
 ## <a name="download-flow-log"></a>Télécharger le journal de flux
 
@@ -126,6 +130,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 
 Le texte JSON suivant est un exemple de ce que vous verrez dans le fichier PT1H.json pour chaque flux pour lequel des données sont enregistrées :
 
+### <a name="version-1-flow-log-event"></a>Événement du journal de flux version 1
 ```json
 {
     "time": "2018-05-01T15:00:02.1713710Z",
@@ -135,29 +140,83 @@ Le texte JSON suivant est un exemple de ce que vous verrez dans le fichier PT1H.
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 1,
-        "flows": [{
-            "rule": "UserRule_default-allow-rdp",
-            "flows": [{
-                "mac": "000D3A170C69",
-                "flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
-            }]
-        }]
+        "flows": [
+            {
+                "rule": "UserRule_default-allow-rdp",
+                "flows": [
+                    {
+                        "mac": "000D3A170C69",
+                        "flowTuples": [
+                            "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
 ```
+### <a name="version-2-flow-log-event"></a>Événement du journal de flux version 2
+```json
+{
+    "time": "2018-11-13T12:00:35.3899262Z",
+    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 2,
+        "flows": [
+            {
+                "rule": "DefaultRule_DenyAllInBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                            "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                            "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                        ]
+                    }
+                ]
+            },
+            {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                            "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                            "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                            "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
 
 La valeur de la zone **mac** dans la sortie précédente est l’adresse MAC de l’interface réseau qui a été créée lors de la création de la machine virtuelle. Les informations séparées par des virgules dans **flowTuples** sont les suivantes :
 
 | Exemple de données | Ce que représentent les données   | Explication                                                                              |
 | ---          | ---                    | ---                                                                                      |
-| 1525186745   | Horodatage             | Indique la date et l’heure du flux au format UNIX EPOCH. Dans l’exemple précédent, la date est convertie au 1 mai 2018 à 14:59:05 (GMT).                                                                                    |
-| 192.168.1.4  | Adresse IP source      | Adresse IP source dont provient le flux.
-| 10.0.0.4     | Adresse IP de destination | Adresse IP de destination du flux. 10.0.0.4 est l’adresse IP privée de la machine virtuelle que vous avez créée à l’étape [Créer une machine virtuelle](#create-a-vm).                                                                                 |
-| 55960        | Port source            | Port source dont provient le flux.                                           |
-| 3389         | Port de destination       | Port de destination du flux. Comme le trafic était destiné au port 3389, la règle nommée **UserRule_default-allow-rdp** dans le fichier journal a traité le flux.                                                |
+| 1542110377   | Horodatage             | Indique la date et l’heure du flux au format UNIX EPOCH. Dans l’exemple précédent, la date est convertie au 1 mai 2018 à 14:59:05 (GMT).                                                                                    |
+| 10.0.0.4  | Adresse IP source      | Adresse IP source dont provient le flux. 10.0.0.4 est l’adresse IP privée de la machine virtuelle que vous avez créée à l’étape [Créer une machine virtuelle](#create-a-vm).
+| 13.67.143.118     | Adresse IP de destination | Adresse IP de destination du flux.                                                                                  |
+| 44931        | Port source            | Port source dont provient le flux.                                           |
+| 443         | Port de destination       | Port de destination du flux. Comme le trafic était destiné au port 443, la règle nommée **UserRule_default-allow-rdp** dans le fichier journal a traité le flux.                                                |
 | T            | Protocole               | Indique si le protocole du flux était TCP (T) ou UDP (U).                                  |
-| I            | Direction              | Indique si le trafic était entrant (I) ou sortant (O).                                     |
-| A            | Action                 | Indique si le trafic était autorisé (A) ou refusé (D).                                           |
+| O            | Direction              | Indique si le trafic était entrant (I) ou sortant (O).                                     |
+| A            | Action                 | Indique si le trafic était autorisé (A) ou refusé (D).  
+| C            | État du flux **Version 2 uniquement** | Capture l’état du flux. Les états possibles sont **B** (début), lors de la création d’un flux. Aucune statistique n’est fournie. **C** : continuation d’un flux en cours. Des statistiques sont fournies toutes les 5 minutes. **E** : fin, lorsqu’un flux est arrêté. Des statistiques sont fournies. |
+| 30 | Paquets envoyés - Source vers destination **Version 2 uniquement** | Nombre total de paquets TCP ou UDP envoyés de la source à la destination depuis la dernière mise à jour. |
+| 16978 | Octets envoyés - Source vers destination **Version 2 uniquement** | Nombre total d’octets de paquets TCP ou UDP envoyés de la source vers la destination depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet. | 
+| 24 | Paquets envoyés - Destination vers source **Version 2 uniquement** | Nombre total de paquets TCP ou UDP envoyés de la destination vers la source depuis la dernière mise à jour. |
+| 14008| Octets envoyés - Destination vers source **Version 2 uniquement** | Le nombre total d’octets de paquets TCP et UDP envoyés de la destination à la source depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet.| |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

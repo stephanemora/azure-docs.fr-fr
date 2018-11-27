@@ -9,13 +9,13 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/26/2018
-ms.openlocfilehash: bf7351f5d62958b77473440d618d31cda2c983ea
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 11/19/2018
+ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615515"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265260"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -378,7 +378,7 @@ Dans cette section, vous chargez les données transformées dans Azure SQL Data 
 
 Comme mentionné précédemment, le connecteur d’entrepôt de données SQL utilise le Stockage Blob Azure comme emplacement de stockage temporaire pour charger des données entre Azure Databricks et Azure SQL Data Warehouse. Vous commencez donc par fournir la configuration pour vous connecter au compte de stockage. Vous devez déjà avoir créé le compte dans le cadre de la configuration requise pour cet article.
 
-1. Fournissez la configuration pour accéder au compte de Stockage Azure à partir d’Azure Databricks.
+1. Fournissez la configuration pour accéder au compte de Stockage Azure à partir d’Azure Databricks. Si vous copiez l’URL de votre stockage Blob à partir du portail, veillez à supprimer *https://* au début. 
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"

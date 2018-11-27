@@ -1,26 +1,21 @@
 ---
-title: Échanger des données avec Azure Event Hubs pour Apache Kafka | Microsoft Docs
+title: Transmettre des données à Azure Event Hubs pour Apache Kafka
 description: Échangez des données avec Event Hubs en utilisant le protocole et les API Kafka.
 services: event-hubs
-documentationcenter: ''
 author: basilhariri
-manager: timlt
+ms.author: bahariri
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/01/2018
-ms.author: bahariri
-ms.openlocfilehash: 18224c3ebf3b5dd9920dcc4b4868ee8bb42e5f91
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 748ed7dde98d81de6e1d2661c6ce50d10357ba3d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418787"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975309"
 ---
-# <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Diffuser en continu dans Event Hubs pour Apache Kafka
+# <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Transmettre des données à Event Hubs pour Apache Kafka
 Ce guide de démarrage rapide montre comment échanger des données avec Event Hubs prenant en charge Kafka, sans changer vos protocoles clients ni exécuter vos propres clusters. Vous découvrez comment utiliser vos producteurs et vos consommateurs pour communiquer avec Event Hubs prenant en charge Kafka, avec seulement une modification de configuration dans vos applications. Azure Event Hubs prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]
@@ -47,7 +42,7 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
  
 3. Spécifiez un nom unique et activez Kafka sur l’espace de noms. Cliquez sur **Créer**.
     
-    ![Créer un espace de noms](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Créer un espace de noms](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. Une fois l’espace de noms créé, sous l’onglet **Paramètres**, cliquez sur **Stratégies d’accès partagé** pour obtenir la chaîne de connexion.
 

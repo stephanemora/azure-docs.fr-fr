@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: bf616dda602edff6add5070ad1f1ab85b6a21380
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568969"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285133"
 ---
 # <a name="what-is-azure-search"></a>Présentation de Recherche Azure
 La Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise. L’exécution d’une requête est effectué sur un index défini par l’utilisateur.
@@ -91,7 +91,7 @@ Voici les principaux atouts :
 
 Parmi nos clients, ceux capables d’exploiter le plus large éventail de fonctionnalités Recherche Azure sont les catalogues en ligne, les programmes métier et les applications de découverte de documents.
 
-## <a name="rest-api--net-sdk"></a>API REST | .Net SDK
+## <a name="rest-api--net-sdk"></a>API REST | SDK .NET
 
 Bien qu’il soit possible d’effectuer de nombreuses tâches dans le portail, Recherche Azure s’adresse avant tout aux développeurs désireux d’intégrer la fonctionnalité de recherche dans des applications existantes. Les interfaces de programmation suivantes sont disponibles.
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 717a0234f0155229597c6fc4fe70a7868a536975
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242288"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160731"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 
@@ -50,7 +50,7 @@ En tant que service de base de données multi-model distribué, Azure Cosmos DB 
 
 * **Créer des applications hautement réactives et stratégiques**
     * Azure Cosmos DB garantit une faible latence de bout en bout au 99e centile à ses clients. 
-    * Pour un document de 1 Ko, Cosmos DB garantit une latence de bout en bout des lectures sous 10 ms et des écritures indexées sous 15 ms au 99e centile, dans la même région Azure. Les latences médianes sont nettement plus faibles (inférieures à 5 ms).
+    * Pour un document de 1 Ko, Cosmos DB garantit une latence de bout en bout des lectures inférieure à 10 ms et des écritures indexées inférieure à 10 ms au 99e centile, dans la même région Azure. Les latences médianes sont nettement plus faibles (inférieures à 5 ms).
 
 * **Assurer une disponibilité en continu**
     * Contrat SLA de disponibilité à 99,99 % pour tous les comptes de base de données à une seule région, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions.
@@ -79,9 +79,9 @@ Azure Cosmos DB fournit les meilleures fonctionnalités des bases de données cl
 | --- | --- | --- | --- |
 | Diffusion mondiale | Non  | Non  | Oui, la distribution clé en main est disponible avec les API multihébergement dans plus de 30 régions.|
 | Mise à l’échelle horizontale | Non  | Oui | Oui, vous pouvez mettre le stockage et le débit à l’échelle indépendamment. | 
-| Garanties de latence | Non  | Oui | Oui, la latence de 99 % des lectures est inférieure à 10 ms et celle des écritures est inférieure à 15 ms. | 
+| Garanties de latence | Non  | Oui | Oui, la latence de 99 % des lectures est inférieure à 10 ms et celle des écritures est inférieure à 10 ms | 
 | Haute disponibilité | Non  | Oui | Oui, Cosmos DB est toujours disponible, respecte les compromis PACELC, et permet des basculements manuels et automatiques.|
-| Modèle de données + API | Relationnel + SQL | Multi-modèle + API OSS | Multi-modèle + SQL + API OSS (autres fonctionnalités disponibles prochainement) |
+| Modèle de données + API | Relationnel + SQL | Multi-modèle + API OSS | Multi-model + SQL + OSS API |
 | Contrats SLA | Oui | Non  | Oui, les contrats SLA sont complets en termes de latence, de débit, de cohérence et de disponibilité. |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Les solutions qui profitent des avantages de Azure Cosmos DB

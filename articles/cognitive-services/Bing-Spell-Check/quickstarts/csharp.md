@@ -3,23 +3,23 @@ title: 'Démarrage rapide : API Vérification orthographique Bing, C#'
 titlesuffix: Azure Cognitive Services
 description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Vérification orthographique Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: e723bc117cff208ea824dae216b8e8b57f7f26d7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: aahi
+ms.openlocfilehash: 4e5bc56a74a8280954e278f00639b7a774d516ce
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801452"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165548"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-c"></a>Démarrage rapide pour l’API Vérification orthographique Bing avec C#
 
-Cet article vous explique comment utiliser l’[API Vérification orthographique Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) avec C#. L’API Vérification orthographique renvoie une liste de mots qu’elle ne reconnaît pas avec des suggestions de remplacements. Généralement, vous envoyez du texte à cette API, puis vous effectuez les remplacements suggérés dans le texte ou vous les montrez à l’utilisateur de votre application pour qu’il puisse décider de les effectuer ou non. Cet article explique comment envoyer une requête contenant le texte « Hollo, wrld! » Les remplacements suggérés sont « Hello » et « world ».
+Cet article vous explique comment utiliser l’[API Vérification orthographique Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) avec C#. L’API Vérification orthographique renvoie une liste de mots qu’elle ne reconnaît pas avec des suggestions de remplacements. Généralement, vous envoyez du texte à cette API, puis vous effectuez les remplacements suggérés dans le texte ou vous les montrez à l’utilisateur de votre application pour qu’il puisse décider de les effectuer ou non. Cet article explique comment envoyer une requête contenant le texte « Hollo, wrld! » Les remplacements suggérés sont « Hello » et « world ».
 
 ## <a name="prerequisites"></a>Prérequis
 

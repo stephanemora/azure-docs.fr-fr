@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030844"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822352"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
-Si vous avez lu le tutoriel Analyse du coût, vous êtes familiarisé avec le téléchargement manuel de vos données Cost Management. Cependant, vous pouvez créer une tâche périodique quotidienne qui exporte automatiquement tous les jours vos données Cost Management dans un stockage Azure. Les données exportées sont au format CSV, et elles contiennent toutes les informations collectées par Cost Management. Vous pouvez ensuite utiliser les données exportées dans Stockage Azure avec des systèmes externes et les combiner avec vos propres données personnalisées. Vous pouvez aussi utiliser vos données exportées dans un système externe, comme un tableau de bord ou un autre système financier.
+Si vous avez lu le tutoriel Analyse du coût, vous êtes familiarisé avec le téléchargement manuel de vos données Cost Management. Cependant, vous pouvez créer une tâche récurrente qui exporte automatiquement sur une base quotidienne, hebdomadaire ou mensuelle vos données Cost Management dans un stockage Azure. Les données exportées sont au format CSV, et elles contiennent toutes les informations collectées par Cost Management. Vous pouvez ensuite utiliser les données exportées dans Stockage Azure avec des systèmes externes et les combiner avec vos propres données personnalisées. Vous pouvez aussi utiliser vos données exportées dans un système externe, comme un tableau de bord ou un autre système financier.
 
 Les exemples de ce tutoriel montrent comment exporter vos données de gestion des coûts, puis comment vérifier que les données ont été exportées correctement.
 
@@ -46,13 +46,19 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="create-a-daily-export"></a>Créer une exportation quotidienne
 
-Gestion des coûts + Facturation &gt; sélectionnez un abonnement ou un groupe de ressources dans un abonnement &gt; Exporter &gt; **Ajouter**.
+Gestion des coûts + Facturation &gt; Gestion des coûts &gt; sélectionnez un abonnement ou un groupe de ressources dans un abonnement &gt; Exporter &gt; **Ajouter**.
 
-Tapez un nom pour l’exportation et spécifiez l’abonnement, le compte de stockage Azure, le conteneur, et le répertoire de stockage des fichiers ou le conteneur d’objets blob, puis cliquez sur **Créer**.
+Tapez un nom pour l’exportation et sélectionnez l’option « Exportation quotidienne des coûts en cumul mensuel à ce jour ». Cliquez sur **Suivant**.
 
-![Nouvelle exportation](./media/tutorial-export-acm-data/new-export01.png)
+![Nouvelle exportation : type d’exportation](./media/tutorial-export-acm-data/basics_exports.png)
 
-Votre nouvelle exportation apparaît dans la liste des exportations. Par défaut, les nouvelles exportations sont activées et s’exécutent tous les jours. Si vous voulez désactiver ou supprimer une exportation planifiée, cliquez sur n’importe quel élément de la liste, puis cliquez sur **Désactiver** ou sur **Supprimer**.
+Spécifiez l’abonnement pour votre compte de stockage Azure, puis sélectionnez votre compte de stockage.  Spécifiez le conteneur de stockage et le chemin du répertoire que vous souhaitez utiliser pour le fichier d’exportation.  Cliquez sur **Suivant**.
+
+![Nouvelle exportation : stockage](./media/tutorial-export-acm-data/storage_exports.png)
+
+Vérifiez vos informations d’exportation, puis cliquez sur **Créer**.
+
+Votre nouvelle exportation apparaît dans la liste des exportations. Par défaut, les nouvelles exportations sont activées. Si vous voulez désactiver ou supprimer une exportation planifiée, cliquez sur n’importe quel élément de la liste, puis cliquez sur **Désactiver** ou sur **Supprimer**.
 
 Initialement, l’exportation peut s’exécuter au bout d’une ou deux heures. Jusqu’à quatre heures peuvent cependant être nécessaires avant que les données apparaissent dans les fichiers exportés.
 

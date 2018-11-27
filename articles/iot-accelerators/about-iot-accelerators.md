@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345111"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824538"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Que sont les accélérateurs de solution IoT ?
 
@@ -32,13 +32,13 @@ Le code d’application de chaque accélérateur de solution inclut une applicat
 
 Vous disposez actuellement de quatre accélérateurs de solution à déployer :
 
-### <a name="remote-monitoring"></a>Surveillance à distance
+### <a name="remote-monitoring"></a>Supervision à distance
 
 Utilisez cet accélérateur de solution pour récolter des données de télémétrie d’appareils distants et pour les contrôler. On peut citer par exemple des systèmes de refroidissement installés dans les locaux de vos clients ou des valves installées dans des stations de pompage distantes.
 
-Vous pouvez utiliser le tableau de bord de surveillance à distance pour afficher les données de télémétrie de vos appareils connectés, provisionner de nouveaux appareils ou mettre à niveau le microprogramme sur vos appareils connectés :
+Vous pouvez utiliser le tableau de bord de supervision à distance pour afficher les données de télémétrie de vos appareils connectés, provisionner de nouveaux appareils ou mettre à niveau le microprogramme sur vos appareils connectés :
 
-[![Tableau de bord de la solution de surveillance à distance](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
+[![Tableau de bord de la solution de supervision à distance](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
 
 ### <a name="connected-factory"></a>Fabrique connectée
 
@@ -50,7 +50,7 @@ Vous pouvez utiliser le tableau de bord d’usine connectée pour surveiller et 
 
 ### <a name="predictive-maintenance"></a>Maintenance prédictive
 
-Utilisez cet accélérateur de solution pour prédire la défaillance d’un appareil distant afin de mener une maintenance en amont. Cet accélérateur de solution utilise des algorithmes de machine Learning pour prédire des défaillances de données de télémétrie. On peut citer par exemple les moteurs d’avion ou les ascenseurs.
+Utilisez cet accélérateur de solution pour prédire la défaillance d’un appareil distant afin d’effectuer la maintenance en amont avant une défaillance de l’appareil. Cet accélérateur de solution utilise des algorithmes de machine Learning pour prédire des défaillances de données de télémétrie. On peut citer par exemple les moteurs d’avion ou les ascenseurs.
 
 Vous pouvez utiliser le tableau de bord de maintenance prédictive pour afficher l’analytique de maintenance prédictive :
 
@@ -80,7 +80,7 @@ Les accélérateurs de solution originaux ont été conçus avec .NET et une arc
 
 | Accélérateur de solution   | Architecture  | Langues     |
 | ---------------------- | ------------- | ------------- |
-| Surveillance à distance      | Microservices | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) et [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
+| Supervision à distance      | Microservices | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) et [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
 | Maintenance prédictive | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
 | Fabrique connectée      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Simulation d’appareil      | Microservices | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
@@ -91,19 +91,19 @@ Pour en savoir plus sur les architectures de microservice, consultez [.NET Appli
 
 Vous pouvez déployer les accélérateurs de solution à partir du site [Accélérateurs de solution Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators#) ou à l’aide de la ligne de commande.
 
-Vous pouvez déployer l’accélérateur de solution de surveillance à distance dans les configurations suivantes :
+Vous pouvez déployer l’accélérateur de solution de supervision à distance dans les configurations suivantes :
 
 * **Standard :** déploiement étendu de l’infrastructure pour le développement d’un déploiement de production. Azure Container Service déploie les microservices sur plusieurs machines virtuelles Azure. Kubernetes orchestre les conteneurs Docker qui hébergent les microservices individuels.
 * **Basic :** version à coût réduit pour une démonstration ou pour tester un déploiement. Tous les microservices se déploient sur une seule machine virtuelle Azure.
 * **Locale :** déploiement de machine locale pour développement et test. Cette approche déploie les microservices vers un conteneur Docker local et se connecte à IoT Hub, Azure Cosmos DB et aux services de stockage Azure dans le cloud.
 
-Le coût associé à l’exécution d’un accélérateur de solution est un agrégat du [coût des services Azure sous-jacents](https://azure.microsoft.com/pricing). Vous pouvez voir les détails des services Azure utilisés lors du choix des options de déploiement.
+Le coût associé à l’exécution d’un accélérateur de solution est le [coût combiné de l’exécution des services Azure sous-jacents](https://azure.microsoft.com/pricing). Vous pouvez voir les détails des services Azure utilisés lors du choix des options de déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour essayer l’un des accélérateurs de solution IoT, consultez les démarrages rapides :
 
-* [Essayer une solution de surveillance à distance](quickstart-remote-monitoring-deploy.md)
+* [Essayer une solution de supervision à distance](quickstart-remote-monitoring-deploy.md)
 * [Essayer une solution d’usine connectée](quickstart-connected-factory-deploy.md)
 * [Essayer une solution de maintenance prédictive](quickstart-predictive-maintenance-deploy.md)
 * [Essayer une solution de simulation d’appareil](quickstart-device-simulation-deploy.md)

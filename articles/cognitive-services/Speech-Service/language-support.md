@@ -90,7 +90,7 @@ en-IE | Anglais (Irlande) |Masculin | « Voix de synthèse vocale pour le servic
 en-IN | Anglais (Inde) | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Heera, Apollo) »
 | | |Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, PriyaRUS) »
 | | |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Ravi, Apollo) »
-fr-FR | Anglais (US) |Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, ZiraRUS) »
+en-US | Anglais (US) |Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, ZiraRUS) »
 | | |Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, JessaRUS) »
 | | |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, BenjaminRUS) »
 | | |Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, Jessa24kRUS) »

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bcfc4cb65c94e34e9f6056ada53726f88489fefb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646649"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261800"
 ---
 # <a name="validate-oem-packages"></a>Valider les packages OEM
 
@@ -58,22 +58,17 @@ Lorsque vous créez un workflow **Validation de package** dans le portail VaaS, 
 
 #### <a name="option-1-generating-an-account-sas-url"></a>Option 1 : Générer une URL SAS de compte
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte de stockage, puis au fichier .zip contenant votre package
 
-1. Sélectionnez l’option **Blob** dans **Services autorisés**. Désélectionnez les autres options.
+2. Sélectionnez **Générer une signature d’accès partagé** dans le menu contextuel
 
-1. Sélectionnez **Conteneur**, et **Objet** dans **Types de ressources autorisés**. Désélectionnez les autres options.
+3. Sélectionnez **Lecture** dans **Autorisations**
 
-1. Sélectionnez **Lecture** et **Liste** dans **Permissions autorisées**. Désélectionnez les autres options.
+4. Définissez **Heure de début** sur l’heure actuelle et **Heure de fin** sur une valeur ultérieure d’au moins 48 heures à la valeur **Heure de fin**. Si vous devez exécuter d’autres tests avec le même package, envisagez d’augmenter la valeur **Heure de fin** pour qu’elle corresponde à la durée de vos tests. Tous les tests planifiés par le biais de VaaS après l’**Heure de fin** échouent et une nouvelle signature d’accès partagé (SAP) doit être générée.
 
-1. Définissez **Heure de début** sur l’heure actuelle et **Heure de fin** sur une heure depuis l’heure actuelle.
+5. Sélectionnez **Générer un jeton et une URL SAP d’objet blob**.
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    Le format devrait s’afficher comme suit : `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-1. Modifier l’URL SAS générée pour inclure le conteneur de packages, `{containername}`et le nom de votre objet blob de package, `{mypackage.zip}`, comme suit :  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-    Utilisez cette valeur lors du démarrage d’un nouveau workflow **Validation de package** dans le portail VaaS.
+Utilisez la valeur **URL SAP d’objet blob** lors du démarrage d’un nouveau workflow **Validation de package** dans le portail VaaS.
 
 #### <a name="option-2-using-public-read-container"></a>Option 2 : Utilisation d’un conteneur en lecture publique
 

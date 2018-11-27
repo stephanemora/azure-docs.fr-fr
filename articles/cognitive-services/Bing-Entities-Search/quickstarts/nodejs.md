@@ -3,23 +3,23 @@ title: 'Démarrage rapide : API Recherche d’entités Bing, Node.js'
 titlesuffix: Azure Cognitive Services
 description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’entités Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: b14bcece77b17e79ec9e39bbb6bb64ae34abd3a0
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 03ed9948935aab7348fe66cc43b059107ab96f79
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815141"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160900"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-nodejs"></a>Démarrage rapide pour l’API Recherche d’entités Bing avec Node.js
 
-Cet article vous explique comment utiliser [l’API Recherche d'entités Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) avec Node.js.
+Cet article vous explique comment utiliser l’API [Recherche d’entités Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) avec Node.JS.
 
 ## <a name="prerequisites"></a>Prérequis
 

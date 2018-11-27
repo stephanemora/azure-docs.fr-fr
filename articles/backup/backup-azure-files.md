@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 09bddd1c1d9589dbba0acf319ba43ea54c0c737b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 14a6e295eebcc3a7cb3f190a09afd65b0e959d7e
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221450"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265336"
 ---
 # <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
 Cet article explique comment utiliser le portail Azure pour sauvegarder et restaurer des [partages de fichiers Azure](../storage/files/storage-files-introduction.md).
@@ -31,7 +31,7 @@ Dans ce guide, vous apprendrez comment :
 Avant de sauvegarder un partage de fichiers Azure, assurez-vous qu’il est présent dans l’un des [types de compte de stockage pris en charge](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Après avoir vérifié ce point, vous pouvez protéger vos partages de fichiers.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitations pour la sauvegarde de partage de fichiers Azure en préversion
-La sauvegarde des partages de fichiers Azure est disponible en préversion. Les scénarios de sauvegarde suivants ne sont pas pris en charge pour les partages de fichiers Azure :
+La sauvegarde des partages de fichiers Azure est disponible en préversion. Les partages de fichiers Azure dans les comptes de stockage à usage général v1 et v2 sont pris en charge. Les scénarios de sauvegarde suivants ne sont pas pris en charge pour les partages de fichiers Azure :
 - Vous ne pouvez pas protéger les partages de fichiers Azure dans des comptes de stockage disposant d’une réplication de [stockage géoredondant avec accès en lecture](../storage/common/storage-redundancy-grs.md) (RA-GRS)*.
 - Vous ne pouvez pas protéger des partages de fichiers Azure dans des comptes de stockage qui ont activé les réseaux virtuels ou le pare-feu.
 - Aucune interface PowerShell ou interface de ligne de commande n’est disponible pour la protection des fichiers Azure à l’aide de la Sauvegarde Microsoft Azure.
@@ -39,10 +39,11 @@ La sauvegarde des partages de fichiers Azure est disponible en préversion. Les 
 - Vous pouvez effectuer quatre sauvegardes à la demande par jour maximum.
 - Utilisez les [verrous de ressources](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) sur le compte de stockage pour empêcher la suppression accidentelle des sauvegardes de votre coffre Recovery Services.
 - Ne supprimez pas les instantanés créés par Sauvegarde Azure. La suppression d’instantanés peut provoquer une perte de points de récupération et/ou des échecs de restauration.
+- Ne supprimez pas les partages de fichiers qui sont protégés par Sauvegarde Azure. La solution actuelle supprimera toutes les captures instantanées prises par Sauvegarde Azure une fois que le partage de fichiers aura été supprimé et qu’il aura donc perdu tous ses points de restauration.
 
 \*Partages de fichiers Azure dans des comptes de stockage disposant d’une fonction de réplication de [stockage géoredondant avec accès en lecture](../storage/common/storage-redundancy-grs.md) (RA-GRS) comme stockage GRS et facturés aux tarifs du stockage GRS.
 
-La sauvegarde des partages de fichiers Azure dans les comptes de stockage avec réplication de [stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md) (ZRS) est actuellement disponible uniquement dans les régions USA Centre (CUS), USA Est 2 (EUS2), Europe Nord (NE), Asie Sud-Est (SEA) et Europe Ouest (WE).
+La sauvegarde des partages de fichiers Azure dans les comptes de stockage avec réplication de [stockage redondant interzone](../storage/common/storage-redundancy-zrs.md) (ZRS) est actuellement disponible uniquement dans les régions USA Centre (CUS), USA Est (EUS), USA Est 2 (EUS2), Europe Nord (NE), Asie Sud-Est (SEA), Europe Ouest (WE) et USA Ouest 2 (WUS2).
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configuration de la sauvegarde d’un partage de fichiers Azure
 Toutes les données de sauvegarde sont stockées dans des coffres Recovery Services. Ce didacticiel suppose que vous ayez déjà établi un partage de fichiers Azure. Pour sauvegarder votre partage de fichiers Azure :

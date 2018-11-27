@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b98653ea0896e617a666147d243f24cb55483a28
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091679"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974987"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Utiliser le Portail Azure pour administrer votre solution Data Box Disk (préversion)
 
@@ -129,7 +129,7 @@ Pour modifier les détails de modification, procédez comme suit.
 |Processed (Traitée)     | La commande a été traitée. <br> Les opérations suivantes sont effectuées au cours du traitement de la commande :<li>Les disques sont chiffrés à l’aide du chiffrement AES-128 BitLocker. </li> <li>Les disques Data Box sont verrouillés pour empêcher tout accès non autorisé.</li><li>La clé de sécurité permettant de déverrouiller les disques est générée au cours de ce processus.</li>        |
 |Dispatched (Distribuée)     | La commande a été expédiée. Vous devriez la recevoir dans un délai de 1 à 2 jours.        |
 |Delivered (Livrée)     | Les produits ont été livrés à l’adresse spécifiée dans la commande.        |
-|Picked up (Récupérée)     |Le colis de retour a été récupéré. <br> Une fois que le colis arrive au centre de données Azure, les données sont automatiquement chargées dans Azure.         |
+|Picked up (Récupérée)     |Le colis de retour a été récupéré. <br> Une fois que l’envoi arrive au centre de données Azure, les données sont automatiquement chargées dans Azure.         |
 |Reçu     | Vos disques ont été livrés au centre de données Azure. La copie des données va bientôt démarrer.        |
 |Data copied (Données copiées)     |La copie des données est en cours.<br> Attendez que la copie des données se termine.         |
 |Completed       |La commande a été terminée avec succès.<br> Vérifiez que vos données se trouvent bien dans Azure avant de supprimer les données locales des serveurs.         |

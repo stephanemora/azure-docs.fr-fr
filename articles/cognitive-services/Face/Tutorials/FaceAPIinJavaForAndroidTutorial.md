@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Détecter et encadrer des visages sur une image à l’aide d’Android SDK'
+title: 'Didacticiel : Détecter et encadrer des visages sur une image à l’aide d’Android SDK'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application Android simple qui utilise l’API Visage pour détecter et encadrer des visages dans une image.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 4378d04d8909ecb0cd77c3196b74ecd51eb19638
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 92344943d2ec19f6730387221974a001e6a2045a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686226"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852892"
 ---
-# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutoriel : créer une application Android pour détecter et encadrer des visages humains dans une image
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Didacticiel : créer une application Android pour détecter et encadrer des visages humains dans une image
 
 Dans ce tutoriel, vous allez créer une application Android simple qui utilise l’API Visage Azure par le biais du SDK Java pour détecter des visages humains dans une image. L’application affiche une image sélectionnée et trace un cadre autour de chaque visage détecté.
 
@@ -92,11 +92,7 @@ Insérez ensuite le code suivant dans la classe **MainActivity**, au-dessus de l
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
 
-Vous devez remplacer `<Subscription Key>` par votre clé d’abonnement. Remplacez également `<API endpoint>` par le point de terminaison de l’API Visage à l’aide de l’identificateur de région approprié pour votre clé. Les clés d’abonnement d’essai gratuit sont générées dans la région **westus**. Voici un exemple de valeur de point de terminaison d’API :
-
-```java
-apiEndpoint = "https://westus.api.cognitive.microsoft.com/face/v1.0";
-```
+Vous devez remplacer `<Subscription Key>` par votre clé d’abonnement. Remplacez également `<API endpoint>` par votre point de terminaison de l’API Visage à l’aide de l’identificateur de région approprié pour votre clé. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).) Les clés d’abonnement d’essai gratuit sont générées dans la région **westus**.
 
 Dans le volet **Projet**, développez **Application**, puis **Manifestes**, et ouvrez le fichier *AndroidManifest.xml*. Insérez l’élément suivant en tant qu’enfant direct de l’élément `manifest` :
 

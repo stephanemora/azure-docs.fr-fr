@@ -3,31 +3,31 @@ title: 'Démarrage rapide : API Vérification orthographique Bing, Python'
 titlesuffix: Azure Cognitive Services
 description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Vérification orthographique Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 8614e4388f45c3bc9f71697bad44589e2165f6c8
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: aahi
+ms.openlocfilehash: d77fd2637e7516dbae361518c4b729ca1217e6e6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803288"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160210"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-python"></a>Démarrage rapide pour l’API Vérification orthographique Bing avec Python 
 
-Cet article vous explique comment utiliser l’[API Vérification orthographique Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) avec Python. L’API Vérification orthographique renvoie une liste de mots qu’elle ne reconnaît pas avec des suggestions de remplacements. Généralement, vous envoyez du texte à cette API, puis vous effectuez les remplacements suggérés dans le texte ou vous les montrez à l’utilisateur de votre application pour qu’il puisse décider de les effectuer ou non. Cet article explique comment envoyer une requête contenant le texte « Hollo, wrld! » Les remplacements suggérés sont « Hello » et « world ».
+Cet article vous explique comment utiliser l’[API Vérification orthographique Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) avec Python. L’API Vérification orthographique renvoie une liste de mots qu’elle ne reconnaît pas avec des suggestions de remplacements. Généralement, vous envoyez du texte à cette API, puis vous effectuez les remplacements suggérés dans le texte ou vous les montrez à l’utilisateur de votre application pour qu’il puisse décider de les effectuer ou non. Cet article explique comment envoyer une requête contenant le texte « Hollo, wrld! » Les remplacements suggérés sont « Hello » et « world ».
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter ce code, vous devez disposer de [Python 3.x](https://www.python.org/downloads/).
 
-Vous devez utiliser un [compte API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec l’**API Vérification orthographique Bing v7**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/#lang) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure.
+Vous devez disposer d’un [compte API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **API vérification orthographique Bing v7**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/#lang) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure.
 
-## <a name="get-spell-check-results"></a>Récupération des résultats de la vérification orthographique
+## <a name="get-spell-check-results"></a>Obtenir les résultats de la vérification orthographique
 
 1. Créez un projet Python dans votre IDE favori.
 2. Ajoutez le code ci-dessous.
