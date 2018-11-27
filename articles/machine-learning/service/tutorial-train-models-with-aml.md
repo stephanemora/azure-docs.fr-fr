@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Entraîner un modèle de classification d’images avec le service Azure Machine Learning'
-description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour effectuer l’apprentissage d’un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le premier d’une série de deux.
+description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour entraîner un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le premier d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: e6e49a03ee76c50cb2fff492bfd50b2820abafe4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 067a8deb935fb8a49d72c6ce441e8d9760c5390c
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343756"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283653"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Didacticiel n° 1 : Entraîner un modèle de classification d’images avec le service Azure Machine Learning
 
@@ -33,7 +33,10 @@ Découvrez comment :
 
 Vous découvrirez comment sélectionner un modèle et le déployer dans la [deuxième partie de ce tutoriel](tutorial-deploy-models-with-aml.md). 
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
+
+>[!NOTE]
+> Le code présenté dans cet article a été testé avec le kit SDK Azure Machine Learning version 0.1.79
 
 ## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
@@ -42,7 +45,7 @@ Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-note
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> Ce didacticiel a été testé avec le Kit de développement logiciel (SDK) Azure Machine Learning version 0.168 
+> Ce tutoriel a été testé avec le SDK Azure Machine Learning version 0.1.74. 
 
 ## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
 
@@ -93,41 +96,43 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-remote-compute-target"></a>Créer une cible de calcul distante
 
-Azure Batch AI est un service managé qui permet aux scientifiques des données d’entraîner des modèles Machine Learning sur des clusters de machines virtuelles Azure, notamment des machines virtuelles prenant en charge les GPU.  Dans ce tutoriel, vous allez créer un cluster Azure Batch AI comme environnement d’entraînement. Ce code crée pour vous un cluster s’il n’existe pas encore dans votre espace de travail. 
+Le calcul géré Azure ML est un service managé qui permet aux scientifiques des données d’entraîner des modèles Machine Learning sur des clusters de machines virtuelles Azure, notamment des machines virtuelles prenant en charge les GPU.  Dans ce tutoriel, vous allez créer un cluster de calcul géré Azure qui vous servira d’environnement d’entraînement. Ce code crée pour vous un cluster s’il n’existe pas encore dans votre espace de travail. 
 
  **La création du cluster prend environ cinq minutes.** Si le cluster se trouve déjà dans l’espace de travail, ce code l’utilise et ignore le processus de création.
 
 
 ```python
-from azureml.core.compute import ComputeTarget, BatchAiCompute
-from azureml.core.compute_target import ComputeTargetException
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
 
 # choose a name for your cluster
-batchai_cluster_name = "traincluster"
+compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
 
-try:
-    # look for the existing cluster by name
-    compute_target = ComputeTarget(workspace=ws, name=batchai_cluster_name)
-    if type(compute_target) is BatchAiCompute:
-        print('found compute target {}, just use it.'.format(batchai_cluster_name))
-    else:
-        print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
-except ComputeTargetException:
+# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
+vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+
+
+if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('found compute target. just use it. ' + compute_name)
+else:
     print('creating a new compute target...')
-    compute_config = BatchAiCompute.provisioning_configuration(vm_size="STANDARD_D2_V2", # small CPU-based VM
-                                                                #vm_priority='lowpriority', # optional
-                                                                autoscale_enabled=True,
-                                                                cluster_min_nodes=0, 
-                                                                cluster_max_nodes=4)
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
+                                                                min_nodes = compute_min_nodes, 
+                                                                max_nodes = compute_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, batchai_cluster_name, compute_config)
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it uses the scale settings for the cluster
+    # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-    # Use the 'status' property to get a detailed status for the current cluster. 
+     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -143,7 +148,7 @@ Avant d’entraîner un modèle, vous devez comprendre les données que vous uti
 
 ### <a name="download-the-mnist-dataset"></a>Télécharger le jeu de données MNIST
 
-Téléchargez le jeu de données MNIST et enregistrez les fichiers dans un répertoire `data` localement.  Les images et les étiquettes pour l’entraînement et les tests sont téléchargées.  
+Téléchargez le jeu de données MNIST et enregistrez les fichiers dans un répertoire `data` localement.  Les images et les étiquettes pour l’entraînement et les tests sont téléchargées.
 
 
 ```python
@@ -160,7 +165,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>Afficher des exemples d’images
 
-Chargez les fichiers compressés dans des tableaux `numpy`. Utilisez ensuite `matplotlib` pour tracer 30 images aléatoires du jeu de données avec leurs étiquettes au-dessus. Cette étape nécessite une fonction `load_data` qui est incluse dans le fichier `util.py`. Ce fichier est inclus dans l’exemple de dossier. Vérifiez qu’il se trouve dans le même dossier que ce bloc-notes. La fonction `load_data` analyse les fichiers compressés dans des tableaux Numpy.
+Chargez les fichiers compressés dans des tableaux `numpy`. Utilisez ensuite `matplotlib` pour tracer 30 images aléatoires du jeu de données avec leurs étiquettes au-dessus. Cette étape nécessite une fonction `load_data` qui est incluse dans un fichier `util.py`. Ce fichier est inclus dans l’exemple de dossier. Vérifiez qu’il se trouve dans le même dossier que ce bloc-notes. La fonction `load_data` analyse les fichiers compressés dans des tableaux Numpy.
 
 
 
@@ -209,9 +214,9 @@ ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=T
 ```
 Vous avez maintenant tout ce dont vous avez besoin pour commencer à entraîner un modèle. 
 
-## <a name="train-a-model-locally"></a>Entraîner un modèle localement
+## <a name="train-a-local-model"></a>Entraîner un modèle local
 
-Entraînez un modèle de régression logistique simple à partir de scikit-learn localement.
+Entraînez localement un modèle de régression logistique simple à l’aide de scikit-learn.
 
 **L’entraînement local peut prendre une minute ou deux**, en fonction de la configuration de votre ordinateur.
 
@@ -243,7 +248,7 @@ Vous pouvez maintenant étendre ce modèle simple en générant un modèle avec 
 Pour cette tâche, envoyez le travail au cluster d’entraînement distant défini précédemment.  Pour envoyer un travail, vous devez :
 * Créer un répertoire
 * Créer un script d’entraînement
-* Créer un estimateur
+* Créer un objet Estimator
 * Envoi du travail 
 
 ### <a name="create-a-directory"></a>Créer un répertoire
@@ -314,11 +319,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Notez comment le script obtient les données et enregistre les modèles :
 
-+ Le script d’entraînement lit un argument pour rechercher le répertoire contenant les données.  Quand vous envoyez le travail ultérieurement, vous pointez vers la banque de données pour cet argument : `parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data directory mounting point')`
-
++ Le script d’entraînement lit un argument pour rechercher le répertoire contenant les données.  Quand vous envoyez le travail ultérieurement, vous pointez vers la banque de données pour cet argument : `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
     
 + Le script d’entraînement enregistre votre modèle dans un répertoire nommé outputs. <br/>
-`joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')`<br/>
+`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 Tout ce qui est écrit dans ce répertoire est chargé automatiquement dans votre espace de travail. Vous accéderez à votre modèle à partir de ce répertoire plus loin dans le tutoriel.
 
 Le fichier `utils.py` est référencé à partir du script d’entraînement pour charger le jeu de données correctement.  Copiez ce script dans le dossier de script afin qu’il soit accessible en plus du script d’entraînement sur la ressource distante.
@@ -341,7 +345,7 @@ Un objet estimateur est utilisé pour soumettre l’exécution.  Créez votre es
 * Les paramètres requis à partir du script d’entraînement. 
 * Les packages Python nécessaires pour l’entraînement.
 
-Dans ce tutoriel, cette cible est le cluster Batch AI. Tous les fichiers dans le répertoire du projet sont chargés dans les nœuds de cluster pour l’exécution. data_folder est configuré pour utiliser la banque de données (`ds.as_mount()`).
+Dans ce tutoriel, cette cible est le cluster Batch AI. Tous les fichiers du dossier de scripts sont chargés dans les nœuds de cluster pour l’exécution. data_folder est configuré pour utiliser la banque de données (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator
@@ -395,7 +399,7 @@ Surveillez la progression de l’exécution avec un widget Jupyter.  Comme la so
 
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
@@ -423,7 +427,7 @@ La sortie montre que le modèle distant a une précision légèrement plus élev
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
-Dans le tutoriel de déploiement, vous explorerez ce modèle plus en détail.
+Dans le tutoriel suivant, vous explorerez ce modèle plus en détail.
 
 ## <a name="register-model"></a>Inscrire le modèle
 

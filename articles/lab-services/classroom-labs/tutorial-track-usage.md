@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 710d157dcf4c6d060e59bcfbb69455e2ddc91bdd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d5761e3e37e1265938d1f1b27324de667a13ca
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450128"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707093"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Didacticiel : suivre l’utilisation d’un labo dans Azure Lab Service
 Ce didacticiel vous montre comment un créateur ou propriétaire de laboratoire peut suivre l’utilisation d’un laboratoire.
@@ -49,18 +49,14 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
     ![Utilisation de machines virtuelles](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Gérer les machines virtuelles des étudiants 
-Le fait de pointer la souris sur une ligne dans la liste des machines virtuelles vous permet de consulter les commandes pour effectuer les tâches suivantes : 
+Le fait de pointer la souris sur une ligne dans la liste des machines virtuelles vous permet de consulter les commandes pour effectuer les tâches suivantes (comme le montre l’image de la section précédente) : 
 
 - Se connecter à une machine virtuelle
 - Démarrer une machine virtuelle
 - Arrêter une machine virtuelle
 - Supprimer une machine virtuelle
 
-![Commandes des machines virtuelles](../media/tutorial-track-usage/vm-controls.png) 
-
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à rechercher les utilisateurs qui se sont inscrits à votre laboratoire, à suivre l’utilisation des machines virtuelles dans le laboratoire et à gérer ces machines dans le laboratoire.
-
-Pour en savoir plus sur les laboratoires de salle de classe, consultez les rubriques de la section [Guides de procédures](how-to-manage-lab-accounts.md).
+Pour plus d’informations sur les laboratoires de classe, consultez les articles de la section [Guides pratiques](how-to-manage-lab-accounts.md).

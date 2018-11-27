@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle Linux Azure dans .NET | Microsoft Docs'
+title: Tutoriel - Utiliser Azure Key Vault avec une machine virtuelle Windows Azure et le langage .NET | Microsoft Docs
 description: 'Didacticiel : configurer une application ASP.NET Core pour lire un secret dans le coffre de clés'
 services: key-vault
 documentationcenter: ''
@@ -12,23 +12,23 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: d5596343a293d333dac9ca7e31a9fbc3363f3fd9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: d1f24c8bebc8740f47dc0f02089db1091c22f597
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688225"
+ms.locfileid: "51711325"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle Linux Azure dans .NET
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Tutoriel - Utiliser Azure Key Vault avec une machine virtuelle Windows Azure et le langage .NET
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources.
 
-Dans ce tutoriel, vous suivez les étapes nécessaires pour qu’une application web Azure puisse lire les informations depuis Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Ce didacticiel est basé sur [Azure Web Apps](../app-service/app-service-web-overview.md). Vous apprendrez à :
+Dans ce tutoriel, vous allez suivre les étapes nécessaires pour qu’une application console puisse lire des informations dans Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Ce didacticiel est basé sur [Azure Web Apps](../app-service/app-service-web-overview.md). Vous apprendrez à :
 
 > [!div class="checklist"]
-> * Créer un coffre de clés.
-> * Stocker un secret dans le coffre de clés.
-> * Récupérer un secret à partir du coffre de clés.
+> * Création d’un coffre de clés
+> * Stockage d’un secret dans le coffre de clés.
+> * Récupération d’un secret à partir du coffre de clés.
 > * Créer une machine virtuelle Azure.
 > * Activer une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour la machine virtuelle.
 > * Octroyer les autorisations nécessaires à l’application console pour lire les données provenant du coffre de clés.
@@ -51,7 +51,7 @@ Fonctionnement : Lorsque vous activez MSI pour un service Azure tel que des mach
 
 ![MSI](media/MSI.png)
 
-Ensuite, votre code appelle un service de métadonnée local disponible sur les ressources Azure pour obtenir un jeton d'accès.
+Ensuite, votre code appelle un service de métadonnée local disponible dans la ressource Azure pour obtenir un jeton d’accès.
 Il utilise alors le jeton obtenu du point de terminaison local MSI_ENDPOINT pour vous authentifier sur un service Azure Key Vault. 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
@@ -135,7 +135,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 Vous pouvez suivre ce [tutoriel](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
-## <a name="install-net-core"></a>Installer .NET Core
+## <a name="install-net-core"></a>Installez .NET Core
 
 Vous pouvez installer .NET Core en suivant les étapes décrites dans cet [article](https://www.microsoft.com/net/download).
 
@@ -202,8 +202,7 @@ Ensuite, modifiez le fichier de classe pour contenir le code ci-dessous. Il s’
                 String responseString = reader.ReadToEnd();
 
                 JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];
-                Console.WriteLine(ojObject.Value);                
+                JValue ojObject = (JValue)joResponse[tokenName];             
                 token = ojObject.Value.ToString();
             }
             return token;

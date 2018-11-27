@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/05/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856632"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706005"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
@@ -81,7 +81,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 
         > [!WARNING]
         > Une fois que vous publiez, vous ne pouvez pas annuler la publication. 
-    2. Pour publier ultérieurement, sélectionnez **Enregistrer pour plus tard**. Vous pouvez publier le modèle de VM une fois l’Assistant terminé. Pour plus d’informations sur la façon de configurer et publier une fois l’Assistant terminé, consultez la section [Publier le modèle](how-to-manage-classroom-labs.md#publish-the-template) dans l’article [Gérer des laboratoires de classe](how-to-manage-classroom-labs.md).
+    2. Pour publier ultérieurement, sélectionnez **Enregistrer pour plus tard**. Vous pouvez publier le modèle de VM une fois l’Assistant terminé. Pour plus d’informations sur la façon de configurer et publier une fois l’Assistant terminé, consultez la section [Publier le modèle](how-to-create-manage-template.md#publish-the-template-vm) dans l’article [Gérer des laboratoires de classe](how-to-manage-classroom-labs.md).
 
         ![Publier un modèle](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. La **progression de la publication** du modèle s’affiche. Ce processus peut prendre jusqu’à une heure. 
@@ -97,17 +97,33 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 
     ![Machines virtuelles à l’état Arrêtée](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+## <a name="add-users-to-the-lab"></a>Ajouter des utilisateurs au laboratoire
+
+1. Sélectionnez **Utilisateurs** dans le menu de gauche. Par défaut, l’option **Restreindre l’accès** est activée. Lorsque ce paramètre est activé, l’utilisateur ne peut pas s’inscrire au laboratoire, même s’il dispose du lien d’inscription. Il ne pourra s’inscrire que s’il figure dans la liste des utilisateurs. Seuls les utilisateurs de la liste peuvent s’inscrire au laboratoire à l’aide du lien d’inscription que vous envoyez. Dans cette procédure, vous allez ajouter des utilisateurs à la liste. Vous pouvez également désactiver l’option **Restreindre l’accès** afin de permettre aux utilisateurs disposant du lien d’inscription de s’inscrire au laboratoire. 
+2. Sélectionnez **Ajouter des utilisateurs** dans la barre d’outils. 
+3. Dans la page **Ajouter des utilisateurs**, entrez les adresses e-mail des utilisateurs sur des lignes distinctes, ou sur une seule ligne en les séparant par des points-virgules. 
+
+    ![Ajouter les adresses e-mail des utilisateurs](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Sélectionnez **Enregistrer**. Dans la liste, vous voyez les adresses e-mail des utilisateurs et leur état (inscrits ou non). 
+
+    ![Liste des utilisateurs](../media/how-to-configure-student-usage/users-list-new.png)
+
+
 ## <a name="send-registration-link-to-students"></a>Envoyer un lien d’inscription aux étudiants
 
-1. Passez à la vue **Tableau de bord** en sélectionnant **Tableau de bord** dans le menu de gauche. 
-2. Sélectionnez la vignette **Enregistrement de l’utilisateur**.
+1. Basculez vers la vue **Utilisateurs** si vous n’y êtes pas déjà. 
+2. Sélectionnez la vignette **Obtenir un lien d’inscription**.
 
     ![Lien d’inscription de l’étudiant](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. Dans la boîte de dialogue **Enregistrement de l’utilisateur**, sélectionnez le bouton **Copier**. Le lien est copié dans le Presse-papiers. Collez-le dans un éditeur d’e-mail et envoyez un e-mail à l’étudiant. 
+1. Dans la boîte de dialogue **Enregistrement de l’utilisateur**, sélectionnez le bouton **Copier**. Le lien est copié dans le Presse-papiers. 
 
     ![Lien d’inscription de l’étudiant](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Dans la boîte de dialogue **Enregistrement de l’utilisateur**, sélectionnez **Fermer**. 
-3. Partagez le lien d’inscription avec un étudiant afin que ce dernier puisse s’inscrire à la classe. 
+4. Partagez le lien d’inscription avec un étudiant afin que ce dernier puisse s’inscrire à la classe. Si vous avez activé le paramètre **Restreindre l’accès** et si vous disposez d’une liste d’utilisateurs, effectuez les actions suivantes :
+    1. Sélectionnez l’**adresse e-mail** de l’utilisateur dans la liste. 
+    2. Vous voyez une fenêtre de votre programme de messagerie par défaut, où l’adresse du **destinataire** est renseignée. 
+    3. Collez l’**URL d’inscription** que vous avez copiée précédemment. 
+    4. Envoyez l’**e-mail**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

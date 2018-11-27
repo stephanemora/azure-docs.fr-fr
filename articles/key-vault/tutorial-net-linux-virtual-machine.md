@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle Linux Azure dans .NET | Microsoft Docs'
-description: 'Tutoriel : Configurer une application ASP.NET Core pour lire un secret dans le coffre de clés'
+description: 'Didacticiel : configurer une application ASP.NET Core pour lire un secret dans le coffre de clés'
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -12,23 +12,23 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: afee50db98b361b11371e9ac382060e200a1f62f
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 928339a245525933ae142a5d73137ce699cf1f7c
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688233"
+ms.locfileid: "51712328"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle Linux Azure dans .NET
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources.
 
-Dans ce tutoriel, vous suivez les étapes nécessaires pour qu’une application web Azure puisse lire les informations depuis Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Ce didacticiel est basé sur [Azure Web Apps](../app-service/app-service-web-overview.md). Vous apprendrez à :
+Dans ce tutoriel, vous allez suivre les étapes nécessaires pour qu’une application console puisse lire des informations dans Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Ce didacticiel est basé sur [Azure Web Apps](../app-service/app-service-web-overview.md). Vous apprendrez à :
 
 > [!div class="checklist"]
-> * Créer un coffre de clés.
-> * Stocker un secret dans le coffre de clés.
-> * Récupérer un secret dans le coffre de clés.
+> * Création d’un coffre de clés
+> * Stockage d’un secret dans le coffre de clés.
+> * Récupération d’un secret à partir du coffre de clés.
 > * Créer une machine virtuelle Azure.
 > * Activer une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour la machine virtuelle.
 > * Octroyer les autorisations nécessaires à l’application console pour lire les données provenant du coffre de clés.
@@ -259,8 +259,7 @@ Ensuite, modifiez le fichier de classe pour contenir le code ci-dessous. Il s’
                 String responseString = reader.ReadToEnd();
 
                 JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];
-                Console.WriteLine(ojObject.Value);                
+                JValue ojObject = (JValue)joResponse[tokenName];   
                 token = ojObject.Value.ToString();
             }
             return token;

@@ -1,34 +1,32 @@
 ---
-title: 'Démarrage rapide Azure : créer un objet blob dans un stockage d’objets à l’aide du Kit de développement logiciel (SDK) de stockage Java V10 | Microsoft Docs'
-description: Dans ce guide de démarrage rapide, vous créez un conteneur dans le stockage d’objets (Azure Blob), chargez un fichier, répertoriez des objets et téléchargez à l’aide du Kit de développement logiciel (SDK) de stockage Java.
+title: 'Démarrage rapide Azure : créer un objet blob dans un stockage d’objets à l’aide du SDK de stockage Java V10 | Microsoft Docs'
+description: Dans ce guide de démarrage rapide, vous créez un conteneur dans le stockage d’objets (Azure Blob), chargez un fichier, listez des objets et téléchargez à l’aide du SDK de stockage Java.
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: ea94a4e537a46ac8287e4454a2cfd10c59db590b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 43db4ca12fbdf8ee637ca86e1a90cc3baf4ec572
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416866"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713280"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>1.x : Charger, télécharger et répertorier des objets blob à l’aide du Kit de développement logiciel (SDK) de stockage Java V10
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Démarrage rapide : Charger, télécharger et lister des objets blob à l’aide du SDK de stockage Java V10
 
-Dans ce démarrage rapide, vous apprenez à utiliser le nouveau Kit de développement logiciel (SDK) de stockage Java pour charger, télécharger et répertorier des objets blob de blocs dans un conteneur de stockage Blob Azure. Le nouveau Kit de développement logiciel (SDK) Java utilise le modèle de programmation réactive avec RxJava, ce qui permet des opérations asynchrones. En savoir plus sur les [extensions réactives RxJava pour la machine virtuelle Java](https://github.com/ReactiveX/RxJava). 
+Dans ce guide de démarrage rapide, vous apprenez à utiliser le nouveau SDK de stockage Java pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage Blob Azure. Le nouveau SDK Java utilise le modèle de programmation réactive avec RxJava, ce qui permet des opérations asynchrones. En savoir plus sur les [extensions réactives RxJava pour la machine virtuelle Java](https://github.com/ReactiveX/RxJava). 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Installez et configurez ces applications :
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-* [Maven](http://maven.apache.org/download.cgi), pour travailler à partir de la ligne de commande, ou n’importe quel environnement de développement intégré Java de votre choix
+Vérifiez que les prérequis suivants sont installés :
+
+* [Maven](http://maven.apache.org/download.cgi), pour travailler à partir de la ligne de commande, ou tout autre environnement de développement intégré Java de votre choix.
 * [JDK](https://aka.ms/azure-jdks)
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 
@@ -67,7 +65,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 Cet exemple crée un fichier de test dans votre répertoire par défaut, **AppData\Local\Temp**, pour les utilisateurs Windows. Il vous invite à procéder comme suit :
 
-1. Saisissez les commandes permettant de charger le fichier de test vers le stockage d'objets Blob Azure.
+1. Entrez les commandes permettant de charger le fichier de test sur le stockage Blob Azure.
 2. Répertoriez les objets blob du conteneur.
 3. Téléchargez le fichier chargé sous un nouveau nom pour pouvoir comparer l’ancien fichier et le nouveau. 
 
@@ -289,6 +287,6 @@ containerURL.delete(null).blockingGet();
 Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et le stockage blob Azure avec Java. 
 
 > [!div class="nextstepaction"]
-> [Code source du Kit de développement logiciel (SDK) de stockage pour Java V10](https://github.com/Azure/azure-storage-java/)
-> [Référence de l’API](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable)
-> [En savoir plus sur RxJava](https://github.com/ReactiveX/RxJava)
+> [Storage SDK V10 for Java source code](https://github.com/Azure/azure-storage-java/)
+> [API Reference](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable)
+> [Learn more about RxJava](https://github.com/ReactiveX/RxJava)

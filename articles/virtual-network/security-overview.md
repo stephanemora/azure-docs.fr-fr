@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: e9a4aa1606e99057565891dc10d17ba9abf15d9c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 6501444aacd36c794c8a169a8d1b16898efad018
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159075"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977248"
 ---
 # <a name="security-groups"></a>Groupes de sécurité
 <a name="network-security-groups"></a>
@@ -206,7 +206,7 @@ Pour le trafic sortant, Azure traite d’abord les règles dans un groupe de sé
 Vous pouvez facilement afficher des règles d’agrégation appliquées à une interface réseau en consultant les [règles de sécurité efficaces](virtual-network-network-interface.md#view-effective-security-rules) relatives à une interface réseau. Vous pouvez également utiliser la fonctionnalité de [vérification du flux IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dans Azure Network Watcher pour déterminer si la communication est autorisée vers ou à partir d’une interface réseau. Le Flux IP vous indique si la communication est autorisée ou refusée, ainsi que la règle de sécurité réseau qui autorise ou refuse le trafic.
 
 > [!NOTE]
-> Les groupes de sécurité réseau sont associés à des sous-réseaux ou à des machines virtuelles et services cloud déployés dans le modèle de déploiement classique, plutôt qu’à des interfaces réseau dans le modèle de déploiement du Gestionnaire de ressources. Pour en savoir plus sur les modèles de déploiement Azure, consultez l’article [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Les groupes de sécurité réseau sont associés à des sous-réseaux ou à des machines virtuelles et services cloud déployés dans le modèle de déploiement classique, plutôt qu’à des interfaces réseau dans le modèle de déploiement Resource Manager. Pour en savoir plus sur les modèles de déploiement Azure, consultez l’article [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!TIP]
 > Sauf si vous avez une raison particulière, nous vous recommandons d’associer un groupe de sécurité réseau à un sous-réseau ou à une interface réseau, mais pas aux deux. Dans la mesure où les règles d’un groupe de sécurité réseau associées à un sous-réseau peut entrer en conflit avec des règles d’un groupe de sécurité réseau associées à une interface réseau, vous pourrez subir des problèmes de communication inattendus qui nécessiteront une intervention.

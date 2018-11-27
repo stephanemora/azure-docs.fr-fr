@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8a3a9e4019be0b6039fe43df11a5f6093545f9cd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1d7c880a56c79d516c3904c3f532eb7006f0b68c
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685348"
+ms.locfileid: "51705835"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -103,7 +103,7 @@ Maintenant créez les machines virtuelles de rebond et de charge de travail, et 
 
     - *Test-FW-RG*, pour le groupe de ressources.
     - *Srv-Jump*, pour le nom de la machine virtuelle.
-    - *azureuser*, pour le nom d’utilisateur administrateur.
+    - *azureuser* : pour le nom d’utilisateur administrateur.
     - *Azure123456!* pour le mot de passe.
 
 4. Sous **Règles des ports d’entrée**, pour **Ports d’entrée publics**, cliquez sur **Autoriser les ports sélectionnés**.

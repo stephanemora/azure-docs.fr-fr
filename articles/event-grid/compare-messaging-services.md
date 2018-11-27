@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003745"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852195"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Choisir entre des services Azure qui remettent des messages
 
@@ -54,6 +54,8 @@ Un message est constitué de données brutes générées par un service et desti
 Event Grid est un fond de panier de gestion des événements qui permet la programmation réactive, pilotée par événements. Il utilise un modèle publication-abonnement. Les éditeurs émettent des événements, mais ne savent pas quels événements sont traités. Les abonnés décident quels événements ils souhaitent traiter.
 
 Event Grid est pleinement intégré aux services Azure et peut être intégré à des services tiers. Il simplifie la consommation d’événements et réduit les coûts en éliminant la nécessité d’une interrogation constante. Event Grid achemine les événements à partir de ressources Azure et non-Azure de façon efficace et fiable. Il distribue les événements à des points de terminaison d’abonné inscrits. Le message d’événement contient les informations dont vous avez besoin pour réagir aux modifications apportées aux services et applications. Event Grid n’est pas un pipeline de données et ne fournit pas l’objet réel qui a été mis à jour.
+
+Event Grid prend en charge les lettres mortes pour les événements qui ne sont pas remis à un point de terminaison.
 
 Il présente les caractéristiques suivantes :
 

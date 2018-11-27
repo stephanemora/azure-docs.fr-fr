@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245067"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712260"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Démarrage rapide : Déployer le disque Azure Data Box via le portail Azure (préversion)
 
@@ -67,7 +67,7 @@ Cette étape prend environ 5 minutes.
 
     1. Dans le portail Azure, accédez à **Général > Détails de l’appareil** et obtenez la clé d’accès.
     2. Téléchargez et extrayez l’outil de déverrouillage Data Box Disk propre au système d’exploitation sur l’ordinateur utilisé pour copier les données sur des disques. 
-    3. Exécutez l’outil de déverrouillage Data Box Disk et indiquez la clé d'accès. Pour toute réinsertion de disque, réexécutez l’outil de déverrouillage et fournissez la clé d’accès. **N’utilisez pas la boîte de dialogue BitLocker ni la clé BitLocker pour déverrouiller le disque.** Pour plus d’informations sur le déverrouillage de disques, voir [Déverrouiller des disques sur un client Windows]() ou [Déverrouiller des disques sur un client Linux]().
+    3. Exécutez l’outil de déverrouillage Data Box Disk et indiquez la clé d'accès. Pour toute réinsertion de disque, réexécutez l’outil de déverrouillage et fournissez la clé d’accès. **N’utilisez pas la boîte de dialogue BitLocker ni la clé BitLocker pour déverrouiller le disque.** Pour plus d’informations sur le déverrouillage de disques, accédez aux rubriques [Déverrouiller les disques sur le client Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) ou [Déverrouiller les disques sur le client Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
     4. La lettre de lecteur affectée au disque est affichée par l’outil. Notez la lettre de lecteur du disque. Elle est utilisée dans les étapes suivantes.
 
 ## <a name="copy-data-and-validate"></a>Copier les données et valider
@@ -85,7 +85,6 @@ Le temps nécessaire à cette opération dépend de la taille de vos données.
 2. (Facultatif) Une fois la copie terminée, nous vous recommandons d’exécuter `DataBoxDiskValidation.cmd` fourni dans le dossier *DataBoxDiskImport* pour générer des sommes de contrôle pour la validation. Selon la taille des données, cette étape peut prendre un certain temps. 
 3. Débranchez le lecteur. 
 
-
 ## <a name="ship-to-azure"></a>Envoyer à Azure
 
 Cette étape prend environ 5 à 7 minutes.
@@ -94,7 +93,6 @@ Cette étape prend environ 5 à 7 minutes.
 2. Déposez le colis scellé au point de dépôt.  
 
 Le service Data Box Disk envoie une notification par e-mail et met à jour l’état de la commande dans le portail Azure.
-
 
 ## <a name="verify-your-data"></a>Vérifier vos données
 
@@ -126,5 +124,3 @@ Dans ce démarrage rapide, vous avez déployé le disque Azure Data Box pour fac
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box Disk](data-box-portal-ui-admin.md) (Utiliser le portail Azure pour administrer le disque Data Box)
-
-

@@ -1,6 +1,6 @@
 ---
-title: Présentation d’Azure DevOps Project | Microsoft Docs
-description: Comprendre la valeur d’Azure DevOps Project
+title: Vue d’ensemble d’Azure DevOps Projects | Microsoft Docs
+description: Comprendre l’intérêt d’Azure DevOps Projects
 services: devops-project
 documentationcenter: ''
 author: mlearned
@@ -14,63 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: 39dffad597b8382dea4df6fa1b0726d9582d67d1
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9efb3c9bae790efed3d09274b1a77d7b8161d479
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44293624"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165235"
 ---
-# <a name="overview-of-azure-devops-project"></a>Présentation d’Azure DevOps Project
+# <a name="overview-of-azure-devops-projects"></a>Vue d’ensemble d’Azure DevOps Projects
 
-Azure DevOps Project facilite la prise en main d’Azure. La ressource DevOps Project vous permet de lancer votre type d’application favori sur le service Azure de votre choix en seulement quelques étapes rapides à partir du portail Azure. DevOps Project définit tout ce dont vous avez besoin pour développer, déployer et surveiller votre application.
-Le tableau de bord DevOps Project vous permet de contrôler les validations, les builds et les déploiements de code, à partir d’une seule vue dans le portail Azure.
+ Azure DevOps Projects facilite la prise en main d’Azure. Il vous permet de lancer votre application favorite sur le service Azure de votre choix en seulement quelques étapes rapides à partir du portail Azure. 
 
-## <a name="why-should-i-use-the-azure-devops-project"></a>Pourquoi utiliser Azure DevOps Project ?
+ DevOps Projects configure tout ce dont vous avez besoin pour développer, déployer et superviser votre application. Vous pouvez utiliser le tableau de bord DevOps Projects pour superviser les validations de code, les builds et les déploiements dans une même vue du portail Azure.
 
-Azure DevOps Project automatise la configuration d’un pipeline d’intégration continue (CI) et de livraison continue (CD) vers Azure.  Vous pouvez démarrer avec votre code existant ou utiliser l’un des exemples d’applications fournis, puis déployer rapidement cette application vers divers services Azure, comme les Machines virtuelles, App Service, Azure Container Service, Azure SQL Database et Azure Service Fabric.  
+## <a name="why-should-i-use-devops-projects"></a>Pourquoi utiliser DevOps Projects ?
 
-Azure DevOps Project effectue tout le travail pour la configuration initiale d’un pipeline DevOps : configurer le référentiel Git initial, configurer le pipeline CI/CD, créer une ressource Application Insights pour le monitoring et fournir une seule vue de l’ensemble de la solution avec la création d’un tableau de bord Azure DevOps Project sur le portail Azure.
+  DevOps Projects automatise la configuration d’un pipeline complet d’intégration continue (CI) et de livraison continue (CD) sur Azure.  Vous pouvez démarrer avec du code existant ou utiliser un des exemples d’application fournis. Vous pouvez ensuite déployer rapidement cette application sur différents services Azure, comme Machines virtuelles, App Service, Azure Kubernetes Services (AKS), Azure SQL Database et Azure Service Fabric.  
 
-Vous pouvez utiliser Azure DevOps Project comme suit :
+  Azure DevOps Projects s’occupe de toute la configuration initiale d’un pipeline DevOps, notamment configurer le dépôt Git initial, configurer le pipeline CI/CD, créer une ressource Application Insights pour la supervision et fournir une même vue de l’ensemble de la solution avec la création d’un tableau de bord DevOps Projects dans le portail Azure.
+
+Vous pouvez utiliser DevOps Projects pour :
 
 * Déployer rapidement votre application dans Azure
-* Automatiser la configuration d’un pipeline CI/CD Azure
-* Utiliser DevOps Project en tant que modèle pour afficher et comprendre comment configurer correctement l’intégration continue/la livraison continue dans Azure avec Azure DevOps
-* Bien démarrer avec le pipeline CI/CD sur Azure, puis personnaliser davantage le pipeline de mise en production en fonction de vos scénarios spécifiques
+* Automatiser la configuration d’un pipeline CI/CD
+* Voir et comprendre comment configurer correctement un pipeline CI/CD
+* Personnaliser davantage les pipelines de mise en production selon vos scénarios spécifiques
 
-## <a name="how-do-i-use-the-azure-devops-project"></a>Comment utiliser Azure DevOps Project ?
+## <a name="how-do-i-use-devops-projects"></a>Comment utiliser DevOps Projects ?
 
-Azure DevOps Project est disponible à partir du portail Azure.  Vous créez une ressource Azure DevOps Project comme toute autre ressource Azure à partir du portail.  Le projet DevOps Project fournit une expérience de type Assistant étape par étape pour les différentes options de configuration.  
+  DevOps Project est disponible à partir du portail Azure. Vous créez une ressource DevOps Projects comme toute autre ressource Azure à partir du portail. DevOps Projects fournit une expérience de type Assistant pas à pas pour les différentes options de configuration.  
 
-Vous choisissez plusieurs options de configuration dans le cadre de la configuration initiale.  Ces options sont les suivantes :
+Vous choisissez plusieurs options de configuration dans le cadre de la configuration initiale. Ces options sont les suivantes :
 
-* Utiliser l’exemple d’application fourni ou apporter votre propre code
+* Utiliser l’exemple d’application fourni ou utiliser votre propre code
 * Sélectionner un langage pour l’application
-* Choisir une infrastructure d’application en fonction du langage
+* Choisir un framework d’application en fonction du langage
 * Sélectionner un service Azure (cible de déploiement)
-* Organisation Azure DevOps (nouvelle ou existante)
+* Créer une organisation Azure DevOps ou utiliser une organisation existante 
 * Choisir votre abonnement Azure
 * Choisir l’emplacement des services Azure
-* Choisir parmi les différents niveaux de tarification pour les services Azure
+* Choisir parmi différents niveaux tarifaires pour les services Azure
 
-Après avoir utilisé Azure DevOps Project, vous pouvez également supprimer toutes les ressources à partir d’un emplacement unique dans le tableau de bord Azure DevOps Project sur le portail Azure.
+Après avoir utilisé DevOps Projects, vous pouvez également supprimer toutes les ressources à partir d’un même emplacement dans le tableau de bord DevOps Projects sur le portail Azure.
 
-## <a name="azure-devops-project-and-azure-devops-integration"></a>Intégration d’Azure DevOps Project et d’Azure DevOps
+## <a name="devops-projects-and-azure-devops-integration"></a>Intégration de DevOps Projects et d’Azure DevOps
 
-Les projets DevOps Projects sont alimentés par Azure DevOps.  Le projet DevOps Project automatise tout le travail nécessaire dans Azure DevOps pour configurer l’intégration continue/la livraison continue vers Azure.  Un référentiel Git est créé dans une organisation Azure DevOps nouvelle ou existante.  Le projet DevOps Project valide un exemple d’application ou de votre code existant dans un référentiel Git.  L’automatisation établit également un déclencheur CI pour la build afin que chaque nouvelle validation de code lance une build.  Le projet DevOps Project crée également un déclencheur CD et déploie chaque nouvelle build réussie sur le service Azure de votre choix.  Les pipelines de build et de mise en production peuvent être personnalisés pour d’autres scénarios.  Vous pouvez également cloner les pipelines de build et de mise en production pour une utilisation dans d’autres projets.
+DevOps Projects s’appuie sur Azure DevOps. DevOps Projects automatise tout le travail nécessaire dans Azure Pipelines pour configurer un pipeline CI/CD. Il crée un dépôt Git dans une organisation Azure DevOps nouvelle ou existante, puis valide un exemple d’application ou votre code existant dans un nouveau dépôt Git.  
+
+L’automatisation établit également un déclencheur CI pour la build de sorte que chaque nouvelle validation de code lance une build. DevOps Projects crée un déclencheur CD et déploie chaque nouvelle build réussie sur le service Azure de votre choix.  
+
+Les pipelines de build et de mise en production peuvent être personnalisés pour d’autres scénarios. Vous pouvez également cloner les pipelines de build et de mise en production pour les utiliser dans d’autres projets.
 
 Après avoir créé votre projet DevOps Project, vous pouvez :
 
 * Personnaliser votre build et pipeline de mise en production
-* Utiliser des requêtes Pull pour gérer votre flux de code et conserver une qualité élevée
+* Utiliser des demandes de tirage (pull request) pour gérer votre flux de code et conserver une qualité élevée
 * Tester et générer chaque validation avant de fusionner votre code pour optimiser la qualité
-* Effectuer le suivi des problèmes et du backlog de votre projet avec votre application
+* Effectuer le suivi de votre backlog et de vos problèmes en même temps que votre application
 
-## <a name="how-do-i-start-using-the-azure-devops-project"></a>Comment commencer à utiliser Azure DevOps Project ?
+## <a name="how-do-i-start-using-devops-projects"></a>Comment commencer à utiliser DevOps Projects ?
 
-* [Bien démarrer avec Azure DevOps Project](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
+* [Bien démarrer avec DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
 
-## <a name="azure-devops-project-videos"></a>Vidéos Azure DevOps Project
+##  <a name="devops-projects-videos"></a>Vidéos sur DevOps Projects
 
-* [Créer CI/CD avec Azure DevOps Project](https://channel9.msdn.com/Events/Connect/2017/T174/player/)
+* [Create CI/CD with Azure DevOps Projects](https://channel9.msdn.com/Events/Connect/2017/T174/player/)

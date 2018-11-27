@@ -1,33 +1,31 @@
 ---
-title: Guide de démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de PHP | Microsoft Docs
+title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de PHP | Microsoft Docs
 description: Apprenez rapidement à transférer des objets vers/à partir de Stockage Blob Azure avec PHP
 services: storage
 author: roygara
 ms.service: storage
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: b0a562bd37c1877651863525241d70990d38ded2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ecb87af9cc75898aa8734b329dce01f70511a27
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969592"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712906"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec PHP
 Dans ce guide de démarrage rapide, vous apprenez à utiliser PHP pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce guide de démarrage rapide : 
-* Installez [PHP](http://php.net/downloads.php)
-* Installez le [kit de développement logiciel (SDK) Stockage Azure pour PHP](https://github.com/Azure/azure-storage-php)
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
+Vérifiez que les prérequis suivants sont installés :
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+* [PHP](http://php.net/downloads.php)
+* [SDK Stockage Azure pour PHP](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 L’[exemple d’application](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git) utilisé dans ce démarrage rapide est une application PHP de base.  
@@ -176,7 +174,7 @@ Obtenez le contenu de vos objets blob à l’aide de la méthode **getBlob()**. 
     fpassthru($blob->getContentStream());
 ```
 
-### <a name="clean-up-resources"></a>Supprimer les ressources
+### <a name="clean-up-resources"></a>Supprimer des ressources
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode **deleteContainer()**. Si les fichiers créés ne sont plus nécessaires, utilisez la méthode **deleteBlob()** pour supprimer ces fichiers.
 
 ```PHP

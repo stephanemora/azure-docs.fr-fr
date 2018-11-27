@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 99761cf5105535105a7dd9576a32a79e0ae39768
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 6ce4dda4a8a927ea904d241d63eed3483468961e
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247788"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282819"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de PHP pour appeler le service cognitif Analyse de texte
 <a name="HOLTop"></a>
 
-Cet article montre comment [détecter la langue](#Detect), [analyser les sentiments](#SentimentAnalysis), [extraire les expressions clés](#KeyPhraseExtraction) et [identifier les entités liées](#Entities) à l’aide des [API Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759711) avec PHP.
+Cet article montre comment [détecter la langue](#Detect), [analyser les sentiments](#SentimentAnalysis), [extraire les expressions clés](#KeyPhraseExtraction) et [identifier les entités liées](#Entities) à l’aide des [API Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759711) avec PHP.
 
 Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour accéder à la documentation technique des API.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API Analyse de texte**. Vous pouvez utiliser le **niveau gratuit pour 5 000 transactions par mois** afin de suivre ce guide de démarrage rapide.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 Il vous faut également [le point de terminaison et la clé d’accès](../How-tos/text-analytics-how-to-access-key.md) générée pendant le processus d’inscription. 
 
@@ -359,7 +359,7 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 ## <a name="identify-entities"></a>Identification d’entités
 
-L’API d’entités identifie les entités bien connues dans un document texte à l’aide de la [méthode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). L’exemple suivant identifie les entités dans les documents en anglais.
+L’API Entités identifie les entités bien connues dans un document texte à l’aide de la [méthode Entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). L’exemple suivant identifie les entités dans les documents en anglais.
 
 1. Créez un nouveau projet PHP dans votre environnement IDE favori.
 2. Ajoutez le code ci-dessous.

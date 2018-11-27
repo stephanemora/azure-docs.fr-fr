@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 0a8a97be89893dbf072942501be51b82d20c1ef4
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 7656d8247cfb16df9989638b7e8ad2ffd3ff445f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578037"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851668"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Démarrage rapide : Détecter des visages sur une image à l’aide de l’API REST et de Java
 
@@ -62,7 +62,7 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Ajouter des champs essentiels
 
-Ajoutez les champs suivants à la classe **Main**. Ces données spécifient comment se connecter au service Visage et où obtenir les données d’entrée. Vous devez mettre à jour le champ `subscriptionKey` avec la valeur de votre clé d’abonnement, et éventuellement changer la chaîne `uriBase` pour qu’elle contienne l’identificateur de région approprié. Vous pouvez également définir la valeur `imageWithFaces` avec un chemin qui pointe vers un fichier image différent.
+Ajoutez les champs suivants à la classe **Main**. Ces données spécifient comment se connecter au service Visage et où obtenir les données d’entrée. Vous devez mettre à jour le champ `subscriptionKey` avec la valeur de votre clé d’abonnement, et éventuellement changer la chaîne `uriBase` pour qu’elle contienne l’identificateur de région approprié. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Vous pouvez également définir la valeur `imageWithFaces` avec un chemin qui pointe vers un fichier image différent.
 
 Le champ `faceAttributes` est simplement un tableau de certains types d’attributs. Il spécifie les informations à récupérer sur les visages détectés.
 
@@ -75,7 +75,7 @@ private static final String subscriptionKey = "<Subscription Key>";
 // subscription keys from westus, replace "westcentralus" in the URL
 // below with "westus".
 //
-// Free trial subscription keys are generated in the westcentralus region. If you
+// Free trial subscription keys are generated in the "westus" region. If you
 // use a free trial subscription key, you shouldn't need to change this region.
 private static final String uriBase =
     "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";

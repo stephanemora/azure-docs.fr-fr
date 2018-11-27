@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741026"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706974"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Tutoriel : Migrer vos données vers un compte d’API MongoDB Azure Cosmos DB
 
@@ -36,13 +36,13 @@ Avant de migrer des données vers un compte d’API MongoDB, assurez-vous d’av
 
 1. Créez au préalable vos collections et mettez-les à l’échelle :
         
-    * Par défaut, Azure Cosmos DB provisionne une nouvelle collection MongoDB avec 1 000 unités de requête par seconde (RU/s). Avant de commencer la migration à l’aide de mongoimport, mongorestore, créez au préalable l’ensemble des collections à partir du [portail Azure](https://portal.azure.com) ou à partir d’outils et de pilotes MongoDB. Si la taille des données est supérieure à 10 Go, veillez à créer une [collection partitionnée](partition-data.md) avec une clé de partition appropriée.
+   * Par défaut, Azure Cosmos DB provisionne une nouvelle collection MongoDB avec 1 000 unités de requête par seconde (RU/s). Avant de commencer la migration à l’aide de mongoimport, mongorestore, créez au préalable l’ensemble des collections à partir du [portail Azure](https://portal.azure.com) ou à partir d’outils et de pilotes MongoDB. Si la taille des données est supérieure à 10 Go, veillez à créer une [collection partitionnée](partition-data.md) avec une clé de partition appropriée. MongoDB recommande de stocker les données d’entité dans des collections. Vous pouvez colocaliser des entités de taille comparable et provisionner du débit au niveau de la base de données Azure Cosmos.
 
-    * Dans le [portail Azure](https://portal.azure.com), augmentez le débit de vos collections à partir de 1000 RU/s pour une collection à partition unique et de 2 500 RU/s pour une collection partitionnée uniquement pour la migration. Si le débit est plus élevé, vous pouvez éviter la limitation de débit et procéder à une migration plus rapide. Vous pouvez réduire immédiatement le débit à l’issue de la migration afin de réduire les coûts.
+   * À partir du [portail Azure](https://portal.azure.com), augmentez le débit de vos collections qui est de 1 000 RU/s pour une collection à partition unique et de 2 500 RU/s pour une collection partitionnée seulement pour la durée de la migration. Si le débit est plus élevé, vous pouvez éviter la limitation de débit et procéder à une migration plus rapide. Vous pouvez réduire immédiatement le débit à l’issue de la migration afin de réduire les coûts.
 
-    * En plus du provisionnement du nombre de RU/s au niveau de la collection, vous pouvez également provisionner le nombre de RU/s pour un ensemble de collections au niveau de la base de données parente. Cette opération nécessite la création préalable de la base de données et des collections, ainsi que la définition d’une clé de partition pour chaque collection.
+   * En plus du provisionnement du nombre de RU/s au niveau de la collection, vous pouvez également provisionner le nombre de RU/s pour un ensemble de collections au niveau de la base de données parente. Cette opération nécessite la création préalable de la base de données et des collections, ainsi que la définition d’une clé de partition pour chaque collection.
 
-    * Vous pouvez créer des collections partitionnées à l’aide de l’outil, du pilote ou du SDK de votre choix. Dans cet exemple, nous utilisons l’interpréteur de commandes Mongo pour créer une collection partitionnée :
+   * Vous pouvez créer des collections partitionnées à l’aide de l’outil, du pilote ou du SDK de votre choix. Dans cet exemple, nous utilisons l’interpréteur de commandes Mongo pour créer une collection partitionnée :
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )

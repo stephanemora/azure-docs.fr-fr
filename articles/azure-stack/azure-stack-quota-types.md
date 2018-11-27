@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299417"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711529"
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
@@ -35,6 +35,8 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 | Nombre maximal de cœurs de machine virtuelle | 100 | Nombre maximal de cœurs qu’un abonnement peut créer à cet emplacement (par exemple, une machine virtuelle A3 a quatre cœurs). |
 | Nombre maximal de groupes à haute disponibilité | 10 | Nombre maximal de groupes à haute disponibilité qui peuvent être créés à cet emplacement. |
 | Nombre maximal de groupes de machines virtuelles identiques | 100 | Nombre maximal de groupes de machines virtuelles identiques qui peuvent être créés à cet emplacement. |
+| Capacité maximale (en Go) du disque managé standard | 2 048 | Capacité maximale des disques managés standard qui peuvent être créés dans cet emplacement. |
+| Capacité maximale (en Go) du disque managé Premium | 2 048 | Capacité maximale des disques managés Premium qui peuvent être créés dans cet emplacement. |
 
 ## <a name="storage-quota-types"></a>Types de quotas de stockage 
 | **Item** | **Valeur par défaut** | **Description** |
@@ -49,12 +51,12 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 ## <a name="network-quota-types"></a>Types de quotas pour les réseaux
 | **Item** | **Valeur par défaut** | **Description** |
 | --- | --- | --- |
-| Nombre maximal d’adresses IP publiques |50 |Nombre maximal d’adresses IP publiques qu’un abonnement peut créer à cet emplacement. |
+| Nombre maximal d’adresses IP publiques |50 |Nombre maximal d’adresses IP publiques qu’un abonnement peut créer à cet emplacement. |
 | Nombre maximal de réseaux virtuels |50 |Nombre maximal de réseaux virtuels qu’un abonnement peut créer à cet emplacement. |
 | Nombre maximal de passerelles de réseau virtuel |1 |Nombre maximal de passerelles de réseau virtuel qu’un abonnement peut créer à cet emplacement. |
 | Nombre maximal de connexions réseau |2 |Nombre maximal de connexions réseau (point à point ou site à site) qu’un abonnement peut créer pour toutes les passerelles de réseau virtuel à cet emplacement. |
 | Nombre maximal d’équilibreurs de charge |50 |Nombre maximal d’équilibreurs de charge qu’un abonnement peut créer à cet emplacement. |
-| Nombre max de cartes réseau |100 |Nombre maximal d’interfaces réseau qu’un abonnement peut créer à cet emplacement. |
+| Nombre maximal de cartes réseau |100 |Nombre maximal d’interfaces réseau qu’un abonnement peut créer à cet emplacement. |
 | Nombre maximal de groupes de sécurité réseau |50 |Nombre maximal de groupes de sécurité réseau qu’un abonnement peut créer à cet emplacement. |
 
 ## <a name="view-an-existing-quota"></a>Afficher un quota existant

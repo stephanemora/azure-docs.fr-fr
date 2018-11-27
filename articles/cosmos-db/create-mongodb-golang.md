@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 7bfcbf2c72dbe33727097841f34f3f6869e9d2d8
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 79196e2e89ec28236b7256571ccaa087866c2e76
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053129"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706464"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application console API MongoDB avec Golang et le Portail Azure
 
@@ -42,7 +42,7 @@ En d’autres termes, votre application Golang sait uniquement qu’elle se conn
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) et une connaissance de base du langage [Go](https://golang.org/).
-- Un IDE — [Gogland](https://www.jetbrains.com/go/) par Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) par Microsoft, ou [Atom](https://atom.io/). Dans ce didacticiel, j’utilise Goglang.
+- Un IDE : [GoLand](https://www.jetbrains.com/go/) de Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) de Microsoft ou [Atom](https://atom.io/). Dans ce didacticiel, j’utilise Goglang.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
@@ -65,7 +65,7 @@ Cloner l’exemple d’application et installer les packages de composants requi
     go get gopkg.in/mgo.v2
     ```
 
-Le pilote [mgo](http://labix.org/mgo) (prononcé *mango*) est un pilote de type [MongoDB](http://www.mongodb.org/) destiné au [langage Go](http://golang.org/) mettant en œuvre un ensemble de fonctionnalités riche et éprouvé sous une API simple suivant des idiomes Go standard.
+Le pilote [mgo](http://labix.org/mgo) est un pilote de type [MongoDB](http://www.mongodb.org/) destiné au [langage Go](http://golang.org/) qui implémente un ensemble de fonctionnalités riche et éprouvé sous une API très simple suivant des idiomes Go standard.
 
 <a id="connection-string"></a>
 

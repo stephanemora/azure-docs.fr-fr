@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : analyser les données d’Apache Spark à l’aide de Power BI dans Azure HDInsight '
-description: Utiliser Microsoft Power BI pour visualiser les données Spark stockées les clusters HDInsight
+title: 'Tutoriel : Analyser les données d’Apache Spark à l’aide de Power BI dans Azure HDInsight '
+description: Utiliser Microsoft Power BI pour visualiser les données Apache Spark stockées sur les clusters HDInsight
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 341346b290fc3dab94773f75f2269cc147e71b82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252460"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712413"
 ---
-# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Didacticiel : analyser les données Spark à l’aide de Power BI dans HDInsight 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutoriel : Analyser les données d’Apache Spark à l’aide de Power BI dans HDInsight 
 
 Découvrez comment utiliser Microsoft Power BI pour visualiser les données dans le cluster Apache Spark sur Azure HDInsight.
 
@@ -78,7 +78,7 @@ Les premières étapes de l’utilisation de Spark consistent à se connecter au
     ![Obtenir des données dans Power BI Desktop à partir d’HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Obtenir des données dans Power BI à partir d’Apache Spark BI")
 
 
-2. Entrez `Spark` dans la zone de recherche, sélectionnez **Azure HDInsight Spark (bêta)**, puis cliquez sur **Connecter**.
+2. Entrez `Spark` dans la zone de recherche, sélectionnez **Azure HDInsight Spark**, puis cliquez sur **Se connecter**.
 
     ![Obtenir des données dans Power BI à partir d’Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Obtenir des données dans Power BI à partir Apache Spark BI")
 

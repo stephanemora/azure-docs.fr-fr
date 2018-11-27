@@ -10,23 +10,23 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 40bee31b7880a323a48e92912ee323c43c3a97da
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634757"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165456"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutoriel : Créer une application web Java EE et Postgres dans Azure
 
 Ce tutoriel vous explique comment créer une application web Java EE (Enterprise Edition) sur Azure App Service et comment la connecter à une base de données Postgres. À la fin de ce tutoriel, une application [WildFly](http://www.wildfly.org/about/) stocke les données dans [Azure Database pour Postgres](https://azure.microsoft.com/services/postgresql/) qui s’exécute sur [Azure App Service pour Linux](app-service-linux-intro.md).
 
-Dans ce tutoriel, vous allez apprendre à :
+Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Déployer une application Java EE dans Azure avec Maven
-> * Créer une base de données Postgres dans Azure
+> * Créez une base de données Postgres dans Azure
 > * Configurer le serveur WildFly pour utiliser Postgres
-> * Mettre à jour et redéployer l’application
+> * Mise à jour et redéploiement de l’application
 > * Exécuter des tests unitaires sur WildFly
 
 ## <a name="prerequisites"></a>Prérequis
@@ -51,13 +51,38 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 Mettez à jour le fichier POM Maven avec le nom et le groupe de ressources de votre choix pour votre instance App Service. Ces valeurs sont injectées dans le plug-in Azure qui se trouve plus bas dans le fichier _pom.xml_. Il n’est pas nécessaire de créer au préalable l’instance ou le plan App Service. Le plug-in Maven crée le groupe de ressources et l’instance App Service s’ils n’existent pas déjà.
 
+Vous pouvez faire défiler vers le bas jusqu’à la section `<plugins>` du fichier _pom.xml_ pour inspecter le plug-in Azure. La section de configuration `<plugin>` du fichier _pom.xml_ pour azure-webapp-maven-plugin doit inclure la configuration suivante :
+
+```xml
+      <!--*************************************************-->
+      <!-- Deploy to WildFly in App Service Linux           -->
+      <!--*************************************************-->
+ 
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <configuration>
+ 
+          <!-- Web App information -->
+          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
+          <appName>${WEBAPP_NAME}</appName>
+          <region>${REGION}</region>
+ 
+          <!-- Java Runtime Stack for Web App on Linux-->
+          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+ 
+        </configuration>
+      </plugin>
+```
+
 Remplacez les espaces réservés par les noms des ressources de votre choix :
 ```xml
 <azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
 <azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
 ```
 
-Vous pouvez faire défiler vers le bas jusqu’à la section `<plugins>` du fichier _pom.xml_ pour inspecter le plug-in Azure.
 
 ## <a name="build-and-deploy-the-application"></a>Générer et déployer l’application
 

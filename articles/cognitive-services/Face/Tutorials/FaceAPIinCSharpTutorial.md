@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 5319584d892c261dcc6290703e9ca6518640cc94
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685478"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852671"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Tutoriel : Créer une application WPF pour afficher des données de visage dans une image
 
@@ -67,7 +67,7 @@ Ouvrez *MainWindow.xaml.cs*, puis ajoutez les espaces de noms de la bibliothèqu
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-Insérez ensuite le code suivant dans la classe **MainWindow**. Cette opération crée une instance **FaceClient** à l’aide de la clé d’abonnement, que vous devez entrer vous-même. Vous devez également définir la chaîne de région dans `faceEndpoint` avec la bonne région pour votre abonnement.
+Insérez ensuite le code suivant dans la classe **MainWindow**. Cette opération crée une instance **FaceClient** à l’aide de la clé d’abonnement, que vous devez entrer vous-même. Vous devez également définir la chaîne de région dans `faceEndpoint` avec la bonne région pour votre abonnement. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).)
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 

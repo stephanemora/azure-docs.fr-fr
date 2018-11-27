@@ -10,30 +10,31 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 8ea45d202e550e16a7afd11e056738b2b21bd963
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: f2e576b421526c0245ff249d77214b27c9fd649a
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267713"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283942"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : utilisation de Java pour appeler le service cognitif Analyse de texte
 <a name="HOLTop"></a>
 
-Cet article montre comment [détecter la langue](#Detect), [analyser les sentiments](#SentimentAnalysis), [extraire les expressions clés](#KeyPhraseExtraction) et [identifier les entités liées](#Entities) à l’aide des [API Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759711) avec Java.
+Cet article montre comment [détecter la langue](#Detect), [analyser les sentiments](#SentimentAnalysis), [extraire les expressions clés](#KeyPhraseExtraction) et [identifier les entités liées](#Entities) à l’aide des [API Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759711) avec Java.
 
 Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour accéder à la documentation technique des API.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API Analyse de texte**. Vous pouvez utiliser le **niveau gratuit pour 5 000 transactions par mois** afin de suivre ce guide de démarrage rapide.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+
 Il vous faut également [le point de terminaison et la clé d’accès](../How-tos/text-analytics-how-to-access-key.md) générée pendant le processus d’inscription. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Détecter la langue
 
-L’API Détection de langue détecte la langue d’un document texte à l’aide de la [méthode Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+L’API Détection de langue détecte la langue d’un document texte à l’aide de la  [méthode Détecter la langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
 1. Créez un projet Java dans votre IDE favori.
 2. Ajoutez le code ci-dessous.
@@ -650,7 +651,7 @@ public class GetEntities {
     }
 }
 ```
-**Réponse d’extraction d’entité**
+**Réponse de l’extraction d’entité**
 
 Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 

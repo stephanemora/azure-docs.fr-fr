@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/23/2018
 ms.author: pareshmu
-ms.openlocfilehash: a55e57c2cc1c0ff2ba44f681cbae90ba69fdc434
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ead7ad9178264bc2cfa323eb440c235ab52c069b
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957789"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275851"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -40,18 +40,18 @@ Vous aurez accès aux services Azure dans toutes les régions au sein d’une r�
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique
 Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique.
 
-| **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
-| --- | --- | --- |
-| **Amérique du Nord** |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
-| **Amérique du Sud** |Brésil Sud |Sao Paulo |
-| **Europe** |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Dublin, Marseille, Londres, Newport(Pays de Galles), Paris |
-| **Asie** |Asie Est, Asie Sud-Est |Hong Kong, Kuala Lumpur, Singapour, Singapour2 |
-| **Japon** |Japon Ouest, Japon Est |Osaka, Tokyo |
-| **Australie** |Australie Sud-Est | Australie Est |Melbourne, Sydney |
-| **Secteur public australien** | Australie Centre, Australie Centre 2 |Canberra, Canberra2 | 
-| **Inde** |Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Corée du Sud** |Centre de la Corée, Corée du Sud |Busan, Séoul |
-| **Afrique du Sud** |[Afrique du Sud Ouest +, Afrique du Sud Nord +](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Le Cap, Johannesburg |
+| **Région géopolitique** | **Zone** | **Régions Azure** | **Emplacements ExpressRoute** |
+| --- | --- | --- | --- |
+| **Secteur public australien** |Zone 1 | Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
+| **Europe** |Zone 1 |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Dublin, Londres, Marseille, Newport(Pays de Galles), Paris |
+| **Amérique du Nord** |Zone 1 |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
+| **Asie** |Zone 2 |Asie Est, Asie Sud-Est |Hong Kong, Kuala Lumpur, Singapour, Singapour2 |
+| **Australie** |Zone 2 |Australie Sud-Est | Australie Est |Melbourne, Sydney | 
+| **Inde** |Zone 2 |Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Japon** |Zone 2 |Japon Ouest, Japon Est |Osaka, Tokyo |
+| **Corée du Sud** |Zone 2 |Centre de la Corée, Corée du Sud |Busan, Séoul|
+| **Afrique du Sud** |Zone 3 |[Afrique du Sud Ouest +, Afrique du Sud Nord +](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Le Cap, Johannesburg |
+| **Amérique du Sud** |Zone 3 |Brésil Sud |Sao Paulo |
 
  **+** = bientôt disponible
 

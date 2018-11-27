@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 79aacd7160dd4e794681e9b182236d6946baf3b8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6c4869c6ed392b8ae0fb33176435aa3f58abaa1e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107188"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706430"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder à Azure Resource Manager
 
@@ -33,15 +33,7 @@ Ce démarrage rapide vous indique comment utiliser une identité affectée par l
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Connectez-vous au Portail Azure](https://portal.azure.com).
-
-- [Créez une machine virtuelle Linux](/azure/virtual-machines/linux/quick-create-portal).
-
-- [Activer l’identité managée affectée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Accorder à votre machine virtuelle l’accès à un groupe de ressources dans Azure Resource Manager 
 
@@ -61,22 +53,22 @@ Ce démarrage rapide vous indique comment utiliser une identité affectée par l
 
 Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Dans le portail, accédez à votre machine virtuelle Linux et dans **Vue d’ensemble**, cliquez sur **Connexion**.  
-2. **Connectez-vous** à la machine virtuelle à l’aide du client SSH de votre choix. 
-3. Dans la fenêtre de terminal, envoyez une requête au point de terminaison des identités managées locales pour ressources Azure en vue d’obtenir un jeton d’accès pour Azure Resource Manager.  
- 
-    Vous trouverez la requête CURL pour le jeton d’accès ci-dessous.  
+1. Dans le portail, accédez à votre machine virtuelle Linux et dans **Vue d’ensemble**, cliquez sur **Connexion**.  
+2. **Connectez-vous** à la machine virtuelle à l’aide du client SSH de votre choix. 
+3. Dans la fenêtre de terminal, adressez une requête aux identités managées locales pour le point de terminaison des ressources Azure en vue d’obtenir un jeton d’accès pour Azure Resource Manager.  
+ 
+    Vous trouverez la requête CURL pour le jeton d’accès ci-dessous.  
     
     ```bash
-    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
     
     > [!NOTE]
-    > La valeur du paramètre « ressource » doit correspondre exactement à ce que demande Azure AD.  Dans le cas de l’ID de ressource de Resource Manager, vous devez inclure la barre oblique finale sur l’URI. 
+    > La valeur du paramètre « ressource » doit correspondre exactement à ce que demande Azure AD.  Dans le cas de l’ID de ressource de Resource Manager, vous devez inclure la barre oblique finale sur l’URI. 
     
-    La réponse inclut le jeton d’accès dont vous avez besoin pour accéder à Azure Resource Manager. 
+    La réponse inclut le jeton d’accès dont vous avez besoin pour accéder à Azure Resource Manager. 
     
-    Réponse :  
+    Réponse :  
 
     ```bash
     {"access_token":"eyJ0eXAiOi...",
@@ -85,27 +77,26 @@ Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utili
     "expires_on":"1504130527",
     "not_before":"1504126627",
     "resource":"https://management.azure.com",
-    "token_type":"Bearer"} 
+    "token_type":"Bearer"} 
     ```
     
-    Vous pouvez utiliser ce jeton d’accès pour accéder à Azure Resource Manager, pour lire les détails du groupe de ressources dont vous avez précédemment accordé l’accès à cette machine virtuelle, par exemple. Remplacez les valeurs de \<ID D’ABONNEMENT\>, \<GROUPE DE RESSOURCES\>, et \<JETON D’ACCÈS\> par celles que vous avez créées précédemment. 
+    Vous pouvez utiliser ce jeton d’accès pour accéder à Azure Resource Manager, pour lire les détails du groupe de ressources dont vous avez précédemment accordé l’accès à cette machine virtuelle, par exemple. Remplacez les valeurs de \<ID D’ABONNEMENT\>, \<GROUPE DE RESSOURCES\>, et \<JETON D’ACCÈS\> par celles que vous avez créées précédemment. 
     
     > [!NOTE]
-    > L’URL respecte la casse, par conséquent, assurez-vous que la casse est identique à celle utilisée précédemment lorsque vous avez nommé le groupe de ressources, et que la majuscule « G » dans « resourceGroup » est correcte.  
+    > L’URL respecte la casse, par conséquent, assurez-vous que la casse est identique à celle utilisée précédemment lorsque vous avez nommé le groupe de ressources, et que la majuscule « G » dans « resourceGroup » est correcte.  
     
     ```bash 
-    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
-    La réponse retourne les informations de groupe de ressources spécifiques : 
-     
+    La réponse retourne les informations de groupe de ressources spécifiques :    
     ```bash
-    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```     
+    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
+    ```     
 
-## <a name="next-steps"></a>Étapes suivantes
+## Next steps
 
-Dans ce démarrage rapide, vous avez appris à utiliser une identité managée affectée par le système pour accéder à l’API Azure Resource Manager.  Pour en savoir plus sur Azure Resource Manager, consultez :
+In this quickstart, you learned how to use a system-assigned managed identity to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
