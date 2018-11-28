@@ -132,7 +132,7 @@ Pour résoudre les problèmes liés à l'agent client, consultez [Résoudre les 
 
 - [Que se passe-t-il quand je restaure une base de données perdue ou endommagée ?](#setup-restore)
 
-### <a name="setup-space">Je reçois un message « Espace disque insuffisant ».</a>
+### <a name="setup-space"></a>Je reçois un message « Espace disque insuffisant ».
 
 - **Cause**. Le message « Espace disque insuffisant » peut s’afficher s’il reste des fichiers à supprimer. Ce problème peut être dû à un logiciel antivirus. Il peut également survenir lorsque des fichiers sont ouverts pendant une tentative de suppression.
 
