@@ -93,7 +93,7 @@ Si vous souhaitez exécuter l’agent local à partir d’un autre ordinateur, p
 
 - [L’application locale Agent de synchronisation ne peut pas se connecter au service de synchronisation local.](#agent-connect)
 
-### <a name="agent-install">L’installation, la désinstallation ou la réparation de l’agent client échoue.</a>
+### <a name="agent-install"></a> L’installation, la désinstallation ou la réparation de l’agent client échoue.
 
 - **Cause**. Cet échec peut avoir de nombreuses causes. Pour déterminer la cause spécifique de cet échec, consultez les journaux.
 
