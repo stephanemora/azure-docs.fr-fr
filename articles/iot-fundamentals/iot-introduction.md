@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288745"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582417"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Qu’est-ce que l’Internet des objets Azure (IoT) ?
 
@@ -57,17 +57,17 @@ Ces tâches, et d’autres, peuvent être implémentées à l’aide des kits [I
 
 La connexion sécurisée et fiable des appareils est souvent le défi le plus important dans les solutions IoT. Cela est dû au fait que les appareils IoT ont des caractéristiques différentes de celles d’autres clients tels que les navigateurs et les applications mobiles. Plus précisément, les appareils IoT :
 
-* Sont souvent des systèmes embarqués sans opérateur humain (contrairement aux téléphones).
+* sont souvent des systèmes intégrés, qui ne font appel à aucun opérateur humain (contrairement à un téléphone) ;
 
-* Peuvent être déployés sur des sites distants avec un accès physique coûteux.
+* peuvent être déployés sur des sites distants avec un accès physique coûteux ;
 
-* Peuvent être accessibles uniquement via le back-end de la solution. Il n’existe aucun autre moyen d’interagir avec l’appareil.
+* sont accessibles uniquement via le serveur principal de la solution ; Il n’existe aucun autre moyen d’interagir avec l’appareil.
 
-* Peuvent avoir des ressources d’alimentation et de traitement limitées.
+* peuvent avoir des performances et/ou des ressources de traitement limitées ;
 
-* Peuvent avoir une connectivité réseau intermittente, lente ou coûteuse.
+* peuvent avoir une connectivité réseau intermittente, lente ou coûteuse ;
 
-* Peuvent avoir besoin d’utiliser des protocoles d’application personnalisés, propriétaires ou spécifiques à un secteur.
+* peuvent nécessiter l’utilisation des protocoles d’application personnalisés, propriétaires ou spécifiques à un secteur.
 
 ### <a name="back-end-services"></a>Services back-end 
 
@@ -113,7 +113,7 @@ Il existe plusieurs services IoT dans Azure et il peut être difficile de déter
 
 5. [**IoT Edge**](/azure/iot-edge/) : Ce service repose sur IoT Hub. Il peut être utilisé pour analyser les données sur les appareils IoT plutôt que dans le cloud. En déplaçant des parties de votre charge de travail à la périphérie, moins de messages doivent être envoyés au cloud. 
 
-6. [**Azure Digital Twins**](/azure/azure-digital-twins/) : Ce service vous permet de créer des modèles complets de l’environnement physique. Vous pouvez modéliser les relations et les interactions entre les personnes, les espaces et les appareils. Par exemple, vous pouvez prévoir les besoins de maintenance d’une usine, analyser les besoins énergétiques en temps réel d’un réseau électrique ou optimiser l’utilisation de l’espace disponible d’un bureau.
+6. [**Azure Digital Twins**](../digital-twins/index.yml) : Ce service vous permet de créer des modèles complets de l’environnement physique. Vous pouvez modéliser les relations et les interactions entre les personnes, les espaces et les appareils. Par exemple, vous pouvez prévoir les besoins de maintenance d’une usine, analyser les besoins énergétiques en temps réel d’un réseau électrique ou optimiser l’utilisation de l’espace disponible d’un bureau.
 
 7. [**Time Series Insights**](/azure/time-series-insights) : Ce service vous permet de stocker, visualiser et interroger de grandes quantités de données de série chronologique générées par les appareils IoT. Vous pouvez utiliser ce service avec IoT Hub. 
 
@@ -127,4 +127,4 @@ Pour des exemples de projets que vous pouvez essayer avec un kit IoT DevKit, con
 
 Pour une explication plus complète des différents services et de leur utilisation, consultez [Services et technologies Azure IoT](iot-services-and-technologies.md).
 
-Pour une étude approfondie de l’architecture IoT, consultez [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture).
+Pour une étude approfondie de l’architecture IoT, consultez [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Architecture de référence Microsoft Azure IoT).

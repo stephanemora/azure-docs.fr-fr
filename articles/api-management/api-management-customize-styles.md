@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 00e6f2ed866afd13343df37de625e2913f613dfa
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092401"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441755"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personnaliser le style des pages du portail des développeurs
 
@@ -39,8 +39,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
++ Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="customize-the-developer-portal"></a>Personnaliser le portail des développeurs
 

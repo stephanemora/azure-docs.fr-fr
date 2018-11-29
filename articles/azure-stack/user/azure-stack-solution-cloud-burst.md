@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095336"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334888"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Didacticiel : Créer des solutions de mise à l’échelle dans le cloud avec Azure
 
@@ -49,7 +49,7 @@ Dans ce tutoriel, vous créez un exemple d’environnement pour :
 -   Abonnement Azure. Si nécessaire, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 - Système intégré Azure Stack ou déploiement du Kit de développement Azure Stack.
-    - La page [Installer le Kit de développement Azure Stack](/articles/azure-stack/asdk/asdk-install) comporte des instructions permettant d’installer Azure Stack.
+    - La page [Installer le Kit de développement Azure Stack](../asdk/asdk-install.md) comporte des instructions permettant d’installer Azure Stack.
     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Cette installation peut nécessiter plusieurs heures.
 
 -   Déployez les services PaaS [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) sur Azure Stack.
@@ -97,7 +97,7 @@ Mettez à jour le fichier de zone DNS pour le domaine. Azure AD vérifie la prop
 Configurez l’intégration continue et le déploiement continu (CI/CD) hybride pour déployer Web App sur Azure et Azure Stack, et pour envoyer (push) les modifications sur les deux clouds.
 
 > [!Note]  
-> Vous avez besoin d’Azure Stack avec les images appropriées syndiquées pour s’exécuter (Windows Server et SQL), et App Service doit être déployé. Pour l’opérateur Azure Stack, consultez la section «[ Avant de commencer avec App Service sur Azure Stack ](/articles/azure-stack/azure-stack-app-service-before-you-get-started)» dans la documentation d’App Service.
+> Vous avez besoin d’Azure Stack avec les images appropriées syndiquées pour s’exécuter (Windows Server et SQL), et App Service doit être déployé. Pour l’opérateur Azure Stack, consultez la section «[ Avant de commencer avec App Service sur Azure Stack ](../azure-stack-app-service-before-you-get-started.md)» dans la documentation d’App Service.
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Ajouter du code au projet Visual Studio Team Services
 
@@ -259,7 +259,7 @@ Maintenant que les informations du point de terminaison existent, la connexion d
 ## <a name="develop-the-application-build"></a>Développer la build de l’application
 
 > [!Note]  
-> Vous avez besoin d’Azure Stack avec les images appropriées syndiquées pour s’exécuter (Windows Server et SQL), et App Service doit être déployé. Pour l’opérateur Azure Stack, consultez la section «[ Avant de commencer avec App Service sur Azure Stack ](/articles/azure-stack/azure-stack-app-service-before-you-get-started)» dans la documentation d’App Service.
+> Vous avez besoin d’Azure Stack avec les images appropriées syndiquées pour s’exécuter (Windows Server et SQL), et App Service doit être déployé. Pour l’opérateur Azure Stack, consultez la section «[ Avant de commencer avec App Service sur Azure Stack ](../azure-stack-app-service-before-you-get-started.md)» dans la documentation d’App Service.
 
 Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) comme du code d’application web de VSTS pour déployer dans les deux clouds.
 

@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
-ms.openlocfilehash: 539e863d05c2d343a643c54c39c1e5a28694c03a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 00098b02e5f007cfad1076eb3759c424dd9a5d3e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163216"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333868"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB : exemples Java pour l’API SQL
 
@@ -123,7 +123,7 @@ Le fichier [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-jav
 | --- | --- |
 | [Création d’un index et définition d’une stratégie d’indexation](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L125-L141) | [Index](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._indexing_policy) |
 
-Pour plus d’informations sur l’indexation, consultez [Stratégies d’indexation d’Azure Cosmos DB](indexing-policies.md).
+Pour plus d’informations sur l’indexation, consultez [Stratégies d’indexation d’Azure Cosmos DB](index-policy.md).
 
 ## <a name="query-examples"></a>Exemples de requête
 Le fichier [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) montre comment effectuer les tâches suivantes :

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277475"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424848"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutoriel 9 : Extraire le sentiment de l’énoncé global
 Dans ce tutoriel, vous allez créer une application montrant comment extraire le sentiment positif, négatif et neutre des énoncés. Le sentiment est déterminé à partir de l’énoncé entier.
@@ -60,7 +60,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 ## <a name="employeefeedback-intent"></a>Intention RetoursEmployés 
 Ajouter une nouvelle intention de recueillir des commentaires employés de la part des membres de la société. 
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sélectionnez **Créer une intention**.
 

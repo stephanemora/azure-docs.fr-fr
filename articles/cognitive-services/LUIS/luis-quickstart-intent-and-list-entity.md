@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280695"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425069"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Tutoriel 4 : Extraire des correspondances de texte exactes
 Ce tutoriel explique comment obtenir des données correspondant à une liste de termes prédéfinie. Chaque élément de la liste peut inclure une liste de synonymes. Pour l’application de ressources humaines, un employé peut être identifié avec plusieurs éléments d’information essentiels tels que le nom, l’adresse e-mail, le numéro de téléphone et le numéro d’identification du contribuable (USA). 
@@ -41,7 +41,7 @@ Une entité de type liste est un choix approprié pour ce type de données lorsq
 > * Publish
 > * Obtenir les intentions et les entités à partir du point de terminaison
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Utiliser l’application existante
 Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
@@ -57,7 +57,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
 ## <a name="moveemployee-intent"></a>Intention MoveEmployee
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sélectionnez **Créer une intention**. 
 
@@ -84,7 +84,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
     N’oubliez pas que number et datetimeV2 ont été ajoutés dans le tutoriel précédent et sont automatiquement étiquetés quand ils sont trouvés dans des exemples d’énoncés.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>Entité de liste d’employés
 Maintenant que l’intention **MoveEmployee** dispose d’exemples d’énoncés, LUIS doit comprendre ce qu’est un employé. 

@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Entraîner un modèle de classification d’images avec le service Azure Machine Learning'
-description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour entraîner un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le premier d’une série de deux.
+description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour effectuer l’apprentissage d’un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le premier d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 11/21/2018
-ms.openlocfilehash: 067a8deb935fb8a49d72c6ce441e8d9760c5390c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283653"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496221"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Didacticiel n° 1 : Entraîner un modèle de classification d’images avec le service Azure Machine Learning
 
@@ -40,7 +40,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://ak
 
 ## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
-Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Exécutez le bloc-notes `01.train-models.ipynb` dans des Azure Notebooks ou dans votre propre serveur de bloc-notes Jupyter.
+Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://aka.ms/aml-notebook-tut-01). Exécutez le bloc-notes `01.train-models.ipynb` dans des Azure Notebooks ou dans votre propre serveur de bloc-notes Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

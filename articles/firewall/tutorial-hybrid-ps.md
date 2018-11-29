@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Déployer et configurer le Pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell'
-description: Ce tutoriel vous apprend à déployer et configurer le Pare-feu Azure à l’aide du portail Azure.
+title: 'Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell'
+description: Ce didacticiel vous apprend à déployer et configurer un pare-feu Azure à l’aide du portail Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 781365e32ce5602e9fb99b620e068ddf68de8c44
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854167"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316394"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutoriel : Déployer et configurer le Pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
+# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
 Lorsque vous connectez votre réseau local à un réseau virtuel Azure pour créer un réseau hybride, la possibilité de contrôler l’accès à vos ressources réseau Azure représente une part importante dans un plan de sécurité générale.
 
@@ -309,9 +309,6 @@ Ensuite, créez deux itinéraires :
 
 - Un itinéraire à partir du sous-réseau de passerelle hub vers le sous-réseau spoke via l’adresse IP du pare-feu
 - Un itinéraire par défaut à partir du sous-réseau spoke via l’adresse IP du pare-feu
-
-> [!NOTE]
-> Le Pare-feu Azure apprend vos réseaux locaux à l’aide du protocole BGP. Il peut s’agir d’un itinéraire par défaut qui réachemine le trafic Internet via votre réseau local. Dans un déploiement de production, vous souhaiterez peut-être que le trafic Internet soit envoyé directement du pare-feu vers Internet. Vous pouvez ajouter un itinéraire par défaut, défini par l’utilisateur, (0.0.0.0/0) sur le sous-réseau AzureFirewallSubnet avec le type de tronçon suivant **Internet**. Votre trafic de destination local est toujours acheminé de force par tunnel via la passerelle VPN/ExpressRoute en utilisant les itinéraires plus précis appris par le protocole BGP.
 
 ```azurepowershell
 #Create a route table

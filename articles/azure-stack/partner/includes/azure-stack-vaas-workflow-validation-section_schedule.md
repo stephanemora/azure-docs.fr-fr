@@ -2,14 +2,14 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: d23ba90f7cc0c5a03db2ef3eed4a662abe7ff27e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: be9b3b3a9cbb39386d13f76c595ce5e34688adac
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650536"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52336065"
 ---
 Dans les workflows de validation, la **planification** d’un test utilise des paramètres communs au niveau du workflow que vous avez spécifiés lors de la création de votre workflow (voir [Paramètres de flux de travail communs dans la validation en tant que service Azure Stack](../azure-stack-vaas-parameters.md)). Si l’une des valeurs de paramètres de test devient non valide, vous devez les redéfinir comme indiqué dans la section relative à la [modification des paramètres de workflow](../azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 

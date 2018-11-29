@@ -2,20 +2,20 @@
 title: Démarrage rapide Azure - Exécution d’un travail Batch - Python
 description: Exécution rapide d’un travail Batch et de tâches à l’aide de la bibliothèque cliente Python de Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/26/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 424516a4a321227e4e79cfe33d40e8fdca24a779
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0ce9d6854f464efdf0ff6eea8644fedc5ad90d1f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815271"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427318"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Démarrage rapide : exécution de votre premier travail Batch avec l’API Python
 
@@ -55,8 +55,7 @@ Dans votre environnement de développement Python, installez les packages requis
 pip install -r requirements.txt
 ```
 
-Ouvrez le fichier `python_quickstart_client.py`. Mettez à jour les chaînes d’identification de compte Batch et de stockage avec les valeurs obtenues pour vos comptes. Par exemple : 
-
+Ouvrez le fichier `config.py`. Mettez à jour les chaînes d’identification de compte Batch et de stockage avec les valeurs obtenues pour vos comptes. Par exemple : 
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -81,7 +80,7 @@ Après avoir exécuté le script, passez en revue le code pour savoir ce que fai
 Lorsque vous exécutez l’exemple d’application, la sortie de la console est identique à ce qui suit. Pendant l’exécution, l’étape `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` fait l’objet d’une pause correspondant au démarrage des nœuds de calcul du pool. Les tâches sont mises en file d’attente pour s’exécuter dès que le premier nœud de calcul est en cours d’exécution. Accédez à votre compte Batch dans le [portail Azure](https://portal.azure.com) pour surveiller le pool, les nœuds de calcul, les travaux et les tâches dans votre compte Batch.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -115,7 +114,7 @@ L’application Python dans ce démarrage rapide effectue les opérations suivan
 * Création d’un travail et de trois tâches à exécuter sur les nœuds. Chaque tâche traite l’un des fichiers d’entrée à l’aide d’une ligne de commande d’interpréteur de commandes Bash.
 * Affichage de fichiers retournés par les tâches.
 
-Consultez le fichier `python_quickstart_client.py` et les sections suivantes pour plus de détails. 
+Consultez le fichier `python_quickstart_client.py` et les sections suivantes pour plus de détails.
 
 ### <a name="preliminaries"></a>Étapes préalables
 
@@ -123,8 +122,8 @@ Pour interagir avec un compte de stockage, l’application utilise le package [a
 
 ```python
 blob_client = azureblob.BlockBlobService(
-    account_name=_STORAGE_ACCOUNT_NAME,
-    account_key=_STORAGE_ACCOUNT_KEY)
+    account_name=config._STORAGE_ACCOUNT_NAME,
+    account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
 L’application utilise la référence `blob_client` pour créer un conteneur dans le compte de stockage ainsi que pour charger des fichiers de données vers le conteneur. Les fichiers de stockage sont définis en tant qu’objets Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) que Batch peut télécharger ultérieurement sur les nœuds de calcul.
@@ -142,14 +141,13 @@ input_files = [
 L’application crée un objet [BatchServiceClient](/python/api/azure.batch.batchserviceclient) pour créer et gérer des pools, des travaux et des tâches dans le service Batch. Le client Batch dans l’exemple utilise l’authentification de la clé partagée. Batch prend également en charge l’authentification Azure Active Directory.
 
 ```python
-credentials = batch_auth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    _BATCH_ACCOUNT_KEY)
+credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
+    config._BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=_BATCH_ACCOUNT_URL)
+    base_url=config._BATCH_ACCOUNT_URL)
 ```
-
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Création d’un pool de nœuds de calcul
 
@@ -170,8 +168,8 @@ new_pool = batch.models.PoolAddParameter(
             version="latest"
             ),
         node_agent_sku_id="batch.node.ubuntu 16.04"),
-    vm_size=_POOL_VM_SIZE,
-    target_dedicated_nodes=_POOL_NODE_COUNT
+    vm_size=config._POOL_VM_SIZE,
+    target_dedicated_nodes=config._POOL_NODE_COUNT
 )
 batch_service_client.pool.add(new_pool)
 ```
@@ -220,7 +218,7 @@ for task in tasks:
     print("Task: {}".format(task.id))
     print("Node: {}".format(node_id))
 
-    stream = batch_service_client.file.get_from_task(job_id, task.id, _STANDARD_OUT_FILE_NAME)
+    stream = batch_service_client.file.get_from_task(job_id, task.id, config._STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,

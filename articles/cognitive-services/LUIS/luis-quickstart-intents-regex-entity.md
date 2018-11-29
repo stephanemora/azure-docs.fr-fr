@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 06e212ef756fda9224b38b41c69c7c4eccfb9796
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159854"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423413"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Tutoriel 3 : Extraire des données bien formées
 Dans ce tutoriel, vous modifiez l’application Ressources humaines pour extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
@@ -46,9 +46,9 @@ Une expression régulière est un choix approprié pour ce type de données quan
 > * Ajouter une entité d’expression régulière 
 > * Former
 > * Publish
-> * Reconnaître les intentions et les entités à partir du point de terminaison
+> * Obtenir les intentions et les entités à partir du point de terminaison
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Utiliser l’application existante
 Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
@@ -59,11 +59,11 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Gérer**, sous l’onglet **Versions**, clonez la version et nommez-la `regex`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
+3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `regex`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
 
 ## <a name="findform-intent"></a>Intention FindForm
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sélectionnez **Créer une intention**. 
 
@@ -90,7 +90,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
     L’application comporte une entité de nombre prédéfinie ajoutée à partir du didacticiel précédent, de sorte que chaque numéro de formulaire est étiqueté. Cela peut suffire pour votre application cliente, mais le numéro ne sera pas étiqueté avec le type de numéro. Création d’une entité avec un nom approprié permet à l’application cliente de traiter l’entité correctement lorsqu’elle est retournée à partir de LUIS.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="regular-expression-entity"></a>Entité d’expression régulière 
 L’entité d’expression régulière correspondant au numéro du formulaire est `hrf-[0-9]{6}`. Cette expression régulière correspond aux caractères littéraux `hrf-`, mais ignore les variantes de casse et de culture. Elle correspond aux chiffres 0 à 9, pour 6 chiffres exactement.
@@ -123,7 +123,7 @@ Créez une entité d’expression régulière pour indiquer à LUIS ce qu’est 
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Reconnaître l’intention et les entités à partir du point de terminaison
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtenir l’intention et les entités à partir du point de terminaison
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 

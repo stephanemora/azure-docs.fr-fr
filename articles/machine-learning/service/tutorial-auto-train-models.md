@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Entraîner un modèle de classification avec le machine learning automatisé - Service Azure Machine Learning'
-description: Découvrez comment générer un modèle Machine Learning à l’aide du machine learning automatisé.  Azure Machine Learning peut effectuer le prétraitement des données, la sélection de l’algorithme et la sélection des hyperparamètres de manière automatisée. Le modèle final doit ensuite être déployé avec le service Azure Machine Learning.
+description: Découvrez comment générer un modèle de machine Learning à l’aide de l’apprentissage automatique automatisé.  Azure Machine Learning peut effectuer le prétraitement des données, la sélection de l’algorithme et la sélection des hyperparamètres de manière automatisée. Le modèle final doit ensuite être déployé avec le service Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,29 +9,29 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 11/21/2018
-ms.openlocfilehash: 76436da1013c6747e9167c006e0d7c5e89ec8d9c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0c7431e5b66da721248b2a49c214584bf43e577f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284742"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498566"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Didacticiel : Entraînement d’un modèle de classification par Machine Learning automatisé dans le service Azure Machine Learning
 
-Dans ce tutoriel, vous allez apprendre à générer un modèle Machine Learning à l’aide du machine learning automatisé.  Le service Azure Machine Learning peut effectuer le prétraitement des données, la sélection de l’algorithme et la sélection des hyperparamètres de manière automatisée. Le modèle final peut ensuite être déployé suivant le flux de travail dans le didacticiel [Déployer un modèle](tutorial-deploy-models-with-aml.md).
+Dans ce didacticiel, vous apprendrez à générer un modèle de machine learning à l’aide de l’apprentissage automatique automatisé (machine learning automatisé).  Le service Azure Machine Learning peut effectuer le prétraitement des données, la sélection de l’algorithme et la sélection des hyperparamètres de manière automatisée. Le modèle final peut ensuite être déployé suivant le flux de travail dans le didacticiel [Déployer un modèle](tutorial-deploy-models-with-aml.md).
 
 ![Diagramme de flux](./media/tutorial-auto-train-models/flow2.png)
 
-Tout comme le [tutoriel sur l’entraînement de modèles](tutorial-train-models-with-aml.md), ce tutoriel classifie les images manuscrites de chiffres (0-9) à partir du jeu de données [MNIST](http://yann.lecun.com/exdb/mnist/). Cette fois, vous n’avez pas à spécifier d’algorithme ou à régler d’hyperparamètres. La technique de ML automatisée itère de nombreuses combinaisons d’algorithmes et d’hyperparamètres jusqu’à ce qu’elle trouve le meilleur modèle en fonction de vos critères.
+Tout comme le [didacticiel sur l’apprentissage de modèles](tutorial-train-models-with-aml.md), ce didacticiel classifie les images manuscrites de chiffres (0-9) à partir du jeu de données [MNIST](http://yann.lecun.com/exdb/mnist/). Cette fois, vous n’avez pas à spécifier d’algorithme ou à régler d’hyperparamètres. La technique de ML automatisée itère de nombreuses combinaisons d’algorithmes et d’hyperparamètres jusqu’à ce qu’elle trouve le meilleur modèle en fonction de vos critères.
 
 Vous découvrirez comment effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Configurer l’environnement de développement
-> * Accéder aux données et les examiner
-> * Entraîner à l’aide d’un classifieur automatisé sur votre ordinateur local
+> * Configuration de l'environnement de développement
+> * Accéder aux données et les examiner.
+> * Effectuer l’apprentissage à l’aide d’un classifieur automatisé sur votre ordinateur local
 > * Lire les résultats
-> * Vérifier les résultats d’entraînement
+> * Vérifier les résultats de l’apprentissage
 > * Enregistrer le meilleur modèle
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
@@ -41,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://ak
 
 ## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
-Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb). Exécutez le bloc-notes `03.auto-train-models.ipynb` dans des Azure Notebooks ou dans votre propre serveur de bloc-notes Jupyter.
+Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://aka.ms/aml-notebook-tut-03). Exécutez le bloc-notes `03.auto-train-models.ipynb` dans des Azure Notebooks ou dans votre propre serveur de bloc-notes Jupyter.
 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
@@ -53,7 +53,7 @@ Toute la configuration pour votre travail de développement peut être effectué
 
 * Importer des packages Python
 * Configurer un espace de travail pour permettre la communication entre votre ordinateur local et les ressources distantes
-* Créer un répertoire pour stocker les scripts d’entraînement
+* Créer un répertoire pour stocker les scripts d’apprentissage
 
 ### <a name="import-packages"></a>Importer des packages
 Importez les packages Python dont vous avez besoin dans ce didacticiel.
@@ -101,7 +101,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>Explorer les données
 
-Le tutoriel d’entraînement initial utilise une version haute résolution du jeu de données MNIST (28 x 28 pixels).  Étant donné que le ML automatisé requiert un grand nombre d’itérations, ce didacticiel utilise une moindre résolution pour les images (8 x 8 pixels), et ce afin d’illustrer les concepts tout en accélérant le temps nécessaire pour chaque itération.  
+Le didacticiel d’apprentissage initial utilise une version haute résolution du jeu de données MNIST (28 x 28 pixels).  Étant donné que le ML automatisé requiert un grand nombre d’itérations, ce didacticiel utilise une moindre résolution pour les images (8 x 8 pixels), et ce afin d’illustrer les concepts tout en accélérant le temps nécessaire pour chaque itération.  
 
 ```python
 from sklearn import datasets
@@ -135,11 +135,11 @@ Un échantillon aléatoire d’images affiche :
 ![chiffres](./media/tutorial-auto-train-models/digits.png)
 
 
-Vous disposez maintenant des packages et données nécessaires pour l’entraînement automatique de votre modèle. 
+Vous disposez maintenant des packages et données nécessaires pour l’apprentissage automatique de votre modèle. 
 
-## <a name="train-a-model"></a>Entraîner un modèle
+## <a name="train-a-model"></a>Effectuer l’apprentissage d’un modèle
 
-Pour entraîner automatiquement un modèle, commencez par définir les paramètres de configuration de l’expérience, puis exécutez-la.
+Pour effectuer l’apprentissage automatique d’un modèle, commencez par définir les paramètres de configuration de l’expérience, puis exécutez-la.
 
 
 ### <a name="define-settings"></a>Définir des paramètres
@@ -150,7 +150,7 @@ Définissez les paramètres de l’expérience et du modèle.
 |----|----|---|
 |**primary_metric**|AUC pondérée | Métrique que vous souhaitez optimiser.|
 |**max_time_sec**|12,000|Limite de temps en secondes pour chaque itération.|
-|**iterations**|20|Nombre d’itérations. Dans chaque itération, le modèle s’entraîne avec les données d’un pipeline spécifique.|
+|**iterations**|20|Nombre d’itérations. Dans chaque itération, le modèle effectue l’apprentissage avec les données d’un pipeline spécifique.|
 |**n_cross_validations**|3|Nombre de divisions pour la validation croisée.|
 |**preprocess**|False| Le paramètre *True/False* permet à l’expérience d’effectuer un prétraitement sur l’entrée.  Le prétraitement traite les *données manquantes* et effectue certaines *extractions de composants* courantes.|
 |**exit_score**|0.9985|La valeur *double* indique la cible pour *primary_metric*. Une fois que la cible est dépassée, l’exécution s’arrête.|
@@ -541,10 +541,10 @@ Dans ce didacticiel sur le service Azure Machine Learning, vous avez utilisé Py
 > [!div class="checklist"]
 > * Configuration de l'environnement de développement
 > * Accéder aux données et les examiner.
-> * Entraîner à l’aide d’un classifieur automatisé local avec des paramètres personnalisés
+> * Effectuer l’apprentissage à l’aide d’un classifieur automatisé local avec des paramètres personnalisés
 > * Lire les résultats
-> * Vérifier les résultats d’entraînement
+> * Vérifier les résultats de l’apprentissage
 > * Enregistrer le meilleur modèle
 
-Découvrez-en plus sur la [configuration des paramètres pour l’entraînement automatique](how-to-configure-auto-train.md) ou l’[utilisation de l’entraînement automatique sur une ressource distante](how-to-auto-train-remote.md).  
+En savoir plus sur [la configuration des paramètres pour l’apprentissage automatique](how-to-configure-auto-train.md) ou [l’utilisation de l’apprentissage automatique sur une ressource distante](how-to-auto-train-remote.md).  
 

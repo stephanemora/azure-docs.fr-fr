@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 044cc30a418f3c54053a6f4878f97f5c9ea9f9e2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180941"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335110"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Didacticiel : Simuler un échec d’accès au stockage redondant avec accès en lecture
 
@@ -145,7 +145,7 @@ Pour ajouter un itinéraire statique relatif à un hôte de destination, entrez 
  
 Remplacez `<destination_ip>` par l’adresse IP du compte de stockage, et `<gateway_ip>` par l’adresse IP de l’hôte local. Pour permettre à l’application de reprendre son exécution, appuyez sur **une touche**.
 
-Une fois que l’application a repris son exécution, les demandes d’accès au point de terminaison principal n’aboutissent plus. L’application tente de se reconnecter au point de terminaison principal à 5 reprises. Après cinq tentatives non réussies, elle demande l’image au point de terminaison secondaire en lecture seule. Une fois que l’application a réussi à récupérer l’image à 20 reprises à partir du point de terminaison secondaire, elle tente de se connecter au point de terminaison principal. Si le point de terminaison principal est toujours inaccessible, l’application reprend sa lecture du point de terminaison secondaire. Ce modèle correspond au modèle [Disjoncteur](/azure/architecture/patterns/circuit-breaker.md) décrit dans le didacticiel précédent.
+Une fois que l’application a repris son exécution, les demandes d’accès au point de terminaison principal n’aboutissent plus. L’application tente de se reconnecter au point de terminaison principal à 5 reprises. Après cinq tentatives non réussies, elle demande l’image au point de terminaison secondaire en lecture seule. Une fois que l’application a réussi à récupérer l’image à 20 reprises à partir du point de terminaison secondaire, elle tente de se connecter au point de terminaison principal. Si le point de terminaison principal est toujours inaccessible, l’application reprend sa lecture du point de terminaison secondaire. Ce modèle correspond au modèle [Disjoncteur](/azure/architecture/patterns/circuit-breaker) décrit dans le didacticiel précédent.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simuler la restauration du point de terminaison principal
 

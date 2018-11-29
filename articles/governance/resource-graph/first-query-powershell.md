@@ -4,17 +4,17 @@ description: Cet article vous guide tout au long des étapes à suivre pour acti
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 001805aaf87ed6c3481a8ad8378cdc22ef74d274
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6bd7ceaeaf0b064ebbd8f069a4741489349bb980
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646386"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427503"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Exécuter votre première requête Resource Graph à l’aide d’Azure PowerShell
 
@@ -37,9 +37,6 @@ Le module Azure Resource Graph nécessite les logiciels suivants :
   - Pour PowerShell Core, utilisez la version **Az** du module Azure PowerShell.
 
   - Pour Windows PowerShell, utilisez la version **AzureRm** du module Azure PowerShell.
-
-  > [!NOTE]
-  > Il n’est actuellement pas recommandé d’installer le module dans Cloud Shell.
 
 - PowerShellGet 2.0.1 ou une version ultérieure. S’il n’est pas installé ou mis à jour, suivez [ces instructions](/powershell/gallery/installing-psget).
 

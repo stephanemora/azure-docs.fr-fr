@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282269"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424698"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutoriel 5 : Extraire des données relatives au contexte
 Dans ce tutoriel, vous allez rechercher des ensembles de données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination d’un déménagement physique depuis un bâtiment et un bureau vers un autre bâtiment et un autre bureau sont liés. Pour générer un ordre de travail, les deux ensembles de données peuvent être nécessaires et ils sont liés entre eux.  
@@ -57,7 +57,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Supprimer l’entité de nombre prédéfinie de l’application
 Afin d’afficher l’énoncé complet et de marquer les enfants hiérarchiques, supprimez temporairement l’entité de nombre prédéfinie.
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Dans le menu gauche, sélectionnez **Entités**.
 
@@ -83,7 +83,7 @@ Afin d’afficher l’énoncé complet et de marquer les enfants hiérarchiques,
 
     Dans le tutoriel [liste d’entités](luis-quickstart-intent-and-list-entity.md), un employé est désigné par son nom, adresse e-mail, numéro de poste, numéro de téléphone mobile ou numéro de sécurité sociale (USA). Ces numéros relatifs à l’employé sont utilisés dans les énoncés. Les énoncés exemples précédents incluent différentes façons de noter les emplacements d’origine et de destination, marqués en gras. Quelques énoncés n’ont que les destinations, à dessein. Cela aide LUIS à comprendre comment ces emplacements sont placés dans l’énoncé lorsque l’origine n’est pas spécifiée.     
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Créer une entité d’emplacement
 LUIS a besoin de comprendre ce qu’est un emplacement en étiquetant l’origine et la destination dans les énoncés. Si vous devez voir l’énoncé dans l’affichage du jeton (brut), sélectionnez le bouton bascule dans la barre au-dessus des énoncés dénommé **Entities View** (affichage d’entités). Après avoir activé le bouton bascule , la commande s’appelle **Tokens View** (Vue des jetons).

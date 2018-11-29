@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 4a372b54ace87816b9e7cccbd38466331b5ebfc7
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 91463520547ca534048bba77d3b979b462ded6b5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437594"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442350"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modifier le contenu et la disposition des pages dans le portail des développeurs dans Gestion des API Azure
 Il existe trois manières principales pour personnaliser le portail des développeurs dans Gestion des API Azure :
@@ -27,6 +27,8 @@ Il existe trois manières principales pour personnaliser le portail des dévelop
 * [Modifier le contenu des pages statiques et des éléments de mise en page][modify-content-layout] (procédure expliquée dans ce guide)
 * [Mettre à jour les styles utilisés pour les éléments de page dans le portail des développeurs][customize-styles]
 * [Modifier les modèles utilisés pour les pages générées par le portail][portal-templates] (par exemple, documents API, produits, authentification des utilisateurs, etc.)
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="page-structure"></a>Structure des pages du portail des développeurs
 

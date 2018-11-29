@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d73284ecf40b2dfcd4954c1ddee82bf92a8931b9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281793"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422420"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutoriel 2 : Identifier les intentions et entités courantes
 Dans ce tutoriel, vous modifiez l’application Ressources humaines. Ajouter des intentions et des entités prédéfinies au didacticiel de l’application de Ressources humaines pour obtenir rapidement une prédiction des intentions et l’extraction de données. Vous n’avez pas besoin d’étiqueter les énoncés avec des entités prédéfinies, car l’entité est détectée automatiquement.
@@ -48,7 +48,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 ## <a name="add-prebuilt-intents"></a>Ajouter des intentions prédéfinies
 LUIS fournit plusieurs intentions prédéfinies pour aider avec des intentions utilisateurs courantes.  
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sélectionnez **Ajouter une intention prédéfinie**. 
 

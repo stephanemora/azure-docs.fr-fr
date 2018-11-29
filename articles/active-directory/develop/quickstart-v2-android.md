@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 6eb06a2a4e83c9c293474f1692c2d33d4d0dfb36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995735"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427010"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
@@ -123,7 +123,7 @@ Lisez les sections suivantes pour plus d’informations sur ce démarrage rapide
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)) est la bibliothèque utilisée pour connecter des utilisateurs et demander des jetons permettant d’accéder à une API protégée par Microsoft Azure Active Directory (Azure AD). Vous pouvez utiliser Gradle pour l’installer en ajoutant le code suivant dans **Scripts Gradle** > **build.gradle (Module : app)** sous **Dépendances** :
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) est la bibliothèque utilisée pour connecter des utilisateurs et demander des jetons permettant d’accéder à une API protégée par Microsoft Azure Active Directory (Azure AD). Vous pouvez utiliser Gradle pour l’installer en ajoutant le code suivant dans **Scripts Gradle** > **build.gradle (Module : app)** sous **Dépendances** :
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -159,7 +159,7 @@ MSAL utilise deux méthodes pour acquérir des jetons : `acquireToken` et `acqui
 Certaines situations exigent de forcer les utilisateurs à interagir avec le point de terminaison Azure AD v2.0 qui entraînent un changement de contexte sur le navigateur système pour valider les informations d’identification des utilisateurs ou pour le consentement. Voici quelques exemples :
 
 * La première connexion des utilisateurs à l’application
-* Lorsque les utilisateurs doivent réentrer leurs informations d’identification, car le mot de passe a expiré
+* Quand les utilisateurs doivent de nouveau entrer leurs informations d’identification, car le mot de passe a expiré
 * Lorsque votre application demande l’accès à une ressource pour laquelle l’utilisateur doit donner son consentement
 * Lorsqu’une authentification à 2 facteurs est requise
 

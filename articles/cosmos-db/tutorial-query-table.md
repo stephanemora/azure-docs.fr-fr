@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 8a629a7b1340547f43919a1e88abbda53e9e2ae0
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9d47928984330f2366da066c221e2bb502aa7193
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763389"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442945"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API Table
 
 [L’API Table](table-introduction.md) d’Azure Cosmos DB prend en charge les requêtes OData et [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) effectuées sur des données de clé/valeur (table).  
 
-Cet article décrit les tâches suivantes : 
+Cet article décrit les tâches suivantes : 
 
 > [!div class="checklist"]
 > * Interrogation des données avec l’API de table
@@ -43,7 +43,7 @@ Pour plus d’informations sur les fonctionnalités étendues offertes par Azure
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour le bon fonctionnement de ces requêtes, vous devez disposer d’un compte Azure Cosmos DB et de données d’entité dans le conteneur. Cela n’est pas le cas ? Lancez le [démarrage rapide en 5 minutes](create-table-dotnet.md) ou le [didacticiel destiné aux développeurs](tutorial-develop-table-dotnet.md) pour créer un compte et alimenter votre base de données.
+Pour le bon fonctionnement de ces requêtes, vous devez disposer d’un compte Azure Cosmos DB et de données d’entité dans le conteneur. Cela n’est pas le cas ? Lancez le [démarrage rapide en 5 minutes](create-table-dotnet.md) ou le [didacticiel destiné aux développeurs](tutorial-develop-table-dotnet.md) pour créer un compte et alimenter votre base de données.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Interroger sur PartitionKey et RowKey
 Les propriétés PartitionKey et RowKey formant une clé primaire d’une entité, vous pouvez utiliser la syntaxe spéciale suivante pour identifier l’entité : 
@@ -95,9 +95,9 @@ CloudTable table = tableClient.GetTableReference("people");
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
     .Where(
         TableQuery.CombineFilters(
-            TableQuery.GenerateFilterCondition(PartitionKey, QueryComparisons.Equal, "Smith"),
+            TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
             TableOperators.And,
-            TableQuery.GenerateFilterCondition(Email, QueryComparisons.Equal,"Ben@contoso.com")
+            TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal,"Ben@contoso.com")
     ));
 
 await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
@@ -105,7 +105,7 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez :
+Dans ce tutoriel, vous avez :
 
 > [!div class="checklist"]
 > * Appris à interroger des données avec l’API Table

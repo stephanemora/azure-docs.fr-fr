@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972996"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443115"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -36,13 +36,14 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 La vidéo suivante montre comment surveiller la gestion des API à l’aide d’Azure Monitor. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
->
->
 
 ## <a name="prerequisites"></a>Prérequis
 
++ Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="view-metrics-of-your-apis"></a>Afficher les métriques de vos API
 
@@ -55,17 +56,16 @@ Le service Gestion des API émet des métriques chaque minute, pour une visibili
 * Demandes de la passerelle non autorisées : le nombre de requêtes d’API ayant reçu des codes de réponse HTTP comprenant 401, 403 et 429.
 * Autres demandes de la passerelle : le nombre de requêtes d’API ayant reçu des codes de réponse qui n’appartiennent à aucune des catégories précédentes (par exemple, 418).
 
+![graphique des métriques](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+
 Pour accéder aux métriques :
 
 1. Sélectionnez **Métriques** dans le menu vers le bas de la page.
 
     ![Mesures](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Dans la liste déroulante, sélectionner les métriques qui vous intéressent (vous pouvez ajouter plusieurs métriques).  
-    Par exemple, sélectionnez **Nombre total de demandes de la passerelle** et **Demandes de la passerelle ayant échoué** dans la liste des métriques.
-3. Le graphique affiche le nombre total d’appels d’API. Il montre également le nombre d’appels d’API qui ont échoué.
-
-    ![graphique des métriques](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+2. Dans la liste déroulante, sélectionner les métriques qui vous intéressent. Par exemple, **Demandes de la passerelle ayant abouti**. Vous pouvez également ajouter des métriques supplémentaires au graphique.
+3. Le graphique affiche le nombre total d’appels d’API ayant abouti.
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurer une règle d’alerte pour une demande non autorisée
 
@@ -102,6 +102,8 @@ Les journaux d’activité fournissent des informations sur les opérations qui 
 
 Vous pouvez accéder aux journaux d’activité dans votre service de Gestion des API, ou accéder aux journaux de toutes vos ressources Azure dans Azure Monitor. 
 
+![journaux d’activité](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 Pour afficher les journaux d’activité :
 
 1. Sélectionnez votre instance de service APIM.
@@ -111,8 +113,6 @@ Pour afficher les journaux d’activité :
 
 3. Sélectionnez l’étendue de filtrage souhaitée, puis cliquez sur **Appliquer**.
 
-    ![journaux d’activité](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
-
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
 Les journaux de diagnostic offrent des informations détaillées sur les opérations et erreurs qui sont importantes pour l’audit ainsi qu’à des fins de dépannage. Les journaux de diagnostic diffèrent des journaux d’activité. Le journal d’activité fournit des informations sur les opérations qui ont été effectuées sur vos ressources Azure. Les journaux de diagnostic fournissent des informations sur les opérations effectuées par votre ressource.
@@ -120,7 +120,7 @@ Les journaux de diagnostic offrent des informations détaillées sur les opérat
 Pour configurer les journaux de diagnostic :
 
 1. Sélectionnez votre instance de service APIM.
-2. Cliquez sur **Journaux de diagnostic**.
+2. Cliquez sur **Paramètres de diagnostic**.
 
     ![journaux de diagnostic](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 

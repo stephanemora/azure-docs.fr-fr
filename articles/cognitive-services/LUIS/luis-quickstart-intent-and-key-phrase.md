@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8fa183c22b9b6830c57b0a16b7f5d20ca38e3ef3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166518"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424810"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutoriel 8 : Extraire des expressions clés d’un énoncé
 Dans ce tutoriel, vous utilisez l’entité keyPhrase prédéfinie pour extraire le thème principal des énoncés. Vous n’avez pas besoin d’étiqueter les énoncés avec des entités prédéfinies. L’entité est détectée automatiquement.
@@ -29,7 +29,7 @@ Les énoncés suivants présentent des exemples d’expressions clés :
 
 Votre application cliente peut utiliser ces valeurs, ainsi que d’autres entités extraites, pour décider de l’étape suivante de la conversation.
 
-**Ce tutoriel vous montre comment effectuer les opérations suivantes :**
+**Dans ce tutoriel, vous allez découvrir comment :**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -37,11 +37,11 @@ Votre application cliente peut utiliser ces valeurs, ainsi que d’autres entit�
 > * Ajouter une entité keyPhrase 
 > * Former
 > * Publish
-> * Reconnaître les intentions et les entités à partir du point de terminaison
+> * Obtenir les intentions et les entités à partir du point de terminaison
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utiliser une clé existante
+## <a name="use-existing-app"></a>Utiliser l’application existante
 
 Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
@@ -51,16 +51,16 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Gérer**, sous l’onglet **Versions**, clonez la version et nommez-la `keyphrase`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `keyphrase`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
 ## <a name="add-keyphrase-entity"></a>Ajouter une entité keyPhrase 
 Ajoutez une entité prédéfinie keyPhrase pour extraire le thème des énoncés.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Dans le menu gauche, sélectionnez **Entités**.
 
-3. Sélectionnez **Manage prebuilt entities** (Gérer les entités prédéfinies).
+3. Sélectionnez **Ajouter une entité prédéfinie**.
 
 4. Dans la boîte de dialogue contextuelle, sélectionnez **keyPhrase**, puis **Terminé**. 
 
@@ -78,7 +78,7 @@ Ajoutez une entité prédéfinie keyPhrase pour extraire le thème des énoncés
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Reconnaître l’intention et les entités à partir du point de terminaison
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtenir l’intention et les entités à partir du point de terminaison
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
