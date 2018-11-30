@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 216cebe74b7661e0ca336480774a56ea953ddc75
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2538bbf32b41e51796e333c11b7af6c091a71ede
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069469"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309087"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
@@ -76,7 +76,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 ```
 
 * *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>2.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans les [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?* Actualisez les dépendances de votre projet.
+* *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?*  Actualisez les dépendances de votre projet.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Si vous utilisez Gradle... <a name="gradle-setup" />
 Si votre projet est déjà configuré pour être assemblé avec Gradle, fusionnez le code suivant dans votre fichier build.gradle.xml.
@@ -342,7 +342,7 @@ Publiez maintenant votre application sur le serveur, laissez le temps aux usager
 
 * Sur les serveurs Windows, installez :
 
-  * [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
+  * [Redistribuable Microsoft Visual C++](https://www.microsoft.com/download/details.aspx?id=40784)
 
     (Cette opération active les compteurs de performances.)
 
@@ -492,7 +492,7 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 [apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: /app-insights-java-quick-start.md
+[eclipse]: app-insights-java-quick-start.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md

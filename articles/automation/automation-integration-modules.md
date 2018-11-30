@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 93c61f0b9b923f84b2c84d2db4456442e2f9fb27
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e4bd6a3e39fbb5d1eea4d7770d8940f801aecd43
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444502"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276484"
 ---
 # <a name="azure-automation-integration-modules"></a>Modules d’intégration Azure Automation
 PowerShell est la technologie fondamentale derrière Azure Automation. Étant donné qu’Azure Automation est basé sur PowerShell, les modules PowerShell sont essentiels pour l’extensibilité d’Azure Automation. Dans cet article, nous vous guidons tout au long de l’utilisation détaillée des modules PowerShell dans Azure Automation, appelés « modules d’intégration », et vous présenterons les meilleures pratiques pour la création de vos propres modules PowerShell afin de garantir que ceux-ci fonctionnent en tant que modules d’intégration au sein d’Azure Automation. 
@@ -34,7 +34,7 @@ Le format dans lequel vous importez un package de module d’intégration est un
 
 Si le module doit contenir un type de connexion Azure Automation, il doit également contenir un fichier portant le nom `<ModuleName>-Automation.json` qui spécifie les propriétés de type de connexion. Il s’agit d’un fichier json placé dans le dossier du module de votre fichier .zip compressé et contenant les champs d’une « connexion » ; ces derniers sont requis pour se connecter au système ou au service que représente le module. Cela crée un type de connexion dans Azure Automation. À l’aide de ce fichier, vous pouvez définir les noms de champ et les types, ainsi que si les champs doivent être chiffrés et/ou facultatifs, pour le type de connexion du module. Voici un modèle au format json :
 
-```
+```json
 { 
    "ConnectionFields": [
    {
@@ -67,7 +67,7 @@ Même si les modules d’intégration sont généralement des modules PowerShell
 
 1. Incluez un résumé, une description et une URI d’aide pour chaque applet de commande dans le module. Dans PowerShell, vous pouvez définir certaines informations d’aide pour les applets de commande, pour que l’utilisateur puisse obtenir de l’aide quant à leur utilisation, avec l’applet de commande **Get-Help** . Par exemple, voici comment définir un synopsis et l’URI d’aide pour un module PowerShell écrit dans un fichier .psm1.<br>  
    
-    ```
+    ```powershell
     <#
         .SYNOPSIS
          Gets all outgoing phone numbers for this Twilio account 
@@ -109,7 +109,7 @@ Même si les modules d’intégration sont généralement des modules PowerShell
 
     Les applets de commande du module sont plus faciles à utiliser dans Azure Automation si vous autorisez le passage d’un objet, avec les champs du type de connexion en tant que paramètre, vers l’applet de commande. Ainsi, les utilisateurs ne sont pas obligés de mapper les paramètres de la ressource de connexion aux paramètres correspondants de l’applet de commande chaque fois qu’ils appellent une applet de commande. Selon l’exemple de Runbook ci-dessus, il utilise une ressource de connexion Twilio, appelée CorpTwilio, pour accéder à Twilio et renvoyer tous les numéros de téléphone du compte.  Remarquez comment il mappe les champs de la connexion aux paramètres de l’applet de commande.<br>
    
-    ```
+    ```powershell
     workflow Get-CorpTwilioPhones
     {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
@@ -120,9 +120,9 @@ Même si les modules d’intégration sont généralement des modules PowerShell
     }
     ```
   
-    Une approche plus simple consisterait à passer l’objet de connexion directement à l’applet de commande -
+     Une approche plus simple consisterait à passer l’objet de connexion directement à l’applet de commande -
    
-    ```
+    ```powershell
     workflow Get-CorpTwilioPhones
     {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
@@ -131,9 +131,9 @@ Même si les modules d’intégration sont généralement des modules PowerShell
     }
     ```
    
-    Vous pouvez activer un tel comportement pour vos applets de commande en les autorisant à accepter un objet de connexion directement en tant que paramètre, au lieu d’accepter uniquement des champs de connexion en tant que paramètres. Généralement, vous voudrez disposer d’un jeu de paramètres pour chaque élément, pour qu’un utilisateur n’utilisant pas Azure Automation puisse appeler vos applets de commande sans créer une table de hachage agissant en tant qu’objet de connexion. Le jeu de paramètres **SpecifyConnectionFields** ci-dessous permet de faire passer, une par une, les propriétés de champ de connexion. **UseConnectionObject** vous permet de transmettre directement la connexion. Comme vous pouvez le voir, l’applet de commande Send-TwilioSMS dans le [module Twilio de PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) autorise le passage dans les deux cas : 
+     Vous pouvez activer un tel comportement pour vos applets de commande en les autorisant à accepter un objet de connexion directement en tant que paramètre, au lieu d’accepter uniquement des champs de connexion en tant que paramètres. Généralement, vous voudrez disposer d’un jeu de paramètres pour chaque élément, pour qu’un utilisateur n’utilisant pas Azure Automation puisse appeler vos applets de commande sans créer une table de hachage agissant en tant qu’objet de connexion. Le jeu de paramètres **SpecifyConnectionFields** ci-dessous permet de faire passer, une par une, les propriétés de champ de connexion. **UseConnectionObject** vous permet de transmettre directement la connexion. Comme vous pouvez le voir, l’applet de commande Send-TwilioSMS dans le [module Twilio de PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) autorise le passage dans les deux cas : 
    
-    ```
+    ```powershell
     function Send-TwilioSMS {
       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
       HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
@@ -160,7 +160,7 @@ Même si les modules d’intégration sont généralement des modules PowerShell
 1. Définissez le type de sortie pour toutes les applets de commande dans le module. La définition d’un type de sortie pour une applet de commande permet à IntelliSense (au moment de la conception) de vous aider à déterminer les propriétés de sortie de l’applet de commande, à utiliser lors de la création. Cela est particulièrement utile lors de la création graphique d’un Runbook Azure Automation, où les connaissances au moment de la conception sont essentielles pour une expérience utilisateur conviviale de votre module.<br><br> ![Type de sortie de Runbook graphique](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> Cela ressemble à la fonctionnalité de « frappe au kilomètre » de la sortie d’une applet de commande dans PowerShell ISE, sans avoir à exécuter celle-ci.<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
 1. Les applets de commande dans le module ne doivent pas prendre des types d’objets complexes en tant que paramètres. La différence entre PowerShell et le Workflow PowerShell réside dans le fait que ce dernier stocke des types complexes sous forme désérialisée. Les types primitifs resteront primitifs, mais les types complexes sont convertis en leurs versions désérialisées, qui sont avant tout des conteneurs de propriétés. Par exemple, si vous avez utilisé l’applet de commande **Get-Process** dans un Runbook (voire un Workflow PowerShell), elle retourne un objet de type [Deserialized.System.Diagnostic.Process], pas le type [System.Diagnostic.Process] attendu. Ce type a les mêmes propriétés que le type non désérialisé, mais aucune de ses méthodes. Et si vous essayez de transmettre cette valeur vers une applet de commande en tant que paramètre, bien que cette dernière attende une valeur [System.Diagnostic.Process] pour ce paramètre, vous obtenez l’erreur suivante : *Impossible de traiter la transformation d’argument sur le paramètre « process ». Error: "Cannot convert the "System.Diagnostics.Process (CcmExec)" value of type "Deserialized.System.Diagnostics.Process" to type "System.Diagnostics.Process" (Erreur : « impossible de convertir la valeur « System.Diagnostics.Process (CcmExec) » de type « Deserialized.System.Diagnostics.Process » en type « System.Diagnostics.Process »).*   Ceci provient de l’incompatibilité de type entre le type [System.Diagnostic.Process] attendu et le type [Deserialized.System.Diagnostic.Process] donné. Pour contourner ce problème, assurez-vous que les applets de commande de votre module ne prennent pas de types complexes en tant que paramètres. Voici la mauvaise façon de le faire.
    
-    ```
+    ```powershell
     function Get-ProcessDescription {
       param (
             [System.Diagnostic.Process] $process
@@ -169,9 +169,9 @@ Même si les modules d’intégration sont généralement des modules PowerShell
     }
     ``` 
     <br>
-    Et voici la bonne façon, en prenant un type primitif pouvant être utilisé en interne par l’applet de commande pour récupérer l’objet complexe et l’utiliser. Comme les applets de commande s’exécutent dans le cadre de PowerShell, et non de Workflow PowerShell, $process devient le type [System.Diagnostic.Process] correct au sein de l’applet de commande.  
+     Et voici la bonne façon, en prenant un type primitif pouvant être utilisé en interne par l’applet de commande pour récupérer l’objet complexe et l’utiliser. Comme les applets de commande s’exécutent dans le cadre de PowerShell, et non de Workflow PowerShell, $process devient le type [System.Diagnostic.Process] correct au sein de l’applet de commande.  
    
-    ```
+    ```powershell
     function Get-ProcessDescription {
       param (
             [String] $processName
@@ -185,7 +185,7 @@ Même si les modules d’intégration sont généralement des modules PowerShell
    Les ressources de connexion dans les Runbooks sont des tables de hachage ; un type complexe. Ces tables de hachage semblent cependant pouvoir être transmises sans problème dans les applets de commande pour leur paramètre -Connection, sans aucune exception de transtypage. Techniquement, certains types PowerShell peuvent être désérialisés, et peuvent donc être passés aux applets de commande pour les paramètres acceptant le type non-désérialisé. La table de hachage fait partie de ces types. Il est possible, pour les types définis par l’auteur d’un module, d’être implémentés d’une façon leur permettant de se désérialiser correctement. Certains compromis doivent cependant être pris en compte. Le type doit avoir un constructeur par défaut ainsi qu’un PSTypeConverter et toutes ses propriétés doivent être publiques. Toutefois, il est impossible de « réparer » les types prédéfinis que l’auteur du module ne possède pas, d’où la recommandation d’éviter les types complexes pour l’ensemble des paramètres. Conseil pour la création de Runbook : si, pour une raison quelconque, vos applets de commande doivent accueillir un paramètre de type complexe, ou si vous utilisez un autre module qui requiert un paramètre de type complexe, la solution de contournement dans les Runbooks PowerShell Workflow et les Workflows PowerShell dans un PowerShell local consiste à encapsuler, dans la même activité InlineScript, l’applet de commande qui génère le type complexe et l’applet de commande qui consomme le type complexe. Étant donné qu’InlineScript exécute son contenu sous forme de PowerShell au lieu de Workflow PowerShell, l’applet de commande qui génère le type complexe produit le type correct, pas le type complexe désérialisé.
 1. Rendez toutes les applets de commande dans le module sans état. Le Workflow PowerShell exécute chaque applet de commande appelée dans le flux de travail dans une session distincte. Cela signifie que toute applet de commande, qui dépend de l’état de la session créée / modifiée par d’autres applets de commande dans le même module, ne fonctionnera pas dans les Runbooks PowerShell Workflow.  Voici un exemple de procédure à ne pas suivre.
    
-    ```
+    ```powershell
     $globalNum = 0
     function Set-GlobalNum {
        param(

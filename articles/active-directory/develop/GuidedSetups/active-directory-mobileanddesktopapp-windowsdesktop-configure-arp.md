@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: c42f40252733f0c4fd7fdbabb49714ea537acc70
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 47d62b5ea49205a5e639d620d78466e7e4a66bca
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473959"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581395"
 ---
-## <a name="add-the-applications-registration-information-to-your-app"></a>Ajouter les informations d’inscription de l’application à votre application
+# <a name="add-the-applications-registration-information-to-your-app"></a>Ajouter les informations d’inscription de l’application à votre application
 Dans cette étape, vous devez ajouter l’ID d’application à votre projet.
 
 1.  Ouvrez `App.xaml.cs` et remplacez la ligne contenant `ClientId` par :
@@ -33,4 +33,4 @@ private static string ClientId = "[Enter the application Id here]";
 
 ### <a name="what-is-next"></a>Étapes suivantes
 
-[!INCLUDE [Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-test.md)]
+[!INCLUDE [Test and Validate](../../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]

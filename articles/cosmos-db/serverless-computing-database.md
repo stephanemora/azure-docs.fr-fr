@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623148"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582783"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -124,7 +124,7 @@ Azure Functions permet de créer des unités évolutives de travail ou des élé
 
 Azure Cosmos DB est la base de données recommandée pour l’architecture informatique sans serveur pour les raisons suivantes :
 
-* **Accès instantané à toutes vos données** : vous disposez d’un accès granulaire à toutes les valeurs stockées, car Azure Cosmos DB [indexe automatiquement](indexing-policies.md) toutes les données par défaut et met immédiatement ces index à disposition. Cela signifie que vous pouvez en permanence interroger, mettre à jour et ajouter de nouveaux éléments à la base de données et disposer d’un accès instantané via Azure Functions.
+* **Accès instantané à toutes vos données** : vous disposez d’un accès granulaire à toutes les valeurs stockées, car Azure Cosmos DB [indexe automatiquement](index-policy.md) toutes les données par défaut et met immédiatement ces index à disposition. Cela signifie que vous pouvez en permanence interroger, mettre à jour et ajouter de nouveaux éléments à la base de données et disposer d’un accès instantané via Azure Functions.
 
 * **Sans schéma** : Azure Cosmos DB est une base de données sans schéma, ce qui lui permet en particulier de gérer toute sortie de données à partir d’une fonction Azure. Cette approche de « gestion totale » simplifie la création de toute une variété de fonctions qui ont toutes une sortie vers Azure Cosmos DB.
 

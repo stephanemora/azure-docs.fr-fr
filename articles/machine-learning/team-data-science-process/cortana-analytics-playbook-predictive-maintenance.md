@@ -2,24 +2,21 @@
 title: Guide Azure AI pour les solutions de maintenance prédictive | Microsoft Docs
 description: Une description complète de la science des données qui alimente les solutions de maintenance prédictive dans plusieurs secteurs d’activité.
 services: machine-learning
-author: fboylu
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: fboylu
-ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=fboylu, ms.author=fboylu)
+ms.openlocfilehash: 1538357a744e4a2c885b6552ca94efc6642d2880
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093209"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444917"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -431,13 +428,13 @@ En plus du contenu et de formations sur les concepts généraux et la mise en pr
 |:-------------------|--------------|
 | [Parcours d’apprentissage pour la maintenance prédictive avec des arborescences et des forêts aléatoires](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Public | 
 | [Parcours d’apprentissage pour la maintenance prédictive avec l’apprentissage profond (deep learning)](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Public |
-| [Développeur d’IA sur Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer)  | Public |
-| [Microsoft AI School](http://aischool.microsoft.com/learning-paths)  | Public |
+| [Développeur d’IA sur Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer)  | Public |
+| [Microsoft AI School](https://aischool.microsoft.com/learning-paths)  | Public |
 | [Apprentissage AI Azure à partir de GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
 | [Webinaires Microsoft AI sur Youtube](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Présentation de Microsoft AI](http://channel9.msdn.com/Shows/AI-Show) | Public |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Partenaires |
-| [Microsoft Partner Network](http://learningportal.microsoft.com) | Partenaires |
+| [LearnAI@MS](https://learnanalytics.microsoft.com) | Partenaires |
+| [Microsoft Partner Network](https://learningportal.microsoft.com) | Partenaires |
 
 De plus, des MOOCS gratuits (cours en ligne ouverts à tous) sur l’IA sont proposés par des universités comme Stanford et MIT, ainsi que par d’autres établissements d’enseignement.

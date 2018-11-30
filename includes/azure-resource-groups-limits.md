@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 5c2c7b621512be7b81d14b99069d52f4f3aa3f33
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279593"
+---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
 | Ressources par [groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (par type de ressource) |800 |Varie selon le type de ressource |

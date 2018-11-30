@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 9250e38eadb9d9b1e8bf0c09fa1a9a165e5e69f1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 61af2c13a7cf395b5a96dc7b7ba63ad4d70dcf36
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886260"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333008"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Ajouter Kubernetes sur la Place de marché Azure Stack
 
@@ -72,9 +72,10 @@ Ajoutez l’image de serveur Ubuntu suivante sur la Place de marché :
 
 1. Entrez `UbuntuServer`.
 
-1. Sélectionnez la dernière version du serveur avec le profil suivant :
+1. Sélectionnez la version la plus récente du serveur. Consultez la version complète et assurez-vous que vous avez la version la plus récente :
     - **Publisher** (Serveur de publication) : Canonical
     - **Offer** (Offre) : UbuntuServer
+    - **Version** : 16.04.201806120
     - **SKU** : 16.04-LTS
 
 1. Sélectionnez **Télécharger**.
@@ -135,7 +136,7 @@ Pour supprimer l’élément Kubernetes :
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Notez le nom de l’élément actuel (par exemple, `Microsoft.AzureStackKubernetesCluster.0.2.0`)
+3. Notez le nom de l’élément actuel (par exemple, `Microsoft.AzureStackKubernetesCluster.0.3.0`)
 
 4. Pour supprimer l’élément, utilisez l’applet de commande PowerShell suivante :
 

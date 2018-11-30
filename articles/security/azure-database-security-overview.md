@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262197"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584772"
 ---
 # <a name="azure-database-security-overview"></a>Vue d’ensemble de la sécurité des bases de données Azure
 
@@ -199,7 +199,7 @@ Protection avancée contre les menaces SQL fournit un ensemble de fonctionnalit�
 - Accès à partir d’une application potentiellement dangereuse 
 - Attaque par force brute d’une base de données Azure pour obtenir les identifiants PostgreSQL 
 
-[Azure ATP pour Azure Database pour MySQL](/mysql/concepts-data-access-and-security-threat-protection.md) offre une protection similaire à PostgreSQL Advanced Protection.  
+[Azure ATP pour Azure Database pour MySQL](../mysql/concepts-data-access-and-security-threat-protection.md) offre une protection similaire à PostgreSQL Advanced Protection.  
 
 ## <a name="centralized-security-management"></a>Gestion centralisée de la sécurité
 
@@ -220,7 +220,7 @@ Le Centre de sécurité prend en charge l’accès en fonction du rôle.
 
 En outre, il calcule la sensibilité du jeu de résultats des requêtes SQL, pour permettre un audit explicite des requêtes extrayant des données sensibles, et protéger les données. Pour plus d’informations sur la protection des informations SQL, consultez Découverte et classification des données de base de données SQL Azure.
 
-Vous pouvez configurer les [stratégies de protection des informations SQL](/security-center/security-center-info-protection-policy.md) dans Azure Security Center.
+Vous pouvez configurer les [stratégies de protection des informations SQL](../security-center/security-center-info-protection-policy.md) dans Azure Security Center.
 
 ## <a name="azure-marketplace"></a>Place de marché Azure
 

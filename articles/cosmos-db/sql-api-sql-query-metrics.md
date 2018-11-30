@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c330171f0c85bce6451b8f342203e2eeeccb3c5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798693"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425137"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 
-Azure Cosmos DB fournit une [API SQL pour interroger des données](sql-api-sql-query.md), sans nécessiter de schéma ou d’index secondaires. Cet article fournit les informations suivantes à l’attention des développeurs :
+Azure Cosmos DB fournit une [API SQL pour interroger des données](how-to-sql-query.md), sans nécessiter de schéma ou d’index secondaires. Cet article fournit les informations suivantes à l’attention des développeurs :
 
 * Détails techniques sur le fonctionnement de l’exécution de requêtes SQL dans Azure Cosmos DB
 * Développements sur les en-têtes de demande et réponse des requêtes, et sur les options du kit SDK client
@@ -218,7 +218,7 @@ Consultez [Distribution mondiale d’Azure Cosmos DB](tutorial-global-distributi
 La section sur les mesures d’exécution de requête explique comment récupérer le délai d’exécution de requêtes du serveur (`totalExecutionTimeInMs`), afin que vous puissiez faire la différence entre le temps passé à exécuter les requêtes et celui passé à gérer le trafic réseau.
 
 ### <a name="indexing-policy"></a>Stratégie d’indexation
-Consultez [Configuration de la stratégie d’indexation](indexing-policies.md) pour l’indexation de chemins, de types et de modes, ainsi que leur impact sur l’exécution des requêtes. Par défaut, la stratégie d’indexation utilise une indexation de hachage pour les chaînes, ce qui est efficace pour les requêtes d’égalité, mais pas pour les requêtes de plage ou les requêtes de tri sélectif. Si vous avez besoin de requêtes de plage pour des chaînes, nous recommandons d’indiquer le type d’index de plage pour toutes les chaînes. 
+Consultez [Configuration de la stratégie d’indexation](index-policy.md) pour l’indexation de chemins, de types et de modes, ainsi que leur impact sur l’exécution des requêtes. Par défaut, la stratégie d’indexation utilise une indexation de hachage pour les chaînes, ce qui est efficace pour les requêtes d’égalité, mais pas pour les requêtes de plage ou les requêtes de tri sélectif. Si vous avez besoin de requêtes de plage pour des chaînes, nous recommandons d’indiquer le type d’index de plage pour toutes les chaînes. 
 
 ## <a name="query-execution-metrics"></a>Mesures d’exécution des requêtes
 Vous pouvez obtenir des mesures détaillées sur l’exécution des requêtes en passant l’en-tête facultatif `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` dans le kit SDK .NET). La valeur retournée dans `x-ms-documentdb-query-metrics` contient les paires clé-valeur suivantes qui servent à la résolution plus poussée des problèmes d’exécution de requêtes. 
@@ -274,8 +274,8 @@ Voici quelques exemples de requête, et la façon d’interpréter certains mesu
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur les opérateurs et les mots clés de requête SQL pris en charge, consultez [Requête SQL](sql-api-sql-query.md). 
+* Pour en savoir plus sur les opérateurs et les mots clés de requête SQL pris en charge, consultez [Requête SQL](how-to-sql-query.md). 
 * Pour obtenir plus d’informations sur les unités de requête, consultez [Unités de requête](request-units.md).
-* Pour en savoir plus sur la stratégie d’indexation, consultez [Stratégie d’indexation](indexing-policies.md) 
+* Pour en savoir plus sur la stratégie d’indexation, consultez [Stratégie d’indexation](index-policy.md) 
 
 

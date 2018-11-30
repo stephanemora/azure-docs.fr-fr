@@ -3,7 +3,7 @@ title: Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockag
 description: Gérer les conteneurs d’objets blob et les objets blob Azure avec l’Explorateur Stockage
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
@@ -14,23 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 2207bac1ef7cb6393d7dc173f96ddda719bcdfdf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528526"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422050"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockage
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le [Stockage Blob Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS.
 Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications. Dans cet article, vous apprenez à vous servir de l’Explorateur Stockage pour utiliser des conteneurs d’objets blob et des objets blob.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour pouvoir suivre les étapes de cet article, vous devrez :
 
-* [Télécharger et installer l’Explorateur Stockage](http://www.storageexplorer.com)
+* [Télécharger et installer l’Explorateur Stockage](https://www.storageexplorer.com)
 * [Vous connecter à un service ou un compte de stockage Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Création d’un conteneur d’objets blob
@@ -214,7 +213,7 @@ Les étapes suivantes expliquent comment gérer les objets blob (et les dossiers
      3. Cliquez sur **Oui** dans la boîte de dialogue de confirmation.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez les [dernières notes de publication et vidéos de l’Explorateur Stockage](http://www.storageexplorer.com).
+* Consultez les [dernières notes de publication et vidéos de l’Explorateur Stockage](https://www.storageexplorer.com).
 * Découvrez comment [créer des applications à l’aide d'objets blob, de tables, de files d’attente et de fichiers Azure](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

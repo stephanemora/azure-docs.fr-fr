@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8aabcf342cde6de9fd4438014c9c400b28470e9b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612571"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632668"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Étendre les alertes Log Analytics à Alertes Azure
 Jusqu'à récemment, Azure Log Analytics incluait sa propre fonctionnalité d’alerte, pour vous indiquer de manière proactive les conditions en fonction des données Log Analytics. Vous gériez les règles d’alerte dans le portail Microsoft Operations Management Suite. La nouvelle expérience d’alertes intègre désormais les alertes entre les différents services dans Microsoft Azure. Elle est disponible sous forme d’**alertes** sous Azure Monitor dans le portail Azure, prend en charge les alertes des journaux d’activité, des métriques et des journaux sur Log Analytics ainsi qu’Azure Application Insights. 
@@ -55,7 +55,7 @@ Lorsque vous tentez de modifier une alerte existante ou de créer une alerte dan
 > Vérifiez que les autorisations affectées à des personnes qui ont besoin d’ajouter ou de modifier des alertes sont correctement attribuées dans Azure. Pour déterminer quelles autorisations vous devez accorder, consultez les [autorisations d’utilisation d’Azure Monitor et Alertes Azure](monitoring-roles-permissions-security.md).  
 > 
 
-Vous pouvez continuer à créer des alertes à partir de l’[API Log Analytics](../log-analytics/log-analytics-api-alerts.md) et du [modèle de ressource Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md). Dans ce cas, vous devez inclure des groupes d’actions.
+Vous pouvez continuer à créer des alertes à partir de l’[API Log Analytics](../azure-monitor/platform/api-alerts.md) et du [modèle de ressource Log Analytics](../azure-monitor/insights/solutions-resources-searches-alerts.md). Dans ce cas, vous devez inclure des groupes d’actions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

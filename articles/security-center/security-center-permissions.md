@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007856"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313437"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -59,7 +59,7 @@ Le tableau suivant affiche les rôles et les actions autorisées dans Security C
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a expliqué comment Security Center utilise le contrôle d’accès en fonction du rôle pour affecter des autorisations aux utilisateurs et a identifié les actions autorisées pour chaque rôle. Maintenant que vous êtes familiarisé avec les affectations de rôles nécessaires pour surveiller l’état de sécurité de votre abonnement, modifier les stratégies de sécurité et appliquer les recommandations, découvrez comment :
 
-- [Définir des stratégies de sécurité dans Security Center](security-center-policies.md)
+- [Définir des stratégies de sécurité dans Security Center](security-center-azure-policy.md)
 - [Gérer les recommandations de sécurité dans Security Center](security-center-recommendations.md)
 - [Surveiller l’intégrité de la sécurité de vos ressources Azure](security-center-monitoring.md)
 - [Gérer et répondre aux alertes de sécurité dans Security Center](security-center-managing-and-responding-alerts.md)

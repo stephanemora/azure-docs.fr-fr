@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a869e8d504e4f3557caa7925b89e8c184718af9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 50868d32b35e77495965b9ee9d0023d23b43fd5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306078"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426381"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Didacticiel : Fédérer un environnement de forêt AD unique dans le cloud
 
@@ -27,8 +27,8 @@ ms.locfileid: "46306078"
 Ce didacticiel vous guidera dans la création d’un environnement d’identité hybride à l’aide de la fédération.  Cet environnement peut ensuite servir à des fins de test ou pour se familiariser avec le fonctionnement d’une identité hybride.
 
 ## <a name="prerequisites"></a>Prérequis
-Voici les conditions préalables requises pour suivre ce didacticiel
-- Un ordinateur sur lequel [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) est installé.  Il est recommandé d’utiliser un ordinateur [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+Voici les conditions préalables requises pour suivre ce didacticiel.
+- Un ordinateur où [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) est installé.  Il est recommandé d’utiliser [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Un [abonnement Azure](https://azure.microsoft.com/free)
 - - Une [carte réseau externe](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) pour autoriser la machine virtuelle à communiquer avec Internet.
 - Une copie de Windows Server 2016
@@ -37,7 +37,7 @@ Voici les conditions préalables requises pour suivre ce didacticiel
 > [!NOTE]
 > Ce didacticiel utilise des scripts PowerShell pour vous permettre de créer l’environnement le plus vite possible.  Chacun des scripts utilise les variables déclarées au début des scripts.  Vous pouvez et devez modifier les variables pour qu’elles reflètent votre environnement.
 >
->Les scripts utilisés créent un environnement Active Directory général avant d’installer Azure AD Connect.  Ils sont pertinents pour l’ensemble des didacticiels.
+>Les scripts utilisés créent un environnement Active Directory général avant d’installer Azure AD Connect.  Elles sont pertinentes pour l’ensemble des didacticiels.
 >
 > Des copies des scripts PowerShell utilisés dans ce didacticiel sont disponibles sur Github, [ici](https://github.com/billmath/tutorial-phs).
 
@@ -83,16 +83,16 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 1. Gestionnaire Hyper-V, double-clic sur la machine virtuelle
 2. Cliquez sur le bouton Démarrer.
 3.  Vous êtes invité à appuyer sur n’importe quelle touche pour démarrer à partir du CD ou DVD. Faites-le.
-4. Sur l’écran de démarrage Windows Server, sélectionnez votre langue et cliquez sur **Suivant**.
+4. Sur l’écran de démarrage Windows Server, sélectionnez votre langue et cliquez sur **Suivant**.
 5. Cliquez sur **Installer maintenant**.
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
 7. Acceptez les termes du contrat de licence et cliquez sur **Suivant**.
-8. Sélectionnez **Personnalisé : installer Windows uniquement (avancé)**
+8. Sélectionnez **Personnalisé : installer Windows uniquement (avancé)**.
 9. Cliquez sur **Suivant**
 10. Une fois l’installation terminée, redémarrez la machine virtuelle, connectez-vous et exécutez les mises à jour Windows pour vous assurer que la machine virtuelle est à jour.  Installez les dernières mises à jour.
 
 ## <a name="install-active-directory-pre-requisites"></a>Installer les prérequis pour Active Directory
-Maintenant que la machine virtuelle est en cours d’exécution, il faut effectuer quelques opérations avant d’installer Active Directory.  Autrement dit, il faut renommer la machine virtuelle, définir une adresse IP statique et des informations DNS, et installer les outils d’administration de serveur distant.   Effectuez les actions suivantes :
+Maintenant que la machine virtuelle est en cours d’exécution, il faut effectuer quelques opérations avant d’installer Active Directory.  Autrement dit, il faut renommer la machine virtuelle, définir une adresse IP statique et des informations DNS, et installer les outils d’administration de serveur distant.   Effectuez les actions suivantes :
 
 1. Ouvrez PowerShell ISE en tant qu’administrateur.
 2. Exécutez `Set-ExecutionPolicy remotesigned` et répondez Oui à tous les [A].  Appuyez sur Entrée.
@@ -129,7 +129,7 @@ Restart-Computer
 ```
 
 ## <a name="create-a-windows-server-ad-environment"></a>Créer un environnement Windows Server AD
-Maintenant que la machine virtuelle a été créée et renommée, et qu’elle dispose d’une adresse IP statique, nous pouvons installer et configurer Active Directory Domain Services.  Effectuez les actions suivantes :
+Maintenant que la machine virtuelle a été créée et renommée, et qu’elle dispose d’une adresse IP statique, nous pouvons installer et configurer Active Directory Domain Services.  Effectuez les actions suivantes :
 
 1. Ouvrez PowerShell ISE en tant qu’administrateur.
 2. Exécutez le script suivant.
@@ -158,8 +158,8 @@ Get-WindowsFeature | Where installed >>$featureLogPath
 Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $Password -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
 ```
 
-## <a name="create-a-windows-server-ad-user"></a>Créer un utilisateur Windows Server AD
-Maintenant que nous avons un environnement Active Directory, nous avons besoin d’un compte de test.  Ce compte sera créé dans l’environnement Active Directory local, puis synchronisé avec Azure AD.  Effectuez les actions suivantes :
+## <a name="create-a-windows-server-ad-user"></a>Créer un utilisateur Windows Server AD
+Maintenant que nous avons un environnement Active Directory, nous avons besoin d’un compte de test.  Ce compte sera créé dans l’environnement Active Directory local, puis synchronisé avec Azure AD.  Effectuez les actions suivantes :
 
 1. Ouvrez PowerShell ISE en tant qu’administrateur.
 2. Exécutez le script suivant.
@@ -198,18 +198,18 @@ New-SelfSignedCertificate -DnsName $DNSname -CertStoreLocation $Location
 ```
 
 ## <a name="create-an-azure-ad-tenant"></a>Créer un locataire Azure AD
-Nous devons maintenant créer un locataire Azure AD pour synchroniser nos utilisateurs vers le cloud.  Pour créer un client Azure AD, procédez comme suit.
+Nous devons maintenant créer un locataire Azure AD pour synchroniser nos utilisateurs vers le cloud.  Pour créer un client Azure AD, procédez comme suit.
 
 1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec un compte qui dispose d’un abonnement Azure.
 2. Cliquez sur l’**icône plus (+)** et recherchez **Azure Active Directory**.
-3. Dans la liste des résultats, sélectionnez **Azure Active Directory**.
+3. Dans la liste des résultats, sélectionnez sur **Azure Active Directory**.
 4. Sélectionnez **Créer**.</br>
 ![Créer](media/tutorial-password-hash-sync/create1.png)</br>
 5. Indiquez le **nom de l’organisation** avec le **nom de domaine initial**. Sélectionnez ensuite **Créer**. Votre annuaire est alors créé.
 6. Une fois cette opération terminée, cliquez sur **ce lien** pour gérer l’annuaire.
 
-## <a name="create-a-global-administrator-in-azure-ad"></a>Créer un administrateur général dans Azure AD
-Maintenant que nous avons un locataire Azure AD, nous allons créer un compte d’administrateur général.  Ce compte est utilisé pour créer le compte de connecteur Azure AD lors de l’installation d’Azure AD Connect.  Le compte de connecteur Azure AD sert à écrire des informations dans Azure AD.   Pour créer le compte d’administrateur général, procédez comme suit.
+## <a name="create-a-global-administrator-in-azure-ad"></a>Créer un administrateur général dans Azure AD
+Maintenant que nous avons un locataire Azure AD, nous allons créer un compte d’administrateur général.  Ce compte est utilisé pour créer le compte de connecteur Azure AD lors de l’installation d’Azure AD Connect.  Le compte de connecteur Azure AD sert à écrire des informations dans Azure AD.   Pour créer le compte d’administrateur général, procédez comme suit.
 
 1.  Sous **Gérer**, sélectionnez **Utilisateurs**.</br>
 ![Créer](media/tutorial-password-hash-sync/gadmin1.png)</br>
@@ -233,7 +233,7 @@ Maintenant que nous disposons d’un locataire et d’un administrateur généra
 ![Fédération](media/tutorial-federation/custom3.png)</br>
 
 ## <a name="download-and-install-azure-ad-connect"></a>Télécharger et installer Azure AD Connect
-Il est maintenant temps de télécharger et d’installer Azure AD Connect.  Une fois l’installation terminée, nous aborderons l’installation rapide.  Effectuez les actions suivantes :
+Il est maintenant temps de télécharger et d’installer Azure AD Connect.  Une fois l’installation terminée, nous aborderons l’installation rapide.  Effectuez les actions suivantes :
 
 1. Télécharger [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 2. Accédez à **AzureADConnect.msi**et double-cliquez sur ce fichier.
@@ -270,7 +270,7 @@ Il est maintenant temps de télécharger et d’installer Azure AD Connect.  Une
 
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Vérifier les utilisateurs créés et l’exécution de la synchronisation
-Nous allons maintenant vérifier que les utilisateurs de l’annuaire local ont été synchronisés et existent maintenant dans le locataire Azure AD.  Cette opération peut prendre quelques heures.  Pour vérifier que les utilisateurs sont synchronisés, procédez comme suit.
+Nous allons maintenant vérifier que les utilisateurs de l’annuaire local ont été synchronisés et existent maintenant dans le locataire Azure AD.  Cette opération peut prendre quelques heures.  Pour vérifier que les utilisateurs sont synchronisés, procédez comme suit.
 
 
 1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec un compte qui dispose d’un abonnement Azure.
@@ -280,9 +280,9 @@ Nous allons maintenant vérifier que les utilisateurs de l’annuaire local ont 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Tester la connexion avec un des utilisateurs
 
-1.  Accédez à [http://myapps.microsoft.com](http://myapps.microsoft.com)
-2. Connectez-vous avec un compte d’utilisateur créé dans le nouveau locataire.  Vous devez vous connecter en utilisant le format suivant : (user@domain.onmicrosoft.com). Saisissez le même mot de passe que celui utilisé par l’utilisateur pour se connecter en local.
-![Verify](media/tutorial-password-hash-sync/verify1.png)
+1.  Accédez à [https://myapps.microsoft.com](httpss://myapps.microsoft.com).
+2. Connectez-vous avec un compte d’utilisateur créé dans le nouveau locataire.  Vous devez vous connecter en utilisant le format suivant : (user@domain.onmicrosoft.com). Saisissez le même mot de passe que celui utilisé par l’utilisateur pour se connecter en local.
+![Vérifier](media/tutorial-password-hash-sync/verify1.png)
 
 Vous avez maintenant configuré un environnement d’identité hybride que vous pouvez utiliser à des fins de test et pour vous familiariser avec les fonctionnalités d’Azure.
 

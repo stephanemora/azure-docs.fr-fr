@@ -2,25 +2,21 @@
 title: Identifier des scénarios et planifier votre processus analytique - Azure | Microsoft Docs
 description: Planifiez une analyse avancée en imaginant une série de questions clés.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 949bd8337ced7aa12d4354a46f6ee887a1922a7c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227737"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446416"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Comment identifier les scénarios et planifier le traitement des données d’analyse avancée
 Quelles ressources devez-vous inclure lors de la configuration d’un environnement à des fins de traitement des analyses avancées sur un jeu de données ? Cet article propose une série de questions qui permettent d’identifier les tâches et les ressources pertinentes pour votre scénario. L’ordre des étapes principales pour l’analyse prédictive est défini dans [Qu’est-ce que le processus TDSP (Team Data Science Process) ?](overview.md). Chacune de ces étapes nécessite des ressources spécifiques pour les tâches correspondant à votre scénario. Les principales questions pour identifier votre scénario concernent la logistique de données, leurs caractéristiques, la qualité des jeux de données, ainsi que les outils et les langues à utiliser pour effectuer l’analyse.
@@ -30,13 +26,13 @@ Quelles ressources devez-vous inclure lors de la configuration d’un environnem
 ## <a name="logistic-questions-data-locations-and-movement"></a>Questions logistiques : emplacements et déplacement des données
 Les questions logistiques concernent l’emplacement de la **source de données**, la **destination cible** dans Azure et la configuration requise pour le déplacement des données, notamment la planification, la quantité et les ressources impliquées. Il peut être nécessaire de déplacer les données plusieurs fois pendant le processus d’analyse. Un scénario courant consiste à déplacer les données locales dans un système de stockage sur Azure, puis dans Machine Learning Studio.
 
-1. **Quelle est votre source de données ?** S’agit-il d’une source locale ou dans le cloud ? Par exemple : 
+1. **Quelle est votre source de données ?**  S’agit-il d’une source locale ou dans le cloud ? Par exemple : 
    
    * Les données sont accessibles au public à une adresse HTTP.
    * Les données résident dans un fichier local ou sur le réseau.
    * Les données sont contenues dans une base de données SQL Server.
    * Les données sont stockées dans un conteneur de stockage Azure.
-2. **Qu’est-ce que la destination Azure ?** Où doit-elle se trouver pour le traitement ou la modélisation ? Par exemple : 
+2. **Qu’est-ce que la destination Azure ?**  Où doit-elle se trouver pour le traitement ou la modélisation ? Par exemple : 
    
    * un stockage Azure Blob
    * Bases de données SQL Azure
@@ -83,7 +79,7 @@ Pour plus d’informations sur les limitations des autres services Azure utilis�
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Questions sur la qualité des données : exploration et prétraitement
 1. **Que savez-vous sur vos données ?** Explorez les données pour comprendre leurs caractéristiques de base. Par exemple les modèles ou les tendances qu’elles dévoilent, les aberrations qu’elles contiennent ou le nombre de valeurs manquantes. Cette étape est importante en vue de déterminer l’étendue du prétraitement nécessaire, de formuler des hypothèses visant à suggérer les fonctionnalités ou le type d’analyse les plus appropriés, et de planifier la collecte de données supplémentaires. Le calcul des statistiques descriptives et le tracé des visualisations sont des techniques utiles pour l’inspection des données. Pour plus d’informations sur l’exploration d’un jeu de données dans différents environnements Azure, référez-vous à [Explorer les données du processus TDSP (Team Data Science Process)](explore-data.md).
 2. **Les données nécessitent-elles un prétraitement ou un nettoyage ?**
-   Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Pour obtenir une description, référez-vous à [Tâches de préparation des données pour l’apprentissage automatique amélioré](prepare-data.md).
+    Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Pour obtenir une description, référez-vous à [Tâches de préparation des données pour l’apprentissage automatique amélioré](prepare-data.md).
 
 ## <a name="tools-and-languages-questions"></a>Questions sur les outils et les langues
 Il existe un grand nombre de possibilités en fonction des langues, des environnements de développement et des outils dont vous avez besoin ou avec lesquels vous êtes le plus à l’aise.

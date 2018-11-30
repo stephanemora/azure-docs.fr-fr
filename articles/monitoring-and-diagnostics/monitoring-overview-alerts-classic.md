@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2caf3d6373e764f5d5538a14a1750f1bfee2871d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614138"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822277"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
 
@@ -89,7 +89,7 @@ Les webhooks autorisent l’automatisation et la correction avec, par exemple :
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez obtenir des informations sur les règles d’alerte et leur configuration avec :
 
-* En savoir plus sur les [métriques](../monitoring/monitoring-data-collection.md)
+* En savoir plus sur les [métriques](../azure-monitor/platform/data-collection.md)
 * Configurer les [alertes métriques classiques via le Portail Azure](alert-metric-classic.md)
 * Configurer les [alertes métriques classiques PowerShell](alert-metric-classic.md)
 * Configurer [l’interface de ligne de commande (CLI) des alertes métriques classiques](alert-metric-classic.md)

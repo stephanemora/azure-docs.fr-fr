@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 6b82ba53e7a469b01d77865831c2f5fb37f71044
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 565c35b296e2734df264942b9eab0a067626c368
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160839"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427180"
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Création de Multi-Factor Authentication dans des applications personnalisées (SDK)
 
@@ -44,8 +44,8 @@ Le Kit de développement logiciel (SDK) contient les éléments suivants :
 * **Fichiers source** pour l'authentification multifacteur
 * **Certificat client** que vous utilisez pour communiquer avec le service d'authentification multifacteur
 * **Clé privée** pour le certificat
-* **Résultats des appels** Une liste des codes de résultats d’appels. Pour ouvrir ce fichier, utilisez une application avec mise en forme du texte, comme WordPad. Utilisez les codes de résultats d’appels pour tester et dépanner l'implémentation de l'authentification multifacteur dans votre application. Ce ne sont pas des codes d'état de l'authentification.
-* **Exemples.** Exemple de code pour une implémentation fonctionnelle de base de l'authentification multifacteur.
+* **Résultats des appels**  Une liste des codes de résultats d’appels. Pour ouvrir ce fichier, utilisez une application avec mise en forme du texte, comme WordPad. Utilisez les codes de résultats d’appels pour tester et dépanner l'implémentation de l'authentification multifacteur dans votre application. Ce ne sont pas des codes d'état de l'authentification.
+* **Exemples.**  Exemple de code pour une implémentation fonctionnelle de base de l'authentification multifacteur.
 
 > [!WARNING]
 > Le certificat client est un certificat privé unique généré spécialement pour vous. Ne partagez pas ou n’égarez pas ce fichier. Il garantit la sécurité de vos communications avec le service Multi-Factor Authentication.
@@ -76,7 +76,7 @@ Voici le code du client Web d’une page de démonstration.
 
     <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html xmlns="https://www.w3.org/1999/xhtml">
     <head runat="server">
     <title>Multi-Factor Authentication Demo</title>
     </head>

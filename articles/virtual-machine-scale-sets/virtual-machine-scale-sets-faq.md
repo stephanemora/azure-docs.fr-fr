@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 7b8faca82a23875b403d0b51b2e8719549d845fb
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 40af55e48e0097f1ad6cb52a76b78fab40c2074c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740685"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447178"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -69,7 +69,7 @@ Obtenez des réponses aux questions fréquemment posées sur les groupes de mach
 
 **Q.** Les groupes identiques fonctionnent-ils avec des zones de disponibilité Azure ?
 
-**A.** Oui. Pour plus d’informations, consultez le [document relatif aux zones des groupes identiques](./virtual-machine-scale-sets-use-availability-zones.md).
+**A.**  Oui. Pour plus d’informations, consultez le [document relatif aux zones des groupes identiques](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -134,7 +134,7 @@ Pour configurer la mise à l’échelle automatique sur un groupe de machines vi
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Si j’ai arrêté (libéré) une machine virtuelle, celle-ci démarre-t-elle en bénéficiant de l’opération de mise à l’échelle automatique ?
 
-Non. Si la mise à l’échelle automatique nécessite des instances de machine virtuelle supplémentaires appartenant au groupe identique, une nouvelle instance de machine virtuelle doit être créée. Les instances de machine virtuelle arrêtées (libérées) ne démarrent pas sous l’événement de mise à l’échelle automatique. Toutefois, ces machines virtuelles arrêtées (libérées) risquent d’être supprimées dans le cadre d’un événement de mise à l’échelle qui diminue le nombre d’instances, de la même façon que n’importe quelle instance de machine virtuelle peut être supprimée en fonction de l’ordre de l’ID d’instance de machine virtuelle.
+ Non. Si la mise à l’échelle automatique nécessite des instances de machine virtuelle supplémentaires appartenant au groupe identique, une nouvelle instance de machine virtuelle doit être créée. Les instances de machine virtuelle arrêtées (libérées) ne démarrent pas sous l’événement de mise à l’échelle automatique. Toutefois, ces machines virtuelles arrêtées (libérées) risquent d’être supprimées dans le cadre d’un événement de mise à l’échelle qui diminue le nombre d’instances, de la même façon que n’importe quelle instance de machine virtuelle peut être supprimée en fonction de l’ordre de l’ID d’instance de machine virtuelle.
 
 
 
@@ -371,7 +371,7 @@ Pour émuler le transfert d’un certificat sous forme de chaîne en base64, vou
 
 Dans les groupes de machines virtuelles identiques et les machines virtuelles, les certificats doivent être encapsulés dans des objets JSON. 
 
-Nous prenons également en charge le type de contenu application/x-pkcs12. Pour obtenir des instructions sur l’utilisation du type de contenu application/x-pkcs12, consultez [Certificats PFX dans Azure Key Vault](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/).
+Nous prenons également en charge le type de contenu application/x-pkcs12. 
  
 Actuellement, nous ne prenons pas en charge les fichiers .cer. Pour utiliser des fichiers .cer, exportez-les dans des conteneurs .pfx.
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6448e592db8024d911831b0b3634dabb4ed3b101
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063113"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443404"
 ---
 # <a name="suspended-domains"></a>Domaines suspendus
 Quand Azure AD Domain Services (Azure AD DS) ne parvient pas à mettre en service un domaine managé pendant une longue période, ça met ce domaine en état de suspension. Cet article explique pourquoi les domaines managés sont suspendus et comment remédier à la suspension d’un domaine.
@@ -43,7 +43,7 @@ Un domaine managé qui est configuré correctement et qui fonctionne régulière
 
 
 ### <a name="needs-attention-state"></a>État « Doit être surveillé »
-Un domaine managé passe à l’état **Doit être surveillé** si un ou plusieurs problèmes doivent être résolus par l’administrateur. La page d’intégrité de votre domaine managé répertorie les alertes liées à cet état. 
+Un domaine managé passe à l’état **Doit être surveillé** si un ou plusieurs problèmes doivent être résolus par l’administrateur. La page d’intégrité de votre domaine managé répertorie les alertes liées à cet état.
 
 Par exemple, si vous avez configuré un groupe de sécurité réseau restrictif pour votre réseau virtuel, Microsoft peut être incapable de mettre à jour et de surveiller votre domaine managé. Cette configuration non valide déclenche une alerte qui met votre domaine géré dans l’état « Doit être surveillé ».
 

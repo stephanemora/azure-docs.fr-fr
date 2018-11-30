@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dbd3d4e34df3bf918c831a3d9c74de8a9015b50e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623942"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163603"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Référence sur la syntaxe SQL Azure Cosmos DB
 
-Azure Cosmos DB prend en charge l’interrogation de documents suivant une grammaire familière de type SQL (Structured Query Language) sur des documents JSON hiérarchiques sans nécessiter de schéma explicite ou de création d’index secondaires. Cet article constitue la documentation relative à la syntaxe du langage de requête SQL, qui est compatible avec les comptes d’API SQL. Pour obtenir une description des exemples de requêtes SQL, consultez [Requêtes SQL dans Cosmos DB](sql-api-sql-query.md).  
+Azure Cosmos DB prend en charge l’interrogation de documents suivant une grammaire familière de type SQL (Structured Query Language) sur des documents JSON hiérarchiques sans nécessiter de schéma explicite ou de création d’index secondaires. Cet article constitue la documentation relative à la syntaxe du langage de requête SQL, qui est compatible avec les comptes d’API SQL. Pour obtenir une description des exemples de requêtes SQL, consultez [Requêtes SQL dans Cosmos DB](how-to-sql-query.md).  
   
 Visitez le [Playground de test de requêtes](http://www.documentdb.com/sql/demo), qui vous permet d’essayer Cosmos DB et d’exécuter des requêtes SQL sur notre jeu de données.  
   
 ## <a name="select-query"></a>Requête SELECT  
-Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facultatives conformes aux normes ANSI-SQL. Généralement, pour chaque requête, la source de la clause FROM est énumérée. Puis le filtre de la clause WHERE est appliqué sur la source pour extraire un sous-ensemble de documents JSON. Finalement, la clause SELECT est utilisée pour projeter les valeurs JSON demandées dans la liste sélectionnée. Les conventions utilisées pour décrire les instructions SELECT sont présentées sous forme de tableau dans la section Conventions de syntaxe. Pour découvrir des exemples, consultez les [exemples de requêtes SELECT](sql-api-sql-query.md#SelectClause).
+Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facultatives conformes aux normes ANSI-SQL. Généralement, pour chaque requête, la source de la clause FROM est énumérée. Puis le filtre de la clause WHERE est appliqué sur la source pour extraire un sous-ensemble de documents JSON. Finalement, la clause SELECT est utilisée pour projeter les valeurs JSON demandées dans la liste sélectionnée. Les conventions utilisées pour décrire les instructions SELECT sont présentées sous forme de tableau dans la section Conventions de syntaxe. Pour découvrir des exemples, consultez les [exemples de requêtes SELECT](how-to-sql-query.md#SelectClause).
   
 **Syntaxe**  
   
@@ -69,7 +69,7 @@ Le langage de requête prend en charge les commentaires de style T-SQL, comme
 Bien que les commentaires et espaces blancs n’ont pas d’importance dans la grammaire, ils doivent être utilisés pour séparer les jetons. Par exemple : `-1e5` est un jeton à numéro unique, alors que `: – 1 e5` est un jeton moins suivi du chiffre 1 et de l’identificateur e5.  
 
 ##  <a name="bk_select_query"></a> Clause SELECT  
-Les clauses de l’instruction SELECT doivent être classées comme indiqué ci-dessus. N’importe laquelle des clauses facultatives peut être omise. Mais lorsque des clauses facultatives sont utilisées, elles doivent apparaître dans le bon ordre. Pour découvrir des exemples, consultez les [exemples de requêtes SELECT](sql-api-sql-query.md#SelectClause).
+Les clauses de l’instruction SELECT doivent être classées comme indiqué ci-dessus. N’importe laquelle des clauses facultatives peut être omise. Mais lorsque des clauses facultatives sont utilisées, elles doivent apparaître dans le bon ordre. Pour découvrir des exemples, consultez les [exemples de requêtes SELECT](how-to-sql-query.md#SelectClause).
 
 **Syntaxe**  
 
@@ -132,7 +132,7 @@ La syntaxe `SELECT *` est valide uniquement si la clause FROM a déclaré exacte
 [Clause SELECT](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> Clause FROM  
-Spécifie la ou les sources de jointure. La clause FROM est facultative, sauf si la source est filtrée ou projetée plus loin dans la requête. L'objectif de cette clause est de spécifier la source des données à partir de laquelle la requête doit fonctionner. Généralement, l’intégralité du conteneur est la source, mais parfois, il peut s’agir plutôt d’un sous-ensemble du conteneur. Si cette clause n’est pas spécifiée, les autres clauses sont exécutées comme si la clause FROM fournissait un document unique. Pour découvrir des exemples, consultez les [exemples de clauses FROM](sql-api-sql-query.md#FromClause).
+Spécifie la ou les sources de jointure. La clause FROM est facultative, sauf si la source est filtrée ou projetée plus loin dans la requête. L'objectif de cette clause est de spécifier la source des données à partir de laquelle la requête doit fonctionner. Généralement, l’intégralité du conteneur est la source, mais parfois, il peut s’agir plutôt d’un sous-ensemble du conteneur. Si cette clause n’est pas spécifiée, les autres clauses sont exécutées comme si la clause FROM fournissait un document unique. Pour découvrir des exemples, consultez les [exemples de clauses FROM](how-to-sql-query.md#FromClause).
   
 **Syntaxe**  
   
@@ -216,7 +216,7 @@ Une expression de conteneur peut avoir une étendue de document ou de conteneur�
   
 Dans la version actuelle, Cosmos DB prend en charge les jointures internes. Des fonctionnalités de jointure supplémentaires sont à venir. 
 
-Les jointures internes aboutissent à un produit croisé complet des ensembles participants à la jointure. Le résultat d’une jointure à N voies est un jeu de tuples à N éléments, où chaque valeur dans le tuple est associée à l’alias défini participant à la jointure et est accessible en référençant cet alias dans d’autres clauses. Pour découvrir des exemples, consultez les [exemples de mots clés JOIN](sql-api-sql-query.md#Joins).
+Les jointures internes aboutissent à un produit croisé complet des ensembles participants à la jointure. Le résultat d’une jointure à N voies est un jeu de tuples à N éléments, où chaque valeur dans le tuple est associée à l’alias défini participant à la jointure et est accessible en référençant cet alias dans d’autres clauses. Pour découvrir des exemples, consultez les [exemples de mots clés JOIN](how-to-sql-query.md#Joins).
   
 L’évaluation de la jointure dépend de l’étendue du contexte des jeux qui participent :  
   
@@ -311,7 +311,7 @@ Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ...
  [Clause SELECT](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> Clause WHERE  
- Spécifie la condition de recherche pour les documents renvoyés par la requête. Pour découvrir des exemples, consultez les [exemples de clauses WHERE](sql-api-sql-query.md#WhereClause).
+ Spécifie la condition de recherche pour les documents renvoyés par la requête. Pour découvrir des exemples, consultez les [exemples de clauses WHERE](how-to-sql-query.md#WhereClause).
   
  **Syntaxe**  
   
@@ -336,7 +336,7 @@ WHERE <filter_condition>
  Pour que le document soit retourné, une expression spécifiée en tant que filtre de condition doit correspondre à la valeur true. Seule la valeur booléenne true satisfait la condition. Les autres valeurs : undefined, null, false, nombre, tableau ou objet ne satisfont pas la condition.  
   
 ##  <a name="bk_orderby_clause"></a> Clause ORDER BY  
- Spécifie l’ordre de tri des résultats retournés par la requête. Pour découvrir des exemples, consultez les [exemples de clauses ORDER BY](sql-api-sql-query.md#OrderByClause).
+ Spécifie l’ordre de tri des résultats retournés par la requête. Pour découvrir des exemples, consultez les [exemples de clauses ORDER BY](how-to-sql-query.md#OrderByClause).
   
  **Syntaxe**  
   
@@ -374,7 +374,7 @@ ORDER BY <sort_specification>
  Même si la grammaire de la requête prend en charge plusieurs propriétés Order by, l’exécution de la requête Cosmos DB prend seulement en charge le tri sur une seule propriété et uniquement sur les noms de propriété (pas sur les propriétés calculées). Le tri requiert également que la stratégie d’indexation comprenne un index de plage pour la propriété et le type spécifiés, avec la précision maximale. Consultez la documentation sur la stratégie d’indexation pour plus de détails.  
   
 ##  <a name="bk_scalar_expressions"></a> Expressions scalaires  
- Une expression scalaire est une combinaison de symboles et d’opérateurs qui peut être évaluée pour obtenir une valeur unique. Les expressions simples peuvent être des constantes, des références de propriété, des références d’élément de tableau, des références d’alias ou des appels de fonction. Les expressions simples peuvent être combinées dans des expressions complexes utilisant des opérateurs. Pour découvrir des exemples, consultez les [exemples d’expressions scalaires](sql-api-sql-query.md#scalar-expressions).
+ Une expression scalaire est une combinaison de symboles et d’opérateurs qui peut être évaluée pour obtenir une valeur unique. Les expressions simples peuvent être des constantes, des références de propriété, des références d’élément de tableau, des références d’alias ou des appels de fonction. Les expressions simples peuvent être combinées dans des expressions complexes utilisant des opérateurs. Pour découvrir des exemples, consultez les [exemples d’expressions scalaires](how-to-sql-query.md#scalar-expressions).
   
  Pour plus d’informations sur les valeurs qu’une expression scalaire peut avoir, consultez la section [Constantes](#bk_constants).  
   
@@ -2905,6 +2905,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Syntaxe SQL et requête SQL pour Cosmos DB](sql-api-sql-query.md)
+- [Syntaxe SQL et requête SQL pour Cosmos DB](how-to-sql-query.md)
 
 - [Documentation Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

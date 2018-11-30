@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 11307e3c0dbf831a03b5f7685b8e44f03f8d242e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1df88e18a6065f9d3917f1f59e0743f71bee71e5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957218"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710748"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Créer un espace de travail Log Analytics avec Azure PowerShell
 
@@ -131,4 +131,4 @@ Disposant à présent d’un espace de travail, vous pouvez configurer la collec
 * Pour activer la collecte de données à partir de ressources Azure avec Azure Diagnostics ou le stockage Azure, consultez [Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics](log-analytics-azure-storage.md).  
 * Ajoutez [System Center Operations Manager comme source de données](log-analytics-om-agents.md) pour collecter des données à partir des agents rattachés à votre groupe d’administration Operations Manager et les stocker dans votre espace de travail Log Analytics.  
 * Connectez [Configuration Manager](log-analytics-sccm.md) pour importer des ordinateurs qui sont membres de collections dans la hiérarchie.  
-* Examinez les [solutions de gestion](../monitoring/monitoring-solutions.md) disponibles et la façon d’ajouter ou de supprimer une solution dans votre espace de travail.
+* Examinez les [solutions de gestion](../azure-monitor/insights/solutions.md) disponibles et la façon d’ajouter ou de supprimer une solution dans votre espace de travail.

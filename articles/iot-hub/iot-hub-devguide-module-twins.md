@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 1b76bfded6562f61a0a9f4a870a18a1fff71bc6a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309732"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284311"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux de module dans IoT Hub
 
@@ -27,7 +27,7 @@ Côté appareil, les kits IoT Hub device SDK vous permettent de créer des modul
 Cet article aborde les points suivants :
 
 * La structure du jumeau de module : *tags* (balises), propriétés *desired* (souhaitées) et *reported* (signalées).
-* Les opérations que les modules et back-ends peuvent effectuer sur des jumeaux de modules.
+* Les opérations que les modules et backends peuvent effectuer sur des jumeaux de modules.
 
 Pour des conseils sur l’utilisation des propriétés rapportées, des messages appareil-à-cloud ou du chargement de fichiers, consultez [Recommandations sur les communications appareil-à-cloud](iot-hub-devguide-d2c-guidance.md).
 
@@ -47,9 +47,9 @@ Un jumeau de module est un document JSON incluant les éléments suivants :
 
 * **Tags** (balises). Une section du document JSON accessible en lecture et en écriture par le serveur principal de solution. Les balises ne sont pas visibles pour les modules sur l’appareil. Les balises sont définies à des fins d’interrogation.
 
-* **Propriétés souhaitées (Desired)**. Utilisées en même temps que les propriétés signalées pour synchroniser une configuration ou une condition de module. Le back-end de solution peut définir les propriétés souhaitées, et l’application de module peut les lire. L’application de module peut également recevoir des notifications sur les changements des propriétés souhaitées.
+* **Propriétés souhaitées (Desired)**. Utilisées en même temps que les propriétés signalées pour synchroniser une configuration ou une condition de module. Le backend de solution peut définir les propriétés souhaitées, et l’application de module peut les lire. L’application de module peut également recevoir des notifications sur les changements des propriétés souhaitées.
 
-* **Propriétés signalées (Reported)**. Utilisées en même temps que les propriétés souhaitées pour synchroniser une configuration ou une condition de module. L’application de module peut définir les propriétés signalées, et le back-end de solution peut les lire et les interroger.
+* **Propriétés signalées (Reported)**. Utilisées en même temps que les propriétés souhaitées pour synchroniser une configuration ou une condition de module. L’application de module peut définir les propriétés signalées, et le backend de solution peut les lire et les interroger.
 
 * **Propriétés d’identité des modules**. La racine du document JSON du jumeau de module contient les propriétés en lecture seule de l’identité de module correspondante stockées dans le [registre des identités](iot-hub-devguide-identity-registry.md).
 
@@ -148,11 +148,11 @@ Dans l’exemple précédent, les propriétés souhaitées et signalées du jume
 > 
 
 ## <a name="back-end-operations"></a>Opérations principales
-Le back-end de solution opère sur le jumeau de module en utilisant les opérations atomiques suivantes, exposées par le biais du protocole HTTPS :
+Le backend de solution opère sur le jumeau de module en utilisant les opérations atomiques suivantes, exposées par le biais du protocole HTTPS :
 
 * **Récupérer le jumeau de module par ID**. Cette opération retourne le contenu du document du jumeau de module, à savoir les Tags (balises) et les propriétés système souhaitées (Desired) et signalées (Reported).
 
-* **Mettre à jour partiellement le jumeau de module**. Cette opération permet au back-end de solution de mettre à jour partiellement les Tags (balises) ou les propriétés souhaitées (Desired) dans un jumeau de module. La mise à jour partielle est exprimée sous la forme d’un document JSON qui ajoute ou met à jour toute propriété. Les propriétés définies sur `null` sont supprimées. L’exemple suivant crée une propriété souhaitée avec la valeur `{"newProperty": "newValue"}`, remplace la valeur existante de `existingProperty` par `"otherNewValue"` et supprime `otherOldProperty`. Aucune autre modification n’est apportée aux autres propriétés souhaitées ou Tags existants :
+* **Mettre à jour partiellement le jumeau de module**. Cette opération permet au backend de solution de mettre à jour partiellement les Tags (balises) ou les propriétés souhaitées (Desired) dans un jumeau de module. La mise à jour partielle est exprimée sous la forme d’un document JSON qui ajoute ou met à jour toute propriété. Les propriétés définies sur `null` sont supprimées. L’exemple suivant crée une propriété souhaitée avec la valeur `{"newProperty": "newValue"}`, remplace la valeur existante de `existingProperty` par `"otherNewValue"` et supprime `otherOldProperty`. Aucune autre modification n’est apportée aux autres propriétés souhaitées ou Tags existants :
 
     ```json
     {
@@ -226,7 +226,7 @@ L’application de module opère sur le jumeau de module en utilisant les opéra
 
 * **Mettre à jour partiellement les propriétés signalées (Reported)**. Cette opération permet la mise à jour partielle des propriétés signalées du module connecté. Cette opération utilise le même format de mise à jour JSON que le serveur principal de solution utilise pour une mise à jour partielle des propriétés souhaitées.
 
-* **Observer les propriétés souhaitées (Desired)**. Le module connecté peut choisir d’être informé des mises à jour des propriétés souhaitées au moment où elles se produisent. Le module reçoit la forme de mise à jour (remplacement partiel ou complet) exécutée par le back-end de la solution.
+* **Observer les propriétés souhaitées (Desired)**. Le module connecté peut choisir d’être informé des mises à jour des propriétés souhaitées au moment où elles se produisent. Le module reçoit la forme de mise à jour (remplacement partiel ou complet) exécutée par le backend de la solution.
 
 Toutes les opérations précédentes nécessitent l’autorisation **ModuleConnect**, comme défini dans l’article [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md).
 
@@ -327,9 +327,9 @@ Ces informations sont conservées à chaque niveau (pas uniquement celui des feu
 ## <a name="optimistic-concurrency"></a>Accès concurrentiel optimiste
 
 Les Tags ainsi que les propriétés souhaitées (Desired) et signalées (Reported) prennent en charge l’accès concurrentiel optimiste.
-Les étiquettes ont un ETag, conforme à la [RFC7232]()https://tools.ietf.org/html/rfc7232, correspondant à leur représentation JSON. Vous pouvez utiliser les ETags dans des opérations de mise à jour conditionnelle à partir du serveur principal de solution pour assurer la cohérence.
+Les Tags ont un ETag, conforme à la norme [RFC7232](https://tools.ietf.org/html/rfc7232), correspondant à leur représentation JSON. Vous pouvez utiliser les ETags dans des opérations de mise à jour conditionnelle à partir du serveur principal de solution pour assurer la cohérence.
 
-Les propriétés souhaitées et signalées du jumeau de module n’ont pas d’ETag, mais une valeur `$version` dont la nature incrémentielle est garantie. De même qu’un ETag, la version peut être utilisée par la partie effectuant la mise à jour afin d’assurer la cohérence des mises à jour. Par exemple, une application de module pour une propriété signalée ou le back-end de solution pour une propriété souhaitée.
+Les propriétés souhaitées et signalées du jumeau de module n’ont pas d’ETag, mais une valeur `$version` dont la nature incrémentielle est garantie. De même qu’un ETag, la version peut être utilisée par la partie effectuant la mise à jour afin d’assurer la cohérence des mises à jour. Par exemple, une application de module pour une propriété signalée ou le backend de solution pour une propriété souhaitée.
 
 Les versions sont également utiles quand un agent observateur (par exemple, l’application de module observant les propriétés souhaitées) doit concilier des concurrences entre les résultats d’une opération de récupération et d’une notification de mise à jour. Pour plus d’informations, consultez [Flux de reconnexion d’appareil](iot-hub-devguide-device-twins.md#device-reconnection-flow). 
 

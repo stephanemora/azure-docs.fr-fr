@@ -3,8 +3,9 @@ title: FAQ sur les concours Cortana Intelligence | Microsoft Docs
 description: Forum Aux Questions sur les concours Microsoft Cortana Intelligence.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
@@ -15,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465625"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265101"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>FAQ sur les concours Microsoft Cortana Intelligence
 **Que sont les concours Cortana Intelligence ?**
 
-Les concours Microsoft Cortana Intelligence rassemblent une communauté mondiale de passionnés de données pour résoudre de manière collective certains des problèmes de science des données les plus complexes au monde. Les concours Cortana Intelligence permettent aux passionnés de données du monde entier de se mesurer les uns aux autres et de créer des modèles de science des données très précis et intelligents. Ces concours hébergés sont basés sur des jeux de données uniques mis à la disposition du public pour la première fois. Les participants peuvent gagner des récompenses ou obtenir une reconnaissance par le biais du classement public des 10 premiers. Vous pouvez accéder à la page d’accueil des concours à l’adresse [aka.ms/CIComp](http://aka.ms/CIComp).
+Les concours Microsoft Cortana Intelligence rassemblent une communauté mondiale de passionnés de données pour résoudre de manière collective certains des problèmes de science des données les plus complexes au monde. Les concours Cortana Intelligence permettent aux passionnés de données du monde entier de se mesurer les uns aux autres et de créer des modèles de science des données très précis et intelligents. Ces concours hébergés sont basés sur des jeux de données uniques mis à la disposition du public pour la première fois. Les participants peuvent gagner des récompenses ou obtenir une reconnaissance par le biais du classement public des 10 premiers. Vous pouvez accéder à la page d’accueil des concours à l’adresse [aka.ms/CIComp](https://aka.ms/CIComp).
 
 **À quelle fréquence Microsoft lancera-t-il les nouveaux concours ?**
 
@@ -37,7 +38,7 @@ Pour des questions d’ordre générale, vous pouvez utiliser le [forum Microsof
 
 **Comment participer à un concours ?**
 
-Accédez à la page d’accueil [Concours](https://gallery.cortanaintelligence.com/competitions) dans [Azure AI Gallery](https://gallery.cortanaintelligence.com/), ou rendez-vous à l’adresse [http://aka.ms/CIComp](http://aka.ms/CIComp). La page d’accueil répertorie tous les concours en cours. Les instructions et les règles de participation détaillées, les prix à remporter et la durée sont indiqués sur la page d’inscription de chaque concours.
+Accédez à la page d’accueil [Concours](https://gallery.cortanaintelligence.com/competitions) dans [Azure AI Gallery](https://gallery.cortanaintelligence.com/), ou rendez-vous à l’adresse [http://aka.ms/CIComp](https://aka.ms/CIComp). La page d’accueil répertorie tous les concours en cours. Les instructions et les règles de participation détaillées, les prix à remporter et la durée sont indiqués sur la page d’inscription de chaque concours.
 
 1. Recherchez le concours auquel vous souhaitez participer, lisez toutes les instructions et regardez la vidéo du didacticiel. Ensuite, cliquez sur le bouton **Enter Competition** (Participer au concours) et copiez l’expérience de démarrage dans votre espace de travail Azure Machine Learning existant. Si vous n’avez pas accès à un espace de travail, vous devez en créer un au préalable. Exécutez l’expérience de démarrage, observez les mesures de performance, puis utilisez votre créativité pour améliorer les performances du modèle. Cette étape occupera la majeure partie de votre temps.   
 
@@ -55,7 +56,7 @@ Les participants à ces concours utilisent Azure Machine Learning Studio, servic
 
 **Dois-je être un scientifique de données pour participer ?**
 
-Non. En fait, nous encourageons les passionnés de données, ceux qui s’intéressent à la science des données et les scientifiques de données en herbe à participer à notre concours. Nous avons conçu des documents de support pour permettre à tout le monde de participer. Le public cible est le suivant :
+ Non. En fait, nous encourageons les passionnés de données, ceux qui s’intéressent à la science des données et les scientifiques de données en herbe à participer à notre concours. Nous avons conçu des documents de support pour permettre à tout le monde de participer. Le public cible est le suivant :
 
 * **Développeurs de données**, **scientifiques de données**, **professionnels du décisionnel** et de **l’analyse** : ceux qui sont chargés de produire des données et du contenu d’analyse que d’autres utiliseront
 * **Gestionnaires de données** : ceux qui disposent de connaissances sur les données, ce qu’elles signifient, comment elles sont censées être utilisées et dans quel but
@@ -98,7 +99,7 @@ Microsoft vérifiera les résultats du classement privé, puis nous vous contact
 
 **Comment obtenir les gains si je remporte un concours ?**
 
-Si vous êtes le gagnant d’un concours, vous devrez signer une déclaration d’éligibilité, de licence et de non-droit. Ce formulaire réitère les règles du concours. Les gagnants devront remplir un formulaire fiscal W-9 des États-Unis ou un formulaire W-8BEN pour ceux qui ne sont pas des contribuables situés aux États-Unis. Nous contactons tous les gagnants dans le cadre du processus de paiement des récompenses sur leur e-mail d’inscription. Reportez-vous à nos [Conditions générales](http://aka.ms/comptermsandconditions) pour plus de détails.
+Si vous êtes le gagnant d’un concours, vous devrez signer une déclaration d’éligibilité, de licence et de non-droit. Ce formulaire réitère les règles du concours. Les gagnants devront remplir un formulaire fiscal W-9 des États-Unis ou un formulaire W-8BEN pour ceux qui ne sont pas des contribuables situés aux États-Unis. Nous contactons tous les gagnants dans le cadre du processus de paiement des récompenses sur leur e-mail d’inscription. Reportez-vous à nos [Conditions générales](https://aka.ms/comptermsandconditions) pour plus de détails.
 
 **Que se passe-t-il si plusieurs contributions reçoivent le même score ?**
 
@@ -106,7 +107,7 @@ L’heure d’envoi est décisive. La contribution envoyée plut tôt est mieux 
 
 **Puis-je participer avec un espace de travail invité ?**
 
-Non. Vous devez utiliser un espace de travail gratuit ou standard pour participer. Vous pouvez ouvrir l’expérience de démarrage du concours dans un espace de travail invité, mais vous ne serez pas en mesure de créer à partir de celui-ci une contribution valide à envoyer. 
+ Non. Vous devez utiliser un espace de travail gratuit ou standard pour participer. Vous pouvez ouvrir l’expérience de démarrage du concours dans un espace de travail invité, mais vous ne serez pas en mesure de créer à partir de celui-ci une contribution valide à envoyer. 
 
 **Puis-je participer avec un espace de travail dans une autre région Azure ?**
 
@@ -114,5 +115,5 @@ La plateforme de concours ne prend actuellement en charge que les contributions 
 
 **Conservons-nous les solutions/contributions des concours des utilisateurs ?**
 
-Les contributions d’utilisateur sont conservées uniquement à des fins d’évaluation pour identifier les solutions gagnantes. Reportez-vous à nos [Conditions générales](http://aka.ms/comptermsandconditions) pour les détails.
+Les contributions d’utilisateur sont conservées uniquement à des fins d’évaluation pour identifier les solutions gagnantes. Reportez-vous à nos [Conditions générales](https://aka.ms/comptermsandconditions) pour les détails.
 

@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456896"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425205"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Activer l’accès distant à SharePoint avec le proxy d’application Azure AD
 
@@ -119,7 +119,7 @@ Le moyen le plus simple pour définir des noms de principal de service (SPN) con
 1. Accédez au site avec le SPN à partir d’un autre ordinateur.
  L’ensemble des tickets Kerberos pertinents sont alors mis en cache sur l’ordinateur. Ces tickets contiennent le SPN du site cible auquel vous avez accédé.
 
-2. Vous pouvons extraire le SPN pour ce site à l’aide d’un outil appelé [Klist](http://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). Dans une fenêtre de commande en cours d’exécution dans le même contexte que l’utilisateur qui a accédé au site dans le navigateur, exécutez la commande suivante :
+2. Vous pouvons extraire le SPN pour ce site à l’aide d’un outil appelé [Klist](https://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). Dans une fenêtre de commande en cours d’exécution dans le même contexte que l’utilisateur qui a accédé au site dans le navigateur, exécutez la commande suivante :
 ```
 Klist
 ```

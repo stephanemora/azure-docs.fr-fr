@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387275"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311451"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 
@@ -255,7 +255,7 @@ Toutefois, pour permettre aux utilisateurs B2B de se connecter à l’applicatio
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>L’attribution d’utilisateurs automatique dans les applications SaaS est-elle possible pour les groupes dynamiques dans Azure AD ?
 
-Oui. Quand il est configuré pour « synchroniser uniquement les utilisateurs et groupes attribués », le service d’attribution d’utilisateurs Azure AD peut attribuer des utilisateurs, ou annuler leur attribution, dans une application SaaS selon que les utilisateurs sont ou non membres d’un [groupe dynamique](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Les groupes dynamiques peuvent également être définis avec l’option pour « synchroniser tous les utilisateurs et groupes ».
+Oui. Quand il est configuré pour « synchroniser uniquement les utilisateurs et groupes attribués », le service d’attribution d’utilisateurs Azure AD peut attribuer des utilisateurs, ou annuler leur attribution, dans une application SaaS selon que les utilisateurs sont ou non membres d’un [groupe dynamique](../users-groups-roles/groups-create-rule.md). Les groupes dynamiques peuvent également être définis avec l’option pour « synchroniser tous les utilisateurs et groupes ».
 
 Toutefois, l’utilisation de groupes dynamiques peut impacter les performances globales de l’attribution d’utilisateurs de bout en bout d’Azure AD dans les applications SaaS. Si vous utilisez des groupes dynamiques, gardez à l’esprit les mises en garde et suggestions suivantes :
 
@@ -265,7 +265,7 @@ Toutefois, l’utilisation de groupes dynamiques peut impacter les performances 
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>L’attribution d’utilisateurs automatique dans les applications SaaS est-elle possible pour les groupes imbriqués dans Azure AD ?
 
-Non. Quand il est configuré pour « synchroniser uniquement les utilisateurs et groupes assignés », le service d’attribution d’utilisateurs Azure AD n’est pas en mesure d’obtenir ou d’attribuer des utilisateurs qui sont membres de groupes imbriqués. Il peut uniquement obtenir et attribuer les utilisateurs qui se trouvent directement dans le groupe assigné explicitement.
+ Non. Quand il est configuré pour « synchroniser uniquement les utilisateurs et groupes assignés », le service d’attribution d’utilisateurs Azure AD n’est pas en mesure d’obtenir ou d’attribuer des utilisateurs qui sont membres de groupes imbriqués. Il peut uniquement obtenir et attribuer les utilisateurs qui se trouvent directement dans le groupe assigné explicitement.
 
 Il s’agit d’une limitation des « assignations basées sur les groupes dans les applications », qui concerne également l’authentification unique. Cette limitation est décrite dans [Utilisation d’un groupe pour gérer l’accès aux applications SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 

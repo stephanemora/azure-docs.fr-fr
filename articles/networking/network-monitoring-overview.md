@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 0656cfcc2dcded284be1a337f797681117f3b313
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 4107b292a606ea629e7de0c7be66621d699c5f42
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142883"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427384"
 ---
 # <a name="network-monitoring-solutions"></a>Solutions d’analyse du réseau 
 
@@ -51,7 +51,7 @@ L’analyseur de performances fait partie de NPM et se charge de la surveillance
 
 Pour plus d’informations, consultez les articles suivants :
 
-* [Solution Network Performance Monitor dans Log Analytics](../log-analytics/log-analytics-network-performance-monitor.md) 
+* [Solution Network Performance Monitor dans Log Analytics](../azure-monitor/insights/network-performance-monitor.md) 
 * [Cas d’utilisation](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Mises à jour de produit : [février 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [août 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 

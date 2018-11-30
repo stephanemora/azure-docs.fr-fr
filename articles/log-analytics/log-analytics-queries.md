@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0a8a1ab41972aa2ae184b900c2dab94ec58f3e7c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4aeb14bd7962205b89e1207e082f551999f54558
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612746"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634521"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyser les données Log Analytics dans Azure Monitor
 
@@ -42,8 +42,8 @@ Voici plusieurs façons d’utiliser les requêtes dans Log Analytics :
 
 - **Portails.** Vous pouvez effectuer une analyse interactive des données de journal dans le [portail Azure](log-analytics-log-search-portals.md).  Cela vous permet de modifier votre requête et d’analyser les résultats dans divers formats et visualisations.  
 - **Règles d’alerte.** Les [règles d’alerte](../monitoring-and-diagnostics/monitoring-overview-alerts.md) identifient de façon proactive les problèmes à partir des données dans votre espace de travail.  Chaque règle d’alerte est basée sur une recherche dans les journaux qui est exécutée automatiquement à intervalles réguliers.  Les résultats sont inspectés pour déterminer si une alerte doit être créée.
-- **Tableaux de bord.** Vous pouvez épingler les résultats de n’importe quelle requête dans un [tableau de bord Azure]() afin de visualiser les données de journal et les métriques ensemble et de partager ces informations avec d’autres utilisateurs Azure si vous le souhaitez. 
-- **Vues.**  Vous pouvez créer des visualisations de données à inclure dans les tableaux de bord utilisateur avec le [Concepteur de vues](log-analytics-view-designer.md).  Les requêtes dans les journaux fournissent les données utilisées par les [vignettes](log-analytics-view-designer-tiles.md) et les [composants de visualisation](log-analytics-view-designer-parts.md) dans chaque vue.  
+- **Tableaux de bord.** Vous pouvez épingler les résultats de n’importe quelle requête dans un [tableau de bord Azure](../azure-monitor/platform/dashboards.md) afin de visualiser les données de journal et les métriques ensemble et de partager ces informations avec d’autres utilisateurs Azure si vous le souhaitez. 
+- **Vues.**  Vous pouvez créer des visualisations de données à inclure dans les tableaux de bord utilisateur avec le [Concepteur de vues](../azure-monitor/platform/view-designer.md).  Les requêtes dans les journaux fournissent les données utilisées par les [vignettes](../azure-monitor/platform/view-designer-tiles.md) et les [composants de visualisation](../azure-monitor/platform/view-designer-parts.md) dans chaque vue.  
 - **Exportation.**  Quand vous importez des données de l’espace de travail Log Analytics vers Excel ou [Power BI](log-analytics-powerbi.md), vous créez une requête de journal pour définir les données à exporter.
 - **PowerShell.** Vous pouvez exécuter un script PowerShell à partir d’une ligne de commande ou d’un runbook Azure Automation qui utilise [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) pour récupérer des données à partir de Log Analytics.  Cette applet de commande nécessite une requête pour déterminer les données à récupérer.
 - **API Log Analytics.**  L’[API de recherche dans les journaux Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) permet à tout client d’API REST de récupérer des données de journal à partir de l’espace de travail.  La demande d’API comprend une requête qui est exécutée sur Log Analytics pour déterminer les données à récupérer.
@@ -111,4 +111,4 @@ Bien qu’[Application Insights](../application-insights/app-insights-overview.m
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [portails que vous utilisez pour créer et modifier des recherches dans les journaux](log-analytics-log-search-portals.md).
-- Consultez un [didacticiel sur l’écriture de requêtes](log-analytics-tutorial-viewdata.md) à l’aide du nouveau langage de requête.
+- Consultez un [didacticiel sur l’écriture de requêtes](query-language/get-started-queries.md) à l’aide du nouveau langage de requête.

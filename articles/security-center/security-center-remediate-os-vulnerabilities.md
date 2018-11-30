@@ -3,7 +3,7 @@ title: Corriger les configurations de sécurité dans Azure Security Center | Mi
 description: Ce document vous montre comment implémenter la recommandation de l’Azure Security Center, « Corriger les configurations de sécurité ».
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 74bfc3435ad6d247dabd3a7cbf2910ede5f8c8ca
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296233"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317493"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corriger les configurations de sécurité dans Azure Security Center
 Azure Security Center analyse quotidiennement le système d’exploitation de vos machines virtuelles et ordinateurs et recherche les configurations qui pourraient les rendre plus vulnérables aux attaques. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration de sécurité recommandées et d’apporter des modifications à la configuration pour supprimer ces vulnérabilités.
@@ -101,13 +101,13 @@ Consultez la [liste des règles de configuration recommandées](https://gallery.
 Pour plus d’informations sur Security Center, consultez les ressources suivantes :
 
 * Pour une liste des machines virtuelles Windows et Linux prises en charge, consultez [Plateformes prises en charge dans Azure Security Center](security-center-os-coverage.md).
-* Pour découvrir comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure, consultez [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md).
+* Pour découvrir comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure, consultez [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md).
 * Pour découvrir la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure, consultez la section [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 * Pour découvrir comment surveiller l’intégrité de vos ressources Azure, consultez la section [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md).
 * Pour découvrir comment gérer et résoudre les alertes de sécurité, consultez la section [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
 * Pour découvrir comment surveiller l’état d’intégrité de vos solutions de partenaire, consultez la section [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md).
 * Pour obtenir des réponses aux questions concernant l’utilisation de ce service, consultez la section [FAQ Azure Security Center](security-center-faq.md).
-* Pour accéder à des billets de blog sur la sécurité et la conformité Azure, consultez [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/).
+* Pour accéder à des billets de blog sur la sécurité et la conformité Azure, consultez [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

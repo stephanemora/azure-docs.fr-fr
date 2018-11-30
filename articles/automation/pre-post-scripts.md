@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956612"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584619"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gérer les pré-scripts et les post-scripts (préversion)
 
@@ -220,8 +220,6 @@ if ($summary.Type -eq "Error")
 ## <a name="known-issues"></a>Problèmes connus
 
 * Vous ne pouvez pas transmettre d’objets ni de tableaux aux paramètres lorsque vous utilisez des pré-scripts et des post-scripts. Si vous le faites, le runbook échoue.
-* Les runbooks non publiés apparaissent comme sélectionnables lors du choix d’un pré-script ou d’un post-script. Vous ne devez choisir que des runbooks publiés, car les runbooks non publiés ne peuvent être invoqués et échouent.
-* Pour l’instant, les ordinateurs ajoutés à un déploiement à l’aide des [groupes dynamiques (préversion)](automation-update-management.md#using-dynamic-groups) ne font pas partie intégrante du paramètre **SoftwareUpdateConfigurationRunContext** transmis dans les pré-scripts et les post-scripts.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

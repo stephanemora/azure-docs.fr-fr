@@ -4,7 +4,7 @@ description: Décrit la façon dont Cloud Cruiser, un partenaire de facturation
 services: ''
 documentationcenter: ''
 author: tonguyen
-manager: tonguyen
+manager: mumami
 editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 95d90e898ddc8766cf96a5a72c315407cd596393
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393857"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275953"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Intégration des API Microsoft Azure Billing par Cloud Cruiser
 Cet article décrit la façon dont les informations collectées à partir des nouvelles API Microsoft Azure Billing sont utilisables dans Cloud Cruiser à des fins de simulation et d’analyse des coûts de flux de travail.
@@ -50,7 +50,7 @@ Cloud Cruiser peut utiliser les informations de l’API RateCard de différentes
 
 Pour illustrer ce cas d’utilisation, imaginons une charge de travail de plusieurs instances en cours d’exécution sur Microsoft Azure Pack (WAP). L’objectif est de simuler cette même charge de travail sur Azure et d’estimer les coûts liés à cette migration. La création de cette simulation nécessite l’exécution de deux tâches principales :
 
-1. **Importation et traitement des informations de service collectées à partir de l’API RateCard.** Cette tâche est également effectuée sur les classeurs, dans lesquels les informations extraites de l’API RateCard sont transformées et publiées sous la forme d’une nouvelle formule tarifaire. Cette nouvelle formule est appliquée aux simulations pour estimer les prix Azure.
+1. **Importation et traitement des informations de service collectées à partir de l’API RateCard.**  Cette tâche est également effectuée sur les classeurs, dans lesquels les informations extraites de l’API RateCard sont transformées et publiées sous la forme d’une nouvelle formule tarifaire. Cette nouvelle formule est appliquée aux simulations pour estimer les prix Azure.
 2. **Normalisation des services WAP et des services Azure pour IaaS.** Par défaut, les services WAP reposent sur des ressources individuelles (UC, taille de la mémoire, taille de disque, etc.), alors que les services Azure sont basés sur la taille d’instance (A0, A1, A2, etc.). Cette première tâche peut être effectuée par le moteur ETL (extraction, transformation et chargement) de Cloud Cruiser, désigné sous le terme de classeurs, dans lesquels ces ressources peuvent être regroupées dans des tailles d’instance, analogues aux services d’instance d’Azure.
 
 ### <a name="import-data-from-the-ratecard-api"></a>Importer les données de l’API RateCard

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: e8d0522dc4cc218792569498c149b32b3de652cb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945808"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443574"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 
@@ -43,6 +43,8 @@ Les étapes suivantes fournissent une vue d’ensemble de la gestion de votre in
 5. Déployer les modifications depuis votre dépôt dans votre base de données de configuration de service
 
 Cet article décrit comment activer et utiliser Git pour gérer votre configuration de service et fournit une référence pour les fichiers et dossiers dans le dépôt Git.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="access-git-configuration-in-your-service"></a>Accéder à la configuration de Git dans votre service
 
@@ -190,7 +192,8 @@ Le dossier `api-management` racine contient un fichier `configuration.json` qui 
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -200,10 +203,11 @@ Les quatre premiers paramètres (`RegistrationEnabled`, `UserRegistrationTerms`,
 
 | Paramètre d’identité | Correspond à |
 | --- | --- |
-| RegistrationEnabled |**Rediriger les utilisateurs anonymes vers la page de connexion** |
+| RegistrationEnabled |Présence du fournisseur d’identité **Nom d’utilisateur et mot de passe** |
 | UserRegistrationTerms |**Conditions d’utilisation liées à l’inscription de l’utilisateur** |
 | UserRegistrationTermsEnabled |**Afficher les conditions d’utilisation dans la page d’abonnement** |
 | UserRegistrationTermsConsentRequired |**Exiger le consentement** |
+| RequireUserSigninEnabled |**Rediriger les utilisateurs anonymes vers la page de connexion** |
 
 Les quatre paramètres qui suivent (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` et `DelegationValidationKey`) correspondent aux paramètres suivants, disponibles dans l’onglet **Délégation** de la section **Sécurité**.
 

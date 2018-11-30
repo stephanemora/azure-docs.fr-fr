@@ -8,14 +8,15 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 30b08062aa360c4a43dc1bfe9f574447b58521f5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7f10495e22cf6750fdc5891d760885a238175da8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095209"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711773"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques 
+
 Avec [l’extension Diagnostics](azure-diagnostics.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
 Cet article décrit le processus permettant d’envoyer au magasin de métriques Azure Monitor les métriques de performances du système d’exploitation invité concernant les services cloud classiques Azure. À partir de la version 1.11 de l’extension Diagnostics, vous pouvez écrire des métriques directement dans le magasin de métriques Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. 
@@ -23,16 +24,14 @@ Cet article décrit le processus permettant d’envoyer au magasin de métriques
 En les stockant dans cet emplacement, vous avez accès aux mêmes actions que celles disponibles pour les métriques de la plateforme. Ces actions incluent notamment la génération d’alertes en temps quasi réel, la création de graphiques, le routage, l’accès à partir d’une API REST, etc.  Avant, l’extension Diagnostics écrivait les données dans Stockage Azure, et non dans le magasin de données Azure Monitor.  
 
 Le processus décrit dans cet article fonctionne uniquement pour les compteurs de performances des services cloud Azure. Il ne fonctionne pas pour les autres métriques personnalisées. 
-   
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Vous devez être [administrateur ou coadministrateur de services fédérés](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) dans votre abonnement Azure. 
+- Vous devez être [administrateur ou coadministrateur de services fédérés](~/articles/billing/billing-add-change-azure-subscription-administrator.md) dans votre abonnement Azure. 
 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
 - Vous devez avoir installé [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
-
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Provisionner un service cloud et un compte de stockage 
 
@@ -42,15 +41,13 @@ Le processus décrit dans cet article fonctionne uniquement pour les compteurs d
 
    ![Clés de compte de stockage](./media/metrics-store-custom-guestos-classic-cloud-service/storage-keys.png)
 
-
-
 ## <a name="create-a-service-principal"></a>Créer un principal du service 
 
 Créez un principal de service dans votre locataire Azure Active Directory à l’aide des instructions fournies dans [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Notez ce qui suit au cours de ce processus : 
 
-  - Vous pouvez indiquer n’importe quelle URL pour l’URL de connexion.  
-  - Créez un secret client pour cette application.  
-  - Enregistrez la clé et l’ID client pour une utilisation ultérieure.  
+- Vous pouvez indiquer n’importe quelle URL pour l’URL de connexion.  
+- Créez un secret client pour cette application.  
+- Enregistrez la clé et l’ID client pour une utilisation ultérieure.  
 
 Attribuez à l’application créée à l’étape précédente des autorisations *Surveillance de l’éditeur de métriques* afin qu’elle puisse accéder à la ressource à partir de laquelle vous souhaitez générer des métriques. Si vous envisagez d’utiliser l’application pour émettre des métriques personnalisées concernant de nombreuses ressources, vous pouvez accorder ces autorisations au niveau du groupe de ressources ou de l’abonnement.  
 
@@ -136,7 +133,7 @@ Enfin, dans la configuration privée, ajoutez une section *Azure Monitor Account
     </AzureMonitorAccount> 
 </PrivateConfig> 
 ```
- 
+
 Enregistrez ce fichier de diagnostics en local.  
 
 ## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Déployer l’extension Diagnostics dans votre service cloud 
@@ -153,19 +150,19 @@ Utilisez les commandes suivantes pour stocker les informations du compte de stoc
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
- 
+
 De la même façon, définissez le chemin du fichier de diagnostics sur une variable en utilisant la commande suivante :
 
 ```PowerShell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
- 
+
 Déployez l’extension Diagnostics dans votre service cloud à l’aide du fichier de diagnostics, avec le récepteur Azure Monitor configuré à l’aide de la commande suivante :  
 
 ```PowerShell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
- 
+
 > [!NOTE] 
 > Vous devez toujours fournir un compte de stockage lors de l’installation de l’extension Diagnostics. Les journaux et les compteurs de performances spécifiés dans le fichier config de diagnostics sont écrits dans le compte de stockage spécifié.  
 
@@ -190,7 +187,5 @@ Vous pouvez utiliser les fonctionnalités de filtrage et de fractionnement des d
  ![Métriques dans le Portail Azure](./media/metrics-store-custom-guestos-classic-cloud-service/metrics-graph.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - En savoir plus sur les [métriques personnalisées](metrics-custom-overview.md).
-
-
-

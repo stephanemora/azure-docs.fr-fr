@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4785f87515663831b1177c6c0958d3d965351797
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 45cf987d9af7b7dd0e8f05056b49ba56835603e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996568"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313938"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Forum aux questions sur Azure Machine Learning
 
@@ -112,11 +112,11 @@ Azure Machine Learning Workbench est une application compagnon conçue pour les 
 
 **Workbench est-il un IDE ?**
 
-Non. Azure Machine Learning Workbench a été conçu en tant qu’application compagnon d’IDE populaires tels que Jupyter Notebook, Visual Studio Code et PyCharm, mais il ne s’agit pas d’un IDE entièrement fonctionnel. Azure Machine Learning Workbench offre certaines fonctionnalités d’édition de texte de base, mais les fonctionnalités de débogage, IntelliSense et d’autres fonctionnalités IDE couramment utilisée ne sont pas prises en charge. Pour développer, modifier et déboguer du code, nous vous recommandons d’utiliser votre IDE de prédilection. Vous pouvez également souhaiter essayer [Outils Visual Studio Code pour l’IA](https://www.visualstudio.com/downloads/ai-tools-vscode).
+ Non. Azure Machine Learning Workbench a été conçu en tant qu’application compagnon d’IDE populaires tels que Jupyter Notebook, Visual Studio Code et PyCharm, mais il ne s’agit pas d’un IDE entièrement fonctionnel. Azure Machine Learning Workbench offre certaines fonctionnalités d’édition de texte de base, mais les fonctionnalités de débogage, IntelliSense et d’autres fonctionnalités IDE couramment utilisée ne sont pas prises en charge. Pour développer, modifier et déboguer du code, nous vous recommandons d’utiliser votre IDE de prédilection. Vous pouvez également souhaiter essayer [Outils Visual Studio Code pour l’IA](https://www.visualstudio.com/downloads/ai-tools-vscode).
 
 **L’utilisation d’Azure Machine Learning Workbench a-t-elle un coût ?**
 
-Non. Azure Machine Learning Workbench est une application gratuite. Vous pouvez la télécharger sur le nombre de machines et pour le nombre d’utilisateurs de votre choix. Pour utiliser Azure Machine Learning Workbench, vous devez avoir un compte Expérimentation. .  
+ Non. Azure Machine Learning Workbench est une application gratuite. Vous pouvez la télécharger sur le nombre de machines et pour le nombre d’utilisateurs de votre choix. Pour utiliser Azure Machine Learning Workbench, vous devez avoir un compte Expérimentation. .  
 
 **Prenez-vous en charge les fonctionnalités de ligne de commande ?**
 
@@ -125,7 +125,7 @@ Oui, Azure Machine Learning offre une interface de ligne de commande complète. 
 
 **Puis-je utiliser Jupyter Notebook avec Workbench ?**
 
-Oui. Vous pouvez exécuter Jupyter Notebook dans Workbench, celui-ci étant l’application d'hébergement de client, tout comme vous utiliseriez un navigateur en tant que client. 
+ Oui. Vous pouvez exécuter Jupyter Notebook dans Workbench, celui-ci étant l’application d'hébergement de client, tout comme vous utiliseriez un navigateur en tant que client. 
 
 **Quels noyaux Jupyter Notebook sont pris en charge ?**
 
@@ -171,4 +171,4 @@ Nos produits et services en préversion incluent ce qu’il y a de meilleur au s
 
 **Quelle est la relation entre Azure Machine Learning et Microsoft Cognitive Toolkit ?**
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) est l’une des nombreuses infrastructures que nos nouveaux outils et services prennent en charge. Microsoft Cognitive Toolkit est une boîte à outils unifiée d’apprentissage profond qui vous permet de consommer et de combiner des modèles populaires d’apprentissage automatique, dont les réseaux neuronaux profonds en aval, les réseaux convolutifs, les réseaux séquence-à-séquence et les réseaux récurrents. Pour plus d’informations sur Microsoft Cognitive Toolkit, consultez la [documentation du produit](https://docs.microsoft.com/cognitive-toolkit/). 
+[Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/) est l’une des nombreuses infrastructures que nos nouveaux outils et services prennent en charge. Microsoft Cognitive Toolkit est une boîte à outils unifiée d’apprentissage profond qui vous permet de consommer et de combiner des modèles populaires d’apprentissage automatique, dont les réseaux neuronaux profonds en aval, les réseaux convolutifs, les réseaux séquence-à-séquence et les réseaux récurrents. Pour plus d’informations sur Microsoft Cognitive Toolkit, consultez la [documentation du produit](https://docs.microsoft.com/cognitive-toolkit/). 
