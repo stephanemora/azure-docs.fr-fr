@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32ce9cb456e302647e2e09db6ed549cd4795fed7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448388"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635150"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 Utilisez le modèle de données Log Analytics pour créer des rapports. Avec le modèle de données, vous pouvez créer des tableaux de bord et des requêtes personnalisés, ou personnaliser les données de sauvegarde Azure, comme vous le souhaitez.
@@ -37,7 +37,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux alertes.
 | SchemaVersion_s |Texte |Version actuelle du schéma, par exemple **V1** |
 | State_s |Texte |État actuel de l’objet alerte, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur exécutant la sauvegarde (par exemple, Machine virtuelle IaaS, Dossier de fichiers) auquel appartient cette alerte |
-| Nom d'opération |Texte |Nom de l’opération actuelle, par exemple, Alerte |
+| OperationName |Texte |Nom de l’opération actuelle, par exemple, Alerte |
 | Catégorie |Texte |Catégorie de données de diagnostic transférées à Log Analytics. Toujours AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | ProtectedServerUniqueId_s |Texte |Identificateur unique du serveur protégé associé à l’alerte |
@@ -65,7 +65,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux éléments de 
 | SchemaVersion_s |Texte |Version du schéma, par exemple **V1** |
 | State_s |Texte |État de l’objet élément de sauvegarde, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur exécutant la sauvegarde (par exemple, Machine virtuelle IaaS, Dossier de fichiers) auquel appartient cet élément de sauvegarde |
-| Nom d'opération |Texte |Nom de l’opération, par exemple, BackupItem |
+| OperationName |Texte |Nom de l’opération, par exemple, BackupItem |
 | Catégorie |Texte |Catégorie de données de diagnostic transférées à Log Analytics. Toujours AzureBackupReport |
 | Ressource |Texte |Ressource pour laquelle les données sont collectées, par exemple le nom du coffre Recovery Services |
 | SourceSystem |Texte |Système source des données actuelles - Azure |
@@ -85,7 +85,7 @@ Ce tableau fournit des détails sur les associations d’éléments de sauvegard
 | SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma, **V1** |
 | State_s |Texte |État actuel de l’objet association d’éléments de sauvegarde, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
-| Nom d'opération |Texte |Ce champ représente le nom de l’opération en cours - Association d’éléments de sauvegarde |
+| OperationName |Texte |Ce champ représente le nom de l’opération en cours - Association d’éléments de sauvegarde |
 | Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | PolicyUniqueId_g |Texte |Identificateur unique de la stratégie associée à l’élément de sauvegarde |
@@ -108,7 +108,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux travaux.
 | SchemaVersion_s |Texte |Version du schéma, par exemple **V1** |
 | State_s |Texte |État actuel de l’objet travail, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
-| Nom d'opération |Texte |Ce champ représente le nom de l’opération en cours - Travail |
+| OperationName |Texte |Ce champ représente le nom de l’opération en cours - Travail |
 | Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | ProtectedServerUniqueId_s |Texte |Identificateur unique du serveur protégé associé au travail |
@@ -137,7 +137,7 @@ Ce tableau fournit plus d’informations sur les champs liés à la stratégie.
 | SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma, **V1** |
 | State_s |Texte |État actuel de l’objet stratégie, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
-| Nom d'opération |Texte |Ce champ représente le nom de l’opération en cours - Stratégie |
+| OperationName |Texte |Ce champ représente le nom de l’opération en cours - Stratégie |
 | Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | PolicyUniqueId_g |Texte |ID unique d’identification de la stratégie |
@@ -177,7 +177,7 @@ Ce tableau fournit des détails sur les associations de stratégies avec différ
 | SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma, **V1** |
 | State_s |Texte |État actuel de l’objet stratégie, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
-| Nom d'opération |Texte |Ce champ représente le nom de l’opération en cours - Association de stratégies |
+| OperationName |Texte |Ce champ représente le nom de l’opération en cours - Association de stratégies |
 | Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | PolicyUniqueId_g |Texte |ID unique d’identification de la stratégie |
@@ -199,7 +199,7 @@ Ce tableau fournit plus d’informations sur les champs liés au serveur protég
 | SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma, **V1** |
 | State_s |Texte |État actuel de l’objet serveur protégé, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
-| Nom d'opération |Texte |Ce champ représente le nom de l’opération en cours - Serveur protégé |
+| OperationName |Texte |Ce champ représente le nom de l’opération en cours - Serveur protégé |
 | Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | ProtectedServerUniqueId_s |Texte |ID unique du serveur protégé |
@@ -223,7 +223,7 @@ Ce tableau fournit des détails sur les associations de serveurs protégés avec
 | SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma, **V1** |
 | State_s |Texte |État actuel de l’objet association de serveurs protégés, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
-| Nom d'opération |Texte |Ce champ représente le nom de l’opération en cours - Association de serveurs protégés |
+| OperationName |Texte |Ce champ représente le nom de l’opération en cours - Association de serveurs protégés |
 | Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | ProtectedServerUniqueId_s |Texte |ID unique du serveur protégé |
@@ -246,7 +246,7 @@ Ce tableau fournit plus d’informations sur les champs liés au stockage.
 | SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma, **V1** |
 | State_s |Texte |État actuel de l’objet stockage, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
-| Nom d'opération |Texte |Ce champ représente le nom de l’opération en cours - Stockage |
+| OperationName |Texte |Ce champ représente le nom de l’opération en cours - Stockage |
 | Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | ProtectedServerUniqueId_s |Texte |ID unique du serveur protégé pour lequel le stockage est calculé |
@@ -266,7 +266,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux coffres.
 | EventName_s |Texte |Ce champ représente le nom de cet événement, qui est toujours AzureBackupCentralReport |
 | SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma, **V1** |
 | State_s |Texte |État actuel de l’objet coffre, par exemple, Actif, Supprimé |
-| Nom d'opération |Texte |Ce champ représente le nom de l’opération en cours - Coffre |
+| OperationName |Texte |Ce champ représente le nom de l’opération en cours - Coffre |
 | Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | VaultUniqueId_s |Texte |ID unique du coffre |
@@ -281,4 +281,4 @@ Ce tableau fournit plus d’informations sur les champs liés aux coffres.
 | ResourceType |Texte |Type de ressource pour lequel les données sont collectées. Par exemple, Coffres |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez examiné le modèle de données de création de rapports de la Sauvegarde Azure, vous pouvez commencer à [créer des tableaux de bord](../log-analytics/log-analytics-dashboards.md) dans Log Analytics.
+Maintenant que vous avez examiné le modèle de données de création de rapports de la Sauvegarde Azure, vous pouvez commencer à [créer des tableaux de bord](../azure-monitor/platform/dashboards.md) dans Log Analytics.

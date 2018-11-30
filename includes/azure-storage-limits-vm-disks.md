@@ -1,3 +1,16 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: rogarana
+ms.openlocfilehash: aa701ada917811382351fee9469a5cfa9a7599b8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279611"
+---
 Une machine virtuelle Azure prend en charge l'attachement d'un certain nombre de disques de données. Cet article décrit les objectifs de scalabilité et de performances des disques de données d’une machine virtuelle. Utilisez ces objectifs pour déterminer le nombre et le type de disques dont vous avez besoin pour répondre à vos besoins de performances et de capacité. 
 
 > [!IMPORTANT]
@@ -12,7 +25,6 @@ Une machine virtuelle Azure prend en charge l'attachement d'un certain nombre de
 > | Disques managés Premium | 10 000 | 50 000 |
 > | Instantanés Standard_LRS | 10 000 | 50 000 |
 > | Instantanés Standard_ZRS | 10 000 | 50 000 |
-> | Instantanés Premium_LRS | 10 000 | 50 000 |
 > | Image managée | 10 000 | 50 000 |
 
 * **Pour les comptes de stockage standard :** un compte de stockage standard a un taux de demandes total maximal de 20 000 opérations d'E/S par seconde. Le nombre d'opérations d'E/S par seconde sur l'ensemble de vos disques de machine virtuelle dans un compte de stockage standard ne doit pas dépasser cette limite.

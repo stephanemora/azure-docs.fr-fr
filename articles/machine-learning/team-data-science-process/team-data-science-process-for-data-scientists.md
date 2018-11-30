@@ -2,25 +2,21 @@
 title: Processus TDSP (Team Data Science Process) pour les scientifiques de données | Microsoft Docs
 description: Fournit des conseils pour comprendre une charge de travail analytique à l’aide du processus TDSP et de Azure Machine Learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 80f006c4e8f051c3f744168be114f1c9fb3b1a0f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ddf73f15dc7c269ba3bf9a2912c3713fd4e847f2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092489"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497586"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Processus TDSP (Team Data Science Process) pour les scientifiques de données
 
@@ -65,7 +61,7 @@ Vous pouvez utiliser les éléments compris dans le tableau suivant pour guider 
 | Utiliser Power BI pour visualiser les résultats                                                         | [Power BI](https://powerbi.microsoft.com/guided-learning/)                                                                                     | Power BI est un outil de visualisation de données de Microsoft. Il est disponible sur plusieurs plateformes, à partir du Web pour les appareils mobiles et les ordinateurs de bureau. Dans cet article, vous allez apprendre à utiliser le résultat de la solution que vous avez créée en utilisant les résultats depuis le stockage Azure et en créant des visualisations à l’aide de Power BI.                                                                                                                                                                                                                                                                                                                             | [Effectuez le didacticiel sur Power BI.](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) Connectez ensuite Power BI au CSV blob créé dans une exécution d’essai.                                                                                                                                                                                                                                                                       |
 | Surveiller votre solution                                                                     | [Application Insights](../../application-insights/app-insights-overview.md)                                            | Il existe plusieurs outils utilisables pour surveiller votre solution finale. Azure Application Insights simplifie l’inclusion de la surveillance intégrée dans votre solution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [Configurez Application Insights pour surveiller une application](https://cmatskas.com/visual-studio-code-integration-with-azure-application-insights/).                                                                                                                                                                                                                                                                                                                  |
 |                                                                                           | [Azure Log Analytics](../../log-analytics/log-analytics-overview.md)                                                   | Une autre méthode pour analyser votre application consiste à l’intégrer dans votre processus DevOps. Le système Azure Log Analytics fournit un ensemble riche de fonctionnalités pour vous aider à surveiller vos solutions analytiques une fois déployées.                                                                                                                                                                                                                                                                                                                                                                                                                       | [Terminez ce didacticiel](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) sur l’utilisation de Azure Log Analytics.                                                                                                                                                                                                                                                                                                       |
-| Terminer ce parcours d’apprentissage                                                               | Projets supplémentaires pour essai                                                                                                                           | Félicitations ! Vous avez terminé ce parcours d’apprentissage. Il y a beaucoup plus à apprendre. Un exemple plus avancé consiste à construire un modèle d’évolution client dans le service Azure Machine Learning. [Faites un essai ici](../desktop-workbench/scenario-churn-prediction.md).                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| Terminer ce parcours d’apprentissage                                                               |                                                                                                                           | Félicitations ! Vous avez terminé ce parcours d’apprentissage. Il y a beaucoup plus à apprendre.                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Processus TDSP pour les opérations de développement](team-data-science-process-for-devops.md) Cet article explore les fonctions d’opérations de développement (DevOps) spécifiques à l’implémentation d’une solution Advanced Analytics et Cognitive Services. 

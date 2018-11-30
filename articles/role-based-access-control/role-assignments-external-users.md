@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304439"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284521"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Gérer l’accès pour les utilisateurs externes à l’aide du contrôle d’accès en fonction du rôle
 
@@ -45,7 +45,7 @@ Dans le portail Azure, après vous être connecté en tant qu’administrateur, 
 ![Panneau d’abonnement dans le portail Azure](./media/role-assignments-external-users/0.png) Par défaut, si l’utilisateur administrateur a acheté l’abonnement Azure, il apparaît en tant que **Administrateur de compte**, ce qui correspond au rôle d’abonnement. Pour plus d’informations sur les rôles d’abonnement Azure, voir [Ajouter ou modifier des administrateurs d’abonnements Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Dans cet exemple, l’utilisateur « alflanigan@outlook.com » est le **Propriétaire** de l’abonnement « Évaluation gratuite » dans le client AAD « Client Azure par défaut ». Étant donné que cet utilisateur est le créateur de l’abonnement Azure avec le compte Microsoft initial « Outlook » (compte Microsoft = Outlook, Live, etc.), le nom de domaine par défaut pour tous les autres utilisateurs ajoutés à ce client sera **« \@alflaniganuoutlook.onmicrosoft.com »**. Par conception, la syntaxe du nouveau domaine est formée par assemblage du nom d’utilisateur et du nom domaine de l’utilisateur qui a créé le client, avec ajout de l’extension **« .onmicrosoft.com »**.
-De plus, les utilisateurs peuvent se connecter avec un nom de domaine personnalisé dans le locataire (ils doivent d’abord l’ajouter et le vérifier pour le nouveau locataire). Pour plus d’informations sur la vérification d’un nom de domaine personnalisé dans un locataire Azure Active Directory, consultez [Ajouter un nom de domaine personnalisé à votre annuaire](/active-directory/active-directory-add-domain).
+De plus, les utilisateurs peuvent se connecter avec un nom de domaine personnalisé dans le locataire (ils doivent d’abord l’ajouter et le vérifier pour le nouveau locataire). Pour plus d’informations sur la vérification d’un nom de domaine personnalisé dans un locataire Azure Active Directory, consultez [Ajouter un nom de domaine personnalisé à votre annuaire](../active-directory/fundamentals/add-custom-domain.md).
 
 Dans cet exemple, l’annuaire « Client par défaut Azure » contient uniquement les utilisateurs dont le nom de domaine est « \@alflanigan.onmicrosoft.com ».
 
@@ -85,7 +85,7 @@ Bien qu’étant un invité dans l’annuaire, l’utilisateur externe peut gér
 
 ![accès restreint au portail azure active directory](./media/role-assignments-external-users/9.png)
 
-Azure Active Directory et un abonnement Azure n’ont pas de relation enfant-parent comme l’ont d’autres ressources Azure (par exemple, Azure Virtual Machines, Azure Virtual Networks, Web Apps, Stockage Azure, etc.). Ces dernières sont créées, gérées et facturées en relation avec un abonnement Azure, tandis que celui-ci est utilisé pour gérer l’accès à un annuaire Azure. Pour plus d’informations, consultez [Association d’un abonnement Azure à Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
+Azure Active Directory et un abonnement Azure n’ont pas de relation enfant-parent comme l’ont d’autres ressources Azure (par exemple, Azure Virtual Machines, Azure Virtual Networks, Web Apps, Stockage Azure, etc.). Ces dernières sont créées, gérées et facturées en relation avec un abonnement Azure, tandis que celui-ci est utilisé pour gérer l’accès à un annuaire Azure. Pour plus d’informations, consultez [Association d’un abonnement Azure à Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 Parmi tous les rôles RBAC intégrés, les rôles **Propriétaire** et **Contributeur** offrent un accès en gestion complet à toutes les ressources de l’environnement, à la seule différence qu’un Contributeur ne peut pas créer ou supprimer des rôles RBAC. Les autres rôles intégrés, tels que **Contributeur de machines virtuelles**, offrent un accès en gestion complet uniquement aux ressources indiquées par le nom, quel que soit le **Groupe de ressources** dans lequel ils sont créés.
 

@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f597425fc3813f243950b16f5debbd63ce3a805
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113935"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975888"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
-Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul lors de l’exécution de votre code. La capacité de votre application est augmentée le cas échéant pour gérer la charge et réduite lorsque le code n’est pas en cours d’exécution. Vous n’avez pas à payer pour des machines virtuelles inactives ni à réserver de la capacité à l’avance. Cet article est consacré au plan Consommation, un modèle d’application [sans serveur](https://azure.microsoft.com/solutions/serverless/). Pour plus d’informations sur le fonctionnement du plan App Service dédié, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul lors de l’exécution de votre code. La capacité de votre application est augmentée le cas échéant pour gérer la charge et réduite lorsque le code n’est pas en cours d’exécution. Vous n’avez pas à payer pour des machines virtuelles inactives ni à réserver de la capacité à l’avance.
 
 > [!NOTE]  
 > Pour l’instant, [l’hébergement Linux](functions-create-first-azure-function-azure-cli-linux.md) est uniquement disponible dans un plan App Service.

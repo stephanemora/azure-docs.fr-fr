@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dab6b87c2785d3331817d6c191be64d406683a51
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312016"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852379"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -33,10 +33,10 @@ Dans l’exemple suivant, un type de revendication nommé `correlationId` est d�
 </ClaimType>
 ```
 
-Dans le profil technique, mappez le résolveur de revendication au type de revendication. Azure AD B2C renseigne la valeur du résolveur de revendication `{context:corelationId}` dans la revendication `correlationId` et envoie la demande au profil technique.
+Dans le profil technique, mappez le résolveur de revendication au type de revendication. Azure AD B2C renseigne la valeur du résolveur de revendication `{Context:CorrelationId}` dans la revendication `correlationId` et envoie la demande au profil technique.
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## <a name="claim-resolver-types"></a>Types de résolveur de revendication
@@ -50,7 +50,7 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 | {Culture:LanguageName} | Code ISO à deux lettres pour la langue. | en |
 | {Culture:LCID}   | LCID du code de langue | 1033 |
 | {Culture:RegionName} | Code ISO à deux lettres pour la région. | FR |
-| {Culture:RFC5646} | Code de langue RFC5646. | fr-FR |
+| {Culture:RFC5646} | Code de langue RFC5646. | en-US |
 
 ### <a name="policy"></a>Stratégie
 

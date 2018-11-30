@@ -1,26 +1,22 @@
 ---
 title: 'Tester les codes de science des données dans Azure avec le jeu de données UCI Adult Income : Team Data Science Process et Azure DevOps Services'
 description: Tester les codes de science des données avec les données de prédiction UCI Adult Income
-services: machine-learning, team-data-science-process
-documentationcenter: ''
-author: weig
-manager: deguhath
+services: machine-learning
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
-ms.author: weig
-ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=weig, ms.author=weig)
+ms.openlocfilehash: d04f50bc3de34c28c10be7ba429f85a99096de47
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294689"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443948"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Tester les codes de science des données avec le jeu de données de prédiction UCI Adult Income
 Cet article donne des recommandations préliminaires pour tester les codes dans un flux de travail de science des données. Ce type de test permet aux chercheurs de données de vérifier leur code systématiquement et efficacement pour en garantir la qualité et le résultat. Nous nous basons sur un projet TDSP (Team Data Science Process) [qui utilise le jeu de données UCI Adult Income](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que nous avons publié précédemment afin de montrer comment tester les codes. 

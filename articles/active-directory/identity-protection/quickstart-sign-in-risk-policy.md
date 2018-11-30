@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 6879822e8451e6170bf17fff4ab66b672f711a93
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632385"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822125"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Démarrage rapide : Bloquer l’accès lorsqu’un risque de session est détecté avec Azure Active Directory Identity Protection  
 
@@ -116,12 +116,12 @@ Pour tester votre stratégie, essayez de vous connecter à votre [portail Azure]
 ![Authentification multifacteur](./media/quickstart-sign-in-risk-policy/203.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez l’utilisateur test et le navigateur Tor, puis désactivez la stratégie d’accès conditionnel de connexion à risque :
 
 - Si vous ignorez comment supprimer un utilisateur Azure AD, voir [Comment ajouter ou supprimer des utilisateurs](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
-- Pour savoir comment supprimer le navigateur Tor, consultez la page de [désinstallation](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- Pour savoir comment supprimer le navigateur Tor, consultez la page de [désinstallation](https://tb-manual.torproject.org/uninstalling/).
 
 

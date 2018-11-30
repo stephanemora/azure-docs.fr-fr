@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 97d988332a2c5234cb260cef29f195f0fecfee45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73f95280cc02b6f891c4ef67cd11084768d7d282
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994936"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853011"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Générer et déployer des modèles de classification de texte avec Azure Machine Learning
 
@@ -436,7 +436,7 @@ En règle générale, vous définissez les paramètres avant d’adapter un mod�
 
 Les exemples de code suivants montrent comment former le modèle à l’aide des paramètres de pipeline et de modèle par défaut. 
 
-Pour voir quels paramètres sont inclus pour « text_word_ngrams », utilisez [get_step_param_names_by_name](https://docs.microsoft.com/python/api/tatk.core.base_text_model.basetextmodel). Cette fonction retourne les paramètres, tels que lowercase, input_col, output_col et ainsi de suite. 
+Pour voir quels paramètres sont inclus pour « text_word_ngrams », utilisez [get_step_param_names_by_name](/python/api/msft-tatk/tatk.core.base_text_model.basetextmodel#get-step-param-names-by-name). Cette fonction retourne les paramètres, tels que lowercase, input_col, output_col et ainsi de suite. 
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
@@ -625,7 +625,7 @@ Appliquez le classifieur de texte formé sur le jeu de données de test pour gé
 </div>
 
 ## <a name="evaluate-model-performance"></a>Évaluation des performances du modèle
-Le [module d’évaluation](https://docs.microsoft.com/python/api/tatk.evaluation) évalue la précision du classifieur de texte formé sur le jeu de données de test. La fonction evaluate génère une matrice de confusion et fournit un score de macro-F1.
+Le [module d’évaluation](/python/api/msft-tatk/tatk.evaluation) évalue la précision du classifieur de texte formé sur le jeu de données de test. La fonction evaluate génère une matrice de confusion et fournit un score de macro-F1.
 
 ```python
  text_classifier.evaluate(df_test)          

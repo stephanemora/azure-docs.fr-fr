@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: bahariri
-ms.openlocfilehash: 7ce12f9dcaa15ade95274419f99c13d5915dbaaa
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b72f6b190aad436398629c67f271020ffd0a8da9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146624"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822073"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Créer un espace de noms Azure Event Hubs prenant en charge Apache Kafka
 
@@ -39,7 +39,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
  
 3. Spécifiez un nom unique et activez Kafka sur l’espace de noms. Cliquez sur **Créer**.
     
-    ![Créer un espace de noms](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Créer un espace de noms](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. Une fois l’espace de noms créé, sous l’onglet **Paramètres**, cliquez sur **Stratégies d’accès partagé** pour obtenir la chaîne de connexion.
 

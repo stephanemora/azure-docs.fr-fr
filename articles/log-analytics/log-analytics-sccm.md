@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418073"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633144"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Connexion de Configuration Manager à Log Analytics
 Vous pouvez connecter votre environnement System Center Configuration Manager Azure Log Analytics pour synchroniser des données de regroupement d’appareils et faire référence à ces regroupements dans Log Analytics et Azure Automation.  
@@ -57,7 +57,7 @@ Dans la procédure suivante, vous attribuez le rôle *Contributeur* dans votre e
 6. Dans la liste déroulante **Attribuer l’accès à**, sélectionnez l’application Configuration Manager créée précédemment dans AD, puis cliquez sur **OK**.  
 
 ## <a name="download-and-install-the-agent"></a>Téléchargement et installation de l’agent
-Consultez l’article [Connecter des ordinateurs Windows au service Log Analytics dans Azure](log-analytics-agent-windows.md) afin de mieux comprendre les méthodes disponibles pour l’installation de Microsoft Monitoring Agent sur l’ordinateur qui héberge le rôle de système de site de point de connexion de service de Configuration Manager.  
+Consultez l’article [Connecter des ordinateurs Windows au service Log Analytics dans Azure](../azure-monitor/platform/agent-windows.md) afin de mieux comprendre les méthodes disponibles pour l’installation de Microsoft Monitoring Agent sur l’ordinateur qui héberge le rôle de système de site de point de connexion de service de Configuration Manager.  
 
 ## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Ajouter une connexion Log Analytics à Configuration Manager
 Pour que vous puissiez ajouter une connexion Log Analytics, il faut que votre environnement Configuration Manager ait un [point de connexion de service](https://technet.microsoft.com/library/mt627781.aspx) configuré pour le mode en ligne.
@@ -69,7 +69,7 @@ Pour que vous puissiez ajouter une connexion Log Analytics, il faut que votre en
    
 2. Dans l’écran **Général**, vérifiez que vous avez effectué les actions suivantes et que vous disposez des détails de chaque élément, puis sélectionnez **Suivant**.
 
-   1. Dans le portail Azure, vous avez inscrit Configuration Manager en tant qu’application web et/ou application API web, et vous disposez de [l’ID client résultant de l’inscription](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+   1. Dans le portail Azure, vous avez inscrit Configuration Manager en tant qu’application web et/ou application API web, et vous disposez de [l’ID client résultant de l’inscription](../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
    2. Dans le portail Azure, vous avez créé une clé secrète d’application pour l’application inscrite dans Azure Active Directory.  
    3. Dans le portail Azure, vous avez accordé à l’application web inscrite l’autorisation d’accéder à Log Analytics.  
       ![Page générale de l’Assistant Connexion à Log Analytics](./media/log-analytics-sccm/sccm-console-general01.png)
@@ -113,7 +113,7 @@ Une fois les regroupements importés, vous pouvez voir combien d’ordinateurs a
 
 ![Groupes d’ordinateurs - Onglet SCCM](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-Lorsque vous cliquez sur l’un deux, la fenêtre Recherche s’ouvre, affichant tous les groupes importés ou tous les ordinateurs appartenant à chaque groupe. Dans [Recherche de journal](log-analytics-log-searches.md), vous pouvez démarrer une analyse approfondie des données Configuration Manager.
+Lorsque vous cliquez sur l’un deux, la fenêtre Recherche s’ouvre, affichant tous les groupes importés ou tous les ordinateurs appartenant à chaque groupe. Dans [Recherche de journal](log-analytics-queries.md), vous pouvez démarrer une analyse approfondie des données Configuration Manager.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez [Recherche de journal](log-analytics-log-searches.md) pour afficher des informations détaillées sur vos données Configuration Manager.
+* Utilisez [Recherche de journal](log-analytics-queries.md) pour afficher des informations détaillées sur vos données Configuration Manager.

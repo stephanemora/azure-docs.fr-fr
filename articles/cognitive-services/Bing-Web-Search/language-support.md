@@ -3,19 +3,19 @@ title: Prise en charge linguistique - API Recherche Web Bing
 titleSuffix: Azure Cognitive Services
 description: Liste des langages naturels, des pays et des régions pris en charge par l’API Recherche Web Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: erhopf
-ms.openlocfilehash: c15e1ddd35e625a713ff569f26e9312d9dcd0bc8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: aahi
+ms.openlocfilehash: 6d7b227ac182ca2cd30d6a6eaa428ea86757214c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435348"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164395"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Langages et régions pris en charge par l’API Recherche Web Bing
 
@@ -108,5 +108,5 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
 |Royaume-Uni|Français|en-GB|
-|États-Unis|Français|fr-FR|
+|États-Unis|Français|en-US|
 |États-Unis|Espagnol|es-US|

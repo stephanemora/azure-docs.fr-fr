@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 442aa7034c3fec57b3b9394e6b0f46d4dec47849
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954311"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633110"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel
 
@@ -69,7 +69,7 @@ Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azur
 4. Dans la liste des sous-réseaux, sélectionnez le sous-réseau dont vous souhaitez modifier les paramètres. Vous pouvez modifier les paramètres suivants :
 
     - **Plage d’adresses :** si aucune ressource n’a été déployée dans le sous-réseau, vous pouvez modifier la plage d’adresses. Si des ressources existent déjà dans le sous-réseau, vous devez soit déplacer les ressources vers un autre sous-réseau, soit les supprimer d’abord du sous-réseau. La procédure à suivre pour supprimer ou déplacer une ressource varie en fonction de celle-ci. Pour savoir comment supprimer ou déplacer des ressources dans des sous-réseaux, lisez la documentation relative à chaque type de ressource que vous souhaitez supprimer ou déplacer. Consultez les contraintes pour la **plage d’adresses** à l’étape 5 de la section [Ajouter un sous-réseau](#add-a-subnet).
-    - **Utilisateurs** : vous pouvez contrôler l’accès au sous-réseau en utilisant des rôles intégrés ou vos propres rôles personnalisés. Pour en savoir plus sur l’attribution de rôles et d’utilisateurs pour l’accès au sous-réseau, consultez [Utiliser l’attribution de rôles pour gérer l’accès à vos ressources Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
+    - **Utilisateurs** : vous pouvez contrôler l’accès au sous-réseau en utilisant des rôles intégrés ou vos propres rôles personnalisés. Pour en savoir plus sur l’attribution de rôles et d’utilisateurs pour l’accès au sous-réseau, consultez [Utiliser l’attribution de rôles pour gérer l’accès à vos ressources Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Groupe de sécurité réseau** et **Table de routage** : consultez l’étape 5 de la section [Ajouter un sous-réseau](#add-a-subnet).
     - **Points de terminaison de service** : consultez les points de terminaison de service à l’étape 5 de la section [Ajouter un sous-réseau](#add-a-subnet). Quand vous activez un point de terminaison de service pour un sous-réseau existant, assurez-vous qu’aucune tâche critique n’est en cours d’exécution sur l’une des ressources du sous-réseau. Les points de terminaison de service changent les routages sur chaque interface réseau dans le sous-réseau. Le routage par défaut avec l’adresse de préfixe *0.0.0.0/0* et le type de tronçon suivant *Internet* est remplacé par un nouveau routage avec les préfixes d’adresse du service et le type de tronçon suivant *VirtualNetworkServiceEndpoint*. Le changement de routage peut entraîner l’arrêt des connexions TCP ouvertes. Le point de terminaison de service est activé après que les flux de trafic vers le service sur toutes les interfaces réseau ont été mis à jour avec le nouveau routage. Pour en savoir plus sur le routage, consultez la [vue d’ensemble du routage](virtual-networks-udr-overview.md).
     - **Délégation de sous-réseau :** Consultez les points de terminaison de service à l’étape 5 de la section [Ajouter un sous-réseau](#add-a-subnet). Vous pouvez modifier la délégation de sous-réseau pour qu’elle ait zéro ou plusieurs délégations activées. Si une ressource pour un service est déjà déployée dans le sous-réseau, la délégation de sous-réseau ne peut pas être supprimée tant que toutes les ressources pour le service ne sont pas supprimées. Pour déléguer à un autre service, sélectionnez le service souhaité dans la liste **Services**. 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296394"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426202"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : réinitialisation de mot de passe en libre-service Azure AD
 
@@ -189,7 +189,7 @@ La réinitialisation et la modification du mot de passe sont totalement prises e
    * **Utilisateurs qui s’inscrivent par le biais de l’inscription libre-service** : si l’organisation avec laquelle vous avez un partenariat a utilisé la fonctionnalité [d’inscription en libre-service](../users-groups-roles/directory-self-service-signup.md) pour accéder à un locataire, nous l’autorisons à réinitialiser le mot de passe en indiquant l’adresse e-mail qu’elle a utilisée pour l’inscription.
    * **Utilisateurs B2B** : tous les utilisateurs B2B créés à l’aide des nouvelles [fonctionnalités B2B d’Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) peuvent réinitialiser leur mot de passe en indiquant l’adresse e-mail utilisée pour l’inscription.
 
-Pour tester ce scénario, accédez à http://passwordreset.microsoftonline.com avec l’un de ces utilisateurs partenaires. Si ces utilisateurs disposent d’une autre adresse de messagerie ou d’un e-mail d’authentification, la réinitialisation du mot de passe fonctionne comme prévu.
+Pour tester ce scénario, accédez à https://passwordreset.microsoftonline.com avec l’un de ces utilisateurs partenaires. Si ces utilisateurs disposent d’une autre adresse de messagerie ou d’un e-mail d’authentification, la réinitialisation du mot de passe fonctionne comme prévu.
 
 > [!NOTE]
 > Les comptes Microsoft qui disposent d’un accès invité à votre locataire Azure AD, tels que les comptes Hotmail.com, Outlook.com ou correspondant à d’autres adresses e-mail personnelles, ne peuvent pas utiliser Azure AD SSPR. Les utilisateurs de ces comptes doivent réinitialiser leur mot de passe à l’aide des informations fournies dans l’article [Lorsque vous n’avez pas accès à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -1,3 +1,16 @@
+---
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tomfitz
+ms.openlocfilehash: a2ee8705be3f34b6df113c68d88e375411f84bf2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440128"
+---
 ## <a name="deploy-template-from-cloud-shell"></a>Déployer le modèle à partir de Cloud Shell
 
 Vous pouvez utiliser [Cloud Shell](../articles/cloud-shell/overview.md) pour déployer votre modèle. Toutefois, vous devez d’abord charger votre modèle dans le compte de stockage de votre cloud Shell. Si vous n’avez pas utilisé Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../articles/cloud-shell/overview.md) pour obtenir plus d’informations sur sa configuration.

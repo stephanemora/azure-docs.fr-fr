@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279609"
+---
 >[!NOTE]
 >Pour les ressources qui ne sont pas fixes, vous pouvez demander d’augmenter les quotas en ouvrant un ticket de support. Ne créez **pas** d’autres comptes Azure Media Services pour obtenir des limites supérieures.
 

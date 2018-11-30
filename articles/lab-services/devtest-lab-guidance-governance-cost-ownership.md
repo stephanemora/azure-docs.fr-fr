@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 623e4392ff8ff75d09da92c54b9e4dc620146432
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 9b83d6ac908be1e62e3c6c2025ae31aa374bdeea
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250769"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975071"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Gouvernance de l’infrastructure Azure DevTest Labs – Gérer le coût et l’appartenance
 Le coût et l’appartenance sont les principaux éléments à prendre en compte lors de la création de vos environnements de développement et de test. Dans cette section, vous trouvez des informations qui vous aideront à optimiser les coûts et à aligner l’appartenance au sein de votre environnement.
@@ -57,7 +57,7 @@ La ressource DevTest Labs doit appartenir à des propriétaires proches de l’
 
 Les membres de l’équipe de projet/d’application doivent être ajoutés au rôle Utilisateurs de DevTest Labs. Ces utilisateurs peuvent créer des machines virtuelles (alignées sur les stratégies du laboratoire et de l’abonnement). Ils peuvent également gérer leurs propres machines virtuelles. Ils ne peuvent pas gérer les machines virtuelles qui appartiennent à d’autres utilisateurs.
 
-Pour plus d’informations, consultez la documentation [Structure d’entreprise Azure : gouvernance normative de l’abonnement](/architecture/cloud-adoption/appendix/azure-scaffold).
+Pour plus d’informations, consultez la documentation [Structure d’entreprise Azure : gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

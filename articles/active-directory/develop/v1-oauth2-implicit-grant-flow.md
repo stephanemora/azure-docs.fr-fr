@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985724"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422029"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Comprendre le flux d’octroi implicite OAuth2 dans Azure Active Directory (AD)
 
@@ -34,7 +34,7 @@ L’octroi implicite OAuth2 est connu pour présenter le plus grand nombre de pr
 
 Fondamentalement, [l’octroi de code d’autorisation OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.1) est l’octroi d’autorisation qui utilise deux points de terminaison distincts. Le point de terminaison d’autorisation est utilisé pour la phase d’interaction avec l’utilisateur, ce qui génère un code d’autorisation. Le point de terminaison de jeton est ensuite utilisé par le client pour échanger le code avec un jeton d’accès et, souvent, un jeton d’actualisation. Les applications web sont tenues de présenter leurs propres informations d’identification d’application au point de terminaison de jeton, de sorte que le serveur d’autorisation puisse authentifier le client.
 
-L’[octroi implicite OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) est une variante d’autres octrois d’autorisation. Il permet à un client d’obtenir un jeton d’accès (et, en cas d’utilisation d’[OpenId Connect](http://openid.net/specs/openid-connect-core-1_0.html), un jeton id_token) directement à partir du point de terminaison d’autorisation, sans avoir à contacter le point de terminaison de jeton ni à authentifier le client. Cette variante a été conçue pour les applications JavaScript qui s’exécutent dans un navigateur web : dans la spécification OAuth2 d’origine, les jetons sont renvoyés dans un fragment d’URI. Ceci met les bits de jeton à la disposition du code JavaScript dans le client, mais garantit qu’ils ne seront pas inclus dans les redirections vers le serveur. Le renvoi des jetons via le navigateur s’effectue directement à partir du point de terminaison d’autorisation. Il présente également l’avantage d’éliminer tous les appels Cross-Origin, qui sont nécessaires si l’application JavaScript est requise pour contacter le point de terminaison de jeton.
+L’[octroi implicite OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) est une variante d’autres octrois d’autorisation. Il permet à un client d’obtenir un jeton d’accès (et, en cas d’utilisation d’[OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html), un jeton id_token) directement à partir du point de terminaison d’autorisation, sans avoir à contacter le point de terminaison de jeton ni à authentifier le client. Cette variante a été conçue pour les applications JavaScript qui s’exécutent dans un navigateur web : dans la spécification OAuth2 d’origine, les jetons sont renvoyés dans un fragment d’URI. Ceci met les bits de jeton à la disposition du code JavaScript dans le client, mais garantit qu’ils ne seront pas inclus dans les redirections vers le serveur. Le renvoi des jetons via le navigateur s’effectue directement à partir du point de terminaison d’autorisation. Il présente également l’avantage d’éliminer tous les appels Cross-Origin, qui sont nécessaires si l’application JavaScript est requise pour contacter le point de terminaison de jeton.
 
 Le fait que ces flux ne retournent jamais de jetons d’actualisation au client représente une caractéristique importante de l’octroi implicite OAuth2. La section suivante montre que ce n’est pas nécessaire ; il s’agirait en fait d’un problème de sécurité.
 

@@ -3,19 +3,19 @@ title: Recherche sur le site, utilisez l'interface utilisateur hébergée Recher
 titlesuffix: Azure Cognitive Services
 description: Explique comment configurer l'interface utilisateur hébergée Recherche personnalisée Bing.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 77845cb60dac707326acdb08b0198f8725a36f62
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813972"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424984"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurer votre expérience d’interface utilisateur hébergée
 
@@ -105,7 +105,7 @@ Si vous souhaitez configurer une interface utilisateur hébergée pour votre app
 > [!NOTE]
 > À mesure que vous apportez des modifications à la configuration de l’interface utilisateur hébergée personnalisée, le volet de droite donne une représentation visuelle des modifications effectuées. Les résultats de recherche qui sont affichés ne sont pas les résultats réels de votre instance.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>Consommer l’interface utilisateur personnalisée
 

@@ -10,16 +10,16 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 27a4bccfbac73c7c8c902a59fdd4cafe0c420c31
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634881"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634538"
 ---
 # <a name="install-and-run-containers"></a>Install and run containers
 
-La mise en conteneur est une méthode de distribution de logiciels dans laquelle une application ou un service est packagé en tant qu’image conteneur. La configuration et les dépendances pour l’application ou le service sont inclus dans l’image conteneur. L’image conteneur peut ensuite être déployée sur un hôte conteneur avec peu ou pas de modifications. Les conteneurs sont isolés les uns des autres et l’encombrement du système d’exploitation sous-jacent est inférieur à celui d’une machine virtuelle. Vous pouvez instancier les conteneurs à partir d’images conteneur pour les tâches à court terme et les supprimer quand vous n’avez plus besoin.
+La mise en conteneur est une méthode de distribution de logiciels dans laquelle une application ou un service est packagé en tant qu’image conteneur. La configuration et les dépendances pour l’application ou le service sont inclus dans l’image conteneur. L’image conteneur peut ensuite être déployée sur un hôte conteneur avec peu ou pas de modifications. Les conteneurs sont isolés les uns des autres et du système d’exploitation sous-jacent, avec une empreinte inférieure à celle d’une machine virtuelle. Vous pouvez instancier les conteneurs à partir d’images conteneur pour les tâches à court terme et les supprimer quand vous n’avez plus besoin.
 
 Visage fournit un conteneur Linux standardisé pour Docker, nommé Visage, qui détecte les visages humains sur des images et identifie les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.
 
@@ -29,11 +29,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous devez respecter les prérequis suivants avant d’effectuer le conteneur Visage :
 
-**Moteur Docker** : le moteur Docker doit être installé localement. Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) et [Windows](https://docs.docker.com/docker-for-windows/). Sur Windows, Docker doit être configuré pour prendre en charge les conteneurs Linux. Les conteneurs Docker peuvent également être déployés directement sur [Azure Kubernetes Service](/azure/aks/), sur [Azure Container Instances](/azure/container-instances/) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](/azure/azure-stack/). Pour plus d’informations sur le déploiement de Kubernetes sur Azure Stack, consultez [Déployer Kubernetes sur Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Moteur Docker** : le moteur Docker doit être installé localement. Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) et [Windows](https://docs.docker.com/docker-for-windows/). Sur Windows, vous devez configurer Docker pour prendre en charge les conteneurs Linux. Les conteneurs Docker peuvent également être déployés directement sur [Azure Kubernetes Service](/azure/aks/), sur [Azure Container Instances](/azure/container-instances/) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](/azure/azure-stack/). Pour plus d’informations sur le déploiement de Kubernetes sur Azure Stack, consultez [Déployer Kubernetes sur Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
-Docker doit être configuré pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation.
+Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation.
 
-**Connaissance de Microsoft Container Registry et de Docker** : vous devez avoir une compréhension élémentaire des concepts de Microsoft Container Registry et de Docker, tels que les registres, les référentiels, les conteneurs et les images de conteneur, ainsi qu’une maîtrise des commandes `docker` de base.  
+**Connaissance de Microsoft Container Registry et de Docker** : vous devez avoir une compréhension élémentaire des concepts de Microsoft Container Registry et de Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.  
 
 Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
 
@@ -43,10 +43,10 @@ Le conteneur Visage nécessite au minimum 1 cœur de processeur d’au moins 2,
 
 ## <a name="request-access-to-the-private-container-registry"></a>Demander l’accès au registre de conteneurs privé
 
-Vous devez tout d’abord remplir et envoyer la [formulaire de demande de conteneurs Vision Cognitive Services ](https://aka.ms/VisionContainersPreview) pour demander l’accès au conteneur Visage. Le formulaire demande des informations sur vous, votre société et le scénario utilisateur pour lequel vous allez utiliser le conteneur. À la réception du formulaire, l’équipe Azure Cognitive Services s’assure que vous remplissez bien les critères d’accès au registre de conteneurs privé.
+Vous devez tout d’abord remplir et envoyer la [formulaire de demande de conteneurs Vision Cognitive Services ](https://aka.ms/VisionContainersPreview) pour demander l’accès au conteneur Visage. Le formulaire demande des informations sur vous, votre société et le scénario utilisateur pour lequel vous allez utiliser le conteneur. À la réception du formulaire, l’équipe Azure Cognitive Services vérifie que vous remplissez bien les critères d’accès au registre de conteneurs privé.
 
 > [!IMPORTANT]
-> Vous devez utiliser une adresse e-mail associée soit à un compte Microsoft (MSA), soit à un compte Azure Active Directory (Azure AD) dans le formulaire.
+> Vous devez utiliser une adresse e-mail associée à un compte Microsoft (MSA) ou à un compte Azure Active Directory (Azure AD) dans le formulaire.
 
 Si votre demande est approuvée, vous recevez un e-mail contenant des instructions relatives à l’obtention de vos informations d'identification et à l’accès au registre de conteneurs privé.
 
@@ -59,23 +59,20 @@ Procédez comme suit pour créer et récupérer des informations à partir d’u
 1. Créer une ressource Visage dans le portail Azure.  
    Si vous souhaitez utiliser le conteneur Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : créer un compte Cognitive Services dans le portail Azure](../cognitive-services-apis-create-account.md).
 
-   > [!IMPORTANT]
-   > La ressource Visage doit utiliser le niveau tarifaire F0.
-
-1. Obtenir l’URL du point de terminaison et la clé de l’abonnement pour la ressource Azure.  
+1. Obtenez l’URL de point de terminaison et la clé d’abonnement pour la ressource Azure.  
    Une fois la ressource Azure créée, vous devez utiliser l’URL de point de terminaison et la clé de l’abonnement de cette ressource pour instancier le conteneur Visage correspondant. Vous pouvez copier l’URL du point de terminaison et la clé de l’abonnement, respectivement sur les pages Démarrage rapide et Clés de la ressource Visage sur le portail Azure.
 
 ## <a name="log-in-to-the-private-container-registry"></a>Connectez-vous au registre de conteneurs privé
 
 Il y a plusieurs façons de s’authentifier auprès du registre de conteneurs privé pour les conteneurs Cognitive Services, mais la méthode recommandée à partir de la ligne de commande est l’utilisation de la [CLI Docker](https://docs.docker.com/engine/reference/commandline/cli/).
 
-Utilisez la commande [connexion docker](https://docs.docker.com/engine/reference/commandline/login/), comme indiqué dans l’exemple suivant, pour vous connecter à `containerpreview.azurecr.io`, le registre de conteneurs privé pour les conteneurs Cognitive Services. Remplacez *\<nom d’utilisateur\>* par le nom de l’utilisateur et *\<mot de passe\>* par le mot de passe fourni dans les informations d’identification envoyées par l’équipe Azure Cognitive Services.
+Utilisez la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/), comme indiqué dans l’exemple suivant, pour vous connecter à `containerpreview.azurecr.io`, le registre de conteneurs privé pour les conteneurs Cognitive Services. Remplacez *\<username\>* par le nom de l’utilisateur et *\<password\>* par le mot de passe fourni dans les informations d’identification envoyées par l’équipe Azure Cognitive Services.
 
 ```docker
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 
-Si vous avez sécurisé vos informations d’identification dans un fichier texte, vous pouvez, à l’aide de la commande `cat` concaténer son contenu à la commande `docker login`, comme indiqué dans l’exemple suivant. Remplacez *\<passwordFile\>* par le chemin d’accès et le nom du fichier texte contenant le mot de passe et le *\<nom d’utilisateur\>* par le nom d’utilisateur fourni dans vos informations d’identification.
+Si vous avez sécurisé vos informations d’identification dans un fichier texte, vous pouvez utiliser la commande `cat` pour concaténer son contenu à la commande `docker login`, comme indiqué dans l’exemple suivant. Remplacez *\<passwordFile\>* par le chemin et le nom du fichier texte contenant le mot de passe, et *\<username\>* par le nom d’utilisateur fourni dans vos informations d’identification.
 
 ```docker
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
@@ -94,16 +91,16 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 Pour obtenir une description complète des balises disponibles pour le conteneur Visage, consultez [Reconnaître le texte](https://go.microsoft.com/fwlink/?linkid=2018655) sur Docker Hub.
 
 > [!TIP]
-> Vous pouvez utiliser la commande [images Docker](https://docs.docker.com/engine/reference/commandline/images/) pour répertorier vos images de conteneur téléchargées. Par exemple, la commande suivante répertorie l’ID, le référentiel et la balise de chaque image de conteneur téléchargée sous la forme d’un tableau :
+> Vous pouvez utiliser la commande [images Docker](https://docs.docker.com/engine/reference/commandline/images/) pour répertorier vos images de conteneur téléchargées. Par exemple, la commande suivante liste l’ID, le référentiel et la balise de chaque image conteneur téléchargée dans un tableau :
 >
 >  ```Docker
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >  ```
 >
 
-## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>Instancier un conteneur à partir d’une image de conteneur téléchargée
+## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>Instancier un conteneur à partir d’une image conteneur téléchargée
 
-Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour instancier un conteneur à partir d’une image de conteneur téléchargée. Par exemple, la commande suivante :
+Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour instancier un conteneur à partir d’une image conteneur téléchargée. Par exemple, la commande suivante :
 
 * Instancie un conteneur à partir de l’image de conteneur Visage
 * Alloue deux cœurs de processeur et 6 gigaoctets (Go) de mémoire
@@ -154,10 +151,10 @@ Le conteneur Visage envoie des informations de facturation à Azure à l’aide 
 |--------|-------------|
 | `ApiKey` | La clé d’API de la ressource Visage utilisée pour effectuer le suivi des informations de facturation.<br/>La valeur de cette option doit être définie sur une clé API pour la ressource Face Azure provisionnée, spécifiée dans `Billing`. |
 | `Billing` | Le point de terminaison de la ressource Visage utilisée pour effectuer le suivi des informations de facturation.<br/>La valeur de cette option doit être définie sur l’URI de point de terminaison d’une ressource Visage Azure provisionnée.|
-| `Eula` | Indique que vous avez accepté la licence pour le conteneur.<br/>La valeur de cette option doit être définie sur `accept`. |
+| `Eula` | Indique que vous avez accepté la licence pour le conteneur.<br/>La valeur de cette option doit être `accept`. |
 
 > [!IMPORTANT]
-> Les trois options doivent être spécifiées avec des valeurs valides, sinon le conteneur ne démarre pas.
+> Les trois options doivent être spécifiées avec des valeurs valides ; sinon, le conteneur ne démarre pas.
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](face-resource-container-config.md).
 
@@ -170,11 +167,11 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
 * Les images de conteneur s’exécutent dans Docker.
 * Vous pouvez utiliser l’API REST ou kit de développement logiciel (SDK) pour appeler des opérations dans des conteneurs Visage en spécifiant l’URI hôte du conteneur.
 * Vous devez spécifier les informations de facturation lors de l’instanciation d’un conteneur.
-* ** Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent activer les conteneurs pour communiquer les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas de données clients (p. ex., l’image ou le texte analysés) à Microsoft.  
+* ** Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas les données des clients (p. ex., l’image ou le texte analysés) à Microsoft.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consulter [Configurer des conteneurs](face-resource-container-config.md) pour les paramètres de configuration
+* Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](face-resource-container-config.md).
 * Consulter [Vue d’ensemble de Visage](Overview.md) pour en savoir plus sur la détection et l’identification de visages  
 * Reportez-vous à l’ [API Visage](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) pour plus d’informations sur les méthodes prises en charge par le conteneur.
 * Reportez-vous à [Forum aux questions (FAQ)](FAQ.md) pour résoudre les problèmes liés à la fonctionnalité de Visage.

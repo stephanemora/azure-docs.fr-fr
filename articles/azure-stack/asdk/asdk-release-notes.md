@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515758"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427248"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK  
 Cet article fournit des informations sur des améliorations, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -233,7 +233,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 
 - <!-- ASDK --> **Les éléments de la galerie pour les groupes de machines virtuelles identiques sont maintenant intégrés**.  Les éléments de galerie Groupe de machines virtuelles identiques sont désormais accessible dans les portails administrateur et utilisateur sans avoir à les télécharger. 
 
-- <!-- IS, ASDK --> **Mise à l’échelle de groupes de machines virtuelles identiques**.  Vous pouvez utiliser le portail pour [mettre à l’échelle un groupe de machines virtuelles identiques](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set).   
+- <!-- IS, ASDK --> **Mise à l’échelle de groupes de machines virtuelles identiques**.  Vous pouvez utiliser le portail pour [mettre à l’échelle un groupe de machines virtuelles identiques](../azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set).   
 
 - <!-- 2489570 | IS ASDK--> **Prise en charge des configurations de stratégie IPSec/IKE personnalisées** pour les [passerelles VPN dans Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b3d46e10facdef26b36c910a5c23b40a415a2894
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988408"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330974"
 ---
 ## <a name="register-your-application"></a>Inscrivez votre application
 
@@ -40,7 +40,7 @@ Il existe plusieurs moyens d’inscrire une application. Sélectionnez l’optio
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) pour inscrire une application.
 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
 1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, puis sélectionnez **Inscriptions d’applications (préversion) > Nouvelle inscription**.
-1. Lorsque la page **Inscrire une application** s’affiche, entrez un nom pour votre application.
+1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 1. Sous la section **URI de redirection**, sélectionnez la plateforme **Web** et définissez la valeur sur l’URL de l’application basée sur votre serveur web. Consultez les sections ci-dessous pour obtenir des instructions permettant de définir et d’obtenir l’URL de redirection dans Visual Studio et Node.
 1. Lorsque vous avez terminé, sélectionnez **Inscrire**.
@@ -67,7 +67,8 @@ Il existe plusieurs moyens d’inscrire une application. Sélectionnez l’optio
 
     ```javascript
     var applicationConfig = {
-        clientID: "[Enter the application Id here]",
+        clientID: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/common",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };

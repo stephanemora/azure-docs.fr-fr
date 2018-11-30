@@ -2,25 +2,21 @@
 title: Sélection de fonctionnalités dans le processus TDSP (Team Data Science Process) | Microsoft Docs
 description: Explique la finalité de la sélection de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 878541f5-1df8-4368-889a-ced6852aba47
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 2504d14bad3a7a3b3845e880e40034ef7e4c126b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b439f7245dd09a2f8a7ffe5f3b3c5396786220af
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838627"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442370"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Sélection de fonctionnalités dans le processus TDSP (Team Data Science Process)
 Cet article explique les finalités de la sélection de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Ces exemples sont tirés d’Azure Machine Learning Studio. 

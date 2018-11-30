@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 50edabb395380c8b0185736205834dd65e47317f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160740"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425251"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -35,7 +35,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
 * **Q : Mes utilisateurs peuvent-ils inscrire leurs propres données de réinitialisation du mot de passe ?**
 
-  > **R :** Oui. Tant que la réinitialisation de mot de passe est activée et qu’ils disposent d’une licence, vos utilisateurs peuvent accéder au portail d’inscription à la réinitialisation de mot de passe (https://aka.ms/ssprsetup) pour inscrire leurs informations d’authentification. Ils peuvent également s’inscrire par le biais du volet d’accès (http://myapps.microsoft.com). Pour s’inscrire par le biais du volet d’accès, ils doivent sélectionner l’image de leur profil, sélectionner **Profil**, puis sélectionner l’option **Réinitialiser mon mot de passe**.
+  > **R :** Oui. Tant que la réinitialisation de mot de passe est activée et qu’ils disposent d’une licence, vos utilisateurs peuvent accéder au portail d’inscription à la réinitialisation de mot de passe (https://aka.ms/ssprsetup) pour inscrire leurs informations d’authentification. Ils peuvent également s’inscrire par le biais du volet d’accès (https://myapps.microsoft.com). Pour s’inscrire par le biais du volet d’accès, ils doivent sélectionner l’image de leur profil, sélectionner **Profil**, puis sélectionner l’option **Réinitialiser mon mot de passe**.
   >
   >
 * **Q : si j’active la réinitialisation du mot de passe pour un groupe, puis décide de l’activer pour tout le monde, mes utilisateurs doivent-ils se réenregistrer ?**

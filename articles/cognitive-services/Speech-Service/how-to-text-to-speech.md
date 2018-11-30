@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 16b7de909ce57a7f8d3cea54a59996dc6f0a6ba0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469911"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712005"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utiliser l’API Synthèse vocale du service Speech
 
@@ -92,7 +92,7 @@ Si une erreur se produit, les codes d’état ci-après sont utilisés. Le corps
 429|Trop de demandes|Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement.
 |502|Passerelle incorrecte    | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides.
 
-Pour plus d’informations sur l’API REST Synthèse vocale, consultez l’article décrivant les [API REST](rest-apis.md#text-to-speech) associées.
+Pour plus d’informations sur l’API REST Synthèse vocale, consultez l’article décrivant les [API REST](rest-apis.md#text-to-speech-api) associées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

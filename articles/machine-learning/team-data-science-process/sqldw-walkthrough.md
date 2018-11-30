@@ -2,30 +2,26 @@
 title: 'Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse | Microsoft Docs'
 description: Processus d’analyse avancé et technologie en action
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: deguhath
-ms.openlocfilehash: 192af40df3a8bc0545c9c3a86792e7eb8cb31de9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586102"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445703"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse
 Dans ce didacticiel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant SQL Data Warehouse (SQL DW) pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire établi prédit si un pourboire a été donné pour une course. Des modèles de classification multiclasse et de régression sont également présentés, qui prévoient la distribution des montants de pourboire réglés.
 
-La procédure suit le flux de travail [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Nous montrons comment configurer un environnement de science des données, comment charger les données dans SQL DW et comment utiliser SQL DW ou un IPython Notebook pour explorer les données et les caractéristiques d’ingénierie à modéliser. Nous expliquons ensuite comment générer et déployer un modèle avec Azure Machine Learning.
+La procédure suit le flux de travail [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Nous montrons comment configurer un environnement de science des données, comment charger les données dans SQL DW et comment utiliser SQL DW ou un IPython Notebook pour explorer les données et les caractéristiques d’ingénierie à modéliser. Nous expliquons ensuite comment générer et déployer un modèle avec Azure Machine Learning.
 
 ## <a name="dataset"></a>Jeu de données NYC Taxi Trips
 Les données NYC Taxi Trip sont constituées de fichiers CSV compressés d’une taille totale approximative de 20 Go (soit environ 48 Go après la décompression des fichiers), correspondant à plus de 173 millions de courses et au prix de chacune. Chaque enregistrement de course inclut le lieu et l’heure d’embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d’identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :

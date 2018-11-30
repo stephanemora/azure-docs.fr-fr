@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231520"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426252"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manuel du modèle de solution Microsoft Cortana Intelligence de prévision de la demande d’énergie
 ## <a name="executive-summary"></a>Résumé
@@ -122,7 +122,7 @@ Comme nous le voyons dans cette table, il est très important de distinguer les 
 ### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Exemple d’étude de cas 1 : systèmes eSmart, optimisation de surcharge
 Un des rôles importants du [réseau intelligent](https://en.wikipedia.org/wiki/Smart_grid) consiste à optimiser et ajuster de façon dynamique et continue les modèles de consommation en fonction des changements. La consommation d’énergie peut être affectée par les modifications à court terme provoquées principalement par les fluctuations de température (*par exemple*, lorsque davantage d’électricité est utilisée pour l’air conditionné ou le chauffage). Dans le même temps, la consommation d’énergie est également influencée par les tendances à long terme. Ces dernières peuvent inclure les effets de saisonnalité, les jours fériés, la croissance à long terme de la consommation et même des facteurs économiques tels que l’indice des prix, le prix du pétrole et le produit intérieur brut.
 
-Dans ce cas, [eSmart](http://www.esmartsystems.com/) souhaite déployer des solutions cloud permettant de prédire la propension à se trouver en situation de surcharge dans une sous-centrale du réseau. eSmart souhaite en particulier identifier les sous-centrales susceptibles de connaître des surcharges au cours de l’heure à venir, et pouvoir immédiatement intervenir pour éviter ou résoudre le problème.
+Dans ce cas, [eSmart](https://www.esmartsystems.com/) souhaite déployer des solutions cloud permettant de prédire la propension à se trouver en situation de surcharge dans une sous-centrale du réseau. eSmart souhaite en particulier identifier les sous-centrales susceptibles de connaître des surcharges au cours de l’heure à venir, et pouvoir immédiatement intervenir pour éviter ou résoudre le problème.
 
 Une prévision exacte et rapide nécessite la mise en œuvre de trois modèles prédictifs :
 
@@ -365,7 +365,7 @@ Une fois que nous avons affiné la phase de modélisation et validé le fonction
 Dans le contexte de la prévision de la demande énergétique, notre objectif est d’appeler des prévisions périodiques en continu, en nous assurant que les données actualisées sont disponibles pour le modèle et que les données prévues sont envoyées au client usager.
 
 ### <a name="web-services-deployment"></a>Déploiement de services Web
-Le principal bloc de construction pouvant être déployé dans Azure ML est le service web. Il s’agit du moyen le plus efficace d’activer l’utilisation d’un modèle prédictif dans le cloud. Le service Web encapsule le modèle et l’inclut dans une API (Interface de programmation d’applications) [RESTful](http://www.restapitutorial.com/) . L’API peut être utilisée dans le cadre d’un code client, comme illustré dans le diagramme ci-dessous.
+Le principal bloc de construction pouvant être déployé dans Azure ML est le service web. Il s’agit du moyen le plus efficace d’activer l’utilisation d’un modèle prédictif dans le cloud. Le service Web encapsule le modèle et l’inclut dans une API (Interface de programmation d’applications) [RESTful](https://www.restapitutorial.com/) . L’API peut être utilisée dans le cadre d’un code client, comme illustré dans le diagramme ci-dessous.
 
 ![Nous assurons le déploiement du service et la consommation](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 

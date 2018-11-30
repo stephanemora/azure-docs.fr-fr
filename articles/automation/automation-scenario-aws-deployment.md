@@ -9,24 +9,23 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4f49adf006e8d55337220fad9ee84de65209880b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8a5b34cd92f3afd166d5d67ca445c99a52c684e2
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193479"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290890"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Scénario Azure Automation – Approvisionner une machine virtuelle AWS
 Dans cet article, vous allez découvrir comment provisionner une machine virtuelle de votre abonnement AWS (Amazon Web Services) à l’aide d’Azure Automation et comment lui attribuer un nom spécifique (opération appelée « balisage » dans AWS).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour les besoins de cet article, vous devez disposer d’un compte Azure Automation et d’un abonnement AWS. Pour plus d’informations sur la création d’un compte Azure Automation et sur sa configuration avec les informations d’identification de votre abonnement AWS, consultez l’article [Authentification des Runbooks avec Amazon Web Services](automation-config-aws-account.md). Vous devez au préalable créer ou mettre à jour ce compte avec les informations d’identification de votre abonnement AWS, car vous ferez référence à ce compte dans les étapes suivantes.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Déployer le module PowerShell Amazon Web Services
 Votre runbook de provisionnement de machine virtuelle utilise le module PowerShell AWS pour exécuter cette tâche. Pour ajouter le module à votre compte Automation qui est configuré avec les informations d’identification de votre abonnement AWS, procédez comme suit.  
 
-1. Ouvrez votre navigateur web et accédez à [PowerShell Gallery](http://www.powershellgallery.com/packages/AWSPowerShell/), puis cliquez sur le bouton **Deploy to Azure Automation** (Déployer sur Azure Automation).<br><br> ![Importation du module PS AWS](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
+1. Ouvrez votre navigateur web et accédez à [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell/), puis cliquez sur le bouton **Deploy to Azure Automation** (Déployer sur Azure Automation).<br><br> ![Importation du module PS AWS](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
 2. Vous accédez alors à la page de connexion Azure. Après vous être authentifié, vous êtes dirigé vers le portail Azure dans la page suivante :<br><br> ![Page Importer le module](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
 3. Sélectionnez le compte Automation à utiliser et cliquez sur **OK** pour lancer le déploiement.
 
@@ -42,11 +41,11 @@ Votre runbook de provisionnement de machine virtuelle utilise le module PowerShe
 Une fois le module PowerShell AWS déployé, vous pouvez créer un runbook pour automatiser le provisionnement d’une machine virtuelle dans AWS au moyen d’un script PowerShell. La procédure ci-dessous montre comment tirer parti d’un script PowerShell natif dans Azure Automation.  
 
 > [!NOTE]
-> Pour plus d’options et d’informations concernant ce script, visitez [PowerShell Gallery](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
+> Pour plus d’options et d’informations concernant ce script, visitez [PowerShell Gallery](https://www.powershellgallery.com/packages/New-AwsVM/).
 > 
 
 1. Téléchargez le script PowerShell New-AwsVM à partir de PowerShell Gallery en ouvrant une session PowerShell et en tapant ce qui suit :<br>
-   ```
+   ```powershell
    Save-Script -Name New-AwsVM -Path <path>
    ```
    <br>
@@ -61,11 +60,12 @@ Une fois le module PowerShell AWS déployé, vous pouvez créer un runbook pour 
     > 
     > * Le runbook contient un certain nombre de valeurs de paramètres par défaut. Évaluez toutes les valeurs par défaut et procédez aux mises à jour nécessaires.
     > * Si vous avez stocké vos informations d’identification AWS comme ressource d’informations d’identification sous un autre nom que **AWScred**, vous devez mettre à jour en conséquence la ligne 57 du script.  
-    > * Quand vous utilisez les commandes de l’interface de ligne de commande AWS dans PowerShell, plus particulièrement avec cet exemple de runbook, vous devez spécifier la région AWS. Sinon, les applets de commande échouent. Pour plus d’informations, consultez la rubrique AWS [Specify AWS Region](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) (Spécifier la région AWS) dans le document AWS Tools for PowerShell (Outils AWS pour PowerShell).  
+    > * Quand vous utilisez les commandes de l’interface de ligne de commande AWS dans PowerShell, plus particulièrement avec cet exemple de runbook, vous devez spécifier la région AWS. Sinon, les applets de commande échouent. Pour plus d’informations, consultez la rubrique AWS [Specify AWS Region](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) (Spécifier la région AWS) dans le document AWS Tools for PowerShell (Outils AWS pour PowerShell).  
     >
 
 7. Pour récupérer une liste de noms d’images à partir de votre abonnement AWS, lancez PowerShell ISE et importez le module PowerShell AWS. Authentifiez-vous auprès d’AWS en remplaçant **Get-AutomationPSCredential** dans votre environnement ISE par **AWScred = Get-Credential**. Vous êtes alors invité à entrer vos informations d’identification. Vous pouvez fournir votre ID de clé d’accès (**Access Key ID**) comme nom d’utilisateur et la clé d’accès secrète (**Secret Access Key**) comme mot de passe. Prenons l'exemple suivant :  
 
+        ```powershell
         #Sample to get the AWS VM available images
         #Please provide the path where you have downloaded the AWS PowerShell module
         Import-Module AWSPowerShell
@@ -79,7 +79,8 @@ Une fois le module PowerShell AWS déployé, vous pouvez créer un runbook pour 
         Set-DefaultAWSRegion -Region $AwsRegion
    
         Get-EC2ImageByName -ProfileName AWSProfile
-
+        ```
+        
     Voici les résultats qui sont retournés :<br><br>
    ![Obtenir des images AWS](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  
 8. Copiez et collez celui relatif aux noms d’images dans une variable Automation référencée dans le runbook par **$InstanceType**. Sachant que cet exemple s’appuie sur l’abonnement hiérarchisé AWS gratuit, utilisez **t2.micro** dans votre exemple de runbook.  

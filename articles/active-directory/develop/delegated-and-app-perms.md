@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: c5a947301b0861ffa09a24da79e04b5e92b2c29e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: aaed6a6282da61a49698fdcdfefffe949630930a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723748"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421825"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Comment reconnaître les différences entre les autorisations déléguées et d’application
 
@@ -30,4 +30,4 @@ ms.locfileid: "44723748"
 - Pour plus de détails, découvrez comment les applications de ressources exposent des [étendues](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) et des [rôles d’application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) aux applications clientes, qui se manifestent respectivement comme autorisations déléguées et comme autorisations d’application dans le portail Azure. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

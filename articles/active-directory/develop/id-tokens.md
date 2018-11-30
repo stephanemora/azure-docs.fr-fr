@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 35e6cd988a0532221d88b22cdd51fc29d7f17ba9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ab2c0f671eaf6147baad24b426c4a527f07e136f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158752"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422403"
 ---
 # <a name="id-tokens"></a>Jetons d’ID
 
@@ -70,8 +70,8 @@ Afficher cet exemple de jeton v2.0 dans [jwt.ms](https://jwt.ms/#id_token=eyJ0eX
 |`idp`|Chaîne, généralement un URI STS | Enregistre le fournisseur d’identité qui a authentifié le sujet du jeton. Cette valeur est identique à la valeur de la revendication de l’émetteur sauf si le compte d’utilisateur n’est pas dans le même locataire que l’émetteur (invités par exemple). Si la revendication n’est pas présente, cela signifie que la valeur `iss` peut être utilisée à la place.  Pour les comptes personnels utilisés dans un contexte organisationnel (par exemple, un compte personnel invité dans un locataire Azure AD), la revendication `idp` peut être « live.com » ou un URI STS contenant le locataire de compte Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, horodatage UNIX | La revendication « nbf » (pas avant) indique le délai avant lequel le JWT ne doit PAS être accepté pour être traité.|
 |`exp` |  int, horodatage UNIX | La revendication « exp » (délai d'expiration) indique le délai d'expiration à partir duquel le JWT ne doit PAS être accepté pour être traité.  Il est important de remarquer qu'une ressource peut également rejeter le jeton avant ce délai, par exemple lorsqu'un changement d'authentification est requis ou qu'une révocation de jeton a été détectée. |
-| `c_hash`| Chaîne |Le hachage de code n’est inclus dans un jeton d’ID que si ce dernier est émis avec un code d’autorisation OAuth 2.0. Il peut servir à valider l’authenticité d’un code d’autorisation. Pour plus d’informations sur l’exécution de cette validation, consultez la [spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) . |
-|`at_hash`| Chaîne |Le hachage de jeton d’accès n’est inclus dans un jeton d’ID que si ce dernier est émis avec un jeton d’accès OAuth 2.0. Il peut servir à valider l’authenticité d’un jeton d’accès. Pour plus d’informations sur l’exécution de cette validation, consultez la [spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) . |
+| `c_hash`| Chaîne |Le hachage de code n’est inclus dans un jeton d’ID que si ce dernier est émis avec un code d’autorisation OAuth 2.0. Il peut servir à valider l’authenticité d’un code d’autorisation. Pour plus d’informations sur l’exécution de cette validation, consultez la [spécification OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) . |
+|`at_hash`| Chaîne |Le hachage de jeton d’accès n’est inclus dans un jeton d’ID que si ce dernier est émis avec un jeton d’accès OAuth 2.0. Il peut servir à valider l’authenticité d’un jeton d’accès. Pour plus d’informations sur l’exécution de cette validation, consultez la [spécification OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) . |
 |`aio` | Chaîne opaque | Revendication interne utilisée par Azure AD pour enregistrer des données afin de réutiliser les jetons. Cette valeur doit être ignorée.|
 |`preferred_username` | Chaîne | Nom d’utilisateur principal qui représente l’utilisateur. Il peut s’agir d’une adresse e-mail, d’un numéro de téléphone ou d’un nom d’utilisateur générique sans format spécifié. Sa valeur est mutable et peut changer au fil du temps. Dans la mesure où elle est mutable, cette valeur ne doit pas utilisée pour prendre des décisions d’autorisation. L’étendue `profile` est requise afin de recevoir cette revendication.|
 |`email` | Chaîne | La revendication `email` est présente par défaut pour les comptes invités qui disposent d’une adresse de messagerie.  Votre application peut demander la revendication de courrier électronique pour les utilisateurs gérés (ceux provenant du même locataire que la ressource) à l’aide de la `email` [revendication facultative](active-directory-optional-claims.md).  Sur le point de terminaison v2.0, votre application peut également demander l’étendue OpenID Connect `email` : vous n’avez pas besoin de demander la revendication facultative et l’étendue pour obtenir la revendication.  La revendication de courrier électronique prend uniquement en charge la messagerie adressable provenant des informations du profil de l’utilisateur. |

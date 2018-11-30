@@ -15,17 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409524"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822753"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance
 
  
-Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../monitoring/monitoring-data-collection.md#metrics) et des [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../monitoring-and-diagnostics/monitoring-overview-alerts.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
+Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-collection.md#metrics) et des [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../monitoring-and-diagnostics/monitoring-overview-alerts.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
 
 ## <a name="batch-metrics"></a>Métriques Batch
 

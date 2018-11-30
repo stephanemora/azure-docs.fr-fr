@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118222"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446957"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles
 
@@ -31,7 +31,10 @@ Il existe trois manières principales pour personnaliser le portail des dévelop
 
 Les modèles permettent de personnaliser le contenu des pages du portail des développeurs générées par le système (par exemple, documents sur les API, produits, authentification utilisateur, etc.). En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et un ensemble de ressources de chaîne localisées, d’icônes et de contrôles de page, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="developer-portal-templates-overview"></a>Vue d’ensemble des modèles du portail des développeurs
+
 La modification des modèles s’effectue à partir du **portail des développeurs** lorsque vous êtes connecté en tant qu’administrateur. Pour y accéder, ouvrez tout d’abord le Portail Azure et cliquez sur **Portail des développeurs** à partir de la barre d’outils de services de votre instance Gestion des API.
 
 Pour accéder aux modèles du portail des développeurs, cliquez sur l’icône de personnalisation à gauche pour afficher le menu de personnalisation, puis cliquez sur **Templates**(Modèles).
@@ -180,7 +183,7 @@ Pour restaurer la version par défaut de tous les modèles, cliquez sur **Restor
 
 Les modèles restaurés doivent ensuite être publiés un par un ou tous en même temps en suivant les étapes décrites dans la section [Pour publier un modèle](#to-publish-a-template).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations de référence sur les modèles du portail des développeurs, les ressources de chaîne, les icônes et les contrôles de page, consultez les [informations de référence sur les modèles du portail des développeurs Gestion des API](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md

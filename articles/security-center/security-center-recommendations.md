@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5ea8718b90a82e904f54e5569d36f27146ffe5f1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253157"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316615"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gestion des recommandations de sécurité dans le Centre de sécurité Azure
 Ce document explique comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure.
@@ -34,13 +34,13 @@ Le Centre de sécurité analyse l’état de sécurité de vos ressources Azure
 
 ## <a name="implementing-security-recommendations"></a>Mise en œuvre des recommandations de sécurité
 ### <a name="set-recommendations"></a>Définition de recommandations
-Dans la section [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md), vous apprendrez à :
+Dans la section [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md), vous apprendrez à :
 
 * configurer des stratégies de sécurité ;
 * activer la collecte des données ;
 * choisir les recommandations à afficher dans le cadre de votre stratégie de sécurité.
 
-Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de base, les logiciels anti-programme malveillant, les [groupes de sécurité réseau](../virtual-network/security-overview.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le chiffrement transparent des données de bases de données SQL et les pare-feu d’applications web.  [Définition de stratégies de sécurité](security-center-policies.md) fournit une description de chacune des recommandations.
+Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de base, les logiciels anti-programme malveillant, les [groupes de sécurité réseau](../virtual-network/security-overview.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le chiffrement transparent des données de bases de données SQL et les pare-feu d’applications web.  [Définition de stratégies de sécurité](security-center-azure-policy.md) fournit une description de chacune des recommandations.
 
 ### <a name="monitor-recommendations"></a>Suivi des recommandations
 Après la définition d’une stratégie de sécurité, le Centre de sécurité analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La vignette **Recommandations** sous **Vue d’ensemble** vous permet de connaître le nombre total de recommandations fournies par Security Center.
@@ -135,7 +135,7 @@ Dans le tableau de recommandations ci-dessus, sélectionnez une recommandation e
 ## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a présenté les recommandations de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.

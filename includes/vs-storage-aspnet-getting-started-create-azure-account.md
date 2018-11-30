@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tamram
+ms.openlocfilehash: 1db7be902c768889dbc82bef0adc0310b9fac02c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440139"
+---
 ## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 Le moyen le plus simple de créer votre premier compte de stockage Azure est d’utiliser le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez la page [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 

@@ -14,26 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145738"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446501"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
 * Externe
 * Interne
 
-
 En cas de déploiement de Gestion des API dans un mode réseau virtuel interne, tous les points de terminaison de service (passerelle, portail des développeurs, portail Azure, gestion directe et Git) ne sont visibles que dans un réseau virtuel auquel vous contrôlez l’accès. Aucun point de terminaison de service n’est inscrit sur le serveur DNS Public.
 
 Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios suivants :
+
 * Rendre les API hébergées dans votre centre de données privé accessibles de l’extérieur en toute sécurité à des tiers à l’aide de connexions site à site ou de connexions Azure VPN ExpressRoute.
 * Activer les scénarios de cloud hybride en exposant vos API cloud et sur site par le biais d’une passerelle commune.
 * Gérer vos API hébergées dans plusieurs emplacements géographiques à l’aide d’un seul point de terminaison de passerelle. 
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

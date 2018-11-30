@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: cde668fdeda7e484585a457a46fc5c25ce6ea6ae
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 087dcfd10b191dcd80ec4a70be8eb2e373e1d56b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310536"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427538"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure
 Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes](#NextSteps) .
@@ -30,9 +30,9 @@ Twilio alimente le futur des communications professionnelles, en permettant aux 
 **Twilio Voice** permet à vos applications de passer et de recevoir des appels téléphoniques. **Twilio SMS** permet à vos applications d'envoyer et de recevoir des SMS. **Twilio Client** permet de passer des appels VoIP à partir d'un téléphone, d'une tablette ou d'un navigateur et prend en charge WebRTC.
 
 ## <a id="Pricing"></a>Tarification de Twilio et offres spéciales
-Les clients Azure reçoivent une [offre spéciale](http://www.twilio.com/azure)de 10 $ en crédit Twilio lorsqu'ils mettent à niveau leur compte Twilio. Ce crédit peut servir à l'achat d'une prestation Twilio (un crédit de 10 $ correspond à l'envoi de 1 000 SMS ou à la réception de 1 000 minutes vocales maximum, en fonction de l'emplacement de votre numéro de téléphone, du message ou de la destination de l'appel). Profitez de ce crédit Twilio et démarrez en consultant la page [ahoy.twilio.com/azure](http://ahoy.twilio.com/azure).
+Les clients Azure reçoivent une [offre spéciale](https://www.twilio.com/azure)de 10 $ en crédit Twilio lorsqu'ils mettent à niveau leur compte Twilio. Ce crédit peut servir à l'achat d'une prestation Twilio (un crédit de 10 $ correspond à l'envoi de 1 000 SMS ou à la réception de 1 000 minutes vocales maximum, en fonction de l'emplacement de votre numéro de téléphone, du message ou de la destination de l'appel). Profitez de ce crédit Twilio et démarrez en consultant la page [ahoy.twilio.com/azure](https://ahoy.twilio.com/azure).
 
-Twilio est un service de paiement à l'utilisation. Il n’y a pas de frais d’entrée et vous pouvez fermer votre compte quand vous le souhaitez. Pour plus d'informations, consultez la page [Tarification de Twilio](http://www.twilio.com/voice/pricing).
+Twilio est un service de paiement à l'utilisation. Il n’y a pas de frais d’entrée et vous pouvez fermer votre compte quand vous le souhaitez. Pour plus d'informations, consultez la page [Tarification de Twilio](https://www.twilio.com/voice/pricing).
 
 ## <a id="Concepts"></a>Concepts
 L'API Twilio est une API RESTful qui offre des fonctionnalités vocales et de SMS aux applications. Les bibliothèques clientes sont disponibles dans plusieurs langues : pour en obtenir la liste, consultez la page [Bibliothèques de l’API Twilio][twilio_libraries].
@@ -42,7 +42,7 @@ Les éléments les plus importants de l'API Twilio sont les verbes Twilio et Twi
 ### <a id="Verbs"></a>Verbes Twilio
 L'API utilise les verbes Twilio ; par exemple, le verbe **&lt;Say&gt;** (Dire) indique à Twilio de transmettre un message de manière audible lors d'un appel.
 
-La liste suivante présente les verbes Twilio.  Découvrez les autres verbes et fonctionnalités dans la page [Documentation de Twilio Markup Language](http://www.twilio.com/docs/api/twiml).
+La liste suivante présente les verbes Twilio.  Découvrez les autres verbes et fonctionnalités dans la page [Documentation de Twilio Markup Language](https://www.twilio.com/docs/api/twiml).
 
 * `<Dial>` : connecte l’appelant à un autre téléphone.
 * `<Gather>` : collecte les chiffres numériques entrés sur le clavier du téléphone.
@@ -98,9 +98,9 @@ Twilio offre cinq bibliothèques destinées aux développeurs .NET :
 
 Les exemples fournis dans ce guide utilisent la bibliothèque Twilio.API.
 
-Les bibliothèques peuvent être [installées à l’aide de NuGet Package Manager Extension](http://www.twilio.com/docs/csharp/install) disponible pour Visual Studio 2010 à 2015.  Le code source est hébergé sur [GitHub][twilio_github_repo], qui comprend un Wiki doté d’une documentation complète sur l’utilisation des bibliothèques.
+Les bibliothèques peuvent être [installées à l’aide de NuGet Package Manager Extension](https://www.twilio.com/docs/csharp/install) disponible pour Visual Studio 2010 à 2015.  Le code source est hébergé sur [GitHub][twilio_github_repo], qui comprend un Wiki doté d’une documentation complète sur l’utilisation des bibliothèques.
 
-Par défaut, Microsoft Visual Studio 2010 installe la version 1.2 de NuGet. L'installation des bibliothèques Twilio requiert la version 1.6 de NuGet ou ultérieure. Pour plus d’informations sur l’installation ou la mise à jour de NuGet, consultez [http://nuget.org/][nuget].
+Par défaut, Microsoft Visual Studio 2010 installe la version 1.2 de NuGet. L'installation des bibliothèques Twilio requiert la version 1.6 de NuGet ou ultérieure. Pour plus d’informations sur l’installation ou la mise à jour de NuGet, consultez [https://nuget.org/][nuget].
 
 > [!NOTE]
 > Pour installer la dernière version de NuGet, vous devez au préalable désinstaller la version chargée à l’aide du gestionnaire d’extensions de Visual Studio. Pour ce faire, vous devez exécuter Visual Studio en tant qu'administrateur. Sinon, le bouton Désinstaller est désactivé.
@@ -128,7 +128,7 @@ const string authToken = "your_twilio_authentication_token";
 TwilioClient.Init(accountSID, authToken);
 
 // Use the Twilio-provided site for the TwiML response.
-var url = "http://twimlets.com/message";
+var url = "https://twimlets.com/message";
 url = $"{url}?Message%5B0%5D=Hello%20World";
 
 // Set the call From, To, and URL values to use for the call.
@@ -141,7 +141,7 @@ var call = CallResource.Create(
     }
 ```
 
-Pour plus d’informations sur les paramètres passés dans la méthode **CallResource.Create**, consultez [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
+Pour plus d’informations sur les paramètres passés dans la méthode **CallResource.Create**, consultez [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
 Comme indiqué, ce code utilise un site Twilio afin de renvoyer la réponse TwiML, À la place, vous pouvez utiliser votre propre site pour fournir la réponse TwiML. mais vous pouvez utiliser votre propre site. Pour plus d’informations, consultez [Envoi de réponses TwiML à partir de votre propre site web](#howto_provide_twiml_responses).
 
@@ -173,10 +173,10 @@ catch (TwilioException ex)
 ```
 
 ## <a id="howto_provide_twiml_responses"></a>Procédure : envoi de réponses TwiML depuis votre propre site Web
-Quand votre application démarre un appel vers l’API Twilio, par exemple via la méthode **CallResource.create**, Twilio envoie votre demande à une URL qui est censée renvoyer une réponse TwiML. L’exemple dans [Comment passer un appel sortant](#howto_make_call) utilise l’URL fournie par Twilio [http://twimlets.com/message][twimlet_message_url] pour retourner la réponse.
+Quand votre application démarre un appel vers l’API Twilio, par exemple via la méthode **CallResource.create**, Twilio envoie votre demande à une URL qui est censée renvoyer une réponse TwiML. L’exemple dans [Comment passer un appel sortant](#howto_make_call) utilise l’URL fournie par Twilio [https://twimlets.com/message][twimlet_message_url] pour retourner la réponse.
 
 > [!NOTE]
-> TwiML est conçu pour être utilisé par des services Web, vous pouvez donc afficher TwiML dans votre navigateur. Par exemple, cliquez sur [http://twimlets.com/message][twimlet_message_url] pour voir un élément `<Response>` vide ; ou cliquez sur [http://twimlets.com/message?Message%5B0%5D=Hello%20World](http://twimlets.com/message?Message%5B0%5D=Hello%20World) pour voir un élément `<Response>` contenant un élément &lt;Say&gt;.
+> TwiML est conçu pour être utilisé par des services Web, vous pouvez donc afficher TwiML dans votre navigateur. Par exemple, cliquez sur [https://twimlets.com/message][twimlet_message_url] pour voir un élément `<Response>` vide ; ou cliquez sur [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) pour voir un élément `<Response>` contenant un élément &lt;Say&gt;.
 >
 
 Au lieu de compter sur l'URL Twilio, vous pouvez créer votre propre site d'URL qui renvoie des réponses HTTP. Vous pouvez créer le site dans tout langage qui renvoie des réponses HTTP. Cette rubrique part du principe que vous hébergerez l'URL à partir d'un gestionnaire générique ASP.NET.
@@ -273,17 +273,17 @@ Pour plus d’informations sur l’utilisation de Twilio sur Azure avec ASP.NET,
 
 [howto_phonecall_dotnet]: partner-twilio-cloud-services-dotnet-phone-call-web-role.md
 
-[twimlet_message_url]: http://twimlets.com/message
+[twimlet_message_url]: https://twimlets.com/message
 
-[twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
+[twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:http://msdn.microsoft.com/library/windowsazure/ee405487.aspx
-[nuget]:http://nuget.org/
+[vs_project]:https://msdn.microsoft.com/library/windowsazure/ee405487.aspx
+[nuget]:https://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/console
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified

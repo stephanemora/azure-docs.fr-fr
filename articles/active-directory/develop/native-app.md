@@ -16,16 +16,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8879cc331c5d0e8c6aab24e8c6178d96ab23bf9d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8738205aec8e0b00115a185886ca293b2f96033c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955397"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422369"
 ---
 # <a name="native-apps"></a>Applications natives
 
-Les applications natives sont des applications qui appellent une API web de la part d’un utilisateur. Ce scénario repose sur le type d’octroi de code d’autorisation OAuth 2.0 avec un client public, comme décrit à la section 4.1 de la [spécification OAuth 2.0](http://tools.ietf.org/html/rfc6749). L’application native obtient un jeton d’accès pour l’utilisateur à l’aide du protocole OAuth 2.0. Ce jeton d’accès est ensuite envoyé via la demande à l’API web, qui autorise l’utilisateur et renvoie la ressource souhaitée.
+Les applications natives sont des applications qui appellent une API web de la part d’un utilisateur. Ce scénario repose sur le type d’octroi de code d’autorisation OAuth 2.0 avec un client public, comme décrit à la section 4.1 de la [spécification OAuth 2.0](https://tools.ietf.org/html/rfc6749). L’application native obtient un jeton d’accès pour l’utilisateur à l’aide du protocole OAuth 2.0. Ce jeton d’accès est ensuite envoyé via la demande à l’API web, qui autorise l’utilisateur et renvoie la ressource souhaitée.
 
 ## <a name="diagram"></a>Diagramme
 
@@ -40,7 +40,7 @@ Si vous utilisez les bibliothèques d’authentification AD, la plupart des dét
 1. Quand Azure AD renvoie une réponse de code d’autorisation à l’URI de redirection, l’application cliente arrête l’interaction du navigateur et extrait le code d’autorisation de la réponse. À l’aide de ce code d’autorisation, l’application cliente envoie une demande au point de terminaison de jeton d’Azure AD. Celle-ci comprend le code d’autorisation, des détails sur l’application cliente (ID d’application et URI de redirection) et la ressource souhaitée (URI ID d’application de l’API web).
 1. Le code d’autorisation et les informations sur l’application cliente et l’API web sont validés par Azure AD. Si la validation réussit, Azure AD renvoie deux jetons : un jeton d’accès JWT et un jeton d’actualisation JWT. Azure AD renvoie également des informations de base sur l’utilisateur, telles que son nom d’affichage et son ID client.
 1. Sur HTTPS, l’application cliente utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « porteur » dans l’en-tête d’autorisation de la demande adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
-1. Quand le jeton d’accès arrive à expiration, l’application cliente reçoit une erreur indiquant que l’utilisateur doit s’authentifier à nouveau. Si l’application dispose d’un jeton d’actualisation valide, celui-ci peut être utilisé pour obtenir un nouveau jeton d’accès sans demander à l’utilisateur de se connecter à nouveau. Si le jeton d’actualisation arrive à expiration, l’application doit authentifier interactivement l’utilisateur une nouvelle fois.
+1. Quand le jeton d’accès arrive à expiration, l’application cliente reçoit une erreur indiquant que l’utilisateur doit s’authentifier à nouveau. Si l’application dispose d’un jeton d’actualisation valide, celui-ci peut être utilisé pour obtenir un nouveau jeton d’accès sans demander à l’utilisateur de se connecter à nouveau. Si le jeton d’actualisation arrive à expiration, l’application doit interactivement authentifier l’utilisateur une nouvelle fois.
 
 > [!NOTE]
 > Le jeton d’actualisation émis par Azure AD peut être utilisé pour accéder à plusieurs ressources. Par exemple, si une application cliente est autorisée à appeler deux API web, le jeton d’actualisation peut être utilisé pour obtenir un jeton d’accès à l’autre API web également.
@@ -51,7 +51,7 @@ Consultez les exemples de code pour les scénarios du type application native ve
 
 ## <a name="app-registration"></a>Inscription d'application
 
-Pour inscrire une application avec le point de terminaison Azure AD v1.0, consultez [Inscrire une application avec le point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Pour inscrire une application auprès du point de terminaison Azure AD v1.0, consultez [Inscrire une application auprès du point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
 
 * Application à client unique : l’application native et l’API web doivent être inscrites dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application native à ses ressources. L’application cliente sélectionne ensuite les autorisations souhaitées dans le menu déroulant « Autorisations pour d’autres applications » du portail Azure.
 * Application mutualisée : premièrement, l’application native est toujours inscrite dans l’annuaire du développeur ou de l’éditeur. Deuxièmement, l’application native est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, seule l’API web est inscrite dans son annuaire. 
@@ -63,4 +63,4 @@ Quand l’application native utilise son code d’autorisation pour obtenir un j
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les autres [types d’applications et scénarios](app-types.md)
-- En savoir plus sur les [principes fondamentaux de l’authentification](authentication-scenarios.md) Azure AD
+- En savoir plus sur les [principes de base de l’authentification](authentication-scenarios.md) Azure AD

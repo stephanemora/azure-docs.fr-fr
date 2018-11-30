@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7a3545e3fdf37f33db4c3b77be6cf6d5db0f6aef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4200accee94840a8a4455308f24a857fd5d7034a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973573"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632974"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
-Cet article récapitule les méthodes disponibles pour visualiser les données stockées dans Azure Monitor. Celles-ci incluent les [métriques dans le magasin de métriques Azure](../monitoring/monitoring-data-collection.md#metrics) et les [données du journal dans Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
+Cet article récapitule les méthodes disponibles pour visualiser les données stockées dans Azure Monitor. Celles-ci incluent les [métriques dans le magasin de métriques Azure](../azure-monitor/platform/data-collection.md#metrics) et les [données du journal dans Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
 
 Les visualisations telles que les diagrammes ou graphiques peuvent vous aider à analyser vos données de supervision pour explorer des problèmes en profondeur et identifier des modèles. En fonction de l’outil que vous utilisez, vous pouvez également avoir la possibilité de partager les visualisations avec d’autres utilisateurs à l’intérieur et en dehors de votre organisation.
 
@@ -50,7 +50,7 @@ Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) constit
 - Exploration contextuelle limitée.
 
 ## <a name="azure-monitor-views"></a>Affichages Azure Monitor
-Les [affichages dans Azure Monitor](../log-analytics/log-analytics-view-designer.md) vous permettent de créer des visualisations personnalisées avec les données de journal stockées dans Log Analytics. Les [solutions de supervision](../monitoring/monitoring-solutions.md) s’en servent pour présenter les données qu’elles collectent.
+Les [affichages dans Azure Monitor](../azure-monitor/platform/view-designer.md) vous permettent de créer des visualisations personnalisées avec les données de journal stockées dans Log Analytics. Les [solutions de supervision](../azure-monitor/insights/solutions.md) s’en servent pour présenter les données qu’elles collectent.
 
 ![Affichage](media/visualizations/view.png)
 
@@ -58,7 +58,7 @@ Les [affichages dans Azure Monitor](../log-analytics/log-analytics-view-designer
 - Visualisations riches des données Log Analytics.
 - Possibilité d’exporter et d’importer des affichages pour les transférer vers d’autres groupes de ressources et abonnements.
 - Intégration au modèle de gestion Log Analytics avec des espaces de travail et des solutions de supervision.
-- [Filtres](../log-analytics/log-analytics-view-designer-filters.md) pour les paramètres personnalisés.
+- [Filtres](../azure-monitor/platform/view-designer-filters.md) pour les paramètres personnalisés.
 - Interactif ; prend en charge l’exploration sur plusieurs niveaux (d’un affichage à l’autre)
 
 ### <a name="limitations"></a>Limites
@@ -138,9 +138,9 @@ Vous pouvez accéder aux données des métriques Azure et de Log Analytics via l
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez les [données collectées par Azure Monitor](../monitoring/monitoring-data-collection.md).
+- Découvrez les [données collectées par Azure Monitor](../azure-monitor/platform/data-collection.md).
 - Découvrez les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md).
-- Découvrez les [affichages dans Azure Monitor](../log-analytics/log-analytics-view-designer.md).
+- Découvrez les [affichages dans Azure Monitor](../azure-monitor/platform/view-designer.md).
 - Découvrez les [classeurs dans Application Insights](../application-insights/app-insights-usage-workbooks.md).
 - Découvrez [l’importation de données de journal dans Power BI](../log-analytics/log-analytics-powerbi.md).
 - Découvrez le [plug-in de source de données Azure Monitor pour Grafana](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

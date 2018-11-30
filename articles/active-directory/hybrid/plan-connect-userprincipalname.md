@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637712"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426806"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Remplissage de UserPrincipalName dans Azure AD
 
@@ -34,7 +34,7 @@ Cet article emploie la terminologie suivante :
 |ID de connexion de substitution|Attribut local autre que UserPrincipalName, par exemple l’attribut mail, utilisé pour la connexion.|
 
 ## <a name="what-is-userprincipalname"></a>À quoi correspond UserPrincipalName ?
-L’attribut UserPrincipalName est un nom de connexion au format Internet d’un utilisateur selon la norme Internet [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
+L’attribut UserPrincipalName est un nom de connexion au format Internet d’un utilisateur selon la norme Internet [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>Format UPN
 Un UPN se compose d’un préfixe UPN (nom de compte d’utilisateur) et d’un suffixe UPN (nom de domaine DNS). Le préfixe et le suffixe sont liés par le symbole « \@ ». Par exemple, « utilisateur\@exemple.com ». Un UPN doit être unique parmi tous les objets principaux de sécurité d’une forêt de répertoires. 

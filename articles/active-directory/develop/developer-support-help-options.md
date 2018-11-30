@@ -17,12 +17,12 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 9b2ccce4ef6fad4f7710ba2092d67ac5f4e73b71
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601263"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422437"
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs 
 
@@ -67,13 +67,13 @@ Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soume
 
 |Composant/Zone  |Balises  |
 |---------|---------|
-|Bibliothèque ADAL |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
-|Bibliothèque MSAL     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|
-|Intergiciel (middleware) OWIN  |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[API Microsoft Graph](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
-|Toute autre zone liée à des sujets sur l’authentification ou les autorisations |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
+|Bibliothèque ADAL |[[adal]](https://stackoverflow.com/questions/tagged/adal)|
+|Bibliothèque MSAL     |[[msal]](https://stackoverflow.com/questions/tagged/msal)|
+|Intergiciel (middleware) OWIN  |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)|
+|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[API Microsoft Graph](https://developer.microsoft.com/graph/) |[[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
+|Toute autre zone liée à des sujets sur l’authentification ou les autorisations |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
 > Les publications suivantes de Stack Overflow renferment des conseils sur la façon de formuler des questions, mais aussi des indications sur l’ajout de code source ; en suivant ces recommandations, vous augmentez vos chances que des membres de la Communauté comprennent et répondent rapidement à votre question :  

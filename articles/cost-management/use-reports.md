@@ -8,20 +8,20 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976783"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276021"
 ---
 # <a name="use-cloudyn-reports"></a>Utiliser des rapports Cloudyn
 
 Cet article décrit l’objectif des rapports Cloudyn inclus dans le portail Cloudyn. Il explique également comment utiliser efficacement les rapports. La plupart des rapports sont intuitifs et ont une apparence similaire. L’essentiel des actions possibles dans un rapport est également réalisable dans d’autres rapports. Pour une vue d’ensemble de l’utilisation des rapports Cloudyn, y compris la personnalisation et l’enregistrement ou la planification, consultez [Comprendre les rapports de coûts](understanding-cost-reports.md).
 
-Azure Cost Management offre des fonctionnalités similaires à Cloudyn. Azure Cost Management est une solution native de gestion des coûts Azure. Il vous permet d’analyser les coûts, de créer et de gérer des budgets, d’exporter des données, ainsi que de consulter des recommandations d’optimisation et d’agir en conséquence pour dépenser moins. Pour plus d’informations, consultez [Azure Cost Management](overview-cost-mgt.md).
+Azure Cost Management offre des fonctionnalités similaires à Cloudyn. Azure Cost Management est une solution native de gestion des coûts Azure. Il vous permet d’analyser les coûts, de créer et de gérer des budgets, d’exporter des données, et de consulter des recommandations d’optimisation et d’agir en conséquence pour dépenser moins. Pour plus d’informations, consultez [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Types de rapports
 

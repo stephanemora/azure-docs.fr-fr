@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 765a10a336b908d399f46b2248aab3903c594d24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1039cde45824491bcc82f324c05e4819e66355e0
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628543"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975990"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Transfert de données à partir de magasins de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -355,33 +355,6 @@ Pour en savoir plus sur le mappage de colonnes du jeu de données source à des 
 
 ## <a name="repeatable-read-from-relational-sources"></a>Lecture renouvelée de sources relationnelles
 Lorsque vous copiez des données à partir de magasins de données relationnels, gardez à l’esprit la répétabilité de l’opération, afin d’éviter des résultats imprévus. Dans Azure Data Factory, vous pouvez réexécuter une tranche manuellement. Vous pouvez également configurer une stratégie de nouvelles tentatives pour un jeu de données, afin qu’une tranche soit réexécutée en cas de défaillance. Lorsqu’une tranche est réexécutée d’une manière ou d’une autre, vous devez vous assurer que les mêmes données sont lues et ce, quel que soit le nombre d’exécutions de la tranche. Voir [Lecture renouvelée de sources relationnelles](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
-
-## <a name="ge-historian-store"></a>Magasin GE Historian
-Vous créez un service lié ODBC pour lier un magasin de données [GE Proficy Historian (désormais GE Historian)](http://www.geautomation.com/products/proficy-historian) à une fabrique de données Azure comme l’indique l’exemple suivant :
-
-```json
-{
-    "name": "HistorianLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "connectionString": "DSN=<name of the GE Historian store>;",
-            "gatewayName": "<gateway name>",
-            "authenticationType": "Basic",
-            "userName": "<user name>",
-            "password": "<password>"
-        }
-    }
-}
-```
-
-Installez la passerelle de gestion des données sur un ordinateur local et enregistrez la passerelle auprès du portail. La passerelle installée sur votre ordinateur local utilise le pilote ODBC pour GE Historian afin de se connecter au magasin de données GE Historian. Par conséquent, installez le pilote s’il n’est pas déjà installé sur l’ordinateur passerelle. Consultez la section [Activation de la connectivité](#enabling-connectivity) pour plus d’informations.
-
-Avant d'utiliser le magasin GE Historian dans une solution Data Factory, vérifiez que la passerelle peut se connecter au magasin de données en suivant les instructions de la section suivante.
-
-Lisez l'article depuis le début pour une présentation détaillée de l'utilisation de magasins de données ODBC en tant que magasins de données sources dans une opération de copie.  
 
 ## <a name="troubleshoot-connectivity-issues"></a>Résoudre les problèmes de connectivité
 Pour résoudre les problèmes de connexion, utilisez l’onglet **Diagnostics** du **Gestionnaire de configuration de la passerelle de gestion des données**.

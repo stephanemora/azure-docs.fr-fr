@@ -3,19 +3,19 @@ title: Suggestion automatique des termes de recherche - API Recherche Web Bing
 titleSuffix: Azure Cognitive Services
 description: Associez l’API Recherche Web Bing et l’API Suggestion automatique Bing pour fournir une expérience de recherche améliorée aux utilisateurs.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
-ms.author: erhopf
-ms.openlocfilehash: 475ddfc2bcd9acd1312348a6c85e3d4627e48a3d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: 1df478f02e90c95d11c9305381e89e147fee3077
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128942"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164020"
 ---
 # <a name="autosuggest-bing-search-terms-in-your-application"></a>Suggestion automatique des termes de recherche Bing dans votre application
 

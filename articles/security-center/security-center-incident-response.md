@@ -3,7 +3,7 @@ title: Répondre aux incidents de sécurité avec Azure Security Center | Micros
 description: Ce document explique comment utiliser Azure Security Center dans un scénario de réponse aux incidents.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
-ms.author: yurid
-ms.openlocfilehash: d398edb8e7c009e38265525fb1924acd8fa68d9c
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 684098dd2780e827ccc74b7fbbb16a2be75fa3e1
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161252"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619875"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Utilisation d’Azure Security Center pour la réponse aux incidents
 De nombreuses organisations apprennent à répondre aux incidents uniquement après avoir subi une attaque. Pour réduire les coûts et les dommages, il est important de disposer d’un plan de réponse aux incidents avant qu’une attaque ne survienne. Vous pouvez utiliser Azure Security Center à différentes étapes de la réponse à un incident.

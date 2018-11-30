@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: c590c9d1ccbbb84a76ba09021a97464ec85c5784
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507210"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852977"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Installer et configurer un proxy inverse dans Azure Service Fabric
 Un proxy inverse est un service Azure Service Fabric facultatif qui aide des microservices s’exécutant dans un cluster Service Fabric à découvrir d’autres services ayant des points de terminaison HTTP, et à communiquer avec ces services. Pour en savoir plus, voir [Proxy inverse dans Azure Service Fabric](service-fabric-reverseproxy.md). Cet article vous montre comment installer et configurer un proxy inverse dans votre cluster. 
@@ -231,7 +231,7 @@ Les étapes suivantes montrent les paramètres à utiliser pour activer un proxy
 
    Pour en savoir plus sur la configuration et la gestion des certificats pour un cluster autonome, ainsi que sur la configuration des certificats utilisés pour sécuriser un proxy inverse, voir [Sécurité basée sur un certificat X509](./service-fabric-windows-cluster-x509-security.md).
 
-Après avoir modifié votre fichier ClusterConfig.json pour activer un proxy inverse, suivez les instructions de la section [Mettre à niveau la configuration du cluster](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) pour envoyer les modifications à votre cluster.
+Après avoir modifié votre fichier ClusterConfig.json pour activer un proxy inverse, suivez les instructions de la section [Mettre à niveau la configuration du cluster](service-fabric-cluster-config-upgrade-windows-server.md) pour envoyer les modifications à votre cluster.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Exposer un proxy inverse sur un port public via Azure Load Balancer
@@ -332,7 +332,7 @@ Par exemple, vous pouvez spécifier la valeur de **DefaultHttpRequestTimeout** p
    }
    ``` 
 
-Pour plus d’informations sur la mise à jour des paramètres de structure pour des clusters Azure, voir [Personnaliser les paramètres de cluster à l’aide de modèles Resource Manager](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). Pour des clusters autonomes, voir [Personnaliser les paramètres de cluster pour les clusters autonomes](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+Pour plus d’informations sur la mise à jour des paramètres de structure pour des clusters Azure, voir [Personnaliser les paramètres de cluster à l’aide de modèles Resource Manager](service-fabric-cluster-config-upgrade-azure.md). Pour des clusters autonomes, voir [Personnaliser les paramètres de cluster pour les clusters autonomes](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Plusieurs paramètres de structure sont utilisés pour aider à établir une communication sécurisée entre un proxy inverse et des services. Pour obtenir des informations détaillées sur ces paramètres, voir [Se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md).
 

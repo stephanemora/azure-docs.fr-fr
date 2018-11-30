@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 35d1fa5f8963d007b1d8b59ccf0f1dec7abafa09
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402231"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633093"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostiquer des scénarios courants avec Service Fabric
 
@@ -142,6 +142,6 @@ Consultez ces liens pour obtenir la liste complète des compteurs de performance
 * [Configurer des alertes dans AI](../application-insights/app-insights-alerts.md) pour être averti des changements de performances ou d’utilisation
 * La [détection intelligente dans Application Insights](../application-insights/app-insights-proactive-diagnostics.md) effectue une analyse proactive de la télémétrie envoyée à AI pour vous avertir d’éventuels problèmes de performances
 * Découvrez plus en détail la [création d’alertes](../log-analytics/log-analytics-alerts.md) dans Log Analytics pour faciliter la détection et les diagnostics.
-* Pour les clusters locaux, Log Analytics propose une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données à Log Analytics. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs à Log Analytics sans accès Internet à l’aide de la passerelle Log Analytics](../log-analytics/log-analytics-oms-gateway.md)
+* Pour les clusters locaux, Log Analytics propose une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données à Log Analytics. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs à Log Analytics sans accès Internet à l’aide de la passerelle Log Analytics](../azure-monitor/platform/gateway.md)
 * Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) offertes dans le cadre de Log Analytics
 * Pour obtenir une présentation plus détaillée de Log Analytics et de ce qu’il propose, lisez [Qu’est-ce que Log Analytics ?](../operations-management-suite/operations-management-suite-overview.md)

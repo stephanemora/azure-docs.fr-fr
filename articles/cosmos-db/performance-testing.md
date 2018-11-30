@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: ce2c0ddcce3813990bf819477f7db425d70e3595
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09ed72c73acf16f944c3b1101aff5ea04acb624d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612297"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308169"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
 
@@ -95,7 +95,7 @@ Le moyen le plus rapide de commencer est de compiler et exécuter l’exemple .N
 
 **Étape 4 (si nécessaire) :** le débit signalé (RU/s) à partir de l’outil doit être identique ou supérieur au débit provisionné de la collection ou d’un ensemble de collections. Dans le cas contraire, le fait d’augmenter la valeur de DegreeOfParallelism par petits incréments peut vous aider à atteindre la limite. Si le débit de votre application cliente se stabilise, démarrez plusieurs instances de l’application sur d’autres ordinateurs clients. Si vous avez besoin d’aide pour cette étape, envoyez un e-mail à askcosmosdb@microsoft.com ou remplissez un ticket de support à partir du [portail Azure](https://portal.azure.com).
 
-Une fois l’application exécutée, vous pouvez tester des [stratégies d’indexation](indexing-policies.md) et des [niveaux de cohérence](consistency-levels.md) différents pour comprendre leur impact sur le débit et la latence. Vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres suites de test ou applications de production.
+Une fois l’application exécutée, vous pouvez tester des [stratégies d’indexation](index-policy.md) et des [niveaux de cohérence](consistency-levels.md) différents pour comprendre leur impact sur le débit et la latence. Vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres suites de test ou applications de production.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, nous avons vu comment effectuer des tests de performances et de mise à l’échelle avec Azure Cosmos DB en utilisant une application console .NET. Pour plus d’informations, consultez les articles suivants :

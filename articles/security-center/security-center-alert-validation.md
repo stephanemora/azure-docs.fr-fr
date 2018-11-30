@@ -3,7 +3,7 @@ title: Validation des alertes dans Azure Security Center | Microsoft Docs
 description: Ce document est conçu pour vous aider à valider des alertes de sécurité dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
-ms.author: yurid
-ms.openlocfilehash: 5ac1e03fda90e12b6edbe28a66fdd488a34ea54b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 2c0bb2a68eaaa8183463efbdc2848567ab67d1b9
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240051"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619742"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Validation des alertes dans Azure Security Center
 Ce document est conçu pour vous apprendre à vérifier si votre système est correctement configuré pour les alertes dans Azure Security Center.
@@ -43,7 +43,7 @@ En examinant cette alerte, veillez à ce que la valeur du champ Arguments Auditi
 
 
 > [!NOTE]
-> Regardez la vidéo [Validation des alertes dans Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) pour voir comment utiliser cette fonctionnalité. 
+> Regardez la vidéo [Validation des alertes dans Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) pour voir comment utiliser cette fonctionnalité.
 
 ## <a name="see-also"></a>Voir aussi
 Cet article vous a présenté le processus de validation des alertes. Maintenant que vous êtes familiarisé avec la validation, vous pouvez consulter les articles suivants :
@@ -51,7 +51,6 @@ Cet article vous a présenté le processus de validation des alertes. Maintenant
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Présentation des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
-* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center. 
+* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center.
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). forum aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
-

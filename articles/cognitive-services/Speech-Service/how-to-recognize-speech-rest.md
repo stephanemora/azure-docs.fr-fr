@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 1bcc290d987e8294f9a73cf8490f6cdd0251b440
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ceb8e929520becd2bf097fefc9c6fe8959b1bf85
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467274"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51709812"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>Effectuer une reconnaissance vocale à l’aide de l’API REST
 
@@ -29,7 +29,7 @@ L’API REST est la méthode la plus simple pour reconnaître la voix si le lang
 > Les énoncés sont limités à 15 secondes maximum avec l’API REST.
 > Découvrez le [kit de développement logiciel (SDK) Speech](how-to-recognize-speech-csharp.md) pour reconnaître les énoncés longs.
 
-Pour plus d’informations sur l’API REST **Reconnaissance vocale**, consultez l’article [API REST](rest-apis.md#speech-to-text). Pour la voir en action, téléchargez les [Exemples API REST](https://github.com/Azure-Samples/SpeechToText-REST) sur GitHub.
+Pour plus d’informations sur l’API REST **Reconnaissance vocale**, consultez l’article [API REST](rest-apis.md#speech-to-text-api). Pour la voir en action, téléchargez les [Exemples API REST](https://github.com/Azure-Samples/SpeechToText-REST) sur GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

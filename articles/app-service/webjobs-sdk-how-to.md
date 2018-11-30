@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577009"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335212"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -462,7 +462,7 @@ Le framework de journalisation développé pour ASP.NET est recommandé. Pour sa
 
 ### <a name="log-filtering"></a>Filtrage de journal
 
-Chaque journal créé par une instance `ILogger` présente des attributs `Category` et `Level` associés. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) est une énumération, et le code d’entier indique l’importance relative :
+Chaque journal créé par une instance `ILogger` présente des attributs `Category` et `Level` associés. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) est une énumération, et le code d’entier indique l’importance relative :
 
 |LogLevel    |Code|
 |------------|---|
@@ -474,7 +474,7 @@ Chaque journal créé par une instance `ILogger` présente des attributs `Catego
 |Critique    | 5. |
 |Aucun        | 6. |
 
-Chaque catégorie peut être filtrée indépendamment en fonction d’un attribut [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel) spécifique. Par exemple, il se peut que vous souhaitiez afficher tous les journaux pour le traitement de déclencheurs blob, mais uniquement les niveaux `Error` et plus élevés pour tous les autres éléments.
+Chaque catégorie peut être filtrée indépendamment en fonction d’un attribut [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) spécifique. Par exemple, il se peut que vous souhaitiez afficher tous les journaux pour le traitement de déclencheurs blob, mais uniquement les niveaux `Error` et plus élevés pour tous les autres éléments.
 
 Pour simplifier la spécification des règles de filtrage, le Kit de développement logiciel (SDK) WebJobs fournit l’objet `LogCategoryFilter`, qui peut être transmis à un grand nombre des fournisseurs de journalisation existants, y compris Application Insights et la console.
 

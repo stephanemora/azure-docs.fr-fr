@@ -347,5 +347,5 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=active-directory)
-## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

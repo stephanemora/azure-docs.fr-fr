@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: f5c74055747cacbede479e12397bbb66ac74d10e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 13d09471191deed670db97a9f18e15bc9577dd1a
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615634"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713416"
 ---
 # <a name="use-the-azure-machine-learning-cli-extension"></a>Utiliser l’extension CLI Azure Machine Learning
 
@@ -43,7 +43,7 @@ L’interface CLI ne remplace en rien le kit de développement logiciel (SDK) Az
 * [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 > [!NOTE]
-> Pour utiliser l'interface de ligne de commande, vous devez disposer d'un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+> Pour utiliser l'interface de ligne de commande, vous devez disposer d'un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
 
 ## <a name="install-the-extension"></a>Installer l’extension
 

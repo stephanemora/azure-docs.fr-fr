@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040038"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335621"
 ---
 # <a name="prebuilt-domain-reference"></a>Référence de domaine prédéfini
 Cette référence fournit des informations sur les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md), qui sont des collections prédéfinies d’intentions et d’entités proposées par LUIS.
@@ -27,27 +27,27 @@ LUIS propose 20 domaines prédéfinis.
 
 | Domaine prédéfini | Description | Langues prises en charge |
 | ---------------- |-----------------------|:------:|
-| Calendrier | Le domaine Calendrier fournit des intentions et entités pour ajouter, supprimer ou modifier un rendez-vous, vérifier la disponibilité des participants et rechercher des informations sur un événement de calendrier.| fr-FR<br/> zh-CN |
-| Caméra | Le domaine Caméra fournit des intentions et entités pour prendre des photos, enregistrer des vidéos et diffuser une vidéo sur une application.| fr-FR |
-| Communication | Envoi de messages et appels téléphoniques.| fr-FR <br/> zh-CN |
-| Divertissement  | Gestion des requêtes liées à la musique, aux films et à la TV.| fr-FR |
-| Événements | Réservation des tickets de concerts, festivals, rencontres sportives et spectacles de comédie.| fr-FR |
-| Fitness | Gestion des requêtes liées au suivi des activités de fitness.| fr-FR |
-| Jeux | Gestion des requêtes liées à une partie d’un jeu multijoueurs.| fr-FR |
-| HomeAutomation | Contrôle des appareils domestiques intelligents tels que les lumières et les appliances.| fr-FR<br/> zh-CN |
-| MovieTickets | Réservation de tickets de films au cinéma.| fr-FR |
-| Musique | Lecture de musique sur un lecteur de musique.| fr-FR<br/> zh-CN |
-| Remarque | Le domaine Note fournit des intentions et entités liées à la création, la modification et la recherche de notes.| fr-FR<br/> zh-CN |
-| OnDevice | Le domaine OnDevice fournit des intentions et entités liées au contrôle de l’appareil.| fr-FR<br/> zh-CN |
-| Lieux  | Gestion des requêtes liées aux lieux tels que les entreprises, établissements, restaurants, espaces publics et adresses.| fr-FR<br/> zh-CN |
-| Rappel | Gestion des requêtes liées à la création, la modification et la recherche de rappels.| fr-FR<br/> zh-CN |
-| RestaurantReservation | Gestion des requêtes pour gérer les réservations de restaurant.| fr-FR<br/> zh-CN |
-| Taxi | Gestion des réservations de taxi.| fr-FR<br/> zh-CN |
-| Translate | Traduction de texte dans une langue cible.| fr-FR<br/> zh-CN |
-| TV | Contrôle des téléviseurs.| fr-FR |
-| Services  | Gestion des requêtes communes à de nombreux domaines telles que « aide », « répéter », « recommencer ».| fr-FR |
-| Météo | Obtention de rapports et de prévisions météo.| fr-FR<br/> zh-CN |
-| Web | Navigation vers un site web.| fr-FR<br/> zh-CN |
+| Calendrier | Le domaine Calendrier fournit des intentions et entités pour ajouter, supprimer ou modifier un rendez-vous, vérifier la disponibilité des participants et rechercher des informations sur un événement de calendrier.| en-US<br/> zh-CN |
+| Caméra | Le domaine Caméra fournit des intentions et entités pour prendre des photos, enregistrer des vidéos et diffuser une vidéo sur une application.| en-US |
+| Communication | Envoi de messages et appels téléphoniques.| en-US <br/> zh-CN |
+| Divertissement  | Gestion des requêtes liées à la musique, aux films et à la TV.| en-US |
+| Événements | Réservation des tickets de concerts, festivals, rencontres sportives et spectacles de comédie.| en-US |
+| Fitness | Gestion des requêtes liées au suivi des activités de fitness.| en-US |
+| Jeux | Gestion des requêtes liées à une partie d’un jeu multijoueurs.| en-US |
+| HomeAutomation | Contrôle des appareils domestiques intelligents tels que les lumières et les appliances.| en-US<br/> zh-CN |
+| MovieTickets | Réservation de tickets de films au cinéma.| en-US |
+| Musique | Lecture de musique sur un lecteur de musique.| en-US<br/> zh-CN |
+| Remarque | Le domaine Note fournit des intentions et entités liées à la création, la modification et la recherche de notes.| en-US<br/> zh-CN |
+| OnDevice | Le domaine OnDevice fournit des intentions et entités liées au contrôle de l’appareil.| en-US<br/> zh-CN |
+| Lieux  | Gestion des requêtes liées aux lieux tels que les entreprises, établissements, restaurants, espaces publics et adresses.| en-US<br/> zh-CN |
+| Rappel | Gestion des requêtes liées à la création, la modification et la recherche de rappels.| en-US<br/> zh-CN |
+| RestaurantReservation | Gestion des requêtes pour gérer les réservations de restaurant.| en-US<br/> zh-CN |
+| Taxi | Gestion des réservations de taxi.| en-US<br/> zh-CN |
+| Translate | Traduction de texte dans une langue cible.| en-US<br/> zh-CN |
+| TV | Contrôle des téléviseurs.| en-US |
+| Services  | Gestion des requêtes communes à de nombreux domaines telles que « aide », « répéter », « recommencer ».| en-US |
+| Météo | Obtention de rapports et de prévisions météo.| en-US<br/> zh-CN |
+| Web | Navigation vers un site web.| en-US<br/> zh-CN |
 
 Pour plus de détails sur chaque domaine, consultez les sections qui suivent.
 

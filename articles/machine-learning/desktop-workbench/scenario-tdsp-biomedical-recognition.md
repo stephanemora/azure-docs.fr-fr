@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0d31fc0ecb06727aa44d31d832b0bfd5145b7c7d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973760"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262090"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconnaissance d’entités biomédicales à l’aide du modèle Team Data Science Process (TDSP)
 
@@ -122,7 +122,7 @@ Toutes les dépendances requises sont définies dans le fichier aml_config/conda
 * Fastparquet
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>Instructions de base pour Azure Machine Learning (AML) Workbench
-* [Vue d’ensemble](../service/overview-what-is-azure-ml.md)
+* [Vue d'ensemble](../service/overview-what-is-azure-ml.md)
 * [Installation](quickstart-installation.md)
 * [Utilisation de TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [Lecture et écriture de fichiers](how-to-read-write-files.md)
@@ -174,7 +174,7 @@ Word2Vec est l’algorithme d’apprentissage libre d’incorporation de mots qu
 
 ![Modèle Skip-Gram](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-Le modèle utilise un échantillonnage de Hierarchical Softmax et Negative pour optimiser les performances. SoftMax hiérarchique (H-SoftMax) est une approximation qui s’inspire des arbres binaires. H-SoftMax remplace essentiellement la couche SoftMax plane par une couche hiérarchique où les mots apparaissent comme des nœuds terminaux. Cela permet de décomposer le calcul de la probabilité d’un mot dans une séquence de calculs de probabilité, ce qui évite d’avoir à calculer la normalisation coûteuse sur tous les mots. Étant donné qu’un arbre binaire a une profondeur de log2(|V|) (où V est le vocabulaire), nous avons uniquement besoin d’évaluer tout au plus les nœuds de log2(|V|) pour obtenir la probabilité finale d’un mot. La probabilité d’un mot w en fonction de son contexte c correspond alors simplement au produit des probabilités de prendre des déviations à droite et à gauche respectivement qui mènent à son nœud terminal. Nous pouvons créer un arbre de Huffman en fonction de la fréquence des mots dans le jeu de données pour s’assurer que les mots les plus fréquents aient des représentations plus courtes. Pour plus d'informations, consultez [ce lien](http://sebastianruder.com/word-embeddings-softmax/).
+Le modèle utilise un échantillonnage de Hierarchical Softmax et Negative pour optimiser les performances. SoftMax hiérarchique (H-SoftMax) est une approximation qui s’inspire des arbres binaires. H-SoftMax remplace essentiellement la couche SoftMax plane par une couche hiérarchique où les mots apparaissent comme des nœuds terminaux. Cela permet de décomposer le calcul de la probabilité d’un mot dans une séquence de calculs de probabilité, ce qui évite d’avoir à calculer la normalisation coûteuse sur tous les mots. Étant donné qu’un arbre binaire a une profondeur de log2(|V|) (où V est le vocabulaire), nous avons uniquement besoin d’évaluer tout au plus les nœuds de log2(|V|) pour obtenir la probabilité finale d’un mot. La probabilité d’un mot w en fonction de son contexte c correspond alors simplement au produit des probabilités de prendre des déviations à droite et à gauche respectivement qui mènent à son nœud terminal. Nous pouvons créer un arbre de Huffman en fonction de la fréquence des mots dans le jeu de données pour s’assurer que les mots les plus fréquents aient des représentations plus courtes. Pour plus d'informations, consultez [ce lien](http://ruder.io/word-embeddings-softmax/).
 Image extraite de [cette page](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Visualisation

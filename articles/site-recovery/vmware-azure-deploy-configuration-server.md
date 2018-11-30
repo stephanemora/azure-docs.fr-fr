@@ -2,18 +2,18 @@
 title: Déployer le serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery | Microsoft Docs
 description: Cet article explique comment déployer un serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: raynew
-ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.date: 11/18/2018
+ms.author: ramamill
+ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025274"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162600"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -117,6 +117,14 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 8. Sélectionnez **Finaliser la configuration** pour terminer l’inscription.
 9. Une fois l’inscription terminée, ouvrez le Portail Azure, vérifiez que le serveur de configuration et le serveur VMware sont listés dans **Coffre Recovery Services** > **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**.
 
+## <a name="upgrade-the-configuration-server"></a>Mettre à niveau le serveur de configuration
+
+Pour mettre à niveau le serveur de configuration vers la version la plus récente, suivez ces [étapes](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+
+## <a name="manage-the-configuration-server"></a>Gérer le serveur de configuration
+
+Pour éviter toute interruption d’une réplication continue, assurez-vous que l’adresse IP du serveur de configuration ne change pas une fois celui-ci inscrit dans un coffre. Pour plus d’informations sur les tâches courantes d’administration du serveur de configuration, voir [ici](vmware-azure-manage-configuration-server.md).
+
 ## <a name="faq"></a>Forum Aux Questions
 
 1. Puis-je utiliser la machine virtuelle sur laquelle le serveur de configuration est installé à des fins différentes ?
@@ -140,14 +148,6 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 7. Où puis-je télécharger les clés d’inscription du coffre ?
 
     Dans le **coffre Recovery Services**, **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**. Dans Serveurs, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
-
-## <a name="upgrade-the-configuration-server"></a>Mettre à niveau le serveur de configuration
-
-Pour mettre à niveau le serveur de configuration vers la version la plus récente, suivez ces [étapes](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-
-## <a name="manage-the-configuration-server"></a>Gérer le serveur de configuration
-
-Pour éviter toute interruption d’une réplication continue, assurez-vous que l’adresse IP du serveur de configuration ne change pas une fois celui-ci inscrit dans un coffre. Pour plus d’informations sur les tâches courantes d’administration du serveur de configuration, voir [ici](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement
 

@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: backup
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: raynew
+ms.openlocfilehash: e62771096bc59bc05879ce7b7e2da19f050b27b0
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279607"
+---
 ## <a name="defining-a-backup-policy"></a>Définition d’une stratégie de sauvegarde
 Une stratégie de sauvegarde définit quand les instantanés de données sont pris ainsi que leur durée de conservation. Lors de la définition de la stratégie de sauvegarde d’une machine virtuelle, vous pouvez déclencher un travail de sauvegarde *une fois par jour*. Lorsque vous créez une stratégie, elle est appliquée à l’archivage. L'interface de la stratégie de sauvegarde ressemble à ceci :
 

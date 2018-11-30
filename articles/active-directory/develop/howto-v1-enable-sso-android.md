@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c7d1665eece966053f52e118bb0d6f7f5ec4cba6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957861"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422845"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procédure : activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
 
@@ -130,7 +130,7 @@ Vous pouvez inscrire cet URI de direction dans l’inscription de votre applicat
 
 #### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Étape 3: Configurer les autorisations appropriées dans votre application
 
-Dans Android, l’application de répartiteur utilise la fonctionnalité de Gestionnaire de comptes du système d’exploitation Android pour gérer les informations d’identification entre les applications. Pour pouvoir utiliser le répartiteur dans Android, le manifeste de votre application doit être autorisé à utiliser les comptes AccountManager. Ces autorisations sont décrites en détail dans la [documentation Google pour AccountManager disponible ici](http://developer.android.com/reference/android/accounts/AccountManager.html)
+Dans Android, l’application de répartiteur utilise la fonctionnalité de Gestionnaire de comptes du système d’exploitation Android pour gérer les informations d’identification entre les applications. Pour pouvoir utiliser le répartiteur dans Android, le manifeste de votre application doit être autorisé à utiliser les comptes AccountManager. Ces autorisations sont décrites en détail dans la [documentation Google pour AccountManager disponible ici](https://developer.android.com/reference/android/accounts/AccountManager.html)
 
 Ces autorisations sont les suivantes :
 

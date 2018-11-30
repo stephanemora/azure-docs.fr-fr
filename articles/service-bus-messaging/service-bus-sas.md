@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: ef1b8b2dd96a89a553239168d412d84e63a29f2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254585"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284912"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé
 
@@ -31,7 +31,7 @@ SAP protège l’accès à Service Bus en fonction de règles d’autorisation. 
 
 Les signatures d’accès partagé sont un mécanisme d’autorisation reposant sur des revendications à l’aide de simples jetons. À l’aide d’une SAP, les clés ne sont jamais transmises simultanément. Les clés sont utilisées pour signer par chiffrement des informations qui peuvent être vérifiées ultérieurement par le service. Une SAP peut être utilisée de façon similaire à un schéma de nom d’utilisateur et de mot de passe où le client est en possession immédiate d’un nom de règle d’autorisation et d’une clé correspondante. Une SAP peut également être utilisée comme un modèle de sécurité fédéré, où le client reçoit un jeton d’accès signé et limité dans le temps d’un service d’émission de jeton de sécurité sans jamais être en possession de la clé de signature.
 
-L’authentification SAP dans Service Bus est configurée avec des [règles d’autorisation d’accès partagé](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) nommées ayant les droits d’accès associés, ainsi qu’une paire de clés de chiffrement primaire et secondaire. Les clés sont des valeurs de 256 bits dans une représentation Base64. Vous pouvez configurer des règles au niveau de l’espace de noms, sur les [relais](../service-bus-relay/relay-what-is-it.md), [files d’attente](/service-bus-messaging/service-bus-messaging-overview.md#queues) et [rubriques](/service-bus-messaging/service-bus-messaging-overview.md#topics) Service Bus.
+L’authentification SAP dans Service Bus est configurée avec des [règles d’autorisation d’accès partagé](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) nommées ayant les droits d’accès associés, ainsi qu’une paire de clés de chiffrement primaire et secondaire. Les clés sont des valeurs de 256 bits dans une représentation Base64. Vous pouvez configurer des règles au niveau de l’espace de noms, sur les [relais](../service-bus-relay/relay-what-is-it.md), [files d’attente](service-bus-messaging-overview.md#queues) et [rubriques](service-bus-messaging-overview.md#topics) Service Bus.
 
 Le jeton de [signature d’accès partagé](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) contient le nom de la règle d’autorisation choisie, l’URI de la ressource à laquelle accéder, un délai d’expiration et une signature de chiffrement HMAC-SHA256 calculé sur ces champs à l’aide de la clé de chiffrement primaire ou secondaire de la règle d’autorisation choisie.
 

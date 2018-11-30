@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 49a2c03664ba39a624871b24c0b86a968a67eddb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a0fcb95ed34ed3d98c6b25b475c0866135897f3
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521521"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584670"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Voir l’état des tâches Azure Import/Export
 
@@ -23,7 +23,6 @@ Cet article fournit des informations sur la vérification de l’état des lecte
 Vous pouvez suivre l’état de vos tâches d’importation ou d’exportation dans le portail Azure. Cliquez sur l’onglet **Import/Export**. La liste de vos tâches s’affiche sur la page.
 
 ![Afficher l’état des tâches](./media/storage-import-export-service/jobstate.png)
-
 
 ## <a name="view-job-status"></a>Afficher le statut de la tâche
 
@@ -74,7 +73,7 @@ La durée de traitement d’une tâche d’importation/exportation varie en fonc
 -  Type de tâche et taille des données copiées
 -  Nombre de disques d’une tâche. 
 
-Le service Import/Export n’a pas de contrat de niveau de service mais, il s’efforce d’effectuer la copie en 7 à 10 jours après réception des disques le service. En plus de l’état publié sur le portail Azure, les API REST peuvent être utilisées pour suivre la progression du travail. Le paramètre de pourcentage effectué dans l’appel d’API de l’opération [Répertorier les tâches]() fournit le pourcentage de progression de la copie.
+Le service Import/Export n’a pas de contrat de niveau de service mais, il s’efforce d’effectuer la copie en 7 à 10 jours après réception des disques le service. En plus de l’état publié sur le portail Azure, les API REST peuvent être utilisées pour suivre la progression du travail. Le paramètre de pourcentage effectué dans l’appel d’API de l’opération [Répertorier les tâches](/previous-versions/azure/dn529083(v=azure.100)) fournit le pourcentage de progression de la copie.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -82,4 +81,3 @@ Le service Import/Export n’a pas de contrat de niveau de service mais, il s’
 * [Configurer l’outil WAImportExport](storage-import-export-tool-how-to.md)
 * [Transférer des données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 * [Exemple d’API REST Azure Import Export](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-

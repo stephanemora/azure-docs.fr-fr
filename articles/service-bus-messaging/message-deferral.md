@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 18e668249c50ffbc1020aa12455fdfb87dcb8a24
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855389"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282547"
 ---
 # <a name="message-deferral"></a>Report de message
 
@@ -40,7 +40,6 @@ Pour récupérer un message reporté, son propriétaire doit se souvenir du [Seq
 
 Si un message ne peut pas être traité en raison de l’indisponibilité temporaire d’une ressource nécessaire à la gestion de ce message, mais que le traitement du message ne doit pas être sommairement interrompu, un moyen pour mettre le message de côté pendant quelques minutes consiste à rappeler le **SequenceNumber** dans un [message planifié](message-sequencing.md) à publier après un court instant, puis à récupérer le message reporté lorsque le message planifié arrive. Si un gestionnaire de messages dépend d’une base de données pour toutes les opérations et si la base de données est temporairement indisponible, il ne doit pas utiliser le report, mais plutôt interrompre complètement la réception des messages jusqu’à ce que la base de données soit à nouveau disponible.
 
-Le report des messages n’affecte pas l’expiration du message, ce qui signifie que des messages reportés expirent toujours à la date et à l’heure prévues initialement et sont déplacés dans la file d’attente de lettres mortes, le cas échéant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

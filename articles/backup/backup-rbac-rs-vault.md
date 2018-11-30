@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 11/14/2018
 ms.author: trinadhk
-ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011321"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704645"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
@@ -41,7 +41,7 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 | | Contributeur de machine virtuelle | Ressource de machine virtuelle |
 | Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde | Ressource du coffre |
 | Restaurer une machine virtuelle | Opérateur de sauvegarde | Coffre Recovery Services |
-| | Contributeur de machine virtuelle | Groupe de ressources dans lequel la machine virtuelle sera déployée |
+| | Contributeur | Groupe de ressources dans lequel la machine virtuelle sera déployée |
 | | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |
 | Restaurer la sauvegarde de machine virtuelle de disques non managés | Opérateur de sauvegarde | Ressource du coffre |
 | | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |

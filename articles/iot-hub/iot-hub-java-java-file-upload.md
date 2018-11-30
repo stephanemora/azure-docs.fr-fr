@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: a3019a18fe28840f69a6e14b20dddc72516aa593
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 11b283bf3557fd14663e1789ce19af48b9aa9db2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419535"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824062"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
@@ -41,7 +41,7 @@ Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’
 * **read-file-upload-notification**, qui reçoit les notifications de chargement de fichiers envoyées par le hub IoT.
 
 > [!NOTE]
-> IoT Hub prend en charge de nombreuses plateformes d’appareils et de nombreux langages (notamment C, .NET et JavaScript) par le biais des kits Azure IoT device SDK. Pour obtenir des instructions pas à pas expliquant comment connecter votre appareil à Azure IoT Hub, voir le [Centre de développement Azure IoT](http://azure.microsoft.com/develop/iot).
+> IoT Hub prend en charge de nombreuses plateformes d’appareils et de nombreux langages (notamment C, .NET et JavaScript) par le biais des kits Azure IoT device SDK. Pour obtenir des instructions pas à pas expliquant comment connecter votre appareil à Azure IoT Hub, voir le [Centre de développement Azure IoT](https://azure.microsoft.com/develop/iot).
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -49,7 +49,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Maven 3](https://maven.apache.org/install.html)
 
-* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
+* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -176,7 +176,7 @@ Vous avez besoin de la chaîne de connexion **iothubowner** de votre hub IoT pou
       public void run() {
         try {
           while (true) {
-            System.out.println("Recieve file upload notifications...");
+            System.out.println("Receive file upload notifications...");
             FileUploadNotification fileUploadNotification = fileUploadNotificationReceiver.receive();
             if (fileUploadNotification != null) {
               System.out.println("File Upload notification received");

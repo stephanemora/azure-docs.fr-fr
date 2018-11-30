@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: sngun
-ms.openlocfilehash: d7188270ff5b1edd3b5e396be0cd5fd22e6123c4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d85cada87a6934921bf2775f12c016a88d9fbe9e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855504"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164013"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Utilisation des dates dans Azure Cosmos DB
 Azure Cosmos DB offre une flexibilité des schémas et une indexation riche par le biais d’un modèle de données [JSON](http://www.json.org) natif. Toutes les ressources Azure Cosmos DB, y compris les bases de données, les conteneurs, les documents et les procédures stockées, sont modélisées et stockées en tant que documents JSON. Pour être portable, JSON (et Azure Cosmos DB) prend en charge uniquement un petit ensemble de types de base : chaîne, nombre, booléen, tableau, objet et null. Toutefois, JSON est flexible et permet aux développeurs et aux infrastructures de représenter des types plus complexes en utilisant ces primitives et en les composant en tant qu’objets ou tableaux. 
@@ -68,7 +68,7 @@ Les requêtes de plage ont souvent des valeurs DateTime. Par exemple, si vous av
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
     await client.CreateDocumentCollectionAsync("/dbs/orderdb", collection);
 
-Pour plus d’informations sur la configuration des stratégies d’indexation, consultez [Stratégies d’indexation d’Azure Cosmos DB](indexing-policies.md).
+Pour plus d’informations sur la configuration des stratégies d’indexation, consultez [Stratégies d’indexation d’Azure Cosmos DB](index-policy.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Interrogation des valeurs DateTime dans LINQ
 Le SDK .NET SQL prend automatiquement en charge l’interrogation des données stockées dans Azure Cosmos DB par le biais de LINQ. Par exemple, l’extrait de code suivant montre une requête LINQ qui filtre les commandes qui ont été expédiées au cours des trois derniers jours.
@@ -79,11 +79,11 @@ Le SDK .NET SQL prend automatiquement en charge l’interrogation des données s
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-Pour plus d’informations sur le langage de requête SQL d’Azure Cosmos DB et le fournisseur LINQ, consultez [Interrogation de Cosmos DB](sql-api-sql-query.md).
+Pour plus d’informations sur le langage de requête SQL d’Azure Cosmos DB et le fournisseur LINQ, consultez [Interrogation de Cosmos DB](how-to-sql-query.md).
 
 Dans cet article, nous avons vu comment stocker, indexer et interroger les valeurs DateTime dans Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Télécharger et exécuter les [exemples de code sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* En savoir plus sur les [requêtes SQL](sql-api-sql-query.md)
-* En savoir plus sur les [stratégies d’indexation Azure Cosmos DB](indexing-policies.md)
+* En savoir plus sur les [requêtes SQL](how-to-sql-query.md)
+* En savoir plus sur les [stratégies d’indexation Azure Cosmos DB](index-policy.md)

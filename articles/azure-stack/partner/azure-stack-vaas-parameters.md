@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 25c93560b24b2915ef9a9077b5bca0d15286b0e3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ddc6942b56e3ad4d1f5b16c86dde87f408c1a2c1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646777"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263002"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Paramètres de flux de travail communs pour la validation en tant que service Azure Stack
 
@@ -40,11 +40,11 @@ Les paramètres d’environnement décrivent l’environnement Azure Stack test�
 
 1. Connectez-vous à la machine DVM ou à n’importe quelle machine ayant accès à l’environnement Azure Stack.
 2. Exécutez les commandes suivantes dans une fenêtre PowerShell avec élévation des privilèges :
-    ```PowerShell
+    ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
-    $stampInfoPass = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
-    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $stampInfoPass)
-    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation'
+    $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
+    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $CloudAdminPassword)
+    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation' -Credential $stampInfoCreds
     ConvertTo-Json $params > stampinfoproperties.json
     ```
 
@@ -88,4 +88,4 @@ Lors de la planification des tests, assurez-vous que l’URL est valide pendant 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez les [concepts clés à propos de la validation en tant que service](azure-stack-vaas-key-concepts.md)
+- Découvrez les [concepts clés concernant la validation en tant que service](azure-stack-vaas-key-concepts.md)

@@ -2,25 +2,21 @@
 title: Guides de la science des données SQL Server avec R, Python et T-SQL | Microsoft Docs
 description: Exemples qui montrent comment utiliser R, Python et T-SQL dans SQL Server pour effectuer des analyses prédictives.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: b1b49d9f2f215d08586d4e988fbe5f647da3b937
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 9c97d38bc278ff3632031138e2ac0326200f741f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394900"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442061"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Guides de la science des données SQL Server avec R, Python et T-SQL
 

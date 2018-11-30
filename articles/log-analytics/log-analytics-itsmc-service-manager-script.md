@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 10eeb7a94bd6b2513dc36d0d8a1829eddb452835
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 2bbcfc95895ca925b585ab15d4a2edf404eb162f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040048"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634844"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Créer l’application web Service Manager à l’aide du script automatisé
 
-Utilisez le script suivant pour créer l’application web pour votre instance Service Manager. Informations supplémentaires sur la connexion à Service Manager : [application web Service Manager](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Utilisez le script suivant pour créer l’application web pour votre instance Service Manager. Informations supplémentaires sur la connexion à Service Manager : [application web Service Manager](../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Exécutez le script en fournissant les informations obligatoires suivantes :
 
@@ -323,4 +323,4 @@ if(!$err)
 
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-[Configurez la connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+[Configurez la connexion hybride](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

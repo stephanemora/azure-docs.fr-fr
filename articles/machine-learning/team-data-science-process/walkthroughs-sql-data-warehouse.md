@@ -2,25 +2,21 @@
 title: Procédures pas à pas sur la science des données SQL Data Warehouse à l’aide de T-SQL et de Python sur Azure | Microsoft Docs
 description: Exemples qui montrent comment utiliser SQL Data Warehouse pour effectuer une analyse prédictive.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 9fcc4f9c8a3adc6443ea99606758a00ef8cc2e77
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 425b28a3bfff46de3cb37562be8c6f868117a421
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392741"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444986"
 ---
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Procédures pas à pas sur la science des données SQL Data Warehouse à l’aide de T-SQL et de Python sur Azure
 

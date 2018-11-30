@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 1d996469c01640a70b68d70e8c24c617e0defd64
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250754"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444800"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Mettre à l’échelle automatiquement une instance du service Gestion des API Azure  
 
@@ -32,6 +32,8 @@ Pour suivre les étapes décrites dans cet article, vous devez :
 + Disposer d’une instance du service Gestion des API Azure. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
 + Comprendre le concept de [Capacité d’une instance du service Gestion des API Azure](api-management-capacity.md).
 + Comprendre le [processus de mise à l’échelle manuelle d’une instance du service Gestion des API Azure](upgrade-and-scale.md), notamment les conséquences en termes de coûts.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Limitations de la mise à l’échelle automatique du service Gestion des API Azure
 

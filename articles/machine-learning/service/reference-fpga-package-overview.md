@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 344423ea9943e04dc5f02ebee0903d179be90bbd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 83c5a788f85fcc47c221f5c8f9e6944c4448fbf9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887579"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712124"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Package Accélération matérielle pour Azure Machine Learning
 
@@ -32,7 +32,7 @@ Le package Accélération matérielle pour Azure Machine Learning est une extens
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+1. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
 
 1. Un compte Gestion des modèles Azure Machine Learning Pour obtenir plus d’informations sur la création de ce compte, consultez le [Guide de démarrage rapide d’Azure Machine Learning et l’installation de Workbench](../desktop-workbench/quickstart-installation.md). 
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238860"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427061"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guide technique de l’utilisation du modèle de solution Cortana Intelligence pour prévoir la demande énergétique
 ## <a name="overview"></a>**Vue d’ensemble**
@@ -159,14 +159,14 @@ Une fois le Générateur de données lancé, l’alimentation du pipeline commen
 Cette section décrit comment configurer un tableau de bord Power BI afin de visualiser vos données en temps réel à partir d’Azure Stream Analytics (chemin à chaud), ainsi que les résultats des prévisions à partir d’Azure Machine Learning (chemin à froid).
 
 ### <a name="setup-hot-path-dashboard"></a>Configurer le tableau de bord de chemin à chaud
-Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sortie de données en temps réel des tâches Stream Analytics qui ont été générées au moment du déploiement de la solution. Les étapes suivantes nécessitent un compte [Power BI en ligne](http://www.powerbi.com/) . Si vous ne possédez pas de compte, vous pouvez en [créer un](https://powerbi.microsoft.com/pricing).
+Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sortie de données en temps réel des tâches Stream Analytics qui ont été générées au moment du déploiement de la solution. Les étapes suivantes nécessitent un compte [Power BI en ligne](https://www.powerbi.com/) . Si vous ne possédez pas de compte, vous pouvez en [créer un](https://powerbi.microsoft.com/pricing).
 
 1. Ajouter une sortie Power BI dans Azure Stream Analytics (ASA).
 
    * Pour configurer la sortie de votre travail Azure Stream Analytics en tant que tableau de bord Power BI, vous devez suivre les instructions contenues dans [Azure Stream Analytics et Power BI : tableau de bord d’analyse permettant de visualiser en temps réel les données de streaming](stream-analytics/stream-analytics-power-bi-dashboard.md).
    * Dans votre [portail Azure](https://portal.azure.com), recherchez le travail Stream Analytics. Le nom du travail doit être au format nom_solution+"streamingjob"+nombre_aléatoire+"asapbi" (c’est-à-dire, demostreamingjob123456asapbi).
    * Ajoutez une sortie PowerBI pour le travail ASA. Définissez l’**alias de sortie** sur **PBIoutput**. Dans **Nom du jeu de données** et **Nom de la table**, entrez **EnergyStreamData**. Une fois que vous avez ajouté la sortie, cliquez sur **Démarrer** en bas de la page pour démarrer le travail Stream Analytics. Un message de confirmation doit s’afficher (par exemple : « La tâche Stream Analytics ’myteststreamingjob12345asablob’ a bien démarré »).
-2. Se connecter à [Power BI en ligne](http://www.powerbi.com)
+2. Se connecter à [Power BI en ligne](https://www.powerbi.com)
 
    * Dans la section Jeux de données du volet gauche de Mon espace de travail, un nouveau jeu de données doit apparaître dans le volet gauche de Power BI. Il s'agit des données de diffusion en continu qui ont fait l’objet d’un Push à partir d'Azure Stream Analytics au cours de l'étape précédente.
    * Assurez-vous que le volet ***Visualisations*** est ouvert et qu’il s’affiche à droite de l’écran.
@@ -207,7 +207,7 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
    * Dans la fenêtre contextuelle, remplacez **Serveur** et **Base de données** par vos propres noms de serveur et de base de données, puis cliquez sur **OK**. Pour le nom du serveur, veillez à spécifier le port 1433 (**NomVotreSolution.database.windows.net, 1433**). Ignorez les messages d’avertissement qui s’affichent à l’écran.
    * Dans la fenêtre contextuelle suivante, deux options s’affichent dans le volet gauche (**Windows** et **Base de données**). Cliquez sur **Base de données** et renseignez vos **Nom d’utilisateur** et **Mot de passe** (il s’agit des nom d’utilisateur et mot de passe que vous avez entrés au moment du déploiement de la solution et de la création de la base de données SQL Azure). Dans ***Sélectionnez le niveau auquel appliquer ces paramètres***, cochez l’option du niveau de base de données. Cliquez ensuite sur **Se connecter**.
    * Une fois redirigé sur la page précédente, fermez la fenêtre. Un message apparaît. Cliquez sur **Appliquer**. Pour finir, cliquez sur le bouton **Enregistrer** pour enregistrer les modifications. Votre fichier Power BI a maintenant établi la connexion au serveur. Si vos visualisations sont vides, veillez à désactiver les sélections de visualisation pour visualiser toutes les données en cliquant sur l’icône de suppression en haut à droite des légendes. Utilisez le bouton Actualiser pour afficher les nouvelles données sur les visualisations. Au départ, vous voyez uniquement les données d’amorçage sur vos visualisations, étant donné que la fabrique de données est planifiée pour s’actualiser toutes les 3 heures. Au bout de 3 heures, les nouvelles prédictions sont reflétées dans vos visualisations lorsque vous actualisez les données.
-3. (Facultatif) Publier le tableau de bord de chemin à froid dans [Power BI en ligne](http://www.powerbi.com/). Notez que vous avez besoin d’un compte Power BI (ou d’un compte Office 365) pour cette étape.
+3. (Facultatif) Publier le tableau de bord de chemin à froid dans [Power BI en ligne](https://www.powerbi.com/). Notez que vous avez besoin d’un compte Power BI (ou d’un compte Office 365) pour cette étape.
 
    * Cliquez sur **Publier** et attendez quelques secondes : une fenêtre s’affiche pour confirmer que la publication dans Power BI a bien été effectuée avec une coche verte. Cliquez sur le lien suivant : Ouvrir demoprediction.pbix dans Power BI. Pour obtenir des instructions détaillées, consultez la page [Publier à partir de Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Pour créer un tableau de bord : cliquez sur le signe **+** en regard de la section **Tableaux de bord** dans le volet gauche. Nommez ce nouveau tableau de bord « Prévision de la demande - Démonstration ».

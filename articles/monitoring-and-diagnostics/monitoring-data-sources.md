@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: b01dafcda9ed8fe14e3f0d50daf25bae1658faee
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e5b2f071370ec6551e05960c708e2b83918d83ff
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282626"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821376"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consommer des données d’analyse à partir d’Azure
 
@@ -46,6 +46,6 @@ Sur la plateforme Azure, nous rassemblons les données d’analyse dans un empla
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [mesures Azure Monitor](../monitoring/monitoring-data-collection.md)
+- En savoir plus sur les [mesures Azure Monitor](../azure-monitor/platform/data-collection.md)
 - En savoir plus sur le [journal d’activité Azure](monitoring-overview-activity-logs.md)
 - En savoir plus sur les [journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)

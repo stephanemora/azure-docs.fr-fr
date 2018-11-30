@@ -1,3 +1,16 @@
+---
+author: jpconnock
+ms.service: cloud-services
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: jeconnoc
+ms.openlocfilehash: f23d5246401f23694755e63a51c52da5dbf5ac1b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330978"
+---
 > [!WARNING]
 > Quand vous activez les diagnostics pour un rôle existant, toutes les extensions que vous avez déjà définies sont désactivées lors du déploiement du package. Il s’agit des actions suivantes :
 >

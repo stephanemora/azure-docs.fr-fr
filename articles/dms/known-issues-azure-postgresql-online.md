@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: e30ffe2dd79d55e856ef297608745b60578cf7e7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131029"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282874"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure DB pour PostgreSQL
 
 Les sections suivantes décrivent les problèmes connus et limitations associés aux migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL. 
 
 ## <a name="online-migration-configuration"></a>Configuration d’une migration en ligne
-- Le serveur PostgreSQL source doit exécuter la version 9.5.11, 9.6.7 ou 10.3, ou une version ultérieure. Pour plus d’informations, consultez l’article [Versions de bases de données PostgreSQL prises en charge](1.2.%09https:/docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- Le serveur PostgreSQL source doit exécuter la version 9.5.11, 9.6.7 ou 10.3, ou une version ultérieure. Pour plus d’informations, consultez l’article [Versions de bases de données PostgreSQL prises en charge](../postgresql/concepts-supported-versions.md).
 - Seules les migrations dans la même région sont prises en charge. Par exemple, une migration PostgreSQL 9.5.11 à Azure Database pour PostgreSQL 9.6.7 n’est pas prise en charge.
 - Pour activer la réplication logique dans le fichier **postgresql.config PostgreSQL source**, définissez les paramètres suivants :
     - **wal_level** = logique

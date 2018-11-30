@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: terrylan
-ms.openlocfilehash: 978ef8087665edb3f0bfaa0bd0a55f4d8ab9a12d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3640e4affe42986106791cba50f6cbfd97906806
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251502"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308322"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
 Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité.
@@ -30,7 +30,7 @@ Vous pouvez réduire les risques d’un incident de sécurité en configurant un
 >
 
 ## <a name="managing-security-recommendations"></a>Gestion des Recommandations de sécurité
-Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement ou groupe de ressources spécifique. Dans Security Center, vous définissez des stratégies en fonction des exigences de sécurité de votre entreprise. Pour en savoir plus, consultez [Définir des stratégies de sécurité dans Security Center](security-center-policies.md).
+Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement ou groupe de ressources spécifique. Dans Security Center, vous définissez des stratégies en fonction des exigences de sécurité de votre entreprise. Pour en savoir plus, consultez [Définir des stratégies de sécurité dans Security Center](security-center-azure-policy.md).
 
 Les stratégies de sécurité pour ce groupe de ressources sont héritées du niveau d’abonnement.
 

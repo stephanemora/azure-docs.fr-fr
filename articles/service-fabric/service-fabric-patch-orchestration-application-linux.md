@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746715"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285150"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Linux dans votre cluster Service Fabric
 
@@ -147,7 +147,7 @@ Vous pouvez configurer le comportement de l’application d’orchestration des 
 
 1. Préparez le cluster en effectuant toutes les étapes prérequises.
 2. Déployez l’application d’orchestration des correctifs comme toute autre application Service Fabric. Vous pouvez déployer l’application à l’aide de PowerShell ou de l’interface de ligne de commande Azure Service Fabric. Suivez les étapes indiquées dans [Déployer et supprimer des applications avec PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) ou [Déployer une application à l’aide de l’interface de ligne de commande Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application).
-3. Pour configurer l’application au moment du déploiement, passez `ApplicationParamater` à l’applet de commande `New-ServiceFabricApplication` ou aux scripts fournis. Par commodité, des scripts Powershell (Deploy.ps1) et bash (Deploy.sh) sont fournis avec l’application. Pour utiliser le script :
+3. Pour configurer l’application au moment du déploiement, passez `ApplicationParameter` à l’applet de commande `New-ServiceFabricApplication` ou aux scripts fournis. Par commodité, des scripts Powershell (Deploy.ps1) et bash (Deploy.sh) sont fournis avec l’application. Pour utiliser le script :
 
     - Connectez-vous à un cluster Service Fabric.
     - Exécutez le script Deploy. Passez éventuellement le paramètre d’application au script. Exemple : .\Deploy.ps1 - ApplicationParameter @{UpdateFrequency = "Quotidienne, 11:00:00"} OU ./Deploy.sh "{\"UpdateFrequency\":\"Quotidienne, 11:00:00\"}" 

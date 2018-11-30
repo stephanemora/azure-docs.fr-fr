@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 0a2a9845f82f1a81f3e187edbbb2deaa2300b3be
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: de0d8d5fb538619e94595ef322eeb80c4de743be
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585915"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426286"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Activation d’une authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL
 
@@ -218,7 +218,7 @@ Une fois que vous disposez des droits appropriés, un fichier nommé `entitlemen
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
     <key>keychain-access-groups</key>

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: dae757231d8f2ff7fcd8e032d941c0fa9f192796
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22983344"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443625"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modèles Produit dans Gestion des API Azure
+
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
   
  Les modèles de cette section vous permettent de personnaliser le contenu des pages Produit dans le portail des développeurs.  
@@ -31,7 +32,9 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 -   [Produit](#Product)  
   
 > [!NOTE]
->  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="ProductList"></a> Liste de produits  
  Le modèle **Liste de produits** vous permet de personnaliser le corps de la page Liste de produits dans le portail des développeurs.  
@@ -75,7 +78,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 ### <a name="data-model"></a>Modèle de données  
   
-|Propriété|Type|Description|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |Pagination|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection de produits.|  
 |Filtrage|Entité [Filtering](api-management-template-data-model-reference.md#Filtering).|Informations de filtrage de la page Liste de produits.|  
@@ -200,14 +203,14 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 ### <a name="data-model"></a>Modèle de données  
   
-|Propriété|Type|Description|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |Produit|[Produit](api-management-template-data-model-reference.md#Product)|Produit spécifié.|  
 |IsDeveloperSubscribed|booléenne|Si l’utilisateur actuel est abonné à ce produit.|  
 |SubscriptionState|number|État de l’abonnement. Les états possibles sont :<br /><br /> -   `0 - suspended` : l’abonnement est bloqué et l’abonné ne peut appeler aucune API du produit.<br />-   `1 - active` : l’abonnement est actif.<br />-   `2 - expired` : l’abonnement a atteint sa date d’expiration et a été désactivé.<br />-   `3 - submitted` : la demande d’abonnement a été effectuée par le développeur, mais n’a pas encore été approuvée ou rejetée.<br />-   `4 - rejected` : la demande d’abonnement a été refusée par un administrateur.<br />-   `5 - cancelled` : l’abonnement a été annulé par le développeur ou l’administrateur.|  
 |limites|array|Cette propriété est déconseillée et ne doit pas être utilisée.|  
 |DelegatedSubscriptionEnabled|booléenne|Indique si la [délégation](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) est activée pour cet abonnement.|  
-|DelegatedSubscriptionUrl|string|Si la délégation est activée, indique l’URL de l’abonnement délégué.|  
+|DelegatedSubscriptionUrl|chaîne|Si la délégation est activée, indique l’URL de l’abonnement délégué.|  
 |IsAgreed|booléenne|Si le produit est associé à un contrat, indique si l’utilisateur actuel a accepté les termes du contrat.|  
 |Abonnements|Collection d’entités [Subscription summary](api-management-template-data-model-reference.md#SubscriptionSummary).|Abonnements au produit.|  
 |Apis|Collection d’entités [API](api-management-template-data-model-reference.md#API).|API dans ce produit.|  
@@ -259,4 +262,4 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).
+Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](api-management-developer-portal-templates.md).

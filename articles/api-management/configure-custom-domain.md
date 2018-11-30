@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
-ms.locfileid: "29345368"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446368"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé 
 
@@ -36,6 +36,8 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 + Une instance APIM. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
 + Un nom de domaine personnalisé qui vous appartient. Vous devez vous procurer séparément le nom de domaine personnalisé que vous souhaitez utiliser. De plus, il doit être hébergé sur un serveur DNS. Cette rubrique ne donne aucune instruction sur l’hébergement d’un nom de domaine personnalisé.
 + Vous devez disposer d’un certificat valide et d’une clé publique et privée (.PFX). Le sujet ou l’autre nom du sujet doit correspondre au nom du domaine. Cela permet à APIM d’exposer des URL de manière sécurisée, via SSL.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Utiliser le portail Azure pour définir un nom de domaine personnalisé
 
@@ -63,6 +65,6 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Mettre à niveau votre service et le mettre à l’échelle](upgrade-and-scale.md)

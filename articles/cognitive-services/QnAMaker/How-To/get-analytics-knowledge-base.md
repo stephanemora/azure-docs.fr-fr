@@ -5,17 +5,18 @@ description: QnA Maker stocke tous les journaux de conversation et d’autres do
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
+displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim88
-ms.openlocfilehash: dc363a3ba0d809a3307a6803993bdf500da45f1b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ea5d9a86f558187e77017a9d49f43e851192c65a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035409"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635405"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obtenir des analyses sur votre base de connaissances
 
@@ -58,9 +59,9 @@ QnA Maker stocke tous les journaux de conversation et d’autres données de té
     | where url endswith "generateAnswer" and name startswith "POST"
     | parse name with *"/knowledgebases/"KbId"/generateAnswer" 
     | summarize ChatCount=count() by bin(timestamp, 1d), KbId
-``` 
+``` 
 
-### <a name="total-question-traffic-in-a-given-time-period"></a>Question sur le trafic total dans un laps de temps donné
+### Total question traffic in a given time period
 
 ```query
     //Total Question Traffic in a given time period

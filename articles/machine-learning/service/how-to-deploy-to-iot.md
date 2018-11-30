@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: dc6119bdca850a71064795a80f3087c15189a2e5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091621"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51709999"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Préparer le déploiement des modèles sur IoT Edge
 
@@ -27,7 +27,7 @@ Avant de déployer un modèle sur un appareil de périmètre, utilisez les étap
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+* Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
 
 * Un espace de travail de service Microsoft Azure Machine Learning. Pour en créer un, effectuez les étapes décrites dans le document [Bien démarrer avec le service Azure Machine Learning](quickstart-get-started.md).
 

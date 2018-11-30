@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6e711b99fa197a2092a673c87124e49fcf3c293e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404067"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635524"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Collecter et analyser les journaux d’activités Azure dans Log Analytics
 
@@ -54,8 +54,8 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 
 | Source connectée | Pris en charge | Description |
 | --- | --- | --- |
-| [Agents Windows](log-analytics-windows-agent.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
-| [Agents Linux](log-analytics-linux-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
+| [Agents Windows](../azure-monitor/platform/agent-windows.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
+| [Agents Linux](log-analytics-quick-collect-linux-computer.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
@@ -67,7 +67,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 
 Procédez comme suit pour configurer la solution Activity Log Analytics pour vos espaces de travail.
 
-1. Activez la solution Activity Log Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
+1. Activez la solution Activity Log Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](../azure-monitor/insights/solutions.md).
 2. Configurez les journaux d’activité de manière à ce qu’ils accèdent à votre espace de travail Log Analytics.
     1. Dans le portail Azure, sélectionnez votre espace de travail, puis cliquez sur **Journal d’activité Azure**.
     2. Pour chaque abonnement, cliquez sur le nom de l’abonnement.  
@@ -100,5 +100,5 @@ Les données de journal d’activité apparaissent uniquement *après* avoir con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Créez une [alerte](log-analytics-alerts-creating.md) lorsqu’une activité spécifique se produit.
-- Utilisez la fonction [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées provenant de vos journaux d’activité.
+- Créez une [alerte](../monitoring-and-diagnostics/alert-metric.md) lorsqu’une activité spécifique se produit.
+- Utilisez la fonction [Recherche dans les journaux](log-analytics-queries.md) pour afficher des informations détaillées provenant de vos journaux d’activité.

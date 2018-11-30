@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 03c6d45cb3a20244ddbb9c0aec693f7802a95b22
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19de4164f8d5049d72c3dd5c0a04b7ba4cee7065
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976356"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821138"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Surveillance du cache Redis Azure
 Le cache Redis Azure utilise [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) afin d’offrir plusieurs possibilités de surveillance de vos instances de cache. Vous pouvez afficher les mesures, épingler des graphiques de mesure au Tableau d’accueil, personnaliser la plage de date et d’heure des graphiques de surveillance, ajouter et supprimer des mesures dans les graphiques et définir des alertes lorsque certaines conditions sont remplies. Ces outils vous permettent de surveiller l’intégrité de vos instances Cache Redis Azure et vous aident à gérer vos applications de mise en cache.
@@ -61,7 +61,7 @@ Pour plus d’informations sur l’utilisation des mesures à l’aide d’Azure
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exporter les mesures de cache
-Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../monitoring/monitoring-data-collection.md#metrics) , puis supprimées. Pour conserver vos mesures de cache pendant plus de 30 jours, vous pouvez [désigner un compte de stockage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) et spécifiez une stratégie de **Rétention (jours)** pour vos mesures de cache. 
+Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../azure-monitor/platform/data-collection.md#metrics) , puis supprimées. Pour conserver vos mesures de cache pendant plus de 30 jours, vous pouvez [désigner un compte de stockage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) et spécifiez une stratégie de **Rétention (jours)** pour vos mesures de cache. 
 
 Pour configurer un compte de stockage pour vos mesures de cache :
 

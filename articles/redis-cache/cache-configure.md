@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 58e913aa2b4a89a573f6d901803979e662c27af2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 39c72dde6bcfec2879efd05a1769ad443c9ffd2f
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954039"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823960"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Configuration de Cache Redis Azure
 Cette rubrique décrit les configurations disponibles pour vos instances de Cache Redis Azure. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de Cache Redis Azure.
@@ -38,7 +38,7 @@ Les paramètres de Cache Redis Azure sont affichés et configurés dans le panne
 
 Vous pouvez afficher et configurer les paramètres suivants à l’aide du **Menu Ressource**.
 
-* [Vue d’ensemble](#overview)
+* [Vue d'ensemble](#overview)
 * [Journal d’activité](#activity-log)
 * [Contrôle d’accès (IAM)](#access-control-iam)
 * [Balises](#tags)
@@ -353,7 +353,7 @@ Cliquez sur **Règles d’alerte** pour configurer des alertes en fonction des m
 
 ### <a name="diagnostics"></a>Diagnostics
 
-Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../monitoring/monitoring-data-collection.md#metrics), puis supprimées. Pour prolonger vos mesures de cache sur plus de 30 jours, cliquez sur **Diagnostics** pour [configurer le compte de stockage](cache-how-to-monitor.md#export-cache-metrics) utilisé pour stocker les diagnostics de cache.
+Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../azure-monitor/platform/data-collection.md#metrics), puis supprimées. Pour prolonger vos mesures de cache sur plus de 30 jours, cliquez sur **Diagnostics** pour [configurer le compte de stockage](cache-how-to-monitor.md#export-cache-metrics) utilisé pour stocker les diagnostics de cache.
 
 >[!NOTE]
 >En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser vers un Hub d’événements ou les envoyer vers Log Analytics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).

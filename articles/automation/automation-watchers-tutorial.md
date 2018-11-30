@@ -7,17 +7,17 @@ ms.component: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
-ms.date: 03/19/2017
-ms.openlocfilehash: 0cc215d6643c86460a1d5471aa1eed8fdf18e028
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 10/30/2018
+ms.openlocfilehash: 4068ce42babb786ca33e1b0d41fdfefc7d3f78be
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194731"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282770"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Créer des tâches d’observateur Azure Automation pour suivre les modifications des fichiers sur un ordinateur local
 
-Azure Automation utilise des tâches d’observateur afin de surveiller les événements et de déclencher des actions. Ce didacticiel vous guide lors de la création d’une tâche d’observateur pour surveiller l’ajout d’un nouveau fichier à un répertoire.
+Azure Automation utilise des tâches d’observateur afin de surveiller les événements et de déclencher des actions avec des runbooks PowerShell. Ce didacticiel vous guide lors de la création d’une tâche d’observateur pour surveiller l’ajout d’un nouveau fichier à un répertoire.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -42,15 +42,15 @@ Pour effectuer ce didacticiel, vous avez besoin des éléments suivants :
 Ce didacticiel utilise un runbook d’observateur appelé **Watch-NewFile** pour rechercher les nouveaux fichiers dans un répertoire. Le runbook d’observateur récupère la dernière heure d’écriture connue pour les fichiers d’un dossier et examine tous les fichiers plus récents que ce filigrane. À cette étape, vous importez ce runbook dans votre compte Automation.
 
 1. Ouvrez votre compte Automation, puis cliquez sur la page **Runbooks**.
-1. Cliquez sur le bouton **Parcourir la galerie**.
-1. Recherchez « runbook d’observateur », sélectionnez **Runbook d’observateur qui recherche les nouveaux fichiers dans un répertoire** et choisissez **Importer**.
+2. Cliquez sur le bouton **Parcourir la galerie**.
+3. Recherchez « runbook d’observateur », sélectionnez **Runbook d’observateur qui recherche les nouveaux fichiers dans un répertoire** et choisissez **Importer**.
   ![Importer un runbook Automation à partir de l’interface utilisateur](media/automation-watchers-tutorial/importsourcewatcher.png)
 1. Ajoutez un nom et une description pour le runbook, puis sélectionnez **OK** pour importer le runbook dans votre compte Automation.
 1. Sélectionnez **Modifier**, puis cliquez sur **Publier**. Lorsque vous y êtes invité, sélectionnez **Oui** pour publier le runbook.
 
 ## <a name="create-an-automation-variable"></a>Créer une variable Automation
 
-Une [variable automation](automation-variables.md) sert à stocker les timestamps que le runbook précédent lit et stocke à partir de chaque fichier. 
+Une [variable automation](automation-variables.md) sert à stocker les timestamps que le runbook précédent lit et stocke à partir de chaque fichier.
 
 1. Sélectionnez **Variables** sous **RESSOURCES PARTAGÉES**, puis **+ Ajouter une variable**.
 1. Saisissez le nom « Watch-NewFileTimestamp ».
@@ -59,7 +59,7 @@ Une [variable automation](automation-variables.md) sert à stocker les timestamp
 
 ## <a name="create-an-action-runbook"></a>Créer un runbook d’action
 
-Dans une tâche d’observateur, un runbook d’action sert à agir sur les données transmises à partir d’un runbook d’observateur. À cette étape, vous importez un runbook d’action prédéfini appelé « Process-NewFile ».
+Dans une tâche d’observateur, un runbook d’action sert à agir sur les données transmises à partir d’un runbook d’observateur. Les runbooks PowerShell Workflow ne sont pas pris en charge par les tâches d’observateur ; vous devez utiliser des runbooks PowerShell. À cette étape, vous importez un runbook d’action prédéfini appelé « Process-NewFile ».
 
 1. Accédez à votre compte Automation et sélectionnez **Runbooks** sous la catégorie **AUTOMATISATION DES PROCESSUS**.
 1. Cliquez sur le bouton **Parcourir la galerie**.
@@ -89,8 +89,8 @@ La tâche d’observateur contient deux parties. L’observateur et l’action. 
 1. Sélectionnez **Configurer l'action**, puis choisissez le runbook « Process-NewFile ».
 1. Entrez les valeurs suivantes pour les paramètres :
 
-   *    **EVENTDATA** : laissez vide. Les données sont transmises à partir du runbook Watcher.  
-   *    **Paramètres d’exécution** : conservez la valeur Azure, car ce runbook s'exécute dans le service Automation.
+   ***EVENTDATA** : laissez vide. Les données sont transmises à partir du runbook Watcher.  
+   ***Paramètres d’exécution** : conservez la valeur Azure, car ce runbook s'exécute dans le service Automation.
 
 1. Cliquez sur **OK**, puis sur Sélectionner pour revenir à la page de l'observateur.
 1. Cliquez sur **OK** pour créer la tâche d'observateur.
@@ -103,13 +103,13 @@ Pour tester le bon fonctionnement de l’observateur, vous devez créer un fichi
 
 Accédez à distance au worker hybride. Ouvrez **PowerShell** et créez un fichier de test dans le dossier.
   
-   ```PowerShell-interactive
-   New-Item -Name ExampleFile1.txt
-   ```
+```azurepowerShell-interactive
+New-Item -Name ExampleFile1.txt
+```
 
 L’exemple ci-après illustre la sortie attendue.
 
-```
+```output
     Directory: D:\examplefiles
 
 
@@ -129,7 +129,7 @@ Mode                LastWriteTime         Length Name
 
 La sortie attendue lors de la détection du nouveau fichier peut être consultée dans l’exemple suivant :
 
-```
+```output
 Message is Process new file...
 
 
@@ -139,7 +139,7 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Importer un runbook d’observateur

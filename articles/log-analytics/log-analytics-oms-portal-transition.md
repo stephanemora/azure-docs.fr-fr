@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8337d6b353b6651a2699176813220ed7a7a0f879
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612803"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634793"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Migration du portail OMS vers Azure
 
@@ -84,7 +84,7 @@ Vous ne pouvez plus créer d’espaces de travail à l’aide du portail OMS. Po
 Les alertes ont été [étendues au Portail Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Une fois cette opération terminée, les actions de gestion des alertes seront disponibles uniquement dans le portail Azure. Les alertes existantes continueront à être répertoriées dans le portail OMS. Si vous accédez aux alertes par programme à l’aide de l’API REST Log Analytics Alert ou du modèle Log Analytics Alert Resource, vous devrez utiliser des groupes d’actions à la place des actions dans vos appels d’API, modèles Azure Resource Manager et commandes PowerShell.
 
 ### <a name="alert-management-solution"></a>solution de gestion des alertes
-Au lieu de la [solution de gestion des alertes](log-analytics-solution-alert-management.md), vous pouvez utiliser [l’interface d’alerte unifiée d’Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) pour visualiser et gérer vos alertes. Cette nouvelle expérience regroupe les alertes à partir de plusieurs sources dans Azure, notamment les alertes de journal de Log Analytics. Vous pouvez voir les distributions de vos alertes, tirer parti du regroupement automatique des alertes associées via des groupes intelligents et afficher les alertes entre plusieurs abonnements lors de l’application de filtres riches. Toutes ces fonctionnalités sont disponibles en préversion à partir du 4 juin 2018. La solution de gestion des alertes ne sera pas disponible dans le portail Azure. 
+Au lieu de la [solution de gestion des alertes](../azure-monitor/platform/alert-management-solution.md), vous pouvez utiliser [l’interface d’alerte unifiée d’Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) pour visualiser et gérer vos alertes. Cette nouvelle expérience regroupe les alertes à partir de plusieurs sources dans Azure, notamment les alertes de journal de Log Analytics. Vous pouvez voir les distributions de vos alertes, tirer parti du regroupement automatique des alertes associées via des groupes intelligents et afficher les alertes entre plusieurs abonnements lors de l’application de filtres riches. Toutes ces fonctionnalités sont disponibles en préversion à partir du 4 juin 2018. La solution de gestion des alertes ne sera pas disponible dans le portail Azure. 
 
 Les données collectées par la solution Alert Management (enregistrements avec un type d’alerte) se trouvent toujours dans Log Analytics tant que la solution est installée pour l’espace de travail. À partir du mois d’août 2018, le streaming des alertes à partir de la génération d’alertes unifiée dans les espaces de travail sera activée, remplaçant cette fonctionnalité. Certaines modifications du schéma sont attendues et seront annoncées à une date ultérieure.
 
@@ -98,7 +98,7 @@ Avec la prise en charge des [requêtes sur plusieurs ressources](log-analytics-c
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Network Security Group Analytics
-La [solution Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) sera remplacée par [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) récemment lancé qui offre une visibilité sur l’activité des utilisateurs et des applications sur les réseaux cloud. Traffic Analytics vous permet d’auditer l’activité réseau de votre organisation, de sécuriser les applications et les données, d’optimiser les performances de la charge de travail et de rester en conformité. 
+La [solution Azure Network Security Group Analytics](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) sera remplacée par [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) récemment lancé qui offre une visibilité sur l’activité des utilisateurs et des applications sur les réseaux cloud. Traffic Analytics vous permet d’auditer l’activité réseau de votre organisation, de sécuriser les applications et les données, d’optimiser les performances de la charge de travail et de rester en conformité. 
 
 Cette solution analyse les journaux de flux NSG et fournit des insights sur les éléments suivants.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297569"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423115"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
@@ -438,7 +438,7 @@ Un événement associé, à partir du journal Azure Multi-Factor Authentication,
 
 Pour résoudre les problèmes de manière plus poussée, consultez les fichiers journaux au format de base de données NPS où est installé le service NPS. Les fichiers journaux sont créés dans le dossier _%SystemRoot%\System32\Logs_ sous forme de fichiers texte délimité par des virgules. Pour obtenir une description des fichiers journaux, consultez [Interpréter des fichiers journaux au format de base de données NPS](https://technet.microsoft.com/library/cc771748.aspx). 
 
-Les entrées de ces fichiers journaux sont difficilement interprétables à moins de les exporter dans une feuille de calcul ou une base de données. De nombreux outils d’analyse de Service authentification Internet (IAS) sont à votre disposition en ligne pour vous aider à interpréter les fichiers journaux. Voici illustré le résultat d’une de ces [applications de logiciel à contribution volontaire](http://www.deepsoftware.com/iasviewer) téléchargeable : 
+Les entrées de ces fichiers journaux sont difficilement interprétables à moins de les exporter dans une feuille de calcul ou une base de données. De nombreux outils d’analyse de Service authentification Internet (IAS) sont à votre disposition en ligne pour vous aider à interpréter les fichiers journaux. Voici illustré le résultat d’une de ces [applications de logiciel à contribution volontaire](https://www.deepsoftware.com/iasviewer) téléchargeable : 
 
 ![Application de logiciel à contribution volontaire](./media/howto-mfa-nps-extension-vpn/image49.png)
 

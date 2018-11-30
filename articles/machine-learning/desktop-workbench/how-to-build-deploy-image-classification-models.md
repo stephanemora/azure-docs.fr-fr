@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5917cd7a5e4fcc2733765f642ad0958092372c1
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ab9e04b8a9eb4290891b3c7d55f8262c4ba64d44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616212"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584044"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Générer et déployer des modèles de classification d’images avec Azure Machine Learning
 
@@ -37,7 +37,7 @@ Lors de la génération et du déploiement de ce modèle avec AMLPCV, vous parco
 7. Déploiement de services web
 8. Test de chargement de services Web
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) est utilisé en tant que framework d’apprentissage profond, la formation est assurée localement sur une machine optimisée par GPU, comme l’instance ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)) et le déploiement utilise Azure ML Operationalization CLI.
+[CNTK](https://docs.microsoft.com/cognitive-toolkit/) est utilisé en tant que framework d’apprentissage profond, la formation est assurée localement sur une machine optimisée par GPU, comme l’instance ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)) et le déploiement utilise Azure ML Operationalization CLI.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -175,7 +175,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Augmenter les images
 
-Le [module `augmentation`](https://docs.microsoft.com/python/api/cvtk.augmentation) fournit la possibilité d’augmenter un objet dataset en utilisant toutes les transformations décrites dans la bibliothèque [imgaug](https://github.com/aleju/imgaug). Les transformations d’image peuvent être regroupées dans un pipeline unique, dans ce cas toutes les transformations contenues dans le pipeline sont appliquées simultanément à chaque image. 
+Le [module `augmentation`](/python/api/cvtk/cvtk.augmentation.augmentation) fournit la possibilité d’augmenter un objet dataset en utilisant toutes les transformations décrites dans la bibliothèque [imgaug](https://github.com/aleju/imgaug). Les transformations d’image peuvent être regroupées dans un pipeline unique, dans ce cas toutes les transformations contenues dans le pipeline sont appliquées simultanément à chaque image. 
 
 Si vous souhaitez appliquer séparément différentes étapes d’augmentation, ou les appliquer d’une autre manière, vous pouvez configurer plusieurs pipelines et les transmettre à la fonction *augment_dataset*. Pour obtenir plus d’informations et d’autres exemples d’augmentation d’image, consultez la [documentation imgaug](https://github.com/aleju/imgaug).
 

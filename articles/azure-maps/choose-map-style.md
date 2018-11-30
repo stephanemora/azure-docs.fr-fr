@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 32571d88ffc08c19f819335254b4f5dda521bdb0
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885919"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317107"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Choisir un style de carte dans Azure Maps
 
@@ -42,7 +42,7 @@ La deuxième bloc de code utilise la méthode [setStyle](https://docs.microsoft.
 
 Le premier bloc de code dans les ensembles de code ci-dessus définit la clé d’abonnement et crée un objet carte avec le style de carte prédéfini sur grayscale_dark. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
-Le deuxième bloc de code construit un sélecteur de styles à l’aide du constructeur [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) Atlas.
+Le deuxième bloc de code construit un sélecteur de styles à l’aide du constructeur [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) Atlas.
 
 Un sélecteur de styles permet de sélectionner un style pour la carte. Le troisième bloc de code ajoute le sélecteur de styles à la carte en utilisant la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte. Le sélecteur de styles se situe dans le **détecteur d’événements** de la carte pour garantir le chargement une fois que la carte est entièrement chargée.
 

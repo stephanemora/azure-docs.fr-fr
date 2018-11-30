@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aff3ce4bc290f6e4ad2fb11a586372862d0c1462
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9602b8ff4d0df15b030626d5e2cfeca9bcc2bd5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240730"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284112"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Sortie et messages de Runbook dans Azure Automation
-La plupart des Runbooks Azure Automation présentent une certaine forme de sortie. Il peut s’agir, par exemple, d’un message d’erreur à l’attention de l’utilisateur, ou encore d’un objet complexe destiné à être consommé par un autre flux de travail. Windows PowerShell fournit [plusieurs flux](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) pour l’envoi d’une sortie à partir d’un script ou d’un flux de travail. Azure Automation fonctionne différemment avec chacun de ces flux. Lorsque vous créez un Runbook, vous devez suivre les meilleures pratiques relatives à l’utilisation de chaque flux.
+La plupart des Runbooks Azure Automation présentent une certaine forme de sortie. Il peut s’agir, par exemple, d’un message d’erreur à l’attention de l’utilisateur, ou encore d’un objet complexe destiné à être consommé par un autre flux de travail. Windows PowerShell fournit [plusieurs flux](https://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) pour l’envoi d’une sortie à partir d’un script ou d’un flux de travail. Azure Automation fonctionne différemment avec chacun de ces flux. Lorsque vous créez un Runbook, vous devez suivre les meilleures pratiques relatives à l’utilisation de chaque flux.
 
 Le tableau suivant fournit une brève description de chacun des flux et de leur comportement dans le portail Azure lors de l’exécution d’un Runbook publié et lors du [test d’un Runbook](automation-testing-runbook.md). Pour plus de détails sur chaque flux, reportez-vous aux sections suivantes.
 
@@ -64,13 +64,17 @@ Workflow Test-Runbook
 
 Le flux de sortie pour la tâche du Runbook serait :
 
-    Output inside of function
-    Output outside of function
+```output
+Output inside of function
+Output outside of function
+```
 
 Le flux des commentaires pour la tâche du Runbook serait :
 
-    Verbose outside of function
-    Verbose inside of function
+```output
+Verbose outside of function
+Verbose inside of function
+```
 
 Une fois que vous avez publié le Runbook et avant de démarrer, vous devez activer la journalisation détaillée dans les paramètres du Runbook, afin d’obtenir la sortie de flux détaillé.
 
@@ -131,7 +135,7 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 ```
 
 ### <a name="verbose-stream"></a>flux des commentaires
-Ce flux est utilisé pour les informations générales sur le fonctionnement du Runbook. Dans la mesure où le [flux de débogage](#Debug) n’est pas disponible dans un Runbook, les messages documentés doivent être utilisés pour les informations de débogage. Par défaut, les messages documentés provenant de Runbooks publiés ne sont pas stockés dans l’historique des tâches. Pour stocker les messages documentés, configurez les Runbooks publiés de façon à enregistrer les informations de commentaires sous l’onglet de configuration du Runbook dans le portail Azure. Pour des raisons de performances, il est généralement recommandé de conserver le paramètre par défaut (les informations de commentaires ne sont pas enregistrées pour le Runbook). Activez cette option uniquement pour résoudre les problèmes liés à un Runbook ou déboguer un Runbook.
+Ce flux est utilisé pour les informations générales sur le fonctionnement du Runbook. Dans la mesure où le [flux de débogage](#debug-stream) n’est pas disponible dans un Runbook, les messages documentés doivent être utilisés pour les informations de débogage. Par défaut, les messages documentés provenant de Runbooks publiés ne sont pas stockés dans l’historique des tâches. Pour stocker les messages documentés, configurez les Runbooks publiés de façon à enregistrer les informations de commentaires sous l’onglet de configuration du Runbook dans le portail Azure. Pour des raisons de performances, il est généralement recommandé de conserver le paramètre par défaut (les informations de commentaires ne sont pas enregistrées pour le Runbook). Activez cette option uniquement pour résoudre les problèmes liés à un Runbook ou déboguer un Runbook.
 
 Lors du [test d’un Runbook](automation-testing-runbook.md), les messages documentés ne s’affichent pas, même si le Runbook est configuré pour enregistrer les informations de commentaires. Pour afficher les messages documentés lors du [test d’un Runbook](automation-testing-runbook.md), vous devez affecter la valeur Continue à la variable $VerbosePreference. Dans ce cas, les messages documentés sont affichés dans le volet de sortie du test dans le portail Azure.
 

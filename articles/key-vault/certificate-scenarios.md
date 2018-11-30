@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d4d2ce4dcda9ea72d4a33ee363efd3519c2118aa
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385632"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635830"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -51,14 +51,14 @@ Les certificats sont composés de trois ressources reliées entre elles en tant 
 
 **Étape 3** : un administrateur Contoso, ainsi qu’un employé Contoso (utilisateur Key Vault) qui possède des certificats, dépendant de l’autorité de certification, peuvent obtenir un certificat auprès de l’administrateur ou directement à partir du compte avec l’autorité de certification.  
 
--   Commencez par ajouter des informations d’identification dans un coffre de clés en [configurant une ressource émettrice de certificat](/rest/api/keyvault/setcertificateissuer). L’émetteur de certificat est une entité représentée dans Azure Key Vault (KV) en tant que ressource CertificateIssuer. Il fournit des informations sur la source d’un certificat KV, ainsi que le nom de l’émetteur, le fournisseur, les informations d’identification et d’autres détails administratifs.
+-   Commencez par ajouter des informations d’identification dans un coffre de clés en [configurant une ressource émettrice de certificat](/rest/api/keyvault/setcertificateissuer/setcertificateissuer). L’émetteur de certificat est une entité représentée dans Azure Key Vault (KV) en tant que ressource CertificateIssuer. Il fournit des informations sur la source d’un certificat KV, ainsi que le nom de l’émetteur, le fournisseur, les informations d’identification et d’autres détails administratifs.
     -   P. MyDigiCertIssuer  
         -   Fournisseur  
         -   Informations d’identification : informations d’identification du compte d’autorité de certification. Chaque autorité de certification possède ses propres données spécifiques.  
 
-     Pour plus d’informations sur la création de comptes avec des fournisseurs d’autorités de certification, consultez le billet associé sur le [blog Key Vault](http://aka.ms/kvcertsblog).  
+     Pour plus d’informations sur la création de comptes avec des fournisseurs d’autorités de certification, consultez le billet associé sur le [blog Key Vault](https://aka.ms/kvcertsblog).  
 
-**Étape 3.1** : configurez un [contact de certificat](/rest/api/keyvault/setcertificatecontacts) pour les notifications. Il s’agit du contact de l’utilisateur Key Vault. Key Vault n’applique pas cette étape.  
+**Étape 3.1** : configurez un [contact de certificat](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) pour les notifications. Il s’agit du contact de l’utilisateur Key Vault. Key Vault n’applique pas cette étape.  
 
 Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opération unique.  
 
@@ -83,7 +83,7 @@ Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opéra
       -   Informations de renouvellement - > par exemple 90 jours avant l’expiration  
 
   - La création de certificat est généralement un processus asynchrone. Elle implique l’interrogation de votre coffre de clés pour connaître l’état de l’opération de création d’un certificat.  
-[Opération d’obtention du certificat](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
+[Opération d’obtention du certificat](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   État : terminé, en échec avec informations sur l’erreur ou annulé.  
       -   Une opération d’annulation peut être lancée en raison du délai de création. L’annulation peut ou non être effective.  
 

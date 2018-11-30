@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 97350c90ab4ce9c3623a293c3a6637edc65ced08
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345468"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706056"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX et Azure Machine Learning : Créer et déployer des modèles d’intelligence artificielle interopérables
 
-Le format [ONNX (Open Neural Network Exchange)](http://onnx.ai) est une norme ouverte de représentation des modèles Machine Learning. ONNX est pris en charge par une [communauté de partenaires](http://onnx.ai/supported-tools), notamment Microsoft, qui créent des outils et des frameworks compatibles. Microsoft s’est engagé à promouvoir une intelligence artificielle ouverte et interopérable afin de permettre aux scientifiques des données et aux développeurs de :
+Le format [ONNX (Open Neural Network Exchange)](https://onnx.ai) est une norme ouverte de représentation des modèles Machine Learning. ONNX est pris en charge par une [communauté de partenaires](https://onnx.ai/supported-tools), notamment Microsoft, qui créent des outils et des frameworks compatibles. Microsoft s’est engagé à promouvoir une intelligence artificielle ouverte et interopérable afin de permettre aux scientifiques des données et aux développeurs de :
 
 + Utiliser le framework de leur choix pour créer et entraîner des modèles.
 + Déployer des modèles multiplateformes avec un travail d’intégration minimal
@@ -207,6 +207,6 @@ Consultez ces notebooks :
 ## <a name="more-info"></a>En savoir plus
 
 Apprenez-en davantage sur ONNX ou contribuez au projet :
-+ [Site web du projet ONNX](http://onnx.ai)
++ [Site web du projet ONNX](https://onnx.ai)
 
 + [Code ONNX sur GitHub](https://github.com/onnx/onnx)

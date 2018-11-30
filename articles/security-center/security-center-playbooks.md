@@ -3,7 +3,7 @@ title: Playbook de sécurité dans Azure Security Center | Microsoft Docs
 description: Ce document vous aide à utiliser des playbooks de sécurité dans Azure Security Center pour automatiser votre réponse aux incidents de sécurité.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2018
-ms.author: yurid
-ms.openlocfilehash: b9040158679b99ca71a6b973dec9804869351938
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158294"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619909"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook de sécurité dans Azure Security Center (préversion)
 Ce document vous aide à utiliser des playbooks de sécurité dans Azure Security Center pour gérer votre réponse aux incidents de sécurité.
 
 ## <a name="what-is-security-playbook-in-security-center"></a>Qu’est-ce qu’un playbook de sécurité dans Azure Security Center ?
-Un playbook de sécurité est un ensemble de procédures exécutable depuis Security Center lorsqu’un playbook spécifique est déclenché depuis une alerte sélectionnée. Ce playbook peut aider à automatiser et orchestrer votre réponse à une alerte de sécurité spécifique détectée par Azure Security Center. Les playbooks de sécurité dans Azure Security Center sont basés sur [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), ce qui signifie que vous pouvez utiliser les modèles qui sont fournis sous la catégorie de sécurité dans les modèles Logic Apps, les modifier selon vos besoins, ou créer des playbooks à l’aide du [flux de travail Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app) en utilisant Azure Security Center en tant que déclencheur. 
+Un playbook de sécurité est un ensemble de procédures exécutable depuis Security Center lorsqu’un playbook spécifique est déclenché depuis une alerte sélectionnée. Ce playbook peut aider à automatiser et orchestrer votre réponse à une alerte de sécurité spécifique détectée par Azure Security Center. Les playbooks de sécurité dans Azure Security Center sont basés sur [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), ce qui signifie que vous pouvez utiliser les modèles qui sont fournis sous la catégorie de sécurité dans les modèles Logic Apps, les modifier selon vos besoins, ou créer des playbooks à l’aide du [flux de travail Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app) en utilisant Azure Security Center en tant que déclencheur.
 
 > [!NOTE]
-> Le manuel tire parti d’Azure Logic Apps. Pour cette raison, des frais sont applicables. Consultez la page sur la tarification [d’Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pour en savoir plus. 
+> Le manuel tire parti d’Azure Logic Apps. Pour cette raison, des frais sont applicables. Consultez la page sur la tarification [d’Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pour en savoir plus.
 
 ## <a name="how-to-create-a-security-playbook-from-security-center"></a>Comment créer un playbook de sécurité depuis Azure Security Center ?
 Pour créer un playbook de sécurité depuis Azure Security Center, procédez comme suit :
@@ -37,7 +37,7 @@ Pour créer un playbook de sécurité depuis Azure Security Center, procédez 
 2.  Sous **Automation et orchestration**, dans le volet gauche, cliquez sur **Playbooks (préversion)**.
 
     ![Application logique](./media/security-center-playbooks/security-center-playbooks-fig17.png)
- 
+
 3. Dans la page **Security Center - Playbooks (préversion)**, cliquez sur le bouton **Ajouter**.
 
     ![Créer une application logique](./media/security-center-playbooks/security-center-playbooks-fig2.png)
@@ -47,7 +47,7 @@ Pour créer un playbook de sécurité depuis Azure Security Center, procédez 
     ![Créer une application logique](./media/security-center-playbooks/security-center-playbooks-fig3.png)
 
 5. Le **Concepteur d’application logique** s’affiche. Cliquez sur **Application logique vide** pour créer un playbook. Vous pouvez également sélectionner **Sécurité** sous les catégories et utiliser un des modèles.
-    
+
     ![Concepteur d’application logique](./media/security-center-playbooks/security-center-playbooks-fig4.png)
 
 6. Dans le champ **Rechercher dans l’ensemble des connecteurs et des déclencheurs**, saisissez *Azure Security Center*, et choisissez **Quand une réponse à une alerte Azure Security Center est déclenchée**.
@@ -57,7 +57,7 @@ Pour créer un playbook de sécurité depuis Azure Security Center, procédez 
 7. Maintenant, vous pouvez définir l’action effectuée lorsque vous déclenchez le playbook. Vous pouvez ajouter une action, une condition logique, des boucles ou des conditions de casse de commutateurs.
 
     ![Concepteur d’application logique](./media/security-center-playbooks/security-center-playbooks-fig5.png)
-     
+
 ## <a name="how-to-run-a-security-playbook-in-security-center"></a>Comment exécuter un playbook de sécurité dans Security Center ?
 
 Si vous voulez exécuter un playbook de sécurité dans Security Center lorsque vous souhaitez gérer l’orchestration, obtenir d’informations supplémentaires à partir d’autres services ou lorsque vous voulez résoudre un problème. Pour accéder au playbook, procédez comme suit :
@@ -78,7 +78,7 @@ Si vous voulez exécuter un playbook de sécurité dans Security Center lorsque
 
 ### <a name="history"></a>Historique
 
-Après avoir exécuté le playbook, vous pouvez également accéder aux exécutions précédentes et aux étapes qui contiennent plus d’informations sur l’état des playbooks précédemment exécutés. L’historique est personnalisé en fonction de l’alerte. Cela indique que l’historique du playbook que vous voyez apparaître sur cette page est lié à l’alerte qui l’a déclenché. 
+Après avoir exécuté le playbook, vous pouvez également accéder aux exécutions précédentes et aux étapes qui contiennent plus d’informations sur l’état des playbooks précédemment exécutés. L’historique est personnalisé en fonction de l’alerte. Cela indique que l’historique du playbook que vous voyez apparaître sur cette page est lié à l’alerte qui l’a déclenché.
 
 ![Historique](./media/security-center-playbooks/security-center-playbooks-fig16.png)
 
@@ -86,7 +86,7 @@ Pour en savoir plus sur l’exécution d’un playbook spécifique, cliquez sur 
 
 ![Détails](./media/security-center-playbooks/security-center-playbooks-fig14.png)
 
-Dans ce flux de travail, vous pouvez voir l’heure à laquelle chaque tâche y a accédé pour être exécutée, et vous pouvez développer chaque tâche pour voir le résultat de l’opération. 
+Dans ce flux de travail, vous pouvez voir l’heure à laquelle chaque tâche y a accédé pour être exécutée, et vous pouvez développer chaque tâche pour voir le résultat de l’opération.
 
 ### <a name="changing-an-existing-playbook"></a>Modification d’un playbook existant
 
@@ -102,7 +102,6 @@ Dans ce document, vous avez vu comment utiliser des playbooks dans Azure Securi
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Présentation des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
-* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center. 
+* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center.
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). forum aux questions concernant l’utilisation de ce service.
-* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
-
+* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.

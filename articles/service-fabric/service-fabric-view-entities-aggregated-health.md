@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230850"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308986"
 ---
 # <a name="view-service-fabric-health-reports"></a>Affichage rapports d’intégrité de Service Fabric
 Azure Service Fabric propose un [modèle d’intégrité](service-fabric-health-introduction.md) avec des entités d’intégrité sur lesquelles les composants système et les agents de surveillance peuvent signaler les conditions locales qu’ils surveillent. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) agrège toutes les données d’intégrité pour déterminer si les entités sont saines.
@@ -613,7 +613,7 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Vous pouvez obtenir les données d’intégrité des partitions grâce à une [requête GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) ou [POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) qui inclut les stratégies d’intégrité décrites dans le corps.
+Vous pouvez obtenir les données d’intégrité des partitions grâce à une [requête GET](/rest/api/servicefabric/sfclient-api-getpartitionhealth) ou [POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) qui inclut les stratégies d’intégrité décrites dans le corps.
 
 ## <a name="get-replica-health"></a>Obtenir les données d’intégrité des réplicas
 Représente l’intégrité d’un réplica de service avec état ou d’une instance de service sans état. Entrée :

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d291a46eaac0f5e4023d343f700448d029765098
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625621"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634878"
 ---
 # <a name="manage-workspaces"></a>Gestion des espaces de travail
 
@@ -52,7 +52,7 @@ Du point de vue de la consommation, nous vous recommandons de créer aussi peu d
 * Vous êtes un fournisseur de services gérés et vous devez isoler les données Log Analytics des autres données de vos clients.
 * Vous gérez plusieurs clients et vous souhaitez que chaque client/département/groupe métier voie uniquement ses propres données, pas celles des autres.
 
-Lorsque vous utilisez des agents Windows pour collecter des données, vous pouvez [configurer chacun d’entre eux pour qu’il fournisse des rapports à un ou plusieurs espaces de travail](log-analytics-agent-windows.md).
+Lorsque vous utilisez des agents Windows pour collecter des données, vous pouvez [configurer chacun d’entre eux pour qu’il fournisse des rapports à un ou plusieurs espaces de travail](../azure-monitor/platform/agent-windows.md).
 
 Si vous utilisez System Center Operations Manager, chaque groupe d’administration Operations Manager ne peut être connecté qu’à un seul espace de travail. Vous pouvez installer Microsoft Monitoring Agent sur les ordinateurs gérés par Operations Manager et configurer l’agent pour qu’il fournisse des rapports à Operations Manager et à un espace de travail Log Analytics différent.
 
@@ -239,7 +239,7 @@ Votre nouveau forfait de données s’affiche dans le ruban du portail OMS, en 
 ![Ruban OMS](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez [Présentation de l’agent Log Analytics](log-analytics-agent-overview.md) pour collecter des données à partir d’ordinateurs dans votre centre de données ou d’un autre environnement cloud.
+* Consultez [Présentation de l’agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md) pour collecter des données à partir d’ordinateurs dans votre centre de données ou d’un autre environnement cloud.
 * Consultez [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md) pour configurer la collecte de données à partir de machines virtuelles Azure.  
-* [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](../monitoring/monitoring-solutions.md) pour ajouter des fonctionnalités et collecter des données.
+* [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](../azure-monitor/insights/solutions.md) pour ajouter des fonctionnalités et collecter des données.
 

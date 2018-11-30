@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8243d1e297fa778d4fa27f8365d9bb0a935d21e5
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d5216a4a21fbbded4a10429c658f4842db225657
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387992"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161716"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -189,12 +189,12 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](sql-api-sql-query.md#Aggregates).
+* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](how-to-sql-query.md#Aggregates).
 * Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
-Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB permet de générer des applications [ASP.NET Core](https://www.asp.net/core) et [.NET Core](https://www.microsoft.com/net/core#windows) rapides et multiplateformes à exécuter sous Windows, Mac et Linux. La dernière version du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB est entièrement compatible avec [Xamarin](https://www.xamarin.com) et est utilisée pour générer des applications qui ciblent iOS, Android et Mono (Linux).  
+Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB permet de générer des applications [ASP.NET Core](https://www.asp.net/core) et [.NET Core](https://www.microsoft.com/net/core#windows) rapides et multiplateformes à exécuter sous Windows, Mac et Linux. La dernière version du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB est entièrement compatible avec [Xamarin](https://www.xamarin.com) et est utilisée pour générer des applications qui ciblent iOS, Android et Mono (Linux).  
 
 ### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 

@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685172"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262897"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 
 Le déploiement d’un modèle Azure Machine Learning en tant que service web crée une API REST. Vous pouvez envoyer des données à cette API et recevoir la prédiction retournée par le modèle. Dans ce document, découvrez comment créer des clients pour le service web avec C#, Go, Java et Python.
 
-Un service web est créé lorsque vous déployez une image sur une instance de conteneur Azure, Azure Kubernetes Service ou Project Brainwave (field programmable gate arrays). Les images sont créées à partir de modèles inscrits et de fichiers de scoring. L’URI utilisé pour accéder à un service web peut être récupéré en utilisant le [kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Si l’authentification est activée, vous pouvez également utiliser le kit de développement logiciel (SDK) pour obtenir les clés d’authentification.
+Un service web est créé lorsque vous déployez une image sur une instance de conteneur Azure, Azure Kubernetes Service ou Project Brainwave (field programmable gate arrays). Les images sont créées à partir de modèles inscrits et de fichiers de scoring. L’URI utilisé pour accéder à un service web peut être récupéré en utilisant le [kit de développement logiciel (SDK) Azure Machine Learning](https://aka.ms/aml-sdk). Si l’authentification est activée, vous pouvez également utiliser le kit de développement logiciel (SDK) pour obtenir les clés d’authentification.
 
 Le flux de travail général lors de la création d’un client qui utilise un service web ML est :
 

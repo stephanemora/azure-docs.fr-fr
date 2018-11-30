@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 8986f18b9f1f2953ad0612679d31996628870cb1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a965cd70e3eba04f278cf432196b9386b537462d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988221"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424338"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Location dans Azure Active Directory
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) organise des objets comme des utilisateurs et 
 
 ## <a name="who-can-sign-in-to-your-app"></a>Qui peut se connecter à votre application ?
 
-Lorsqu’il s’agit de développer des applications, les développeurs peuvent choisir de configurer leur application pour être mono-locataire ou multi-locataire lors de l’inscription d’application dans le [portail Azure](http://portal.azure.com).
+Lorsqu’il s’agit de développer des applications, les développeurs peuvent choisir de configurer leur application pour être mono-locataire ou multi-locataire lors de l’inscription d’application dans le [portail Azure](https://portal.azure.com).
 * Les applications mono-locataires ne sont disponibles que dans le locataire dans lequel elles ont été inscrites, également appelé leur locataire de base.
 * Les applications multi-locataires sont accessibles aux utilisateurs dans leur locataire de base et d’autres locataires.
 

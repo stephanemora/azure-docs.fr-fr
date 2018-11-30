@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27bfd3176ecad847f9bba2a62abd66b55484443b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144323"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443013"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
 
@@ -26,11 +26,10 @@ La Gestion des API Azure prend en charge le déploiement sur plusieurs régions,
 
 Un nouveau service de Gestion des API Azure contient initialement une seule [unité][unit] dans une seule région Azure, la Région primaire. D’autres régions peuvent être facilement ajoutées via le portail Azure. Un serveur de passerelle Gestion des API est déployé dans chaque région et le trafic d’appel est acheminé vers la passerelle la plus proche. Si une région est déconnectée, le trafic est automatiquement redirigé vers la passerelle suivante la plus proche.
 
-> [!IMPORTANT]
-> Le déploiement multi-régions est disponible uniquement dans le niveau **[Premium][Premium]**.
-
 > [!NOTE]
 > La Gestion des API Azure réplique uniquement le composant de la passerelle API dans les différentes régions. Le composant du service de gestion est hébergé uniquement dans la région primaire. En cas de panne dans la région primaire, il est impossible d’appliquer les modifications de configuration sur une instance de service de Gestion des API Azure, y compris pour les paramètres et les mises à jour de stratégies.
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"></a>Déploiement d’une instance de service Gestion des API sur une nouvelle région
 

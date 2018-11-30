@@ -3,19 +3,19 @@ title: Définir les suggestions personnalisées de la Suggestion automatique - R
 titlesuffix: Azure Cognitive Services
 description: Décrit comment configurer la Suggestion automatique avec des suggestions personnalisées
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 6d7ee4ef1a84b644a7075e24c0760ea46b407754
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cf3c9061b953264794fbe4f94cbcdcee9d3c69b3
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465540"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423005"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurer votre expérience de Suggestion automatique personnalisée
 
@@ -52,7 +52,7 @@ Si vous incluez des suggestions Bing, vous pouvez ajouter une liste comprenant l
 
 
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 >[!NOTE]  
 >Les modifications de configuration de la Suggestion automatique personnalisée peuvent demander jusqu’à 24 heures pour prendre effet.

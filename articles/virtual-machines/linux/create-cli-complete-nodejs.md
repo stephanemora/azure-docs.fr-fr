@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a38defe41ea7c4e0da32cb73cf2bd73fd80950
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952798"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498220"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Créer un environnement Linux complet avec Azure Classic CLI
 Dans cet article, nous créons un réseau simple avec un équilibreur de charge et deux machines virtuelles à des fins de développement et de calcul simple. Nous suivons ce processus, commande par commande, jusqu’à ce que vous disposiez de deux machines virtuelles Linux sécurisées opérationnelles, auxquelles vous pouvez vous connecter à partir de n’importe quel emplacement via Internet. Vous pourrez ensuite créer des réseaux et des environnements plus complexes.
@@ -285,7 +285,7 @@ Les groupes de ressources Azure sont des entités de déploiement logiques qui c
 azure group create --name myResourceGroup --location westeurope
 ```
 
-Output:
+Sortie :
 
 ```azurecli                        
 info:    Executing command group create
@@ -314,7 +314,7 @@ azure storage account create \
   mystorageaccount
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command storage account create
@@ -328,7 +328,7 @@ Pour examiner notre groupe de ressources à l’aide de la commande `azure group
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -372,7 +372,7 @@ Vous pouvez alors visualiser facilement vos informations de stockage :
 azure storage container list
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command storage container list
@@ -391,7 +391,7 @@ azure network vnet create --resource-group myResourceGroup --location westeurope
   --name myVnet --address-prefixes 192.168.0.0/16
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command network vnet create
@@ -460,7 +460,7 @@ azure network vnet subnet create --resource-group myResourceGroup \
   --vnet-name myVnet --name mySubnet --address-prefix 192.168.1.0/24
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command network vnet subnet create
@@ -482,7 +482,7 @@ info:    network vnet subnet create command OK
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -521,7 +521,7 @@ azure network public-ip create --resource-group myResourceGroup \
   --location westeurope --name myPublicIP --domain-name-label mypublicdns
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command network public-ip create
@@ -546,7 +546,7 @@ L’adresse IP publique étant également une ressource de niveau supérieur, vo
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -598,7 +598,7 @@ Vous pouvez examiner d’autres détails de la ressource, dont le nom de domaine
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -672,7 +672,7 @@ azure network lb address-pool create --resource-group myResourceGroup \
   --lb-name myLoadBalancer --name myBackEndPool
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command network lb address-pool create
@@ -737,7 +737,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --protocol tcp --frontend-port 4222 --backend-port 22
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command network lb inbound-nat-rule create
@@ -839,7 +839,7 @@ azure network lb show --resource-group myResourceGroup \
   --name myLoadBalancer --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -1002,7 +1002,7 @@ Vous pouvez visualiser les détails de la ressource en examinant directement cet
 azure network nic show myResourceGroup myNic1 --json | jq '.'
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -1141,7 +1141,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command vm create
@@ -1166,7 +1166,7 @@ Vous pouvez alors vous connecter immédiatement à votre machine virtuelle à l�
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
 ```
 
-Output:
+Sortie :
 
 ```bash
 The authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
@@ -1212,7 +1212,7 @@ Et vous pouvez à présent utiliser la commande `azure vm show myResourceGroup m
 azure vm show --resource-group myResourceGroup --name myVM1
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 info:    Executing command vm show

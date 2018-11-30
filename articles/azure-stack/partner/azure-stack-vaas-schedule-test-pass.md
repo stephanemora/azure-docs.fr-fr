@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: How to
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1fbda6c0351287b9bc7574d100c0862b172a0aed
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650925"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426925"
 ---
 # <a name="schedule-your-first-test"></a>Planifier votre premier test
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Planifiez un test dans le portail Validation en tant que Service (VaaS) pour votre solution Azure Stack. Une solution VaaS est une solution Azure Stack associée à une nomenclature matérielle (BoM) particulière. Vous pouvez planifier un test pour vérifier que votre matériel peut exécuter Azure Stack.
 

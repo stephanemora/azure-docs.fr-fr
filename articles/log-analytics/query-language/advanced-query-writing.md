@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 11/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3bb7e9837f74fd04d38cc77a9504cc26c6dcf803
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958547"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854184"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Écriture de requêtes avancées dans Log Analytics
 
@@ -76,28 +76,6 @@ Event
 | extend USTimeGenerated = utc_to_us_date_format(TimeGenerated)
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
-
-## <a name="functions"></a>Fonctions
-Vous pouvez enregistrer une requête avec un alias de fonction pour que d’autres requêtes puissent la référencer. Par exemple, la requête standard suivante retourne toutes les mises à jour de sécurité manquantes signalées le dernier jour :
-
-```Kusto
-Update
-| where TimeGenerated > ago(1d) 
-| where Classification == "Security Updates" 
-| where UpdateState == "Needed"
-```
-
-Vous pouvez enregistrer cette requête en tant que fonction et lui donner un alias tel que _security_updates_last_day_. Vous pouvez ensuite l’utiliser dans une autre requête pour rechercher les mises à jour de sécurité nécessaires relatives à SQL :
-
-```Kusto
-security_updates_last_day | where Title contains "SQL"
-```
-
-Pour enregistrer une requête en tant que fonction, sélectionnez le bouton **Enregistrer** dans le portail et remplacez **Enregistrer sous** par _Fonction_. L’alias de fonction peut contenir des lettres, des chiffres ou des traits de soulignement, mais doit commencer par une lettre ou un trait de soulignement.
-
-> [!NOTE]
-> L’enregistrement d’une fonction est possible dans les requêtes Log Analytics, mais pas dans les requêtes Application Insights pour l’instant.
-
 
 ## <a name="print"></a>Print
 `print` retourne une table avec une seule colonne et une seule ligne, qui affiche le résultat d’un calcul. Cette commande est souvent utilisée dans les cas où vous avez besoin d’un calcul simple. Par exemple, pour trouver l’heure actuelle en PST et ajouter une colonne avec EST :

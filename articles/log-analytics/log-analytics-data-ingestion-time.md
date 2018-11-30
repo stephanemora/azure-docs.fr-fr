@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f7b0f7c1cd08168db3f0f0ffd6cf6c4fa2c604e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955241"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334548"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Durée d’ingestion de données dans Log Analytics
 Azure Log Analytics est un service de données à grande échelle dans Azure Monitor servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données soient disponibles dans Log Analytics une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.
@@ -40,7 +40,7 @@ Des informations détaillées sur les différentes latences introduites dans ce 
 Les solutions de gestion et les agents utilisent différentes stratégies pour collecter des données d’une machine virtuelle, ce qui peut affecter la latence. Voici quelques exemples :
 
 - Les événements Windows, événements syslog et métriques de performances sont collectés immédiatement. Les compteurs de performances Linux sont interrogés à des intervalles de 30 secondes.
-- Les journaux IIS et les journaux personnalisés sont collectés une fois que leur timestamp change. Pour les journaux IIS, cela est influencé par le [calendrier de substitution configuré sur IIS](log-analytics-data-sources-iis-logs.md). 
+- Les journaux IIS et les journaux personnalisés sont collectés une fois que leur timestamp change. Pour les journaux IIS, cela est influencé par le [calendrier de substitution configuré sur IIS](../azure-monitor/platform/data-sources-iis-logs.md). 
 - La solution Active Directory Replication effectue son évaluation tous les cinq jours, tandis que la solution Active Directory Assessment effectue une évaluation hebdomadaire de votre infrastructure Active Directory. L’agent collecte ces journaux uniquement lorsque l’évaluation est effectuée.
 
 ### <a name="agent-upload-frequency"></a>Fréquence de chargement de l’agent
@@ -61,7 +61,7 @@ Reportez-vous à la documentation de chaque solution afin de déterminer sa fré
 Une fois que les enregistrements de journal sont ingérés dans le pipeline Log Analytics, ils sont écrits dans un stockage temporaire pour garantir l’isolation des locataires et pour vous assurer que les données ne sont pas perdues. Ce processus ajoute généralement 5 à 15 secondes. Certaines solutions de gestion implémentent des algorithmes plus lourds pour agréger les données et dériver des insights à mesure que les données affluent. Par exemple, Network Performance Monitor agrège les données entrantes toutes les 3 minutes, en ajoutant au final une latence de 3 minutes. Un autre processus qui ajoute une latence est le processus qui gère les journaux personnalisés. Dans certains cas, ce processus peut ajouter quelques minutes de latence aux journaux qui sont collectés à partir de fichiers par l’agent.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisionnement des nouveaux types de données personnalisées
-Quand un type de données personnalisées est créé à partir d’un [journal personnalisé](../log-analytics/log-analytics-data-sources-custom-logs.md) ou de l’[API Collecteur de données](../log-analytics/log-analytics-data-collector-api.md), le système crée un conteneur de stockage dédié. Il s’agit d’une surcharge à usage unique qui se produit uniquement à la première apparition de ce type de données.
+Quand un type de données personnalisées est créé à partir d’un [journal personnalisé](../log-analytics/../azure-monitor/platform/data-sources-custom-logs.md) ou de l’[API Collecteur de données](../log-analytics/log-analytics-data-collector-api.md), le système crée un conteneur de stockage dédié. Il s’agit d’une surcharge à usage unique qui se produit uniquement à la première apparition de ce type de données.
 
 ### <a name="surge-protection"></a>Protection en cas de pics de données
 La priorité numéro 1 de Log Analytics est de s’assurer que les données client ne sont pas perdues. Le système dispose donc d’une protection intégrée pour les pics de données. Cela inclut des mémoires tampons pour veiller à ce que, même sous une charge considérable, le système reste opérationnel. Sous une charge normale, ces contrôles ajoutent moins d’une minute, mais dans des conditions extrêmes et lors de défaillances, ils peuvent ajouter un délai considérable tout en garantissant la sécurité des données.

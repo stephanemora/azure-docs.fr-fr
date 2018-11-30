@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: ba6d79661a2c07ba3eef1f16a117992a858830b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3ae41ff4cf501a58668d25b16027029f6bae4749
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605927"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317485"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Intégrer Azure Time Series Insights à la Supervision à distance
 
@@ -22,7 +22,7 @@ Azure Time Series Insights est un service entièrement managé d’analytique, d
 L’accélérateur de solution de surveillance à distance assure désormais le déploiement automatique et l’intégration à Time Series Insights. Dans cette procédure, vous allez apprendre à configurer Time Series Insights pour une solution de surveillance à distance existante qui ne contient pas déjà Time Series Insights.
 
 > [!NOTE]
-> Time Series Insights n’est pas encore disponible dans le cloud Azure Chine. Les nouveaux déploiements d’accélérateur de solution de surveillance à distance dans le cloud Azure Chine utilisent Cosmos DB pour l’intégralité du stockage.
+> Time Series Insights n’est pas encore disponible dans le cloud Azure Chine. Les nouveaux déploiements d’accélérateurs de solution de supervision à distance dans le cloud Azure en Chine utilisent Cosmos DB pour la totalité du stockage.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -292,6 +292,6 @@ Configurez l’environnement de déploiement `standard` pour les microservices m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour découvrir comment explorer vos données et diagnostiquer une alerte dans l’Explorateur Time Series Insights, consultez notre didacticiel sur la [réalisation d’une analyse de cause racine](/tutorials).
+* Pour découvrir comment explorer vos données et diagnostiquer une alerte dans l’Explorateur Time Series Insights, consultez notre didacticiel sur la [réalisation d’une analyse de cause racine](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
 * Pour apprendre à explorer et interroger des données dans l’Explorateur Time Series Insights, consultez la documentation relative à [l’Explorateur Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

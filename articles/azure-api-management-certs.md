@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 788ce1f2543b9ed76d718cf01d28292f49594414
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037352"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421587"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Charger un certificat de gestion de service Azure
 Les certificats de gestion vous permettent de vous authentifier dans le modèle de déploiement classique fourni par Azure. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. 
@@ -38,7 +38,7 @@ Vous pouvez également utiliser [Azure Active Directory](https://azure.microsoft
 ## <a name="upload-a-management-certificate"></a>Charger un certificat de gestion
 Une fois le certificat de gestion créé (fichier .cer contenant uniquement la clé publique), vous pouvez charger ce dernier sur le portail. Quand le certificat est disponible sur le portail, toute personne disposant d’un certificat adéquat (clé privée) peut se connecter par le biais de l’API de gestion et accéder aux ressources de l’abonnement associé.
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Tous les services** en bas de la liste des services Azure, puis sélectionnez **Abonnements** dans le groupe de services _Général_.
 
     ![Options Abonnements dans le menu](./media/azure-api-management-certs/subscriptions_menu.png)

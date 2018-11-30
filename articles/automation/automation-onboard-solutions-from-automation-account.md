@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b91c3dec1dda401fbacab39325b2c8980ec7254f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ee89f3d57ded382b4d4519e4054448c144b10c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625062"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632685"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -81,7 +81,7 @@ Cliquez sur **+ Ajouter des machines virtuelles Azure**, sélectionnez une ou pl
 
 Les machines qui ne sont pas dans Azure doivent être ajoutées manuellement. À partir de votre compte Automation, Sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
 
-Cliquez sur **Ajouter une machine virtuelle non-Azure**. Une nouvelle fenêtre de navigateur s’ouvre contenant des [instructions pour installer et configurer Microsoft Monitoring Agent sur la machine](../log-analytics/log-analytics-agent-overview.md) pour que celle-ci puisse commencer à envoyer des informations à la solution. Si vous intégrez une machine actuellement gérée par System Center Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire, car les informations de l’espace de travail sont entrées dans l’agent existant.
+Cliquez sur **Ajouter une machine virtuelle non-Azure**. Une nouvelle fenêtre de navigateur s’ouvre contenant des [instructions pour installer et configurer Microsoft Monitoring Agent sur la machine](../azure-monitor/platform/log-analytics-agent.md) pour que celle-ci puisse commencer à envoyer des informations à la solution. Si vous intégrez une machine actuellement gérée par System Center Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire, car les informations de l’espace de travail sont entrées dans l’agent existant.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Intégrer des machines dans l’espace de travail
 

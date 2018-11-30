@@ -17,12 +17,12 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 603da0add9efba4e68088bf0eb6ab919ec9988e2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 30dff14f322bcd66ea56b4b12843a6293cd95326
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955485"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423794"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Comment obtenir une certification AppSource pour Azure Active Directory
 
@@ -118,9 +118,9 @@ Pour plus d’informations sur l’expérience d’essai gratuit AppSource, rega
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Pour l’intégration Azure AD, nous utilisons [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) avec la communauté pour proposer de l’aide. 
+Pour l’intégration Azure AD, nous utilisons [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) avec la communauté pour proposer de l’aide. 
 
-Nous vous recommandons vivement de poser vos questions sur Stack Overflow d’abord et de parcourir les problèmes existants pour voir si quelqu’un d’autre a déjà posé la même question. Assurez-vous que vos questions ou commentaires portent les mentions [`[azure-active-directory]` et `[appsource]`](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Nous vous recommandons vivement de poser vos questions sur Stack Overflow d’abord et de parcourir les problèmes existants pour voir si quelqu’un d’autre a déjà posé la même question. Assurez-vous que vos questions ou commentaires portent les mentions [`[azure-active-directory]` et `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
 

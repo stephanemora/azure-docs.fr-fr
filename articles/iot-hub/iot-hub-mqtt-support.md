@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 53643b185825d4cc03073144e1b3547452629c08
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344963"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497612"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -66,11 +66,11 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
 
 * Pour le champ **ClientId**, utilisez le **deviceId**.
 
-* Dans le champ **Username**, utilisez `{iothubhostname}/{device_id}/api-version=2016-11-14`, où `{iothubhostname}` est l’enregistrement CName complet du hub IoT.
+* Dans le champ **Username**, utilisez `{iothubhostname}/{device_id}/api-version=2018-06-30`, où `{iothubhostname}` est l’enregistrement CName complet du hub IoT.
 
     Par exemple, si le nom de votre hub IoT est **contoso.azure-devices.net** et si le nom de votre appareil est **MyDevice01**, le champ **Username** complet doit contenir :
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`
+    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
 
 * Dans le champ **Password**, utilisez un jeton SAP. Le format du jeton SAP est identique pour les protocoles HTTPS et AMQP :
 

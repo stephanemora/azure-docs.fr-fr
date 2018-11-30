@@ -10,17 +10,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032119"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333494"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
+
  Le test par lot est un test complet sur votre modèle formé en cours afin d’en mesurer les performances dans LUIS. 
 
 <a name="batch-testing"></a>
+
 ## <a name="import-a-dataset-file-for-batch-testing"></a>Importer un fichier de jeu de données pour le test par lot
 
 1. Sélectionnez **Test** dans la partie supérieure de la barre et sélectionnez le **panneau Test par lot**.
@@ -36,6 +38,7 @@ ms.locfileid: "47032119"
 4. Sélectionnez **Terminé**. Le fichier de jeu de données est ajouté.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Exécuter, renommer, exporter ou supprimer le jeu de données
+
 Pour exécuter, renommer, exporter ou supprimer le jeu de données, utilisez le bouton à points de suspension (***...***) à la fin de la ligne du jeu de données.
 
 ![Actions du jeu de données](./media/luis-how-to-batch-test/batch-testing-options.png)
@@ -55,7 +58,9 @@ Le jeu de données téléchargeable est le même fichier que celui chargé pour 
 |![Icône Prêt à tester](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Le test est prêt à s’exécuter.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
+
 ## <a name="view-batch-test-results"></a>Afficher les résultats du test par lot 
+
 Pour passer en revue les résultats du test par lot, sélectionnez **Afficher les résultats**.
 
 ![Résultats du test par lot](./media/luis-how-to-batch-test/run-test-results.png)
@@ -64,6 +69,7 @@ Pour passer en revue les résultats du test par lot, sélectionnez **Afficher le
 
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
+
 ## <a name="filter-chart-results"></a>Filtrer les résultats du graphique
 
 Pour filtrer le graphique en fonction d’une intention ou d’une entité spécifique, sélectionnez l’intention ou l’entité sur le côté droit du panneau de filtrage. Les points de données et leur répartition sont mis à jour dans le graphique en fonction de votre sélection. 
@@ -71,6 +77,7 @@ Pour filtrer le graphique en fonction d’une intention ou d’une entité spéc
 ![Résultat du test par lot visualisé](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
 ## <a name="view-single-point-utterance-data"></a>Afficher les données d’énoncé d’un point unique
+
 Dans le graphique, pointez sur un point de données pour afficher le score de certitude de la prédiction. Sélectionnez un point de données pour récupérer l’énoncé correspondant dans la liste des énoncés au bas de la page. 
 
 ![Énoncé sélectionné](./media/luis-how-to-batch-test/selected-utterance.png)
@@ -78,7 +85,9 @@ Dans le graphique, pointez sur un point de données pour afficher le score de ce
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="view-section-data"></a>Afficher les données de section
+
 Dans le graphique à quatre sections, sélectionnez le nom de section, comme **Faux positif** en haut à droite du graphique. Sous le graphique, tous les énoncés dans cette section s’affichent dans une liste sous le graphique. 
 
 ![Énoncés sélectionnés par section](./media/luis-how-to-batch-test/selected-utterances-by-section.png)

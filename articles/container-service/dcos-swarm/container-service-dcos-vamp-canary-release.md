@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 0f6c0e9206d9e056ee0496b6cc515625b08b1e4a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959914"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975854"
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Contrôler la validité de microservices de mise en production avec Vamp sur un cluster de contrôleur de domaine/système d’exploitation Azure Container Service
 
@@ -291,7 +291,7 @@ Nous avons également évoqué certaines puissantes fonctionnalités de Vamp te
 
 * Découvrez la gestion des actions de Vamp via l’[API REST Vamp](http://vamp.io/documentation/api/api-reference/).
 
-* Générez des scripts d’automatisation de Vamp dans Node.js et exécutez-les en tant que [flux de travail Vamp](http://vamp.io/documentation/tutorials/create-a-workflow/).
+* Générez des scripts d’automatisation de Vamp dans Node.js et exécutez-les en tant que [flux de travail Vamp](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
 
 * Consultez des [didacticiels Vamp](http://vamp.io/documentation/tutorials/) supplémentaires.
 

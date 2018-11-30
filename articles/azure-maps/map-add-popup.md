@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0be10c155398133887fadb1fe9954068f3afb9d9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568112"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282530"
 ---
 # <a name="add-a-popup-to-the-map"></a>Ajouter une fenêtre contextuelle à la carte
 
@@ -33,7 +33,7 @@ Dans le deuxième bloc de code, un objet source de données est créé à l’ai
 
 Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que symboles sur la carte.  Une couche de symbole est créée dans le troisième bloc de code. La source de données est ajoutée à la couche de symbole, qui est ensuite ajoutée à la carte.
 
-Le quatrième bloc de code crée un [objet de fenêtre contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Les propriétés de la fenêtre contextuelle, telles que la position et pixelOffset, font partie de la section [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest). La section PopupOptions peut être définie dans le constructeur de la fenêtre contextuelle ou via la fonction [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la classe Popup. Un écouteur d’événements `mouseover` est ensuite créé pour la couche de symbole.
+Le quatrième bloc de code crée un [objet de fenêtre contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Les propriétés de la fenêtre contextuelle, telles que la position et pixelOffset, font partie de la section [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions). La section PopupOptions peut être définie dans le constructeur de la fenêtre contextuelle ou via la fonction [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la classe Popup. Un écouteur d’événements `mouseover` est ensuite créé pour la couche de symbole.
 
 Le dernier bloc de code crée une fonction qui est déclenchée par l’écouteur d’événements `mouseover`. Il définit le contenu et les propriétés de la fenêtre contextuelle et ajoute l’objet de fenêtre contextuelle à la carte.
 
