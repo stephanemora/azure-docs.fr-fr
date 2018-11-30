@@ -1,0 +1,50 @@
+---
+title: Afficher et modifier les insights Video Indexer
+titlesuffix: Azure Media Services
+description: Cette rubrique montre comment afficher et modifier les insights Video Indexer.
+services: media-services
+author: Juliako
+manager: femila
+ms.service: media-services
+ms.topic: article
+ms.date: 11/19/2018
+ms.author: juliako
+ms.openlocfilehash: a8b80c02da148d18daf39fb6196ebcb388c96ee4
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291829"
+---
+# <a name="view-and-edit-video-indexer-insights"></a>Afficher et modifier les insights Video Indexer
+
+Cette rubrique vous montre comment afficher et modifier les insights Video Indexer pour une vidéo.
+
+1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
+2. Rechercher une vidéo à partir de laquelle vous souhaitez créer vos insights Video Indexer. Pour plus d’informations, consultez [Rechercher des instants précis dans les vidéos](video-indexer-search.md).
+3. Appuyez sur **Lecture**.
+
+    La page affiche les insights résumés de la vidéo. 
+
+    ![Insights](./media/video-indexer-view-edit/video-indexer-summarized-insights.png)
+
+4. Affichez les insights résumés de la vidéo. 
+
+    Les insights résumés affichent une vue agrégée des données : visages, mots clés, sentiments. Par exemple, vous pouvez voir les visages des personnes et les plages de temps au cours desquelles chaque visage apparaît, ainsi que le pourcentage de temps pendant lequel ils apparaissent.
+
+    Le lecteur et les insights sont synchronisés. Par exemple, si vous cliquez sur un mot clé ou la ligne de transcription, le lecteur vous amène au moment précis de la vidéo. Vous pouvez obtenir la vue et la synchronisation du lecteur/des insights dans votre application. Pour plus d’informations, consultez [Incorporer des widgets Azure Video Indexer dans votre application](video-indexer-embed-widgets.md). 
+
+3. Modifiez les insights Video Indexer.
+
+    Appuyez sur Modifier sous la vidéo. La page qui apparait montre la répartition complète d’une vidéo. La répartition est divisée en blocs. Les blocs sont là pour simplifier le parcours des données. Par exemple, un bloc peut être défini par un changement d’intervenant ou une pause prolongée. Vous pouvez créer votre propre playlist contenant uniquement les lignes souhaitées. Pour afficher uniquement certaines parties de la vidéo source, vous pouvez filtrer par rubriques/mots clés, sentiments, personnes, intervenants. Vous pouvez choisir d’afficher uniquement la transcription ou la reconnaissance optique des caractères (OCR) de la vidéo.  
+
+    ![Insights](./media/video-indexer-view-edit/video-indexer-create-new-playlist.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Découvrez comment créer vos propres insights Video Indexer à partir de certaines autres vidéos](video-indexer-create-new.md).
+
+## <a name="see-also"></a>Voir aussi
+
+[Présentation de Video Indexer](video-indexer-overview.md)
+

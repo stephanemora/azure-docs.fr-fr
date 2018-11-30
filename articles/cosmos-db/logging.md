@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408997"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423227"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Journalisation des diagnostics Azure Cosmos DB
 
@@ -29,9 +29,9 @@ L’illustration suivante montre les différents types de journaux Azure disponi
 
 ![Les différents types de journaux Azure](./media/logging/azurelogging.png)
 
-Sur l’image, les **Ressources de calcul** représentent les ressources Azure pour lesquelles vous pouvez accéder au système d’exploitation invité Microsoft. Par exemple, les machines virtuelles Azure, les groupes de machines virtuelles identiques et Azure Container Service sont considérés comme des ressources de calcul. Les ressources de calcul génèrent des journaux d’activité, de diagnostic et des applications. Pour plus d’informations, reportez-vous à l’article [Sources de données de supervision dans Azure](../monitoring/monitoring-data-sources.md#).
+Sur l’image, les **Ressources de calcul** représentent les ressources Azure pour lesquelles vous pouvez accéder au système d’exploitation invité Microsoft. Par exemple, les machines virtuelles Azure, les groupes de machines virtuelles identiques et Azure Container Service sont considérés comme des ressources de calcul. Les ressources de calcul génèrent des journaux d’activité, de diagnostic et des applications. Pour plus d’informations, reportez-vous à l’article [Sources de données de supervision dans Azure](../azure-monitor/platform/data-sources.md).
 
-Les **ressources non liées au calcul** sont des ressources dans lesquelles il n’est pas possible d’accéder au système d’exploitation sous-jacent et de les utiliser directement, par exemple, les Groupes de sécurité réseau, Logic Apps, etc. Azure Cosmos DB en est une. Vous pouvez afficher les journaux des ressources non liées au calcul dans le journal d’activité ou activer l’option Journaux de diagnostic sur le portail. Pour plus d’informations, reportez-vous à l’article [Sources de données dans Azure Monitor](../monitoring/monitoring-data-sources.md).
+Les **ressources non liées au calcul** sont des ressources dans lesquelles il n’est pas possible d’accéder au système d’exploitation sous-jacent et de les utiliser directement, par exemple, les Groupes de sécurité réseau, Logic Apps, etc. Azure Cosmos DB en est une. Vous pouvez afficher les journaux des ressources non liées au calcul dans le journal d’activité ou activer l’option Journaux de diagnostic sur le portail. Pour plus d’informations, reportez-vous à l’article [Sources de données dans Azure Monitor](../azure-monitor/platform/data-sources.md).
 
 Le journal d’activité enregistre les opérations au niveau de l’abonnement pour Azure Cosmos DB. Les opérations comme ListKeys et Write DatabaseAccounts sont journalisées par exemple. Les journaux de diagnostic assurent une journalisation plus précise et permettent de consigner des DataPlaneRequests (Create, Read, Query, etc.) et MongoRequests.
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7e93e83f7594d30d223d37454e09943beba6d3ce
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113975"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976726"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Guide pratique pour démarrer et arrêter le runtime d'intégration Azure SSIS sur une planification
 Cet article explique comment planifier le démarrage et l’arrêt d’un runtime d’intégration (IR) Azure SSIS à l’aide d’Azure Automation et de Azure Data Factory. L’exécution d’un runtime d’intégration (IR) Azure SSIS (SQL Server Integration Services) a un coût. Il est donc généralement souhaitable de n’exécuter le runtime d’intégration que quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur de Data Factory ou Azure PowerShell pour [démarrer ou arrêter un runtime d’intégration Azure SSIS manuellement](manage-azure-ssis-integration-runtime.md).
@@ -347,7 +347,7 @@ Après avoir créé et testé le pipeline, vous créez un déclencheur de planif
     6. Cliquez avec le bouton droit sur votre package SSIS, puis sélectionnez **Rapports** -> **Rapports standard** -> **Toutes les exécutions**. 
     7. Vérifiez que le package SSIS s’est exécuté. 
 
-        ![Vérifier l’exécution du package SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verfiy-ssis-package-run.png)
+        ![Vérifier l’exécution du package SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
 
 ### <a name="schedule-the-pipeline"></a>Planifier le pipeline 
 Le pipeline fonctionnant comme prévu, vous pouvez créer un déclencheur pour l’exécuter à une cadence spécifiée. Pour plus d’informations sur l’association d’un déclencheur de planification à un pipeline, consultez [Déclencher le pipeline selon une planification](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).

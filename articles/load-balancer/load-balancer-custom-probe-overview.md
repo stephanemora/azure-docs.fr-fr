@@ -4,10 +4,6 @@ description: Découvrez comment utiliser les sondes d’intégrité pour surveil
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 58bc0c0669992b8b3884e24c39862f47412b9110
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695423"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584653"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -95,7 +91,7 @@ Si vous utilisez Cloud Services et que vos rôles web utilisent w3wp.exe, vous b
 
 Une sonde HTTP/HTTPS échoue quand :
 * Le point de terminaison de la sonde renvoie un code de réponse HTTP autre que 200 (par exemple, 403, 404 ou 500). Ceci marquera immédiatement la sonde d’intégrité négativement. 
-* Le point de terminaison de la sonde ne répond pas du tout lors de la période d'expiration de 31 secondes. Selon la valeur définie pour le délai d’attente, il se peut que plusieurs demandes d’analyse ne reçoivent pas de réponse avant que celle-ci ne soit marquée comme n’étant pas en cours d’exécution (autrement dit, avant que les sondes SuccessFailCount soient envoyées).
+* Le point de terminaison de la sonde ne répond pas du tout lors de la période d'expiration de 31 secondes. Selon la valeur définie pour le délai d’attente, il se peut que plusieurs demandes d’analyse ne reçoivent pas de réponse avant que celle-ci ne soit marquée comme n’étant pas en cours d’exécution (autrement dit, avant que les sondes SuccessFailCount soient envoyées).
 * Le point de terminaison de la sonde ferme la connexion via une réinitialisation TCP.
 
 #### <a name="resource-manager-templates"></a>Modèles Resource Manager
@@ -163,7 +159,7 @@ Une règle d’équilibrage de charge possède une sonde d’intégrité unique 
 
 ### <a name="tcp-connections"></a>Connexions TCP
 
-De nouvelles connexions TCP parviennent à l’instance de serveur principal, qui est saine et qui dispose d’un système d’exploitation invité ainsi que d’une application capable d’accepter un nouveau flux.
+De nouvelles connexions TCP parviennent à l’instance de serveur principal, qui est saine et qui dispose d’un système d’exploitation invité, ainsi que d’une application capable d’accepter un nouveau flux.
 
 Si la sonde d’intégrité d’une instance de serveur principal échoue, les connexions TCP établies à cette instance de serveur principal demeurent.
 
@@ -205,7 +201,6 @@ Un Load Balancer public de base expose l’état de la sonde d’intégrité ré
 ## <a name="limitations"></a>Limites
 
 -  Les sondes HTTPS ne prennent pas en charge l’authentification mutuelle avec un certificat client.
--  Le Kit de développement logiciel et PowerShell ne prennent pas en charge les sondes HTTPS pour l’instant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

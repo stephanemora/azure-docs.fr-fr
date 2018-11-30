@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 6a45ffa13ead40b72fd1a0a3c2696a6e6829a4d5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.topic: conceptual
+ms.openlocfilehash: 699a9b7a371a004213419567d0672f56b5365598
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956406"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620112"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Créer des groupes d’administration pour la gestion et l’organisation des ressources
 
@@ -29,7 +29,7 @@ Vous pouvez créer un groupe d’administration en utilisant le portail, PowerSh
 
 ### <a name="create-in-portal"></a>Créer dans le portail
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Sélectionnez **Tous les services** > **Groupes d’administration**.
 
@@ -76,8 +76,8 @@ az account management-group create --name 'Contoso'
 
 Pour en savoir plus sur les groupes d’administration, consultez :
 
-- [Organiser vos ressources avec des groupes d’administration Azure](overview.md)
+- [Créer des groupes d’administration pour organiser les ressources Azure](create.md)
 - [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](manage.md)
-- [Installer le module Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Passer en revue les spécifications de l’API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Installer l’extension Azure CLI](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Consulter les groupes d’administration dans Azure PowerShell Resources Module](https://aka.ms/mgPSdocs)
+- [Consulter les groupes d’administration dans l’API REST](https://aka.ms/mgAPIdocs)
+- [Consulter les groupes d’administration dans Azure CLI](https://aka.ms/mgclidoc)

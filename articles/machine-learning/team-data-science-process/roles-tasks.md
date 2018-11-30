@@ -1,26 +1,22 @@
 ---
 title: Rôles et tâches du responsable de l’équipe Team Data Science Process - Azure | Microsoft Docs
 description: Présentation des composants clés, rôles du personnel et tâches associées pour un projet d’équipe de science des données.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
 services: machine-learning
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: c245a844ae594f5d78b47a168ad5870f8aea10e9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 3529160ccfd0a11d3d2077245c1160941027ff88
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227771"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442094"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Rôles et tâches du responsable de l’équipe Team Data Science Process
 

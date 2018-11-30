@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 0a4a31a4905de38de444604c8ffdf4d4a2e632d4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e4deb40f2c9dfb080739f4426129223b152baea9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515860"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335655"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console série de machine virtuelle pour Windows
 
@@ -93,7 +93,7 @@ Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows
    - `bcdedit /set {bootmgr} timeout 10`
    - `bcdedit /set {bootmgr} bootems yes`
 
-1. Redémarrez le système pour activer le menu de démarrage.
+1. Redémarrer le système pour activer le menu de démarrage
 
 > [!NOTE] 
 > Le délai d’expiration que vous avez défini pour l’affichage du menu du gestionnaire de démarrage aura un impact sur le temps de démarrage de votre système d’exploitation. Si vous pensez que la valeur de délai d’attente de 10 secondes est trop courte ou trop longue, affectez une valeur différente.
@@ -133,7 +133,7 @@ Par défaut, tous les abonnements ont accès à la console série pour toutes le
 > Afin d’activer ou de désactiver la console série pour un abonnement, vous devez disposer des autorisations en écriture sur l’abonnement. Ces autorisations incluent, mais de façon non limitative, les rôles d’administrateur ou de propriétaire. Des rôles personnalisés peuvent aussi disposer d’autorisations en écriture.
 
 ### <a name="subscription-level-disable"></a>Désactiver au niveau de l’abonnement
-La console série peut être désactivée pour un abonnement complet par le biais de l’[appel d’API REST Disable Console](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). Vous pouvez utiliser la fonctionnalité **Essayez** disponible sur la page de documentation de l’API afin de désactiver et d’activer la console série pour un abonnement. Entrez votre ID d’abonnement pour **subscriptionId**, entrez « par défaut » pour **par défaut**, puis sélectionnez **Exécuter**. Les commandes Azure CLI ne sont pas encore disponibles.
+La console série peut être désactivée pour un abonnement complet par le biais de l’[appel d’API REST Disable Console](/rest/api/serialconsole/console/disableconsole). Vous pouvez utiliser la fonctionnalité **Essayez** disponible sur la page de documentation de l’API afin de désactiver et d’activer la console série pour un abonnement. Entrez votre ID d’abonnement pour **subscriptionId**, entrez « par défaut » pour **par défaut**, puis sélectionnez **Exécuter**. Les commandes Azure CLI ne sont pas encore disponibles.
 
 ![Essayez l’API REST](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

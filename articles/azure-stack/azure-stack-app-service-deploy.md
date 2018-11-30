@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614053"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635371"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Ajouter un fournisseur de ressources App Service à Azure Stack
 
@@ -202,17 +202,17 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
     ![Gestion d’App Service](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >Si vous effectuez un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers.  Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :<br>
-    >  - Source : Toutes
-    >  - Plage de ports source : : *
-    >  - Destination : adresses IP
-    >  - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
-    >  - Plage de ports de destination : 445
-    >  - Protocole : TCP
-    >  - Action : Autoriser
-    >  - Priorité : 700
-    >  - Nom : Outbound_Allow_SMB445
+    Si vous effectuez un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers.  Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+
+    - Source : Toutes
+    - Plage de ports source : : *
+    - Destination : adresses IP
+    - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+    - Plage de ports de destination : 445
+    - Protocole : TCP
+    - Action : Autoriser
+    - Priorité : 700
+    - Nom : Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Tester App Service sur Azure Stack
 

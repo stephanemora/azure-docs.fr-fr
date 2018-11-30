@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222061"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262616"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples.
 
@@ -268,8 +268,8 @@ S’il est défini sur true, ce paramètre configure l’encodeur dynamique pour
 facultatif. Spécifie l’ID de la ressource Media Services qui contient l’image d’ardoise. La valeur par défaut est Null. 
 
 
->[!NOTE] 
->Avant de créer le canal, l’image d’ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource). Cette image est utilisée uniquement lorsque l’encodeur en direct insère une ardoise pour cause de coupure publicitaire ou qu’un signal explicite lui a été envoyé pour qu’il insère une ardoise. L’encodeur en direct peut également passer en mode ardoise pendant certaines conditions d’erreur, par exemple en cas de perte du signal d’entrée. Il n’est pas possible actuellement d’utiliser une image personnalisée lorsque l’encodeur en direct entre dans un état « signal d’entrée perdu » de ce type. Vous pouvez voter pour que cette fonctionnalité [ici](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+> [!NOTE] 
+> Avant de créer le canal, l’image d’ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource). Cette image est utilisée uniquement lorsque l’encodeur en direct insère une ardoise pour cause de coupure publicitaire ou qu’un signal explicite lui a été envoyé pour qu’il insère une ardoise. Il n’est pas possible actuellement d’utiliser une image personnalisée lorsque l’encodeur en direct entre dans un état « signal d’entrée perdu » de ce type. Vous pouvez voter pour que cette fonctionnalité [ici](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 
 * Résolution maximale de 1920 x 1080

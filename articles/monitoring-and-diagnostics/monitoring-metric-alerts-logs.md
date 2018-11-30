@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 66a10cdd6324147509bcb45dad9e9b40b5335fef
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 92474bdead021429792f5d51a28ffb7bafc5be2b
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684908"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334242"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Créer des alertes de métrique de journaux dans Azure Monitor  
 
@@ -21,10 +21,10 @@ ms.locfileid: "51684908"
 Azure Monitor prend en charge le [type d’alerte de métrique](monitoring-near-real-time-metric-alerts.md), qui présente certains avantages par rapport aux [alertes classiques](alert-metric-classic.md). Des métriques sont disponibles pour une [longue liste de services Azure](monitoring-supported-metrics.md). Cet article explique comment utiliser un sous-ensemble pour une ressource - `Microsoft.OperationalInsights/workspaces`. 
 
 Vous pouvez utiliser des alertes de métrique sur des journaux Log Analytics courants, extraits en tant que métriques dans le cadre des métriques à partir de journaux, notamment des ressources dans Azure ou en local. Les solutions Log Analytics prises en charge sont répertoriées ci-dessous :
-- [Les compteurs de performance](../log-analytics/log-analytics-data-sources-performance-counters.md) pour les machines Windows et Linux
-- [Enregistrements de pulsations pour Agent Health](../monitoring/monitoring-solution-agenthealth.md)
+- [Les compteurs de performance](../azure-monitor/platform/data-sources-performance-counters.md) pour les machines Windows et Linux
+- [Enregistrements de pulsations pour Agent Health](../azure-monitor/insights/solution-agenthealth.md)
 - Enregistrements de la [gestion des mises à jour](../automation/automation-update-management.md)
-- Journaux sur les [données d’événement](../log-analytics/log-analytics-data-sources-windows-events.md)
+- Journaux sur les [données d’événement](../azure-monitor/platform/data-sources-windows-events.md)
  
 L’utilisation **d’alertes de métrique de journaux** présente de nombreux avantages par rapport à celle [d’alertes de journal](alert-log.md) basées sur une requête. Certains de ces avantages sont indiqués ci-dessous :
 - Les alertes de métrique proposent une fonctionnalité de supervision en tant quasi réel et les alertes de métrique pour des journaux dupliquent les données de la source du journal pour garantir la même chose.
@@ -46,9 +46,9 @@ Les données de métrique des journaux courants sont acheminées avant leur trai
 ## <a name="prerequisites-for-metric-alert-for-logs"></a>Conditions préalables pour la création d’une alerte de métrique pour des journaux
 Avant que la métrique pour des journaux rassemblés sur des données Log Analytics fonctionne, les éléments suivants doivent être configurés et disponibles :
 1. **Espace de travail Log Analytics actif** : un espace de travail Log Analytics actif doit être présent. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../log-analytics/log-analytics-quick-create-workspace.md).
-2. **Agent configuré pour l’espace de travail Log Analytics** : un agent doit être configuré pour les machines virtuelles Azure ou les machines virtuelles locales, afin d’envoyer des données à l’espace de travail Log Analytics utilisé dans l’étape précédente. Pour plus d’informations, consultez [Présentation des agents Azure pour surveiller les machines virtuelles Azure](../monitoring/monitoring-overview-azure-agents.md).
-3. **Solutions Log Analytics prises en charge installées** : une solution Log Analytics doit être configurée et doit envoyer des données à l’espace de travail Log Analytics ; les solutions prises en charge sont les [compteurs de performances pour Windows et Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), les [enregistrements de pulsation pour Agent Health](../monitoring/monitoring-solution-agenthealth.md), la [gestion des mises à jour] et les [données d’événement](../log-analytics/log-analytics-data-sources-windows-events.md).
-4. **Solutions Log Analytics configurées pour envoyer des journaux** : une solution Log Analytics doit avoir les journaux/données correspondant aux [métriques prises en charge pour les espaces de travail Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) activés. Par exemple, le compteur *% Available Memory* (% de mémoire disponible) doit d’abord être configuré dans la solution [Compteurs de performances](../log-analytics/log-analytics-data-sources-performance-counters.md).
+2. **Agent configuré pour l’espace de travail Log Analytics** : un agent doit être configuré pour les machines virtuelles Azure ou les machines virtuelles locales, afin d’envoyer des données à l’espace de travail Log Analytics utilisé dans l’étape précédente. Pour plus d’informations, consultez [Présentation des agents Azure pour surveiller les machines virtuelles Azure](../azure-monitor/platform/agents-overview.md).
+3. **Solutions Log Analytics prises en charge installées** : une solution Log Analytics doit être configurée et doit envoyer des données à l’espace de travail Log Analytics ; les solutions prises en charge sont les [compteurs de performances pour Windows et Linux](../azure-monitor/platform/data-sources-performance-counters.md), les [enregistrements de pulsation pour Agent Health](../azure-monitor/insights/solution-agenthealth.md), la [gestion des mises à jour] et les [données d’événement](../azure-monitor/platform/data-sources-windows-events.md).
+4. **Solutions Log Analytics configurées pour envoyer des journaux** : une solution Log Analytics doit avoir les journaux/données correspondant aux [métriques prises en charge pour les espaces de travail Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) activés. Par exemple, le compteur *% Available Memory* (% de mémoire disponible) doit d’abord être configuré dans la solution [Compteurs de performances](../azure-monitor/platform/data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configuration d’une alerte de métrique pour des journaux
  Des alertes de métrique peuvent être créées et gérées à l’aide du Portail Azure, des modèles Resource Manager, de l’API REST, de PowerShell et d’Azure CLI. Étant donné que les alertes de métrique pour des journaux sont une variante des alertes de métrique, une fois que les conditions préalables sont remplies, une alerte de métrique pour des journaux peut être créée pour l’espace de travail Log Analytics spécifié. Toutes les caractéristiques et fonctionnalités des [alertes de métrique](monitoring-near-real-time-metric-alerts.md) sont également applicables aux alertes de métrique pour des journaux, notamment le schéma de charge utile, les limites de quota applicables et les prix facturés.
@@ -58,8 +58,7 @@ Pour des exemples et des informations détaillées, consultez [Creating and mana
 - Le signal choisi pour l’alerte de métrique pour *l’espace de travail Log Analytics* sélectionné est de type **Métrique**.
 - Filtrage d’une ressource ou de conditions spécifiques à l’aide de filtres de dimension ; les métriques de journaux sont multidimensionnelles.
 - Lors de la configuration de *Signal Logic* (Logique du signal), une alerte unique peut être créée pour s’étendre à plusieurs valeurs de dimension (comme Ordinateur).
-- Si vous n’utilisez **pas** le Portail Azure pour créer une alerte de métrique pour *l’espace de travail Log Analytics* sélectionné, l’utilisateur doit commencer par créer manuellement une règle explicite pour convertir les données de journal en métriques à l’aide [d’Azure Monitor - Règles de requête planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
-).
+- Si vous n’utilisez **pas** le Portail Azure pour créer une alerte de métrique pour *l’espace de travail Log Analytics* sélectionné, l’utilisateur doit commencer par créer manuellement une règle explicite pour convertir les données de journal en métriques à l’aide [d’Azure Monitor - Règles de requête planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]
 > Lors de la création d’une alerte de métrique pour l’espace de travail Log Analytics via le Portail Azure, la règle correspondante pour la conversion de données de journal en métriques via [Azure Monitor - Règles de requête planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) est automatiquement créée en arrière-plan, *sans qu’une action ou intervention de l’utilisateur ne soit nécessaire*. Pour créer une alerte de métrique pour des journaux autrement qu’avec le Portail Azure, consultez la section [Modèle de ressource pour les alertes de métrique pour des journaux](#resource-template-for-metric-alerts-for-logs) sur les exemples de méthodes de création d’une règle de conversion de journal en métrique basée sur ScheduledQueryRule avant la création d’une alerte de métrique, sinon il n’y aura pas de données pour l’alerte de métrique sur les journaux créée.

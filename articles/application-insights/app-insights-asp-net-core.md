@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: a0e0d2c3604ea2357f52c3d464933c622ba1810d
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3e838cd45eefa5b5b644992bb8eae36abf3ec33a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523238"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276344"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights pour ASP.NET Core
 
@@ -321,7 +321,7 @@ Cette section peut vous aider à mieux comprendre le fonctionnement de la recher
 
 Si vous recherchez le mot _insight_ dans la sortie, des résultats semblables à ce qui suit sont mis en surbrillance :
 
-```DebugOuput
+```DebugOutput
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\store\x64\netcoreapp2.0\microsoft.aspnetcore.applicationinsights.hostingstartup\2.0.3\lib\netcoreapp2.0\Microsoft.AspNetCore.ApplicationInsights.HostingStartup.dll'.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\store\x64\netcoreapp2.0\microsoft.applicationinsights.aspnetcore\2.1.1\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll'.
 
@@ -359,7 +359,7 @@ Si le simple fait de désactiver la génération de la télémétrie suffit, vou
 
 CoreCLR charge quand même _Microsoft.AspNetCore.ApplicationInsights.HostingStartup.dll_ et _Microsoft.ApplicationInsights.AspNetCore.dll_, mais les fichiers restent inopérants.
 
-Si vous souhaitez désactiver complètement Application Insights dans votre projet Visual Studio .NET Core, la méthode recommandée consiste à sélectionner **Outils** > **Options** > **Projets et solutions** > **Projets web**. Cochez la case **Désactiver l’instance locale d’Application Insights pour les projets web ASP.NET Core**. Cette fonctionnalité a été ajoutée dans Visual Studio 15.6.
+Si vous souhaitez désactiver complètement Application Insights dans votre projet Visual Studio .NET Core, la méthode recommandée consiste à sélectionner **Outils** > **Options** > **Projets et solutions** > **Projets web**. Cochez la case **Désactiver l’instance locale d’Application Insights pour les projets web ASP.NET Core**. Cette fonctionnalité a été ajoutée dans Visual Studio 15,6.
 
 ![Capture d’écran de projets web dans la fenêtre des options de Visual Studio](./media/app-insights-asp-net-core/014-disable.png)
 
