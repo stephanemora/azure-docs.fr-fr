@@ -25,12 +25,14 @@ items:
       href: iot-accelerators-remote-monitoring-monitor.md
     - name: Détecter les problèmes liés aux appareils
       href: iot-accelerators-remote-monitoring-automate.md
-    - name: Configurer et gérer des appareils
+    - name: Configurer des appareils
       href: iot-accelerators-remote-monitoring-manage.md
     - name: Effectuer une analyse de cause racine sur une alerte
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
     - name: Utiliser les alertes et résoudre les problèmes liés aux appareils
       href: iot-accelerators-remote-monitoring-maintain.md
+    - name: Mettre à jour une configuration d’appareil en bloc
+      href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
     - name: Détecter des anomalies en périphérie
       href: iot-accelerators-remote-monitoring-edge.md
   - name: Simulation d’appareil
@@ -81,6 +83,8 @@ items:
       href: iot-accelerators-remote-monitoring-add-edge-device.md
     - name: Importer un package de IoT Edge
       href: iot-accelerators-remote-monitoring-import-edge-package.md
+    - name: Importer un package de gestion automatique des appareils
+      href: iot-accelerators-remote-monitoring-import-adm-package.md
     - name: Intégrer des données SIM
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: Créez un appareil simulé.
@@ -225,9 +229,9 @@ items:
     href: iot-accelerators-faq-cf.md
   - name: Dépassement de capacité de la pile
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-ms.openlocfilehash: bdd52d0023fbf43343cc5108216c6f11e35b89aa
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b36278d1e2a85cd7759d81b022fb1883b7ca2aa6
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824844"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680937"
