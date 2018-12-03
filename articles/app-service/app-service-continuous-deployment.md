@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9dead2c8801340a736b6f67010a85f3dd34fbe85
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298945"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820254"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 Cet article vous explique comment configurer un déploiement continu pour [Azure App Service](app-service-web-overview.md). Azure App Service permet un déploiement continu depuis BitBucket, GitHub et [Azure DevOps Services](https://www.visualstudio.com/team-services/) en extrayant les mises à jour les plus récentes de votre référentiel existant pour les envoyer dans l’un de ces services.
@@ -152,5 +152,5 @@ Dans le menu de gauche, cliquez sur **Centre de déploiement** > **GitHub**, **A
 [Documentation Git]: http://git-scm.com/documentation
 
 [Création d’un dépôt (GitHub)]: https://help.github.com/articles/create-a-repo
-[Création d’un dépôt (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
+[Création d’un dépôt (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
 [Bien démarrer avec les solutions Azure DevOps Services]: https://www.visualstudio.com/docs/vsts-tfs-overview

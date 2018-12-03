@@ -42,20 +42,22 @@ items:
   items:
   - name: Runtime IoT Edge
     href: iot-edge-runtime.md
-  - name: Certificats IoT Edge
-    href: iot-edge-certs.md
   - name: Modules IoT Edge
     items:
     - name: Présentation des modules Azure IoT Edge
       href: iot-edge-modules.md
     - name: Développement
       href: module-development.md
-    - name: Composition
-      href: module-composition.md
     - name: Propriétés du hub et de l’agent Edge
       href: module-edgeagent-edgehub.md
-  - name: Déploiements
-    href: module-deployment-monitoring.md
+  - name: Déploiement de module
+    items:
+    - name: Manifeste de déploiement
+      href: module-composition.md
+    - name: Déploiements automatiques
+      href: module-deployment-monitoring.md
+  - name: Certificats IoT Edge
+    href: iot-edge-certs.md
   - name: Fonctionnalités hors ligne
     href: offline-capabilities.md
   - name: Appareil IoT Edge en tant que passerelle
@@ -68,6 +70,8 @@ items:
       href: iot-edge-security-manager.md
   - name: Prise en charge de plateformes
     href: support.md
+  - name: Liste de contrôle pour le déploiement de production
+    href: production-checklist.md
   - name: Glossaire IoT Edge
     href: iot-edge-glossary.md
 - name: Procédures
@@ -98,7 +102,7 @@ items:
     items:
     - name: Linux
       href: how-to-auto-provision-simulated-device-linux.md
-    - name: Windows
+    - name: " Windows"
       href: how-to-auto-provision-simulated-device-windows.md
   - name: Développer et déboguer des modules dans VS 2017
     href: how-to-visual-studio-develop-csharp-module.md
@@ -218,9 +222,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 7ad5c5da9162c2b5d9b5908dbea5630cf277393c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 27bc0b00a51f10695c5ce1e2e600b91a1f97b0ab
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613900"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582800"

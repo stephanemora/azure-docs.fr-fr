@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 264e7f3d885535304470c833e228660ba51fefc6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 83ff526eb0bd0c51822fc52c90b958d50022a834
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306388"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497728"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -62,7 +62,7 @@ Exemple :
 
 **Q : Azure AD Connect Health prend-il en charge Azure Germany Cloud ?**
 
-Azure AD Connect Health n’est pas pris en charge dans Germany Cloud à l’exception de la [fonctionnalité de rapport d’erreurs de synchronisation](how-to-connect-health-sync.md#object-level-synchronization-error-report-preview). 
+Azure AD Connect Health n’est pas pris en charge dans Germany Cloud à l’exception de la [fonctionnalité de rapport d’erreurs de synchronisation](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
 
 | contrôleur | Caractéristiques | Prise en charge dans Germany Cloud |
 | ------ | --------------- | --- |
@@ -94,7 +94,7 @@ Les données suivantes sont fournies uniquement à titre approximatif :
 
 **Q : Devrai-je redémarrer mes serveurs durant l’installation des agents Azure AD Connect Health ?**
 
-Non. Vous ne devrez pas redémarrer les serveurs durant l’installation des agents. Toutefois, l’exécution de certaines des étapes pré-requises peut nécessiter un redémarrage du serveur.
+ Non. Vous ne devrez pas redémarrer les serveurs durant l’installation des agents. Toutefois, l’exécution de certaines des étapes pré-requises peut nécessiter un redémarrage du serveur.
 
 Par exemple, sur Windows Server 2008 R2, l’installation de .NET 4.5 Framework requiert un redémarrage du serveur.
 
@@ -111,7 +111,7 @@ Si vous devez configurer un proxy lors de l’inscription de l’agent, il vous 
 
 **Q : Le service Azure AD Connect Health prend-il en charge l’authentification de base lors des connexions à des proxys HTTP ?**
 
-Non. Aucun mécanisme de définition de nom d’utilisateur/mot de passe arbitraire pour l’authentification De base n’est actuellement pris en charge.
+ Non. Aucun mécanisme de définition de nom d’utilisateur/mot de passe arbitraire pour l’authentification De base n’est actuellement pris en charge.
 
 **Q : Quels paramètres de pare-feu dois-je ouvrir pour permettre le bon fonctionnement de l’agent Azure AD Connect Health ?**
 

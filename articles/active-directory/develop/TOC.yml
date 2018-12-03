@@ -207,8 +207,13 @@ items:
         href: howto-app-gallery-listing.md
       - name: Publier sur le tableau de bord vendeur Office 365
         href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
-    - name: Effectuer une migration à partir d’Azure Access Control Service
-      href: active-directory-acs-migration.md
+    - name: Azure Access Control Service
+      displayName: ACS
+      items:
+      - name: Effectuer une migration à partir d’Azure Access Control Service
+        href: active-directory-acs-migration.md
+      - name: Réactiver des espaces de noms Access Control Service désactivés
+        href: howto-reactivate-disabled-acs-namespaces.md
     - name: Utiliser l’API Azure AD Graph
       href: active-directory-graph-api-quickstart.md
     - name: AD FS pour les développeurs
@@ -329,6 +334,8 @@ items:
           href: v2-oauth2-on-behalf-of-flow.md
         - name: Octroi des informations d’identification du client OAuth 2.0
           href: v2-oauth2-client-creds-grant-flow.md
+        - name: Octroi des informations de mot de passe du propriétaire de la ressource OAuth 2.0
+          href: v2-oauth-ropc.md
       - name: Substitution de la clé de signature
         href: active-directory-signing-key-rollover.md
       - name: Jetons d’ID
@@ -428,9 +435,9 @@ items:
     href: developer-support-help-options.md
   - name: Identités gérées pour les ressources Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 8d37b5b977509b61d31f7ed29571762325188f33
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 71ba5312a5cfaf10ee2ece5ae376b87fe44d231f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987816"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497499"

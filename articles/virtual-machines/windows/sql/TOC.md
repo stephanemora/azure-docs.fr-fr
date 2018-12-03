@@ -1,6 +1,7 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [À propos des machines virtuelles SQL Server Windows](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [Notes de publication](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # Démarrages rapides
 ## [Créer une machine virtuelle SQL : portail](quickstart-sql-vm-create-portal.md)
 ## [Créer une machine virtuelle SQL : PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -26,7 +27,7 @@
 # Procédures
 ## Créer une machine virtuelle SQL
 ### [Utiliser le portail](virtual-machines-windows-portal-sql-server-provision.md)
-### [Utilisation d’Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
+### [Utilisation d'Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
 ## Migrer
 ### [Migrer une base de données SQL Server](virtual-machines-windows-migrate-sql.md)
 ## Configurer la haute disponibilité
@@ -40,10 +41,11 @@
 #### [Plusieurs régions](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Instance de cluster de basculement
 #### [Configurer](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+## [Modifier le modèle de licence pour une machine virtuelle SQL](virtual-machines-windows-sql-ahb.md)
 
 # Informations de référence
 ## [Azure PowerShell](/powershell/azure/overview)
-## [interface de ligne de commande Azure](/cli/azure/)
+## [Interface de ligne de commande Azure](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [Pilotes SQL Server](https://docs.microsoft.com/sql/connect/sql-connection-libraries)
 ## [REST](/rest/api/)

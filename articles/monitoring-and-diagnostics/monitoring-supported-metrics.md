@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0bb79c9d85e56308d9872baeb10868be8eaf7a5a
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964184"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824912"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. Voici une liste complète de toutes les métriques actuellement offertes par le pipeline de métrique d’Azure Monitor. D’autres métriques peuvent être disponibles dans le portail ou via les API héritées. La liste ci-dessous englobe uniquement les métriques disponibles en utilisant le pipeline de métriques Azure Monitor consolidé. Pour rechercher ces métriques et y accéder, veuillez utiliser [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
@@ -819,7 +819,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |IsEngineAnsweringQuery|Connexion persistante|Count|Moyenne|Contrôle d’intégrité indiquant que le cluster répond aux requêtes|Aucune dimension|
 |IngestCommandOriginalSizeInMb|Volume d’ingestion (en Mo)|Count|Total|Volume total de données ingérées dans le cluster (en Mo)|Aucune dimension|
 |EventAgeSeconds|Latence d’ingestion (en secondes)|Secondes|Moyenne|Durée d’ingestion entre la source (par ex., message dans Event Hub) et le cluster en secondes|Aucune dimension|
-|EventRecievedFromEventHub|Événements traités (pour Event Hubs)|Count|Total|Nombre d’événements traités par le cluster lors de l’ingestion à partir d’Event Hub|Aucune dimension|
+|EventReceivedFromEventHub|Événements traités (pour Event Hubs)|Count|Total|Nombre d’événements traités par le cluster lors de l’ingestion à partir d’Event Hub|Aucune dimension|
 |IngestionResult|Résultat de l’ingestion|Count|Count|Nombre d’opérations d’ingestion|IngestionResultDetails|
 |EngineCPU|UC|Pourcentage|Moyenne|Niveau d’utilisation de l’UC|Aucune dimension|
 
@@ -1121,8 +1121,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Octets de lecture/s Average_Disk|Nb d’octets de lecture de disque/s |Count|Moyenne|Octets de lecture/s Average_Disk|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Reads/sec|Nb d’opérations de lectures de disque/s |Count|Moyenne|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Transfers/sec|Disk Transfers/sec|Count|Moyenne|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Octets d’écriture/s Average_Disk|Nb d’octets d’écriture de disque/s|Count|Moyenne|Octets d’écriture/s Average_Disk|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Writes/sec|Nb d’opération d’écriture de disque/s|Count|Moyenne|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Octets d’écriture/s Average_Disk| Nb d’octets d’écriture de disque/s|Count|Moyenne|Octets d’écriture/s Average_Disk|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec| Nb d’opération d’écriture de disque/s|Count|Moyenne|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Mégaoctets Average_Free|Free Megabytes|Count|Moyenne|Mégaoctets Average_Free|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Logical Disk Bytes/sec|Logical Disk Bytes/sec|Count|Moyenne|Average_Logical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Available Memory|% Available Memory|Count|Moyenne|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1172,7 +1172,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Longueur de file d’attente du disque Average_Current|Longueur de file d’attente actuelle du disque|Count|Moyenne|Longueur de file d’attente du disque Average_Current|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Reads/sec|Nb d’opérations de lectures de disque/s |Count|Moyenne|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Transfers/sec|Disk Transfers/sec|Count|Moyenne|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Writes/sec|Nb d’opération d’écriture de disque/s|Count|Moyenne|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec| Nb d’opération d’écriture de disque/s|Count|Moyenne|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Mégaoctets Average_Free|Free Megabytes|Count|Moyenne|Mégaoctets Average_Free|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Free Space|% Free Space|Count|Moyenne|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Available MBytes|Nombre d’octets disponibles|Count|Moyenne|Average_Available MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1570,6 +1570,6 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |MemoryPercentage|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Instance|
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur les mesures dans Azure Monitor](../monitoring/monitoring-data-collection.md)
+* [En savoir plus sur les mesures dans Azure Monitor](../azure-monitor/platform/data-collection.md)
 * [Créer des alertes sur les mesures](monitoring-overview-alerts.md)
 * [Exporter des métriques vers le stockage, un hub d’événements ou Log Analytics](monitoring-overview-of-diagnostic-logs.md)

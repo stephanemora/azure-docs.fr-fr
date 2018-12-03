@@ -5,6 +5,8 @@ items:
   items:
   - name: En savoir plus sur la Gestion des API
     href: api-management-key-concepts.md
+  - name: Disponibilité des fonctionnalités de gestion des API
+    href: api-management-features.md
 - name: Démarrages rapides
   items:
   - name: Créer une instance - Portail
@@ -48,6 +50,8 @@ items:
       href: api-management-howto-policies.md
     - name: Index de référence de stratégie
       href: api-management-policies.md
+  - name: Abonnements
+    href: api-management-subscriptions.md
   - name: Gérer à l’aide d’Automation
     href: automation-manage-api-management.md
   - name: Gestion des erreurs
@@ -56,7 +60,7 @@ items:
     href: api-management-api-import-restrictions.md
 - name: Procédures
   items:
-  - name: 'Définir des API '
+  - name: Définir des API
     items:
     - name: Ajouter une API manuellement
       href: add-api-manually.md
@@ -90,6 +94,14 @@ items:
     items:
     - name: Ajouter la mise en cache pour améliorer les performances
       href: api-management-howto-cache.md
+    - name: Utiliser un cache externe
+      href: api-management-howto-cache-external.md
+  - name: Sécuriser vos API
+    items:
+    - name: Créer des abonnements
+      href: api-management-howto-create-subscriptions.md
+    - name: Sécuriser des API à l’aide de l’authentification du certificat client
+      href: api-management-howto-mutual-certificates-for-clients.md
   - name: Sécuriser votre serveur principal
     items:
     - name: Protéger votre API avec Azure AD
@@ -138,8 +150,6 @@ items:
       href: api-management-sample-send-request.md
     - name: Gérer les secrets à l’aide de propriétés
       href: api-management-howto-properties.md
-    - name: Sécuriser des API à l’aide de l’authentification du certificat client
-      href: api-management-howto-mutual-certificates-for-clients.md
     - name: Stratégies de restriction des accès
       href: api-management-access-restriction-policies.md
     - name: Stratégies avancées
@@ -232,9 +242,9 @@ items:
     href: http://aka.ms/apimblog
   - name: Demandes de fonctionnalités
     href: http://aka.ms/apimwish
-ms.openlocfilehash: bbd98974e763ae98d7f754e9d8e690d0a8c62870
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 93a5457286e5e69e504e6858d6b9f0e8491b3c30
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339388"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620045"

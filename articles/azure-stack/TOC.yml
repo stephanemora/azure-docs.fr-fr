@@ -30,7 +30,7 @@ items:
     href: azure-stack-tutorial-sql-server.md
   - name: Offrir des bases de données SQL hautement disponibles
     href: azure-stack-tutorial-sql.md
-  - name: Offrir des bases de données MySQL hautement disponibles
+  - name: Offrir des bases de données MySQL à haute disponibilité
     href: azure-stack-tutorial-mysql.md
   - name: Offrir des applications web
     href: azure-stack-tutorial-app-service.md
@@ -257,7 +257,7 @@ items:
       href: azure-stack-sql-resource-provider-remove.md
     - name: Notes de publication de fournisseur de ressources SQL
       items:
-      - name: Notes de publication 1.1.30.0 de fournisseur de ressources SQL
+      - name: Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL
         href: azure-stack-sql-resource-provider-11300.md
   - name: Proposer MySQL en tant que PaaS
     href: azure-stack-mysql-resource-provider.md
@@ -398,9 +398,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formation et certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: b339c19e4736ddf55794ae07f2f14b3d993f7762
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: ca980f7c8ff55635b63dafe84f075b98a70229b4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686651"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312052"
