@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5f5143800c423bdbaac9994b55e500723018dce4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283442"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634351"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Questions courantes pour la transition depuis le portail OMS vers le portail Azure pour les utilisateurs de Log Analytics
 Log Analytics utilisait initialement son propre portail appelé portail OMS pour gérer sa configuration et analyser les données collectées.  Toutes les fonctionnalités accessibles depuis ce portail ont été déplacées vers le portail Azure où elles continueront d’être développées.
@@ -82,9 +82,9 @@ Gérez la plupart des paramètres de source connectée dans le menu **Paramètre
 | Serveurs Linux   | Menu **Paramètres avancés** de l’espace de travail. |
 | Stockage Azure     | Menu **Paramètres avancés** de l’espace de travail. |
 | System Center     | Menu **Paramètres avancés** de l’espace de travail. |
-| Office 365        | Consultez la [documentation pour la solution de gestion Office 365](../monitoring/monitoring-solution-office-365.md) pour plus d’informations de configuration. |
+| Office 365        | Consultez la [documentation pour la solution de gestion Office 365](../azure-monitor/insights/solution-office-365.md) pour plus d’informations de configuration. |
 | Télémétrie Windows | Menu Paramètres de la solution. Consultez [Analytique de Windows dans le Portail Azure](/windows/deployment/update/windows-analytics-azure-portal) pour plus d’informations sur la configuration. |
-| Connecteur ITSM    | Consultez [Connecter des produits/services ITSM à IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) pour obtenir des instructions sur la connexion de votre service ITSM avec Log Analytics. |
+| Connecteur ITSM    | Consultez [Connecter des produits/services ITSM à IT Service Management Connector](../log-analytics/../azure-monitor/platform/itsmc-connections.md) pour obtenir des instructions sur la connexion de votre service ITSM avec Log Analytics. |
 
 ### <a name="data"></a>Données
 Gérez la plupart des paramètres de données dans le menu **Paramètres avancés** pour l’espace de travail. Le tableau suivant fournit des détails sur chaque section de ce menu.
@@ -107,13 +107,13 @@ Gérez la plupart des paramètres de données dans le menu **Paramètres avancé
 Gérer les solutions dans le menu **Solutions** de l’espace de travail. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Comment installer et supprimer des solutions de gestion ?
-Dans le portail OMS, vous installez des solutions de gestion à partir de la galerie de solutions et vous les supprimez des **Paramètres**. Dans le portail Azure, [installez des solutions de gestion](../monitoring/monitoring-solutions.md#install-a-management-solution) à partir de la Place de marché Microsoft Azure. [Supprimer des solutions](../monitoring/monitoring-solutions.md#remove-a-management-solution) de la liste des solutions installées.
+Dans le portail OMS, vous installez des solutions de gestion à partir de la galerie de solutions et vous les supprimez des **Paramètres**. Dans le portail Azure, [installez des solutions de gestion](../azure-monitor/insights/solutions.md#install-a-management-solution) à partir de la Place de marché Microsoft Azure. [Supprimer des solutions](../azure-monitor/insights/solutions.md#remove-a-management-solution) de la liste des solutions installées.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Comment créer et gérer les alertes ?
 Les règles d’alerte basées sur des requêtes Log Analytics sont désormais gérées dans [l’expérience d’alerte unifiée](../monitoring-and-diagnostics/alert-metric.md). Consultez [Comment étendre des alertes à partir de Log Analytics dans Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) pour plus d’informations sur la configuration et l’utilisation d’alertes dans le portail Azure.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Comment accéder à mes tableaux de bord ?
-La fonctionnalité [Mon tableau de bord](../log-analytics/log-analytics-dashboards.md) de Log Analytics est déconseillée. Cette fonctionnalité vous permettait d’avoir une collection privée de composants du Concepteur de vues. Elle a été remplacée par la fonctionnalité de tableau de bord Azure intégrée. Vous pouvez continuer à visualiser les données dans Log Analytics à l’aide du [Concepteur de vues](../log-analytics/log-analytics-view-designer.md) pour les vues partagées. Vous pouvez également épingler des visualisations à partir de ces vues, ou pour les [requêtes individuelles](../log-analytics/log-analytics-tutorial-dashboards.md), dans les tableaux de bord Azure.
+La fonctionnalité [Mon tableau de bord](../log-analytics/../azure-monitor/platform/dashboards.md) de Log Analytics est déconseillée. Cette fonctionnalité vous permettait d’avoir une collection privée de composants du Concepteur de vues. Elle a été remplacée par la fonctionnalité de tableau de bord Azure intégrée. Vous pouvez continuer à visualiser les données dans Log Analytics à l’aide du [Concepteur de vues](../log-analytics/../azure-monitor/platform/view-designer.md) pour les vues partagées. Vous pouvez également épingler des visualisations à partir de ces vues, ou pour les [requêtes individuelles](../log-analytics/log-analytics-tutorial-dashboards.md), dans les tableaux de bord Azure.
 
 ## <a name="how-do-i-check-my-usage"></a>Comment vérifier mon utilisation ?
 Vous pouvez désormais facilement afficher et gérer votre utilisation et coût de Log Analytics en sélectionnant **Utilisation et coûts estimés** dans votre espace de travail.
@@ -126,5 +126,5 @@ Pour une durée limitée, vous pouvez toujours accéder au portail via cette URL
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Rechercher et installer des solutions de gestion](../monitoring/monitoring-solutions.md) à l’aide du portail Azure.
+- [Rechercher et installer des solutions de gestion](../azure-monitor/insights/solutions.md) à l’aide du portail Azure.
 - En savoir plus sur la [Recherche dans les journaux au sein du portail Azure](log-analytics-log-search-portals.md).
