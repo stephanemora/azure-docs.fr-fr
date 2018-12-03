@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 77b8f956ca2a6985121cb5dbfebc2755fa73a35c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: cca39fb16c47eb13887f6198833dafc64974d301
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685971"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444458"
 ---
 # <a name="quickstart-bing-visual-search-sdk-node"></a>Démarrage rapide : Kit SDK Recherche visuelle Bing avec Node 
 
@@ -28,7 +28,15 @@ Les scénarios de code sont documentés dans les rubriques suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Une clé d’API Cognitive Services est requise pour authentifier les appels du Kit de développement logiciel (SDK). Inscrivez-vous pour obtenir une [clé d’essai gratuite](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). La clé d’essai convient pour sept jours avec un appel par seconde. Pour les scénarios de production, [achetez une clé d’accès](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consultez aussi les [informations de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Pour ce guide de démarrage rapide, vous devez démarrer un abonnement au niveau tarifaire S9 comme indiqué dans [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Pour démarrer un abonnement dans le portail Azure :
+1. Entrez « BingSearchV7 » dans la zone de texte en haut du portail Azure indiquant `Search resources, services, and docs`.  
+2. Sous Place de marché dans la liste déroulante, sélectionnez `Bing Search v7`.
+3. Entrez `Name` pour la nouvelle ressource.
+4. Sélectionnez l’abonnement `Pay-As-You-Go`.
+5. Sélectionnez le niveau tarifaire `S9`.
+6. Cliquez sur `Enable` pour démarrer l’abonnement.
 
 ## <a name="application-dependencies"></a>Dépendances de l’application
 

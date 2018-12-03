@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2e65313207e2bb29ae269425012cc6c340261ba4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888337"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443455"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutoriel : Décomposer de chargement d’une image Recherche visuelle Bing
 
@@ -23,6 +23,15 @@ Ce tutoriel détaille le processus de chargement d’une image vers Bing et les 
 
 Ce tutoriel est destiné au développeur qui souhaite explorer le contenu de la réponse Recherche visuelle Bing. Il ne s’adresse pas à toutes les utilisations et affiche les conditions requises (par exemple, il ne fournit aucun lien vers la politique de confidentialité de Microsoft). Pour connaître les conditions d’utilisation, consultez [Conditions d’utilisation et d’affichage Bing](./use-and-display-requirements.md).
 
+Pour ce tutoriel, vous devez démarrer un abonnement au niveau tarifaire S9 comme indiqué dans [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Pour démarrer un abonnement dans le portail Azure :
+1. Entrez « BingSearchV7 » dans la zone de texte en haut du portail Azure indiquant `Search resources, services, and docs`.  
+2. Sous Place de marché dans la liste déroulante, sélectionnez `Bing Search v7`.
+3. Entrez `Name` pour la nouvelle ressource.
+4. Sélectionnez l’abonnement `Pay-As-You-Go`.
+5. Sélectionnez le niveau tarifaire `S9`.
+6. Cliquez sur `Enable` pour démarrer l’abonnement.
 
 ## <a name="where-to-start"></a>Prêt à commencer ?
 

@@ -1,134 +1,141 @@
 ---
 title: Utilisation de Node.js pour interroger Azure SQL Database | Microsoft Docs
-description: Cette rubrique vous explique comment utiliser Node.js pour créer un programme qui se connecte à une base de données SQL Azure et l’interroger à l’aide d’instructions Transact-SQL.
+description: Utilisation de Node.js pour créer un programme qui se connecte à une base de données SQL Azure et pour l’interroger à l’aide d’instructions T-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: nodejs
 ms.topic: quickstart
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 60a63486143c64a1dc19a5cd18383baeef6f498d
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/26/2018
+ms.openlocfilehash: 3a6060c59c2b338a2fad3327fe89dcf3df955ef5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912780"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496689"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Node.js pour interroger une base de données SQL Azure
 
-Ce démarrage rapide montre comment utiliser [Node.js](https://nodejs.org/en/) pour créer un programme en vue de se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données.
+Cet article explique comment utiliser [Node.js](https://nodejs.org) pour se connecter à une base de données SQL Azure. Vous pouvez ensuite utiliser les instructions T-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce démarrage rapide, vérifiez que vous avez :
+Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous sont bien remplies :
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce démarrage rapide.
+- Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md) pour l’adresse IP publique de l’ordinateur que vous utilisez
 
-- Installé Node.js et les logiciels connexes pour votre système d’exploitation :
-    - **MacOS** : installez Homebrew et Node.js, puis installez le pilote ODBC et SQLCMD. Consultez les [étapes 1.2 et 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
-    - **Ubuntu** : installez Node.js, puis installez le pilote ODBC et SQLCMD. Consultez les [étapes 1.2 et 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
-    - **Windows** : installez Chocolatey et Node.js, puis installez le pilote ODBC et SQLCMD. Consultez les [étapes 1.2 et 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+- Le logiciel associé à Node.js pour votre système d’exploitation :
 
-## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
+  - **MacOS**, installez Homebrew et Node.js, puis installez le pilote ODBC et SQLCMD. Consultez les [étapes 1.2 et 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+  
+  - **Ubuntu**, installez Node.js, puis installez le pilote ODBC et SQLCMD. Consultez les [étapes 1.2 et 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+  
+  - **Windows**, installez Chocolatey et Node.js, puis installez le pilote ODBC et SQLCMD. Consultez les [étapes 1.2 et 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+
+## <a name="get-database-connection"></a>Obtenir la connexion de base de données
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
-> Une règle de pare-feu doit être en place pour l’adresse IP publique de l’ordinateur sur lequel vous effectuez ce didacticiel. Si vous êtes sur un autre ordinateur ou si vous avez une autre adresse IP publique, créez une [règle de pare-feu au niveau du serveur à l’aide du portail Azure](sql-database-get-started-portal-firewall.md). 
+> Une règle de pare-feu doit être en place pour l’adresse IP publique de l’ordinateur sur lequel vous effectuez ce didacticiel. Si vous êtes sur un autre ordinateur ou si vous avez une autre adresse IP publique, créez une [règle de pare-feu au niveau du serveur à l’aide du portail Azure](sql-database-get-started-portal-firewall.md).
 
-## <a name="create-a-nodejs-project"></a>Création d’un projet Node.js
+## <a name="create-the-project"></a>Création du projet
 
 Ouvrez une invite de commandes et créez un dossier nommé *sqltest*. Accédez au dossier que vous avez créé et exécutez la commande suivante :
 
-    
-    npm init -y
-    npm install tedious
-    npm install async
-    
+  ```bash
+  npm init -y
+  npm install tedious
+  npm install async
+  ```
 
-## <a name="insert-code-to-query-sql-database"></a>Insertion du code pour interroger la base de données SQL
+## <a name="add-code-to-query-database"></a>Ajouter du code pour interroger la base de données
 
-1. Dans votre environnement de développement ou votre éditeur de texte favori, créez un nouveau fichier nommé **sqltest.js**.
+1. Dans votre éditeur de texte favori, créez un nouveau fichier, *sqltest.js*.
 
-2. Remplacez le contenu par le code suivant et ajoutez les valeurs appropriées pour votre serveur, base de données, utilisateur et mot de passe.
+1. Remplacez son contenu par le code ci-dessous. Ensuite, ajoutez les valeurs appropriées pour vos serveur, base de données, utilisateur et mot de passe.
 
-   ```js
-   var Connection = require('tedious').Connection;
-   var Request = require('tedious').Request;
+    ```js
+    var Connection = require('tedious').Connection;
+    var Request = require('tedious').Request;
 
-   // Create connection to database
-   var config = 
-      {
-        userName: 'someuser', // update me
-        password: 'somepassword', // update me
-        server: 'edmacasqlserver.database.windows.net', // update me
-        options: 
-           {
-              database: 'somedb' //update me
-              , encrypt: true
-           }
-      }
-   var connection = new Connection(config);
+    // Create connection to database
+    var config =
+    {
+        userName: 'your_username', // update me
+        password: 'your_password', // update me
+        server: 'your_server.database.windows.net', // update me
+        options:
+        {
+            database: 'your_database', //update me
+            encrypt: true
+        }
+    }
+    var connection = new Connection(config);
 
-   // Attempt to connect and execute queries if connection goes through
-   connection.on('connect', function(err) 
-      {
-        if (err) 
-          {
-             console.log(err)
-          }
-       else
-          {
-              queryDatabase()
-          }
-      }
+    // Attempt to connect and execute queries if connection goes through
+    connection.on('connect', function(err)
+        {
+            if (err)
+            {
+                console.log(err)
+            }
+            else
+            {
+                queryDatabase()
+            }
+        }
     );
 
-   function queryDatabase()
-      { console.log('Reading rows from the Table...');
+    function queryDatabase()
+    {
+        console.log('Reading rows from the Table...');
 
-          // Read all rows from table
+        // Read all rows from table
         request = new Request(
-             "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
-                function(err, rowCount, rows) 
-                   {
-                       console.log(rowCount + ' row(s) returned');
-                       process.exit();
-                   }
-               );
-    
+            "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc "
+                + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
+            function(err, rowCount, rows)
+            {
+                console.log(rowCount + ' row(s) returned');
+                process.exit();
+            }
+        );
+
         request.on('row', function(columns) {
-           columns.forEach(function(column) {
-               console.log("%s\t%s", column.metadata.colName, column.value);
+            columns.forEach(function(column) {
+                console.log("%s\t%s", column.metadata.colName, column.value);
             });
-                });
+        });
         connection.execSql(request);
-      }
-```
+    }
+    ```
+
+> [!NOTE]
+> L’exemple de code utilise l’exemple de base de données **AdventureWorksLT** pour SQL Azure.
 
 ## <a name="run-the-code"></a>Exécuter le code
 
-1. Exécutez ensuite les commandes suivantes dans l’invite de commandes :
+1. À l’invite de commande, exécutez ce programme.
 
-   ```js
-   node sqltest.js
-   ```
+    ```bash
+    node sqltest.js
+    ```
 
-2. Vérifiez que les 20 premières lignes sont renvoyées, puis fermez la fenêtre d’application.
+1. Vérifiez que les 20 premières lignes ont été renvoyées et fermez la fenêtre d’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [pilote Microsoft Node.js pour SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- Découvrez comment [connecter et interroger une base de données SQL Azure à l’aide de .NET Core](sql-database-connect-query-dotnet-core.md) sur Windows/Linux/macOS.  
-- En savoir plus sur la [prise en main de .NET Core sur Windows/Linux/macOS à l’aide de la ligne de commande](/dotnet/core/tutorials/using-with-xplat-cli).
-- Découvrez comment [concevoir votre première base de données SQL Azure à l’aide de SSMS](sql-database-design-first-database.md) ou [concevoir votre première base de données SQL Azure à l’aide de .NET](sql-database-design-first-database-csharp.md).
-- Découvrez comment [se connecter et effectuer des requêtes avec SSMS](sql-database-connect-query-ssms.md)
-- Découvrez comment [se connecter et effectuer des requêtes avec Visual Studio Code](sql-database-connect-query-vscode.md).
+- [Node.js Driver for SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server) (Pilote Node.js pour SQL Server)
 
+- Se connecter et exécuter des requêtes sur Windows/Linux/macOS avec [.NET core](sql-database-connect-query-dotnet-core.md), [Visual Studio Code](sql-database-connect-query-vscode.md) ou [SSMS](sql-database-connect-query-ssms.md) (Windows uniquement)
+
+- [Prise en main de .NET Core sur Windows/Linux/macOS à l’aide de la ligne de commande](/dotnet/core/tutorials/using-with-xplat-cli)
+
+- Concevoir votre première base de données SQL Azure à l’aide de [.NET](sql-database-design-first-database-csharp.md) ou de [SSMS](sql-database-design-first-database.md)

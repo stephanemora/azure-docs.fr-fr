@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b592ac10d483bbf0ca058e87f819b8f67847c54e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296106"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444782"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutoriel : surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric
 
@@ -79,6 +79,8 @@ Suivez ces étapes pour configurer Application Insights pour les services Voting
 1. Cliquez avec le bouton droit sur le nom du service, puis cliquez sur **Configurer Application Insights...**.
 
     ![Configurer AI](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>Selon le type de projet, lorsque vous cliquez avec le bouton droit sur le nom du service, vous pouvez avoir besoin de cliquer sur Ajouter -> Application Insights Telemetry.
 
 2. Cliquez sur **Démarrer gratuitement**.
 3. Connectez-vous à votre compte (celui avec lequel vous avez également configuré votre abonnement Azure) et sélectionnez l’abonnement où vous avez créé la ressource Application Insights. Recherchez la ressource sous *Ressource Application Insights existante* dans la liste déroulante « Ressource ». Cliquez sur **Inscrire** pour ajouter Application Insights à votre service.

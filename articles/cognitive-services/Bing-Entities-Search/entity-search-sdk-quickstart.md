@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: abf7e4344bea88fd86b86135ffab30672d77922e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 7cbb97fbf237e14d6822edfa174ca469f8988e2d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814099"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307356"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-c"></a>Démarrage rapide : Kit de développement logiciel (SDK) pour Recherche d’entités Bing avec C#
 
@@ -24,6 +24,7 @@ L’API Recherche d’entités Bing fournit les fonctionnalités de l’API REST
 Le [code source des exemples du Kit de développement logiciel (SDK) C# pour Recherche d’entités Bing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) est disponible sur GitHub.
 
 ## <a name="application-dependencies"></a>Dépendances de l’application
+Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) sous **Recherche**.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Pour configurer une application console à l’aide du Kit de développement logiciel (SDK) pour Recherche d’entités Bing, accédez à l’option `Manage NuGet Packages` à partir de l’Explorateur de solutions dans Visual Studio.  Ajoutez le package `Microsoft.Azure.CognitiveServices.Search.EntitySearch`.
 

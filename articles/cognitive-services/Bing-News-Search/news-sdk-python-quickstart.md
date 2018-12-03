@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 8e4343b053835c0fc2219373ad60f96c7b80636a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6e029b7e830b6ec157d03d17dc24e65282a9c742
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803339"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316801"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-python"></a>Démarrage rapide : Kit de développement logiciel (SDK) Recherche d’actualités Bing avec Python
 
@@ -24,6 +24,8 @@ Le Kit de développement logiciel (SDK) Recherche d’actualités fournit les fo
 Le [code source des exemples du Kit de développement logiciel (SDK) Python pour Recherche d’actualités Bing](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py) est disponible sur GitHub.
 
 ## <a name="application-dependencies"></a>Dépendances de l’application
+Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) sous **Recherche**.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
 Si ce n’est déjà fait, installez Python. Le Kit de développement logiciel (SDK) est compatible avec Python 2.7, 3.3, 3.4, 3.5 et 3.6.
 
 Il est généralement conseillé d’utiliser un [environnement virtuel](https://docs.python.org/3/tutorial/venv.html) pour le développement Python. Installez et initialisez l’environnement virtuel avec le [module venv](https://pypi.python.org/pypi/virtualenv). Vous devez installer virtualenv pour Python 2.7.

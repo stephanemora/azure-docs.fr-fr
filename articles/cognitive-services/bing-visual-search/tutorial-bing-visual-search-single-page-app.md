@@ -10,16 +10,26 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: b493f65e47f5e4c932ed1229e4c00ee1af3cd5ab
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161852"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443889"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Tutoriel : application web à page unique Recherche visuelle
 
 L’API Recherche visuelle de Bing fournit une expérience similaire aux détails de l’image illustrés sur Bing.com/images. Avec la Recherche visuelle, vous pouvez spécifier une image et obtenir des insights sur celle-ci, comme des images visuellement similaires, des sources d’achat, des pages web qui incluent l’image, et bien plus encore. 
+
+Pour ce tutoriel, vous devez démarrer un abonnement au niveau tarifaire S9 comme indiqué dans [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Pour démarrer un abonnement dans le portail Azure :
+1. Entrez « BingSearchV7 » dans la zone de texte en haut du portail Azure indiquant `Search resources, services, and docs`.  
+2. Sous Place de marché dans la liste déroulante, sélectionnez `Bing Search v7`.
+3. Entrez `Name` pour la nouvelle ressource.
+4. Sélectionnez l’abonnement `Pay-As-You-Go`.
+5. Sélectionnez le niveau tarifaire `S9`.
+6. Cliquez sur `Enable` pour démarrer l’abonnement.
 
 Ce tutoriel étend l’application web à page unique du tutoriel Recherche d’images Bing (consultez [Application web à page unique](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Pour le code source complet permettant de démarrer ce tutoriel, consultez [Application web à page unique (code source)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Pour le code source final de ce tutoriel, consultez [Application web à page unique Recherche visuelle](tutorial-bing-visual-search-single-page-app-source.md).
 

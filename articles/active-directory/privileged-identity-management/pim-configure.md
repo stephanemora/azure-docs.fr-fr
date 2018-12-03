@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 6720294fe9a3e166d0d6ef8f141e53212ef4b194
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465858"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496801"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
@@ -73,7 +73,7 @@ Privileged Identity Management prend en charge les scénarios suivants :
 
 - Afficher les approbations (demandes) en attente
 - Approuver ou rejeter des demandes d’élévation de rôle (unique et/ou en bloc)
-- Justifier mon approbation/rejet 
+- Justifier mon approbation/rejet 
 
 **En tant qu’un utilisateur de rôle éligible, vous pouvez :**
 
@@ -81,22 +81,13 @@ Privileged Identity Management prend en charge les scénarios suivants :
 - Afficher l’état de votre demande d’activation
 - Exécuter la tâche dans Azure AD si l’activation a été approuvée
 
-## <a name="enable-privileged-identity-management-for-your-directory"></a>Activer Privileged Identity Management pour votre répertoire
+## <a name="who-can-do-what-in-pim"></a>Qui peut faire quoi dans PIM ?
 
-Vous pouvez commencer à utiliser Azure AD Privileged Identity Management dans le [portail Azure](https://portal.azure.com/).
+Si vous êtes la première personne à utiliser PIM, les rôles [Administrateur de sécurité](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) et [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) vous sont automatiquement attribués pour cet annuaire.
 
-> [!NOTE]
-> Vous devez être un administrateur général avec un compte d’organisation (par exemple, @yourdomain.com) et non un compte Microsoft (par exemple, @outlook.com), pour activer Azure AD Privileged Identity Management sur un annuaire.
+Pour les rôles Azure AD, seul un utilisateur qui possède le rôle d’administrateur de rôle privilégié peut gérer les affectations des autres administrateurs dans PIM. Vous pouvez [accorder l’accès à d’autres administrateurs pour la gestion de PIM](pim-how-to-give-access-to-pim.md). Les administrateurs généraux, les administrateurs de la sécurité et les lecteurs Sécurité peuvent consulter les affectations aux rôles Azure AD dans PIM.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre répertoire.
-2. Si votre organisation possède plusieurs répertoires, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du portail Azure. Sélectionnez le répertoire où vous allez utiliser Azure AD Privileged Identity Management.
-3. Sélectionnez **Tous les services** et utilisez la zone de texte Filtre pour rechercher **Azure AD Privileged Identity Management**.
-4. Cochez **Épingler au tableau de bord**, puis cliquez sur **Créer**. L’application Privileged Identity Management s’ouvre.
-
-Si vous êtes la première personne à utiliser Azure AD Privileged Identity Management dans votre répertoire et que vous accédez aux rôles d’annuaire Azure AD, un [Assistant Sécurité](pim-security-wizard.md) vous guide tout au long de la procédure d’affectation initiale. Vous devenez alors automatiquement le premier **administrateur de la sécurité** et le premier **administrateur de rôle privilégié** de l’annuaire.
-
-Pour les rôles Azure AD, seul un utilisateur qui possède le rôle d’administrateur de rôle privilégié peut gérer les affectations des autres administrateurs dans Azure AD PIM. Vous pouvez [permettre aux autres utilisateurs de gérer les rôles d’annuaire dans PIM](pim-how-to-give-access-to-pim.md). Les administrateurs généraux, les administrateurs de la sécurité et les lecteurs Sécurité peuvent consulter les affectations aux rôles Azure AD dans Azure AD PIM.
-Pour les rôles RBAC Azure, seul un administrateur d’abonnement, un propriétaire de ressource ou un administrateur de l’accès utilisateur aux ressources peut gérer les affectations des autres administrateurs dans Azure AD PIM.  Par défaut, les utilisateurs qui possèdent un rôle d’administrateur de rôle privilégié, d’administrateur de la sécurité ou de lecteur Sécurité ne peuvent pas consulter les affectations aux rôles RBAC Azure dans Azure AD PIM.
+Pour les rôles de ressources Azure, seul un administrateur d’abonnement, un propriétaire de ressource ou un administrateur de l’accès utilisateur aux ressources peut gérer les affectations des autres administrateurs dans PIM. Par défaut, les utilisateurs qui possèdent un rôle d’administrateur de rôle privilégié, d’administrateur de la sécurité ou de lecteur Sécurité ne peuvent pas consulter les affectations aux rôles de ressources Azure dans PIM.
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Vue d’ensemble de Privileged Identity Management (point d’entrée)
 
@@ -186,6 +177,6 @@ Si votre organisation ne renouvelle pas son abonnement Azure AD Premium P2 ou 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Commencer à utiliser PIM](pim-getting-started.md)
 - [Exigences en matière d’abonnement pour utiliser PIM](subscription-requirements.md)
-- [Rôles d’annuaire Azure AD que vous pouvez gérer à l’aide de PIM](pim-roles.md)
 - [Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9811c51485ec30e7fe692c52f4e65cefd93e5cb0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277135"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499081"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Surveiller la synchronisation Azure AD Connect avec Azure AD Connect Health
 La documentation suivante s’applique à la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health.  Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](how-to-connect-health-adfs.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md).
@@ -62,7 +62,7 @@ Cette fonctionnalité fournit une représentation graphique du nombre de modific
 
 ![Latence de synchronisation](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## <a name="object-level-synchronization-error-report-preview"></a>Rapport d’erreurs de synchronisation de niveau objet (version préliminaire)
+## <a name="object-level-synchronization-error-report"></a>Rapport d’erreurs de synchronisation de niveau objet
 Cette fonctionnalité fournit un rapport sur les erreurs de synchronisation qui peuvent se produire lorsque les données d’identité se synchronisent entre Windows Server AD et Azure AD à l’aide d’Azure AD Connect.
 
 * Le rapport répertorie les erreurs consignées par le client de synchronisation (Azure AD Connect 1.1.281.0 ou version ultérieure)
@@ -74,7 +74,7 @@ Cette fonctionnalité fournit un rapport sur les erreurs de synchronisation qui 
   * Liste d’objets avec erreur par catégorie
   * Toutes les données sur les erreurs en un même endroit
   * Comparaison côte à côte d’objets avec erreur en raison d’un conflit
-  * Télécharger le rapport d’erreurs au format CVS (prochainement)
+  * Télécharger le rapport d’erreurs au format CSV
 
 ### <a name="categorization-of-errors"></a>Catégorisation des erreurs
 Le rapport classe les erreurs de synchronisation existantes dans les catégories suivantes :

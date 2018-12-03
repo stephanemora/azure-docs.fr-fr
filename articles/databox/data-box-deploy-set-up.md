@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/17/2018
+ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393828"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427520"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Didacticiel : branchement des câbles et connexion à une Azure Data Box
 
@@ -30,7 +30,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Avant de commencer, assurez-vous que :
 
 1. Vous avez terminé le [didacticiel : Commander une Azure Data Box](data-box-deploy-ordered.md).
-2. Vous avez reçu votre Data Box et que l’état de la commande dans le portail est **Remis** Une étiquette d’expédition se trouve dans le sachet transparent fixé sur l’appareil sous l’étiquette actuelle. Gardez cette étiquette en lieu sûr car vous allez l’utiliser pour le retour.
+2. Vous avez reçu votre Data Box et que l’état de la commande dans le portail est **Remis** 
+    - Une étiquette d’expédition se trouve dans le sachet transparent fixé sur l’appareil sous l’étiquette actuelle. Gardez cette étiquette en lieu sûr car vous allez l’utiliser pour le retour.
+    - Dans certaines régions d’Europe, l’appareil peut être envoyé par colis. Déballez l’appareil et conservez la boîte en cas de retour nécessaire.
 3. Vous avez consulté les [consignes de sécurité de la Data Box](data-box-safety.md).
 4. Vous avez reçu un cordon d’alimentation avec mise à la terre à utiliser avec votre périphérique de stockage de 100 To.
 5. Vous disposez d’un ordinateur hôte contenant les données que vous souhaitez copier sur Data Box Votre ordinateur hôte doit

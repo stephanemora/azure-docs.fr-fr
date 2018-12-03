@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3ca6422bf5335604e561b71db6c75a889a74586
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615753"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334208"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager
 
@@ -93,7 +93,7 @@ Pour créer un coffre Key Vault :
     * **Nom du coffre de clés**: attribuez un nom unique. 
     * **Id de locataire**: la fonction de modèle récupère automatiquement votre id de locataire.  Ne modifiez pas la valeur par défaut.
     * **ID d’utilisateur Azure Active Directory** : entrez votre ID objet utilisateur Azure AD que vous avez récupéré à partir de la dernière procédure.
-    * **Nom du secret** : le nom par défaut est **mAdminPassword**. Si vous modifiez le nom du secret à cet emplacement, vous devez mettre à jour ce nom lorsque vous déployez la machine virtuelle.
+    * **Nom du secret** : le nom par défaut est **vmAdminPassword**. Si vous modifiez le nom du secret à cet emplacement, vous devez mettre à jour ce nom lorsque vous déployez la machine virtuelle.
     * **Valeur du secret** : entrez votre secret.  Le secret correspond au mot de passe utilisé pour la connexion à la machine virtuelle. Il est recommandé d’utiliser le mot de passe généré que vous avez créé au cours de la dernière procédure.
     * **J’accepte les termes et conditions mentionnés ci-dessus** : cochez la case.
 3. Sélectionnez **Modifier les paramètres** en haut de la page pour examiner le modèle.

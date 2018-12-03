@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: f54914b846c6a001a9fb10d938a038e390abf6bf
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1b63b12a48f5ccfb1a396ffa9282249b03893fe
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416441"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445172"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>Démarrage rapide : Votre première requête Recherche visuelle Bing en Java
 
@@ -36,10 +36,17 @@ Cet article inclut une application console qui envoie une requête d’API Reche
 
 
 ## <a name="prerequisites"></a>Prérequis
+Pour ce guide de démarrage rapide, vous devez démarrer un abonnement au niveau tarifaire S9 comme indiqué dans [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Pour démarrer un abonnement dans le portail Azure :
+1. Entrez « BingSearchV7 » dans la zone de texte en haut du portail Azure indiquant `Search resources, services, and docs`.  
+2. Sous Place de marché dans la liste déroulante, sélectionnez `Bing Search v7`.
+3. Entrez `Name` pour la nouvelle ressource.
+4. Sélectionnez l’abonnement `Pay-As-You-Go`.
+5. Sélectionnez le niveau tarifaire `S9`.
+6. Cliquez sur `Enable` pour démarrer l’abonnement.
 
 Pour compiler et exécuter ce code, vous devez disposer de [JDK 7 ou 8](https://aka.ms/azure-jdks). Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte est suffisant.
-
-Pour ce démarrage rapide, vous pouvez utiliser une clé d’abonnement en [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou en version payante.
 
 ## <a name="running-the-application"></a>Exécution de l'application
 

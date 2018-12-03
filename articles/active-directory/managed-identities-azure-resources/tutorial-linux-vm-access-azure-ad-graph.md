@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 57e719c6ef75b08d8c188d2d2d344867bbf590b1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623093"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427452"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux affectée par le système pour accéder à l’API Azure AD Graph
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 Ce didacticiel vous indique comment utiliser une identité managée de machine virtuelle Linux affectée par le système pour accéder à l’API Azure AD Graph afin de récupérer ses appartenances aux groupes. Les identités managées pour ressources Azure sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code.  
 
@@ -155,7 +155,7 @@ Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utili
    }
    ```
 
-4. À l’aide de l’ID d’objet du principal de service de votre machine virtuelle (la valeur que vous avez récupérée lors des étapes précédentes), vous pouvez interroger l’API Azure AD Graph pour récupérer ses appartenances aux groupes. Remplacez `<OBJECT-ID>` par l’ID d’objet du principal de service de votre machine virtuelle et `<ACCESS-TOKEN>` par le jeton d’accès obtenu précédemment :
+4. À l’aide de l’ID d’objet du principal de service de votre machine virtuelle (la valeur que vous avez récupérée lors des étapes précédentes), vous pouvez interroger l’API Azure AD Graph pour récupérer ses appartenances aux groupes. Remplacez `<OBJECT-ID>` par l’ID d’objet du principal de service de votre machine virtuelle, et remplacez `<ACCESS-TOKEN>` par le jeton d’accès obtenu précédemment :
 
    ```bash
    curl 'https://graph.windows.net/myorganization/servicePrincipals/<OBJECT-ID>/getMemberGroups?api-version=1.6' -X POST -d "{\"securityEnabledOnly\": false}" -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS-TOKEN>"

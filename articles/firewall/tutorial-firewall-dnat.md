@@ -5,22 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/27/2018
+ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 894389ec07fb8e371a269f895473fe82985de7c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405969"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582239"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Didacticiel : Filtrer le trafic entrant avec pare-feu Azure DNAT via le portail Azure
 
-Vous pouvez configurer Azure Firewall Destination Network Address Translation (DNAT) pour traduire et filtrer le trafic entrant vers vos sous-réseaux. Lorsque vous configurez le DNAT, l’action de collection de règles NAT est définie sur **Destination Network Address Translation (DNAT)**. Chaque règle de la collection de règles NAT peut ensuite être utilisée pour traduire l’IP et le port publics de votre pare-feu en IP et port privés. Les règles DNAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour en savoir plus sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Azure Firewall rule processing logic](rule-processing.md) (Logique de traitement des règles de Pare-feu Azure).
-
-> [!NOTE]
-> DNAT ne fonctionne pas pour les ports 80 et 22. Nous nous efforçons de résoudre ce problème dès que possible. En attendant, utilisez un autre port que le port de destination dans les règles NAT. Vous pouvez toujours utiliser le port 80 ou 22 en tant que port traduit. Par exemple, vous pouvez mapper public ip:81 à private ip:80.
+Vous pouvez configurer Azure Firewall Destination Network Address Translation (DNAT) pour traduire et filtrer le trafic entrant vers vos sous-réseaux. Lorsque vous configurez le DNAT, l’action de collection de règles NAT est définie sur **DNAT**. Chaque règle de la collection de règles NAT peut ensuite être utilisée pour traduire l’IP et le port publics de votre pare-feu en IP et port privés. Les règles DNAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](rule-processing.md).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -34,36 +31,40 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 Pour ce didacticiel, vous créez deux réseaux virtuels appairés :
+
 - **VN-Hub** : le pare-feu est dans ce réseau virtuel.
 - **VN-Spoke** : le serveur de la charge de travail est dans ce réseau virtuel.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+
 1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
-1. Dans la page d’accueil du portail Azure, cliquez sur **Groupes de ressources**, puis cliquez sur **Ajouter**.
-2. Pour **Nom du groupe de ressources**, entrez **RG-DNAT-Test**.
-3. Pour **Abonnement**, sélectionnez votre abonnement.
-4. Pour **Emplacement du groupe de ressources**, sélectionnez un emplacement. Toutes les ressources suivantes que vous créez doivent se trouver dans le même emplacement.
-5. Cliquez sur **Créer**.
+2. Dans la page d’accueil du portail Azure, cliquez sur **Groupes de ressources**, puis cliquez sur **Ajouter**.
+3. Pour **Nom du groupe de ressources**, entrez **RG-DNAT-Test**.
+4. Pour **Abonnement**, sélectionnez votre abonnement.
+5. Pour **Emplacement du groupe de ressources**, sélectionnez un emplacement. Toutes les ressources suivantes que vous créez doivent se trouver dans le même emplacement.
+6. Cliquez sur **Créer**.
 
 ## <a name="set-up-the-network-environment"></a>Configurer l’environnement réseau
+
 Tout d’abord, créez les réseaux virtuels, puis appairez-les.
 
 ### <a name="create-the-hub-vnet"></a>Créer le réseau virtuel du hub
+
 1. À partir de la page d’accueil du portail Azure, cliquez sur **Tous les services**.
 2. Sous **Mise en réseau**, cliquez sur **Réseaux virtuels**.
 3. Cliquez sur **Add**.
 4. Dans le champ **Nom**, saisissez **VN-Hub**.
 5. Pour **Espace d’adressage**, entrez **10.0.0.0/16**.
-7. Pour **Abonnement**, sélectionnez votre abonnement.
-8. Pour **Groupe de ressources**, sélectionnez **Existant** puis **RG-DNAT-Test**.
-9. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
-10. Sous **Sous-réseau**, pour **Nom**, entrez **AzureFirewallSubnet**.
+6. Pour **Abonnement**, sélectionnez votre abonnement.
+7. Pour **Groupe de ressources**, sélectionnez **Existant** puis **RG-DNAT-Test**.
+8. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
+9. Sous **Sous-réseau**, pour **Nom**, entrez **AzureFirewallSubnet**.
 
      Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
      > [!NOTE]
-     > La taille minimale du sous-réseau AzureFirewallSubnet est /25.
-11. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.
-12. Utilisez les autres paramètres par défaut, puis cliquez sur **Créer**.
+     > La taille minimale du sous-réseau AzureFirewallSubnet est /26.
+10. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.
+11. Utilisez les autres paramètres par défaut, puis cliquez sur **Créer**.
 
 ### <a name="create-a-spoke-vnet"></a>Créer un réseau virtuel spoke
 
@@ -72,14 +73,14 @@ Tout d’abord, créez les réseaux virtuels, puis appairez-les.
 3. Cliquez sur **Add**.
 4. Pour **Nom**, tapez **VN-Spoke**.
 5. Pour **Espace d’adressage**, entrez **192.168.0.0/16**.
-7. Pour **Abonnement**, sélectionnez votre abonnement.
-8. Pour **Groupe de ressources**, sélectionnez **Existant** puis **RG-DNAT-Test**.
-9. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
-10. Sous **Sous-réseau**, tapez **SN-Workload** pour **Nom**.
+6. Pour **Abonnement**, sélectionnez votre abonnement.
+7. Pour **Groupe de ressources**, sélectionnez **Existant** puis **RG-DNAT-Test**.
+8. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
+9. Sous **Sous-réseau**, tapez **SN-Workload** pour **Nom**.
 
     Le serveur se trouve dans ce sous-réseau.
-1. Pour **Plage d’adresses**, entrez **192.168.1.0/24**.
-2. Utilisez les autres paramètres par défaut, puis cliquez sur **Créer**.
+10. Pour **Plage d’adresses**, entrez **192.168.1.0/24**.
+11. Utilisez les autres paramètres par défaut, puis cliquez sur **Créer**.
 
 ### <a name="peer-the-vnets"></a>Homologuer les réseaux virtuels
 
@@ -92,7 +93,7 @@ Maintenant, appairez les deux réseaux virtuels.
 3. Cliquez sur **Add**.
 4. Tapez **Peer-HubSpoke** pour le nom.
 5. Sélectionnez **VN-Spoke** pour le réseau virtuel.
-7. Cliquez sur **OK**.
+6. Cliquez sur **OK**.
 
 #### <a name="spoke-to-hub"></a>Spoke à hub
 
@@ -140,14 +141,13 @@ Consultez le résumé, puis cliquez sur **Créer**. L’exécution de cette opé
 
 Une fois le déploiement terminé, notez l’adresse IP privée de la machine virtuelle. Elle servira ultérieurement pour configurer le pare-feu. Cliquez sur le nom de la machine virtuelle. Sous **Paramètres**, cliquez sur **Mise en réseau** pour trouver l’adresse IP privée.
 
-
 ## <a name="deploy-the-firewall"></a>Déployer le pare-feu
 
 1. À partir de la page accueil du portail, cliquez sur **Créer une ressource**.
 2. Cliquez sur **Mise en réseau**, et après **Recommandés**, cliquez sur **Afficher tout**.
 3. Cliquez sur **Pare-feu**, puis sur **Créer**. 
 4. Sur la page **Créer un pare-feu**, utilisez le tableau suivant pour configurer le pare-feu :
-   
+
    |Paramètre  |Valeur  |
    |---------|---------|
    |NOM     |FW-DNAT-test|
@@ -157,13 +157,12 @@ Une fois le déploiement terminé, notez l’adresse IP privée de la machine vi
    |Choisir un réseau virtuel     |**Utiliser l’existant** : VN-Hub|
    |Adresse IP publique     |**Créer un nouveau**. L’adresse IP publique doit être le type de référence (SKU) Standard.|
 
-2. Cliquez sur **Revoir + créer**.
-3. Passez en revue le résumé, puis cliquez sur **Créer** pour créer le pare-feu.
+5. Cliquez sur **Revoir + créer**.
+6. Passez en revue le résumé, puis cliquez sur **Créer** pour créer le pare-feu.
 
    Le déploiement nécessite quelques minutes.
-4. Une fois le déploiement terminé, accédez au groupe de ressources **RG-DNAT-Test**, puis cliquez sur le pare-feu **FW-DNAT-test**.
-6. Notez l’adresse IP privée. Vous l’utiliserez plus tard lors de la création de l’itinéraire par défaut.
-
+7. Une fois le déploiement terminé, accédez au groupe de ressources **RG-DNAT-Test**, puis cliquez sur le pare-feu **FW-DNAT-test**.
+8. Notez l’adresse IP privée. Vous l’utiliserez plus tard lors de la création de l’itinéraire par défaut.
 
 ## <a name="create-a-default-route"></a>Créer un itinéraire par défaut
 
@@ -188,31 +187,29 @@ Pour le sous-réseau **SN-Workload**, vous devez configurer l’itinéraire sort
 17. Pour **Type de tronçon suivant**, sélectionnez **Appliance virtuelle**.
 
     Le Pare-feu Azure est en réalité un service managé, mais l’appliance virtuelle fonctionne dans ce cas.
-1. Pour **Adresse de tronçon suivant**, entrez l’adresse IP privée pour le pare-feu que vous avez notée précédemment.
-2. Cliquez sur **OK**.
+18. Pour **Adresse de tronçon suivant**, entrez l’adresse IP privée pour le pare-feu que vous avez notée précédemment.
+19. Cliquez sur **OK**.
 
-
-## <a name="configure-a-dnat-rule"></a>Configurer une règle DNAT
+## <a name="configure-a-nat-rule"></a>Configurer une règle NAT
 
 1. Ouvrez **RG-DNAT-Test**, puis cliquez sur le pare-feu **FW-DNAT-test**. 
-1. Sur la page **FW-DNAT-test**, sous **Paramètres**, cliquez sur **Règles**. 
-2. Cliquez sur **Add DNAT rule collection** (Ajouter une collection de règles DNAT). 
-3. Dans le champ **Nom**, saisissez **RC-DNAT-01**. 
-1. Pour **Priorité**, entrez **200**. 
-6. Sous **Règles**, pour **Nom**, entrez **RL-01**. 
-7. Pour **Adresses sources**, entrez *. 
-8. Dans le champ **Adresses de destination**, tapez l’adresse IP publique du pare-feu. 
-9. Pour **Ports de destination**, entrez **3389**. 
-10. Dans le champ **Adresse traduite**, saisissez l’adresse IP privée de la machine virtuelle Srv-Workload. 
-11. Dans le champ **Port traduit**, tapez **3389**. 
-12. Cliquez sur **Add**. 
+2. Sur la page **FW-DNAT-test**, sous **Paramètres**, cliquez sur **Règles**. 
+3. Cliquez sur **Ajouter une collection de règles NAT**. 
+4. Dans le champ **Nom**, saisissez **RC-DNAT-01**. 
+5. Pour **Priorité**, entrez **200**. 
+6. Sous **Règles**, pour **Nom**, entrez **RL-01**.
+7. Pour **Protocole**, sélectionnez **TCP**.
+8. Pour **Adresses sources**, entrez *. 
+9. Dans le champ **Adresses de destination**, tapez l’adresse IP publique du pare-feu. 
+10. Pour **Ports de destination**, entrez **3389**. 
+11. Dans le champ **Adresse traduite**, saisissez l’adresse IP privée de la machine virtuelle Srv-Workload. 
+12. Dans le champ **Port traduit**, tapez **3389**. 
+13. Cliquez sur **Add**. 
 
 ## <a name="test-the-firewall"></a>Tester le pare-feu
 
 1. Connectez un bureau distant à l’adresse IP publique du pare-feu. Vous devriez être connecté à la machine virtuelle **Srv-Workload**.
-3. Fermez le bureau à distance.
-4. Passez l’action **RC-Net-01** de collection de règles de réseau à **Deny**.
-5. Essayez à nouveau de vous connecter à l’adresse IP publique du pare-feu. Cette fois, l’opération devrait échouer en raison de la règle **Deny**.
+2. Fermez le bureau à distance.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

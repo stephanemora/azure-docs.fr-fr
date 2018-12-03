@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bd1b53acb619130a84400c49aba0cb2b710ad7e3
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616110"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582316"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutoriel : Déployer Azure Digital Twins et configurer un graphe spatial
 
@@ -24,7 +24,7 @@ Vous allez apprendre à répliquer les entités et les zones physiques du bâtim
 
 Un administrateur de bureau peut utiliser ces informations pour aider un employé travaillant dans ce bâtiment à réserver des salles de réunion avec des conditions optimales. Un responsable des locaux de bureau peut utiliser votre configuration pour obtenir les tendances d’utilisation des salles, et également surveiller les conditions de travail à des fins de maintenance.
 
-Dans le premier tutoriel de cette série, vous allez apprendre à effectuer les actions suivantes :
+Dans le premier didacticiel de cette série, vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Déployer Digital Twins.
@@ -87,7 +87,7 @@ Dans l’exemple de dossier extrait, ouvrez le fichier **digital-twins-samples-c
 
 * L’exemple de simulation **device-connectivity** simule les données de capteur et les envoie au hub IoT qui est provisionné pour votre instance Digital Twins. Vous allez utiliser cet exemple dans [le tutoriel suivant, après avoir provisionné votre graphe spatial](tutorial-facilities-udf.md#simulate). Les identificateurs d’appareils et de capteurs que vous utilisez pour configurer cet exemple doivent être les mêmes que ceux que vous allez utiliser pour provisionner votre graphe.
 
-### <a name="configure-the-provisioning-sample"></a>Configurer l’exemple de provisionnement
+### <a name="configure-the-provisioning-sample"></a>Configurer l’exemple d’approvisionnement
 1. Ouvrez une fenêtre de commande et accédez à l’exemple téléchargé. Exécutez la commande suivante :
 
     ```cmd/sh
@@ -170,12 +170,16 @@ Enregistrez et fermez le fichier provisionSample.yaml. Dans le tutoriel suivant,
 Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous pouvez supprimer les ressources créées dans ce tutoriel :
 
 1. Dans le menu de gauche du [portail Azure](http://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Digital Twins et **Supprimer**.
-2. Si nécessaire, supprimez l’exemple d’application sur votre machine de travail. 
+   
+    > [!TIP]
+    > Si vous avez rencontré des difficultés pour supprimer votre instance de Digital Twins, une mise à jour du service a été déployée avec le correctif. Réessayez de supprimer votre instance.
+
+1. Si nécessaire, supprimez l’exemple d’application sur votre machine de travail. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment implémenter une logique personnalisée et superviser les conditions au sein de votre exemple de bâtiment, passez au tutoriel suivant de cette série : 
 > [!div class="nextstepaction"]
-> [Tutoriel : Provisionner votre bâtiment et surveiller les conditions de travail avec Azure Digital Twins](tutorial-facilities-udf.md)
+> [Tutorial: Provision your building and monitor working conditions with Azure Digital Twins](tutorial-facilities-udf.md) (Didacticiel : Approvisionner votre bâtiment et surveiller les conditions de travail avec Azure Digital Twins)
 

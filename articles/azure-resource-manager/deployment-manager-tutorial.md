@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345570"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425001"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Didacticiel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion privée)
 
@@ -41,6 +41,8 @@ Ce tutoriel décrit les tâches suivantes :
 > * Déployer la version la plus récente
 > * Supprimer des ressources
 
+Pour consulter les informations de référence sur l’API REST Azure Deployment Manager, [cliquez ici](https://docs.microsoft.com/rest/api/deploymentmanager/).
+
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -50,12 +52,12 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 * Une certaine expérience du développement de [modèles Azure Resource Manager](./resource-group-overview.md).
 * Azure Deployment Manager est en préversion privée. Pour vous inscrire à l’utilisation d’Azure Deployment Manager, vous devez remplir la [feuille d’inscription](https://aka.ms/admsignup). 
 * Azure PowerShell. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Cmdlets Deployment Manager. Pour installer ces cmdlets en version préliminaire, vous avez besoin de la dernière version de PowerShellGet. Pour obtenir la toute dernière version, consultez [Installation de PowerShellGet](/powershell/gallery/installing-psget). Fermez la fenêtre PowerShell après l’installation de PowerShellGet. Ouvrez une nouvelle fenêtre PowerShell et exécutez la commande suivante :
+* Cmdlets Deployment Manager. Pour installer ces cmdlets en version préliminaire, vous avez besoin de la dernière version de PowerShellGet. Pour obtenir la toute dernière version, consultez [Installation de PowerShellGet](/powershell/gallery/installing-psget). Fermez la fenêtre PowerShell après l’installation de PowerShellGet. Ouvrez une nouvelle fenêtre PowerShell avec des privilèges élevés, puis exécutez la commande suivante :
 
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
-* [Explorateur Stockage Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). Explorateur Stockage Azure n’est pas obligatoire, mais il facilite les choses.
+* [Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/). Explorateur Stockage Azure n’est pas obligatoire, mais il facilite les choses.
 
 ## <a name="understand-the-scenario"></a>Présentation du scénario
 
@@ -145,10 +147,10 @@ Plus loin dans ce didacticiel, vous déploierez un lancement. Une identité mana
 Vous devez créer une identité managée affectée à l’utilisateur et configurer le contrôle d’accès pour votre abonnement.
 
 > [!IMPORTANT]
-> L’identité managée affectée à l’utilisateur doit être au même emplacement que le [lancement](#create-the-rollout-template). Actuellement, les ressources Deployment Manager, y compris le lancement, peuvent être créées uniquement dans USA Centre ou USA Est 2.
+> L’identité managée affectée à l’utilisateur doit être au même emplacement que le [lancement](#create-the-rollout-template). Actuellement, les ressources Deployment Manager, y compris le lancement, peuvent être créées uniquement dans USA Centre ou USA Est 2. Toutefois, cela vaut uniquement pour les ressources Deployment Manager (comme la topologie de service, les services, les unités de service, le lancement et les étapes). Vos ressources cibles peuvent être déployées sur n’importe quelle région Azure prise en charge. Dans ce tutoriel, par exemple, les ressources Deployment Manager sont déployées dans la région USA Centre, mais les services sont déployés dans les régions USA Est et USA Ouest. Il est prévu que cette restriction soit supprimée.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Créez une [identité managée affectée à l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md).
+2. Créez une [identité managée affectée à l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. Dans le portail, sélectionnez **Abonnements** dans le menu de gauche, puis sélectionnez votre abonnement.
 4. Sélectionnez **Contrôle d’accès (IAM)**, puis sélectionnez **Ajouter**.
 5. Entrez ou sélectionnez les valeurs suivantes :
@@ -200,6 +202,9 @@ La capture d’écran suivante montre uniquement certaines parties de la topolog
 - **dependsOn** : toutes les ressources de topologie de service dépendent de la ressource de source d’artefact.
 - **artifacts** renvoie vers les artefacts du modèle.  Utilise les chemins d’accès relatifs. Le chemin d’accès complet est construit en concaténant artifactSourceSASLocation (défini dans la source d’artefacts), artifactRoot (défini dans la source d’artefacts), et templateArtifactSourceRelativePath (ou parametersArtifactSourceRelativePath).
 
+> [!NOTE]
+> Les noms des unités de service doivent contenir au maximum 31 caractères. 
+
 ### <a name="topology-parameters-file"></a>Fichier de paramètres de topologie
 
 Vous créez un fichier de paramètres utilisé avec le modèle de topologie.
@@ -211,7 +216,7 @@ Vous créez un fichier de paramètres utilisé avec le modèle de topologie.
     - **azureResourceLocation** : si vous n’êtes pas familier des emplacements Azure, utilisez **centralus** pour ce didacticiel.
     - **artifactSourceSASLocation** : saisissez l’URI SAS vers le dossier racine (le conteneur d’objets blob) où le modèle d’unité de service et les fichiers de paramètres sont stockés pour le déploiement.  Consultez [Préparer les artefacts](#prepare-the-artifacts).
     - **templateArtifactRoot** : sauf si vous modifiez la structure de dossiers des artefacts, utilisez **templates/1.0.0.0** pour ce didacticiel.
-    - **targetScriptionID** : indiquez votre ID d’abonnement Azure.
+    - **targetScriptionID** : entrez votre ID d’abonnement Azure.
 
 > [!IMPORTANT]
 > Le modèle de topologie et le modèle de lancement partagent certains paramètres. Ces paramètres doivent avoir les mêmes valeurs. Il s’agit de : **namePrefix**, **azureResourceLocation**, et **artifactSourceSASLocation** (les deux sources d’artefact partagent le même compte de stockage dans ce didacticiel).
@@ -242,7 +247,7 @@ La section Variables définit les noms des ressources. Assurez-vous que le nom d
 
 Au niveau racine, trois ressources sont définies : une source d’artefact, une étape, et un lancement.
 
-La définition de source d’artefact est identique à celle définie dans le modèle de topologie.  Voir [Créer le modèle de topologie de service](#create-the-service-topology-tempate) pour plus d’informations.
+La définition de source d’artefact est identique à celle définie dans le modèle de topologie.  Voir [Créer le modèle de topologie de service](#create-the-service-topology-template) pour plus d’informations.
 
 La capture d’écran suivante montre la définition d’attente/étape :
 
@@ -310,7 +315,7 @@ Azure PowerShell peut être utilisé pour déployer les modèles.
 
     L’option **Afficher les types masqués** doit être sélectionnée pour voir les ressources.
 
-3. Déployez le modèle de lancement :
+3. <a id="deploy-the-rollout-template"></a>Déployez le modèle de lancement :
 
     ```azurepowershell-interactive
     # Create the rollout
@@ -325,7 +330,7 @@ Azure PowerShell peut être utilisé pour déployer les modèles.
 
     ```azurepowershell-interactive
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>"
+    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
@@ -365,7 +370,7 @@ Lorsque vous avez une nouvelle version (1.0.0.1) pour l’application web, vous 
 
 1. Ouvrez CreateADMRollout.Parameters.json.
 2. Mettez à jour **binaryArtifactRoot** à **binaries/1.0.0.1**.
-3. Redéployez le lancement, comme indiqué dans [Déployer les modèles](#deploy-the-templates).
+3. Redéployez le lancement, comme indiqué dans [Déployer les modèles](#deploy-the-rollout-template).
 4. Vérifiez le déploiement, comme indiqué dans [Vérifier le déploiement](#verify-the-deployment). La page web doit afficher la version 1.0.0.1.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

@@ -10,20 +10,30 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 06d6bc8e53276b5542210c2843d7221d6fd79c09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 62780500d29c891182d3869bf0ba3ccdc5e2f715
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386432"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441059"
 ---
-# <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Tutoriel : résultats et jeton ImageInsightsToken du Kit de développement logiciel (SDK) de Recherche visuelle Bing
+# <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Tutoriel : résultats et jeton ImageInsightsToken du kit SDK Recherche visuelle Bing
 Le Kit de développement logiciel (SDK) de Recherche visuelle comprend une option pour rechercher des images en ligne à partir d’une recherche précédente renvoyant un `ImageInsightsToken`.  Cet exemple obtient un `ImageInsightsToken` et utilise le jeton dans une recherche ultérieure.  Le code envoie le `ImageInsightsToken` à Bing, puis retourne des résultats qui incluent les URL de recherche Bing et les URL des images similaires disponibles en ligne.
 
 ## <a name="prerequisites"></a>Prérequis
 Visual Studio 2017. Si nécessaire, vous pouvez télécharger la version communautaire gratuite à partir d’ici : https://www.visualstudio.com/vs/community/.
 Une clé d’API Cognitive Services est requise pour authentifier les appels du Kit de développement logiciel (SDK). Inscrivez-vous pour obtenir une clé d’essai gratuit. La clé d’essai convient pour sept jours avec un appel par seconde. Pour les scénarios de production, achetez une clé d’accès. Consultez aussi les informations de tarification.
 La possibilité d’exécuter des kits SDK .NET Core ainsi que des applications .NET Core 1.1. Vous pouvez obtenir CORE, Framework et Runtime à partir d’ici : https://www.microsoft.com/net/download/.
+
+Pour ce tutoriel, vous devez démarrer un abonnement au niveau tarifaire S9 comme indiqué dans [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Pour démarrer un abonnement dans le portail Azure :
+1. Entrez « BingSearchV7 » dans la zone de texte en haut du portail Azure indiquant `Search resources, services, and docs`.  
+2. Sous Place de marché dans la liste déroulante, sélectionnez `Bing Search v7`.
+3. Entrez `Name` pour la nouvelle ressource.
+4. Sélectionnez l’abonnement `Pay-As-You-Go`.
+5. Sélectionnez le niveau tarifaire `S9`.
+6. Cliquez sur `Enable` pour démarrer l’abonnement.
 
 ## <a name="application-dependencies"></a>Dépendances de l’application
 Pour configurer une application console à l’aide du kit Web Search SDK Bing, accédez à l’option Gérer les packages NuGet à partir de l’Explorateur de solutions dans Visual Studio. Ajoutez :

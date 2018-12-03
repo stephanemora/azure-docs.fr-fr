@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/12/2018
 ms.author: jroth
-ms.openlocfilehash: 2d38e5d7902e0db2342bce19ae2022a9433bfcfe
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 141a65032d3d97a7977bb3e725edb47b6f25d55c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617732"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496663"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qu’est-ce que SQL Server sur les machines virtuelles Azure ? (Windows)
 
@@ -67,8 +67,13 @@ Le tableau suivant fournit une matrice des images SQL Server de paiement à l’
 
 Pour afficher les images de machines virtuelles Linux SQL Server disponibles, consultez la [présentation de SQL Server sur les machines virtuelles Azure (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
+> [!NOTE]
+> Vous pouvez désormais changer de modèle de licence pour les machines virtuelles SQL Server avec paiement à l’utilisation, et utiliser votre propre licence. Pour plus d’informations, consultez [Guide pratique pour modifier le modèle de licence d’une machine virtuelle SQL](virtual-machines-windows-sql-ahb.md). 
+
 ### <a id="BYOL"></a> BYOL (apportez votre propre licence)
-Vous pouvez également apporter votre propre licence (modèle BYOL). Dans ce scénario, vous payez uniquement pour la machine virtuelle sans frais supplémentaires pour la gestion de licences SQL Server.  Apporter votre propre licence peut être avantageux sur le long terme pour des charges de travail de production continue. Pour la configuration requise pour utiliser cette option, consultez [Tarification des machines virtuelles SQL Server Azure](virtual-machines-windows-sql-server-pricing-guidance.md).
+Vous pouvez également apporter votre propre licence (modèle BYOL). Dans ce scénario, vous payez uniquement pour la machine virtuelle sans frais supplémentaires pour la gestion de licences SQL Server.  Apporter votre propre licence peut être avantageux sur le long terme pour des charges de travail de production continue. Pour la configuration requise pour utiliser cette option, consultez [Tarification des machines virtuelles SQL Server Azure](virtual-machines-windows-sql-server-pricing-guidance.md#byol).
+
+Pour utiliser votre propre licence, vous pouvez soit convertir une machine virtuelle SQL avec paiement à l’utilisation, soit déployer une image avec le préfixe **{BYOL}**. Pour plus d’informations sur le passage du modèle de paiement à l’utilisation au modèle BYOL (apportez votre propre licence), consultez [Guide pratique pour modifier le modèle de licence d’une machine virtuelle SQL](virtual-machines-windows-sql-ahb.md). 
 
 | Version | Système d’exploitation | Édition |
 | --- | --- | --- |
@@ -77,7 +82,6 @@ Vous pouvez également apporter votre propre licence (modèle BYOL). Dans ce sc�
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[BYOL Enterprise](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [BYOL Standard](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[BYOL Enterprise](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [BYOL Standard](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-Dans le portail, le nom de ces images comporte le préfixe **{BYOL}**.
 
 ### <a name="connect-to-the-vm"></a>Connexion à la machine virtuelle
 Lorsque vous avez créé votre machine virtuelle SQL Server, connectez-vous à celle-ci à partir d’applications ou d’outils, tels que SQL Server Management Studio (SSMS). Pour obtenir des instructions, consultez [Se connecter à une machine virtuelle SQL Server sur Azure](virtual-machines-windows-sql-connect.md).
@@ -96,12 +100,12 @@ Le Programme d’amélioration du produit est activé par défaut. Il transmet r
 * [Présentation des machines virtuelles](../overview.md)
 
 ### <a name="storage"></a>Stockage
-* [Introduction à Stockage Microsoft Azure](../../../storage/common/storage-introduction.md)
+* [Introduction à Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Mise en réseau
 * [Présentation du réseau virtuel](../../../virtual-network/virtual-networks-overview.md)
 * [Adresses IP dans Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Créer un nom de domaine complet dans le Portail Azure](../portal-create-fqdn.md)
+* [Créer un nom de domaine complet dans le portail Azure](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [Documentation de SQL Server](https://docs.microsoft.com/sql/index)

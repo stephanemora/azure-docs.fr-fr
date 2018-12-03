@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: c08c9a292350adf588296c13a5ce007564899053
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 587279d247b945b787051721d256f00a090d56db
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005766"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313960"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>Présentation d’Apache Kafka sur HDInsight
 
@@ -26,23 +26,23 @@ Voici les caractéristiques spécifiques de Kafka sur HDInsight :
 
 * Microsoft propose un contrat de niveau de service (SLA) à 99,9 % sur la durée de fonctionnement de Kafka. Pour plus d’informations, consultez le document [Informations sur le contrat SLA de HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* Il utilise Azure Managed Disks comme magasin de stockage pour Kafka. Les disques managés peuvent fournir jusqu’à 16 To de stockage par répartiteur Kafka. Pour plus d’informations sur la configuration des disques gérés avec Kafka sur HDInsight, consultez [Increase scalability of Kafka on HDInsight](apache-kafka-scalability.md) (Augmenter l’évolutivité de Kafka sur HDInsight).
+* Il utilise Azure Managed Disks comme magasin de stockage pour Kafka. Les disques managés peuvent fournir jusqu’à 16 To de stockage par répartiteur Kafka. Pour plus d’informations sur la configuration des disques managés avec Kafka dans HDInsight, consultez [Augmenter la scalabilité d’Apache Kafka dans HDInsight](apache-kafka-scalability.md).
 
     Pour plus d’informations sur les disques gérés, consultez [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 * Kafka a été conçu avec une vision unidimensionnelle du rack. Azure sépare chaque rack en deux dimensions : les domaines de mise à jour et les domaines d’erreur. Microsoft fournit des outils permettant de rééquilibrer les partitions et les réplicas Kafka entre les domaines de mise à jour et les domaines d’erreur. 
 
-    Pour plus d’informations, consultez [Haute disponibilité avec Kafka dans HDInsight](apache-kafka-high-availability.md).
+    Pour plus d’informations, consultez [Haute disponibilité avec Apache Kafka dans HDInsight](apache-kafka-high-availability.md).
 
 * HDInsight permet de modifier le nombre de nœuds de travail (qui hébergent le répartiteur Kafka) après la création du cluster. La mise à l’échelle peut être effectuée depuis le portail Azure, Azure PowerShell et d’autres interfaces de gestion Azure. Pour Kafka, vous devez rééquilibrer les réplicas de partition après les opérations de mise à l’échelle. Le rééquilibrage des partitions permet à Kafka de tirer parti du nouveau nombre de nœuds de travail.
 
-    Pour plus d’informations, consultez [Haute disponibilité avec Kafka dans HDInsight](apache-kafka-high-availability.md).
+    Pour plus d’informations, consultez [Haute disponibilité avec Apache Kafka dans HDInsight](apache-kafka-high-availability.md).
 
 * Azure Log Analytics permet d’effectuer le monitoring de Kafka sur HDInsight. Log Analytics montre les informations au niveau de la machine virtuelle, telles que les métriques des disques et des cartes réseau, et les métriques JMX depuis Kafka.
 
-    Pour plus d’informations, consultez [Analyser les journaux pour Kafka sur HDInsight](apache-kafka-log-analytics-operations-management.md).
+    Pour plus d’informations, consultez [Analyser les journaux pour Apache Kafka dans HDInsight](apache-kafka-log-analytics-operations-management.md).
 
-### <a name="kafka-on-hdinsight-architecture"></a>Architecture Kafka sur HDInsight
+### <a name="apache-kafka-on-hdinsight-architecture"></a>Architecture Apache Kafka dans HDInsight
 
 Le diagramme suivant illustre une configuration Kafka type qui utilise des groupes de consommateurs, un partitionnement et une réplication afin d’offrir une lecture parallèle des événements avec tolérance de panne :
 
@@ -56,29 +56,29 @@ Les rubriques partitionnent les enregistrements entre les répartiteurs. Au cour
 
 La réplication est employée pour dupliquer les partitions sur les nœuds, offrant ainsi une protection contre les pannes de nœud (répartiteur). La partition indiquée par un *(L)* dans le diagramme est la meneuse pour la partition considérée. Le trafic de producteur est acheminé vers le leader de chaque nœud, en utilisant l’état géré par ZooKeeper.
 
-## <a name="why-use-kafka-on-hdinsight"></a>Pourquoi utiliser Kafka sur HDInsight ?
+## <a name="why-use-apache-kafka-on-hdinsight"></a>Pourquoi utiliser Apache Kafka dans HDInsight ?
 
 Voici les tâches et les modèles courants réalisables avec Kafka sur HDInsight :
 
-* **Réplication des données de Kafka** : Kafka fournit l’utilitaire MirrorMaker, qui réplique les données entre les clusters Kafka.
+* **Réplication des données d’Apache Kafka** : Kafka fournit l’utilitaire MirrorMaker, qui réplique les données entre les clusters Kafka.
 
-    Pour plus d’informations sur l’utilisation de MirrorMaker, consultez [Répliquer des rubriques Kafka avec Kafka sur HDInsight](apache-kafka-mirroring.md).
+    Pour obtenir des informations sur l’utilisation de MirrorMaker, consultez [Répliquer des rubriques Apache Kafka avec Apache Kafka dans HDInsight](apache-kafka-mirroring.md).
 
 * **Modèle de messagerie de publication/abonnement** : Kafka fournit une API de producteur pour la publication des enregistrements dans un sujet Kafka. L’API de consommateur est utilisée lors de l’abonnement à un sujet.
 
-    Pour plus d’informations, consultez [Démarrer avec Kafka sur HDInsight](apache-kafka-get-started.md).
+    Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).
 
 * **Traitement des flux** : Kafka est souvent utilisé avec Apache Storm ou Spark pour le traitement des flux en temps réel. Kafka 0.10.0.0 (HDInsight version 3.5 et 3.6) a introduit une API de diffusion en continu qui vous permet de créer des solutions de diffusion en continu sans Storm ni Spark.
 
-    Pour plus d’informations, consultez [Démarrer avec Kafka sur HDInsight](apache-kafka-get-started.md).
+    Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).
 
 * **Évolution horizontale** : Kafka partitionne les flux de données entre les nœuds du cluster HDInsight. Les processus consommateur peuvent être associés à des partitions individuelles pour fournir un équilibrage de charge lors de l’utilisation des enregistrements.
 
-    Pour plus d’informations, consultez [Démarrer avec Kafka sur HDInsight](apache-kafka-get-started.md).
+    Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).
 
 * **Livraison chronologique** : dans chaque partition, les enregistrements sont stockés dans le flux de données dans l’ordre de réception. En associant un processus consommateur par partition, vous pouvez garantir que les enregistrements sont traités dans l’ordre.
 
-    Pour plus d’informations, consultez [Démarrer avec Kafka sur HDInsight](apache-kafka-get-started.md).
+    Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).
 
 ## <a name="use-cases"></a>Cas d'utilisation
 
@@ -94,8 +94,8 @@ Voici les tâches et les modèles courants réalisables avec Kafka sur HDInsight
 
 Cliquez sur les liens suivants pour apprendre à utiliser Apache Kafka sur HDInsight :
 
-* [Guide de démarrage rapide : Créer un cluster Kafka sur HDInsight](apache-kafka-get-started.md)
+* [Démarrage rapide : Créer un cluster Apache Kafka dans HDInsight](apache-kafka-get-started.md)
 
-* [Tutoriel : Utiliser Apache Spark avec Kafka sur HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Tutoriel : Utiliser Apache Spark avec Apache Kafka dans HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Tutoriel : Utiliser Apache Storm avec Kafka sur HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Tutoriel : Utiliser Apache Storm avec Apache Kafka dans HDInsight](../hdinsight-apache-storm-with-kafka.md)

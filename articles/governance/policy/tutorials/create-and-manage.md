@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Policy pour créer et gérer des stratégies afin d’appliquer la conformité de l’organisation
+title: Utiliser Azure Policy pour créer et gérer des stratégies afin d’appliquer la conformité
 description: Utilisez une stratégie Azure pour appliquer des normes, se conformer aux réglementations de conformité et d’audit, maîtriser les coûts, garantir la sécurité et maintenir les performances, et imposer les principes de conception à l’échelle de l’entreprise.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a7495ca1153fa6b84902423ee79c69f24316cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ee7a4190248c8c18f747ee579aadc04a136696b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980955"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583078"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -110,7 +110,7 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
     }
     ```
 
-    La valeur de la propriété de *champ* de la règle de stratégie doit être l’une des suivantes : Nom, Type, Emplacement, Étiquettes ou un alias. Exemple d’alias : `"Microsoft.Compute/VirtualMachines/Size"`.
+    La valeur de la propriété de *champ* de la règle de stratégie doit être l’une des suivantes : Nom, Type, Emplacement, Balises ou un alias. Exemple d’alias : `"Microsoft.Compute/VirtualMachines/Size"`.
 
     Pour voir d’autres exemples relatifs à Azure Policy, consultez [Exemples Azure Policy](../samples/index.md).
 

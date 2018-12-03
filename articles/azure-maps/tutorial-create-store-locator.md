@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9f77beb8c51fb3a06045183433907e1c634fb45d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820268"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317906"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -81,7 +81,7 @@ Vous pouvez [télécharger le classeur Excel](https://github.com/Azure-Samples/A
 * Les autres colonnes contiennent des métadonnées sur les cafés : numéro de téléphone, colonnes booléennes pour les hotspots Wi-Fi et l’accessibilité pour les personnes en fauteuil roulant ainsi que les heures d’ouverture et de fermeture au format 24 heures. Vous pouvez créer vos propres colonnes contenant des métadonnées plus en rapport avec vos données d’emplacement.
 
 > [!Note]
-> Azure Maps utilise une projection Mercato sphérique (EPSG:3857).
+> Azure Maps affiche les données dans la projection Mercator sphérique « EPSG:3857 », mais lit les données dans « EPSG:4325 » qui utilisent la donnée WGS84. 
 
 Il existe de nombreuses façons d’exposer le jeu de données à l’application. Une approche consiste à charger les données dans une base de données et à exposer un service web qui interroge les données et envoie les résultats au navigateur de l’utilisateur. Cette option est idéale pour les jeux de données volumineux ou qui sont fréquemment mis à jour. Cependant, elle demande beaucoup plus de travail de développement et son coût de revient est plus élevé. 
 
@@ -98,7 +98,7 @@ Si vous ouvrez le fichier texte dans le Bloc-notes, il se présente comme suit 
 <center>![Capture d’écran d’un fichier dans le Bloc-notes qui présente un jeu de données délimité par des tabulations](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
-## <a name="set-up-the-project"></a>Configurer le projet
+## <a name="set-up-the-project"></a>Configuration du projet
 
 Pour créer le projet, vous pouvez utiliser [Visual Studio](https://visualstudio.microsoft.com) ou l’éditeur de code de votre choix. Dans le dossier du projet, créez trois fichiers : *index.html*, *index.css*, et *index.js*. Ces fichiers définissent la disposition, le style et la logique de l’application. Créez un dossier nommé *data* et ajoutez-y le fichier *ContosoCoffee.txt*. Créez un autre dossier nommé *images*. Cette application utilisera dix images pour les icônes, les boutons et les marqueurs de la carte. Vous pouvez [télécharger ces images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Le dossier du projet doit maintenant se présenter comme suit :
 

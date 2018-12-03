@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f9ec8ff1fbd5f6341d2d949d15d963f8abe15200
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166598"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444433"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Interroger des données Azure Cosmos DB avec des requêtes SQL
 
@@ -400,9 +400,18 @@ Les opérateurs unaires +,-, ~ et NOT sont également pris en charge et peuvent 
 En plus des opérateurs binaires et unaires, les références de propriétés sont également autorisées. Par exemple, `SELECT * FROM Families f WHERE f.isRegistered` retourne l’élément JSON qui contient la propriété `isRegistered` dont la valeur est égale à la valeur `true` JSON. Toutes les autres valeurs (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>`, etc.) entraînent l’exclusion de l’élément source du résultat. 
 
 ### <a name="equality-and-comparison-operators"></a>Opérateurs d'égalité et de comparaison
+
 Le tableau suivant répertorie les résultats des comparaisons d'égalité dans l’API SQL entre deux types JSON.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** | | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | | **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined | | **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | | **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | | **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | | **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | | **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Opérateur** | **Undefined** | **Null** | **Booléen** | **Nombre** | **Chaîne** | **Object** | **Tableau** |
+|---|---|---|---|---|---|---|---|
+| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Booléen** | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined |
+| **Nombre** | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined |
+| **Chaîne** | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined |
+| **Tableau** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** |
 
 Pour les autres opérateurs de comparaison tels que >, >=, !=, < et <=, les règles suivantes s'appliquent :
 

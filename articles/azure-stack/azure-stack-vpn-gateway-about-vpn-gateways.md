@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300147"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496200"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>À propos de la passerelle VPN pour Azure Stack
 
@@ -117,6 +117,10 @@ Le tableau suivant présente les types de passerelle et le débit total estimé 
 *Note (1)* Le débit du VPN n’est pas garanti pour les connexions intersites via Internet. Il s’agit de la mesure du débit maximal possible.  
 *Note (2)* Le nombre maximal de tunnels est le total par déploiement Azure Stack pour TOUS les abonnements.  
 *Note (3)* Le routage BGP n’est pas pris en charge pour la référence SKU de base.
+
+>[!NOTE]
+>Vous ne pouvez créer qu’une seule connexion VPN de site à site entre deux déploiements Azure Stack.  Ceci est dû au fait que la plateforme n’autorise qu’une seule connexion VPN à la même adresse IP.  Dans la mesure où Azure Stack s’appuie sur la passerelle multi-locataire qui utilise une seule adresse IP publique pour toutes les passerelles VPN dans le système Azure Stack, il ne peut y avoir qu’une seule connexion VPN entre deux systèmes Azure Stack.  Cette limitation s’applique également à la connexion de plusieurs connexions VPN de site à site à une passerelle VPN qui utilise une seule adresse IP.  Azure Stack n’autorise pas la création de plusieurs ressources de passerelle de réseau Local à l’aide de la même adresse IP.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

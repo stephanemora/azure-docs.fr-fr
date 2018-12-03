@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 01/29/2018
 ms.author: rosh
-ms.openlocfilehash: 6cf7a16fa28602e5e3733741db8bfb7296882487
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bf8eece4b5afe34635d80a57cc12c26a8ed157d6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219938"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314130"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-c"></a>Démarrage rapide : Kit SDK Recherche de vidéos Bing avec C# 
 
@@ -24,6 +24,7 @@ Le Kit de développement logiciel (SDK) Recherche de vidéos Bing fournit les fo
 Le [code source des exemples du Kit de développement logiciel (SDK) C# pour Recherche de vidéos Bing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) est disponible sur GitHub.
 
 ## <a name="application-dependencies"></a>Dépendances de l’application
+Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) sous **Recherche**.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Pour configurer une application console à l’aide du Kit de développement logiciel (SDK) pour Recherche de vidéos Bing, accédez à l’option `Manage NuGet Packages` à partir de l’Explorateur de solutions dans Visual Studio.  Ajoutez le package `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
 

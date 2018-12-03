@@ -7,18 +7,18 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 2a72afe708c157fb2a19ac0bfcea2bea34f7b56f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625643"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584194"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutoriel : Provisionner votre bâtiment et surveiller les conditions de travail avec Azure Digital Twins
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Didacticiel : Approvisionner votre bâtiment et surveiller les conditions de travail avec Azure Digital Twins
 
-Ce tutoriel montre comment utiliser Azure Digital Twins pour surveiller les conditions de température et le niveau de confort souhaités pour vos espaces. Après avoir [configuré votre exemple de bâtiment](tutorial-facilities-setup.md), vous pouvez le provisionner et exécuter des fonctions personnalisées dans vos données de capteur en suivant les étapes de ce tutoriel.
+Ce didacticiel montre comment utiliser Azure Digital Twins pour surveiller les conditions de température et le niveau de confort souhaités pour vos espaces. Après avoir [configuré votre exemple de bâtiment](tutorial-facilities-setup.md), vous pouvez le provisionner et exécuter des fonctions personnalisées dans vos données de capteur en suivant les étapes de ce tutoriel.
 
-Ce tutoriel vous montre comment :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Définir les conditions à superviser.
@@ -253,6 +253,10 @@ Si la condition supervisée est remplie, la fonction définie par l’utilisateu
 Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous pouvez supprimer les ressources créées dans ce tutoriel :
 
 1. Dans le menu de gauche du [portail Azure](http://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Digital Twins et **Supprimer**.
+
+    > [!TIP]
+    > Si vous avez rencontré des difficultés pour supprimer votre instance de Digital Twins, une mise à jour du service a été déployée avec le correctif. Réessayez de supprimer votre instance.
+
 2. Si nécessaire, supprimez les exemples d’applications de votre machine de travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -260,7 +264,7 @@ Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous p
 Maintenant que vous avez provisionné vos espaces et créé une infrastructure pour déclencher des notifications personnalisées, vous pouvez passer à l’un des tutoriels suivants :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Recevoir des notifications à partir de vos espaces Azure Digital Twins à l’aide de Logic Apps](tutorial-facilities-events.md)
+> [Didacticiel : Recevoir des notifications à partir de vos espaces Azure Digital Twins à l’aide de Logic Apps](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)
+> [Didacticiel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)

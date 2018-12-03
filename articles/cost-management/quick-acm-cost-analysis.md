@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515724"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445706"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec Analyse du coût
 
@@ -35,7 +35,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 L’analyse du coût est accessible à tous les clients bénéficiant d’un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût. Pour plus d’informations sur l’attribution de l’accès aux données Cost Management, consultez [Assigner l’accès aux données](assign-access-acm-data.md).
 
 - Compte de facturation
-- department
+- Division
 - Compte d’inscription
 - Groupe d’administration
 - Abonnement
@@ -84,17 +84,17 @@ Il existe aussi la vue **quotidienne** qui montre les coûts de chaque jour. La 
 
 ![Affichage quotidien](./media/quick-acm-cost-analysis/daily-view.png)
 
-Vous pouvez **effectuer un regroupement** pour sélectionner une catégorie de groupe afin de changer l’affichage des données dans le graphique en aires Total supérieur. Le regroupement vous permet de voir rapidement la façon dont vos dépenses sont classées par type de ressource. Voici une vue des coûts des services Azure pour le mois dernier.
+Vous pouvez **effectuer un regroupement** pour sélectionner une catégorie de groupe afin de changer l’affichage des données dans le graphique en aires Total supérieur. Le regroupement vous permet de voir rapidement comment vos dépenses sont classées par propriétés de ressources et d’utilisation communes, comme des étiquettes de ressources ou de groupes de ressources. Pour regrouper par étiquettes, sélectionnez la clé d’étiquette d’après laquelle vous souhaitez effectuer le regroupement, et vous verrez les coûts répartis par valeur pour cette étiquette, avec un segment supplémentaire pour les ressources pour lesquelles cette étiquette n’est pas appliquée. Notez que Cost Management prend uniquement en charge les étiquettes de ressources à compter de la date à laquelle les étiquettes sont appliquées directement à la ressource. Les étiquettes de groupes de ressources ne sont pas prises en charge à l’heure actuelle. Voici une vue des coûts des services Azure pour le mois dernier.
 
 ![Affichage cumulé quotidien regroupé](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Les graphiques croisés dynamiques sous la vue Total supérieure montrent les vues des différentes catégories de regroupement et de filtre. Quand vous sélectionnez une catégorie de groupe, l’ensemble complet des données pour l’affichage total se trouve en bas de l’affichage. Voici un exemple de groupes de ressources.
+Les graphiques croisés dynamiques sous le graphique principal affichent différents regroupements pour vous donner une vue d’ensemble de vos coûts globaux pour la période et les filtres sélectionnés. Sélectionnez une propriété ou une étiquette pour afficher les coûts agrégés d’après n’importe quelle dimension. L’ensemble complet des données pour l’affichage total est visible en bas de l’écran en développant le tiroir **Données** ou en sélectionnant **Exporter > Télécharger le fichier CSV** en haut de l’écran. Voici un exemple du tiroir de données pour les groupes de ressources.
 
 ![Données complètes pour l’affichage actuel](./media/quick-acm-cost-analysis/full-data-set.png)
 
-L’image précédente montre les noms de groupe de ressources. L’affichage des étiquettes des ressources n’est pas disponible dans aucune des vues de l’analyse de coût, ni aucun des filtres ou regroupements.
+L’image précédente montre les noms de groupe de ressources. Bien que vous puissiez regrouper par étiquette pour afficher le total des coûts par étiquette, l’affichage de toutes les étiquettes par ressource ou par groupe de ressources n’est disponible dans aucune vue d’analyse des coûts.
 
-Lorsque vous regroupez les coûts en fonction d’un attribut spécifique, les dix principaux contributeurs aux coûts s’affichent dans l’ordre décroissant. S’il existe plus de dix groupes, les neuf principaux contributeurs aux coûts apparaissent en même temps qu’un groupe **Autres** qui réunit tous les groupes restants.
+Lorsque vous regroupez les coûts en fonction d’un attribut spécifique, les dix principaux contributeurs aux coûts s’affichent dans l’ordre décroissant. S’il existe plus de dix groupes, les neuf principaux contributeurs aux coûts apparaissent en même temps qu’un groupe **Autres** qui réunit tous les groupes restants. Lors du regroupement par étiquettes, vous pouvez également voir un groupe **Non étiqueté** pour les coûts auxquels la clé d’étiquette n’a pas été appliquée. **Non étiqueté** est toujours mentionné en dernier, même s’il existe plus de coûts non étiquetés que de coûts étiquetés. S’il y a 10 valeurs d’étiquette ou plus, les coûts non étiquetés font partie du groupe **Autres**.
 
 Les ressources de machines virtuelles, de mise en réseau et de stockage *Classic* (Azure Service Management ou ASM) ne partagent pas de données de facturation détaillées. Elles sont fusionnées sous forme de **services Classic** lors du regroupement des coûts.
 

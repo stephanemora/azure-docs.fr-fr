@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: 590a7aa875f5f8c40576d69d7e73bdfc31fffbf8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636252"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582392"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Démarrage rapide : Rechercher des salles disponibles avec Azure Digital Twins
 
@@ -132,7 +132,7 @@ Les tutoriels vont très loin dans le code. Ils vous apprennent à modifier les 
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nom | Remplacer par |
+| NOM | Remplacer par |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Nom de votre instance Digital Twins |
 | YOUR_LOCATION | Région de serveur dans laquelle votre instance est hébergée |
@@ -150,6 +150,10 @@ Pour continuer à suivre des tutoriels, ne nettoyez pas les ressources créées 
 
 1. Supprimez le dossier créé quand vous avez téléchargé l’exemple de référentiel.
 1. Dans le menu de gauche du [portail Azure](http://portal.azure.com), sélectionnez **Toutes les ressources**. Sélectionnez ensuite votre ressource Digital Twins. En haut du volet **Toutes les ressources**, sélectionnez **Supprimer**.
+   
+    > [!TIP]
+    > Si vous avez rencontré des difficultés pour supprimer votre instance de Digital Twins, une mise à jour du service a été déployée avec le correctif. Réessayez de supprimer votre instance.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

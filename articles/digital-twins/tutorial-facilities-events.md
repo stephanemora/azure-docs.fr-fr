@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 994c864f04980dc963f9e7c4eb99b33382ad17e4
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614903"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583259"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutoriel : Recevoir des notifications à partir de vos espaces Azure Digital Twins avec Logic Apps
 
@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
     
 ## <a name="prerequisites"></a>Prérequis
 
-Ce tutoriel suppose que vous avez [configuré](tutorial-facilities-setup.md) et [provisionné](tutorial-facilities-udf.md) votre configuration Azure Digital Twins. Avant de poursuivre, assurez-vous que vous avez les éléments suivants :
+Ce didacticiel suppose que vous avez [configuré](tutorial-facilities-setup.md) et [approvisionné](tutorial-facilities-udf.md) votre configuration Azure Digital Twins. Avant de poursuivre, assurez-vous que vous avez les éléments suivants :
 - Un [compte Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Une instance de Digital Twins en cours d’exécution.
 - Les [exemples Digital Twins C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) téléchargés et extraits sur votre machine de travail.
@@ -124,7 +124,7 @@ Vous pouvez utiliser le service [Azure Logic Apps](../logic-apps/logic-apps-over
 
 1. Sélectionnez le bouton **Nouvelle étape**.
 
-1. Dans la fenêtre **Choisir une action** :
+1. Dans la fenêtre **Choisir une action** :
     
    a. recherchez l’expression **analyser json**, puis sélectionnez l’action **Analyser JSON**.
 
@@ -194,6 +194,10 @@ Pour ne plus recevoir ces e-mails, accédez à votre ressource Logic Apps dans l
 Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous pouvez supprimer les ressources créées dans ce tutoriel :
 
 1. Dans le menu de gauche du [portail Azure](http://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Digital Twins et **Supprimer**.
+
+    > [!TIP]
+    > Si vous avez rencontré des difficultés pour supprimer votre instance de Digital Twins, une mise à jour du service a été déployée avec le correctif. Réessayez de supprimer votre instance.
+
 2. Si nécessaire, supprimez les exemples d’applications de votre machine de travail. 
 
 
@@ -201,8 +205,8 @@ Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous p
 
 Pour savoir comment visualiser vos données de capteur, analyser les tendances et détecter les anomalies, passez au tutoriel suivant : 
 > [!div class="nextstepaction"]
-> [Tutoriel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)
+> [Didacticiel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)
 
 Vous pouvez également parfaire vos connaissances sur les modèles objet et les graphes d’intelligence spatiale dans Azure Digital Twins : 
 > [!div class="nextstepaction"]
-> [Comprendre le graphe d’intelligence spatiale et les modèles objets Digital Twins](concepts-objectmodel-spatialgraph.md)
+> [Présentation du graphe d’intelligence spatiale et des modèles objet Digital Twins](concepts-objectmodel-spatialgraph.md)

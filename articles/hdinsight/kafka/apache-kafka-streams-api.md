@@ -3,27 +3,27 @@ title: 'Didacticiel : utiliser l’API de flux Apache Kafka - Azure HDInsight '
 description: Découvrez comment utiliser l’API de flux Apache Kafka avec Kafka sur HDInsight. Cette API vous permet d’effectuer un traitement de flux entre des rubriques dans Kafka.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/17/2018
-ms.openlocfilehash: f50e61f4acbdc33cee1786f68cf44252a8f29741
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/06/2018
+ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417410"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495129"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Didacticiel : API Apache Kafka Streams
 
-Découvrez comment créer une application qui utilise l’API de flux Kafka et comment l’exécuter avec Kafka sur HDInsight. 
+Découvrez comment créer une application qui utilise l’API Apache Kafka Streams et comment l’exécuter avec Kafka sur HDInsight. 
 
 L’application utilisée dans ce didacticiel est un comptage de diffusion en continu. Elle lit les données texte à partir d’une rubrique Kafka, extrait des mots spécifiques, puis stocke le mot et le nombre associé dans une autre rubrique Kafka.
 
 > [!NOTE]
-> Le traitement des flux Kafka est souvent effectué à l’aide d’Apache Spark ou Storm. Kafka version 0.10.0 (dans HDInsight 3.5 et 3.6) a introduit l’API de flux Kafka. Cette API permet de transformer des flux de données entre des rubriques d’entrée et de sortie. Dans certains cas, cela peut être une alternative à la création d’une solution de streaming Spark ou Storm. 
+> Le traitement des flux Kafka est souvent effectué à l’aide d’Apache Spark ou d’Apache Storm. Kafka version 0.10.0 (dans HDInsight 3.5 et 3.6) a introduit l’API de flux Kafka. Cette API permet de transformer des flux de données entre des rubriques d’entrée et de sortie. Dans certains cas, cela peut être une alternative à la création d’une solution de streaming Spark ou Storm. 
 >
 > Pour plus d’informations sur les flux Kafka, consultez la documentation [d’introduction aux flux](https://kafka.apache.org/10/documentation/streams/) sur le site Apache.org.
 
@@ -84,7 +84,7 @@ Les points importants à comprendre dans le fichier `pom.xml` sont les suivants 
 
 ### <a name="streamjava"></a>Stream.java
 
-Le fichier `Stream.java` utilise l’API Streams pour implémenter une application de comptage de mots. Il lit les données d’une rubrique Kafka nommée `test` et écrit les nombres de mots dans une rubrique nommée `wordcounts`.
+Le fichier [Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) utilise l’API Streams pour implémenter une application de comptage de mots. Il lit les données d’une rubrique Kafka nommée `test` et écrit les nombres de mots dans une rubrique nommée `wordcounts`.
 
 Le code suivant définit l’application de comptage de mots :
 
@@ -158,7 +158,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
    
     Remplacez `sshuser` par l’utilisateur SSH de votre cluster, puis remplacez `clustername` par le nom de votre cluster. Si vous y êtes invité, entrez le mot de passe du compte d’utilisateur SSH. Pour en savoir plus sur l’utilisation de `scp` avec HDInsight, voir [Utiliser SSH avec Hadoop - Azure HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="create-kafka-topics"></a>Créer des rubriques Kafka
+## <a name="create-apache-kafka-topics"></a>Créer des rubriques Apache Kafka
 
 1. Pour ouvrir une connexion SSH au cluster, utilisez la commande suivante :
 
@@ -175,7 +175,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Pour obtenir les hôtes de répartition Kafka et les hôtes ZooKeeper, utilisez les commandes suivantes. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster. Vous êtes invité à entrer le mot de passe deux fois.
+3. Pour obtenir les hôtes de répartition Kafka et les hôtes Apache ZooKeeper, utilisez les commandes suivantes. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster. Vous êtes invité à entrer le mot de passe deux fois.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -255,7 +255,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce document, vous avez découvert comment utiliser l’API de flux Kafka avec Kafka sur HDInsight. Consultez les articles suivants pour en savoir plus sur l’utilisation de Kafka :
+Dans ce document, vous avez vu comment utiliser l’API Apache Kafka Streams avec Kafka sur HDInsight. Consultez les articles suivants pour en savoir plus sur l’utilisation de Kafka :
 
-* [Analyser les journaux Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Répliquer des données entre des clusters Kafka](apache-kafka-mirroring.md)
+* [Analyser les journaux Apache Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Répliquer des données d’un cluster Kafka à un autre](apache-kafka-mirroring.md)

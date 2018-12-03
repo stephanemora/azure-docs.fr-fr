@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b468240d1a9aaf0511358433a8beee7e6442e145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4d8a95ee4afc844868cfda78087773a6a37c07c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445019"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445427"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service
 
@@ -38,7 +38,6 @@ Vous pouvez suivre les étapes de ce didacticiel sur macOS, Linux, Windows.
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce tutoriel :
 
@@ -176,6 +175,9 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 ```
 
 Vous pouvez définir plusieurs URL de client dans `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Vous pouvez également activer toutes les URL client avec `"['*']"`.
+
+> [!NOTE]
+> Si votre application exige l’envoi d’informations d’identification, telles que des cookies ou des jetons d’authentification, le navigateur peut exiger l’en-tête `ACCESS-CONTROL-ALLOW-CREDENTIALS` dans la réponse. Pour ce faire, dans App Service, définissez `properties.cors.supportCredentials` sur `true` dans votre configuration CORS. Cela ne peut pas être activé lorsque `allowedOrigins` inclut `'*'`.
 
 ### <a name="test-cors-again"></a>Testez CORS à nouveau
 

@@ -1,6 +1,6 @@
 ---
 title: Déployer une application conteneur avec intégration et déploiement continus sur un cluster Azure Service Fabric
-description: Dans ce tutoriel, vous allez apprendre à configurer l’intégration et le déploiement continus pour une application conteneur Azure Service Fabric avec Visual Studio Team Services (VSTS).
+description: Dans ce tutoriel, vous allez apprendre à configurer l’intégration et le déploiement continus pour une application conteneur Azure Service Fabric à l’aide de Visual Studio et d’Azure DevOps.
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
@@ -15,23 +15,23 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: a7cb139da2cdbfb187a62eeadc707f7206de8a34
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300185"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443489"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutoriel : Déployer une application conteneur avec intégration et déploiement continus sur un cluster Service Fabric
 
-Deuxième d’une série, ce tutoriel explique comment configurer l’intégration et le déploiement continus d’une application conteneur Azure Service Fabric à l’aide de Visual Studio Team Services.  Une application Service Fabric existante est requise. L’application créée dans [Déployer une application .NET dans un conteneur Windows sur Azure Service Fabric](service-fabric-host-app-in-a-container.md) est utilisée à titre d’exemple.
+Deuxième d’une série, ce tutoriel explique comment configurer l’intégration et le déploiement continus d’une application conteneur Azure Service Fabric à l’aide de Visual Studio et d’Azure DevOps.  Une application Service Fabric existante est requise. L’application créée dans [Déployer une application .NET dans un conteneur Windows sur Azure Service Fabric](service-fabric-host-app-in-a-container.md) est utilisée à titre d’exemple.
 
 Dans ce deuxième volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Ajouter le contrôle de code source à votre projet
-> * Créer une définition de build dans Team Services
-> * Créer une définition de mise en production dans Team Services
+> * Créer une définition de build dans Visual Studio Team Explorer
+> * Créer une définition de mise en production dans Visual Studio Team Explorer
 > * Déployer et mettre à niveau une application automatiquement
 
 ## <a name="prerequisites"></a>Prérequis
@@ -43,23 +43,23 @@ Avant de commencer ce tutoriel :
 
 ## <a name="prepare-a-publish-profile"></a>Préparer un profil de publication
 
-Maintenant que vous avez [déployé une application conteneur](service-fabric-host-app-in-a-container.md), vous pouvez configurer l’intégration continue.  Tout d’abord, préparez au sein de votre application un profil de publication destiné au processus de déploiement qui s’exécute dans Team Services.  Le profil de publication doit être configuré pour cibler le cluster que vous avez précédemment créé.  Démarrez Visual Studio et ouvrez un projet d’application Service Fabric existant.  Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur l’application, puis sélectionnez **Publier...**.
+Maintenant que vous avez [déployé une application conteneur](service-fabric-host-app-in-a-container.md), vous pouvez configurer l’intégration continue.  Tout d’abord, préparez au sein de votre application un profil de publication destiné au processus de déploiement qui s’exécute dans Azure DevOps.  Le profil de publication doit être configuré pour cibler le cluster que vous avez précédemment créé.  Démarrez Visual Studio et ouvrez un projet d’application Service Fabric existant.  Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur l’application, puis sélectionnez **Publier...**.
 
-Choisissez au sein de votre projet d’application un profil cible à utiliser pour votre flux de travail d’intégration continue (Cloud, par exemple).  Spécifiez le point de terminaison de connexion du cluster.  Sélectionnez la case à cocher **Mettre à niveau l’application** pour que votre application soit mise à niveau pour chaque déploiement dans Team Services.  Cliquez sur le lien hypertexte **Enregistrer** pour enregistrer les paramètres dans le profil de publication, puis cliquez sur **Annuler** pour fermer la boîte de dialogue.
+Choisissez au sein de votre projet d’application un profil cible à utiliser pour votre flux de travail d’intégration continue (Cloud, par exemple).  Spécifiez le point de terminaison de connexion du cluster.  Cochez la case **Mettre à niveau l’application** pour que votre application soit mise à niveau pour chaque déploiement dans Azure DevOps.  Cliquez sur le lien hypertexte **Enregistrer** pour enregistrer les paramètres dans le profil de publication, puis cliquez sur **Annuler** pour fermer la boîte de dialogue.
 
 ![Profil d’envoi (push)][publish-app-profile]
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Partager votre solution Visual Studio dans un nouveau dépôt Git Team Services
+## <a name="share-your-visual-studio-solution-to-a-new-azure-devops-git-repo"></a>Partager votre solution Visual Studio dans un nouveau référentiel Git Azure DevOps
 
-Partagez les fichiers source de votre application dans un projet d’équipe Team Services pour pouvoir générer des builds.
+Partagez les fichiers sources de votre application dans un projet d’équipe Azure DevOps afin de pouvoir générer des builds.
 
 Créez un dépôt Git local pour votre projet en sélectionnant **Ajouter au contrôle de code source** -> **Git** dans la barre d’état située dans le coin inférieur droit de Visual Studio.
 
-Dans la vue **Envoi** de **Team Explorer**, sélectionnez le bouton **Publier le dépôt Git** sous **Push sur Visual Studio Team Services**.
+Dans la vue **Envoi (push)** de **Team Explorer**, sélectionnez le bouton **Publier le référentiel Git** sous **Push sur Azure DevOps**.
 
 ![Envoi (push) du dépôt Git][push-git-repo]
 
-Vérifiez votre adresse e-mail et sélectionnez votre compte dans la liste déroulante **Domaine Team Services**. Entrez le nom de votre dépôt et sélectionnez **Publier le dépôt**.
+Vérifiez votre adresse e-mail et sélectionnez votre organisation dans la liste déroulante **Compte**. Vous aurez peut-être à configurer une organisation si vous n’en avez pas déjà une. Entrez le nom de votre dépôt et sélectionnez **Publier le dépôt**.
 
 ![Envoi (push) du dépôt Git][publish-code]
 
@@ -67,22 +67,22 @@ La publication du référentiel entraîne la création d’un projet d’équipe
 
 ## <a name="configure-continuous-delivery-with-vsts"></a>Configurer la livraison continue avec VSTS
 
-Une définition de build Team Services décrit un flux de travail qui se compose d’un ensemble d’étapes de génération exécutées séquentiellement. Créez une définition de build qui produit un package d’application Service Fabric et les autres artefacts à déployer sur un cluster Service Fabric. Vous trouverez plus d’informations sur les définitions de build Team Services [ici](https://www.visualstudio.com/docs/build/define/create). 
+Une définition de build Azure DevOps décrit un workflow qui se compose d’un ensemble d’étapes de génération exécutées séquentiellement. Créez une définition de build qui produit un package d’application Service Fabric et les autres artefacts à déployer sur un cluster Service Fabric. En savoir plus sur les [définitions de build](https://www.visualstudio.com/docs/build/define/create) Azure DevOps 
 
-Une définition de mise en production Team Services décrit un flux de travail qui déploie un package d’application sur un cluster. Lorsqu’elles sont utilisées ensemble, la définition de version et la définition de génération exécutent le flux de travail dans son ensemble, depuis le déploiement des fichiers source jusqu’à l’exécution de l’application dans votre cluster. Plus d’informations sur les [définitions de version](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)Team Services.
+Une définition de mise en production Azure DevOps décrit un workflow qui déploie un package d’application sur un cluster. Lorsqu’elles sont utilisées ensemble, la définition de version et la définition de génération exécutent le flux de travail dans son ensemble, depuis le déploiement des fichiers source jusqu’à l’exécution de l’application dans votre cluster. En savoir plus sur les [définitions de mise en production](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) Azure DevOps
 
 ### <a name="create-a-build-definition"></a>Créer une définition de build
 
-Ouvrez un navigateur web et accédez à votre nouveau projet d’équipe à l’adresse : [https://&lt;moncompte&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
+Pour ouvrir votre nouveau projet d’équipe, accédez à https://dev.azure.com dans un navigateur web, puis sélectionnez votre organisation et votre nouveau projet. 
 
-Sélectionnez l’onglet **Build et mise en production**, **Builds**, puis **Nouveau pipeline**.
+Sélectionnez l’option **Pipelines** dans le volet gauche, puis cliquez sur **Nouveau pipeline**.
 
 >[!NOTE]
 >Si vous ne voyez pas le modèle de définition de build, assurez-vous que la fonctionnalité **Nouvelle expérience de création de pipeline YAML** soit désactivée. Cette fonctionnalité est configurée dans la section **Fonctionnalités préliminaires** de votre compte de DevOps.
 
 ![Nouveau pipeline][new-pipeline]
 
-Sélectionnez la source **VSTS Git**, le projet d’équipe **Voting**, le référentiel **Voting** et la branche par défaut **maître** pour les builds manuelles et planifiées.  Cliquez ensuite sur **Continuer**.
+Sélectionnez la source **Azure Repos Git**, votre projet d’équipe, le dépôt de votre projet, puis la branche par défaut **master** pour les builds manuelles et planifiées.  Cliquez ensuite sur **Continuer**.
 
 Dans **Sélectionner un modèle**, sélectionnez le modèle **Application Azure Service Fabric avec prise en charge Docker** et cliquez sur **Appliquer**.
 
@@ -104,7 +104,7 @@ Dans **Type de registre de conteneurs**, sélectionnez **Azure Container Registr
 
 ![Sélectionner des images Docker Push][select-push-images]
 
-Sous **Déclencheurs**, activez l’intégration continue en cochant la case **Activer l’intégration continue**. Dans la zone **Filtres de branche**, cliquez sur **+ Ajouter**, et la zone **Spécification de branche** est alors définie par défaut sur la valeur **maître**.
+Sous l’onglet **Déclencheurs**, activez l’intégration continue en cochant la case **Activer l’intégration continue**. Dans la zone **Filtres de branche**, cliquez sur **+ Ajouter**, et la zone **Spécification de branche** est alors définie par défaut sur la valeur **maître**.
 
 Dans la boîte de dialogue **Enregistrer le pipeline de build et mettre en file d’attente**, cliquez sur **Enregistrer et mettre en file d’attente** pour lancer un build manuellement.
 
@@ -114,7 +114,7 @@ Les builds sont également déclenchées par envoi (push) ou par archivage. Pour
 
 ### <a name="create-a-release-definition"></a>Création d’une définition de version
 
-Sélectionnez l’onglet **Build et mise en production**, **Mises en production**, puis **+ Nouveau pipeline**.  Sous **Sélectionner un modèle**, sélectionnez le modèle **Déploiement Azure Service Fabric** dans la liste, puis **Appliquer**.
+Sélectionnez l’option **Pipelines** dans le volet gauche, cliquez sur **Versions**, puis sur **+Nouveau pipeline**.  Sous **Sélectionner un modèle**, sélectionnez le modèle **Déploiement Azure Service Fabric** dans la liste, puis **Appliquer**.
 
 ![Choisissez le modèle de template][select-release-template]
 
@@ -151,7 +151,7 @@ Vérifiez que le déploiement a réussi et que l’application est en cours d’
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Valider et envoyer les modifications, déclencher une mise en production
 
-Vous pouvez vérifier que le pipeline d’intégration continue fonctionne en archivant certaines modifications de code dans Team Services.
+Vérifiez que le pipeline d’intégration continue fonctionne en archivant certaines modifications de code dans Azure DevOps.
 
 Lorsque vous écrivez votre code, vos modifications sont suivies automatiquement par Visual Studio. Validez les modifications dans votre dépôt Git local en sélectionnant l’icône de modifications en attente (![Pending][pending]) dans la barre d’état en bas à droite.
 
@@ -159,11 +159,11 @@ Dans la vue **Modifications** de Team Explorer, ajoutez un message décrivant vo
 
 ![Valider tout][changes]
 
-Sélectionnez l’icône de modifications non publiées (![Modifications non publiées][unpublished-changes]) dans la barre d’état ou la vue Synchronisation de Team Explorer. Sélectionnez **Envoi** pour mettre à jour votre code dans Team Services/TFS.
+Sélectionnez l’icône de modifications non publiées (![Modifications non publiées][unpublished-changes]) dans la barre d’état ou la vue Synchronisation de Team Explorer. Sélectionnez **Envoi (push)** pour mettre à jour votre code dans Azure DevOps.
 
 ![Envoi (push) des modifications][push]
 
-L’envoi (push) des modifications dans Team Services déclenche automatiquement une build.  Une fois la définition de build terminée, une mise en production est créée automatiquement et commence la mise à niveau de l’application sur le cluster.
+L’envoi (push) des modifications à Azure DevOps déclenche automatiquement une build.  Une fois la définition de build terminée, une mise en production est créée automatiquement et commence la mise à niveau de l’application sur le cluster.
 
 Pour vérifier la progression de votre build, basculez vers l’onglet **Builds** de **Team Explorer** dans Visual Studio.  Une fois que vous avez vérifié que la build s’exécute correctement, spécifiez une définition de mise en production assurant le déploiement de votre application sur un cluster.
 

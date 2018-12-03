@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: eeb8e6e0ac132ef2d927aa2de03817389230191e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 291a307d4fd7c0fa723b8b17c13b3ef13cdeb8de
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814489"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316818"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-java"></a>Démarrage rapide : Kit de développement logiciel (SDK) pour Recherche d’entités Bing avec Java
 
@@ -24,7 +24,9 @@ Le Kit de développement logiciel (SDK) pour Recherche d’entités Bing fournit
 Le [code source des exemples du Kit de développement logiciel (SDK) Java pour Recherche d’entités Bing](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) est disponible sur GitHub. 
 
 ## <a name="application-dependencies"></a>Dépendances de l’application
-Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) sous **Recherche**. Installez les dépendances du Kit de développement logiciel (SDK) pour Recherche d’entités Bing en utilisant Maven, Gradle ou un autre système de gestion des dépendances. Le fichier POM Maven nécessite la déclaration suivante :
+Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) sous **Recherche**.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
+Installez les dépendances du Kit de développement logiciel (SDK) pour Recherche d’entités Bing en utilisant Maven, Gradle ou un autre système de gestion des dépendances. Le fichier POM Maven nécessite la déclaration suivante :
 ```
   <dependencies>
     <dependency>

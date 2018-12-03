@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: c8ab6b6e6bab7451de7d975dde644386fd4cb84e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979469"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311532"
 ---
 # <a name="hybrid-identity-and-microsoft-identity-solutions"></a>Identité hybride et solutions d’identité Microsoft
 Les solutions d’identité hybride [Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) permettent de synchroniser des objets de répertoire locaux avec Azure AD tout en gérant vos utilisateurs locaux. La première décision à prendre lorsque vous envisagez de synchroniser votre Active Directory Windows Server local avec Azure AD est de savoir si vous souhaitez utiliser des identités managées ou une identité fédérée. 
 
-- **Identités managées** : comptes d’utilisateurs et groupes qui sont synchronisés à partir d’un annuaire local Active Directory, avec authentification utilisateur gérée par Azure.   
+- **Identités managées** : les comptes d’utilisateurs et les groupes sont synchronisés à partir d’un annuaire local Active Directory, et l’authentification utilisateur est gérée par Azure.   
 - Les **identités fédérées** permettent de mieux contrôler les utilisateurs en séparant l’authentification utilisateur d’Azure et en déléguant l’authentification à un fournisseur d’identité approuvé et local. 
 
 Plusieurs options sont disponibles pour la configuration d’identités hybrides. Lorsque vous considérez le modèle d’identité le mieux adapté aux besoins de votre organisation, vous devez également prendre en compte les délais, l’infrastructure existante, la complexité et le coût. Ces facteurs sont différents pour chaque organisation et peuvent changer au fil du temps. Toutefois, si vos exigences changent, vous avez la possibilité de basculer vers un autre modèle d’identité.
@@ -42,7 +42,7 @@ Bien que l’identité managée soit la méthode la plus rapide et la plus facil
 Pour la plupart des organisations qui doivent uniquement permettre à leurs utilisateurs de se connecter à Office 365, aux applications Saas et aux autres ressources Azure AD, l’option de synchronisation de hachage de mot de passe par défaut est recommandée. Si cela ne fonctionne pas pour vous, vous devrez décider entre l’authentification directe et AD FS.
 
 > [!TIP]
-> Les mots de passe utilisateur sont stockés dans Active Directory Windows Server local, sous la forme d’une valeur de hachage qui représente le mot de passe utilisateur réel. Une valeur de hachage est le résultat d’une fonction mathématique unidirectionnelle (l’algorithme de hachage). Il n’existe aucune méthode pour retrouver la version en texte brut du mot de passe à partir du résultat d’une fonction unidirectionnelle. Vous ne pouvez pas utiliser un hachage de mot de passe pour vous connecter à votre réseau local. Lorsque vous choisissez de synchroniser les mots de passe, Azure AD Connect extrait les hachages du mot de passe à partir d’Active Directory local et applique le traitement de sécurité supplémentaire au hachage du mot de passe avant sa synchronisation avec Azure AD. La synchronisation de hachage de mot de passe peut être utilisée également avec la réécriture du mot de passe pour activer la réinitialisation du mot de passe libre-service dans Azure AD. En outre, vous pouvez activer également l’authentification unique (SSO) pour des utilisateurs sur des ordinateurs joints à un domaine connectés au réseau d’entreprise. Avec l’authentification unique, les utilisateurs activés doivent seulement entrer un nom d’utilisateur pour accéder en toute sécurité aux ressources du cloud. 
+> Les mots de passe utilisateur sont stockés dans Active Directory Windows Server local, sous la forme d’une valeur de hachage qui représente le mot de passe utilisateur réel. Une valeur de hachage est le résultat d’une fonction mathématique unidirectionnelle (l’algorithme de hachage). Il n’existe aucune méthode pour retrouver la version en texte brut du mot de passe à partir du résultat d’une fonction unidirectionnelle. Vous ne pouvez pas utiliser un hachage de mot de passe pour vous connecter à votre réseau local. Lorsque vous choisissez de synchroniser les hachages de mot de passe, Azure AD Connect extrait les hachages du mot de passe à partir de l’instance locale d’Active Directory et applique le traitement de sécurité supplémentaire aux hachages de mot de passe avant leur synchronisation avec Azure AD. La synchronisation de hachage de mot de passe peut être utilisée également avec la réécriture du mot de passe pour activer la réinitialisation du mot de passe libre-service dans Azure AD. En outre, vous pouvez activer également l’authentification unique (SSO) pour des utilisateurs sur des ordinateurs joints à un domaine connectés au réseau d’entreprise. Avec l’authentification unique, les utilisateurs activés doivent seulement entrer un nom d’utilisateur pour accéder en toute sécurité aux ressources du cloud. 
 >
 
 ## <a name="pass-through-authentication"></a>Authentification directe
@@ -64,7 +64,7 @@ Pour obtenir un meilleur contrôle sur le mode d’accès des utilisateurs à Of
 
 ![Identité fédérée](./media/whatis-hybrid-identity/federated-identity.png)
 
-Également appelée fédération des identités, cette méthode de connexion garantit que toutes les authentifications utilisateur sont contrôlées localement et permet aux administrateurs de mettre en œuvre des niveaux de contrôle d’accès plus rigoureux. La fédération des identités avec AD FS est l’option la plus complexe qui nécessite le déploiement de serveurs supplémentaires dans votre environnement local. La fédération d’identité vous engage également à fournir une assistance 24 h/24 et 7 j/7 pour votre infrastructure Active Directory et AD FS. Ce niveau élevé d’assistance est nécessaire, car en cas de non-disponibilité de votre accès à l’Internet local, du contrôleur de domaine ou des serveurs AD FS, les utilisateurs ne peuvent pas se connecter aux services cloud.
+Également appelée fédération des identités, cette méthode de connexion garantit que toutes les authentifications utilisateur sont contrôlées localement et permet aux administrateurs de mettre en œuvre des niveaux de contrôle d’accès plus rigoureux. La fédération des identités avec AD FS est l’option la plus complexe qui nécessite le déploiement de serveurs supplémentaires dans votre environnement local. La fédération d’identité vous engage également à fournir une assistance 24 h/24 et 7 j/7 pour votre infrastructure Active Directory et AD FS. Ce niveau élevé d’assistance est nécessaire, car en cas de non disponibilité de votre accès à l’Internet local, du contrôleur de domaine ou des serveurs AD FS, les utilisateurs ne peuvent pas se connecter aux services cloud.
 
 > [!TIP]
 > Si vous choisissez d’utiliser la Fédération avec Active Directory Federation Services (AD FS), vous avez la possibilité de configurer la synchronisation de hachage de mot de passe en tant que dispositif de secours en cas de défaillance de votre infrastructure AD FS.

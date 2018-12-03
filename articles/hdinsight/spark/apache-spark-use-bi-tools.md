@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Analyser les données d’Apache Spark à l’aide de Power BI dans Azure HDInsight '
+title: 'Didacticiel : analyser les données d’Apache Spark à l’aide de Power BI dans Azure HDInsight '
 description: Utiliser Microsoft Power BI pour visualiser les données Apache Spark stockées sur les clusters HDInsight
 services: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712413"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583276"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutoriel : Analyser les données d’Apache Spark à l’aide de Power BI dans HDInsight 
 
-Découvrez comment utiliser Microsoft Power BI pour visualiser les données dans le cluster Apache Spark sur Azure HDInsight.
+Découvrez comment utiliser [Microsoft Power BI](https://powerbi.microsoft.com/) pour visualiser les données dans le cluster [Apache Spark](https://spark.apache.org/) sur [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="verify-the-data"></a>Vérifier les données
 
-Le bloc-notes Jupyter que vous avez créé dans le [didacticiel précédent](apache-spark-load-data-run-query.md) inclut du code pour créer une table `hvac`. Cette table est basée sur le fichier CSV disponible sur tous les clusters HDInsight Spark à **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Utilisez la procédure suivante pour vérifier les données.
+Le bloc-notes [Jupyter Notebook](https://jupyter.org/) que vous avez créé dans le [tutoriel précédent](apache-spark-load-data-run-query.md) comprend du code pour créer une table `hvac`. Cette table est basée sur le fichier CSV disponible sur tous les clusters HDInsight Spark à **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Utilisez la procédure suivante pour vérifier les données.
 
 1. Dans le bloc-notes Jupyter, collez le code suivant, puis appuyez sur **MAJ + ENTRÉE**. Le code vérifie l’existence des tables.
 
@@ -164,7 +164,7 @@ Le service Power BI vous permet de partager des rapports et tableaux de bord dan
 
 10. Dans le rapport, cliquez sur **Accéder au tableau de bord**. 
 
-Votre visuel est épinglé au tableau de bord ; vous pouvez ajouter d’autres visuels au rapport et les épingler au même tableau de bord. Pour plus d’informations sur les rapports et tableaux de bord, consultez [Rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) et [Tableaux de bord dans le service Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+Votre visuel est épinglé au tableau de bord ; vous pouvez ajouter d’autres visuels au rapport et les épingler au même tableau de bord. Pour plus d’informations sur les rapports et les tableaux de bord, consultez [Rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) et [Tableaux de bord dans le service Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 <!--
 ## <a name="tableau"></a>Use Tableau Desktop 
@@ -214,9 +214,9 @@ Votre visuel est épinglé au tableau de bord ; vous pouvez ajouter d’autres v
 
 Dans ce tutoriel, vous avez appris à :
 
-- Visualiser les données Spark à l’aide de Power BI.
+- Visualiser les données Apache Spark à l’aide de Power BI
 
 Passez à l’article suivant pour découvrir comment les données que vous avez enregistrées dans Spark peuvent être placées dans un outil analytique décisionnel tel que Power BI. 
 > [!div class="nextstepaction"]
-> [Exécuter une tâche de diffusion en continu Spark](apache-spark-eventhub-streaming.md)
+> [Exécuter une tâche de streaming Apache Spark](apache-spark-eventhub-streaming.md)
 
