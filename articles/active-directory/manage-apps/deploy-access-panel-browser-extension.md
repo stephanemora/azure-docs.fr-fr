@@ -40,7 +40,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 2. Dans la fenêtre **Gestionnaire de serveur**, accédez à **Services de fichiers et de stockage**.
    
     ![Ouvrir Services de fichiers et de stockage](./media/deploy-access-panel-browser-extension/files-services.png)
-3. Accédez à l’onglet **Partages** . Ensuite, cliquez sur Tâches****Nouveau partage...**
+3. Accédez à l’onglet **Partages** . Ensuite, cliquez sur **Tâches** > **Nouveau partage...**
    
     ![Ouvrir Services de fichiers et de stockage](./media/deploy-access-panel-browser-extension/shares.png)
 4. Terminez l’ **Assistant Nouveau partage** et définissez des autorisations pour garantir l’accès à partir des ordinateurs de vos utilisateurs. [En savoir plus sur les partages.](https://technet.microsoft.com/library/cc753175.aspx)
