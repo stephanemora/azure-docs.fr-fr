@@ -82,7 +82,7 @@ Dans ce didacticiel dédié au machine learning, vous allez suivre cinq étapes 
 [Étape 5 : prédiction des nouveaux prix des voitures]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Vous pouvez obtenir une copie de travail de l’expérience suivante dans la [galerie Azure AI](https://gallery.cortanaintelligence.com). Accédez à **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Votre première expérience de science des données : prédiction sur les prix automobiles) et cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
+> Vous pouvez obtenir une copie de travail de l’expérience suivante dans la [galerie Azure AI](https://gallery.cortanaintelligence.com). Accédez à **[Votre première expérience de science des données : prédiction sur les prix automobiles](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** () et cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
 
 
 ## <a name="step-1-get-data"></a>Étape 1 : obtention des données

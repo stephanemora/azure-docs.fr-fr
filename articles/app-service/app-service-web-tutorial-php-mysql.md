@@ -600,7 +600,7 @@ Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`.
 > [!TIP]
 > Une application PHP peut utiliser la commande [error_log()](http://php.net/manual/function.error-log.php) pour envoyer le résultat vers la console. L’exemple d’application utilise cette approche dans _app/Http/routes.php_.
 >
-> [Laravel utilise Monolog](https://laravel.com/docs/5.4/errors) comme fournisseur de journalisation, de la même manière qu’une infrastructure web. Pour savoir comment faire en sorte que Monolog envoie les messages vers la console, consultez [PHP: How to use monolog to log to console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out) (PHP : utilisation de Monolog pour envoyer le journal vers la console (php://out)).
+> [Laravel utilise Monolog](https://laravel.com/docs/5.4/errors) comme fournisseur de journalisation, de la même manière qu’une infrastructure web. Pour savoir comment faire en sorte que Monolog envoie les messages vers la console, consultez [PHP : utilisation de Monolog pour envoyer le journal vers la console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 
