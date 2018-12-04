@@ -143,8 +143,10 @@ items:
     items:
     - name: Instances managées
       href: sql-database-managed-instance-index.yml
-    - name: Vue d’ensemble
+    - name: Vue d’ensemble de Managed Instance
       href: sql-database-managed-instance.md
+    - name: Créer et gérer
+      href: sql-database-managed-instance-create-manage.md
     - name: Limites des ressources
       href: sql-database-managed-instance-resource-limits.md
     - name: Intégration au réseau virtuel
@@ -157,6 +159,8 @@ items:
         href: sql-database-managed-instance-sync-network-configuration.md
       - name: Architecture de connectivité
         href: sql-database-managed-instance-connectivity-architecture.md
+      - name: Points de terminaison de gestion
+        href: sql-database-managed-instance-management-endpoint.md
       - name: Connecter des applications
         href: sql-database-managed-instance-connect-app.md
     - name: Différences de T-SQL
@@ -211,7 +215,7 @@ items:
     items:
     - name: Sécurité
       href: sql-database-security-index.yml
-    - name: Vue d’ensemble
+    - name: Présentation de la sécurité
       href: sql-database-security-overview.md
     - name: Protection avancée contre les menaces
       items:
@@ -652,9 +656,9 @@ items:
     href: /azure/architecture/
   - name: Témoignages client
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 12add5f8ee32ce3c5207a604ef7cad821d5e5a4e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 2cc5240aa7302d687f0b7a2fad2af29105e86de0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165260"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840416"

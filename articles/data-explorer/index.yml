@@ -1,25 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8985bfa71532cc73dbfeef8d63109476d6893c7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e4bd3de3dee3219619c0146eb0e455cd9b25c59e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975970"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840960"
 documentType: LandingData
 title: Documentation de l’Explorateur de données Azure
 metadata:
-  title: Documentation de l’Explorateur de données Azure - Guides de démarrage rapide, tutoriels et informations de référence sur les langages et l’API | Microsoft Docs
+  title: Documentation Azure Data Explorer - Guides de démarrage rapide, tutoriels et informations de référence sur les langages et API
   description: L’Explorateur de données Azure est une plateforme cloud d’analytique des journaux optimisée pour les requêtes Big Data ad hoc.
   author: mgblythe
-  manager: kfile
+  ms.author: mblythe
   ms.service: data-explorer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/24/2018
-  ms.author: mblythe
 abstract:
-  description: <p>L’Explorateur de données Azure est un service d’exploration de données rapide et hautement scalable pour les données des journaux et de télémétrie. Il vous aide à gérer les nombreux flux de données émis par les logiciels actuels, vous permettant donc de collecter, de stocker et d’analyser les données. L’Explorateur de données Azure est idéal pour l’analyse de grands volumes de données diverses provenant de n’importe quelle source de données, comme des sites web, des applications, des appareils IoT, etc.</p><p>Découvrez comment utiliser l’Explorateur de données Azure avec nos guides de démarrage rapide, nos tutoriels et nos informations de référence.</p>
+  description: <p>L’Explorateur de données Azure est un service d’exploration de données rapide et hautement scalable pour les données des journaux et de télémétrie. Il vous aide à gérer les nombreux flux de données émis par les logiciels actuels pour vous permettre de collecter, de stocker et d’analyser les données. L’Explorateur de données Azure est idéal pour l’analyse de grands volumes de données diverses provenant de n’importe quelle source de données, comme des sites web, des applications, des appareils IoT, etc.</p><p>Découvrez comment utiliser l’Explorateur de données Azure avec nos guides de démarrage rapide, nos tutoriels et nos informations de référence.</p>
 sections:
 - title: Démarrages en 5 minutes
   items:
@@ -48,7 +45,7 @@ sections:
         src: /azure/data-explorer/media/index/logo-python.svg
       text: Interroger des données avec Python
       href: /azure/data-explorer/python-query-data
-- title: Tutoriels pas à pas
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
     text: 'Découvrez comment créer des solutions de bout en bout :'
