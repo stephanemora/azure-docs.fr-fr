@@ -2,21 +2,21 @@
 title: 'Démarrage rapide de Azure : sauvegarder une machine virtuelle avec PowerShell'
 description: Découvrez comment sauvegarder vos machines virtuelles avec Azure PowerShell
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 2/14/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4161b11e88d2b3201e18e095e13db864e25d7bfc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7971c1399cc905353e271e8774c0e7ad36ca79a9
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607534"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869249"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Sauvegarder une machine virtuelle dans Azure avec PowerShell
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. La sauvegarde Azure crée des points de récupération pouvant être stockés dans des coffres de récupération géo-redondants. Cet article explique comment sauvegarder une machine virtuelle (VM) avec le module Azure PowerShell. Vous pouvez également suivre ces étapes avec l’interface [Azure CLI](quick-backup-vm-cli.md) ou [le portail Azure](quick-backup-vm-portal.md).

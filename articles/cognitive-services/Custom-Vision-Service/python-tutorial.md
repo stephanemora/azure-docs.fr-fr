@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 11/2/2018
 ms.author: areddish
-ms.openlocfilehash: c110abd9354134d52d4f82f7c828fc5e13f218a8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b95adf3cb07ae98d4b690dbe29d72d30671c4a6a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262985"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681209"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Guide de démarrage rapide : créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Vision personnalisée pour Python
 
@@ -119,7 +119,6 @@ Pour envoyer une image au point de terminaison de prédiction et récupérer la 
 
 ```python
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
-from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
 
 # Now there is a trained endpoint that can be used to make a prediction
 

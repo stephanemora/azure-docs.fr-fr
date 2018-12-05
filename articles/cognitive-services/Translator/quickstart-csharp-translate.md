@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 06e294187247636c552dfd4a7d02167eb55be19a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 20e07120b80f335397bd7e907f62e14ad8b1d2ee
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334701"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679050"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Démarrage rapide : Traduire du texte à l’aide de l’API REST de traduction de texte Translator Text (C#)
 
@@ -28,7 +28,7 @@ Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cogn
 * [Kit de développement logiciel (SDK) .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Package NuGet Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix
-* Clé d’abonnement Azure pour le service Speech
+* Une clé d’abonnement Azure pour Translator Text
 
 ## <a name="create-a-net-core-project"></a>Créer un projet .NET Core
 
@@ -110,7 +110,7 @@ Dans `HttpRequestMessage`, vous allez :
 * Insérer le corps de la requête (objet JSON sérialisé).
 * Ajouter des en-têtes obligatoires.
 * Effectuer une requête asynchrone.
-* Imprimer la réponse.
+* Imprimer la réponse
 
 Ajoutez ce code à `HttpRequestMessage` :
 

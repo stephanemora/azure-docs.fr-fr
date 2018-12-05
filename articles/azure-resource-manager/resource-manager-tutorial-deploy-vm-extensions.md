@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2f5cffa0b31d46d76564565001aaed678eb1a649
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 7e0b3fff0ed60d5eb77194e7f9081d35f2e38571
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613574"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869635"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Didacticiel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager
 
@@ -116,7 +116,7 @@ Consultez les [informations de référence sur les extensions](https://docs.micr
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-Reportez-vous à la section [Déployer le modèle](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) pour connaître la procédure de déploiement. Il est recommandé d’utiliser un mot de passe généré pour le compte administrateur de la machine virtuelle. Consultez les [Conditions préalables](#prerequisites).
+Reportez-vous à la section [Déployer le modèle](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) pour connaître la procédure de déploiement. Il est recommandé d’utiliser un mot de passe généré pour le compte administrateur de la machine virtuelle. Consultez les [Conditions préalables](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Vérifier le déploiement
 

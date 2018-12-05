@@ -9,18 +9,17 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 46bc932011a3699dbaced8316bc0e1b514c9a385
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f953d13de78702328aef2b75d121e775c5f58f44
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043054"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876784"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics
 
@@ -32,7 +31,7 @@ Dans Log Analytics, vous pouvez exploiter les recherches dans les journaux en cr
 
 Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
-Vous pouvez créer et modifier des requêtes, ou manipuler de manière interactive les données retournées, de deux manières différentes.  Dans le cas de requêtes de base, utilisez la page Recherche dans les journaux du portail Azure. Pour les requêtes avancées, vous pouvez utiliser le portail d’analytique avancée. Pour en savoir plus sur les différences entre les fonctionnalités des deux portails, voir [Portails servant à la création et la modification des requêtes de journal dans Azure Log Analytics.](log-analytics-log-search-portals.md)
+Vous pouvez créer et modifier des requêtes, ou manipuler de manière interactive les données retournées, de deux manières différentes.  Dans le cas de requêtes de base, utilisez la page Recherche dans les journaux du portail Azure. Pour les requêtes avancées, vous pouvez utiliser le portail d’analytique avancée. Pour en savoir plus sur les différences entre les fonctionnalités des deux portails, voir [Portails servant à la création et la modification des requêtes de journal dans Azure Log Analytics.](../azure-monitor/log-query/portals.md)
 
 Dans ce didacticiel, nous travaillerons avec la fonction Recherche dans les journaux du portail Azure. 
 

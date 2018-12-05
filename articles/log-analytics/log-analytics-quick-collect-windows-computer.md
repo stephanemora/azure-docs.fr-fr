@@ -10,23 +10,22 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 5c064c7b369b7f695d9166cb93f2a018b5329bef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 85b0b1a4b6c34fb56a575e86439fb2c22cff28bc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625604"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725350"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurer l’agent Log Analytics pour les ordinateurs Windows dans un environnement hybride
-[Azure Log Analytics](log-analytics-agent-windows.md) est capable de collecter des données directement à partir de votre ordinateur Windows physique ou virtuel lequel se situe dans votre centre de données ou un autre environnement cloud, puis de les enregistrer dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Windows en quelques étapes simples.  Pour les machines virtuelles Windows Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).  
+[Azure Log Analytics](../azure-monitor/platform/agent-windows.md) est capable de collecter des données directement à partir de votre ordinateur Windows physique ou virtuel lequel se situe dans votre centre de données ou un autre environnement cloud, puis de les enregistrer dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Windows en quelques étapes simples.  Pour les machines virtuelles Windows Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).  
 
-Pour comprendre la configuration prise en charge, consultez les pages [Prise en charge des systèmes d’exploitation Windows](log-analytics-agent-overview.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](log-analytics-agent-overview.md#network-firewall-requirements).
+Pour comprendre la configuration prise en charge, consultez les pages [Prise en charge des systèmes d’exploitation Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
  
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

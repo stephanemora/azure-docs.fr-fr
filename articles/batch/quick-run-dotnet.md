@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/16/2018
+ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d6d1fb9631af06f6bfbb2c360661779281a08905
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975107"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679917"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Démarrage rapide : exécution de votre premier travail Microsoft Azure Batch avec l’API .NET
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Naviguez vers le répertoire qui contient le fichier de la solution Visual Studio `BatchDotNetQuickstart.sln`.
 
-Ouvrez le fichier de la solution dans Visual Studio et mettez à jour les chaînes d’informations d’identification dans `program.cs` avec les valeurs obtenues pour vos comptes. Par exemple : 
+Ouvrez le fichier de la solution dans Visual Studio et mettez à jour les chaînes d’informations d’identification dans `Program.cs` avec les valeurs obtenues pour vos comptes. Par exemple : 
 
 ```csharp
 // Batch account credentials
@@ -143,7 +143,7 @@ L’application crée un objet [BatchClient](/dotnet/api/microsoft.azure.batch.b
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
 
 using (BatchClient batchClient = BatchClient.Open(cred))
-...    
+...
 ```
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Créer un pool de nœuds de calcul
@@ -155,33 +155,42 @@ Le nombre de nœuds (`PoolNodeCount`) et la taille de machine virtuelle (`PoolVM
 La méthode [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) soumet le pool au service Batch.
 
 ```csharp
-ImageReference imageReference = new ImageReference(
-    publisher: "MicrosoftWindowsServer",
-    offer: "WindowsServer",
-    sku: "2016-Datacenter-smalldisk",
-    version: "latest");
 
-VirtualMachineConfiguration virtualMachineConfiguration =
-new VirtualMachineConfiguration(
-   imageReference: imageReference,
-   nodeAgentSkuId: "batch.node.windows amd64");
-
-try
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
 {
-    CloudPool pool = batchClient.PoolOperations.CreatePool(
-    poolId: PoolId,
-    targetDedicatedComputeNodes: PoolNodeCount,
-    virtualMachineSize: PoolVMSize,
-    virtualMachineConfiguration: virtualMachineConfiguration);
-
-    pool.Commit();
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
 }
+
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        publisher: "MicrosoftWindowsServer",
+        offer: "WindowsServer",
+        sku: "2016-datacenter-smalldisk",
+        version: "latest");
+}
+
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
+
+        pool.Commit();
+    }
 ...
 
 ```
+
 ### <a name="create-a-batch-job"></a>Création d’un travail Batch
 
-Un travail Batch est un regroupement logique d’une ou de plusieurs tâches. Un travail inclut les paramètres communs aux tâches, tels que la priorité et le pool pour exécuter des tâches. L’application utilise la méthode [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) pour créer un travail sur votre pool. 
+Un travail Batch est un regroupement logique d’une ou de plusieurs tâches. Un travail inclut les paramètres communs aux tâches, tels que la priorité et le pool pour exécuter des tâches. L’application utilise la méthode [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) pour créer un travail sur votre pool.
 
 La méthode [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) soumet le travail au service Batch. Dans un premier temps, le travail n’a aucune tâche.
 
@@ -192,15 +201,16 @@ try
     job.Id = JobId;
     job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-    job.Commit(); 
+    job.Commit();
 }
 ...
 ```
 
 ### <a name="create-tasks"></a>Création de tâches
+
 L’application crée une liste d’objets [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Chaque tâche traite un objet d’entrée `ResourceFile` à l’aide d’une propriété [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). Dans l’exemple, la ligne de commande exécute la commande Windows `type` afin d’afficher le fichier d’entrée. Cette commande est un exemple simple à des fins de démonstration. Lorsque vous utilisez Azure Batch, la ligne de commande se trouve là où vous spécifiez votre application ou votre script. Azure Batch fournit plusieurs façons de déployer des applications et des scripts sur des nœuds de calcul.
 
-Ensuite, l’application ajoute des tâches au travail avec la méthode [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask), qui les met en file d’attente afin de les exécuter sur les nœuds de calcul. 
+Ensuite, l’application ajoute des tâches au travail avec la méthode [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask), qui les met en file d’attente afin de les exécuter sur les nœuds de calcul.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -216,7 +226,7 @@ for (int i = 0; i < inputFiles.Count; i++)
 
 batchClient.JobOperations.AddTask(JobId, tasks);
 ```
- 
+
 ### <a name="view-task-output"></a>Afficher les sorties des tâches
 
 L’application crée un [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) pour surveiller les tâches et s’assurer qu’elles se terminent. L’application utilise ensuite la propriété [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) pour afficher le fichier `stdout.txt` généré par chaque tâche terminée. Lorsque la tâche s’exécute avec succès, la sortie de la commande de tâche est écrite dans `stdout.txt` :
