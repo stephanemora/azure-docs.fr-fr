@@ -9,17 +9,16 @@ ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: aa9c02e069700ab236c4b9fc78482450b5911e93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 13894bc6601b6e371d4d907651c00de6aecfe825
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983869"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724755"
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
 Application Insights est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Utilisez-le pour analyser votre application web en direct. Ce service détecte automatiquement les problèmes de performances. Il intègre de puissants outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plates-formes, notamment .NET, Node.js et J2EE, hébergées sur site ou dans le cloud. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio App Center.
@@ -65,7 +64,7 @@ Il existe de nombreuses manières d’explorer vos données. Consultez les artic
 | [**Détection intelligente et alertes manuelles**](app-insights-proactive-diagnostics.md)<br/>Les alertes automatiques s’adaptent aux habitudes télémétriques normales de votre application et se déclenchent lorsqu’un comportement inhabituel est détecté. Vous pouvez également [définir des alertes](app-insights-alerts.md) sur des niveaux particuliers de mesures personnalisées ou standard. |![Exemple d’alerte](./media/app-insights-overview/alerts-tn.png) |
 | [**Mise en correspondance d’applications**](app-insights-app-map.md)<br/>Les composants de votre application, avec des alertes et des mesures clés. |![Mise en correspondance d’applications](./media/app-insights-overview/appmap-tn.png)  |
 | [**Profileur**](app-insights-profiler.md)<br/>Examinez les profils d’exécution des requêtes échantillonnées. |![Profileur](./media/app-insights-overview/profiler.png) |
-| [**Analyse de l’utilisation**](app-insights-usage-overview.md)<br/>Analysez la rétention et la segmentation des utilisateurs.|![Outil de rétention](./media/app-insights-overview/retention.png) |
+| [**Analyse de l’utilisation**](app-insights-usage-overview.md)<br/>Analysez la rétention et la segmentation ds utilisateurs.|![Outil de rétention](./media/app-insights-overview/retention.png) |
 | [**Recherche de diagnostic pour les données d’instance**](app-insights-diagnostic-search.md)<br/>Cherchez et filtrez les événements, comme les requêtes, les exceptions, les appels de dépendance, les suivis de journaux et les affichages de pages.  |![Télémétrie de recherche](./media/app-insights-overview/search-tn.png) |
 | [**Metrics Explorer pour les données agrégées**](app-insights-metrics-explorer.md)<br/>Explorez, filtrez et segmentez des données agrégées, comme les taux de demandes, d’échecs et d’exceptions, les temps de réponse et les durées de chargement des pages. |![Mesures](./media/app-insights-overview/metrics-tn.png) |
 | [**Tableaux de bord**](app-insights-dashboards.md#dashboards)<br/>Combinez des données de plusieurs sources et partagez-les avec d’autres. Idéal pour les applications à composants multiples et pour un affichage en continu dans la salle de l’équipe. |![Exemple de tableaux de bord](./media/app-insights-overview/dashboard-tn.png) |
@@ -105,11 +104,11 @@ Application Insights est un des nombreux services hébergés dans Microsoft Azur
 
 Il existe plusieurs façons de démarrer avec Application Insights. Commencez par la méthode qui vous convient le mieux. Vous pourrez ajouter les autres par la suite.
 
-* **Au moment de l’exécution : instrumentez votre application web sur le serveur.** Permet d’éviter toute mise à jour du code. Vous avez besoin de l’accès administrateur à votre serveur.
+* **Au moment de l’exécution : instrumentez votre application web sur le serveur.**  Permet d’éviter toute mise à jour du code. Vous avez besoin de l’accès administrateur à votre serveur.
   * [**IIS local ou sur une machine virtuelle**](app-insights-monitor-performance-live-website-now.md)
   * [**Application web ou machine virtuelle Azure**](app-insights-monitor-performance-live-website-now.md)
   * [**J2EE**](app-insights-java-live.md)
-* **Au moment du développement : ajoutez Application Insights à votre code.** Vous permet d’écrire des données de télémétrie personnalisées et d’instrumenter le serveur principal et les applications de bureau.
+* **Au moment du développement : ajoutez Application Insights à votre code.**  Vous permet d’écrire des données de télémétrie personnalisées et d’instrumenter le serveur principal et les applications de bureau.
   * [Visual Studio](app-insights-asp-net.md) 2013 Update 2 ou version ultérieure.
   * [Java](app-insights-java-get-started.md)
   * [Node.JS](app-insights-nodejs.md)

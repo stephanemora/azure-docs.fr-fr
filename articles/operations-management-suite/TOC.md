@@ -36,7 +36,7 @@
 #### [Agent Health](oms-solution-agenthealth.md)
 #### [Gestion des alertes](../azure-monitor/platform/alert-management-solution.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Utiliser la solution d’analytique du réseau Azure](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Conteneurs](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Conteneurs](../azure-monitor/insights/containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Analytique Key Vault](../azure-monitor/insights/azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Analyseur de performances réseau](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Office 365](oms-solution-office-365.md)

@@ -9,28 +9,32 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: fb9b50ecb16bd37d005403a14ea11c6d89f50dfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7319dc02d07ef1e100b39dbe138870676578fd69
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983644"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634283"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
 > [!NOTE] 
-> App Service sur Linux et Web App pour conteneurs ne prennent pas en charge les identités managées.
+> La prise en charge de l’identité managée pour App Service sur Linux et Web App pour conteneurs est actuellement en préversion.
 
 > [!Important] 
 > Si vous migrez votre application entre différents abonnements/locataires, les identités managées pour App Service et Azure Functions présentent un comportement anormal. L’application devra obtenir une nouvelle identité, ce qui peut être effectué par la désactivation et la réactivation de la fonctionnalité. Consultez [Suppression d’une identité](#remove) ci-dessous. Les ressources en aval devront également disposer de stratégies d’accès mises à jour pour utiliser la nouvelle identité.
 
 Cette rubrique vous montre comment créer une identité managée pour les applications App Service et Azure Functions et comment l’utiliser pour accéder à d’autres ressources. Une identité managée issue d’Azure Active Directory permet à votre application d’accéder facilement aux autres ressources protégées par AAD telles qu’Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans AAD, consultez [Identités gérées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="creating-an-app-with-an-identity"></a>Création d’une application avec une identité
+Deux types d’identité peuvent être accordés à votre application : 
+- Une **identité attribuée par le système** est liée à votre application et est supprimée si votre application est supprimée. Une application ne peut avoir qu’une seule identité attribuée par le système. La prise en charge de l’identité attribuée par le système est généralement disponible pour les applications Windows. 
+- Une **identité attribuée par l’utilisateur** est une ressource Azure autonome qui peut être assignée à votre application. Une application peut avoir plusieurs identités attribuées par l’utilisateur. La prise en charge de l’identité attribuée par l’utilisateur est en préversion pour tous les types d’application.
 
-Créer une application avec une identité requiert la définition d’une propriété supplémentaire sur cette application.
+## <a name="adding-a-system-assigned-identity"></a>Ajout d’une identité attribuée par le système
+
+Créer une application avec une identité attribuée par le système requiert la définition d’une propriété supplémentaire sur cette application.
 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
@@ -42,9 +46,9 @@ Pour configurer une identité managée dans le portail, vous créez une applicat
 
 3. Sélectionnez **Identité managée**.
 
-4. Définissez **Inscrire auprès d’Azure Active Directory** sur **Activé**. Cliquez sur **Enregistrer**.
+4. Dans l’onglet **Attribuée par le système**, définissez **État** sur **Activé**. Cliquez sur **Enregistrer**.
 
-![Identité managée dans App Service](media/app-service-managed-service-identity/msi-blade.png)
+![Identité managée dans App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
 
@@ -94,7 +98,7 @@ Les étapes suivantes vous guident dans la création d’une application web à 
     New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. Exécutez la commande `identity assign` pour créer l’identité de cette application :
+3. Exécutez la commande `Set-AzureRmWebApp -AssignIdentity` pour créer l’identité de cette application :
 
     ```azurepowershell-interactive
     Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
@@ -111,7 +115,10 @@ Vous pouvez créer n’importe quelle ressource de type `Microsoft.Web/sites` av
 }    
 ```
 
-Ce code indique à Azure de créer et de manager l’identité de votre application.
+> [!NOTE] 
+> Une application peut avoir simultanément une identité attribuée par le système et une identité attribuée par l’utilisateur. Dans ce cas, la propriété `type` est `SystemAssigned,UserAssigned`
+
+L’ajout du type attribué par le système indique à Azure de créer et de manager l’identité de votre application.
 
 Par exemple, une application web peut se présenter comme suit :
 ```json
@@ -139,12 +146,100 @@ Par exemple, une application web peut se présenter comme suit :
 Quand le site est créé, il a les propriétés supplémentaires suivantes :
 ```json
 "identity": {
+    "type": "SystemAssigned",
     "tenantId": "<TENANTID>",
     "principalId": "<PRINCIPALID>"
 }
 ```
 
 Où `<TENANTID>` et `<PRINCIPALID>` sont remplacés par des GUID. La propriété tenantId identifie le locataire AAD auquel appartient l’identité. La propriété principalId est un identificateur unique pour la nouvelle identité de l’application. Dans AAD, le principal de service porte le même nom que celui que vous avez donné à votre instance App Service ou Azure Functions.
+
+
+## <a name="adding-a-user-assigned-identity-preview"></a>Ajout d’une identité attribuée par l’utilisateur (préversion)
+
+> [!NOTE] 
+> Les identités attribuées par l’utilisateur sont actuellement en préversion. Les clouds souverains ne sont pas encore pris en charge.
+
+La création d’une application avec une identité attribuée par l’utilisateur nécessite la création de l’identité, puis l’ajout de son identificateur de ressource à la configuration de votre application.
+
+### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
+
+> [!NOTE] 
+> Cette expérience de portail est en cours de déploiement et peut ne pas être encore disponible dans toutes les régions.
+
+Tout d’abord, vous devrez créer une ressource d’identité attribuée par l’utilisateur.
+
+1. Créez une ressource d’identité managée attribuée par l’utilisateur en suivant [ces instructions](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+
+2. Créez une application dans le portail, comme vous le feriez normalement. Accédez-y dans le portail.
+
+3. Si vous utilisez une application de fonction, accédez à **Fonctionnalités de la plateforme**. Pour les autres types d’application, faites défiler jusqu’au groupe **Paramètres** dans le volet de navigation de gauche.
+
+4. Sélectionnez **Identité managée**.
+
+5. Dans l’onglet **Attribuée par l’utilisateur (préversion)** , cliquez sur **Ajouter**.
+
+6. Recherchez l’identité que vous avez créée précédemment et sélectionnez-la. Cliquez sur **Add**.
+
+![Identité managée dans App Service](media/app-service-managed-service-identity/msi-blade-user.png)
+
+### <a name="using-an-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
+
+Vous pouvez utiliser un modèle Azure Resource Manager pour automatiser le déploiement de vos ressources Azure. Pour en savoir plus sur le déploiement sur App Service et Functions, consultez [Automatiser le déploiement de ressources dans App Service](../app-service/app-service-deploy-complex-application-predictably.md) et [Automatiser le déploiement de ressources dans Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+
+Vous pouvez créer n’importe quelle ressource de type `Microsoft.Web/sites` avec une identité en incluant le bloc suivant dans la définition de la ressource, en remplaçant `<RESOURCEID>` par l’ID de ressource de l’identité requise :
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {}
+    }
+}    
+```
+
+> [!NOTE] 
+> Une application peut avoir simultanément une identité attribuée par le système et une identité attribuée par l’utilisateur. Dans ce cas, la propriété `type` est `SystemAssigned,UserAssigned`
+
+L’ajout du type attribué par l’utilisateur indique à Azure de créer et de manager l’identité de votre application.
+
+Par exemple, une application web peut se présenter comme suit :
+```json
+{
+    "apiVersion": "2016-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "UserAssigned"
+    },
+    "properties": {
+        "name": "[variables('appName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "hostingEnvironment": "",
+        "clientAffinityEnabled": false,
+        "alwaysOn": true
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+    ]
+}
+```
+
+Quand le site est créé, il a les propriétés supplémentaires suivantes :
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {
+            "principalId": "<PRINCIPALID>",
+            "clientId": "<CLIENTID>"
+        }
+    }
+}
+```
+
+Où `<PRINCIPALID>` et `<CLIENTID>` sont remplacés par des GUID. principalId est un identificateur unique pour l’identité qui est utilisée pour l’administration d’AAD. clientId est un identificateur unique pour la nouvelle identité de l’application qui est utilisée pour spécifier l’identité à utiliser lors des appels de runtime.
+
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Obtention de jetons pour les ressources Azure
 
@@ -189,6 +284,7 @@ Une application avec une identité managée a deux variables d’environnement d
 > |resource|Requête|URI de ressource AAD de la ressource pour laquelle un jeton doit être obtenu.|
 > |api-version|Requête|Version de l’API de jeton à utiliser. « 2017-09-01 » est la seule version prise en charge.|
 > |secret|En-tête|Valeur de la variable d’environnement MSI_SECRET.|
+> |clientid|Requête|(Facultatif) L’ID de l’identité attribuée par l’utilisateur à utiliser. Si elle est omise, l’identité attribuée par le système est utilisée.|
 
 
 Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivantes :
@@ -241,7 +337,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 
 <a name="token-js"></a>En Node.JS :
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
     var options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
@@ -265,7 +361,7 @@ $accessToken = $tokenResponse.access_token
 
 ## <a name="remove"></a>Suppression d’une identité
 
-Vous pouvez supprimer une identité en désactivant la fonctionnalité à l’aide du portail, de PowerShell ou de l’interface CLI, de la même façon que vous l’avez créée. Dans le protocole de modèle REST/ARM, vous pouvez le faire en définissant le type sur « Aucun » :
+Vous pouvez supprimer une identité attribuée par le système en désactivant la fonctionnalité à l’aide du portail, de PowerShell ou de l’interface CLI, de la même façon que vous l’avez créée. Les identités attribuées par l’utilisateur peuvent être supprimées individuellement. Pour supprimer toutes les identités, dans le protocole de modèle REST/ARM, définissez le type sur « Aucun » :
 
 ```json
 "identity": {
@@ -273,7 +369,7 @@ Vous pouvez supprimer une identité en désactivant la fonctionnalité à l’ai
 }    
 ```
 
-Si vous supprimez l’identité de cette façon, vous supprimez également le principal d’AAD. Les identités attribuées par le système sont automatiquement supprimées d’AAD lorsque la ressource d’application est supprimée.
+Si vous supprimez une identité attribuée par le système de cette façon, vous la supprimez également d’AAD. Les identités attribuées par le système sont aussi automatiquement supprimées d’AAD lorsque la ressource d’application est supprimée.
 
 > [!NOTE] 
 > Vous pouvez également définir le paramètre d’application WEBSITE_DISABLE_MSI, qui désactive uniquement le service de jetons local. Toutefois, cela ne touche pas à l’identité, et les outils continueront d’afficher l’identité managée comme étant activée. Par conséquent, l’utilisation de ce paramètre n’est pas recommandée.

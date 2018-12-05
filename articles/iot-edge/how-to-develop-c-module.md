@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b8d8223647d42213eff53c2ff8310bed0cfe6cdb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566022"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446736"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code pour développer et déboguer des modules C pour Azure IoT Edge
 
@@ -59,7 +59,7 @@ Effectuez les étapes suivantes pour créer un module IoT Edge basé sur le kit 
 
 7. Entrez un nom pour votre module. Choisissez un nom qui est unique dans le registre de conteneurs. 
 
-8. Indiquez le nom du référentiel d’images du module. Par défaut, VS Code nomme le module **localhost:5000**. Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion ressemble à **\<nom du registre\>.azurecr.io**. Remplacez uniquement la partie localhost de la chaîne, ne supprimez pas le nom de votre module. 
+8. Indiquez le nom du référentiel d’images du module. Par défaut, VS Code nomme le module **localhost:5000**. Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion ressemble à **\<nom du registre\>.azurecr.io**. Remplacez uniquement la partie localhost de la chaîne, ne supprimez pas le nom de votre module. La chaîne finale ressemble à \<nom de registre\>.azurecr.io/\<nom de module\>.
 
    ![Fourniture du référentiel d’images Docker](./media/how-to-develop-c-module/repository.png)
 
@@ -87,20 +87,11 @@ Lorsque vous êtes prêt à personnaliser le modèle C avec votre propre code, u
 
 Chaque dossier du module contient plusieurs fichiers Docker pour différents types de conteneurs. Utilisez l’un des fichiers se terminant par l’extension **.debug** pour générer votre module à des fins de test. Les modules C prennent en charge le débogage seulement dans les conteneurs Linux amd64.
 
-1. Dans VS Code, accédez au fichier `deployment.template.json`. Mettez à jour l’URL de votre image de module en ajoutant **.debug** à la fin.
-
-    ![Ajouter **.debug** au nom de votre image](./media/how-to-develop-c-module/image-debug.png)
-
-2. Remplacez le module C createOptions dans **deployment.template.json** par le contenu ci-dessous, puis enregistrez ce fichier : 
-    
-    ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
-    ```
-
+1. Dans VS Code, accédez au fichier `deployment.debug.template.json`. Ce fichier contient la version de débogage des images de votre module avec les bonnes options de création. 
 2. Dans la palette de commandes VS Code, entrez et exécutez la commande **Azure IoT Edge : générer et envoyer par push la solution IoT Edge**.
-3. Sélectionnez le fichier `deployment.template.json` pour votre solution à partir de la palette de commandes. 
+3. Sélectionnez le fichier `deployment.debug.template.json` pour votre solution à partir de la palette de commandes. 
 4. Dans Azure IoT Hub Device Explorer, cliquez avec le bouton droit sur l’ID d’un appareil IoT Edge. Ensuite, sélectionnez **Créer un déploiement pour un seul appareil**. 
-5. Ouvrez le dossier **config** de votre solution. Ensuite, sélectionnez le fichier `deployment.json`. Choisissez **Select Edge Deployment Manifest** (Sélectionner un manifeste de déploiement Edge). 
+5. Ouvrez le dossier **config** de votre solution. Ensuite, sélectionnez le fichier `deployment.debug.amd64.json`. Choisissez **Select Edge Deployment Manifest** (Sélectionner un manifeste de déploiement Edge). 
 
 Vous pouvez alors constater que le déploiement a bien été créé avec un ID de déploiement dans le terminal intégré à VS Code.
 

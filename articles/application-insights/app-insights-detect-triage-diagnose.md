@@ -9,17 +9,16 @@ ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 41c8fd0092af035153b3161c4a6c3eb5c5ef3f1d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cb106abaff2446fdbc2d025ae96c95745bc53150
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958897"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728053"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Vue d’ensemble d’Application Insights pour DevOps
 
@@ -176,20 +175,20 @@ Quelle est l'importance du scénario bloqué ? S'agit-il d'un problème fonctio
 ## <a name="diagnose-issues"></a>Diagnostiquer les problèmes
 Le diagnostic n'est pas tout à fait la même chose que le débogage. Avant de commencer le suivi via le code, vous devez avoir une idée du pourquoi, du quand et du où le problème se produit.
 
-**Quand cela se produit-il ?** La vue historique fournie par les graphiques des événements et des mesures facilite la mise en corrélation des effets avec les causes possibles. S'il y a des pics intermittents dans les temps de réponse ou les taux d'exceptions, examinez le nombre de demandes : si elle augmente en même temps, il peut s'agir d'un problème de ressources. Est-il nécessaire d'allouer davantage de processeur ou de mémoire ? Ou s'agit-il d'une dépendance qui ne peut pas gérer la charge ?
+**Quand cela se produit-il ?**  La vue historique fournie par les graphiques des événements et des mesures facilite la mise en corrélation des effets avec les causes possibles. S'il y a des pics intermittents dans les temps de réponse ou les taux d'exceptions, examinez le nombre de demandes : si elle augmente en même temps, il peut s'agir d'un problème de ressources. Est-il nécessaire d'allouer davantage de processeur ou de mémoire ? Ou s'agit-il d'une dépendance qui ne peut pas gérer la charge ?
 
-**Le problème vient-il de nous ?**  Si vous constatez une chute soudaine des performances d'un type de demande particulier, par exemple lorsque le client souhaite obtenir un relevé de compte, il est possible que le problème vienne d'un sous-système externe plutôt que de votre application web. Dans Metrics Explorer, sélectionnez les taux d'échec de dépendance et les taux de durée de la dépendance et consultez leur historique sur quelques heures ou jours avec en tête le problème que vous avez détecté. S'il y a une corrélation dans les changements, un sous-système externe peut être à l'origine du problème.  
+**Le problème vient-il de nous ?**   Si vous constatez une chute soudaine des performances d'un type de demande particulier, par exemple lorsque le client souhaite obtenir un relevé de compte, il est possible que le problème vienne d'un sous-système externe plutôt que de votre application web. Dans Metrics Explorer, sélectionnez les taux d'échec de dépendance et les taux de durée de la dépendance et consultez leur historique sur quelques heures ou jours avec en tête le problème que vous avez détecté. S'il y a une corrélation dans les changements, un sous-système externe peut être à l'origine du problème.  
 
 
 ![Graphiques des échecs des dépendances et durée des appels aux dépendances](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 Certains problèmes de dépendances lentes sont dus à des problèmes de géolocalisation. La banque Fabrikam utilise des machines virtuelles Azure et l'équipe a découvert que leur serveur web et le compte de ce serveur avaient été placés par inadvertance dans des pays différents. La migration d'un de ces deux éléments a apporté des améliorations considérables.
 
-**Qu'avons-nous fait ?** Si le problème ne paraît pas venir d'une dépendance, et s’il n'a pas toujours été là, il est probablement dû à une modification récente. La perspective historique fournie par les graphiques des mesures et des événements facilite la mise en corrélation de changements soudains avec les déploiements. Cela permet de réduire le champ de la recherche du problème. Pour identifier les lignes du code d’application à l’origine du ralentissement des performances, activez Application Insights Profiler. Reportez-vous à [Profilage des applications web dynamiques Azure avec Application Insights](./app-insights-profiler.md). Une fois Application Insights Profiler activé, vous verrez une trace semblable à la suivante. Dans cet exemple, on remarque facilement que la méthode *GetStorageTableData* a provoqué le problème.  
+**Qu'avons-nous fait ?**  Si le problème ne paraît pas venir d'une dépendance, et s’il n'a pas toujours été là, il est probablement dû à une modification récente. La perspective historique fournie par les graphiques des mesures et des événements facilite la mise en corrélation de changements soudains avec les déploiements. Cela permet de réduire le champ de la recherche du problème. Pour identifier les lignes du code d’application à l’origine du ralentissement des performances, activez Application Insights Profiler. Reportez-vous à [Profilage des applications web dynamiques Azure avec Application Insights](./app-insights-profiler.md). Une fois Application Insights Profiler activé, vous verrez une trace semblable à la suivante. Dans cet exemple, on remarque facilement que la méthode *GetStorageTableData* a provoqué le problème.  
 
 ![Trace d’Application Insights Profiler](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
-**Que se passe-t-il ?** Certains problèmes se produisent rarement et peuvent être difficiles à détecter en cas de test hors connexion. Tout ce que nous pouvons faire, c'est essayer de capturer le bogue lorsqu'il se produit en temps réel. Vous pouvez inspecter les vidages de pile dans les rapports d'exceptions. En outre, vous pouvez écrire les appels de suivi, soit avec votre infrastructure de journalisation favorite, soit avec TrackTrace() ou TrackEvent().  
+**Que se passe-t-il ?**  Certains problèmes se produisent rarement et peuvent être difficiles à détecter en cas de test hors connexion. Tout ce que nous pouvons faire, c'est essayer de capturer le bogue lorsqu'il se produit en temps réel. Vous pouvez inspecter les vidages de pile dans les rapports d'exceptions. En outre, vous pouvez écrire les appels de suivi, soit avec votre infrastructure de journalisation favorite, soit avec TrackTrace() ou TrackEvent().  
 
 Fabrikam avait un problème intermittent avec les transferts entre comptes, mais uniquement avec certains types de compte. Pour mieux comprendre ce qui se produisait, ils ont inséré des appels TrackTrace() à des points clés du code, en joignant le type de compte en tant que propriété à chaque appel. Cela a permis de filtrer plus facilement le suivi dans la recherche de diagnostic. Ils ont aussi joint les valeurs des paramètres en tant que propriétés, ainsi que des mesures pour les appels de trace.
 

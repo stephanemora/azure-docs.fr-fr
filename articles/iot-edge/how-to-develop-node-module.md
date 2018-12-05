@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 92746b37d6c7577691b46bf34a00f607ad707ff9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 51c2154f4132340e00b8fddcfaeb6e999519c48f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569037"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446702"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code pour développer et déboguer des modules Node.js pour Azure IoT Edge
 
@@ -65,7 +65,7 @@ Les étapes suivantes vous montrent comment créer un module IoT Edge basé sur 
 6. Entrez un nom pour votre solution. 
 7. Choisissez **Node.js Module** comme modèle pour le premier module dans la solution.
 8. Entrez un nom pour votre module. Choisissez un nom qui est unique dans le registre de conteneurs. 
-9. Indiquez le référentiel d’image pour le module. VS Code remplissant automatiquement le nom du module, il vous suffit de remplacer **localhost:5000** par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, localhost convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion ressemble à **\<nom du registre\>.azurecr.io**. Remplacez uniquement la partie localhost de la chaîne, ne supprimez pas le nom de votre module.
+9. Indiquez le référentiel d’image pour le module. VS Code remplissant automatiquement le nom du module, il vous suffit de remplacer **localhost:5000** par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, localhost convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion ressemble à **\<nom du registre\>.azurecr.io**. Remplacez uniquement la partie localhost de la chaîne, ne supprimez pas le nom de votre module. La chaîne finale ressemble à \<nom de registre\>.azurecr.io/\<nom de module\>.
 
    ![Fourniture du référentiel d’images Docker](./media/how-to-develop-node-module/repository.png)
 
@@ -80,6 +80,7 @@ La solution comprend trois éléments :
    >Le fichier d’environnement est créé uniquement si vous fournissez un référentiel d’images pour le module. Si vous avez accepté les valeurs localhost par défaut pour tester et déboguer localement, vous n’avez pas besoin de déclarer des variables d’environnement. 
 
 * Un fichier **deployment.template.json**, qui répertorie votre nouveau module, ainsi qu’un exemple de module **tempSensor** qui simule les données que vous pouvez utiliser à des fins de test. Pour plus d’informations sur le fonctionnement des manifestes de déploiement, consultez [Comprendre comment les modules IoT Edge peuvent être utilisés, configurés et réutilisés](module-composition.md).
+* Un fichier **deployment.debug.template.json** contient la version de débogage des images de votre module avec les options de conteneur appropriées.
 
 ## <a name="develop-your-module"></a>Développer votre module
 
@@ -92,6 +93,14 @@ Visual Studio Code prend en charge Node.js. Pour en savoir plus, consultez l’a
 ## <a name="launch-and-debug-module-code-without-container"></a>Lancer et déboguer le code du module sans conteneur
 
 Le module Node.js IoT Edge repose sur le SDK de l’appareil Node.js Azure IoT. Dans le code du module par défaut, vous initialisez un **ModuleClient** avec des paramètres d’environnement et un nom d’entrée, ce qui signifie que le module Node.js IoT Edge a besoin des paramètres d’environnement pour démarrer et s’exécuter, et vous devez également envoyer ou router les messages vers les canaux d’entrée. Votre module Node.js par défaut contient un seul canal d’entrée dont le nom est **input1**.
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>Configurer un simulateur IoT Edge pour une solution IoT Edge
+
+Dans votre machine de développement, vous pouvez démarrer le simulateur IoT Edge au lieu d’installer le démon de sécurité IoT Edge pour exécuter votre solution IoT Edge. 
+
+1. Dans l’Explorateur d’appareils à gauche, cliquez sur l’ID de votre appareil IoT Edge, sélectionnez **Configurer le simulateur IoT Edge** pour démarrer le simulateur avec la chaîne de connexion de l’appareil.
+
+2. Vous pouvez voir que le simulateur IoT Edge a été correctement configuré dans le terminal intégré.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Configurer un simulateur IoT Edge pour une application à module unique
 
@@ -152,12 +161,7 @@ Dans votre machine de développement, vous pouvez démarrer le simulateur IoT Ed
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Générer et exécuter le conteneur pour le débogage et déboguer en mode d’attachement
 
-1. Dans VS Code, accédez au fichier `deployment.template.json`. Mettez à jour l’URL de votre image de module en ajoutant **.debug** à la fin.
-
-2. Remplacez le module Node.js createOptions dans **deployment.template.json** par le contenu ci-dessous, puis enregistrez ce fichier : 
-    ```json
-    "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
-    ```
+1. Dans VS Code, accédez au fichier `deployment.debug.template.json`. Dans le menu contextuel, cliquez sur **Générer et exécuter la solution IoT Edge dans le simulateur**. Vous pouvez surveiller tous les journaux du conteneur de module dans la même fenêtre. Vous pouvez aussi accéder à l’Explorateur Docker pour surveiller l’état du conteneur.
 
 3. Accédez à la fenêtre de débogage de Visual Studio Code. Sélectionnez le fichier de configuration de débogage de votre module. Le nom de l’option de débogage doit être similaire à **Débogage local de ModuleName (Node.js)** ou **Débogage local de ModuleName (Node.js dans un conteneur Windows)** selon le type de conteneur sur l’ordinateur de développement.
 

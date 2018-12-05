@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: a33a360d25930f1468f1c9240be2d0f306d682c7
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585745"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582041"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Comprendre l’utilisation d’une réservation Azure pour votre Accord de Mise en Œuvre Entreprise
 
@@ -93,7 +93,7 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
 - [Coûts des logiciels Windows non inclus dans les réservations](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez d’autres questions, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

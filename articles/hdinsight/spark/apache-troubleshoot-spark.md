@@ -3,26 +3,26 @@ title: Résoudre les problèmes liés à Spark dans Azure HDInsight
 description: Obtenez les réponses aux questions courantes sur l’utilisation d’Apache Spark et d’Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 7c7f89864d9394ff4527f9a0354b9276f7c01c49
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ab7602f7bae4dfb77a733dd7efe011a29b730377
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591735"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581583"
 ---
-# <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Résolution de problèmes Spark à l’aide d’Azure HDInsight
+# <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Spark à l’aide d’Azure HDInsight
 
-Découvrez les principaux problèmes rencontrés lors de l’utilisation de charges utiles Apache Spark dans Apache Ambari, et leur résolution.
+Découvrez les principaux problèmes rencontrés lors de l’utilisation de charges utiles [Apache Spark](https://spark.apache.org/) dans [Apache Ambari](https://ambari.apache.org/), et leur résolution.
 
-## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Comment configurer une application Spark sur des clusters via Ambari ?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>Comment configurer une application Apache Spark sur des clusters via Apache Ambari ?
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
-Cette procédure fait appel à des valeurs de configuration précédemment définies dans HDInsight. Pour connaître les configurations Spark concernées et les valeurs à définir, reportez-vous à la rubrique [À quoi est dû l’échec d’une application Spark avec l’exception OutOfMemoryError ?](#what-causes-a-spark-application-outofmemoryerror-exception). 
+Cette procédure fait appel à des valeurs de configuration précédemment définies dans HDInsight. Pour connaître les configurations Spark concernées et les valeurs à définir, reportez-vous à la rubrique [À quoi est dû l’échec d’une application Apache Spark avec l’exception OutOfMemoryError ?](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
 1. Dans la liste de clusters, sélectionnez **Spark2**.
 
@@ -84,14 +84,14 @@ Ces modifications s’appliquent à l’ensemble du cluster, mais elles peuvent 
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-[Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
+[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Comment configurer une application Spark sur des clusters via un bloc-notes Jupyter ?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Comment configurer une application Apache Spark sur des clusters via un bloc-notes Jupyter ?
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
-1. Pour connaître les configurations Spark concernées et les valeurs à définir, reportez-vous à la rubrique [À quoi est dû l’échec d’une application Spark avec l’exception OutOfMemoryError ?](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Pour connaître les configurations Spark concernées et les valeurs à définir, reportez-vous à la rubrique [À quoi est dû l’échec d’une application Apache Spark avec l’exception OutOfMemoryError ?](#what-causes-a-spark-application-outofmemoryerror-exception).
 
 2. Dans la première cellule du bloc-notes Jupyter, après la directive **%%configure**, spécifiez les configurations Spark dans un format JSON valide. Modifiez les valeurs si nécessaire :
 
@@ -99,14 +99,14 @@ Ces modifications s’appliquent à l’ensemble du cluster, mais elles peuvent 
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-[Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
+[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Comment configurer une application Spark sur des clusters via Livy ?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Comment configurer une application Apache Spark sur des clusters via Apache Livy ?
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
-1. Pour connaître les configurations Spark concernées et les valeurs à définir, reportez-vous à la rubrique [À quoi est dû l’échec d’une application Spark avec l’exception OutOfMemoryError ?](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. Pour connaître les configurations Spark concernées et les valeurs à définir, reportez-vous à la rubrique [À quoi est dû l’échec d’une application Apache Spark avec l’exception OutOfMemoryError ?](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
 2. Soumettez la demande de l’application Spark à Livy à l’aide d’un client REST comme cURL. Utilisez une commande similaire à la suivante. Modifiez les valeurs si nécessaire :
 
@@ -116,14 +116,14 @@ Ces modifications s’appliquent à l’ensemble du cluster, mais elles peuvent 
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-[Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
+[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Comment configurer une application Spark sur des clusters via spark-submit ?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>Comment configurer une application Apache Spark sur des clusters via spark-submit ?
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
-1. Pour connaître les configurations Spark concernées et les valeurs à définir, reportez-vous à la rubrique [À quoi est dû l’échec d’une application Spark avec l’exception OutOfMemoryError ?](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Pour connaître les configurations Spark concernées et les valeurs à définir, reportez-vous à la rubrique [À quoi est dû l’échec d’une application Apache Spark avec l’exception OutOfMemoryError ?](#what-causes-a-spark-application-outofmemoryerror-exception).
 
 2. Lancez spark-shell à l’aide d’une commande semblable à la suivante. Modifiez la valeur des configurations selon les besoins : 
 
@@ -133,10 +133,10 @@ Ces modifications s’appliquent à l’ensemble du cluster, mais elles peuvent 
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-[Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
+[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
 
 
-## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>À quoi est dû l’échec d’une application Spark avec l’exception OutofMemoryError ?
+## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>À quoi est dû l’échec d’une application Apache Spark avec l’exception OutofMemoryError ?
 
 ### <a name="detailed-description"></a>Description détaillée
 
@@ -217,8 +217,8 @@ La cause la plus probable de cette exception est que le segment de mémoire allo
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-- [Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview) (Vue d’ensemble de la gestion de la mémoire dans Spark)
-- [Debug a Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (Déboguer une application Spark sur un cluster HDInsight)
+- [Apache Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview) (Vue d’ensemble de la gestion de la mémoire dans Spark)
+- [Debug an Apache Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (Déboguer une application Spark sur un cluster HDInsight)
 
 
 ### <a name="see-also"></a>Voir aussi

@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8beb372c3fae567b23e51d2776dd9a79d837c657
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279879"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313831"
 ---
 # <a name="service-bus-faq"></a>FAQ Service Bus
 
@@ -86,7 +86,7 @@ Les services de messagerie Service Bus (files d’attente et rubriques/abonnemen
 Pour obtenir la liste des exceptions Service Bus potentielles, consultez la page [Vue d’ensemble des exceptions][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Qu’est-ce qu’une signature d’accès partagé et quels langages prennent en charge la génération d’une signature ?
-Les signatures d’accès partagé sont un mécanisme d’authentification basé sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node, PHP, Java et C\#, consultez l’article [Signatures d’accès partagé][Shared Access Signatures].
+Les signatures d’accès partagé sont un mécanisme d’authentification basé sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node.js, PHP, Java et C\#, consultez l’article [Signatures d’accès partagé][Shared Access Signatures].
 
 ## <a name="subscription-and-namespace-management"></a>Gestion des abonnements et des espaces de noms
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Migration d’un espace de noms vers un autre abonnement Azure

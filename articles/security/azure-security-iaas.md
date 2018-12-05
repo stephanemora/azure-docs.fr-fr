@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 057c98d4bac87b4e43e5beb8268d3d3bdbe3ec85
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364256"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498342"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 
@@ -51,7 +51,7 @@ Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin
 
 - [Collaborateur de machine virtuelle](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) : peut gérer les machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
 - [Collaborateur de machine virtuelle classique](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor) : peut gérer les machines virtuelles créées avec le modèle de déploiement classique, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
-- [Gestionnaire de sécurité](../role-based-access-control/built-in-roles.md#security-manager) : peut gérer les composants de sécurité, les stratégies de sécurité et les machines virtuelles.
+- [Administrateur de sécurité](../role-based-access-control/built-in-roles.md#security-admin) : dans Security Center uniquement : peut afficher des stratégies de sécurité, afficher des états de sécurité, modifier des stratégies de sécurité, afficher des alertes et des suggestions, ignorer les alertes et les suggestions.
 - [Utilisateur de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user) : peut tout afficher et connecter, démarrer, redémarrer et arrêter les machines virtuelles.
 
 Vos coadministrateurs et administrateurs d’abonnement peuvent modifier ce paramètre. Ils deviennent ainsi administrateurs de toutes les machines virtuelles d’un abonnement. Cela implique que vous autorisez tous vos coadministrateurs et administrateurs d’abonnement à se connecter à n’importe laquelle de vos machines.
@@ -167,8 +167,8 @@ Azure Disk Encryption répond aux besoins métiers suivants :
 - Les machines virtuelles IaaS démarrent par le biais de stratégies et de clés contrôlées par les clients qui peuvent auditer leur utilisation dans le coffre de clés.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez l’article [Meilleures pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres meilleures pratiques de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.
+Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques en matière de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.
 
-Les ressources suivantes fournissent des informations générales sur les solutions de sécurité Azure et les services Microsoft associés :
-* [Blog de l’équipe de sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/) : accédez aux dernières actualités sur la sécurité Azure
-* [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx) : les vulnérabilités de sécurité Microsoft, y compris les problèmes avec Azure, peuvent être rapportées ou signalées par courrier électronique à l’adresse secure@microsoft.com
+Les ressources suivantes fournissent des informations générales sur la sécurité Azure et les services Microsoft associés :
+* [Blog de l’équipe de sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/) : pour obtenir des informations à jour sur les dernières actualités sur la sécurité Azure
+* [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx) : emplacement où les vulnérabilités de sécurité Microsoft, dont les problèmes rencontrés avec Azure, peuvent être rapportées ou signalées par e-mail à l’adresse secure@microsoft.com

@@ -8,18 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830988"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580948"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Utiliser des listes d’expressions pour améliorer le signal de liste de mots
 
 Vous pouvez ajouter des fonctionnalités à votre application LUIS pour améliorer sa précision. Ces fonctionnalités aident LUIS en indiquant que certains mots et expressions font partie d’un vocabulaire de domaine d’application. 
+
+Une [liste d’expressions](luis-concept-feature.md) est un groupe de valeurs (mots ou expressions) qui appartiennent à la même classe et doivent être traitées de la même façon (par exemple, des noms de villes ou de produits). Ce que LUIS apprend sur l’un d’entre elles s’applique automatiquement également aux autres. Cette liste n’est pas une entité de liste fermée (correspondances de texte exactes) de mots correspondants.
+
+Une liste d’expressions complète le vocabulaire du domaine d’application sous la forme d’un deuxième signal vers LUIS sur ces mots.
 
 ## <a name="add-phrase-list"></a>Ajouter une liste d’expressions
 
@@ -47,9 +51,6 @@ Vous pouvez ajouter des fonctionnalités à votre application LUIS pour amélior
 
 > [!Note]
 > Vous pouvez supprimer ou désactiver une liste de phrases dans la barre d’outils contextuelle de la page **Listes d’expressions**.
-
-## <a name="pattern-regular-expression-feature"></a>Fonctionnalité de modèle (expression régulière) 
-**Cette fonctionnalité est déconseillée**. Il n’est pas possible d’ajouter de nouvelles fonctionnalités de modèle à LUIS. Les fonctionnalités de modèle existantes sont prises en charge jusqu'à mai 2018. Contribuer à une expression régulière LUIS standard correspondant à PR dans le [référentiel Github de modules de reconnaissance de texte](https://github.com/Microsoft/Recognizers-Text). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

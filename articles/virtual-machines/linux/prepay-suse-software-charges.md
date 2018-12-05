@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: yashar
-ms.openlocfilehash: 9c3976a5fa98049de03f2a65b71f1fc927947142
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310890"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582188"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Prépayer des abonnements logiciels SUSE dans Azure Reservations
 
@@ -43,7 +43,7 @@ Vous pouvez acheter des abonnements logiciels SUSE dans le portail Azure. Pour a
     |Étendue       |L’étendue peut couvrir un ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>Abonnement unique : la remise sur l’abonnement logiciel est appliquée à l’utilisation de SUSE Linux dans cet abonnement. </li><li>Partagé : la remise sur l’abonnement logiciel est appliquée à l’utilisation de SUSE Linux de tout abonnement compris dans votre contexte de facturation. Pour les clients Entreprise, l’étendue partagée correspond à l’inscription et inclut tous les abonnements (à l’exception des abonnements de développement/test) au sein de l’inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</li></ul>|
     |Abonnement logiciel     |Sélectionnez l’abonnement SUSE Linux. Pour savoir quel abonnement acheter, consultez [Comprendre l’application des remises aux réservations de logiciels SUSE Linux Enterprise](../../billing/billing-understand-suse-reservation-charges.md).|
     |Taille de la machine virtuelle     |Les tarifs SUSE Linux dépendent du nombre de processeurs virtuels de la machine virtuelle. Sélectionnez l’option qui correspond au nombre de processeurs virtuels de vos machines virtuelles SUSE Linux.|
-    |Terme        |Un an ou trois ans.|
+    |Terme        |Une année ou trois ans.|
     |Quantité    |Nombre de machines virtuelles pour lesquelles vous achetez cet abonnement logiciel SUSE Linux. La quantité correspond au nombre d’instances SUSE Linux en cours d’exécution pouvant bénéficier de la remise.|
 1. Sélectionnez **Achat**.
 1. Sélectionnez **Afficher cette réservation** pour connaître l’état de votre achat.
@@ -70,6 +70,6 @@ Pour en savoir plus, consultez les articles suivants :
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../../billing/billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../../billing/billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez d’autres questions, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

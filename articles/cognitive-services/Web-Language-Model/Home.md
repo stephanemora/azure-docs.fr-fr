@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 39995ca44573fe50bf0c2a2510c2c19fb227ff1d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 99d48e2abdc166fe6472195c86d890c3c1060cfa
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241121"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863786"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Qu’est-ce que l’API Modèle de langage web ? (Préversion)
 
@@ -44,7 +44,7 @@ L’API Web Language Model prend en charge quatre opérations de recherche :
 1. Abonnez-vous au service.
 2. Téléchargez le [kit SDK](https://www.github.com/microsoft/cognitive-weblm-windows).
 3. Exécutez l’exemple de code du kit SDK.
-4. Reportez-vous à la [documentation de référence de l’API](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104) pour obtenir des informations complètes sur les points de terminaison, y compris des extraits de code dans une variété de langages.
+4. Reportez-vous à la [documentation de référence de l’API](http://web.archive.org/web/20170503191852/ https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) pour obtenir des informations complètes sur les points de terminaison, y compris des extraits de code dans une variété de langages.
 
 ## <a name="underlying-technology"></a>Technologie sous-jacente
 

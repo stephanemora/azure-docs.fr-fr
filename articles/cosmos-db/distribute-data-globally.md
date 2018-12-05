@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: c90450fa4cc35b460198f5a351a965aee4ea4f4b
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 181a8ad7291a8e8a0aa2a8373985c8747bd4569b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636409"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446821"
 ---
-# <a name="build-globally-distributed-applications-with-azure-cosmos-db"></a>Créer des applications distribuées mondialement avec Azure Cosmos DB
+# <a name="global-data-distribution-with-azure-cosmos-db"></a>Distribution de données mondiale avec Azure Cosmos DB
 
-De nombreuses applications actuelles nécessitent d’être exploitées dans plusieurs centres de données. Ces applications sont appelées applications distribuées mondialement. Toujours actives, ces applications sont accessibles à des utilisateurs répartis aux quatre coins du monde. Il peut s’avérer délicat de gérer la distribution des données par ces applications au niveau mondial, tout en assurant une latence faible, une évolutivité élastique du débit et une haute disponibilité à travers le monde. Azure Cosmos DB est un service de base de données distribué au niveau mondial conçu pour offrir une faible latence, une évolutivité élastique du débit, une sémantique bien définie pour la cohérence des données et une haute disponibilité. En résumé, si votre application a besoin d’un temps de réponse rapide garanti partout dans le monde, si elle a besoin d’être toujours en ligne et a besoin d’une évolutivité illimitée et élastique du débit et du stockage, vous devez envisager de créer des applications en utilisant Azure Cosmos DB.
+Les applications actuelles doivent être hautement réactives et toujours en ligne. Pour obtenir une faible latence et une haute disponibilité, les instances de ces applications doivent être déployées dans des centres de données qui sont proches des utilisateurs. Ces applications sont généralement déployées dans plusieurs centres de données et sont dénommées comme étant globalement distribuées. Les applications globalement distribuées ont besoin d’une base de données globalement distribuée qui peut répliquer en toute transparence les données n’importe où dans le monde pour permettre aux applications de fonctionner sur une copie des données qui est proche de ses utilisateurs. Azure Cosmos DB est un service de base de données distribué au niveau mondial conçu pour offrir une faible latence, une évolutivité élastique du débit, une sémantique bien définie pour la cohérence des données et une haute disponibilité. En résumé, si votre application a besoin d’un temps de réponse rapide garanti partout dans le monde, si elle a besoin d’être toujours en ligne et a besoin d’une évolutivité illimitée et élastique du débit et du stockage, vous devez envisager de créer des applications en utilisant Azure Cosmos DB.
 
 Il s’agit d’un service Azure fondamental, qui est disponible dans toutes les [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/), par défaut. Microsoft exploite des centres de données Azure dans plus de 54 régions du monde, et continue à développer sa présence régionale pour répondre aux besoins croissants des clients. Lorsque vous créez un compte Azure Cosmos, vous choisissez la ou les régions dans lesquelles déployer ce service. Microsoft gère le service Cosmos Azure DB 24 heures sur 24, 7 jours sur 7, afin que vous puissiez vous concentrer sur vos applications.
 

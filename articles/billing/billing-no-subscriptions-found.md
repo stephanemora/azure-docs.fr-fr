@@ -4,7 +4,7 @@ description: Fournit la solution pour un problème dans lequel le message d’er
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: ac1956987b224417dde56014200add6cabb0e1df
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 584342b3dd223c45495db36ad49d83dece858137
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227431"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581780"
 ---
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Erreur Aucun abonnement trouvé dans le portail Azure ou le centre des comptes Azure
 
@@ -53,6 +53,6 @@ Vérifiez que le compte utilisé correspond à l’administrateur du compte. Pou
 1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres**.
 1. Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .  
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez besoin d’aide, [contactez le support technique](https://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une prise en charge rapide de votre problème. 
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
