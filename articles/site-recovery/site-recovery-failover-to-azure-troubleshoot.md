@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: 6be71424e30c5783a03b157171b3f5acd0160e65
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391008"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447144"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle vers Azure
 
@@ -45,7 +45,37 @@ Site Recovery n’a pas pu créer de machine virtuelle classique basculée dans 
 
 * Une des ressources, comme un réseau virtuel, nécessaire à la création de la machine virtuelle n’existe pas. Créez le réseau virtuel, tel que proposé sous les paramètres Calcul et réseau de la machine virtuelle, ou modifiez le paramètre sur un réseau virtuel qui existe déjà et réessayez le basculement.
 
-## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>Impossible de se connecter/RDP/SSH – Le bouton Se connecter de la machine virtuelle est grisé
+## <a name="failover-failed-with-error-id-170010"></a>Le basculement a échoué avec l’ID d’erreur 170010
+
+Site Recovery n’a pas pu créer de machine virtuelle basculée dans Azure. Cela peut être causé par l’échec d’une activité interne d’alimentation pour la machine virtuelle locale.
+
+Pour afficher une machine dans Azure, l’environnement Azure exige que certains pilotes soient à l’état Démarrage et que des services comme DHCP soient à l’état Démarrage automatique. Au moment du basculement, l’activité d’alimentation convertit donc le type de démarrage des **pilotes atapi, intelide, storflt, vmbus et storvsc** en Démarrage, et celui de certains services comme DHCP en Démarrage automatique. Cette activité peut échouer en raison de problèmes propres à l’environnement. Pour modifier manuellement le type de démarrage des pilotes, suivez les étapes ci-dessous :
+
+1. [Téléchargez](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) le script de non-alimentation, puis exécutez-le de la façon suivante. Ce script détermine si la machine virtuelle a besoin d’une alimentation.
+
+    `.\Script-no-hydration.ps1`
+
+    Il donne le résultat suivant si une alimentation est nécessaire :
+
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+
+        This system doesn't meet no-hydration requirement.
+
+    Dans le cas où la machine virtuelle remplit l’exigence de non-alimentation, le script donne le résultat « This system meets no-hydration requirement ». Tous les pilotes et services se trouvent à l’état requis par Azure ; l’alimentation n’est pas nécessaire sur la machine virtuelle.
+
+2. Exécutez ainsi le script no-hydration-set si la machine virtuelle ne répond pas à l’exigence de non-alimentation.
+
+    `.\Script-no-hydration.ps1 -set`
+    
+    Il convertit le type de démarrage des pilotes et donne le résultat ci-dessous :
+    
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
+
+        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+
+        This system is now no-hydration compatible. 
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Impossible de se connecter ou d’établir une liaison RDP ou SSH à la machine virtuelle après son basculement, car le bouton Se connecter est grisé
 
 Si le bouton **Se connecter** de la machine virtuelle basculée dans Azure est grisé et que vous n’avez pas établi de connexion ExpressRoute ou réseau privé virtuel de site à site à Azure :
 

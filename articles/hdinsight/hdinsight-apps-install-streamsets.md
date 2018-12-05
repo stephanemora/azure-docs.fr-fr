@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: f963ae53e1396b1ef6279f2bd6502e5ab0cd23a1
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: ac287f2ee50501d703b7d7b79a436ecb5335d1bd
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034555"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497388"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>Installer une application publiée - StreamSets Data Collector
 
-Cet article explique comment installer et exécuter l’application Apache Hadoop publiée [StreamSets Data Collector pour HDInsight](https://streamsets.com/) sur Azure HDInsight. Pour obtenir une vue d’ensemble de la plateforme d’application HDInsight et la liste des applications publiées d’éditeurs de logiciels indépendants (ISV), consultez [Installer des applications Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md). Pour des instructions d’installation de votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
+Cet article explique comment installer et exécuter l’application [Apache Hadoop publiée StreamSets](https://streamsets.com/) [Data Collector pour HDInsight](https://hadoop.apache.org/) sur Azure HDInsight. Pour obtenir une vue d’ensemble de la plateforme d’application HDInsight et la liste des applications publiées d’éditeurs de logiciels indépendants (ISV), consultez [Installer des applications Apache Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md). Pour des instructions d’installation de votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-streamsets-data-collector"></a>À propos de StreamSets Data Collector
 
 StreamSets Data Collector se déploie sur une application Azure HDInsight. StreamSets Data Collector offre un environnement de développement intégré complet qui vous permet de concevoir, tester, déployer et gérer des pipelines d’ingestion universels. Ces pipelines maillent les flux et groupent les données, tout en incluant diverses transformations intégrées au flux, sans aucune écriture de code personnalisé.
 
-StreamSets Data Collector vous permet de développer les flux de données à l’aide de nombreux composants Big Data comme HDFS, Kafka, Solr, Hive, HBASE et Kudu. Une fois que StreamSets Data Collector est en cours d’exécution sur le serveur Edge ou dans votre cluster Hadoop, vous bénéficiez d’une surveillance en temps réel des anomalies de données et des opérations sur les flux de données. Cette surveillance comprend les alertes basées sur des seuils, la détection des anomalies et la correction automatique des enregistrements d’erreur.
+StreamSets Data Collector vous permet de générer des flux de données à l’aide de nombreux composants Big Data comme [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Kafka](https://kafka.apache.org/), [Apache Solr](https://lucene.apache.org/solr/), [ Apache Hive](https://hive.apache.org/), [Apache HBase](https://hbase.apache.org/) et [Apache Kudu](https://kudu.apache.org/). Une fois que StreamSets Data Collector est en cours d’exécution sur le serveur Edge ou dans votre cluster Hadoop, vous bénéficiez d’une surveillance en temps réel des anomalies de données et des opérations sur les flux de données. Cette surveillance comprend les alertes basées sur des seuils, la détection des anomalies et la correction automatique des enregistrements d’erreur.
 
 StreamSets Data Collector est conçu pour isoler de manière logique chacune des étapes dans un pipeline, ce qui vous permet de satisfaire les nouvelles exigences métiers en ajoutant de nouveaux processeurs et connecteurs sans codage supplémentaires, et avec un temps d’arrêt minimal.
 
@@ -46,7 +46,7 @@ Pour installer cette application sur un cluster existant ou sur un nouveau clust
 
 ## <a name="install-the-streamsets-data-collector-published-application"></a>Installer l’application publiée StreamSets Data Collector
 
-Pour obtenir des instructions détaillées sur l’installation de cette application et d’autres applications ISV disponibles, consultez [Installer des applications Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md).
+Pour obtenir des instructions détaillées sur l’installation de cette application et d’autres applications ISV disponibles, consultez [Installer des applications Apache Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-streamsets-data-collector"></a>Lancer Streams Data Collector
 

@@ -3,18 +3,18 @@ title: Guide de programmation SCP.NET pour Storm dans Azure HDInsight
 description: Découvrez comment utiliser SCP.NET pour créer des topologies Storm basées sur .NET en vue d’une utilisation avec Storm dans Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: daf9efb2f9044ed1395b0f2aa3663c2471406e2f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045462"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496864"
 ---
 # <a name="scp-programming-guide"></a>Guide de programmation SCP
 SCP est une plateforme permettant de développer des applications de traitement de données en temps réel, fiables, cohérentes et aux performances élevées. Elle est basée sur [Apache Storm](http://storm.incubator.apache.org/) , système de traitement par flux conçu par la communauté OSS. Storm est conçu par Nathan Marz et a été diffusé en open source par Twitter. Il exploite [Apache ZooKeeper](http://zookeeper.apache.org/), un autre projet Apache pour fournir une coordination et une gestion d’état très fiables. 
@@ -207,7 +207,7 @@ Dans le cas des bolts non transactionnels prenant en charge le mécanisme d’ac
 ### <a name="statestore"></a>StateStore
 `StateStore` fournit des services de métadonnées, une génération de séquence unitone et une coordination sans attente. Il est possible de développer des abstractions concurrentielles distribuées et globales sur `StateStore`, notamment des verrous distribués, des files d’attente distribuées, des barrières et des services de transaction.
 
-Les applications SCP peuvent utiliser l’objet `State` pour conserver des informations dans ZooKeeper, notamment la topologie transactionnelle. Ainsi, si un spout transactionnel se bloque et redémarre, il peut récupérer les informations nécessaires à partir de ZooKeeper, puis redémarrer le pipeline.
+Les applications SCP peuvent utiliser l’objet `State` pour conserver certaines informations dans [Apache ZooKeeper](https://zookeeper.apache.org/), notamment la topologie transactionnelle. Ainsi, si un spout transactionnel se bloque et redémarre, il peut récupérer les informations nécessaires à partir de ZooKeeper, puis redémarrer le pipeline.
 
 L’objet `StateStore` dispose principalement de ces méthodes :
 
@@ -642,9 +642,9 @@ Cette topologie contient un spout Java et un bolt C\#. Elle utilise l'implément
 Cet exemple est sensiblement identique à HelloWorld. Les seules différences sont que le code utilisateur est compilé en tant que DLL et que la topologie est envoyée en utilisant SCPHost.exe. Pour en savoir plus, consultez la section « Mode d’hébergement SCP ».
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des exemples de topologies Storm créées à l’aide de SCP, consultez les documents suivants :
+Pour des exemples de topologies Apache Storm créées avec SCP, voir les documents suivants :
 
 * [Développement de topologies C# pour Apache Storm dans HDInsight à l'aide de Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
-* [Traitement d'événements à partir d'Azure Event Hubs avec Storm dans HDInsight](apache-storm-develop-csharp-event-hub-topology.md)
-* [Traitement des données de capteur de véhicule à partir d'Event Hubs à l'aide de Storm dans HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
-* [Extraction, transformation et chargement (ETL) à partir d’Azure Event Hubs dans HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
+* [Traiter des événements issus d’Azure Event Hubs avec Apache Storm sur HDInsight](apache-storm-develop-csharp-event-hub-topology.md)
+* [Traiter des données de capteurs de véhicules issues d’Event Hubs avec Apache Storm sur HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [Effectuer des opérations ETL (extraction, transformation et chargement) d’Azure Event Hubs vers Apache HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)

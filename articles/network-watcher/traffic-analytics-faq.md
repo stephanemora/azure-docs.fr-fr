@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402758"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582494"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour l’analyse de trafic
 
@@ -63,7 +63,38 @@ Si vous ne voyez aucune sortie, contactez l’administrateur de l’abonnement p
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Dans quelles régions l’analytique du trafic est-elle disponible ?
 
-Vous pouvez utiliser l’analytique du trafic pour les NSG dans les régions prises en charge suivantes : USA Centre-Ouest, USA Est, USA Est 2, USA Centre Nord, USA Centre Sud, USA Centre, USA Ouest, USA Ouest 2, Europe Ouest, Europe Nord, Royaume-Uni Ouest, Royaume-Uni Sud, Australie Est, Australie Sud-Est et Asie Sud-Est. L’espace de travail Log Analytics doit se trouver dans la région USA Centre-Ouest, USA Est, Europe Ouest, Royaume-Uni Sud, Australie Sud-Est ou Asie Sud-Est.
+Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge suivantes :
+- Centre du Canada
+- USA Centre-Ouest
+- USA Est
+- USA Est 2
+- USA Centre Nord
+- USA Centre Sud
+- USA Centre
+- USA Ouest
+- USA Ouest 2
+- Europe Ouest
+- Europe Nord
+- Brésil Sud
+- Ouest du Royaume-Uni
+- Sud du Royaume-Uni
+- Australie Est
+- Australie Sud-Est 
+- Asie Sud-Est
+- Inde Centre
+- Inde Sud
+- Japon Est
+
+L’espace de travail Log Analytics doit exister dans les régions suivantes :
+- Centre du Canada
+- USA Centre-Ouest
+- USA Est
+- Europe Ouest
+- Sud du Royaume-Uni
+- Australie Sud-Est
+- Asie Sud-Est 
+- Inde Centre
+- Japon Est
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Puis-je activer des journaux de flux pour des NSG qui se trouvent dans des régions différentes de mon espace de travail ?
 
@@ -83,7 +114,7 @@ Oui, votre compte Stockage Azure peut être dans un abonnement spécifique et vo
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Puis-je stocker les journaux bruts dans un autre abonnement ?
 
-Non. Vous pouvez stocker des journaux bruts dans n’importe quel compte de stockage dans lequel un NSG est activé pour les journaux de flux. Toutefois, le compte de stockage et les journaux bruts doivent se trouver dans le même abonnement et la même région.
+ Non. Vous pouvez stocker des journaux bruts dans n’importe quel compte de stockage dans lequel un NSG est activé pour les journaux de flux. Toutefois, le compte de stockage et les journaux bruts doivent se trouver dans le même abonnement et la même région.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Que faire si je ne peux pas configurer un NSG pour l’analytique du trafic en raison d’une erreur « Introuvable » ?
 
@@ -94,8 +125,8 @@ Sélectionnez une région prise en charge. Si vous sélectionnez une région non
 Pour que la journalisation du flux fonctionne correctement, le fournisseur Microsoft.Insights doit être inscrit. Si vous ne savez pas si le fournisseur Microsoft.Insights est inscrit ou non pour votre abonnement, remplacez *xxxxx-xxxxx-xxxxxx-xxxx* dans la commande suivante, puis exécutez les commandes ci-dessous à partir de PowerShell :
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>J’ai configuré la solution. Pourquoi ne vois-je rien sur le tableau de bord ?

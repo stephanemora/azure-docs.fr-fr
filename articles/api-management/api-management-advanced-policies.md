@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262333"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584874"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -253,7 +253,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="LimitConcurrency"></a> Limit concurrency
- La stratégie `limit-concurrency` empêche les stratégies incluses d’exécuter plus de requêtes simultanées que le nombre spécifié. En cas de dépassement de ce nombre, les nouvelles requêtes échouent immédiatement avec le code d’état 429 Trop de requêtes.
+ La stratégie `limit-concurrency` empêche les stratégies incluses d’exécuter plus de demandes simultanées que le nombre spécifié. En cas de dépassement de ce nombre, les nouvelles requêtes échouent immédiatement avec le code d’état 429 Trop de requêtes.
 
 ###  <a name="LimitConcurrencyStatement"></a> Instruction de la stratégie
 
@@ -649,7 +649,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.|Non |Nouveau|
-|response-variable-name="string"|Nom de la variable contextuelle qui recevra un objet Response. Si la variable n’existe pas, elle sera créée lors de l’exécution réussie de la stratégie, et deviendra accessible via une collecte [`context.Variable`](api-management-policy-expressions.md#ContextVariables).|Oui|N/A|
+|response-variable-name="string"|Nom de la variable contextuelle qui recevra un objet Response. Si la variable n’existe pas, elle sera créée après exécution réussie de la stratégie, et deviendra accessible par le biais de la collection [`context.Variable`](api-management-policy-expressions.md#ContextVariables).|Oui|N/A|
 |timeout="integer"|Délai d’expiration en secondes avant l’échec de l’appel à l’URL.|Non |60|
 |ignore-error|S’il a la valeur true et que la demande aboutit à une erreur :<br /><br /> - Si response-variable-name a été spécifié, il contiendra une valeur Null.<br />- Si response-variable-nam n’est pas spécifié, context.Request ne sera pas mis à jour.|Non |false|
 |Nom|Spécifie le nom de l’en-tête à définir.|Oui|N/A|
@@ -876,7 +876,7 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

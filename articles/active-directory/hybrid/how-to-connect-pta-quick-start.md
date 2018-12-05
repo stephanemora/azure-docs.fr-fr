@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 70c19b394b5c5702a0ec0f18aa3bbd0c05e39dfd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249793"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582736"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -29,7 +29,7 @@ ms.locfileid: "51249793"
 L’authentification directe Azure Active Directory (Azure AD) permet à vos utilisateurs de se connecter aux applications sur site et aux applications cloud à l’aide des mêmes mots de passe. L'authentification directe connecte les utilisateurs en validant leurs mots de passe directement par rapport à l'annuaire Active Directory sur site.
 
 >[!IMPORTANT]
->Si vous procédez à une migration depuis AD FS (ou d’autres technologies de fédération) vers l’authentification directe, nous vous recommandons vivement de vous référer à notre guide de déploiement détaillé, publié [ici](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>Si vous procédez à une migration depuis AD FS (ou d’autres technologies de fédération) vers l’authentification directe, nous vous recommandons vivement de vous référer à notre guide de déploiement détaillé, publié [ici](https://aka.ms/adfstoPTADPDownload).
 
 Suivez ces instructions pour déployer l’authentification directe sur votre locataire :
 
@@ -44,13 +44,13 @@ Vérifiez que les prérequis suivants sont remplis.
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
-1. Identifiez un serveur Windows Server 2012 R2 ou ultérieur sur lequel exécuter Azure AD Connect. Ajoutez ce serveur à la même forêt Active Directory que celle des utilisateurs dont vous devez valider les mots de passe.
+1. Identifiez un serveur Windows Server 2012 R2 ou ultérieur sur lequel exécuter Azure AD Connect. Le cas échéant, [activez TLS 1.2 sur le serveur](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Ajoutez ce serveur à la même forêt Active Directory que celle des utilisateurs dont vous devez valider les mots de passe.
 2. Installez la [version la plus récente d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) sur le serveur identifié à l’étape précédente. Si vous exécutez déjà Azure AD Connect, vérifiez qu’il s’agit de la version 1.1.750.0 ou d’une version ultérieure.
 
     >[!NOTE]
     >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
-3. Identifiez un ou plusieurs serveurs supplémentaires (exécutant Windows Server 2012 R2 ou version ultérieure) sur lesquels vous pouvez exécuter des agents d’authentification autonomes. Ces serveurs supplémentaires sont nécessaires pour garantir une haute disponibilité des requêtes de connexion. Ajoutez ces serveurs à la même forêt Active Directory que celle des utilisateurs dont vous devez valider les mots de passe.
+3. Identifiez un ou plusieurs serveurs supplémentaires (exécutant Windows Server 2012 R2 ou version ultérieure, avec TLS 1.2 activé) sur lesquels vous pouvez exécuter des agents d’authentification autonomes. Ces serveurs supplémentaires sont nécessaires pour garantir une haute disponibilité des requêtes de connexion. Ajoutez ces serveurs à la même forêt Active Directory que celle des utilisateurs dont vous devez valider les mots de passe.
 
     >[!IMPORTANT]
     >Dans les environnements de production, nous vous recommandons l’utilisation d’au moins 3 agents d’authentification s’exécutant sur votre locataire. Il existe une limite système de 12 agents d’authentification par client. En tant que bonne pratique, traitez tous les serveurs exécutant des agents d’authentification comme des systèmes de niveau 0 (voir [référence](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
@@ -85,7 +85,7 @@ Si vous avez déjà installé Azure AD Connect à l’aide du chemin [d’instal
 ![Azure AD Connect : Modifier la connexion utilisateur](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->L’authentification directe est une fonctionnalité au niveau du locataire. Son activation affecte la connexion des utilisateurs dans _tous_ les domaines gérés dans votre locataire. Si vous passez d'Active Directory Federation Services (ADFS) à l'authentification directe, vous devez attendre au moins 12 heures avant de fermer votre infrastructure AD FS. Ce délai d'attente permet aux utilisateurs de continuer à se connecter à Exchange ActiveSync pendant la transition. Pour obtenir plus d’informations sur la migration d’AD FS vers l’authentification directe, consultez notre guide de déploiement détaillé publié [ici](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>L’authentification directe est une fonctionnalité au niveau du locataire. Son activation affecte la connexion des utilisateurs dans _tous_ les domaines gérés dans votre locataire. Si vous passez d'Active Directory Federation Services (ADFS) à l'authentification directe, vous devez attendre au moins 12 heures avant de fermer votre infrastructure AD FS. Ce délai d'attente permet aux utilisateurs de continuer à se connecter à Exchange ActiveSync pendant la transition. Pour obtenir plus d’informations sur la migration d’AD FS vers l’authentification directe, consultez notre plan de déploiement détaillé publié [ici](https://aka.ms/adfstoptadpdownload).
 
 ## <a name="step-3-test-the-feature"></a>Étape 3 : Tester la fonctionnalité
 

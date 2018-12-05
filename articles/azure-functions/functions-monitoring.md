@@ -9,20 +9,18 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457661"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497241"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
-## <a name="overview"></a>Vue d’ensemble 
-
-[Azure Functions](functions-overview.md) est intégré à [Azure Application Insights](../application-insights/app-insights-overview.md) pour la surveillance des fonctions. Cet article explique comment configurer Azure Functions pour envoyer des données de télémétrie à Application Insights.
+[Azure Functions](functions-overview.md) est intégré à [Azure Application Insights](../application-insights/app-insights-overview.md) pour la surveillance des fonctions. Cet article explique comment configurer Functions de façon à envoyer des fichiers journaux générés par le système à Application Insights.
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
@@ -30,11 +28,11 @@ Functions dispose également de [fonctionnalités de surveillance qui n’utilis
 
 ## <a name="application-insights-pricing-and-limits"></a>Tarification et limites d’Application Insights
 
-Vous pouvez essayer gratuitement l’intégration d’Application Insights avec les applications de fonctions. Toutefois, la quantité de données pouvant être traitée gratuitement chaque jour est limitée et il est possible que vous atteigniez ce seuil pendant le test. Azure envoie des notifications de messagerie et de portail lorsque vous approchez la limite quotidienne.  Cependant, si vous manquez ces alertes et atteignez la limite fixée, les nouveaux journaux n’apparaîtront pas dans les requêtes Application Insights. N’oubliez pas ces limites pour éviter de passer du temps à résoudre des problèmes superflus. Pour plus d’informations, consultez l’article [Gérer la tarification et le volume de données dans Application Insights](../application-insights/app-insights-pricing.md).
+Vous pouvez essayer gratuitement l’intégration d’Application Insights avec les applications de fonctions. Toutefois, la quantité de données pouvant être traitée gratuitement chaque jour est limitée et il est possible que vous atteigniez ce seuil pendant le test. Azure envoie des notifications sur le portail et par e-mail lorsque la limite quotidienne est proche.  Cependant, si vous manquez ces alertes et atteignez la limite fixée, les nouveaux journaux n’apparaîtront pas dans les requêtes Application Insights. N’oubliez pas ces limites pour éviter de passer du temps à résoudre des problèmes superflus. Pour plus d’informations, consultez l’article [Gérer la tarification et le volume de données dans Application Insights](../application-insights/app-insights-pricing.md).
 
 ## <a name="enable-app-insights-integration"></a>Activer l’intégration dans Application Insights
 
-Pour qu’une application de fonction envoie des données à Application Insights, elle a besoin de connaître la clé d’instrumentation d’une ressource Application Insights. Cette clé doit être fournie dans un paramètre d’application nommé APPINSIGHTS_INSTRUMENTATIONKEY.
+Pour qu’une application de fonction envoie des données à Application Insights, elle a besoin de connaître la clé d’instrumentation d’une ressource Application Insights. Cette clé doit se trouver dans un paramètre d’application nommé **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
 Vous pouvez configurer cette connexion dans le [portail Azure](https://portal.azure.com) :
 
@@ -47,15 +45,11 @@ Vous pouvez configurer cette connexion dans le [portail Azure](https://portal.az
 
 1. Définissez le commutateur **Application Insights** sur **Activé**.
 
-2. Sélectionnez un **Emplacement d’Application Insights**.
-
-   Choisissez la région la plus proche de la région de votre application de fonction, dans une [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) où vous souhaitez stocker vos données.
+1. Sélectionnez un **Emplacement d’Application Insights**. Choisissez la région la plus proche de la région de votre application de fonction, dans une [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) où vous souhaitez stocker vos données.
 
    ![Activer Application Insights pendant la création d’une application de fonction](media/functions-monitoring/enable-ai-new-function-app.png)
 
-3. Entrez les autres informations requises.
-
-1. Sélectionnez **Créer**.
+1. Entrez les autres informations requises et sélectionnez **Créer**.
 
 L’étape suivante consiste à [désactiver la journalisation intégrée](#disable-built-in-logging).
 
@@ -65,7 +59,7 @@ L’étape suivante consiste à [désactiver la journalisation intégrée](#disa
 
    ![Créer une ressource Application Insights, type Général](media/functions-monitoring/ai-general.png)
 
-2. Copiez la clé d’instrumentation à partir de la page **Bases** de la ressource Application Insights. Placez le curseur au-dessus de la fin de la valeur de clé affichée pour faire apparaître un bouton **Cliquer pour copier**.
+1. Copiez la clé d’instrumentation à partir de la page **Bases** de la ressource Application Insights. Placez le curseur au-dessus de la fin de la valeur de clé affichée pour faire apparaître un bouton **Cliquer pour copier**.
 
    ![Copier la clé d’instrumentation Application Insights](media/functions-monitoring/copy-ai-key.png)
 
@@ -77,7 +71,7 @@ L’étape suivante consiste à [désactiver la journalisation intégrée](#disa
 
 ## <a name="disable-built-in-logging"></a>Désactiver la journalisation intégrée
 
-Si vous activez Application Insights, nous vous conseillons de désactiver la [journalisation intégrée qui utilise le stockage Azure](#logging-to-storage). La journalisation intégrée permet de tester des charges de travail légères, mais n’est pas destinée à une utilisation en production avec des charges importantes. Application Insights est recommandé pour surveiller la production. Si la journalisation intégrée est utilisée en production, l’enregistrement de journal peut être incomplet en raison d’une limitation du stockage Azure.
+Lorsque vous activez Application Insights, désactivez la [journalisation intégrée qui utilise le Stockage Azure](#logging-to-storage). La journalisation intégrée permet de tester des charges de travail légères, mais n’est pas destinée à une utilisation en production avec des charges importantes. Application Insights est recommandé pour surveiller la production. Si la journalisation intégrée est utilisée en production, l’enregistrement de journal peut être incomplet en raison d’une limitation du stockage Azure.
 
 Pour désactiver la journalisation intégrée, supprimez le paramètre d’application `AzureWebJobsDashboard`. Pour plus d’informations sur la suppression de paramètres d’application dans le portail Azure, consultez la section **Paramètres de l’application** dans [Comment gérer une application de fonction dans le portail Azure](functions-how-to-use-azure-function-app-settings.md#settings). Avant de supprimer le paramètre d’application, assurez-vous qu’aucune fonction existante dans la même application de fonction ne l’utilise pour les déclencheurs ou les liaisons de stockage Azure.
 
@@ -89,13 +83,13 @@ Une fois que vous avez configuré l’intégration d’Application Insights comm
 
    ![Sélectionner l’onglet Surveiller](media/functions-monitoring/monitor-tab.png)
 
-2. Sélectionnez **Actualiser** régulièrement jusqu’à ce que la liste d’appels de fonction s’affiche.
+1. Sélectionnez **Actualiser** régulièrement jusqu’à ce que la liste d’appels de fonction s’affiche.
 
    Cette opération peut prendre jusqu’à 5 minutes, selon la manière dont le client de télémétrie organise les données par lots pour les transmettre au serveur. (Ce délai ne s’applique pas au [Flux de métriques temps réel](../application-insights/app-insights-live-stream.md). Le service se connecte à l’hôte Functions lorsque vous chargez la page, de sorte que les journaux sont transmis directement sur la page.)
 
    ![Liste d’appels](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
-2. Pour afficher les journaux liés à un appel de fonction spécifique, sélectionnez le lien de la colonne **Date** correspondant à cet appel.
+1. Pour afficher les journaux liés à un appel de fonction spécifique, sélectionnez le lien de la colonne **Date** correspondant à cet appel.
 
    ![Lien des détails d’appel](media/functions-monitoring/invocation-details-link-ai.png)
 
@@ -118,7 +112,6 @@ Pour plus d’informations, consultez la section [Interroger les données de té
 Pour ouvrir Application Insights à partir d’une application de fonction dans le portail Azure, sélectionnez le lien **Application Insights** dans la section **Fonctionnalités configurées** de la page **Vue d’ensemble** de l’application de fonction.
 
 ![Lien Application Insights sur la page Vue d’ensemble](media/functions-monitoring/ai-link.png)
-
 
 Pour plus d’informations sur l’utilisation d’Application Insights, consultez la [documentation d’Application Insights](https://docs.microsoft.com/azure/application-insights/). Cette section présente des exemples montrant comment afficher les données dans Application Insights. Si vous êtes déjà familiarisé avec Application Insights, vous pouvez passer directement aux [sections sur la configuration et la personnalisation des données de télémétrie](#configure-categories-and-log-levels).
 
@@ -150,7 +143,7 @@ L’onglet [Flux de métriques temps réel](../application-insights/app-insights
 
 ![Exemple Analytics](media/functions-monitoring/analytics-traces.png)
 
-Voici un exemple de requête. Il montre la distribution des demandes par rôle de travail au cours des 30 dernières minutes.
+Voici un exemple de requête qui montre la distribution des demandes par nœud Worker au cours des 30 dernières minutes.
 
 ```
 requests
@@ -193,7 +186,7 @@ Si vous écrivez des journaux dans votre code de fonction, leur catégorie est �
 
 ### <a name="log-levels"></a>Niveaux de journal
 
-L’enregistreur d’événements d’Azure Functions inclut également un *niveau de journal* avec chaque journal. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) est une énumération, et le code d’entier indique l’importance relative :
+L’enregistreur d’événements d’Azure Functions inclut également un *niveau de journal* avec chaque journal. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) est une énumération, et le code d’entier indique l’importance relative :
 
 |LogLevel    |Code|
 |------------|---|
@@ -209,9 +202,28 @@ Le niveau de journal `None` est expliqué dans la section suivante.
 
 ### <a name="configure-logging-in-hostjson"></a>Configurer la journalisation dans host.json
 
-Le fichier *host.json* configure la quantité de journalisation qu’une application de fonction envoie à Application Insights. Pour chaque catégorie, vous indiquez le niveau de journal minimal à envoyer. Voici un exemple :
+Le fichier *[host.json](functions-host-json.md)* configure la quantité de journalisation qu’une application de fonction envoie à Application Insights. Pour chaque catégorie, vous indiquez le niveau de journal minimal à envoyer. Il y a deux exemples : l’un cible le [runtime Functions version 2.x](functions-versions.md#version-2x) (.NET Core) et l’autre le runtime version 1.x.
 
-#### <a name="functions-version-1"></a>Functions Version 1 
+### <a name="version-2x"></a>Version 2.x
+
+Le runtime v2.x utilise la [hiérarchie des filtres de journalisation .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
+### <a name="version-1x"></a>Version 1.x
+
 ```json
 {
   "logger": {
@@ -227,33 +239,34 @@ Le fichier *host.json* configure la quantité de journalisation qu’une applica
 }
 ```
 
-#### <a name="functions-version-2"></a>Functions Version 2 
-Functions v2 utilise à présent la [hiérarchie de filtres de journalisation .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+Cet exemple montre comment configurer les règles suivantes :
+
+1. En ce qui concerne les journaux de la catégorie `Host.Results`**` or `**`Function`, envoyer uniquement les niveaux `Error` et supérieurs à Application Insights. Les journaux pour les niveaux `Warning` et inférieurs sont ignorés.
+2. En ce qui concerne les journaux de la catégorie `Host.Aggregator`, envoyer tous les journaux à Application Insights. Le niveau du journal `Trace` est identique à ce que certains enregistreurs d’événements appellent `Verbose`, mais utilisez `Trace` dans le fichier [host.json](functions-host-json.md).
+3. Pour tous les autres journaux, envoyer uniquement les niveaux `Information` et supérieurs à Application Insights.
+
+La valeur de catégorie dans [host.json](functions-host-json.md) contrôle la journalisation de toutes les catégories qui commencent par la même valeur. Par exemple, `Host` dans [host.json](functions-host-json.md) contrôle la journalisation de `Host.General`, `Host.Executor`, `Host.Results`, etc.
+
+Si [host.json](functions-host-json.md) inclut plusieurs catégories qui commencent par la même chaîne, les plus longues sont traitées en priorité. Supposons par exemple que vous souhaitiez que la totalité du runtime à l’exception de `Host.Aggregator` soit journalisée au niveau `Error`, mais que `Host.Aggregator` soit journalisé au niveau `Information` :
+
+### <a name="version-2x"></a>Version 2.x 
+
 ```json
 {
   "logging": {
     "fileLoggingMode": "always",
     "logLevel": {
       "default": "Information",
-      "Host.Results": "Error",
+      "Host": "Error",
       "Function": "Error",
-      "Host.Aggregator": "Trace"
+      "Host.Aggregator": "Information"
     }
   }
 }
 ```
 
-Cet exemple montre comment configurer les règles suivantes :
+### <a name="version-1x"></a>Version 1.x 
 
-1. Pour les journaux ayant la catégorie « Host.Results » ou « Function », envoyer uniquement les niveaux `Error` et supérieurs à Application Insights. Les journaux pour les niveaux `Warning` et inférieurs sont ignorés.
-2. Pour les journaux avec la catégorie Host.Aggregator, envoyez tous les journaux à Application Insights. Le niveau du journal `Trace` est identique à ce que certains enregistreurs d’événements appellent `Verbose`, mais utilisez `Trace` dans le fichier *host.json*.
-3. Pour tous les autres journaux, envoyer uniquement les niveaux `Information` et supérieurs à Application Insights.
-
-La valeur de catégorie dans *host.json* contrôle la journalisation de toutes les catégories qui commencent par la même valeur. Par exemple, « Host » dans *host.json* contrôle la journalisation pour « Host.General », « Host.Executor », « Host.Results » et ainsi de suite.
-
-Si *host.json* inclut plusieurs catégories qui commencent par la même chaîne, les plus longues sont traitées en priorité. Par exemple, supposons que vous souhaitez que la totalité du runtime à l’exception de « Host.Aggregator » soit journalisée au niveau `Error`, mais que « Host.Aggregator » soit journalisé au niveau `Information` :
-
-#### <a name="functions-version-1"></a>Functions Version 1 
 ```json
 {
   "logger": {
@@ -264,21 +277,6 @@ Si *host.json* inclut plusieurs catégories qui commencent par la même chaîne,
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
-    }
-  }
-}
-```
-
-#### <a name="functions-version-2"></a>Functions Version 2 
-```json
-{
-  "logging": {
-    "fileLoggingMode": "always",
-    "logLevel": {
-      "default": "Information",
-      "Host": "Error",
-      "Function": "Error",
-      "Host.Aggregator": "Information"
     }
   }
 }
@@ -318,7 +316,7 @@ Les journaux écrits par votre code de fonction ont la catégorie « Function »
 
 ## <a name="configure-the-aggregator"></a>Configurer le paramètre d’agrégation
 
-Comme indiqué dans la section précédente, le runtime agrège les données sur les exécutions de fonction sur une période de temps. La période par défaut est 30 secondes ou 1 000 exécutions, selon la première de ces éventualités. Vous pouvez configurer ce paramètre dans le fichier *host.json*.  Voici un exemple :
+Comme indiqué dans la section précédente, le runtime agrège les données sur les exécutions de fonction sur une période de temps. La période par défaut est 30 secondes ou 1 000 exécutions, selon la première de ces éventualités. Vous pouvez configurer ce paramètre dans le fichier [host.json](functions-host-json.md).  Voici un exemple :
 
 ```json
 {
@@ -331,7 +329,9 @@ Comme indiqué dans la section précédente, le runtime agrège les données sur
 
 ## <a name="configure-sampling"></a>Configurer l’échantillonnage
 
-Application Insights a une fonctionnalité [d’échantillonnage](../application-insights/app-insights-sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie aux heures de forte activité. Quand le taux de données de télémétrie entrantes dépasse un seuil spécifié, Application Insights commence à ignorer aléatoirement certains des éléments entrants. Par défaut, le nombre maximal d’éléments par seconde est fixé à 5. Vous pouvez configurer l’échantillonnage dans *host.json*.  Voici un exemple :
+Application Insights a une fonctionnalité [d’échantillonnage](../application-insights/app-insights-sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie aux heures de forte activité. Quand le taux de données de télémétrie entrantes dépasse un seuil spécifié, Application Insights commence à ignorer aléatoirement certains des éléments entrants. Par défaut, le nombre maximal d’éléments par seconde est fixé à 5. Vous pouvez configurer l’échantillonnage dans [host.json](functions-host-json.md).  Voici un exemple :
+
+### <a name="version-1x"></a>Version 1.x 
 
 ```json
 {
@@ -344,6 +344,9 @@ Application Insights a une fonctionnalité [d’échantillonnage](../application
 }
 ```
 
+> [!NOTE]
+> [L’échantillonnage](../application-insights/app-insights-sampling.md) est activé par défaut. Si vous pensez qu’il vous manque des données, il vous faut peut-être simplement adapter les paramètres d’échantillonnage à votre scénario de monitoring.
+
 ## <a name="write-logs-in-c-functions"></a>Écrire des journaux dans des fonctions C#
 
 Vous pouvez écrire des journaux dans votre code de fonction qui apparaissent sous forme de traces dans Application Insights.
@@ -352,7 +355,7 @@ Vous pouvez écrire des journaux dans votre code de fonction qui apparaissent so
 
 Utilisez un paramètre [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) dans vos fonctions au lieu d’un paramètre `TraceWriter`. Les journaux créés à l’aide de `TraceWriter` sont certes destinés à Application Insights, mais `ILogger` vous permet d’effectuer une [journalisation structurée](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Avec un objet `ILogger`, vous appelez des [méthodes d’extension sur ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) `Log<level>` pour créer des journaux. Par exemple, le code suivant écrit des journaux `Information` ayant la catégorie « Function ».
+L’objet `ILogger` permet d’appeler les [méthodes d’extension `Log<level>` sur ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) pour créer des journaux. Par exemple, le code suivant écrit des journaux `Information` ayant la catégorie « Function ».
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -421,9 +424,79 @@ Ce code est une alternative à l’appel de `trackMetric` à l’aide du [SDK No
 
 ## <a name="custom-telemetry-in-c-functions"></a>Données de télémétrie personnalisées dans les fonctions C#
 
-Vous pouvez utiliser le package NuGet [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) pour envoyer des données de télémétrie personnalisées à Application Insights.
+Vous pouvez utiliser le package NuGet [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) pour envoyer des données de télémétrie personnalisées à Application Insights. L’exemple C# suivant utilise [l’API de télémétrie personnalisée](../application-insights/app-insights-api-custom-events-metrics.md). L’exemple concerne une bibliothèque de classes .NET, mais le code Application Insights est le même pour le script C#.
 
-Voici un exemple de code C# qui utilise [l’API de télémétrie personnalisée](../application-insights/app-insights-api-custom-events-metrics.md). L’exemple concerne une bibliothèque de classes .NET, mais le code Application Insights est le même pour le script C#.
+### <a name="version-2x"></a>Version 2.x
+
+Le runtime version 2.x utilise les nouvelles fonctionnalités d’Application Insights pour mettre automatiquement en corrélation les données de télémétrie avec l’opération en cours. Il est inutile de définir manuellement l’opération `Id`, `ParentId` ou `Name`.
+
+```cs
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+
+namespace functionapp0915
+{
+    public static class HttpTrigger2
+    {
+        // In Functions v2, TelemetryConfiguration.Active is initialized with the InstrumentationKey
+        // from APPINSIGHTS_INSTRUMENTATIONKEY. Creating a default TelemetryClient like this will 
+        // automatically use that key for all telemetry. It will also enable telemetry correlation
+        // with the current operation.
+        // If you require a custom TelemetryConfiguration, create it initially with
+        // TelemetryConfiguration.CreateDefault() to include this automatic correlation.
+        private static TelemetryClient telemetryClient = new TelemetryClient();
+
+        [FunctionName("HttpTrigger2")]
+        public static Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
+            HttpRequest req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // parse query parameter
+            string name = req.Query
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            evt.Context.User.Id = name;
+            telemetryClient.TrackEvent(evt);
+
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            metric.Context.User.Id = name;
+            telemetryClient.TrackMetric(metric);
+
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
+            dependency.Context.User.Id = name;
+            telemetryClient.TrackDependency(dependency);
+
+            return Task.FromResult<IActionResult>(new OkResult());
+        }
+    }
+}
+```
+
+### <a name="version-1x"></a>Version 1.x
 
 ```cs
 using System;
@@ -506,7 +579,7 @@ namespace functionapp0915
 
 N’appelez pas `TrackRequest` ou `StartOperation<RequestTelemetry>`, afin d’éviter les doublons de demandes pour un appel de fonction.  Le runtime d’Azure Functions effectue automatiquement le suivi des demandes.
 
-Ne définissez pas `telemetryClient.Context.Operation.Id`. Il s’agit d’un paramètre global qui provoquera une corrélation incorrecte lorsqu’un grand nombre de fonctions sont exécutées en même temps. Au lieu de cela, créez une nouvelle instance de télémétrie (`DependencyTelemetry`, `EventTelemetry`) et modifiez sa propriété `Context`. Passez dans l’instance de télémétrie correspondant à la méthode `Track` sur `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Cela garantit que les données de télémétrie possèdent les détails de corrélation corrects pour l’appel de la fonction actuelle.
+Ne définissez pas `telemetryClient.Context.Operation.Id`. Ce paramètre global provoque une erreur de corrélation lorsqu’un grand nombre de fonctions s’exécutent en même temps. Au lieu de cela, créez une nouvelle instance de télémétrie (`DependencyTelemetry`, `EventTelemetry`) et modifiez sa propriété `Context`. Passez dans l’instance de télémétrie correspondant à la méthode `Track` sur `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Cela garantit que les données de télémétrie comportent les bonnes informations de corrélation pour l’appel de fonction actuel.
 
 ## <a name="custom-telemetry-in-javascript-functions"></a>Données de télémétrie personnalisées dans les fonctions JavaScript
 
@@ -531,7 +604,7 @@ module.exports = function (context, req) {
 };
 ```
 
-Le paramètre `tagOverrides` définit `operation_Id` sur l’identificateur d’invocation de la fonction. Ce paramètre vous permet de mettre en corrélation toutes les données de télémétrie générées automatiquement et personnalisées pour un appel de fonction donné.
+Le paramètre `tagOverrides` définit `operation_Id` sur l’identificateur d’invocation de la fonction. Ce paramètre permet de mettre en corrélation toutes les données de télémétrie générées automatiquement et personnalisées pour un appel de fonction donné.
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -567,7 +640,7 @@ Vous pouvez diffuser des fichiers journaux à une session de ligne de commande s
 
 Dans l’interface de ligne de commande Azure, utilisez les commandes suivantes pour vous connecter, choisir votre abonnement et diffuser les fichiers journaux :
 
-```
+```azurecli
 az login
 az account list
 az account set <subscriptionNameOrId>
@@ -576,7 +649,7 @@ az webapp log tail --resource-group <resource group name> --name <function app n
 
 Dans Azure PowerShell, utilisez les commandes suivantes pour ajouter votre compte Azure, choisir votre abonnement et diffuser les fichiers journaux :
 
-```
+```powershell
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
 PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription

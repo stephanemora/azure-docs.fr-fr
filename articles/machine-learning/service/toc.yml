@@ -1,5 +1,5 @@
 items:
-- name: Documentation Azure Machine Learning (préversion)
+- name: Documentation Azure Machine Learning
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -25,18 +25,22 @@ items:
     href: quickstart-create-workspace-with-python.md
 - name: Didacticiels
   items:
-  - name: 'Entraîner des modèles : partie 1'
-    href: tutorial-train-models-with-aml.md
-  - name: 'Déployer des modèles : partie 2'
-    href: tutorial-deploy-models-with-aml.md
-  - name: Entraîner des modèles ML automatisés
-    displayName: automl
-    href: tutorial-auto-train-models.md
+  - name: Classification d’images (données MNIST)
+    items:
+    - name: 1. Effectuer l’apprentissage d’un modèle
+      href: tutorial-train-models-with-aml.md
+    - name: 2. Déployer un modèle
+      href: tutorial-deploy-models-with-aml.md
+  - name: Régression (données NYC Taxi)
+    items:
+    - name: 1. Préparer les données pour la modélisation
+      href: tutorial-data-prep.md
+    - name: 2. Former automatiquement un modèle ML
+      displayName: automl, automated, auto ml,
+      href: tutorial-auto-train-models.md
 - name: Exemples
-  items:
-  - name: Bloc-notes Jupyter (GitHub)
-    displayName: example, examples
-    href: https://aka.ms/aml-notebooks
+  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  href: samples-notebooks.md
 - name: Concepts
   items:
   - name: Gestion des modèles
@@ -52,11 +56,11 @@ items:
     href: how-to-manage-workspace.md
   - name: Configurer l’environnement de développement 
     items:
-    - name: Configurer un environnement
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
+    - name: Configurer votre environnement de développement
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: VS Code Tools for AI
-      displayName: Visual Studio Code, vscode
+    - name: Extension de Visual Studio Code
+      displayName: Visual Studio Code, vscode, tools, ai, vs
       items:
       - name: Prise en main
         href: how-to-vscode-tools.md
@@ -75,7 +79,7 @@ items:
   - name: Entraîner des modèles
     items:
     - name: Configurer des environnements d’entraînement
-      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Accéder aux données lors d’une formation
       href: how-to-access-data.md
@@ -127,12 +131,16 @@ items:
     - name: Consommer en temps réel
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
+    - name: Exécuter des prédictions par lots
+      href: how-to-run-batch-predictions.md
   - name: Surveiller des services web
     items:
     - name: Collecter et évaluer des données de modèle
       href: how-to-enable-data-collection.md
     - name: Surveiller avec Application Insights
       href: how-to-enable-app-insights.md
+  - name: Créer votre premier pipeline
+    href: how-to-create-your-first-pipeline.md
   - name: Gérer les quotas de ressources
     displayName: limits
     href: how-to-manage-quotas.md
@@ -144,10 +152,10 @@ items:
   - name: SDK Machine Learning
     displayName: api, core, package
     href: https://aka.ms/aml-sdk
-  - name: Kit SDK de préparation des données
+  - name: Kit de développement logiciel (SDK) pour préparation des données
     displayName: api, preparation, package
     href: https://aka.ms/data-prep-sdk
-  - name: Kit SDK de supervision
+  - name: Kit de développement logiciel (SDK) de supervision
     displayName: api, package
     href: https://aka.ms/aml-monitoring-sdk
 - name: Ressources
@@ -368,9 +376,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Anciens problèmes
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 308c767eb4a4bd332037093e23a1cb53a9fd1dc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 67bf0dfb2939cfd561f4558f9003c36883dcef93
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845057"
+ms.locfileid: "52864823"

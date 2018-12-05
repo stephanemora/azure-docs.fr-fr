@@ -1,10 +1,10 @@
 ---
-title: Gérer l’accès à la facturation Azure à l’aide de rôles | Microsoft Docs
+title: Gérer l’accès à la facturation Azure | Microsoft Docs
 description: ''
 services: ''
 documentationcenter: ''
 author: vikramdesai01
-manager: vikdesai
+manager: amberb
 editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
@@ -13,70 +13,95 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2017
+ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 38cfd354f11ef3d888ad70e71549868d398495f5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429641"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582613"
 ---
-# <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gérer l’accès aux informations de facturation pour Azure à l’aide du contrôle d’accès en fonction du rôle
+# <a name="manage-access-to-billing-information-for-azure"></a>Gérer l’accès aux informations de facturation pour Azure
 
-Vous pouvez accorder l’accès aux informations de facturation Azure aux membres de votre équipe en attribuant un des rôles d’utilisateur suivants à votre abonnement : Administrateur de compte, Administrateur de service, Coadministrateur, Propriétaire, Collaborateur, Lecteur et Lecteur de facturation. Ils accèdent ainsi aux informations de facturation dans le [portail Azure](https://portal.azure.com/) et peuvent utiliser les [API de facturation](billing-usage-rate-card-overview.md) pour obtenir par programmation des factures (une fois l’adhésion effectuée) et des détails sur l’utilisation. Pour plus d’informations sur les utilisateurs pouvant accorder des rôles, et sur ce que les rôles permettent de faire, consultez [Rôles dans Azure RBAC](../role-based-access-control/built-in-roles.md).
+Pour la plupart des abonnements, vous pouvez donner aux membres de votre équipe l’accès aux informations de facturation à partir de l’onglet **Abonnements** du portail Azure. Si vous êtes un client Azure avec un contrat Entreprise (client EA) et que vous êtes l’administrateur de l’entreprise, vous pouvez accorder des autorisations aux administrateurs de services et aux propriétaires de compte dans le portail Entreprise.
 
-## <a name="opt-in"></a> Autoriser d’autres utilisateurs à accéder aux factures
+## <a name="give-access-to-billing"></a>Donner accès à la facturation
 
-L’administrateur de compte doit adhérer via le [portail Azure](https://portal.azure.com/) pour autoriser l’accès aux factures à d’autres utilisateurs et via l’API.
+À l’exception des clients EA, tous les utilisateurs peuvent accorder l’accès aux informations de facturation Azure en attribuant un des rôles d’utilisateur suivants aux membres de votre équipe :
 
+- Administrateur de comptes
+- Administrateur de services
+- Coadministrateur
+- Propriétaire
+- Contributeur
+- Lecteur
+- Lecteur de facturation
+
+Pour attribuer des rôles, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../role-based-access-control/role-assignments-portal.md).
+
+Ces rôles ont accès aux informations de facturation dans le [portail Azure](https://portal.azure.com/). Les personnes qui reçoivent ces rôles peuvent également utiliser les [API Facturation](billing-usage-rate-card-overview.md) pour obtenir par programmation des factures et des détails sur l’utilisation. Pour plus d’informations, consultez [Rôles dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/built-in-roles.md).
+
+### <a name="opt-in"></a> Autoriser les utilisateurs à télécharger des factures
+
+Une fois les rôles appropriés attribués aux membres de votre équipe, l’administrateur de compte doit activé l’accès pour permettre le téléchargement de factures dans le portail Azure. Les factures antérieures à décembre 2016 ne sont accessibles qu’à l’administrateur de compte.
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 1. En tant qu’administrateur de compte, sélectionnez votre abonnement dans le [panneau Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
 
 1. Sélectionnez **Factures**, puis **Accéder aux factures**.
 
     ![Capture d’écran montrant comment déléguer l’accès aux factures](./media/billing-manage-access/AA-optin.png)
 
-1. **Activez** l’accès, puis enregistrez les modifications pour permettre aux utilisateurs associés aux rôles étendus d’abonnement de télécharger la facture.
+1. Sélectionnez **Activé**, puis enregistrez.
 
     ![Capture d’écran montrant les options Activé-Désactivé pour déléguer l’accès aux factures](./media/billing-manage-access/AA-optinAllow.png)
 
-Le fait d’adhérer permet à l’Administrateur de service, Coadministrateur, Propriétaire, Collaborateur, Lecteur et Lecteur de facturation de l’abonnement de télécharger les factures au format PDF dans le portail Azure. Les factures antérieures à décembre 2016 ne sont toutefois accessibles qu’à l’administrateur de compte pour le moment.
-
 L’administrateur de compte peut également être configuré afin de recevoir les factures par courrier électronique. Pour en savoir plus, consultez [Obtenir votre facture par courrier électronique](billing-download-azure-invoice-daily-usage-date.md).
 
-## <a name="adding-users-to-the-billing-reader-role"></a>Ajouter des utilisateurs au rôle Lecteur de facturation
+## <a name="give-read-only-access-to-billing"></a>Donner accès en lecture seule à la facturation
 
-Le rôle Lecteur de facturation dispose d’un accès en lecture seule aux informations de facturation d’abonnement dans le portail Azure, mais ne peut pas accéder à des services tels que les machines virtuelles et les comptes de stockage. Attribuez le rôle Lecteur de facturation à un utilisateur devant accéder aux informations de facturation d’abonnement, mais sans la possibilité de gérer des services Azure. Ce rôle convient aux utilisateurs d’une organisation qui procèdent uniquement à la gestion financière et des coûts pour des abonnements Azure.
+Attribuez le rôle Lecteur de facturation à un utilisateur devant accéder en lecture seule aux informations de facturation d’abonnement, mais sans la possibilité de gérer ni de créer des services Azure. Ce rôle convient aux utilisateurs d’une organisation qui sont uniquement responsables de la gestion financière et des coûts pour des abonnements Azure.
 
+Si vous êtes un client EA, un propriétaire de compte ou administrateur de service peut affecter le rôle Lecteur de facturation aux membres de l’équipe. Mais pour que ce lecteur de facturation puisse afficher les informations de facturation du département ou compte, l’administrateur d’entreprise doit activer les stratégies **AO view charges** (Afficher les frais du propriétaire du compte) ou **DA view charges** (Afficher les frais de l’administrateur de service) dans le portail d’entreprise.
+
+La fonctionnalité Lecteur de facturation est en préversion et ne prend pas encore en charge les clouds non globaux.
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 1. Sélectionnez votre abonnement dans le [panneau Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
 
-1. Sélectionnez **Contrôle d’accès (IAM)**, puis cliquez sur **Ajouter**.
-
-    ![Capture d’écran montrant IAM dans le panneau de l’abonnement](./media/billing-manage-access/select-iam.PNG)
-
-1. Choisissez **Lecteur de facturation** dans la page **Sélectionner un rôle**.
-
-    ![Capture d’écran montrant le lecteur de facturation dans la vue contextuelle](./media/billing-manage-access/select-roles.PNG)
-
-1. Saisissez le courrier électronique pour l’utilisateur que vous souhaitez inviter, puis cliquez sur **OK** pour envoyer l’invitation.
-
-    ![Capture d’écran montrant la saisie d’un courrier électronique pour inviter un utilisateur](./media/billing-manage-access/add-user.PNG)
-
-1. Suivez les instructions fournies dans le courrier électronique d’invitation pour vous connecter en tant que lecteur de facturation.
+1. Sélectionnez **Contrôle d’accès (IAM)**.
+1. Sélectionnez **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cet abonnement.
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle**.
+1. Dans la liste déroulante **Rôle**, choisissez **Lecteur de facturation**.
+1. Dans la zone de texte **Sélectionner**, tapez le nom ou l’e-mail de l’utilisateur que vous souhaitez ajouter.
+1. Sélectionnez **Enregistrer**.
+1. Après quelques instants, le rôle Lecteur de facturation est attribué à l’utilisateur au niveau de l’abonnement.
+1. Le lecteur de facturation reçoit un e-mail contenant un lien pour se connecter.
 
     ![Capture d’écran montrant ce que le lecteur de facturation peut voir dans le portail Azure](./media/billing-manage-access/billing-reader-view.png)
 
-> [!NOTE]
-> La fonctionnalité Lecteur de facturation est en préversion et ne prend pas encore en charge les clouds non globaux. Les abonnements d’entreprise peuvent afficher les coûts si l’administrateur de l’entreprise a activé l’affichage des frais.
+## <a name="allow-department-administrator-or-account-owner-billing-access"></a>Autoriser l’administrateur de service ou le propriétaire du compte à accéder à la facturation
 
-## <a name="adding-users-to-other-roles"></a>Ajouter des utilisateurs à d’autres rôles
+L’administrateur d’entreprise peut autoriser les administrateurs de services et les propriétaires de comptes à afficher les détails d’utilisation et les coûts liés aux services et comptes qu’ils gèrent.
 
-Les utilisateurs d’autres rôles, tels que Propriétaire ou Collaborateur, peuvent non seulement accéder aux informations de facturation, mais également à des services Azure. Pour gérer ces rôles, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../role-based-access-control/role-assignments-portal.md).
+1. Connectez-vous en tant qu’administrateur d’entreprise au [portail EA](https://ea.azure.com/).
+1. Sélectionnez **Gérer**.
+1. Sous **Inscription**, définissez l’option **DA view charges** (Afficher les frais de l’administrateur de service) sur **Activé** pour autoriser l’administrateur de service à afficher les détails de l’utilisation et les coûts.
+1. Définissez l’option **AO view charges** (Afficher les frais du propriétaire du compte) sur **activé** pour autoriser le propriétaire du compte à afficher les détails de l’utilisation et les coûts.
 
-## <a name="who-can-access-the-account-centerhttpsaccountwindowsazurecom"></a>Qui peut accéder au [Centre des comptes](https://account.windowsazure.com) ?
 
-Seul l’administrateur de compte peut se connecter au centre des comptes. L’administrateur de compte est le propriétaire légal de l’abonnement. Par défaut, l’utilisateur qui s’est inscrit ou a acheté l’abonnement Azure est l’administrateur de compte, sauf si la [propriété de l’abonnement a été transférée](billing-subscription-transfer.md) à quelqu’un d’autre. L’administrateur de compte peut créer des abonnements, annuler des abonnements, modifier l’adresse de facturation d’un abonnement et gérer les stratégies d’accès de l’abonnement.
+Pour plus d’informations, consultez [Comprendre les rôles administratifs Azure Enterprise Agreement dans Azure](billing-understand-ea-roles.md).
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
+## <a name="only-account-admins-can-access-account-center"></a>Seuls les administrateurs de compte peuvent accéder au Centre des comptes
 
-Si vous avez d’autres questions, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+L’administrateur de compte est le propriétaire légal de l’abonnement. Par défaut, l’utilisateur qui s’est inscrit ou a acheté l’abonnement Azure est l’administrateur de compte, sauf si la [propriété de l’abonnement a été transférée](billing-subscription-transfer.md) à quelqu’un d’autre. L’administrateur de compte peut créer des abonnements, annuler des abonnements, modifier l’adresse de facturation d’un abonnement et gérer les stratégies d’accès de l’abonnement depuis le [Centre des comptes](https://account.azure.com/Subscriptions).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Les utilisateurs d’autres rôles, tels que Propriétaire ou Collaborateur, peuvent non seulement accéder aux informations de facturation, mais également à des services Azure. Pour gérer ces rôles, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../role-based-access-control/role-assignments-portal.md).
+- Pour plus d’informations sur les rôles, consultez [Rôles intégrés pour les ressources Azure](../role-based-access-control/built-in-roles.md).
+
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter.
+
+Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

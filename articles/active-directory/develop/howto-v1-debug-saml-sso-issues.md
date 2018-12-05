@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347781"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422251"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Déboguer l’authentification unique SAML aux applications dans Azure Active Directory
 
@@ -32,7 +32,7 @@ Nous vous recommandons d’installer [l’extension de connexion sécurisée à 
 Pour télécharger et installer l’extension de connexion sécurisée à Mes applications, suivez l’un des liens ci-dessous.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 
@@ -75,7 +75,7 @@ Pour résoudre l’erreur sans installer l’extension de connexion sécurisée 
     - Une instruction identifiant la cause du problème.
 2.  Revenez à Azure AD et localisez le panneau **Tester l’authentification unique**.
 3.  Dans la zone de texte au-dessus de **Obtenir une aide à la résolution**, collez le message d’erreur.
-3.  Cliquez sur **Obtenir une aide à la résolution** pour afficher les étapes de résolution du problème. Elles sont susceptibles de demander des informations sur la demande ou la réponse SAML. Si vous n’utilisez pas l’extension de connexion sécurisée à Mes applications, il vous faudra peut-être un outil comme [Fiddler](http://www.telerik.com/fiddler) pour récupérer la demande et la réponse SAML.
+3.  Cliquez sur **Obtenir une aide à la résolution** pour afficher les étapes de résolution du problème. Elles sont susceptibles de demander des informations sur la demande ou la réponse SAML. Si vous n’utilisez pas l’extension de connexion sécurisée à Mes applications, il vous faudra peut-être un outil comme [Fiddler](https://www.telerik.com/fiddler) pour récupérer la demande et la réponse SAML.
 4.  Vérifiez que la destination dans la demande SAML correspond à l’URL du service d’authentification unique SAML obtenue auprès d’Azure Active Directory.
 5.  Vérifiez que l’émetteur dans la demande SAML est identique à l’identificateur configuré pour l’application dans Azure Active Directory. Azure AD utilise l’émetteur pour rechercher une application dans l’annuaire.
 6.  Vérifiez qu’AssertionConsumerServiceURL correspond à l’emplacement où l’application doit recevoir le jeton SAML d’Azure Active Directory. Vous pouvez configurer cette valeur dans Azure Active Directory, mais ce n’est pas obligatoire si elle fait partie de la demande SAML.
@@ -90,7 +90,7 @@ Pour résoudre l’erreur :
 1. Si l’application se trouve dans la galerie Azure AD, vérifiez que vous avez suivi toutes les étapes d’intégration de l’application avec Azure AD. Pour trouver les instructions d’intégration relatives à votre application, voir la [liste des tutoriels d’intégration d’applications SaaS](../saas-apps/tutorial-list.md).
 2. Récupérez la réponse SAML.
     - Si l’extension de connexion sécurisée à Mes applications est installée, cliquez sur **Télécharger la réponse SAML** dans le panneau **Tester l’authentification unique**.
-    - Si l’extension n’est pas installée, utilisez un outil comme [Fiddler](http://www.telerik.com/fiddler) pour récupérer la réponse SAML. 
+    - Si l’extension n’est pas installée, utilisez un outil comme [Fiddler](https://www.telerik.com/fiddler) pour récupérer la réponse SAML. 
 3. Notez ces éléments dans le jeton de la réponse SAML :
     - Identificateur unique de la valeur NameID et du format
     - Revendications émises dans le jeton

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 37e43e4bb8b2aea21e0fa396dd197ca41793469d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e20faa36f14e681b6eb81203024e79a649f47c95
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394163"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582545"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Éviter les frais pour votre compte gratuit Azure
 
@@ -62,6 +62,6 @@ Vos services et quantités gratuits expirent au bout de 12 mois. Vous pouvez dé
 
 Une fois que vos services et quantités gratuits sont arrivés à expiration, Azure vous facture l’utilisation des services en appliquant les taux du paiement à l’utilisation. Vous pouvez utiliser le portail Azure pour supprimer les ressources pour les services que vous n’utilisez pas. Si vous prévoyez de n’utiliser aucun service Azure, vous pouvez [annuler votre abonnement](billing-how-to-cancel-azure-subscription.md).
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter.
 
-Si vous avez toujours besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

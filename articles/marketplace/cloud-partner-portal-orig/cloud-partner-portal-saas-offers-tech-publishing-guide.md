@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e648d6d3bd8d8ac14fb3f9723f4667c1cc33ac6
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228893"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620181"
 ---
 <a name="saas-application-technical-publishing-guide"></a>Guide de publication technique des applications SaaS
 ===========================================
@@ -32,7 +32,7 @@ Pour obtenir une vue d’ensemble de toutes les autres offres de la Place de mar
 <a name="what-are-pre-requisites-for-publishing-a-saas-app"></a>Conditions préalables à la publication d’une application SaaS
 -------------------------------------------------
 
-Le portail de publication fournit un accès basé sur le rôle qui permet à plusieurs personnes de collaborer à la publication d’une offre. Pour plus d’informations, consultez la rubrique [Gérer les utilisateurs](./cloud-partner-portal-manage-users.md). 
+Le [Portail Cloud Partner](https://cloudpartner.azure.com) fournit un accès basé sur le rôle qui permet à plusieurs personnes de collaborer à la publication d’une offre. Pour plus d’informations, consultez la rubrique [Gérer les utilisateurs](./cloud-partner-portal-manage-users.md). 
 
 Pour publier une offre au nom d’un compte de publication, une personne dotée du rôle de *Propriétaire* doit accepter les [Conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Déclaration de confidentialité Microsoft](https://www.microsoft.com/privacystatement/default.aspx) et l'[Accord du programme Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
@@ -58,7 +58,7 @@ L’offre d'application SaaS se décompose en cinq sections, décrites dans le t
 
 ### <a name="creating-a-new-offer"></a>Création d'une offre
 
-Après vous être connecté au portail Cloud Partner, sélectionnez **Nouvelle offre** sur la barre de menus de gauche. Le menu des offres disponibles s'affiche. L’illustration suivante propose un exemple de ces offres :
+Après vous être connecté au [portail Cloud Partner](https://cloudpartner.azure.com), sélectionnez **Nouvelle offre** sur la barre de menus de gauche. Le menu des offres disponibles s'affiche. L’illustration suivante propose un exemple de ces offres :
 
 ![Nouvelle offre SaaS](media/cpp-creating-saas-offers/saas-new-offer.png)
 
@@ -154,7 +154,7 @@ Le tableau suivant décrit les champs Marketing :
 
 | **Champs de l’offre** | **Description**                                                                                                          |
 |------------------| ------------------------------------------------------------------------------------------------------------------------ |
-| Logos            | Si vous disposez d'une application SaaS **Vendre via Azure**, vous devez fournir tous les logos. Si vous disposez simplement d'un listing, seuls 2 logos sont requis. Pour tous les logos chargés sur le portail Microsoft Cloud Partner, suivez les instructions ci-dessous :     <br/> - Limitez le nombre de couleurs primaires et secondaires sur votre logo. Le design Azure a une palette de couleurs simple.     <br/> - Évitez d’utiliser du noir ou du blanc comme couleur d’arrière-plan pour votre logo. Les couleurs de thème du portail Azure sont le noir et le blanc. Utilisez plutôt des couleurs qui mettent vos logos en évidence sur le portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples. Si vous utilisez un arrière-plan transparent, assurez-vous que le logo et le texte ne sont ni noirs ni blancs ni bleus.     <br/> - N'utilisez pas d’arrière-plan dégradé sur le logo.     <br/> - Évitez de placer du texte, même s’il s’agit du nom de votre société ou de votre marque, sur le logo. L'apparence de votre logo doit être « plate » et éviter les dégradés.    <br/> - Le logo ne doit pas être étiré.                   |
+| Logos            | Si vous disposez d'une application SaaS **Vendre via Azure**, vous devez fournir tous les logos. Si vous disposez simplement d'un listing, seuls 2 logos sont requis. Pour tous les logos chargés sur le [portail Cloud Partner](https://cloudpartner.azure.com), suivez les instructions ci-dessous :     <br/> - Limitez le nombre de couleurs primaires et secondaires sur votre logo. Le design Azure a une palette de couleurs simple.     <br/> - Évitez d’utiliser du noir ou du blanc comme couleur d’arrière-plan pour votre logo. Les couleurs de thème du portail Azure sont le noir et le blanc. Utilisez plutôt des couleurs qui mettent vos logos en évidence sur le portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples. Si vous utilisez un arrière-plan transparent, assurez-vous que le logo et le texte ne sont ni noirs ni blancs ni bleus.     <br/> - N'utilisez pas d’arrière-plan dégradé sur le logo.     <br/> - Évitez de placer du texte, même s’il s’agit du nom de votre société ou de votre marque, sur le logo. L'apparence de votre logo doit être « plate » et éviter les dégradés.    <br/> - Le logo ne doit pas être étiré.                   |
 | vidéos           | Vous permet d’ajouter des liens d'accès à des vidéos relatives à votre offre. Vous pouvez utiliser des liens de vidéos YouTube et/ou Vimeo, qui seront présentées aux clients en même temps que votre offre. Vous devez également entrer une miniature de la vidéo, avec une image PNG de 1280 x 720 pixels. Vous pouvez ajouter un maximum de quatre vidéos par offre. |
 | Documents        | Vous permet d’ajouter des documents marketing à votre offre. Tous les documents doivent être au format PDF, et vous pouvez ajouter un maximum de trois documents par offre.                                                                                                                                                      |
 | Captures d’écran.      | Vous permet d’ajouter des captures d’écran de votre offre. Vous pouvez ajouter un maximum de cinq captures d’écran par offre. La taille maximum est de 1280 x 720 pixels par image.                                                                                                                                             |

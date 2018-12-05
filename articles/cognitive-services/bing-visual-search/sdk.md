@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/19/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd55bb78fd385ab12d711e569ca6d5013c48e545
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4ad1633e4d56e44e3b82f90121a14c6ef6f0b976
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221993"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441399"
 ---
 # <a name="bing-visual-search-sdk"></a>SDK Recherche visuelle Bing
 
@@ -32,6 +32,16 @@ Recherche visuelle Bing fournit les SDK client suivants, que vous pouvez utilise
     * [Bibliothèques Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-imagesearch) pour les définitions et les dépendances
 
 Les exemples de SDK pour chaque langage incluent un fichier Lisez-moi comportant les prérequis pour l’utilisation du SDK, ainsi que les étapes nécessaire à l’installation et l’exécution des exemples.
+
+Pour ces exemples, vous devez démarrer un abonnement au niveau tarifaire S9 comme indiqué dans [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Pour démarrer un abonnement dans le portail Azure :
+1. Entrez « BingSearchV7 » dans la zone de texte en haut du portail Azure indiquant `Search resources, services, and docs`.  
+2. Sous Place de marché dans la liste déroulante, sélectionnez `Bing Search v7`.
+3. Entrez `Name` pour la nouvelle ressource.
+4. Sélectionnez l’abonnement `Pay-As-You-Go`.
+5. Sélectionnez le niveau de tarification `S9`.
+6. Cliquez sur `Enable` pour démarrer l’abonnement.
 
 ### <a name="sdk-tools"></a>Outils du Kit de développement logiciel (SDK)
 Vous trouverez des outils du Kit de développement logiciel (SDK) pour explorer les fonctionnalités de recherche visuelle Bing dans ce référentiel Git : [Outils de recherche visuelle Bing](https://github.com/Azure-Samples/bing-visualsearch-tools)

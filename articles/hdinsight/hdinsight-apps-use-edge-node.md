@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 276f11bf889927ee74fa4e9078e147db6df78b9e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5994abaf0276d915553494b7272d2a8abed451bb
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281368"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498611"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans HDInsight
 
-Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight. Un nœud de périphérie vide est une machine virtuelle Linux dotée des mêmes outils clients installés et configurés dans les nœuds principaux, mais sans exécution de services Apache Hadoop. Vous pouvez utiliser le nœud de périmètre pour accéder au cluster, tester vos applications clientes et héberger vos applications clientes. 
+Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight. Un nœud de périphérie vide est une machine virtuelle Linux sur laquelle sont installés et configurés les mêmes outils clients que dans les nœuds principaux, sans que des services [Apache Hadoop](https://hadoop.apache.org/) s’exécutent. Vous pouvez utiliser le nœud de périmètre pour accéder au cluster, tester vos applications clientes et héberger vos applications clientes. 
 
 Vous pouvez ajouter un nœud de périmètre vide à un cluster HDInsight existant et à un nouveau cluster, lorsque vous créez le cluster. L’ajout d’un nœud de périmètre vide est effectué à l’aide du modèle Azure Resource Manager.  L’exemple suivant montre comment procéder à l’aide d’un modèle :
 
@@ -53,7 +53,7 @@ Vous pouvez ajouter un nœud de périmètre vide à un cluster HDInsight existan
 
 Comme indiqué dans l’exemple, vous pouvez éventuellement appeler une [action de script](hdinsight-hadoop-customize-cluster-linux.md) pour effectuer une configuration supplémentaire, telle que l’installation [d’Apache Hue](hdinsight-hadoop-hue-linux.md) dans le nœud de périmètre. Le script d’action de script doit être publiquement accessible sur Internet.  Par exemple, si le script est stocké dans le stockage Azure, utilisez des conteneurs publics ou blobs publics.
 
-La taille de la machine virtuelle de nœud de périmètre doit respecter les exigences de taille de machine virtuelle du nœud Worker du cluster HDInsight. Pour connaître les tailles de machine virtuelle du nœud Worker recommandées, consultez [Créer des clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+La taille de la machine virtuelle de nœud de périmètre doit respecter les exigences de taille de machine virtuelle du nœud Worker du cluster HDInsight. Pour connaître les tailles de machine virtuelle de nœud Worker recommandées, voir [Créer des clusters Apache Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 Après avoir créé un nœud de périmètre, vous pouvez vous connecter au nœud de périmètre à l’aide de SSH et exécuter les outils clients pour accéder au cluster Hadoop dans HDInsight.
 
@@ -63,7 +63,7 @@ Après avoir créé un nœud de périmètre, vous pouvez vous connecter au nœud
 > * [Forum MSDN pour HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).
 >
-> Si vous utilisez une technologie Apache, vous pouvez obtenir de l’aide par l’intermédiaire des sites de projets Apache sur [http://apache.org](http://apache.org), par exemple sur le site [Hadoop](http://hadoop.apache.org/).
+> Si vous utilisez une technologie Apache, vous pouvez obtenir de l’aide par l’intermédiaire des sites de projets Apache sur [http://apache.org](http://apache.org), comme le site [Apache Hadoop](http://hadoop.apache.org/).
 
 > [!NOTE]
 > Comme pour les autres nœuds de cluster, la gestion des correctifs des nœuds de périphérie est également assurée.  Pour plus d’informations, consultez [Mise à jour corrective du système d’exploitation pour HDInsight](./hdinsight-os-patching.md).
@@ -82,7 +82,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter
    * **Groupe de ressources** : sélectionnez le groupe de ressources utilisé pour le cluster HDInsight existant.
    * **Emplacement** : sélectionnez l’emplacement du cluster HDInsight existant.
    * **Nom du cluster** : entrez le nom d’un cluster HDInsight existant.
-   * **Taille du nœud de périmètre** : sélectionnez une des tailles de machine virtuelle. La taille de la machine virtuelle doit respecter les exigences de taille de machine virtuelle du nœud Worker. Pour connaître les tailles de machine virtuelle du nœud Worker recommandées, consultez [Créer des clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+   * **Taille du nœud de périmètre** : sélectionnez une des tailles de machine virtuelle. La taille de la machine virtuelle doit respecter les exigences de taille de machine virtuelle du nœud Worker. Pour connaître les tailles de machine virtuelle de nœud Worker recommandées, voir [Créer des clusters Apache Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
    * **Préfixe de nœud de périmètre** : la valeur par défaut est **new**.  À l’aide de la valeur par défaut, le nom du nœud de périmètre est **new-edgenode**.  Vous pouvez personnaliser le préfixe à partir du portail. Vous pouvez également personnaliser le nom complet à partir du modèle.
 
 4. Cochez **J’accepte les termes et conditions mentionnés ci-dessus**, puis cliquez sur **Acheter** pour créer le nœud de périmètre.
@@ -160,5 +160,5 @@ Dans cet article, vous avez appris comment ajouter un nœud de périmètre et co
 * [Publier des applications HDInsight dans la Place de marché Azure](hdinsight-apps-publish-applications.md): découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN : installer une application HDInsight) : découvrez comment définir des applications HDInsight.
 * [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md): apprenez à utiliser l’action de script pour installer des applications supplémentaires.
-* [Création de clusters Hadoop basés sur Linux dans HDInsight à l’aide de modèles ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): apprenez à appeler des modèles Resource Manager pour la création de clusters HDInsight.
+* [Créer des clusters Apache Hadoop sous Linux dans HDInsight avec des modèles Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) : apprenez à appeler des modèles Resource Manager pour créer des clusters HDInsight.
 

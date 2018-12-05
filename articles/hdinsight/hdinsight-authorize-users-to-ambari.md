@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 4e05d4ff9c090fac0242921e15ef16439d3ed27f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954447"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496880"
 ---
-# <a name="authorize-users-for-ambari-views"></a>Autoriser les utilisateurs à accéder à Ambari Views
+# <a name="authorize-users-for-apache-ambari-views"></a>Autoriser les utilisateurs à accéder à Apache Ambari Views
 
-Les [clusters HDInsight avec le Pack Sécurité Entreprise (PSE) activé](./domain-joined/apache-domain-joined-introduction.md) offrent des fonctionnalités d’entreprise, notamment l’authentification par le biais d’Azure Active Directory. Vous pouvez synchroniser [de nouveaux utilisateurs](hdinsight-sync-aad-users-to-cluster.md) ajoutés aux groupes Azure AD qui ont accès au cluster, permettant ainsi à ces utilisateurs d’effectuer certaines actions. L’utilisation d’utilisateurs, de groupes et d’autorisations dans Ambari est prise en charge à la fois pour les clusters HDInsight standards et pour les clusters HDInsight avec le Pack Sécurité Entreprise activé.
+Les [clusters HDInsight avec le Pack Sécurité Entreprise (PSE) activé](./domain-joined/apache-domain-joined-introduction.md) offrent des fonctionnalités d’entreprise, notamment l’authentification par le biais d’Azure Active Directory. Vous pouvez synchroniser [de nouveaux utilisateurs](hdinsight-sync-aad-users-to-cluster.md) ajoutés aux groupes Azure AD qui ont accès au cluster, permettant ainsi à ces utilisateurs d’effectuer certaines actions. L’utilisation d’utilisateurs, de groupes et d’autorisations dans [Apache Ambari](https://ambari.apache.org/) est prise en charge à la fois pour les clusters HDInsight Pack Sécurité Entreprise et pour les clusters HDInsight standard.
 
-Les utilisateurs Active Directory peuvent se connecter aux nœuds de cluster à l’aide de leurs informations d’identification de domaine. Ils ont également la possibilité d’utiliser ces identifiants pour authentifier les interactions du cluster auprès d’autres points de terminaison approuvés, comme Hue, Ambari Views, ODBC, JDBC, PowerShell et les API REST.
+Les utilisateurs Active Directory peuvent se connecter aux nœuds de cluster à l’aide de leurs informations d’identification de domaine. Ils ont également la possibilité d’utiliser ces identifiants pour authentifier les interactions du cluster auprès d’autres points de terminaison approuvés, comme [Hue](http://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell et les API REST.
 
 > [!WARNING]
 > Ne modifiez pas le mot de passe pour l’agent de surveillance Ambari (hdinsightwatchdog) sur votre cluster HDInsight basé sur Linux. La modification du mot de passe élimine la possibilité d’utiliser les actions de script ou d’effectuer des opérations de mise à l’échelle sur votre cluster.
@@ -29,13 +29,13 @@ Si ce n’est déjà fait, suivez [ces instructions](./domain-joined/apache-doma
 
 ## <a name="access-the-ambari-management-page"></a>Accéder à la page de gestion Ambari
 
-Pour accéder à la **page de gestion Ambari** sur [l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md), accédez à **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Entrez le nom d’utilisateur de l’administrateur du cluster et le mot de passe que vous avez défini lors de la création du cluster. Ensuite, sur le tableau de bord Ambari, sélectionnez **Gérer Ambari** sous le menu **admin** :
+Pour ouvrir la **page de gestion Ambari** sur [l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md), accédez à **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Entrez le nom d’utilisateur de l’administrateur du cluster et le mot de passe que vous avez défini lors de la création du cluster. Ensuite, sur le tableau de bord Ambari, sélectionnez **Gérer Ambari** sous le menu **admin** :
 
 ![Gérer Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
-## <a name="grant-permissions-to-hive-views"></a>Accorder des autorisations sur des affichages Hive
+## <a name="grant-permissions-to-apache-hive-views"></a>Accorder des autorisations sur les affichages Apache Hive
 
-Ambari s’accompagne d’instances d’affichages pour Hive et Tez, entre autres. Pour accorder l’accès à une ou plusieurs instances d’affichages Hive, accédez à la **page de gestion Ambari**.
+Ambari s’accompagne d’instances d’affichages pour [Apache Hive](https://hive.apache.org/) et [Apache Tez](https://tez.apache.org/), entre autres. Pour accorder l’accès à une ou plusieurs instances d’affichages Hive, accédez à la **page de gestion Ambari**.
 
 1. Sur la page de gestion, sélectionnez le lien **Affichages** sous le titre de menu **Affichages**, à gauche.
 
@@ -72,9 +72,9 @@ Ambari s’accompagne d’instances d’affichages pour Hive et Tez, entre autre
 
 Il est utile d’ajouter directement des utilisateurs à un affichage afin de pouvoir affecter à un utilisateur l’autorisation de l’utiliser sans qu’il soit un membre d’un groupe disposant d’autorisations supplémentaires. Pour réduire la quantité de traitement administratif, il est parfois plus simple d’affecter des autorisations à des groupes.
 
-## <a name="grant-permissions-to-tez-views"></a>Accorder des autorisations sur des affichages Tez
+## <a name="grant-permissions-to-apache-tez-views"></a>Accorder des autorisations sur les affichages Apache Tez
 
-Les instances d’affichages Tez autorisent les utilisateurs à surveiller et à déboguer tous les travaux Tez, soumis par des requêtes Hive et des scripts Pig. Par défaut, une instance d’affichage Tez est créée lors de la configuration du cluster.
+Les instances d’affichages [Apache Tez](https://tez.apache.org/) autorisent les utilisateurs à surveiller et à déboguer toutes les tâches Tez, soumises par des requêtes [Apache Hive](https://hive.apache.org/) et des scripts [Apache Pig](https://pig.apache.org/). Par défaut, une instance d’affichage Tez est créée lors de la configuration du cluster.
 
 Pour affecter des utilisateurs et des groupes à une instance d’affichage Tez, développez la ligne **TEZ** sur la page Affichages, comme nous l’avons décrit précédemment.
 
@@ -136,7 +136,7 @@ Nous avons affecté le rôle *Utilisateur du cluster* à notre utilisateur de do
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer des stratégies Hive dans HDInsight avec le Pack Sécurité Entreprise activé](./domain-joined/apache-domain-joined-run-hive.md)
+* [Configurer des stratégies Apache Hive dans HDInsight avec le Pack Sécurité Entreprise](./domain-joined/apache-domain-joined-run-hive.md)
 * [Gérer des clusters HDInsight avec le Pack Sécurité Entreprise activé](./domain-joined/apache-domain-joined-manage.md)
-* [Utiliser l’affichage Hive avec Hadoop dans HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [Utiliser l’affichage Apache Hive avec Apache Hadoop dans HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Synchroniser les utilisateurs Azure AD sur le cluster](hdinsight-sync-aad-users-to-cluster.md)

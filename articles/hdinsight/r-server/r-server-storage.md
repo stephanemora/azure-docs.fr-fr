@@ -3,18 +3,18 @@ title: Solutions de stockage Azure pour ML Services sur HDInsight - Azure
 description: Découvrez les différentes options de stockage disponibles avec ML Services sur HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4c3b36891030ae97f382d5e1d0623fa7c698dbf6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 578479d43279dc1edb9edd24fd57d6841784166a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395076"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498135"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Solutions de stockage Azure pour ML Services sur Azure HDInsight
 
@@ -26,7 +26,7 @@ ML Services sur HDInsight peut utiliser diverses solutions de stockage pour con
 
 Vous avez également la possibilité d’accéder à plusieurs conteneurs ou comptes de stockage Azure avec votre cluster HDInsight. Le Stockage Fichier Azure est une option de stockage de données pratique, que l’on peut utiliser sur le nœud périphérique pour monter d’un partage de fichiers de stockage Azure sur, par exemple, le système de fichiers Linux. Mais les partages de fichiers Azure peuvent être montés et utilisés par tous les systèmes qui fonctionnent sur un système d’exploitation pris en charge, par exemple, Windows ou Linux. 
 
-Lors de la création d’un cluster Hadoop dans HDInsight, on peut spécifier un compte de **stockage Azure** ou un **magasin Data Lake**. Un conteneur de stockage spécifique de ce compte contient le système de fichiers du cluster créé (par exemple, le système de fichiers DFS Hadoop). Pour plus d’informations et pour obtenir de l’aide, consultez les pages :
+Lors de la création d’un cluster Apache Hadoop dans HDInsight, vous spécifiez un compte de **stockage Azure** ou bien un **magasin Data Lake**. Un conteneur de stockage spécifique de ce compte contient le système de fichiers du cluster créé (par exemple, le système de fichiers DFS Hadoop). Pour plus d’informations et pour obtenir de l’aide, consultez les pages :
 
 - [Utiliser le stockage Azure avec HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Utiliser Data Lake Store avec des clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
@@ -170,6 +170,6 @@ Le principal avantage des fichiers Azure est que les partages de fichiers peuven
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble du cluster ML Services sur HDInsight](r-server-overview.md)
-* [Bien démarrer avec un cluster ML Services sur Hadoop](r-server-get-started.md)
+* [Bien démarrer avec un cluster ML Services sur Apache Hadoop](r-server-get-started.md)
 * [Options de contexte de calcul pour un cluster ML Services sur HDInsight](r-server-compute-contexts.md)
 

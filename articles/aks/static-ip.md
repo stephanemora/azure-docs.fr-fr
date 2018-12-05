@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: b51da8c5e5e113cdb7e449206f7137386b278be4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c6097c96c0211c1efac2c2652eb0ef7d668d6877
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025920"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427044"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,9 @@ Vous devez également avoir installé et configuré Azure CLI version 2.0.46 ou 
 
 ## <a name="create-a-static-ip-address"></a>Créer une adresse IP statique
 
-Quand vous créez une adresse IP publique statique pour l’utiliser avec AKS, la ressource d’adresse IP doit être créée dans le groupe de ressources du **nœud**. Obtenez le nom du groupe de ressources avec la commande [az aks show][az-aks-show] et ajoutez le paramètre de requête `--query nodeResourceGroup`. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
+Quand vous créez une adresse IP publique statique pour l’utiliser avec AKS, la ressource d’adresse IP doit de préférence être créée dans le groupe de ressources du **nœud**. Si vous souhaitez séparer les ressources, consultez [Utiliser une adresse IP statique en dehors du groupe de ressources du nœud](#use-a-static-ip-address-outside-of-the-node-resource-group).
+
+Récupérez le nom du groupe de ressources du nœud avec la commande [az aks show][az-aks-show] et ajoutez le paramètre de requête `--query nodeResourceGroup`. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -55,9 +57,9 @@ L’adresse IP apparaît, comme illustré dans l’exemple de sortie condensée 
     "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
     "idleTimeoutInMinutes": 4,
     "ipAddress": "40.121.183.52",
-    [..]
+    [...]
   }
-````
+```
 
 Vous pouvez obtenir ultérieurement l’adresse IP publique avec la commande [az network public-ip list][az-network-public-ip-list]. Spécifiez le nom du groupe de ressources du nœud et l’adresse IP publique que vos avez créés, puis recherchez *ipAddress* comme indiqué dans l’exemple suivant :
 
@@ -89,6 +91,35 @@ Créez le service et le déploiement avec la commande `kubectl apply`.
 
 ```console
 kubectl apply -f load-balancer-service.yaml
+```
+
+## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Utiliser une adresse IP statique en dehors du groupe de ressources de nœud
+
+Avec Kubernetes 1.10 ou version ultérieure, vous pouvez pour utiliser une adresse IP statique créée en dehors du groupe de ressources de nœud. Le principal de service utilisé par le cluster AKS doit disposer d’autorisations déléguées sur l’autre groupe de ressources, comme indiqué dans l’exemple suivant :
+
+```azurecli
+az role assignment create\
+    --assignee <SP Client ID> \
+    --role "Network Contributor" \
+    --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
+```
+
+Pour utiliser une adresse IP en dehors du groupe de ressources de nœud, ajoutez une annotation à la définition de service. L’exemple suivant définit l’annotation pour le groupe de ressources nommé *myResourceGroup*. Indiquez le nom de votre propre groupe de ressources :
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: myResourceGroup
+  name: azure-load-balancer
+spec:
+  loadBalancerIP: 40.121.183.52
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
 ```
 
 ## <a name="troubleshoot"></a>Résolution des problèmes

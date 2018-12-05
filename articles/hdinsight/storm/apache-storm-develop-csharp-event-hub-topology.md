@@ -2,26 +2,26 @@
 title: Traitement des événements d’Event Hubs avec Storm - Azure HDInsight
 description: Découvrez comment traiter les données de concentrateurs d’événements Azure avec une topologie Storm C# créée dans Visual Studio à l’aide des outils HDInsight pour Visual Studio.
 services: hdinsight,notification hubs
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cda21c5b0d06335b13ba1aff0e9113544ca11c80
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 027c8155c84959ca429eb9b093a155ac22aaf324
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414197"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582206"
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Traitement des événements Azure Event Hubs avec Storm sur HDInsight (C#)
+# <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Traiter des événements issus d’Azure Event Hubs avec Apache Storm sur HDInsight (C#)
 
-Découvrez comment utiliser des événements Azure Event Hubs d’Apache Storm sur HDInsight. Ce document utilise une topologie C# Storm pour lire et écrire des données à partir d’Event Hubs.
+Découvrez comment travailler avec Azure Event Hubs à partir [d’Apache Storm](http://storm.apache.org/) sur HDInsight. Ce document utilise une topologie C# Storm pour lire et écrire des données à partir d’Event Hubs.
 
 > [!NOTE]
-> Pour obtenir une version Java de ce projet, consultez [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+> Pour la version Java de ce projet, voir [Traiter des événements issus d’Azure Event Hubs avec Apache Storm sur HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 ## <a name="scpnet"></a>SCP.NET
 
@@ -115,7 +115,7 @@ Vous pouvez télécharger une version complète du projet créé dans ce didacti
 
 * Un [concentrateur d’événements Azure](../../event-hubs/event-hubs-create.md).
 
-* Le [kit de développement logiciel (SDK) Azure .NET](http://azure.microsoft.com/downloads/).
+* Le [kit de développement logiciel (SDK) Azure .NET](https://azure.microsoft.com/downloads/).
 
 * Les [outils HDInsight pour Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
@@ -225,4 +225,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du c
 
 * [Développement de topologies C# pour Apache Storm dans HDInsight à l'aide de Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 * [Guide de programmation SCP](apache-storm-scp-programming-guide.md)
-* [Exemples de topologies pour Storm dans HDInsight](apache-storm-example-topology.md)
+* [Exemples de topologies pour Apache Storm dans HDInsight](apache-storm-example-topology.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441649"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582885"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configuration de l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
 
@@ -178,7 +178,7 @@ Localisez l’élément `<img>` contenant la valeur `ID` *background_background_
 
 3. Dans la fenêtre **CORS**, dans la zone **Origines autorisées**, effectuez une des opérations suivantes :
 
-    * Entrez la ou les URL depuis laquelle/lesquelles vous souhaitez autoriser les appels JavaScript.
+    * Entrez la ou les URL depuis laquelle/lesquelles vous souhaitez autoriser les appels JavaScript. Toutes les lettres doivent être en minuscules dans les URL entrées.
     * Entrez un astérisque ( * ) pour indiquer que tous les domaines d’origine sont acceptés.
 
 4. Sélectionnez **Enregistrer**.

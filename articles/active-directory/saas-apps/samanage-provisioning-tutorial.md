@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: e5a69fa2ee9a8c4baaeb6586627c7a9a3c9ba4a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347951"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634504"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Didacticiel : configurer Samanage pour l’approvisionnement automatique d’utilisateurs
 
@@ -141,7 +141,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Approvisionnement de Samanage](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Définissez les utilisateurs et/ou groupes que vous aimeriez approvisionner sur Samanage en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
+15. Définissez les utilisateurs et/ou groupes que vous aimeriez approvisionner sur Samanage en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**. Lorsque vous choisissez l’option **Synchroniser l'ensemble des utilisateurs et groupes**, tenez compte des restrictions, comme décrit dans la section **Limitations du connecteur** ci-dessous.
 
     ![Approvisionnement de Samanage](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
@@ -153,6 +153,10 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour analyser la progression et suivre les liens vers les rapports d’activité d’approvisionnement, qui décrit toutes les actions effectuées par le service d’approvisionnement Azure AD sur Samanage.
 
 Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Limitations du connecteur
+
+* Si l’option **Synchroniser l'ensemble des utilisateurs et groupes** est sélectionnée et que la valeur par défaut est configurée pour l’attribut **roles** Samanage, vérifiez que la valeur souhaitée dans le champ **Default value if null (is optional)** est exprimée au format suivant **{"displayName":"role"}** où le rôle est la valeur par défaut souhaitée.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

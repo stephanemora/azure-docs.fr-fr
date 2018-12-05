@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d9328b293d38114d319d79e38b91b1b67e410d94
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346318"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581820"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Comment déployer des modèles à partir du service Azure Machine Learning sur Azure Kubernetes Service
 
@@ -25,7 +25,7 @@ Avec un déploiement vers AKS, votre service web bénéficie d’une mise à l�
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+- Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
 
 - Un espace de travail du service Azure Machine Learning, un répertoire local contenant vos scripts et le kit SDK Azure Machine Learning pour Python installé. Découvrez comment obtenir ces prérequis à l’aide du document [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md).
 
@@ -127,7 +127,7 @@ print(aks_target.provisioning_errors)
 Si votre abonnement Azure comprend déjà un cluster AKS, vous pouvez l’utiliser pour déployer votre image. L’extrait de code suivant montre comment attacher un cluster à votre espace de travail. 
 
 > [!IMPORTANT]
-> Seule la version 1.11.2 d’AKS est prise en charge.
+> Seule la version 1.11.3 d’AKS est prise en charge.
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties

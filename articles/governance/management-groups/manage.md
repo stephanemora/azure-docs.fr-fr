@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a3de0df8fde3b271b7ba9bb9aab01dbcd5c3bf08
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.topic: conceptual
+ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991213"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582409"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -207,7 +207,7 @@ Pour connaître vos autorisations, sélectionnez le groupe d’administration, p
 
 ### <a name="move-subscriptions-in-powershell"></a>Déplacer des abonnements dans PowerShell
 
-Pour déplacer un abonnement dans PowerShell, utilisez la commande Add-AzureRmManagementGroupSubscription.  
+Pour déplacer un abonnement dans PowerShell, utilisez la commande New-AzureRmManagementGroupSubscription.  
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -272,12 +272,26 @@ Utilisez la commande update pour déplacer un groupe d’administration avec Azu
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## <a name="audit-management-groups-using-activity-logs"></a>Auditer des groupes d’administration avec des journaux d’activité
+
+Pour suivre des groupes d’administration avec cette API, utilisez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs). Il est actuellement impossible d’utiliser PowerShell, l’interface CLI ou le Portail Azure pour suivre l’activité des groupes d’administration.
+
+1. En tant qu’administrateur locataire du locataire Azure AD, [élevez l’accès](../../role-based-access-control/elevate-access-global-admin.md), puis affectez un rôle de lecteur à l’utilisateur d’audit sur l’étendue `/providers/microsoft.insights/eventtypes/management`.
+1. En tant qu’utilisateur auditeur, appelez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs) pour voir les activités des groupes d’administration. Filtrez toute l’activité des groupes d’administration par fournisseur de ressources **Microsoft.Management**.  Exemple :
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> Pour appeler facilement cette API à partir de la ligne de commande, essayez [ARMClient](https://github.com/projectkudu/ARMClient).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les groupes d’administration, consultez :
 
-- [Organiser vos ressources avec des groupes d’administration Azure](overview.md)
 - [Créer des groupes d’administration pour organiser les ressources Azure](create.md)
-- [Installer le module Azure Powershell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Passer en revue les spécifications de l’API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Installer l’extension Azure CLI](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](manage.md)
+- [Consulter les groupes d’administration dans le module Azure PowerShell Resources](https://aka.ms/mgPSdocs)
+- [Consulter les groupes d’administration dans l’API REST](https://aka.ms/mgAPIdocs)
+- [Consulter les groupes d’administration dans Azure CLI](https://aka.ms/mgclidoc)

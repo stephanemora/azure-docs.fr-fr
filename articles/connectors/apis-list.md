@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233631"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635439"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
 
@@ -74,7 +74,7 @@ Voici les actions intégrées pour travailler avec les sorties de données et le
 
 |   |   | 
 |---|---| 
-| ![Icône d’élément intégré][data-operations-icon]<br/>**Opérations de données** | Effectuez des opérations avec les données : <p>- **Composer** : créez une sortie unique à partir de plusieurs entrées avec différents types. <br>- **Créer une table CSV** : créez une table CSV (valeurs séparées par des virgules) à partir d’un tableau avec des objets JSON. <br>- **Créer une table HTML** : créez une table HTML à partir d’un tableau avec des objets JSON. <br>- **Filtrer le tableau** : créez un tableau à partir des éléments d’un autre tableau correspondant à vos critères. <br>- **Joindre** : créez une chaîne à partir de tous les éléments d’un tableau et séparez ces éléments avec le séparateur spécifié. <br>- **Analyser JSON** : créez des jetons conviviaux à partir des propriétés et de leurs valeurs dans le contenu JSON afin de pouvoir utiliser ces propriétés dans votre flux de travail. <br>- **Sélectionner** : créez un tableau avec des objets JSON en transformant les éléments ou les valeurs d’un autre tableau et en mappant ces éléments sur les propriétés spécifiées. | 
+| [![Icône intégrée][data-operations-icon]<br/>**Opérations avec les données**][data-operations-doc] | Effectuez des opérations avec les données : <p>- **Composer** : créez une sortie unique à partir de plusieurs entrées avec différents types. <br>- **Créer une table CSV** : créez une table CSV (valeurs séparées par des virgules) à partir d’un tableau avec des objets JSON. <br>- **Créer une table HTML** : créez une table HTML à partir d’un tableau avec des objets JSON. <br>- **Filtrer le tableau** : créez un tableau à partir des éléments d’un autre tableau correspondant à vos critères. <br>- **Joindre** : créez une chaîne à partir de tous les éléments d’un tableau et séparez ces éléments avec le séparateur spécifié. <br>- **Analyser JSON** : créez des jetons conviviaux à partir des propriétés et de leurs valeurs dans le contenu JSON afin de pouvoir utiliser ces propriétés dans votre flux de travail. <br>- **Sélectionner** : créez un tableau avec des objets JSON en transformant les éléments ou les valeurs d’un autre tableau et en mappant ces éléments sur les propriétés spécifiées. | 
 | ![Icône d’élément intégré][date-time-icon]<br/>**Date Heure** | Effectuez des opérations avec les horodatages : <p>- **Ajouter au timestamp** : ajoutez le nombre spécifié d’unités à un timestamp. <br>- **Convertir le fuseau horaire** : convertissez un timestamp du fuseau horaire source au fuseau horaire cible. <br>- **Timestamp actuel** : renvoyez le timestamp actuel sous forme de chaîne. <br>- **Obtenir le timestamp futur** : renvoyez le timestamp actuel plus les unités de temps spécifiées. <br>- **Obtenir le timestamp passé** : renvoyez le timestamp actuel moins les unités de temps spécifiées. <br>- **Soustraire du timestamp** : soustrayez un nombre d’unités de temps d’un timestamp. |
 | [![Icône d’élément intégré][variables-icon]<br/>**Variables**][variables-doc] | Effectuez des opérations avec les variables : <p>- **Ajouter à la variable du tableau** : insérez une valeur en tant que dernier élément dans un tableau stocké par une variable. <br>- **Ajouter à la variable de chaîne** : insérez une valeur en tant que dernier caractère dans une chaîne stockée par une variable. <br>- **Décrémenter une variable** : diminuez une variable d’une valeur constante. <br>- **Incrémenter une variable** : augmentez une variable d’une valeur constante. <br>- **Initialiser une variable** : créez une variable et déclarez son type de données et sa valeur initiale. <br>- **Définir une variable** : attribuez une valeur différente à une variable existante. |
 |  |  | 
@@ -193,6 +193,7 @@ Pour rendre les applications API ou les connecteurs personnalisés publics afin 
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organiser les actions en cas, auxquels sont affectées des valeurs uniques. Exécuter uniquement le cas dont la valeur correspond au résultat d’une expression, d’un objet ou d’un jeton. Si aucune correspondance n’existe, exécuter le cas par défaut"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Arrêter ou annuler un flux de travail qu fonctionne activement pour votre application logique"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Répéter les actions jusqu’à ce que la condition spécifiée ait la valeur true ou qu’un état ait changé"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Effectuer des opérations avec les données telles que le filtrage de tableaux ou la création de tableaux CSV et HTML"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Effectuer des opérations avec des variables, comme initialiser, définir, incrémenter, décrémenter et ajouter à une variable de chaîne ou de tableau"
 
 <!--Managed API doc links-->

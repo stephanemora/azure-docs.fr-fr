@@ -1,10 +1,11 @@
 ---
-title: Création de points de terminaison de service web dans Machine Learning | Microsoft Docs
+title: Créer des points de terminaison de service web dans Machine Learning – Azure Machine Learning Studio | Microsoft Docs
 description: Création de points de terminaison de service web dans Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 8cdf8c5ac3676d8abc9084fc842484aca5b6d1c7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833544"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314011"
 ---
-# <a name="creating-endpoints"></a>Création de points de terminaison
+# <a name="creating-endpoints"></a>Création de points de terminaison 
 > [!NOTE]
 >  Cette rubrique décrit les techniques applicables à un service web Machine Learning **classique**.
 > 
@@ -30,7 +31,7 @@ ms.locfileid: "34833544"
 
 Lorsque vous créez des services web que vous vendez à vos clients, vous devez fournir à ceux-ci des modèles formés qui restent liés à l’expérience à partir de laquelle le service web a été créé. En outre, des mises à jour de l’expérience peuvent être appliquées de façon sélective à un point de terminaison, sans remplacer les personnalisations.
 
-À cette fin, le Azure Machine Learning vous permet de créer plusieurs points de terminaison pour un service web déployé. Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante. Chaque point de terminaison est une URL unique, et la clé d’autorisation que vous pouvez distribuer à vos clients.
+Azure Machine Learning Studio donne ainsi la possibilité de créer plusieurs points de terminaison pour un service web déployé. Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante. Chaque point de terminaison est une URL unique, et la clé d’autorisation que vous pouvez distribuer à vos clients.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

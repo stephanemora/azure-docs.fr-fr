@@ -89,56 +89,62 @@ items:
   items:
   - name: Modèles d’achat
     items:
-    - name: vCore vs. DTU
+    - name: Vue d’ensemble
       href: sql-database-service-tiers.md
-    - name: Modèle d’achat vCore
-      items:
-      - name: Choisir un niveau de service vCore
-        href: sql-database-service-tiers-vcore.md
-      - name: Usage général/critique pour l’entreprise
-        href: sql-database-service-tiers-general-purpose-business-critical.md
-      - name: Hyperscale
-        href: sql-database-service-tier-hyperscale.md
-      - name: FAQ relatif à Hyperscale
-        href: sql-database-service-tier-hyperscale-faq.md
-    - name: Niveaux de service DTU
+    - name: Modèle vCore
+      href: sql-database-service-tiers-vcore.md
+    - name: Modèle DTU
       href: sql-database-service-tiers-dtu.md
     - name: Prépayer pour une capacité de réserve
       href: sql-database-reserved-capacity.md
-  - name: Serveurs logiques
+  - name: Capacité de calcul et stockage
     items:
-    - name: Créer et gérer
-      href: sql-database-logical-servers.md
-    - name: Limites des ressources
-      href: sql-database-resource-limits-logical-server.md
-    - name: Architecture de connectivité
-      href: sql-database-connectivity-architecture.md
-    - name: Différences de T-SQL
-      href: sql-database-transact-sql-information.md
-    - name: Réplication transactionnelle - pools élastiques et bases de données uniques
-      href: replication-to-sql-database.md
+    - name: Vue d’ensemble
+      href: sql-database-service-tiers-general-purpose-business-critical.md
+    - name: Usage général / Standard
+      href: sql-database-service-tier-general-purpose.md
+    - name: Critique pour l’entreprise / Premium
+      href: sql-database-service-tier-business-critical.md
+    - name: Hyperscale
+      href: sql-database-service-tier-hyperscale.md
+    - name: FAQ relatif à Hyperscale
+      href: sql-database-service-tier-hyperscale-faq.md
   - name: Bases de données uniques
     items:
+    - name: Base de données unique
+      href: sql-database-single-index.yml
     - name: Créer et gérer
       href: sql-database-single-databases-manage.md
+    - name: Serveurs logiques
+      items:
+      - name: Créer et gérer
+        href: sql-database-logical-servers.md
+      - name: Limites des ressources
+        href: sql-database-resource-limits-logical-server.md
+      - name: Architecture de connectivité
+        href: sql-database-connectivity-architecture.md
+      - name: Différences de T-SQL
+        href: sql-database-transact-sql-information.md
+      - name: Réplication transactionnelle - pools élastiques et bases de données uniques
+        href: replication-to-sql-database.md
+    - name: Pools élastiques
+      items:
+      - name: Pools élastiques
+        href: sql-database-elastic-pool.md
+      - name: Créer et gérer
+        href: sql-database-elastic-pool-manage.md
+      - name: Limites de ressources basées sur des vCore
+        href: sql-database-vcore-resource-limits-elastic-pools.md
+      - name: Limites de ressources basées sur des unités DTU
+        href: sql-database-dtu-resource-limits-elastic-pools.md
+      - name: Mettre les ressources à l’échelle
+        href: sql-database-elastic-pool-scale.md
     - name: Limites de ressources basées sur des vCore
       href: sql-database-vcore-resource-limits-single-databases.md
     - name: Limites de ressources basées sur des unités DTU
       href: sql-database-dtu-resource-limits-single-databases.md
     - name: Mettre les ressources à l’échelle
       href: sql-database-single-database-scale.md
-  - name: Pools élastiques
-    items:
-    - name: Pools élastiques
-      href: sql-database-elastic-pool.md
-    - name: Créer et gérer
-      href: sql-database-elastic-pool-manage.md
-    - name: Limites de ressources basées sur des vCore
-      href: sql-database-vcore-resource-limits-elastic-pools.md
-    - name: Limites de ressources basées sur des unités DTU
-      href: sql-database-dtu-resource-limits-elastic-pools.md
-    - name: Mettre les ressources à l’échelle
-      href: sql-database-elastic-pool-scale.md
   - name: Instances managées
     items:
     - name: Instances managées
@@ -159,7 +165,7 @@ items:
         href: sql-database-managed-instance-sync-network-configuration.md
       - name: Architecture de connectivité
         href: sql-database-managed-instance-connectivity-architecture.md
-      - name: Points de terminaison de gestion
+      - name: Point de terminaison de gestion
         href: sql-database-managed-instance-management-endpoint.md
       - name: Connecter des applications
         href: sql-database-managed-instance-connect-app.md
@@ -656,9 +662,9 @@ items:
     href: /azure/architecture/
   - name: Témoignages client
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 2cc5240aa7302d687f0b7a2fad2af29105e86de0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ea998e50af9b6b2f4f6331a0f02f84d08eff425c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840416"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890158"

@@ -3,7 +3,7 @@ title: Rapport d’informations sur les menaces d’Azure Security Center | 
 description: Ce document explique comment utiliser les rapports d’information sur les menaces d’Azure Security Center pendant un examen pour trouver plus d’informations sur une alerte de sécurité.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: yurid
-ms.openlocfilehash: 046a39e696585c5dd4037bd2777604716a6b8356
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 90cf57e22c4bb86ed9a784731480bc3fb8d3025d
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160020"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619959"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Rapport d’informations sur les menaces d’Azure Security Center
 Ce document explique comment trouver des informations supplémentaires sur une menace ayant généré une alerte de sécurité dans les rapports d’informations sur les menaces d’Azure Security Center.
@@ -48,10 +48,10 @@ Azure Security Center propose trois types de rapports sur les menaces, qui peuve
 * **Rapport sur la campagne** : se concentre sur les détails des campagnes d’attaque spécifiques.
 * **Rapport de synthèse sur la menace** : couvre tous les éléments des deux rapports précédents.
 
-Ce type d’information est très utile pendant le processus de [réponse aux incidents](security-center-incident-response.md), au cours duquel des examens sont effectués en continu afin de comprendre la source de l’attaque, les motivations de l’attaquant et les solutions d’atténuation de ce problème à l’avenir.
+Ce type d’information est utile pendant le processus de [réponse aux incidents](security-center-incident-response.md), au cours duquel des examens sont effectués en continu afin de comprendre la source de l’attaque, les motivations de l’attaquant et les solutions d’atténuation de ce problème à l’avenir.
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>Comment accéder au rapport d’informations sur les menaces ?
-Vous pouvez connaître vos alertes actuelles en consultant la vignette **Alertes de sécurité** . Accédez au Portail Azure et suivez les étapes ci-après pour obtenir plus d’informations sur chaque alerte :
+Vous pouvez connaître vos alertes actuelles en consultant la vignette **Alertes de sécurité** . Accédez au portail Azure et suivez les étapes ci-après pour obtenir plus d’informations sur chaque alerte :
 
 1. La mosaïque **Alertes de sécurité** s’affiche dans le tableau de bord Centre de sécurité.
 2. Cliquez sur la mosaïque pour ouvrir le panneau **Alertes de sécurité** qui contient plus de détails sur les alertes et cliquez sur une alerte de sécurité pour en savoir plus à son sujet.
@@ -75,4 +75,4 @@ Dans ce document, vous avez appris en quoi les rapports d’informations sur les
 * [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md). découvrez comment gérer et résoudre les alertes de sécurité.
 * [Gestion des incidents de sécurité dans Azure Security Center](security-center-incident.md)
-* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
+* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.

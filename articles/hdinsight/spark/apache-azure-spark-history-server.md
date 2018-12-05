@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042361"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497269"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Utiliser le serveur d’historique Spark étendu pour déboguer et diagnostiquer des applications Spark
+# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Apache Spark
 
-Cet article aide à utiliser le serveur d’historique Spark étendu pour déboguer et diagnostiquer des applications Spark terminées et en cours d’exécution. L’extension comporte des onglets dédiés aux données, aux graphiques et aux diagnostics. Dans l’onglet **Données**, les utilisateurs peuvent vérifier les données d’entrée et de sortie du travail Spark. L’onglet **Graph** permet de consulter le flux de données et de lire à nouveau le graphique du travail. Dans l’onglet **Diagnostic**, les utilisateurs peuvent connaître **l’asymétrie des données**, **l’asymétrie temporelle** et **l’analyse de l’utilisation des exécuteurs**.
+Cet article aide à utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Spark terminées et en cours d’exécution. L’extension comporte des onglets dédiés aux données, aux graphiques et aux diagnostics. Dans l’onglet **Données**, les utilisateurs peuvent vérifier les données d’entrée et de sortie du travail Spark. L’onglet **Graph** permet de consulter le flux de données et de lire à nouveau le graphique du travail. Dans l’onglet **Diagnostic**, les utilisateurs peuvent connaître **l’asymétrie des données**, **l’asymétrie temporelle** et **l’analyse de l’utilisation des exécuteurs**.
 
-## <a name="get-access-to-spark-history-server"></a>Obtenir l’accès au serveur d’historique Spark
+## <a name="get-access-to-apache-spark-history-server"></a>Obtenir l’accès au serveur d’historique Apache Spark
 
-Le serveur d’historique Spark est l’interface utilisateur web pour les applications Spark terminées et en cours d’exécution. 
+Le serveur d’historique Apache Spark est l’interface utilisateur web pour les applications Spark terminées et en cours d’exécution. 
 
-### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Ouvrir l’interface utilisateur web du serveur d’historique Spark sur le Portail Azure
+### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Ouvrir l’interface utilisateur web du serveur d’historique Apache Spark sur le Portail Azure
 
 1. À partir du [portail Azure](https://portal.azure.com/), ouvrez le cluster Spark. Pour plus d’informations, voir [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. Dans **Liens rapides**, cliquez sur **Tableau de bord du cluster**, puis sur **Serveur d’historique Spark**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark. 
@@ -87,7 +87,7 @@ Sélectionnez l’ID tâche, puis cliquez sur **Données** dans le menu Outil po
     ![Commentaires sur le graphique](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="graph-tab-in-spark-history-server"></a>Onglet de graphique du serveur d’historique Spark
+## <a name="graph-tab-in-apache-spark-history-server"></a>Onglet de graphique du serveur d’historique Apache Spark
 Sélectionnez l’ID tâche, puis cliquez sur **Graphique** dans le menu Outil pour ouvrir la Vue de graphique du travail.
 
 + Regardez la vue d’ensemble de votre travail offerte par le graphique ainsi généré. 
@@ -158,7 +158,7 @@ Sélectionnez l’ID tâche, puis cliquez sur **Graphique** dans le menu Outil p
     ![Commentaires sur le graphique](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="diagnosis-tab-in-spark-history-server"></a>Onglet de diagnostic du serveur d’historique Spark
+## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Onglet de diagnostic du serveur d’historique Apache Spark
 Sélectionnez l’ID de tâche, puis cliquez sur **Diagnostic** dans le menu des outils pour ouvrir la Vue de diagnostic du travail. L’onglet de diagnostic comporte **l’asymétrie des données**, **l’asymétrie temporelle** et **l’analyse de l’utilisation des exécuteurs**.
     
 + Consultez **l’asymétrie des données**, **l’asymétrie temporelle** et **l’analyse de l’utilisation des exécuteurs** en sélectionnant chaque onglet respectivement.
@@ -326,8 +326,8 @@ Si vous souhaitez effectuer une mise à niveau avec un correctif logiciel, utili
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](apache-spark-resource-manager.md)
-* [Configurer les paramètres de Spark](apache-spark-settings.md)
+* [Gérer les ressources d’un cluster Apache Spark dans HDInsight](apache-spark-resource-manager.md)
+* [Configurer les paramètres d’Apache Spark](apache-spark-settings.md)
 
 
 ## <a name="contact-us"></a>Nous contacter

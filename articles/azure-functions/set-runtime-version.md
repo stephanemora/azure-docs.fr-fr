@@ -2,19 +2,18 @@
 title: Comment cibler des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez comment spécifier la version du runtime d’une application de fonction hébergée dans Azure.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: 6d89746c0a2d4642e5025789d352803195c0a3b9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886805"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498394"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Comment cibler des versions du runtime Azure Functions
 
@@ -37,23 +36,13 @@ Les valeurs que vous pouvez définir dans le paramètre d’application `FUNCTIO
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Afficher et mettre à jour la version actuelle du runtime
 
-Appliquez la procédure suivante pour afficher la version du runtime utilisée actuellement par une application de fonction.
+Vous pouvez modifier la version du runtime utilisée par votre application de fonction. Compte tenu du risque de changements cassants, faites-le avant d’avoir créé des fonctions dans votre application de fonction. Même si la version du runtime est déterminée par le paramètre `FUNCTIONS_EXTENSION_VERSION`, effectuez cette modification sur le Portail Azure et non en changeant directement le paramètre. En effet, le portail valide les modifications et en effectue d’autres si nécessaire.
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à une application de fonction.
+### <a name="from-the-azure-portal"></a>À partir du portail Azure
 
-1. Sous **Fonctionnalités configurées**, choisissez **Paramètres de l’application de fonction**.
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-    ![Sélectionnez Paramètres de l’application de fonction](./media/set-runtime-version/add-update-app-setting.png)
-
-1. Dans l’onglet **Paramètres de l’application de fonction**, trouvez la **Version du runtime**. Prenez note de la version spécifique du runtime ainsi que de la version majeure souhaitée. Dans l’exemple ci-dessous, la version est définie sur `~2`.
-
-   ![Sélectionnez Paramètres de l’application de fonction](./media/set-runtime-version/function-app-view-version.png)
-
-1. Pour conserver votre application de fonction sur la version 1.x du runtime, choisissez  **~1** sous **Version du runtime**. Ce commutateur est désactivé lorsque votre application comporte des fonctions.
-
-1. Si vous avez modifié la version du runtime, revenez à l’onglet **Vue d’ensemble** et choisissez l’option **Redémarrer** pour relancer l’application.  L’application de fonction redémarre avec la version 1.x du runtime, et les modèles de la version 1.x sont utilisés lorsque vous créez des fonctions.
-
-## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Afficher et mettre à jour la version du runtime à l’aide de l’interface de ligne de commande Azure
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Dans Azure CLI
 
 Vous pouvez aussi afficher et définir l’élément `FUNCTIONS_EXTENSION_VERSION` à partir de l’interface de ligne de commande Azure.
 

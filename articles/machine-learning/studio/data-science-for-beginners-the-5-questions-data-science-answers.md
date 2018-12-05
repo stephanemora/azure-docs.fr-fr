@@ -1,11 +1,12 @@
 ---
-title: Les 5 questions de la science des données - Science des données pour les débutants - Azure Machine Learning | Microsoft Docs
+title: Les cinq questions de la science des données – La science des données pour les débutants – Azure Machine Learning Studio | Microsoft Docs
 description: La série Science des données pour les débutants enseigne des concepts de base en 5 courtes vidéos, et commence par Les 5 questions de la science des données. À partir d’Azure Machine Learning.
 keywords: utiliser la science des données,débutants en science des données,science des données pour les débutants,notions de base de la science des données,questions de science des données,vidéo de sciences de données,présentation de la science des données
 services: machine-learning
 documentationcenter: na
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
@@ -16,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 1d004eb16fcac13d6ba7592cbe432cbeac0401e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c59b4783c59c44604738a3056b3484e11ff90363
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834149"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314164"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Science des données pour les débutants, vidéo 1 : Les 5 questions auxquelles la science des données répond
 Découvrez la science des données dans la série de cinq courtes vidéos de présentation *Science des données pour les débutants* d’un célèbre spécialiste des données. Ces vidéos sont simples mais utiles, que vous souhaitiez travailler sur la science des données ou collaborer avec d’autres scientifiques.

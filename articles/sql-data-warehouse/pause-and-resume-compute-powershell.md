@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c035ef1a79cde7c594c66964052c0653c5c709d9
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ae1373901ca22b39cf99173ae2a9280128491522
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377970"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313817"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Démarrage rapide : suspendre et reprendre le calcul dans Azure SQL Data Warehouse avec PowerShell
 Utilisez PowerShell pour interrompre le calcul dans Azure SQL Data Warehouse afin de réduire les coûts. [Reprenez le calcul](sql-data-warehouse-manage-compute-overview.md) quand vous êtes prêt à utiliser l’entrepôt de données.
@@ -42,10 +42,10 @@ Pour voir quel abonnement vous utilisez, exécutez [Get-AzureRmSubscription](/po
 Get-AzureRmSubscription
 ```
 
-Si vous devez utiliser un abonnement autre que l’abonnement par défaut, exécutez [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+Si vous devez utiliser un abonnement autre que l’abonnement par défaut, exécutez [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>Rechercher des informations sur l’entrepôt de données
@@ -75,7 +75,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
 ```
 
-Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Il redirige ensuite l’objet récupéré vers [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase). Les résultats sont stockés dans l'objet resultDatabase. La dernière commande affiche les résultats.
+Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Puis il redirige l’objet récupéré vers [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase). Les résultats sont stockés dans l'objet resultDatabase. La dernière commande affiche les résultats.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
@@ -93,7 +93,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Il redirige ensuite l’objet vers [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) et stocke les résultats dans $resultDatabase. La dernière commande affiche les résultats.
+Une variante, l'exemple suivant récupère la base de données dans l'objet $database. Il redirige ensuite l'objet [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) et stocke les résultats dans $resultDatabase. La dernière commande affiche les résultats.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -102,7 +102,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous êtes facturé pour les Data Warehouse Units et les données stockées dans votre entrepôt de données. Ces ressources de calcul et de stockage sont facturées séparément.
 
@@ -113,7 +113,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur votre entrepôt de données.
 
-    ![Supprimer les ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 1. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible.  Pour reprendre le calcul, cliquez sur **Démarrer**.
 

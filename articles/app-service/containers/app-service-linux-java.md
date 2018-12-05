@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815169"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497346"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guide du développeur Java pour App Service sur Linux
 
@@ -28,6 +28,10 @@ Ce guide fournit les concepts et instructions clés aux développeurs Java qui u
 ## <a name="logging-and-debugging-apps"></a>Journalisation et débogage des applications
 
 Vous trouverez des rapports de performances, des visualisations de trafic et des contrôles d’intégrité pour chaque application dans le portail Azure. Consultez [Vue d’ensemble des diagnostics Azure App Service](/azure/app-service/app-service-diagnostics) pour plus d’informations sur la façon d’accéder à ces outils de diagnostic et des les utiliser.
+
+## <a name="application-performance-monitoring"></a>Analyse des performances des applications
+
+Pour des instructions permettant de configurer New Relic et AppDynamics avec des applications Java qui s’exécutent sur App Service sous Linux, voir [Outils d’analyse des performances des applications Java sur Azure App Service sous Linux](how-to-java-apm-monitoring.md).
 
 ### <a name="ssh-console-access"></a>Accès à la console SSH 
 
@@ -124,7 +128,7 @@ Vous pouvez aussi configurer le paramètre d’application à l’aide du plug-i
 </appSettings> 
 ```
 
-## <a name="secure-application"></a>Sécuriser l’application
+## <a name="secure-applications"></a>Sécuriser les applications
 
 Les applications Java exécutées dans App Service pour Linux présentent les mêmes [bonnes pratiques de sécurité](/azure/security/security-paas-applications-using-app-services) que les autres applications. 
 
@@ -147,6 +151,8 @@ Suivez les instructions dans [Lier un certificat SSL personnalisé existant](/az
 >[!NOTE]
 > Si votre application utilise Spring Framework ou Spring Boot, vous pouvez définir les informations de connexion de base de données pour Spring Data JPA en tant que variables d’environnement [dans le fichier de propriétés de votre application]. Utilisez ensuite les [paramètres de l’application](/azure/app-service/web-sites-configure#app-settings) afin de définir ces valeurs pour votre application dans le portail Azure ou l’interface CLI.
 
+Les exemples d’extraits de configuration dans cette section utilisent une base de données MySQL. Pour plus d’informations, consultez la documentation de configuration pour [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) et [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+
 Pour configurer Tomcat de sorte à utiliser des connexions managées aux bases de données à l’aide de Java Database Connectivity (JDBC) ou de l’API Java Persistence (JPA), commencez par personnaliser la variable d’environnement CATALINA_OPTS lu par Tomcat au démarrage. Définissez ces valeurs via un paramètre d’application dans le plug-in Maven App Service :
 
 ```xml
@@ -166,7 +172,7 @@ Pour les sources de données au niveau de l’application :
 
 1. Ajoutez un fichier `context.xml` s’il n’existe pas dans votre application web et ajoutez le répertoire `META-INF` de votre fichier WAR une fois que le projet est généré.
 
-2. Dans ce fichier, ajoutez une entrée de chemin `Context` pour lier la source de données à une adresse JNDI. L’attribut 
+2. Dans ce fichier, ajoutez une entrée de chemin `Context` pour lier la source de données à une adresse JNDI.
 
     ```xml
     <Context>
@@ -190,7 +196,7 @@ Pour les sources de données au niveau de l’application :
 
 Pour les ressources au niveau du serveur partagées :
 
-1. Copiez le contenu de `/usr/local/tomcat/conf` dans `/home/tomcat` sur votre instance App Service Linux à l’aide de SSH, si vous n’y avez pas déjà une configuration.
+1. Copiez le contenu de `/usr/local/tomcat/conf` dans `/home/tomcat/conf` sur votre instance App Service Linux à l’aide de SSH, si vous n’y avez pas déjà une configuration.
 
 2. Ajoutez le contexte dans votre fichier `server.xml`
 
@@ -229,11 +235,11 @@ Pour les ressources au niveau du serveur partagées :
 
     3. Connectez-vous au port de tunneling local avec votre client SFTP et chargez les fichiers dans le dossier `/home/tomcat/lib`.
 
-5. Redémarrez l’application App Service Linux. Tomcat rétablit `CATALINA_HOME` sur `/home/tomcat` et utilise les classes et la configuration mises à jour.
+5. Redémarrez l’application App Service Linux. Tomcat rétablit `CATALINA_HOME` sur `/home/tomcat/conf` et utilise les classes et la configuration mises à jour.
 
 ## <a name="docker-containers"></a>Conteneurs Docker
 
-Pour utiliser le kit JDK Zulu pris en charge par Azure dans vos conteneurs, assurez-vous d’extraire et d’utiliser les images précompilées énumérées dans la [page de téléchargement d’Azul](https://www.azul.com/downloads/azure-only/zulu/#docker), ou utilisez les exemples `Dockerfile` du [référentiel Microsoft Java GitHub](https://github.com/Microsoft/java/tree/master/docker).
+Pour utiliser le kit JDK Zulu pris en charge par Azure dans vos conteneurs, assurez-vous d’extraire et d’utiliser les images précompilées documentées dans la [page de téléchargement Azul Zulu Enterprise for Azure](https://www.azul.com/downloads/azure-only/zulu/), ou utilisez les exemples `Dockerfile` du [référentiel Microsoft Java GitHub](https://github.com/Microsoft/java/tree/master/docker).
 
 ## <a name="runtime-availability-and-statement-of-support"></a>Disponibilité des runtimes et informations de prise en charge
 

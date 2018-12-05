@@ -3,22 +3,22 @@ title: Créer des travaux Spark Streaming hautement disponibles dans YARN - Azur
 description: Guide pratique pour configurer Spark Streaming pour un scénario de haute disponibilité.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 0725c70668ca3089028bff5fc1d8374c6bfdecde
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051989"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581899"
 ---
-# <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Créer des travaux Spark Streaming à haute disponibilité avec YARN
+# <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Créer des tâches Apache Spark Streaming à haute disponibilité avec YARN
 
-Spark Streaming vous permet d’implémenter des applications scalables, à haut débit et à tolérance de panne pour le traitement des flux de données. Vous pouvez connecter des applications Spark Streaming sur un cluster HDInsight Spark à une variété de sources de données, telles que Azure Event Hubs, Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ, des sockets TCP bruts, ou en surveillant les modifications dans le système de fichiers HDFS. Spark Streaming prend en charge la tolérance de panne avec la garantie qu’un événement donné n’est traité qu’une seule fois, même en cas de défaillance d’un nœud.
+[Apache Spark](https://spark.apache.org/) Streaming permet d’implémenter des applications scalables à haut débit et à tolérance de panne pour le traitement des flux de données. Vous pouvez connecter des applications Spark Streaming sur un cluster HDInsight Spark à différentes sources de données, comme Azure Event Hubs, Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/) ou des sockets TCP bruts, ou en surveillant les modifications du système de fichiers [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). Spark Streaming prend en charge la tolérance de panne avec la garantie qu’un événement donné n’est traité qu’une seule fois, même en cas de défaillance d’un nœud.
 
 Spark Streaming crée des travaux à exécution longue durant lesquels vous pouvez appliquer des transformations aux données, puis transmettre les résultats à des systèmes de fichiers, des bases de données, des tableaux de bord et la console. Spark Streaming traite des micro-lots de données, en recueillant d’abord un lot d’événements sur un intervalle de temps défini. Ensuite, ce lot est transféré pour le traitement et la sortie. Les intervalles des lots sont généralement définis en fractions de seconde.
 
@@ -54,7 +54,7 @@ Les RDD ont plusieurs propriétés qui facilitent l’exécution des travaux Spa
 
 Pour créer une application qui ne traite chaque événement qu’une seule fois, réfléchissez à la façon dont tous les points de défaillance système redémarrent après un problème, et à la façon dont vous pouvez éviter la perte de données. La sémantique du traitement unique nécessite qu’aucune donnée ne soit perdue à aucun point, et que le traitement des messages puisse être redémarré, quel que soit l’endroit où la défaillance se produit. Consultez [Créer des travaux Spark Streaming avec traitement unique des événements](apache-spark-streaming-exactly-once.md).
 
-## <a name="spark-streaming-and-yarn"></a>Spark Streaming et YARN
+## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Spark Streaming et Apache Hadoop YARN
 
 Dans HDInsight, le travail de cluster est coordonné par *Yet Another Resource Negotiator* (YARN). La conception d’une haute disponibilité pour Spark Streaming inclut des techniques pour Spark Streaming et également pour les composants YARN.  Vous trouverez ci-dessous un exemple de configuration utilisant YARN. 
 
@@ -120,8 +120,8 @@ Pour résumer, grâce aux points de contrôle, au journal WAL et à des récepte
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble de Spark Streaming](apache-spark-streaming-overview.md)
-* [Créer des travaux Spark Streaming avec traitement unique des événements](apache-spark-streaming-exactly-once.md)
-* [Long-running Spark Streaming Jobs on YARN (Longs travaux Spark Streaming sur YARN)](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Vue d’ensemble d’Apache Spark Streaming](apache-spark-streaming-overview.md)
+* [Créer des tâches Apache Spark Streaming avec traitement unique des événements](apache-spark-streaming-exactly-once.md)
+* [Tâches Apache Spark Streaming longues sur YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
 * [Structured Streaming: Fault Tolerant Semantics (Structured Streaming : Sémantique de tolérance de panne)](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [Discretized Streams: A Fault-Tolerant Model for Scalable Stream Processing (Flux discrétisés : Modèle à tolérance de panne pour le traitement de flux scalables)](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

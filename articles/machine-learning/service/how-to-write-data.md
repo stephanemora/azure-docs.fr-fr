@@ -10,19 +10,20 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 81344d388fbba0db034b8adb06adab6797ec2ce1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4a2af832fda8a85ee8a4aba395a8f436172153ed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166740"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308560"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Écrire des données avec le SDK de préparation des données d’Azure Machine Learning
-Vous pouvez écrire des données à tout moment dans un flux de données. Ces opérations d’écriture sont ajoutées en tant qu’étapes au flux de données obtenu, et sont exécutées chaque fois que le flux de données est exécuté. Les données sont écrites dans plusieurs fichiers de partition pour permettre des écritures parallèles.
 
-Dans la mesure où il n’existe pas de limitation quant au nombre d’étapes d’écriture qu’un pipeline peu contenir, vous pouvez facilement d’écrire des étapes pour obtenir des résultats intermédiaires utilisables pour la résolution des problèmes ou dans d’autres pipelines. 
+Cet article présente différentes méthodes permettant d’écrire des données à l’aide du kit SDK de préparation des données Azure Machine Learning. Les données de sortie peuvent être écrites en tout point du flux de données. Les écritures, ajoutées aux étapes du flux de données obtenu, sont effectuées à chaque exécution du flux de données. Les données sont écrites dans plusieurs fichiers de partition pour permettre des écritures parallèles.
 
-Chaque fois que vous exécutez une étape d’écriture, une extraction complète des données du flux de données est effectuée. Par exemple, un flux de données avec trois étapes d’écriture va lire et traiter chaque enregistrement du jeu de données trois fois.
+Dans la mesure où il n’existe pas de limitation quant au nombre d’étapes d’écriture qu’un pipeline peu contenir, vous pouvez facilement d’écrire des étapes pour obtenir des résultats intermédiaires utilisables pour la résolution des problèmes ou dans d’autres pipelines.
+
+Chaque fois que vous exécutez une étape d’écriture, une extraction complète des données du flux de données est effectuée. Par exemple, un flux de données comportant trois étapes d’écriture lit et traite trois fois chacun des enregistrements du jeu de données.
 
 ## <a name="supported-data-types-and-location"></a>Types de données pris en charge et emplacement
 
@@ -36,21 +37,23 @@ Avec le [SDK Python de préparation des données d’Azure Machine Learning](htt
 + Azure Data Lake Storage
 
 ## <a name="spark-considerations"></a>Considérations sur Spark
+
 Lorsque vous exécutez un flux de données dans Spark, vous devez écrire les données dans un dossier vide. Une tentative pour effectuer une écriture dans un dossier existant provoque un échec. Pour éviter que l’écriture n’échoue, vérifiez que le dossier cible est vide ou utilisez un emplacement cible différent pour chaque exécution.
 
 ## <a name="monitoring-write-operations"></a>Supervision des opérations d’écriture
+
 Pour des raisons pratiques, un fichier sentinelle nommé SUCCESS est généré une fois qu’une écriture est terminée. Sa présence vous permet de savoir quand une écriture intermédiaire est effectuée, sans devoir attendre la fin du pipeline.
 
 ## <a name="example-write-code"></a>Exemple de code d’écriture
 
-Pour cet exemple, commencez par charger des données dans un flux de données. Nous réutiliserons ces données avec différents formats.
+Pour cet exemple, commencez par charger des données dans un flux de données. Vous réutiliserez ces données sous différents formats.
 
 ```python
 import azureml.dataprep as dprep
 t = dprep.smart_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
-```   
+```
 
 Exemple de sortie :
 |   |  Colonne1 |    Colonne2 | Colonne3 | Colonne4  |Colonne5   | Colonne6 | Colonne7 | Colonne8 | Colonne9 |
@@ -68,7 +71,7 @@ Exemple de sortie :
 
 ### <a name="delimited-file-example"></a>Exemple de fichier délimité
 
-Dans cette section, vous pouvez voir un exemple d’utilisation de la fonction `write_to_csv` pour écrire avec un fichier délimité.
+Le code suivant utilise la fonction `write_to_csv` pour écrire des données dans un fichier délimité.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -95,9 +98,9 @@ Exemple de sortie :
 |8| 10020.0|    99999.0|    ERROR |   NON| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    ERROR |   NON| SV|     |77000.0|   15500.0|    120.0|
 
-Vous pouvez voir dans la sortie précédente que plusieurs erreurs apparaissent dans les colonnes numériques, car certains nombres n’ont pas été correctement analysés. Par défaut, lorsqu’elles sont écrites au format CSV, ces valeurs Null sont remplacées par la chaîne « ERROR ». 
+Dans la sortie précédente, plusieurs erreurs apparaissent dans les colonnes numériques, car certains nombres n’ont pas été analysés correctement. Lorsqu’elles sont écrites au format CSV, les valeurs Null sont par défaut remplacées par la chaîne « ERROR ».
 
-Vous pouvez ajouter des paramètres dans le cadre de votre appel d’écriture et spécifier la chaîne à utiliser pour représenter les valeurs Null. Par exemple : 
+Ajoutez des paramètres à votre appel d’écriture et spécifiez la chaîne à utiliser pour représenter les valeurs Null.
 
 ```python
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
@@ -122,7 +125,6 @@ Le code précédent produit cette sortie :
 |8| 10020.0|    99999.0|    BadData |   NON| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    BadData |   NON| SV|     |77000.0|   15500.0|    120.0|
 
-
 ### <a name="parquet-file-example"></a>Exemple de fichier Parquet
 
 Da façon similaire à `write_to_csv`, la fonction `write_to_parquet` retourne un nouveau flux de données avec une étape d’écriture Parquet qui est exécutée lors de l’exécution du flux de données.
@@ -132,9 +134,9 @@ write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./tes
 error='MiscreantData')
 ```
 
-Ensuite, vous pouvez exécuter le flux de données pour démarrer l’opération d’écriture.
+Exécutez le flux de données pour lancer l’opération d’écriture.
 
-```
+```python
 write_parquet_t.run_local()
 
 written_parquet_files = dprep.read_parquet_file('./test_parquet_out/part-*')

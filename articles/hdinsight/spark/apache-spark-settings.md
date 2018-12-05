@@ -9,24 +9,24 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: b31be534641f2777bcbfaaa33497d96b457db191
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 127bd965fdce93ae44fbb38a037477174c9cb3fe
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684084"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583242"
 ---
-# <a name="configure-spark-settings"></a>Configurer les paramètres Spark
+# <a name="configure-apache-spark-settings"></a>Configurer les paramètres d’Apache Spark
 
-Un cluster HDInsight Spark comprend une installation de la bibliothèque Apache Spark.  Chaque cluster HDInsight inclut des paramètres de configuration par défaut pour tous ses services installés, y compris Spark.  Un aspect clé de la gestion d’un cluster HDInsight Hadoop est la surveillance de la charge de travail, notamment des travaux Spark, pour s’assurer que tous les travaux s’exécutent de manière prévisible. Pour exécuter les travaux Spark dans les meilleures conditions, tenez compte de la configuration physique du cluster au moment d’optimiser sa configuration logique.
+Un cluster Spark HDInsight comporte une installation de la bibliothèque [Apache Spark](https://spark.apache.org/).  Chaque cluster HDInsight inclut des paramètres de configuration par défaut pour tous ses services installés, y compris Spark.  L’un des principaux aspects de la gestion d’un cluster Apache Hadoop HDInsight est le monitoring de la charge de travail, notamment des tâches Spark, pour vérifier qu’elles s’exécutent de manière prévisible. Pour exécuter les travaux Spark dans les meilleures conditions, tenez compte de la configuration physique du cluster au moment d’optimiser sa configuration logique.
 
-Le cluster HDInsight Apache Spark par défaut inclut les nœuds suivants : trois nœuds ZooKeeper, deux nœuds principaux et un ou plusieurs nœuds Worker :
+Le cluster Apache Spark HDInsight par défaut comporte les nœuds suivants : trois nœuds [Apache ZooKeeper](https://zookeeper.apache.org/), deux nœuds principaux et un ou plusieurs nœuds Worker :
 
 ![Architecture de HDInsight Spark](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
 Le nombre de machines virtuelles, et leurs tailles, pour les nœuds de votre cluster HDInsight peuvent également affecter votre configuration Spark. Les valeurs de configuration HDInsight autres que les valeurs par défaut nécessitent souvent des valeurs de configuration Spark spécifiques. Quand vous créez un cluster HDInsight Spark, des tailles de machine virtuelle vous sont suggérées pour chacun des composants. Les [tailles de machine virtuelle Linux à mémoire optimisée](../../virtual-machines/linux/sizes-memory.md) pour Azure sont D12 v2 ou supérieur.
 
-## <a name="spark-versions"></a>Versions de Spark
+## <a name="apache-spark-versions"></a>Versions d’Apache Spark
 
 Utilisez la version de Spark la mieux adaptée à votre cluster.  Le service HDInsight inclut plusieurs versions de Spark et de HDInsight.  Chaque version de Spark comprend un ensemble de paramètres de cluster par défaut.  
 
@@ -52,7 +52,7 @@ Quand vous sélectionnez une version particulière de Spark, votre cluster compr
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-L’exemple ci-dessus remplace plusieurs valeurs par défaut de cinq paramètres de configuration Spark.  Il s’agit du codec de compression, de la taille de fractionnement minimale Hadoop MapReduce, des tailles de bloc parquet, ainsi que de la partition Spar SQL et des valeurs par défaut des tailles des fichiers ouverts.  Ces modifications de configuration sont choisies, car les données et travaux associés (dans cet exemple, des données génomiques) présentent des caractéristiques particulières dont l’efficacité peut être améliorée à l’aide de ces paramètres de configuration personnalisés.
+L’exemple ci-dessus remplace plusieurs valeurs par défaut de cinq paramètres de configuration Spark.  Il s’agit du codec de compression, de la taille de fractionnement minimale Apache Hadoop MapReduce, des tailles de bloc parquet, de la partition Spark SQL et des valeurs par défaut de la taille des fichiers ouverts.  Ces modifications de configuration sont choisies, car les données et travaux associés (dans cet exemple, des données génomiques) présentent des caractéristiques particulières dont l’efficacité peut être améliorée à l’aide de ces paramètres de configuration personnalisés.
 
 ---
 
@@ -60,7 +60,7 @@ L’exemple ci-dessus remplace plusieurs valeurs par défaut de cinq paramètres
 
 Vérifiez les paramètres de configuration de cluster HDInsight actuels avant d’effectuer une optimisation des performances sur le cluster. Lancez le tableau de bord HDInsight à partir du portail Azure en cliquant sur le lien **Tableau de bord** dans le volet du cluster Spark. Connectez-vous avec le nom d’utilisateur et le mot de passe de l’administrateur de cluster.
 
-L’interface utilisateur web Ambari s’affiche, sous la forme d’un tableau de bord regroupant les principales métriques d’utilisation des ressources du cluster.  Le tableau de bord Ambari vous montre la configuration d’Apache Spark et d’autres services que vous avez installés. Le tableau de bord inclut un onglet **Config History** (Historique de la configuration), où vous pouvez afficher les informations de configuration pour tous les services installés, y compris Spark.
+L’interface utilisateur web d’Apache Ambari s’ouvre sur un tableau de bord regroupant les principales métriques d’utilisation des ressources de cluster.  Le tableau de bord Ambari vous montre la configuration d’Apache Spark et d’autres services que vous avez installés. Le tableau de bord inclut un onglet **Config History** (Historique de la configuration), où vous pouvez afficher les informations de configuration pour tous les services installés, y compris Spark.
 
 Pour afficher les valeurs de configuration pour Apache Spark, sélectionnez **Config History** (Historique de la configuration), puis sélectionnez **Spark2**.  Sélectionnez l’onglet **Configs** (Configurations), puis le lien `Spark` (ou `Spark2`, selon votre version) dans la liste des services.  Une liste de valeurs de configuration pour votre cluster apparaît :
 
@@ -96,13 +96,13 @@ Une autre source d’informations sur les ressources utilisées par les Exécute
 
 ![Exécuteurs Spark](./media/apache-spark-settings/spark-executors.png)
 
-Ou bien, vous pouvez utiliser l’API REST d’Ambari pour vérifier par programmation les paramètres de configuration de cluster HDInsight et Spark.  Pour en savoir plus, consultez les [informations de référence sur l’API Ambari sur GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Ou bien, vous pouvez utiliser l’API REST d’Ambari pour vérifier par programmation les paramètres de configuration de cluster HDInsight et Spark.  Pour plus d’informations, voir [Informations de référence sur l’API Apache Ambari sur GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 En fonction de votre charge de travail Spark, vous pouvez déterminer qu’une configuration Spark autre que la configuration par défaut fournit une optimisation des exécutions des travaux Spark.  Vous devez effectuer des tests d’évaluation avec des exemples de charges de travail afin de valider les configurations de cluster différentes des configurations par défaut.  Certains des paramètres courants que vous pouvez envisager d’ajuster sont les suivants :
 
 * `--num-executors` définit le nombre d’Exécuteurs.
 * `--executor-cores` définit le nombre de cœurs pour chaque exécuteur. Nous vous recommandons d’utiliser des Exécuteurs de taille moyenne, car d’autres processus consomment également une partie de la mémoire disponible.
-* `--executor-memory` contrôle la taille de mémoire (taille de segment) de chaque Exécuteur sur YARN, et vous devez laisser de la mémoire pour la charge des exécutions.
+* `--executor-memory` contrôle la taille de la mémoire (taille de segment) de chaque Exécuteur sur [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ; laissez de la mémoire pour la charge des exécutions.
 
 Voici un exemple de deux nœuds Worker avec des valeurs de configuration différentes :
 
@@ -125,8 +125,8 @@ Les clusters Spark dans HDInsight incluent un certain nombre de composants par d
 
 * Spark Core : Spark Core, Spark SQL, les API de streaming Spark, GraphX et MLlib
 * Anaconda : gestionnaire de package python
-* Livy : API REST Spark Apache, utilisée pour envoyer des travaux à distance à un cluster Spark HDInsight
-* Blocs-notes Jupyter et Zeppelin : interface utilisateur interactive basée sur le navigateur pour interagir avec votre cluster Spark
+* [Apache Livy](https://livy.incubator.apache.org/) : API REST Apache Spark, utilisée pour envoyer des tâches à distance à un cluster Spark HDInsight
+* Blocs-notes [Jupyter](https://jupyter.org/) et [Apache Zeppelin](https://zeppelin.apache.org/) : interface utilisateur interactive sur navigateur pour interagir avec le cluster Spark
 * Pilote ODBC : connecte les clusters Spark dans HDInsight aux outils décisionnels tels que Microsoft Power BI et Tableau
 
 Pour les applications exécutées dans le bloc-notes Jupyter, utilisez la commande `%%configure` afin d’apporter des modifications à la configuration depuis le bloc-notes. Ces modifications de configuration sont appliquées aux travaux Spark exécutés à partir de votre instance de bloc-notes. Pensez à apporter ces modifications au début de l’application, avant d’exécuter la première cellule de code. La configuration modifiée est appliquée à la session Livy au moment de sa création.
@@ -147,8 +147,8 @@ Il existe de nombreux paramètres de configuration de base que vous devez survei
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Quels sont les composants et versions Hadoop disponibles avec HDInsight ?](../hdinsight-component-versioning.md)
-* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](apache-spark-resource-manager.md)
-* [Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore](../hdinsight-hadoop-provision-linux-clusters.md)
+* [Composants et versions d’Apache Hadoop disponibles avec HDInsight](../hdinsight-component-versioning.md)
+* [Gérer les ressources d’un cluster Apache Spark sur HDInsight](apache-spark-resource-manager.md)
+* [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html) (Configuration d’Apache Spark)
-* [Running Spark on YARN](https://spark.apache.org/docs/latest/running-on-yarn.html) (Exécution de Spark sur YARN)
+* [Exécuter Apache Spark sur Apache Hadoop YARN](https://spark.apache.org/docs/latest/running-on-yarn.html)

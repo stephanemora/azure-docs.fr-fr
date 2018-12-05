@@ -8,12 +8,12 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 703dedc69e491377ce0890610a2882ab95ae6e5a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565069"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446240"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Créer et provisionner un appareil Edge à l’aide d’un TPM virtuel sur une machine virtuelle Linux
 
@@ -65,7 +65,7 @@ Si vous constatez des erreurs lors de la création du commutateur virtuel, assur
    2. **Configurer le réseau** : définissez la valeur de **Connexion** sur le commutateur virtuel que vous avez créé à la section précédente. 
    3. **Options d’installation** : sélectionnez **Installer un système d’exploitation à partir d’un fichier image de démarrage** et accédez au fichier image de disque que vous avez enregistré localement.
 
-La création de la machine virtuelle peut prendre plusieurs minutes. 
+La création de la nouvelle machine virtuelle peut prendre plusieurs minutes. 
 
 ### <a name="enable-virtual-tpm"></a>Activer le TPM virtuel
 
@@ -136,7 +136,7 @@ Procurez-vous l’**Étendue de l’ID** de votre service Device Provisioning et
 
 Pour provisionner automatiquement votre appareil, le runtime IoT Edge a besoin d’accéder au TPM. 
 
-Utilisez les étapes suivantes pour accorder l’accès du TPM. Une autre façon de faire consiste à remplacer les paramètres systemd de telle manière que le service *iotedge* puisse s’exécuter en tant que racine. 
+Vous pouvez accorder au TPM un accès au runtime IoT Edge en substituant les paramètres système afin que le service *iotedge* dispose des privilèges root. Si vous ne souhaitez pas élever les privilèges de service, vous pouvez également utiliser les étapes suivantes pour fournir manuellement un accès au TPM. 
 
 1. Trouvez le chemin au module matériel TPM sur votre appareil et enregistrez-le en tant que variable locale. 
 
@@ -180,8 +180,10 @@ Utilisez les étapes suivantes pour accorder l’accès du TPM. Une autre façon
    La sortie correcte ressemble à ceci :
 
    ```output
-   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
+
+   Si vous constatez que les autorisations appropriées n’ont pas été appliquées, essayez de redémarrer votre ordinateur pour actualiser udev. 
 
 8. Ouvrez le fichier de substitution du runtime IoT Edge. 
 
@@ -224,7 +226,7 @@ Vérifiez que le runtime IoT Edge est en cours d’exécution.
    sudo systemctl status iotedge
    ```
 
-Si vous constatez des erreurs de provisionnement, il est possible que les modifications de configuration ne soient pas encore prises en compte. Essayez de redémarrer le gain du démon IoT Edge. 
+Si vous constatez des erreurs de provisionnement, il est possible que les modifications de configuration ne soient pas encore prises en compte. Essayez de redémarrer le démon IoT Edge. 
 
    ```bash
    sudo systemctl daemon-reload
@@ -234,7 +236,7 @@ Ou bien, essayez de redémarrer votre machine virtuelle pour voir si les modific
 
 ## <a name="verify-successful-installation"></a>Vérifier la réussite de l’installation
 
-Si le runtime a été démarré correctement, vous pouvez accéder à votre hub IoT et voir que votre nouvel appareil a été provisionné automatiquement et qu’il est prêt à exécuter des modules IoT Edge. 
+Si le runtime a été démarré correctement, vous pouvez accéder à votre hub IoT et voir que votre nouvel appareil a été automatiquement provisionné. Votre appareil est maintenant prêt à exécuter des modules IoT Edge. 
 
 Vérifiez l’état du démon IoT Edge.
 
@@ -257,4 +259,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Le processus d’inscription auprès du service Device Provisioning vous permet de définir l’ID d’appareil et les balises du jumeau d’appareil en même temps que vous provisionnez le nouvel appareil. Vous pouvez utiliser ces valeurs pour cibler des appareils individuels ou des groupes d’appareils avec la gestion d’appareils automatique. En savoir plus sur [Déployer et surveiller des modules IoT Edge à grande échelle à l’aide du portail Azure](how-to-deploy-monitor.md) ou [d’Azure CLI](how-to-deploy-monitor-cli.md)
+Le processus d’inscription auprès du service Device Provisioning vous permet de définir l’ID d’appareil et les balises du jumeau d’appareil en même temps que vous provisionnez le nouvel appareil. Vous pouvez utiliser ces valeurs pour cibler des appareils individuels ou des groupes d’appareils avec la gestion d’appareils automatique. En savoir plus sur [Déployer et surveiller des modules IoT Edge à grande échelle à l’aide du portail Azure](how-to-deploy-monitor.md) ou [d’Azure CLI](how-to-deploy-monitor-cli.md).

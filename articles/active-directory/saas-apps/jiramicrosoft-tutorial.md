@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/22/2018
 ms.author: jeedes
-ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 608269a05ae1ed699954cd301aa03056e089fa8a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010726"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426099"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Didacticiel : Intégration d’Azure Active Directory à JIRA SAML SSO by Microsoft
 
@@ -154,11 +154,26 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon12.png)
 
-9. Une fois que le plug-in est installé, il s’affiche sous **User Installed** (Installé par l’utilisateur), dans la section **Manage add-ons** (Gérer les modules complémentaires). Cliquez sur **Configurer** pour configurer le nouveau plug-in.
+9. Pour exécuter le scénario de proxy inverse JIRA ou le scénario d’équilibreur de charge, procédez comme suit :
+
+    > [!NOTE]
+    > Vous devez d’abord configurer le serveur à l’aide des instructions ci-dessous, puis installer le plug-in.
+
+    a. Ajoutez l’attribut ci-dessous au port **connecteur** dans le fichier **server.xml** de l’application serveur JIRA.
+
+    `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
+
+    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+
+    b. Modifiez l’**URL de base** dans les **paramètres système** en fonction du proxy/de l’équilibreur de charge.
+
+    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+
+10. Une fois que le plug-in est installé, il s’affiche sous **User Installed** (Installé par l’utilisateur), dans la section **Manage add-ons** (Gérer les modules complémentaires). Cliquez sur **Configurer** pour configurer le nouveau plug-in.
 
     ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon13.png)
 
-10. Effectuez les opérations suivantes dans la page de configuration :
+11. Effectuez les opérations suivantes dans la page de configuration :
 
     ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon52.png)
 

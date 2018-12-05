@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 642fc66bff763105e9d5463886474703a9a50781
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a664ec3643100f4bf477fbc58070ae966088d3af
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376701"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426048"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -32,7 +32,7 @@ Les limitations de la solution actuelle sont les suivantes :
 - Cette solution est disponible dans Azure et AzureGov pour toutes les régions qui prennent en charge un espace de travail Log Analytics, un compte Azure Automation et les alertes. À l’heure actuelle, les régions AzureGov ne gèrent pas les fonctionnalités de messagerie électronique.
 
 > [!NOTE]
-> Si vous utilisez la solution pour les machines virtuelles classiques, toutes vos machines virtuelles sont traitées séquentiellement par service cloud. Le traitement des travaux en parallèle est encore pris en charge sur les différents services cloud.
+> Si vous utilisez la solution pour les machines virtuelles classiques, toutes vos machines virtuelles sont traitées séquentiellement par service cloud. Les machines virtuelles sont toujours traitées en parallèle à travers les différents services cloud.
 >
 > Les abonnements Azure Cloud Solution Provider (Azure CSP) prennent uniquement en charge le modèle Azure Resource Manager ; les services hors Azure Resource Manager ne sont pas disponibles dans le programme. Quand la solution Start/Stop s’exécute, vous risquez de recevoir des erreurs du fait qu’elle contient des cmdlets pour gérer des ressources classiques. Pour en savoir plus sur CSP, consultez [Services disponibles dans les abonnements CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
@@ -78,7 +78,7 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
    Ce volet vous permet de :
    - Spécifier les **noms des groupes de ressources cibles**. Ces valeurs sont les noms des groupes de ressources qui contiennent les machines virtuelles devant être gérées par cette solution. Vous pouvez entrer plusieurs noms en les séparant par des virgules (les valeurs ne respectent pas la casse). Si vous souhaitez cibler les machines virtuelles de tous les groupes de ressources de l’abonnement, l’utilisation d’un caractère générique est prise en charge. Cette valeur est stockée dans les variables **External_Start_ResourceGroupNames** et **External_Stop_ResourceGroupnames**.
    - Spécifier la **liste d’exclusion de machines virtuelles (chaîne)**. Cette valeur est le nom d’une ou de plusieurs machines virtuelles appartenant au groupe de ressources cible. Vous pouvez entrer plusieurs noms en les séparant par des virgules (les valeurs ne respectent pas la casse). Les caractères génériques sont pris en charge. Cette valeur est stockée dans la variable **External_ExcludeVMNames**.
-   - Sélectionner une **planification**. Cette valeur est une date et une heure récurrentes pour le démarrage et l’arrêt des machines virtuelles des groupes de ressources cibles. Par défaut, la planification est exécutée toutes les 30 minutes. La sélection d’une autre région n’est pas possible. Pour configurer la planification sur votre propre fuseau horaire après la configuration de la solution, consultez [Modification de la planification de démarrage et d’arrêt](#modify-the-startup-and-shutdown-schedule).
+   - Sélectionner une **planification**. Cette valeur est une date et une heure récurrentes pour le démarrage et l’arrêt des machines virtuelles des groupes de ressources cibles. Par défaut, la planification est exécutée toutes les 30 minutes. La sélection d’une autre région n’est pas possible. Pour configurer la planification sur votre propre fuseau horaire après la configuration de la solution, consultez [Modification de la planification de démarrage et d’arrêt](#modify-the-startup-and-shutdown-schedules).
    - Pour recevoir des **notifications par e-mail** de la part d’un groupe d’actions, acceptez la valeur par défaut **Oui**, puis fournissez une adresse e-mail valide. Si vous sélectionnez **Non**, mais décidez ultérieurement de recevoir les notifications par e-mail, vous pouvez mettre à jour le [groupe d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md) qui est créé en y ajoutant des adresses e-mail valides, séparées par une virgule. Activez également les règles d’alerte suivantes :
 
      - AutoStop_VM_Child
@@ -217,16 +217,16 @@ Pour tous les scénarios, les variables **External_Start_ResourceGroupNames**, *
 
 ### <a name="schedules"></a>Planifications
 
-Le tableau suivant répertorie chacune des planifications par défaut créées dans votre compte Automation. Vous pouvez les modifier ou créer vos propres planifications personnalisées. Par défaut, toutes les planifications sont désactivées à l’exception de **Scheduled_StartVM** et **Scheduled_StopVM**.
+Le tableau suivant répertorie chacune des planifications par défaut créées dans votre compte Automation. Vous pouvez les modifier ou créer vos propres planifications personnalisées. Par défaut, toutes les planifications sont désactivées à l’exception de **Scheduled_StartVM** et **Scheduled_StopVM**.
 
 Vous ne devez pas activer toutes les planifications, car vous risqueriez de créer des actions de planification qui se chevauchent. Il est préférable de déterminer les optimisations que vous souhaitez réaliser et d’effectuer les modifications en conséquence. Consultez les exemples de scénarios dans la section Vue d’ensemble pour obtenir davantage d’explications.
 
 |Nom de la planification | Fréquence | Description|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Toutes les 8 heures | Exécute le runbook AutoStop_CreateAlert_Parent toutes les 8 heures, qui arrête les valeurs basées sur les machines virtuelles dans External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames et External_ExcludeVMNames dans les variables d’Azure Automation. Vous pouvez également spécifier une liste de machines virtuelles séparées par des virgules en utilisant le paramètre VMList.|
-|Scheduled_StopVM | Définie par l’utilisateur, tous les jours | Exécute le runbook Scheduled_Parent avec un paramètre _Stop_ tous les jours à l’heure spécifiée. Arrête automatiquement toutes les machines virtuelles répondant aux règles définies par les variables de ressource. Activez la planification associée, **Scheduled-StartVM**.|
-|Scheduled_StartVM | Définie par l’utilisateur, tous les jours | Exécute le runbook Scheduled_Parent avec un paramètre _Start_ tous les jours à l’heure spécifiée. Démarre automatiquement toutes les machines virtuelles répondant aux règles définies par les variables appropriées. Activez la planification associée, **Scheduled-StopVM**.|
-|Sequenced-StopVM | 01:00 (UTC), tous les vendredis | Exécute le runbook Sequenced_Parent avec un paramètre _Stop_ tous les vendredis à l’heure spécifiée. Arrête séquentiellement (dans l’ordre croissant) toutes les machines virtuelles avec la balise **SequenceStop** définie par les variables appropriées. Pour plus d’informations sur les valeurs de balises et les variables de ressources, consultez la section Runbooks. Activez la planification associée, **Sequenced-StartVM**.|
+|Scheduled_StopVM | Définie par l’utilisateur, tous les jours | Exécute le runbook Scheduled_Parent avec un paramètre _Stop_ tous les jours à l’heure spécifiée. Arrête automatiquement toutes les machines virtuelles répondant aux règles définies par les variables de ressource. Activez la planification associée, **Scheduled-StartVM**.|
+|Scheduled_StartVM | Définie par l’utilisateur, tous les jours | Exécute le runbook Scheduled_Parent avec un paramètre _Start_ tous les jours à l’heure spécifiée. Démarre automatiquement toutes les machines virtuelles répondant aux règles définies par les variables appropriées. Activez la planification associée, **Scheduled-StopVM**.|
+|Sequenced-StopVM | 01:00 (UTC), tous les vendredis | Exécute le runbook Sequenced_Parent avec un paramètre _Stop_ tous les vendredis à l’heure spécifiée. Arrête séquentiellement (dans l’ordre croissant) toutes les machines virtuelles avec la balise **SequenceStop** définie par les variables appropriées. Pour plus d’informations sur les valeurs de balises et les variables de ressources, consultez la section Runbooks. Activez la planification associée, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 13:00 (UTC), tous les lundis | Exécute le runbook Sequenced_Parent avec un paramètre _Start_ tous les lundis à un instant donné. Démarre séquentiellement (dans l’ordre décroissant) toutes les machines virtuelles avec la balise **SequenceStart** définie par les variables appropriées. Pour plus d’informations sur les valeurs de balises et les variables de ressources, consultez la section Runbooks. Activez la planification associée, **Sequenced-StopVM**.|
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: e32e281509da32d4816c9e137a462553891c82f1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686141"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582596"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
 
@@ -42,7 +42,7 @@ Pour afficher les données de coût, un utilisateur doit disposer au moins d’u
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Activer l’accès aux coûts dans le portail EA
 
-Pour l’étendue du compte de facturation, l’option d’**affichage des frais pour l’administrateur de service** doit être **activée** dans le portail EA. Pour toutes les autres étendues, l’option d’**affichage des frais pour le propriétaire du compte** doit être **activée** dans le portail EA.
+Pour l’étendue du service, l’option **Affichage des frais pour l’administrateur de service** doit être **activée** sur le portail EA. Pour toutes les autres étendues, l’option d’**affichage des frais pour le propriétaire du compte** doit être **activée** dans le portail EA.
 
 Pour activer une option :
 
@@ -51,7 +51,7 @@ Pour activer une option :
 3. Pour les étendues de Cost Management auxquelles vous souhaitez fournir l’accès, activez l’option d’**affichage des frais pour l’administrateur de service** et/ou d’**affichage des frais pour le propriétaire du compte**.  
     ![Onglet Inscription montrant les options d’affichage des frais pour l’administrateur de service et pour le propriétaire du compte](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-Une fois les options d’affichage des frais activées, la plupart des étendues nécessitent également une configuration des autorisations de contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure.
+Une fois les options d’affichage des frais activées, la plupart des étendues réclament également une configuration des autorisations avec contrôle d’accès en fonction du rôle (RBAC) sur le Portail Azure.
 
 ## <a name="enterprise-administrator-role"></a>Rôle d’administrateur d’entreprise
 
@@ -75,7 +75,7 @@ Un délai pouvant aller jusqu’à 30 minutes est parfois nécessaire pour que 
 
 ### <a name="assign-department-scope-access"></a>Affecter une autorisation d’accès à l’étendue de service
 
-L’accès à l’étendue de service nécessite un accès d’administrateur de service (affichage des frais pour l’administrateur de service) dans le portail EA. L’administrateur de service a accès à l’affichage des données de coût et d’utilisation associées à un ou plusieurs services.  Les données du service incluent tous les abonnements appartenant à un compte d’inscription et liés au service. Aucune action n’est nécessaire dans le portail Azure.
+L’accès à l’étendue de service nécessite un accès d’administrateur de service (affichage des frais pour l’administrateur de service) dans le portail EA. L’administrateur de service a accès à l’affichage des données de coût et d’utilisation associées à un ou plusieurs services. Les données du service incluent tous les abonnements appartenant à un compte d’inscription et liés au service. Aucune action n’est nécessaire dans le portail Azure.
 
 1. Connectez-vous au portail EA sur [https://ea.azure.com](https://ea.azure.com) avec un compte administrateur d’entreprise.
 2. Sélectionnez **Gérer** dans le volet gauche.
@@ -89,7 +89,7 @@ L’accès à l’étendue de service nécessite un accès d’administrateur de
 
 ## <a name="assign-enrollment-account-scope-access"></a>Affecter une autorisation d’accès à l’étendue du compte d’inscription
 
-L’accès à l’étendue du compte d’inscription nécessite un accès de propriétaire de compte (affichage des frais pour le propriétaire du compte) dans le portail EA. Le propriétaire du compte peut afficher les données de coût et d’utilisation associés à un compte d’inscription. Les données du compte d’inscription comprennent tous les abonnements Azure associés à l’inscription. Aucune action n’est nécessaire dans le portail Azure.
+L’accès à l’étendue du compte d’inscription nécessite un accès de propriétaire de compte (affichage des frais pour le propriétaire du compte) dans le portail EA. Le propriétaire du compte peut voir les coûts et les données d’utilisation associés aux abonnements créés à partir de ce compte d’inscription. Aucune action n’est nécessaire dans le portail Azure.
 
 1. Connectez-vous au portail EA sur [https://ea.azure.com](https://ea.azure.com) avec un compte administrateur d’entreprise.
 2. Sélectionnez **Gérer** dans le volet gauche.
@@ -101,9 +101,11 @@ L’accès à l’étendue du compte d’inscription nécessite un accès de pro
 8. Cliquez sur **Ajouter** pour créer le compte.  
     ![Zone Ajouter un compte](./media/assign-access-acm-data/add-account.png)
 
+Après les étapes ci-dessus, le compte d’utilisateur devient un compte d’inscription, capable de créer des abonnements, sur Enterprise Portal. L’utilisateur peut accéder aux données de coût et d’utilisation des abonnements qu’il crée.
+
 ## <a name="assign-management-group-scope-access"></a>Affecter une autorisation d’accès à l’étendue du groupe d’administration
 
-L’accès à une étendue de groupe d’administration nécessite au minimum une autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer l’autorisation d’accès au groupe d’administration dans le portail Azure. Vous devez disposer au moins d’une autorisation de contributeur du groupe d’administration pour permettre l’accès à d’autres utilisateurs. De plus, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
+L’accès à une étendue de groupe d’administration requiert au minimum l’autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer les autorisations d’accès à un groupe d’administration sur le Portail Azure. L’autorisation d’administrateur des accès utilisateur (ou propriétaire) du groupe d’administration est nécessaire au minimum pour donner accès à d’autres utilisateurs. De plus, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
 
 1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
 2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _groupes d’administration_, puis sélectionnez **groupes d’administration**.
@@ -119,7 +121,7 @@ L’accès à une étendue de groupe d’administration nécessite au minimum un
 
 ## <a name="assign-subscription-scope-access"></a>Affecter une autorisation d’accès à l’étendue d’abonnement
 
-L’accès à un abonnement nécessite au minimum une autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer l’autorisation d’accès à un abonnement dans le portail Azure. Vous devez disposer au moins d’une autorisation de contributeur de l’abonnement pour permettre l’accès à d’autres utilisateurs. De plus, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
+L’accès à un abonnement requiert au minimum l’autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer les autorisations d’accès à un abonnement sur le Portail Azure. L’autorisation d’administrateur des accès utilisateur (ou propriétaire) de l’abonnement est nécessaire au minimum pour donner accès à d’autres utilisateurs. De plus, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
 
 1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
 2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _abonnements_, puis sélectionnez **Abonnements**.
@@ -133,7 +135,7 @@ L’accès à un abonnement nécessite au minimum une autorisation de lecteur Co
 
 ## <a name="assign-resource-group-scope-access"></a>Affecter une autorisation d’accès à l’étendue du groupe de ressources
 
-L’accès à un groupe de ressources nécessite au minimum une autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer l’autorisation d’accès à un groupe de ressources dans le portail Azure. Vous devez disposer au moins d’une autorisation de contributeur du groupe de ressources pour permettre l’accès à d’autres utilisateurs. De plus, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
+L’accès à un groupe de ressources requiert au minimum l’autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer les autorisations d’accès à un groupe de ressources sur le Portail Azure. L’autorisation d’administrateur des accès utilisateur (ou propriétaire) du groupe de ressources est nécessaire au minimum pour donner accès à d’autres utilisateurs. De plus, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
 
 1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
 2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _groupes de ressources_, puis sélectionnez **Groupes de ressources**.
