@@ -37,7 +37,7 @@ Les langues prises en charge sont initialement déployées en préversion avant 
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Danois      | `da`          | ✔ \*     | ✔           |             |     |
 | Néerlandais       | `nl`          | ✔ \*     | ✔          |             |     |
-| Français     | `en`          | ✔        | ✔           |  ✔ \*   |      |
+| Anglais     | `en`          | ✔        | ✔           |  ✔ \*   |      |
 | Finnois     | `fi`          | ✔ \*     | ✔           |             |     |
 | Français      | `fr`          | ✔        | ✔           |             |     |
 | Allemand      | `de`          | ✔ \*     | ✔           |            |     |
