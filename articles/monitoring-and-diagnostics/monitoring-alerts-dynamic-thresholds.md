@@ -1,22 +1,22 @@
 ---
 title: Création d’alertes avec des seuils dynamiques dans Azure Monitor
 description: Créer des alertes avec des seuils dynamiques basés sur un apprentissage automatique
-author: antonfrMSFT
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.author: mbullwin
-ms.reviewer: antonfr
+ms.date: 11/29/2018
+ms.author: Yaniv.Lavi
+ms.reviewer: mbullwin
 ms.component: alerts
-ms.openlocfilehash: 01f924e0b3a2976a3f537cb5acac842eeeaccb4b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: af9f85014ea16dd266c56a71f13b4dce2adccc9a
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263311"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619703"
 ---
-# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Alertes avec des seuils dynamiques dans Azure Monitor (préversion publique limitée)
+# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-private-preview"></a>Alertes avec des seuils dynamiques dans Azure Monitor (préversion privée limitée)
 
 Les alertes avec des seuils dynamiques sont une amélioration apportée aux Alertes Métrique dans Azure Monitor. Elles tirent parti des capacités avancées de Machine Learning pour apprendre le comportement historique des métriques afin de calculer automatiquement des points de référence utilisables en tant que les seuils d’alerte.
 
@@ -30,7 +30,7 @@ Des alertes basées sur des seuils dynamiques sont disponibles pour toutes les s
 
 ## <a name="sign-up-to-access-the-preview"></a>S’inscrire pour accéder à la préversion
 
-Pour évaluer cette fonctionnalité, [inscrivez-vous à la préversion](http://aka.ms/DynamicThresholdMetricAlerts). Comme toujours, votre avis est important pour nous. Continuez à envoyer vos commentaires à [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com).
+Pour évaluer cette fonctionnalité, [inscrivez-vous à la préversion](https://aka.ms/DynamicThresholdMetricAlerts). Comme toujours, votre avis est important pour nous. Continuez à envoyer vos commentaires à [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com).
 
 ## <a name="how-to-configure-alerts-with-dynamic-thresholds"></a>Comment configurer des alertes avec des seuils dynamiques
 

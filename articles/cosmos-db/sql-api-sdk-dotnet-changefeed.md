@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685444"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632481"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -43,8 +43,18 @@ ms.locfileid: "51685444"
 
 ### <a name="v2-builds"></a>Builds V2
 
+### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
+* Ajout de la nouvelle propriété ChangeFeedProcessorOptions.StartContinuation pour prendre en charge le démarrage du flux de modification à partir d’un jeton de continuation de requête. Elle est utilisée uniquement quand la collection de baux est vide ou quand aucune propriété ContinuationToken n’est définie pour un bail. Pour les baux de la collection dont la propriété ContinuationToken est définie, ContinuationToken est utilisée et ChangeFeedProcessorOptions.StartContinuation est ignorée.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Ajout de la prise en charge de l’utilisation d’un magasin personnalisé afin de rendre persistants les jetons de continuation par partition.
+  * Par exemple, vous pouvez utiliser un magasin de baux personnalisé pour persister une collection de baux Azure Cosmos DB partitionnée de n’importe quelle manière personnalisée.
+  * Les magasins de baux personnalisés peuvent utiliser le nouveau point d’extensibilité ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) et la nouvelle interface publique ILeaseStoreManager.
+  * Refactorisation de l’interface ILeaseManager en plusieurs interfaces de rôle.
+* Changement cassant mineur : suppression du point d’extensibilité ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager). Utilisez ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) à la place.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Correction d’un problème qui peut se produire au cours du traitement d’une division quand la collection de baux est partitionnée. Quand ce problème se produit, les baux liés aux partitions ayant disparu risquent de ne pas être supprimés de la collection de baux. Le problème est résolu avec cette version.
+* Cette version corrige un problème qui se produit durant le traitement d’un fractionnement dans la collection supervisée et durant l’utilisation d’une collection de baux partitionnée. Lors du traitement d’un bail pour une partition fractionnée, le bail correspondant à cette partition ne peut pas être supprimé. Ce problème a été résolu dans cette version.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Calcul de l'estimateur fixe pour les comptes multimaîtres et le nouveau format de jeton de session.

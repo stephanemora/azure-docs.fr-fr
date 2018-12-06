@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: fbca9c746863b852a9ddd46d00a65d4133961718
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984371"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620538"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
 > [!div class="op_single_selector"]
@@ -117,11 +117,11 @@ Configurez vos nœuds de cluster. Les types de nœuds définissent les tailles d
 1. Choisissez un nom pour votre type de nœud (1 à 12 caractères contenant uniquement des lettres et des chiffres).
 2. La **taille** minimale des machines virtuelles pour le type de nœud principal dépend de la **couche de durabilité** que vous choisissez pour le cluster. La valeur par défaut du niveau de durabilité est Bronze. Pour en savoir plus sur la durabilité, consultez la page [Comment choisir la durabilité du cluster Service Fabric][service-fabric-cluster-durability].
 3. Sélectionnez la **taille de la machine virtuelle**. Les machines virtuelles de série D ont des lecteurs de disques SSD et sont vivement recommandées pour les applications avec état. N’utilisez pas les références de machine virtuelle incluant des cœurs partiels ou présentant une capacité de disque disponible inférieure à 10 Go. Reportez-vous au document [Considérations de planification pour les clusters Service Fabric][service-fabric-cluster-capacity] pour vous aider à sélectionner la taille de machine virtuelle.
-4. Choisissez la **capacité du groupe identique de machines virtuelles initiale** pour le type de nœud. Vous pouvez augmenter ou réduire ultérieurement le nombre de machines virtuelles d’un type de nœud. Cependant, pour le type de nœud principal, le nombre de machines virtuelles minimum est de cinq pour les charges de travail de production. Les autres types de nœuds peuvent avoir au minimum une machine virtuelle. Le **nombre** minimal de machines virtuelles du type de nœud principal détermine la **fiabilité** de votre cluster.  
-5. **Le cluster à un seul nœud et les clusters à trois nœuds** ne servent qu’à effectuer des tests. Ils ne sont pas pris en charge pour l’exécution des charges de travail de production.
+4.  **Le cluster à un seul nœud et les clusters à trois nœuds** ne servent qu’à effectuer des tests. Ils ne sont pas pris en charge pour l’exécution des charges de travail de production.
+5. Choisissez la **capacité du groupe identique de machines virtuelles initiale** pour le type de nœud. Vous pouvez augmenter ou réduire ultérieurement le nombre de machines virtuelles d’un type de nœud. Cependant, pour le type de nœud principal, le nombre de machines virtuelles minimum est de cinq pour les charges de travail de production. Les autres types de nœuds peuvent avoir au minimum une machine virtuelle. Le **nombre** minimal de machines virtuelles du type de nœud principal détermine la **fiabilité** de votre cluster.  
 6. Configurez des **points de terminaison personnalisés**. Ce champ vous permet d’entrer une liste séparée par des virgules des ports que vous souhaitez exposer par le biais de l’Azure Load Balancer à l’Internet public pour vos applications. Par exemple, si vous envisagez de déployer une application web dans votre cluster, saisissez « 80 » pour autoriser le trafic sur le port 80 dans votre cluster. Pour en savoir plus sur les points de terminaison, consultez la page [Communiquer avec des applications][service-fabric-connect-and-communicate-with-services].
 7. **Activez un proxy inverse**.  Le [proxy inverse Service Fabric](service-fabric-reverseproxy.md) permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services dotés de points de terminaison http et de communiquer avec ces services.
-8. Sous **+ Afficher les paramètres facultatifs**, configurez les **diagnostics** de cluster. Par défaut, les diagnostics sont activés sur votre cluster afin de faciliter la résolution des problèmes. Si vous souhaitez désactiver les diagnostics, définissez **l’État** sur **Désactivé**. Nous vous recommandons de **ne pas** désactiver les diagnostics. Si vous avez déjà créé le projet Application Insights, donnez sa clé, afin que les traces d’application soient acheminées vers lui.
+8. De retour dans le panneau **Configuration du Cluster**, sous **+Afficher les paramètres facultatifs**, configurer le cluster **diagnostics**. Par défaut, les diagnostics sont activés sur votre cluster afin de faciliter la résolution des problèmes. Si vous souhaitez désactiver les diagnostics, définissez **l’État** sur **Désactivé**. Nous vous recommandons de **ne pas** désactiver les diagnostics. Si vous avez déjà créé le projet Application Insights, donnez sa clé, afin que les traces d’application soient acheminées vers lui.
 9. **Incluez le service DNS**.  Le [service DNS](service-fabric-dnsservice.md) est un service facultatif qui vous permet de trouver d’autres services en utilisant le protocole DNS.
 10. Sélectionnez le **mode de mise à niveau Fabric** que vous souhaitez associer à votre cluster. Sélectionnez **Automatique**si vous souhaitez que le système récupère automatiquement la dernière version disponible et essaye de mettre à niveau votre cluster vers cette version. Définissez le mode sur **Manuel**si vous souhaitez choisir une version prise en charge. Pour en savoir plus sur le mode de mise à niveau de Service Fabric, consultez le document [Mettre à niveau un cluster Service Fabric][service-fabric-cluster-upgrade].
 
@@ -158,9 +158,9 @@ Ignorez cette section si vous avez déjà effectué les étapes décrites dans l
 
 ![SecurityCustomOption]
 
-Vous aurez besoin des informations de CertificateThumbprint SourceVault et CertificateURL pour terminer la page de sécurité. Si vous ne les avez pas sous la main, ouvrez une autre fenêtre de navigateur et effectuez les opérations suivantes
+Vous aurez besoin du coffre de clés source, de l’URL du certificat et des informations relatives à l’empreinte du certificat pour la page de sécurité. Si vous ne les avez pas sous la main, ouvrez une autre fenêtre de navigateur et effectuez les opérations suivantes dans le portail Azure
 
-1. Accédez à votre coffre de clés et sélectionnez le certificat. 
+1. Accédez à votre service de coffre de clés.
 2. Sélectionnez l’onglet « Propriétés » et copiez l’ID de ressource pour « Coffre de clés source » sur l’autre fenêtre de navigateur 
 
     ![CertInfo0]
@@ -171,8 +171,8 @@ Vous aurez besoin des informations de CertificateThumbprint SourceVault et Certi
 
     ![CertInfo1]
 
-6. Vous devez maintenant sur l’écran ci-dessous. Copiez « Empreinte numérique » dans « Empreinte numérique du certificat » sur l’autre fenêtre de navigateur
-7. Copiez les informations 'Identificateur Secret' pour l’« URL du certificat » dans l’autre fenêtre de navigateur.
+6. Vous devez maintenant sur l’écran ci-dessous. Copiez l’empreinte numérique hexadécimale SHA-1 dans « Empreinte numérique du certificat » sur l’autre fenêtre de navigateur
+7. Copiez l’Identificateur Secret' pour l’« URL du certificat » dans l’autre fenêtre de navigateur.
 
     ![CertInfo2]
 
@@ -186,7 +186,7 @@ Pour terminer la création du cluster, cliquez sur **Créer**. Vous pouvez éven
 
 ![Résumé]
 
-Vous pouvez voir la progression de la création dans les notifications. (Cliquez sur l’icône représentant une cloche près de la barre d’état dans l’angle supérieur droit de votre écran.) Si vous avez cliqué sur **Épingler au tableau d’accueil** pendant la création du cluster, **Déploiement du cluster Service Fabric** apparaît épinglé au **tableau d’accueil**.
+Vous pouvez voir la progression de la création dans les notifications. (Cliquez sur l’icône représentant une cloche près de la barre d’état dans l’angle supérieur droit de votre écran.) Si vous avez cliqué sur **Épingler au tableau d’accueil** pendant la création du cluster, **Déploiement du cluster Service Fabric** apparaît épinglé au **tableau d’accueil**. Ce processus prend un certain temps. 
 
 Pour effectuer des opérations de gestion sur votre cluster à l’aide de PowerShell ou CLI, vous devez vous connecter à votre cluster. En savoir plus sur la façon de [vous connecter à votre cluster](service-fabric-connect-to-secure-cluster.md).
 

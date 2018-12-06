@@ -3,7 +3,7 @@ title: Alertes de sécurité par type dans Azure Security Center | Microsoft Doc
 description: Cet article décrit les différents types d’alertes de sécurité disponibles dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2018
-ms.author: yurid
-ms.openlocfilehash: 0573442568115fc872cc4cf4cf8c369cd635028e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 24c6487ee7ec7d8398f933e29ca51cc9e390f47f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262112"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633263"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Présentation des alertes de sécurité dans Azure Security Center
 Cet article vous aide à comprendre les différents types d’alertes de sécurité et les informations associées disponibles dans Azure Security Center. Pour plus d’informations sur la gestion des alertes et des incidents, consultez l’article [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-Pour configurer la détection avancée, effectuez une mise à niveau vers Azure Security Center Standard. Une version d’évaluation gratuite de 60 jours est disponible. Pour mettre à niveau, sélectionnez **Niveau tarifaire** sous [Stratégie de sécurité](security-center-policies.md). Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
+Pour configurer la détection avancée, effectuez une mise à niveau vers Azure Security Center Standard. Une version d’évaluation gratuite de 60 jours est disponible. Pour mettre à niveau, sélectionnez **Niveau tarifaire** sous [Stratégie de sécurité](security-center-azure-policy.md). Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > Security Center a sorti avec les versions préliminaires limitées un nouvel ensemble de moyens de détection qui exploitent les enregistrements d’audit, une infrastructure d’audit courante, pour détecter des comportements malveillants sur les machines Linux. [Envoyez-nous](mailto:ASC_linuxdetections@microsoft.com) un e-mail avec vos ID d’abonnement pour joindre la version préliminaire.
@@ -57,7 +57,7 @@ Security Center utilise une analyse avancée pour identifier les ressources comp
     * Un processus avec une extension suspecte a été exécuté.
     * Un processus avec une double extension suspecte a été exécuté.
     * Un processus avec un caractère de droite à gauche (RLO) suspect dans son nom de fichier a été exécuté.
-    * Un processus dont le nom est très similaire mais différent d’un processus très courant a été exécuté
+    * Un processus dont le nom est similaire mais différent d’un processus courant a été exécuté
     * Un processus dont le nom correspond à un outil d’attaquant connu a été exécuté.
     * Un processus avec un nom aléatoire a été exécuté.
     * Un processus avec une extension suspecte a été exécuté.
@@ -96,10 +96,10 @@ Security Center utilise une analyse avancée pour identifier les ressources comp
 * **Tous les clichés instantanés de fichiers ont été supprimés** : cette alerte indique que les clichés instantanés ont été supprimés.
 * **Commandes suspectes de nettoyage de fichier** : cette alerte indique une combinaison de commandes systeminfo utilisée pour effectuer une activité de nettoyage automatique après compromission.  Alors que *systeminfo.exe* est un outil Windows légitime, une exécution deux fois de suite, suivie d’une commande de suppression comme survenue ici est rare.
 * **Création de compte suspecte** : cette alerte indique qu’un compte a été créé avec une proche ressemblance avec un compte de privilège Administrateur intégré. Cette technique peut être utilisée par des pirates pour créer un compte non autorisé sans être détecté.
-* **Activité suspecte de copie de clichés instantanés de volume** : cette alerte indique une activité de suppression de copie de cliché instantané sur la ressource. Le cliché instantané de volume (VSC) est un artefact important qui stocke des clichés instantanés de données. Cette activité est généralement associée à un ransowmare, mais elle peut aussi être légitime.
+* **Activité suspecte de copie de clichés instantanés de volume** : cette alerte indique une activité de suppression de copie de cliché instantané sur la ressource. Le cliché instantané de volume (VSC) est un artefact important qui stocke des clichés instantanés de données. Cette activité est associée à un ransowmare, mais elle peut aussi être légitime.
 * **Méthode de persistance du registre Windows** : cette alerte indique une tentative de conservation d’un fichier exécutable dans le registre Windows. Les logiciels malveillants utilisent souvent cette technique pour survivre à un démarrage.
 * **Nouvelle règle de pare-feu suspecte** : cette alerte indique qu’une règle de pare-feu a été ajoutée via *netsh.exe* pour autoriser un trafic à partir d’un fichier exécutable situé dans un emplacement suspect.
-* **Exécutions suspectes XCOPY**: cette alerte indique une série d’exécutions de XCOPY pouvant signaler la compromission d’une de vos machines et son utilisation pour propager des logiciels malveillants.
+* **Exécutions suspectes XCOPY** : cette alerte indique une série d’exécutions de XCOPY pouvant signaler la compromission d’une de vos machines et son utilisation pour propager des logiciels malveillants.
 * **Suppression de notice légale affichée aux utilisateurs lors de la connexion** : cette alerte indique une modification de la clé de registre qui contrôle l’affichage d’une notice légale aux utilisateurs quand ils se connectent. Il s’agit d’une activité courante utilisée par des attaquants après avoir compromis un hôte.
 * **Détection d’une combinaison anormale de caractères minuscules et majuscules en ligne de commande** : cette alerte indique l’utilisation d’une combinaison de majuscules et minuscules en ligne de commande, une technique utilisée par des attaquants pirates pour passer outre la règle de la fonction de hachage ou le respect de la casse de la machine.
 * **Ligne de commande obscurcie** : cette alerte montre la détection d’indicateurs suspects d’obscurcissement dans la ligne de commande.
@@ -113,7 +113,7 @@ Security Center utilise une analyse avancée pour identifier les ressources comp
 * **Un compte a été créé sur plusieurs hôtes sur une période de 24 heures** : cette alerte indique une tentative de création du même compte d’utilisateur sur plusieurs hôtes, ce qui peut être une preuve du fait qu’une personne malveillante se déplace latéralement sur le réseau après la compromission d’une ou plusieurs entités de réseau.
 * **Utilisation suspecte des CACLS pour réduire l’état de sécurité du système** : cette alerte indique une modification de la liste de contrôle d’accès des changements (CACLS). Cette technique est souvent utilisée par les attaquants pour donner un accès complet au système à des binaires tels que ftp.exe, net.exe, wscript.exe, etc.
 * **Paramètres d’attaque de golden ticket Kerberos suspects** : cette alerte indique que des paramètres de ligne de commande cohérents avec une attaque Golden Ticket Kerberos ont été exécutés. Une clé krbtgt compromise peut être utilisée par un attaquant pour emprunter l’identité de l’utilisateur de leur choix.
-* **Activation de la clé de registre WDigest UseLogonCredential** : cette alerte indique que la clé de registre a été modifiée pour permettre le stockage d’informations d’authentification en texte clair dans la mémoire LSA, pouvant être ensuite récoltées à partir de la mémoire.
+* **Activation de la clé de registre WDigest UseLogonCredential** : cette alerte indique que la clé de registre a été modifiée pour permettre le stockage d’informations de connexion en texte clair dans la mémoire LSA, pouvant être ensuite récoltées à partir de la mémoire.
 * **Utilisation potentiellement suspecte de l’outil Telegram** : cette alerte indique l’installation de Telegram, un service de messagerie instantanée libre sur le cloud, utilisé par des attaquants pour transférer des fichiers binaires malveillants sur n’importe quel ordinateur, téléphone ou tablette.
 * **Création d’un nouveau point ASEP** : cette alerte indique la création d’un nouveau point ASEP (point d’extensibilité de départ automatique), entraînant le démarrage automatique du nom du processus identifié dans la ligne de commande, pouvant être utilisé par un attaquant pour obtenir une persistance.
 * **Modifications suspectes de Set-ExecutionPolicy et de WinRM** : cette alerte indique des modifications de configuration, associées à l’utilisation de la webshell malveillante ChinaChopper.
@@ -134,7 +134,7 @@ Security Center utilise une analyse avancée pour identifier les ressources comp
 * **Arguments de ligne de commande suspects** : cette alerte indique que des arguments de ligne de commande suspects ont été utilisés conjointement avec un interpréteur de commandes inverse utilisé par le groupe d’activités HYDROGEN.
 * **Informations d’identification de document suspectes** : cette alerte indique qu’un hachage de mot de passe précalculé, commun et suspect est utilisé par des programmes malveillants pour exécuter un fichier.
 * **Construction de script dynamique PS**: cette alerte indique la construction dynamique d’un script PowerShell. Les attaquants utilisent cette technique pour générer un script progressivement afin d’échapper aux systèmes IDS.
-* **Indicateurs Metaploit** : cette alerte indique une activité associée à l’infrastructure Metasploit, qui fournit une gamme d’outils et de fonctionnalités à un attaquant.
+* **Indicateurs Metasploit** : cette alerte indique une activité associée à l’infrastructure Metasploit, qui fournit une gamme d’outils et de fonctionnalités à un attaquant.
 * **Activité de compte suspecte** : cette alerte indique une tentative de connexion à une machine à l’aide d’un compte récemment compromis.
 * **Création d’un compte** : cette alerte indique la création d’un nouveau compte sur la machine.
 
@@ -192,7 +192,7 @@ Si des informations supplémentaires sont disponibles, elles s’affichent dans 
 - Appareil Plug-and-Play branché à partir d’un appareil inconnu
 - Alertes non actionnables
 - Création d’un compte
-- Fichier décodé à l’aide de l’outil certutil 
+- Fichier décodé à l’aide de l’outil certutil
 
 ![Alerte d’accès inhabituel](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

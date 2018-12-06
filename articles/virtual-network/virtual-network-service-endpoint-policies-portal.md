@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 3c28181e1d1a4fd1cdac530ed8f393c7e0c7ea92
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426294"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633008"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Créer, changer ou supprimer une stratégie de point de terminaison de service à l’aide du portail Azure
 
@@ -64,7 +64,7 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
    
    ![Créer des définitions de stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. Facultatif : entrez ou sélectionnez les informations suivantes dans **Balises**
+5. Facultatif : entrez ou sélectionnez les informations suivantes dans **Étiquettes** :
    
    - Clé : sélectionnez votre clé pour la stratégie. Exemple : Département     
    - Valeur : entrez la paire de valeur pour la clé. Exemple : Finances
@@ -114,7 +114,7 @@ Avant de pouvoir associer une stratégie à un sous-réseau, vous devez créer u
    ![Associer une stratégie](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-associatepolicies.PNG)
 
 >[!WARNING] 
->L’accès à des ressources du service dans d’autres régions sera autorisé à partir de ce sous-réseau, en fonction des groupes de sécurité réseau (NSG). Pour retreindre l’accès aux seules les régions de point de terminaison, limitez les groupes de sécurité réseau au seul trafic de service dans les régions de point de terminaison. Pour plus d’informations sur la création de groupes de sécurité réseau avec des balises de service par région, consultez [Balises de service Azure pour les groupes de sécurité réseau](manage-network-security-group.md?toc=%2fcreate-a-security-rule%2f.json).
+>L’accès à des ressources du service dans d’autres régions sera autorisé à partir de ce sous-réseau, en fonction des groupes de sécurité réseau (NSG). Pour retreindre l’accès aux seules les régions de point de terminaison, limitez les groupes de sécurité réseau au seul trafic de service dans les régions de point de terminaison. Pour plus d’informations sur la création de groupes de sécurité réseau avec des étiquettes de service par région, consultez [Étiquettes de service Azure pour les groupes de sécurité réseau](manage-network-security-group.md?toc=%2fcreate-a-security-rule%2f.json).
 
 Dans l’exemple ci-dessous, le groupe de sécurité réseau est soumis à des restrictions pour accéder uniquement aux ressources du Stockage Azure dans WestCentralUS et WestUS2, avec une règle « Refuser tout » comme règle de priorité inférieure.
 

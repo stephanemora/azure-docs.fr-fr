@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/09/2018
 ms.author: sharadag
-ms.openlocfilehash: e36253600dd8039940209cb5912cb2e4c2e0fbcf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a2ba0fb34dd34129a134aa2639d06816f3523408
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988595"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865503"
 ---
 # <a name="geo-filtering-geographic-based-access-control-to-azure-front-door-service-frontends"></a>Filtrage géographique : Contrôle d'accès géographique vers des serveurs frontaux Azure Front Door Service
 
@@ -31,7 +31,7 @@ Vous pouvez configurer une stratégie de filtrage géographique pour votre porte
 
 |Indicatif de pays | Nom du pays |
 | ----- | ----- |
-| AD | Fédération de Russie |
+| AD | Andorre |
 | AE | Émirats Arabes Unis|
 | AF | Afghanistan|
 | AG | Antigua-et-Barbuda|
@@ -134,7 +134,7 @@ Vous pouvez configurer une stratégie de filtrage géographique pour votre porte
 | LV | Lettonie|
 | LY | Libye|
 | MA | Maroc|
-| MD | Moldavie, République de|
+| MD | Moldova|
 | MG | Madagascar|
 | MK | République de Macédoine|
 | ML | Mali|

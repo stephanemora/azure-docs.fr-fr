@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/07/2018
+ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: f7784883bca4773d69d94b04e7ec24a89ecd88c1
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 3483a2cf30421e96bc408516bab5c3c304fdce0d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300694"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632504"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteur en bloc Java : informations sur le téléchargement
 
@@ -46,6 +46,6 @@ ms.locfileid: "36300694"
 
 <tr><td>**Prise en main**</td><td>[Bien démarrer avec le kit de développement logiciel (SDK) Java de la bibliothèque de l’exécuteur en bloc](bulk-executor-java.md)</td></tr>
 
-<tr><td>**Runtime minimal pris en charge**</td><td>JDK 7</td></tr>
+<tr><td>**Runtime minimal pris en charge**</td><td>[Kit de développement Java (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 74bfd49fd69353e95a275f31fa0bba9e9b558227
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636541"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632923"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Didacticiel : configurer Slack pour l’approvisionnement automatique d’utilisateurs
 
@@ -113,6 +113,14 @@ Ainsi, les objets de groupe affectés à Slack dans la section **Utilisateurs et
 
 Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
 
+## <a name="connector-limitations"></a>Limitations du connecteur
+
+  * Quand vous configurez l’attribut **displayName** de Slack, tenez compte des comportements suivants : 
+  * Les valeurs ne sont pas entièrement uniques (par exemple, 2 utilisateurs peuvent avoir le même nom complet).
+  * Les caractères non anglais, les espaces et les majuscules sont pris en charge. 
+  * Les signes de ponctuation autorisés sont les points, traits de soulignement, traits d’union, apostrophes, crochets (par exemple, **( [ { } ] )**) et séparateurs (par exemple, **, / ;**).
+  * La mise à jour n’est effectuée que si ces deux paramètres sont configurés dans l’espace de travail/organisation de Slack : **Profile syncing is enabled** (La synchronisation des profils est activée) et **Users cannot change their display name** (Les utilisateurs ne peuvent pas changer leur nom d’affichage).
+  * L’attribut **userName** ne doit pas dépasser 21 caractères et sa valeur doit être unique. 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

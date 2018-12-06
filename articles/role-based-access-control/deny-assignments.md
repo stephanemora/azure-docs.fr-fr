@@ -11,20 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 8ef3a2ec44c5eff80d3a50a6c56805667e164ba8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fa1a979c01999bd79c45d24e4c7771edaf346dd8
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980166"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632413"
 ---
 # <a name="understand-deny-assignments"></a>Comprendre les attributions de refus
 
-De façon similaire à une attribution de rôle, une *attribution de refus* lie un ensemble d’actions de refus à un utilisateur, un groupe ou un principal de service dans une étendue spécifique, dans le but de refuser l’accès. Une attribution de refus peut également exclure des principaux et empêcher l’héritage dans les étendues enfants, qui est différent des attributions de rôles. Actuellement, les attributions de refus sont **en lecture seule** et peuvent être définies uniquement par Azure. Cet article explique comment définir des attributions de refus.
+À l’instar d’une attribution de rôle, une *affectation de refus* associe un ensemble d’actions de refus à un utilisateur, un groupe ou un principal de service, sur une étendue spécifique, afin de refuser l’accès. Les affectations de refus empêchent les utilisateurs d’effectuer des actions particulières, même si une attribution de rôle leur accorde l’accès. Dans Azure, certains fournisseurs de ressources incluent désormais des affectations de refus. Actuellement, les affectations de refus sont **en lecture seule** et peuvent être définies uniquement par Azure.
+
+À certains égards, les affectations de refus sont différentes des attributions de rôles. Les affectations de refus peuvent exclure des principaux et empêcher la transmission à des étendues enfant. Les affectations de refus s’appliquent également aux affectations d’[administrateurs d’abonnements classiques](rbac-and-directory-admin-roles.md).
+
+Cet article explique comment définir des attributions de refus.
 
 ## <a name="deny-assignment-properties"></a>Propriétés des attributions de refus
 
@@ -41,18 +45,18 @@ De façon similaire à une attribution de rôle, une *attribution de refus* lie 
 > | `Permissions.NotDataActions` | Non  | String[] | Tableau de chaînes qui spécifient les opérations de données à exclure de l’attribution de refus. |
 > | `Scope` | Non  | Chaîne | Chaîne qui spécifie l’étendue à laquelle l’attribution de refus s’applique. |
 > | `DoNotApplyToChildScopes` | Non  | Booléen | Spécifie si l’attribution de refus s’applique aux étendues enfants. La valeur par défaut est false. |
-> | `Principals[i].Id` | Oui | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe ou principal de service) auxquels s’applique l’attribution de refus. Définissez sur un GUID vide `00000000-0000-0000-0000-000000000000` pour représenter tout le monde. |
-> | `Principals[i].Type` | Non  | String[] | Tableau de types d’objet représentés par Principals[i].Id. Affectez la valeur `Everyone` pour représenter tout le monde. |
-> | `ExcludePrincipals[i].Id` | Non  | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe ou principal de service) auxquels l’attribution de refus ne s’applique pas. |
+> | `Principals[i].Id` | Oui | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels s’applique l’affectation de refus. Définie sur un GUID vide `00000000-0000-0000-0000-000000000000` pour représenter tous les principaux. |
+> | `Principals[i].Type` | Non  | String[] | Tableau de types d’objet représentés par Principals[i].Id. Définie sur `SystemDefined` pour représenter tous les principaux. |
+> | `ExcludePrincipals[i].Id` | Non  | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels l’attribution de refus ne s’applique pas. |
 > | `ExcludePrincipals[i].Type` | Non  | String[] | Tableau de types d’objet représentés par ExcludePrincipals[i].Id. |
 > | `IsSystemProtected` | Non  | Booléen | Spécifie si cette attribution de refus a été créée par Azure et ne peut pas être modifiée ou supprimée. Actuellement, toutes les attributions de refus sont protégées par le système. |
 
-## <a name="everyone-principal"></a>Principal Tout le monde
+## <a name="system-defined-principal"></a>Principal défini par le système
 
-Pour prendre en charge les attributions de refus, le principal Tout le monde a été introduit. Le principal Tout le monde représente tous les utilisateurs, groupes et principaux de service figurant dans un annuaire Azure AD. Si l’ID de principal est un GUID nul `00000000-0000-0000-0000-000000000000` et le type de principal `Everyone`, le principal représente tout le monde. Le principal Tout le monde peut être associé à `ExcludePrincipals` pour refuser tout le monde, à l’exception de certains utilisateurs. Le principal Tout le monde a les contraintes suivantes :
+Le **principal défini par le système** a été introduit pour prendre en charge les affectations de refus. Ce principal représente tous les utilisateurs, groupes, principaux de service et identités managées figurant dans un annuaire Azure AD. Si l’ID du principal est un GUID nul `00000000-0000-0000-0000-000000000000`, et le type de principal `SystemDefined`, le principal représente tous les principaux. `SystemDefined` peut être combiné avec `ExcludePrincipals` pour refuser tous les principaux, à l’exception de certains utilisateurs. `SystemDefined` présente les contraintes suivantes :
 
 - Il peut être utilisé uniquement dans `Principals` et ne peut pas être utilisé dans `ExcludePrincipals`.
-- `Principals[i].Type` doit être défini sur `Everyone`.
+- `Principals[i].Type` doit être défini sur `SystemDefined`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

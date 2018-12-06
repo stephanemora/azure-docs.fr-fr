@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 11/29/2018
 ms.author: spelluru
-ms.openlocfilehash: e2efe2bfb26fa7a14a9e80c26fba1322f82cb0eb
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c5df5f43c4f01013cc44a2497203947f303f3e81
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856919"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634827"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiration des messages (durée de vie)
 
@@ -26,7 +26,7 @@ La charge utile dans un message, ou une commande ou demande transmise par un mes
 
 Dans les environnements de développement et de test où les files d’attente et les rubriques sont souvent utilisées dans le contexte d’exécutions partielles d’applications ou de parties d’application, il est également préférable que les messages de test abandonnés soient automatiquement nettoyés de la mémoire pour permettre à la prochaine série de tests de démarrer le nettoyage.
 
-Le délai d’expiration de chaque message peut être contrôlé à l’aide de la propriété système [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), qui définit une durée relative. Ce délai devient un instant absolu quand le message est mis en file d’attente dans l’entité. La propriété [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) prend alors la valeur [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+Le délai d’expiration de chaque message peut être contrôlé à l’aide de la propriété système [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), qui définit une durée relative. Ce délai devient un instant absolu quand le message est mis en file d’attente dans l’entité. La propriété [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) prend alors la valeur [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). Le paramètre time-to-live (TTL) sur un message réparti n'est pas appliqué lorsqu’aucun client n’écoute activement.
 
 Quand l’instant **ExpiresAtUtc** est passé, les messages ne sont plus éligibles pour la récupération. Le délai d’expiration ne s’applique pas aux messages qui sont actuellement verrouillés pour la remise, lesquels continuent d’être traités normalement. Si le verrou expire ou si le message est abandonné, le délai d’expiration prend effet immédiatement.
 
@@ -44,15 +44,37 @@ L’utilisation combinée de la propriété [TimeToLive](/dotnet/api/microsoft.a
 
 Prenons l’exemple d’un site web qui doit exécuter des travaux de manière fiable sur un serveur principal avec des contraintes de mise à l’échelle, et qui connaît parfois des pics de trafic ou doit être isolé pendant les périodes de disponibilité de ce serveur principal. En situation normale, le gestionnaire côté serveur envoie (push) les données transmises par l’utilisateur dans une file d’attente et reçoit par la suite une réponse qui confirme le traitement réussi de la transaction dans une file d’attente de réponse. En présence d’un pic de trafic, si le gestionnaire du serveur principal ne peut pas traiter ses éléments de backlog dans le temps imparti, les travaux expirés sont retournés dans la file d’attente de lettres mortes. L’utilisateur interactif peut être averti que l’opération demandée va nécessiter un peu plus de temps que normalement, et la demande peut ensuite être placée dans une autre file d’attente pour un chemin d’accès de traitement où le résultat du traitement final est envoyé à l’utilisateur par e-mail. 
 
+
 ## <a name="temporary-entities"></a>Entités temporaires
 
 Les files d’attente, rubriques et abonnements Service Bus peuvent être créés en tant qu’entités temporaires, qui sont automatiquement supprimées quand elles n’ont pas été utilisées pendant une période spécifiée.
  
 Le nettoyage automatique est utile dans les scénarios de développement et de test où les entités sont créées de façon dynamique et ne sont pas nettoyées après leur utilisation, en raison d’une interruption de la série de tests ou d’un débogage. Il est également utile quand une application crée des entités dynamiques, telles qu’une file d’attente de réponse, pour recevoir des réponses dans un processus de serveur web ou dans un autre objet relativement éphémère. En effet, dans ce cas, il est difficile de nettoyer correctement ces entités quand l’instance de l’objet disparaît.
 
-Vous activez la fonctionnalité à l’aide de la propriété [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues), qui est définie à la durée pendant laquelle une entité peut rester inactive (non utilisée) avant d’être automatiquement supprimée. La durée minimale est de 5 minutes.
+La fonctionnalité est activée avec la propriété [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues). La propriété est définie sur la durée pendant laquelle une entité peut rester inactive (non utilisée) avant d’être automatiquement supprimée. La valeur minimale pour cette propriété est 5.
  
-La propriété **autoDeleteOnIdle** doit être définie par le biais d’une opération Azure Resource Manager ou des API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) du client .NET Framework. Elle ne peut pas être définie dans le portail.
+La propriété **autoDeleteOnIdle** doit être définie par le biais d’une opération Azure Resource Manager ou des API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) du client .NET Framework. Vous ne pouvez pas la définir dans le portail.
+
+## <a name="idleness"></a>Inactivité
+
+Voici ce qui considéré comme inactivité d’entités (files d’attente, rubriques et abonnements) :
+
+- Files d’attente
+    - Aucun envoi  
+    - Aucune réception  
+    - Aucune mise à jour de la file d’attente  
+    - Aucun message planifié  
+    - Aucun parcours/affichage d’aperçu 
+- Rubriques  
+    - Aucun envoi  
+    - Aucune mise à jour de la rubrique  
+    - Aucun message planifié 
+- Abonnements
+    - Aucune réception  
+    - Aucune mise à jour de l’abonnement  
+    - Aucune nouvelle règle ajoutée à l’abonnement  
+    - Aucun parcours/affichage d’aperçu  
+ 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

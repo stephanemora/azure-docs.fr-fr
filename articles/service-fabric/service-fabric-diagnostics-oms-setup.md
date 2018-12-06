@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/11/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2cdc9f780e0d9ddb6e688e53208e5597b000aa56
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408079"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632770"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurer Log Analytics pour un cluster
 
@@ -72,7 +72,7 @@ Le compte apparaît maintenant dans le cadre des journaux de votre compte de sto
 Vous avez ajouté la solution Service Fabric Analytics à un espace de travail Log Analytics qui est à présent connecté à la table du journal des applications et à la plateforme de votre cluster. Vous pouvez ajouter des sources supplémentaires à l’espace de travail de la même façon.
 
 
-## <a name="deploy-log-analytics-by-using-a-resource-manager-template"></a>Déployer Log Analytics avec un modèle Resource Manager
+## <a name="deploy-log-analytics-with-azure-resource-manager"></a>Déployer Log Analytics avec Azure Resource Manager
 
 Lors du déploiement d’un cluster avec un modèle Resource Manager, celui-ci crée un espace de travail Log Analytics, y ajoute la solution Service Fabric et la configure pour lire des données provenant des tables de stockage appropriées.
 
@@ -93,7 +93,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -Tem
 
 Azure Resource Manager détecte que cette commande est une mise à jour d’une ressource existante. Il traite uniquement les modifications qui existent entre le modèle du déploiement existant et le nouveau modèle fourni.
 
-## <a name="deploy-log-analytics-by-using-azure-powershell"></a>Déployer Log Analytics avec Azure PowerShell
+## <a name="deploy-log-analytics-with-azure-powershell"></a>Déployer Log Analytics avec Azure PowerShell
 
 Vous pouvez également déployer votre ressource Log Analytics avec PowerShell à l’aide de la commande `New-AzureRmOperationalInsightsWorkspace`. Pour utiliser cette méthode, vérifiez que vous avez installé [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Utilisez ce script pour créer un espace de travail Log Analytics et lui ajouter la solution Service Fabric : 
 
@@ -128,4 +128,4 @@ Vous pouvez également ajouter d’autres solutions ou apporter d’autres modif
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déployez l’agent Log Analytics](service-fabric-diagnostics-oms-agent.md) sur vos nœuds pour collecter les compteurs de performances, ainsi que les statistiques et les journaux Docker de vos conteneurs
 * Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) offertes dans le cadre de Log Analytics
-* [Utiliser le Concepteur de vues pour créer des vues personnalisées dans Log Analytics](../log-analytics/log-analytics-view-designer.md)
+* [Utiliser le Concepteur de vues pour créer des vues personnalisées dans Log Analytics](../azure-monitor/platform/view-designer.md)
