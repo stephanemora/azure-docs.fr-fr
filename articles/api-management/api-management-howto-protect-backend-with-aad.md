@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576992"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635065"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
@@ -100,8 +100,6 @@ Maintenant que vous avez inscrit deux applications pour représenter l’API et 
 
 > [!NOTE]
 > Si **Azure Active Directory** n’est pas listé sous les autorisations d’autres applications, sélectionnez **Ajouter** pour l’ajouter à partir de la liste.
-> 
-> 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Activer l’autorisation utilisateur OAuth 2.0 dans la console de développeur
 
@@ -109,7 +107,7 @@ Maintenant que vous avez inscrit deux applications pour représenter l’API et 
 
 Dans cet exemple, la console de développeur est l’application cliente. Les étapes suivantes décrivent comment activer l’autorisation utilisateur OAuth 2.0 dans la console de développeur. 
 
-1. Accédez à votre instance Gestion des API.
+1. Sur le Portail Azure, accédez à votre instance Gestion des API.
 
 2. Sélectionnez **OAuth 2.0** > **Ajouter**.
 
@@ -120,6 +118,9 @@ Dans cet exemple, la console de développeur est l’application cliente. Les é
 5. Sélectionnez **Code d’autorisation** comme **Types d’octroi d’autorisation**.
 
 6. Spécifiez l’**URL de point de terminaison d’autorisation** et l’**URL de point de terminaison de jeton**. Récupérez ces valeurs à partir de la page **Points de terminaison** dans votre locataire Azure AD. Accédez à nouveau à la page **Inscriptions des applications** puis sélectionnez **Points de terminaison**.
+
+    >[!NOTE]
+    > Utilisez ici les points de terminaison **v1**.
 
 7. Copiez la valeur de **Point de terminaison d’autorisation OAuth 2.0** et collez-la dans la zone de texte **URL de point de terminaison d’autorisation**.
 
@@ -154,6 +155,9 @@ L’étape suivante consiste à activer l’autorisation utilisateur OAuth 2.0 p
 5. Sélectionnez **Enregistrer**.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Appel de l’API à partir du portail des développeurs
+
+> [!NOTE]
+> Cette section ne s’applique pas au niveau **consommation**, qui ne prend pas en charge le portail des développeurs.
 
 Maintenant que l’autorisation utilisateur OAuth 2.0 est activée sur `Echo API`, la console de développeur obtient un jeton d’accès pour le compte de l’utilisateur avant d’appeler l’API.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: e8ecdf1fffb51c0b8e9ce996307595a5444a64ee
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411755"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824300"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure
 
@@ -29,13 +29,13 @@ Si vous rencontrez des problèmes lors de l’activation de machines virtuelles 
 Azure utilise différents points de terminaison différents pour l’activation de KMS en fonction de la région cloud dans laquelle se trouve la machine virtuelle. Lorsque vous utilisez ce guide de dépannage, utilisez le point de terminaison KMS approprié qui s’applique à votre région.
 
 * Régions de cloud public Azure : kms.core.windows.net:1688
-* Régions de cloud national Azure en Chine : kms.core.chinacloudapi.cn:1688
+* Régions de cloud national 21Vianet Azure en Chine : kms.core.chinacloudapi.cn:1688
 * Régions de cloud national Azure en Allemagne : kms.core.cloudapi.de:1688
 * Régions de cloud national Azure aux États-Unis : kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Symptôme
 
-Lorsque vous essayez d’activer une machine virtuelle Windows Azure, vous recevez un message d’erreur semblable à l’exemple suivant :
+Lorsque vous essayez d’activer une machine virtuelle Windows Azure, vous recevez un message d’erreur semblable à l’exemple suivant :
 
 **Erreur 0xC004F074  : le logiciel LicensingService a signalé que l’ordinateur n’a pas pu être activé. Aucun service de gestion des clés (KMS) n’a pu être contacté. Pour obtenir plus d’informations, veuillez consulter le Journal des événements de l’application.**
 
@@ -45,9 +45,9 @@ En règle générale, les problèmes d’activation de machines virtuelles Azure
 ## <a name="solution"></a>Solution
 
 >[!NOTE]
->Si vous utilisez un réseau privé virtuel de site à site et un tunneling forcé, consultez l’article [Use Azure custom routes to enable KMS activation with forced tunneling](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) (Utiliser les itinéraires personnalisés Azure pour permettre l’activation du service de gestion de clés avec un tunneling forcé). 
+>Si vous utilisez un réseau privé virtuel de site à site et un tunneling forcé, consultez l’article [Utiliser des itinéraires personnalisés Azure pour permettre l’activation KMS avec le tunneling forcé](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
 >
->Si vous utilisez le service ExpressRoute et possédez un itinéraire publié par défaut, consultez l’article [Azure VM may fail to activate over ExpressRoute](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Une machine virtuelle Azure peut être incapable d’activer ExpressRoute).
+>Si vous utilisez le service ExpressRoute et possédez un itinéraire publié par défaut, consultez l’article [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Une machine virtuelle Azure peut être incapable d’activer ExpressRoute).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Étape 1 : Configurer la bonne clé d’installation client KMS (pour Windows Server 2016 et Windows Server 2012 R2)
 
@@ -55,7 +55,7 @@ Pour la machine virtuelle créée à partir d’une image personnalisée de Wind
 
 Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle utilise la fonctionnalité d’activation automatique de machine virtuelle (AVMA). Cette dernière est uniquement prise en charge par Windows Server 2016 et Windows Server 2012 R2.
 
-1. Exécutez **slmgr.vbs /dlv** dans une invite de commandes avec élévation de privilèges. Dans la sortie, vérifiez la valeur Description. Ensuite, déterminez si cette valeur a été créée à partir de la vente au détail (Canal de vente au détail) ou d’un support de licence en volume (VOLUME_KMSCLIENT) :
+1. Exécutez **slmgr.vbs /dlv** dans une invite de commandes avec élévation de privilèges. Dans la sortie, vérifiez la valeur Description. Ensuite, déterminez si cette valeur a été créée à partir de la vente au détail (Canal de vente au détail) ou d’un support de licence en volume (VOLUME_KMSCLIENT) :
   
     ```
     cscript c:\windows\system32\slmgr.vbs /dlv
@@ -81,20 +81,19 @@ Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle u
 
 2. Accédez au menu Démarrer, effectuez une recherche pour Windows PowerShell, cliquez avec le bouton droit sur Windows PowerShell, puis sélectionnez l’option Exécuter en tant qu’administrateur.
 
-3. Assurez-vous que la machine virtuelle est configurée pour utiliser le bon serveur Azure KMS. Pour ce faire, exécutez la commande suivante :
-  
+3. Assurez-vous que la machine virtuelle est configurée pour utiliser le bon serveur Azure KMS. Pour ce faire, exécutez la commande suivante :
+  
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     La commande doit renvoyer le message suivant : le nom de machine de KMS a été configuré sur kms.core.windows.net:1688 avec succès.
 
 4. Vérifiez à l’aide de Psping que vous avez une connexion au serveur KMS. Basculez vers le dossier où vous avez extrait le téléchargement Pstools.zip, puis exécutez la commande suivante :
-  
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
+  
   Dans l’avant-dernière ligne de la sortie, assurez-vous que les informations suivantes s’affichent : Envoyé = 4, Reçu = 4, Perdu = 0 (0 % de perte).
 
   Si la perte est supérieure à 0 (zéro), la machine virtuelle n’a pas de connectivité au serveur KMS. Dans ce cas, si la machine virtuelle se trouve au sein d’un réseau virtuel et a spécifié un serveur DNS personnalisé, vérifiez que le serveur DNS est capable de résoudre kms.core.windows.net. Sinon, passez à un serveur DNS capable de résoudre kms.core.windows.net.
@@ -103,7 +102,7 @@ Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle u
   
 Vérifiez également que le pare-feu invité n’a pas été configuré de manière à bloquer les tentatives d’activation.
 
-5. Après avoir vérifié que la connectivité à kms.core.windows.net fonctionne, exécutez la commande suivante dans l’invite Windows PowerShell avec élévation de privilèges. Cette commande tente plusieurs fois l’activation.
+5. Après avoir vérifié que la connectivité à kms.core.windows.net fonctionne, exécutez la commande suivante dans l’invite Windows PowerShell avec élévation de privilèges. Cette commande tente plusieurs fois l’activation.
 
     ```
     1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
@@ -117,7 +116,7 @@ Une activation réussie renvoie des informations qui ressemblent à ceci :
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>J’ai créé l’image Windows Server 2016 à partir de la Place de marché Microsoft Azure. Ai-je besoin de configurer la clé KMS pour l’activation de Windows Server 2016 ? 
  
-Non. Dans la Place de marché Microsoft Azure, l’image contient la bonne clé d’installation client KMS déjà configurée. 
+ Non. Dans la Place de marché Microsoft Azure, l’image contient la bonne clé d’installation client KMS déjà configurée. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>L’activation de Windows fonctionne-t-elle de la même façon, peu importe si la machine virtuelle utilise ou non Azure Hybrid Use Benefit (HUB) ? 
  
@@ -125,7 +124,7 @@ Oui.
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Que se passe-t-il en cas d’expiration de la période d’activation de Windows ? 
  
-Lorsque la période de grâce a expiré et si Windows n’est pas encore activé, Windows Server 2008 R2 et versions ultérieures de Windows affichera des notifications supplémentaires sur l’activation. Le fond d’écran du Bureau reste noir, et Windows Update installera uniquement les mises à jour essentielles et de sécurité. Les mises à jour facultatives ne seront pas installées par Windows Update. Consultez la section Notifications au bas de la page [Licensing Conditions](http://technet.microsoft.com/library/ff793403.aspx) (Conditions d’obtention de licence).   
+Lorsque la période de grâce a expiré et si Windows n’est pas encore activé, Windows Server 2008 R2 et versions ultérieures de Windows affichera des notifications supplémentaires sur l’activation. Le fond d’écran du Bureau reste noir, et Windows Update installera uniquement les mises à jour essentielles et de sécurité. Les mises à jour facultatives ne seront pas installées par Windows Update. Consultez la section Notifications au bas de la page [Licensing Conditions](https://technet.microsoft.com/library/ff793403.aspx) (Conditions d’obtention de licence).   
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.

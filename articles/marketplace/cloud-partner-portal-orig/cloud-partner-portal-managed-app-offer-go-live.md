@@ -1,5 +1,5 @@
 ---
-title: TITRE | Microsoft Docs
+title: Proposer votre offre Azure Application en direct sur la Place de marché Azure | Microsoft Docs
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 643b7d674de3d51f98b69d6f0659478c9893e3b1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 18a8e6ae8ab3bd4299c6a014f938e73a2a021492
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806274"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263586"
 ---
 <a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Proposer votre offre Azure Application en direct sur la Place de marché Azure 
 ===========================================================
@@ -33,19 +33,22 @@ Examinons ce processus plus en détail pour mieux comprendre ce qui se passe lor
 <a name="publishing-process"></a>Processus de publication 
 ------------------
 
-Pour démarrer le processus de publication, cliquez sur \"Publier\" dans l’onglet Éditeur.
+Pour démarrer le processus de publication, cliquez sur \"Publier\" dans l’onglet **Éditeur**.
 
 ![Offre en direct - Séquence 1 - Publier](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
 
-L'onglet État répertorie les étapes de publication et indique où se trouve votre offre.
+L'onglet **État** répertorie les étapes de publication et indique où se trouve votre offre.
 
 ![Offre en direct - Séquence 2 - Workflow](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_workflow.png)
 
-À tout moment au cours du processus de publication, vous pouvez également vous connecter et cliquer sur l’onglet Toutes les offres pour afficher l’état le plus récent de vos offres. Vous pouvez cliquer directement sur l’état de votre offre et afficher les détails concernant sa position dans le processus de publication.
+À tout moment au cours du processus de publication, vous pouvez également vous connecter et cliquer sur l’onglet **Toutes les offres** pour voir l’état le plus récent de vos offres. Vous pouvez cliquer directement sur l’état de votre offre et afficher les détails concernant sa position dans le processus de publication.
 
-Nous allons étudier chacune des étapes de publication pour comprendre en quoi elles consistent et estimer leur durée.
+> [!WARNING]
+> Si l’attribution de l’utilisation de client n’est pas activée, le message d’erreur suivant s’affiche pendant le processus de publication : « L’attribution de l’utilisation de client partenaire Azure est manquante dans un ou plusieurs modèles Azure Resource Manager. Pour résoudre le problème, ajoutez un GUID de suivi au modèle Azure Resource Manager dans les packages mainTemplate.json pour le plan servicenow. Pour plus d’informations, consultez http://aka.ms/customerusageattribution. » 
 
-### <a name="validate-pre-requisites-1-day"></a>Valider les conditions préalables (\<1 jour) 
+Nous allons étudier chacune des étapes de publication, expliquer en quoi elles consistent et estimer leur durée.
+
+### <a name="validate-prerequisites-1-day"></a>Valider les prérequis (\<1 jour) 
 
 Lorsque vous cliquez sur \"Publier\", une vérification automatique intervient pour confirmer que vous avez renseigné tous les champs obligatoires de votre offre. Si un champ n'est pas renseigné, un avertissement apparaît en regard de celui-ci. Complétez-le correctement, puis cliquez à nouveau sur \'Publier\'.
 

@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/29/2018
+ms.date: 11/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344935"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634487"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Java Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](sql-api-java-application.md)</td></tr>
 
-<tr><td>**Runtime minimal pris en charge**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Runtime minimal pris en charge**</td><td>[Kit de développement Java (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
@@ -105,7 +105,7 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 * Correction de quelques bogues dans le conteneur de session qui peut provoquer une exception « Ressource propriétaire introuvable » pour les demandes dès la création de la collection.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](sql-api-sql-query.md#Aggregates).
+* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](how-to-sql-query.md#Aggregates).
 * Ajout de la prise en charge de la modification de flux.
 * Ajout de la prise en charge des informations relatives aux quotas de collections via RequestOptions.setPopulateQuotaInfo.
 * Ajout de la prise en charge de l’enregistrement de script de procédure stockée via RequestOptions.setScriptLoggingEnabled.
@@ -205,7 +205,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [1.16.2](#1.16.2) |29 Juin 2018 |--- |
+| [1.16.2](#1.16.2) |29 juin 2018 |--- |
 | [1.16.1](#1.16.1) |16 mai 2018 |--- |
 | [1.16.0](#1.16.0) |15 mars 2018 |--- |
 | [1.15.0](#1.15.0) |14 novembre 2017 |--- |

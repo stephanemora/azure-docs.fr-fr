@@ -1,10 +1,11 @@
 ---
-title: Interprétation des résultats de modèle dans Machine Learning | Microsoft Docs
+title: Interpréter les résultats de modèle dans Machine Learning Studio - Azure | Microsoft Docs
 description: Sélection du paramètre optimal défini pour un algorithme en utilisant et visualisant des sorties de modèle de notation.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
@@ -15,24 +16,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: e62f4716a95a6c1840afde27361eeb756abff335
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c06b05989270b4199e5d97ca399a1411b73a702b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837002"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310267"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning"></a>Interprétation des résultats de modèle dans Azure Machine Learning
-Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio. Après avoir formé un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.
+# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpréter les résultats de modèle dans Azure Machine Learning Studio
+Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio. Après avoir entraîné un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-Il existe quatre principaux types de modèles d'apprentissage automatique dans Azure Machine Learning :
+Il existe quatre principaux types de modèles Machine Learning dans Azure Machine Learning :
 
-* classification ;
+* Classification
 * Clustering
-* régression ;
-* systèmes de recommandation.
+* Régression
+* Systèmes de recommandation
 
 Les modules utilisés pour la prédiction en plus de ces modèles sont :
 
@@ -46,7 +47,7 @@ Cette rubrique aborde l’interprétation des prédictions et non l’évaluatio
 
 Si vous débutez avec Azure Machine Learning et souhaitez découvrir comment créer une expérience simple, consultez la rubrique [Création d’une expérience simple dans Azure Machine Learning Studio](create-experiment.md) dans Azure Machine Learning Studio.
 
-## <a name="classification"></a>classification ;
+## <a name="classification"></a>Classification
 Il existe deux sous-catégories de problèmes de classification :
 
 * Problèmes avec uniquement deux classes (classification double classe ou binaire)
@@ -61,9 +62,9 @@ Un exemple de problème de classification double classe est la classification de
 
 ![Capture d’écran de l’expérience iris](./media/interpret-model-results/1.png)
 
-Figure 1. Expérience d’un problème de classification double classe iris
+ Figure 1. Expérience d’un problème de classification double classe iris
 
-Une expérience a été réalisée pour résoudre ce problème, comme mentionnée dans la Figure 1. Un modèle d'arbre de décision augmentée, double classe a été formé et noté. Vous pouvez dès à présent visualiser les résultats de prédiction du module [Noter le modèle][score-model] en cliquant sur le port de sortie du module [Noter le modèle][score-model], puis sur **Visualiser** dans le menu qui s’affiche.
+Une expérience a été réalisée pour résoudre ce problème, comme mentionnée dans la Figure 1. Un modèle d’arbre de décision augmentée, double classe a été entraîné et noté. Vous pouvez dès à présent visualiser les résultats de prédiction du module [Noter le modèle][score-model] en cliquant sur le port de sortie du module [Noter le modèle][score-model], puis sur **Visualiser** dans le menu qui s’affiche.
 
 ![Module Noter le modèle](./media/interpret-model-results/1_1.png)
 
@@ -79,7 +80,7 @@ La table des résultats est constituée de six colonnes. Les quatre colonnes de
 
 **Publication du service web**
 
-Une fois que les résultats de prédiction ont été compris et considérés comme pertinents, l’expérience peut être publiée en tant que service web pour vous permettre de la déployer sur différentes applications et être sollicitée pour obtenir des prédictions de classe sur n’importe quelle nouvelle fleur d’iris. Pour découvrir comment convertir une expérience de formation en expérience de notation et la publier sous forme de service web, consultez la rubrique [Publication du service web Azure Machine Learning](walkthrough-5-publish-web-service.md). Cette procédure vous permet de bénéficier d’une expérience de notation, comme indiqué dans la Figure 3.
+Une fois que les résultats de prédiction ont été compris et considérés comme pertinents, l’expérience peut être publiée en tant que service web pour vous permettre de la déployer sur différentes applications et être sollicitée pour obtenir des prédictions de classe sur n’importe quelle nouvelle fleur d’iris. Pour découvrir comment convertir une expérience d’entraînement en expérience de scoring et la publier sous forme de service web, consultez [Publier le service web Azure Machine Learning](walkthrough-5-publish-web-service.md). Cette procédure vous permet de bénéficier d’une expérience de scoring, comme indiqué dans la Figure 3.
 
 ![Capture d’écran de l’expérience de notation](./media/interpret-model-results/3.png)
 
@@ -106,7 +107,7 @@ Lors de cette expérience, vous réalisez une tâche de reconnaissance de lettre
 
 ![Exemple de reconnaissance de lettres](./media/interpret-model-results/5_1.png)
 
-Dans les données de formation, 16 caractéristiques sont extraites d’images de lettres écrites. Les 26 lettres forment nos 26 classes. La figure 6 montre une expérience qui va former un modèle de classification multiclasse de reconnaissance de lettres et établir des prédictions sur le même ensemble de fonctionnalités d’un jeu de données de test.
+Dans les données d’entraînement, 16 caractéristiques sont extraites d’images de lettres écrites. Les 26 lettres forment nos 26 classes. La figure 6 montre une expérience qui va entraîner un modèle de classification multiclasse de reconnaissance de lettres et établir des prédictions sur le même ensemble de fonctionnalités d’un jeu de données de test.
 
 ![Expérience de classification multiclasse de reconnaissance de lettre](./media/interpret-model-results/6.png)
 
@@ -116,7 +117,7 @@ Lorsque vous visualisez les résultats du module [Noter le modèle][score-model]
 
 ![Résultats Noter le modèle](./media/interpret-model-results/7.png)
 
-Figure 7. Visualisation du résultat de modèle de notation dans la classification multiclasse
+ Figure 7. Visualisation du résultat de modèle de notation dans la classification multiclasse
 
 **Interprétation du résultat**
 
@@ -142,7 +143,7 @@ Une fois le service web publié et exécuté, et certaines valeurs caractéristi
 
 Figure 10. Résultat du service web de classification multiclasse
 
-## <a name="regression"></a>régression ;
+## <a name="regression"></a>Régression
 Les problèmes de régression sont différents des problèmes de classification. Dans un problème de classification, vous essayez de prédire les classes discrètes, telles que la classe à laquelle appartient une fleur d’iris. Mais dans un problème de régression, comme indiqué dans l’exemple suivant, nous essayons de prédire une variable continue, comme le prix d’une voiture.
 
 **Exemple d'expérience**
@@ -182,21 +183,21 @@ Figure 14. Résultat du service web d’un problème de régression du prix d’
 ## <a name="clustering"></a>Clustering
 **Exemple d'expérience**
 
-Utilisons le jeu de données Iris pour réaliser une expérience de clustering. Nous filtrons ici les étiquettes de classe dans le jeu de données de manière à ce qu’il ne contienne que des caractéristiques et puisse être utilisé uniquement pour le clustering. Dans ce cas d’utilisation Iris, définissez deux clusters lors du processus de formation, pour regrouper les fleurs en deux classes. L'expérience est indiquée dans la Figure 15.
+Utilisons le jeu de données Iris pour réaliser une expérience de clustering. Nous filtrons ici les étiquettes de classe dans le jeu de données de manière à ce qu’il ne contienne que des caractéristiques et puisse être utilisé uniquement pour le clustering. Dans ce cas d’utilisation Iris, définissez deux clusters lors du processus d’entraînement, pour regrouper les fleurs en deux classes. L'expérience est indiquée dans la Figure 15.
 
 ![Expérience d’un problème de clustering Iris](./media/interpret-model-results/15.png)
 
 Figure 15. Expérience d’un problème de clustering Iris
 
-Le clustering diffère de la classification, car le jeu de données de formation ne dispose pas lui-même des étiquettes réelles. Le clustering regroupe les instances du jeu de données de formation dans des groupes distincts. Lors du processus de formation, le modèle étiquette les entrées en prenant compte des différences existantes entre leurs fonctionnalités. Le modèle formé peut être ensuite utilisé pour classifier les entrées futures. Deux parties du résultat nous intéressent au sein d'un problème de clustering. La première partie est l’étiquetage du jeu de données d’apprentissage et le second est le classement du nouveau jeu de données avec le modèle formé.
+Le clustering diffère de la classification, car le jeu de données d’entraînement ne dispose pas lui-même des étiquettes réelles. Le clustering regroupe les instances du jeu de données d’entraînement dans des groupes distincts. Lors du processus d’entraînement, le modèle étiquette les entrées en prenant compte des différences existantes entre leurs fonctionnalités. Le modèle entraîné peut être ensuite utilisé pour classifier les entrées futures. Deux parties du résultat nous intéressent au sein d'un problème de clustering. La première partie est l’étiquetage du jeu de données d’entraînement et le second est le classement du nouveau jeu de données avec le modèle entraîné.
 
-La première partie du résultat peut être visualisée en cliquant sur le port de sortie gauche de [Former le modèle de clustering][train-clustering-model], puis sur **Visualiser**. La visualisation est présentée dans la Figure 16.
+La première partie du résultat peut être visualisée en cliquant sur le port de sortie gauche de [Entraîner le modèle de clustering][train-clustering-model], puis sur **Visualiser**. La visualisation est présentée dans la Figure 16.
 
 ![Résultat du clustering](./media/interpret-model-results/16.png)
 
-Figure 16. Visualisation du résultat de clustering pour le jeu de données de formation
+Figure 16. Visualisation du résultat de clustering pour le jeu de données d’entraînement
 
-Le résultat de la deuxième partie, regroupant de nouvelles entrées avec le modèle de clustering formé, est indiqué dans la Figure 17.
+Le résultat de la deuxième partie, regroupant de nouvelles entrées avec le modèle de clustering entraîné, est indiqué dans la Figure 17.
 
 ![Visualiser le résultat de clustering](./media/interpret-model-results/17.png)
 
@@ -262,7 +263,7 @@ Les deux premières colonnes représentent les paires utilisateur-élément four
 
 **Recommander des éléments à un utilisateur donné**
 
-En sélectionnant **Recommandation d’éléments** dans le menu **Type de prédiction de recommandation**, vous demandez au système de recommandation de recommander des éléments à un utilisateur donné. Le dernier paramètre à choisir dans ce scénario est la *sélection d’éléments recommandés*. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 22.
+En sélectionnant **Recommandation d’éléments** dans le menu **Type de prédiction de recommandation**, vous demandez au système de recommandation de recommander des éléments à un utilisateur donné. Le dernier paramètre à choisir dans ce scénario est la *sélection d’éléments recommandés*. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus d’entraînement. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 22.
 
 ![Visualisation du résultat de notation du système de recommandation - Recommandation d’éléments](./media/interpret-model-results/22.png)
 
@@ -272,7 +273,7 @@ La première des six colonnes représente le nom de l’utilisateur donné pour 
 
 **Trouver des utilisateurs associés à un utilisateur donné**
 
-En sélectionnant **Utilisateurs associés** dans **Type de prédiction de recommandation**, nous demandons au système de recommandation de trouver des utilisateurs associés à un utilisateur donné. Les utilisateurs associés sont les utilisateurs qui ont des préférences similaires. Le dernier paramètre à choisir dans ce scénario est la *sélection de l’utilisateur associé*. L’option **À partir d’utilisateurs qui ont noté des éléments (pour l’évaluation de modèle)** est principalement utilisée pour l’évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, choisissez **À partir de tous les utilisateurs**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 23.
+En sélectionnant **Utilisateurs associés** dans **Type de prédiction de recommandation**, nous demandons au système de recommandation de trouver des utilisateurs associés à un utilisateur donné. Les utilisateurs associés sont les utilisateurs qui ont des préférences similaires. Le dernier paramètre à choisir dans ce scénario est la *sélection de l’utilisateur associé*. L’option **À partir d’utilisateurs qui ont noté des éléments (pour l’évaluation de modèle)** est principalement utilisée pour l’évaluation de modèle lors du processus d’entraînement. Pour cette étape de prédiction, choisissez **À partir de tous les utilisateurs**. La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 23.
 
 ![Visualisation du résultat de notation du système de recommandation - Utilisateurs associés](./media/interpret-model-results/23.png)
 
@@ -282,7 +283,7 @@ La première des six colonnes contient les ID utilisateurs donnés nécessaires 
 
 **Trouver des éléments associés à un élément donné**
 
-En sélectionnant **Éléments associés** dans le menu **Type de prédiction de recommandation**, vous demandez au système de recommandation de trouver des éléments associés à un élément donné. Les éléments associés sont les éléments les plus susceptibles d'être appréciés par le même utilisateur. Le dernier paramètre à choisir dans ce scénario est la *sélection de l’article associé*. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus de formation. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments** . La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 24.
+En sélectionnant **Éléments associés** dans le menu **Type de prédiction de recommandation**, vous demandez au système de recommandation de trouver des éléments associés à un élément donné. Les éléments associés sont les éléments les plus susceptibles d'être appréciés par le même utilisateur. Le dernier paramètre à choisir dans ce scénario est la *sélection de l’article associé*. L'option **À partir d'éléments notés (pour l'évaluation de modèle)** est principalement utilisée pour l'évaluation de modèle lors du processus d’entraînement. Pour cette étape de prédiction, nous choisissons **À partir de tous les éléments** . La visualisation de la sortie [Noter la recommandation Matchbox][score-matchbox-recommender] est semblable à celle mentionnée dans la Figure 24.
 
 ![Visualisation du résultat de notation du système de recommandation - articles associés](./media/interpret-model-results/24.png)
 
@@ -294,7 +295,7 @@ La première des six colonnes représente le nom de l’élément donné pour le
 
 Le processus de publication de ces expériences en tant que services web permettant d'obtenir des prédictions est similaire pour chacun des quatre scénarios. Nous nous attardons ici sur le second scénario, la recommandation d’éléments à un utilisateur donné, à titre d’exemple. Vous pouvez suivre la même procédure pour les trois autres.
 
-Enregistrement du système de recommandation formé en tant que modèle formé et filtrage des données d’entrée dans une colonne d’ID utilisateur unique (tel que cela a été demandé), vous pouvez raccorder l’expérience, comme mentionné dans la Figure 25, et la publier en tant que service web.
+Enregistrement du système de recommandation entraîné en tant que modèle entraîné et filtrage des données d’entrée dans une colonne d’ID utilisateur unique (tel que cela a été demandé), vous pouvez raccorder l’expérience, comme mentionné dans la Figure 25, et la publier en tant que service web.
 
 ![Expérience de notation d’un problème de recommandation de restaurants](./media/interpret-model-results/25.png)
 

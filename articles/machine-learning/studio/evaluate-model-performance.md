@@ -1,10 +1,11 @@
 ---
-title: Évaluer les performances d’un modèle dans Machine Learning | Microsoft Docs
-description: Explique comment évaluer l’efficacité d’un modèle dans Azure Machine Learning.
+title: Évaluer les performances d’un modèle - Azure Machine Learning Studio | Microsoft Docs
+description: Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: bb49fd2fe7f72e211fbbda7cffdd2308c2c36fba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: de013f8deb5e64077aad96bd34d64135f981166d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834231"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311492"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Évaluation des performances d’un modèle dans Azure Machine Learning
 Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération. Il vous présente trois scénarios d’apprentissage supervisé courants : 
@@ -38,7 +39,7 @@ Azure Machine Learning prend en charge l’évaluation des modèles via deux de 
 ## <a name="evaluation-vs-cross-validation"></a>Évaluation et validation croisée
 L’évaluation et la validation croisée constituent deux méthodes standard de mesure des performances d’un modèle. Elles génèrent toutes deux des métriques d’évaluation que vous pouvez inspecter ou comparer avec les métriques d’autres modèles.
 
-Le module [Évaluer le modèle][evaluate-model] attend un jeu de données noté en entrée (ou 2 jeux si vous souhaitez comparer les performances de 2 modèles distincts). Cela signifie que vous devez effectuer l’apprentissage de votre modèle à l’aide du module [Former le modèle][train-model] et générer des prédictions sur un jeu de données au moyen du module [Noter le modèle][score-model] avant d’être en mesure d’évaluer les résultats. L’évaluation repose sur les étiquettes/probabilités notées et sur les étiquettes réelles, qui sont toutes produites par le module [Noter le modèle][score-model].
+Le module [Évaluer le modèle][evaluate-model] attend un jeu de données noté en entrée (ou 2 jeux si vous souhaitez comparer les performances de deux modèles distincts). Cela signifie que vous devez effectuer l’apprentissage de votre modèle à l’aide du module [Former le modèle][train-model] et générer des prédictions sur un jeu de données au moyen du module [Noter le modèle][score-model] avant d’être en mesure d’évaluer les résultats. L’évaluation repose sur les étiquettes/probabilités notées et sur les étiquettes réelles, qui sont toutes produites par le module [Noter le modèle][score-model].
 
 Une autre possibilité consiste à utiliser la validation croisée pour appliquer automatiquement un certain nombre d’opérations former-noter-évaluer (10 plis) à différents sous-échantillons des données d’entrée. Les données d’entrée sont fractionnées en 10 sous-échantillons, dont l’un est destiné au test et les 9 autres à l’apprentissage. Ce processus est répété à 10 reprises, et la moyenne des métriques d’évaluation est calculée. Cette méthode permet de déterminer la capacité de généralisation d’un modèle pour de nouveaux jeux de données. Le module [Effectuer la validation croisée du modèle][cross-validate-model] prend un modèle non formé et un jeu de données étiquetées et génère les résultats d’évaluation de chacun des 10 plis, en complément de la moyenne des résultats.
 
@@ -60,12 +61,12 @@ Connectez les ports comme illustré ci-après à la Figure 1, puis définissez 
 
 ![Évaluation d’un modèle de régression](./media/evaluate-model-performance/1.png)
 
-Figure 1. évaluation d’un modèle de régression
+ Figure 1. évaluation d’un modèle de régression
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspection des résultats de l’évaluation
 Après avoir exécuté l’expérience, vous pouvez cliquer sur le port de sortie du module [Évaluer le modèle][evaluate-model] et sélectionner *Visualiser* pour visualiser les résultats de l’évaluation. Les mesures d’évaluation disponibles pour les modèles de régression sont les suivantes : *Erreur d’absolue moyenne*, *Erreur d’absolue moyenne racine*, *Erreur d’absolue relative*, *Erreur carrée relative* et *Coefficient de détermination*.
 
-Le terme « erreur » utilisé ici représente la différence entre la valeur prédite et la valeur réelle. La valeur absolue ou le carré de cette différence sont généralement calculés pour capturer l’ampleur totale de l’erreur sur l’ensemble des instances, car l’écart entre la valeur prédite et la valeur réelle pourrait être négatif dans certains cas. Les métriques d’erreur mesurent les performances prédictives d’un modèle de régression en termes d’écart moyen entre ses prédictions et les valeurs réelles. Plus les valeurs d’erreur sont faibles, plus les prédictions élaborées par le modèle sont exactes. Une métrique d’erreur globale de 0 signifie que le modèle est parfaitement ajusté par rapport aux données.
+Le terme « erreur » utilisé ici représente la différence entre la valeur prédite et la valeur réelle. La valeur absolue ou le carré de cette différence est généralement calculé pour capturer l’ampleur totale de l’erreur sur l’ensemble des instances, car l’écart entre la valeur prédite et la valeur réelle pourrait être négatif dans certains cas. Les métriques d’erreur mesurent les performances prédictives d’un modèle de régression en termes d’écart moyen entre ses prédictions et les valeurs réelles. Plus les valeurs d’erreur sont faibles, plus les prédictions élaborées par le modèle sont exactes. Une métrique d’erreur globale de zéro signifie que le modèle est parfaitement ajusté par rapport aux données.
 
 Le coefficient de détermination, également désigné sous le terme « R au carré », constitue également une méthode standard de mesure de l’adéquation entre le modèle et les données observées. Ce coefficient peut être considéré comme la proportion de la variance expliquée par le modèle. Dans ce cas précis, plus la proportion est élevée, meilleur est le résultat, la valeur 1 indiquant une adéquation parfaite.
 
@@ -74,7 +75,7 @@ Le coefficient de détermination, également désigné sous le terme « R au ca
 Figure 2 : métriques d’évaluation de régression linéaire
 
 ### <a name="using-cross-validation"></a>Utilisation de la validation croisée
-Comme indiqué précédemment, vous pouvez exécuter automatiquement des opérations répétées d’apprentissage, de notation et d’évaluation à l’aide du module [Effectuer la validation croisée du modèle][cross-validate-model]. Pour mener à bien cette tâche, vous avez simplement besoin d’un jeu de données, d’un modèle non formé et d’un module [Effectuer la validation croisée][cross-validate-model] du modèle (voir la figure ci-après). Notez que vous devez définir la colonne Étiquette sur *price* dans les propriétés du module [Effectuer la validation croisée du modèle][cross-validate-model].
+Comme indiqué précédemment, vous pouvez exécuter automatiquement des opérations répétées d’apprentissage, de notation et d’évaluation à l’aide du module [Effectuer la validation croisée du modèle][cross-validate-model]. Pour mener à bien cette tâche, vous avez simplement besoin d’un jeu de données, d’un modèle non formé et d’un module [Effectuer la validation croisée][cross-validate-model] du modèle (voir la figure ci-après). Vous devez définir la colonne Étiquette sur *price* dans les propriétés du module [Effectuer la validation croisée du modèle][cross-validate-model].
 
 ![Validation croisée d’un modèle de régression](./media/evaluate-model-performance/3.png)
 
@@ -87,7 +88,7 @@ Après avoir exécuté l’expérience, vous pouvez inspecter les résultats de 
 Figure 4. résultats de la validation croisée d’un modèle de régression
 
 ## <a name="evaluating-a-binary-classification-model"></a>Évaluation d’un modèle de classification binaire
-Dans un scénario de classification binaire, la variable cible ne peut avoir que deux résultats, par exemple : {0, 1} ou {faux, vrai}, {négatif, positif}. Supposons que vous disposiez d’un jeu de données sur des employés incluant certaines variables démographiques et d’emploi, et que vous souhaitiez prédire le niveau de revenu, qui constitue une variable binaire avec les valeurs {« <=50K », « >50K »}. En d’autres termes, la classe négative représente les employés dont le revenu annuel est inférieur ou égal à 50 K, tandis que la classe positive représente tous les autres employés. Comme dans le scénario de régression, nous allons former un modèle, noter certaines données, puis évaluer les résultats. La principale différence ici réside dans le choix des métriques calculées et générées en sortie par Azure Machine Learning. Pour illustrer le scénario de prédiction du niveau de revenu, nous allons utiliser le jeu de données [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) afin de créer une expérience Azure Machine Learning et d’évaluer les performances d’un modèle de régression logistique à deux classes, qui constitue un classifieur binaire couramment utilisé.
+Dans un scénario de classification binaire, la variable cible ne peut avoir que deux résultats, par exemple : {0, 1} ou {faux, vrai}, {négatif, positif}. Supposons que vous disposiez d’un jeu de données sur des employés incluant certaines variables démographiques et d’emploi, et que vous souhaitiez prédire le niveau de revenu, qui constitue une variable binaire avec les valeurs {« <=50 K », « >50 K »}. En d’autres termes, la classe négative représente les employés dont le revenu annuel est inférieur ou égal à 50 K, tandis que la classe positive représente tous les autres employés. Comme dans le scénario de régression, nous allons former un modèle, noter certaines données, puis évaluer les résultats. La principale différence ici réside dans le choix des métriques calculées et générées en sortie par Azure Machine Learning. Pour illustrer le scénario de prédiction du niveau de revenu, nous allons utiliser le jeu de données [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) afin de créer une expérience Azure Machine Learning et d’évaluer les performances d’un modèle de régression logistique à deux classes, qui constitue un classifieur binaire couramment utilisé.
 
 ### <a name="creating-the-experiment"></a>Création de l’expérience
 Ajoutez les modules ci-après à votre espace de travail dans Azure Machine Learning Studio :
@@ -115,11 +116,11 @@ Il est donc utile de calculer d’autres métriques capturant des aspects plus s
 
 Figure 6. matrice de confusion d’une classification binaire
 
-Revenons au problème de classification du revenu et posons-nous plusieurs questions d’évaluation qui nous aideront à comprendre les performances du classifieur utilisé. Nous pouvons tout naturellement nous poser la question suivante : sur le nombre d’employés pour lesquels le modèle a prédit un revenu > 50 K (VP+FP), combien ont été classés correctement (VP) ? Nous pouvons répondre à cette question en examinant la métrique **Precision** (Précision) du modèle, qui détermine le taux de positifs qui ont été classés correctement : VP/(VP+FP). Une autre question courante est la suivante : sur le nombre total d’employés avec un revenu > 50 K (VP+FN), combien ont été classés correctement par le classifieur (VP) ? La réponse nous est donnée par la métrique **Recall**(Rappel), correspondant au taux de vrais positifs : VP/(VP+FN) du classifieur. Vous pouvez remarquer qu’il existe un compromis évident entre la précision et le rappel. Par exemple, si l’on considère un jeu de données relativement équilibré, un classifieur capable de prédire la plupart des instances positives présente un rappel fort, mais une précision relativement faible, car de nombreuses instances négatives ne seront pas classées correctement, ce qui entraînera un grand nombre de faux positifs. Pour visualiser un diagramme représentant la variation de ces deux métriques, vous pouvez cliquer sur la courbe « PRECISION/RECALL » (PRÉCISION/RAPPEL) de la page de sortie des résultats de l’évaluation (partie supérieure gauche de la Figure 7).
+Revenons au problème de classification du revenu et posons-nous plusieurs questions d’évaluation qui nous aideront à comprendre les performances du classifieur utilisé. Nous pouvons tout naturellement nous poser la question suivante : sur le nombre d’employés pour lesquels le modèle a prédit un revenu > 50 K (VP+FP), combien ont été classés correctement (VP) ? Nous pouvons répondre à cette question en examinant la métrique **Precision** (Précision) du modèle, qui détermine le taux de positifs qui ont été classés correctement : VP/(VP+FP). Une autre question courante est la suivante : sur le nombre total d’employés avec un revenu > 50 K (VP+FN), combien ont été classés correctement par le classifieur (VP) ? La réponse nous est donnée par la métrique **Recall**(Rappel), correspondant au taux de vrais positifs : VP/(VP+FN) du classifieur. Vous pouvez remarquer qu’il existe un compromis évident entre la précision et le rappel. Par exemple, si l’on considère un jeu de données relativement équilibré, un classifieur capable de prédire la plupart des instances positives présente un rappel fort, mais une précision relativement faible, car de nombreuses instances négatives ne seront pas classées correctement, ce qui entraînera un grand nombre de faux positifs. Pour visualiser un diagramme représentant la variation de ces deux métriques, vous pouvez cliquer sur la courbe **PRECISION/RECALL** (PRÉCISION/RAPPEL) de la page de sortie des résultats de l’évaluation (partie supérieure gauche de la Figure 7).
 
 ![Résultats de l’évaluation de la classification binaire](./media/evaluate-model-performance/7.png)
 
-Figure 7. résultats de l’évaluation de la classification binaire
+ Figure 7. résultats de l’évaluation de la classification binaire
 
 Un autre métrique connexe fréquemment utilisé est la métrique **F1 Score**(F-mesure), qui prend en compte à la fois la précision et le rappel. Il s’agit de la moyenne harmonique de ces 2 métriques, calculée comme suit : F1 = 2 (précision x rappel) / (précision + rappel). La mesure F1 offre un bon moyen de résumer l’évaluation en une seule valeur ; toutefois, il est recommandé d’examiner systématiquement la précision et le rappel simultanément afin de mieux comprendre le comportement d’un classifieur.
 

@@ -1,7 +1,7 @@
 ---
 title: Pour télécharger un document - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: À l’aide de la fonctionnalité de chargement de documents, vous pouvez télécharger le document parallèle pour vos formations. Les documents parallèles sont des paires de documents dont un document est la traduction de l'autre. Un document de la paire contient des phrases dans la langue source et l'autre document contient ces phrases traduites dans la langue cible.
+description: À l’aide de la fonctionnalité de chargement de documents, vous pouvez télécharger le document parallèle pour vos formations. Les documents parallèles sont des paires de documents dont un document est la traduction de l'autre. Un document de la paire contient des phrases dans la langue source et l’autre document contient ces phrases traduites dans la langue cible.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -9,16 +9,18 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bb84a3ddfba54c47cdf91aa72889a960722cdbd3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626775"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633246"
 ---
 # <a name="upload-a-document"></a>Charger un document
 
-Dans [Custom Translator](https://portal.customtranslator.azure.ai), vous pouvez charger des documents parallèles pour former vos modèles de traduction. Les [documents parallèles](what-are-parallel-documents.md) sont des paires de documents dont un document est la traduction de l'autre. Un document de la paire contient des phrases dans la langue source et l'autre document contient ces phrases traduites dans la langue cible.
+Dans [Custom Translator](https://portal.customtranslator.azure.ai), vous pouvez charger des documents parallèles pour former vos modèles de traduction. Les [documents parallèles](what-are-parallel-documents.md) sont des paires de documents dont un document est la traduction de l'autre. Un document de la paire contient des phrases dans la langue source et l’autre document contient ces phrases traduites dans la langue cible.
+
+Avant de charger vos documents, consultez [l’aide relatives à la convention d’affectation de noms et aux formats des documents](document-formats-naming-convention.md) pour vérifier que votre format de fichier est pris en charge dans Custom Translator.
 
 ## <a name="how-to-upload-document"></a>Comment charger un document ?
 

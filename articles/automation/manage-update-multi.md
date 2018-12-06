@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a803353b5dacaa56c181cdad0955191d547eb3c4
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092251"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620215"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -50,7 +50,7 @@ La gestion des mises à jour est prise en charge par les systèmes d’exploitat
 
 Les agents Linux doivent avoir accès à un référentiel de mise à jour.
 
-Cette solution ne prend pas en charge d’agent Log Analytics pour Linux configuré pour envoyer des rapports à plusieurs espaces de travail Azure Log Analytics.
+Cette solution ne prend pas en charge les agents Log Analytics pour Linux configurés pour envoyer des rapports à plusieurs espaces de travail Azure Log Analytics.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Activer la gestion des mises à jour pour les machines virtuelles Azure
 

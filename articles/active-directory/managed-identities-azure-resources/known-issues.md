@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913986"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632787"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec les identités managées pour ressources Azure
 
@@ -43,18 +43,33 @@ Non, les identités managées pour ressources Azure ne sont pas encore intégré
 
 La limite de sécurité de l’identité est la ressource à laquelle elle est attachée. Par exemple, la limite de sécurité activée pour une machine virtuelle avec des identités managées pour ressources Azure est la machine virtuelle. Tout code s’exécutant sur cette machine virtuelle est en mesure d’appeler les identités managées pour des jetons de point de terminaison et de demande de ressources Azure. L’expérience est similaire à celle d’autres ressources qui prennent en charge les identités managées pour ressources Azure.
 
+### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>Quelle est l’identité utilisée par défaut par IMDS si vous ne spécifiez pas l’identité dans la demande ?
+
+- Si l’identité managée affectée par le système est activée et qu’aucune identité n’est spécifiée dans la demande, IMDS utilise par défaut l’identité managée affectée par le système.
+- Si l’identité managée affectée par le système n’est pas activée et qu’il n’existe qu’une seule identité managée affectée par l’utilisateur, IMDS utilise par défaut l’identité managée affectée par ce seul utilisateur. 
+- Si l’identité managée affectée par le système n’est pas activée et qu’il existe plusieurs identités managées affectées par l’utilisateur, la spécification d’une identité managée dans la demande est obligatoire.
+
 ### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>Dois-je utiliser le point de terminaison Instance Metadata Service (IMDS) de machine virtuelle ou le point de terminaison d’extension de machine virtuelle des identités managées pour ressources Azure ?
 
 Lorsque vous utilisez des identités managées pour ressources Azure avec des machines virtuelles, nous vous encourageons à utiliser le point de terminaison IMDS des identités managées pour ressources Azure. Azure Instance Metadata Service (IMDS) est un point de terminaison REST accessible à toutes les machines virtuelles IaaS créées par le biais d’Azure Resource Manager. Voici quelques avantages liés à l’utilisation d’identités managées pour ressources Azure sur IMDS :
-
-1. Tous les systèmes d’exploitation pris en charge par Azure IaaS peuvent utiliser des identités managées pour ressources Azure sur IMDS. 
-2. N’est plus nécessaire d’installer une extension sur votre machine virtuelle pour activer les identités managées pour ressources Azure. 
-3. Les certificats utilisés par les identités managées pour ressources Azure ne sont plus présents dans la machine virtuelle. 
-4. Le point de terminaison IMDS est une adresse IP non routable bien connue, uniquement accessible à partir de la machine virtuelle. 
+    - Tous les systèmes d’exploitation pris en charge par Azure IaaS peuvent utiliser des identités managées pour ressources Azure sur IMDS.
+    - N’est plus nécessaire d’installer une extension sur votre machine virtuelle pour activer les identités managées pour ressources Azure. 
+    - Les certificats utilisés par les identités managées pour ressources Azure ne sont plus présents dans la machine virtuelle.
+    - Le point de terminaison IMDS est une adresse IP non routable bien connue, uniquement accessible à partir de la machine virtuelle.
 
 L’extension de machine virtuelle des identités managées pour ressources Azure est toujours disponible et utilisable aujourd’hui. Toutefois, à l’avenir, nous utiliserons le point de terminaison IMDS par défaut. L’extension de machine virtuelle des identités managées pour ressources Azure sera abandonnée en janvier 2019. 
 
 Pour plus d’informations sur Azure Instance Metadata Service, voir la [documentation d’IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
+
+### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Les identités managées sont-elles recréées automatiquement si je déplace un abonnement vers un autre annuaire ?
+
+ Non. Si vous déplacez un abonnement vers un autre annuaire, vous devez les recréer manuellement et accorder à nouveau les affectations de rôle RBAC d’Azure.
+    - Pour les identités managées affectées par le système : désactivez et réactivez-les.
+    - Pour les identités managées affectées par l’utilisateur : supprimez, recréez et rattachez-les aux ressources nécessaires (par exemple des machines virtuelles)
+
+### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Puis-je utiliser une identité managée pour accéder à une ressource dans un autre annuaire/locataire ?
+
+ Non. Les identités managées ne prennent actuellement pas en charge les scénarios entre annuaires. 
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quelles sont les distributions de Linux prises en charge ?
 

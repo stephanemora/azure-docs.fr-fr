@@ -4,7 +4,7 @@ description: Décrit comment modifier le profil de votre compte Azure et répond
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 09ac7659487a81d68089a060bf038213722d4dbb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422624"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580425"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Modifiez les informations de profil de votre compte Azure, comme l'e-mail de contact, l'adresse et le numéro de téléphone
 
@@ -46,7 +46,7 @@ Oui. L’administrateur de compte est la personne qui a configuré le compte Azu
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>La mise à jour de l'adresse de messagerie de mon profil actualise-t-elle également mon adresse de connexion ?
 
-Non. La mise à jour de l'adresse de messagerie du profil n'actualise pas votre adresse de connexion. Pour modifier votre adresse de connexion, vous devez transférer la propriété du compte.
+ Non. La mise à jour de l'adresse de messagerie du profil n'actualise pas votre adresse de connexion. Pour modifier votre adresse de connexion, vous devez transférer la propriété du compte.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>La mise à jour de mon adresse de profil actualise-t-elle également l'adresse de facturation associée à ma carte de crédit ?
 
@@ -56,7 +56,7 @@ Pour découvrir comment mettre à jour vos informations de facturation, consulte
 
 En raison de contraintes techniques, nous ne pouvons modifier le pays d'un compte existant. Toutefois, vous pouvez créer un compte dans le pays de votre choix, puis contacter le support Azure afin de migrer vos services vers ce compte.
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème. 
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (Support request).
 

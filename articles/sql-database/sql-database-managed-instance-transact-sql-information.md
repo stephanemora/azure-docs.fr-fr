@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: c51df7aeef136fee42b061cd422cc62d67f33e96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258916"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712141"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
@@ -75,7 +75,7 @@ Managed Instance dispose de sauvegardes automatiques, et permet aux utilisateurs
   - Options de bande : `REWIND`, `NOREWIND`, `UNLOAD`, et `NOUNLOAD` ne sont pas pris en charge
   - Options spécifiques au journal : `NORECOVERY`, `STANDBY`, et `NO_TRUNCATE` ne sont pas pris en charge
 
-Limites :  
+ Limites :  
 
 - Managed Instance peut sauvegarder une base de données vers une sauvegarde comprenant jusqu’à 32 bandes, ce qui est suffisant pour les bases de données jusqu’à 4 To si la compression de sauvegarde est utilisée.
 - La taille maximale de la bande de sauvegarde est 195 Go (taille maximale d’un blob). Augmentez le nombre de bandes dans la commande de sauvegarde pour réduire la taille de bande individuelle et ne pas dépasser cette limite.
@@ -317,7 +317,7 @@ Les options de base de données suivantes sont fixées/remplacées et ne peuvent
 - Les groupe de fichiers mémoire optimisée existants sont renommés XTP  
 - Les options `SINGLE_USER` et `RESTRICTED_USER` sont changées en `MULTI_USER`
 
-Limites :  
+ Limites :  
 
 - Les fichiers `.BAK` contenant plusieurs jeux de sauvegarde ne peuvent pas être restaurés.
 - Les fichiers `.BAK` contenant plusieurs fichiers journaux ne peuvent pas être restaurés.
@@ -427,7 +427,7 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 Chaque instance gérée a jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne.
 
-Par exemple, une instance gérée peut avoir un fichier de 1,2 To placé sur un disque de 4 To et 248 fichiers de 1 Go chacun placés sur des disques distincts de 128 Go. Dans cet exemple :
+Par exemple, une instance managée peut avoir un fichier de 1,2 To placé sur un disque de 4 To et 248 fichiers de 1 Go chacun placés sur des disques distincts de 128 Go. Dans cet exemple :
 
 - la taille du stockage total du disque est 1 x 4 To + 248 x 128 Go = 35 To.
 - l’espace total réservé pour les bases de données sur l’instance est 1 x 1,2 To + 248 x 1 Go = 1,4 To.

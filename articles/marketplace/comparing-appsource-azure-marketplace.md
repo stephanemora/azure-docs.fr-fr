@@ -14,18 +14,22 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3aadd39a3c85b89c3626b838f15ea5e6e58fdfb8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 926fc46a4afd4e434e9769802ac096347b4ce4f0
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668747"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620079"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparaison entre AppSource et la Place de marché Azure
 Les vitrines dans la [Place de marché Azure](https://azuremarketplace.microsoft.com) et [Microsoft AppSource](https://appsource.microsoft.com) répondent aux besoins spécifiques du client. Utilisez les vitrines pour cibler les clients par rôle. Vous pouvez offrir la solution ou le service approprié en fonction de votre client.
 
 ## <a name="understanding-the-differences-between-storefronts"></a>Différences entre les deux vitrines
 Le choix d’une vitrine commence par l’identification du public cible pour votre offre. Si vous ciblez des publics dans plusieurs vitrines, vous pouvez effectuer une seule publication pour vendre dans plusieurs vitrines.
+
+| Place de marché Azure | AppSource |
+|:--- |:--- |
+| Développeurs et professionnels de l’informatique | Décisionnaires de l’entreprise |
  
 Le tableau suivant décrit les avantages de l’utilisation d’une vitrine :
 

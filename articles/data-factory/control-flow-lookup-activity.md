@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002918"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426789"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 
@@ -56,9 +56,9 @@ Les sources de données suivantes sont prises en charge pour l’activité Look
 ## <a name="type-properties"></a>Propriétés type
 NOM | Description | type | Requis ?
 ---- | ----------- | ---- | --------
-dataset | Fournit la référence de jeu de données pour la recherche. Pour plus d’informations, voir la section **Propriétés du jeu de données** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | Oui
-source | Contient des propriétés sources spécifiques au jeu de données, identiques à la source de l’activité Copy. Pour plus d’informations, consultez la section **Propriétés de l’activité Copy** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | Oui
-firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Booléen | Non. Par défaut, il s’agit de `true`.
+dataset | Fournit la référence de jeu de données pour la recherche. Pour plus d’informations, voir la section **Propriétés du jeu de données** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
+source | Contient des propriétés sources spécifiques au jeu de données, identiques à la source de l’activité Copy. Pour plus d’informations, consultez la section **Propriétés de l’activité Copy** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
+firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Booléen |  Non. Par défaut, il s’agit de `true`.
 
 > [!NOTE]
 
@@ -297,6 +297,15 @@ Cette instance Azure SQL Database contient les données à copier dans le stocka
     }
 ]
 ```
+
+## <a name="limitations-and-workarounds"></a>Limitations et solutions de contournement
+
+Voici quelques limitations de l’activité de recherche et des suggestions de solutions de contournement.
+
+| Limitation | Solution de contournement |
+|---|---|
+| L’activité de recherche a un maximum de 5 000 lignes et une taille maximale de 2 Mo. | Concevoir un pipeline sur deux niveaux où le pipeline externe itère sur un pipeline interne, qui récupère les données ne dépassant pas le nombre maximal de lignes ou la taille de conception. |
+| | |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 

@@ -4,15 +4,15 @@ description: Cet article récapitule les questions courantes sur la configuratio
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636813"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162481"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -47,14 +47,20 @@ Si vous êtes un administrateur d’abonnement, vous disposez des autorisations 
 ## <a name="on-premises"></a>Local
 
 ### <a name="what-do-i-need-on-premises"></a>De quoi ai-je besoin en local ?
-En local, vous devez disposer de composants Site Recovery, installés sur une machine virtuelle VMware unique. Vous avez également besoin d’une infrastructure VMware, avec au moins un hôte ESXi, et nous vous recommandons un serveur vCenter. En outre, vous avez besoin d’une ou de plusieurs machines virtuelles VMware à répliquer. [Découvrez-en plus](vmware-azure-architecture.md) sur l’architecture VMware vers Azure.
 
-Le serveur de configuration local peut être déployé d’une ou de deux façons
+En local, vous avez besoin des éléments suivants :
+- Des composants Site Recovery installés sur une machine virtuelle VMware unique.
+- Une infrastructure VMware avec au moins un hôte ESXi. Nous vous recommandons un serveur vCenter.
+- Une ou plusieurs machines virtuelles VMware à répliquer.
 
-1. Le déployer à l’aide d’un modèle de machine virtuelle avec le serveur de configuration pré-installé. [En savoir plus ici](vmware-azure-tutorial.md#download-the-vm-template).
-2. Le déployer à l’aide de l’installation sur une machine Windows Server 2016 de votre choix. [En savoir plus ici](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+[Découvrez-en plus](vmware-azure-architecture.md) sur l’architecture VMware vers Azure.
 
-Pour découvrir la prise en main du déploiement du serveur de configuration sur vos propres machines Windows Server, dans l’objectif de protection de l’activation de la protection, choisissez **To Azure > non virtualisé/autre**.
+Le serveur de configuration local peut être déployé comme suit :
+
+- Nous vous recommandons de déployer le serveur de configuration en tant que machine virtuelle VMware à l’aide d’un modèle OVA avec le serveur de configuration préinstallé.
+- Si, pour une raison quelconque, vous ne pouvez pas utiliser un modèle, vous pouvez configurer le serveur de configuration manuellement. [Plus d’informations](physical-azure-disaster-recovery.md#set-up-the-source-environment)
+
+
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Quelle est la destination de réplication des machines virtuelles en local ?
 Les données sont répliquées vers le stockage Azure. Quand vous exécutez un basculement, Site Recovery crée automatiquement des machines virtuelles Azure à partir du compte de stockage.

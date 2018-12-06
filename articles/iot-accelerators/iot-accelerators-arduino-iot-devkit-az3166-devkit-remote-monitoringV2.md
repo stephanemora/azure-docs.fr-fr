@@ -1,104 +1,118 @@
 ---
-title: Kit IoT DevKit dans le cloud - Connecter le kit IoT DevKit AZ3166 à l’accélérateur de solution IoT de supervision à distance | Microsoft Docs
-description: Dans ce tutoriel, vous allez découvrir comment envoyer l’état des capteurs sur IoT DevKit AZ3166 à l’accélérateur de solution IoT de surveillance à distance à des fins de surveillance et de visualisation.
+title: Connecter un appareil IoT DevKit à l’accélérateur de solution de supervision à distance – Azure | Microsoft Docs
+description: Ce guide pratique explique comment envoyer les données de télémétrie des capteurs présents sur un appareil IoT DevKit AZ3166 à l’accélérateur de solution de supervision à distance à des fins de monitoring et de visualisation.
 author: isabelcabezasm
 manager: ''
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 32742b2a680370f443051e2d86f90d94e8632850
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7f67868f6220ab2940aa8ac4d4bf24f82191cc22
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720580"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620249"
 ---
-# <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>Connecter MXChip IoT DevKit AZ3166 à l’accélérateur de solution de surveillance à distance IoT
+# <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Connecter un appareil IoT DevKit à l’accélérateur de solution de supervision à distance
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Vous allez apprendre à exécuter un exemple d’application sur votre kit DevKit IoT pour envoyer les données des capteurs vers votre accélérateur de solution.
+Ce guide pratique explique comment exécuter un exemple d’application sur un appareil IoT DevKit. L’exemple de code envoie les données de télémétrie des capteurs présents sur l’appareil DevKit à votre accélérateur de solution.
 
-[IoT MXChip DevKit](https://aka.ms/iot-devkit) est une carte tout-en-un compatible Arduino qui est équipée de périphériques et de capteurs élaborés. Vous pouvez développer pour ce kit à l’aide d’[Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) dans Visual Studio Code. Par ailleurs, il s’accompagne d’un [catalogue de projets](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) en plein développement pour vous guider dans la réalisation de prototypes de solutions IoT (Internet des objets) qui exploitent les services Microsoft Azure.
+[IoT DevKit](https://aka.ms/iot-devkit) est une carte tout-en-un compatible Arduino et équipée de nombreux périphériques et capteurs. Vous pouvez développer pour ce kit à l’aide d’[Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) dans Visual Studio Code. Le [catalogue de projets](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) contient des exemples d’applications permettant de créer des prototypes de solutions IoT.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+## <a name="prerequisites"></a>Prérequis
 
-Passez en revue le [Guide de mise en route](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) et **ne terminez que les sections suivantes** :
+Suivez les sections suivantes (uniquement) du [guide Bien démarrer avec IoT DevKit](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) :
 
 * Préparation du matériel
 * Configurer le Wi-Fi
 * Commencer à utiliser le kit DevKit
 * Préparer l’environnement de développement
 
-## <a name="open-the-remote-monitoring-sample-in-vs-code"></a>Ouvrir l’exemple de supervision à distance dans VS Code
+## <a name="open-the-sample"></a>Ouvrir l’exemple
 
-1. Assurez-vous que votre IoT DevKit n’est **pas connecté** à votre ordinateur. Démarrez d’abord VS Code, puis connectez le DevKit à votre ordinateur.
+Pour ouvrir l’exemple de supervision à distance dans VS Code :
 
-2. Cliquez sur `F1` pour ouvrir la palette de commandes, tapez et sélectionnez **IoT Workbench : Exemples**. Puis sélectionnez **IoT DevKit** en tant que carte.
+1. Vérifiez que votre appareil IoT DevKit n’est pas connecté à votre ordinateur. Démarrez d’abord VS Code, puis connectez le DevKit à votre ordinateur.
 
-3. Cherchez **Supervision à distance** et cliquez sur **Ouvrir l’exemple**. Une nouvelle fenêtre VS Code s’ouvre avec le dossier de projet qu’elle contient.
-  ![IoT Workbench : sélectionnez l’exemple de supervision à distance](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
+1. Cliquez sur `F1` pour ouvrir la palette de commandes, tapez et sélectionnez **IoT Workbench : Exemples**. Puis sélectionnez **IoT DevKit** en tant que carte.
 
-## <a name="configure-iot-hub-device-connection-string"></a>Configurer la chaîne de connexion d’appareil IoT Hub
+1. Cherchez **Supervision à distance** et cliquez sur **Ouvrir l’exemple**. Une nouvelle fenêtre VS Code s’ouvre sur le dossier de projet :
 
-1. Passez le IoT DevKit en **mode de configuration**. Pour ce faire :
-   * Maintenez enfoncé le bouton **A**.
-   * Enfoncez et relâchez le bouton **Réinitialiser**.
+  ![IoT Workbench : sélectionner l’exemple de supervision à distance](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
-2. L’écran affiche l’ID du kit DevKit et « Configuration ».
-   
-  ![Mode de configuration du IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
+## <a name="configure-the-device"></a>Configurer l’appareil
 
-3. Cliquez sur `F1` pour ouvrir la palette de commandes, tapez et sélectionnez **IoT Workbench : Appareil > Config Device Settings** (Configurer les paramètres de l’appareil).
+Pour configurer la chaîne de connexion de l’appareil IoT Hub sur un appareil DevKit :
 
-4. Collez la chaîne de connexion que vous venez de copier et cliquez sur `Enter` pour la configurer.
+1. Passez l’appareil IoT DevKit en **mode Configuration** :
 
-## <a name="build-and-upload-the-device-code"></a>Générer et charger le code de l’appareil
+    * Maintenez enfoncé le bouton **A**.
+    * Enfoncez et relâchez le bouton **Réinitialiser**.
 
-1. Cliquez sur `F1` pour ouvrir la palette de commandes, tapez et sélectionnez **IoT Workbench : Appareil > Device Upload** (Chargement d’appareil).
-  ![IoT Workbench : Appareil - > Charger](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
+1. L’écran affiche l’ID de l’appareil DevKit et `Configuration`.
 
-1. VS Code lance ensuite la compilation et le chargement du code sur votre DevKit.
-  ![IoT Workbench : Appareil - > Téléchargé](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
+    ![Mode de configuration du IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-Le DevKit redémarre et commence à exécuter le code.
+1. Appuyez sur **F1** pour ouvrir la palette de commandes, tapez et sélectionnez **IoT Workbench : Appareil > Configurer les paramètres de l’appareil**.
 
-## <a name="test-the-project"></a>Tester le projet
+1. Collez la chaîne de connexion que vous avez copiée tout à l’heure, puis appuyez sur **Entrée** pour configurer l’appareil.
+
+## <a name="build-the-code"></a>Générer le code
+
+Pour générer et charger le code de l’appareil :
+
+1. Appuyez sur **F1** pour ouvrir la palette de commandes, tapez et sélectionnez **IoT Workbench : Appareil > Chargement d’appareil** :
+
+    ![IoT Workbench : Appareil > Charger](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
+
+1. VS Code compile et charge le code sur votre appareil DevKit :
+
+    ![IoT Workbench : Appareil -> Chargé](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
+
+1. L’appareil DevKit redémarre et exécute le code chargé.
+
+## <a name="test-the-sample"></a>Tester l’exemple
+
+Pour vérifier que l’exemple d’application que vous avez chargé sur l’appareil DevKit fonctionne, suivez les étapes ci-dessous :
 
 ### <a name="view-the-telemetry-sent-to-remote-monitoring-solution"></a>Afficher les données de télémétrie envoyées à la solution de supervision à distance
 
-Quand l’exemple d’application s’exécute, le kit DevKit envoie les données des capteurs par Wi-Fi à votre solution de supervision à distance. Pour voir le résultat, procédez comme suit :
+Lorsque l’exemple d’application s’exécute, l’appareil DevKit envoie par Wi-Fi les données de télémétrie de ses capteurs à votre accélérateur de solution. Pour afficher les données de télémétrie :
 
 1. Accédez au tableau de bord de votre solution, puis cliquez sur **Appareils**.
 
-2. Cliquez sur le nom de l’appareil. Sous l’onglet de droite, vous pouvez voir l’état du capteur sur le DevKit en temps réel.
-  ![Données des capteurs dans Azure IoT Suite](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-dashboard.png)
+1. Cliquez sur le nom de votre appareil DevKit. Sous l’onglet de droite, les données de télémétrie de l’appareil DevKit s’affichent en temps réel :
 
-### <a name="send-a-c2d-message"></a>Envoyer un message C2D
+    ![Données des capteurs dans Azure IoT Suite](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-dashboard.png)
 
-La solution de supervision à distance vous permet d’appeler la méthode distante sur l’appareil. L’exemple de code permet de publier trois méthodes que vous pouvez voir dans la section **Méthode** lorsque le capteur est sélectionné.
+### <a name="control-the-devkit-device"></a>Contrôler l’appareil DevKit
+
+L’accélérateur de solution de supervision à distance permet de contrôler l’appareil à distance. L’exemple de code implémente trois méthodes, que vous pouvez consulter dans la section **Méthode** si vous sélectionnez l’appareil sur la page **Appareils** :
 
 ![Méthodes IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
-Essayez de modifier la couleur de l’une des LED du DevKip à l’aide de la méthode « LedColor ».
+Pour modifier la couleur d’une des LED de l’appareil DevKit, utilisez la méthode **LedColor** :
 
-1. Sélectionnez le nom de l’appareil dans la liste des appareils et cliquez sur **Travaux**.
+1. Sélectionnez le nom de l’appareil dans la liste des appareils, puis cliquez sur **Tâches** :
 
-  ![Création d’un travail](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-job.png)
+    ![Création d’un travail](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-job.png)
 
-2. Configurez les travaux comme indiqué ci-dessous, puis cliquez sur **Appliquer**.
-  * Sélectionner un travail : **Exécuter une méthode**
-  * Nom de la méthode : **LedColor**
-  * Nom du travail : **ChangeLedColor**
-  
-  ![Paramètres d’un travail](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+1. Configurez les tâches avec les valeurs suivantes et cliquez sur **Appliquer** :
 
-Après quelques secondes, votre DevKit va modifier la couleur de la LED RVB (sous le bouton A).
+    * Sélectionner un travail : **Exécuter une méthode**
+    * Nom de la méthode : **LedColor**
+    * Nom du travail : **ChangeLedColor**
 
-![LED rouge de l’IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
+    ![Paramètres d’un travail](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+
+1. Au bout de quelques secondes, la couleur de la LED RVB (sous le bouton A) de votre appareil DevKit change :
+
+    ![LED rouge de l’IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -110,15 +124,15 @@ Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de 
 
 ## <a name="problems-and-feedback"></a>Problèmes et commentaires
 
-Si vous rencontrez des problèmes, consultez les [FAQ sur le DevKit IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou contactez-nous par le biais des canaux suivants :
+Si vous rencontrez des problèmes, consultez les [FAQ IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou contactez-nous sur les canaux suivants :
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de surveillance à distance Azure IoT et à visualiser les données des capteurs ; nous vous suggérons à présent les étapes suivantes :
+Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de supervision à distance ; nous vous suggérons à présent les étapes suivantes :
 
-* [Vue d’ensemble des accélérateurs de solution Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Personnaliser l’interface utilisateur](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)
+* [Vue d’ensemble des accélérateurs de solution Azure IoT](https://docs.microsoft.com/azure/iot-accelerators/)
+* [Personnaliser l’interface utilisateur](iot-accelerators-remote-monitoring-customize.md)
 * [Connecter IoT DevKit à votre application Azure IoT Central](../iot-central/howto-connect-devkit.md)

@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1ed08562657eb0c50f05efb335c1790d35dcab01
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387501"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976823"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -205,7 +205,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     Si l’abonnement sous lequel est déployé le partage de fichiers est associé au même locataire Azure AD que le déploiement Azure AD Domain Services auquel la machine virtuelle est jointe, vous pouvez accéder à Azure Files avec les mêmes informations d’identification Azure AD. La limitation est imposée non pas sur l’abonnement, mais sur le locataire Azure AD associé.    
     
 * <a id="ad-support-subscription"></a>
-**Puis-je activer l’authentification Azure AD sur SMB pour Azure Files avec un locataire Azure AD autre que le locataire principal auquel le partage de fichiers est associé ?**
+**Puis-je activer l’authentification Azure AD sur SMB pour Azure Files avec un locataire Azure AD autre que le locataire principal auquel le partage de fichiers est associé ?**
 
     Non, Azure Files prend uniquement en charge l’intégration d’Azure AD à un locataire Azure AD qui se trouve dans le même abonnement que le partage de fichiers. Un seul abonnement peut être associé à un locataire Azure AD.
 
@@ -248,7 +248,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="expressroute-not-required"></a>
 **Dois-je utiliser Azure ExpressRoute pour me connecter à Azure Files ou pour utiliser Azure File Sync localement ?**  
 
-    Non. ExpressRoute n’est pas nécessaire pour accéder à un partage de fichiers Azure. Si vous montez un partage de fichiers Azure directement localement, la seule contrainte est que le port 445 (TCP sortant) soit ouvert pour l’accès à Internet (il s’agit du port sur lequel SMB communique). Si vous utilisez Azure File Sync, seul est nécessaire le port 443 (TCP sortant) pour l’accès HTTPS (aucun protocole SMB requis). Toutefois, vous *pouvez* utiliser ExpressRoute avec l’une ou l’autre de ces options d’accès.
+     Non. ExpressRoute n’est pas nécessaire pour accéder à un partage de fichiers Azure. Si vous montez un partage de fichiers Azure directement localement, la seule contrainte est que le port 445 (TCP sortant) soit ouvert pour l’accès à Internet (il s’agit du port sur lequel SMB communique). Si vous utilisez Azure File Sync, seul est nécessaire le port 443 (TCP sortant) pour l’accès HTTPS (aucun protocole SMB requis). Toutefois, vous *pouvez* utiliser ExpressRoute avec l’une ou l’autre de ces options d’accès.
 
 * <a id="mount-locally"></a>
 **Comment monter un partage de fichiers Azure sur mon ordinateur local ?**  
@@ -351,7 +351,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="need-larger-share"></a>
 **J’ai besoin d’un partage de fichiers plus volumineux que celui offert actuellement par Azure Files. Puis-je augmenter la taille de mon partage de fichiers Azure ?**  
-    Non. La taille maximale d’un partage de fichiers Azure est de 5 To. Actuellement, il s’agit d’une limite inconditionnelle que nous ne pouvons pas ajuster. Nous travaillons sur une solution permettant d’augmenter la taille de partage à 100 To, mais nous ne sommes pas en mesure de vous indiquer quand elle sera disponible pour l’instant.
+     Non. La taille maximale d’un partage de fichiers Azure est de 5 To. Actuellement, il s’agit d’une limite inconditionnelle que nous ne pouvons pas ajuster. Nous travaillons sur une solution permettant d’augmenter la taille de partage à 100 To, mais nous ne sommes pas en mesure de vous indiquer quand elle sera disponible pour l’instant.
 
 * <a id="open-handles-quota"></a>
 **Combien de clients peuvent accéder simultanément au même fichier ?**   
@@ -380,7 +380,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="nested-shares"></a>
 **Puis-je configurer des partages imbriqués ? Autrement dit, un partage sous un partage ?**  
-    Non. Le partage de fichiers *est* le pilote virtuel que vous pouvez monter, et les partages imbriqués ne sont donc pas pris en charge.
+     Non. Le partage de fichiers *est* le pilote virtuel que vous pouvez monter, et les partages imbriqués ne sont donc pas pris en charge.
 
 * <a id="ibm-mq"></a>
 **Comment faire pour utiliser Azure Files avec IBM MQ ?**  

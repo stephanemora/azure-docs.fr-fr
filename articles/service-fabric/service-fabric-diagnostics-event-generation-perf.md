@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408011"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290771"
 ---
 # <a name="performance-metrics"></a>Mesures de performances
 
@@ -31,14 +31,15 @@ Pour les ordinateurs de votre cluster, veuillez collecter les compteurs de perfo
 
 | Catégorie de compteur | Nom de compteur |
 | --- | --- |
+| Logical Disk | Espace libre du disque logique |
 | PhysicalDisk(per Disk) | Avg. de file d’attente lecture disque |
 | PhysicalDisk(per Disk) | Avg. de file d’attente écriture disque |
 | PhysicalDisk(per Disk) | Avg. Disk sec/Read |
 | PhysicalDisk(per Disk) | Avg. Disk sec/Write |
 | PhysicalDisk(per Disk) | Nb d’opérations de lectures de disque/s  |
 | PhysicalDisk(per Disk) | Nb d’octets de lecture de disque/s  |
-| PhysicalDisk(per Disk) | Nb d’opération d’écriture de disque/s |
-| PhysicalDisk(per Disk) | Nb d’octets d’écriture de disque/s |
+| PhysicalDisk(per Disk) |  Nb d’opération d’écriture de disque/s |
+| PhysicalDisk(per Disk) |  Nb d’octets d’écriture de disque/s |
 | Mémoire | Nombre d’octets disponibles |
 | PagingFile | % utilisation |
 | Processor(Total) | % temps processeur |
@@ -49,6 +50,9 @@ Pour les ordinateurs de votre cluster, veuillez collecter les compteurs de perfo
 | Processus (par service) | Octets virtuels |
 | Processus (par service) | Plage de travail |
 | Processus (par service) | Plage de travail - Privée |
+| Network Interface(all-instances) | Octets enreg. |
+| Network Interface(all-instances) | Octets envoyés |
+| Network Interface(all-instances) | Total des octets |
 | Network Interface(all-instances) | Longueur de la file d’attente de sortie |
 | Network Interface(all-instances) | Paquets sortants rejetés |
 | Network Interface(all-instances) | Paquets reçus et rejetés |
@@ -65,6 +69,8 @@ Collectez les compteurs suivants si vous déployez des services .NET dans votre 
 | .NET CLR Memory (par service) | Nombre total d’octets dédiés |
 | .NET CLR Memory (par service) | Nombre total d’octets réservés |
 | .NET CLR Memory (par service) | Nombre d’octets dans tous les tas |
+| .NET CLR Memory (par service) | Taille du tas d’objets volumineux |
+| .NET CLR Memory (par service) | Nombre de handles GC |
 | .NET CLR Memory (par service) | Nombre de collections de génération 0 |
 | .NET CLR Memory (par service) | Nombre de collections de génération 1 |
 | .NET CLR Memory (par service) | Nombre de collections de génération 2 |
@@ -76,7 +82,7 @@ Service Fabric génère une quantité importante de compteurs de performance per
 
 Si vous utilisez Reliable Actors, dans les applications que vous déployez dans votre cluster, ajoutez des compteurs des catégories `Service Fabric Actor` et `Service Fabric Actor Method` (consultez [Service Fabric Reliable Actors Diagnostics](service-fabric-reliable-actors-diagnostics.md)) (Diagnostics Reliable Actors de Service Fabric).
 
-Si vous utilisez Reliable Services, nous disposons également de catégories `Service Fabric Service` et `Service Fabric Service Method` desquelles vous devez collecter des compteurs. 
+Si vous utilisez Reliable Services ou la communication à distance du service, nous disposons également des catégories de compteur `Service Fabric Service` et `Service Fabric Service Method` à partir desquelles vous devez collecter les compteurs. Reportez-vous à la [surveillance via la communication à distance du service](service-fabric-reliable-serviceremoting-diagnostics.md) et aux [compteurs de performances de services fiables](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
 Si vous utilisez Reliable Collections, nous vous recommandons d’ajouter `Avg. Transaction ms/Commit` depuis le `Service Fabric Transactional Replicator` pour collecter la latence moyenne de validation par mesure de transaction.
 

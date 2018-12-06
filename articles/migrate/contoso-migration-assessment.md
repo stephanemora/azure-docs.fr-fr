@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: ea0987eaea8ee558df35ecce6afb5e7bab3ac4de
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087615"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635014"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migration de Contoso : évaluer facilement vos charges de travail locales en vue d’une migration vers Azure
 
@@ -125,8 +125,8 @@ Contoso et les autres utilisateurs doivent respecter les prérequis suivants pou
 - Au moins deux machines virtuelles VMware locales, dont l’une exécutant une base de données SQL Server.
 - Les autorisations nécessaires pour installer des agents Azure Migrate sur chaque machine virtuelle.
 - Les machines virtuelles doivent avoir une connectivité Internet directe.  
-        - Vous pouvez limiter l’accès Internet aux [URL requises](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        - Si vos machines virtuelles ne sont pas connectées à Internet, la [passerelle Azure Log Analytics](../log-analytics/log-analytics-oms-gateway.md) doit être installée sur celles-ci et le trafic de l’agent y transiter.
+    - Vous pouvez limiter l’accès Internet aux [URL requises](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - Si vos machines virtuelles ne sont pas connectées à Internet, la [passerelle Azure Log Analytics](../azure-monitor/platform/gateway.md) doit être installée et le trafic de l’agent y transiter.
 - Le nom de domaine complet de la machine virtuelle qui exécute l’instance SQL Server, pour l’évaluation de la base de données.
 - Le Pare-feu Windows exécuté sur la machine virtuelle SQL Server doit autoriser les connexions externes via le port TCP 1433 (par défaut). Cette installation permet à l’Assistant Migration de données de se connecter.
 

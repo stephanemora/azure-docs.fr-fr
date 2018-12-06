@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: 23f00280a69212b9e623ae1da16a681ca30c9d51
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42145721"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423726"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Activité ForEach dans Azure Data Factory
 L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
@@ -74,8 +74,8 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 Nom | Nom de l’activité ForEach. | Chaîne | Oui
 Type | Doit être défini sur **ForEach** | Chaîne | Oui
-isSequential | Spécifie si la boucle doit être exécutée de façon séquentielle ou parallèle.  Le nombre maximal d’itérations de boucle exécutables simultanément en parallèle est de 20. Par exemple, si vous avez une activité ForEach effectuant une itération sur une activité de copie portant sur 10 jeux de données de source et de récepteur différents avec la valeur **isSequential** définie sur False, toutes les copies sont exécutées en même temps. La valeur par défaut est False. <br/><br/> Si la valeur de « isSequential » est définie sur False, assurez-vous qu’il existe une configuration correcte pour exécuter plusieurs exécutables. Autrement, cette propriété doit être utilisée avec précaution pour éviter des conflits d’écriture. Pour plus d’informations, voir la section [Exécution parallèle](#parallel-execution). | Booléen | Non. La valeur par défaut est False.
-batchCount | Nombre de lots à utiliser pour contrôler le nombre d’exécutions en parallèle (lorsque isSequential est défini sur false). | Entier (maximum 50) | Non. La valeur par défaut est 20.
+isSequential | Spécifie si la boucle doit être exécutée de façon séquentielle ou parallèle.  Le nombre maximal d’itérations de boucle exécutables simultanément en parallèle est de 20. Par exemple, si vous avez une activité ForEach effectuant une itération sur une activité de copie portant sur 10 jeux de données de source et de récepteur différents avec la valeur **isSequential** définie sur False, toutes les copies sont exécutées en même temps. La valeur par défaut est False. <br/><br/> Si la valeur de « isSequential » est définie sur False, assurez-vous qu’il existe une configuration correcte pour exécuter plusieurs exécutables. Autrement, cette propriété doit être utilisée avec précaution pour éviter des conflits d’écriture. Pour plus d’informations, voir la section [Exécution parallèle](#parallel-execution). | Booléen |  Non. La valeur par défaut est False.
+batchCount | Nombre de lots à utiliser pour contrôler le nombre d’exécutions en parallèle (lorsque isSequential est défini sur false). | Entier (maximum 50) |  Non. La valeur par défaut est 20.
 Éléments | Expression qui retourne un tableau JSON auquel appliquer l’itération. | Expression (qui retourne un tableau JSON) | Oui
 Activités | Activités à exécuter. | Liste des activités | Oui
 
@@ -572,6 +572,17 @@ L’expression pour la collecte des résultats de toutes les itérations d’une
 ]
 
 ```
+
+## <a name="limitations-and-workarounds"></a>Limitations et solutions de contournement
+
+Voici quelques limitations de l’activité ForEach et des suggestions de solutions de contournement.
+
+| Limitation | Solution de contournement |
+|---|---|
+| Vous ne pouvez pas imbriquer une boucle ForEach à l’intérieur d’une autre boucle ForEach (ou une boucle Until). | Concevez un pipeline à deux niveaux où le pipeline externe contenant la boucle ForEach externe itère sur un pipeline interne contenant la boucle imbriquée. |
+| Pour chaque activité ForEach, `batchCount` a une valeur maximale de 50 pour le traitement parallèle et un maximum de 100 000 éléments. | Concevez un pipeline à deux niveaux où le pipeline externe contenant l’activité ForEach itère sur un pipeline interne. |
+| | |
+
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 

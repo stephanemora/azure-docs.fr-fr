@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649310"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284368"
 ---
 # <a name="language-understanding-faq"></a>FAQ sur Language Understanding
 
@@ -60,6 +60,16 @@ Les applications prédéfinies Cortana sont déconseillées depuis 2017. Elles n
 
 ## <a name="luis-endpoint"></a>Point de terminaison LUIS
 
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Ma requête de point de terminaison a retourné des résultats inattendus. Que dois-je faire ?
+
+Les résultats inattendus de la prédiction de requête sont basés sur l’état du modèle publié. Pour corriger le modèle, vous devrez peut-être changer le modèle, effectuer un entraînement et le publier à nouveau. 
+
+La correction du modèle commence par l’[entraînement actif](luis-how-to-review-endoint-utt.md).
+
+Vous pouvez supprimer un entraînement non déterministe en mettant à jour l’[API des paramètres de la version de l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) afin d’utiliser toutes les données d’entraînement. 
+
+Pour obtenir d’autres conseils, passez en revue les [bonnes pratiques](luis-concept-best-practices.md). 
+
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Pourquoi LUIS ajoute-t-il des espaces à la requête autour ou au milieu de mots ?
 LUIS [tokénise](luis-glossary.md#token) l’énoncé en fonction de la [culture](luis-language-support.md#tokenization). Tant la valeur d’origine que la valeur tokénisée sont disponibles pour l’[extraction de données](luis-concept-data-extraction.md#tokenized-entity-returned).
 
@@ -67,7 +77,7 @@ LUIS [tokénise](luis-glossary.md#token) l’énoncé en fonction de la [culture
 [Créez la clé de point de terminaison](luis-how-to-azure-subscription.md#create-luis-endpoint-key) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Affectez la clé](luis-how-to-manage-keys.md#assign-endpoint-key) dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-manage-keys.md)**. Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Comment interpréter les scores de LUIS ?
-Votre système doit utiliser l’intention de score le plus élevée, quelle qu’en soit la valeur. Par exemple, un score inférieur à 0,5 (moins de 50 %) ne signifie pas nécessairement que la confiance de LUIS est faible. La fourniture de données d’apprentissage supplémentaires peut aider à augmenter le score de l’intention la plus probable.
+Votre système doit utiliser l’intention de score le plus élevée, quelle qu’en soit la valeur. Par exemple, un score inférieur à 0,5 (moins de 50 %) ne signifie pas nécessairement que la confiance de LUIS est faible. La fourniture de données d’entraînement supplémentaires peut aider à augmenter le [score](luis-concept-prediction-score.md) de l’intention la plus probable.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Pourquoi ne vois-je pas les accès à mon point de terminaison sur le tableau de bord de mon application ?
 Le nombre total d’accès de point de terminaison est régulièrement mis à jour sur le tableau de bord de l’application, mais la fréquence de mise à jour est plus élevée pour les métriques associées à la clé du point de terminaison LUIS sur le Portail Azure.
@@ -187,7 +197,7 @@ La [préparation vocale](https://docs.microsoft.com/bot-framework/bot-service-ma
 ## <a name="luis-service"></a>Service LUIS
 
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS est-il disponible en local ou dans un cloud privé ?
-Non.
+ Non.
 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Lors de la conférence Build 2018, j’ai entendu parler d’une fonctionnalité ou d’une démonstration de Language Understanding, mais je ne me rappelle pas son nom

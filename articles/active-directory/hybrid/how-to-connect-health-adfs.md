@@ -56,7 +56,7 @@ Pour sélectionner des mesures supplémentaires, spécifiez un intervalle de tem
 | Emplacement réseau | Regroupe la totalité des demandes en fonction de l’emplacement du réseau de l’utilisateur. Il peut s’agir d’un réseau intranet ou extranet. Ce regroupement permet de comparer les pourcentages de trafic issus de l’intranet et de l’extranet. |
 
 
-**Métrique : Nombre total de requêtes échouées** : nombre total de requêtes échouées traitées par le service de fédération. (Cette métrique est disponible uniquement sur AD FS pour Windows Server 2012 R2)
+**Métrique : Nombre total de requêtes échouées** : nombre total de requêtes échouées traitées par le service de fédération.  (Cette métrique est disponible uniquement sur AD FS pour Windows Server 2012 R2)
 
 |Regroupement | En quoi consiste le regroupement ? Quel est son intérêt ? |
 | --- | --- |
@@ -192,7 +192,7 @@ Le seuil d’alerte peut être mis à jour dans les paramètres de seuil. Le seu
 
 ### <a name="faq"></a>Forum Aux Questions
 1. Pourquoi vois-je des plages d’adresses IP privées dans le rapport ?  <br />
-Les adresses IP privées (<i>10.x.x.x, 172.x.x.x et 192.168.x.x</i>) et les adresses IP Exchange sont filtrées et marquées comme True dans la liste blanche d’adresses IP. Si vous voyez des plages d’adresses IP privées, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP client lorsqu’il transmet la requête au serveur proxy d’application web.
+Les adresses IP privées (<i>10.x.x.x, 172.x.x.x et 192.168.x.x</i>) et les adresses IP Exchange sont filtrées et marquées comme True dans la liste verte d’adresses IP. Si vous voyez des plages d’adresses IP privées, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP client lorsqu’il transmet la requête au serveur proxy d’application web.
 
 2. Pourquoi des adresses IP d’équilibreur de charge s’affichent-elles dans le rapport ?  <br />
 Si vous voyez des adresses d’équilibreur de charge, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP cliente lorsqu’il transfère la requête au serveur proxy d’application web. Veuillez configurer correctement votre équilibreur de charge pour qu’il transfère l’adresse IP cliente. 

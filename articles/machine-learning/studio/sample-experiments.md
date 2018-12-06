@@ -1,11 +1,12 @@
 ---
-title: Créer des expériences à partir des exemples d’apprentissage automatique - Azure | Microsoft Docs
-description: Découvrez comment utiliser les exemples d’expérience d’apprentissage automatique pour créer des expériences avec la galerie Azure AI et Azure Machine Learning.
+title: Créer des expériences Machine Learning Studio à partir d’exemples - Azure | Microsoft Docs
+description: Découvrez comment utiliser les exemples d’expérience de machine learning pour créer des expériences avec Azure AI Gallery et Azure Machine Learning Studio.
 keywords: exemples d’apprentissage automatique, exemple d’expérience, exemple d’apprentissage automatique, exemples de AI
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: f93d0d4e12d97fadb23476afc3199599b3268580
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998047"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306678"
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Créer des expériences d’apprentissage automatique à partir des exemples de travail dans la galerie AI Azure
 
@@ -47,7 +48,7 @@ Pour parcourir toutes les expériences :
 3. Vous y trouverez des expériences qui répondent à vos besoins de différentes façons :
    * **Sélectionnez des filtres à gauche.** Par exemple, pour parcourir les expériences utilisant un algorithme de détection d’anomalie PCA : sous **Catégories**, cliquez sur **Tester**. Ensuite, sous **Algorithmes utilisés**, cliquez sur **Afficher tout** et choisissez **Détection d’anomalie PCA** dans la boîte de dialogue. Vous devrez peut-être faire défiler le voir.<br></br>
      ![Sélectionner des filtres](./media/sample-experiments/choose-an-algorithm.png)
-   * **Utilisez la zone de recherche.** Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Ensuite, sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) :<br></br>
+   * **Utilisez la zone de recherche.**  Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Ensuite, sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) :<br></br>
      ![Utiliser la zone de recherche](./media/sample-experiments/search-for-experiments.png)
 4. Cliquez sur une expérience pour en savoir plus à propos de celle-ci.
 5. Pour exécuter et/ou modifier l’expérience, cliquez sur **Ouvrir dans Studio** sur la page de l’expérience. <br></br>

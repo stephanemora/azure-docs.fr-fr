@@ -1,6 +1,6 @@
 ---
 ms.assetid: ''
-title: Clés de compte de stockage Azure Key Vault
+title: Compte de stockage managé Azure Key Vault – CLI
 description: Les clés de compte de stockage assurent une intégration transparente entre Azure Key Vault et l’accès au compte de stockage Azure basé sur les clés.
 ms.topic: conceptual
 services: key-vault
@@ -9,14 +9,14 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: e62c599d82f488bf1fc30ce503c271084c5ae59d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e110a24af6a0d49ea949db6bc30ab344c81d0f48
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300217"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619280"
 ---
-# <a name="azure-key-vault-storage-account-keys"></a>Clés de compte de stockage Azure Key Vault
+# <a name="azure-key-vault-managed-storage-account---cli"></a>Compte de stockage managé Azure Key Vault – CLI
 
 > [!NOTE]
 > [Le stockage Azure prend maintenant en charge l’autorisation AAD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Nous vous recommandons d’utiliser Azure Active Directory pour l’authentification et autorisation sur le stockage pour ne pas que les utilisateurs se préoccupent de la rotation des clés de leurs comptes de stockage.

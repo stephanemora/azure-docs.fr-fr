@@ -1,11 +1,12 @@
 ---
-title: Forum Aux Questions (FAQ) Azure Machine Learning | Microsoft Docs
-description: "Présentation d'Azure Machine Learning : FAQ portant sur la facturation, les fonctionnalités et les limitations d'un service cloud pour la modélisation prédictive rationalisée."
+title: Questions fréquentes (FAQ) sur Machine Learning Studio - Azure | Microsoft Docs
+description: 'Azure Machine Learning Studio : FAQ portant sur la facturation, les fonctionnalités et les limitations d’un service cloud pour la modélisation prédictive rationalisée.'
 keywords: introduction à l’apprentissage automatique, modélisation prédictive, présentation de l’apprentissage automatique
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
 ms.component: studio
@@ -14,27 +15,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 87695e6e7e1f1abce7204ebbbbed2b492297f177
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393296"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309138"
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Forum Aux Questions Azure Machine Learning : facturation, fonctionnalités, limitations et support
+# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Questions fréquentes (FAQ) sur Azure Machine Learning Studio : facturation, fonctionnalités, limitations et support
 Voici quelques-unes des questions fréquemment posées et des réponses correspondantes sur Azure Machine Learning, un service cloud pour le développement de modèles prédictifs et la mise en œuvre de solutions via des services web. Ce FAQ aborde l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
 
 **Vous ne parvenez pas à trouver votre question ?**
 
-Azure Machine Learning dispose également d’un forum sur MSDN, où des membres de la communauté de science des données peuvent poser des questions concernant Azure Machine Learning. Ce forum est géré par l’équipe Azure Machine Learning. Rendez-vous sur le [forum Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) pour trouver des réponses ou publier une nouvelle question de votre choix.
+Azure Machine Learning dispose également d’un forum sur MSDN, où des membres de la communauté de science des données peuvent poser des questions concernant Azure Machine Learning. Ce forum est géré par l’équipe Azure Machine Learning. Rendez-vous sur le [forum Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) pour trouver des réponses ou publier une nouvelle question de votre choix.
 
 ## <a name="general-questions"></a>Questions générales
-**Qu'est-ce que Microsoft Azure Machine Learning ?**
-
-Microsoft Azure Machine Learning est un service entièrement géré qui permet de créer, de tester, de faire fonctionner et de gérer des solutions analytiques prédictives dans le cloud. À l’aide d’un simple navigateur, vous pouvez vous connecter, charger des données et commencer immédiatement des expériences d’apprentissage automatique. Grâce à la modélisation prédictive par glisser-déplacer, à une vaste palette de modules et à une bibliothèque de modèles de départ, les tâches d’apprentissage automatique les plus courantes sont simples et rapides. Pour plus d’informations, consultez la [Vue d’ensemble du service Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Pour une présentation de l’apprentissage automatique qui aborde la terminologie et les concepts principaux, consultez [Présentation d’Azure Machine Learning](what-is-machine-learning.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **Qu'est-ce que Machine Learning Studio ?**
 
 Machine Learning Studio est un environnement de banc d’essai accessible par l’intermédiaire d’un navigateur web. Il héberge de nombreux modules dans une interface de composition visuelle et vous aide à concevoir un workflow de science des données de bout en bout qui prend la forme d’une expérience.
@@ -123,7 +118,7 @@ Découvrez la capacité d’entrée d’image dans la référence [Importer des 
 ### <a name="modules"></a>Modules
 **L’algorithme, la source des données, le format des données ou l’opération de transformation des données que je recherche ne sont pas disponibles dans Azure Machine Learning Studio. Quelles sont mes options ?**
 
-Vous pouvez consulter le [forum des commentaires des utilisateurs](http://go.microsoft.com/fwlink/?LinkId=404231) (en anglais) pour visualiser les demandes de fonctionnalités dont nous effectuons le suivi. Si la fonctionnalité que vous recherchez a déjà fait l’objet d’une requête, ajoutez votre vote à cette requête. Si la fonctionnalité que vous recherchez n’existe pas, créez une requête. Vous pouvez également afficher le statut de votre requête dans ce forum. Nous suivons cette liste de près et mettons à jour régulièrement le statut de disponibilité des fonctionnalités. Par ailleurs, le support intégré pour R et Python permet de créer des transformations personnalisées en fonction des besoins.
+Vous pouvez consulter le [forum des commentaires des utilisateurs](https://go.microsoft.com/fwlink/?LinkId=404231) (en anglais) pour visualiser les demandes de fonctionnalités dont nous effectuons le suivi. Si la fonctionnalité que vous recherchez a déjà fait l’objet d’une requête, ajoutez votre vote à cette requête. Si la fonctionnalité que vous recherchez n’existe pas, créez une requête. Vous pouvez également afficher le statut de votre requête dans ce forum. Nous suivons cette liste de près et mettons à jour régulièrement le statut de disponibilité des fonctionnalités. Par ailleurs, le support intégré pour R et Python permet de créer des transformations personnalisées en fonction des besoins.
 
 **Puis-je importer mon code existant dans Machine Learning Studio ?**
 
@@ -173,7 +168,7 @@ Non. Actuellement, seul le recyclage par programme est pris en charge.
 
 **Est-il possible de visualiser les couches d’un modèle de réseau neuronal à l’aide du module intégré ?**
 
-Non.
+ Non.
 
 **Puis-je créer mes propres modules en C# ou un autre langage ?**
 
@@ -182,7 +177,7 @@ Actuellement, vous pouvez uniquement utiliser R pour créer des modules personn
 ### <a name="r-module"></a>Module R
 **Quels packages R sont disponibles dans Machine Learning Studio ?**
 
-Machine Learning Studio prend actuellement en charge plus de 400 packages CRAN R. Voici la [liste actuelle](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de tous les packages inclus. Pour découvrir comment récupérer vous-même cette liste, voir [Prolongez votre expérience avec R](extend-your-experiment-with-r.md). Si le package souhaité ne figure pas dans cette liste, indiquez son nom sur le [forum des commentaires des utilisateurs](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio prend actuellement en charge plus de 400 packages CRAN R. Voici la [liste actuelle](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de tous les packages inclus. Pour découvrir comment récupérer vous-même cette liste, voir [Prolongez votre expérience avec R](extend-your-experiment-with-r.md). Si le package souhaité ne figure pas dans cette liste, indiquez son nom sur le [forum des commentaires des utilisateurs](https://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Est-il possible de créer un module R personnalisé ?**
 
@@ -210,7 +205,7 @@ Utilisez les API de recyclage. Pour plus d'informations, consultez la page [Refo
 ### <a name="create"></a>Créer
 **Puis-je déployer le modèle localement ou dans une application sans connexion Internet ?**
 
-Non.
+ Non.
 
 **Existe-t-il une latence de référence attendue pour tous les services Web ?**
 
@@ -223,7 +218,7 @@ Le service de requête-réponse (RRS, Request-Response Service) est un service w
 
 **Comment puis-je mettre à jour le modèle pour le service Web déployé ?**
 
-Si vous voulez mettre à jour un modèle prédictif pour un service déjà déployé, il vous suffit de modifier et de réexécuter l’expérience utilisée pour créer et enregistrer le modèle formé. Une fois qu’une nouvelle version du modèle formé est disponible, Machine Learning Studio vous demande si vous voulez mettre à jour votre service web. Pour plus d’informations sur la mise à jour d’un service web déployé, voir [Déploiement d’un service web Machine Learning](publish-a-machine-learning-web-service.md).
+Si vous voulez mettre à jour un modèle prédictif pour un service déjà déployé, il vous suffit de modifier et de réexécuter l’expérience utilisée pour créer et enregistrer le modèle entraîné. Une fois qu’une nouvelle version du modèle entraîné est disponible, Machine Learning Studio vous demande si vous voulez mettre à jour votre service web. Pour plus d’informations sur la mise à jour d’un service web déployé, voir [Déploiement d’un service web Machine Learning](publish-a-machine-learning-web-service.md).
 
 Vous pouvez également utiliser les API de recyclage.
 Pour plus d'informations, consultez la page [Reformation des modèles Machine Learning par programme](retrain-models-programmatically.md). Un exemple de code est également disponible sur la page [Microsoft Azure Machine Learning Retraining Demo](https://azuremlretrain.codeplex.com/)(Démonstration de reformation Microsoft Azure Machine Learning).
@@ -251,7 +246,7 @@ Actuellement, le point de terminaison par défaut est doté de 20 demandes RR si
 
 **Les travaux R sont-ils répartis entre les nœuds ?**
 
-Non.  
+ Non.  
 
 **Quelle quantité de données puis-je utiliser pour l'apprentissage ?**
 
@@ -280,7 +275,7 @@ Les lignes et colonnes sont limitées selon la limitation Max Int de .NET : 2 
 
 **Puis-je ajuster la taille de la machine virtuelle qui exécute le service web ?**
 
-Non.  
+ Non.  
 
 ## <a name="security-and-availability"></a>Sécurité et disponibilité
 **Qui a accès au point de terminaison http pour le service web par défaut ? Comment puis-je limiter l’accès au point de terminaison ?**
@@ -312,7 +307,7 @@ Vous pouvez également rechercher des formations sur [Microsoft Virtual Academy]
 
 Pour obtenir un support technique pour Azure Machine Learning, accédez au [Support Azure](https://azure.microsoft.com/support/options/) et sélectionnez **Machine Learning**.
 
-Azure Machine Learning dispose également d’un forum communautaire sur MSDN, où vous pouvez poser des questions en rapport avec Azure Machine Learning. Ce forum est géré par l’équipe Azure Machine Learning. Visitez le [Forum Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+Azure Machine Learning dispose également d’un forum communautaire sur MSDN, où vous pouvez poser des questions en rapport avec Azure Machine Learning. Ce forum est géré par l’équipe Azure Machine Learning. Visitez le [Forum Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="billing-questions"></a>Questions sur la facturation
 **Comment fonctionne la facturation dans Machine Learning ?**
@@ -533,7 +528,7 @@ Pour copier vos expériences du niveau Gratuit vers le niveau Standard :
 2. Passez à l’espace de travail Gratuit si vous êtes dans l’espace de travail Standard.
 3. Dans la liste des expériences, sélectionnez une expérience à copier, puis cliquez sur le bouton de commande **Copier**.
 4. Sélectionnez l’espace de travail Standard dans la boîte de dialogue qui s’ouvre, puis cliquez sur le bouton **Copier**.
-   Tous les jeux de données associés, le modèle formé et les autres éléments sont copiés en même temps que l’expérience dans l’espace de travail Standard.
+   Tous les jeux de données associés, le modèle entraîné et les autres éléments sont copiés en même temps que l’expérience dans l’espace de travail Standard.
 5. Vous devez réexécuter l’expérience et republier votre site web dans l’espace de travail Standard.
 
 ### <a name="studio-workspace"></a>Espace de travail Studio

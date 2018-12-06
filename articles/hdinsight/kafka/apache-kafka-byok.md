@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041507"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314369"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Apporter votre propre clé pour Apache Kafka sur Azure HDInsight (préversion)
 
@@ -83,7 +83,7 @@ Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés
 
    Pendant la création du cluster, indiquez l’URL complète de la clé en incluant la version de la clé. Par exemple : `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Vous devez aussi affecter l’identité managée au cluster et indiquer l’URI de la clé.
 
-## <a name="faq-for-byok-to-kafka"></a>Questions fréquentes (FAQ) sur BYOK pour Kafka
+## <a name="faq-for-byok-to-apache-kafka"></a>Questions fréquentes (FAQ) sur BYOK pour Apache Kafka
 
 **Comment le cluster Kafka accède-t-il à mon coffre de clés ?**
 
@@ -107,7 +107,7 @@ Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés
 
 **Les disques de système d’exploitation/ressources sont-ils également chiffrés ?**
 
-   Non. Les disques de système d’exploitation et de ressources ne sont pas chiffrés.
+    Non. Les disques de système d’exploitation et de ressources ne sont pas chiffrés.
 
 **En cas de montée en puissance d’un cluster, les nouveaux répartiteurs prennent-ils en charge BYOK sans interruption ?**
 

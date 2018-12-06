@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685648"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619813"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
@@ -34,7 +34,7 @@ Consultez [ce guide](https://docs.microsoft.com/azure/security/azure-ad-choose-a
 
 L’authentification directe est une fonctionnalité gratuite. Il est inutile de disposer des éditions payantes d’Azure AD pour l’utiliser.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L’authentification directe est-elle disponible dans le [cloud Microsoft Azure Allemagne](http://www.microsoft.de/cloud-deutschland) et le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) ?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L’authentification directe est-elle disponible dans le [cloud Microsoft Azure Allemagne](https://www.microsoft.de/cloud-deutschland) et le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) ?
 
  Non. L’authentification directe est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
 
@@ -44,7 +44,7 @@ Oui. Toutes les fonctionnalités, y compris l’authentification multifacteur Az
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L’authentification directe prend-elle en charge « l’ID alternatif » comme le nom d’utilisateur, plutôt que « userPrincipalName » ?
 
-Oui. L’authentification directe prend en charge `Alternate ID` comme nom d’utilisateur lorsqu’elle est configurée dans Azure AD Connect. Pour plus d’informations, consultez [Installation personnalisée d’Azure AD Connect](how-to-connect-install-custom.md). Toutes les applications Office 365 ne prennent pas en charge `Alternate ID`. Reportez-vous à la documentation de l’application qui vous intéresse pour avoir des précisions sur sa prise en charge.
+Oui, l’authentification directe prend en charge le nom d’utilisateur `Alternate ID` lorsqu’elle est configurée dans Azure AD Connect. Le prérequis est qu’Azure AD Connect doit synchroniser l’attribut `UserPrincipalName` Active Directory local sur Azure AD. Pour plus d’informations, consultez [Installation personnalisée d’Azure AD Connect](how-to-connect-install-custom.md). Toutes les applications Office 365 ne prennent pas en charge `Alternate ID`. Reportez-vous à la documentation de l’application qui vous intéresse pour avoir des précisions sur sa prise en charge.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La synchronisation du hachage de mot de passe agit-elle comme solution de secours pour l’authentification directe ?
 
@@ -119,6 +119,10 @@ Si vous procédez à une migration depuis AD FS (ou d’autres technologies de f
 
 Oui. Les environnements à plusieurs forêts sont pris en charge s’il existe des approbations de forêts entre les forêts Active Directory et si le routage du suffixe de leurs noms est configuré correctement.
 
+## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>L’authentification directe assure-t-elle l’équilibrage de charge sur plusieurs agents d’authentification ?
+
+Non, le fait d’installer plusieurs agents d’authentification directe n’assure que la [haute disponibilité](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability), et non un équilibrage de charge déterministe entre les agents d’authentification. N’importe quel agent d’authentification (pris au hasard) peut traiter la demande de connexion d’un utilisateur.
+
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Combien d’agents d’authentification directe dois-je installer ?
 
 L’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Mais cela ne fournit pas un équilibrage de charge déterministe entre les agents d’authentification.
@@ -132,7 +136,7 @@ Pour estimer le trafic réseau, suivez les instructions de dimensionnement suiva
 Pour la plupart des clients, deux ou trois agents d’authentification au total suffisent à offrir la haute disponibilité et suffisamment de capacité. Vous devriez installer des agents d’authentification près de vos contrôleurs de domaine pour améliorer la latence de connexion.
 
 >[!NOTE]
->Il existe une limite système de 12 agents d’authentification par client.
+>Il existe une limite système de 40 agents d’authentification par client.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Puis-je installer le premier agent d’authentification directe sur un serveur autre que celui qui exécute Azure AD Connect ?
 
@@ -149,6 +153,22 @@ Réexécutez l’assistant Azure AD Connect et modifiez la méthode de connexion
 ## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>Que se passe-t-il lorsque je désinstalle un agent d’authentification directe ?
 
 La désinstallation d’un agent d’authentification directe à partir d’un serveur provoque l’interruption de l’acceptation des requêtes de connexion. Pour éviter d'interrompre la fonctionnalité de connexion de l'utilisateur sur votre client, assurez-vous qu'un autre agent d'authentification est en cours d'exécution avant de désinstaller un agent d'authentification directe.
+
+## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>J’ai un ancien locataire qui a été configuré à l’origine avec AD FS.  Bien que nous ayons récemment migré vers PTA, nos modifications de nom d’utilisateur principal (UPN) ne se synchronisent pas avec Azure AD.  Pourquoi la synchronisation n’a-t-elle pas lieu ?
+
+R : Il peut arriver que les modifications de noms UPN locaux ne se synchronisent pas dans les circonstances suivantes :
+
+- Votre client Azure AD a été créé avant le 15 juin 2015.
+- Vous étiez à l’origine fédéré avec votre client Azure AD par le biais d’AD FS pour l’authentification.
+- Vous avez basculé vers des utilisateurs gérés avec PTA pour l’authentification.
+
+En effet, le comportement par défaut des locataires créés avant le 15 juin 2015 consistait à bloquer les changements de noms UPN.  Si souhaitez les débloquer, exécutez la cmdlet PowerShell suivante :  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+Les locataires créés après le 15 juin 2015 ont le comportement par défaut, c’est-à-dire qu’ils synchronisent les modifications de noms UPN.   
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.

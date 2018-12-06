@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013324"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821546"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -258,7 +258,7 @@ Les opérations sont regroupées par identificateur `txn-id`.
 
 Pour l’interaction transactionnelle, le client agit en tant que `transaction controller`, qui contrôle les opérations à regrouper. Le service Service Bus agit en tant que `transactional resource` et effectue le travail demandé par le `transaction controller`.
 
-Le client et le service communiquent via un `control link`, qui est établi par le client. Les messages `declare` et `discharge` sont envoyés par le contrôleur sur le lien de contrôle pour allouer et effectuer des transactions, respectivement. Ils ne représentent pas la délimitation de travail transactionnel. Les opérations réelles d’envoi/de réception ne sont pas effectuées sur cette liaison. Chaque opération transactionnelle demandée est explicitement identifiée avec le `txn-id` souhaité, et par conséquent, peut se produire sur n’importe quelle liaison sur la connexion. Si le lien de contrôle est fermé alors qu’il existe des transactions non rejetées qu’il a créées, toutes ces transactions sont restaurées immédiatement et les tentatives de travail transactionnel sur ces dernières aboutissent à un échec. Les messages sur le lien de contrôle ne doivent pas être préréglés.
+Le client et le service communiquent via un `control link`, qui est établi par le client. Les messages `declare` et `discharge` sont envoyés par le contrôleur sur le lien de contrôle pour allouer et effectuer des transactions, respectivement. Ils ne représentent pas la délimitation de travail transactionnel. Les opérations réelles d’envoi/de réception ne s’effectuent pas sur ce lien. Chaque opération transactionnelle demandée est explicitement identifiée avec le `txn-id` souhaité, et par conséquent, peut se produire sur n’importe quelle liaison sur la connexion. Si le lien de contrôle est fermé alors qu’il existe des transactions non rejetées qu’il a créées, toutes ces transactions sont restaurées immédiatement et les tentatives de travail transactionnel sur ces dernières aboutissent à un échec. Les messages sur le lien de contrôle ne doivent pas être préréglés.
 
 Chaque connexion doit initialiser son propre le lien de contrôle pour être en mesure de démarrer et d’arrêter des transactions. Le service définit une cible particulière qui fonctionne en tant que `coordinator`. Le contrôleur/client établit un lien de contrôle vers cette cible. Le lien de contrôle est en dehors de la limite d’une entité, c’est-à-dire que le même lien de contrôle peut être utilisé pour lancer et rejeter des transactions sur plusieurs entités.
 
@@ -364,7 +364,7 @@ Le message de demande possède les propriétés d’application suivantes :
 | operation |Non  |chaîne |**put-token** |
 | Type |Non  |chaîne |Type du jeton placé. |
 | Nom |Non  |chaîne |« Audience » à laquelle le jeton s’applique. |
-| expiration |Oui |timestamp |Délai d’expiration du jeton. |
+| expiration |Oui | timestamp |Délai d’expiration du jeton. |
 
 La propriété *name* identifie l’entité avec laquelle le jeton doit être associé. Dans Service Bus, il s’agit du chemin d’accès à la file d’attente ou à la rubrique/l’abonnement. La propriété *type* identifie le type de jeton :
 

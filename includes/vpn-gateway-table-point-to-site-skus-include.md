@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6d1a0e66cff415d25e7019e163e5ae42be205888
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cd1d143151e61c7c767ffdc4acb172b06dd0e43
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197667"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585688"
 ---
-| **Référence (SKU)** | **Connexions P2S**| **Test d’évaluation du débit d’agrégat** | **Authentification RADIUS** | **IKEv2 P2S VPN** |
-|---|---|---|---| --- |
-| VpnGw1 | 128 | 650 Mbits/s  | Prise en charge     | Prise en charge |
-| VpnGw2 | 128 | 1 Gbits/s     | Prise en charge     | Prise en charge |
-| VpnGw3 | 128 | 1,25 Gbits/s | Prise en charge     | Prise en charge |
-| De base  | 128 | 100 Mbits/s  | Non pris en charge | Non pris en charge |
+|**Référence (SKU)**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> connexions SSTP** | **P2S<br> connexions IKEv2** | **Agrégat<br>Référence de débit** |
+|---       | ---        | ---       | ---            | ---       |
+|**VpnGw1**| Max 30   | Max 128  | Max 250       | 650 Mbits/s  |
+|**VpnGw2**| Max 30  | Max 128  | Max 500       | 1 Gbit/s    |
+|**VpnGw3**| Max 30   | Max 128  | Max 1 000      | 1,25 Gbits/s |
+|**De base** | Max 10    | Max 128  | Non pris en charge  | 100 Mbits/s  | 
