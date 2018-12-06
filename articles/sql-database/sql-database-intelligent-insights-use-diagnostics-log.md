@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166892"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977095"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utiliser le journal de diagnostic Intelligent Insights des performances d’Azure SQL Database
 
@@ -39,9 +39,7 @@ L’en-tête du journal est commun et se compose de l’horodatage (TimeGenerate
 
 ## <a name="issue-id-and-database-affected"></a>ID du problème et base de données concernés
 
-La propriété d’identification des problèmes (issueId_d) offre un moyen unique d’assurer le suivi des problèmes de performances jusqu’à leur résolution. Intelligent Insights observe le cycle de vie de chaque problème comme étant « Actif », « En cours de vérification » ou « Terminé ». À travers chacune de ces phases d’état, Intelligent Insights peut enregistrer plusieurs enregistrements d’événement dans le journal. Pour chacune de ces entrées, le numéro d’identification du problème reste unique. Intelligent Insights effectue le suivi du problème via son cycle de vie et génère un insight dans le journal de diagnostic toutes les 15 minutes.
-
-Une fois qu’un problème de performances est détecté et aussi longtemps qu’il dure, il est considéré comme étant « Actif » sous la propriété d’état (status_s). Une fois qu’un problème détecté est atténué, il est vérifié et signalé comme étant « En cours de vérification » sous la propriété d’état (status_s). Si le problème n’existe plus, la propriété d’état (status_s) le signale comme étant « Terminé ».
+La propriété d’identification des problèmes (issueId_d) offre un moyen unique de suivi des problèmes de performances jusqu'à leur résolution. Dans le journal, les enregistrements d’événements multiples se rapportant au même problème partagent le même ID de problème.
 
 En plus de l’ID de problème, le journal de diagnostic indique les horodatages de début (intervalStartTime_t) et de fin (intervalEndTme_t) de l’événement particulier associé à un problème signalé dans le journal de diagnostic.
 

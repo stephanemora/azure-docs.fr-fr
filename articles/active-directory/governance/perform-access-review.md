@@ -1,6 +1,6 @@
 ---
-title: Réviser les accès avec les révisions d’accès Azure AD | Microsoft Docs
-description: Découvrez comment réviser les accès à l’aide des révisions d’accès Azure Active Directory.
+title: Démarrer une révision d’accès avec les révisions d’accès Azure AD | Microsoft Docs
+description: Découvrez comment démarrer une révision d’accès avec les révisions d’accès Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -14,14 +14,14 @@ ms.component: compliance
 ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 09247a430d2ece44c307297838b7f4dc2819d56d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 455a4922dfd0832c49729bed007dd696562be07a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607029"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263417"
 ---
-# <a name="review-access-with-azure-ad-access-reviews"></a>Réviser les accès avec les révisions d’accès Azure AD
+# <a name="start-an-access-review-with-azure-ad-access-reviews"></a>Démarrer une révision d’accès avec les révisions d’accès Azure AD
 
 Azure Active Directory (Azure AD) simplifie la manière dont les entreprises gèrent l’accès aux applications et aux membres des groupes dans Azure AD et d’autres services en ligne Microsoft, avec une fonction appelée révision d’accès. Vous avez peut-être reçu un e-mail de la part de Microsoft vous invitant à réviser l’accès, les membres d’un groupe ou les utilisateurs ayant accès à une application. 
 

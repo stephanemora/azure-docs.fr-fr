@@ -15,16 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146509"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819032"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gérer les journaux de flux des groupes de sécurité réseau avec Network Watcher et Grafana
 
 Les [journaux de flux des groupes de sécurité réseau (NSG)](network-watcher-nsg-flow-logging-overview.md) fournissent des informations permettant de comprendre le trafic IP entrant et sortant des interfaces réseau. Ces journaux de flux affichent les flux entrants et sortants en fonction de la règle NSG, de la carte réseau à laquelle le flux s’applique, des informations relatives aux 5 tuples du flux (adresse IP source/de destination, port source/de destination, protocole), et de l’autorisation ou du refus du trafic.
+
+> [!Warning]  
+> Les étapes suivantes fonctionnent avec les journaux de flux version 1. Pour plus d’informations, consultez [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md). Les instructions suivantes ne fonctionnent pas avec la version 2 des fichiers journaux, sans modification.
 
 Un réseau peut comprendre plusieurs groupes de sécurité réseau pour lesquels la journalisation du flux est activée. Une telle quantité de données de journalisation est difficile à analyser et empêche la bonne compréhension des journaux. Cet article fournit une solution pour gérer de manière centralisée les journaux de flux des groupes de sécurité réseau à l’aide de Grafana, un outil de création de graphes open source, à l’aide d’ElasticSearch, qui est un moteur de recherche et d’analytique distribué, et à l’aide de Logstash, qui est un pipeline open source de traitement des données côté serveur.  
 

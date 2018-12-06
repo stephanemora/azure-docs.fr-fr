@@ -12,19 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/25/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282405"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312967"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtres et manifestes dynamiques
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 2](media-services-dynamic-manifest-overview.md)
+> * [Version 3](../latest/filters-dynamic-manifest-overview.md)
+
 À partir de la version 2.17, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d’effectuer des opérations comme les suivantes : lecture d’une section d’une vidéo uniquement (au lieu de la vidéo entière), spécification d’un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l’appareil de votre client (au lieu de tous les rendus associés à l’élément multimédia). Ce filtrage de vos éléments multimédias est obtenu via des **manifestes dynamiques**créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
 
-Cette rubrique décrit les scénarios courants dans lesquels l’utilisation de filtres s’avère très utile pour vos clients et établit des liens vers d’autres rubriques qui montrent comment créer par programme de tels filtres.
+Cette rubrique décrit les scénarios courants dans lesquels l’utilisation de filtres s’avère utile pour vos clients, elle fait également le lien avec d’autres rubriques qui montrent comment créer par programmation de tels filtres.
 
 ## <a name="overview"></a>Vue d’ensemble
 Quand vous distribuez votre contenu aux clients (diffusion en continu d’événements en direct ou vidéo à la demande), votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour atteindre cet objectif, procédez comme suit :
@@ -102,7 +107,7 @@ Il existe deux types de filtres d'éléments multimédias :
 Les filtres globaux et locaux ont exactement les mêmes propriétés. La principale différence entre les deux a trait aux scénarios auxquels ils sont les plus appropriés. Les filtres globaux conviennent généralement aux profils d'appareil (filtrage de rendu) alors que les filtres locaux peuvent être utilisés pour découper un élément multimédia spécifique.
 
 ## <a id="scenarios"></a>Scénarios courants
-Comme mentionné précédemment, quand vous distribuez votre contenu aux clients (diffusion en continu d'événements en direct ou vidéo à la demande), votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. De plus, vous pouvez avoir d'autres impératifs impliquant le filtrage de vos éléments multimédias et l'utilisation de **manifestes dynamiques**. Les sections suivantes présentent brièvement différents scénarios de filtrage.
+Comme mentionné précédemment, quand vous distribuez votre contenu aux clients (streaming d’événements en direct ou de vidéo à la demande), votre objectif est de distribuer une vidéo de qualité supérieure à divers appareils, dans des conditions de réseau différentes. De plus, vous pouvez avoir d’autres impératifs impliquant le filtrage de vos éléments multimédias et l’utilisation de **manifestes dynamiques**. Les sections suivantes présentent brièvement différents scénarios de filtrage.
 
 * Spécification d'un seul sous-ensemble de rendus audio et vidéos gérables par certains appareils (au lieu de tous les rendus associés à l'élément multimédia). 
 * Lecture d'une seule section d'une vidéo (au lieu de la vidéo entière).

@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fe2b509b62884c1cea554bc8dc5df25489205264
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966949"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275579"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -236,7 +236,7 @@ Créez un service lié pour lier votre base de données Azure SQL qui héberge l
 ### <a name="create-an-output-dataset"></a>Créer un jeu de données de sortie
 Ce jeu de données de sortie est un jeu de données factice qui détermine la programmation du pipeline. Notez que la fréquence est définie sur Heure et l’intervalle sur 1. Ainsi, le pipeline s’exécute une fois par heure entre les heures de début et de fin du pipeline. 
 
-1. Créez un fichier OuputDataset.json avec le contenu suivant : 
+1. Créez un fichier OutputDataset.json avec le contenu suivant : 
     
     ```json
     {

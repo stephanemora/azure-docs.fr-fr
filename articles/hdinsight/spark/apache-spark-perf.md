@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 4a7777be01cc15ed5cc4c9c091230afe1ddfa897
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047440"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499141"
 ---
-# <a name="optimize-spark-jobs"></a>Optimiser des travaux Spark
+# <a name="optimize-apache-spark-jobs"></a>Optimiser des travaux Apache Spark
 
-Découvrez comment optimiser la configuration de cluster Spark pour votre charge de travail particulière.  Le défi le plus courant est la sollicitation de la mémoire due à aux configurations incorrectes (en particulier les exécuteurs de taille incorrecte), aux longues opérations et aux tâches qui entraînent des opérations cartésiennes. Vous pouvez accélérer les travaux avec une mise en cache appropriée et en autorisant [l’asymétrie des données](#optimize-joins-and-shuffles). Pour des performances optimales, surveillez les exécutions de travaux Spark de longue durée et consommatrices de ressources.
+Découvrez comment optimiser la configuration de cluster [Apache Spark](https://spark.apache.org/) pour votre charge de travail.  Le défi le plus courant est la sollicitation de la mémoire due à aux configurations incorrectes (en particulier les exécuteurs de taille incorrecte), aux longues opérations et aux tâches qui entraînent des opérations cartésiennes. Vous pouvez accélérer les travaux avec une mise en cache appropriée et en autorisant [l’asymétrie des données](#optimize-joins-and-shuffles). Pour des performances optimales, surveillez les exécutions de travaux Spark de longue durée et consommatrices de ressources.
 
 Les sections suivantes décrivent des recommandations et des optimisations courantes de travaux Spark.
 
@@ -94,7 +94,7 @@ Pour référence, la structure de la mémoire Spark et certains des principaux p
 
 ### <a name="spark-memory-considerations"></a>Considérations relatives à la mémoire Spark
 
-Si vous utilisez YARN, celui-ci contrôle la somme maximale de mémoire utilisée par tous les conteneurs sur chaque nœud Spark.  Le diagramme suivant montre les objets clés et leurs relations.
+Si vous utilisez [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), celui-ci contrôle la somme maximale de mémoire utilisée par tous les conteneurs sur chaque nœud Spark.  Le diagramme suivant montre les objets clés et leurs relations.
 
 ![Gestion de la mémoire Spark avec YARN](./media/apache-spark-perf/yarn-spark-memory.png)
 
@@ -212,9 +212,9 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Déboguer des travaux Spark en cours d’exécution sur Azure HDInsight](apache-spark-job-debugging.md)
-* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](apache-spark-resource-manager.md)
-* [Utiliser l’API REST Spark pour envoyer des travaux à distance à un cluster Spark](apache-spark-livy-rest-interface.md)
-* [Tuning Spark (Réglage de Spark)](https://spark.apache.org/docs/latest/tuning.html)
-* [How to Actually Tune Your Spark Jobs So They Work (Guide pratique pour paramétrer vos travaux Spark afin qu’ils fonctionnent)](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Déboguer des travaux Apache Spark en cours d’exécution sur Azure HDInsight](apache-spark-job-debugging.md)
+* [Gérer les ressources d’un cluster Apache Spark dans HDInsight](apache-spark-resource-manager.md)
+* [Utiliser l’API REST Apache Spark pour envoyer des travaux à distance à un cluster Apache Spark](apache-spark-livy-rest-interface.md)
+* [Optimisation d’Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [Guide pratique pour paramétrer vos travaux Apache Spark afin qu’ils fonctionnent](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Sérialisation Kryo](https://github.com/EsotericSoftware/kryo)

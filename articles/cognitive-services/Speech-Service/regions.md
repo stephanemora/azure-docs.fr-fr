@@ -10,37 +10,31 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: a5fce6f9547a96da3ce482ce388e5ba2093f2af4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468124"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712889"
 ---
-# <a name="regions-of-the-speech-service"></a>Régions du service Speech
+# <a name="speech-service-supported-regions"></a>Régions prises en charge pour le service Speech
 
-Le service Speech est disponible dans différentes régions.
-Lorsque vous créez un abonnement, vous pouvez sélectionner l’une des régions disponibles, selon vos besoins.
+Le service Speech permet à votre application de convertir de l’audio en texte, d’effectuer une traduction vocale et de convertir du texte par synthèse vocale. Le service est disponible dans plusieurs régions avec des points de terminaison uniques pour le SDK et les API REST Speech.
 
-Lorsque vous utilisez votre abonnement, vous devez prendre en compte la région que vous avez sélectionnée.
-
-## <a name="rest-api"></a>API REST
-
-Utilisez l’API REST pour sélectionner les points de terminaison correspondant à la région choisie.
-Consultez [API REST](rest-apis.md) pour plus d’informations.
+Vérifiez que vous utilisez le point de terminaison qui correspond à la région de votre abonnement.
 
 ## <a name="speech-sdk"></a>Kit de développement logiciel (SDK) de reconnaissance vocale
 
 Dans le [Kit de développement logiciel (SDK) Speech](speech-sdk.md), les régions sont spécifiées sous forme de chaîne (par exemple, en tant que paramètre `SpeechConfig.FromSubscription` dans le Kit de développement logiciel (SDK) Speech pour C#).
 
-### <a name="regions-for-speech-recognition-and-translation"></a>Régions dédiées à la reconnaissance vocale et à la traduction
+### <a name="speech-recognition-and-translation"></a>Reconnaissance vocale et traduction
 
-Le tableau suivant liste les régions disponibles pour la **reconnaissance vocale** et la **traduction** :
+Le SDK Speech est disponible dans les régions suivantes pour la **reconnaissance vocale** et la **traduction** :
 
-  Région | Paramètre du SDK Speech | Portail
+  Région | Paramètre du SDK Speech | Portail de personnalisation de reconnaissance vocale
  ------|-------|--------
  USA Ouest | `westus` | https://westus.cris.ai
- Ouest des États-Unis 2 | `westus2` | https://westus2.cris.ai 
+ Ouest des États-Unis 2 | `westus2` | https://westus2.cris.ai
  USA Est | `eastus` | https://eastus.cris.ai
  Est des États-Unis 2 | `eastus2` | https://eastus2.cris.ai
  Asie Est | `eastasia` | https://eastasia.cris.ai
@@ -49,8 +43,26 @@ Le tableau suivant liste les régions disponibles pour la **reconnaissance vocal
  Europe Ouest | `westeurope` | https://westeurope.cris.ai
 
 
-### <a name="regions-for-intent-recognition"></a>Régions de reconnaissance de l’intention
+### <a name="intent-recognition"></a>Reconnaissance de l’intention
+
+La **reconnaissance de l’intention** pour le SDK Speech partage la prise en charge des régions avec LUIS. Pour obtenir la liste complète des régions disponibles, consultez [Points de terminaison et régions de publication - LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions).
 
 Les régions disponibles pour la **reconnaissance de l’intention** via le SDK Speech sont listées dans la [page des régions LUIS](/azure/cognitive-services/luis/luis-reference-regions).
-Pour chaque région de publication affichée, le paramètre de région du Kit de développement logiciel (SDK) de reconnaissance vocale correspondant est défini comme étant la première partie du nom de domaine du point de terminaison.
-Par exemple, utilisez `westus` pour spécifier la région de publication USA Ouest.
+
+Pour chaque région de publication listée, utilisez le **nom de région d’API** fourni. Par exemple, utilisez `westus` pour les États-Unis de l’Ouest.
+
+## <a name="rest-apis"></a>API REST
+
+Le service Speech expose également des points de terminaison REST pour les requêtes de reconnaissance vocale et de synthèse vocale.
+
+### <a name="speech-to-text"></a>Reconnaissance vocale
+
+Pour obtenir la documentation de référence relative à la reconnaissance vocale, consultez [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+
+### <a name="text-to-speech"></a>Synthèse vocale
+
+Pour obtenir la documentation de référence relative à la synthèse vocale, consultez [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 952d8801c189322161bbf8b795676af48b92c29f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394327"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854252"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Rédiger des requêtes pour l’Explorateur de données Azure
 
@@ -28,7 +28,7 @@ Vous pouvez exécuter les requêtes dans cet article de deux manières :
 
 - Sur votre propre cluster qui inclut les exemples de données StormEvents. Pour plus d’informations, consultez [Démarrage rapide : Créer un cluster et une base de données Explorateur de données Azure](create-cluster-database-portal.md) et [Ingérer des exemples de données dans l’Explorateur de données Azure](ingest-sample-data.md).
 
-L’exemple de jeu de données StormEvents contient des données météorologiques des [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>Vue d’ensemble du langage de requête
 
@@ -128,7 +128,7 @@ StormEvents
 
 ### <a name="sort"></a>sort
 
-[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator) : trie les lignes de la table d’entrée dans l’ordre d’après une ou plusieurs colonnes.
+[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator) : trie les lignes de la table d’entrée dans l’ordre d’après une ou plusieurs colonnes.
 
 La requête suivante trie les données dans l’ordre décroissant par `DamageProperty`.
 
@@ -147,7 +147,7 @@ StormEvents
 
 ### <a name="top"></a>top
 
-[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator) : retourne les *N* premiers enregistrements triés d’après les colonnes spécifiées.
+[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator) : retourne les *N* premiers enregistrements triés d’après les colonnes spécifiées.
 
 La requête suivante retourne les mêmes résultats que ci-dessus avec un opérateur en moins.
 
@@ -271,7 +271,7 @@ Cette section aborde certains des opérateurs scalaires les plus importants.
 
 ### <a name="bin"></a>bin()
 
-[**bin()**](https://docs.microsoft.com/azure/kusto/query/binfunction) : arrondit les valeurs à l’entier inférieur multiple d’une taille de compartiment donnée.
+[**bin()**](https://docs.microsoft.com/azure/kusto/query/binfunction) : arrondit les valeurs à l’entier inférieur multiple d’une taille de compartiment donnée.
 
 La requête suivante calcule le nombre avec une taille de compartiment d’une journée.
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction) : calcule la valeur **dcount** à partir des résultats HyperLogLog (générés par [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) ou [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)).
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction) : calcule la valeur **dcount** à partir des résultats HyperLogLog (générés par [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) ou [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
 
 La requête suivante utilise l’algorithme HLL pour générer le nombre.
 
@@ -600,7 +600,7 @@ StormEvents
 
 ### <a name="makeset"></a>makeset()
 
-[**makeset()**](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction) : retourne un tableau (JSON) dynamique de l’ensemble de valeurs distinctes prises par une expression dans le groupe.
+[**makeset()**](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction) : retourne un tableau (JSON) dynamique de l’ensemble de valeurs distinctes prises par une expression dans le groupe.
 
 La requête suivante retourne toutes les heures auxquelles une inondation a été signalée par chaque état et crée un tableau à partir de l’ensemble de valeurs distinctes.
 
@@ -615,7 +615,7 @@ StormEvents
 
 ### <a name="mvexpand"></a>mvexpand
 
-[**mvexpand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator) : développe des collections à valeurs multiples à partir d’une colonne de type dynamique afin que chaque valeur dans la collection obtienne une ligne distincte. Toutes les autres colonnes d’une ligne développée sont dupliquées. Il s’agit de l’opposé de makelist.
+[**mvexpand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator) : développe des collections à valeurs multiples à partir d’une colonne de type dynamique afin que chaque valeur de la collection obtienne une ligne distincte. Toutes les autres colonnes d’une ligne développée sont dupliquées. Il s’agit de l’opposé de makelist.
 
 La requête suivante génère des exemples de données en créant un ensemble, puis en l’utilisant afin d’illustrer les fonctionnalités **mvexpand**.
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) : retourne une estimation pour le [**centile de rang le plus proche**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) spécifié de la population défini par une expression. La précision dépend de la densité de population dans la région du centile. Peut être utilisé uniquement dans le contexte d’agrégation à l’intérieur de [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
+[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) : retourne une estimation pour le [**centile de rang le plus proche**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) spécifié de la population défini par une expression. La précision dépend de la densité de population dans la région du centile. Peut être utilisé uniquement dans le contexte d’agrégation à l’intérieur de [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
 
 La requête suivante calcule les centiles de durée de la tempête.
 
@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator) : fusionne les lignes de deux tables pour former une nouvelle table en mettant en correspondance les valeurs des colonnes spécifiées de chaque table. Kusto prend en charge une gamme complète de types de jointures : **fullouter**, **inner**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**.
+[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator) : fusionne les lignes de deux tables pour former une nouvelle table en mettant en correspondance les valeurs des colonnes spécifiées de chaque table. Kusto prend en charge une gamme complète de types de jointures : **fullouter**, **inner**, **innerunique**, **leftanti**, **leftantisemi**,**leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**.
 
 L’exemple suivant joint deux tables avec une jointure interne.
 
@@ -842,9 +842,9 @@ range _day from _start to _end step 1d
 
 ### <a name="newactivitymetrics-plugin"></a>plug-in new_activity_metrics
 
-[**plug-in new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin) : calcule des métriques d’activité utiles (valeurs de nombre distinct, nombre distinct de nouvelles valeurs, taux de conservation et taux de variation) pour la cohorte de nouveaux utilisateurs. Le concept de ce plug-in est similaire au [ **plug-in activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), mais se concentre sur les nouveaux utilisateurs.
+[**plug-in new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin) : calcule des métriques d’activité utiles (valeurs de nombre distinct, nombre distinct de nouvelles valeurs, taux de conservation et taux de variation) pour la cohorte de nouveaux utilisateurs. Le concept de ce plug-in est similaire au [**plug-in activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), mais se concentre sur les nouveaux utilisateurs.
 
-La requête suivante calcule des taux de variation et de conservation avec une fenêtre sur plusieurs semaines pour la cohorte de nouveaux utilisateurs (utilisateurs qui sont arrivés la première semaine).
+La requête suivante calcule des taux de variation et de conservation avec une fenêtre sur plusieurs semaines pour la cohorte de nouveaux utilisateurs (utilisateurs arrivés la première semaine).
 
 **\[**[**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1Ry27DIBC8W%2fI%2f7C04wbJJFeVQ5VapP9BbVVnIrGMaGyy8eVjqxxcwh1QqBx7LzCwzVBW8o0EnCcFJo%2bwISpIE28F1RgeyJX3TpHHOswEJmpmkIzgFFJIeke1rcSzrQ1mL4jVh0Kj%2fEC8R4bucEd7kAp3z3ZIg2ZU2E04gVJ79AD4oVIIU2cGaM2OBVSZKUQlVPOGcxwUHrNiJp3ITbMyn2JUlHbU91FtXcPhz3u1rP5fC10UUHm%2f4mLwiaHVaZcIzaZnQdiwQCxj0qAlEHUeeVRV8yAuCNcMC1CN02s0Ed8QLtLa33igbpK9M0skRCd3q4CaHa%2fgBg%2fcmJb40%2ft7pdmafG602XzxExpN3HsPicFQ8z1IcQWhy9htbisk2EU92XZ1vZkhb04Sv5tD2V7fufwFYtolnAgIAAA%3d%3d)**\]**
 
@@ -902,7 +902,7 @@ StormEvents
 
 [**plug-in funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin) : calcule la synthèse des étapes de séquence terminées dans différentes périodes de temps.
 
-La requête suivante vérifie la synthèse d’achèvement de la séquence `Hail -> Tornado -> Thunderstorm -> Wind` dans des périodes « globales » d’une heure, de quatre heures et d’un jour (`[1h, 4h, 1d]`).
+La requête suivante vérifie la synthèse d’achèvement de la séquence  `Hail -> Tornado -> Thunderstorm -> Wind` dans des périodes « globales » d’une heure, de quatre heures et d’un jour (`[1h, 4h, 1d]`).
 
 **\[**[**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -918,7 +918,7 @@ StormEvents
 
 ## <a name="functions"></a>Fonctions
 
-Cette section couvre les [**fonctions**](https://docs.microsoft.com/azure/kusto/query/functions) : requêtes réutilisables qui sont stockées sur le serveur. Les fonctions peuvent être appelées par des requêtes et d’autres fonctions (les fonctions récursives ne sont pas prises en charge).
+Cette section couvre les [**fonctions**](https://docs.microsoft.com/azure/kusto/query/functions) : requêtes réutilisables qui sont stockées sur le serveur. Les fonctions peuvent être appelées par des requêtes et d’autres fonctions (les fonctions récursives ne sont pas prises en charge).
 
 > [!NOTE]
 > Vous ne pouvez pas créer de fonctions sur le cluster help, qui est en lecture seule. Utilisez votre propre cluster de test pour cette partie.

@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: b4704e9f078b248ef1835babb3b63c378b011c4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516474"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445019"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Rôles d’administrateur par tâche d’identité dans Azure Active Directory
 
@@ -107,7 +107,7 @@ Lire toute la configuration | Lecteurs d’annuaires | Rôle d’utilisateur par
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Créer une instance Azure AD Domain Services | Administrateur général | 
-Effectuer toutes les tâches Azure AD Domain Services | Groupe Administrateurs de contrôleur de domaine Azure AD ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Effectuer toutes les tâches Azure AD Domain Services | Groupe Administrateurs de contrôleur de domaine Azure AD ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Lire toute la configuration | Lecteur sur l’abonnement Azure contenant le service AD DS | 
 
 ## <a name="devices"></a>Appareils
@@ -147,7 +147,7 @@ Affecter une licence | Administrateur de compte d’utilisateur |
 Créer un groupe | Administrateur de compte d’utilisateur | 
 Créer, mettre à jour ou supprimer la révision d’accès d’un groupe ou d’une application | Administrateur de compte d’utilisateur | 
 Gérer l’expiration des groupes | Administrateur de compte d’utilisateur | 
-Gérer les paramètres de groupe | Administrateur de compte d’utilisateur | 
+Gérer les paramètres de groupe | Administrateur général | 
 Lire toutes les configurations (à l’exception de l’appartenance masquée) | Lecteurs d’annuaires | Rôle d’utilisateur par défaut ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Lire l’appartenance masquée | Membre de groupe | Propriétaire de groupe, administrateur de mot de passe, administrateur Exchange, administrateur SharePoint, administrateur Teams, administrateur de compte d’utilisateur
 Lire l’appartenance des groupes avec une appartenance masquée | Administrateur du support technique | Administrateur de compte d’utilisateur, administrateur Teams

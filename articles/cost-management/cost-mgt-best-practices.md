@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515350"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273797"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Guide pratique pour optimiser votre investissement dans le cloud avec Azure Cost Management
 
@@ -26,7 +26,7 @@ Azure Cost Management met à votre disposition les outils nécessaires pour la p
 La gestion des coûts concerne l’ensemble de l’organisation et doit être un travail constant qui commence avant la moindre dépense dans des ressources cloud. Pour implémenter la gestion des coûts et optimiser les coûts correctement, votre organisation doit :
 
 - Être préparée avec les outils appropriés
-- Être responsable des coûts
+- Être comptable des coûts
 - Prendre les mesures appropriées pour optimiser les dépenses
 
 Trois groupes clés, décrits ci-après, doivent être alignés dans votre organisation pour que vous gériez les coûts correctement.
@@ -46,7 +46,7 @@ Une planification initiale et complète vous permet d’adapter l’utilisation 
 - Quel est le problème métier que je souhaite résoudre ?
 - Quels sont les modèles d’utilisation que j’attends de mes ressources ?
 
-Vos réponses vous aideront à sélectionner l’offre qui vous convient. Elles déterminent l’infrastructure à utiliser et comment s’en servir pour optimiser votre efficacité Azure.
+Vos réponses vous aideront à sélectionner les offres qui vous conviennent. Elles déterminent l’infrastructure à utiliser et comment s’en servir pour optimiser votre efficacité Azure.
 
 #### <a name="visibility"></a>Visibilité
 
@@ -62,7 +62,7 @@ Agissez pour réduire vos dépenses. Optimisez-les à partir des résultats coll
 
 #### <a name="iteration"></a>Itération
 
-Tous les membres de votre organisation doivent s’engager dans le cycle de vie de la gestion des coûts. Ils doivent participer de manière continue à l’optimisation des coûts. Soyez rigoureux sur ce processus itératif et faites-en un élément clé de la gouvernance de cloud responsable dans votre organisation.
+Tous les membres de votre organisation doivent s’engager dans le cycle de vie de la gestion des coûts. Ils doivent participer de manière continue à l’optimisation des coûts. Faites preuve de rigueur vis-à-vis de ce processus itératif et faites-en un principe clé de gouvernance cloud responsable dans votre organisation.
 
 ![Principes clés](./media/cost-mgt-best-practices/principles.png)
 
@@ -105,7 +105,7 @@ Pour en savoir plus sur les différentes options, consultez la page [Acheter Azu
 
 ## <a name="estimate-the-cost-of-your-solution"></a>Estimer le coût de votre solution
 
-Avant de déployer une infrastructure, évaluez le coût de votre solution. L’évaluation vous aide à créer un budget initial pour votre organisation en ce qui concerne la charge de travail. Ensuite, vous pouvez utiliser le budget au fil du temps pour évaluer la validité de votre estimation initiale. Et vous pouvez la comparer au coût réel de votre solution déployée.
+Avant de déployer une infrastructure, évaluez le coût de votre solution. L’évaluation vous aide à créer un budget initial pour votre organisation en ce qui concerne la charge de travail. Ensuite, vous pouvez utiliser un budget au fil du temps pour évaluer la validité de votre estimation initiale. Et vous pouvez la comparer au coût réel de votre solution déployée.
 
 ### <a name="azure-pricing-calculator"></a>Calculatrice de prix Azure
 
@@ -125,7 +125,7 @@ Restez informé de la façon dont les coûts de votre organisation évoluent au 
 
 ### <a name="organize-and-tag-your-resources"></a>Organiser et étiqueter vos ressources
 
-Organisez vos ressources avec le coût à l’esprit. Quand vous créez des groupes de ressources et des abonnements, pensez aux équipes responsables des coûts associés. Assurez-vous que vos rapports tiennent compte de votre organisation. Les abonnements et les groupes de ressources constituent de bonnes bases pour organiser et affecter les dépenses au sein de votre organisation. Les étiquettes fournissent un bon moyen pour affecter les coûts. Vous pouvez utiliser les étiquettes en guise de filtre. Vous pouvez également les utiliser pour effectuer des regroupements quand vous analysez les données et examinez les coûts. En outre, les clients ayant souscrit un Contrat Entreprise peuvent créer des services et y placer des abonnements. Dans Azure, l’organisation en fonction des coûts vous aide à confier aux personnes adéquates de votre entreprise la responsabilité de réduire les dépenses de leur équipe.
+Organisez vos ressources avec le coût à l’esprit. Quand vous créez des groupes de ressources et des abonnements, pensez aux équipes responsables des coûts associés. Assurez-vous que vos rapports tiennent compte de votre organisation. Les abonnements et les groupes de ressources constituent de bonnes bases pour organiser et affecter les dépenses au sein de votre organisation. Les étiquettes fournissent un bon moyen pour affecter les coûts. Vous pouvez utiliser les étiquettes en guise de filtre. Vous pouvez également les utiliser pour effectuer des regroupements quand vous analysez les données et examinez les coûts. Les clients titulaires d’un Contrat Entreprise peuvent aussi créer des services et y placer des abonnements. Dans Azure, l’organisation en fonction des coûts vous aide à confier aux personnes adéquates de votre entreprise la responsabilité de réduire les dépenses de leur équipe.
 
 ### <a name="use-cost-analysis"></a>Utiliser l’analyse des coûts
 
@@ -157,7 +157,7 @@ Utilisez les méthodes suivantes pour optimiser les dépenses.
 
 ### <a name="cut-out-waste"></a>Supprimer les gaspillages
 
-Une fois que vous avez déployé votre infrastructure dans Azure, il est important de s’assurer qu’elle est utilisée. La manière la plus simple de faire des économies immédiatement consiste à passer en revue vos ressources et à supprimer celles qui ne sont pas utilisées. Vous devriez alors constater que vos ressources sont utilisées aussi efficacement que possible.
+Une fois que vous avez déployé votre infrastructure dans Azure, il est important de s’assurer qu’elle est utilisée. La manière la plus simple de faire des économies immédiatement consiste à passer en revue vos ressources et à supprimer celles qui ne sont pas utilisées. Vous devriez alors déterminer si vos ressources sont utilisées aussi efficacement que possible.
 
 #### <a name="azure-advisor"></a>Azure Advisor
 

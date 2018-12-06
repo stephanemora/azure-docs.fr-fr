@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c48f0d8f7ad34db585f4deae566641b6453357e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 72d1676613de699abda2136a7743a974b2b17c01
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670056"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162858"
 ---
 # <a name="access-the-vfxt-cluster"></a>Accéder au cluster vFXT
 
@@ -20,18 +20,18 @@ Pour modifier les paramètres et superviser le cluster Avere vFXT, utilisez le P
 Étant donné que le cluster vFXT se situe dans un réseau virtuel privé, vous devez créer un tunnel SSH ou utiliser une autre méthode pour atteindre l’adresse IP de gestion du cluster. Il existe deux étapes de base : 
 
 1. Créer une connexion entre votre station de travail et le réseau virtuel privé 
-1. Utiliser l’adresse IP de gestion du cluster pour charger le Panneau de configuration dans un navigateur web 
+1. Charger le panneau de configuration du cluster dans un navigateur web 
 
 > [!NOTE] 
-> Cet article suppose que vous avez défini une adresse IP publique sur le contrôleur de cluster ou sur une autre machine virtuelle à l’intérieur du réseau virtuel de votre cluster. Si vous utilisez un VPN ou ExpressRoute pour l’accès au réseau virtuel, passez à [Se connecter au Panneau de configuration Avere](#connect-to-the-avere-control-panel-in-a-browser).
+> Cet article suppose que vous avez défini une adresse IP publique sur le contrôleur de cluster ou sur une autre machine virtuelle à l’intérieur du réseau virtuel de votre cluster. Cet article décrit comment utiliser cette machine virtuelle comme hôte pour accéder au cluster. Si vous utilisez un VPN ou ExpressRoute pour l’accès au réseau virtuel, passez à [Se connecter au Panneau de configuration Avere](#connect-to-the-avere-control-panel-in-a-browser).
 
-Avant de vous connecter, vérifiez que la paire de clés publique/privée SSH que vous avez utilisée lors de la création du contrôleur de cluster est installée sur votre ordinateur local. Lisez la documentation sur les clés SSH pour [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) ou pour [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) si vous avez besoin d’aide.  
+Avant de vous connecter, vérifiez que la paire de clés publique/privée SSH que vous avez utilisée lors de la création du contrôleur de cluster est installée sur votre ordinateur local. Lisez la documentation sur les clés SSH pour [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) ou pour [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) si vous avez besoin d’aide.  
 
-## <a name="access-with-a-linux-host"></a>Accès avec un hôte Linux
+## <a name="ssh-tunnel-with-a-linux-host"></a>Tunnel SSH avec un hôte Linux
 
-sous cette forme : 
+Si vous utilisez un client basé sur Linux, servez-vous de la commande de tunneling SSH avec ce formulaire : 
 
-ssh -L *port_local*:*ip_gestion_cluster*:443 *nom_utilisateur_contrôleur*@*IP_publique_contrôleur* 
+ssh -L *port_local*:*ip_gestion_cluster*:443 *nom_utilisateur_contrôleur*@*IP_publique_contrôleur*
 
 Cette commande se connecte à l’adresse IP de gestion du cluster via l’adresse IP du contrôleur de cluster.
 
@@ -43,10 +43,11 @@ ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 
 L’authentification est automatique si vous avez utilisé votre clé publique SSH pour créer le cluster et la clé correspondante est installée sur le système client.
 
+## <a name="ssh-tunnel-with-a-windows-host"></a>Tunnel SSH avec un hôte Windows
 
-## <a name="access-with-a-windows-host"></a>Accès avec un hôte Windows
+Cet exemple utilise l’utilitaire courant de terminal Windows, PuTTY.
 
-Si vous utilisez PuTTY, renseignez le champ **nom d’hôte** avec le nom d’utilisateur du contrôleur de cluster et son adresse IP : *votre_nom_utilisateur*@*IP_publique_contrôleur*.
+Dans PuTTY, renseignez le champ **nom d’hôte** avec le nom d’utilisateur du contrôleur de cluster et son adresse IP : *votre_nom_utilisateur*@*IP_publique_contrôleur*.
 
 Exemple : ``azureuser@203.0.113.51``
 
@@ -68,7 +69,11 @@ L’authentification est automatique si vous avez utilisé votre clé publique S
 
 Cette étape utilise un navigateur web pour se connecter à l’utilitaire de configuration en cours d’exécution sur le cluster vFXT.
 
-Ouvrez votre navigateur web et accédez à https://127.0.0.1:8443. 
+* Pour une connexion de tunnel SSH, ouvrez votre navigateur web et accédez à https://127.0.0.1:8443. 
+
+  Vous vous êtes connecté à l’adresse IP du cluster quand vous avez créé le tunnel, vous avez donc simplement besoin d’utiliser l’adresse IP localhost dans le navigateur. Si vous avez utilisé un port local autre que 8443, utilisez à la place votre numéro de port.
+
+* Si vous utilisez une connexion VPN ou ExpressRoute pour accéder au cluster, accédez à l’adresse IP de gestion du cluster dans votre navigateur. Exemple : ``https://203.0.113.51``
 
 En fonction de votre navigateur, vous devrez peut-être cliquer sur **Avancé** et vérifier que vous pouvez accéder à la page sans risque.
 

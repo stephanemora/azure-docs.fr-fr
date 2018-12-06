@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8e77a33667bd6794f667348958e0edb9c6a8fb0d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 41edbc621baede92c548f43ad2730b73f59756c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094975"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496097"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quand utiliser un fournisseur Azure Multi-Factor Authentication
 
@@ -30,9 +30,7 @@ Si vous avez des licences qui couvrent tous les utilisateurs de votre organisati
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Mises en garde liées au Kit de développement logiciel (SDK) Azure MFA
 
-Il sera en revanche nécessaire si vous souhaitez télécharger le Kit de développement logiciel (SDK). Remarque que le Kit de développement logiciel a été déconseillé et n’est plus pris en charge pour les nouveaux clients et continueront à fonctionner uniquement jusqu’au 14 novembre 2018. Passée cette date, les appels au Kit de développement logiciel (SDK) échoueront.
-
-Pour télécharger le Kit de développement logiciel (SDK), créez un fournisseur Azure Multi-Factor Auth, même si vous disposez d’Azure MFA, AAD Premium, ou d’autres licences groupées. Si vous créez un fournisseur d’authentification multifacteur Azure à cet effet et que vous avez déjà des licences, veillez à créer le fournisseur avec le modèle **Par utilisateur activé**. Ensuite, liez le fournisseur au répertoire qui contient les licences Azure MFA, Azure AD Premium, ou d’autres licences groupées. Cette configuration garantit que vous n’êtes facturé que si vous avez plus d’utilisateurs uniques utilisant la vérification en deux étapes que le nombre de licences en votre possession.
+Notez que le SDK a été déprécié et fonctionnera seulement jusqu’au 14 novembre 2018. Passée cette date, les appels au Kit de développement logiciel (SDK) échoueront.
 
 ## <a name="what-is-an-mfa-provider"></a>Qu’est-ce qu’un fournisseur MFA ?
 

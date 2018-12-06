@@ -1,47 +1,49 @@
 ---
-title: Configurer Azure ExpressRoute Direct à l'aide de l'interface de ligne de commande| Microsoft Docs
-description: Cette page vous permet de configurer ExpressRoute Direct à l'aide de l'interface de ligne de commande (préversion)
+title: Configurer Azure ExpressRoute Direct à l’aide d’Azure CLI | Microsoft Docs
+description: Cet article vous aide à configurer ExpressRoute Direct à l’aide d’Azure CLI (préversion)
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 989e96aa00ae65d1206f961a10893e3331670553
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dfc13d584abcd05cd15b7ce9e3034bbf246f3b8b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958302"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976605"
 ---
-# <a name="how-to-configure-expressroute-direct-using-cli-preview"></a>Configurer ExpressRoute Direct à l'aide de l'interface de ligne de commande (préversion)
+# <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>Configurer ExpressRoute Direct à l’aide d’Azure CLI (préversion)
 
-ExpressRoute Direct vous offre la possibilité de vous connecter directement au réseau mondial Microsoft à partir d’emplacements d’homologation qui sont distribués stratégiquement dans le monde entier. Pour plus d’informations, consultez [À propos d’ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+Vous pouvez utiliser Azure ExpressRoute Direct pour vous connecter directement au réseau mondial Microsoft à partir d’emplacements de peering distribués stratégiquement dans le monde entier. Pour plus d’informations, consultez [À propos d’ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
 > [!IMPORTANT]
-> ExpressRoute Direct est actuellement disponible en préversion.
+> ExpressRoute Direct est actuellement en préversion.
 >
-> Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La préversion publique d’ExpressRoute Direct est fournie sans contrat de niveau de service. Évitez d’utiliser ExpressRoute Direct Preview pour les charges de travail de production. Il est possible que certaines fonctionnalités ne soient pas prises en charge, qu’elles soient limitées dans leurs capacités ou qu’elles ne soient pas disponibles dans tous les emplacements Azure. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des Préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="resources"></a>Créer la ressource
 
-1. Connectez-vous à Azure et sélectionnez l’abonnement. La ressource ExpressRoute Direct et les circuits ExpressRoute doivent se trouver dans le même abonnement.
+1. Connectez-vous à Azure et sélectionnez l’abonnement qui contient ExpressRoute. La ressource ExpressRoute Direct et vos circuits ExpressRoute doivent se trouver dans le même abonnement. Dans Azure CLI, exécutez les commandes suivantes :
 
   ```azurecli
   az login
   ```
 
-  Vérifiez les abonnements associés au compte. 
+  Vérifiez les abonnements du compte : 
 
   ```azurecli
   az account list 
   ```
 
-  Sélectionnez l’abonnement pour lequel vous souhaitez créer un circuit ExpressRoute.
+  Sélectionnez l’abonnement pour lequel vous souhaitez créer un circuit ExpressRoute :
+
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. Répertoriez tous les emplacements où ExpressRoute Direct est pris en charge.
+
+2. Listez tous les emplacements où ExpressRoute Direct est pris en charge :
     
   ```azurecli
   az network express-route port location list
@@ -108,7 +110,7 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
    }
   ]
   ```
-3. Déterminer si un emplacement répertorié ci-dessus a de la bande passante disponible
+3. Déterminez si l’un des emplacements listés à l’étape précédente dispose de bande passante :
 
   ```azurecli
   az network express-route port location show -l "Equinix-Ashburn-DC2"
@@ -134,14 +136,14 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
   "type": "Microsoft.Network/expressRoutePortsLocations"
   }
   ```
-4. Créer une ressource ExpressRoute Direct en fonction de l’emplacement choisi ci-dessus
+4. Créez une ressource ExpressRoute Direct qui repose sur l’emplacement que vous avez choisi dans les étapes précédentes.
 
-  ExpressRoute Direct prend en charge l’encapsulation QinQ et Dot1Q. Si l’encapsulation QinQ est sélectionnée, chaque circuit ExpressRoute se voit affecter dynamiquement un S-Tag et est unique sur l’ensemble de la ressource ExpressRoute Direct. Chaque C-Tag sur le circuit doit être unique sur le circuit, mais pas sur ExpressRoute Direct.  
+  ExpressRoute Direct prend en charge l’encapsulation QinQ et Dot1Q. Si vous sélectionnez QinQ, chaque circuit ExpressRoute se voit affecter dynamiquement un S-Tag et est unique dans l’ensemble de la ressource ExpressRoute Direct. Chaque C-Tag doit être unique sur le circuit, mais pas dans la ressource ExpressRoute Direct.  
 
-  Si l’encapsulation Dot1Q est sélectionnée, vous devez gérer l’unicité de C-Tag (VLAN) sur l’ensemble de la ressource ExpressRoute Direct.  
+  Si vous sélectionnez l’encapsulation Dot1Q, vous devez gérer l’unicité du C-Tag (VLAN) dans l’ensemble de la ressource ExpressRoute Direct.  
 
   > [!IMPORTANT]
-  > ExpressRoute Direct ne peut être que d’un seul type d’encapsulation. L’encapsulation ne peut pas être modifiée après la création d’ExpressRoute Direct.
+  > ExpressRoute Direct peut uniquement être un seul type d’encapsulation. Vous ne pouvez pas modifier le type d’encapsulation après avoir créé la ressource ExpressRoute Direct.
   > 
  
   ```azurecli
@@ -149,10 +151,10 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
   ```
 
   > [!NOTE]
-  > L’attribut d’encapsulation peut également être défini sur Dot1Q. 
+  > Vous pouvez aussi définir l’attribut **Encapsulation** sur **Dot1Q**. 
   >
 
-  **Exemple de sortie :**
+  **Exemple de sortie**
 
   ```azurecli
   {
@@ -206,11 +208,11 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
   }  
   ```
 
-## <a name="state"></a>Changer l’état Administrateur de liens
+## <a name="state"></a>Modifier AdminState pour les liens
 
-Ce processus doit être utilisé pour effectuer un test de la couche 1, en s’assurant que chaque connexion croisée est correctement reliée dans chaque routeur principal et secondaire.
+Utilisez ce processus pour effectuer un test de la couche 1. Vérifiez que chaque connexion croisée est correctement corrigée dans chaque routeur des ports principaux et secondaires.
 
-1. Définissez le lien sur Activé. Répétez cette étape pour chaque lien à activer.
+1. Définissez les liens (links) sur **Enabled** (activé). Répétez cette étape pour définir chaque lien sur **Enabled**.
 
   Links[0] correspondent au port principal et Links[1] au port secondaire.
 
@@ -220,7 +222,7 @@ Ce processus doit être utilisé pour effectuer un test de la couche 1, en s’a
   ```azurecli
   az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
   ```
-  **Exemple de sortie :**
+  **Exemple de sortie**
 
   ```azurecli
   {
@@ -274,25 +276,25 @@ Ce processus doit être utilisé pour effectuer un test de la couche 1, en s’a
   }
   ```
 
-  Utilisez la même procédure avec `AdminState = “Disabled”` pour désactiver les ports.
+  Utilisez la même procédure pour désactiver les ports en utilisant `AdminState = “Disabled”`.
 
 ## <a name="circuit"></a>Créer un circuit
 
-Par défaut, vous pouvez créer 10 circuits dans l’abonnement où se trouve la ressource ExpressRoute Direct. Ce nombre peut être augmenté par le support. Vous êtes responsable du suivi de la bande passante approvisionnée et utilisée. La bande passante approvisionnée équivaut à la somme de la bande passante de tous les circuits sur la ressource ExpressRoute Direct et la bande passante utilisée équivaut à l’utilisation physique des interfaces physiques sous-jacentes.
+Par défaut, vous pouvez créer 10 circuits dans l’abonnement qui contient la ressource ExpressRoute Direct. Le Support Microsoft peut relever la limite par défaut. Vous êtes chargé du suivi de la bande passante provisionnée et utilisée. La bande passante provisionnée est la somme de la bande passante de tous les circuits de la ressource ExpressRoute Direct. La bande passante utilisée est l’utilisation physique des interfaces physiques sous-jacentes.
 
-D’autres bandes passantes de circuit peuvent être utilisées sur ExpressRoute Direct, uniquement pour prendre en charge les scénarios décrits ci-dessus. Les voici : 40 Gbps et 100 Gbps.
+Vous pouvez utiliser des bandes passantes de circuit supplémentaires dans ExpressRoute Direct uniquement pour prendre en charge les scénarios décrits ici. Les bandes passantes sont de 40 Gbits/s et de 100 Gbits/s.
 
-Des circuits Standard ou Premium peuvent être créés. Les circuits Standard sont inclus dans le coût, tandis que les circuits Premium ont un coût basé sur la bande passante sélectionnée. Les circuits peuvent uniquement être créés comme limités, car illimité n’est pas pris en charge sur ExpressRoute Direct.
+Vous pouvez créer des circuits Standard ou Premium. Les circuits Standard sont inclus dans le coût du service. Le coût des circuits Premium dépend de la bande passante que vous sélectionnez. Vous ne pouvez créer que des circuits limités. Les circuits illimités ne sont pas pris en charge dans ExpressRoute Direct.
 
-Créez un circuit sur la ressource ExpressRoute Direct.
+Créez un circuit dans la ressource ExpressRoute Direct :
 
   ```azurecli
   az network express-route create --express-route-port "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct" -n "Contoso-Direct-ckt" -g "Contoso-Direct-rg" --sku-family MeteredData --sku-tier Standard --bandwidth 100 Gbps
   ```
 
-  Les autres bandes passantes incluent : 5 Gbps, 10 Gbps et 40 Gbps
+  Les autres bandes passantes sont de 5 Gbps, 10 Gbps et 40 Gbps.
 
-  **Exemple de sortie :**
+  **Exemple de sortie**
 
   ```azurecli
   {
@@ -330,4 +332,4 @@ Créez un circuit sur la ressource ExpressRoute Direct.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur ExpressRoute, consultez la [Vue d’ensemble](expressroute-erdirect-about.md).
+Pour plus d’informations sur ExpressRoute Direct, consultez-en la [présentation](expressroute-erdirect-about.md).

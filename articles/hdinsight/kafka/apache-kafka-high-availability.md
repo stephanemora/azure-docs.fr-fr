@@ -3,24 +3,24 @@ title: Haute disponibilité avec Apache Kafka - Azure HDInsight
 description: Découvrez comment garantir une haute disponibilité avec Apache Kafka sur Azure HDInsight. Apprenez à rééquilibrer les réplicas de partition dans Kafka afin qu’ils soient répartis sur différents domaines d’erreur dans la région Azure qui contient HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: bd3b02d54e0a65411e45f0422a0d245645d59096
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049969"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315832"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Haute disponibilité de vos données avec Apache Kafka sur HDInsight
 
-Découvrez comment configurer des réplicas de partition pour les rubriques Kafka afin de tirer parti de la configuration de rack matériel sous-jacent. Cette configuration garantit la disponibilité des données stockées dans Kafka Apache sur HDInsight.
+Découvrez comment configurer des réplicas de partition pour les rubriques Apache Kafka afin de tirer parti de la configuration du rack matériel sous-jacent. Cette configuration garantit la disponibilité des données stockées dans Kafka Apache sur HDInsight.
 
-## <a name="fault-and-update-domains-with-kafka"></a>Domaines d’erreur et de mise à jour avec Kafka
+## <a name="fault-and-update-domains-with-apache-kafka"></a>Domaines d’erreur et de mise à jour avec Apache Kafka
 
 Un domaine d’erreur est un regroupement logique de matériel sous-jacent dans un datacenter Azure. Chaque domaine d’erreur partage une source d’alimentation et un commutateur réseau communs. Les machines virtuelles et les disques managés mettant en œuvre les nœuds au sein d’un cluster HDInsight sont répartis dans ces domaines d’erreur. Cette architecture limite l’impact potentiel des défaillances de matériel physique.
 
@@ -44,15 +44,15 @@ Pour garantir la haute disponibilité de vos données Kafka, vous devez rééqui
 
 Si vous devez utiliser une région qui contient uniquement deux domaines d’erreur, utilisez un facteur de réplication de 4 afin de répartir uniformément les réplicas sur les domaines d’erreur.
 
-Pour obtenir un exemple de création de rubriques et de paramétrage du facteur de réplication, consultez le document [Démarrer avec Kafka sur HDInsight](apache-kafka-get-started.md).
+Pour obtenir un exemple de création de rubriques et de paramétrage du facteur de réplication, consultez le document [Démarrer avec Apache Kafka sur HDInsight](apache-kafka-get-started.md).
 
 ## <a name="how-to-rebalance-partition-replicas"></a>Comment rééquilibrer les réplicas de partition
 
-Utilisez [l’outil rééquilibrage de partition Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) pour rééquilibrer les rubriques sélectionnées. Cet outil doit être exécuté à partir d’une session SSH pour le nœud principal de votre cluster Kafka.
+Utilisez l’[outil de rééquilibrage de partition Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) pour rééquilibrer les rubriques sélectionnées. Cet outil doit être exécuté à partir d’une session SSH pour le nœud principal de votre cluster Kafka.
 
 Pour plus d’informations sur la connexion à HDInsight avec SSH, consultez le document [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Évolutivité de Kafka sur HDInsight](apache-kafka-scalability.md)
-* [Mise en miroir avec Kafka sur HDInsight](apache-kafka-mirroring.md)
+* [Scalabilité d’Apache Kafka sur HDInsight](apache-kafka-scalability.md)
+* [Mise en miroir avec Apache Kafka sur HDInsight](apache-kafka-mirroring.md)

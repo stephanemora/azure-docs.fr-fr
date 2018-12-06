@@ -117,7 +117,7 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | Dominique                  | ✓ | ✓ |
 | République dominicaine        | ✓ | ✓ |
 | Équateur                   |   | ✓ |
-| Îles Falkland (Malouines) |   | ✓ |
+| Îles Malouines |   | ✓ |
 | Guyane française             | ✓ | ✓ |
 | Groenland                 |   | Ø |
 | Grenade                   | ✓ | ✓ |

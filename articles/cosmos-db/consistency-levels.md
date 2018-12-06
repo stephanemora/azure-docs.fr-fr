@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 01a52941a452ae7e4fa283959b071d31d3ad80c7
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624825"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162321"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Les contrats de niveau de service complets fournis par Azure Cosmos DB garantiss
 
   La cohérence de type obsolescence limitée fournit l’ordre global total, en dehors de la « fenêtre d’obsolescence ». Notez que des garanties de lecture unitone existent dans une région à l’intérieur et en dehors de la « fenêtre d’obsolescence ». La cohérence forte dispose de la même sémantique que l’obsolescence limitée et une « fenêtre d’obsolescence » égale à zéro. L’obsolescence limitée est également appelée **linéarisabilité retardée**. Lorsqu’un client effectue des opérations de lecture dans une région acceptant les écritures, les garanties fournies par une cohérence à obsolescence limitée sont identiques à celles à forte cohérence.
 
-- **Niveau de cohérence = « session »**  : les lectures honoreront les garanties de préfixe cohérent, de lectures unitones, d’écritures unitones, de lecture de vos écritures et d’écriture suivant les lectures. La cohérence de session est limitée à une session client.
+- **Niveau de cohérence = « session »**  : les lectures honoreront les garanties de préfixe cohérent (en partant du principe qu’il s’agit d’une session à « writer » unique), de lectures unitones, d’écritures unitones, de lecture de vos écritures et d’écriture suivant les lectures. La cohérence de session est limitée à une session client.
 
 - **Niveau de cohérence = « préfixe cohérent »**  : les mises à jour retournées contiennent un préfixe de toutes les mises à jour, sans aucune lacune. Le préfixe cohérent garantit que les lectures ne voient jamais d’écritures dans le désordre.
 

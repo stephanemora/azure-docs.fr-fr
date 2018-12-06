@@ -1,11 +1,12 @@
 ---
-title: Utilisation de la régression linéaire dans Machine Learning | Microsoft Docs
+title: Utilisation de la régression linéaire dans Machine Learning Studio - Azure | Microsoft Docs
 description: Une comparaison des modèles de régression linéaire dans Excel et dans Azure Machine Learning Studio
 metakeywords: ''
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
@@ -16,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 162fc96c44db3c92103e12922de14b543daec9bf
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836223"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311056"
 ---
-# <a name="using-linear-regression-in-azure-machine-learning"></a>Utilisation de la régression linéaire dans Azure Machine Learning
+# <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Utilisation de la régression linéaire dans Azure Machine Learning Studio
 > *Kate Baroni* et *Ben Boatman* sont des architectes de solution du Data Insights Center of Excellence de Microsoft. Dans cet article, ils décrivent leur expérience de migration d’une suite d’analyse de régression existante vers une solution de cloud à l’aide d’Azure Machine Learning. 
 > 
 > 
@@ -93,7 +94,7 @@ Lorsque nous avons appliqué les recommandations, nous avons obtenu les mêmes p
 | Erreur d'absolue moyenne |9,5 M $ |19,4 M $ |9,5 M $ |
 | Erreur d’absolue moyenne (%) |<span style="background-color: 00FF00;"> 6,03 %</span> |12,2 % |<span style="background-color: 00FF00;"> 6,03 %</span> |
 
-En outre, les coefficients Excel ont été efficaces par rapport aux pondérations de fonctionnalités du modèle formé Azure :
+En outre, les coefficients Excel ont été efficaces par rapport aux pondérations de fonctionnalités du modèle entraîné Azure :
 
 |  | Coefficients Excel | Poids des fonctionnalités Azure |
 | --- |:---:|:---:|
@@ -108,13 +109,13 @@ Nous avons voulu utiliser le service web Machine Learning dans Excel. Nos analys
 Nous souhaitions également optimiser notre modèle, à l’aide des options et des algorithmes disponibles dans Machine Learning Studio.
 
 ### <a name="integration-with-excel"></a>Intégration à Excel
-Notre solution était de faire fonctionner notre modèle de régression Machine Learning en créant un service web à partir du modèle formé. En quelques minutes, le service Web a été créé et nous avons pu l’appeler directement à partir d’Excel pour retourner une valeur de recettes prédites. 
+Notre solution était de faire fonctionner notre modèle de régression Machine Learning en créant un service web à partir du modèle entraîné. En quelques minutes, le service Web a été créé et nous avons pu l’appeler directement à partir d’Excel pour retourner une valeur de recettes prédites. 
 
 La section *tableau de bord des services Web* comprend un classeur Excel à télécharger. Le classeur est déjà mis en forme avec les informations de schéma et l’API de service Web. Lorsque vous cliquez sur *Télécharger un classeur Excel*, il s’ouvre et vous pouvez l’enregistrer sur votre ordinateur local. 
 
 ![][1]
 
-Avec le classeur ouvert, copiez vos paramètres prédéfinis dans la section de paramètres bleue comme illustré ci-dessous. Une fois les paramètres saisis, Excel appelle le service web Machine Learning et les étiquettes notées prédites s’affichent dans la section Valeurs prédites verte. Le classeur continue à créer des prédictions pour les paramètres en fonction de votre modèle formé pour tous les éléments de ligne saisis sous Paramètres. Pour plus d’informations sur l’utilisation de cette fonctionnalité, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning à partir de Microsoft Excel](consuming-from-excel.md). 
+Avec le classeur ouvert, copiez vos paramètres prédéfinis dans la section de paramètres bleue comme illustré ci-dessous. Une fois les paramètres saisis, Excel appelle le service web Machine Learning et les étiquettes notées prédites s’affichent dans la section Valeurs prédites verte. Le classeur continue à créer des prédictions pour les paramètres en fonction de votre modèle entraîné pour tous les éléments de ligne saisis sous Paramètres. Pour plus d’informations sur l’utilisation de cette fonctionnalité, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning à partir de Microsoft Excel](consuming-from-excel.md). 
 
 ![][2]
 

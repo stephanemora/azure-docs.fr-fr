@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f6a818e0f628924342ddd50322bb54bf1d1d6079
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624775"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976656"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
 Azure Security Center collecte des données à partir de vos machines virtuelles Azure et ordinateurs autres qu’Azure pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de Microsoft Monitoring Agent, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP et utilisateur connecté. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans votre espace de travail.
@@ -48,7 +48,7 @@ Lorsque l’approvisionnement automatique est activé, Security Center approvisi
 
 Pour activer l’approvisionnement automatique de Microsoft Monitoring Agent :
 1. Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
-2. Sélectionnez l’abonnement.
+2. Cliquez sur **Modifier les paramètres** dans la colonne Paramètres de l’abonnement souhaité dans la liste.
 
   ![Sélectionnez un abonnement][7]
 
@@ -135,7 +135,7 @@ Pour sélectionner un espace de travail Log Analytics existant :
 
     a.  Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
      
-    b.  Sélectionnez l’espace de travail souhaité dans lequel vous avez l’intention de connecter l’agent.
+    b.  Sélectionnez l’espace de travail souhaité où vous avez l’intention de connecter l’agent en cliquant sur **Modifier les paramètres** dans la colonne Paramètres de l’abonnement souhaité dans la liste.
         ![Sélectionnez un espace de travail][8] c. Définir le niveau tarifaire.
         ![Sélectionnez le niveau tarifaire][9] 
    

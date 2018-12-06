@@ -1,5 +1,5 @@
 ---
-title: Gestion d’Azure
+title: Vue d’ensemble de la gestion
 description: Vue d’ensemble des domaines de gestion des applications et ressources Azure avec des liens vers du contenu sur les outils de gestion Azure.
 author: DCtheGeek
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.openlocfilehash: 268526277dc935ccffc30120f2bb170ad3ff3ef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 180b0cb9f52858d9b0f079ea711fd5ccab738ecf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978219"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582276"
 ---
 # <a name="management-in-azure"></a>Gestion dans Azure
 
@@ -43,7 +43,7 @@ La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux 
 
 ## <a name="secure"></a>Sécuriser
 
-La gestion de la sécurité de vos applications, ressources et données implique d’évaluer les menaces, de collecter et d’analyser les données de sécurité, et de garantir que vos applications et ressources sont conçues et configurées de manière sécurisée. [Azure Security Center](../security-center/security-center-intro.md) assure la surveillance de la sécurité et l’analyse des menaces, et inclut des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides. Consultez également la [Présentation d’Azure Security](../security/azure-security.md) pour plus d’informations sur la sécurité dans Azure et des conseils sur la configuration des ressources Azure en toute sécurité.
+La gestion de la sécurité de vos applications, ressources et données implique d’évaluer les menaces, de collecter et d’analyser les données de sécurité, et de garantir que vos applications et ressources sont conçues et configurées de manière sécurisée. Azure Security Center assure la surveillance de la sécurité et l’analyse des menaces, et inclut des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides. Consultez également la [Présentation d’Azure Security](../security/azure-security.md) pour plus d’informations sur la sécurité dans Azure et des conseils sur la configuration des ressources Azure en toute sécurité.
 
 ## <a name="protect"></a>Protéger
 

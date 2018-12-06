@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578635"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164318"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Déployer le cluster vFXT
 
@@ -286,7 +286,7 @@ RESOURCE_GROUP=
 * Nom du sous-réseau
 * Nom de rôle du runtime Azure AD : si vous avez suivi l’exemple dans [Créer le rôle d’accès du nœud de cluster](#create-the-cluster-node-access-role), utilisez ``avere-cluster``. 
 * Nom du compte de stockage (si vous créez un conteneur d’objets blob)
-* Nom du cluster : vous ne pouvez pas avoir deux clusters vFXT portant le même nom dans le même groupe de ressources. 
+* Nom du cluster : vous ne pouvez pas avoir deux clusters vFXT portant le même nom dans le même groupe de ressources. La bonne pratique est de donner un nom unique à chaque cluster.
 * Mot de passe d’administration : choisissez un mot de passe sécurisé pour superviser et administrer le cluster. Ce mot de passe est affecté à l’utilisateur ``admin``. 
 * Type d’instance de nœud : pour plus d’informations, consultez [Tailles de nœuds vFXT](avere-vfxt-deploy-plan.md#vfxt-node-sizes).
 * Taille du cache de nœud : pour plus d’informations, consultez [Tailles de nœuds vFXT](avere-vfxt-deploy-plan.md#vfxt-node-sizes).

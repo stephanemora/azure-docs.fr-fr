@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210684"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706804"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Fonctionnement du service Azure Machine Learning : Architecture et concepts
 
@@ -156,9 +156,9 @@ Une expérience est un regroupement d’exécutions provenant d’un script donn
 
 Pour obtenir un exemple d’utilisation d’une expérience, consultez le document [Démarrage rapide : bien démarrer avec le service Azure Machine Learning](quickstart-get-started.md).
 
-## <a name="pipelines"></a>Pipelines
+## <a name="pipeline"></a>Pipeline
 
-Les pipelines permettent de créer et gérer des flux de travail qui combinent les phases de Machine Learning. Par exemple, un pipeline peut inclure les phases de préparation des données, de formation du modèle, de déploiement du modèle et d’inférence. Chaque phase peut englober plusieurs étapes, chacune d’elles pouvant s’exécuter sans assistance dans différentes cibles de calcul.
+Les pipelines de machine learning permettent de créer et gérer des flux de travail qui combinent les phases de machine learning. Par exemple, un pipeline peut inclure les phases de préparation des données, de formation du modèle, de déploiement du modèle et d’inférence. Chaque phase peut englober plusieurs étapes, chacune d’elles pouvant s’exécuter sans assistance dans différentes cibles de calcul.
 
 Pour plus d’informations sur les pipelines Machine Learning disposant de ce service, consultez l’article [Pipelines et Azure Machine Learning](concept-ml-pipelines.md).
 

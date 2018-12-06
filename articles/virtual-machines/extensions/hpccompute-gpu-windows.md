@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139880"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495958"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extension du pilote GPU NVIDIA pour Windows
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Windows de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du contrat de licence utilisateur final NVIDIA. Pendant le processus d’installation, votre machine virtuelle peut redémarrer pour terminer l’installation du pilote.
+Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Windows de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du [contrat de licence utilisateur final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Pendant le processus d’installation, la machine virtuelle peut redémarrer pour terminer l’installation du pilote.
 
 Une extension est également disponible pour installer les pilotes GPU NVIDIA sur [des machines virtuelles de gamme N Linux](hpccompute-gpu-linux.md).
-
-Les termes du contrat de licence utilisateur final de NVIDIA se trouvent ici : https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -71,7 +69,7 @@ Le JSON suivant illustre le schéma pour l’extension.
 }
 ```
 
-### <a name="property-values"></a>Valeurs de propriétés
+### <a name="properties"></a>properties
 
 | NOM | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
@@ -80,6 +78,14 @@ Le JSON suivant illustre le schéma pour l’extension.
 | Type | NvidiaGpuDriverWindows | chaîne |
 | typeHandlerVersion | 1.2 | int |
 
+### <a name="settings"></a>Paramètres
+
+Tous les paramètres sont facultatifs. Le comportement par défaut consister à installer le dernier pilote pris en charge le cas échéant.
+
+| NOM | Description | Valeur par défaut | Valeurs valides | Type de données |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV : Version du pilote GRID<br> NC/ND : Version du pilote CUDA | le plus récent | GRID : "411.81", "391.81", "391.58", "391.03"<br> CUDA : "398.75", "397.44", "390.85" | chaîne |
+| installGridND | Installer le pilote GRID sur les machines virtuelles de série ND | false | true, false | booléenne |
 
 ## <a name="deployment"></a>Déploiement
 
@@ -129,6 +135,8 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
+L’exemple suivant reprend l’exemple ARM et PowerShell ci-dessus et ajoute des paramètres personnalisés afin d’illustrer l’installation personnalisée du pilote. Plus précisément, il installe un pilote GRID spécifique même si une machine virtuelle de série ND est provisionnée.
+
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -137,6 +145,8 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 

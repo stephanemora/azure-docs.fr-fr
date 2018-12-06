@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625298"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335178"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -109,10 +109,11 @@ Pour afficher les résultats au format CSV :
 ```
 
 ### <a name="system-requirements"></a>Configuration requise
-- Un serveur exécutant Windows Server 2012 R2 ou Windows Server 2016 :
+- Un serveur exécutant Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019 :
 
     | Version | Références prises en charge | Options de déploiement prises en charge |
     |---------|----------------|------------------------------|
+    | Windows Server 2019 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |
     | Windows Server 2016 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |
     | Windows Server 2012 R2 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |
 
@@ -198,10 +199,10 @@ Les solutions antivirus internes de Microsoft, Windows Defender et System Center
 ### <a name="backup-solutions"></a>Solutions de sauvegarde
 Tout comme les solutions antivirus, les solutions de sauvegarde peuvent provoquer le rappel de fichiers hiérarchisés. Pour sauvegarder le partage de fichiers Azure, nous vous recommandons d’utiliser une solution de sauvegarde cloud au lieu d’un produit de sauvegarde locale.
 
-Si vous utilisez une solution de sauvegarde sur site, les sauvegardes doivent être effectuées sur un serveur dans le groupe de synchronisation qui a la hiérarchisation cloud désactivée. Lorsque vous restaurez des fichiers au sein sur l’emplacement du point de terminaison du serveur, utilisez l’option de restauration au niveau fichier. Les fichiers restaurés seront synchronisés avec tous les points de terminaison dans le groupe de synchronisation et les fichiers existants seront remplacés par la version restaurée à partir de la sauvegarde.
+Si vous utilisez une solution de sauvegarde sur site, les sauvegardes doivent être effectuées sur un serveur dans le groupe de synchronisation qui a la hiérarchisation cloud désactivée. Lorsque vous effectuez une restauration, utilisez les options de restauration au niveau du volume ou au niveau du fichier. Les fichiers restaurés en utilisant l’option de restauration au niveau du fichier seront synchronisés avec tous les points de terminaison dans le groupe de synchronisation et les fichiers existants seront remplacés par la version restaurée à partir de la sauvegarde.  Les restaurations au niveau du volume ne remplaceront pas les versions plus récentes des fichiers dans le partage de fichiers Azure ou d’autres points de terminaison serveur.
 
 > [!Note]  
-> Les options de restauration tenant compte des applications, au niveau du volume et de récupération complète (BMR) peuvent entraîner des résultats inattendus et ne sont pas prises en charge actuellement. Ces options de restauration seront prises en charge dans une future version.
+> La restauration complète peut engendrer des résultats inattendus et n’est pas prise en charge actuellement.
 
 ### <a name="encryption-solutions"></a>Solutions de chiffrement
 La prise en charge des solutions de chiffrement dépend de la façon dont elles sont implémentées. Azure File Sync est connu pour fonctionner avec les solutions suivantes :

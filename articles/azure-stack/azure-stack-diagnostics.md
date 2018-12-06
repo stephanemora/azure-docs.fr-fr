@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ef8a01228ff31afa78f469b2ad80b864fc9d3497
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623976"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283450"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Outils de diagnostics Azure Stack
 
@@ -70,13 +70,14 @@ if($s)
     Remove-PSSession $s
 }
 ```
-- Les paramètres **OutputSharePath** et **OutputShareCredential** sont utilisés pour stocker les jours dans un emplacement spécifié par l’utilisateur.
-- Vous pouvez utiliser les paramètres **FromDate** et **ToDate** pour collecter des journaux pour une période donnée. Si vous ne spécifiez pas ces paramètres, les journaux sont collectés pour les quatre dernières heures par défaut.
+
 
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Pour exécuter Get-AzureStackLog sur un système ASDK (Kit de développement Azure Stack)
-1. Connectez-vous en tant qu’**AzureStack\CloudAdmin** sur l’hôte.
-2. Ouvrez une fenêtre PowerShell en tant qu’administrateur.
+Suivez ces étapes pour exécuter Get-AzureStackLog sur un ordinateur hôte ASDK.
+
+1. Connectez-vous en tant qu’**AzureStack\CloudAdmin** sur l’ordinateur hôte ASDK.
+2. Ouvrez une nouvelle fenêtre PowerShell en tant qu’administrateur.
 3. Exécutez l’applet de commande PowerShell **Get-AzureStackLog**.
 
 **Exemples :**
@@ -107,7 +108,10 @@ if($s)
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considérations relatives aux paramètres du kit ASDK et des systèmes intégrés
 
-- Si vous ne spécifiez pas les paramètres **FromDate** et **ToDate**, par défaut les journaux sont collectés pour les quatre dernières heures.
+- Les paramètres **OutputSharePath** et **OutputShareCredential** sont utilisés pour stocker les jours dans un emplacement spécifié par l’utilisateur.
+
+- Vous pouvez utiliser les paramètres **FromDate** et **ToDate** pour collecter des journaux pour une période donnée. Si vous ne spécifiez pas ces paramètres, les journaux sont collectés pour les quatre dernières heures par défaut.
+
 - Utilisez le paramètre **FilterByNode** pour filtrer les journaux par nom d’ordinateur. Par exemple : 
 
     ```powershell

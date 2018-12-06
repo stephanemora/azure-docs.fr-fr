@@ -1,10 +1,11 @@
 ---
-title: Reformation des modèles Machine Learning par programme | Microsoft Docs
-description: Apprenez à reformer un modèle par programme et à mettre à jour le service Web pour utiliser le modèle reformé dans Azure Machine Learning.
+title: Réentraîner les modèles Machine Learning Studio programmatiquement | Microsoft Docs
+description: Apprenez à réentraîner un modèle programmatiquement et à mettre à jour le service web pour utiliser le modèle réentraîné dans Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
@@ -15,26 +16,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b2090b39991363ee2a5b2e12945d97dc0fa9f2b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b38143fe6f1f1cf3e65a2989e1b0a71c28530b2a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835502"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313383"
 ---
-# <a name="retrain-machine-learning-models-programmatically"></a>Reformation des modèles Machine Learning par programme
-Cette procédure pas à pas explique comment reformer par programmation un service web Azure Machine Learning en utilisant C# et le service d’exécution de lot Machine Learning.
+# <a name="retrain-machine-learning-studio-models-programmatically"></a>Réentraîner les modèles Machine Learning Studio programmatiquement
+Cette procédure pas à pas explique comment réentraîner programmatiquement un service web Azure Machine Learning Studio en utilisant C# et le service d’exécution de lot Machine Learning.
 
-Une fois le modèle reformé, les procédures pas à pas suivantes montrent comment le mettre à jour dans votre service web prédictif :
+Une fois le modèle réentraîné, les procédures pas à pas suivantes montrent comment le mettre à jour dans votre service web prédictif :
 
-* Si vous avez déployé un service web classique dans le portail des services web Azure Machine Learning, consultez [Reformer un service web classique](retrain-a-classic-web-service.md). 
-* Si vous avez déployé un nouveau service web, consultez [Reformer un nouveau service web à l’aide des applets de commande de gestion Machine Learning](retrain-new-web-service-using-powershell.md).
+* Si vous avez déployé un service web classique dans le portail des services web Azure Machine Learning, consultez [Réentraîner un service web classique](retrain-a-classic-web-service.md). 
+* Si vous avez déployé un nouveau service web, consultez [Réentraîner un nouveau service web à l’aide des applets de commande de gestion Machine Learning](retrain-new-web-service-using-powershell.md).
 
-Pour une présentation du processus de reformation, voir [Reformer un modèle Machine Learning](retrain-machine-learning-model.md).
+Pour une présentation du processus de réentraînement, consultez [Réentraîner un modèle Machine Learning](retrain-machine-learning-model.md).
 
-Si vous voulez commencer avec votre service web Azure Resource Manager existant, consultez [Reformer un service web prédictif existant](retrain-existing-resource-manager-based-web-service.md).
+Si vous voulez commencer avec votre service web Azure Resource Manager existant, consultez [Réentraîner un service web prédictif existant](retrain-existing-resource-manager-based-web-service.md).
 
-## <a name="create-a-training-experiment"></a>Créez une expérience d'apprentissage
+## <a name="create-a-training-experiment"></a>Créez une expérience d’entraînement
 Pour cet exemple, vous allez utiliser « Sample 5 : Train, Test, Evaluate for Binary Classification : Adult Dataset » dans les exemples Microsoft Azure Machine Learning. 
 
 Pour créer l’expérience :
@@ -55,7 +56,7 @@ L’exemple suivant illustre l’expérience initiale.
 ## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Créer une expérience prédictive et la publier comme service web
 Ensuite, vous créez une expérience prédictive.
 
-1. En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Service web prédictif**. Le modèle est enregistré sous forme d’un modèle formé, et des modules d’entrée et de sortie du service web sont ajoutés. 
+1. En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Service web prédictif**. Le modèle est enregistré sous forme d’un modèle entraîné, et des modules d’entrée et de sortie du service web sont ajoutés. 
 2. Cliquez sur **Exécuter**. 
 3. Une fois l’exécution de l’expérience terminée, cliquez sur **Déployer le service web [classique]** ou **Déployer le service web [nouveau]**.
 
@@ -63,15 +64,15 @@ Ensuite, vous créez une expérience prédictive.
 > Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md). 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Déployer l’expérience de formation comme service web de formation
-Pour reformer le modèle, vous devez déployer l’expérience de formation que vous avez créée comme service web de reformation. Ce service web a besoin d’un module *Sortie du service web* connecté au module *[Former le modèle][train-model]* afin de pouvoir produire de nouveaux modèles formés.
+Pour réentraîner le modèle, vous devez déployer l’expérience d’entraînement que vous avez créée comme service web de réentraînement. Ce service web a besoin d’un module *Sortie du service web* connecté au module *[Entraîner le modèle][train-model]* afin de pouvoir produire de nouveaux modèles entraînés.
 
 1. Pour revenir à l’expérience d’apprentissage, cliquez sur l’icône Expériences dans le volet gauche, puis sur l’expérience nommée Modèle de recensement.  
 2. Dans la zone de recherche des éléments d’expérience, tapez Service web. 
 3. Faites glisser un module *Entrée du service web* dans le canevas de l’expérience et connectez sa sortie au module *Nettoyer les données manquantes*.  Cela garantit que vos données de reformation sont traitées de la même manière que vos données de formation d’origine.
-4. Faites glisser deux modules *Sortie du service web* sur le canevas de l’expérience. Connectez la sortie du module *Former le modèle* à l’un des modules, et la sortie du module *Évaluer le modèle* à l’autre. La sortie du service web pour **Former le modèle** nous fournit le nouveau modèle formé. La sortie attachée au module **Évaluer le modèle** retourne la sortie de celui-ci, c’est-à-dire les résultats des performances.
+4. Faites glisser deux modules *Sortie du service web* sur le canevas de l’expérience. Connectez la sortie du module *Entraîner le modèle* à l’un des modules, et la sortie du module *Évaluer le modèle* à l’autre. La sortie du service web pour **Entraîner le modèle** nous fournit le nouveau modèle entraîné. La sortie attachée au module **Évaluer le modèle** retourne la sortie de celui-ci, c’est-à-dire les résultats des performances.
 5. Cliquez sur **Exécuter**. 
 
-Ensuite, vous devez déployer l’expérience de formation comme service web qui produit un modèle formé et les résultats d’évaluation du modèle. La procédure diffère selon que vous utilisez un service web classique ou un nouveau service web.  
+Ensuite, vous devez déployer l’expérience d’entraînement comme service web qui produit un modèle entraîné et les résultats d’évaluation du modèle. La procédure diffère selon que vous utilisez un service web classique ou un nouveau service web.  
 
 **Service web classique**
 
@@ -79,7 +80,7 @@ En bas du canevas de l’expérience, cliquez sur **Configurer le service web**,
 
 **Nouveau service web**
 
-En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Déployer le service web [nouveau]**. Le portail de services web Azure Machine Learning s’ouvre sur la page Déployer le service web. Tapez un nom pour votre service web, choisissez un plan de paiement, puis cliquez sur **Déployer**. Seule la méthode d’exécution par lot peut être utilisée pour créer des modèles formés.
+En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Déployer le service web [nouveau]**. Le portail de services web Azure Machine Learning s’ouvre sur la page Déployer le service web. Tapez un nom pour votre service web, choisissez un plan de paiement, puis cliquez sur **Déployer**. Seule la méthode d’exécution par lot peut être utilisée pour créer des modèles entraînés.
 
 Dans les deux cas, une fois l’exécution de l’expérience terminée, le flux de travail doit ressembler à ce qui suit :
 
@@ -87,8 +88,8 @@ Dans les deux cas, une fois l’exécution de l’expérience terminée, le flux
 
 
 
-## <a name="retrain-the-model-with-new-data-using-bes"></a>Effectuer à nouveau l’apprentissage du modèle avec de nouvelles données à l’aide de BES
-Pour cet exemple, vous utilisez le langage C# pour créer l’application de reformation. Pour accomplir cette tâche, vous pouvez également utiliser l’exemple de code Python ou R.
+## <a name="retrain-the-model-with-new-data-using-bes"></a>Réentraîner le modèle avec de nouvelles données à l’aide de BES
+Pour cet exemple, vous utilisez le langage C# pour créer l’application de réentraînement. Pour accomplir cette tâche, vous pouvez également utiliser l’exemple de code Python ou R.
 
 Pour appeler les API Retraining :
 
@@ -122,7 +123,7 @@ Pour réaliser cette tâche, vous devez récupérer les informations de nom de c
 
 1. Connectez-vous au portail Azure Classic.
 2. Dans la colonne de navigation de gauche, cliquez sur **Stockage**.
-3. Dans la liste des comptes de stockage, sélectionnez-en un pour stocker le modèle reformé.
+3. Dans la liste des comptes de stockage, sélectionnez-en un pour stocker le modèle réentraîné.
 4. En bas de la page, cliquez sur **Gérer les clés d’accès**.
 5. Copiez et enregistrez la **clé d’accès primaire** , puis fermez la boîte de dialogue. 
 6. En haut de la page, cliquez sur **Conteneurs**.

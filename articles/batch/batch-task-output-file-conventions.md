@@ -12,28 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128047"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706600"
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET 
+# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-La [bibliothèque File Conventions pour .NET d’Azure Batch][nuget_package] est un moyen de conserver des données de tâches. La bibliothèque File Conventions simplifie les processus de stockage et de récupération des données de sortie de tâches dans Azure Storage. Cette bibliothèque est destinée à être utilisée dans le code de tâche et client &mdash; dans le code de tâche pour la conservation des fichiers et dans le code client pour les répertorier et les récupérer. Le code de tâche peut également utiliser la bibliothèque pour récupérer la sortie des tâches en amont, comme dans un cas de [dépendances de tâche](batch-task-dependencies.md). 
+La [bibliothèque File Conventions pour .NET d’Azure Batch][nuget_package] est un moyen de conserver des données de tâches. La bibliothèque File Conventions simplifie les processus de stockage et de récupération des données de sortie de tâches dans Azure Storage. Cette bibliothèque est destinée à être utilisée dans le code de tâche et client &mdash; dans le code de tâche pour la conservation des fichiers et dans le code client pour les répertorier et les récupérer. Le code de tâche peut également utiliser la bibliothèque pour récupérer la sortie des tâches en amont, comme dans un cas de [dépendances de tâche](batch-task-dependencies.md).
 
 Pour récupérer des fichiers de sortie avec la bibliothèque File Conventions, vous pouvez localiser les fichiers d’un travail donné ou d’une tâche donnée en les répertoriant par ID et objectif. Vous n’avez pas besoin de connaître les noms ou les emplacements des fichiers. Vous pouvez par exemple utiliser la bibliothèque File Conventions pour répertorier tous les fichiers intermédiaires d’une tâche donnée, ou obtenir un aperçu de fichier d’un travail donné.
 
 > [!TIP]
 > À partir de la version 2017-05-01, l’API du service Batch prend en charge la conservation des données de sortie vers Azure Storage pour les tâches, y compris celles du gestionnaire de travaux, qui s’exécutent sur des pools sous la configuration de la machine virtuelle. L’API du service Batch fournit un moyen simple pour conserver les sorties depuis le code, qui crée une tâche et constitue une alternative à la bibliothèque File Conventions. Vous pouvez modifier les applications du client Batch pour conserver les sorties sans mettre à jour l’application que votre tâche exécute. Pour en savoir plus, consultez l’article [Conserver les données de tâche dans Azure Storage avec l’API de service Batch](batch-task-output-files.md).
-> 
-> 
 
 ## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>Quand utiliser la bibliothèque File Conventions pour conserver les sorties de tâche ?
 
@@ -42,27 +40,27 @@ Azure Batch offre plusieurs manières de conserver les sorties de tâche. File C
 - Vous pouvez facilement modifier le code de l’application que votre tâche exécute afin de conserver les fichiers à l’aide de la bibliothèque File Conventions.
 - Vous voulez diffuser les données vers Azure Storage alors que la tâche est en cours d’exécution.
 - Vous voulez conserver les données de pools créés avec la configuration de service cloud ou la configuration de machine virtuelle.
-- Votre application cliente ou d’autres tâches du travail doivent localiser et télécharger les fichiers de sortie de tâche par ID ou usage. 
+- Votre application cliente ou d’autres tâches du travail doivent localiser et télécharger les fichiers de sortie de tâche par ID ou usage.
 - Vous voulez consulter les sorties de tâche dans le portail Azure.
 
-Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-être envisager une approche différente. Pour en savoir plus sur les autres options de conservation des sorties de tâche, consultez l’article [Conserver les sorties de travail et de tâche terminées dans Azure Storage](batch-task-output.md). 
+Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-être envisager une approche différente. Pour en savoir plus sur les autres options de conservation des sorties de tâche, consultez l’article [Conserver les sorties de travail et de tâche terminées dans Azure Storage](batch-task-output.md).
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Qu’est-ce qu’un standard de nommage des fichiers Batch dans File Conventions ?
 
 Le [standard de nommage des fichiers Batch dans File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) fournit un schéma d’affectation de noms pour les conteneurs de destination et chemins d’accès d’objets blob dans lesquels vos fichiers de sortie sont rédigés. Les fichiers conservés dans Azure Storage qui adhèrent au standard de nommage de File Conventions sont automatiquement disponibles à la consultation dans le portail Azure. Le portail connait les conventions d’affectation de noms et peut donc afficher les fichiers qui y adhèrent.
 
-La bibliothèque File Conventions pour .NET nomme automatiquement vos conteneurs de stockage et les fichiers de sortie de tâche en respectant le standard de nommage de File Conventions. La bibliothèque File Conventions fournit également des méthodes de requête de fichiers de sortie dans Azure Storage selon l’ID ou usage de la tâche ou du travail.   
+La bibliothèque File Conventions pour .NET nomme automatiquement vos conteneurs de stockage et les fichiers de sortie de tâche en respectant le standard de nommage de File Conventions. La bibliothèque File Conventions fournit également des méthodes de requête de fichiers de sortie dans Azure Storage selon l’ID ou usage de la tâche ou du travail.
 
-Si vous développez avec un autre langage que .NET, vous pouvez implémenter le standard de nommage de File Convention dans votre application. Pour en savoir plus, consultez l’article [À propos du standard de nommage des fichiers Batch dans File Conventions](batch-task-output.md#about-the-batch-file-conventions-standard).
+Si vous développez avec un autre langage que .NET, vous pouvez implémenter le standard de nommage de File Convention dans votre application. Pour en savoir plus, consultez l’article [Implémenter le standard Batch File Conventions](batch-task-output.md#implement-the-batch-file-conventions-standard).
 
 ## <a name="link-an-azure-storage-account-to-your-batch-account"></a>Lier un compte Azure Storage à votre compte Batch
 
 Pour conserver les données de sortie dans Azure Storage à l’aide de la bibliothèque File Conventions, vous devez d’abord lier un compte Azure Storage à votre compte Batch. Si ce n’est déjà fait, liez un compte Storage à votre compte Batch à l’aide du [portail Azure](https://portal.azure.com) :
 
-1. Accédez à votre compte Batch dans le portail Azure. 
-2. Sous **Paramètres**, sélectionnez **Compte Storage**.
-3. Si vous n’avez pas déjà associé de compte Storage à votre compte Batch, cliquez sur **Compte Storage (aucun)**.
-4. Sélectionnez un compte Storage pour votre abonnement dans la liste. Pour de meilleures performances, utilisez un compte Azure Storage qui se trouve dans la même région que le compte Batch où les tâches sont exécutées.
+1. Accédez à votre compte Batch dans le portail Azure.
+1. Sous **Paramètres**, sélectionnez **Compte Storage**.
+1. Si vous n’avez pas déjà associé de compte Storage à votre compte Batch, cliquez sur **Compte Storage (aucun)**.
+1. Sélectionnez un compte Storage pour votre abonnement dans la liste. Pour de meilleures performances, utilisez un compte Azure Storage qui se trouve dans la même région que le compte Batch où les tâches sont exécutées.
 
 ## <a name="persist-output-data"></a>Conserver les données de sortie
 
@@ -72,12 +70,10 @@ Pour en savoir plus sur les conteneurs et les objets blob dans Azure Storage, co
 
 > [!WARNING]
 > Toutes les sorties de travail et de tâche conservées avec la bibliothèque File Conventions sont stockées dans le même conteneur. Si plusieurs tâches tentent de conserver des fichiers en même temps, des [limitations de stockage](../storage/common/storage-performance-checklist.md#blobs) peuvent être appliquées.
-> 
-> 
 
 ### <a name="create-storage-container"></a>Créer un conteneur de stockage
 
-Pour conserver les sorties de tâche dans Azure Storage, créez d’abord un conteneur avec la commande [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Cette méthode d’extension nécessite un objet [CloudStorageAccount] [ net_cloudstorageaccount] comme paramètre. Elle permet de créer un conteneur nommé selon le standard de nommage de File Conventions, afin que son contenu soit détectable par le portail Azure et par les méthodes de récupération présentées dont nous parlerons plus loin.
+Pour conserver les sorties de tâche dans Azure Storage, créez d’abord un conteneur avec la commande [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Cette méthode d’extension nécessite un objet [CloudStorageAccount] [ net_cloudstorageaccount] comme paramètre. Elle crée un conteneur nommé selon le standard File Conventions, pour que son contenu puisse être découvert par le portail Azure et par les méthodes de récupération présentées plus loin dans l’article.
 
 En général, vous placez ce code pour créer un conteneur dans votre application cliente &mdash;, qui crée vos pools, travaux et tâches.
 
@@ -120,8 +116,6 @@ Ces types de sortie vous permettent de spécifier le type de sortie à répertor
 
 > [!TIP]
 > Le type de sortie indique également l’emplacement d’un fichier particulier dans le portail Azure : les fichiers catégorisés par *TaskOutput* sont affichés dans les **fichiers de sortie de tâche** tandis que les fichiers *TaskLog* sont affichés dans les **journaux de tâches**.
-> 
-> 
 
 ### <a name="store-job-outputs"></a>Stocker les sorties des travaux
 
@@ -174,8 +168,6 @@ L’agent de nœud est un programme qui s’exécute sur chaque nœud dans le po
 
 > [!NOTE]
 > Lorsque vous activez le suivi des fichiers avec **SaveTrackedAsync**, seuls les *ajouts* apportés au fichier suivi sont conservés dans Azure Storage. Utilisez cette méthode uniquement pour le suivi des fichiers journaux sans rotation ou des autres fichiers qui sont rédigés avec des opérations d’ajout à la fin du fichier.
-> 
-> 
 
 ## <a name="retrieve-output-data"></a>Récupérer les données de sortie
 
@@ -206,7 +198,7 @@ Le portail Azure affiche les fichiers de sortie de tâches et les journaux qui s
 Pour activer l’affichage de vos fichiers de sortie dans le portail, vous devez respecter les exigences suivantes :
 
 1. [Liez un compte Azure Storage](#requirement-linked-storage-account) à votre compte Batch.
-2. Respectez les conventions d’affectation de noms prédéfinies pour les conteneurs de stockage et les fichiers lors de la conservation des sorties. Vous trouverez la définition de ces conventions dans le fichier [LISEZMOI][github_file_conventions_readme] de la bibliothèque File Conventions. Si vous utilisez la bibliothèque [Azure Batch File Conventions] [ nuget_package] pour conserver vos sorties, vos fichiers sont conservés selon le standard de nommage de File Conventions.
+1. Respectez les conventions d’affectation de noms prédéfinies pour les conteneurs de stockage et les fichiers lors de la conservation des sorties. Vous trouverez la définition de ces conventions dans le fichier [LISEZMOI][github_file_conventions_readme] de la bibliothèque File Conventions. Si vous utilisez la bibliothèque [Azure Batch File Conventions] [ nuget_package] pour conserver vos sorties, vos fichiers sont conservés selon le standard de nommage de File Conventions.
 
 Pour afficher les fichiers de sortie de tâches et les journaux dans le portail Azure, accédez à la tâche dont la sortie vous intéresse, puis cliquez sur **Fichiers de sortie enregistrés** ou **Journaux enregistrés**. Cette image affiche l’écran **Saved output files (Fichiers de sortie enregistrés)** pour la tâche pourvue de l’ID « 007 » :
 

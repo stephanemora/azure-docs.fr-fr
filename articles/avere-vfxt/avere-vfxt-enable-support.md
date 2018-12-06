@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: bc21e06b704bfe3d25132092efbbf23f342acb14
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0f5eee20b0487fb5fce82047f40d137effb87ead
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669286"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164422"
 ---
 # <a name="enable-support-uploads"></a>Activer les chargements de données de support
 
@@ -24,18 +24,21 @@ Pour activer le support, effectuez les étapes suivantes à partir du Panneau de
 1. Accédez à l’onglet **Settings** (Paramètres) en haut.
 1. Cliquez sur le lien **Support** sur la gauche et acceptez la politique de confidentialité.
 
-   ![Capture d’écran pour confirmer l’acceptation de la politique de confidentialité](media/avere-vfxt-privacy-policy.png)
+   ![Capture d’écran montrant le panneau de configuration d’Avere et une fenêtre contextuelle avec le bouton Confirmer pour accepter la politique de confidentialité](media/avere-vfxt-privacy-policy.png)
+
 1. Cliquez sur le triangle à gauche de **Customer Info** (Informations client) pour développer la section.
+1. Cliquez sur le bouton **Revalidate upload information** (Revalider les informations de chargement).
 1. Nommez le support du cluster dans **Unique Cluster Name** (Nom de cluster unique) en veillant à choisir un nom qui identifie de manière unique votre cluster auprès de l’équipe de support.
 1. Cochez les cases **Statistics Monitoring** (Analyse des statistiques), **General Information Upload** (Chargement des informations générales) et **Crash Information Upload** (Chargement des informations d’incident).
-1. Cliquez sur le bouton **Validate upload information** (Valider les informations de chargement).
 1. Cliquez sur **Envoyer**.
+
+   ![Capture d’écran montrant la section des informations du client complétée dans la page des paramètres de support](media/avere-vfxt-support-info.png)
+
 1. Cliquez sur le triangle à gauche de **Secure Proactive Support (SPS)** pour développer la section.
 1. Cochez la case **Enable SPS Link** (Activer le lien SPS).
 1. Cliquez sur **Envoyer**.
 
-   ![Capture d’écran présentant toutes les étapes pour activer le support](media/avere-vfxt-support-info-steps.png)
-
+   ![Capture d’écran montrant la section Secure Proactive Support complétée dans la page des paramètres de support](media/avere-vfxt-support-sps.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

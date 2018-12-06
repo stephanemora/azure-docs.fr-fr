@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035949"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495589"
 ---
-# <a name="use-batch-transcription"></a>Utiliser la transcription Batch
+# <a name="why-use-batch-transcription"></a>Pourquoi utiliser la transcription Batch ?
 
-La transcription Batch est idéale si vous stockez d’importants volumes de données audio. Avec l’API Rest, vous pouvez pointer vers des fichiers audio par URI SAS et recevoir les transcriptions de manière asynchrone.
+La transcription Batch est idéale si vous stockez d’importants volumes de données audio. Avec l’API REST dédiée, vous pouvez pointer vers des fichiers audio par un URI de signature d’accès partagé (SAP) et recevoir les transcriptions de manière asynchrone.
 
 ## <a name="the-batch-transcription-api"></a>L’API de transcription Batch
 
@@ -36,16 +36,16 @@ L’API de transcription Batch offre une transcription de parole en texte asynch
 
 L’API de transcription Batch prend en charge les formats suivants :
 
-NOM| Canal  |
-----|----------|
-mp3 |   Mono   |   
-mp3 |  Stéréo  | 
-wav |   Mono   |
-wav |  Stéréo  |
-opus|   Mono   |
-opus|  Stéréo  |
+| Format | Codec | Bitrate | Échantillonnage |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16 bits | 8 ou 16 kHz, mono, stéréo |
+| MP3 | PCM | 16 bits | 8 ou 16 kHz, mono, stéréo |
+| OGG | OPUS | 16 bits | 8 ou 16 kHz, mono, stéréo |
 
-Dans le cas des flux audio stéréo, l’API de transcription Batch fractionne les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. La sortie d’un canal, y compris les propriétés pour configurer le filtre d’obscénités et le modèle de ponctuation, est illustrée dans l’exemple JSON suivant :
+> [!NOTE]
+> L’API de transcription Batch exige une clé S0 (niveau payant). Elle ne fonctionne pas avec une clé gratuite (f0).
+
+Dans le cas des flux audio stéréo, l’API de transcription Batch divise les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. L’exemple JSON suivant montre la sortie d’un canal, notamment les propriétés pour configurer le filtre d’obscénités et le modèle de ponctuation.
 
 ```json
 {
@@ -62,6 +62,16 @@ Dans le cas des flux audio stéréo, l’API de transcription Batch fractionne l
 
 > [!NOTE]
 > L’API de transcription Batch utilise un service REST pour demander des transcriptions, l’état de ces dernières, ainsi que les résultats associés. Vous pouvez utiliser l’API dans n’importe quelle langue. La section ci-après décrit le mode d’utilisation de l’API.
+
+### <a name="query-parameters"></a>Paramètres de requête
+
+Ces paramètres peuvent être inclus dans la chaîne de la requête REST.
+
+| Paramètre | Description | Obligatoire/facultatif |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive le d’obscénités, `masked` qui remplace les obscénités par des astérisques, `removed` qui supprime tous les obscénités du résultat ou `tags` qui ajoute les balises « obscénité ». Le paramètre par défaut est `masked`. | Facultatif |
+| `PunctuationMode` | Spécifie comment traiter la ponctuation dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive la ponctuation, `dictated` qui implique une ponctuation explicite, `automatic` qui permet au décodeur de gérer la ponctuation, ou `dictatedandautomatic` qui implique des marques de ponctuation dictées ou automatiques. | Facultatif |
+
 
 ## <a name="authorization-token"></a>Jeton d’autorisation
 

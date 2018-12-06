@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a92e41ad9611981777012cd231845587a6f947b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 18260de82125c2e582e9c817ef733dd3757790b3
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626779"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975090"
 ---
 # <a name="what-is-a-dictionary"></a>Qu’est un dictionnaire ?
 
@@ -32,7 +32,7 @@ Le dictionnaire de phrases permet de spécifier la traduction cible exacte d’u
 Il est possible d’entraîner un modèle en n’utilisant que des données de dictionnaire. Pour cela, sélectionnez seulement le ou les documents de type dictionnaire que vous souhaitez inclure, puis appuyez sur Créer un modèle. Comme il s’agit d’un apprentissage sur dictionnaire uniquement, il n’y a pas de nombre minimal de phrases d’apprentissage nécessaires. L’apprentissage est généralement beaucoup plus rapide pour ce type de modèle que dans le cas standard.  Les modèles obtenus utilisent les modèles de référence de Microsoft pour la traduction, en y joignant les dictionnaires ajoutés.  Aucun rapport de test n’est généré.
 
 >[!Note]
->Dans la mesure où Custom Translator n’aligne pas les fichiers de dictionnaire en phrases, il est important qu’il y ait le même nombre d’expressions/phrases sources et cibles dans les documents de dictionnaire et qu’elles soient précisément alignées.
+>Dans la mesure où Custom Translator n’aligne pas les fichiers de dictionnaire en phrases, il est important qu’il y ait le même nombre d’expressions/de phrases sources et cibles dans les documents de type dictionnaire et qu’elles soient précisément alignées.
 
 ## <a name="recommendations"></a>Recommandations
 

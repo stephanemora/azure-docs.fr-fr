@@ -1,5 +1,5 @@
 ---
-title: Contrôle d’accès pour la surveillance à distance - Azure | Microsoft Docs
+title: Contrôle d’accès pour la supervision à distance - Azure | Microsoft Docs
 description: Cet article fournit des informations sur la façon dont vous pouvez configurer les contrôles d’accès en fonction du rôle (RBAC) dans l’accélérateur de solution de surveillance à distance.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364293"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820220"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de surveillance à distance
 
@@ -23,29 +23,33 @@ Cet article fournit des informations sur la façon de configurer les contrôles 
 
 Lorsque vous déployez la solution de surveillance à distance pour la première fois, il existe deux rôles : **administrateur** et **lecture seule**.
 
-Tout utilisateur ayant le rôle **administrateur** bénéficie d’un accès total à la solution. Un utilisateur ayant le rôle **lecture seule** ne peut pas effectuer les tâches suivantes :
+Tout utilisateur ayant le rôle **administrateur** bénéficie d’un accès total à la solution, avec les autorisations suivantes ci-dessous. Un utilisateur ayant le rôle **lecture seule** a uniquement accès pour afficher la solution.
 
-- Mettre à jour des alarmes
-- Supprimer des alarmes
-- Créer des appareils
-- Mettre à jour des appareils
-- Supprimer des appareils
-- Créer des groupes d’appareils
-- Mettre à jour des groupes d’appareils
-- Supprimer des groupes d’appareils
-- Création de règles
-- Mettre à jour des règles
-- Supprimer des règles
-- Créer des travaux
-- Mettre à jour la gestion SIM
+| Autorisation            | Admin | Lecture seule |
+|----------------       |-------|-----------|
+| Afficher la solution         | Oui   | Oui       |
+| Mettre à jour des alarmes         | Oui   | Non         |
+| Supprimer des alarmes         | Oui   | Non         |
+| Créer des appareils        | Oui   | Non         |
+| Mettre à jour des appareils        | Oui   | Non         |
+| Supprimer des appareils        | Oui   | Non         |
+| Créer des groupes d’appareils  | Oui   | Non         |
+| Mettre à jour des groupes d’appareils  | Oui   | Non         |
+| Supprimer des groupes d’appareils  | Oui   | Non         |
+| Création de règles          | Oui   | Non         |
+| Mettre à jour des règles          | Oui   | Non         |
+| Supprimer des règles          | Oui   | Non         |
+| Créer des travaux           | Oui   | Non         |
+| Mettre à jour la gestion SIM | Oui   | Non         |
 
-La personne qui déploie la solution de surveillance à distance se voit automatiquement assigner le rôle **administrateur** et est propriétaire de l’application Azure Active Directory. En tant que propriétaire de l’application, vous pouvez assigner des rôles à d’autres utilisateurs dans le Portail Azure.
+Par défaut, l’utilisateur qui a déployé la solution se voit automatiquement assigner le rôle **administrateur** et est propriétaire de l’application Azure Active Directory. En tant que propriétaire de l’application, vous pouvez assigner des rôles à d’autres utilisateurs par le biais du portail Azure. Si vous souhaitez qu’un autre utilisateur assigne des rôles dans la solution, il doit également être défini en tant que propriétaire de l’application dans le Portail Azure.
 
-Si vous souhaitez qu’un autre utilisateur assigne des rôles dans la solution, il doit également être défini en tant que propriétaire de l’application dans le Portail Azure.
+> [!NOTE]
+> L’utilisateur qui a déployé la solution est la **seule personne** qui peut la voir immédiatement après la création. Pour accorder à d’autres utilisateurs un accès pour afficher l’application dans le cadre d’un rôle lecture seule, administrateur ou personnalisé, consultez les instructions suivantes ci-dessous sur l’ajout ou la suppression d’utilisateurs.
 
 ## <a name="add-or-remove-users"></a>Ajouter ou supprimer des utilisateurs
 
-Utilisez le Portail Azure pour ajouter un utilisateur à la solution de surveillance à distance ou l’en supprimer. Dans les étapes suivantes, nous utilisons [l’application d’entreprise Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) créée pour vous lorsque vous avez déployé la solution de surveillance à distance.
+En tant que propriétaire d’une application Azure Active Directory, vous pouvez utiliser le portail Azure pour ajouter ou supprimer un utilisateur dans un rôle à partir de la solution de supervision à distance. Dans les étapes suivantes, nous utilisons [l’application d’entreprise Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) créée quand vous avez déployé la solution de supervision à distance.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 

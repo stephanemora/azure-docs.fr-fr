@@ -3,6 +3,7 @@ title: Lier un compte Azure à un ID partenaire | Documents Microsoft
 description: Suivez les engagements avec les clients Azure en liant les ID partenaires au compte utilisateur que vous utilisez pour gérer les ressources du client.
 services: billing
 author: dhirajgandhi
+manager: dhgandhi
 ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
@@ -10,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686992"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274177"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
@@ -43,7 +44,7 @@ Lorsque vous avez accès aux ressources du client, utilisez le portail Azure, Po
 
 2. Connectez-vous au portail Azure.
 
-3. Entrez l’ID partenaire Microsoft. L’ID partenaire est l’ID [MPN (Microsoft Partner Network)](https://partner.microsoft.com/) de votre entreprise.
+3. Entrez l’ID partenaire Microsoft. L’ID partenaire est l’ID [MPN (Microsoft Partner Network)](https://partner.microsoft.com/) de votre organisation.
 
   ![Capture d’écran qui affiche l’ID de partenaire de lien](./media/billing-link-partner-id/link-partner-ID.PNG)
 
@@ -124,7 +125,7 @@ Participez à la discussion dans la [Communauté de partenaires Microsoft](https
 
 **Qui peut lier l’ID partenaire ?**
 
-Tout utilisateur de l’organisation partenaire qui gère la ressource du client peut lier l’ID partenaire au compte.
+Tout utilisateur de l’organisation partenaire qui gère les ressources Azure du client peut lier l’ID partenaire au compte.
 
 **Une fois l’ID partenaire lié, peut-il être modifié ?**
 

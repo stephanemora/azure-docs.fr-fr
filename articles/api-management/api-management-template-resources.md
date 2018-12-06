@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 212e7ea7bb2ffea63c7ba210195df0da38aa8f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22983784"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444765"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressources du modèle Gestion des API Azure
 La Gestion des API Azure fournit les types de ressources suivants, utilisables dans les modèles du portail des développeurs.  
@@ -27,6 +27,8 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 -   [Ressources de chaînes](#strings)  
   
 -   [Ressources de glyphes](#glyphs)  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="strings"></a> Ressources de chaînes  
  La Gestion des API fournit un ensemble complet de ressources de chaînes utilisables dans le portail des développeurs. Ces ressources sont traduites dans toutes les langues prises en charge par la Gestion des API. L’ensemble de modèles par défaut utilise ces ressources pour les étiquettes, les en-têtes de pages et les éventuelles chaînes constantes affichées dans le portail des développeurs. Pour utiliser une ressource de chaîne dans vos modèles, fournir le préfixe de la chaîne de ressource suivi du nom de la chaîne, comme le montre l’exemple suivant.  
@@ -87,13 +89,13 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Aperçu de l’application.|  
 |WebApplicationsRequirementsHeader|Configuration requise|  
@@ -102,14 +104,14 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Voulez-vous vraiment supprimer l’application ?|  
 |WebDevelopersAppNotPublished|Non publié.|  
 |WebDevelopersAppNotSubminted|Non soumis.|  
 |WebDevelopersAppTableCategoryHeader|Catégorie|  
-|WebDevelopersAppTableNameHeader|Nom|  
-|WebDevelopersAppTableStateHeader|State|  
+|WebDevelopersAppTableNameHeader|NOM|  
+|WebDevelopersAppTableStateHeader|État|  
 |WebDevelopersEditLink|Modifier|  
 |WebDevelopersRegisterAppLink|Inscription de l’application|  
 |WebDevelopersRemoveLink|Supprimer|  
@@ -118,13 +120,13 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
-|WebApplicationsHeader|Applications|  
+|WebApplicationsHeader|APPLICATIONS|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |NoItemsToDisplay|Aucun résultat trouvé.|  
 |GeneralExceptionMessage|Il y a un problème. Il peut s’agir d’un dysfonctionnement temporaire ou d’un bogue. Réessayez.|  
@@ -135,7 +137,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |ButtonLabelCancel|Annuler|  
 |ButtonLabelSave|Enregistrer|  
@@ -145,7 +147,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |PagerButtonLabelLast|Dernier|  
 |PagerButtonLabelNext|Suivant|  
 |PagerButtonLabelPrevious|Précédent|  
-|PagerLabelPageNOfM|Page {0} sur {1\}|  
+|PagerLabelPageNOfM|Page {0} sur {1}|  
 |PasswordTooShort|Le mot de passe est trop court.|  
 |EmailAsPassword|N’utilisez pas votre adresse de messagerie comme mot de passe.|  
 |PasswordSameAsUserName|Votre mot de passe ne peut pas contenir votre nom d’utilisateur.|  
@@ -159,22 +161,22 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ###  <a name="Documentation"></a> Documentation  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
-|WebDocumentationInvalidHeaderErrorMessage|En-tête non valide « {0} ».|  
+|WebDocumentationInvalidHeaderErrorMessage|En-tête non valide « {0} »|  
 |WebDocumentationInvalidRequestErrorMessage|URL de demande non valide.|  
 |TextboxLabelAccessToken|Jeton d’accès *|  
-|DropdownOptionPrimaryKeyFormat|Primaire-{0}|  
-|DropdownOptionSecondaryKeyFormat|Secondaire-{0}|  
+|DropdownOptionPrimaryKeyFormat|Primary-{0}|  
+|DropdownOptionSecondaryKeyFormat|Secondary-{0}|  
 |WebDocumentationSubscriptionKeyText|Votre clé d’abonnement|  
 |WebDocumentationTemplatesAddHeaders|Ajoutez les en-têtes HTTP requis.|  
 |WebDocumentationTemplatesBasicAuthSample|Exemple d’autorisation de base|  
 |WebDocumentationTemplatesCurlForBasicAuth|Pour une autorisation de base, utilisez : --user {nom_utilisateur}:{mot_de_passe}.|  
 |WebDocumentationTemplatesCurlValuesForPath|Fournissez des valeurs aux paramètres de chemin d’accès (indiqués entre {...}), à votre clé d’abonnement et aux paramètres de requête.|  
 |WebDocumentationTemplatesDeveloperKey|Spécifiez votre clé d’abonnement.|  
-|WebDocumentationTemplatesJavaApache|Cet exemple utilise le client HTTP Apache à partir de HttpComponents (http://hc.apache.org/httpcomponents-client-ga/).|  
+|WebDocumentationTemplatesJavaApache|Cet exemple utilise le client HTTP Apache à partir de composants HTTP (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Fournissez des valeurs aux paramètres facultatifs, en fonction des besoins.|  
-|WebDocumentationTemplatesPhpPackage|Cet exemple utilise le package HTTP_Request2. (Pour plus d’informations : http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|Cet exemple utilise le package HTTP_Request2. (pour plus d’informations : http://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Fournissez des valeurs aux paramètres de chemin d’accès (indiqués entre {...}) et au corps de la demande si nécessaire.|  
 |WebDocumentationTemplatesRequestBody|Spécifiez le corps de la demande.|  
 |WebDocumentationTemplatesRequiredParams|Donnez des valeurs aux paramètres obligatoires suivants.|  
@@ -273,7 +275,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |OAuth2TokenType_ImplicitGrant_AuthorizationResponse|OBLIGATOIRE. Type du jeton émis.|  
 |OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|OBLIGATOIRE. Type du jeton émis.|  
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|OBLIGATOIRE. Nom d’utilisateur du propriétaire de la ressource.|  
-|OAuth2UnsupportedTokenType|Le type de jeton « {0} » n’est pas pris en charge.|  
+|OAuth2UnsupportedTokenType|Le type de jeton « {0} » n’est pas pris en charge.|  
 |OAuth2InvalidState|Réponse non valide du serveur d’autorisation.|  
 |OAuth2GrantType_AuthorizationCode|Code d’autorisation.|  
 |OAuth2GrantType_Implicit|Implicite.|  
@@ -283,31 +285,31 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |WebDocumentation400Code|400 (Demande incorrecte).|  
 |OAuth2SendingMethod_AuthHeader|En-tête d’autorisation.|  
 |OAuth2SendingMethod_QueryParam|Paramètre de requête.|  
-|OAuth2AuthorizationServerGeneralException|Une erreur s’est produite lors de l’autorisation d’accès par {0}.|  
+|OAuth2AuthorizationServerGeneralException|Une erreur s’est produite pendant l’autorisation d’accès via {0}|  
 |OAuth2AuthorizationServerCommunicationException|Impossible d’établir une connexion HTTP au serveur d’autorisation ou connexion fermée de façon inattendue.|  
 |WebDocumentationOAuth2GeneralErrorMessage|Une erreur inattendue s’est produite.|  
 |AuthorizationServerCommunicationException|Une exception de communication du serveur d’autorisation s’est produite. Contactez l’administrateur.|  
 |TextblockSubscriptionKeyHeaderDescription|Clé d’abonnement qui fournit l’accès à cette API. Trouvée dans votre <a href='/developer'\>profil</a\>.|  
-|TextblockOAuthHeaderDescription|Jeton d’accès OAuth 2.0 obtenu à partir de <i\>{0}</i\>. Types d’octrois pris en charge : <i\>{1}</i\>.|  
+|TextblockOAuthHeaderDescription|Jeton d’accès OAuth 2.0 obtenu de <i\>{0}</i\>. Types d’autorisation pris en charge : <i\>{1}</i\>.|  
 |TextblockContentTypeHeaderDescription|Type de média du corps envoyé à l’API.|  
 |ErrorMessageApiNotAccessible|L’API que vous essayez d’appeler n’est pas accessible pour l’instant. Contactez l’éditeur de l’API <a href="/issues"\>ici</a\>.|  
 |ErrorMessageApiTimedout|L’API que vous essayez d’appeler met plus de temps que d’habitude à obtenir une réponse. Contactez l’éditeur de l’API <a href="/issues"\>ici</a\>.|  
-|BadRequestParameterExpected|« Le paramètre "{0}" est attendu. »|  
+|BadRequestParameterExpected|« Le paramètre « {0} » est attendu »|  
 |TooltipTextDoubleClickToSelectAll|Double-cliquez pour tout sélectionner.|  
 |TooltipTextHideRevealSecret|Afficher/masquer|  
 |ButtonLinkOpenConsole|Essayer|  
 |SectionHeadingRequestBody|Corps de la demande|  
 |SectionHeadingRequestParameters|Paramètres de la demande|  
 |SectionHeadingRequestUrl|URL de la demande|  
-|SectionHeadingResponse|Réponse|  
+|SectionHeadingResponse|response|  
 |SectionHeadingRequestHeaders|En-têtes de requête|  
 |FormLabelSubtextOptional|facultatif|  
 |SectionHeadingCodeSamples|Exemples de code|  
-|TextblockOpenidConnectHeaderDescription|Jeton d’ID OpenID Connect obtenu à partir de <i\>{0}</i\>. Types d’octrois pris en charge : <i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|Jeton d’ID OpenID Connect obtenu de <i\>{0}</i\>. Types d’autorisation pris en charge : <i\>{1}</i\>.|  
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |LinkLabelBack|Retour|  
 |LinkLabelHomePage|page d'accueil|  
@@ -318,25 +320,25 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |TextblockPotentialCauseTechnicalProblem|Un problème technique a pu se produire de notre côté.|  
 |TextblockPotentialSolutionRefresh|Essayez de réactualiser la page.|  
 |TextblockPotentialSolutionStartOver|Recommencez à partir de notre {0}.|  
-|TextblockPotentialSolutionTryAgain|Accédez à {0} et retentez l’action effectuée.|  
-|TextReportProblem|{0} décrivant la cause du problème ; nous nous en occuperons dès que possible.|  
+|TextblockPotentialSolutionTryAgain|Accédez à {0} et réessayez l’action effectuée.|  
+|TextReportProblem|{0} décrivant la cause du problème et nous nous en occuperons dès que possible.|  
 |TitlePotentialCause|Cause potentielle.|  
 |TitlePotentialSolution|Il peut simplement s’agir d’un problème temporaire, quelques actions à tenter.|  
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problèmes|  
 |WebIssuesNoActiveSubscriptions|Vous ne disposez d’aucun abonnement actif. Vous devez vous abonner à un produit pour signaler un problème.|  
-|WebIssuesNotSignin|Vous n’êtes pas connecté. Veuillez {0} pour signaler un problème ou publier un commentaire.|  
+|WebIssuesNotSignin|Vous n’êtes pas connecté. {0} pour signaler un problème ou poster un commentaire.|  
 |WebIssuesReportIssueButton|Signaler un problème|  
 |WebIssuesSignIn|se connecter|  
-|WebIssuesStatusReportedBy|État: {0} &#124; Signalé par {1}.|  
+|WebIssuesStatusReportedBy|État: {0} &#124; Signalé par {1}|  
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |LinkLabelHomePage|page d'accueil|  
 |LinkLabelSendUsEmail|Envoyez-nous un e-mail.|  
@@ -345,13 +347,13 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |TextblockPotentialCauseOldLink|Il est possible que le lien sur lequel vous avez cliqué soit ancien et ne pointe plus vers l’emplacement correct.|  
 |TextblockPotentialSolutionRetype|Essayez de retaper l’URL.|  
 |TextblockPotentialSolutionStartOver|Recommencez à partir de notre {0}.|  
-|TextReportProblem|{0} décrivant la cause du problème ; nous nous en occuperons dès que possible.|  
+|TextReportProblem|{0} décrivant la cause du problème et nous nous en occuperons dès que possible.|  
 |TitlePotentialCause|Cause potentielle.|  
 |TitlePotentialSolution|Solution potentielle.|  
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |WebProductsAgreement|En m’abonnant au produit {0}, j’accepte les `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Conditions d’utilisation|  
@@ -363,23 +365,23 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |ButtonLabelAddSubscription|Ajouter un abonnement|  
 |LinkLabelChangeSubscriptionName|Modifier|  
 |ButtonLabelConfirm|Confirmer|  
-|TextblockMultipleSubscriptionsCount|Vous avez {0} abonnements à ce produit :|  
-|TextblockSingleSubscriptionsCount|Vous avez {0} abonnement à ce produit :|  
-|TextblockSingleApisCount|Ce produit contient {0} API :|  
-|TextblockMultipleApisCount|Ce produit contient {0} API :|  
+|TextblockMultipleSubscriptionsCount|Vous avez {0} abonnements à ce produit :|  
+|TextblockSingleSubscriptionsCount|Vous avez {0} abonnement à ce produit :|  
+|TextblockSingleApisCount|Ce produit contient l’API {0} :|  
+|TextblockMultipleApisCount|Ce produit contient les API {0} :|  
 |TextblockHeaderSubscribe|S’abonner au produit|  
 |TextblockSubscriptionDescription|Un nouvel abonnement sera créé ainsi :|  
 |TextblockSubscriptionLimitReached|Limite d’abonnements atteinte.|  
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |PageTitleProducts|Produits|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|La connexion est désactivée par les administrateurs pour l’instant.|  
 |TextboxExternalIdentitiesSigninInvitation|Vous pouvez également vous connecter avec|  
@@ -387,20 +389,20 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |PrincipalNotFound|Principal introuvable ou signature non valide.|  
 |ErrorSsoAuthenticationFailed|Échec de l’authentification SSO.|  
 |ErrorSsoAuthenticationFailedDetailed|Jeton fourni non valide ou signature non vérifiable.|  
 |ErrorSsoTokenInvalid|Jeton SSO non valide.|  
-|ValidationErrorSpecificEmailAlreadyExists|Adresse de messagerie « {0} » déjà inscrite.|  
-|ValidationErrorSpecificEmailInvalid|Adresse de messagerie « {0} » non valide.|  
+|ValidationErrorSpecificEmailAlreadyExists|E-mail « {0} » déjà inscrit|  
+|ValidationErrorSpecificEmailInvalid|E-mail « {0} » non valide|  
 |ValidationErrorPasswordInvalid|Le mot de passe n’est pas valide. Corrigez les erreurs, puis réessayez.|  
-|PropertyTooShort|{0} est trop court.|  
+|PropertyTooShort|{0} est trop court|  
 |WebAuthenticationAddresserEmailInvalidErrorMessage|Adresse de messagerie non valide.|  
 |ValidationMessageNewPasswordConfirmationRequired|Confirmez le nouveau mot de passe.|  
 |ValidationErrorPasswordConfirmationRequired|Le mot de passe de confirmation est vide.|  
-|WebAuthenticationEmailChangeNotice|Un e-mail de confirmation de la modification a été envoyé à {0}. Suivez les instructions qu’il contient pour confirmer votre nouvelle adresse de messagerie. Si le message n’est pas arrivé dans votre boîte de réception d’ici quelques minutes, vérifiez votre dossier Courrier indésirable.|  
+|WebAuthenticationEmailChangeNotice|Un e-mail de confirmation du changement a été envoyé à {0}. Suivez les instructions qu’il contient pour confirmer votre nouvelle adresse de messagerie. Si le message n’est pas arrivé dans votre boîte de réception d’ici quelques minutes, vérifiez votre dossier Courrier indésirable.|  
 |WebAuthenticationEmailChangeNoticeHeader|Votre demande de modification de l’adresse de messagerie a été traitée.|  
 |WebAuthenticationEmailChangeNoticeTitle|Modification de l’adresse de messagerie demandée.|  
 |WebAuthenticationEmailHasBeenRevertedNotice|Votre adresse de messagerie existe déjà. La demande a été annulée.|  
@@ -408,8 +410,8 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |ValidationErrorEmailInvalid|Adresse de messagerie non valide.|  
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|L’adresse de messagerie est obligatoire.|  
-|WebAuthenticationErrorNoticeHeader|Erreur|  
-|WebAuthenticationFieldLengthErrorMessage|{0} doit avoir la longueur {1} au maximum.|  
+|WebAuthenticationErrorNoticeHeader|Error|  
+|WebAuthenticationFieldLengthErrorMessage|{0} doit avoir une longueur maximale de {1}|  
 |TextboxLabelEmailFirstName|Prénom|  
 |ValidationErrorFirstNameRequired|Le prénom est obligatoire.|  
 |ValidationErrorFirstNameInvalid|Prénom non valide.|  
@@ -434,13 +436,13 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |ValidationErrorPasswordInvalidDetailed|Le mot de passe est trop faible.|  
 |WebAuthenticationPasswordLabel|Mot de passe|  
 |ValidationErrorPasswordRequired|Le mot de passe est requis.|  
-|WebAuthenticationPasswordResetSendNotice|Un e-mail de confirmation de la modification de mot de passe a été envoyé à {0}. Suivez les instructions décrites dans l’e-mail pour poursuivre la procédure de modification du mot de passe.|  
+|WebAuthenticationPasswordResetSendNotice|Un e-mail de confirmation du changement de mot de passe a été envoyé à {0}. Suivez les instructions décrites dans l’e-mail pour poursuivre la procédure de modification du mot de passe.|  
 |WebAuthenticationPasswordResetSendNoticeHeader|Votre demande de réinitialisation de mot de passe a bien été traitée.|  
 |WebAuthenticationPasswordResetSendNoticeTitle|Réinitialisation de mot de passe demandée.|  
 |WebAuthenticationRequestNotFoundNotice|Demande introuvable.|  
 |WebAuthenticationSenderEmailRequiredErrorMessage|L’adresse de messagerie de l’expéditeur des notifications est vide.|  
 |WebAuthenticationSigninPasswordLabel|Confirmez la modification en entrant un mot de passe.|  
-|WebAuthenticationSignupConfirmNotice|Un e-mail de confirmation d’inscription a été envoyé à {0}.<br /\> Suivez les instructions décrites dans l’e-mail pour activer votre compte.<br /\> Si le message n’est pas arrivé dans votre boîte de réception d’ici quelques minutes, vérifiez votre dossier Courrier indésirable.|  
+|WebAuthenticationSignupConfirmNotice|Un e-mail de confirmation d’inscription a été envoyé à {0}.<br /\> Suivez les instructions décrites dans l’e-mail pour activer votre compte.<br /\> Si le message n’arrive pas dans votre boîte de réception d’ici quelques minutes, vérifiez votre dossier Courrier indésirable.|  
 |WebAuthenticationSignupConfirmNoticeHeader|Votre compte a bien été créé.|  
 |WebAuthenticationSignupConfirmNoticeRepeatHeader|L’e-mail de confirmation d’inscription a été renvoyé.|  
 |WebAuthenticationSignupConfirmNoticeTitle|Compte créé|  
@@ -455,15 +457,15 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |ValidationErrorCredentialsInvalid|L’adresse de messagerie ou le mot de passe n’est pas valide. Corrigez les erreurs, puis réessayez.|  
 |WebAuthenticationRequestIsNotValid|La demande n’est pas valide.|  
 |WebAuthenticationUserIsNotConfirm|Veuillez confirmer votre inscription avant de tenter de vous connecter.|  
-|WebAuthenticationInvalidEmailFormated|L’adresse de messagerie n’est pas valide : {0}.|  
+|WebAuthenticationInvalidEmailFormated|E-mail non valide : {0}|  
 |WebAuthenticationUserNotFound|Utilisateur non trouvé.|  
 |WebAuthenticationTenantNotRegistered|Votre compte appartient à un client Azure Active Directory qui n’est pas autorisé à accéder à ce portail.|  
 |WebAuthenticationAuthenticationFailed|L’authentification a échoué.|  
 |WebAuthenticationGooglePlusNotEnabled|L’authentification a échoué. Si vous avez autorisé l’application, contactez l’administrateur pour vérifier que l’authentification Google est configurée correctement.|  
 |ValidationErrorAllowedTenantIsRequired|Le client autorisé est requis.|  
-|ValidationErrorTenantIsNotValid|Le client Azure Active Directory « {0} » n’est pas valide.|  
+|ValidationErrorTenantIsNotValid|Le locataire Azure Active Directory « {0} » n’est pas valide.|  
 |WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  
-|WebAuthenticationLoginUsingYourProvider|Connectez-vous avec votre compte {0}.|  
+|WebAuthenticationLoginUsingYourProvider|Connectez-vous à l’aide de votre compte {0}|  
 |WebAuthenticationUserLimitNotice|Ce service a atteint le nombre maximal d’utilisateurs autorisés. Veuillez `<a href="mailto:{0}"\>contact the administrator</a\>` pour mettre à niveau leur service et réactiver l’inscription de l’utilisateur.|  
 |WebAuthenticationUserLimitNoticeHeader|Inscription des utilisateurs désactivée.|  
 |WebAuthenticationUserLimitNoticeTitle|Inscription des utilisateurs désactivée.|  
@@ -471,10 +473,10 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |WebAuthenticationUserRegistrationDisabledNoticeHeader|Inscription des utilisateurs désactivée.|  
 |WebAuthenticationUserRegistrationDisabledNoticeTitle|Inscription des utilisateurs désactivée.|  
 |WebAuthenticationSignupPendingConfirmationNotice|Pour pouvoir terminer la création de votre compte, nous devons vérifier votre adresse de messagerie. Nous avons envoyé un e-mail à {0}. Suivez les instructions décrites dans l’e-mail pour activer votre compte. Si le message n’est pas arrivé d’ici quelques minutes, vérifiez votre dossier Courrier indésirable.|  
-|WebAuthenticationSignupPendingConfirmationAccountFoundNotice|Nous avons trouvé un compte non confirmé associé à l’adresse de messagerie {0}. Pour pouvoir terminer la création de votre compte, nous devons vérifier votre adresse de messagerie. Nous avons envoyé un e-mail à {0}. Suivez les instructions décrites dans l’e-mail pour activer votre compte. Si le message n’est pas arrivé d’ici quelques minutes, vérifiez votre dossier Courrier indésirable.|  
+|WebAuthenticationSignupPendingConfirmationAccountFoundNotice|Nous avons trouvé un compte non confirmé associé à l’e-mail {0}. Pour pouvoir terminer la création de votre compte, nous devons vérifier votre adresse de messagerie. Nous avons envoyé un e-mail à {0}. Suivez les instructions décrites dans l’e-mail pour activer votre compte. Si le message n’est pas arrivé d’ici quelques minutes, vérifiez votre dossier Courrier indésirable.|  
 |WebAuthenticationSignupConfirmationAlmostDone|C’est presque fini.|  
 |WebAuthenticationSignupConfirmationEmailSent|Nous avons envoyé un e-mail à {0}. Suivez les instructions décrites dans l’e-mail pour activer votre compte. Si le message n’est pas arrivé d’ici quelques minutes, vérifiez votre dossier Courrier indésirable.|  
-|WebAuthenticationEmailSentNotificationMessage|E-mail envoyé à {0}.|  
+|WebAuthenticationEmailSentNotificationMessage|E-mail envoyé à {0}|  
 |WebAuthenticationNoAadTenantConfigured|Aucun client Azure Active Directory n’est configuré pour le service.|  
 |CheckboxLabelUserRegistrationTermsConsentRequired|J’accepte les `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`.|  
 |TextblockUserRegistrationTermsProvided|Veuillez consulter les `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`.|  
@@ -483,19 +485,19 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Vous avez oublié votre mot de passe ?|  
 |WebAuthenticationIfAdministrator|Si vous êtes un administrateur, vous devez vous connecter `<a href="{0}"\>here</a\>`.|  
 |WebAuthenticationNotAMember|Vous n’êtes pas encore membre ? `<a href="/signup"\>Sign up now</a\>`|  
 |WebAuthenticationRemember|Se souvenir de moi sur cet ordinateur|  
 |WebAuthenticationSigininWithPassword|Connectez-vous avec votre nom d’utilisateur et votre mot de passe.|  
-|WebAuthenticationSigninTitle|de connexion|  
+|WebAuthenticationSigninTitle|Se connecter|  
 |WebAuthenticationSignUpNow|ici|  
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |PageTitleSignup|Inscription|  
 |WebAuthenticationAlreadyAMember|Déjà membre ?|  
@@ -505,7 +507,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Voulez-vous vraiment annuler cet abonnement ?|  
 |SubscriptionRenewConfirmation|Voulez-vous vraiment renouveler cet abonnement ?|  
@@ -517,8 +519,8 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |ButtonLabelRenewSubscription|Renouveler|  
 |WebDevelopersSubscriptionReqested|Demandé sur {0}|  
 |WebDevelopersSubscriptionRequestedState|Demandé|  
-|WebDevelopersSubscriptionTableNameHeader|Nom|  
-|WebDevelopersSubscriptionTableStateHeader|State|  
+|WebDevelopersSubscriptionTableNameHeader|NOM|  
+|WebDevelopersSubscriptionTableStateHeader|État|  
 |WebDevelopersUsageStatisticsLink|Rapports d’analyse|  
 |WebDevelopersYourSubscriptions|Vos abonnements|  
 |SubscriptionPropertyLabelRequestedDate|Demandé le|  
@@ -528,7 +530,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Vous souhaitez fermer votre compte ?|  
 |PageTitleDeveloperProfile|Profil|  
@@ -539,14 +541,14 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Mettre à jour le profil|  
 |PageTitleUpdateProfile|Mettre à jour les informations du compte|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|Nom|Texte|  
+|NOM|Texte|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Modifier les informations du compte|  
 |ButtonLabelChangePassword|Modifier le mot de passe|  
@@ -562,7 +564,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |SubscriptionStateRejected|Rejeté|  
 |SubscriptionStateRequested|Demandé|  
 |SubscriptionStateSuspended|Interrompu|  
-|DefaultSubscriptionNameTemplate|{0} (par défaut)|  
+|DefaultSubscriptionNameTemplate|{0} (valeur par défaut)|  
 |SubscriptionNameTemplate|Accès développeurs #{0}|  
 |TextboxLabelSubscriptionName|Nom d’abonnement|  
 |ValidationMessageSubscriptionNameRequired|Le nom d'abonnement ne peut pas être vide.|  
@@ -578,4 +580,4 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
  Pour connaître la liste complète des glyphes, consultez [Glyphicons de Bootstrap](http://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).
+Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](api-management-developer-portal-templates.md).

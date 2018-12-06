@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 400cb16e4f4440283a783116c4ee843bc0a7344c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248569"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497120"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Soumettre des travaux à partir d’outils R pour Visual Studio
 
@@ -64,7 +64,7 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Envoyer des travaux à un cluster HDInsight ML Services
 
-En utilisant une instance Microsoft ML Server/Microsoft R Client à partir d’un ordinateur Windows équipé de PuTTY, vous pouvez créer un contexte de calcul qui exécute des fonctions `RevoScaleR` distribuées de votre client local sur votre cluster HDInsight. Utilisez `RxSpark` pour créer le contexte de calcul, en spécifiant votre nom d’utilisateur, le nœud de périphérie du cluster Hadoop, les commutateurs SSH, et ainsi de suite.
+En utilisant une instance Microsoft ML Server/Microsoft R Client à partir d’un ordinateur Windows équipé de PuTTY, vous pouvez créer un contexte de calcul qui exécute des fonctions `RevoScaleR` distribuées de votre client local sur votre cluster HDInsight. Utilisez `RxSpark` pour créer le contexte de calcul, en spécifiant votre nom d’utilisateur, le nœud de périphérie du cluster Apache Hadoop, les commutateurs SSH, et ainsi de suite.
 
 1. Pour rechercher le nom d’hôte de votre nœud de périphérie, ouvrez le volet de votre cluster HDInsight ML Services sur Azure, puis sélectionnez **Secure Shell (SSH)** dans le menu supérieur du volet Vue d’ensemble.
 
@@ -132,7 +132,7 @@ En utilisant une instance Microsoft ML Server/Microsoft R Client à partir d’
 
         ![Fichier copié](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
 
-6. Une fois que vous avez terminé d’utiliser le contexte Spark actuel, vous devez l’arrêter. Vous ne pouvez pas exécuter plusieurs contextes à la fois.
+6. Une fois que vous avez terminé d’utiliser le contexte Apache Spark actuel, vous devez l’arrêter. Vous ne pouvez pas exécuter plusieurs contextes à la fois.
 
     ```R
     rxStopEngine(mySparkCluster)

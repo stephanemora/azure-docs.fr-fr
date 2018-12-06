@@ -1,5 +1,5 @@
 ---
-title: Configuration des paramètres de l’outil de révision Content Moderator | Microsoft Docs
+title: Configurer les paramètres de l’outil de révision Content Moderator | Microsoft Docs
 description: Découvrez comment configurer ou gérer votre équipe, vos balises, vos connecteurs, vos flux de travail et vos informations d’identification.
 services: cognitive-services
 author: sanjeev3
@@ -9,14 +9,14 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a3432a1d8f424fbe78570f47b774c6e7942e16b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2ffed5e561cf9988ec10ecb7e10318d148281057
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367925"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851535"
 ---
-# <a name="about-review-tool-settings"></a>À propos des paramètres de l’outil de révision #
+# <a name="review-tool-settings"></a>Paramètres de l’outil de révision #
 
 Vous pouvez facilement définir et modifier de nombreux composants grâce à l’onglet Paramètres du tableau de bord de l’outil de révision.
 
@@ -36,7 +36,7 @@ Cette section vous permet de [définir des balises personnalisées](tags.md) en 
 
 ## <a name="connectors"></a>Connecteurs ##
 
-Les flux de travail offrent des fonctionnalités supplémentaires grâce à des connecteurs permettant de communiquer avec l’outil de révision. L’outil de révision appelle les API Content Moderator avec le flux de travail par défaut pour modérer le contenu. Lors de votre inscription à l’outil de révision, les informations d’identification de l’API Content Moderator sont configurées au préalable. L’outil prend également en charge l’intégration avec d’autres API de connecteurs, dans la mesure où un connecteur est disponible. Plusieurs connecteurs sont disponibles par défaut.
+Les workflow offrent des fonctionnalités supplémentaires grâce à des connecteurs permettant de communiquer avec l’outil de révision. L’outil de révision appelle les API Content Moderator avec le workflow par défaut pour modérer le contenu. Lors de votre inscription à l’outil de révision, les informations d’identification de l’API Content Moderator sont configurées au préalable. L’outil prend également en charge l’intégration avec d’autres API de connecteurs, dans la mesure où un connecteur est disponible. Plusieurs connecteurs sont disponibles par défaut.
 
 Vous pouvez gérer les connecteurs dans l’onglet [Connecteurs](connectors.md). Vous pouvez ajouter ou supprimer des connecteurs, et récupérer la clé d’abonnement pour un connecteur spécifique. Cliquez sur Connecter pour les ajouter à vos flux de travail personnalisés. 
 

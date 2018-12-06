@@ -1,5 +1,5 @@
 ---
-title: Impossible de connecter un bureau à distance à des machines virtuelles Azure car la carte réseau est désactivée | Microsoft Docs
+title: Impossible de se connecter à distance aux machines virtuelles Azure car la carte réseau est désactivée | Microsoft Docs
 description: Apprendre à résoudre un échec de connexion RDP dû à la désactivation de la carte réseau sur des machines virtuelles Azure | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6b14530bd6b4c1b6617cb1d5c88d710a32e5372c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f9e4731146409f51d16a8c92c01d07a8ff11a7ea
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634819"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314522"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Impossible de connecter un bureau à distance à une machine virtuelle car l'interface réseau est désactivée
 
-Cet article explique comment résoudre un problème de connexion de votre bureau à distance à des machines virtuelles Windows Azure dû à la désactivation de l'interface réseau.
+Cet article explique comment résoudre un problème où une connexion Bureau à distance à des machines virtuelles Azure Windows est impossible si l’interface réseau est désactivée.
 
 > [!NOTE] 
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic. 
@@ -51,7 +51,7 @@ Pour activer l'interface de la machine virtuelle, utilisez la console série ou 
 
         netsh interface set interface name="interface Name" admin=enabled
 
-    Par exemple, si l'interface réseau s'appelle « Ethernet 2 », exécutez la commande suivante :
+    Par exemple, si l’interface réseau s’appelle « Ethernet 2 », exécutez la commande suivante :
 
         netsh interface set interface name=""Ethernet 2" admin=enabled
     
@@ -62,8 +62,8 @@ Pour activer l'interface de la machine virtuelle, utilisez la console série ou 
 
     À ce stade, vous n’êtes pas obligé de redémarrer la machine virtuelle. La machine virtuelle sera de nouveau accessible.
         
-5.  Connectez-vous à la machine virtuelle et assurez-vous que le problème est résolu.
+5.  Connectez-vous à la machine virtuelle et vérifiez que le problème est résolu.
 
 ## <a name="reset-network-interface"></a>Réinitialiser l’interface réseau
 
-Pour réinitialiser l’interface réseau, remplacez l’adresse IP par une autre adresse IP disponible sur le sous-réseau en utilisant le portail Azure ou Azure PowerShell. Pour plus d’informations, consultez [Réinitialiser l'interface réseau](reset-network-interface.md). 
+Pour réinitialiser l’interface réseau, remplacez l’adresse IP par une autre qui est disponible dans le sous-réseau. Pour ce faire, utilisez le portail Azure ou Azure PowerShell. Pour plus d’informations, consultez [Réinitialiser l'interface réseau](reset-network-interface.md). 

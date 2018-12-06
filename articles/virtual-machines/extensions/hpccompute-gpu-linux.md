@@ -12,36 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: 307bdb5fa7a5d14a77c71d0ea40634a55d8507b6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e36390bbdc243237c97d605d4721fc1ad2cbe0ea
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143366"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498890"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extension du pilote GPU NVIDIA pour Linux
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Linux de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du contrat de licence utilisateur final NVIDIA. Pendant le processus d’installation, votre machine virtuelle peut redémarrer pour terminer l’installation du pilote.
+Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Linux de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du [contrat de licence utilisateur final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Pendant le processus d’installation, la machine virtuelle peut redémarrer pour terminer l’installation du pilote.
 
 Une extension est également disponible pour installer les pilotes GPU NVIDIA sur [des machines virtuelles de gamme N Windows](hpccompute-gpu-windows.md).
-
-Les termes du contrat de licence utilisateur final de NVIDIA se trouvent ici : https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-Cette extension prend en charge les systèmes d’exploitation suivants :
+Cette extension prend en charge les distributions suivantes de système d’exploitation, en fonction de la prise en charge par le pilote de la version spécifique du système d’exploitation.
 
 | Distribution | Version |
 |---|---|
-| Linux : Ubuntu | LTS 16.04 |
-| Linux : Red Hat Enterprise Linux | 7.3, 7.4 |
-| Linux : CentOS | 7.3, 7.4 |
+| Linux : Ubuntu | 16.04 LTS, 18.04 LTS |
+| Linux : Red Hat Enterprise Linux | 7.3, 7.4, 7.5 |
+| Linux : CentOS | 7.3, 7.4, 7.5 |
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
@@ -63,7 +61,7 @@ Le JSON suivant illustre le schéma pour l’extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -71,14 +69,24 @@ Le JSON suivant illustre le schéma pour l’extension.
 }
 ```
 
-### <a name="property-values"></a>Valeurs de propriétés
+### <a name="properties"></a>properties
 
 | NOM | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | chaîne |
 | Type | NvidiaGpuDriverLinux | chaîne |
-| typeHandlerVersion | 1.1 | int |
+| typeHandlerVersion | 1.2 | int |
+
+### <a name="settings"></a>Paramètres
+
+Tous les paramètres sont facultatifs. Le comportement par défaut consiste à ne pas mettre à jour le noyau si cela n’est pas requis pour l’installation du pilote et à installer le dernier pilote pris en charge ainsi que le kit de ressources CUDA (le cas échéant).
+
+| NOM | Description | Valeur par défaut | Valeurs valides | Type de données |
+| ---- | ---- | ---- | ---- | ---- |
+| updateOS | Mettre à jour le noyau, même si cela n’est pas requis pour l’installation du pilote | false | true, false | booléenne |
+| driverVersion | NV : version du pilote GRID<br> NC/ND : version du kit de ressources CUDA Les derniers pilotes pour le kit de ressources CUDA choisi sont installés automatiquement. | le plus récent | GRID : "410.71", "390.75", "390.57", "390.42"<br> CUDA : "10.0.130", "9.2.88", "9.1.85" | chaîne |
+| installCUDA | Installer le kit de ressources CUDA. S’applique uniquement aux machines virtuelles de la série NC/ND. | true | true, false | booléenne |
 
 
 ## <a name="deployment"></a>Déploiement
@@ -104,7 +112,7 @@ L’exemple suivant suppose que l’extension est imbriquée dans la ressource d
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -122,12 +130,14 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.1 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
+
+L’exemple suivant reprend les exemples Azure Resource Manager et PowerShell ci-dessus et ajoute des paramètres personnalisés afin d’illustrer l’installation personnalisée du pilote. Plus précisément, il met à jour le noyau du système d’exploitation et installe un pilote de la version spécifique du kit de ressources CUDA.
 
 ```azurecli
 az vm extension set `
@@ -135,8 +145,10 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.1 `
+  --version 1.2 `
   --settings '{ `
+    "updateOS": true, `
+    "driverVersion": "9.1.85", `
   }'
 ```
 
@@ -165,13 +177,12 @@ La sortie de l’exécution de l’extension est enregistrée dans le fichier su
 | Code de sortie | Signification | Action possible |
 | :---: | --- | --- |
 | 0 | L’opération a réussi |
-| 1 | Utilisation incorrecte de l’extension. | Contactez le support en fournissant le journal de sortie de l’exécution. |
-| 10 | Les services d’intégration Linux pour Hyper-V et Azure ne sont pas disponibles ou installés. | Vérifiez la sortie de lspci. |
-| 11 | GPU NVIDIA introuvable sur cette taille de machine virtuelle. | Utilisez une [taille de machine virtuelle et un système d’exploitation pris en charge](../linux/n-series-driver-setup.md). |
+| 1 | Utilisation incorrecte de l’extension | Vérifiez le journal de sortie de l’exécution |
+| 10 | Les services d’intégration Linux pour Hyper-V et Azure ne sont pas disponibles ou installés | Vérifiez la sortie de lspci |
+| 11 | GPU NVIDIA introuvable sur cette taille de machine virtuelle | Utilisez une [taille de machine virtuelle et un système d’exploitation pris en charge](../linux/n-series-driver-setup.md) |
 | 12 | Offre d’image non prise en charge |
 | 13 | Taille de machine virtuelle non prise en charge | Utilisez une machine virtuelle de série N pour déployer. |
-| 14 | Échec de l’opération | |
-| 21 | Échec de la mise à jour sur Ubuntu | Vérifiez la sortie de « sudo apt-get update ». |
+| 14 | Échec de l’opération | Vérifiez le journal de sortie de l’exécution |
 
 
 ### <a name="support"></a>Support

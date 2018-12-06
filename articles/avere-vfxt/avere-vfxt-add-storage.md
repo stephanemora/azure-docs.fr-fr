@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: aba023667094fb00647861fb2dd300eda64e4897
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669956"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163169"
 ---
 # <a name="configure-storage"></a>Configurer le stockage
 
@@ -48,15 +48,20 @@ Effectuez les étapes suivantes pour ajouter un système de stockage principal N
 
 1. À partir du panneau de configuration Avere, cliquez sur l’onglet **Settings** (Paramètres) en haut.
 
-2. Cliquez sur **Core Filer** (Système de stockage principal)  > **Manage Core Filers** (Gérer les systèmes de stockage principaux) sur la gauche.
+1. Cliquez sur **Core Filer** (Système de stockage principal)  > **Manage Core Filers** (Gérer les systèmes de stockage principaux) sur la gauche.
 
-3. Cliquez sur **Créer**.
+1. Cliquez sur **Créer**.
 
-   ![Capture d’écran de la page d’ajout d’un nouveau système de stockage principal avec le nom du système de stockage principal et son nom de domaine complet](media/avere-vfxt-add-core-filer.png)
+   ![Capture d’écran de la page Add new core filer (Ajouter un nouveau système de stockage principal) avec le curseur sur le bouton Create (Créer)](media/avere-vfxt-add-core-filer-start.png)
+
+1. Remplissez les informations nécessaires dans l’Assistant : 
 
    * Nommez votre système de stockage principal.
    * Le cas échéant, fournissez un nom de domaine complet (FQDN). Sinon, fournissez une adresse IP ou un nom d’hôte qui correspond à votre système de stockage principal.
    * Choisissez votre classe de système de stockage dans la liste. En cas de doute, choisissez **Other** (Autre).
+
+     ![Capture d’écran de la page d’ajout d’un nouveau système de stockage principal avec le nom du système de stockage principal et son nom de domaine complet](media/avere-vfxt-add-core-filer.png)
+  
    * Cliquez sur **Next** (Suivant) et choisissez une stratégie de cache. 
    * Cliquez sur **Add Filer** (Ajouter le système de stockage).
    * Pour plus d’informations, reportez-vous à [Adding a new NAS core filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) (Ajout d’un nouveau système de stockage principal NAS) dans le guide des paramètres de cluster Avere.

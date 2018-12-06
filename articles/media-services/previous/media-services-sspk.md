@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b4472f522571e0056ce6b28d67a69b0dcabba8a6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785818"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243894"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licence du kit de portage du client de diffusion en continu lisse Microsoft®
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le kit de portage client Smooth Streaming Microsoft (**SSPK** en abrégé) est une implémentation du client Smooth Streaming optimisée pour aider les fabricants de périphériques intégrés, les opérateurs mobiles et du câble, les fournisseurs de services de contenu, les fabricants de combinés, les éditeurs de logiciels indépendants (ISV) et les fournisseurs de solutions à créer des produits et des services pour diffuser du contenu adaptatif dans un format Smooth Streaming. SSPK est une implémentation Smooth Streaming cliente indépendante de l’appareil et de la plateforme pouvant être transférée par le titulaire de la licence vers n’importe quel appareil ou plateforme. 
 
 Vous trouverez ci-après une architecture de haut niveau, et le package du kit de portage Smooth Streaming IIS est l’implémentation de client Smooth Streaming fournie par Microsoft. Il inclut la logique de base pour une lecture de contenu Smooth Streaming. Ce contenu est ensuite transféré par des partenaires pour un appareil ou une plateforme spécifique, grâce à l’implémentation des interfaces appropriées. 
@@ -43,7 +43,7 @@ SSPK est concédé sous licence selon des conditions représentant une excellent
   * interfaces de programmation pour l‘interaction avec les décodeurs A/V matériels (décodage, rendu)
 * Interface de gestion de droits numériques (Digital Rights Management - DRM) 
   * interfaces de programmation pour la gestion des DRM via la couche Abstraction DRM (DAL)
-  * Le kit de portage PlayReady Microsoft est fourni séparément, mais s’intègre via cette interface. Pour plus d‘informations sur les licences pour appareil Microsoft PlayReady cliquez [ici](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+  * Le kit de portage PlayReady Microsoft est fourni séparément, mais s’intègre via cette interface. Pour plus d‘informations sur les licences pour appareil Microsoft PlayReady cliquez [ici](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 * Échantillons de l’implémentation 
   * exemple d‘implémentation PAL pour Linux
   * exemple d‘implémentation HAL pour GStreamer
@@ -149,7 +149,7 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 * SmarDTV S.A.
 * SoftAtHome
 * Sony Corporation
-* TCL Overseas Marketing (Macao Commercial Offshore) Limited
+* TCL Overseas Marketing (Macao (R.A.S.) Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
 * Top Victory Investments, Ltd.

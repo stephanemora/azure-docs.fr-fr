@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: eea981800147f24025e01826f7550a95041c107f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395122"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427299"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Permettre des pratiques sûres de déploiement avec Azure Deployment Manager (préversion privée)
 
@@ -34,6 +34,8 @@ Pour utiliser Deployment Manager, vous devez créer quatre fichiers :
 * Fichier de paramètres pour le lancement
 
 Vous déployez le modèle de topologie avant de déployer le modèle de lancement.
+
+Les informations de référence de l’API REST Azure Deployment Manager sont disponibles [ici](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 ## <a name="supported-locations"></a>Emplacements pris en charge
 

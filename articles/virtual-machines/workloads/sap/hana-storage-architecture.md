@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 614d6aef4a2b7be551574fd3c8e25e2a3e3c1c07
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030510"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275988"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architecture de stockage de SAP HANA (grandes instances)
 
-La disposition de stockage pour SAP HANA sur Azure (grandes instances) est configurée par SAP HANA sur le modèle de déploiement classique via les recommandations de SAP. Les instructions sont documentées dans le livre blanc [Exigences de stockage SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
+La disposition de stockage pour SAP HANA sur Azure (grandes instances) est configurée par SAP HANA sur le modèle de déploiement classique selon les recommandations de SAP. Les instructions sont documentées dans le livre blanc [Exigences de stockage SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
 
 La grande instance HANA de classe Type I est livrée avec quatre fois le volume de mémoire et le volume de stockage. Pour les unités de grande instance HANA de classe Type II, le stockage n’est pas quatre fois plus élevé. Le volume fourni dans les unités est prévu pour le stockage des sauvegardes de fichiers journaux HANA. Pour plus d’informations, consultez [Installer et configurer SAP HANA (grandes instances) sur Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -33,6 +33,7 @@ Consultez le tableau suivant pour connaître l’allocation de stockage. La tabl
 | --- | --- | --- | --- | --- |
 | S72 | 1 280 Go | 512 Go | 768 Go | 512 Go |
 | S72m | 3 328 Go | 768 Go |1 280 Go | 768 Go |
+| S96 | 1 280 Go | 512 Go | 768 Go | 512 Go |
 | S192 | 4 608 Go | 1 024 Go | 1 536 Go | 1 024 Go |
 | S192m | 11 520 Go | 1 536 Go | 1 792 Go | 1 536 Go |
 | S192xm |  11 520 Go |  1 536 Go |  1 792 Go |  1 536 Go |
@@ -72,7 +73,7 @@ Consultez [Scénarios HLI pris en charge](hana-supported-scenario.md) pour conna
 
 Il est possible d’héberger plusieurs instances SAP HANA actives sur les unités de grande instance HANA. Afin de fournir les fonctionnalités de captures instantanées du stockage et de récupération d’urgence, une telle configuration requiert un volume défini par instance. Actuellement, les unités de grande instance HANA peuvent être classées comme suit :
 
-- **S72, S72m, S144, S192** : par incréments de 256 Go avec l’unité de départ la plus petite qui fait 256 Go. Des incréments différents, comme 256 Go, 512 Go, etc., peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
+- **S72, S72m, S96, S144, S192** : par incrément de 256 Go avec l’unité de départ la plus petite qui fait 256 Go. Des incréments différents, comme 256 Go, 512 Go, etc., peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
 - **S144m et S192m** : par incréments de 256 Go avec la plus petite unité qui fait 512 Go. Des incréments différents, comme 512 Go et 768 Go peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
 - **Classe Type II** : par incréments de 512 Go avec l’unité de départ la plus petite qui fait 2 To. Des incréments différents, comme 512 Go, 1 Go et 1,5 To peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
 
@@ -81,9 +82,9 @@ Voici quelques exemples de ce à quoi peut ressembler l’exécution de plusieur
 | SKU | Taille de la mémoire | Taille de stockage | Tailles avec plusieurs bases de données |
 | --- | --- | --- | --- |
 | S72 | 768 Go | 3 To | 1 instance HANA de 768 Go<br /> ou 1 instance de 512 Go + 1 instance de 256 Go<br /> ou 3 instances de 256 Go | 
-| S72m | 1,5 To | 6 To | 3 instances HANA de 512 Go<br />ou 1 instance de 512 Go + 1 instance de 1 To<br />ou 6 instances de 256 Go<br />ou 1 x instance de 1,5 To | 
-| S192m | 4 To | 16 TO | 8 instances de 512 Go<br />ou 4 instances de 1 To<br />ou 4 instances de 512 Go + 2 instances de 1 To<br />ou 4 instances de 768 Go + 2 instances de 512 Go<br />ou 1 instance de 4 To |
-| S384xm | 8 To | 22 To | 4 instances de 2 To<br />ou 2 instances de 4 To<br />ou 2 instances de 3 To + 1 instance de 2 To<br />ou 2 instances de 2,5 To + 1 instance de 3 To<br />ou 1 instance de 8 To |
+| S72m | 1,5 To | 6 To | 3 instances HANA de 512 Go<br />ou 1 instance de 512 Go + 1 instance de 1 To<br />ou 6 instances de 256 Go<br />ou 1 instance de 1,5 To | 
+| S192m | 4 To | 16 TO | 8 instances de 512 Go<br />ou 4 instances de 1 To<br />ou 4 instances de 512 Go + 2 instances de 1 To<br />ou 4 instances de 768 Go + 2 instances de 512 Go<br />ou 1 instance de 4 To |
+| S384xm | 8 To | 22 To | 4 instances de 2 To<br />ou 2 instances de 4 To<br />ou 2 instances de 3 To + 1 instance de 2 To<br />ou 2 instances de 2,5 To + 1 instance de 3 To<br />ou 1 instance de 8 To |
 
 
 Il existe d’autres variantes. 

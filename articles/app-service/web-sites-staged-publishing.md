@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: cb7b114836c83338f71c85f59299ecf1dc4613a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636065"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317617"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -75,6 +75,7 @@ Lorsque vous clonez la configuration depuis un autre emplacement de déploiement
 * Mappages de gestionnaires
 * Paramètres de surveillance et de diagnostics
 * Contenu WebJobs
+* Connexions hybrides
 
 **Paramètres non échangés**:
 
@@ -168,7 +169,7 @@ Si vous identifiez des erreurs de production après un basculement d'emplacement
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Mise en route personnalisée avant la permutation
-Certaines applications peuvent nécessiter des actions personnalisées de mise en route. L’élément de configuration `applicationInitialization` du fichier web.config vous permet de spécifier les actions d’initialisation personnalisées à exécuter avant la réception d’une demande. L'opération d’échange attend la fin de cette mise en route personnalisée. Voici un exemple de fragment web.config.
+Quand vous utilisez [Échange-automatique](#Auto-Swap), certaines applications peuvent nécessiter des actions personnalisées de préchauffage. L’élément de configuration `applicationInitialization` du fichier web.config vous permet de spécifier les actions d’initialisation personnalisées à exécuter avant la réception d’une demande. L'opération d’échange attend la fin de cette mise en route personnalisée. Voici un exemple de fragment web.config.
 
     <system.webServer>
         <applicationInitialization>

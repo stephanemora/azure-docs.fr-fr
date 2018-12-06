@@ -2,16 +2,17 @@
 title: Gérer un serveur de processus pour la récupération d’urgence de machines virtuelles VMware et de serveurs physiques sur Azure avec Azure Site Recovery | Microsoft Docs
 description: Cet article explique comment gérer un serveur de processus configuré pour la récupération d’urgence de machines virtuelles VMware et d’un serveur physique sur Azure avec Azure Site Recovery.
 author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 180d84f40f3d439419f9667b246b8c4b5c69814a
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568850"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974186"
 ---
 # <a name="manage-process-servers"></a>Gérer des serveurs de processus
 
@@ -31,7 +32,41 @@ Pour mettre à niveau un serveur de processus exécuté en local ou dans Azure (
 > [!NOTE]
   En règle générale, lorsque vous utilisez l’image de la galerie Azure pour créer un serveur de processus dans Azure, dans le cadre d’une restauration automatique, elle utilise la version la plus récente. L’équipe Site Recovery publie régulièrement des correctifs et des améliorations, aussi nous vous recommandons de mettre à jour vos serveurs de processus.
 
+## <a name="balance-the-load-on-process-server"></a>Équilibrer la charge sur le serveur de processus
 
+Pour équilibrer la charge entre deux serveurs de processus,
+
+1. Accédez à **Coffre Recovery Services** > **Gérer** > **Infrastructure Site Recovery** > **Pour les machines VMware et physiques** > **Serveurs de configuration**.
+2. Cliquez sur le serveur de configuration avec lequel les serveurs de processus sont inscrits.
+3. Liste des serveurs de processus inscrits pour les serveurs de configuration disponibles sur la page.
+4. Cliquez sur le serveur de processus sur lequel vous souhaitez modifier la charge de travail.
+
+    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+
+5. Vous pouvez utiliser les options **Équilibrer la charge** ou **Échanger**, comme expliqué ci-dessous, selon les besoins.
+
+### <a name="load-balance"></a>Équilibrer la charge
+
+Avec cette option, vous pouvez sélectionner une ou plusieurs machines virtuelles et les transférer vers un autre serveur de processus.
+
+1. Cliquez sur **Équilibrer la charge** et sélectionnez le serveur de processus cible dans la liste déroulante. Cliquez sur **OK**
+
+    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
+2. Cliquez sur **Sélectionner des machines**, choisissez les machines virtuelles que vous souhaitez déplacer à partir du serveur de processus actuel vers le serveur de processus cible. Des détails de la moyenne de modification des données sont affichés sur chaque machine virtuelle.
+3. Cliquez sur **OK**. Suivez la progression du travail sous **Coffre Recovery Services** > **Surveillance** > **Travaux Site Recovery**.
+4. Il faut 15 minutes pour que les modifications reflètent la réussite de cette opération OU pour [actualiser le serveur de configuration](vmware-azure-manage-configuration-server.md#refresh-configuration-server) pour un effet immédiat.
+
+### <a name="switch"></a>Switch
+
+Avec cette option, toute la charge de travail protégée sous un serveur de processus est placée sur un autre serveur de processus.
+
+1. Cliquez sur **Échanger**, sélectionnez le serveur de processus cible et cliquez sur **OK**.
+
+    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+
+2. Suivez la progression du travail sous **Coffre Recovery Services** > **Surveillance** > **Travaux Site Recovery**.
+3. Il faut 15 minutes pour que les modifications reflètent la réussite de cette opération OU pour [actualiser le serveur de configuration](vmware-azure-manage-configuration-server.md#refresh-configuration-server) pour un effet immédiat.
 
 ## <a name="reregister-a-process-server"></a>Réinscrire un serveur de processus
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567948"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165643"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -77,6 +77,9 @@ Si votre organisation utilise une solution d’identité hybride avec authentifi
 * En cas de panne locale (par exemple, au cours d’une attaque de ransomware), vous pourrez basculer vers [l’authentification cloud à l’aide de la synchronisation de hachage du mot de passe](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Cette méthode d’authentification de secours vous permettra de continuer à accéder aux applications configurées pour l’authentification avec Azure Active Directory, notamment Office 365. Dans ce cas, le personnel informatique n’aura pas besoin de recourir à des comptes e-mail personnels pour partager des données jusqu’à ce que la panne locale soit résolue.
 
 En savoir plus sur le fonctionnement de la [synchronisation de hachage du mot de passe](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
+
+> [!NOTE]
+> Si vous activez la synchronisation du hachage de mot de passe et que vous utilisez Azure AD Domain Services, les hachages Kerberos (AES 256) et éventuellement NTLM (RC4, no salt) sont également chiffrés et synchronisés dans Azure AD. 
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implémenter le verrouillage intelligent extranet AD FS
 

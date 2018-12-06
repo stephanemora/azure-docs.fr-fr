@@ -10,28 +10,28 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 7931cd8a6f8b3de826e8dd563a837f80fc15d88a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310408"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705649"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Liste de contrôle pour la fonctionnalité de licence Azure Active Directory Premium P2
 
-Il peut être décourageant de déployer Azure Active Directory (Azure AD) pour votre entreprise et en assurer la sécurité. Cet article identifie certaines tâches courantes que le client trouve utiles sur une durée de 30 jours, 90 jours ou plus afin de garantir leur sécurité. Même les entreprises ayant déjà déployé Azure AD peuvent utiliser cette liste de contrôle pour s’assurer de profiter au mieux de leur investissement.
+Il peut sembler trop lourd de déployer Azure Active Directory (Azure AD) pour votre entreprise et d’en assurer la sécurité. Cet article identifie quelques tâches courantes que les clients trouvent pratiques. En règle générale, les clients effectuent ces tâches au bout de 30 jours, de 90 jours ou au-delà pour améliorer leur sécurité. Même les organisations ayant déjà déployé Azure AD peuvent utiliser cette liste de contrôle pour vérifier qu’elles rentabilisent au mieux leur investissement.
 
 Une infrastructure d’identité correctement planifiée et exécutée offre un accès plus sécurisé à vos charges de travail et vos données de productivité en authentifiant uniquement les utilisateurs et les appareils.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce guide part du principe que vous possédez les licences Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5, ou une offre groupée de licence équivalente.
+Ce guide suppose que vous avez des licences Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5 ou un bundle de licences similaires.
 
 [Gestion des licences Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Microsoft 365 Entreprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+[Microsoft 365 Entreprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
 ## <a name="plan-and-deploy-day-1-30"></a>Planifier et déployer : Jour 1-30
 
@@ -69,7 +69,7 @@ Ce guide part du principe que vous possédez les licences Azure AD Premium P2, E
 - [Planifier l’accès d’utilisateurs invités](../b2b/what-is-b2b.md)
    - [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure](../b2b/add-users-administrator.md)
    - [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](../b2b/allow-deny-list.md)
-   - [Grant B2B users in Azure AD access to your on-premises applications](../b2b/hybrid-cloud-to-on-premises.md) (Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales)
+   - [Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales](../b2b/hybrid-cloud-to-on-premises.md)
 - Prendre des décisions au sujet de la stratégie de gestion du cycle de vie utilisateur
 - [Décider de la stratégie de gestion des appareils](../devices/overview.md)
    - [Scénarios d’utilisation et considérations relatives au déploiement pour Azure AD Join](../devices/azureadjoin-plan.md)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 2870bf8911c48ac4cbb442278f172b37a474152b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 4bd36744cc417e85f49e58f9a08d2b9006da9fe4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078051"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284027"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Service Managed Disks d’Azure Stack : différences et considérations
 Cet article résume les différences connues entre les services Managed Disks d’Azure Stack et Managed Disks pour Azure. Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
@@ -36,11 +36,11 @@ Le service Managed Disks simplifie la gestion des disques des machines virtuelle
 |Image          | Prise en charge d’image personnalisée gérée |Pas encore pris en charge|
 |Options de sauvegarde |Prise en charge du service Sauvegarde Azure |Pas encore pris en charge |
 |Options de récupération d’urgence |Prise en charge d’Azure Site Recovery |Pas encore pris en charge|
-|Types de disques     |SSD Premium, SSD Standard (préversion) et HDD Standard |SSD Premium, HDD Standard |
+|Types de disque     |SSD Premium, SSD Standard (préversion) et HDD Standard |SSD Premium, HDD Standard |
 |Disques Premium  |Entièrement pris en charge |Peut être approvisionné, mais sans limite ni garantie de performances  |
 |IOPS des disques Premium  |Varie selon la taille du disque  |2 300 IOPS par disque |
 |Débit des disques Premium |Varie selon la taille du disque |145 Mo/seconde par disque |
-|Taille maximale de disque  |4 To       |1 To       |
+|Taille du disque  |Disque Premium Azure : P4 (32 Gio) à P80 (32 Tio)<br>Disque SSD Standard Azure : E10 (128 Gio) à E80 (32 Tio)<br>Disque HDD Standard Azure : S4 (32 Gio) à S80 (32 Tio) |M4 : 32 Gio<br>M6 : 64 Gio<br>M10 : 128 Gio<br>M15 : 256 Gio<br>M20 : 512 Gio<br>M30 : 1 024 Gio |
 |Analyse des performances des disques |Agréger les métriques et les métriques par disque prises en charge |Pas encore pris en charge |
 |Migration      |Fournir l’outil pour migrer à partir de machines virtuelles Azure Resource Manager non managées existantes sans devoir recréer de machine virtuelle  |Pas encore pris en charge |
 

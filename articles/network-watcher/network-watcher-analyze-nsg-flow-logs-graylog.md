@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: db3b08ae8092661e6ffa0f2dd7e460f341a8d013
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666057"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823042"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gérer et analyser les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Graylog
 
 Les [journaux de flux des groupes de sécurité réseau ](network-watcher-nsg-flow-logging-overview.md) fournissent des informations permettant de comprendre le trafic IP entrant et sortant des interfaces réseau Azure. Les journaux de flux affichent les flux entrants et sortants en fonction de la règle du groupe de sécurité réseau, l’interface réseau à laquelle le flux s’applique, des informations à 5 tuples (adresse IP source/de destination, port source/de destination, protocole) relatives au flux, et l’autorisation ou le refus du trafic.
 
 Un réseau peut comprendre de nombreux groupes de sécurité réseau pour lesquels la journalisation de flux est activée. La journalisation de flux activée sur plusieurs groupes de sécurité réseau peut rendre difficile l’analyse et l’exploitation d’informations à partir de vos journaux. Cet article fournit une solution de gestion centralisée de ces journaux de flux des groupes de sécurité réseau avec l’utilisation de Graylog, un outil open source d’analyse et de gestion des journaux, et de Logstash, un pipeline open source de traitement des données côté serveur.
+
+> [!Warning]
+> Les étapes suivantes fonctionnent avec les journaux de flux version 1. Pour plus d’informations, consultez [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md). Les instructions suivantes ne fonctionnent pas avec la version 2 des fichiers journaux, sans modification.
 
 ## <a name="scenario"></a>Scénario
 
@@ -38,7 +41,7 @@ Les journaux de flux des groupes de sécurité réseau sont activés à l’aide
 
 ### <a name="enable-network-security-group-flow-logging"></a>Activer les journaux de flux des groupes de sécurité réseau
 
-Pour ce scénario, la journalisation des flux de groupe de sécurité réseau doit être activée sur au moins un groupe de sécurité réseau dans votre compte. Pour obtenir des instructions sur l’activation des journaux de flux des groupes de sécurité réseau, consultez l’article suivant [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
+Pour ce scénario, la journalisation des flux de groupe de sécurité réseau doit être activée sur au moins un groupe de sécurité réseau dans votre compte. Pour obtenir des instructions sur l’activation des journaux de flux des groupes de sécurité réseau, consultez l’article suivant  [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
 
 ### <a name="setting-up-graylog"></a>Configurer Graylog
 
@@ -51,7 +54,7 @@ Cet exemple utilise la configuration minimale de Graylog (c’est-à-dire une se
 
 Vous pouvez installer Graylog de bien des façons, selon votre plateforme et vos préférences. Pour obtenir une liste complète des méthodes d’installation possibles, reportez-vous à la [documentation](http://docs.graylog.org/en/2.2/pages/installation.html) officielle de Graylog. L’application serveur Graylog s’exécute sur les distributions Linux et implique les prérequis suivants :
 
--  Java SE 8 ou version ultérieure d’Oracle – [Documentation d’installation Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Java SE 8 ou version ultérieure – [Documentation d’Azul Azure JDK](https://aka.ms/azure-jdks)
 -  Elastic Search 2.x (2.1.0 ou version ultérieure) - [Documentation d’installation Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 ou version ultérieure – [Documentation d’installation MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -244,4 +247,4 @@ L’intégration de Network Watcher à Graylog vous permet de visualiser et de g
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment visualiser vos journaux de flux des groupes de sécurité réseau avec Power BI en consultant la page [Visualiser les journaux de flux des groupes de sécurité réseau avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+Découvrez comment visualiser vos journaux de flux des groupes de sécurité réseau avec Power BI en consultant la page  [Visualiser les journaux de flux des groupes de sécurité réseau avec Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).

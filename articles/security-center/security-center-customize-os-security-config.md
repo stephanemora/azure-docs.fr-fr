@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 18/30/2018
+ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 08174a6781772abdebd9e203a3433a1a4ac82859
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378361"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334191"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)
 
@@ -32,7 +32,7 @@ Azure Security Center analyse les configurations de la sécurité en appliquant 
 En personnalisant les règles, les organisations ont la possibilité de décider des options de configuration les mieux adaptées à leur environnement. Cette fonctionnalité permet aux utilisateurs de définir une stratégie d’évaluation personnalisée et de l’appliquer à tous les ordinateurs candidats de l’abonnement.
 
 > [!NOTE]
-> - Actuellement, la personnalisation de la configuration de la sécurité du système d’exploitation est uniquement disponible pour les systèmes d’exploitation Windows Server 2008, 2008 R2, 2012 et 2012 R2.
+> - Actuellement, la personnalisation de la configuration de la sécurité du système d’exploitation est uniquement disponible pour les systèmes d’exploitation Windows Server 2008, 2008 R2, 2012, 2012 R2 et 2016.
 > - La configuration s’applique à l’ensemble des machines virtuelles et des ordinateurs connectés à tous les espaces de travail de l’abonnement sélectionné.
 > - La personnalisation de la configuration de la sécurité du système d’exploitation est disponible uniquement sur le niveau Standard de Security Center.
 >
@@ -60,7 +60,7 @@ Pour personnaliser la configuration par défaut de la sécurité du système d�
 3.  Dans la ligne de l’abonnement que vous souhaitez personnaliser, cliquez sur **Modifier les paramètres**.
 
 4. Sélectionnez **Modifier les configurations de la sécurité**.  
-    
+
     ![La fenêtre Modifier les configurations de la sécurité](media/security-center-customize-os-security-config/blade.png)
 
 5. Suivez les étapes pour télécharger, modifier et charger le fichier modifié.

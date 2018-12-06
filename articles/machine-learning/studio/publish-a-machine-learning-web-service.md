@@ -1,10 +1,11 @@
 ---
-title: Déploiement d’un service web Machine Learning | Microsoft Docs
-description: Comment convertir une expérience de formation en expérience prédictive, la préparer en vue de son déploiement, puis la déployer en tant que service web Azure Machine Learning.
+title: Déployer un service web Machine Learning Studio - Azure | Microsoft Docs
+description: Comment convertir une expérience d’entraînement en expérience prédictive, la préparer en vue de son déploiement, puis la déployer en tant que service web Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
@@ -15,38 +16,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 0f22f22d40410b258b3945d9e78938384ce64767
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d96755f00aa5023d57c9c4c2b2457902c337e29d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128391"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314266"
 ---
-# <a name="deploy-an-azure-machine-learning-web-service"></a>Déploiement d’un service web Azure Machine Learning
+# <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Déployer un service web Azure Machine Learning Studio
 Microsoft Azure Machine Learning vous permet de générer, tester et déployer des solutions d’analyse prédictive.
 
 D'un point de vue très général, cela s'effectue en trois étapes :
 
 * **[Créez une expérience d'apprentissage]** : Azure Machine Learning Studio est un environnement de développement visuel collaboratif qui vous permet d'effectuer l'apprentissage et de tester un modèle d'analyse prédictive à l'aide de données d'apprentissage que vous fournissez.
-* **[Convertissez-la en une expérience prédictive]**: lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
+* **[Convertissez-la en une expérience prédictive]**: lorsque votre modèle a été entraîné avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
 * **[Déployez-la en tant que service web]**  : vous pouvez déployer votre expérience prédictive sous la forme d’un [nouveau] service web Azure ou d’un service web Azure [classique]. Les utilisateurs peuvent envoyer des données à votre modèle et recevoir des prédictions de votre modèle.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="create-a-training-experiment"></a>Créez une expérience d'apprentissage
-Pour effectuer l'apprentissage d'un modèle d'analyse prédictive, utilisez Azure Machine Learning Studio pour créer une expérience d'apprentissage dans laquelle vous incluez plusieurs modules pour charger des données d'apprentissage, préparer les données en fonction de vos besoins, appliquer des algorithmes d'apprentissage automatique et évaluer les résultats. Vous pouvez effectuer une itération sur une expérience et essayer des algorithmes d'apprentissage automatique différents pour comparer et évaluer les résultats.
+## <a name="create-a-training-experiment"></a>Créez une expérience d’entraînement
+Pour entraîner un modèle d'analytique prédictive, utilisez Azure Machine Learning Studio pour créer une expérience d’entraînement dans laquelle vous incluez plusieurs modules pour charger des données d’entraînement, préparer les données en fonction de vos besoins, appliquer des algorithmes de machine learning et évaluer les résultats. Vous pouvez effectuer une itération sur une expérience et essayer des algorithmes d'apprentissage automatique différents pour comparer et évaluer les résultats.
 
-Le processus de création et gestion d’expériences d’apprentissage est traité de manière plus approfondie dans d’autres sections. Pour plus d’informations, voir les articles suivants :
+Le processus de création et gestion d’expériences d’entraînement est traité de manière plus approfondie dans d’autres sections. Pour plus d’informations, voir les articles suivants :
 
-* [créez une expérience simple dans Azure Machine Learning Studio](create-experiment.md)
-* [développez une solution prédictive avec Azure Machine Learning](walkthrough-develop-predictive-solution.md)
-* [importez vos données d'apprentissage dans Azure Machine Learning Studio](import-data.md)
-* [gérez des itérations d'expériences dans Azure Machine Learning Studio](manage-experiment-iterations.md)
+* [Créer une expérience simple dans Azure Machine Learning Studio](create-experiment.md)
+* [Développer une solution prédictive avec Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+* [Importer vos données d’entraînement dans Azure Machine Learning Studio](import-data.md)
+* [Gérer des itérations d'expériences dans Azure Machine Learning Studio](manage-experiment-iterations.md)
 
-## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Convertir l'expérience de formation en expérience prédictive
-Après avoir formé votre modèle, vous êtes prêt à convertir votre expérience d’apprentissage en expérience prédictive pour noter des nouvelles données.
+## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Convertir l'expérience d’entraînement en expérience prédictive
+Après avoir entraîné votre modèle, vous êtes prêt à convertir votre expérience d’entraînement en expérience prédictive pour noter des nouvelles données.
 
-En la convertissant en expérience prédictive, vous préparez votre modèle formé à être déployé en tant que service web de notation. Les utilisateurs du service web peuvent envoyer des données d’entrée à votre modèle, qui leur renvoie les résultats de sa prédiction. Lorsque vous convertissez l’expérience en expérience prédictive, tenez compte du mode d’utilisation de votre modèle par les autres utilisateurs.
+En la convertissant en expérience prédictive, vous préparez votre modèle entraîné à être déployé en tant que service web de notation. Les utilisateurs du service web peuvent envoyer des données d’entrée à votre modèle, qui leur renvoie les résultats de sa prédiction. Lorsque vous convertissez l’expérience en expérience prédictive, tenez compte du mode d’utilisation de votre modèle par les autres utilisateurs.
 
 Pour convertir votre expérience de formation en expérience prédictive, cliquez sur **Exécuter** en bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Service web prédictif**.
 
@@ -181,7 +182,7 @@ Pour mettre à jour le service web, ouvrez l'expérience prédictive d'origine u
 > 
 > 
 
-Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d'informations, consultez la page [Reformation des modèles Machine Learning par programme](retrain-models-programmatically.md).
+Pour mettre à jour votre service web, vous pouvez réentraîner le modèle programmatiquement. Pour plus d'informations, consultez la page [Réentraîner les modèles Machine Learning programmatiquement](retrain-models-programmatically.md).
 
 <!-- internal links -->
 [Créez une expérience d'apprentissage]: #create-a-training-experiment

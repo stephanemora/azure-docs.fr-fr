@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: 2051f37656b6717c879a24f6e06c31a0ade0b950
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1a8396f91f1e6f863d99be17dc8d00133a1bdd3a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012324"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162547"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
@@ -21,6 +21,7 @@ L’installation du service Mobilité est une étape clé de l’activation de l
 * Erreurs d’informations d’identification/de privilèges
 * Erreurs de connectivité
 * Systèmes d’exploitation non pris en charge
+* Échecs d’installation VSS
 
 Lorsque vous activez la réplication, Azure Site Recovery tente une installation Push de l’agent du service Mobilité sur votre machine virtuelle. Dans le cadre de cette installation, le serveur de configuration essaie de se connecter à la machine virtuelle et de copier l’agent. Pour réussir l’installation, suivez les instructions de dépannage étape par étape ci-dessous.
 
@@ -40,13 +41,10 @@ Si vous souhaitez modifier les informations d’identification du compte d’uti
 ## <a name="connectivity-check-errorid-95117--97118"></a>**Vérification des informations d’identification (ErrorID : 95117 et 97118)**
 
 * Vérifiez que vous êtes en mesure d’effectuer un test ping sur votre machine source à partir du serveur de configuration. Si vous avez choisi un serveur de traitement avec évolution pour l’activation de réplication, assurez-vous de pouvoir effectuer un test ping sur votre machine source à partir du serveur de processus.
-  * À partir de la ligne de commande du serveur source, utilisez Telnet pour effectuer un test Ping sur le serveur de configuration/de traitement avec évolution avec le port HTTPS (par défaut 9443) comme indiqué ci-dessous. Cela vous indiquera s’il existe des problèmes de connectivité réseau ou des problèmes de blocage de port par le pare-feu.
+  * À partir de la ligne de commande du serveur source, utilisez Telnet pour effectuer un test Ping sur le serveur de configuration/de processus de scale-out avec le port https (135) comme indiqué ci-dessous. Cela vous indiquera s’il existe des problèmes de connectivité réseau ou des problèmes de blocage de port par le pare-feu.
 
-     `telnet <CS/ scale-out PS IP address> <port>`
-
-  * Si vous ne parvenez pas à vous connecter, autorisez le port entrant 9443 sur le serveur de configuration/de traitement avec évolution.
+     `telnet <CS/ scale-out PS IP address> <135>`
   * Vérifier l’état du service **InMage Scout VX Agent - Sentinel/Outpost**. Démarrez le service s’il n’est pas en cours d’exécution.
-
 * Mais également, pour la **machine virtuelle Linux**,
   * Vérifiez que les derniers packages openssl, openssh-server et openssh sont installés.
   * Vérifiez que le protocole Secure Shell (SSH) est activé et s’exécute sur le port 22.
@@ -95,6 +93,43 @@ Vous pouvez trouver d’autres articles concernant la résolution des problèmes
 Un échec peut aussi être dû à un système d’exploitation non pris en charge. Vérifiez que vous êtes sur la version du noyau/du système d’exploitation prise en charge pour réussir l’installation du service Mobilité.
 
 Pour en savoir plus sur les systèmes d’exploitation pris en charge par Azure Site Recovery, reportez-vous à notre [document de matrice de prise en charge](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+## <a name="vss-installation-failures"></a>Échecs d’installation VSS
+
+L’installation VSS fait partie de l’installation de l’agent Mobilité. Ce service est utilisé dans le processus de génération de points de récupération cohérents d’application. Les échecs lors de l’installation VSS peuvent avoir diverses raisons. Pour identifier les erreurs exactes, reportez-vous à **c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log**. Certaines erreurs courantes et leur procédure de résolution sont mises en évidence dans la section suivante.
+
+### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>Erreur VSS -2147023170 [0x800706BE] - code de sortie 511
+
+Ce problème se produit généralement quand un logiciel antivirus bloque le fonctionnement des services Azure Site Recovery. Pour le résoudre,
+
+1. Excluez tous les dossiers mentionnés [ici](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
+2. Suivez les recommandations publiées par votre fournisseur d’antivirus pour débloquer l’inscription des DLL dans Windows.
+
+### <a name="vss-error-7-0x7---exit-code-511"></a>Erreur VSS 7 [0x7] - code de sortie 511
+
+Il s’agit d’une erreur d’exécution due à une mémoire insuffisante pour installer VSS. Veillez à augmenter l’espace disque pour la réussite de cette opération.
+
+### <a name="vss-error--2147023824-0x80070430---exit-code-517"></a>Erreur VSS -2147023824 [0x80070430] - code de sortie 517
+
+Cette erreur se produit lorsque le service fournisseur VSS d’Azure Site Recovery est [marqué pour suppression](https://msdn.microsoft.com/en-us/library/ms838153.aspx). Essayez d’installer manuellement VSS sur la machine source en exécutant la ligne de commande suivante
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-error--2147023841-0x8007041f---exit-code-512"></a>Erreur VSS -2147023841 [0x8007041F] - code de sortie 512
+
+Cette erreur se produit lorsque la base de données de service fournisseur VSS d’Azure Site Recovery est [verrouillée](https://msdn.microsoft.com/en-us/library/ms833798.aspx). Essayez d’installer manuellement VSS sur la machine source en exécutant la ligne de commande suivante
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-exit-code-806"></a>Code de sortie VSS 806
+
+Cette erreur se produit lorsque le compte d’utilisateur utilisé pour l’installation n’a pas d’autorisations pour exécuter la commande CSScript. Fournissez les autorisations nécessaires pour le compte d’utilisateur afin d’exécuter le script, et recommencez l’opération.
+
+### <a name="other-vss-errors"></a>Autres erreurs VSS
+
+Essayez d’installer manuellement le service fournisseur VSS sur la machine source en exécutant la ligne de commande suivante
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 428b9970471c9365812639e251810c571698a574
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425953"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713263"
 ---
 # <a name="change-a-maintenance-schedule"></a>Changer une planification de maintenance 
 
 ## <a name="portal"></a>Portail
 Il est possible de mettre à jour ou de modifier une planification de maintenance à tout moment. Si l’instance sélectionnée se trouve dans un cycle de maintenance actif, les paramètres sont enregistrés. Ils deviennent actifs au cours de la prochaine période de maintenance identifiée. [Explorez](https://docs.microsoft.com/azure/service-health/resource-health-overview) la supervision de votre entrepôt de données pendant un événement de maintenance actif. 
 
-Même si les planifications de maintenance Azure sont en préversion, vous sélectionnez deux fenêtres de maintenance pendant une période de sept jours. Chaque fenêtre de maintenance peut durer de trois à huit heures. L’opération de maintenance peut se produire à tout moment dans une fenêtre de maintenance, mais n’a pas lieu en dehors des fenêtres de temps sans notification préalable. Une brève perte de connectivité a lieu lorsque le service déploie du nouveau code dans votre entrepôt de données. 
+Pour utiliser les planifications de maintenance, vous devez sélectionner deux fenêtres de maintenance pendant une période de sept jours. Chaque fenêtre de maintenance peut durer de trois à huit heures. L’opération de maintenance peut se produire à tout moment dans une fenêtre de maintenance, mais n’a pas lieu en dehors des fenêtres de temps sans notification préalable. Une brève perte de connectivité a lieu lorsque le service déploie du nouveau code dans votre entrepôt de données. 
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identification des fenêtres principale et secondaire
 

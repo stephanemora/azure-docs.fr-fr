@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 91b050c4e1ca37c0af208d6df1ce4f8272235294
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 17a0b36fffb14f423aba3dd02b5b42d44933309c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139769"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165388"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Surveillance des performances d'application web Azure
 Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer la surveillance des performances d’application pour vos [applications web Azure](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumente votre application afin qu’elle envoie des données de télémétrie concernant ses activités au service Application Insights, où elles sont stockées et analysées. Les graphiques de mesure et les outils de recherche peuvent alors être utilisés pour aider à diagnostiquer les problèmes, améliorer les performances et évaluer l’utilisation.
@@ -43,9 +43,9 @@ Si vous exécutez déjà une application web dans Azure, vous obtenez déjà cer
 
     ![Instrumenter votre application web](./media/app-insights-azure-web-apps/create-resource.png)
 
-2. Une fois votre ressource créée, sélectionnez **Vérifier et mettre à jour l’extension Application Insights pour l’application web** pour confirmer que l’extension est à jour.
+2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application.
 
-     ![Vérifier et mettre à jour l’extension de site](./media/app-insights-azure-web-apps/check-and-update.png)
+    ![Choisir les options par plateforme](./media/app-insights-azure-web-apps/choose-options.png)
 
 3. **Instrumentez votre application web** après l’installation d’Application Insights.
 
@@ -64,7 +64,7 @@ Par la suite, vous pourrez, si vous le souhaitez, générer l’application avec
 
 *Comment supprimer Application Insights, ou basculer vers l’envoi vers une autre ressource ?*
 
-* Dans Azure, ouvrez le panneau de contrôle de l’application web, puis sous Outils, ouvrez **Extensions**. Supprimez l’extension Application Insights. Puis sous Surveillance, sélectionnez Application Insights et créez ou sélectionnez la ressource souhaitée.
+* Dans Azure, ouvrez le panneau de contrôle de l’application web et, sous Outils, ouvrez **Application Insights**. Vous pouvez désactiver Application Insights en cliquant sur **Désactiver** en haut, ou sélectionner une nouvelle ressource dans la section **Changer votre ressource**.
 
 ## <a name="build-the-app-with-application-insights"></a>Générez l’application avec Application Insights
 Application Insights peut fournir des données de télémétrie détaillée par l’installation d’un SDK dans votre application. En particulier, vous pouvez collecter les journaux de suivi, [écrire une télémétrie personnalisée](app-insights-api-custom-events-metrics.md), et obtenir des rapports d’exception plus détaillées.
@@ -100,9 +100,9 @@ Application Insights peut fournir des données de télémétrie détaillée par 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exécuter le profileur sur une application dynamique](app-insights-profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - analyse les fonctions Azure avec Application Insights
-* [Autorisation de l’envoi de diagnostics Azure](app-insights-azure-diagnostics.md) vers Application Insights.
-* [Analyse des mesures d’intégrité du service](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
-* [Réceptions de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
+* [Autorisation de l’envoi de diagnostics Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) vers Application Insights.
+* [Analyse des mesures d’intégrité du service](../azure-monitor/platform/data-collection.md) pour vous assurer que votre service est disponible et réactif.
+* [Réceptions de notifications d’alerte](../monitoring-and-diagnostics/monitoring-overview-alerts.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
 * Utilisation [d’Application Insights pour les pages Web et les applications JavaScript](app-insights-javascript.md) pour obtenir les données de télémétrie du client à partir des navigateurs qui consultent une page web.
 * [Configuration des tests de disponibilité web](app-insights-monitor-web-app-availability.md) , pour recevoir des alertes en cas d’interruption de votre site.
 

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: d037c4fc65bc32ff183ddc7a8925cd2f51411ea0
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 41b9d295837d377df98208d43c9cd4699f380b86
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034624"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494381"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analyser des données Twitter avec Apache Hive et Apache Hadoop sur HDInsight
 
-Découvrez comment utiliser Apache Hive pour traiter des données Twitter. Une liste des utilisateurs de Twitter ayant envoyé le plus de tweets contenant un mot donné vous est ensuite retournée.
+Découvrez comment utiliser [Apache Hive](https://hive.apache.org/) pour traiter des données Twitter. Une liste des utilisateurs de Twitter ayant envoyé le plus de tweets contenant un mot donné vous est ensuite retournée.
 
 > [!IMPORTANT]
 > Les étapes décrites dans ce document ont été testées sur HDInsight 3.6.
@@ -182,7 +182,7 @@ Ces commandes stockent les données dans un emplacement accessible à tous les n
 
 ## <a name="run-the-hiveql-job"></a>Exécutez la tâche HiveQL
 
-1. Utilisez la commande suivante pour créer un fichier contenant des instructions HiveQL :
+1. Utilisez la commande suivante pour créer un fichier contenant des instructions [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) :
 
    ```bash
    nano twitter.hql
@@ -322,7 +322,7 @@ Ces commandes stockent les données dans un emplacement accessible à tous les n
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez appris à transformer un jeu de données JSON non structuré en une table Hive structurée. Pour en savoir plus sur Hive avec HDInsight, consultez les documents suivants :
+Vous avez appris à transformer un jeu de données JSON non structuré en une table [Apache Hive](https://hive.apache.org/) structurée. Pour en savoir plus sur Hive avec HDInsight, consultez les documents suivants :
 
 * [Prise en main de HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analyse des données sur les retards de vol avec HDInsight](hdinsight-analyze-flight-delay-data-linux.md)

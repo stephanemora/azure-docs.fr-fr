@@ -9,16 +9,52 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261571"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291338"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
 Dans cet article, découvrez les versions du service Azure Machine Learning. 
+
+## <a name="2018-11-20"></a>2018-11-20
+
+### <a name="azure-machine-learning-sdk-for-python-v0180"></a>SDK Azure Machine Learning pour Python v0.1.80
+
++ **Dernières modifications** 
+  * L’espace de noms *azureml.train.widgets* a été déplacé vers *azureml.widgets*.
+  * *azureml.core.compute.AmlCompute* déprécie les classes suivantes : *azureml.core.compute.BatchAICompute* et *azureml.core.compute.DSVMCompute*. Cette dernière classe sera supprimée dans les versions ultérieures. La classe AmlCompute a désormais une définition plus facile ; munie simplement d’un vm_size et du max_nodes, elle met automatiquement à l’échelle votre cluster entre 0 et max_nodes quand un travail est envoyé. Nos [exemples de blocs-notes] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) ont été mis à jour avec ces informations et doivent proposer des exemples sur la façon de les utiliser. Nous espérons que vous appréciez cette simplification, que viendront compléter de nombreuses fonctionnalités plus intéressantes dans une version ultérieure !
+
+### <a name="azure-machine-learning-data-prep-sdk-v051"></a>SDK de préparation de données Azure Machine Learning v0.5.1 
+
+Découvrez-en plus sur le SDK de préparation de données en lisant les [documents de référence](https://aka.ms/data-prep-sdk).
++ **Nouvelles fonctionnalités**
+   * Nous avons créé une interface CLI DataPrep permettant d’exécuter des packages DataPrep et d’afficher le profil de données d’un jeu de données ou d’un flux de données.
+   * Nous avons repensé l’API SetColumnType pour améliorer la convivialité.
+   * Nous avons renommé smart_read_file en auto_read_file.
+   * Nous avons inclus l’inclinaison et le kurtosis dans le profil de données.
+   * Vous pouvez créer un échantillon avec un échantillonnage stratifié.
+   * Vous pouvez lire à partir de fichiers zip qui contiennent des fichiers CSV.
+   * Vous pouvez fractionner les jeux de données selon les lignes de façon aléatoire (par exemple, pour obtenir des jeux de test-entraînement)
+   * Vous pouvez obtenir tous les types de données de colonne d’un flux de données ou d’un profil de données en appelant .dtypes.
+   * Vous pouvez obtenir le nombre de lignes d’un flux de données ou d’un profil de données en appelant .row_count.
+
++ **Résolution des bogues**
+   * Nous avons résolu la conversion de type fixe long en type double. 
+   * Nous avons résolu l’assertion effectuée après l’ajout d’une colonne. 
+   * Nous avons corrigé un problème lié au regroupement probable, qui empêchait la détection de groupes dans certains cas.
+   * Nous avons résolu une fonction de tri afin de respecter l’ordre de tri sur plusieurs colonnes.
+   * Nous avons résolu les expressions « et/ou » afin qu’elles soient similaires à la façon dont Pandas les gère.
+   * Nous avons résolu la lecture à partir du chemin dbfs.
+   * Nous avons rendu les messages d’erreur plus compréhensibles. 
+   * Il peut désormais lire sur une cible de calcul à distance à l’aide d’un jeton AML.
+   * Il n’échoue plus sur DSVM Linux.
+   * Il ne plante plus quand des prédicats de chaîne contiennent des valeurs non-chaîne.
+   * Il gère désormais les erreurs d’assertion quand le flux de données doit échouer correctement.
+   * Il prend désormais en charge les emplacements de stockage montés dbutils sur Azure Databricks.
 
 ## <a name="2018-11-05"></a>2018-11-05
 

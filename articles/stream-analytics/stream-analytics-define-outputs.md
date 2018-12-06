@@ -2,26 +2,25 @@
 title: Comprendre les sorties d’Azure Stream Analytics
 description: Cet article décrit les options de sortie de données disponibles dans Azure Stream Analytics, notamment Power BI pour les résultats d’analyse.
 services: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
-manager: kfile
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: 92fcf1138a5a7d364c884128d3fc82559ffb15aa
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/21/2018
+ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987883"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310037"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 Cet article décrit les différents types de sorties disponibles pour un travail Azure Stream Analytics. Les sorties permettent de stocker et d’enregistrer les résultats du travail Stream Analytics. Vous pouvez utiliser ces données pour aller plus loin dans l’analyse marketing et l’entreposage de vos données. 
 
 Lorsque vous concevez votre requête Stream Analytics, faites référence au nom de la sortie à l’aide de la [clause INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Vous pouvez utiliser une seule sortie par travail, ou si nécessaire plusieurs sorties par travail de diffusion en continu en ajoutant plusieurs clauses INTO dans la requête.
 
-Pour créer, modifier et tester des sorties de travaux Stream Analytics, vous pouvez utiliser le [Portail Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [l’API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [l’API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) et [Visual Studio](stream-analytics-quick-create-vs.md).
+Pour créer, modifier et tester des sorties de travaux Stream Analytics, vous pouvez utiliser le [Portail Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [l’API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [l’API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) et [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Certains types de sorties prennent en charge le [partitionnement](#partitioning), et les [tailles de lots de sortie](#output-batch-size) varient afin d’optimiser le débit.
 
@@ -70,8 +69,8 @@ Pour renouveler l’autorisation, **Arrêtez** votre travail > accédez à votre
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette base de données. |
 | Base de données | Nom de la base de données où vous envoyez votre sortie. |
 | Nom du serveur | Nom du serveur SQL Database. |
-| Nom d’utilisateur | Nom de l’utilisateur qui a accès en écriture à la base de données. |
-| Mot de passe | Mot de passe de connexion à la base de données |
+| Nom d’utilisateur | Nom de l’utilisateur qui a accès en écriture à la base de données. Stream Analytics prend uniquement en charge l’authentification SQL. |
+| Mot de passe | Mot de passe de connexion à la base de données. |
 | Table | Nom de la table dans laquelle la sortie sera écrite. Le nom de la table est sensible à la casse et le schéma de cette table doit correspondre exactement au nombre de champs et aux types générés par la sortie de votre travail. |
 
 > [!NOTE]
@@ -89,7 +88,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Compte de stockage     | Nom du compte de stockage où vous envoyez votre sortie.               |
 | Clé du compte de stockage | Clé secrète associée au compte de stockage.                              |
 | Conteneur de stockage   | Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous téléchargez un objet blob dans le service d'objets Blob, vous devez spécifier un conteneur pour cet objet blob. |
-| Modèle de chemin d'accès | facultatif. Modèle de chemin d’accès au fichier utilisé pour écrire vos blobs dans le conteneur spécifié. <br /><br /> Dans le modèle de chemin d’accès, vous pouvez choisir d’utiliser une ou plusieurs instances des variables Date/Heure pour spécifier la fréquence d’écriture des objets blob : <br /> {date}, {time} <br /><br />Si vous êtes inscrit à la [préversion](https://aka.ms/ASApreview1), vous pouvez spécifier un nom personnalisé {field} de vos données d’événement aux objets blob de partition. Le nom du champ est alphanumérique et peut inclure des espaces, des traits d’union et des traits de soulignement. Voici les restrictions qui s’appliquent aux champs personnalisés : <ul><li>Non-respect de la casse (pas de différence entre « ID » et « id » de colonne)</li><li>impossibilité d’utiliser des champs imbriqués (utiliser un alias dans la requête du travail pour « aplatir » le champ) ;</li><li>Des expressions ne peuvent pas être utilisées comme nom de champ.</li></ul> <br /><br /> La préversion permet également d’utiliser des configurations de spécificateur de format de date/heure personnalisé dans le chemin d’accès. Les formats de date et d’heure personnalisés doivent être spécifiés un par un et délimités par le mot clé {DateHeure :\<spécificateur >}. Les entrées autorisées \<spécificateur > sont yyyy, MM, M, dd, d, HH, H, mm, m, ss ou s. Le mot clé {DateHeure :\<spécificateur >} peut être utilisé plusieurs fois dans le chemin d’accès pour former des configurations de date/d’heure personnalisées. <br /><br />Exemples : <ul><li>Exemple 1 : cluster1/logs/{date}/{time}</li><li>Exemple 2 : cluster1/logs/{date}</li><li>Exemple 3 (préversion) : cluster1/{client_id}/{date}/{time}</li><li>Exemple 4 (préversion) : cluster1/{datetime:ss}/{myField}, où la requête est : SELECT data.myField AS myField FROM Input;</li><li>Exemple 5 (préversion) : cluster1/année = {datetime:yyyy} / mois = {datetime:MM} / jour = {datetime:dd}</ul><br /><br />L’horodatage de la structure de dossiers créée suit l’heure UTC et pas l’heure locale.<br /><br/>La procédure d’affection de noms respecte la convention suivante : <br /><br />{Modèle de préfixe de chemin d’accès}/Code_hachage_schéma_Numéro_Guid.extension<br /><br />Exemples de fichier de sortie :<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> |
+| Modèle de chemin d'accès | facultatif. Modèle de chemin d’accès au fichier utilisé pour écrire vos blobs dans le conteneur spécifié. <br /><br /> Dans le modèle de chemin d’accès, vous pouvez choisir d’utiliser une ou plusieurs instances des variables Date/Heure pour spécifier la fréquence d’écriture des objets blob : <br /> {date}, {time} <br /><br />Si vous utilisez ce [lien d'accès au Portail Azure ](https://portal.azure.com/?microsoft_azure_streamanalytics_bloboutputpathpartitioning=true&Microsoft_Azure_StreamAnalytics_bloboutputcontainerpartitioning=true) pour accéder à la préversion du partitionnement d'objets blob personnalisé, vous pouvez spécifier un nom de champ ({field}) personnalisé à partir de vos données d'événement pour partitionner les objets blob. Le nom du champ est alphanumérique et peut inclure des espaces, des traits d’union et des traits de soulignement. Voici les restrictions qui s’appliquent aux champs personnalisés : <ul><li>Non-respect de la casse (pas de différence entre « ID » et « id » de colonne)</li><li>impossibilité d’utiliser des champs imbriqués (utiliser un alias dans la requête du travail pour « aplatir » le champ) ;</li><li>Des expressions ne peuvent pas être utilisées comme nom de champ.</li></ul> <br /><br /> La préversion permet également d’utiliser des configurations de spécificateur de format de date/heure personnalisé dans le chemin d’accès. Les formats de date et d’heure personnalisés doivent être spécifiés un par un et délimités par le mot clé {DateHeure :\<spécificateur >}. Les entrées autorisées \<spécificateur > sont yyyy, MM, M, dd, d, HH, H, mm, m, ss ou s. Le mot clé {DateHeure :\<spécificateur >} peut être utilisé plusieurs fois dans le chemin d’accès pour former des configurations de date/d’heure personnalisées. <br /><br />Exemples : <ul><li>Exemple 1 : cluster1/logs/{date}/{time}</li><li>Exemple 2 : cluster1/logs/{date}</li><li>Exemple 3 (préversion) : cluster1/{client_id}/{date}/{time}</li><li>Exemple 4 (préversion) : cluster1/{datetime:ss}/{myField}, où la requête est : SELECT data.myField AS myField FROM Input;</li><li>Exemple 5 (préversion) : cluster1/année = {datetime:yyyy} / mois = {datetime:MM} / jour = {datetime:dd}</ul><br /><br />L’horodatage de la structure de dossiers créée suit l’heure UTC et pas l’heure locale.<br /><br/>La procédure d’affection de noms respecte la convention suivante : <br /><br />{Modèle de préfixe de chemin d’accès}/Code_hachage_schéma_Numéro_Guid.extension<br /><br />Exemples de fichier de sortie :<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> Pour plus d’informations sur cette préversion, consultez [Modèles de chemin DateTime personnalisé pour les sorties du stockage Blob d’Azure Stream Analytics (Préversion)](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Format de la date | facultatif. Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple : JJ/MM/AAAA |
 | Format de l’heure | facultatif. Si le jeton de l’heure est utilisé dans le chemin d’accès du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est HH. |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie.  JSON, CSV et Avro sont pris en charge. |
@@ -117,7 +116,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 | --- | --- |
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cet Event Hub. |
 | Espace de noms Event Hub |Conteneur pour un ensemble d’entités de messagerie. En créant un hub d’événements, vous avez également créé un espace de noms Event Hub. |
-| Nom de l’Event Hub | Nom de votre sortie Event Hub. |
+| Nom du hub d’événements | Nom de votre sortie Event Hub. |
 | Nom de la stratégie du hub d’événements | Stratégie d’accès partagé, qui peut être créée dans l’onglet Configuration du hub d’événements. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. |
 | Clé de stratégie Event Hub | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Event Hub. |
 | Colonne de clé de partition [facultatif] | Cette colonne contient la clé de partition pour la sortie du hub d’événements. |
@@ -297,7 +296,7 @@ Le tableau suivant récapitule la prise en charge de la partition et le nombre d
 | Type de sortie | Prise en charge du partitionnement | Clé de partition  | Nombre de générateurs de sortie | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Oui | Utilisez les jetons {date} et {time} dans le modèle de préfixe du chemin. Choisissez le format de date, par exemple, AAAA/MM/JJ, JJ/MM/AAAA, MM-JJ-AAAA. HH est utilisé pour le format de l’heure. | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). | 
-| Azure SQL Database | Oui | Basée sur la clause PARTITION BY dans la requête | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). | 
+| Azure SQL Database | Oui | Basée sur la clause PARTITION BY dans la requête | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). Pour améliorer vos performances de débit d'écriture lorsque vous chargez des données dans Azure SQL Database, consultez l'article [Sortie Azure Stream Analytics vers Azure SQL Database](stream-analytics-sql-output-perf.md). | 
 | Stockage d'objets blob Azure | Oui | Utilisez les jetons {date} et {time} de vos champs d’événement dans le modèle de chemin. Choisissez le format de date, par exemple, AAAA/MM/JJ, JJ/MM/AAAA, MM-JJ-AAAA. HH est utilisé pour le format de l’heure. Dans le cadre de la [préversion](https://aka.ms/ASApreview1), la sortie d’objet blob peut être partitionnée par un seul attribut d’événement personnalisé {fieldname} ou par {datetime:\<specifier>}. | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). | 
 | Azure Event Hub | Oui | Oui | Dépend de l’alignement des partitions.</br> Lorsque la clé de partition Event Hub de sortie s’aligne parfaitement avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions Event Hub de sortie. Chaque enregistreur utilise la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) d’EventHub pour envoyer des événements à la partition concernée. </br> Lorsque la clé de partition Event Hub de sortie ne s’aligne pas avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions de cette précédente étape. Chaque enregistreur utilise la [classe SendBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) d’EventHubClient pour envoyer des événements à toutes les partitions de sortie. |
 | Power BI | Non  | Aucun | Non applicable. | 
@@ -306,6 +305,8 @@ Le tableau suivant récapitule la prise en charge de la partition et le nombre d
 | File d’attente Azure Service Bus | Oui | Choisi automatiquement. Le nombre de partitions est basé sur la [référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.| Égal au nombre de partitions de la file d’attente de sortie. |
 | Azure Cosmos DB | Oui | Utilisez le jeton {partition} dans le modèle de nom de collection. La valeur de {partition} est basée sur la clause PARTITION BY dans la requête. | Suit le partitionnement d’entrée des [requêtes entièrement mises en parallèle ](stream-analytics-scale-jobs.md). |
 | Azure Functions | Non  | Aucun | Non applicable. | 
+
+Si votre adaptateur de sortie n'est pas partitionné, l'absence de données dans une partition d'entrée entraînera un retard pouvant aller jusqu'au délai d'arrivée tardive.  Dans ce cas, la sortie est fusionnée dans un seul writer, ce qui peut entraîner des goulots d'étranglement dans votre pipeline. Pour en savoir plus sur la stratégie d'arrivée tardive, consultez l'article [Considérations relatives à l’ordre des événements Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Taille de lot de sortie
 Azure Stream Analytics utilise des lots de taille variable pour traiter les événements et générer les sorties. En général, le moteur n’écrit pas les messages un par un ; il utilise des lots pour plus d’efficacité. Lorsque le taux d’événements entrants et le taux d’événements sortants sont tous deux élevés, il utilise de plus gros lots. Lorsque le taux de sortie est faible, il utilise des lots plus petits pour maintenir une faible latence. 
@@ -323,10 +324,11 @@ Le tableau suivant expose certaines considérations relatives au traitement par 
 | File d’attente Azure Service Bus   | 256 Ko par message</br> Voir aussi [Limites de Service Bus](../service-bus-messaging/service-bus-quotas.md) | Un événement unique par message. |
 | Rubrique Azure Service Bus | 256 Ko par message</br> Voir aussi [Limites de Service Bus](../service-bus-messaging/service-bus-quotas.md) | Un événement unique par message. |
 | Azure Cosmos DB   | Voir [Limites d’Azure Cosmos DB](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | La taille des lots et la fréquence d’écriture sont ajustées dynamiquement en fonction des réponses CosmosDB. </br> Stream Analytics n’impose aucune limite prédéterminée. |
-| Azure Functions   | | Taille de lot par défaut : 246 Ko. </br> Nombre d’événements par défaut par lot : 100. </br> La taille de lot, configurable, peut être augmentée ou diminuée dans les [options de sortie](#azure-functions) de Stream Analytics. 
+| Azure Functions   | | Taille de lot par défaut : 256 Ko. </br> Nombre d’événements par défaut par lot : 100. </br> La taille de lot, configurable, peut être augmentée ou diminuée dans les [options de sortie](#azure-functions) de Stream Analytics. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
+
 > [Guide de démarrage rapide : Créer un travail Stream Analytics à l’aide du Portail Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

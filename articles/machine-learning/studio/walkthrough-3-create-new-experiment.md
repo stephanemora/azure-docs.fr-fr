@@ -1,10 +1,11 @@
 ---
-title: 'Étape 3 : Création d’une expérience Machine Learning | Microsoft Docs'
+title: 'Étape 3 : Créer une expérience Machine Learning Studio - Azure | Microsoft Docs'
 description: "Étape 3 du guide pas à pas du développement d'une solution prédictive : Création d'une expérience d'apprentissage dans Azure Machine Learning Studio."
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
@@ -15,20 +16,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 95000f9fb57b95bf1edcda9abfba3668b5f5b523
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835737"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317526"
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Étape 3 de la procédure pas à pas : création d’une expérience Azure Machine Learning
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Étape 3 de la procédure pas à pas : créer une expérience Azure Machine Learning Studio
 Voici la troisième étape de la procédure pas à pas [Développement d’une solution d’analyse prédictive avec Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Créer un espace de travail Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Télécharger des données existantes](walkthrough-2-upload-data.md)
 3. **Créer une expérience**
-4. [Former et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
+4. [Entraîner et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
 5. [Déployer le service web](walkthrough-5-publish-web-service.md)
 6. [Accéder au service web](walkthrough-6-access-web-service.md)
 
@@ -54,7 +55,7 @@ L’étape suivante de cette procédure pas à pas consiste à créer une expér
 
     ![Ajouter le jeu de données à l’expérience][7]
 
-## <a name="prepare-the-data"></a>Préparation des données
+## <a name="prepare-the-data"></a>Préparer les données
 Vous pouvez voir les 100 premières lignes de données et quelques informations statistiques concernant tout le jeu de données : pour ce faire, cliquez sur le port de sortie du jeu de données (le petit cercle en bas) et en sélectionnez **Visualiser**.  
 
 Le fichier de données étant dépourvu d’en-têtes de colonne, Studio a fourni des en-têtes génériques (Col1, Col2, *etc.*). Des en-têtes explicites ne sont pas essentiels pour créer un modèle, mais ils facilitent l’utilisation des données dans l’expérience. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l’utilisateur du service d’identifier les colonnes.  
@@ -104,8 +105,8 @@ Pour utiliser [Modifier les métadonnées][edit-metadata], vous devez commencer 
 > 
 
 ## <a name="create-training-and-test-datasets"></a>Création de jeux de données d'apprentissage et de test
-Nous avons besoin de certaines données pour former le modèle et d’autres pour le tester.
-Ainsi, lors de l’étape suivante de l’expérience, nous divisons le jeu de données en deux jeux de données distincts : un pour la formation de notre modèle et l’autre pour le tester.
+Nous avons besoin de certaines données pour entraîner le modèle et d’autres pour le tester.
+Ainsi, lors de l’étape suivante de l’expérience, nous divisons le jeu de données en deux jeux de données distincts : un pour entraîner notre modèle et l’autre pour le tester.
 
 Pour ce faire, nous utilisons le module [Fractionner les données][split].  
 
@@ -118,7 +119,7 @@ Pour ce faire, nous utilisons le module [Fractionner les données][split].
    > 
    > 
 
-3. Double-cliquez sur le module [Fractionner les données][split] et entrez le commentaire « Fractionnement des données de formation/test de 50 % ». 
+3. Double-cliquez sur le module [Fractionner les données][split] et entrez le commentaire « Fractionnement des données d’entraînement/de test de 50 % ». 
 
 Nous pouvons utiliser les sorties du module [Fractionner les données][split] à notre gré, mais choisissons la sortie gauche pour les données d’apprentissage et la sortie droite pour les données de test.  
 
@@ -163,7 +164,7 @@ Nous devons répéter cette opération de réplication pour chaque sortie du mod
 
 Pour plus d’informations sur l'utilisation de scripts R dans vos expériences, consultez la page [Prolonger votre expérience avec R](extend-your-experiment-with-r.md).
 
-**Étape suivante : [Former et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)**
+**Étape suivante : [Entraîner et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: aca81bd529fe6151dce7aba6754874355189fc59
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870177"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444382"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Données d’utilisation pour le service LUIS à partir d’Azure Cloud Shell
 Le portail Azure vous permet de saisir des cmdlets PowerShell pour utiliser des ressources LUIS. 
@@ -32,7 +32,7 @@ Une fois que vous avez un compte de stockage et que vous êtes authentifié, vou
 ## <a name="open-cloud-shell"></a>Ouvrir Cloud Shell
 Lorsque vous utilisez l’interpréteur de commandes cloud du portail Azure, vous êtes toujours sur la dernière version de PowerShell. 
 
-Utilisez le bouton **Lancer Cloud Shell** pour ouvrir l’interpréteur de commandes cloud ou ouvrez un navigateur avec [https://shell.azure.com](https://shell.azure.com). 
+Utilisez le bouton **Lancer Cloud Shell** pour ouvrir l’interpréteur de commandes cloud ou ouvrez un navigateur avec [https://shell.azure.com](https://shell.azure.com). Sélectionnez PowerShell comme environnement. Si vous n’avez pas de compte Stockage Azure, vous devez en créer un. 
 
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 

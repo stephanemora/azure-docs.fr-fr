@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: ff194ef7f5ae609eba5334eb5c66db02d660ab08
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049629"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308215"
 ---
-# <a name="phoenix-performance-best-practices"></a>Meilleures pratiques de Phoenix en matière de performances
+# <a name="apache-phoenix-performance-best-practices"></a>Bonnes pratiques pour les performances d’Apache Phoenix
 
-L’aspect le plus important des performances de Phoenix est d’optimiser le HBase sous-jacent. Phoenix crée un modèle de données relationnelles sur HBase qui convertit les requêtes SQL en opérations HBase, telles que des analyses. La conception de votre schéma de table, la sélection et le classement des champs dans votre clé primaire et votre utilisation des index affectent les performances de Phoenix.
+L’aspect le plus important des performances de [Apache Phoenix](https://phoenix.apache.org/) est d’optimiser l’instance [Apache HBase](http://hbase.apache.org/) sous-jacente. Phoenix crée un modèle de données relationnelles sur HBase qui convertit les requêtes SQL en opérations HBase, telles que des analyses. La conception de votre schéma de table, la sélection et le classement des champs dans votre clé primaire et votre utilisation des index affectent les performances de Phoenix.
 
 ## <a name="table-schema-design"></a>Conception de schéma de table
 
@@ -229,5 +229,5 @@ Pour plus d’informations sur cela et d’autres options, consultez [Phoenix Gr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Guide d’optimisation de Phoenix](https://phoenix.apache.org/tuning_guide.html)
+* [Guide d’optimisation d’Apache Phoenix](https://phoenix.apache.org/tuning_guide.html)
 * [Index secondaires](http://phoenix.apache.org/secondary_indexing.html)

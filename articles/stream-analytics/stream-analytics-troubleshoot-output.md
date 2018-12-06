@@ -7,13 +7,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 4209ce8d15bf53381825e8bb3e47f0a16366a436
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 5124e06296962f1b673c77bfe318ff48d7fb11aa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346360"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291321"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Résoudre les problèmes liés aux sorties Azure Stream Analytics
 
@@ -29,7 +29,7 @@ Cette page décrit les problèmes courants avec les connexions de sortie et comm
       - Si le travail utilise un concentrateur d’événements, vérifiez si le corps du message est *Null*.
       
     - Si le nombre d’erreurs de conversion de données n’est pas nul et augmente, plusieurs causes sont possibles :
-      - Le travail n’est peut-être pas en mesure de désérialiser les événements.
+      - L’événement de sortie n’est pas conforme au schéma du récepteur cible. 
       - Le schéma d’événements ne correspond peut-être pas au schéma défini ou attendu des événements de la requête.
       - Les types de données de certains champs de l’événement ne correspondent peut-être pas aux types attendus.
       

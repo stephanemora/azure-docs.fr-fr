@@ -1,10 +1,11 @@
 ---
-title: 'Étape 6 : Accéder au service web Machine Learning | Microsoft Docs'
-description: 'Étape 6 du guide pas à pas du développement d’une solution prédictive : accès à un service web actif Azure Machine Learning.'
+title: 'Étape 6 : Accéder au service web Machine Learning Studio | Microsoft Docs'
+description: 'Étape 6 du guide pas à pas du développement d’une solution prédictive : accès à un service web actif Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
@@ -15,21 +16,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: be63a04d0fe71039b19eb6bc0678a319f622a811
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5402f228a650a1a3d3282180a52f9e9f9cc10a3a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836702"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306452"
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Étape de didacticiel pas à pas 6 : accéder au service web Azure Machine Learning
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-studio-web-service"></a>Étape de tutoriel pas à pas 6 : accéder au service web Azure Machine Learning Studio
 
 Voici la dernière étape de la procédure pas à pas [Développement d'une solution d'analyse prédictive dans Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Créer un espace de travail Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Télécharger des données existantes](walkthrough-2-upload-data.md)
 3. [Créer une expérience](walkthrough-3-create-new-experiment.md)
-4. [Former et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
+4. [Entraîner et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
 5. [Déployer le service web](walkthrough-5-publish-web-service.md)
 6. **Accéder au service web**
 

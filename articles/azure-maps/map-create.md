@@ -3,44 +3,53 @@ title: Créer une carte avec Azure Maps | Microsoft Docs
 description: Procédure de création d’une carte JavaScript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/14/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9759c4149c6b026837e550dcf3ab0a0156bbb736
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 97b94cf54454a83510c5be2cf0d71281dbf5b004
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730007"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424237"
 ---
 # <a name="create-a-map"></a>Créer une carte
 
-Cet article explique comment créer une carte.  
+Cet article vous montre comment créer et animer une carte.  
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
-Il existe deux moyens de créer une carte. Vous pouvez définir la caméra de la carte en spécifiant le point central et le niveau du zoom. Définissez les limites de la caméra de la map en spécifiant les points de limitation sud-ouest et nord-est.
+Il existe deux moyens de créer une carte. Vous pouvez définir la caméra sur la carte en spécifiant le point central et le niveau de zoom, ou paramétrer les limites de la caméra sur la carte en définissant les points de limitation sud-ouest et nord-est (southwest et northeast, respectivement).
 
 <a id="setCameraOptions"></a>
 
 ### <a name="set-the-camera"></a>Définir la caméra
 
-<iframe height='310' scrolling='no' title='Créer une carte via CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Create a map via `CameraOptions` (Créer une carte via) </a>par Azure Location Based Services (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Créer une carte via CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Create a map via `CameraOptions` (Créer une carte via) </a>par Azure Location Based Services (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Dans le code ci-dessus, un [objet de carte](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) est créé via `new atlas.Map()`. Les propriétés de la carte, comme le point central et le niveau de zoom font partie de [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraoptions?view=azure-iot-typescript-latest). `CameraOptions` peut être défini dans le constructeur de la carte ou via la fonction [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) de la classe map.
+Dans le code ci-dessus, un [objet de carte](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) est créé par le biais de `new atlas.Map()`, dans lequel le centre est défini de même que le zoom. Les propriétés de la carte, comme le point central et le niveau de zoom font partie de [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <a id="setCameraBoundsOptions"></a>
 
 ### <a name="set-the-camera-bounds"></a>Définir les limites de la caméra
 
-<iframe height='310' scrolling='no' title='Créer une carte via CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>Create a map via `CameraBoundsOptions` </a>par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Créer une carte via CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>Create a map via `CameraBoundsOptions` </a>par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Dans le code ci-dessus, un [objet de carte](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) est construit via `new atlas.Map()`. Les propriétés de la carte, comme le cadre englobant, font partie de [CameraBoundsOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest). `CameraBoundsOptions` peut être défini via la fonction [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) de la classe map.
+Dans le code ci-dessus, un [objet de carte](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) est construit via `new atlas.Map()`. Des propriétés de carte, telles que `CameraBoundsOptions`, peuvent être définies avec la fonction [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) de la classe Map. Les propriétés des marges intérieures et des limites sont définies au moyen de `setCamera`.
+
+### <a name="animate-map-view"></a>Animer la vue cartographique
+
+<iframe height='500' scrolling='no' title='Animer la vue cartographique' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>Animer la vue cartographique</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Dans le code ci-dessus, le premier bloc de code crée un [objet de carte](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) par l’intermédiaire de `new atlas.Map()`. Les propriétés de la carte, comme le point central et le niveau de zoom font partie de [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions). `CameraOptions` peut être défini dans le constructeur de la carte ou via la fonction [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) de la classe map. Le [style de carte](https://docs.microsoft.com/azure/azure-maps/supported-map-styles) est défini sur `road`.
+
+Le deuxième bloc de code crée une fonction d’animation de carte, qui donne vie aux changements dans la vue cartographique en définissant [AnimateOptions](/javascript/api/azure-maps-control/atlas.animationoptions) via la fonction [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera). La fonction est déclenchée par le bouton « Animate Map (Animer la carte) » pour générer un niveau de zoom aléatoire à chaque clic.
 
 ## <a name="try-out-the-code"></a>Essayer le code
 

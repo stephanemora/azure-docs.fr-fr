@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 53cec59841fbda49e4e410f069882ea76996f9fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428289"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Didacticiel : Intégration de Azure Active Directory à MobileIron
 
@@ -106,22 +106,21 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
     ![Boîte de dialogue Authentification unique](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-1. Dans la section **Domaines et URL MobileIron**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP**:
+1. Dans la section **Domaine et URL MobileIron**, effectuez les étapes suivantes si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité (IDP)** :
 
     ![Informations d’authentification unique dans Domaine et URL MobileIron](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.mobileiron.com/<key>`
+    1. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.mobileiron.com/<key>`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    1. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+1. Cochez  **Afficher les paramètres d’URL avancés** , puis effectuez les étapes suivantes si vous souhaitez configurer l’application en mode lancé par le **fournisseur de services (SP)** :
 
     ![Authentification unique dans Domaine et URL MobileIron](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<host>.mobileiron.com/user/login.html`
+    Dans la zone de texte  **URL de connexion** , tapez une URL au format suivant : `https://<host>.mobileiron.com/user/login.html`
     
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Vous obtiendrez les valeurs de la clé et de l’hôte à partir du portail d’administration de MobileIron, expliqué plus loin dans le didacticiel.
+    > [!NOTE]  Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Vous obtiendrez les valeurs de la clé et de l’hôte à partir du portail d’administration de MobileIron, expliqué plus loin dans le didacticiel.
 
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -174,13 +173,13 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](./media/mobileiron-tutorial/create_aaduser_04.png)
 
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
+    1. Dans la zone **Nom**, tapez **BrittaSimon**.
 
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
+    1. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
 
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Créer**.
+    1. Cliquez sur **Créer**.
   
 ### <a name="create-a-mobileiron-test-user"></a>Créer un utilisateur de test MobileIron
 
@@ -199,13 +198,13 @@ Dans le cas de MobileIron, l’approvisionnement est une tâche manuelle.
 
     ![Bouton Ajouter un utilisateur de la page Configurer l’authentification unique](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. Dans la zone de texte **Adresse e-mail**, saisissez l’adresse e-mail de l’utilisateur, par exemple brittasimon@contoso.com.
+    1. Dans la zone de texte **Adresse e-mail**, saisissez l’adresse e-mail de l’utilisateur, par exemple brittasimon@contoso.com.
 
-    b. Dans la zone de texte **Prénom**, saisissez le prénom de l’utilisateur, par exemple Britta.
+    1. Dans la zone de texte **Prénom**, saisissez le prénom de l’utilisateur, par exemple Britta.
 
-    c. Dans la zone de texte **Nom**, saisissez le nom de famille de l’utilisateur, par exemple Simon.
+    1. Dans la zone de texte **Nom**, saisissez le nom de famille de l’utilisateur, par exemple Simon.
     
-    d. Cliquez sur **Done**.  
+    1. Cliquez sur **Done**.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

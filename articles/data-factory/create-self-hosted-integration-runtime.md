@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038466"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284827"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
@@ -198,7 +198,9 @@ La vidéo suivante est une présentation et une démonstration de 12 minutes de 
 
 * Azure PowerShell version 6.6.0 ou ultérieure prend en charge cette fonctionnalité (AzureRM.DataFactoryV2, 0.5.7 ou version ultérieure).
 
-* Pour accorder l’autorisation, l’utilisateur a besoin du rôle Propriétaire ou du rôle Propriétaire hérité dans la fabrique de données dans laquelle se trouve le runtime d’intégration partagé. 
+* Pour accorder l’autorisation, l’utilisateur a besoin du rôle Propriétaire ou du rôle Propriétaire hérité dans la fabrique de données dans laquelle se trouve le runtime d’intégration partagé.
+
+* La fonctionnalité de partage fonctionne uniquement pour les fabriques de données relevant du même locataire Azure Active Directory.
 
 * Pour les [utilisateurs invités](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) Active Directory, la fonctionnalité de recherche (répertoriant toutes les fabriques de données à l’aide d’un mot-clé de recherche) de l’interface utilisateur [ne fonctionne pas](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Mais, tant que l’utilisateur invité est le propriétaire de la fabrique de données, il peut partager le runtime d’intégration sans la fonctionnalité de recherche. Pour ce faire, il lui suffit de taper directement l’identité MSI de la fabrique de données avec laquelle le runtime d’intégration doit être partagé dans la zone de texte **Assign Permission** (Assigner une autorisation) et de sélectionner **Ajouter** dans l’interface utilisateur d’Azure Data Factory. 
 

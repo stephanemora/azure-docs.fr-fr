@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: e8e0f8352404892ea8af6a0fa176c336dd2c1659
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 54d0ce39ea511958824acb753bcf7102d33a6c90
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054022"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444026"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-stored-proc-activity.md)
+> * [Version 1](v1/data-factory-stored-proc-activity.md)
 > * [Version actuelle](transform-data-using-stored-procedure.md)
 
 Vous utilisez des activités de transformation dans un [pipeline](concepts-pipelines-activities.md) Data Factory pour transformer et traiter des données brutes en prévisions et en analyses. L’activité de procédure stockée est l’une des activités de transformation prises en charge par Data Factory. Cet article s’appuie sur l’article [Transformer des données](transform-data.md) qui présente une vue d’ensemble de la transformation des données et des activités de transformation prises en charge dans Data Factory.
@@ -69,12 +69,16 @@ Le tableau suivant décrit ces paramètres JSON :
 
 | Propriété                  | Description                              | Obligatoire |
 | ------------------------- | ---------------------------------------- | -------- |
-| Nom                      | Nom de l’activité                     | OUI      |
+| Nom                      | Nom de l’activité                     | Oui      |
 | description               | Texte décrivant la raison motivant l’activité. | Non        |
-| Type                      | Pour l’activité de procédure stockée, le type d’activité est **SqlServerStoredProcedure**. | OUI      |
-| linkedServiceName         | Référence au service **Azure SQL Database**, **Azure SQL Data Warehouse** ou **SQL Server** enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |
-| storedProcedureName       | Spécifiez le nom de la procédure stockée à appeler. | OUI      |
+| Type                      | Pour l’activité de procédure stockée, le type d’activité est **SqlServerStoredProcedure**. | Oui      |
+| linkedServiceName         | Référence au service **Azure SQL Database**, **Azure SQL Data Warehouse** ou **SQL Server** enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
+| storedProcedureName       | Spécifiez le nom de la procédure stockée à appeler. | Oui      |
 | storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure stockée. Utilisez `"param1": { "value": "param1Value","type":"param1Type" }` pour transmettre les valeurs des paramètres et leur type pris en charge par la source de données. Pour passer la valeur Null en paramètre, utilisez `"param1": { "value": null }` (tout en minuscules). | Non        |
+
+## <a name="error-info"></a>Informations sur l’erreur
+
+Quand une procédure stockée échoue et que les détails de l’erreur sont retournés, vous ne pouvez pas bien mettre en évidence les informations sur l’erreur directement dans la sortie de l’activité. Cependant, Data Factory injecte tous ses événements d’exécution d’activité dans Azure Monitor. Parmi les événements que Data Factory injecte dans Azure Monitor figurent les détails des erreurs. Vous pouvez, par exemple, configurer des alertes par courrier électronique à partir de ces événements. Pour plus d’informations, consultez [Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 

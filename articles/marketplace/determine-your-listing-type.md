@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578495"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261069"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 L’option de publication que vous choisissez pour votre offre est directement liée aux conditions d’éligibilité et aux avantages GTM propres à la place de marché. Plus important encore, la sélection de l’option de publication et du type d’offre dans le portail Cloud Partner définit comment les utilisateurs vont interagir avec votre offre sur la place de marché.
@@ -64,26 +64,18 @@ La vitrine où votre offre sera présentée, Place de marché Azure et/ou AppSou
 
 Les options de publication disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et à des [avantages de mise sur le marché](https://partner.microsoft.com/en-US/reach-customers/gtm). Choisissez entre trois options de publication possibles avant d’utiliser le portail Cloud Partner pour créer une offre sur la place de marché. Notez les appels à l’action qui correspondent à l’option de publication :
 
-**Listing** – Simple listing de votre application ou service qui permet à un utilisateur de la place de marché de vous demander de vous connecter au client via l’appel à l’action **Me contacter**.
+| **Option de publication**    | **Description**  |
+| :------------------- | :-------------------|
+| **Liste** | Référencement simple de votre application ou service qui permet à un utilisateur de la place de marché de vous demander de le mettre en relation avec le client via l’appel à l’action **Me contacter**. |
+| **Version d’évaluation** | Utilisez la place de marché pour augmenter la visibilité et automatiser le provisionnement de l’expérience d’essai de votre application. Vous permettez ainsi à des utilisateurs potentiels d’utiliser votre application dans l’environnement intégré Microsoft, SaaS ou IaaS, gratuitement pendant une période limitée, avant de l’acheter. Les appels à l’action utilisés pour l’option de publication Essai sont : **Essai gratuit** et **Test Drive**. |
+| **Transaction** | Votre application s’exécute sur Azure et peut être provisionnée en tant que ressource directement dans l’abonnement Azure du client lorsque le client sélectionne l’appel à l’action Obtenir maintenant. Les frais de licence de votre logiciel peuvent éventuellement être réglés et facturés selon le mode et les conditions de paiement choisis par le client. Vous pouvez aussi proposer un accès à durée limitée à votre **Essai logiciel gratuit** (disponible uniquement sur la Place de marché Azure). |
 
-**Essai** – Utilisez la place de marché pour augmenter la visibilité et automatiser le provisionnement de l’expérience d’essai de votre application. Vous permettez ainsi à des utilisateurs potentiels d’utiliser votre application dans l’expérience Microsoft, SaaS ou IaaS, gratuitement pendant une période limitée, avant de l’acheter. Les appels à l’action utilisés pour l’option de publication Essai sont : **Essai gratuit** et **Test Drive**.
-
-**Transaction** – Votre application s’exécute sur Azure et peut être provisionnée en tant que ressource directement dans l’abonnement Azure du client, lorsque le client sélectionne l’appel à l’action Obtenir maintenant. Les frais de licence de votre logiciel peuvent éventuellement être réglés et facturés selon le mode et les conditions de paiement choisis par le client. Vous pouvez aussi proposer un accès à durée limitée à votre **Essai logiciel gratuit** (disponible uniquement sur la Place de marché Azure). 
-
-## <a name="select-an-offer-type"></a>Sélectionner un type d’offre
-
-Après avoir choisi une option de publication, vous êtes prêt à sélectionner le type d’offre qui sera utilisé pour présenter votre offre. 
-
-L’offre est l’objet de publication que vous allez créer, publier et gérer dans le portail Cloud Partner. La structure de l’offre, notamment les métadonnées, les artefacts et autre contenu utilisés pour présenter l’offre sur la place de marché, est définie par le type d’offre.
-
-Avant de pouvoir créer une offre, vous devez choisir un type d’offre. Le type d’offre correspond au type de l’offre de solution, d’application ou de service que vous souhaitez publier, ainsi qu’à son alignement sur les produits et services Microsoft. 
-
-Un type d’offre unique peut être configuré différemment dans le portail Cloud Partner pour proposer différents appels à l’action, options de publication, configurations et tarifs. L’option de publication et la configuration du type d’offre s’alignent également sur les exigences techniques et les conditions d’éligibilité de l’offre. 
-
-Veillez à passer en revue les conditions d’éligibilité de la vitrine et du type d’offre fournies dans ce [Guide de l’éditeur](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide), ainsi que les exigences techniques de publication avant de créer votre offre.
+>[!Note]
+>Quand vous utilisez l’option de publication Transaction, il est important de bien comprendre les prix, la tarification, la facturation et le paiement avant de sélectionner un type d’offre et de créer votre offre. Lisez l’[article sur les considérations d’ordre commercial et de facturation de la Place de marché pour en savoir plus](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+*   Après avoir choisi une option de publication, vous êtes prêt à [sélectionner le type d’offre](./publisher-guide-by-offer-type.md) qui sera utilisé pour présenter votre offre.
 *   Passez en revue les conditions d’éligibilité dans la section relative aux options de publication par type d’offre pour finaliser la sélection et la configuration de votre offre.
 *   Passez en revue les modèles de publication par vitrine pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.
 *   Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com) pour créer et configurer votre offre.

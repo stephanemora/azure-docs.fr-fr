@@ -1,11 +1,12 @@
 ---
-title: Solution prédictive des risques de crédit avec Machine Learning| Microsoft Docs
+title: Solution prédictive des risques de crédit - Azure Machine Learning Studio | Microsoft Docs
 description: Guide pas à pas détaillé indiquant comment créer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning Studio.
 keywords: risque de crédit, solution d’analyse prédictive, évaluation des risques
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: a107907dd01b15015c644f835239f6f90b948296
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a5dd8432ca79cca8de37f5d64027e0b9c498f3b9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245832"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311940"
 ---
-# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Guide pas à pas : développer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning
+# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Guide pas à pas : développer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning Studio
 
 Dans cette procédure détaillée, nous étudierons de manière approfondie le processus de développement d’une solution d’analyse prédictive dans Machine Learning Studio. Nous allons développer un modèle simple dans Machine Learning Studio, puis le déployer dans le service web Azure Machine Learning, où le modèle peut effectuer des prévisions à l’aide de nouvelles données. 
 
@@ -43,14 +44,14 @@ L’évaluation du risque de crédit est un problème complexe, mais nous pouvon
 
 ## <a name="the-solution"></a>La solution
 
-Dans cette procédure pas à pas détaillée, nous démarrons avec des données de risque crédit disponibles publiquement, puis développons et formons un modèle prédictif basé sur ces données. Nous déployons ensuite le modèle comme un service web afin qu’il puisse être utilisé par d’autres pour l’évaluation du risque de crédit.
+Dans cette procédure pas à pas détaillée, nous démarrons avec des données de risque crédit disponibles publiquement, puis développons et entraînons un modèle prédictif basé sur ces données. Nous déployons ensuite le modèle comme un service web afin qu’il puisse être utilisé par d’autres pour l’évaluation du risque de crédit.
 
 Pour créer cette solution d'évaluation des risques de crédit, nous suivons ces étapes :  
 
 1. [Créer un espace de travail Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Télécharger des données existantes](walkthrough-2-upload-data.md)
 3. [Création d'une expérience](walkthrough-3-create-new-experiment.md)
-4. [Former et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
+4. [Entraîner et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
 5. [Déployer le service web](walkthrough-5-publish-web-service.md)
 6. [Accéder au service web](walkthrough-6-access-web-service.md)
 

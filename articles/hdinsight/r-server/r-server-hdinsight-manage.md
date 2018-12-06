@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255399"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497543"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gérer un cluster ML Services dans Azure HDInsight
 
@@ -33,7 +33,7 @@ Vous pouvez autoriser plusieurs utilisateurs simultanés pour le cluster ML Ser
 
 ![Utilisateur simultané n° 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
-- **Nom d’utilisateur de connexion du cluster** : un utilisateur HTTP pour l’authentification via la passerelle HDInsight qui est utilisée pour protéger les clusters HDInsight que vous avez créés. Cet utilisateur HTTP est utilisé pour accéder à l’IU Ambari, l’IU YARN, ainsi qu’à d’autres composants d’interface utilisateur.
+- **Nom d’utilisateur de connexion du cluster** : un utilisateur HTTP pour l’authentification via la passerelle HDInsight qui est utilisée pour protéger les clusters HDInsight que vous avez créés. Cet utilisateur HTTP est utilisé pour accéder à l’IU Apache Ambari, à l’IU Apache Hadoop YARN ainsi qu’à d’autres composants d’interface utilisateur.
 - **Nom d’utilisateur Secure Shell (SSH)**  : un utilisateur SSH pour l’accès au cluster via Secure Shell. Ce dernier correspond à un utilisateur dans le système Linux pour tous les nœuds principaux, les nœuds Worker et les nœuds de périmètre. Par conséquent, vous pouvez utiliser Secure Shell pour accéder à n’importe quel nœud dans un cluster distant.
 
 La version de R Studio Server Community utilisée dans le cluster ML Services sur HDInsight n’accepte comme mécanisme de connexion que les noms d’utilisateur et mots de passe Linux. Elle ne prend pas en charge le passage de jetons. Par conséquent, quand vous essayez d’accéder à R Studio pour la première fois sur un cluster ML Services, vous devez vous connecter deux fois.
@@ -52,7 +52,7 @@ Comme RStudio s’exécute sur le nœud de périphérie du cluster, il y a plusi
 
 ### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Étape n° 1 : Utiliser l’utilisateur SSH créé pour se connecter au nœud de périphérie
 
-Suivez les instructions de l’article [Se connecter à HDInsight (Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) afin d’accéder au nœud de périphérie. L’adresse du nœud de périphérie pour le cluster ML Services sur HDInsight est `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
+Suivez les instructions de l’article [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) pour accéder au nœud de périphérie. L’adresse du nœud de périphérie pour le cluster ML Services sur HDInsight est `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>Étape n° 2 : Ajouter d’autres utilisateurs Linux dans le nœud de périmètre
 
@@ -104,7 +104,7 @@ Vous pouvez configurer l’accès au contexte de calcul HDInsight Spark à parti
       consoleOutput= TRUE
     )
 
-Pour plus d’informations, consultez la section « Utilisation de Microsoft Machine Learning Server comme client Hadoop » dans [Guide pratique pour utiliser RevoScaleR dans un contexte de calcul Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios).
+Pour plus d’informations, consultez la section « Utilisation de Microsoft Machine Learning Server comme client Apache Hadoop » dans [Guide pratique pour utiliser RevoScaleR dans un contexte de calcul Apache Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
 ## <a name="use-a-compute-context"></a>Utiliser un contexte de calcul
 
@@ -250,7 +250,7 @@ Si vous utilisez toujours le contexte Spark, cette commande renvoie à la valeur
         nodename
     "wn3-mymlser"
 
-## <a name="access-data-in-hive-and-parquet"></a>Accès aux données dans Hive et Parquet
+## <a name="access-data-in-apache-hive-and-parquet"></a>Accès aux données dans Apache Hive et Parquet
 
 HDInsight ML Services permet un accès direct aux données de Hive et Parquet pour une utilisation par les fonctions de ScaleR dans le contexte de calcul Spark. Ces fonctionnalités sont disponibles via les nouvelles fonctions de source de données ScaleR appelées RxHiveData et RxParquetData qui fonctionnent à l’aide de Spark SQL pour charger les données directement dans un tableau de données Spark pour analyse par ScaleR.
 

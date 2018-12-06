@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 5aaf169418962c08f5f45413f53d4c92588a98bd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041480"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581423"
 ---
-# <a name="run-spark-from-the-spark-shell"></a>Exécuter Spark depuis l’interpréteur de commandes Spark
+# <a name="run-apache-spark-from-the-spark-shell"></a>Exécuter Apache Spark depuis l’interpréteur de commandes Spark
 
-Un interpréteur de commandes Spark interactif fournit un environnement REPL (boucle de lecture-exécution-impression) pour l’exécution des commandes Spark les unes après les autres et l’affichage des résultats. Ce processus est utile pour le développement et le débogage. Spark fournit un interpréteur de commandes pour chacune des langues qu’il prend en charge : Scala, Python et R.
+Un interpréteur de commandes [Apache Spark](https://spark.apache.org/) interactif fournit un environnement REPL (boucle de lecture-exécution-impression) pour l’exécution des commandes Spark les unes après les autres et l’affichage des résultats. Ce processus est utile pour le développement et le débogage. Spark fournit un interpréteur de commandes pour chacune des langues qu’il prend en charge : Scala, Python et R.
 
-## <a name="get-to-a-spark-shell-with-ssh"></a>Obtenir un interpréteur de commandes Spark avec SSH
+## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Obtenir un interpréteur de commandes Apache Spark avec SSH
 
-Accédez à un interpréteur de commandes Spark sur HDInsight en vous connectant au nœud principal du cluster à l’aide de SSH :
+Accédez à un interpréteur de commandes Apache Spark sur HDInsight en vous connectant au nœud principal du cluster à l’aide de SSH :
 
      ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
 
@@ -40,7 +40,7 @@ Vous pouvez obtenir la commande SSH pour votre cluster depuis le portail Azure :
 
 Pour en savoir plus sur l’utilisation de SSH pour vous connecter à HDInsight, consultez [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="run-a-spark-shell"></a>Exécuter un interpréteur de commandes Spark
+## <a name="run-an-apache-spark-shell"></a>Exécuter un interpréteur de commandes Apache Spark
 
 Spark fournit des interpréteurs de commandes pour Scala (spark-shell), Python (pyspark) et R (sparkR). Dans votre session SSH, au niveau du nœud principal de votre cluster HDInsight, entrez l’une des commandes suivantes :
 
@@ -69,7 +69,7 @@ La commande d’interpréteur de commandes Spark (`spark-shell`, `pyspark` ou `s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Présentation de Spark sur Azure HDInsight](apache-spark-overview.md) pour obtenir une vue d’ensemble.
+- Consultez [Présentation d’Apache Spark sur Azure HDInsight](apache-spark-overview.md) pour obtenir une vue d’ensemble.
 - Consultez [Créer un cluster Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md) pour utiliser des clusters Spark et SparkSQL.
-- Consultez [Vue d’ensemble de Spark Streaming](apache-spark-streaming-overview.md) pour écrire des applications traitant des données de diffusion en continu avec Spark.
+- Consultez [Vue d’ensemble d’Apache Spark Structured Streaming](apache-spark-streaming-overview.md) pour écrire des applications traitant des données de diffusion en continu avec Spark.
 

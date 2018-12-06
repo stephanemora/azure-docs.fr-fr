@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0f36cd798faac275e0f6dcb8a81bd37e14ab6d8d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578482"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275817"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -106,7 +106,7 @@ Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoErro
 </TechnicalProfile>
 ```
 
-Un profil technique peut inclure ou hériter d’un autre profil technique, pouvant lui-même en inclure un autre. Le nombre de niveaux n’est pas limité. En fonction des besoins de l’entreprise, votre parcours utilisateur peut appeler **AAD-UserReadUsingAlternativeSecurityId** qui déclenche une erreur si un utilisateur n’a pas de compte de réseau social, ou  **AAD-UserReadUsingAlternativeSecurityId-NoError** qui ne déclenche pas d’erreur.
+Un profil technique peut inclure ou hériter d’un autre profil technique, pouvant lui-même en inclure un autre. Le nombre de niveaux n’est pas limité. En fonction des besoins de l’entreprise, votre parcours utilisateur peut appeler **AAD-UserReadUsingAlternativeSecurityId** qui génère une erreur si un compte social d’utilisateur n’existe pas, ou **AAD-UserReadUsingAlternativeSecurityId-NoError** qui ne génère pas d’erreur.
 
 
 

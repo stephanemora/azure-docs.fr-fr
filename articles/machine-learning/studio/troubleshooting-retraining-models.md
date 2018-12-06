@@ -1,10 +1,11 @@
 ---
-title: Résoudre les problèmes de reformation d’un service web Azure Machine Learning Classic | Microsoft Docs
-description: Identifiez et corrigez les problèmes courants rencontrés lorsque vous reformez le modèle d’un service web Azure Machine Learning.
+title: Résoudre les problèmes de réentraînement d’un service web Machine Learning Studio classique - Azure | Microsoft Docs
+description: Identifiez et corrigez les problèmes courants rencontrés quand vous réentraînez le modèle d’un service web Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
@@ -15,35 +16,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 989bf010320501050a37fbf2f0799f50a5a3e2ba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835771"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307200"
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Résolution des problèmes de reformation d’un service web Machine Learning classique
+# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Résolution des problèmes de réentraînement d’un service web Azure Machine Learning Studio classique
 ## <a name="retraining-overview"></a>Vue d’ensemble de la reformation
-Lorsque vous déployez une expérience prédictive en tant que service web d’évaluation, il s’agit d’un modèle statique. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, le modèle doit être reformé. 
+Lorsque vous déployez une expérience prédictive en tant que service web d’évaluation, il s’agit d’un modèle statique. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, le modèle doit être réentraîné. 
 
 Pour une procédure pas à pas complète du processus de reformation d’un service web classique, consultez [Reformation des modèles Machine Learning par programme](retrain-models-programmatically.md).
 
 ## <a name="retraining-process"></a>Processus de reformation
-Lorsque vous devez reformer le service web, vous devez ajouter quelques éléments supplémentaires :
+Lorsque vous devez réentraîner le service web, vous devez ajouter quelques éléments supplémentaires :
 
 * Un service web déployé à partir de l’expérience de formation. L’expérience doit avoir un module de **sortie de service web** attaché à la sortie du module **Modèle de formation**.  
   
     ![Attachez la sortie de service web au modèle de formation.][image1]
 * Un nouveau point de terminaison ajouté à votre service web d’évaluation.  Vous pouvez ajouter le point de terminaison par programme à l’aide de l’exemple de code référencé dans la rubrique Reformation des modèles Machine Learning par programme ou via le portail des services web Azure Machine Learning.
 
-Vous pouvez utiliser l’exemple de code C# de la page d’aide API du service web de formation pour reformer le modèle. Après avoir évalué les résultats et que vous en êtes satisfait, vous mettez à jour le service web d’évaluation du modèle formé à l’aide du nouveau point de terminaison que vous avez ajouté.
+Vous pouvez utiliser l’exemple de code C# de la page d’aide API du service web de formation pour réentraîner le modèle. Après avoir évalué les résultats et que vous en êtes satisfait, vous mettez à jour le service web d’évaluation du modèle entraîné à l’aide du nouveau point de terminaison que vous avez ajouté.
 
-Une fois tous les éléments en place, les principales étapes à suivre pour reformer le modèle sont les suivantes :
+Une fois tous les éléments en place, les principales étapes à suivre pour réentraîner le modèle sont les suivantes :
 
 1. Appelez le service web de formation : l’appel est destiné au service d’exécution de lots (BES, Batch Execution Service), et non au service de requête-réponse (RRS, Request-Response Service). Vous pouvez utiliser l’exemple de code C# sur la page d’aide API pour effectuer l’appel. 
 2. Recherchez les valeurs pour *BaseLocation*, *RelativeLocation* et *SasBlobToken* : ces valeurs sont retournées dans la sortie à partir de votre appel au service web de formation. 
    ![Affichage de la sortie de l’exemple de reformation et des valeurs BaseLocation, RelativeLocation et SasBlobToken.][image6]
-3. Mettez à jour le point de terminaison ajouté à partir du service web d’évaluation avec le nouveau modèle formé : à l’aide de l’exemple de code fourni dans la rubrique Reformation des modèles Machine Learning par programme, mettez à jour le nouveau point de terminaison que vous avez ajouté au modèle d’évaluation avec le modèle nouvellement formé à partir du service web de formation.
+3. Mettez à jour le point de terminaison ajouté à partir du service web d’évaluation avec le nouveau modèle entraîné : à l’aide de l’exemple de code fourni dans la rubrique Réentraîner des modèles Machine Learning programmatiquement, mettez à jour le nouveau point de terminaison que vous avez ajouté au modèle d’évaluation avec le modèle nouvellement entraîné à partir du service web d’entraînement.
 
 ## <a name="common-obstacles"></a>Obstacles courants
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Vérifiez que vous disposez de l’URL d’application de correctifs appropriée

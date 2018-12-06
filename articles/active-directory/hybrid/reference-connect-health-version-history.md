@@ -3,7 +3,7 @@ title: Historique de publication des versions d’Azure AD Connect Health
 description: Ce document décrit les versions d’Azure AD Connect Health et ce qui a été inclus dans ces versions.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
@@ -14,17 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 970df215f4a2e7619d43594734b9f6c3476bc609
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f3684a1fa22982b62992db28cccd88d67738bc94
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305878"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161699"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health : historique de publication des versions
 L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect Health avec de nouvelles fonctions et fonctionnalités. Cet article répertorie les versions et les fonctionnalités qui ont été publiées.
-Azure AD Connect Health pour la synchronisation est intégré à l’installation d’Azure AD Connect. En savoir plus sur [l’historique de publication d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+Azure AD Connect Health pour la synchronisation est intégré à l’installation d’Azure AD Connect. Vous trouverez ici plus d’informations sur l’[historique des versions d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history). Pour nous donner un feedback sur les fonctionnalités, votez sur le [canal User Voice Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="november-2018"></a>Novembre 2018
+**Nouvelles fonctionnalités en disponibilité générale :** 
+* Azure AD Connect Health pour la synchronisation permet de diagnostiquer et de corriger les erreurs de synchronisation d’attribut en double depuis le portail
+
+**Mise à jour de l’agent :** 
+*  Agent Azure AD Connect Health pour AD DS (version 3.1.24.0) 
+1. Conformité et application du protocole TLS (Transport Layer Security) version 1.2
+2. Réduction du bruit des alertes du catalogue global
+3. Correctifs de bogues de l’inscription de l’agent d’intégrité
+
+*   Agent Azure AD Connect Health pour AD FS (version 3.1.24.0)
+1. Conformité et application du protocole TLS (Transport Layer Security) version 1.2
+2. Prise en charge de Test-ADFSRequestToken pour un système d’exploitation localisé
+3. Résolution du problème de verrouillage EventHandler de l’agent de diagnostic
+4. Correctifs de bogues de l’inscription de l’agent d’intégrité
 
 ## <a name="august-2018"></a>Août 2018 
 *  Agent Azure AD Connect Health pour la synchronisation (version 3.1.7.0) fourni avec Azure AD Connect version 1.1.880.0    

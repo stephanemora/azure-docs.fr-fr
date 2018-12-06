@@ -45,7 +45,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Secteur public australien** |Zone 1 | Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
 | **Europe** |Zone 1 |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Dublin, Londres, Marseille, Newport(Pays de Galles), Paris |
 | **Amérique du Nord** |Zone 1 |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
-| **Asie** |Zone 2 |Asie Est, Asie Sud-Est |Hong Kong, Kuala Lumpur, Singapour, Singapour2 |
+| **Asie** |Zone 2 |Asie Est, Asie Sud-Est |Hong Kong (R.A.S.), Kuala Lumpur, Singapour, Singapour2 |
 | **Australie** |Zone 2 |Australie Sud-Est | Australie Est |Melbourne, Sydney | 
 | **Inde** |Zone 2 |Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japon** |Zone 2 |Japon Ouest, Japon Est |Osaka, Tokyo |

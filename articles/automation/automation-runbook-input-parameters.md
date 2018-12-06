@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 941a7242e1f6fddd1ff91721141be4e1f9816b31
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 650effed388dde4419e2ff6aede2f0468551a959
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344861"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276684"
 ---
 # <a name="runbook-input-parameters"></a>Paramètres d’entrée de Runbook
 
@@ -230,9 +230,8 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>Démarrer un Runbook à l’aide de l’API REST et affecter des paramètres
-Vous pouvez créer et démarrer une tâche de runbook avec l’API REST Azure Automation à l’aide de la méthode **PUT** et de l’URI de requête suivant :
+Vous pouvez créer et démarrer un travail de runbook avec l’API REST Azure Automation à l’aide de la méthode **PUT** et de l’URI de demande suivant : https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
-    https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
 Dans l’URI de demande, remplacez les paramètres suivants :
 

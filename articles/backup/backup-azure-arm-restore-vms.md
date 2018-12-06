@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 450314dddd49825bae689701b694f9a26758835e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 0d78ae294cea383fbe59a1f7968d8bf18b1942d1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377637"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422954"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utiliser le portail Azure pour restaurer des machines virtuelles
 Protégez vos données en prenant des instantanés de vos données à des intervalles définis. Ces instantanés sont considérés comme des points de récupération stockés dans des coffres Recovery Services. Lorsqu’il est nécessaire de réparer ou de générer de nouveau une machine virtuelle, sa restauration peut s’effectuer à partir des points de récupération enregistrés. Lorsque vous restaurez un point de récupération, vous pouvez :
@@ -151,7 +151,7 @@ Sur le panneau **Configuration de la restauration**, sélectionnez **OK** pour f
 La **Restauration sur place** est effectuée par le biais de l’onglet **Replace existing** (Remplacer l’existant).
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Remplacer les disques existants à partir d’un point de restauration
-L’option **Replace existing** (Remplacer l’existant) permet de remplacer les disques existants dans la machine virtuelle actuelle par le point de restauration sélectionné. Cette opération ne peut être effectuée que si la machine virtuelle en cours existe. Si elle a été supprimée pour quelque raison que ce soit, l’opération n’est pas réalisable ; autrement, nous vous recommandons de **Créer** une machine virtuelle ou des disques pour poursuivre les opérations de restauration. Au cours des opérations de remplacement d’un ou de plusieurs disques existants, par mesure de précaution, nous sauvegardons les données avant le lancement de ces opérations. Si les disques du point de restauration sont plus/moins nombreux que ceux de la machine virtuelle en cours, seul le nombre de disques du point de restauration se reflète dans la machine virtuelle. L’option Replace existing (Remplacer l’existant ) n’est actuellement prise en charge que pour les Disques managés et les machines virtuelles non chiffrées.  
+L’option **Replace existing** (Remplacer l’existant) permet de remplacer les disques existants dans la machine virtuelle actuelle par le point de restauration sélectionné. Cette opération ne peut être effectuée que si la machine virtuelle en cours existe. Si elle a été supprimée pour quelque raison que ce soit, l’opération n’est pas réalisable ; autrement, nous vous recommandons de **Créer** une machine virtuelle ou des disques pour poursuivre les opérations de restauration. Pendant cette opération, par mesure de précaution, nous sauvegardons les données avant de lancer les opérations de remplacement de disques. La sauvegarde crée un instantané ainsi qu’un point de récupération dans le coffre avec une période de conservation, comme planifié dans la stratégie de sauvegarde configurée. Si les disques du point de restauration sont plus/moins nombreux que ceux de la machine virtuelle en cours, seul le nombre de disques du point de restauration se reflète dans la machine virtuelle. Pour le moment, l’option **Remplacer l’existant** n’est pas prise en charge pour les disques non managés et les machines virtuelles chiffrées. Elle n’est pas non plus prise en charge pour les [machines virtuelles généralisées](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) et pour les machines virtuelles créées à l’aide [d’images personnalisées](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  Dans le panneau **Restaurer la configuration**, la seule entrée qui doit être sélectionnée est **Emplacement intermédiaire**.
 
@@ -170,7 +170,7 @@ Cliquez sur le lien hypertexte des notifications pour accéder à la liste **Bac
 
 Le panneau **Travaux de sauvegarde** s’ouvre et affiche la liste des travaux.
 
-![Liste des machines virtuelles d’un coffre](./media/backup-azure-arm-restore-vms/restore-job-completed.png)
+![Liste des machines virtuelles d’un coffre](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
 ## <a name="use-templates-to-customize-a-restored-vm"></a>Utiliser des modèles pour personnaliser une machine virtuelle restaurée
 À la [fin de l’opération de restauration des disques](#Track-the-restore-operation), utilisez le modèle qui a été généré dans le cadre de l’opération de restauration pour créer une machine virtuelle avec une configuration différente de la configuration de sauvegarde. Vous pouvez également l’utiliser pour personnaliser les noms des ressources qui ont été créés pendant le processus de création d’une machine virtuelle à partir d’un point de restauration.

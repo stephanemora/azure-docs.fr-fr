@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091711"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498756"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Quand utiliser des objets BLOB Azure, des fichiers Azure ou des disques Azure
 
@@ -42,7 +42,7 @@ Le tableau suivant compare les fichiers Azure et les objets blob Azure.
 |Points de terminaison|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Répertoires|Espace de noms plat|Vrais objets d’annuaire|  
 |Sensibilité des noms à la casse|Respect de la casse|Non sensible à la casse, mais la casse est conservée|  
-|Capacité|Conteneurs jusqu’à 500 Tio|Partages de fichiers de 5 Tio|  
+|Capacité|Limite du compte jusqu'à 2 Tio |Partages de fichiers de 5 Tio|  
 |Débit|Jusqu’à 60 Mio/s par objet blob de blocs|Jusqu’à 60 Mio/s par partage|  
 |Taille de l’objet|Jusqu'à environ 4,75 Tio par objet blob de blocs|Jusqu'à 1 Tio par fichier|  
 |Capacité facturée|En fonction des octets écrits|En fonction de la taille de fichier|  

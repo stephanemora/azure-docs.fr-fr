@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 589aae8321d2c081f09ed46d9def2229d3973ffd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 35869e0a345299f2b0724f01201154fc8d090e4f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613194"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975377"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
 
@@ -53,7 +53,7 @@ Les anciennes supervision et gestion des alertes classiques seront mises hors se
 - Les anciennes métriques personnalisées et de plateforme (classiques) pour Application Insights ainsi que la gestion des alertes définies dessus, telles que disponibles par le biais de la [section Alertes (classiques)](monitoring-overview-alerts-classic.md) du portail Azure et accessibles en tant que ressource [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)
 - L’ancienne alerte Anomalies d’échecs (classique) actuellement disponible sous forme de [détection intelligente au sein d’Application Insights](../application-insights/app-insights-proactive-diagnostics.md) sur le portail Azure, avec des alertes configurées affichées dans la [section Alertes (classiques)](monitoring-overview-alerts-classic.md) du portail Azure
 
-Tous les systèmes de supervision et de gestion des alertes classiques, dont [l’API](https://msdn.microsoft.com/library/azure/dn931945.aspx) correspondante, [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), la page du portail Azure et le [modèle de ressource](monitoring-enable-alerts-using-template.md) resteront utilisables jusqu’en juin 2019. Après cette date, le service de supervision et d’alertes classiques sera supprimé et ne sera plus disponibles pour être utilisé. Toutefois, toutes les règles d’alerte qui continueront d’exister dans le service Alertes (classiques) après le mois de juin 2019 continueront à s’exécuter, mais elles ne pourront pas être modifiées.
+Tous les systèmes de supervision et de gestion des alertes classiques, dont l’[API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), la [page du portail Azure](alert-metric-classic.md) et le [modèle de ressource](monitoring-enable-alerts-using-template.md) correspondants resteront utilisables jusqu’en juin 2019. Après cette date, le service de supervision et d’alertes classiques sera supprimé et ne sera plus disponibles pour être utilisé. Toutefois, toutes les règles d’alerte qui continueront d’exister dans le service Alertes (classiques) après le mois de juin 2019 continueront à s’exécuter, mais elles ne pourront pas être modifiées.
 
 Toutes les alertes restant dans la plateforme de supervision et de gestion des alertes classiques après le mois de juin 2019 seront automatiquement migrées par Microsoft vers leur équivalent dans la nouvelle plateforme Azure Monitor en juillet 2019. Le processus sera transparent et sans interruption de service, et garantira que les clients ne subiront aucune perte de couverture de la supervision.
 

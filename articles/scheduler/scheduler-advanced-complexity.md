@@ -9,13 +9,13 @@ ms.reviewer: klam
 ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
-ms.date: 08/18/2016
-ms.openlocfilehash: f5a8b929cf5af6e4e43c6003e6b622d04a50b93e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/14/2018
+ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980938"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712056"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
 
@@ -32,18 +32,18 @@ La planification constitue le cœur d’un travail [Azure Scheduler](../schedule
 
 * **Traitement des images** : créez un travail qui s’exécute tous les jours ouvrables, pendant les heures creuses, et utilise le cloud computing pour compresser les images chargées pendant la journée.
 
-Cet article décrit des exemples de travaux que vous pouvez créer à l’aide de Scheduler et de [l’API REST Azure Scheduler](https://docs.microsoft.com/rest/api/schedule). Il fournit également la définition JSON (JavaScript Objet Notation) de chaque planification. 
+Cet article décrit des exemples de travaux que vous pouvez créer à l’aide de Scheduler et de l’[API REST Azure Scheduler](/rest/api/scheduler). Il fournit également la définition JSON (JavaScript Object Notation) de chaque planification. 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
 Les exemples de cet article illustrent l’éventail de scénarios pris en charge par Azure Scheduler. Ils montrent comment créer des planifications pour divers modèles de comportement, notamment :
 
-* Exécuter une seule fois à une date et une heure spécifiques.
-* Exécuter et répéter un certain nombre de fois.
-* Exécuter immédiatement et répéter.
+* Exécuter une seule fois à une date et une heure spécifiques
+* Exécuter et répéter un certain nombre de fois
+* Exécuter immédiatement et répéter
 * Exécuter et répéter tous les *n* minutes, heures, jours, semaines ou mois, en commençant à un moment spécifique.
 * Exécuter et répéter chaque semaine ou mois, mais uniquement certains jours de la semaine ou du mois.
-* Exécuter et répéter plusieurs fois pour une période spécifique. Par exemple, chaque mois le dernier vendredi et le dernier lundi, ou chaque jour à 5 h 15 et à 17 h 15.
+* Exécuter et répéter plusieurs fois pendant une période spécifique. Par exemple, chaque mois le dernier vendredi et le dernier lundi, ou chaque jour à 5 h 15 et à 17 h 15.
 
 Ces scénarios sont décrits plus en détail plus loin dans cet article.
 
@@ -51,7 +51,7 @@ Ces scénarios sont décrits plus en détail plus loin dans cet article.
 
 ## <a name="create-schedule-with-rest-api"></a>Créer une planification avec l’API REST
 
-Pour créer une planification de base avec [l’API REST Azure Scheduler](https://docs.microsoft.com/rest/api/schedule), effectuez les étapes suivantes :
+Pour créer une planification de base avec [l’API REST Azure Scheduler](/rest/api/scheduler), effectuez les étapes suivantes :
 
 1. Inscrivez votre abonnement Azure auprès d’un fournisseur de ressources à l’aide de [l’opération Inscrire dans l’API REST Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). Le nom du fournisseur pour le service Azure Scheduler est **Microsoft.Scheduler**. 
 
@@ -68,7 +68,7 @@ Ce tableau fournit une vue d’ensemble des principaux éléments JSON que vous 
 | **startTime** | Non  | Valeur de chaîne DateHeure au [format ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) qui spécifie quand le travail démarre la première fois dans une planification de base. <p>Pour les planifications complexes, le travail ne démarre pas avant **startTime**. | 
 | **recurrence** | Non  | Spécifie les règles de périodicité selon lesquelles le travail est exécuté. L’objet **recurrence** prend en charge les éléments suivants : **frequency**, **interval**, **schedule**, **count** et **endTime**. <p>Si vous définissez l’élément **recurrence**, vous devez également définir l’élément **frequency**. Les autres éléments **recurrence** sont facultatifs. |
 | **frequency** | Oui, si vous définissez **recurrence** | Unité de temps entre les occurrences. Les valeurs prises en charge sont : « Minute », « Hour », « Day », « Week », « Month » et « Year ». | 
-| **interval** | Non  | Entier positif qui détermine le nombre d’unités de temps entre les occurrences, en fonction de l’élément **frequency**. <p>Par exemple, si **interval** a la valeur 10 et que **frequency** est défini sur « Week », le travail se répète toutes les 10 semaines. <p>Voici le nombre maximal d’intervalles pour chaque fréquence : <p>- 18 mois <br>- 78 semaines <br>- 548 jours <br>- Pour les heures et les minutes, la plage est 1 <= <*interval*> <= 1 000. | 
+| **interval** | Non  | Entier positif qui détermine le nombre d’unités de temps entre les occurrences, en fonction de l’élément **frequency**. <p>Par exemple, si **interval** a la valeur 10 et que **frequency** est défini sur « Week », le travail se répète toutes les 10 semaines. <p>Voici le plus grand nombre d’intervalles pour chaque fréquence : <p>- 18 mois <br>- 78 semaines <br>- 548 jours <br>- Pour les heures et les minutes, la plage est 1 <= <*interval*> <= 1 000. | 
 | **schedule** | Non  | Définit les changements de périodicité selon les minutes, heures, jours de la semaine et jours du mois spécifiés. | 
 | **count** | Non  | Entier positif qui spécifie le nombre de fois où le travail s’exécute avant de finir. <p>Par exemple, quand un travail quotidien a une valeur **count** égale à 7 et une date de début définie au lundi, le travail finit de s’exécuter le dimanche. Si la date de début est passée, la première exécution est calculée d’après l’heure de création. <p>Si la valeur **endTime** ou **count** n’est pas spécifiée, le travail s’exécute indéfiniment. Vous ne pouvez pas utiliser à la fois **count** et **endTime** dans le même travail, mais la règle qui finit en premier est appliquée. | 
 | **endTime** | Non  | Valeur de chaîne Date ou DateHeure au [format ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) qui spécifie quand le travail arrête de s’exécuter. Vous pouvez définir une valeur **endTime** qui se trouve dans le passé. <p>Si la valeur **endTime** ou **count** n’est pas spécifiée, le travail s’exécute indéfiniment. Vous ne pouvez pas utiliser à la fois **count** et **endTime** dans le même travail, mais la règle qui finit en premier est appliquée. |
@@ -96,7 +96,7 @@ Par exemple, ce schéma JSON décrit une planification et une périodicité de b
 
 * Les valeurs Dates dans les travaux Scheduler contiennent uniquement la date et respectent la [spécification ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-* Les valeurs DateTime dans les travaux Scheduler contiennent à la fois la date et l’heure, respectent la [spécification ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) et ont par défaut le type UTC quand aucun décalage UTC n’est spécifié. 
+* Les valeurs DateTime dans les travaux Scheduler contiennent à la fois la date et l’heure, respectent la [spécification ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) et ont par défaut le type UTC quand aucun décalage UTC n’est spécifié. 
 
 Pour plus d’informations, consultez [Concepts, terminologie et entités](../scheduler/scheduler-concepts-terms.md).
 
@@ -108,9 +108,9 @@ Ce tableau décrit comment **startTime** contrôle la façon dont un travail s�
 
 | startTime | Aucune périodicité | Périodicité, aucune planification | Périodicité avec planification |
 |-----------|---------------|-------------------------|--------------------------|
-| **Aucune heure de début** | Exécuter une fois immédiatement. | Exécuter une fois immédiatement. Lancer les exécutions suivantes calculées à partir de la dernière exécution. | Exécuter une fois immédiatement. Lancer les exécutions suivantes à partir d’une planification de périodicité. | 
-| **Heure de début dans le passé** | Exécuter une fois immédiatement. | Calculer la première exécution suivante après l’heure de début, puis lancer l’exécution à ce moment. <p>Lancer les exécutions suivantes calculées à partir de la dernière exécution. <p>Consultez l’exemple après ce tableau. | Démarrer le travail *pas avant* l’heure de début spécifiée. La première occurrence dépend de la planification calculée à partir de l’heure de début. <p>Lancer les exécutions suivantes à partir d’une planification de périodicité. | 
-| **Heure de début dans le futur ou heure actuelle** | Exécuter une fois à l’heure de début spécifiée. | Exécuter une fois à l’heure de début spécifiée. <p>Lancer les exécutions suivantes calculées à partir de la dernière exécution. | Démarrer le travail *pas avant* l’heure de début spécifiée. La première occurrence dépend de la planification, calculée à partir de l’heure de début. <p>Lancer les exécutions suivantes à partir d’une planification de périodicité. |
+| **Aucune heure de début** | Exécuter une fois immédiatement. | Exécuter une fois immédiatement. Lancer ultérieurement les exécutions calculées à partir de la dernière exécution. | Exécuter une fois immédiatement. Lancer ultérieurement les exécutions en fonction d’une planification de périodicité. | 
+| **Heure de début dans le passé** | Exécuter une fois immédiatement. | Calculer la première exécution suivante après l’heure de début, puis lancer l’exécution à ce moment. <p>Lancer ultérieurement les exécutions calculées à partir de la dernière exécution. <p>Consultez l’exemple après ce tableau. | Démarrer le travail *pas avant* l’heure de début spécifiée. La première occurrence dépend de la planification calculée à partir de l’heure de début. <p>Lancer ultérieurement les exécutions en fonction d’une planification de périodicité. | 
+| **Heure de début dans le futur ou heure actuelle** | Exécuter une fois à l’heure de début spécifiée. | Exécuter une fois à l’heure de début spécifiée. <p>Lancer ultérieurement les exécutions calculées à partir de la dernière exécution. | Démarrer le travail *pas avant* l’heure de début spécifiée. La première occurrence dépend de la planification, calculée à partir de l’heure de début. <p>Lancer ultérieurement les exécutions en fonction d’une planification de périodicité. |
 ||||| 
 
 Prenons cet exemple d’exécution avec ces conditions : une heure de début dans le passé avec une périodicité, mais aucune planification.
@@ -125,18 +125,18 @@ Prenons cet exemple d’exécution avec ces conditions : une heure de début dan
 }
 ```
 
-* La date actuelle est le 08-04-2015 et l’heure actuelle est 13 h.
+* La date actuelle est le 8 avril 2015 et l’heure actuelle est 13h00.
 
-* La date et l’heure de début sont respectivement le 07-04-2015 à 14 h, soit avant la date et l’heure actuelles.
+* La date et l’heure de début sont respectivement le 7 avril 2015 à 14h00, soit avant la date et l’heure actuelles.
 
 * La périodicité est tous les deux jours.
 
-1. Selon ces conditions, la première exécution a lieu le 09-04-2015 à 14 h. 
+1. Dans ces conditions, la première exécution a lieu le 9 avril 2015 à 14h00. 
 
    Scheduler calcule les occurrences d’exécution à partir de l’heure de début, ignore toutes les instances dans le passé et utilise l’instance suivante dans le futur. 
-   Dans ce cas, **startTime** étant défini au 07-04-2015 à 14 h, l’instance suivante a lieu deux jours après, c’est-à-dire le 09-04-2015à 14 h.
+   Dans ce cas, **startTime** correspond au 7 avril 2015 à 14h00, si bien que l’instance suivante a lieu deux jours plus tard, c’est-à-dire le 9 avril 2015 à 14h00.
 
-   La première exécution se produit au même moment que **startTime** soit défini au 05-04-2015 à 14 h ou au 01-04-2015 à 14 h. Après la première exécution, les exécutions suivantes sont calculées selon la planification spécifiée. 
+   La première exécution se produit au même moment que **startTime** soit défini au 05-04-2015 à 14 h ou au 01-04-2015 à 14 h. Après la première exécution, les exécutions ultérieures sont calculées en fonction de la planification. 
    
 1. Les exécutions suivantes ont lieu dans cet ordre : 
    
@@ -151,7 +151,7 @@ Prenons cet exemple d’exécution avec ces conditions : une heure de début dan
 
 ## <a name="details-schedule"></a>Détails sur schedule
 
-Vous pouvez utiliser **schedule** pour *limiter* le nombre d’exécutions du travail. Par exemple, si un travail avec une valeur **frequency** définie sur "month" a une planification qui s’exécute uniquement le 31, le travail s’exécute uniquement pendant les mois qui comptent un 31ème jour.
+Vous pouvez utiliser **schedule** pour *limiter* le nombre d’exécutions du travail. Par exemple, si un travail avec une valeur **frequency** définie sur « month » a une planification qui s’exécute uniquement le 31, le travail s’exécute uniquement pendant les mois dotés d’un 31e jour.
 
 Vous pouvez également utiliser **schedule** pour *étendre* le nombre d’exécutions du travail. Par exemple, si un travail avec une valeur **frequency** définie sur "month" a une planification qui s’exécute les jours 1 et 2 du mois, le travail s’exécute le 1er et le 2ème jour du mois au lieu d’une seule fois par mois.
 
@@ -180,8 +180,8 @@ Ces planifications partent du principe que **interval** a la valeur 1\., et que 
 | `{"minutes":[15], "hours":[5,17]}` |Exécution à 5h15 et 17h15 tous les jours. |
 | `{"minutes":[15,45], "hours":[5,17]}` |Exécution à 5h15, 5h45, 17h15 et 17h45 tous les jours. |
 | `{"minutes":[0,15,30,45]}` |Exécution toutes les 15 minutes. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Exécution toutes les heures.<br /><br />Ce travail s'exécute toutes les heures. La minute est contrôlée par la valeur de **startTime**, si elle est spécifiée. Si aucune valeur **startTime** n’est spécifiée, les minutes sont contrôlées par l’heure de création. Par exemple, si l’heure de début ou l’heure de création (selon le cas) est 00h25, le travail s’exécute à 00h25, 01h25, 02h25, ..., 23h25.<br /><br />La planification équivaut à un travail avec une valeur **frequency** définie sur "hour", une valeur **interval** égale à 1 et aucune value **schedule**. La différence est que vous pouvez utiliser cette planification avec des valeurs **frequency** et **interval** différentes pour créer d’autres travaux. Par exemple, si **frequency** est définie sur "month", la planification s’exécute une seule fois par mois, plutôt que tous les jours (si **frequency** est définie sur "day"). |
-| `{minutes:[0]}` |Exécution toutes les heures sur l’heure.<br /><br />Ce travail s’exécute également toutes les heures, mais sur l’heure (par exemple, minuit, 1h, 2h, et ainsi de suite). Cela équivaut à un travail avec une valeur **frequency** définie sur "hour", une valeur **startTime** de zéro minute, et aucune valeur **schedule**, si la fréquence est "day". Si la valeur **frequency** est définie sur "week" » ou "month", la planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Exécution toutes les heures.<br /><br />Ce travail s'exécute toutes les heures. La minute est contrôlée par la valeur de **startTime**, si elle est spécifiée. Si aucune valeur **startTime** n’est spécifiée, les minutes sont contrôlées par l’heure de création. Par exemple, si l’heure de début ou l’heure de création (selon le cas) est 00h25, le travail s’exécute à 00h25, 01h25, 02h25, ..., 23h25.<br /><br />La planification est la même qu’un travail avec une valeur **frequency** définie sur « hour », une valeur **interval** égale à 1 et aucune value **schedule**. La différence est que vous pouvez utiliser cette planification avec des valeurs **frequency** et **interval** différentes pour créer d’autres travaux. Par exemple, si **frequency** est définie sur "month", la planification s’exécute une seule fois par mois, plutôt que tous les jours (si **frequency** est définie sur "day"). |
+| `{minutes:[0]}` |Exécution toutes les heures sur l’heure.<br /><br />Ce travail s’exécute également toutes les heures, mais sur l’heure (par exemple, minuit, 1h, 2h, et ainsi de suite). Cette planification équivaut à un travail avec une valeur **frequency** définie sur « hour », une valeur **startTime** de zéro minute, et aucune valeur **schedule**, si la fréquence est « day ». Si la valeur **frequency** est définie sur "week" » ou "month", la planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
 | `{"minutes":[15]}` |Exécution 15 minutes après l’heure toutes les heures.<br /><br />Ce travail s’exécute toutes les heures, en commençant à 00h15, 01h15, 02h15, et ainsi de suite. Il se termine à 23h15. |
 | `{"hours":[17], "weekDays":["saturday"]}` |Exécution à 17h00 le samedi chaque semaine. |
 | `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Exécution à 17h00 le lundi, le mercredi et le vendredi chaque semaine. |
@@ -192,11 +192,11 @@ Ces planifications partent du principe que **interval** a la valeur 1\., et que 
 | `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Exécution toutes les 15 minutes les jours de semaine entre 9h00 et 16h45. |
 | `{"weekDays":["sunday"]}` |Exécution le dimanche à l’heure de début. |
 | `{"weekDays":["tuesday", "thursday"]}` |Exécution le mardi et le jeudi à l’heure de début. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Exécution à 6h00 le 28e jour de chaque mois (en supposant que la valeur **frequency** est définie sur "month"). |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Exécution à 6h00 le 28e jour de chaque mois (en supposant que la valeur **frequency** est définie sur « month »). |
 | `{"minutes":[0], "hours":[6], "monthDays":[-1]}` |Exécution à 6h00 le dernier jour du mois.<br /><br />Si vous souhaitez exécuter un travail le dernier jour du mois, utilisez -1 au lieu de jour 28, 29, 30 ou 31. |
 | `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` |Exécution à 6h00 le premier et le dernier jour de chaque mois. |
 | `{monthDays":[1,-1]}` |Exécution le premier et le dernier jour de chaque mois à l’heure de début. |
-| `{monthDays":[1,14]}` |Exécution le premier et le quatorzième jour de chaque mois à l’heure de début. |
+| `{monthDays":[1,14]}` |Exécution le premier et le 14e jour de chaque mois à l’heure de début. |
 | `{monthDays":[2]}` |Exécution le deuxième jour du mois à l’heure de début. |
 | `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Exécution le premier vendredi de chaque mois à 5h00. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Exécution le premier vendredi de chaque mois à l’heure de début. |

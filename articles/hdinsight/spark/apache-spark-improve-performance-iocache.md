@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 3616183b5ea34b8a14712d2c449de87950443111
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954502"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581933"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache (préversion)
 
-IO Cache est un service de mise en cache de données pour Azure HDInsight qui améliore les performances des travaux Apache Spark. IO Cache fonctionne également avec les charges de travail Tez et Hive, qui peuvent être exécutées sur des clusters Spark. IO Cache utilise un composant de mise en cache open source appelé RubiX. RubiX est un cache de disque local conçu pour une utilisation avec les moteurs d’analytique du Big Data qui accèdent aux données à partir de systèmes de stockage cloud. RubiX est un système de mise en cache unique, car il utilise des disques SSD au lieu de réserver de la mémoire d’exploitation pour la mise en cache. Le service IO Cache lance et gère les serveurs de métadonnées RubiX sur chaque nœud Worker du cluster. Il configure également tous les services du cluster pour une utilisation transparente du cache RubiX.
+IO Cache est un service de mise en cache de données pour Azure HDInsight qui améliore les performances des travaux Apache Spark. IO Cache fonctionne également avec des charges de travail [Apache TEZ](https://tez.apache.org/) et [Apache Hive](https://hive.apache.org/), qui peuvent être exécutées sur des clusters [Apache Spark](https://spark.apache.org/). IO Cache utilise un composant de mise en cache open source appelé RubiX. RubiX est un cache de disque local conçu pour une utilisation avec les moteurs d’analytique du Big Data qui accèdent aux données à partir de systèmes de stockage cloud. RubiX est un système de mise en cache unique, car il utilise des disques SSD au lieu de réserver de la mémoire d’exploitation pour la mise en cache. Le service IO Cache lance et gère les serveurs de métadonnées RubiX sur chaque nœud Worker du cluster. Il configure également tous les services du cluster pour une utilisation transparente du cache RubiX.
 
 La plupart des disques SSD fournissent plus de 1 Go par seconde de bande passante. Cette bande passante, complétée par le cache de fichiers en mémoire du système d’exploitation, fournit suffisamment de bande passante pour charger des moteurs de traitement de calcul Big Data, tels qu’Apache Spark. La mémoire d’exploitation reste disponible pour qu’Apache Spark traite des tâches fortement dépendantes de la mémoire, comme les lectures aléatoires. L’utilisation exclusive de la mémoire d’exploitation permet à Apache Spark d’atteindre une utilisation optimale des ressources.  
 
@@ -52,7 +52,7 @@ Azure HDInsight IO Cache est désactivé par défaut dans la préversion. IO Cac
   
 Vous pourrez rencontrer des erreurs d’espace disque lors de l’exécution des travaux Spark après l’activation du service IO Cache. Ces erreurs se produisent parce que Spark utilise également le stockage de disque local pour stocker des données pendant les opérations de lectures aléatoires. Spark peut manquer d’espace de disque SSD une fois IO Cache activé, et l’espace dédié au stockage Spark est réduit. La quantité d’espace utilisée par le service IO Cache s’élève par défaut à la moitié de l’espace de disque SSD total. L’utilisation de l’espace disque du service IO Cache peut être configurée dans Ambari. Si vous rencontrez des erreurs d’espace disque, réduisez la quantité d’espace de disque SSD utilisée pour le service IO Cache et redémarrez-le. Pour modifier l’espace défini pour IO Cache, procédez comme suit :
 
-1. Dans Ambari, sélectionnez le service **HDFS** sur la gauche.
+1. Dans Apache Ambari, sélectionnez le service **HDFS** sur la gauche.
 
 1. Sélectionnez les onglets **Configurations** et **Avancé**.
 

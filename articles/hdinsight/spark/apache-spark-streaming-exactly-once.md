@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241311"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580998"
 ---
-# <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Créer des travaux Spark Streaming avec traitement unique des événements
+# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Créer des tâches Apache Spark Streaming avec traitement unique des événements
 
 Les applications de traitement de flux adoptent différentes approches quant à la façon dont elles gèrent le retraitement des messages après une panne dans le système :
 
@@ -25,7 +25,7 @@ Les applications de traitement de flux adoptent différentes approches quant à 
 
 Cet article explique comment configurer Spark Streaming afin de traiter les événements une seule fois.
 
-## <a name="exactly-once-semantics-with-spark-streaming"></a>Sémantique du traitement unique avec Spark Streaming
+## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Sémantique du traitement unique avec Apache Spark Streaming
 
 Commencez par analyser comment tous les points de défaillance du système redémarrent après un problème et comment vous pouvez éviter une perte de données. Une application Spark Streaming a :
 
@@ -41,11 +41,11 @@ La sémantique du traitement unique nécessite qu’aucune donnée ne soit perdu
 
 La source à partir de laquelle votre application Spark Streaming lit vos événements doit *pouvoir être relue*. Cela signifie que si le message est récupéré, mais qu’ensuite le système connait une défaillance avant d’avoir pu conserver ou traiter le message, la source doit refournir le même message.
 
-Dans Azure, Azure Event Hubs et Kafka sur HDInsight fournissent des sources pouvant être relues. D’autres exemples de source pouvant être relue sont les systèmes de fichiers à tolérance de panne comme HDFS, les objets BLOB Stockage Azure ou Azure Data Lake Store, où toutes les données sont conservées indéfiniment et où à n’importe quel point vous pouvez relire les données dans leur intégralité.
+Dans Azure, Azure Event Hubs et [Apache Kafka](https://kafka.apache.org/) sur HDInsight fournissent des sources pouvant être relues. Parmi les autres sources pouvant être relues figurent les systèmes de fichiers à tolérance de panne comme [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), les objets Blob Stockage Azure ou Azure Data Lake Store, où toutes les données sont conservées indéfiniment, et où vous pouvez relire les données dans leur intégralité à tout moment.
 
 ### <a name="reliable-receivers"></a>Récepteurs fiables
 
-Dans Spark Streaming, des sources telles qu’Event Hubs et Kafka ont des *récepteurs fiables* ; chaque récepteur effectue le suivi de sa progression de la lecture de la source. Un récepteur fiable conserve son état dans un stockage à tolérance de panne, soit dans ZooKeeper, soit dans des points de contrôle Spark Streaming écrits dans HDFS. Si un récepteur de ce type échoue, puis est redémarré, il peut reprendre là où il s’était arrêté.
+Dans Spark Streaming, des sources telles qu’Event Hubs et Kafka ont des *récepteurs fiables* ; chaque récepteur effectue le suivi de sa progression de la lecture de la source. Un récepteur fiable conserve son état dans un stockage à tolérance de panne, soit dans [Apache ZooKeeper](https://zookeeper.apache.org/), soit dans des points de contrôle Spark Streaming écrits dans HDFS. Si un récepteur de ce type échoue, puis est redémarré, il peut reprendre là où il s’était arrêté.
 
 ### <a name="use-the-write-ahead-log"></a>Utiliser le journal WAL (write-ahead log)
 
@@ -89,5 +89,5 @@ Un autre exemple consiste à utiliser un système de fichiers partitionné comme
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble de Spark Streaming](apache-spark-streaming-overview.md)
-* [Création de travaux Spark Streaming hautement disponibles dans YARN](apache-spark-streaming-high-availability.md)
+* [Vue d’ensemble d’Apache Spark Streaming](apache-spark-streaming-overview.md)
+* [Création de tâches Apache Spark Streaming hautement disponibles dans Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

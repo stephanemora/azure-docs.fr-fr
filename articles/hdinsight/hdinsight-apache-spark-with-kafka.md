@@ -10,16 +10,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b103300c7d4b72c0605b8355b03fac5201ab6d68
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279158"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494284"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Exemple Apache Spark Streaming (DStream) avec Apache Kafka sur HDInsight
 
-Découvrez comment utiliser Apache Spark pour diffuser des données vers ou depuis Apache Kafka sur Microsoft Azure HDInsight à l’aide de DStreams. Cet exemple utilise un bloc-notes jupyter qui s’exécute sur le cluster Spark.
+Découvrez comment utiliser [Apache Spark](https://spark.apache.org/) pour diffuser des données vers ou à partir d’[Apache Kafka](https://kafka.apache.org/) sur HDInsight à l’aide de [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html). Cet exemple utilise un bloc-notes [Jupyter Notebook](https://jupyter.org/) qui s’exécute sur le cluster Spark.
 
 > [!NOTE]
 > Les étapes décrites dans ce document créent un groupe de ressources Azure qui contient à la fois un Spark sur HDInsight et un Kafka sur un cluster HDInsight. Ces clusters sont tous deux situés dans un réseau virtuel Azure, ce qui permet au cluster Spark de communiquer directement avec le cluster Kafka.
@@ -97,6 +97,6 @@ Pour terminer cet exemple, suivez les étapes du fichier `README.md`.
 Dans ce document, vous avez appris à utiliser Spark pour lire et écrire dans Kafka. Utilisez les liens suivants pour découvrir d’autres façons de travailler avec Kafka :
 
 * [Prise en main d’Apache Kafka sur HDInsight](kafka/apache-kafka-get-started.md)
-* [Utilisation de MirrorMaker pour créer un réplica de Kafka sur HDInsight](kafka/apache-kafka-mirroring.md)
-* [Utilisation d’Apache Storm avec Kafka sur HDInsight](hdinsight-apache-storm-with-kafka.md)
+* [Utiliser MirrorMaker pour créer un réplica d’Apache Kafka sur HDInsight](kafka/apache-kafka-mirroring.md)
+* [Utiliser Apache Storm avec Apache Kafka sur HDInsight](hdinsight-apache-storm-with-kafka.md)
 

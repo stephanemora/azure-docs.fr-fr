@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0dfe096bb3a2a2116ead2423f53a5e44c8f02630
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c3cf2b703760debb368e26d629ee73f56ce93d39
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567517"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441249"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-python-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code pour développer et déboguer des modules Python pour Azure IoT Edge
 
@@ -66,7 +66,7 @@ Effectuez les étapes suivantes pour créer un module IoT Edge basé sur le Kit 
 
 7. Entrez un nom pour votre module. Choisissez un nom qui est unique dans le registre de conteneurs. 
 
-8. Indiquez le nom du référentiel d’images du module. Par défaut, VS Code nomme le module **localhost:5000**. Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion ressemble à **\<nom du registre\>.azurecr.io**. Remplacez uniquement la partie localhost de la chaîne, ne supprimez pas le nom de votre module. 
+8. Indiquez le nom du référentiel d’images du module. Par défaut, VS Code nomme le module **localhost:5000**. Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion ressemble à **\<nom du registre\>.azurecr.io**. Remplacez uniquement la partie localhost de la chaîne, ne supprimez pas le nom de votre module. La chaîne finale ressemble à \<nom de registre\>.azurecr.io/\<nom de module\>.
 
    ![Fourniture du référentiel d’images Docker](./media/how-to-develop-c-module/repository.png)
 
@@ -81,6 +81,7 @@ La solution comprend quatre éléments :
    > Le fichier d’environnement est créé uniquement si vous fournissez un référentiel d’images pour le module. Si vous avez accepté les valeurs localhost par défaut pour tester et déboguer localement, vous n’avez pas besoin de déclarer des variables d’environnement. 
 
 * Un fichier **deployment.template.json**, qui répertorie votre nouveau module, ainsi qu’un exemple de module **tempSensor** qui simule les données que vous pouvez utiliser à des fins de test. Pour plus d’informations sur le fonctionnement des manifestes de déploiement, consultez [Découvrez comment utiliser des manifestes de déploiement pour déployer des modules et établir des itinéraires](module-composition.md). 
+* Un fichier **deployment.debug.template.json** contient la version de débogage des images de votre module avec les options de conteneur appropriées.
 
 ## <a name="develop-your-module"></a>Développer votre module
 
@@ -92,13 +93,7 @@ Lorsque vous êtes prêt à personnaliser le modèle Python avec votre propre co
 
 Chaque dossier du module contient plusieurs fichiers Docker pour différents types de conteneurs. Utilisez l’un des fichiers se terminant par l’extension **.debug** pour générer votre module à des fins de test. Les modules Python ne prennent en charge le débogage que dans les conteneurs Linux amd64. 
 
-1. Dans VS Code, accédez au fichier `deployment.template.json`. Mettez à jour l’URL de votre image de module en ajoutant **.debug** à la fin.
-
-2. Remplacez le module Python createOptions dans **deployment.template.json** par le contenu ci-dessous, puis enregistrez ce fichier : 
-    
-    ```json
-    "createOptions": "{\"ExposedPorts\":{\"5678/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"5678/tcp\":[{\"HostPort\":\"5678\"}]}}}"
-    ```
+1. Dans VS Code, accédez au fichier `deployment.debug.template.json`. Ce fichier contient la version de débogage des images de votre module avec les options de création appropriées. 
 
 3. Accédez à `main.py`, ajoutez les codes suivants après la section d’importation
     
@@ -132,9 +127,9 @@ Chaque dossier du module contient plusieurs fichiers Docker pour différents typ
     ```
 
 2. Dans la palette de commandes VS Code, entrez et exécutez la commande **Azure IoT Edge : générer et envoyer par push la solution IoT Edge**.
-3. Sélectionnez le fichier `deployment.template.json` pour votre solution à partir de la palette de commandes. 
+3. Sélectionnez le fichier `deployment.debug.template.json` pour votre solution à partir de la palette de commandes. 
 4. Dans Azure IoT Hub Device Explorer, cliquez avec le bouton droit sur l’ID d’un appareil IoT Edge. Ensuite, sélectionnez **Créer un déploiement pour un seul appareil**. 
-5. Ouvrez le dossier **config** de votre solution. Ensuite, sélectionnez le fichier `deployment.json`. Choisissez **Select Edge Deployment Manifest** (Sélectionner un manifeste de déploiement Edge). 
+5. Ouvrez le dossier **config** de votre solution. Ensuite, sélectionnez le fichier `deployment.debug.amd64.json`. Choisissez **Select Edge Deployment Manifest** (Sélectionner un manifeste de déploiement Edge). 
 
 Vous pouvez alors constater que le déploiement a bien été créé avec un ID de déploiement dans le terminal intégré à VS Code.
 

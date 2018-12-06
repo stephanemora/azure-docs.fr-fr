@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986286"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317345"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Démarrage rapide : Connecter des utilisateurs et acquérir un jeton d’accès à partir d’une application JavaScript
 
@@ -35,9 +35,9 @@ Dans ce démarrage rapide, vous allez apprendre à utiliser un exemple de code q
 >
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrire votre application
 >
-> 1. Connectez-vous au [portail Azure](https://portal.azure.com/) pour enregistrer une application.
+> 1. Connectez-vous au [portail Azure](https://portal.azure.com/) pour inscrire une application.
 > 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-> 1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, sélectionnez ensuite **inscriptions d’applications (préversion) > Nouvelle inscription**.
+> 1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, puis sélectionnez **Inscriptions d’applications (préversion) > Nouvelle inscription**.
 > 1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
 > 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 > 1. Sélectionnez la plateforme **Web** dans la section **URI de redirection** et définissez la valeur sur `http://localhost:30662/`.
@@ -66,7 +66,7 @@ Extrayez le fichier zip dans un dossier local, par exemple **C:\Azure-Samples**.
 #### <a name="step-3-configure-your-javascript-app"></a>Étape 3 : configurez une application JavaScript
 
 > [!div renderon="docs"]
-> Modifiez `index.html` et remplacez `Enter_the_Application_Id_here` sous `applicationConfig` par l’ID de l’application que vous venez d’enregistrer.
+> Modifiez `index.html`, et définissez les valeurs de `clientID` et de `authority` sous `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Modifiez `index.html` et remplacez `applicationConfig` par :
@@ -74,13 +74,25 @@ Extrayez le fichier zip dans un dossier local, par exemple **C:\Azure-Samples**.
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> Où :
+> - `Enter_the_Application_Id_here` : est l’**ID d’application (client)** pour l’application que vous avez inscrite.
+> - `Enter_the_Tenant_Info_Here` : est défini sur l’une des options suivantes :
+>   - Si votre application prend en charge **Comptes dans cet annuaire organisationnel**, remplacez cette valeur avec l’**ID de locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
+>   - Si votre application prend en charge **Comptes dans un annuaire organisationnel**, remplacez cette valeur par `organizations`
+>   - Si votre application prend en charge **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**, remplacez cette valeur par `common`
+>
+> > [!TIP]
+> > Pour connaître les valeurs de l’**ID d’Application (client)**, de l’**ID de l’annuaire (locataire)**, et des **Types de comptes pris en charge**, consultez la page **Vue d’ensemble** de l’application dans le Portail Azure.
+
 > [!NOTE]
->Si vous utilisez [Node.js](https://nodejs.org/en/download/), le fichier *server.js* est configuré de sorte que le serveur commence l’écoute sur le port 30662.
-> Si vous utilisez [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), le fichier *.csproj* de l’exemple de code est configuré de sorte que le serveur commence l’écoute sur le port 30662.
+> Le serveur est configuré pour écouter sur le port 30662 dans le fichier *server.js* du projet [Node.js](https://nodejs.org/en/download/) et dans le fichier *.csproj* du projet [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 >
 
 #### <a name="step-4-run-the-project"></a>Étape 4 : exécutez le projet
@@ -121,7 +133,7 @@ npm install msal
 Le code de démarrage rapide montre également comment initialiser la bibliothèque :
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Where  |  |

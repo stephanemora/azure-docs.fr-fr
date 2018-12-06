@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: kgremban
-ms.openlocfilehash: cab3e5ee64ced59e9eb861e468f7a3c1dc600e8e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8c8cf77107f87522f9ae121845f53d8993449651
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220736"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824793"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envoi de messages cloud-à-appareil avec IoT Hub (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -31,7 +31,7 @@ Ce didacticiel s’appuie sur l’article [Prise en main d’IoT Hub]. Cette rub
 * Recevez des messages cloud-à-appareil sur un appareil.
 * À partir du serveur principal de votre application, demandez l’accusé de réception (*commentaires*) pour les messages envoyés à un appareil depuis IoT Hub.
 
-Vous trouverez des informations supplémentaires sur les messages du cloud vers les appareils dans le [Guide du développeur d’IoT Hub][IoT Hub developer guide - C2D].
+Vous trouverez des informations supplémentaires sur les messages du cloud vers les appareils dans le [Guide du développeur IoT Hub][IoT Hub developer guide - C2D].
 
 À la fin de ce didacticiel, vous exécuterez deux applications console Python :
 
@@ -117,7 +117,7 @@ Dans cette section, vous créez une application de console Python pour simuler l
                 print ( iothub_client_error )
     ```
 
-1. Ajoutez le code suivant pour initialiser le client et attendre de recevoir le message cloud-à-appareil :
+1. Ajoutez le code suivant pour initialiser le client et attendre de recevoir le message cloud-à-appareil :
    
     ```python
     def iothub_client_init():
@@ -291,7 +291,7 @@ Vous êtes maintenant prêt à exécuter les applications.
    
 1. Notez le message reçu par l’appareil.
 
-    ![Message reçu][img-message-recieved]
+    ![Message reçu][img-message-received]
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -304,7 +304,7 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-python-python-c2d/simulated-device.png
 [img-send-command]:  media/iot-hub-python-python-c2d/send-command.png
-[img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
+[img-message-received]: media/iot-hub-python-python-c2d/message-received.png
 
 <!-- Links -->
 [lnk-python-download]: https://www.python.org/downloads/

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430029"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853351"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -135,6 +135,7 @@ Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTT
 | 403000| L’opération n’est pas autorisée.|
 | 403001| L’opération n’est pas autorisée, car l’abonnement a dépassé son quota gratuit.|
 | 405000| La méthode de requête n’est pas prise en charge pour la ressource demandée.|
+| 408001| Le système de traduction personnalisée demandé n’est pas encore disponible. Réessayez dans quelques minutes.|
 | 415000| L’en-tête Content-Type est manquante ou invalide.|
 | 429000, 429001, 429002| Le serveur a rejeté la requête, car le client envoie trop de requête. Réduisez la fréquence des requêtes pour pallier la limitation.|
 | 500000| Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|

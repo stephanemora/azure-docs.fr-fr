@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 08/06/2017
 ms.author: sajagtap
-ms.openlocfilehash: 97879747bbfde2247e41847d8d68bf7f19530ecb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 655c4b6d142c9f792a3b16c6b20d53efef51ea5b
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367864"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852824"
 ---
 # <a name="review-moderated-images"></a>Révision des images modérées
 
@@ -24,21 +24,21 @@ Une fois que vous vous êtes inscrit à la modération de contenu et obtenu une 
 2.  Cliquez sur l’onglet Essayer et télécharger des images à examiner.
 3.  Cliquez sur l’onglet Révision et sélectionnez l’image.
 
-  ![Options de révision des images](images/review-images-1.png)
+  ![Navigateur Chrome montrant l’outil de révision avec l’option Réviser - Image en surbrillance](images/review-images-1.png)
 
   Les images sont affichées avec des étiquettes attribuées par l’outil de révision. Lorsque vous vérifiez les images, les autres réviseurs de votre équipe n’y ont pas accès.
 
 4.  Déplacez le curseur « Révisions à afficher » (1) pour ajuster le nombre d’images affichées à l’écran. Cliquez sur les boutons permettant de trier les images qui sont accompagnées de balises et les autres (2). Cliquez sur une balise (3) pour l’activer ou la désactiver.
 
-  ![Navigation au sein des images à réviser](images/review-images-2.png)
+  ![Navigateur Chrome montrant l’outil de révision avec des images marquées pour révision](images/review-images-2.png)
  
 5.  Pour obtenir plus d’informations au sujet d’une image, cliquez sur les points de suspension d’une miniature, puis sur l’option **Afficher les détails**. Pour assigner l’image à une sous-équipe, sélectionnez l’option **Déplacer vers**.
  
-  ![Options permettant d’afficher les détails et de déplacer l’image vers une sous-équipe](images/review-images-3.png)
+  ![Une image avec l’option Afficher les détails en surbrillance](images/review-images-3.png)
 
 6. Parcourez les informations de modération de l’image sur la page de détails.
 
-  ![Affichage des détails de l’image](images/review-images-4.png)
+  ![Une image avec les détails de modération listés dans un volet distinct](images/review-images-4.png)
  
 7.  Une fois que vous avez révisé et mis à jour les balises attribuées en fonction de la situation, cliquez sur **Suivant** pour envoyer vos révisions.
 

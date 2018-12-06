@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 2195a43665f99e8388b13fc6dc3e528496bd3901
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b1276ab227f4bf65483fb2cdec57c759573bc7c5
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242685"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853589"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Conditions d’utilisation et déclaration de confidentialité des applications Azure Active Directory inscrites
 
@@ -64,10 +64,10 @@ Quand les conditions d’utilisation et la déclaration de confidentialité sont
 
 Si vous avez inscrit votre application dans le portail Azure, effectuez les étapes suivantes.
 
-1. Connectez-vous au  [portail Azure](https://portal.azure.com/).
-2. Accédez à la section  **Inscriptions des applications** , puis sélectionnez votre application.
-3. Ouvrez la section  **Propriétés**  de l’application.
-4. Remplissez les champs  **URL des conditions de service**  et  **URL de la déclaration de confidentialité** .
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+2. Accédez à la section **Inscriptions d’applications** et sélectionnez votre application.
+3. Ouvrez la section **Propriétés** de l’application.
+4. Remplissez les champs **URL des conditions d’utilisation** et **URL de la déclaration confidentialité**.
 5. Enregistrez vos modifications.
 
     ![Section des propriétés de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
@@ -76,9 +76,9 @@ Si vous avez inscrit votre application dans le portail Azure, effectuez les éta
 
 Si vous avez inscrit votre application dans le portail d’inscription des applications ou dans le Centre de développement, effectuez les étapes suivantes.
 
-1. Connectez-vous au  [portail d’inscription des applications](https://apps.dev.microsoft.com/).
-2. Sélectionnez votre application, puis faites défiler l’écran jusqu’à la section  **Profil** .
-3. Remplissez les champs  **URL des conditions de service**  et  **URL de la déclaration de confidentialité** .
+1. Connectez-vous au [portail d’inscription des applications](https://apps.dev.microsoft.com/).
+2. Sélectionnez votre application, puis faites défiler jusqu’à la section **Profil**.
+3. Remplissez les champs **URL des conditions d’utilisation** et **URL de la déclaration confidentialité**.
 4. Enregistrez vos modifications.
 
     ![Section du profil de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)

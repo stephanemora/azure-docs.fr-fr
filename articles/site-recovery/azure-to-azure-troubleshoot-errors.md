@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945737"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308122"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure
 
@@ -150,28 +150,36 @@ SuSE Linux utilisant des liens symboliques pour tenir à jour une liste de certi
 
 Pour que la réplication Site Recovery fonctionne, une connectivité sortante vers des URL ou des plages d’adresses IP spécifiques est nécessaire à partir de la machine virtuelle. Si votre machine virtuelle se trouve derrière un pare-feu ou utilise des règles de groupe de sécurité réseau pour contrôler la connectivité sortante, vous pouvez rencontrer l’un des problèmes ci-après.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>Problème 1 : Échec de l’inscription de la machine virtuelle Azure auprès de Site Recovery (151037) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problème 1 : Échec de l’inscription de la machine virtuelle Azure auprès de Site Recovery (151195) </br>
 - **Cause possible** </br>
-  - Vous utilisez un groupe de sécurité réseau pour contrôler l’accès sortant sur la machine virtuelle, et les plages d’adresses IP requises ne figurent pas dans la liste verte pour l’accès sortant.
-  - Vous utilisez des outils de pare-feu tiers, et les URL/plages d’adresses IP requises ne figurent pas dans la liste verte.
+  - Il est impossible d’établir la connexion aux points de terminaison de Site Recovery en raison de l’échec de la résolution DNS.
+  - Cela est plus fréquent pendant la reprotection lorsque vous avez procédé au basculement de la machine virtuelle, mais que le serveur DNS n’est pas accessible à partir de la région de récupération d’urgence.
+  
+- **Résolution :**
+   - Si vous utilisez un système DNS personnalisé, assurez-vous que le serveur DNS est accessible à partir de la région de récupération d’urgence. Pour vérifier si vous avez un système DNS personnalisé accédez à Machine virtuelle > Réseau de récupération d’urgence > Serveurs DNS. Essayez d’accéder au serveur DNS à partir de la machine virtuelle. S’il n’est pas accessible, rendez-le accessible en basculant sur le serveur DNS ou en créant la ligne du site entre le réseau de récupération d’urgence et le système DNS.
+  
+    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+ 
 
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problème 2 : Échec de la configuration de Site Recovery (151196)
+- **Cause possible** </br>
+  - Impossible d’établir la connexion aux points de terminaison IP4 d’identité et d’authentification Office 365.
 
 - **Résolution :**
-   - Si vous utilisez un proxy de pare-feu pour contrôler la connectivité réseau sortante sur la machine virtuelle, vérifiez que les URL ou les plages d’adresses IP du centre de données prérequises figurent dans la liste verte. Pour plus d’informations, consultez ces [instructions relatives aux proxy de pare-feu](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Si vous utilisez des règles de groupe de sécurité réseau pour contrôler la connectivité réseau sortante sur la machine virtuelle, vérifiez que les plages d’adresses IP du centre de données prérequises figurent dans la liste verte. Pour plus d’informations, consultez ces [instructions relatives aux groupes de sécurité réseau](azure-to-azure-about-networking.md).
-   - Pour mettre les [URL requises](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou les [plages d’adresses IP requises](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) dans la liste verte, suivez les étapes fournies dans ce [document d’aide à la mise en réseau](azure-to-azure-about-networking.md).
+  - Azure Site Recovery exigeait l’accès aux plages d’adresses IP d’Office 365 pour l’authentification.
+    Si vous utilisez un proxy de règles/pare-feu de groupe de sécurité réseau Azure pour contrôler la connectivité réseau sortante sur la machine virtuelle, assurez-vous d’autoriser la communication avec les plages IP Office 365. Créer une règle de groupe de sécurité réseau basée sur une [balise de service Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à toutes les adresses IP correspondant à AAD
+        - Si de nouvelles adresses sont ajoutées ultérieurement à Azure Active Directory (AAD), vous devez créer de nouvelles règles de groupe de sécurité réseau.
 
-### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Problème 2 : Échec de la configuration de Site Recovery (151072)
+
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problème 3 : Échec de la configuration de Site Recovery (151197)
 - **Cause possible** </br>
-  - Il est impossible d’établir la connexion aux points de terminaison de service Site Recovery.
-
+  - Il est impossible d’établir la connexion aux points de terminaison de service Azure Site Recovery.
 
 - **Résolution :**
-   - Si vous utilisez un proxy de pare-feu pour contrôler la connectivité réseau sortante sur la machine virtuelle, vérifiez que les URL ou les plages d’adresses IP du centre de données prérequises figurent dans la liste verte. Pour plus d’informations, consultez ces [instructions relatives aux proxy de pare-feu](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Si vous utilisez des règles de groupe de sécurité réseau pour contrôler la connectivité réseau sortante sur la machine virtuelle, vérifiez que les plages d’adresses IP du centre de données prérequises figurent dans la liste verte. Pour plus d’informations, consultez ces [instructions relatives aux groupes de sécurité réseau](https://aka.ms/a2a-nsg-guidance).
-   - Pour mettre les [URL requises](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou les [plages d’adresses IP requises](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) dans la liste verte, suivez les étapes fournies dans ce [document d’aide à la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md).
+  - Azure Site Recovery exigeait l’accès aux [plages d’adresses IP Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) selon la région. Assurez-vous que les plages d’adresses IP requises sont accessibles à partir de la machine virtuelle.
+    
 
-### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problème 3 : Échec de la réplication A2A lorsque le trafic réseau transite par le serveur proxy local (151072)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problème 4 : Échec de la réplication A2A lorsque le trafic réseau transite par le serveur proxy local (151072)
  - **Cause possible** </br>
    - Les paramètres de proxy personnalisés sont incorrects, et l’agent du service Mobilité ASR n’a pas détecté automatiquement les paramètres de proxy à partir d’Internet Explorer.
 

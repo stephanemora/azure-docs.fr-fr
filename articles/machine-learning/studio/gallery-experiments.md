@@ -1,10 +1,11 @@
 ---
-title: Expériences dans la galerie Azure AI | Microsoft Docs
+title: Expériences Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
 description: Découvrez et partagez des expériences dans la galerie Azure AI.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
@@ -15,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 22432a98a7ac5ecba46201d0166940e069f6031b
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346437"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317464"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Découvrir des expériences dans la galerie Azure AI
 
-[Azure AI Gallery](http://gallery.cortanaintelligence.com) contient une grande variété d’[expériences](https://gallery.cortanaintelligence.com/experiments) qui ont été développées dans [Azure Machine Learning Studio](https://studio.azureml.net). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) contient de nombreuses [expériences](https://gallery.cortanaintelligence.com/experiments) qui ont été développées dans [Azure Machine Learning Studio](https://studio.azureml.net). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
 
 > [!NOTE]
 > Une ***expérience*** est un canevas dans Machine Learning Studio que vous pouvez utiliser pour créer un modèle d’analyse prédictive. Vous créez le modèle en connectant des données avec divers modules d’analyse. Vous pouvez essayer différentes idées, effectuer des essais, puis publier votre modèle sous la forme d’un service Web dans Azure. Pour obtenir un exemple de création d’une expérience simple, consultez la rubrique [Didacticiel de Machine Learning : Création de votre première expérience dans Azure Machine Learning Studio](create-experiment.md). Pour une description plus complète de la création d’une solution d’analyse prédictive, consultez la rubrique [Procédure pas à pas : Développement d’une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](walkthrough-develop-predictive-solution.md).

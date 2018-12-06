@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: cb8774395b7374677e8de3b80630a2d4abf490f9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367932"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852093"
 ---
 # <a name="review-text"></a>Réviser le texte
 
@@ -32,4 +32,4 @@ Tout d’abord, l’outil de révision appelle l’API Modération de texte. Ens
 
 Les résultats détaillés s’affichent dans les fenêtres. Les résultats comportent les balises détectées et les termes qui ont été renvoyés par l’API Modération de texte. Pour modifier l’état de la sélection d’une balise, sélectionnez la balise. Vous pouvez également travailler avec des balises personnalisées si vous en avez créé.
 
-![Examiner les résultats du texte](images/3-review-text-2.png)
+![Capture d’écran de l’outil de vérification montrant du texte marqué d’indicateurs dans une fenêtre du navigateur Chrome](../images/reviewresults_text.png)

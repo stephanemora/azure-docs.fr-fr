@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/09/2018
+ms.date: 11/27/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 049e859f1d736e7c06ac5d40e33d91d1540c3d9e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8de810e689a00f081df82365eca00131453a6db5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514364"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447110"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Préparer l’hôte d’extension pour Azure Stack
 
@@ -121,8 +121,6 @@ Utilisez un ordinateur capable de se connecter au point de terminaison Azure Sta
     }
     ```
 
-
-
 ### <a name="update-dns-configuration"></a>Mettre à jour la configuration DNS
 
 > [!Note]  
@@ -131,8 +129,8 @@ Si les enregistrements d’un hôte A individuel ont été configurés de sorte 
 
 | IP | Nom d’hôte | type |
 |----|------------------------------|------|
-| \<IP> | Adminhosting.<Region>.<FQDN> | A |
-| \<IP> | Hosting.<Region>.<FQDN> | A |
+| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
+| \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
 
 Les adresses IP allouées peuvent être récupérées à l’aide du point de terminaison privilégié en exécutant le cmdlet **Get-AzureStackStampInformation**.
 

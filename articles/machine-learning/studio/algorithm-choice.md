@@ -1,9 +1,10 @@
 ---
-title: Comment choisir les algorithmes d’apprentissage automatique | Microsoft Docs
+title: Guide pratique pour choisir des algorithmes de machine learning - Azure Machine Learning Studio | Microsoft Docs
 description: Guide pratique pour choisir des algorithmes Azure Machine Learning Studio pour l’apprentissage supervisé et non supervisé dans les expériences de clustering, de classification ou de régression.
 services: machine-learning
-author: pakalra
-ms.author: pakalra
+author: ericlicoding
+ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 tags: ''
@@ -12,12 +13,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262299"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312416"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Guide pratique pour choisir des algorithmes pour Azure Machine Learning Studio
 

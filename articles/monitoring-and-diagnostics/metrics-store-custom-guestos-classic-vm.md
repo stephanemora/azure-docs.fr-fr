@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 06b3d97f4b2b7867f09a8c4e5fe974615e9b0c70
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0b1209c1d8d92b08d15cfbfd6e323b7bd748e2f5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093418"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316918"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Envoyer les métriques du système d’exploitation invité d’une machine virtuelle Windows (classique) au magasin de données Azure Monitor
 
@@ -27,7 +27,7 @@ La procédure décrite dans cet article fonctionne uniquement avec les machines 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Vous devez être [administrateur ou coadministrateur de services fédérés](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) dans votre abonnement Azure. 
+- Vous devez être [administrateur ou coadministrateur de services fédérés](../billing/billing-add-change-azure-subscription-administrator.md) dans votre abonnement Azure. 
 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
@@ -45,7 +45,7 @@ La procédure décrite dans cet article fonctionne uniquement avec les machines 
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
-Créez un principal de service dans votre locataire Azure Active Directory en suivant les instructions indiquées dans [Créer un principal du service](../azure-resource-manager/resource-group-create-service-principal-portal.md). Notez ce qui suit au cours de ce processus : 
+Créez un principal de service dans votre locataire Azure Active Directory en suivant les instructions indiquées dans [Créer un principal du service](../active-directory/develop/howto-create-service-principal-portal.md). Notez ce qui suit au cours de ce processus : 
 - Créez un secret client pour cette application.
 - Enregistrez la clé et l’ID client pour les utiliser ultérieurement.
 

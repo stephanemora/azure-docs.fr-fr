@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457406"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443030"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -53,9 +53,39 @@ Traffic Analytics examine les journaux de flux de groupe de sécurité réseau b
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-Vous pouvez utiliser l’analytique du trafic pour les groupes de sécurité réseau dans les régions suivantes : USA Centre-Ouest, USA Est, USA Est 2, USA Centre Nord, USA Centre Sud, USA Centre, USA Ouest, USA Ouest 2, Canada Centre, Europe Ouest, Europe Nord, Royaume-Uni Ouest, Royaume-Uni Sud, Japon Est, Inde Centre, Australie Est, Australie Sud-Est et Asie Sud-Est. 
+Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge suivantes :
 
-L’espace de travail Log Analytics doit se trouver dans la région USA Centre-Ouest, USA Est, Europe Ouest, Royaume-Uni Sud, Canada Centre, Japon Est, Inde Centre, Australie Sud-Est ou Asie Sud-Est.
+* Centre du Canada
+* USA Centre-Ouest
+* USA Est
+* USA Est 2
+* USA Centre Nord
+* USA Centre Sud
+* USA Centre
+* USA Ouest
+* USA Ouest 2
+* Europe Ouest
+* Europe Nord
+* Brésil Sud
+* Ouest du Royaume-Uni
+* Sud du Royaume-Uni
+* Australie Est
+* Australie Sud-Est
+* Asie Sud-Est
+* Inde Centre
+* Inde Sud
+* Japon Est 
+
+L’espace de travail Log Analytics doit exister dans les régions suivantes :
+* Centre du Canada
+* USA Centre-Ouest
+* USA Est
+* Europe Ouest
+* Sud du Royaume-Uni
+* Australie Sud-Est
+* Asie Sud-Est
+* Inde Centre
+* Japon Est
 
 ## <a name="prerequisites"></a>Prérequis
 

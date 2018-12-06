@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 0c44e57f99ea8fea91fd8178400c648e8dcd982b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092971"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309808"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migration de Contoso : régénérer une application locale sur Azure
 
@@ -91,7 +91,7 @@ Après avoir défini précisément les objectifs et exigences, Contoso conçoit 
   
 ### <a name="solution-review"></a>Examen de la solution
 
-Contoso évalue la conception proposée en dressant la liste des avantages et des inconvénients.
+Contoso évalue la conception proposée en dressant une liste des avantages et des inconvénients.
 
 **Considération** | **Détails**
 --- | ---
@@ -495,7 +495,7 @@ Les administrateurs de Contoso créent deux projets différents pour le site fro
 
     ![Paramètres Json](./media/contoso-migration-rebuild/configure-webapp2.png)
 
-5. Une fois le fichier mis à jour, ils le renomment **smarthotelsettingsurl**, puis le chargent sur l’objet blob de stockage créé précédemment.
+5. Une fois le fichier mis à jour, ils le renomment **smarthotelsettingsurl**, puis le chargent dans le stockage d’objets blob créé précédemment.
 
     ![Renommer et charger](./media/contoso-migration-rebuild/configure-webapp3.png)
 

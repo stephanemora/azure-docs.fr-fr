@@ -1,5 +1,5 @@
 ---
-title: Exportation de données Azure Security vers SIEM - Configuration du pipeline [Préversion] | Microsoft Docs
+title: Exportation de données Azure Security vers SIEM - Configuration du pipeline | Microsoft Docs
 description: Cet article décrit comment envoyer des journaux Azure Security Center vers SIEM
 services: security-center
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 11/26/2018
 ms.author: barclayn
-ms.openlocfilehash: aede60a729fe9c0594ded485e189c0b467e34271
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4cc9478197b39198a94ace1cbefab81de3cdb32b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298231"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306724"
 ---
-# <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Exportation de données Azure Security vers SIEM - Configuration du pipeline [Préversion]
+# <a name="azure-security-data-export-to-siem-pipeline-configuration"></a>Exportation de données Azure Security vers SIEM - Configuration du pipeline
 
 Ce document décrit en détail la procédure d’exportation de données de sécurité Azure Security Center vers un système SIEM.
 
@@ -37,11 +37,11 @@ Vue d’ensemble globale
 
 ## <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Quelles sont les données de sécurité Azure exposées à SIEM ?
 
-Dans cette préversion, nous exposons les [alertes de sécurité](../security-center/security-center-managing-and-responding-alerts.md). Dans les versions à venir, nous enrichirons le jeu de données avec des recommandations de sécurité.
+Dans cette version, nous exposons les [alertes de sécurité](../security-center/security-center-managing-and-responding-alerts.md). Dans les versions à venir, nous enrichirons le jeu de données avec des recommandations de sécurité.
 
-## <a name="how-to-setup-the-pipeline"></a>Comment configurer le pipeline ? 
+## <a name="how-to-setup-the-pipeline"></a>Comment configurer le pipeline
 
-### <a name="create-an-event-hub"></a>Création d’un concentrateur d’événements 
+### <a name="create-an-event-hub"></a>Création d’un concentrateur d’événements
 
 Avant de commencer, vous devez [créer un espace de noms Event Hubs](../event-hubs/event-hubs-create.md). Cet espace de noms et cet hub d’événements sont la destination de toutes vos données de monitoring.
 

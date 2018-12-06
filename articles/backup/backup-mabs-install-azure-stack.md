@@ -336,7 +336,7 @@ Une fois que vous connaissez l’état de la connectivité d’Azure et de l’a
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Récupération après la perte de connectivité
 
-Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, mettez sur liste blanche les adresses de domaine suivantes dans le profil de pare-feu/proxy :
+Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, mettez sur liste verte les adresses de domaine suivantes dans le profil de pare-feu/proxy :
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com

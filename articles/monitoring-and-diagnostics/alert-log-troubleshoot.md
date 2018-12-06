@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e2326f56ad367f744bc7895bc8c4bfd6f32d0310
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616484"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264877"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Résolution des problèmes liés aux alertes de journal d’activité dans Azure Monitor  
 ## <a name="overview"></a>Vue d’ensemble
@@ -61,7 +61,7 @@ Par exemple, supposons qu’une règle d’alerte de journal Mesure métrique so
 
 ![Exécution de la requête Mesure métrique avec plusieurs valeurs](./media/monitor-alerts-unified/LogMMQuery.png)
 
-« Aggregate Upon » correspondant à $table, les données sont triées sur la colonne $table (comme en ROUGE), puis nous regroupons et examinons les types du champ « Aggregate Upon » (autrement dit) $table – par exemple : les valeurs pour availabilityResults seront considérées en tant que tracé/entité (comme mis en surbrillance en orange). Dans cette valeur de tracé/entité, le service d’alerte vérifie trois violations consécutives se produisant (comme indiqué en vert) pour lesquelles l'alerte sera déclenchée pour la valeur de table « availabilityResults ». De même, si pour toute autre valeur de $table trois violations consécutives sont observées, une autre notification d’alerte sera déclenchée ; le service d’alerte triant automatiquement les valeurs d'un tracé/d'une entité (comme indiqué en orange) par heure.
+« Aggregate Upon » correspondant à $table, les données sont triées sur la colonne $table (comme en ROUGE), puis nous regroupons et examinons les types du champ « Aggregate Upon » (autrement dit) $table – par exemple : les valeurs pour availabilityResults seront considérées en tant que tracé/entité (comme mis en surbrillance en orange). Dans cette valeur de tracé/entité, le service d’alerte vérifie trois violations consécutives se produisant (comme indiqué en vert) pour lesquelles l'alerte sera déclenchée pour la valeur de table « availabilityResults ». De même, si pour toute autre valeur de $table trois violations consécutives sont observées, une autre notification d’alerte sera déclenchée pour la même chose ; le service d’alerte triant automatiquement les valeurs d’un tracé/d’une entité (comme indiqué en orange) par heure.
 
 Maintenant, supposons que la règle d’alerte de journal ait été modifiée et que la requête correspondait à `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` avec le reste de la configuration identique avant d’inclure la logique d’alerte pour trois violations consécutives. Dans ce cas, l’option « Aggregate Upon » est par défaut : timestamp. Une seule valeur étant fournie dans la requête pour résumer... par (autrement dit) timestamp, comme dans l'exemple précédent, au terme de l'exécution, le résultat correspond à celui illustré ci-dessous. 
 

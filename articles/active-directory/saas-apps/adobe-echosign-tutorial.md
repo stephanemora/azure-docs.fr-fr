@@ -124,7 +124,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     ![Capture d’écran de la section Configuration d’Adobe Sign, avec Configurer Adobe Signer mis en surbrillance](./media/adobe-echosign-tutorial/tutorial_adobesign_configure.png)
 
-7. Avant la configuration, contactez [l’équipe de support client d’Adobe Sign](https://helpx.adobe.com/in/contact/support.html) pour ajouter votre domaine à la liste blanche dans Adobe Sign. Voici comment ajouter le domaine :
+7. Avant la configuration, contactez [l’équipe de support client d’Adobe Sign](https://helpx.adobe.com/in/contact/support.html) pour ajouter votre domaine à la liste verte dans Adobe Sign. Voici comment ajouter le domaine :
 
     a. L’[équipe de support client d’Adobe Sign](https://helpx.adobe.com/in/contact/support.html) vous enverra un jeton généré aléatoirement. Pour votre domaine, le jeton sera dans ce format : **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 

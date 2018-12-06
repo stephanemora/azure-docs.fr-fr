@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 4438cff0dcf5e896f39729d9871d4deb3207b4b8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107993"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499110"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -38,7 +38,7 @@ HDInsight est disponible dans de nombreuses régions Azure. Pour rechercher la r
 
 ### <a name="location-of-default-storage"></a>Emplacement du stockage par défaut
 
-Le stockage par défaut (soit un compte de stockage Azure, soit Azure Data Lake Store) doit être au même emplacement que votre cluster. Le stockage Azure est disponible à tous les emplacements. Data Lake Store est disponible dans certaines régions. Consultez la disponibilité actuelle de Data Lake Store sous *Stockage* dans [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
+Le stockage par défaut (soit un compte de stockage Azure, soit Azure Data Lake Store) doit être au même emplacement que votre cluster. Le stockage Azure est disponible à tous les emplacements. Data Lake Store Gen 1 est disponible dans certaines régions. Consultez la disponibilité actuelle de Data Lake Store sous *Stockage* dans [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Emplacement des données existantes
 
@@ -48,7 +48,7 @@ Si vous avez déjà avez un compte de stockage ou un Data Lake Store contenant v
 
 Après avoir déployé un cluster HDInsight, vous pouvez joindre d’autres comptes de stockage Azure ou accéder à d’autres Data Lake Stores. Tous vos comptes de stockage doivent résider au même emplacement que votre cluster. Un Data Lake Store peut être à un emplacement différent, mais cela risque d’entraîner une latence des données en lecture/écriture.
 
-Le stockage Azure a certaines [limites de capacité](../azure-subscription-service-limits.md#storage-limits), tandis que Data Lake Store est quasiment illimité.
+Le service Stockage Azure présente certaines [limites de capacité](../azure-subscription-service-limits.md#storage-limits), tandis que Data Lake Store Gen 1 est quasiment illimité.
 
 Un cluster peut accéder à une combinaison de différents comptes de stockage. Voici quelques exemples classiques :
 
@@ -61,7 +61,7 @@ Pour un cluster à 48 nœuds, nous recommandons d’avoir de quatre à huit comp
 
 ## <a name="choose-a-cluster-type"></a>Choisir un type de cluster
 
-Le type de cluster détermine la charge de travail que votre cluster HDInsight est configuré pour exécuter, telle que Hadoop, Storm, Kafka ou Spark. Pour obtenir une description détaillée des types de clusters disponibles, consultez [Présentation d’Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Chaque type de cluster a une topologie de déploiement spécifique qui inclut des exigences en matière de taille et de quantité de nœuds.
+Le type de cluster détermine la charge de travail pour laquelle votre cluster HDInsight est configuré, par exemple, [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) ou [Apache Spark](https://spark.apache.org/). Pour obtenir une description détaillée des types de clusters disponibles, consultez [Présentation d’Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Chaque type de cluster a une topologie de déploiement spécifique qui inclut des exigences en matière de taille et de quantité de nœuds.
 
 ## <a name="choose-the-vm-size-and-type"></a>Choisir la taille et le type de machine virtuelle
 
@@ -79,7 +79,7 @@ La taille et le type de machine virtuelle sont déterminés par la puissance de 
 
 ## <a name="choose-the-cluster-scale"></a>Choix de l’échelle du cluster
 
-L’échelle d’un cluster est déterminée par la quantité de ses nœuds de machine virtuelle. Pour tous les types de clusters, il existe certains types de nœuds qui ont une échelle spécifique et d’autres qui prennent en charge la montée en puissance parallèle. Par exemple, un cluster peut nécessiter exactement trois nœuds ZooKeeper ou deux nœuds Head. Les nœuds worker qui effectuent le traitement des données de manière distribuée peuvent bénéficier de la montée en puissance parallèle, en ajoutant des nœuds worker supplémentaires.
+L’échelle d’un cluster est déterminée par la quantité de ses nœuds de machine virtuelle. Pour tous les types de clusters, il existe certains types de nœuds qui ont une échelle spécifique et d’autres qui prennent en charge la montée en puissance parallèle. Par exemple, un cluster peut nécessiter exactement trois nœuds [Apache ZooKeeper](https://zookeeper.apache.org/) ou deux nœuds principaux. Les nœuds worker qui effectuent le traitement des données de manière distribuée peuvent bénéficier de la montée en puissance parallèle, en ajoutant des nœuds worker supplémentaires.
 
 En fonction de votre type de cluster, l’augmentation du nombre de nœuds worker ajoute de la capacité de calcul supplémentaire (par exemple, davantage de cœurs), mais peut également ajouter à la quantité totale de mémoire requise pour que l’ensemble du cluster prenne en charge le stockage en mémoire des données en cours de traitement. Comme avec le choix de la taille et du type de machine virtuelle, la sélection de l’échelle de cluster appropriée est généralement effectuée de manière empirique, à l’aide de charges de travail simulées ou de requêtes canary.
 
@@ -90,7 +90,7 @@ Vous pouvez faire monter en puissance votre cluster afin de répondre aux pics d
 Vous êtes facturé pour la durée de vie d’un cluster. Si vous avez besoin que votre cluster ne soit opérationnel qu’à des horaires spécifiques, vous pouvez [créer des clusters à la demande à l’aide d’Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Vous pouvez également créer des scripts PowerShell qui approvisionnent et suppriment votre cluster, puis planifier ces scripts à l’aide de [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
-> Quand un cluster est supprimé, son metastore Hive par défaut est également supprimé. Pour rendre persistant le metastore pour la recréation de cluster suivante, utilisez un magasin de métadonnées externe tel qu’Azure Database ou Oozie.
+> Quand un cluster est supprimé, son metastore Hive par défaut est également supprimé. Si vous souhaitez rendre persistant le metastore pour la recréation du cluster suivant, utilisez un magasin de métadonnées externe tel qu’Azure Database ou [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>Isoler les erreurs de travaux de cluster
@@ -109,5 +109,5 @@ Toutefois, il existe certaines limites de quota fixes. Par exemple, un abonnemen
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore](hdinsight-hadoop-provision-linux-clusters.md) : découvrez comment installer et configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services ou Storm.
+* [Configurer des clusters dans HDInsight avec Apache Hadoop, Spark, Kafka et bien plus encore](hdinsight-hadoop-provision-linux-clusters.md) : découvrez comment installer et configurer des clusters dans HDInsight avec Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services ou Storm.
 * [Surveiller les performances du cluster](hdinsight-key-scenarios-to-monitor.md) : découvrez les principaux scénarios susceptibles d’affecter les capacités de votre cluster HDInsight.

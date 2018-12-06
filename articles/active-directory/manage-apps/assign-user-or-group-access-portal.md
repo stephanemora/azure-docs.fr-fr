@@ -2,25 +2,21 @@
 title: Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory | Microsoft Docs
 description: Comment sélectionner une application d’entreprise pour affecter un utilisateur ou un groupe dans Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b6b7408b4efe4c3271ea2ddeb63a499bee670976
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037972"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711308"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory
 Pour affecter un utilisateur ou un groupe à une application d’entreprise, vous devez disposer des autorisations nécessaires pour gérer l’application d’entreprise, et vous devez être l’administrateur général du répertoire.
@@ -32,7 +28,7 @@ Pour affecter un utilisateur ou un groupe à une application d’entreprise, vou
 > Dans le cas des applications Microsoft (par exemple, les applications Office 365), utilisez PowerShell pour affecter des utilisateurs à une application d’entreprise.
 
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Comment faire pour attribuer l’accès à une application d’entreprise à un utilisateur dans le portail Azure ?
+## <a name="assign-a-user-to-an-app---portal"></a>Affecter un utilisateur à une application - portail
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Tous les services**, entrez Azure Active Directory dans la zone de texte, puis sélectionnez **Entrée**.
 3. Sélectionnez **Applications d’entreprise**.
@@ -51,7 +47,25 @@ Pour affecter un utilisateur ou un groupe à une application d’entreprise, vou
 10. Dans le panneau **Ajouter une affectation**, sélectionnez **Rôle**. Puis, dans le panneau **Sélectionner un rôle**, choisissez un rôle à appliquer aux utilisateurs ou groupes sélectionnés, puis cliquez sur le bouton **OK** en bas du panneau.
 11. Dans le panneau **Ajouter une affectation**, sélectionnez le bouton **Affecter** en bas du panneau. Les utilisateurs ou les groupes ont les autorisations définies par le rôle sélectionné pour cette application d’entreprise.
 
-## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>Comment faire pour affecter un utilisateur à une application d’entreprise à l’aide de PowerShell ?
+## <a name="allow-all-users-to-access-an-app---portal"></a>Autoriser tous les utilisateurs à accéder à une application - portail
+Pour autoriser tous les utilisateurs à accéder à une application :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
+2. Sélectionnez **Tous les services**, entrez Azure Active Directory dans la zone de texte, puis sélectionnez **Entrée**.
+3. Sélectionnez **Applications d’entreprise**.
+4. Dans le panneau **Applications d’entreprise**, sélectionnez **Toutes les applications**. Cette action répertorie les applications que vous pouvez gérer.
+5. Sur le panneau **Applications d’entreprise - Toutes les applications** , sélectionnez une application.
+6. Dans le panneau ***nom_application***, sélectionnez **Propriétés**.
+7. Dans le panneau ***nom_application* - Propriétés**, définissez le paramètre **Affectation utilisateur requise ?** sur **Non**. 
+
+L’option **Affectation utilisateur requise ?**  :
+
+- N’a pas d’impact sur l’apparition ou non d’une application dans le volet Accès à l’application. Pour montrer l’application dans le volet d’accès, vous devez affecter un utilisateur ou un groupe approprié à l’application.
+- Fonctionne seulement avec les applications cloud qui sont configurées pour l’authentification unique SAML et avec les applications locales configurées avec le proxy d’application. Consultez [Authentification unique pour les applications](what-is-single-sign-on.md).
+- Nécessite que les utilisateurs donnent leur consentement à une application. Un administrateur peut accorder un consentement pour tous les utilisateurs.  Consultez [Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md).
+
+
+## <a name="assign-a-user-to-an-app---powershell"></a>Affecter un utilisateur à une application - PowerShell
 
 1. Ouvrez une invite de commandes Windows PowerShell avec des privilèges élevés.
 

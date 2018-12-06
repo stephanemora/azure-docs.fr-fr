@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 6613def8891109e3a0ddf818111898a893a8035d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628443"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161871"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guide de Java Enterprise pour App Service sur Linux
 
@@ -27,17 +27,18 @@ Ce guide fournit des concepts et des instructions clés aux développeurs Java E
 
 ## <a name="scale-with-app-service"></a>Mettre à l’échelle avec App Service 
 
-Le serveur d’applications WildFly s’exécutant dans App Service sur Linux s’exécute en mode autonome, et non pas dans une configuration de domaine. 
+Le serveur d’applications WildFly s’exécutant dans App Service sur Linux s’exécute en mode autonome, et non pas dans une configuration de domaine. Quand vous effectuez un scale-out du plan App Service, chaque instance WildFly est configurée comme un serveur autonome.
 
- Mettez à l’échelle votre application verticalement ou horizontalement, avec des [règles de mise à l’échelle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) et en [augmentant le nombre de vos instances](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+ Mettez à l’échelle votre application verticalement ou horizontalement, avec des [règles de mise à l’échelle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) et en [augmentant le nombre de vos instances](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). 
 
 ## <a name="customize-application-server-configuration"></a>Personnaliser la configuration du serveur d’applications
 
-Les développeurs peuvent écrire un script Bash de démarrage pour exécuter la configuration supplémentaire nécessaire pour leur application, comme celles-ci :
+Les instances d’application web sont sans état, chaque nouvelle instance démarrée doit donc être configurée au démarrage pour prendre en charge la configuration Wildfly nécessaire par application.
+Vous pouvez écrire un script Bash de démarrage pour appeler l’interface CLI WildFly afin de :
 
-- Configuration de sources de données
-- Configuration de fournisseurs de messagerie
-- Ajout d’autres modules et d’autres dépendances à la configuration du serveur WildFly.
+- Configurer les sources de données
+- Configurer les fournisseurs de messagerie
+- Ajouter d’autres modules et dépendances à la configuration de serveur WildFly.
 
  Le script s’exécute une fois que WildFly est opérationnel, mais avant le démarrage de l’application. Le script doit utiliser l’[interface CLI JBOSS](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) appelée depuis `/opt/jboss/wildfly/bin/jboss-cli.sh` pour configurer le serveur d’applications avec une certaine configuration ou avec les modifications nécessaires après le démarrage du serveur. 
 
@@ -51,7 +52,7 @@ Chargez le script de démarrage sur `/home/site/deployments/tools` dans votre in
 
 Définissez le champ **Script de démarrage** champ dans le portail Azure sur l’emplacement de votre script shell de démarrage, par exemple `/home/site/deployments/tools/your-startup-script.sh`.
 
-Utilisez des [paramètres d’application](/azure/app-service/web-sites-configure#application-settings) pour définir les variables d’environnement à utiliser dans le script. Ces paramètres sont rendus disponibles pour l’environnement du script de démarrage, et pour conserver les chaînes de connexion et les autres secrets en dehors de la gestion de version.
+Fournissez les [paramètres d’application](/azure/app-service/web-sites-configure#application-settings) dans la configuration d’application pour passer les variables d’environnement à utiliser dans le script. Les paramètres d’application conservent les chaînes de connexion et les autres secrets nécessaires pour configurer votre application en dehors de la gestion de version.
 
 ## <a name="modules-and-dependencies"></a>Modules et dépendances
 

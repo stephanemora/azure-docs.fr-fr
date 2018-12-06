@@ -1,10 +1,11 @@
 ---
-title: "Résolution de problèmes : création d'un espace de travail Machine Learning et connexion à celui-ci | Microsoft Docs"
-description: Solutions aux problèmes courants liés à la création d'un espace de travail Azure Machine Learning et à la connexion à un tel espace
+title: 'Résolution de problèmes : création d’un espace de travail Machine Learning Studio et connexion à celui-ci - Azure | Microsoft Docs'
+description: Ce guide propose des solutions pour certains défis qui se posent souvent quand vous configurez des espaces de travail Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
@@ -15,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 1d53e13798f24fa6225b0a587dde71b4f34f48fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5e52abeeef7d40ac5594f4edfa2b80ef553081e4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243383"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312051"
 ---
-# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Guide de résolution des problèmes : création d'un espace de travail Machine Learning et connexion à celui-ci
-Ce guide propose des solutions pour quelques-uns des défis qui se posent souvent quand vous configurez des espaces de travail Azure Machine Learning.
+# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-studio-workspace"></a>Guide de résolution des problèmes : création et connexion à un espace de travail Machine Learning Studio
+Ce guide propose des solutions pour certains défis qui se posent souvent quand vous configurez des espaces de travail Azure Machine Learning Studio.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -44,7 +45,7 @@ Le service Machine Learning a besoin d'un compte de stockage pour stocker les do
 
 Une fois l’espace de travail Machine Learning créé, vous pouvez vous connecter à Machine Learning Studio au moyen du compte Microsoft utilisé pour créer l’espace de travail. Si vous rencontrez le message d'erreur « Espace de travail introuvable » (comme dans la capture d'écran suivante), effectuez les étapes suivantes pour supprimer les cookies de votre navigateur.
 
-![Workspace not found][screen3]
+![Espace de travail introuvable][screen3]
 
 **Pour supprimer les cookies du navigateur**
 
@@ -54,7 +55,7 @@ Une fois l’espace de travail Machine Learning créé, vous pouvez vous connect
 
 2. Sous l'onglet **Général**, cliquez sur **Supprimer…**
 
-![General tab][screen5]
+![Onglet Général][screen5]
 
 3. Dans la boîte de dialogue **Supprimer l’historique de navigation**, vérifiez que **Cookies et données de sites web** est sélectionné, puis cliquez sur **Supprimer**.
 

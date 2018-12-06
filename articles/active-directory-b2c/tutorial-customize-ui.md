@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622667"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581797"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Tutoriel : Personnaliser l’interface utilisateur de vos applications dans Azure Active Directory B2C
 
@@ -64,7 +64,7 @@ Bien que vous puissiez stocker vos fichiers de plusieurs façons, pour les besoi
  Le code Azure AD B2C dans un navigateur utilise une approche moderne et standard pour charger le contenu personnalisé à partir d’une URL que vous spécifiez dans une stratégie. Le partage des ressources Cross-Origin (CORS) permet de demander des ressources restreintes dans une page web à partir d’autres domaines.
 
 1. Dans le menu, sélectionnez **CORS**.
-2. Pour **Origines autorisées**, entrez `your-tenant-name.b2clogin.com`. Remplacez `your-tenant-name` par le nom de votre locataire Azure AD B2C. Par exemple : `fabrikam.b2clogin.com`.
+2. Pour **Origines autorisées**, entrez `https://your-tenant-name.b2clogin.com`. Remplacez `your-tenant-name` par le nom de votre locataire Azure AD B2C. Par exemple : `https://fabrikam.b2clogin.com`. Vous devez utiliser des minuscules quand vous entrez le nom de votre locataire.
 3. Pour **Méthodes autorisées**, sélectionnez `GET` et `OPTIONS`.
 4. Pour **En-têtes autorisés**, saisissez un astérisque (*).
 5. Pour **En-têtes exposés**, saisissez un astérisque (*).

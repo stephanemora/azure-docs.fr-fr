@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a3bce69236586bcd0a250c47f1129ac0d94e8b26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231480"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308781"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Autorisations et comptes Azure AD Connect
 
@@ -39,7 +39,10 @@ Azure AD Connect utilise 3 comptes pour synchroniser les informations provenant
 
 En plus de ces trois comptes utilisés pour exécuter Azure AD Connect, vous avez également besoin de comptes supplémentaires pour installer Azure AD Connect.  Ces règles sont les suivantes :
 
-- **Compte d’administrateur d’entreprise AD DS**. Utilisé pour installer Azure AD Connect
+- **Compte d’administrateur local** : l’administrateur qui installe Azure AD Connect et qui a des autorisations d’administrateur local sur la machine.
+
+- **Compte d’administrateur d’entreprise AD DS** : utilisé de façon facultative pour créer le « compte de connecteur AD DS » ci-dessus.
+
 - **Compte d’administrateur général Azure AD**. Utilisé pour créer le compte de connecteur Azure AD et configurer Azure AD.
 
 - **Compte d’administrateur système SQL (facultatif)**. Utilisé pour créer la base de données ADSync lors de l’utilisation de la version complète de SQL Server.  Ce serveur SQL Server peut être local ou distant de l’installation d’Azure AD Connect.  Ce compte peut être le même compte que celui de l’administrateur d’entreprise.  Le provisionnement de la base de données peut désormais être exécuté hors bande par l’administrateur SQL. L’installation est ensuite effectuée par l’administrateur Azure AD Connect disposant des droits du propriétaire de la base de données.  Pour obtenir des informations sur le sujet, consultez [Installer Azure AD Connect à l’aide d’autorisations administrateur déléguées SQL](how-to-connect-install-sql-delegation.md).

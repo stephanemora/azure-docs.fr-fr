@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 8f66c95202e0ccdef86f9630f7a98c20023a8955
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087744"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425997"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database 
 
@@ -101,7 +101,7 @@ Pour activer la diffusion en continu des données de télémétrie de diagnostic
    ![Configurer les diagnostics pour SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Le journal d’audit ne peut pas être activé à partir des paramètres de diagnostic de la base de données. Pour activer le flux des journaux d’audit, consultez [Configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2) et [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Les journaux d’audit ne peuvent pas être activés à partir des paramètres de diagnostic de la base de données. Pour activer le flux des journaux d’audit, consultez [Configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2) et [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 >
 
 > [!TIP]
@@ -182,7 +182,7 @@ Pour activer la diffusion en continu des données de télémétrie de diagnostic
 2. Sélectionnez **Paramètres de diagnostic**.
 3. Sélectionnez **Activer les diagnostics** si aucun paramètre précédent n’existe, ou sélectionnez **Modifier le paramètre** pour modifier un paramètre précédent.
 
-   ![Activer les diagnostics pour une instance Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Activer les diagnostics pour une instance Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 4. Tapez le nom du paramètre (pour votre propre référence).
 5. Sélectionnez la ressource vers laquelle diffuser des données de diagnostic en continu à partir du pool élastique : **Archive to storage account** (Archiver dans un compte de stockage), **Stream to an event hub** (Diffuser en continu vers un Event Hub) ou **Send to Log Analytics** (Envoyer vers Log Analytics).
@@ -190,7 +190,7 @@ Pour activer la diffusion en continu des données de télémétrie de diagnostic
 7. Cochez la case correspondant aux données de télémétrie de diagnostic d’instance **ResourceUsageStats**.
 8. Cliquez sur **Enregistrer**.
 
-   ![Configurer les diagnostics pour une instance Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configurer les diagnostics pour une instance Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
 > Répétez les étapes ci-dessus pour chaque instance Managed Instance que vous souhaitez analyser.

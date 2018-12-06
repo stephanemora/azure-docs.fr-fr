@@ -3,20 +3,20 @@ title: Liaisons Azure Cosmos DB pour Azure Functions 1.x
 description: Découvrez comment utiliser des déclencheurs et liaisons Azure Cosmos DB dans Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: 62d675e4b91e3e22cf01e09d1a1a021f225310a9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: cshoe
+ms.openlocfilehash: 3d4c9e974f92f26b93900318c01dc8a659d8edbe
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321884"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276208"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Liaisons Azure Cosmos DB pour Azure Functions 1.x
 
@@ -33,9 +33,8 @@ Cet article explique comment utiliser des liaisons [Azure Cosmos DB](..\cosmos-d
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="supported-apis"></a>API prises en charge
-
-[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+> [!NOTE]
+> Les liaisons Azure Cosmos DB sont uniquement utilisables avec l’API SQL. Pour toutes les autres API Azure Cosmos DB, vous devez accéder à la base de données à partir de votre fonction en utilisant le client statique pour votre API, incluant [l’API MongoDB](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), [l’API Cassandra](../cosmos-db/cassandra-introduction.md), [l’API Gremlin](../cosmos-db/graph-introduction.md) et [l’API Table](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
@@ -123,8 +122,8 @@ Voici le code Script C# :
 
     public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
     {
-      log.Verbose("Documents modified " + documents.Count);
-      log.Verbose("First document Id " + documents[0].Id);
+      log.Info("Documents modified " + documents.Count);
+      log.Info("First document Id " + documents[0].Id);
     }
 ```
 
@@ -1197,7 +1196,7 @@ Voir aussi l’[exemple d’entrée](#input---c-examples) qui utilise `DocumentC
 
 [Ignorer les exemples de sortie](#output---attributes)
 
-### <a name="ouput---c-examples"></a>Sortie - Exemples C#
+### <a name="output---c-examples"></a>Sortie - exemple C#
 
 Cette section contient les exemples suivants :
 

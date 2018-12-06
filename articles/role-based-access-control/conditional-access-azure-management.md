@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 083cb4eb84746f4a61b51f3573a0bf66110fe1ee
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435046"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274736"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gérer l’accès à la gestion Azure avec l’accès conditionnel
 
@@ -32,7 +32,7 @@ Pour créer une stratégie pour la gestion Azure, sélectionnez **Gestion Micros
 
 ![Accès conditionnel pour la gestion Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-La stratégie que vous créez s’applique à tous les points de terminaison de gestion Azure, y compris le portail Azure Classic, le portail Azure, le fournisseur Azure Resource Manager, les API de gestion de service classiques et Azure PowerShell.
+La stratégie que vous créez s’applique à tous les points de terminaison de gestion Azure, y compris le portail Azure Classic, le portail Azure, le fournisseur Azure Resource Manager, les API de gestion de service classiques et Azure PowerShell. Notez que la stratégie s’applique à Azure PowerShell, qui appelle l’API Azure Resource Manager. Elle ne s’applique pas à [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), qui appelle Microsoft Graph.
 
 > [!CAUTION]
 > Vous devez comprendre le fonctionnement de l’accès conditionnel avant de configurer une stratégie pour gérer l’accès à la gestion Azure. Veillez à ne pas créer de conditions susceptibles de bloquer votre propre accès au portail.

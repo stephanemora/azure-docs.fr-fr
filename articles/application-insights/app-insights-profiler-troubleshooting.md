@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fa6e70fe58e5066fcf308425a4c0d104c072a756
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978840"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164301"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -46,9 +46,6 @@ Le profileur écrit les messages de trace et les événements personnalisés dan
 
 1. Si des requêtes ont eu lieu pendant l’exécution du profileur, vérifiez qu’elles sont gérées par la partie de votre application pour laquelle le profileur est activé. Parfois, les applications sont constituées de plusieurs composants mais Profiler n’est activé que pour certains d’entre eux. La page Configurer Application Insights Profiler montre les composants qui ont chargé des traces.
 
-### <a name="net-core-21-bug"></a>Bogue lié à .Net Core 2.1
-Il existe un bogue dans l’agent du profileur qui l’empêche de charger les traces effectuées à partir d’applications s’exécutant sur ASP.NET Core 2.1. Nous travaillons sur un correctif qui sera bientôt disponible. Le correctif pour ce bogue sera déployé d’ici la fin du mois d’octobre.
-
 ### <a name="other-things-to-check"></a>Autres éléments à vérifier :
 * Votre application s’exécute sur .NET Framework 4.6.
 * Si votre application web est une application ASP.NET Core, elle doit exécuter au moins ASP.NET Core 2.0.
@@ -69,10 +66,11 @@ Soumettez un ticket de support dans le portail. Veillez à indiquer l’ID de co
 ## <a name="troubleshooting-profiler-on-app-services"></a>Résolution des problèmes liés à Profiler sur App Services
 ### <a name="for-the-profiler-to-work-properly"></a>Pour que le profileur fonctionne correctement :
 * Votre plan de service d’application web doit être au niveau De base ou supérieur.
-* L’extension Application Insights pour App Services (2.6.5) doit être installée sur votre application web.
+* Votre application web doit avoir Application Insights activé.
 * Le paramètre **APPINSIGHTS_INSTRUMENTATIONKEY** de votre application web doit utiliser la même clé d’instrumentation que le SDK Application Insights.
 * Le paramètre d’application **APPINSIGHTS_PROFILERFEATURE_VERSION** de votre application web doit être défini et avoir la valeur 1.0.0.
-* La tâche web **ApplicationInsightsProfiler2** doit être en cours d’exécution. Vous pouvez vérifier la tâche web en accédant à [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/) et en ouvrant le **Tableau de bord WebJobs** sous le menu Outils. Comme vous pouvez le voir dans les captures d’écran ci-dessous, un clic sur le lien ApplicationInsightsProfiler2 vous permet d’afficher les détails de la tâche web, notamment le journal.
+* Votre application web doit avoir le paramètre d’application **DiagnosticServices_EXTENSION_VERSION** défini sur la valeur ~3.
+* Le travail web **ApplicationInsightsProfiler3** doit être en cours d’exécution. Vous pouvez vérifier la tâche web en accédant à [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/) et en ouvrant le **Tableau de bord WebJobs** sous le menu Outils. Comme vous pouvez le voir dans les captures d’écran ci-dessous, un clic sur le lien ApplicationInsightsProfiler2 vous permet d’afficher les détails de la tâche web, notamment le journal.
 
     Voici le lien sur lequel vous devez cliquer pour afficher les détails de la tâche web : 
 
@@ -91,11 +89,7 @@ Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramè
 1. Activez l’option **Toujours actif**.
 1. Ajoutez le paramètre d’application **APPINSIGHTS_INSTRUMENTATIONKEY** et définissez la valeur sur la même clé d’instrumentation que celle utilisée par le kit de développement logiciel (SDK).
 1. Ajoutez le paramètre d’application **APPINSIGHTS_PROFILERFEATURE_VERSION** et affectez-lui la valeur 1.0.0.
-1. Ouvrez **Outils avancés**.
-1. Sélectionnez **Aller à** pour ouvrir le site web Kudu.
-1. Sur le site web Kudu, sélectionnez **Extensions de site**.
-1. Installez **Application Insights** à partir de la galerie Azure Web Apps.
-1. Redémarrez l’application web.
+1. Ajoutez le paramètre d’application **DiagnosticServices_EXTENSION_VERSION** et définissez la valeur sur ~3.
 
 ### <a name="too-many-active-profiling-sessions"></a>Trop de sessions de profilage actives
 

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622514"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284759"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Prise en charge de la région et de la langue pour l’API du service de reconnaissance vocale
 
@@ -36,7 +36,7 @@ L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes
  en-GB | Anglais (Royaume-Uni) | Non  | OUI | Oui
  en-IN | Anglais (Inde) | Oui | OUI | Oui
  en-NZ | Anglais (Nouvelle-Zélande) | Non  | OUI | Oui  
- fr-FR | Anglais (États-Unis) | Oui | OUI | Oui
+ en-US | Anglais (États-Unis) | Oui | OUI | Oui
  es-ES | Espagnol (Espagne) | Non  | Oui | Non 
  es-MX | Espagnol (Mexique) | Non  | Oui | Non 
  fi-FI | Finnois (Finlande) | Non  | Non  | Non 
@@ -70,7 +70,6 @@ ar-SA | Arabe (Arabie saoudite) | Masculin | « Voix de synthèse vocale pour le
 bg-BG | Bulgare | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (bg-BG, Ivan) »
 ca-ES | Catalan (Espagne) | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ca-ES, HerenaRUS) »
 cs-CZ | Tchèque | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (cs-CZ, Jakub) »
-cs-CZ | Tchèque | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (cs-CZ, Vit) »
 da-DK | Danois | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (da-DK, HelleRUS) »
 de-AT | Allemand (Autriche) | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-AT, Michael) »
 de-CH | Allemand (Suisse) | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-CH, Karsten) »
@@ -86,7 +85,6 @@ en-GB | Anglais (Royaume-Uni) | Féminin | « Voix de synthèse vocale pour le s
 | | |Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-GB, HazelRUS) »
 | | |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-GB, George, Apollo) »
 en-IE | Anglais (Irlande) |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IE, Sean) »
-en-IE | Anglais (Irlande) |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IE, Shaun) »
 en-IN | Anglais (Inde) | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Heera, Apollo) »
 | | |Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, PriyaRUS) »
 | | |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Ravi, Apollo) »
@@ -153,10 +151,10 @@ zh-TW | Chinois (Taïwan)|Féminin | « Voix de synthèse vocale pour le service
 
 ### <a name="customization"></a>Personnalisation
 
-La personnalisation vocale est disponible pour l’anglais américain (en-US), le chinois continental (zh-CN) et l’italien (it-IT).
+La personnalisation vocale est disponible pour l’anglais américain (en-US), le chinois continental (zh-CN), le français (fr-FR), l’allemand (de-DE) et l’italien (it-IT).
 
 > [!NOTE]
-> L’entraînement de la voix italienne commence par un jeu de données de plus de 2 000 énoncés. Les modèles bilingues chinois-anglais sont également pris en charge avec un premier jeu de données de plus de 2 000 énoncés.
+> L’entraînement de la voix française, allemande et italienne commence par un jeu de données de plus de 2 000 énoncés. Les modèles bilingues chinois-anglais sont également pris en charge avec un premier jeu de données de plus de 2 000 énoncés.
 
 ## <a name="speech-translation"></a>Traduction vocale
 

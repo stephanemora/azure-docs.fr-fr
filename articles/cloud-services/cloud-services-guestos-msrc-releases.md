@@ -11,17 +11,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/12/2018
+ms.date: 11/15/2018
 ms.author: raiye
-ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578771"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854269"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="november-2018-guest-os"></a>Système d’exploitation invité, novembre 2018
+
+>[!NOTE]
+>Le système d’exploitation invité de novembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de novembre. Cette liste est susceptible d’être modifiée.
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| Version 11/18 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | 13 novembre 2018 |
+| Version 11/18 | [4467694] | Clignote | 3.67, 4.60, 5.25 | 13 novembre 2018 |
+| Version 11/18 | [4467106] | Sécurité Windows | 2.80 | 13 novembre 2018 |
+| Version 11/18 | [4467678] | Sécurité Windows | 3.67 | 13 novembre 2018 |
+| Version 11/18 | [4467703] | Sécurité Windows | 4.60 | 13 novembre 2018 |
+| Version 11/18 | [4467691] | Sécurité de Windows 10 | 5.25 | 13 novembre 2018 |
+| N/A | [3173426] | Mise à jour de la pile de maintenance | 3.67 | 12 juillet 2016 |
+| N/A | [4465659] | Mise à jour de la pile de maintenance | 5.25 | 13 novembre 2018 |
+| N/A | [4462923] | Correctif cumulatif d’octobre non relatif à la sécurité | 2.80 | 9 octobre 2018 |
+| N/A | [4462929] | Correctif cumulatif d’octobre non relatif à la sécurité | 3.67 | 9 octobre 2018 |
+| N/A | [4462926] | Correctif cumulatif d’octobre non relatif à la sécurité | 4.60 | 9 octobre 2018 |
+| N/A | [3109976] | Shims de compatibilité des applications | 4.60 | 12 avril 2016 |
+| N/A | [4457037] | Shims de compatibilité des applications | 4.60| 12 juin 2018 |
+
+[4466536]: http://support.microsoft.com/kb/4466536
+[4467694]: http://support.microsoft.com/kb/4467694
+[4467106]: http://support.microsoft.com/kb/4467106
+[4467678]: http://support.microsoft.com/kb/4467678
+[4467703]: http://support.microsoft.com/kb/4467703
+[4467691]: http://support.microsoft.com/kb/4467691
+[3173426]: http://support.microsoft.com/kb/3173426
+[4465659]: http://support.microsoft.com/kb/4465659
+[4462923]: http://support.microsoft.com/kb/4462923
+[4462929]: http://support.microsoft.com/kb/4462929
+[4462926]: http://support.microsoft.com/kb/4462926
+[3109976]: http://support.microsoft.com/kb/3109976
+[4457037]: http://support.microsoft.com/kb/4457037
 
 ## <a name="october-2018-guest-os"></a>Système d’exploitation invité, octobre 2018
 

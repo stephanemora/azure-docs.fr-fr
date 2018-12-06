@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 463c74638b0e50348b8c9454334b7457e7b570e6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283884"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423345"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Distribution mondiale d’Azure Cosmos DB - sous le capot
 
@@ -72,7 +72,7 @@ Pour les bases de données Cosmos configurées avec plusieurs régions d’écri
 
 Que vous configuriez votre base de données Cosmos avec une ou plusieurs régions d’écriture, vous pouvez choisir parmi cinq modèles de cohérence bien définis. En lien avec la prise en charge nouvellement ajoutée de l’activation de plusieurs régions d’écriture, voici quelques aspects remarquables des niveaux de cohérence :  
 
-Comme précédemment, la cohérence en fonction de l’obsolescence limitée garantit que toutes les lectures auront lieu dans les k préfixes ou t secondes suivant la dernière écriture dans toute région. De plus, les lectures avec cohérence en fonction de l’obsolescence limitée sont garanties unitones et assorties de garanties de préfixe cohérent. Le protocole anti-entropie opère avec une limite de débit, et garantit que les préfixes ne s’accumulent pas et que la contre-pression sur les écritures ne doive pas être appliquée. Comme précédemment, la cohérence de session garantit une lecture et une écriture unitones, la lecture de votre propre écriture, que l’écriture suive la lecture, et offre des garanties à préfixe cohérent dans le monde entier. Pour les bases de données configurées avec une cohérence forte, le système revient à une région d’écriture unique en désignant un leader au sein de chaque jeu de partitions. 
+Comme précédemment, la cohérence en fonction de l’obsolescence limitée garantit que toutes les lectures auront lieu dans les k préfixes ou t secondes suivant la dernière écriture dans toute région. De plus, les lectures avec cohérence en fonction de l’obsolescence limitée sont garanties unitones et assorties de garanties de préfixe cohérent. Le protocole anti-entropie opère avec une limite de débit, et garantit que les préfixes ne s’accumulent pas et que la contre-pression sur les écritures ne doive pas être appliquée. Comme précédemment, la cohérence de session garantit une lecture et une écriture unitones, la lecture de votre propre écriture, que l’écriture suive la lecture, et offre des garanties à préfixe cohérent dans le monde entier. Pour les bases de données configurées avec une cohérence forte, les avantages du multimaître (faible latence d’écriture, haute disponibilité d’écriture) ne s’appliquent pas, en raison de la réplication synchrone entre les régions.
 
 Les sémantiques des cinq modèles de cohérence dans Cosmos DB sont exposées [ici](consistency-levels.md) et décrites mathématiquement [ici](https://github.com/Azure/azure-cosmos-tla) à l’aide d’une spécification TLA+ de haut niveau.
 
@@ -81,5 +81,5 @@ Les sémantiques des cinq modèles de cohérence dans Cosmos DB sont exposées [
 Découvrez ensuite comment configurer la distribution mondiale à l’aide les articles suivants :
 
 * [Article relatif à la configuration des clients pour le multihébergement](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Article relatif à l’ajout/la suppression des régions de votre base de données](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Ajouter/supprimer des régions à partir de votre compte de base de données](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Article relatif à la création d’une stratégie de résolution de conflits personnalisée pour les comptes SQL API](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

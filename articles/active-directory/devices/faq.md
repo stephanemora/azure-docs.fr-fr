@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515639"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309342"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -93,6 +93,7 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 >[!Note] 
 >Pour les appareils inscrits, nous vous recommandons de réinitialiser l’appareil pour vous assurer que les utilisateurs ne puissent pas accéder aux ressources. Pour plus d’informations, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+
 ---
 
 # <a name="azure-ad-join-faq"></a>FAQ Azure AD Join
@@ -103,6 +104,20 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 - Pour les appareils joints à Azure AD hybride, veillez à désactiver l’inscription automatique afin que la tâche planifiée n’inscrive pas à nouveau l’appareil. Ensuite, ouvrez une invite de commandes en tant qu’administrateur et saisissez `dsregcmd.exe /debug /leave`. Cette commande peut également être exécutée en tant que script entre plusieurs appareils pour disjoindre en bloc.
 
 - Pour les appareils uniquement joints à Azure AD, assurez-vous d’avoir un administrateur local en mode hors connexion de compte ou créez-en un, car vous ne pourrez pas vous connecter avec des informations d’identification d’utilisateur Azure AD. Ensuite, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez votre compte et cliquez sur **Se déconnecter**. Suivez les invites et fournissez les informations d’identification de l’administrateur local lorsque vous y êtes invité. Redémarrez l’appareil pour terminer le processus de disjonction.
+
+---
+
+**Q : Mes utilisateurs peuvent-ils se connecter à des appareils joints à Azure AD qui ont été supprimés ou désactivés dans Azure AD ?**
+**R: ** Oui. Windows a mis en cache les fonctionnalités d’ouverture de session pour permettre aux utilisateurs précédemment connectés d’accéder au poste de travail rapidement, même sans connectivité réseau. Quand un appareil est supprimé ou désactivé dans Azure AD, ce fait n’est pas connu par l’appareil Windows. Ainsi, les utilisateurs précédemment connectés peuvent continuer à accéder au poste de travail avec l’ouverture de session mise en cache. Cependant, comme l’appareil est supprimé ou désactivé, les utilisateurs ne peuvent pas accéder aux ressources protégées par l’accès conditionnel basé sur l’appareil. 
+
+Les utilisateurs qui ne sont pas déjà connectés ne peuvent pas accéder à l’appareil, car il n’existe pas d’ouverture de session mise en cache activée pour eux. 
+
+---
+
+**Q : Les utilisateurs désactivés ou supprimés peuvent-ils se connecter à des appareils joints à Azure AD ?**
+**R: ** Oui, mais uniquement pour une durée limitée. Quand un utilisateur est supprimé ou désactivé dans Azure AD, ce fait n’est pas connu immédiatement par l’appareil Windows. Ainsi, les utilisateurs précédemment connectés peuvent accéder au poste de travail avec l’ouverture de session mise en cache. Une fois que l’état de l’utilisateur est indiqué à l’appareil (généralement en moins de 4 heures), Windows bloque l’accès de cet utilisateur au poste de travail. Quand l’utilisateur est supprimé ou désactivé dans Azure AD, tous ses jetons sont révoqués, et il ne peut donc plus accéder à aucune ressource. 
+
+Les utilisateurs supprimés ou désactivés qui ne se sont pas connectés auparavant ne peuvent pas accéder à un appareil, car il n’existe pas d’ouverture de session mise en cache activée pour eux. 
 
 ---
 

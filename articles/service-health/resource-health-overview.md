@@ -3,7 +3,7 @@ title: Présentation d’Azure Resource Health | Microsoft Docs
 description: Vue d’ensemble d’Azure Resource Health
 services: Resource health
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shawn.tabrizi
-ms.openlocfilehash: 99e996f182aac774f2e2565d87fd0debaba1b2d1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263120"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309427"
 ---
 # <a name="azure-resource-health-overview"></a>Vue d’ensemble d’Azure Resource Health
  
@@ -28,7 +28,7 @@ Azure Resource Health vous aide à diagnostiquer les problèmes et à accéder a
 Là où le [statut Azure](https://status.azure.com) vous informe des problèmes de service qui concernent un grand nombre de clients Azure, Resource Health vous offre un tableau de bord personnalisé de l’intégrité de vos ressources. Resource Health vous montre toutes les fois où vos ressources ont été indisponibles en raison de problèmes de service Azure. Cela vous permet de comprendre simplement si un contrat de niveau de service a été enfreint. 
 
 ## <a name="resource-definition-and-health-assessment"></a>Définition des ressources et évaluation de l’intégrité
-Une ressource est une instance spécifique d’un service Azure (par exemple, une machine virtuelle, une application web ou une base de données SQL).
+Une ressource est une instance spécifique d’un service Azure : par exemple, une machine virtuelle, une application web ou une base de données SQL.
 
 Resource Health s’appuie sur des signaux émis par les différents services Azure pour évaluer l’intégrité d’une ressource. Si une ressource n’est pas intègre, Resource Health analyse des informations supplémentaires pour déterminer la source du problème. Il identifie également les actions adoptées par Microsoft pour résoudre le problème ou les actions que vous pouvez réaliser pour corriger la cause du problème. 
 

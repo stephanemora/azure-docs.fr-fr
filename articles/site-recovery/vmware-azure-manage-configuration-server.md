@@ -1,18 +1,18 @@
 ---
 title: Gérer le serveur de configuration pour la reprise d’activité de machines virtuelles VMware et serveurs physiques avec Azure Site Recovery | Microsoft Docs
 description: Cet article explique comment gérer un serveur de configuration existant pour la reprise d’activité de machines virtuelles VMware et serveurs physiques sur Azure avec Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
-ms.author: raynew
-ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.author: ramamill
+ms.openlocfilehash: a58de808816bf80cf950d7b032ca042c7913a2e5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568452"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976381"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d’urgence de machines virtuelles VMware
 
@@ -222,9 +222,16 @@ Pour les déploiements de serveurs de configuration effectués avant mai 2016, l
 2. La date d’expiration est indiquée sous **Intégrité de Configuration Server**.
 3. Sélectionnez **Renouveler les certificats**.
 
-## <a name="update-windows-licence"></a>Mettre à jour la licence Windows
+## <a name="refresh-configuration-server"></a>Actualiser le serveur de configuration
 
-La licence fournie avec le modèle OVF est une licence d’évaluation valide pendant 180 jours. Pour une utilisation sans interruption, vous devez activer Windows avec une licence approvisionnée.
+1. Dans le portail Azure, accédez à **Coffre Recovery Services** > **Gérer** > **Infrastructure Site Recovery** > **Pour les machines VMware et physiques** > **Serveurs de configuration**.
+2. Cliquez sur le serveur de configuration que vous souhaitez actualiser.
+3. Dans le panneau avec les détails du serveur de configuration choisi, cliquez sur **Plus** > **Actualiser le serveur**.
+4. Surveillez la progression du travail sous **Coffre Recovery Services** > **Surveillance** > **Travaux Site Recovery**.
+
+## <a name="update-windows-license"></a>Mettre à jour la licence Windows
+
+La licence fournie avec le modèle OVF est une licence d’évaluation valide 180 jours. Pour une utilisation ininterrompue, vous devez activer Windows avec une licence achetée.
 
 ## <a name="failback-requirements"></a>Conditions requises pour la restauration automatique
 

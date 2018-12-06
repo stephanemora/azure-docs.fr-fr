@@ -10,23 +10,23 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260004"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852688"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Démarrage rapide : Bien démarrer avec Content Moderator
 
-Dans ce démarrage rapide, vous allez utiliser l’outil de révision Content Moderator pour tester les fonctionnalités de base de Content Moderator sans avoir à écrire du code. Si vous souhaitez intégrer ce service dans votre application plus rapidement, consultez les autres démarrages rapides dans la section [Étapes suivantes](#next-steps).
+Dans ce guide de démarrage rapide, vous allez utiliser l’outil de révision Content Moderator pour tester les fonctionnalités de base de Content Moderator sans avoir à écrire du code. Si vous souhaitez intégrer ce service dans votre application plus rapidement, consultez les autres démarrages rapides dans la section [Étapes suivantes](#next-steps).
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Un navigateur web
 
 ## <a name="set-up-the-review-tool"></a>Installer l’outil de révision
-L’outil de révision Content Moderator est un outil web qui permet aux réviseurs humains d’aider le service cognitif à prendre des décisions. Dans ce guide, vous allez suivre le processus consistent à installer l’outil de révision pour voir comment le service Content Moderator fonctionne. Accédez au site [Content Moderator](https://contentmoderator.cognitive.microsoft.com/) et inscrivez-vous.
+L’outil de révision Content Moderator est un outil web qui permet aux réviseurs humains d’aider le service cognitif à prendre des décisions. Dans ce guide, vous allez suivre le processus consistent à installer l’outil de révision pour voir comment le service Content Moderator fonctionne. Accédez au site de l’[outil de révision Content Moderator](https://contentmoderator.cognitive.microsoft.com/) et inscrivez-vous.
 
 ![Page d'accueil Content Moderator](images/homepage.PNG)
 
@@ -58,7 +58,7 @@ Dans un projet, vous ou votre équipe de révision pouvez modifier ces balises o
 
 ## <a name="learn-more-about-the-review-tool"></a>En savoir plus sur l’outil de révision
 
-Pour apprendre à utiliser l’outil de révision Content Moderator, consultez le guide [Humain dans la boucle](Review-Tool-User-Guide/human-in-the-loop.md) et examinez les API de l’outil de révision pour savoir comment affiner la tâche de révision humaine :
+Pour en savoir plus sur l’utilisation de l’outil de révision Content Moderator, consultez le guide [Outil de révision](Review-Tool-User-Guide/human-in-the-loop.md) et examinez les API de l’outil de révision pour savoir comment affiner la tâche de révision humaine :
 - [L’API Travail](try-review-api-job.md) analyse votre contenu à l’aide des API de modération et génère des révisions dans l’outil de révision. 
 - [L’API Révision](try-review-api-review.md) crée directement des révisions de vidéos, de textes et d’images pour les modérateurs humains sans analyse du contenu au préalable. 
 - [L’API Flux de travail](try-review-api-workflow.md) crée et met à jour des flux de travail personnalisés créés par votre équipe, et obtient des informations sur ceux-ci.

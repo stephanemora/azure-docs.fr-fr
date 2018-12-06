@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour gérer la connectivité et la messagerie fiable à l’aide des kits Azure IoT Hub device SDK
+title: Guide pratique pour gérer la connectivité et la messagerie fiable à l’aide des kits SDK d’appareil Azure IoT Hub
 description: Découvrez comment améliorer la connectivité et la messagerie de vos appareils lorsque vous utilisez les kits Azure IoT Hub device SDK
 services: iot-hub
 keywords: ''
@@ -12,75 +12,76 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 64bd250f324bed53a9f33aa72f6b1daa48e0dc86
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227428"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424644"
 ---
-# <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Guide pratique pour gérer la connectivité et la messagerie fiable à l’aide des kits Azure IoT Hub device SDK
+# <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gérer la connectivité et la messagerie fiable à l’aide des kits SDK d’appareil Azure IoT Hub
 
-Ce guide fournit des instructions détaillées pour concevoir des applications d’appareil résilientes, en tirant parti des fonctionnalités de connectivité et de messagerie fiable fournies dans les kits Azure IoT device SDK. L’objectif de cet article est d’aider à répondre aux questions et à gérer ces scénarios :
+Cet article fournit des instructions détaillées pour vous aider à concevoir des applications d’appareil plus résilientes. Il vous montre comment tirer parti des fonctionnalités de connectivité et de messagerie fiable fournies dans les kits Azure IoT device SDK. L’objectif de ce guide est de vous aider à gérer les scénarios suivants :
 
-- gestion d’une connexion réseau supprimée ;
-- gestion du basculement entre différentes connexions réseau ;
-- gestion de la reconnexion en raison d’erreurs de connexion temporaires aux services.
+- Correction d’une connexion réseau supprimée
+- Basculement entre différentes connexions réseau
+- Reconnexion en raison d’erreurs de connexion temporaires aux services
 
-Les détails d’implémentation peuvent varier selon le langage. Consultez la documentation de l’API associée ou le kit SDK spécifique pour plus d’informations.
+Les détails d’implémentation peuvent varier selon le langage. Pour plus d’informations, consultez la documentation de l’API ou le kit SDK spécifique :
 
 - [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
-- [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
-- [Kit de développement logiciel (SDK) Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
+- [Kit SDK .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
+- [Kit SDK Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
-
 
 ## <a name="designing-for-resiliency"></a>Conception pour la résilience
 
-Les appareils IoT s’appuient souvent sur des connexions réseau non continues et/ou instables telles que des connexions GSM ou satellite. De plus, lors de l’interaction avec les services cloud, des erreurs peuvent se produire en raison de conditions temporaires telles que des défauts intermittents d’indisponibilité de service ou des erreurs au niveau de l’infrastructure (communément appelées erreurs temporaires). Une application qui s’exécute sur un appareil a besoin de gérer les mécanismes de connexion et reconnexion, ainsi que la logique de nouvelle tentative pour l’envoi et la réception de messages. De plus, les exigences de stratégie de nouvelles tentatives dépendent fortement du scénario IoT auquel participe l’appareil, ainsi que du contexte et des fonctionnalités de l’appareil.
+Les appareils IoT s’appuient souvent sur des connexions réseau non continues ou instables telles que des connexions GSM ou satellite. Des erreurs peuvent se produire quand les appareils interagissent avec les services cloud à cause d’une disponibilité intermittente des services et d’erreurs d’infrastructure ou temporaires. Une application qui s’exécute sur un appareil doit gérer les mécanismes de connexion et reconnexion ainsi que la logique de nouvelle tentative pour l’envoi et la réception de messages. De plus, les exigences de stratégie de nouvelles tentatives dépendent fortement du scénario IoT, du contexte et des fonctionnalités de l’appareil.
 
-Les kits Azure IoT Hub device SDK ont pour but de simplifier la connexion et la communication de cloud-à-appareil et d’appareil-à-cloud en fournissant un moyen fiable et complet d’établir une connexion et d’envoyer/recevoir des messages vers et depuis Azure IoT Hub. Les développeurs peuvent également modifier l’implémentation existante pour développer la stratégie de nouvelles tentatives appropriée pour un scénario donné.
+Les kits SDK d’appareil Azure IoT Hub ont pour but de simplifier la connexion et la communication de cloud-à-appareil et d’appareil-à-cloud. Ces kits fournissent un moyen fiable de se connecter à Azure IoT Hub et un ensemble complet d’options pour envoyer et recevoir des messages. Les développeurs peuvent également modifier l’implémentation existante pour personnaliser une meilleure stratégie de nouvelles tentatives pour un scénario donné.
 
 Les fonctionnalités SDK pertinentes qui prennent en charge la connectivité et la messagerie fiable sont décrites dans les sections suivantes.
 
 ## <a name="connection-and-retry"></a>Connexion et nouvelle tentative
 
-Cette section fournit une vue d’ensemble des modèles de reconnexion et de nouvelles tentatives disponibles lors de la gestion des connexions, des conseils d’implémentation pour l’utilisation d’une stratégie de nouvelles tentatives différente dans votre application d’appareil, et des API appropriées pour les kits SDK d’appareil.
+Cette section fournit une vue d’ensemble des modèles de reconnexion et de nouvelles tentatives disponibles lors de la gestion des connexions. Elle détaille les conseils d’implémentation pour l’utilisation d’une stratégie de nouvelles tentatives différente dans votre application d’appareil et répertorie les API appropriées des kits SDK d’appareil.
 
 ### <a name="error-patterns"></a>Modèles d’erreur
 Des échecs de connexion peuvent se produire à de nombreux niveaux :
 
--  Erreurs réseau telles qu’un socket déconnecté et des erreurs de résolution de nom
-- Erreurs au niveau du protocole pour le transport HTTP, AMQP et MQTT, telles que des liens détachés ou des sessions expirées
-- Erreurs au niveau de l’application qui résultent d’erreurs locales, telles que des informations d’identification non valides, ou du comportement des services, tel que le dépassement d’un quota ou d’une limitation
+- Erreurs réseau : socket déconnecté et erreurs de résolution de nom
+- Erreurs au niveau du protocole pour le transport HTTP, AMQP et MQTT : liens détachés ou sessions expirées
+- Erreurs au niveau de l’application qui résultent d’erreurs locales, telles que des informations d’identification non valides, ou du comportement des services, tel que le dépassement du quota ou de la limitation
 
-Les kits SDK d’appareil détectent les erreurs dans les trois niveaux.  Les erreurs liées au système d’exploitation et les erreurs matérielles ne sont pas détectées ni gérées par les kits SDK d’appareil.  La conception est basée sur le [Guide de gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults#general-guidelines) fourni dans le Centre des architectures Azure.
+Les kits SDK d’appareil détectent les erreurs aux trois niveaux. Les erreurs liées au système d’exploitation et les erreurs matérielles ne sont pas détectées ni gérées par les kits SDK d’appareil. La conception des kits SDK est basée sur le [Guide de gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults#general-guidelines) fourni dans le Centre des architectures Azure.
 
 ### <a name="retry-patterns"></a>Modèles de nouvelle tentative
 
-Le processus global de nouvelle tentative lors de la détection d’erreurs de connexion est : 
-1. Le kit SDK détecte l’erreur et l’erreur associée dans le réseau, le protocole ou l’application.
-2. Selon le type d’erreur, le kit SDK utilise le filtre d’erreur pour décider si une nouvelle tentative doit être effectuée.  Si une **erreur irrécupérable** est identifiée par le kit SDK, les opérations (connexion et envoi/réception) sont arrêtées et le kit SDK en informe l’utilisateur. Une erreur irrécupérable est une erreur que le kit SDK peut identifier et pour laquelle il détermine qu’elle ne peut pas être récupérée, par exemple, une erreur d’authentification ou de point de terminaison défectueux.
-3. Si une **erreur récupérable** est identifiée, le kit SDK commence à réessayer d’utiliser la stratégie de nouvelles tentatives spécifiée jusqu'à l’expiration d’un délai donné.
-4. Lorsque le délai imparti expire, le kit SDK arrête d’essayer d’établir la connexion ou l’envoi, et en informe l’utilisateur.
-5.  Le kit SDK permet à l’utilisateur de joindre un rappel pour recevoir les modifications de l’état de la connexion. 
+Les étapes suivantes décrivent le processus de nouvelle tentative lors de la détection d’erreurs de connexion :
 
-Trois stratégies de nouvelles tentatives sont fournies :
-- **Interruption exponentielle avec instabilité** : Il s’agit de la stratégie de nouvelles tentatives par défaut appliquée.  Elle a tendance à être agressive au début, ralentit, puis atteint un délai maximal qui n’est pas dépassé.  La conception est basée sur le [Guide sur les nouvelles tentatives fourni dans le Centre des architectures Azure](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
-- **Nouvelle tentative personnalisée** : Vous pouvez implémenter une stratégie de nouvelles tentatives personnalisée et l’injecter dans la stratégie de nouvelles tentatives selon le langage que vous choisissez. Vous pouvez concevoir une stratégie de nouvelles tentatives adaptée à votre scénario.  Cela n’est pas disponible dans le kit SDK C.
-- **Aucune nouvelle tentative** : Il est possible de définir la stratégie de nouvelles tentatives sur « aucune nouvelle tentative », ce qui désactive la logique de nouvelle tentative.  Le kit SDK tente de se connecter une fois et d’envoyer un message une fois, en supposant que la connexion est établie. Cette stratégie doit généralement être utilisée en cas de problèmes de bande passante ou de coût.   Si cette option est choisie, les messages qui ne peuvent pas être envoyés sont perdus et ne peuvent pas être récupérés. 
+1. Le kit SDK détecte l’erreur et l’erreur associée dans le réseau, le protocole ou l’application.
+1. Le kit SDK utilise le filtre d’erreur pour déterminer le type d’erreur et décider si une nouvelle tentative est nécessaire.
+1. Si le kit SDK identifie une **erreur irrécupérable**, les opérations telles que la connexion, l’envoi et la réception sont arrêtées. Le kit SDK en informe l’utilisateur. Une erreur d’authentification et une erreur de point de terminaison défectueux sont des exemples d’erreurs irrécupérables.
+1. Si le kit SDK identifie une **erreur irrécupérable**, il effectue une nouvelle tentative en fonction de la stratégie de nouvelles tentatives spécifiée jusqu’à l’expiration du délai donné.
+1. Quand le délai imparti expire, le kit SDK arrête d’essayer d’établir la connexion ou l’envoi. Il en informe l’utilisateur.
+1. Le kit SDK permet à l’utilisateur de joindre un rappel pour recevoir les modifications de l’état de la connexion.
+
+Les kits SDK fournissent trois stratégies de nouvelles tentatives :
+
+- **Interruption exponentielle avec instabilité** : Cette stratégie de nouvelles tentatives par défaut a tendance à être agressive au début, puis ralentit progressivement avant d’atteindre un délai maximal. La conception est basée sur le [Guide sur les nouvelles tentatives fourni dans le Centre des architectures Azure](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
+- **Nouvelle tentative personnalisée** : Pour certains langages de SDK, vous pouvez concevoir une stratégie de nouvelles tentatives personnalisée qui est mieux adaptée à votre scénario, puis l’injecter dans la stratégie de nouvelles tentatives. Nouvelle tentative personnalisée n’est pas disponible dans le kit SDK C.
+- **Aucune nouvelle tentative** : Vous pouvez définir la stratégie de nouvelles tentatives sur « aucune nouvelle tentative », ce qui désactive la logique de nouvelle tentative. Le kit SDK tente de se connecter une fois et d’envoyer un message une fois, en supposant que la connexion est établie. Cette stratégie est généralement utilisée dans des scénarios avec des problèmes de bande passante ou de coût. Si vous choisissez cette option, les messages qui ne peuvent pas être envoyés sont perdus et ne peuvent pas être récupérés.
 
 ### <a name="retry-policy-apis"></a>API de stratégie de nouvelles tentatives
 
-   | Foundation | Méthode SetRetryPolicy | Implémentations de stratégie | Conseils d’implémentation |
+   | SDK | Méthode SetRetryPolicy | Implémentations de stratégie | Conseils d’implémentation |
    |-----|----------------------|--|--|
    |  C/Python/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **Par défaut** : [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Personnalisée :** utiliser la stratégie [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies) disponible<BR>**Aucune nouvelle tentative :** [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [Implémentation de C/Python/iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
    | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._device_client_config.setretrypolicy?view=azure-java-stable)        | **Par défaut**: [classe ExponentialBackoffWithJitter](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Personnalisée :** implémenter l’[interface RetryPolicy](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Aucune nouvelle tentative :** [classe NoRetry](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Implémentation Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |[Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
    | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_SetRetryPolicy_Microsoft_Azure_Devices_Client_IRetryPolicy) | **Par défaut** : [classe ExponentialBackoff](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Personnalisée :** implémenter l’[interface IRetryPolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet)<BR>**Aucune nouvelle tentative :** [classe NoRetry](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [Implémentation C#](https://github.com/Azure/azure-iot-sdk-csharp) |
    | Nœud| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest#azure_iot_device_Client_setRetryPolicy) | **Par défaut** : [classe ExponentialBackoffWithJitter](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Personnalisée :** implémenter l’[interface RetryPolicy](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**Aucune nouvelle tentative :** [classe NoRetry](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Implémentation Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
-   
 
-Les exemples de code ci-dessous illustrent ce flux. 
+Les exemples de code ci-dessous illustrent ce flux :
 
 #### <a name="net-implementation-guidance"></a>Conseils d’implémentation .NET
 
@@ -92,7 +93,7 @@ L’exemple de code ci-dessous montre comment définir et paramétrer la straté
    SetRetryPolicy(retryPolicy);
    ```
 
-Pour éviter une utilisation élevée du processeur, les nouvelles tentatives sont limitées si le code échoue immédiatement (par exemple, lorsqu’il n’existe aucun réseau ni itinéraire vers la destination), afin que le temps minimal pour exécuter la tentative suivante soit de 1 seconde. 
+Pour éviter une utilisation élevée du processeur, les nouvelles tentatives sont limitées si le code échoue immédiatement, par exemple quand il n’existe aucun réseau ni aucune route vers la destination. Le temps minimal pour exécuter la nouvelle tentative suivante est de 1 seconde.
 
 Si le service répond avec une erreur de limitation, la stratégie de nouvelles tentatives est différente et ne peut pas être modifiée via l’API publique :
 
@@ -105,13 +106,16 @@ Si le service répond avec une erreur de limitation, la stratégie de nouvelles 
 Le mécanisme de nouvelle tentative s’arrête après `DefaultOperationTimeoutInMilliseconds`, qui est actuellement défini sur 4 minutes.
 
 #### <a name="other-languages-implementation-guidance"></a>Conseils d’implémentation pour d’autres langages
-Pour d’autres langages, consultez la documentation d’implémentation ci-dessous.  Exemples illustrant l’utilisation des API de stratégie de nouvelles tentatives fournies dans le dépôt.
+
+Pour obtenir des exemples de code dans d’autres langages, consultez les documents d’implémentation suivants. Le dépôt contient des exemples qui illustrent l’utilisation des API de stratégie de nouvelles tentatives.
+
 - [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 - [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
-- [Kit de développement logiciel (SDK) Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
+- [Kit SDK Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - [Utiliser les Kits de développement logiciel (SDK) de services et d’appareils](.\iot-hub-devguide-sdks.md)
 - [Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C](.\iot-hub-device-sdk-c-intro.md)
 - [Développer pour des appareils avec contraintes](.\iot-hub-devguide-develop-for-constrained-devices.md)

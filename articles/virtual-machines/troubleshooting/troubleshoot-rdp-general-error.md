@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960155"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821512"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Résoudre une erreur générale RDP sur une machine virtuelle Azure
 
@@ -65,7 +65,7 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 
 ### <a name="serial-console"></a>Console série
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Étape 1 : Activer le Bureau à distance
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Étape 1 : Ouvrez l’instance CMD dans la console série
 
 1. Accédez à la [Console série](serial-console-windows.md) en sélectionnant **Support & Troubleshooting (Support et dépannage)** > **Console série (préversion)**. Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine.
 
@@ -177,9 +177,9 @@ Pour plus d'informations, consultez [Le Bureau à distance se déconnecte régul
 #### <a name="step-1-turn-on-remote-desktop"></a>Étape 1 : Activer le Bureau à distance
 
 1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
-2. Établissez une connexion Bureau à distance à la machine virtuelle de récupération.
+2. Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
 3. Vérifiez que le disque est marqué comme étant **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur qui est affectée au disque du système d’exploitation attaché.
-4. Établissez une connexion Bureau à distance à la machine virtuelle de récupération.
+4. Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
 5. Ouvrez une session Invite de commande avec élévation de privilèges (**Exécuter en tant qu’administrateur**). Exécutez les scripts suivants. Dans ce script, nous partons du principe que la lettre de lecteur qui est affectée au disque du système d’exploitation attaché est F. Remplacez cette lettre de lecteur par la valeur appropriée pour votre machine virtuelle.
 
       ```

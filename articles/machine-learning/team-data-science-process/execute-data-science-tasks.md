@@ -1,25 +1,21 @@
 ---
 title: Exécuter des tâches de science des données - Azure Machine Learning | Microsoft Docs
 description: Explique comment un scientifique des données peut réaliser un projet de science des données de manière traçable et collaborative, avec gestion de versions.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: 19267429510207129b0229dc55fbd46f12977d5d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 7e25e2c95f377b1ad40cba24b29ababd0561e32a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112642"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495681"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
@@ -34,7 +30,7 @@ Les tâches courantes de science des données incluent l’exploration, la modé
 
 Un scientifique des données peut effectuer les tâches d’exploration et de création de rapports de plusieurs façons : à l’aide de bibliothèques et de packages disponibles pour Python (matplotlib, par exemple) ou de R (ggplot ou lattice, par exemple). Il peut personnaliser ce code en fonction des besoins d’exploration de données pour des scénarios spécifiques. Les contraintes liées aux données structurées diffèrent de celles liées aux données non structurées, telles que le texte ou les images. 
 
-En outre, des produits tels qu’Azure Machine Learning Workbench fournissent une [préparation avancée des données](../desktop-workbench/tutorial-bikeshare-dataprep.md) pour le tri et l’exploration des données, notamment en ce qui concerne la création de caractéristiques. L’utilisateur doit choisir les outils, bibliothèques et packages qui répondent le mieux à ses besoins. 
+En outre, des produits tels que le service Azure Machine Learning fournissent une [préparation avancée des données](../service/how-to-transform-data.md) pour l’exploration des données et le data wrangling, notamment en ce qui concerne la création de caractéristiques. L’utilisateur doit choisir les outils, bibliothèques et packages qui répondent le mieux à ses besoins. 
 
 Le livrable à la fin de cette phase est un rapport d’exploration de données. Ce rapport doit fournir une vue très complète des données à utiliser pour la modélisation et une évaluation indiquant si les données sont appropriées pour passer à l’étape de modélisation. Les utilitaires TDSP (Team Data Science Process) indiqués dans les sections suivantes pour l’exploration, la modélisation et la création de rapports semi-automatiques fournissent également des rapports de modélisation et d’exploration de données standard. 
 
@@ -57,7 +53,7 @@ La section suivante Gestion des modèles montre comment obtenir un système perm
 
 [L’utilitaire AMAR (Automated Modeling And Reporting)](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) est un outil personnalisable et semi-automatique qui permet de créer des modèles à l’aide d’un balayage hyperparamétrique, et de comparer la précision de ces modèles. 
 
-Cet utilitaire de création de modèles est un fichier R Markdown qui peut être exécuté pour produire une sortie HTML autonome comprenant une table des matières qui facilite la navigation entre ses différentes sections. Trois algorithmes sont exécutés quand le fichier Markdown est exécuté (compilé) : la régression régularisée qui utilise le package glmnet, une forêt aléatoire qui utilise le package randomForest, et des arbres de boosting qui utilisent le package xgboost. Chacun de ces algorithmes génère un modèle formé. La précision de ces modèles est ensuite comparée et les tracés d’importance relative des caractéristiques sont créés. Deux utilitaires sont actuellement disponibles : un pour la classification binaire et l’autre pour la régression. Leurs principales différences se situent au niveau de la manière dont sont spécifiés les paramètres de contrôle et les métriques de précision pour ces tâches d’apprentissage automatique. 
+Cet utilitaire de création de modèles est un fichier R Markdown qui peut être exécuté pour produire une sortie HTML autonome comprenant une table des matières qui facilite la navigation entre ses différentes sections. Trois algorithmes sont exécutés quand le fichier Markdown est exécuté (compilé) : la régression régularisée qui utilise le package glmnet, une forêt aléatoire qui utilise le package randomForest, et des arbres de boosting qui utilisent le package xgboost. Chacun de ces algorithmes génère un modèle entraîné. La précision de ces modèles est ensuite comparée et les tracés d’importance relative des caractéristiques sont créés. Deux utilitaires sont actuellement disponibles : un pour la classification binaire et l’autre pour la régression. Leurs principales différences se situent au niveau de la manière dont sont spécifiés les paramètres de contrôle et les métriques de précision pour ces tâches d’apprentissage automatique. 
 
 Un fichier YAML permet de spécifier :
 
@@ -90,7 +86,7 @@ Le déploiement de production permet à un modèle de jouer un rôle actif dans 
 Il existe différentes approches et plateformes pour mettre les modèles en production. Voici quelques options :
 
 
-- [Déploiement du modèle dans Azure Machine Learning](../desktop-workbench/model-management-overview.md)
+- [Déploiement d’un modèle dans le service Azure Machine Learning](../service/how-to-deploy-and-where.md)
 - [Déploiement d’un modèle dans SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
-ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 549be57b52fa88efa8c3850d131563fea2a7c65e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126310"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706124"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Conserver les données de tâche dans le stockage Azure avec l’API de service Batch
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-À compter de la version 2017-05-01, l’API de service Batch prend en charge la persistance des données de sortie vers le stockage Azure pour les tâches et les tâches du Gestionnaire de travaux qui s’exécutent sur des pools avec la configuration de machine virtuelle. Quand vous ajoutez une tâche, vous pouvez spécifier un conteneur dans le stockage Azure comme destination pour le résultat de la tâche. Quand la tâche est terminée, le service Batch écrit les données de sortie dans ce conteneur.
+L’API de service Batch prend en charge la conservation des données de sortie dans le Stockage Azure pour les tâches et les tâches du Gestionnaire de travaux qui s’exécutent sur des pools avec la configuration de machine virtuelle. Quand vous ajoutez une tâche, vous pouvez spécifier un conteneur dans le stockage Azure comme destination pour le résultat de la tâche. Quand la tâche est terminée, le service Batch écrit les données de sortie dans ce conteneur.
 
-L’un des avantages de l’utilisation de l’API de service Batch pour conserver le résultat de la tâche est que vous n’avez pas besoin de modifier l’application exécutée par la tâche. Au lieu de cela, avec quelques modifications simples de votre application cliente, vous pouvez conserver le résultat de la tâche à partir du code qui crée la tâche.   
+L’un des avantages de l’utilisation de l’API de service Batch pour conserver le résultat de la tâche est que vous n’avez pas besoin de modifier l’application exécutée par la tâche. Au lieu de cela, il vous suffit de modifier légèrement votre application cliente pour conserver la sortie de la tâche dans le code qui crée la tâche.
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Quand utiliser l’API de service Batch pour conserver le résultat de la tâche ?
 
@@ -36,7 +36,10 @@ Azure Batch offre plusieurs manières de conserver le résultat de la tâche. L�
 - Vous souhaitez conserver le résultat vers un conteneur de stockage Azure avec un nom arbitraire.
 - Vous souhaitez conserver le résultat vers un conteneur de stockage Azure nommé conformément à la [norme relative aux Conventions applicables aux fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
-Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-être envisager une approche différente. Par exemple, l’API de service Batch ne prend pas en charge actuellement la diffusion en continu du résultat vers le stockage Azure pendant l’exécution de la tâche. Pour diffuser le résultat en continu, utilisez la bibliothèque de Conventions applicables aux fichiers Batch, disponible pour .NET. Pour d’autres langages, vous devez implémenter votre propre solution. Pour plus d’informations sur les autres options de persistance le résultat de tâche, consultez [Conserver les résultats de travaux et tâches terminés dans le stockage Azure](batch-task-output.md). 
+> [!NOTE]
+> L’API du service Batch ne prend pas en charge la conservation des données des tâches s’exécutant dans des pools créés avec la configuration de service cloud. Pour plus d’informations sur la conservation d’une sortie de tâche à partir de pools exécutant la configuration de services cloud, consultez [Conserver les données des travaux et des tâches dans le Stockage Azure avec la bibliothèque Batch File Conventions pour .NET](batch-task-output-file-conventions.md).
+
+Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-être envisager une approche différente. Par exemple, l’API de service Batch ne prend pas en charge actuellement la diffusion en continu du résultat vers le stockage Azure pendant l’exécution de la tâche. Pour diffuser le résultat en continu, utilisez la bibliothèque de Conventions applicables aux fichiers Batch, disponible pour .NET. Pour d’autres langages, vous devez implémenter votre propre solution. Pour plus d’informations sur les autres options de persistance le résultat de tâche, consultez [Conserver les résultats de travaux et tâches terminés dans le stockage Azure](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Créer un conteneur dans le stockage Azure
 
@@ -64,14 +67,14 @@ string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBl
     Permissions = SharedAccessBlobPermissions.Write
 });
 
-string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken; 
+string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 ```
 
 ## <a name="specify-output-files-for-task-output"></a>Spécifier les fichiers de sortie pour le résultat de la tâche
 
-Pour spécifier les fichiers de sortie pour une tâche, créez une collection d’objets [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) et affectez-la à la propriété [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quand vous créez la tâche. 
+Pour spécifier les fichiers de sortie pour une tâche, créez une collection d’objets [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) et affectez-la à la propriété [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quand vous créez la tâche.
 
-L’exemple de code .NET suivant crée une tâche qui écrit des nombres aléatoires dans un fichier nommé `output.txt`. L’exemple crée un fichier de sortie pour `output.txt` à écrire dans le conteneur. Il crée également des fichiers de sortie pour tout fichier journal qui correspond au modèle de fichier `std*.txt` (_par exemple_ `stdout.txt` et `stderr.txt`). L’URL du conteneur a besoin de la signature d’accès partagé créée précédemment pour le conteneur. Le service Batch utilise la signature d’accès partagé pour authentifier l’accès au conteneur : 
+L’exemple de code C# suivant crée une tâche qui écrit des nombres aléatoires dans un fichier nommé `output.txt`. L’exemple crée un fichier de sortie pour `output.txt` à écrire dans le conteneur. Il crée également des fichiers de sortie pour tout fichier journal qui correspond au modèle de fichier `std*.txt` (_par exemple_ `stdout.txt` et `stderr.txt`). L’URL du conteneur a besoin de la signature d’accès partagé créée précédemment pour le conteneur. Le service Batch utilise la signature d’accès partagé pour authentifier l’accès au conteneur :
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -101,7 +104,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 Quand vous spécifiez un fichier de sortie, vous pouvez utiliser la propriété [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) pour spécifier un modèle de fichier pour la correspondance. Le modèle de fichier peut faire correspondre zéro fichier, un seul fichier ou un ensemble de fichiers créés par la tâche.
 
-La propriété **FilePattern** prend en charge les caractères génériques de système de fichiers standard tels que `*` (pour les correspondances non récursives) et `**` (pour les correspondances récursives). Par exemple, l’exemple de code ci-dessus spécifie le modèle de fichier pour établir une mise en correspondance avec `std*.txt` de manière non récursive : 
+La propriété **FilePattern** prend en charge les caractères génériques de système de fichiers standard tels que `*` (pour les correspondances non récursives) et `**` (pour les correspondances récursives). Par exemple, l’exemple de code ci-dessus spécifie le modèle de fichier pour établir une mise en correspondance avec `std*.txt` de manière non récursive :
 
 `filePattern: @"..\std*.txt"`
 
@@ -113,7 +116,7 @@ Pour charger un seul fichier, spécifiez un modèle de fichier sans caractère g
 
 La propriété [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) autorise le chargement conditionnel des fichiers de sortie. Un scénario courant consiste à charger un ensemble de fichiers si la tâche réussit, et un autre ensemble de fichiers en cas d’échec. Par exemple, vous pourriez souhaiter charger des fichiers journaux détaillés uniquement quand la tâche échoue et se termine avec un code de sortie différent de zéro. De même, vous pourriez souhaiter charger des fichiers de résultats uniquement si la tâche réussit, car ces fichiers pourraient être manquants ou incomplets si la tâche échoue.
 
-L’exemple de code ci-dessus affecte la valeur **TaskCompletion** à la propriété **UploadCondition**. Ce paramètre spécifie que le fichier doit être chargé une fois la tâche terminée, quelle que soit la valeur du code de sortie. 
+L’exemple de code ci-dessus affecte la valeur **TaskCompletion** à la propriété **UploadCondition**. Ce paramètre spécifie que le fichier doit être chargé une fois la tâche terminée, quelle que soit la valeur du code de sortie.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
@@ -145,10 +148,9 @@ https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 
 Pour plus d’informations sur les répertoires virtuels dans le stockage Azure, consultez [Création d’une liste d’objets blob dans un conteneur](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
-
 ## <a name="diagnose-file-upload-errors"></a>Diagnostiquer les erreurs de chargement de fichier
 
-Si le chargement des fichiers de sortie dans le stockage Azure échoue, la tâche bascule à l’état **Terminée** et la propriété [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) est définie. Examinez la propriété **FailureInformation** pour identifier l’erreur qui s’est produite. Voici par exemple une erreur qui se produit lors du chargement de fichier si le conteneur est introuvable : 
+Si le chargement des fichiers de sortie dans le stockage Azure échoue, la tâche bascule à l’état **Terminée** et la propriété [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) est définie. Examinez la propriété **FailureInformation** pour identifier l’erreur qui s’est produite. Voici par exemple une erreur qui se produit lors du chargement de fichier si le conteneur est introuvable :
 
 ```
 Category: UserError

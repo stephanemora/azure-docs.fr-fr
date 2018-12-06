@@ -1,25 +1,18 @@
 ---
 title: Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager | Microsoft Docs
 description: Cette page décrit tout ce que vous devez savoir sur les liaisons entre les modèles de déploiement classique et Resource Manager.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
-editor: ''
-ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b9ac7408f83677ed9898dc37fc234b9b9a6386f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710063"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977027"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager
 Cet article décrit les enjeux de la migration d’un circuit ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager.
@@ -64,7 +57,7 @@ Les opérations classiques suivantes sont prises en charge sur un circuit Expres
 * Créer/mettre à jour/obtenir/supprimer des liaisons à des réseaux virtuels classiques
 * Créer/mettre à jour/obtenir/supprimer des autorisations de liaison de réseau virtuel pour une connectivité entre plusieurs abonnements
 
-Les opérations classiques suivantes sont impossibles si vous attribuez la valeur TRUE au paramètre **allowClassicOperations** .
+Cependant, quand **allowClassicOperations** est défini sur TRUE, vous ne pouvez pas effectuer les opérations classiques suivantes :
 
 * Créer/mettre jour/obtenir/supprimer des homologations BGP (Border Gateway Protocol) pour les homologations privées Azure, les homologations publiques Azure et les homologations Microsoft
 * Supprimer des circuits ExpressRoute

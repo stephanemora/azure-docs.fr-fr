@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 8a1148bbb04bbad2ff25be9bcbe68d086e91027c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049251"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499398"
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Créer un pipeline Machine Learning Spark
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Créer un pipeline d’apprentissage automatique Apache Spark
 
 La bibliothèque scalable d’apprentissage automatique (MLlib) Apache Spark apporte des fonctionnalités de modélisation à un environnement distribué. Le package Spark [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) est un ensemble d’API générales reposant sur des DataFrames. Ces API vous permettent de créer et de régler des pipelines d’apprentissage automatique pratiques.  *L’apprentissage automatique Spark* fait référence à cette API basée sur les DataFrames MLlib, et non à l’API de pipeline plus ancienne basée sur les RDD.
 
@@ -40,6 +40,11 @@ Le code suivant :
 4. Crée les données d’apprentissage.
 
 ```python
+from pyspark.ml import Pipeline
+from pyspark.ml.classification import LogisticRegression
+from pyspark.ml.feature import HashingTF, Tokenizer
+from pyspark.sql import Row
+
 # The data structure (column meanings) of the data array:
 # 0 Date
 # 1 Time
@@ -126,4 +131,4 @@ L’objet `model` peut maintenant être utilisé pour effectuer des prédictions
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Science des données à l’aide de Scala et Spark sur Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Science des données avec Scala et Apache Spark sur Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

@@ -3,18 +3,18 @@ title: Présentation de ML Services sur Azure HDInsight
 description: Découvrez comment utiliser ML Services sur HDInsight pour créer des applications pour l’analyse Big Data.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: af7a0d01fcf9df42da79a6529c8d4b0e31d73aa1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985486"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499466"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Présentation de ML Services et des fonctionnalités R open source sur HDInsight
 
@@ -27,7 +27,7 @@ Microsoft Machine Learning Server vous est proposé comme option de déploiement
 
 ML Services sur HDInsight fournit les dernières fonctionnalités analytiques R pour des jeux de données de toute taille ou presque, chargés dans un stockage de type Blob Azure ou Data Lake. Sachant que le cluster ML Services repose sur le langage R open source, les applications basées sur R que vous créez peuvent tirer parti des packages R open source qui se dénombrent à plus de 8 000. Les routines de ScaleR, package analytique Big Data de Microsoft, sont également disponibles.
 
-Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de ScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Spark de ScaleR.
+Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de ScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Apache Spark de ScaleR.
 
 Les modèles ou prévisions résultant des analyses peuvent être téléchargés pour une utilisation locale. Ils peuvent également être mis en œuvre ailleurs dans Azure, en particulier par le biais du [service web](../../machine-learning/studio/publish-a-machine-learning-web-service.md) [Azure Machine Learning Studio](http://studio.azureml.net).
 
@@ -114,7 +114,7 @@ Si vous utilisez simplement des routines de la bibliothèque ScaleR au sein du c
 
 Dans ce cas, les packages supplémentaires peuvent être installés à l’aide d’une action de script après la création du cluster. Pour plus d’informations, consultez [Gérer un cluster ML Services dans HDInsight](r-server-hdinsight-manage.md).
 
-### <a name="change-hadoop-mapreduce-memory-settings"></a>Modifier les paramètres de mémoire de Hadoop MapReduce
+### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Modifier les paramètres de mémoire d’Apache Hadoop MapReduce
 
 Vous pouvez modifier un cluster afin de changer la quantité de mémoire accessibles à ML Services lors de l’exécution d’un travail MapReduce. Pour modifier un cluster, utilisez l’interface utilisateur Apache Ambari qui est disponible via le panneau du portail Azure pour votre cluster. Pour obtenir des instructions concernant l’accès à l’interface utilisateur d’Ambari pour votre cluster, consultez la section [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Ambari](../hdinsight-hadoop-manage-ambari.md).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068330"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316988"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection avec Azure Security Center
 
@@ -99,12 +99,12 @@ Pour générer une alerte de test de Windows Defender ATP inoffensive :
 
 3. Si la commande réussit, vous verrez une nouvelle alerte sur le tableau de bord d’Azure Security Center et sur le portail Windows Defender ATP. L’alerte peut mettre quelques minutes à s’afficher.
 
-4. Pour examiner l’alerte dans Security Center, accédez à **Alertes de sécurité** >  **Ligne de commande Powershell suspecte**.
+4. Pour examiner l’alerte dans Security Center, accédez à **Alertes de sécurité** >  **Ligne de commande Powershell suspecte**.
 
 5. Dans la fenêtre d’enquête, sélectionnez le lien d’accès au portail Windows Defender ATP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+- [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 - [Gestion des suggestions de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment des recommandations vous aident à protéger vos ressources Azure.
 - [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.

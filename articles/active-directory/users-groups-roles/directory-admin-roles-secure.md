@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240101"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821057"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -84,7 +84,7 @@ L’étape 1 de la feuille de route cible les tâches critiques rapides et facil
 
 Si vous n’avez pas déjà activé Azure AD Privileged Identity Management (PIM), faites-le dans votre client de production. Après avoir activé Privileged Identity Management, vous recevez des notifications par courrier électronique de changements de rôles d’accès privilégié. Ces notifications vous informent lorsque des utilisateurs supplémentaires sont ajoutés aux rôles disposant de privilèges élevés dans votre annuaire.
 
-Azure AD Privileged Identity Management est inclus dans Azure AD Premium P2 ou EMS E5. Ces solutions vous aident à protéger l’accès aux applications et aux ressources de l’environnement local et dans le cloud. Si vous ne disposez pas d’Azure AD Premium P2 ou d’EMS E5 et que vous souhaitez évaluer plus de fonctionnalités que celles référencées dans cette feuille de route, inscrivez-vous à l’[essai gratuit de 90 jours d’Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Utilisez ces versions d’évaluation de licence pour essayer Azure AD Privileged Identity Management et Azure AD Identity Protection, pour surveiller l’activité à l’aide des rapports de sécurité avancés d’Azure AD, des audits et des alertes.
+Azure AD Privileged Identity Management est inclus dans Azure AD Premium P2 ou EMS E5. Ces solutions vous aident à protéger l’accès aux applications et aux ressources de l’environnement local et dans le cloud. Si vous ne disposez pas d’Azure AD Premium P2 ou d’EMS E5 et que vous souhaitez évaluer plus de fonctionnalités que celles référencées dans cette feuille de route, inscrivez-vous à l’[essai gratuit de 90 jours d’Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Utilisez ces versions d’évaluation de licence pour essayer Azure AD Privileged Identity Management et Azure AD Identity Protection, pour surveiller l’activité à l’aide des rapports de sécurité avancés d’Azure AD, des audits et des alertes.
 
 Après avoir activé Azure AD Privileged Identity Management :
 
@@ -102,7 +102,7 @@ La première personne à utiliser Azure AD Privileged Identity Management dans v
 
 Après avoir activé Azure AD Privileged Identity Management, vous voyez les utilisateurs ayant les rôles d’annuaire Administrateur général, Administrateur de rôle privilégié, Administrateur Exchange Online et Administrateur SharePoint Online. Si vous ne disposez pas d’Azure AD PIM dans votre client, vous pouvez utiliser l’[API PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Commencez par le rôle d’administrateur général car ce rôle est générique : un utilisateur à qui ce rôle d’administrateur est affecté a les mêmes autorisations sur tous les services cloud auxquels votre organisation s’est abonnée, peu importe que vous attribuiez ce rôle dans le portail Office 365, dans le portail Azure ou à l’aide du module Azure AD pour Microsoft PowerShell. 
 
-Supprimez les comptes qui ne sont plus nécessaires dans ces rôles et classez les autres comptes qui sont affectés à des rôles d’administrateur :
+Supprimez les comptes qui ne sont plus nécessaires dans ces rôles. Ensuite, classez les comptes restants qui sont affectés aux rôles d’administrateur :
 
 * Affectés individuellement à des utilisateurs administratifs, et pouvant également servir à des fins non administratives (par exemple, messagerie personnelle)
 * Affectés individuellement à des utilisateurs administratifs et dédiés à des fins administratives uniquement
@@ -113,7 +113,7 @@ Supprimez les comptes qui ne sont plus nécessaires dans ces rôles et classez l
 
 #### <a name="define-at-least-two-emergency-access-accounts"></a>Définir au moins deux comptes d’accès d’urgence 
 
-Veillez à ne pas vous retrouver dans une situation dans laquelle vous pourriez être verrouillé par inadvertance en dehors de l’administration de votre client Azure AD en raison de l’impossibilité de se connecter ou d’activer un compte utilisateur existant en tant qu’administrateur. Par exemple, si l’organisation est fédérée vers un fournisseur d’identité local, ce fournisseur d’identité peut être indisponible et les utilisateurs ne peuvent donc pas se connecter en local. Vous pouvez pallier l’impact d’un défaut d’accès administratif en stockant plusieurs comptes d’accès d’urgence dans votre locataire.
+Veillez à ne pas vous retrouver dans une situation dans laquelle vous pourriez être verrouillé par inadvertance en dehors de l’administration de votre client Azure AD en raison de l’impossibilité de se connecter ou d’activer un compte utilisateur existant en tant qu’administrateur. Par exemple, si l’organisation est fédérée vers un fournisseur d’identité local, ce fournisseur d’identité peut être indisponible et les utilisateurs ne peuvent donc pas se connecter en local. Vous pouvez pallier l’impact d’un défaut d’accès administratif en stockant plusieurs comptes d’accès d’urgence dans votre locataire.
 
 Les comptes d’accès d’urgence aident les organisations à restreindre l’accès privilégié dans un environnement Azure Active Directory existant. Ces comptes sont hautement privilégiés et ne sont pas affectés à des individus spécifiques. Les comptes d’accès d’urgence sont limités à des cas d’urgence ou à des scénarios « de secours » où il est impossible d’utiliser des comptes d’administration normaux. Les organisations doivent vérifier l’objectif de contrôle et de réduction de l’utilisation du compte d’urgence à la stricte durée pendant laquelle celui-ci est nécessaire. 
 
@@ -127,11 +127,11 @@ Exigez Azure multi-Factor Authentication (MFA) lors de la connexion de tous les 
 
 ![Étape 2](./media/directory-admin-roles-secure/stage-two.png)
 
-L’étape 2 de la feuille de route vise à atténuer les techniques d’attaque les plus fréquemment utilisées de vol d’informations d’identification et d’abus et est conçue pour être implémentée en 2 à 4 semaines environ. Cette étape de la feuille de route d’accès privilégié sécurisé comprend les actions suivantes.
+L’étape 2 de la feuille de route vise à atténuer les techniques d’attaque les plus fréquemment utilisées de vol d’informations d’identification et d’abus et peut être implémentée en 2 à 4 semaines environ. Cette étape de la feuille de route d’accès privilégié sécurisé comprend les actions suivantes.
 
 ### <a name="general-preparation"></a>Préparation générale
 
-#### <a name="conduct-a-inventory-of-services-owners-and-admins"></a>Inventorier les services, propriétaires et administrateurs
+#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>Inventorier les services, propriétaires et administrateurs
 
 Avec l’augmentation du BYOD (apportez votre propre appareil), des stratégies de travail à domicile et la croissance de la connectivité sans fil dans les entreprises, il est essentiel que vous surveilliez qui se connecte à votre réseau. Un audit de sécurité efficace révèle souvent des appareils, applications et programmes exécutés sur votre réseau qui ne sont pas pris en charge par le service informatique, et sont donc potentiellement non sécurisés. Pour plus d’informations, consultez [Présentation de la gestion et surveillance de la sécurité Azure](../../security/security-management-and-monitoring-overview.md). Veillez à inclure toutes les tâches suivantes dans votre processus d’inventaire. 
 
@@ -337,7 +337,7 @@ Outre la gestion de vos comptes d’accès privilégié, nous vous recommandons 
 * N’accordez que l’accès privilégié nécessaire, et supprimez-le ensuite (juste-à-temps).
 * Conservez et passez en revue l’activité d’audit relative aux comptes privilégiés.
 
-Pour plus d’informations sur la création d’une feuille de route de sécurité complète, consultez les [ressources d’architecture informatique cloud de Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Pour plus d’informations sur l’aide que peuvent apporter les services Microsoft sur ces différents points, contactez votre représentant Microsoft ou consultez [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx) (Développer des cyber-défenses critiques pour protéger votre entreprise).
+Pour plus d’informations sur la création d’une feuille de route de sécurité complète, consultez les [ressources d’architecture informatique cloud de Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Pour plus d’informations sur l’aide que peuvent apporter les services Microsoft sur ces différents points, contactez votre représentant Microsoft ou consultez [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx) (Développer des cyber-défenses critiques pour protéger votre entreprise).
 
 Cette dernière étape de la feuille de route d’accès privilégié sécurisé comprend les composants suivants.
 

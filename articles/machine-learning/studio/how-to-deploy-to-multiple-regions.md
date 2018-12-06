@@ -1,9 +1,9 @@
 ---
-title: Déployer un service web dans plusieurs régions | Microsoft Docs
+title: Guide pratique pour déployer un service web dans plusieurs régions - Azure Machine Learning Studio | Microsoft Docs
 description: Étapes pour déployer (copier) un nouveau service web dans d’autres régions.
 services: machine-learning
 documentationcenter: ''
-author: aashishb
+author: ericlicoding
 manager: hjerez
 editor: cgronlun
 ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: aashishb
-ms.openlocfilehash: 78b37f0e7ac554c1823a0607e43718e5a0ac0067
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.custom: (previous ms.author=aashishb, author=aashishb)
+ms.author: amlstudiodocs
+ms.openlocfilehash: ab28cce0f973c4798bfd6995cc275c4724b7bcc9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835132"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308017"
 ---
-# <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Comment déployer un service web dans plusieurs régions
+# <a name="azure-machine-learning-studio-deploy-a-web-service-to-multiple-regions"></a>Azure Machine Learning Studio : déployer un service web dans plusieurs régions
 Les nouveaux services web Azure vous permettent de déployer facilement un service web dans plusieurs régions, sans avoir besoin de plusieurs abonnements ou espaces de travail. 
 
 Le tarif est spécifique à chaque région et vous devez donc définir un profil de facturation pour chaque région dans laquelle vous allez déployer le service web.

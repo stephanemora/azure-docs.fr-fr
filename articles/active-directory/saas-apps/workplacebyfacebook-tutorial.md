@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e072a27087f90bddd3f7c416904758e40c2f6b9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423869"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425172"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Didacticiel : Intégration d’Azure Active Directory à Workplace by Facebook
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
    > [!NOTE] 
    > Dans le cadre du processus d’authentification SAML, Workplace peut utiliser des chaînes de requête d’une taille pouvant aller jusqu’à 2,5 Ko pour transmettre des paramètres à Azure AD.
 
-1. Dans **Company Dashboard**, accédez à l’onglet **Authentication**.
+1. Dans **Admin Panel** (Panneau d’administration), accédez à l’onglet **Security** (Sécurité), puis à **Authentication** (Authentification).
 
 1. Sous **SAML Authentication**, sélectionnez **SSO Only** dans la liste déroulante.
 

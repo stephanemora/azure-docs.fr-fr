@@ -9,16 +9,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025937"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422794"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Préparer la sauvegarde de machines virtuelles Azure
 
-Cet article fournit les étapes de préparation de votre environnement pour la sauvegarde d’une machine virtuelle déployée avec le modèle Azure Resource Manager. Les étapes indiquées dans les procédures utilisent le portail Azure. Quand vous sauvegardez une machine virtuelle, les points de récupération ou les données de sauvegarde sont stockés dans un coffre de sauvegarde Microsoft Azure Recovery Services. 
+Cet article fournit les étapes de préparation de votre environnement pour la sauvegarde d’une machine virtuelle déployée avec le modèle Azure Resource Manager. Les étapes indiquées dans les procédures utilisent le portail Azure. Quand vous sauvegardez une machine virtuelle, les points de récupération ou les données de sauvegarde sont stockés dans un coffre de sauvegarde Microsoft Azure Recovery Services.
 
 
 
@@ -34,7 +34,7 @@ Si ces conditions existent déjà dans votre environnement, passez à [l’artic
 
 ## <a name="supported-operating-systems-for-backup"></a>Systèmes d’exploitation pris en charge pour la sauvegarde
 
- * **Linux** : Azure Backup prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), à l’exception de CoreOS Linux. Pour obtenir la liste des systèmes d’exploitation Linux qui prennent en charge la restauration de fichiers, consultez [Récupérer des fichiers à partir de sauvegardes de machines virtuelles](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux** : La Sauvegarde Azure prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), à l’exception de CoreOS Linux et le système d’exploitation 32 bits. Pour obtenir la liste des systèmes d’exploitation Linux qui prennent en charge la restauration de fichiers, consultez [Récupérer des fichiers à partir de sauvegardes de machines virtuelles](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > D’autres distributions « Bring-Your-Own-Linux » peuvent fonctionner, tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge. Les distributions ne sont toutefois pas prises en charge.
@@ -45,17 +45,18 @@ Si ces conditions existent déjà dans votre environnement, passez à [l’artic
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limites lors de la sauvegarde et la restauration d’une machine virtuelle
 Avant de préparer votre environnement, assurez-vous de noter les limitations suivantes :
 
-* La sauvegarde de machines virtuelles ayant plus de 32 disques de données n’est pas prise en charge.
+* La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
 * La sauvegarde des machines virtuelles Linux chiffrées via le chiffrement LUKS (Linux Unified Key Setup) n’est pas prise en charge.
 * La sauvegarde des machines virtuelles contenant une configuration de volumes partagés de cluster (CSV) ou de serveur de fichiers avec montée en puissance parallèle n’est pas recommandée. En effet, cela pourrait entraîner l’échec des enregistreurs CSV. Cette sauvegarde exige d’impliquer toutes les machines virtuelles incluses dans la configuration du cluster pendant la tâche de capture instantanée. Sauvegarde Azure ne prend pas en charge la cohérence multimachine virtuelle.
 * Les données de sauvegarde n’incluent pas les lecteurs réseau montés attachés à une machine virtuelle.
-* Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Si vous tentez de restaurer la machine virtuelle alors que celle-ci existe, l’opération de restauration échoue.
+* L’option **Remplacer l’existant**  dans **Restaurer la configuration** permet de remplacer les disques existants dans la machine virtuelle actuelle par le point de restauration sélectionné. Cette opération ne peut être effectuée que si la machine virtuelle en cours existe. 
 * La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 * Lors de la configuration de la sauvegarde, assurez-vous que les paramètres du compte de stockage **Pare-feux et réseaux virtuels** permettent l’accès à partir de « Tous les réseaux ».
 * Pour les réseaux sélectionnés, après avoir configuré les paramètres du pare-feu et de réseau virtuel pour votre compte de stockage, sélectionnez **Autoriser les services Microsoft à accéder à ce compte de stockage de confiance** en tant qu’exception pour permettre au service Azure Backup d’accéder au compte de stockage réseau restreint. La récupération au niveau élément n’est pas prise en charge pour les comptes de stockage réseau restreints.
 * Vous pouvez sauvegarder des machines virtuelles dans toutes les régions publiques d’Azure. (Consultez la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge.) Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de coffres.
 * La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. Pour en savoir plus, consultez [Restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Les instantanés sur un disque avec l’Accélérateur des écritures activé ne sont pas pris en charge. Cette restriction empêche le service Sauvegarde Azure d’effectuer un instantané de cohérence des applications sur tous les disques de la machine virtuelle.
+* La Sauvegarde Azure ne prend pas en charge l’ajustement automatique de l’horloge pour le passage à l’heure d’été dans le cadre de la sauvegarde des machines virtuelles Azure. Si nécessaire, modifiez la stratégie de sorte à prendre en compte le passage à l’heure d’été.
 * La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles créées à l’aide du flux de travail de restauration dans l’interface utilisateur n’ont pas ces configurations réseau une fois l’opération de restauration terminée. Pour plus d’informations, consultez [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Machines virtuelles avec configuration d’un équilibreur de charge (internes et externes)
   * Machines virtuelles avec plusieurs adresses IP réservées
@@ -182,8 +183,8 @@ Si vous rencontrez des problèmes de sauvegarde de la machine virtuelle Azure, u
 
 | **opération** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installation de l’agent de machine virtuelle |Téléchargez et installez le fichier [MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. |<li> Installez l’[agent Linux](../virtual-machines/extensions/agent-linux.md) le plus récent. Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. Nous vous recommandons d’installer l’agent à partir de votre référentiel de distribution. Nous **déconseillons** d’installer l’agent de machine virtuelle Linux directement à partir de github.  |
-| Mise à jour de l’agent de machine virtuelle |La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |Suivez les instructions fournies dans l’article [Mise à jour d’un agent de machine virtuelle Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nous vous recommandons de mettre à jour l’agent à partir de votre référentiel de distribution. Nous **déconseillons** de mettre à jour l’agent de machine virtuelle Linux à partir de github.<br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |
+| Installation de l’agent de machine virtuelle |Téléchargez et installez le fichier [MSI de l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. |<li> Installez l’[agent Linux](../virtual-machines/extensions/agent-linux.md) le plus récent. Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. Nous vous recommandons d’installer l’agent à partir de votre référentiel de distribution. Nous **déconseillons** d’installer l’agent de machine virtuelle Linux directement à partir de github.  |
+| Mise à jour de l’agent de machine virtuelle |La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |Suivez les instructions fournies dans l’article [Mise à jour d’un agent de machine virtuelle Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nous vous recommandons de mettre à jour l’agent à partir de votre référentiel de distribution. Nous **déconseillons** de mettre à jour l’agent de machine virtuelle Linux à partir de github.<br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |
 | Validation de l’installation de l’agent de machine virtuelle |<li>Accédez au dossier *C:\WindowsAzure\Packages* sur la machine virtuelle Azure. <li>Le fichier WaAppAgent.exe doit être présent.<li> Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**. Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure. |N/A |
 
 ### <a name="backup-extension"></a>Extension de sauvegarde
@@ -194,7 +195,7 @@ Il installe l’extension de sauvegarde, que la machine virtuelle soit ou non en
 ## <a name="establish-network-connectivity"></a>Établir la connectivité réseau
 Pour gérer les captures instantanées de la machine virtuelle, l’extension de sauvegarde nécessite une connectivité aux adresses IP publiques Azure. Sans une bonne connectivité Internet, les requêtes HTTP de la machine virtuelle expirent et l’opération de sauvegarde échoue. Si votre déploiement comporte des restrictions d’accès, par exemple via un groupe de sécurité réseau (NSG), choisissez l’une de ces options pour fournir un chemin clair pour le trafic de sauvegarde :
 
-* [Mettez sur liste approuvée les plages d’adresses IP des centres de données Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+* [Mettez sur liste approuvée les plages d’adresses IP des centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * Déployer un serveur de proxy HTTP pour acheminer le trafic.
 
 Lors du choix de l’option à utiliser, le compromis se situe entre la facilité de gestion, le contrôle granulaire et le coût.
@@ -205,7 +206,7 @@ Lors du choix de l’option à utiliser, le compromis se situe entre la facilit�
 | Utiliser un proxy HTTP |Le contrôle granulaire dans le proxy sur les URL de stockage est autorisé.<br><br>Un seul point d’accès Internet aux machines virtuelles.<br><br>Non soumis aux modifications d’adresse IP Azure. |Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Mettez sur liste approuvée les plages IP du centre de données Azure
-Pour mettre sur liste approuvée les plages d’adresses IP des centres de données Azure, mais aussi obtenir plus d’informations sur les plages d’adresses IP et des instructions, consultez le [site web Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Pour mettre sur liste approuvée les plages d’adresses IP des centres de données Azure, mais aussi obtenir plus d’informations sur les plages d’adresses IP et des instructions, consultez le [site web Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 Vous pouvez autoriser les connexions au stockage de la région spécifique à l’aide de [balises de service](../virtual-network/security-overview.md#service-tags). Vérifiez que la règle qui autorise l’accès au compte de stockage a une priorité plus élevée que la règle bloquant l’accès à Internet.
 
@@ -305,7 +306,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 ## <a name="questions"></a>Des questions ?
-Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
+Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Étapes suivantes
 À présent que votre environnement est prêt pour sauvegarder votre machine virtuelle, l’étape logique suivante consiste à créer une sauvegarde. L’article sur la planification fournit des informations détaillées sur la sauvegarde des machines virtuelles.

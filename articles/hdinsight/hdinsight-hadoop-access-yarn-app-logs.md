@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 62499c35fd71d83f80a60e0511e6a27ce0109275
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035643"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495859"
 ---
-# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Accéder aux journaux des applications Apache YARN dans HDInsight Windows
-Ce document explique comment accéder aux journaux des applications Apache YARN qui se sont terminées sur un cluster Hadoop Windows dans Azure HDInsight.
+# <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight Windows
+Ce document explique comment accéder aux journaux des applications [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) qui se sont terminées sur un cluster Apache Hadoop Windows dans Azure HDInsight.
 
 > [!IMPORTANT]
-> Les informations présentes dans ce document sont spécifiques aux clusters HDInsight sous Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d’informations sur l’accès aux journaux YARN sur des clusters HDInsight Linux, voir [Accéder aux journaux des applications Apache YARN sur Hadoop Linux dans HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md).
+> Les informations présentes dans ce document sont spécifiques aux clusters HDInsight sous Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d’informations sur l’accès aux journaux YARN sur des clusters HDInsight Linux, consultez [Accéder aux journaux des applications Apache Hadoop YARN sur Apache Hadoop Linux dans HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md).
 >
 
 
 ### <a name="prerequisites"></a>Prérequis
-* Un cluster HDInsight Windows  Voir [Création de clusters Hadoop basés sur Windows dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Un cluster HDInsight Windows  Consultez [Création de clusters Apache Hadoop basés sur Windows dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
-Le serveur <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> fournit des informations génériques sur les applications terminées, ainsi que des informations sur les applications spécifiques à l’infrastructure, via deux interfaces différentes. Plus précisément :
+Le serveur <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline Server</a> fournit des informations génériques sur les applications terminées ainsi que des informations sur les applications spécifiques au framework, via deux interfaces différentes. Plus précisément :
 
 * Le stockage et la récupération d’informations génériques sur les applications sur les clusters HDInsight sont activés dans les versions 3.1.1.374 ou ultérieures.
 * Le composant fournissant des informations sur les applications spécifiques à l'infrastructure n'est pas actuellement disponible sur les clusters HDInsight.
@@ -53,7 +53,7 @@ YARN (Yet Another Resource Negotiator) prend en charge plusieurs modèles de pro
 * Un conteneur fournit le contexte d’une unité de travail de base. 
 * Le travail réalisé dans le contexte d’un conteneur est effectué sur l’unique nœud de travail auquel le conteneur a été alloué. 
 
-Pour plus d’informations, consultez la page [Concepts de YARN][YARN-concepts].
+Pour plus d’informations, consultez [Concepts d’Apache Hadoop YARN][YARN-concepts].
 
 Les journaux des applications (et les journaux des conteneurs associés) sont essentiels pour déboguer des applications Hadoop problématiques. La fonctionnalité [Agrégation de journaux][log-aggregation] de YARN fournit une infrastructure adaptée à la collecte, à l’agrégation et au stockage des journaux des applications. La fonctionnalité d’agrégation de journaux rend l’accès aux journaux des applications plus déterministe, car elle regroupe les journaux de tous les conteneurs sur un nœud de travail et les stocke dans un même fichier journal agrégé par nœud de travail sur le système de fichiers lorsqu’une application se termine. Votre application peut utiliser des centaines voire des milliers de conteneurs, mais les journaux de tous les conteneurs exécutés sur un nœud de travail unique sont regroupés dans un fichier unique, ce qui se traduit par l’existence d’un fichier par nœud de travail utilisé par votre application. L’agrégation de journaux est activée par défaut sur les clusters HDInsight (versions 3.0 et ultérieures) et les journaux agrégés figurent dans le conteneur par défaut de votre cluster à l’emplacement suivant :
 

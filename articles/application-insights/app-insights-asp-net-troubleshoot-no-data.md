@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bc4c0617ebf9b400260a217462abbcc439ae440
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228536"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284674"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Guide de dépannage : Application Insights pour .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Certaines de mes données télémétriques manquent
@@ -175,8 +175,14 @@ Si votre application envoie des données en grand nombre et si vous utilisez le 
 
 Vous pouvez le désactiver, mais cela n’est pas recommandé. L’échantillonnage est conçu pour que la télémétrie associée soit correctement transmise pour faciliter le diagnostic. 
 
-## <a name="client-ip-address-is-0000"></a>L’adresse IP du client est 0.0.0.0 
-En février 2018, nous [avons annoncé](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) la suppression de la journalisation de l’adresse IP du client. Cela n’affecte pas l’emplacement géographique.
+## <a name="client-ip-address-is-0000"></a>L’adresse IP du client est 0.0.0.0
+
+Le 5 février 2018, nous avons annoncé la suppression de la journalisation de l’adresse IP du client. Cela n’affecte pas l’emplacement géographique.
+
+> [!NOTE]
+> Si vous avez besoin des 3 premiers octets de l’adresse IP, vous pouvez utiliser un [initialiseur de télémétrie](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) pour ajouter un attribut personnalisé.
+> Cela n’affecte pas les données collectées avant le 5 février 2018.
+
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Données géographiques erronées dans la télémétrie de l’utilisateur
 Les dimensions de la ville, de la région et des pays proviennent des adresses IP et ne sont pas toujours précises. Ces adresses IP sont d’abord traitées pour la localisation, puis sont changées en 0.0.0.0 pour être stockées.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205159"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423641"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Vue d’ensemble d’Azure Service Fabric avec Gestion des API
 
@@ -27,7 +27,13 @@ Les applications cloud ont généralement besoin d’une passerelle frontale afi
 
 Cet article présente l’utilisation de Gestion des API Azure en tant que passerelle vers vos applications Service Fabric. Gestion des API s’intègre directement dans Service Fabric, ce qui vous permet de publier des API avec un ensemble complet de règles de routage vers vos services Service Fabric principaux. 
 
+## <a name="availability"></a>Disponibilité
+
+> [!IMPORTANT]
+> Cette fonctionnalité est disponible aux niveaux **Premium** et **Développeur** de Gestion des API en raison de la prise en charge de réseau virtuel requise.
+
 ## <a name="architecture"></a>Architecture
+
 Une architecture Service Fabric commune utilise une application web d’une seule page qui effectue des appels HTTP vers les services principaux exposant les API HTTP. L’[exemple d’application Service Fabric de mise en route](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) montre un exemple de cette architecture.
 
 Dans ce scénario, un service web sans état sert de passerelle vers l’application Service Fabric. Cette approche nécessite que vous écriviez un service web capable de transmettre les requêtes HTTP aux services principaux, comme indiqué dans le diagramme suivant :

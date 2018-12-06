@@ -8,45 +8,45 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 5bd66e3cb3902665aab9245a524a2bec6f57dc8c
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 197b15baee81c7ceff5d76dd21ceb6db1f0f5fdf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141881"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424661"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Détecter et résoudre les problèmes de déconnexion avec Azure IoT Hub
 
-Les problèmes de connectivité des appareils IoT sont parfois difficiles à résoudre, car il existe de nombreux points de défaillance possibles. La logique d’application côté appareil, les réseaux physiques, les protocoles, le matériel et Azure IoT Hub sont tous susceptibles d’occasionner des problèmes. Ce document fournit des suggestions sur la manière de détecter et résoudre les problèmes de connectivité d’appareil côté cloud (par opposition au côté appareil).
+Les problèmes de connectivité des appareils IoT sont parfois difficiles à résoudre, car il existe de nombreux points de défaillance possibles. La logique d’application côté appareil, les réseaux physiques, les protocoles, le matériel et Azure IoT Hub sont tous susceptibles d’occasionner des problèmes. Cet article fournit des suggestions sur la manière de détecter et résoudre les problèmes de connectivité d’appareil côté cloud (par opposition au côté appareil).
 
 ## <a name="get-alerts-and-error-logs"></a>Obtenir des alertes et des journaux d’erreurs
 
 Utilisez Azure Monitor pour recevoir des alertes et créer des journaux en cas de connexions d’appareil défaillantes.
 
-### <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic 
+### <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic
 
-Pour enregistrer les événements et les erreurs de connexion d’appareil, activez les diagnostics pour IoT Hub. 
+Pour enregistrer les événements et les erreurs de connexion d’appareil, activez les diagnostics pour IoT Hub.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Accédez à votre hub IoT.
 1. Sélectionnez **Paramètres de diagnostic**.
-1. Ensuite, sélectionnez **Activer les diagnostics**.
-1. Veillez à activer la collecte des journaux **Connexions**. 
-1. Pour faciliter l’analyse, vous devez activer l’option **Envoyer à Log Analytics** ([voir la tarification](https://azure.microsoft.com/pricing/details/log-analytics/)). Un exemple présenté dans la suite de cet article utilise Log Analytics.
+1. Sélectionnez **Activer les diagnostics**.
+1. Activez la collecte des journaux **Connexions**.
+1. Pour faciliter l’analyse, activez l’option **Envoyer à Log Analytics** ([voir les tarifs](https://azure.microsoft.com/pricing/details/log-analytics/)). Consultez l’exemple sous [Résoudre les erreurs de connectivité](#Resolve-connectivity-errors).
 
    ![Paramètres recommandés][2]
 
 Pour plus d’informations, consultez l’article [Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes](iot-hub-monitor-resource-health.md).
 
-### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Configurer des alertes pour la métrique du nombre d’appareils connectés
+### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Configurer des alertes pour la métrique du nombre d’_appareils connectés_
 
-Pour obtenir des alertes lorsque des appareils se déconnectent, configurez les alertes sur la métrique *Appareils connectés*. 
+Pour obtenir des alertes quand des appareils se déconnectent, configurez les alertes sur la métrique **Appareils connectés**.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Accédez à votre IoT Hub.
+1. Accédez à votre hub IoT.
 1. Sélectionnez **Alertes (classiques)**.
-1. Cliquez sur **Ajouter une alerte métrique (classique)**.
-1. Renseignez le formulaire, puis sélectionnez **OK**. 
+1. Sélectionnez **Ajouter une alerte métrique (classique)**.
+1. Renseignez le formulaire, puis sélectionnez **OK**.
 
    ![Alerte de métrique recommandée][3]
 
@@ -54,11 +54,11 @@ Pour plus d’informations, consultez l’article [Que sont les alertes classiqu
 
 ## <a name="resolve-connectivity-errors"></a>Résoudre les erreurs de connectivité
 
-Lorsque les alertes et les journaux de diagnostic relatifs aux appareils connectés sont activés, vous recevez des alertes lorsque des problèmes surgissent. Cette section décrit comment résoudre les problèmes courants lorsque vous recevez une alerte. Pour exécuter la procédure ci-après, vous devez avoir configuré Log Analytics pour vos journaux de diagnostic. 
+Lorsque vous activez les alertes et les journaux de diagnostic relatifs aux appareils connectés, vous recevez des alertes quand des erreurs se produisent. Cette section décrit comment résoudre les problèmes courants lorsque vous recevez une alerte. Pour exécuter la procédure ci-après, vous devez avoir configuré Azure Log Analytics pour vos journaux de diagnostic.
 
-1. Accédez à votre espace de travail pour **Log Analytics** à partir du Portail Azure.
-1. Cliquez sur **Recherche dans les journaux**.
-1. Pour isoler les journaux d’erreurs de connectivité pour IoT Hub, entrez la requête ci-après dans la zone, puis sélectionnez **Exécuter**.
+1. Accédez à votre espace de travail pour **Log Analytics** dans le portail Azure.
+1. Sélectionnez **Recherche de journaux**.
+1. Pour isoler les journaux d’erreurs de connectivité pour IoT Hub, entrez la requête ci-après, puis sélectionnez **Exécuter** :
 
     ```
     search *
@@ -76,19 +76,19 @@ Lorsque les alertes et les journaux de diagnostic relatifs aux appareils connect
     |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 404104 DeviceConnectionClosedRemotely | La connexion a été fermée par l’appareil pour une raison inconnue d’IoT Hub. Cette erreur est généralement causée par une expiration du délai de connexion MQTT/AMQP ou par une perte de connectivité Internet. | Assurez-vous que l’appareil peut se connecter à IoT Hub en [testant la connexion](tutorial-connectivity.md). Si la connexion est correcte, mais que l’appareil se déconnecte par intermittence, veillez à implémenter la logique de persistance de connexion d’appareil appropriée pour le protocole que vous avez choisi (MQTT/AMPQ). |
     | 401003 IoTHubUnauthorized | IoT Hub n’est pas parvenu à authentifier la connexion. | Assurez-vous que le jeton de signature d’accès partagé ou un autre jeton de sécurité que vous utilisez ne sont pas arrivés à expiration. Les [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md) génèrent automatiquement des jetons sans nécessiter de configuration spécifique. |
-    | 409002 LinkCreationConflict | Il existe plusieurs connexions pour le même appareil. Lorsqu’une nouvelle demande de connexion émane d’un appareil, IoT Hub ferme la connexion précédente en générant cette erreur. | Dans la plupart des cas, un appareil détecte une déconnexion et tente de rétablir la connexion, mais IoT Hub ne le considère pas comme étant déconnecté. Il ferme la connexion précédente et journalise l’erreur. Cette erreur est généralement l’effet secondaire d’un autre problème temporaire, donc recherchez d’autres erreurs dans les journaux pour résoudre le problème. Sinon, veillez à émettre une nouvelle demande de connexion uniquement en cas d’abandon de la connexion précédente. |
+    | 409002 LinkCreationConflict | Un appareil a plusieurs connexions. Lorsqu’une nouvelle demande de connexion émane d’un appareil, IoT Hub ferme la connexion précédente en générant cette erreur. | Dans la plupart des cas, un appareil détecte une déconnexion et tente de rétablir la connexion, mais IoT Hub considère toujours l’appareil comme étant connecté. IoT Hub ferme la connexion précédente et journalise cette erreur. Cette erreur étant généralement l’effet secondaire d’un autre problème temporaire, recherchez d’autres erreurs dans les journaux pour résoudre le problème. Sinon, veillez à émettre une nouvelle demande de connexion uniquement en cas d’abandon de la connexion précédente. |
     | 500001 ServerError | IoT Hub a rencontré un problème côté serveur. Ce problème est très probablement temporaire. Bien que l’équipe IoT Hub s’efforce continuellement de respecter les termes du [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/iot-hub/), de petits sous-ensembles de nœuds IoT Hub rencontrent parfois des erreurs temporaires. Lorsque votre appareil tente de se connecter à un nœud présentant un problème, vous recevez cette erreur. | Pour résoudre l’erreur temporaire, émettez une nouvelle tentative à partir de l’appareil. Pour [gérer automatiquement les nouvelles tentatives](iot-hub-reliability-features-in-sdks.md#connection-and-retry), vérifiez que vous utilisez la dernière version des [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md).<br><br>Pour connaître les meilleures pratiques en matière de gestion des erreurs temporaires et de nouvelles tentatives, consultez l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).  <br><br>Si le problème persiste après plusieurs tentatives, consultez le service [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) et la page [Historique des états d’Azure](https://azure.microsoft.com/status/history/) pour déterminer si IoT Hub présente un problème connu. S’il n’existe aucun problème connu et que le problème persiste, [contactez le support](https://azure.microsoft.com/support/options/) pour un examen approfondi. |
     | 500008 GenericTimeout | IoT Hub n’est pas parvenu à effectuer la demande de connexion avant l’expiration du délai de connexion. Comme dans le cas de l’erreur 500001 ServerError, il s’agit probablement d’un problème temporaire. | Exécutez la procédure de résolution de l’erreur 500001 ServerError pour déterminer la cause racine et corriger ce problème.|
 
 ## <a name="other-steps-to-try"></a>Autres mesures de résolution possibles
 
-Si les étapes ci-dessus n’ont pas résolu le problème, vous pouvez tenter d’effectuer les opérations suivantes :
+Si les mesures ci-dessus n’ont pas résolu le problème, vous pouvez essayer ce qui suit :
 
 * Si vous avez accès aux appareils problématiques, que ce soit physiquement ou à distance (comme SSH), consultez le [guide de résolution des problèmes côté appareil](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) pour poursuivre le dépannage.
-* Vérifiez que vos appareils présentent l’état **Activé** en accédant au Portail Azure > votre IoT Hub > Appareils IoT.
+* Vérifiez que vos appareils présentent l’état **Activé** en accédant au portail Azure > votre hub IoT > Appareils IoT.
 * Obtenez de l’aide auprès du [forum Azure IoT Hub](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), du forum [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub) ou du [support Azure](https://azure.microsoft.com/support/options/).
 
-Pour contribuer à améliorer la documentation à l’intention de tous les utilisateurs, laissez un commentaire ci-après si ce guide ne vous a pas aidé.
+Pour contribuer à améliorer la documentation à l’intention de tous les utilisateurs, laissez un commentaire dans la section des commentaires ci-après si ce guide ne vous a pas aidé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

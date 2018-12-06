@@ -1,11 +1,12 @@
 ---
-title: 'Infographie : Principes de base de l’apprentissage automatique - exemples d’algorithmes | Microsoft Docs'
+title: 'Infographie : Principes de base du machine learning - exemples d’algorithmes - Azure Machine Learning Studio | Microsoft Docs'
 description: Vue d’ensemble des principes fondamentaux de l’apprentissage automatique avec des exemples d’algorithmes. L’infographie téléchargeable couvre la plupart des questions relatives à l’apprentissage automatique.
 keywords: principes de base de l’apprentissage automatique, exemples d’algorithmes, apprentissage automatique pour les débutants, questions sur l’apprentissage automatique, algorithmes populaires, infographie sur les algorithmes
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: a7d2d1e46847f6126ad2905e9f2d3ce52957dad5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ccbe152901ff7f59548239a1d59e585b8e356c23
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833358"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308000"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : Principes de base de l’apprentissage automatique avec exemples d’algorithmes
 Téléchargez cette vue d’ensemble infographique présentant de manière simple les concepts de base de l’apprentissage automatique pour en savoir plus sur les algorithmes populaires utilisés pour répondre aux questions les plus courantes concernant l’apprentissage automatique. Des exemples d’algorithmes aident les débutants à mieux comprendre quels algorithmes utiliser et à quoi ils servent.
@@ -30,7 +31,7 @@ Téléchargez cette vue d’ensemble infographique présentant de manière simpl
 [Azure Machine Learning Studio](https://studio.azureml.net/) est fourni avec un grand nombre de bibliothèques d’algorithmes pour vos analyses prédictives. L’infographie identifie les quatre familles les plus courantes d’algorithmes (régression, détection d’anomalie, clustering et classification) et fournit des liens vers des exemples fonctionnels dans [Azure AI Gallery](https://gallery.cortanaintelligence.com/). La galerie contient des exemples d'expérience et des didacticiels montrant comment ces algorithmes peuvent être appliqués à de nombreuses solutions réelles.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Téléchargez la vue infographique avec des exemples d’algorithmes
-**[Téléchargement : Infographie sur les principes de base de Machine Learning avec des liens vers des exemples d’algorithmes (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Téléchargement : Infographie sur les principes de base de Machine Learning avec des liens vers des exemples d’algorithmes (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 ![Infographie : Principes de base de l’apprentissage automatique avec exemples d’algorithmes. Algorithmes populaires. Apprentissage automatique pour les débutants.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 36099a49cc9e6c810727606bb73d2669f1e0df79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985690"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422508"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>En savoir plus sur les sauvegardes automatiques SQL Database
 
@@ -42,7 +42,7 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
 ## <a name="how-long-are-backups-kept"></a>Quelle est la durée de conservation des sauvegardes ?
 
-Chaque sauvegarde SQL Database a une période de conservation par défaut basée sur le niveau de service de la base de données et diffère entre le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) et le [modèle d’achat vCore](sql-database-service-tiers-vcore.md). Vous pouvez mettre à jour la période de conservation des sauvegardes pour une base de données. Consultez [Change Backup Retention Period](#how-to-change-backup-retention-period) (Modification de la période de conservation) pour plus d’informations.
+Chaque base de données SQL a une période de conservation de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du [modèle d’achat et du niveau de service](#pitr-retention-period). Vous pouvez mettre à jour la période de conservation de sauvegarde d’une base de données sur le serveur logique Azure (cette fonctionnalité sera activée prochainement dans Managed Instance). Pour plus d’informations, consultez [Changer la période de conservation de sauvegarde](#how-to-change-backup-retention-period).
 
 Si vous supprimez une base de données, SQL Database conserve les sauvegardes de la même façon que s’il s’agissait d’une base de données en ligne. Par exemple, si vous supprimez une base de données De base dont la période de conservation est de sept jours, une sauvegarde datant de quatre jours est enregistrée pendant encore trois jours.
 

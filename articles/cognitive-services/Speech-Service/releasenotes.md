@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 706f51ae1e2d81e2003f2fcd637def95c7a42f8e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ff09926d61d64294a4f12ccf959f6685910539f1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567534"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317889"
 ---
 # <a name="release-notes"></a>Notes de publication
 
@@ -31,7 +31,7 @@ ms.locfileid: "51567534"
 
 * Ajout d'une vérification supplémentaire dans la configuration du module de reconnaissance, et ajout d'un message d’erreur supplémentaire.
 * Amélioration de la gestion des longs silences au milieu d’un fichier audio.
-* Package NuGet : pour les projets .NET Framework, toute génération est impossible avec une configuration AnyCPU.
+* Package NuGet : pour les projets .NET Framework, il empêche toute génération avec une configuration AnyCPU.
 
 **Résolution des bogues**
 

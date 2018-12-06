@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915923"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976246"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Mise en réseau dans Azure pour la réplication d’Azure
 
@@ -60,10 +60,9 @@ Si vous utilisez des règles de groupe de sécurité réseau, de proxy ou de par
 - Toutes les plages d’adresses IP qui correspondent aux comptes de stockage dans la région source
     - Créez une règle de groupe de sécurité réseau basée sur une [balise de service de stockage](../virtual-network/security-overview.md#service-tags) pour la région source.
     - Autorisez ces adresses pour que les données puissent être écrites dans le compte de stockage de cache, à partir de la machine virtuelle.
-- Toutes les plages d’adresses IP qui correspondent aux [points de terminaison IP V4 d’authentification et d’identité](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) Office 365.
-    - Si de nouvelles adresses sont ajoutées ultérieurement aux plages d’adresses IP Office 365, vous devez créer des règles de groupe de sécurité réseau.
+- Créer une règle de groupe de sécurité réseau basée sur une [balise de service Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à toutes les adresses IP correspondant à AAD
+    - Si de nouvelles adresses sont ajoutées ultérieurement à Azure Active Directory (AAD), vous devez créer de nouvelles règles de groupe de sécurité réseau.
 - Adresses IP des points de terminaison du service Site Recovery, [disponibles dans un fichier XML](https://aka.ms/site-recovery-public-ips), qui dépendent de votre emplacement cible.
--  Pour créer automatiquement les règles requises sur le groupe de sécurité réseau, vous pouvez [télécharger et utiliser ce script](https://aka.ms/nsg-rule-script).
 - Nous vous recommandons de créer les règles de groupe de sécurité réseau requises sur un groupe de sécurité réseau de test, et de vérifier qu’il n’y a aucun problème avant de créer les règles sur un groupe de sécurité réseau de production.
 
 
@@ -71,35 +70,35 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
 
    **Cible** | **IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
    --- | --- | ---
-   Est de l'Asie | 52.175.17.132 | 13.94.47.61
-   Asie du Sud-Est | 52.187.58.193 | 13.76.179.223
-   Inde centrale | 52.172.187.37 | 104.211.98.185
-   Inde du Sud | 52.172.46.220 | 104.211.224.190
-   Centre-Nord des États-Unis | 23.96.195.247 | 168.62.249.226
-   Europe du Nord | 40.69.212.238 | 52.169.18.8
-   Europe de l'Ouest | 52.166.13.64 | 40.68.93.145
-   Est des États-Unis | 13.82.88.226 | 104.45.147.24
-   États-Unis de l’Ouest | 40.83.179.48 | 104.40.26.199
-   États-Unis - partie centrale méridionale | 13.84.148.14 | 104.210.146.250
-   Centre des États-Unis | 40.69.144.231 | 52.165.34.144
-   Est des États-Unis 2 | 52.184.158.163 | 40.79.44.59
-   Est du Japon | 52.185.150.140 | 138.91.1.105
-   Ouest du Japon | 52.175.146.69 | 138.91.17.38
-   Sud du Brésil | 191.234.185.172 | 23.97.97.36
-   Est de l’Australie | 104.210.113.114 | 191.239.64.144
-   Sud-est de l’Australie | 13.70.159.158 | 191.239.160.45
+   Asie Est | 52.175.17.132 | 13.94.47.61
+   Asie Sud-Est | 52.187.58.193 | 13.76.179.223
+   Inde Centre | 52.172.187.37 | 104.211.98.185
+   Inde Sud | 52.172.46.220 | 104.211.224.190
+   USA Centre Nord | 23.96.195.247 | 168.62.249.226
+   Europe Nord | 40.69.212.238 | 52.169.18.8
+   Europe Ouest | 52.166.13.64 | 40.68.93.145
+   USA Est | 13.82.88.226 | 104.45.147.24
+   USA Ouest | 40.83.179.48 | 104.40.26.199
+   USA Centre Sud | 13.84.148.14 | 104.210.146.250
+   USA Centre | 40.69.144.231 | 52.165.34.144
+   USA Est 2 | 52.184.158.163 | 40.79.44.59
+   Japon Est | 52.185.150.140 | 138.91.1.105
+   Japon Ouest | 52.175.146.69 | 138.91.17.38
+   Brésil Sud | 191.234.185.172 | 23.97.97.36
+   Australie Est | 104.210.113.114 | 191.239.64.144
+   Australie Sud-Est | 13.70.159.158 | 191.239.160.45
    Centre du Canada | 52.228.36.192 | 40.85.226.62
    Est du Canada | 52.229.125.98 | 40.86.225.142
-   Centre-Ouest des États-Unis | 52.161.20.168 | 13.78.149.209
-   Ouest des États-Unis 2 | 52.183.45.166 | 13.66.228.204
+   USA Centre-Ouest | 52.161.20.168 | 13.78.149.209
+   USA Ouest 2 | 52.183.45.166 | 13.66.228.204
    Ouest du Royaume-Uni | 51.141.3.203 | 51.141.14.113
    Sud du Royaume-Uni | 51.140.43.158 | 51.140.189.52
    Sud du Royaume-Uni 2 | 13.87.37.4| 13.87.34.139
    Nord du Royaume-Uni | 51.142.209.167 | 13.87.102.68
    Centre de la Corée | 52.231.28.253 | 52.231.32.85
    Corée du Sud | 52.231.298.185 | 52.231.200.144
-   France-Centre | 52.143.138.106 | 52.143.136.55
-   France-Sud | 52.136.139.227 |52.136.136.62
+   France Centre | 52.143.138.106 | 52.143.136.55
+   France Sud | 52.136.139.227 |52.136.136.62
 
 
 ## <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
@@ -107,9 +106,9 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
 Cet exemple montre comment configurer des règles de groupes de sécurité réseau pour une machine virtuelle à répliquer.
 
 - Si vous utilisez des règles de groupe de sécurité réseau pour contrôler la connectivité sortante, utilisez des règles « Autoriser le trafic HTTPS sortant » sur port:443 pour toutes les plages d’adresses IP requises.
-- L’exemple part du principe que « Est des États-Unis » est l’emplacement source de la machine virtuelle, et que « Centre des États-Unis » en est l’emplacement cible.
+- L’exemple part du principe que « USA Est » est l’emplacement source de la machine virtuelle, et que « USA Centre » en est l’emplacement cible.
 
-### <a name="nsg-rules---east-us"></a>Règles de groupe de sécurité réseau - Est des États-Unis
+### <a name="nsg-rules---east-us"></a>Règles de groupe de sécurité réseau - USA Est
 
 1. Créez une règle de sécurité HTTPS sortante (443) pour « Storage.EastUS » sur le groupe de sécurité réseau comme indiqué dans la capture d’écran ci-dessous.
 
@@ -120,9 +119,9 @@ Cet exemple montre comment configurer des règles de groupes de sécurité rése
 
    **Lieu** | **Adresse IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
     --- | --- | ---
-   Centre des États-Unis | 40.69.144.231 | 52.165.34.144
+   USA Centre | 40.69.144.231 | 52.165.34.144
 
-### <a name="nsg-rules---central-us"></a>Règles de groupe de sécurité réseau - Centre des États-Unis
+### <a name="nsg-rules---central-us"></a>Règles de groupe de sécurité réseau - USA Centre
 
 Ces règles sont nécessaires pour que la réplication puisse être activée de la région cible vers la région source après le basculement :
 
@@ -134,7 +133,7 @@ Ces règles sont nécessaires pour que la réplication puisse être activée de 
 
    **Lieu** | **Adresse IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
     --- | --- | ---
-   Centre des États-Unis | 13.82.88.226 | 104.45.147.24
+   USA Centre | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuration des appliances virtuelles réseau
 

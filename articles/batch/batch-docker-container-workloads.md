@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155602"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262429"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -25,7 +25,7 @@ Vous devez être familiarisé avec les concepts de conteneur et savoir comment c
 
 ## <a name="why-use-containers"></a>Pourquoi utiliser des conteneurs ?
 
-L’utilisation de conteneurs permet de lancer simplement des tâches par lot sans avoir à gérer un environnement et des dépendances pour exécuter des applications. Les conteneurs déploient les applications sous la forme d’unités légères, portables et autonomes pouvant s’exécuter dans différents environnements. Par exemple, vous pouvez générer et tester localement un conteneur de test, puis télécharger l’image conteneur vers un registre dans Azure ou ailleurs. Le modèle de déploiement de conteneur permet de s’assurer que l’environnement d’exécution de votre application est toujours correctement installé et configuré, où que votre application soit hébergée. Les tâches basées sur le conteneur dans Batch peuvent également tirer parti des fonctionnalités des tâches non basées sur le conteneur, notamment les packages d’applications et la gestion des fichiers de ressources et des fichiers de sortie. 
+L’utilisation de conteneurs permet de lancer simplement des tâches par lot sans avoir à gérer un environnement et des dépendances pour exécuter des applications. Les conteneurs déploient les applications sous la forme d’unités légères, portables et autonomes pouvant s’exécuter dans différents environnements. Par exemple, générez et testez localement un conteneur, puis chargez l’image conteneur dans un registre dans Azure ou ailleurs. Le modèle de déploiement de conteneur permet de s’assurer que l’environnement d’exécution de votre application est toujours correctement installé et configuré, où que votre application soit hébergée. Les tâches basées sur le conteneur dans Batch peuvent également tirer parti des fonctionnalités des tâches non basées sur le conteneur, notamment les packages d’applications et la gestion des fichiers de ressources et des fichiers de sortie. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -74,7 +74,7 @@ Ces images sont uniquement prises en charge pour une utilisation dans des pools 
 
 * Des pilotes NVIDIA GPU préinstallés pour simplifier le déploiement sur des machines virtuelles Azure N-series
 
-* Images avec ou sans pilotes RDMA préinstallés ; ces pilotes permettent aux nœuds de pool d’accéder au réseau RDMA Azure lors du déploiement sur des tailles de machine virtuelle prenant en charge RDMA  
+* Votre choix d’images avec ou sans pilotes RDMA préinstallés. Ces pilotes permettent aux nœuds de pool d’accéder au réseau RDMA Azure quand ils sont déployés sur des tailles de machine virtuelle prenant en charge RDMA. 
 
 Vous pouvez également créer des images personnalisées à partir de machines virtuelles exécutant Docker sur l’une des distributions Linux compatibles avec Batch. Si vous souhaitez fournir votre propre image Linux personnalisée, consultez les instructions dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md).
 
@@ -222,41 +222,62 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
-
 ## <a name="container-settings-for-the-task"></a>Paramètres de conteneur pour la tâche
 
-Pour exécuter des tâches de conteneur sur les nœuds de calcul, vous devez spécifier des paramètres spécifiques aux conteneurs, tels que des options d’exécution de conteneurs, des images à utiliser et un registre.
+Pour exécuter une tâche de conteneur sur un pool prenant en charge les conteneurs, spécifiez des paramètres propres aux conteneurs. Il s’agit notamment de l’image à utiliser, du registre et des options d’exécution des conteneurs.
 
-Utilisez la propriété `ContainerSettings` des classes de tâches pour configurer les paramètres spécifiques au conteneur. Ces paramètres sont définis par la classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
+* Utilisez la propriété `ContainerSettings` des classes de tâches pour configurer les paramètres spécifiques au conteneur. Ces paramètres sont définis par la classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
 
-Si vous exécutez des tâches sur des images conteneur, la [tâche de cloud](/dotnet/api/microsoft.azure.batch.cloudtask) et la [tâche du gestionnaire de travaux](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) nécessitent des paramètres de conteneur. Toutefois, la [tâche de démarrage](/dotnet/api/microsoft.azure.batch.starttask), la [tâche de préparation du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) et la [tâche de mise en production du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) ne nécessitent pas de paramètres de conteneur (autrement dit, elles peuvent s’exécuter dans un contexte de conteneur ou directement sur le nœud).
+* Si vous exécutez des tâches sur des images conteneur, la [tâche de cloud](/dotnet/api/microsoft.azure.batch.cloudtask) et la [tâche du gestionnaire de travaux](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) nécessitent des paramètres de conteneur. Toutefois, la [tâche de démarrage](/dotnet/api/microsoft.azure.batch.starttask), la [tâche de préparation du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) et la [tâche de mise en production du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) ne nécessitent pas de paramètres de conteneur (autrement dit, elles peuvent s’exécuter dans un contexte de conteneur ou directement sur le nœud).
 
-Les [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) non obligatoires sont des arguments supplémentaires pour la commande `docker create` exécutée par la tâche pour créer le conteneur.
+### <a name="container-task-command-line"></a>Ligne de commande de la tâche de conteneur
+
+Quand vous exécutez une tâche de conteneur, Batch utilise automatiquement la commande [docker create](https://docs.docker.com/engine/reference/commandline/create/) pour créer un conteneur à l’aide de l’image spécifiée dans la tâche. Batch contrôle ensuite l’exécution de la tâche dans le conteneur. 
+
+Comme pour les autres tâches Batch, vous définissez une ligne de commande pour une tâche de conteneur. Batch crée automatiquement le conteneur, la ligne de commande spécifie donc uniquement la ou les commandes à exécuter dans le conteneur.
+
+Si l’image conteneur d’une tâche Batch est configurée avec un script [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example), vous pouvez définir votre ligne de commande pour qu’elle utilise la valeur par défaut ENTRYPOINT ou la remplacer : 
+
+* Pour utiliser la valeur par défaut ENTRYPOINT de l’image conteneur, définissez la ligne de commande de la tâche sur la chaîne vide `""`.
+
+* Pour remplacer la valeur par défaut ENTRYPOINT ou si l’image n’a pas de point d’entrée, définissez une ligne de commande appropriée pour le conteneur, par exemple, `/app/myapp` ou `/bin/sh -c python myscript.py`.
+
+Les options [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) facultatives sont des arguments supplémentaires que vous fournissez à la commande `docker create` que Batch utilise pour créer et exécuter le conteneur. Par exemple, afin de définir un répertoire de travail pour le conteneur, définissez l’option `--workdir <directory>`. Consultez les informations de référence de [docker create](https://docs.docker.com/engine/reference/commandline/create/) pour connaître les autres options.
 
 ### <a name="container-task-working-directory"></a>Répertoire de travail de la tâche de conteneur
 
-La ligne de commande pour une tâche de conteneur Azure Batch s’exécute dans un répertoire de travail du conteneur qui est très similaire à l’environnement configuré par Batch pour une tâche (non-conteneur) normale :
+Une tâche de conteneur Batch s’exécute dans un répertoire de travail du conteneur qui est très similaire au répertoire configuré par Batch pour une tâche normale (non-conteneur). Notez que ce répertoire de travail n’est pas [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) s’il est configuré dans l’image, ni le répertoire de travail du conteneur par défaut (`C:\` sur un conteneur Windows ou `/` sur un conteneur Linux). 
 
-* Tous les répertoires sous `AZ_BATCH_NODE_ROOT_DIR` (la racine des répertoires Azure Batch sur le nœud) sont mappés de façon récursive dans le conteneur.
+Pour une tâche de conteneur Batch :
+
+* Tous les répertoires sous `AZ_BATCH_NODE_ROOT_DIR` sur le nœud hôte (la racine des répertoires Azure Batch) sont mappés de façon récursive dans le conteneur
 * Toutes les variables d’environnement de la tâche sont mappées dans le conteneur.
-* Le répertoire de travail de l’application est défini de la même façon que pour une tâche normale : vous pouvez donc utiliser des fonctionnalités comme les packages d’application et les fichiers de ressources.
+* Le répertoire de travail de tâche `AZ_BATCH_TASK_WORKING_DIR` sur le nœud est défini de la même façon que pour une tâche normale et mappé dans le conteneur. 
 
-Étant donné que Batch change le répertoire de travail par défaut dans le conteneur, la tâche s’exécute à un autre emplacement que celui du répertoire de travail habituel du conteneur (par exemple, `c:\` par défaut sur un conteneur Windows, `/` sur Linux, ou un autre répertoire s’il est configuré dans l’image conteneur). Pour vous assurer que vos applications de conteneur s’exécutent correctement dans le contexte Batch, effectuez l’une des opérations suivantes : 
+Ces mappages vous permettent d’utiliser les tâches de conteneur quasiment comme des tâches non-conteneur. Par exemple, vous pouvez installer des applications à l’aide de packages d’application, accéder aux fichiers de ressources du Stockage Azure, utiliser les paramètres d’environnement de tâche et conserver les fichiers de sortie de tâche une fois le conteneur arrêté.
 
-* Vérifiez que la ligne de commande (ou le répertoire de travail du conteneur) de votre tâche spécifie un chemin absolu, si ce n’est pas déjà le cas.
+### <a name="troubleshoot-container-tasks"></a>Résoudre les problèmes des tâches de conteneur
 
-* Dans ContainerSettings de la tâche, définissez un répertoire de travail dans les options d’exécution du conteneur. Par exemple : `--workdir /app`.
+Si votre tâche de conteneur ne s’exécute pas comme prévu, vous pouvez avoir besoin d’obtenir des informations sur la configuration de WORKDIR ou d’ENTRYPOINT pour l’image conteneur. Pour voir la configuration, exécutez la commande [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/). 
 
-L’extrait de code Python suivant montre une ligne de commande de base exécutée dans un conteneur Ubuntu extrait du Hub Docker. Ici, l’option d’exécution du conteneur `--rm` supprime le conteneur une fois que la tâche est terminée.
+Si nécessaire, ajustez les paramètres de la tâche de conteneur en fonction de l’image :
+
+* Spécifiez un chemin absolu dans la ligne de commande de tâche. Si la valeur par défaut ENTRYPOINT de l’image est utilisée pour la ligne de commande de tâche, vérifiez qu’un chemin absolu est défini.
+
+* Dans les options d’exécution du conteneur de la tâche, changez le répertoire de travail pour qu’il corresponde à WORKDIR dans l’image. Par exemple, définissez `--workdir /app`.
+
+## <a name="container-task-examples"></a>Exemples de tâche de conteneur
+
+L’extrait de code Python suivant montre une ligne de commande de base exécutée dans un conteneur créé à partir d’une image fictive tirée du Hub Docker. Ici, l’option de conteneur `--rm` supprime le conteneur une fois la tâche terminée et l’option `--workdir` définit un répertoire de travail. La ligne de commande remplace la valeur ENTRYPOINT du conteneur par une commande shell simple qui écrit un petit fichier dans le répertoire de travail de la tâche sur l’hôte. 
 
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='ubuntu', 
-    container_run_options='--rm')
+    image_name='myimage', 
+    container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='/bin/echo hello',
+    command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
 
@@ -267,11 +288,11 @@ L’exemple C# suivant montre les paramètres de conteneur de base d’une tâch
 ```csharp
 // Simple container task command
 
-string cmdLine = "c:\myApp.exe";
+string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu",
-    containerRunOptions: "--rm --read-only"
+    imageName: "myimage",
+    containerRunOptions: "--rm --workdir c:\\app"
     );
 
 CloudTask containerTask = new CloudTask (
@@ -287,6 +308,6 @@ CloudTask containerTask = new CloudTask (
 
 * Pour plus d’informations sur l’installation et l’utilisation de Docker CE sur Linux, consultez la documentation [Docker](https://docs.docker.com/engine/installation/).
 
-* Pour en savoir plus sur l’utilisation d’images personnalisées, voir [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md).
+* Pour en savoir plus sur l’utilisation d’images personnalisées, consultez [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md).
 
 * En savoir plus sur le [projet Moby](https://mobyproject.org/), une infrastructure pour la création de systèmes basés sur le conteneur.

@@ -3,27 +3,27 @@ title: Options de contexte de calcul pour ML Services sur HDInsight - Azure
 description: Découvrez les différentes options de contexte de calcul auxquelles les utilisateurs ont accès avec ML Services sur HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: b956a641c6e6797efde98e7b613e6ce91023fc09
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 1e01a3db2c0ca1f9024afb3faecf677ac4e3131b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042055"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494469"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Options de contexte de calcul pour ML Services sur HDInsight
 
 ML Services sur Azure HDInsight contrôle le mode d’exécution des appels en définissant le contexte de calcul. Cet article présente les options disponibles pour spécifier si l’exécution est mise en parallèle, et comment, sur les différents cœurs du nœud périphérique ou du cluster HDInsight.
 
-Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de RevoScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Spark de RevoScaleR.
+Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de RevoScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Apache Spark de RevoScaleR.
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML Services sur HDInsight
-[ML Services sur Azure HDInsight](r-server-overview.md) propose les dernières fonctionnalités analytiques R. Il peut utiliser les données stockées dans un conteneur HDFS de votre compte de stockage [Blob Azure](../../storage/common/storage-introduction.md "stockage Blob Azure"), un magasin Data Lake ou le système de fichiers Linux local. Sachant que ML Services repose sur la version open source de R, les applications R que vous créez peuvent appliquer n’importe quels packages R open source qui se dénombrent à plus de 8 000. Elles peuvent aussi utiliser les routines de [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), package analytique Big Data de Microsoft fourni avec ML Services.  
+[ML Services sur Azure HDInsight](r-server-overview.md) propose les dernières fonctionnalités analytiques R. Il peut utiliser les données stockées dans un conteneur Apache Hadoop HDFS de votre compte de stockage [Blob Azure](../../storage/common/storage-introduction.md "stockage Blob Azure"), un magasin Data Lake ou le système de fichiers Linux local. Sachant que ML Services repose sur la version open source de R, les applications R que vous créez peuvent appliquer n’importe quels packages R open source qui se dénombrent à plus de 8 000. Elles peuvent aussi utiliser les routines de [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), package analytique Big Data de Microsoft fourni avec ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextes de calcul pour un nœud de périmètre
 En général, un script R qui s’exécute dans un cluster ML Services sur le nœud de périphérie s’exécute au sein de l’interpréteur R de ce nœud. L’exception concerne ces étapes qui appellent une fonction RevoScaleR. Les appels RevoScaleR s’exécutent dans un environnement de calcul déterminé par la façon dont est défini le contexte de calcul RevoScaleR.  Lorsque le script R est exécuté à partir d’un nœud périphérique, les valeurs possibles du contexte de calcul sont les suivantes :
@@ -52,7 +52,7 @@ L’option à choisir parmi les trois qui offrent l’exécution parallélisée 
 - Les analyses répétées sont plus rapides si les données sont locales et au format XDF.
 - Il est préférable de transmettre de petites quantités de données à partir d’une source de données textuelles. Si les volumes sont supérieurs, convertissez-les en XDF avant analyse.
 - La surcharge de copie ou de diffusion des données vers le nœud de périmètre pour l’analyse devient ingérable pour les quantités de données très importantes.
-- Spark est plus rapide que Map Reduce pour l’analyse dans Hadoop.
+- Apache Spark est plus rapide que MapReduce pour analyser des données dans Hadoop.
 
 Compte tenu de ces principes, la section suivante propose quelques règles générales pour sélectionner un contexte de calcul.
 
@@ -60,10 +60,10 @@ Compte tenu de ces principes, la section suivante propose quelques règles gén�
 * Si les données à analyser sont peu volumineuses et ne nécessitent pas d’analyses répétées, transmettez-les directement à la routine d’analyse avec *local* ou *localpar*.
 * Si les données à analyser sont peu ou moyennement volumineuses et nécessitent des analyses répétées, copiez-les dans le système de fichiers local, importez-les au format XDF et analysez-les avec *local* ou *localpar*.
 
-### <a name="hadoop-spark"></a>Hadoop Spark
+### <a name="apache-spark"></a>Apache Spark
 * Si les données à analyser sont volumineuses, importez-les dans un DataFrame Spark à l’aide de **RxHiveData** ou de **RxParquetData**, ou au format XDF dans HDFS (sauf si le stockage est problématique), puis analysez-les selon le contexte de calcul Spark.
 
-### <a name="hadoop-map-reduce"></a>Hadoop Map Reduce
+### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop MapReduce
 * N’utilisez le contexte de calcul MapReduce que si vous rencontrez un problème insurmontable avec le contexte de calcul Spark, car il est en général plus lent.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Aide en ligne sur rxSetComputeContext
@@ -76,7 +76,7 @@ Vous pouvez également consulter la section [Distributed computing overview](htt
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez découvert les options disponibles pour spécifier si l’exécution est mise en parallèle, et comment, sur les différents cœurs du nœud périphérique ou du cluster HDInsight. Pour en savoir plus sur l’utilisation de ML Services avec des clusters HDInsight, consultez les rubriques suivantes :
 
-* [Vue d’ensemble de ML Services pour Hadoop](r-server-overview.md)
-* [Bien démarrer avec ML Services pour Hadoop](r-server-get-started.md)
+* [Vue d’ensemble de ML Services pour Apache Hadoop](r-server-overview.md)
+* [Bien démarrer avec ML Services pour Apache Hadoop](r-server-get-started.md)
 * [Options de stockage Azure pour ML Services sur HDInsight](r-server-storage.md)
 

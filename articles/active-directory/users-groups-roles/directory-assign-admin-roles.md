@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 5c880ca15eea6ccf77f93f74c9e1ca41f7fc01ee
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686124"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276718"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -174,15 +174,11 @@ Les rôles d’administrateur disponibles sont les suivants :
   * Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
   * Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
 
+## <a name="role-permissions"></a>Autorisations des rôles
 Les tableaux suivants décrivent les autorisations spécifiques à chaque rôle dans Azure Active Directory. Certains rôles peuvent disposer d’autorisations supplémentaires dans les services Microsoft en dehors d’Azure Active Directory.
 
 ### <a name="application-administrator"></a>Administrateur d’application
 Peut créer et gérer tous les aspects des inscriptions d’applications et des applications d’entreprise.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -223,11 +219,6 @@ Peut créer et gérer tous les aspects des inscriptions d’applications et des 
 ### <a name="application-developer"></a>Développeur d’applications
 Peut créer des inscriptions d’applications indépendamment du paramètre « Les utilisateurs peuvent inscrire des applications ».
 
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Créez des applications dans Azure Active Directory. Le créateur est ajouté comme premier propriétaire, et l’objet créé compte dans le quota de 250 objets créés du créateur. |
@@ -237,11 +228,6 @@ Peut créer des inscriptions d’applications indépendamment du paramètre « 
 
 ### <a name="billing-administrator"></a>Administrateur de facturation
 Peut effectuer des tâches de facturation courantes, comme la mise à jour des informations de paiement.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -263,11 +249,6 @@ Peut effectuer des tâches de facturation courantes, comme la mise à jour des i
 Peut consulter et gérer des services et outils de gestion de bureau, notamment Intune.
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -283,11 +264,6 @@ Peut consulter et gérer des services et outils de gestion de bureau, notamment 
 
 ### <a name="cloud-application-administrator"></a>Administrateur d'applications cloud
 Peut créer et gérer tous les aspects des inscriptions d’applications et des applications d’entreprise, à l’exception du proxy d’application.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -327,11 +303,6 @@ Peut créer et gérer tous les aspects des inscriptions d’applications et des 
 ### <a name="cloud-device-administrator"></a>Administrateur d’appareil cloud
 Accès total pour gérer des appareils dans Azure AD.
 
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/devices/delete | Supprimez des appareils dans Azure Active Directory. |
@@ -344,11 +315,6 @@ Accès total pour gérer des appareils dans Azure AD.
 
 ### <a name="company-administrator"></a>Administrateur d’entreprise
 Peut gérer tous les aspects d’Azure AD et des services Microsoft qui utilisent des identités Azure AD.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -411,11 +377,6 @@ Peut gérer tous les aspects d’Azure AD et des services Microsoft qui utilisen
 Peut lire et gérer la configuration de la conformité et les rapports dans Azure AD et Office 365.
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -435,11 +396,6 @@ Peut lire et gérer la configuration de la conformité et les rapports dans Azur
 ### <a name="conditional-access-administrator"></a>Administrateur de l’accès conditionnel
 Peut gérer les fonctionnalités d’accès conditionnel.
 
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | Lisez la propriété policies.conditionalAccess dans Azure Active Directory. |
@@ -452,11 +408,6 @@ Peut gérer les fonctionnalités d’accès conditionnel.
 
 ### <a name="crm-service-administrator"></a>Administrateur de services CRM
 Peut gérer tous les aspects du produit Dynamics 365.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -476,11 +427,6 @@ Peut gérer tous les aspects du produit Dynamics 365.
 Peut approuver les demandes de support Microsoft pour accéder aux données organisationnelles du client.
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -493,11 +439,6 @@ Peut approuver les demandes de support Microsoft pour accéder aux données orga
 ### <a name="device-administrators"></a>Administrateurs d’appareils
 Les membres dotés de ce rôle sont ajoutés au groupe d’administrateurs locaux sur des appareils joints à AD Azure.
 
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/groupSettings/basic/read | Lisez des propriétés de base sur des paramètres de groupes dans Azure Active Directory. |
@@ -505,11 +446,6 @@ Les membres dotés de ce rôle sont ajoutés au groupe d’administrateurs locau
 
 ### <a name="directory-readers"></a>Lecteurs de répertoires
 Peut lire les informations d’annuaire de base. Pour accorder l’accès aux applications, non destiné aux utilisateurs.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -570,11 +506,6 @@ Peut lire les informations d’annuaire de base. Pour accorder l’accès aux ap
 ### <a name="directory-synchronization-accounts"></a>Comptes de synchronisation d’annuaires
 Utilisés uniquement par le service Azure AD Connect.
 
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | Mettez à jour la propriété organization.dirSync dans Azure Active Directory. |
@@ -604,11 +535,6 @@ Utilisés uniquement par le service Azure AD Connect.
 ### <a name="directory-writers"></a>Enregistreurs de répertoire
 Peut lire et écrire des informations d’annuaire de base. Pour accorder l’accès aux applications, non destiné aux utilisateurs.
 
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/groups/create | Créez des groupes dans Azure Active Directory. |
@@ -630,11 +556,6 @@ Peut lire et écrire des informations d’annuaire de base. Pour accorder l’ac
 
 ### <a name="exchange-service-administrator"></a>Administrateur de services Exchange
 Peut gérer tous les aspects du produit Exchange.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -659,11 +580,6 @@ Peut gérer tous les aspects du produit Exchange.
 ### <a name="guest-inviter"></a>Inviteur
 Peut inviter des utilisateurs invités indépendamment du paramètre « Les membres peuvent inviter des invités ».
 
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Lisez la propriété users.appRoleAssignments dans Azure Active Directory. |
@@ -682,11 +598,6 @@ Peut inviter des utilisateurs invités indépendamment du paramètre « Les mem
 ### <a name="helpdesk-administrator"></a>Administrateur du support technique
 Peut réinitialiser des mots de passe pour les utilisateurs non-administrateurs et les administrateurs du support technique.
 
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidez tous les jetons d’actualisation utilisateur dans Azure Active Directory. |
@@ -699,11 +610,6 @@ Peut réinitialiser des mots de passe pour les utilisateurs non-administrateurs 
 
 ### <a name="information-protection-administrator"></a>Administrateur Information Protection
 Peut gérer tous les aspects du produit Azure Information Protection.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -720,11 +626,6 @@ Peut gérer tous les aspects du produit Azure Information Protection.
 
 ### <a name="intune-service-administrator"></a>Administrateur de services Intune
 Peut gérer tous les aspects du produit Intune.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -761,11 +662,6 @@ Peut gérer tous les aspects du produit Intune.
 ### <a name="license-administrator"></a>Administrateur de licence
 Peut gérer les licences de produit pour les utilisateurs et les groupes.
 
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Gérez les licences sur des utilisateurs dans Azure Active Directory. |
@@ -776,11 +672,6 @@ Peut gérer les licences de produit pour les utilisateurs et les groupes.
 
 ### <a name="lync-service-administrator"></a>Administrateur de services Lync
 Peut gérer tous les aspects du produit Skype Entreprise.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -800,11 +691,6 @@ Peut gérer tous les aspects du produit Skype Entreprise.
 Peut lire les messages et les mises à jour de son organisation dans le Centre de messages Office 365 uniquement. 
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -816,11 +702,6 @@ Peut lire les messages et les mises à jour de son organisation dans le Centre d
 
 ### <a name="partner-tier1-support"></a>Prise en charge de niveau 1 de partenaire
 Ne pas utiliser - non destiné à une utilisation générale.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -853,11 +734,6 @@ Ne pas utiliser - non destiné à une utilisation générale.
 
 ### <a name="partner-tier2-support"></a>Prise en charge de niveau 2 de partenaire
 Ne pas utiliser - non destiné à une utilisation générale.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -895,11 +771,6 @@ Ne pas utiliser - non destiné à une utilisation générale.
 Peut gérer tous les aspects du produit Power BI.
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -917,11 +788,6 @@ Peut gérer tous les aspects du produit Power BI.
 Peut gérer les attributions de rôles dans Azure AD et tous les aspects de Privileged Identity Management.
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -932,12 +798,7 @@ Peut gérer les attributions de rôles dans Azure AD et tous les aspects de Pri
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.aad.privilegedIdentityManagement. |
 
 ### <a name="reports-reader"></a>Lecteur de rapports
-Peut lire les rapports d’audit et de connexion.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
+Peut lire les rapports d’audit et sur les connexions.
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -954,11 +815,6 @@ Peut lire les rapports d’audit et de connexion.
 
 ### <a name="security-administrator"></a>Security Administrator
 Peut lire des rapports et des informations de sécurité, ainsi que gérer la configuration dans Azure AD et Office 365.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -988,11 +844,6 @@ Peut lire des rapports et des informations de sécurité, ainsi que gérer la co
 Peut lire des rapports et des informations de sécurité dans Azure AD et Office 365.
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -1012,11 +863,6 @@ Peut lire des rapports et des informations de sécurité dans Azure AD et Office
 Peut lire des informations sur l’intégrité du service et gérer les tickets de support.
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -1031,11 +877,6 @@ Peut lire des informations sur l’intégrité du service et gérer les tickets 
 
 ### <a name="sharepoint-service-administrator"></a>Administrateur de services SharePoint
 Peut gérer tous les aspects du service SharePoint.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -1061,11 +902,6 @@ Peut gérer tous les aspects du service SharePoint.
 Peut gérer les fonctionnalités d’appel et de réunion au sein du service Microsoft Teams.
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -1084,11 +920,6 @@ Peut gérer les fonctionnalités d’appel et de réunion au sein du service Mic
 Peut résoudre les problèmes de communication au sein de Teams à l’aide d’outils avancés.
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -1104,11 +935,6 @@ Peut résoudre les problèmes de communication au sein de Teams à l’aide d’
 Peut résoudre les problèmes de communication au sein de Teams à l’aide d’outils de base.
 
   > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
-
-  > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
   >
   >
@@ -1122,11 +948,6 @@ Peut résoudre les problèmes de communication au sein de Teams à l’aide d’
 
 ### <a name="teams-service-administrator"></a>Administrateur du service Teams
 Peut gérer le service Microsoft Teams.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
   > [!NOTE]
   > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -1152,11 +973,6 @@ Peut gérer le service Microsoft Teams.
 
 ### <a name="user-account-administrator"></a>Administrateur de compte utilisateur
 Peut gérer tous les aspects des utilisateurs et groupes, notamment la réinitialisation des mots de passe pour les administrateurs limités.
-
-  > [!NOTE]
-  > Ce rôle hérite d’autorisations supplémentaires du rôle Lecteur d’annuaire.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |

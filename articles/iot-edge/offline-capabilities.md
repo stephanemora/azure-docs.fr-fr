@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567024"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284640"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge (préversion)
 
@@ -48,7 +48,7 @@ L’exemple de scénario IoT Edge suivant montre le fonctionnement en mode hors 
 
 Les fonctionnalités hors connexion étendues décrites dans cet article sont disponibles dans [IoT Edge version 1.0.4 ou ultérieure](https://github.com/Azure/azure-iotedge/releases). Les versions antérieures fournissent toutefois certaines fonctionnalités hors connexion. Les appareils IoT Edge existants qui n’ont pas de fonctionnalités hors connexion étendues ne peuvent pas être mis à niveau en changeant de version de runtime. Pour bénéficier de ces fonctionnalités, ils doivent être reconfigurés avec une nouvelle identité d’appareil IoT Edge. 
 
-La prise en charge des fonctionnalités hors connexion étendues est proposée dans toutes les régions où IoT Hub est disponible, à l’exception des régions USA Est et Europe Ouest. 
+La prise en charge des fonctionnalités hors connexion étendues est proposée dans toutes les régions où IoT Hub est disponible, **à l’exception** de la région USA Est.
 
 Seuls des appareils non IoT Edge peuvent être ajoutés en tant qu’appareils enfants. 
 
@@ -65,6 +65,19 @@ Les appareils enfants sont des appareils non Edge inscrits auprès du même IoT 
    ![Gérer les appareils enfants à partir de la page de détails de l’appareil IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
 Un appareil parent peut avoir plusieurs appareils enfants, mais un appareil enfant ne peut avoir qu’un seul appareil parent.
+
+### <a name="specifying-dns-servers"></a>Spécification des serveurs DNS 
+
+Pour améliorer la robustesse, il est recommandé de spécifier les adresses de serveur DNS utilisées dans votre environnement. Par exemple, sur Linux, mettez à jour **/etc/docker/daemon.json** (vous devrez peut-être créer le fichier) pour inclure :
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+Si vous utilisez un serveur DNS local, remplacez 1.1.1.1 par l’adresse IP du serveur DNS local. Redémarrez le service Docker pour que les modifications prennent effet.
+
 
 ## <a name="optional-offline-settings"></a>Paramètres hors connexion facultatifs
 

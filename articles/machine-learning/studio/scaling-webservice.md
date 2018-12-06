@@ -1,10 +1,11 @@
 ---
-title: Augmentation de l’accès concurrentiel d’un service web Azure Machine Learning | Microsoft Docs
-description: Découvrez comment augmenter l’accès concurrentiel d’un service web Azure Machine Learning en ajoutant des points de terminaison.
+title: Mettre à l’échelle un service web Machine Learning Studio - Azure | Microsoft Docs
+description: Découvrez comment augmenter l’accès concurrentiel d’un service web Azure Machine Learning Studio en ajoutant des points de terminaison.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 keywords: Azure Machine Learning, services web, opérationalisation, mise à l’échelle, point de terminaison, accès concurrentiel
@@ -16,12 +17,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.openlocfilehash: 2f950d93c0d923e20451eb1622dd4b1393f343a7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3077afc99e7879b14c36e16cdbed8afb3a07bdb3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835897"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312179"
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Mise à l’échelle d’un service web Azure Machine Learning en ajoutant des points de terminaison
 > [!NOTE]

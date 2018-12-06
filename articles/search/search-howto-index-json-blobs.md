@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: a4689093508c3287e60da9d4668393e71211fbdd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405700"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711070"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
 Cet article explique comment configurer un indexeur d’objets blob Recherche Azure pour extraire le contenu structuré d’objets blob JSON dans Stockage Blob Azure.
@@ -24,11 +24,8 @@ Les objets blob JSON dans Stockage Blob Azure se composent généralement d’un
 | Document JSON | parsingMode | Description | Disponibilité |
 |--------------|-------------|--------------|--------------|
 | Un seul par objet blob | `json` | Analyse les objets blob JSON comme un bloc de texte unique. Chaque objet blob JSON devient un document Recherche Azure unique. | Généralement disponible dans les API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) et [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
-| Plusieurs par objet blob | `jsonArray` | Analyse un tableau JSON dans l’objet blob, où chaque élément du tableau devient un document Recherche Azure distinct.  | En préversion, dans [REST api-version=`2017-11-11-Preview`](search-api-2017-11-11-preview.md) et [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+| Plusieurs par objet blob | `jsonArray` | Analyse un tableau JSON dans l’objet blob, où chaque élément du tableau devient un document Recherche Azure distinct.  | Généralement disponible dans les API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) et [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
 
-> [!Note]
-> Les API en préversion sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
->
 
 ## <a name="setting-up-json-indexing"></a>Configuration de l’indexation JSON
 L’indexation d’objets blob JSON s’apparente à l’extraction de documents standard dans un flux de travail en trois parties commun à tous les indexeurs dans Recherche Azure.
@@ -103,9 +100,9 @@ Une requête complète peut se présenter comme suit :
 
 Comme indiqué, les mappages de champs ne sont pas nécessaires. Étant donné un index avec les champs « text », « datePublished » et « tags », l’indexeur d’objets blob peut déduire le mappage correct sans qu’un mappage de champs ne soit présent dans la requête.
 
-## <a name="how-to-parse-json-arrays-preview"></a>Comment analyser les tableaux JSON (préversion)
+## <a name="how-to-parse-json-arrays"></a>Comment analyser les tableaux JSON
 
-Vous pouvez également opter pour la fonctionnalité en préversion des tableaux JSON. Cette fonctionnalité est utile quand les objets blob contiennent un *tableau d’objets JSON* et que vous souhaitez que chaque élément devienne un document Recherche Azure distinct. Prenons par exemple l’objet blob JSON suivant. Vous pouvez remplir l’index Recherche Azure avec trois documents distincts contenant chacun les champs « id » et « text ».  
+Vous pouvez également opter pour la fonctionnalité des tableaux JSON. Cette fonctionnalité est utile quand les objets blob contiennent un *tableau d’objets JSON* et que vous souhaitez que chaque élément devienne un document Recherche Azure distinct. Prenons par exemple l’objet blob JSON suivant. Vous pouvez remplir l’index Recherche Azure avec trois documents distincts contenant chacun les champs « id » et « text ».  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -115,9 +112,9 @@ Vous pouvez également opter pour la fonctionnalité en préversion des tableaux
 
 ### <a name="indexer-definition-for-a-json-array"></a>Définition de l’indexeur pour un tableau JSON
 
-Pour un tableau JSON, la requête de l’indexeur utilise l’API en préversion et l’analyseur `jsonArray`. Il s’agit des deux seules exigences spécifiques aux tableaux pour l’indexation d’objets blob JSON.
+Pour un tableau JSON, la requête de l’indexeur utilise l’analyseur `jsonArray`. Il s’agit des deux seules exigences spécifiques aux tableaux pour l’indexation d’objets blob JSON.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

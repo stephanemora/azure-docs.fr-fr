@@ -1,10 +1,11 @@
 ---
-title: Guide du langage de spécification des réseaux neuronaux Net# - Azure Machine Learning | Microsoft Docs
-description: Syntaxe pour le langage de spécification des réseaux neuronaux Net#, avec des exemples montrant comment créer un modèle de réseau neuronal personnalisé à l’aide de Net#
+title: Réseaux neuronaux Net# - Azure Machine Learning Studio | Microsoft Docs
+description: Syntaxe pour le langage de spécification des réseaux neuronaux Net#, avec des exemples montrant comment créer un modèle de réseau neuronal personnalisé à l’aide de Net# avec Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 2571420e3497e85ec1bf37b340015b061e8c91d4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833911"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315305"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning Studio
 
 Net# est un langage développé par Microsoft qui définit les architectures de réseaux neuronaux. L’utilisation de Net# pour définir la structure d’un réseau neuronal permet de spécifier des structures complexes, comme des réseaux neuronaux profonds ou des convolutions de dimensions arbitraires, connues pour améliorer l’apprentissage à partir de données telles que des images, des sons ou des vidéos.
 
@@ -230,7 +231,7 @@ Il existe deux ensembles de propriétés contrôlant le remplissage, qui s'exclu
 Pour plus d’informations sur les réseaux convolutionnels et leurs applications, consultez les articles suivants : 
 
 + [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
++ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf) 
 + [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
 ## <a name="pooling-bundles"></a>Faisceaux de regroupement
@@ -460,7 +461,8 @@ output Digit [10] from Hid3 all;
 + Le nombre de poids par noyau est de `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Ou `26 * 50 = 1300`.
 + Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5` `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5``NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + Étant donné que `Sharing[d]` a la valeur False uniquement pour `d == 0`, le nombre de noyaux est de `MapCount * NodeCount\[0] = 10 * 5 = 50`. 

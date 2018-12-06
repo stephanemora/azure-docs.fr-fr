@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 515aeac3531a45080824df126ad674353f70cdb8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279605"
+---
 | Ressource | Gratuit | Partagé | De base | standard | Premium (v2) | Isolé </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Applications Web, mobiles ou API](https://azure.microsoft.com/services/app-service/) par [plan App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Illimité<sup>2</sup> |Illimité<sup>2</sup> |Illimité<sup>2</sup> |Illimité<sup>2</sup>|
@@ -12,6 +25,8 @@
 | Architecture de l'application |32 bits |32 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |
 | Web Sockets par instance<sup>7</sup> |5. |35 |350 |Illimité |Illimité |Illimité |
 | [Connexions simultanées du débogueur](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) par application |1 |1 |1 |5. |5. |5. |
+| Certificats App Service par abonnement<sup>10</sup>| Non pris en charge | Non pris en charge |10 |10 |10 |10 |
+| Domaines personnalisés par application</a> |0 (sous-domaine azurewebsites.net uniquement)|500 |500 |500 |500 |500 |
 | domaines personnalisés [Prise en charge SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Non pris en charge. Certificat avec caractères génériques pour *. azurewebsites.net disponible par défaut.|Non pris en charge. Certificat avec caractères génériques pour *. azurewebsites.net disponible par défaut.|Nombre illimité de connexions SNI SSL |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses | Connexions SSL SNI illimitées et 1 connexion IP SSL incluses|
 | Équilibrage de charge intégré | |X |X |X |X |X<sup>9</sup> |
 | [Toujours actif](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
@@ -21,15 +36,15 @@
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
 | [Surveillance de point de terminaison](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Emplacements intermédiaires](../articles/app-service/web-sites-staged-publishing.md) | | | |5. |20 |20 |
-| Domaines personnalisés par application</a> |0 (sous-domaine azurewebsites.net uniquement)|500 |500 |500 |500 |500 |
-| Contrat SLA | |  |99,9 % |99,95 %|99,95 %|99,95 %|
+| Contrat SLA | |  |99,9 % |99,95 %|99,95 %|99,95 %|  
 
-<sup>1</sup>Des quotas d'applications et de stockage s'appliquent pour chaque plan App Service, sauf mention contraire.  
-<sup>2</sup>Le nombre d'applications qui peuvent être hébergées sur ces ordinateurs dépend de l'activité des applications, de la taille des instances des ordinateurs et de l'utilisation de ressources correspondante.  
-<sup>3</sup>Les instances dédiées peuvent être de différentes tailles. Pour plus d'informations, consultez la rubrique [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/) .  
-<sup>4</sup>Davantage autorisées sur demande.
-<sup>5</sup>La limite de stockage est la taille totale du contenu entre toutes les applications du même plan de service d’application. D’autres options de stockage sont disponibles dans [l’environnement App Service](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
-<sup>6</sup>Ces ressources sont limitées par les ressources physiques sur les instances dédiées (taille de l'instance et nombre d'instances).  
-<sup>7</sup>Si vous mettez à l'échelle une application sur deux instances dans la version de base, vous disposez de 350 connexions simultanées pour chacune des deux instances.  
-<sup>8</sup>Exécution d’exécutables et/ou de scripts personnalisés à la demande, selon une planification ou en continu en tant que tâche en arrière-plan au sein de votre instance App Service. La fonctionnalité AlwaysOn est nécessaire à l'exécution de tâches web en continu. Azure Scheduler (version Gratuite ou Standard) est nécessaire aux tâches web programmées. Aucune limite n’est prédéfinie quant au nombre de tâches web pouvant s’exécuter dans une instance App Service ; par contre, il existe des limites pratiques qui dépendent de ce que le code d’application tente de faire.   
-<sup>9</sup>Les références SKU App Service Isolé peuvent bénéficier d’un équilibrage de charge en interne (sans connectivité à Internet) avec Azure Load Balancer. Aussi, certaines fonctionnalités d’une instance isolée d’App Service à charge équilibrée en interne doivent être utilisées à partir de machines qui ont un accès direct au point de terminaison réseau avec équilibrage de charge en interne.
+<sup>1</sup> Des quotas d'applications et de stockage s’appliquent pour chaque plan App Service, sauf mention contraire.  
+<sup>2</sup> Le nombre d’applications qui peuvent être hébergées sur ces ordinateurs dépend de l’activité des applications, de la taille des instances des ordinateurs et de l’utilisation de ressources correspondante.  
+<sup>3</sup> Les instances dédiées peuvent être de différentes tailles. Pour plus d’informations, consultez [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/).  
+<sup>4</sup> Davantage autorisées sur demande.  
+<sup>5</sup> La limite de stockage est la taille totale du contenu entre toutes les applications du même plan App Service.  
+<sup>6</sup> Ces ressources sont limitées par les ressources physiques sur les instances dédiées (taille de l’instance et nombre d’instances).  
+<sup>7</sup> Si vous mettez à l’échelle une application sur deux instances dans le niveau De base, vous disposez de 350 connexions simultanées pour chacune des deux instances.  
+<sup>8</sup> Exécutez des exécutables et/ou des scripts personnalisés à la demande, selon une planification ou en continu en tant que tâche en arrière-plan au sein de votre instance App Service. La fonctionnalité AlwaysOn est nécessaire à l'exécution de tâches web en continu. Azure Scheduler (version Gratuite ou Standard) est nécessaire aux tâches web programmées. Aucune limite n’est prédéfinie quant au nombre de tâches web pouvant s’exécuter dans une instance App Service ; par contre, il existe des limites pratiques qui dépendent de ce que le code d’application tente de faire.  
+<sup>9</sup> Les références SKU App Service Isolé peuvent bénéficier d’un équilibrage de charge en interne (sans connectivité à Internet) avec Azure Load Balancer. Aussi, certaines fonctionnalités d’une instance isolée d’App Service à charge équilibrée en interne doivent être utilisées à partir de machines qui ont un accès direct au point de terminaison réseau avec équilibrage de charge en interne.  
+<sup>10</sup> Vous pouvez augmenter le quota des certificats App Service par abonnement en faisant une demande de prise en charge jusqu’à la limite maximale de 200.  

@@ -2,24 +2,24 @@
 title: Activer la création automatique de rubriques dans Apache Kafka - Azure HDInsight
 description: Découvrez comment configurer Apache Kafka sur HDInsight pour créer des rubriques automatiquement. Vous pouvez configurer Kafka en définissant auto.create.topics.enable sur true par le biais d’Ambari ou pendant la création du cluster par le biais de PowerShell ou de modèles Resource Manager.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: f187991b1ff128a45845c2096928945722a9ae6a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: e78f0d2012cf4f6152e69fff1bab04f827c0eef7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618267"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310886"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Comment configurer Apache Kafka sur HDInsight pour créer des rubriques automatiquement
 
-Par défaut, Kafka sur HDInsight n’active pas la création automatique de rubriques. Vous pouvez activer la création automatique de rubriques pour les clusters existants à l’aide d’Ambari. Vous pouvez également activer la création automatique de rubriques quand vous créez un cluster Kafka à l’aide d’un modèle Azure Resource Manager.
+Par défaut, [Apache Kafka](https://kafka.apache.org/) sur HDInsight n’active pas la création automatique de rubriques. Vous pouvez activer la création automatique de rubriques pour les clusters existants à l’aide d’[Apache Ambari](https://ambari.apache.org/). Vous pouvez également activer la création automatique de rubriques quand vous créez un cluster Kafka à l’aide d’un modèle Azure Resource Manager.
 
-## <a name="ambari-web-ui"></a>Interface utilisateur web d'Ambari
+## <a name="apache-ambari-web-ui"></a>Interface utilisateur web d’Apache Ambari
 
 Pour activer la création automatique de rubriques sur un cluster existant par le biais de l’interface utilisateur web d’Ambari, effectuez les étapes suivantes :
 
@@ -56,7 +56,7 @@ Pour activer la création automatique de rubriques sur un cluster existant par l
     ![Image de la sélection du redémarrage](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]
-> Vous pouvez également définir les valeurs Ambari par le biais de l’API REST d’Ambari. Cette méthode est généralement plus difficile, car vous devez effectuer plusieurs appels REST pour récupérer la configuration actuelle, la modifier, etc. Pour plus d’informations, consultez le document [Gérer des clusters HDInsight à l’aide de l’API REST d’Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md).
+> Vous pouvez également définir les valeurs Ambari par le biais de l’API REST d’Ambari. Cette méthode est généralement plus difficile, car vous devez effectuer plusieurs appels REST pour récupérer la configuration actuelle, la modifier, etc. Pour plus d’informations, consultez le document [Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ## <a name="resource-manager-templates"></a>Modèles Resource Manager
 
@@ -79,7 +79,7 @@ Quand vous créez un cluster Kafka à l’aide d’un modèle Azure Resource Man
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce document, vous avez appris à activer la création automatique de rubriques pour Kafka sur HDInsight. Pour en savoir plus sur l’utilisation de Kafka, consultez les liens suivants :
+Dans ce document, vous avez appris à activer la création automatique de rubriques pour Apache Kafka sur HDInsight. Pour en savoir plus sur l’utilisation de Kafka, consultez les liens suivants :
 
-* [Analyser les journaux Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Répliquer des données entre des clusters Kafka](apache-kafka-mirroring.md)
+* [Analyser les journaux Apache Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Répliquer des données d’un cluster Kafka à un autre](apache-kafka-mirroring.md)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 11/23/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567908"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314670"
 ---
 # <a name="azure-stack-1809-update"></a>Mise à jour 1809 d’Azure Stack
 
@@ -84,7 +84,11 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack :
 
 ### <a name="changes"></a>Changements
 
-Aucune.
+<!-- 2635202 - IS, ASDK -->
+- Le service de sauvegarde de l’infrastructure se passe du [réseau d’infrastructure publique](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) au [réseau d’adresse IP virtuelle publique](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Les clients doivent vérifier que le service a accès à l’emplacement de stockage de sauvegarde à partir du réseau d’adresse IP virtuelle publique.  
+
+> [!IMPORTANT]  
+> Si vous avez un pare-feu qui n’autorise pas les connexions du réseau d’adresse IP virtuelle publique au serveur de fichiers, ce changement entraîne l’échec des sauvegardes d’infrastructure avec l’« Erreur 53 Le chemin réseau n’a pas été trouvé ». Il s’agit d’un changement cassant pour lequel il n’existe aucune solution de contournement raisonnable. Sur la base des remarques des clients, Microsoft établira ce changement dans un correctif. Pour plus d’informations sur les correctifs logiciels disponibles pour 1809, passez en revue la [section relative aux étapes post-mise à jour](#post-update-steps). Une fois le correctif logiciel disponible, veillez à l’appliquer après avoir effectué la mise à jour vers 1809 uniquement si vos stratégies réseau n’autorisent pas le réseau d’adresse IP virtuelle publique à accéder aux ressources d’infrastructure. Dans 1811, cette modification sera appliquée à tous les systèmes. Si vous avez appliqué le correctif logiciel dans 1809, aucune action supplémentaire n’est nécessaire.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Failles et menaces courantes
 
@@ -169,7 +173,7 @@ Pour plus d’informations sur ces vulnérabilités, cliquez sur les liens préc
 > Préparer votre déploiement Azure Stack pour l’hôte d’extension qui est activé par le prochain package de mise à jour. Préparez votre système en utilisant les instructions suivantes, [Préparer l’hôte d’extension pour Azure Stack](azure-stack-extension-host-prepare.md).
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md).  
-- [KB 4471993 – Correctif logiciel Azure Stack 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849 - Correctif Azure Stack 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
@@ -222,7 +226,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
    
   Exécutez l’applet de commande [Test-AzureStack](azure-stack-diagnostic-test.md) pour vérifier l’intégrité des instances de rôle d’infrastructure et des nœuds d’unité d’échelle. Si aucun problème n’est détecté par [Test-AzureStack](azure-stack-diagnostic-test.md), vous pouvez ignorer ces alertes. Si un problème est détecté, vous pouvez tenter de démarrer l’instance de rôle d’infrastructure ou le nœud à l’aide du portail d’administration ou de PowerShell.
 
-  Ce problème est résolu dans la dernière [version de correctif logiciel 1809](https://support.microsoft.com/help/4471993/), par conséquent, veillez à installer ce correctif logiciel si vous rencontrez le problème. 
+  Ce problème est résolu dans la dernière [version de correctif logiciel 1809](https://support.microsoft.com/help/4477849/), par conséquent, veillez à installer ce correctif logiciel si vous rencontrez le problème. 
 
 <!-- 1264761 - IS ASDK -->  
 - Vous risquez de recevoir des alertes pour le composant **Contrôleur d’intégrité** contenant les informations suivantes :  

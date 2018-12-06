@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 308527bce2048921c2af65aa78a12d8ef2c2bed2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238979"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497784"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -25,7 +25,7 @@ Découvrez comment utiliser HDInsight avec un [réseau virtuel Azure](../virtual
 
 * connexion de HDInsight à des banques de données dans un réseau virtuel Azure ;
 
-* accès direct aux services Apache Hadoop qui ne sont pas disponibles publiquement sur Internet ; tels que les API Kafka ou l’API Java HBase.
+* accès direct aux services [Apache Hadoop](https://hadoop.apache.org/) qui ne sont pas disponibles publiquement sur Internet ; tels que les API [Apache Kafka](https://kafka.apache.org/) ou l’API Java [Apache HBase](https://hbase.apache.org/).
 
 > [!WARNING]
 > Les informations contenues dans ce document nécessitent une compréhension de la gestion de réseau TCP/IP. Si vous n’êtes pas familiarisé avec la gestion de réseau TCP/IP, vous devez travailler en partenariat avec une personne connaissant le sujet avant d’apporter des modifications aux réseaux de production.
@@ -171,11 +171,11 @@ Pour permettre la résolution de noms entre le réseau virtuel et les ressources
 
 Pour plus d’informations, voir le document [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-## <a name="directly-connect-to-hadoop-services"></a>Se connecter directement aux services Hadoop
+## <a name="directly-connect-to-apache-hadoop-services"></a>Se connecter directement aux services Apache Hadoop
 
 Vous pouvez vous connecter au cluster à l’adresse https://CLUSTERNAME.azurehdinsight.net. Il s’agit d’une adresse IP publique, qui ne sera peut-être pas accessible si vous avez utilisé des groupes de sécurité réseau pour limiter le trafic entrant d’Internet. En outre, lorsque vous déployez le cluster dans un réseau virtuel, vous pouvez y accéder à partir du point de terminaison privé https://CLUSTERNAME-int.azurehdinsight.net. Ce point de terminaison correspond à une adresse IP privée au sein du réseau virtuel pour l’accès au cluster.
 
-Pour vous connecter à Ambari et à d’autres pages web via le réseau virtuel, procédez comme suit :
+Pour vous connecter à Apache Ambari et à d’autres pages web via le réseau virtuel, procédez comme suit :
 
 1. Pour découvrir les noms de domaine complets (FQDN) internes des nœuds de cluster HDInsight, utilisez l’une des méthodes suivantes :
 
@@ -316,7 +316,7 @@ Si vous prévoyez d’utiliser un **pare-feu d’appliance virtuelle** réseau p
 * 11000-11999
 * 14000-14999
 
-Pour obtenir la liste des ports utilisés pour des services spécifiques, voir le document [Ports utilisés par les services Hadoop sur HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+Pour obtenir la liste des ports utilisés pour des services spécifiques, voir le document [Ports utilisés par les services Apache Hadoop sur HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Pour plus d’informations sur les règles de pare-feu pour les appliances virtuelles, voir le document [Scénario d’appliance virtuelle](../virtual-network/virtual-network-scenario-udr-gw-nva.md).
 
@@ -660,8 +660,8 @@ Après avoir suivi ces étapes, vous pouvez vous connecter aux ressources du ré
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour un exemple de bout en bout de configuration de HDInsight pour se connecter à un réseau local, voir [Connecter HDInsight à un réseau local](./connect-on-premises-network.md).
-* Pour configurer des clusters Hbase dans des réseaux virtuels Azure, consultez [Créer des clusters HBase sur HDInsight dans Réseau virtuel Azure](hbase/apache-hbase-provision-vnet.md).
-* Pour configurer la géoréplication HBase, consultez [Configurer la réplication de cluster HBase dans les réseaux virtuels Azure](hbase/apache-hbase-replication.md).
+* Pour configurer des clusters Apache Hbase dans des réseaux virtuels Azure, consultez [Créer des clusters Apache HBase sur HDInsight dans un réseau virtuel Azure](hbase/apache-hbase-provision-vnet.md).
+* Pour configurer la géoréplication Apache HBase, consultez [Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure](hbase/apache-hbase-replication.md).
 * Pour plus d’informations sur les réseaux virtuels Azure, voir [Vue d'ensemble de Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
 
 * Pour plus d’informations sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](../virtual-network/security-overview.md).

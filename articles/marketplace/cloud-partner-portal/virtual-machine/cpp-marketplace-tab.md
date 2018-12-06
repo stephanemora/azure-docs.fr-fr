@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa43a6f1f7c757366e321e7da0fb1e47d4928cee
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: b68f7004366dcb502ffc8332cf8266a434c7ecfb
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638954"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977146"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Onglet Place de marché de machine virtuelle
 
@@ -40,7 +40,8 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs.
 | **Description**           | Description de la solution.  Longueur maximale de 3 000 caractères ; prend en charge la mise en forme HTML simple. |
 | **Marketing Identifier** (Identificateur marketing)  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple :  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **ID d’abonnement pour préversion** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
-| **Liens utiles**          | Sélection multiple de catégories commerciales et techniques auxquelles l’offre s’associe le mieux.  Cinq catégories maximales autorisées.  |
+| **Liens utiles**          | Ajoutez des URL vers des pages de documentation, des notes de version, des FAQ, etc. |
+| **Catégories suggérées (cinq au maximum)** | Sélection multiple de catégories commerciales et techniques auxquelles l’offre s’associe le mieux.  Cinq catégories maximales autorisées.  |
 |  |  |
 
 
@@ -73,7 +74,7 @@ Cette deuxième section est divisée en trois sous-sections : **Logos**, **Captu
 <!-- TD: It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
-Tous les logos chargés sur le portail Cloud Partner doivent respecter ces instructions :
+Tous les logos chargés sur le Portail Cloud Partner doivent respecter ces instructions :
 
 *  Le design Azure a une palette de couleurs simple. Limitez le nombre de couleurs primaires et secondaires sur votre logo.
 *  Les couleurs de thème du portail Azure sont le blanc et le noir. Évitez donc d’utiliser ces couleurs comme couleur d’arrière-plan pour vos logos. Utilisez des couleurs qui mettent vos logos en évidence dans le portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples. Si vous utilisez un arrière-plan transparent, assurez-vous que le logo/texte n’est ni blanc ni noir ni bleu.

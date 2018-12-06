@@ -10,27 +10,27 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 9873347683fdfabd93083b44d034a8d9d5bcaeef
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f0b13480c06e154b85300f4a8a2f8a84db04c31b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297535"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582375"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
-L’extension de serveur NPS (Network Policy Server) pour Azure MFA permet d’ajouter des fonctionnalités de MFA basées sur le cloud à votre infrastructure d’authentification à l’aide de vos serveurs existants. Avec l’extension NPS, vous pouvez ajouter des vérifications basées sur des appels téléphoniques, des SMS ou des applications mobiles à votre flux d’authentification existant sans avoir à installer, configurer et gérer les nouveaux serveurs. 
+L’extension de serveur NPS (Network Policy Server) pour Azure MFA permet d’ajouter des fonctionnalités de MFA basées sur le cloud à votre infrastructure d’authentification à l’aide de vos serveurs existants. Avec l’extension NPS, vous pouvez ajouter des vérifications basées sur des appels téléphoniques, des SMS ou des applications mobiles à votre flux d’authentification existant sans avoir à installer, configurer et gérer les nouveaux serveurs. 
 
 Cette extension a été créée pour les organisations qui souhaitent protéger des connexions VPN sans déployer le serveur Azure MFA. L’extension NPS joue le rôle d’adaptateur entre RADIUS et Azure MFA sur le cloud pour fournir un second facteur d’authentification pour les utilisateurs fédérés ou synchronisés.
 
-Lorsque vous utilisez l’extension NPS pour Azure MFA, le flux d’authentification inclut les composants suivants : 
+Lorsque vous utilisez l’extension NPS pour Azure MFA, le flux d’authentification inclut les composants suivants : 
 
-1. **Le serveur NAS/VPN** reçoit les demandes des clients VPN et les convertit en demandes RADIUS à des serveurs NPS. 
-2. **Le serveur NPS** se connecte à Active Directory pour procéder à l’authentification principale pour les demandes RADIUS et, en cas de réussite, les transmet à toutes les extensions installées.  
-3. **L’extension NPS** déclenche une demande destinée à Azure MFA pour l’authentification secondaire. Une fois que l’extension reçoit la réponse, et si la demande MFA réussit, elle termine la demande d’authentification en fournissant au serveur NPS des jetons de sécurité qui incluent une revendication MFA, émise par Azure STS.  
+1. **Le serveur NAS/VPN** reçoit les demandes des clients VPN et les convertit en demandes RADIUS à des serveurs NPS. 
+2. **Le serveur NPS** se connecte à Active Directory pour procéder à l’authentification principale pour les demandes RADIUS et, en cas de réussite, les transmet à toutes les extensions installées.  
+3. **L’extension NPS** déclenche une demande destinée à Azure MFA pour l’authentification secondaire. Une fois que l’extension reçoit la réponse, et si la demande MFA réussit, elle termine la demande d’authentification en fournissant au serveur NPS des jetons de sécurité qui incluent une revendication MFA, émise par Azure STS.  
 4. **Azure MFA** communique avec Azure Active Directory pour récupérer les informations de l’utilisateur et procède à l’authentification secondaire à l’aide d’une méthode de vérification configurée par l’utilisateur.
 
-Le diagramme suivant illustre ce flux de demande d’authentification de niveau supérieur : 
+Le diagramme suivant illustre ce flux de demande d’authentification de niveau supérieur : 
 
 ![Diagramme du flux d’authentification](./media/howto-mfa-nps-extension/auth-flow.png)
 
@@ -118,7 +118,7 @@ Il existe deux facteurs qui affectent les méthodes d’authentification disponi
 
 Lorsque vous déployez l’extension NPS, utilisez ces facteurs pour déterminer quelles méthodes sont disponibles pour vos utilisateurs. Si votre point d’accès sans fil compatible 802.1X prend en charge PAP, mais que le client UX ne dispose pas des champs d’entrée pour un code de vérification, l’appel téléphonique et la notification d’application mobile sont les deux options prises en charge.
 
-Vous pouvez [désactiver les méthodes d’authentification non prises en charge](howto-mfa-mfasettings.md#selectable-verification-methods) dans Azure.
+Vous pouvez [désactiver les méthodes d’authentification non prises en charge](howto-mfa-mfasettings.md#verification-methods) dans Azure.
 
 ### <a name="register-users-for-mfa"></a>Inscrire des utilisateurs pour l’authentification MFA
 
@@ -212,15 +212,31 @@ Recherchez le certificat auto-signé créé par le programme d’installation da
 
 Ouvrez une invite de commandes PowerShell et exécutez les commandes suivantes :
 
-```
+``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
 ```
 
 Ces commandes impriment tous les certificats qui associent votre client à votre instance de l’extension NPS dans votre session PowerShell. Recherchez votre certificat en exportant votre certificat client en tant que fichier « Codé à base 64 X.509 (.cer) » sans la clé privée et comparez-le à la liste de PowerShell.
 
+La commande suivante crée un fichier nommé « npscertificate » sur votre lecteur « C: » au format .cer.
+
+``` PowerShell
+import-module MSOnline
+Connect-MsolService
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+```
+
+Une fois que vous exécutez cette commande, accédez à votre lecteur C, recherchez le fichier et double-cliquez dessus. Accédez aux détails et faites défiler jusqu'à « empreinte », comparez avec l’empreinte du certificat installé sur le serveur. Les empreintes des certificats doivent correspondre.
+
 Les horodatages Valid-From (Valide à partir de) et Valid-Until (Valide jusqu’à), qui sont dans un format explicite, peuvent être utilisés pour filtrer les certificats de toute évidence non appropriés si la commande en renvoie plusieurs.
+
+-------------------------------------------------------------
+
+### <a name="why-cant-i-sign-in"></a>Pourquoi je ne peux pas me connecter ?
+
+Vérifiez que votre mot de passe n’a pas expiré. L’Extension NPS ne prend pas en charge la variation des mots de passe dans le cadre du flux de travail de connexion. Contactez le service informatique de votre entreprise pour obtenir de l’aide.
 
 -------------------------------------------------------------
 

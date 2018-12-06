@@ -1,6 +1,6 @@
 ---
-title: Publier un modèle de solution | Microsoft Docs
-description: Publier un modèle de solution sur la Place de marché Microsoft Azure.
+title: Publier un modèle de solution Azure | Microsoft Docs
+description: Publiez un modèle de solution sur la Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: dan-wesley
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 333eebfa1bae919c43164572c63f2de4f7251fe0
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345587"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261615"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publier un modèle de solution sur la Place de marché Microsoft Azure
 
@@ -31,31 +31,22 @@ Les prérequis techniques et non techniques suivants s’appliquent à la public
 
 ### <a name="technical"></a>Techniques
 
-- [Comprendre les modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-
+- [Comprendre les modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 - Modèles de démarrage rapide Microsoft Azure :
-
     - [Documentation sur les modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/)
-
     - [Documentation de démarrage rapide Azure sur GitHub](https://github.com/azure/azure-quickstart-templates)
-
  - [Créer le fichier d’interface utilisateur du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+ - Activer l’[attribution de l’utilisation de client](./../azure-partner-customer-usage-attribution.md) pour mieux suivre l’utilisation d’Azure dans les déploiements clients de logiciels sur Azure.
 
 ### <a name="non-technical-business-requirements"></a>Non techniques (critères de l’entreprise)
 
--   Votre entreprise (ou sa filiale) doit être située dans un pays expéditeur pris en charge par la Place de marché Microsoft Azure.
-
--   Votre produit doit être disponible sous licence d’une manière compatible avec les modèles de facturation pris en charge par la Place de marché Microsoft Azure.
-
--   Il vous incombe de consentir tous les efforts raisonnables pour mettre à la disposition de vos clients un support technique gratuit, payant ou accessible via une communauté.
-
--   Il vous incombe de gérer les licences de vos logiciels et de toutes les dépendances de logiciels tiers.
-
--   Vous devez fournir un contenu conforme aux critères définis pour que votre offre soit répertoriée sur la Place de marché Microsoft Azure et sur le portail de gestion Microsoft Azure.
-
--   Acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de marché Microsoft Azure.
-
--   Engagez-vous à respecter les Conditions d’utilisation, la Déclaration de confidentialité Microsoft et le Contrat relatif au programme Microsoft Azure Certified.
+- Votre entreprise (ou sa filiale) doit être située dans un pays expéditeur pris en charge par la Place de marché Microsoft Azure.
+- Votre produit doit être disponible sous licence d’une manière compatible avec les modèles de facturation pris en charge par la Place de marché Microsoft Azure.
+- Il vous incombe de consentir tous les efforts raisonnables pour mettre à la disposition de vos clients un support technique gratuit, payant ou accessible via une communauté.
+- Il vous incombe de gérer les licences de vos logiciels et de toutes les dépendances de logiciels tiers.
+- Fournissez du contenu conforme aux critères définis pour que votre offre soit répertoriée sur la Place de marché Microsoft Azure et sur le portail Microsoft Azure.
+- Acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de marché Microsoft Azure.
+- Engagez-vous à respecter les Conditions d’utilisation, la Déclaration de confidentialité Microsoft et le Contrat relatif au programme Microsoft Azure Certified.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -101,7 +92,7 @@ Chaque vue contient un ensemble de champs que vous devez remplir. Les champs obl
 
     **ID de l’offre**
 
-     Identificateur unique de l’offre au sein du profil d’éditeur. Cet ID est visible dans les URL de produit, les modèles ARM et les états de facturation. Vous ne pouvez utiliser que des caractères alphanumériques en minuscules ou des tirets (-). L’ID ne peut pas se terminer par un tiret et ne peut pas comporter plus de 50 caractères. 
+     Identificateur unique de l’offre au sein d’un profil d’éditeur. Cet ID est visible dans les URL de produits, les modèles Azure Resource Manager et les rapports de facturation. Vous ne pouvez utiliser que des caractères alphanumériques en minuscules ou des tirets (-). L’ID ne peut pas se terminer par un tiret et ne peut pas comporter plus de 50 caractères. 
     >[!Note]
     >Ce champ est verrouillé une fois l’offre publiée.
 
@@ -113,7 +104,7 @@ Chaque vue contient un ensemble de champs que vous devez remplir. Les champs obl
 
     **Nom**
 
-    Nom d’affichage de votre offre. Ce nom apparaît sur la Place de marché Microsoft Azure et sur le portail Azure. Il ne peut pas comprendre plus de 50 caractères. Suivez les conseils ci-dessous pour le nom de l’offre :
+    Nom d’affichage de votre offre. Ce nom apparaît sur la Place de marché Microsoft Azure et sur le portail Microsoft Azure. Il ne peut pas comprendre plus de 50 caractères. Suivez les conseils ci-dessous pour le nom de l’offre :
     -  Incluez un nom de marque reconnaissable pour votre produit. 
     - N’incluez pas ici le nom de votre entreprise, sauf si l’offre est commercialisée de cette façon.
     - Si vous commercialisez cette offre sur votre propre site web, veillez à ce que le nom soit identique à celui qui apparaît sur votre site web.
@@ -128,7 +119,7 @@ pour votre offre.
 
     ![Nouvelle référence SKU](./media/cloud-partner-portal-publish-managed-app/newOffer_skus.png)
 
-    Le SKU ID (ID de référence SKU) est un identificateur unique de la référence SKU au sein d’une offre. Cet ID est visible dans les URL de produit, les modèles ARM et les états de facturation. L’ID de référence SKU :
+    Le SKU ID (ID de référence SKU) est un identificateur unique de la référence SKU au sein d’une offre. Cet ID est visible dans les URL de produit, les modèles Resource Manager et les états de facturation. L’ID de référence SKU :
     - Ne peut pas comporter plus de 50 caractères.
     - Ne peut être constitué que de caractères alphanumériques en minuscules ou de tirets (-).
     - L’ID ne peut pas se terminer par un tiret.
@@ -146,14 +137,10 @@ pour votre offre.
 Indiquez les paramètres de référence SKU suivants.
 
 - **Titre** : entrez le titre de la référence SKU. Ce titre s’affiche dans la galerie pour cet élément.
-
 - **Résumé** : courte description de la référence SKU. (La longueur maximale est de 100 caractères.)
-
 - **Description** : description détaillée de la référence SKU.
-
 - **Type de référence SKU** : liste déroulante avec ces valeurs : « Managed Application (préversion) » et « Modèle de Solution ». Pour ce scénario, sélectionnez **Modèle de solution**.
-
-- **Disponibilité cloud** : emplacement de la référence SKU. La valeur par défaut est Public Azure.
+- **Disponibilité cloud** : emplacement de la référence SKU. La valeur par défaut est **Public Azure**.
 
 ### <a name="package-details"></a>Détails du package
 
@@ -162,19 +149,16 @@ Une fois que vous avez terminé de renseigner les paramètres de la référence 
 ![Détails du package](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
 - **Version actuelle** : version du package que vous allez charger. Les balises de version doivent être au format X.Y.Z, où X, Y et Z sont des entiers.
-
 - **Fichier de package** : ce package contient les fichiers suivants, compressés dans un fichier .zip.
-
     -   MainTemplate.json : fichier de modèle de déploiement utilisé pour déployer la solution/l’application et créer les ressources définies par la solution. Pour plus d’informations, consultez [Comment créer des fichiers de modèle de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
-
-    -   appliancecreateUIDefinition.json : ce fichier est utilisé par le portail Azure pour générer l’interface utilisateur pour l’approvisionnement de cette solution/application. Pour plus d’informations, consultez [Créer une interface utilisateur de portail Azure pour votre application managée](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+    -   createUIDefinition.json : ce fichier est utilisé par le portail Microsoft Azure pour générer l’interface utilisateur pour l’approvisionnement de cette solution/application. Pour plus d’informations, consultez [Créer une interface utilisateur de portail Azure pour votre application managée](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
     >[!IMPORTANT]
     >Ce package doit contenir tous les autres modèles ou scripts imbriqués nécessaires à l’approvisionnement de cette application. Les fichiers mainTemplate.json et createUiDefinition.json doivent se trouver dans le dossier racine.
 
 ## <a name="to-configure-the-marketplace"></a>Pour configurer la Place de marché
 
-Utilisez la vue Place de marché pour configurer les champs qui s’affichent pour l’offre sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/).
+Utilisez la vue Place de marché pour configurer les champs de l’offre qui s’affichent sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et le [portail Microsoft Azure](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>ID d’abonnement pour version préliminaire
 
@@ -182,9 +166,9 @@ Il s’agit de la liste des ID d’abonnement Azure dont vous voulez qu’ils ai
 
 ### <a name="suggested-categories"></a>Catégories suggérées
 
-Sélectionnez dans la liste fournie jusqu’à 5 catégories auxquelles votre offre peut être associée au mieux. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/).
+Sélectionnez dans la liste fournie jusqu’à cinq catégories auxquelles votre offre peut être associée au mieux. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/).
 
-Les exemples suivants présentent les informations de place de marché qui s’affichent sur la Place de marché Microsoft Azure et le portail Azure.
+Les exemples suivants présentent les informations de place de marché qui s’affichent sur la Place de marché Microsoft Azure et le portail Microsoft Azure.
 
 **Azure Marketplace**
 
@@ -219,7 +203,7 @@ Suivez ces instructions pour les logos chargés sur le portail Cloud Partner :
 
 -   N'utilisez pas d’arrière-plan dégradé sur le logo.
 
--   Évitez de placer du texte sur le logo. Cela vaut aussi pour le nom de votre entreprise ou de votre marque. L’apparence de votre logo doit être *plate* et éviter les dégradés.
+-   Évitez de placer du texte sur le logo. Ce conseil vaut aussi pour le nom de votre entreprise ou de votre marque. L’apparence de votre logo doit être *plate* et éviter les dégradés.
 
 -   Le logo ne doit pas être étiré.
 
@@ -229,7 +213,7 @@ La bannière est facultative. L’éditeur peut choisir de ne pas télécharger 
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Recommandations concernant l’icône Bannière
 
--   Le nom d’affichage de l’éditeur, le titre du plan et le résumé long de l’offre s’affichent en utilisant une police de couleur blanche. Évitez d’utiliser une couleur claire dans l’arrière-plan. Les arrière-plans noirs, blancs et transparents ne sont pas autorisés pour les icônes Bannière.
+-   Le nom d’affichage de l’éditeur, le titre du plan et le résumé long de l’offre s’affichent dans une police de couleur blanche. Évitez d’utiliser une couleur claire dans l’arrière-plan. Les arrière-plans noirs, blancs et transparents ne sont pas autorisés pour les icônes de bannière.
 
 -   Le nom d’affichage de l’éditeur, le titre du plan, le résumé long de l’offre et le bouton Créer sont incorporés par programmation à l’intérieur de la bannière quand l’offre est publiée. N’entrez pas de texte au moment de concevoir la bannière. Laissez un espace vide à droite du logo. Cet espace doit faire 415 x 100 pixels et être décalé de 370 px à partir de la gauche.
 

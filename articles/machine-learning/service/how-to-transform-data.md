@@ -10,30 +10,30 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 988301f24f710a3e29fad1254d405501166e8a4e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945669"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309791"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformer des données avec le SDK de préparation des données Azure Machine Learning
 
-Le [SDK de préparation des données Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) offre différentes méthodes de transformation pour nettoyer vos données. Ces méthodes simplifient l’ajout de colonnes, le filtrage des lignes ou des colonnes indésirables, et l’imputation des valeurs manquantes.
+Dans cet article, vous découvrez les différentes méthodes de chargement de données à l’aide du [kit SDK de préparation de données Azure Machine Learning](https://aka.ms/data-prep-sdk). Le SDK offre des fonctions qui simplifient l’ajout de colonnes, le filtrage des lignes ou des colonnes indésirables et l’imputation des valeurs manquantes.
 
-Il existe actuellement des méthodes pour les tâches suivantes :
+Il existe actuellement des fonctions pour les tâches suivantes :
+
 - [Ajouter une colonne à l’aide d’une expression](#column)
 - [Imputer des valeurs manquantes](#impute-missing-values)
 - [Dériver une colonne par un exemple](#derive-column-by-example)
-- [Filtering](#filtering)
+- [Filtrage](#filtering)
 - [Transformations Python personnalisées](#custom-python-transforms)
 
-<a name=column>
 ## <a name="add-column-using-an-expression"></a>Ajouter une colonne à l’aide d’une expression
 
-Le SDK de préparation des données Azure Machine Learning inclut des expressions `substring` que vous pouvez utiliser pour calculer une valeur à partir de colonnes existantes, puis placer cette valeur dans une nouvelle colonne. Dans cet exemple, nous allons charger des données et essayer d’ajouter des colonnes à ces données d’entrée.
+Le SDK de préparation des données Azure Machine Learning inclut des expressions `substring` que vous pouvez utiliser pour calculer une valeur à partir de colonnes existantes, puis placer cette valeur dans une nouvelle colonne. Dans cet exemple, vous chargez des données et essayez d’ajouter des colonnes à ces données d’entrée.
 
-```
+```python
 import azureml.dataprep as dprep
 
 # loading data
@@ -48,10 +48,9 @@ dataflow.head(3)
 |2|10140270|HY329253|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
+Utilisez l’expression `substring(start, length)` pour extraire le préfixe de la colonne Case Number et placer cette chaîne dans une nouvelle colonne : `Case Category`. Le fait de passer la variable `substring_expression` au paramètre `expression` crée une colonne calculée qui exécute l’expression sur chaque enregistrement.
 
-Utilisez l’expression `substring(start, length)` pour extraire le préfixe de la colonne Case Number et placer ces données dans une nouvelle colonne : Case Category.
-
-```
+```python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dataflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,8 +66,9 @@ case_category.head(3)
 
 
 
-Utilisez l’expression `substring(start)` pour extraire uniquement le numéro de la colonne Case Number, puis le convertir en un type de données numérique et le placer dans une nouvelle colonne : Case Id.
-```
+Utilisez l’expression `substring(start)` pour extraire uniquement le nombre de la colonne Case Number et créez une colonne. Convertissez-la en type de données numérique à l’aide de la fonction `to_number()` et indiquez le nom de la colonne de type chaîne comme paramètre.
+
+```python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dataflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',
@@ -85,9 +85,9 @@ case_id.head(3)
 
 ## <a name="impute-missing-values"></a>Imputer des valeurs manquantes
 
-Le SDK de préparation des données Azure Machine Learning peut imputer des valeurs manquantes dans les colonnes spécifiées. Dans cet exemple, vous allez charger des valeurs de latitude et de longitude, puis essayer d’imputer les valeurs manquantes dans les données d’entrée.
+Le SDK peut imputer des valeurs manquantes dans des colonnes spécifiées. Dans cet exemple, vous chargez des valeurs de latitude et de longitude, puis essayez d’imputer les valeurs manquantes dans les données d’entrée.
 
-```
+```python
 import azureml.dataprep as dprep
 
 # loading input data
@@ -105,10 +105,11 @@ df.head(5)
 |3|10139885|false|41.902152|-87.754883|
 |4|10140379|false|41.885610|-87.657009|
 
-Il manque des valeurs de latitude et de longitude dans le troisième enregistrement. Pour imputer les valeurs manquantes, vous pouvez utiliser `ImputeMissingValuesBuilder` pour apprendre un programme fixe. Il peut imputer les colonnes soit avec une valeur calculée `MIN`, `MAX` ou `MEAN`, soit avec une valeur `CUSTOM`. Quand `group_by_columns` est spécifié, les valeurs manquantes sont imputées par groupe avec `MIN`, `MAX`, et `MEAN` calculées par groupe.
+Il manque des valeurs de latitude et de longitude dans le troisième enregistrement. Pour imputer les valeurs manquantes, vous utilisez `ImputeMissingValuesBuilder` pour apprendre une expression fixe. Il peut imputer les colonnes soit avec une valeur calculée `MIN`, `MAX` ou `MEAN`, soit avec une valeur `CUSTOM`. Quand `group_by_columns` est spécifié, les valeurs manquantes sont imputées par groupe avec `MIN`, `MAX`, et `MEAN` calculées par groupe.
 
-Tout d’abord, vérifiez rapidement la valeur `MEAN` de la colonne de latitude.
-```
+Vérifiez la valeur `MEAN` de la colonne de la latitude en utilisant la fonction `summarize()`. Cette fonction accepte un tableau de colonnes dans le paramètre `group_by_columns` pour spécifier le niveau d’agrégation. Le paramètre `summary_columns` accepte un appel `SummaryColumnsValue`. Cet appel de fonction spécifie le nom de colonne actuel, le nom du nouveau champ calculé et la `SummaryFunction` à exécuter.
+
+```python
 df_mean = df.summarize(group_by_columns=['Arrest'],
                        summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
                                                                  summary_column_name='Latitude_MEAN',
@@ -121,10 +122,11 @@ df_mean.head(1)
 |-----|-----|----|
 |0|false|41.878961|
 
-La valeur `MEAN` des latitudes semble correcte ; vous pouvez donc l’utiliser pour imputer la latitude. Quant à la valeur de longitude manquante, nous allons l’imputer avec 42 sur la base de connaissances externes.
+La valeur `MEAN` des latitudes semble exacte ; utilisez la fonction `ImputeColumnArguments` pour l’imputer. Cette fonction accepte une chaîne `column_id` et un `ReplaceValueFunction` pour spécifier le type d’imputation. Quant à la valeur de longitude manquante, imputez-la avec 42 sur la base de connaissances externes.
 
+Vous pouvez chaîner les étapes d’imputation dans un objet `ImputeMissingValuesBuilder`, à l’aide de la fonction de générateur `impute_missing_values()`. Le paramètre `impute_columns` accepte un tableau d’objets `ImputeColumnArguments`. Appelez la fonction `learn()` pour stocker les étapes d’imputation, puis appliquez-les à un objet de flux de données à l’aide `to_dataflow()`.
 
-```
+```python
 # impute with MEAN
 impute_mean = dprep.ImputeColumnArguments(column_id='Latitude',
                                           impute_function=dprep.ReplaceValueFunction.MEAN)
@@ -152,20 +154,22 @@ df_imputed.head(5)
 |4|10140379|false|41.885610|-87.657009|
 
 Comme indiqué dans le résultat ci-dessus, la latitude manquante a été imputée avec la valeur `MEAN` du groupe `Arrest=='false'`. La longitude manquante a été imputée avec 42.
-```
+
+```python
 imputed_longitude = df_imputed.to_pandas_dataframe()['Longitude'][2]
 assert imputed_longitude == 42
 ```
 
 ## <a name="derive-column-by-example"></a>Dériver une colonne par un exemple
-L’une des fonctionnalités les plus avancées du SDK de préparation des données Azure Machine Learning est la capacité à dériver des colonnes à l’aide d’exemples de résultats souhaités. Elle vous permet de fournir un exemple au SDK, et il génère ensuite du code pour obtenir la dérivation prévue.
 
-```
+L’une des fonctionnalités les plus avancées du SDK de préparation de données Azure Machine Learning est la capacité à dériver des colonnes à l’aide d’exemples de résultats désirés. Elle vous permet de fournir un exemple au SDK, qui génère ensuite du code pour obtenir la transformation prévue.
+
+```python
 import azureml.dataprep as dprep
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
-df = dataflow.head(10)
-df
+dataflow.head(10)
 ```
+
 ||DATE|REPORTTPYE|HOURLYDRYBULBTEMPF|HOURLYRelativeHumidity|HOURLYWindSpeed|
 |----|----|----|----|----|----|
 |0|1/1/2015 0:54|FM-15|22|50|10|
@@ -179,11 +183,9 @@ df
 |8|1/1/2015 6:54|FM-15|23|50|14|
 |9|1/1/2015 7:00|FM-12|23|50|14|
 
-Comme vous pouvez le voir, ce fichier est relativement simple. Toutefois, supposez que vous devez joindre ce fichier à un jeu de données où la date et l’heure sont au format « Mar 10, 2018 | 2AM-4AM ».
+Supposez que vous devez joindre ce fichier à un jeu de données où la date et l’heure sont au format « Mar 10, 2018 | 2AM-4AM ».
 
-Vous pouvez transformer les données dans la forme dont vous avez besoin.
-
-```
+```python
 builder = dataflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
 builder.add_example(source_data=df.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
 builder.preview() 
@@ -202,17 +204,14 @@ builder.preview()
 |8|1/1/2015 6:54|Jan 1, 2015 6AM-8AM|
 |9|1/1/2015 7:00|Jan 1, 2015 6AM-8AM|
 
-Le code ci-dessus crée tout d’abord un générateur pour la colonne dérivée. Vous avez fourni un tableau de colonnes sources à prendre en compte (`DATE`) et un nom pour la nouvelle colonne à ajouter.
+Le code ci-dessus crée tout d’abord un générateur pour la colonne dérivée. Vous fournissez un tableau de colonnes sources à prendre en compte (`DATE`) et un nom pour la nouvelle colonne à ajouter. Comme premier exemple, vous transmettez la deuxième ligne (index 1) et donnez une valeur attendue pour la colonne dérivée.
 
-Ensuite, comme premier exemple, vous avez transmis la deuxième ligne (index 1) et donné une valeur attendue pour la colonne dérivée.
-
-Pour finir, vous avez appelé `builder.preview()` et vous pouvez voir la colonne dérivée à côté de la colonne source. Le format semble correct, mais vous voyez uniquement des valeurs pour la même date, « Jan 1, 2015 ».
+Pour finir, vous appelez `builder.preview()` et vous pouvez voir la colonne dérivée à côté de la colonne source. Le format semble correct, mais vous voyez uniquement des valeurs pour la même date, « Jan 1, 2015 ».
 
 Maintenant, transmettez le nombre de lignes que vous voulez ignorer (`skip`) à partir du haut afin de voir les lignes plus bas.
 
 ```
-preview_df = builder.preview(skip=30)
-preview_df
+builder.preview(skip=30)
 ```
 
 ||DATE|date_timerange|
@@ -228,14 +227,11 @@ preview_df
 |38|11/2/2015 4:00|Feb 1, 2015 4AM-6AM|
 |39|11/2/2015 4:54|Feb 1, 2015 4AM-6AM|
 
-On constate ici un problème avec le programme généré : en se basant uniquement sur l’exemple que vous avez fourni ci-dessus, le programme de dérivation a choisi d’analyser la date en tant que « Jour/Mois/Année », ce qui ne correspond pas à ce que vous souhaitez ici.
+On constate ici un problème avec le programme généré. En se basant uniquement sur l’exemple que vous avez fourni ci-dessus, le programme de dérivation a choisi d’analyser la date en tant que « Jour/Mois/Année », ce qui ne correspond pas à ce que vous souhaitez ici. Pour résoudre ce problème, fournissez un autre exemple en utilisant la fonction `add_example()` sur la variable `builder`.
 
-Pour résoudre ce problème, vous devez fournir un autre exemple.
-
-```
+```python
 builder.add_example(source_data=preview_df.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
-preview_df = builder.preview(skip=30, count=10)
-preview_df
+builder.preview(skip=30, count=10)
 ```
 
 ||DATE|date_timerange|
@@ -251,10 +247,9 @@ preview_df
 |38|1/2/2015 4:00|Jan 2, 2015 4AM-6AM|
 |39|1/2/2015 4:54|Jan 2, 2015 4AM-6AM|
 
+À présent, les lignes gèrent correctement « 1/2/2015 » comme « Jan 2 2015 », mais si vous regardez plus bas dans la colonne dérivée, vous pouvez constater que les valeurs à la fin ne contiennent rien dans la colonne dérivée. Pour corriger cette erreur, vous devez fournir un autre exemple pour la ligne 66.
 
-À présent, les lignes gèrent correctement « 1/2/2015 » comme « Jan 2 2015 », mais si vous regardez plus bas dans la colonne dérivée, vous constatez que les valeurs à la fin ne contiennent rien dans la colonne dérivée. Pour corriger cette erreur, vous devez fournir un autre exemple pour la ligne 66.
-
-```
+```python
 builder.add_example(source_data=preview_df.iloc[66], example_value='Jan 29, 2015 8PM-10PM')
 builder.preview(count=10)
 ```
@@ -272,14 +267,13 @@ builder.preview(count=10)
 |8|1/2/2015 4:00|Jan 2, 2015 4AM-6AM|
 |9|1/2/2015 4:54|Jan 2, 2015 4AM-6AM|
 
-Tout semble correct, mais vous remarquerez que ce n’est pas exactement ce que nous voulions. Vous devez séparer la date et l’heure avec « | » pour générer le format correct.
+Pour séparer la date et l’heure avec « | », vous ajoutez un autre exemple. Cette fois, au lieu de transmettre une ligne à partir de l’aperçu, construisez un dictionnaire de noms de colonnes/valeurs pour le paramètre `source_data`.
 
-Pour corriger cette erreur, vous pouvez ajouter un autre exemple. Cette fois, au lieu de transmettre une ligne à partir de l’aperçu, construisez un dictionnaire de noms de colonnes/valeurs pour le paramètre `source_data`.
-
-```
+```python
 builder.add_example(source_data={'DATE': '11/11/2015 0:54'}, example_value='Nov 11, 2015 | 12AM-2AM')
 builder.preview(count=10)
 ```
+
 ||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/1/2015 22:54|Aucun|
@@ -293,12 +287,10 @@ builder.preview(count=10)
 |8|1/2/2015 4:00|Aucun|
 |9|1/2/2015 4:54|Aucun|
 
-Cette procédure a clairement eu un effet négatif, car maintenant les seules lignes qui comportent des valeurs dans la colonne dérivée sont celles qui correspondent exactement aux exemples que nous avons fournis.
+Cette procédure a clairement eu un effet négatif, car maintenant les seules lignes qui comportent des valeurs dans la colonne dérivée sont celles qui correspondent exactement aux exemples que nous avons fournis. Appelez `list_examples()` sur l’objet de générateur pour voir une liste des exemples de dérivations actuelles.
 
-Examinons les exemples :
-```
+```python
 examples = builder.list_examples()
-examples
 ```
 
 | |DATE|exemple|example_id|
@@ -308,11 +300,11 @@ examples
 |2|1/29/2015 20:54|Jan 29, 2015 8PM-10PM|-3|
 |3|11/11/2015 0:54|Nov 11, 2015 \| 12AM-2AM|-4|
 
-Vous pouvez constater que nous avons fourni des exemples incohérents. Pour résoudre ce problème, nous devons remplacer les trois premiers exemples par de bons exemples (en incluant « | » entre la date et l’heure).
+Dans ce cas, des exemples incohérents ont été fournis. Pour résoudre ce problème, remplacez les trois premiers exemples par de bons exemples (en incluant « | » entre la date et l’heure).
 
-Pour cela, nous pouvons supprimer les exemples incorrects (soit en transmettant `example_row` à partir du DataFrame pandas, soit en transmettant la valeur `example_id`), puis rajouter de nouveaux exemples modifiés.
+Corrigez les exemples incohérents en supprimant les exemples incorrects (soit en transmettant `example_row` à partir du DataFrame pandas, soit en transmettant la valeur `example_id`), puis en rajoutant de nouveaux exemples modifiés.
 
-```
+```python
 builder.delete_example(example_id=-1)
 builder.delete_example(example_row=examples.iloc[1])
 builder.delete_example(example_row=examples.iloc[2])
@@ -335,12 +327,11 @@ builder.preview()
 | 8 | 1/1/2015 6:54 | Jan 1, 2015 \| 6AM-8AM|
 | 9 | 1/1/2015 7:00 | Jan 1, 2015 \| 6AM-8AM|
 
-Les données sont maintenant correctes et nous pouvons enfin appeler `to_dataflow()` sur le générateur, qui retournera un flux de données avec les colonnes dérivées souhaitées ajoutées.
+Les données étant maintenant correctes, vous appelez `to_dataflow()` sur le générateur, qui retournera un flux de données avec les colonnes dérivées souhaitées ajoutées.
 
-```
+```python
 dataflow = builder.to_dataflow()
 df = dataflow.to_pandas_dataframe()
-df
 ```
 
 ## <a name="filtering"></a>Filtrage
@@ -348,12 +339,14 @@ df
 Le SDK inclut les méthodes `Dataflow.drop_columns` et `Dataflow.filter` pour vous permettre de filtrer des lignes ou des colonnes.
 
 ### <a name="initial-setup"></a>Configuration initiale
-```
+
+```python
 import azureml.dataprep as dprep
 from datetime import datetime
 dataflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Store_and_fwd_flag|RateCodeID|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |0|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|
@@ -370,10 +363,11 @@ Pour filtrer des colonnes, utilisez `Dataflow.drop_columns`. Cette méthode pren
 
 Dans cet exemple, `drop_columns` prend une liste de chaînes. Chaque chaîne doit correspondre exactement à la colonne à supprimer.
 
-``` 
+```python
 dataflow = dataflow.drop_columns(['Store_and_fwd_flag', 'RateCodeID'])
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |0|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|
@@ -383,12 +377,14 @@ dataflow.head(5)
 |4|2013-08-01 10:38:35|2013-08-01 10:38:51|0|0|0|0|1|.00|0|0|3.25|
 
 #### <a name="filtering-columns-with-regex"></a>Filtrage de colonnes avec expressions régulières
-Vous pouvez également utiliser l’expression `ColumnSelector` pour supprimer des colonnes qui correspondent à une expression régulière. Dans cet exemple, nous supprimons toutes les colonnes qui correspondent à l’expression `Column*|.*longitude|.*latitude`.
 
-```
+Vous pouvez également utiliser l’expression `ColumnSelector` pour supprimer des colonnes qui correspondent à une expression régulière. Dans cet exemple, vous supprimez toutes les colonnes qui correspondent à l’expression `Column*|.*longitude|.*latitude`.
+
+```python
 dataflow = dataflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|
@@ -403,18 +399,19 @@ Pour filtrer des lignes, utilisez `DataFlow.filter`. Cette méthode prend une ex
 
 ### <a name="filtering-rows-with-simple-expressions"></a>Filtrage de lignes avec expressions simples
 
-Utilisez le générateur d’expressions `col`, spécifiez le nom de colonne comme argument de chaîne `col('column_name')` et, en combinaison avec l’un des opérateurs standard suivants >, <, >=, <=, ==, !=, générez une expression telle que `col('Tip_amount') > 0`. Pour finir, transmettez l’expression générée dans la fonction `Dataflow.filter`.
+Utilisez le générateur d’expressions `col` en spécifiant le nom de colonne comme argument de chaîne `col('column_name')`. Utilisez cette expression en combinaison avec les opérateurs standard suivants >, <, >=, <=, ==, != pour générer une expression comme `col('Tip_amount') > 0`. Pour finir, transmettez l’expression générée dans la fonction `Dataflow.filter`.
 
 Dans cet exemple, `dataflow.filter(col('Tip_amount') > 0)` retourne un nouveau flux de données avec les lignes dans lesquelles la valeur de `Tip_amount` est supérieure à 0.
 
 > [!NOTE] 
 > `Tip_amount` est d’abord converti en type numérique, ce qui nous permet de créer une expression qui le compare à d’autres valeurs numériques.
 
-```
+```python
 dataflow = dataflow.to_number(['Tip_amount'])
 dataflow = dataflow.filter(dprep.col('Tip_amount') > 0)
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|2013-08-01 19:33:28|2013-08-01 19:35:21|5.|.00|0.08|0|4.58|
@@ -429,11 +426,12 @@ Pour filtrer à l’aide d’expressions complexes, combinez une ou plusieurs ex
 
 Dans cet exemple, `Dataflow.filter` retourne un nouveau flux de données avec les lignes où `'Passenger_count'` est inférieur à 5 et `'Tolls_amount'` est supérieur à 0.
 
-```
+```python
 dataflow = dataflow.to_number(['Passenger_count', 'Tolls_amount'])
 dataflow = dataflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|2013-08-08 12:16:00|2013-08-08 12:16:00|1.0|.00|2.25|5.00|19.75|
@@ -447,7 +445,7 @@ Il est également possible de filtrer des lignes en combinant plusieurs généra
 > [!NOTE]
 > `lpep_pickup_datetime` et `Lpep_dropoff_datetime` sont d’abord converties en datetime, ce qui nous permet de créer une expression la comparant à d’autres valeurs datetime.
 
-```
+```python
 dataflow = dataflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
 dataflow = dataflow.to_number(['Total_amount', 'Trip_distance'])
 mid_2013 = datetime(2013,7,1)
@@ -470,9 +468,9 @@ dataflow.head(5)
 |3|2013-08-25 16:46:51+00:00|2013-08-25 17:13:55+00:00|2.0|9.66|7.37|5.33|44.20|
 |4|2013-08-25 17:42:11+00:00|2013-08-25 18:02:57+00:00|1.0|9.60|6.87|5.33|41.20|
 
-## <a name="custom-python-transforms"></a>Transformations Python personnalisées 
+## <a name="custom-python-transforms"></a>Transformations Python personnalisées
 
-Il y aura des scénarios où le plus simple pour vous sera d’écrire du code Python. Le SDK fournit trois points d’extension.
+Il y aura toujours des scénarios dans lesquels l’option la plus simple pour effectuer une transformation consiste à écrire son propre script. Le SDK fournit trois points d’extension que vous pouvez utiliser pour les scripts Python personnalisés.
 
 - Nouvelle colonne de script
 - Nouveau filtre de script
@@ -484,13 +482,14 @@ Chaque extension est prise en charge dans le runtime de montée en puissance (sc
 
 Commencez par charger des données à partir d’objets blob Azure.
 
-```
+```python
 import azureml.dataprep as dprep
 col = dprep.col
 
 df = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
 df.head(5)
 ```
+
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Hale County|10171002158| |
@@ -501,12 +500,13 @@ df.head(5)
 
 Réduisez la taille du jeu de données et effectuez des transformations de base.
 
-```
+```python
 df = df.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
 df = df.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
 df = df.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
 df.head(5)
 ```
+
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|1,017100e+10|Aucun|
@@ -515,9 +515,9 @@ df.head(5)
 |3|ALABAMA|Hale County|1,017100e+10|2|
 |4|ALABAMA|Hale County|1,017100e+10|Aucun|
 
-Recherchez les valeurs null à l’aide d’un filtre. Vous en trouverez certaines ; renseignez ces valeurs manquantes.
+Recherchez les valeurs null à l’aide du filtre suivant.
 
-```
+```python
 df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
 ```
 
@@ -531,17 +531,19 @@ df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
 
 ### <a name="transform-partition"></a>Transform partition
 
-Vous pouvez utiliser une fonction pandas pratique pour remplacer toutes les valeurs null par un 0. Ce code sera exécuté par partition, et non sur tout le jeu de données à la fois. Cela signifie que sur un jeu de données volumineux, ce code peut s’exécuter en parallèle pendant que le runtime traite les données, partition par partition.
+Utilisez une fonction pandas pour remplacer toutes les valeurs null par un 0. Ce code sera exécuté par partition, et non sur la totalité du jeu de données à la fois. Cela signifie que sur un jeu de données volumineux, ce code peut s’exécuter en parallèle pendant que le runtime traite les données, partition par partition.
 
-```
+Le script Python doit définir une fonction appelée `transform()` qui accepte deux arguments, `df` et `index`. L’argument `df` est un DataFrame pandas qui contient les données de la partition, tandis que l’argument `index` est un identificateur unique de la partition. La fonction de transformation peut modifier entièrement le DataFrame transmis, mais doit retourner un DataFrame. Toutes les bibliothèques que le script Python importe doivent exister dans l’environnement dans lequel le flux de données est exécuté.
+
+```python
 df = df.transform_partition("""
 def transform(df, index):
     df['MAM_MTH00numvalid_1011'].fillna(0,inplace=True)
     return df
 """)
-h = df.head(5)
-h
+df.head(5)
 ```
+
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|1,017100e+10|0.0|
@@ -554,14 +556,16 @@ h
 
 Vous pouvez utiliser du code Python pour créer une colonne contenant le nom du conté et le nom de l’état, et également pour mettre en majuscule le nom de l’état. Pour cela, utilisez la méthode `new_script_column()` sur le flux de données.
 
-```
+Le script Python doit définir une fonction appelée `newvalue()` qui accepte un seul argument (`row`). L’argument `row` est un dictionnaire (`key` : nom de colonne, `val` : valeur actuelle) et est destiné à être passé à cette fonction pour chaque ligne du jeu de données. Cette fonction doit retourner une valeur à utiliser dans la nouvelle colonne. Toutes les bibliothèques que le script Python importe doivent exister dans l’environnement dans lequel le flux de données est exécuté.
+
+```python
 df = df.new_script_column(new_column_name='county_state', insert_after='leanm10', script="""
 def newvalue(row):
     return row['leanm10'] + ', ' + row['stnam'].title()
 """)
-h = df.head(5)
-h
+df.head(5)
 ```
+
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|Hale County, Alabama|1,017100e+10|0.0|
@@ -569,18 +573,18 @@ h
 |2|ALABAMA|Hale County|Hale County, Alabama|1,017100e+10|0.0|
 |3|ALABAMA|Hale County|Hale County, Alabama|1,017100e+10|2.0|
 |4|ALABAMA|Hale County|Hale County, Alabama|1,017100e+10|0.0|
+
 ### <a name="new-script-filter"></a>Nouveau filtre de script
 
-À présent, générez une expression Python pour filtrer le jeu de données uniquement sur les lignes où « Hale » ne figure pas dans la nouvelle colonne `county_state`. L’expression retourne `True` si nous souhaitons conserver la ligne, et `False` pour supprimer la ligne.
+Générez une expression Python pour filtrer le jeu de données uniquement sur les lignes où « Hale » ne figure pas dans la nouvelle colonne `county_state`. L’expression retourne `True` si nous souhaitons conserver la ligne, et `False` pour supprimer la ligne.
 
-```
+```python
 df = df.new_script_filter("""
 def includerow(row):
     val = row['county_state']
     return 'Hale' not in val
 """)
-h = df.head(5)
-h
+df.head(5)
 ```
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|

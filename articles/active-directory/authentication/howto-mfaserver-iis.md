@@ -71,4 +71,4 @@ Les adresses IP approuvées permettent aux utilisateurs de contourner l'authenti
 1. Dans la section Authentification IIS, cliquez sur l’onglet **Adresses IP approuvées**.
 2. Cliquez sur **Add**.
 3. Lorsque la boîte de dialogue Ajouter des adresses IP de confiance s'affiche, sélectionnez le bouton **Adresse IP unique**, **Plage d'adresses IP** ou **Sous-réseau**.
-4. Entrez l'adresse IP, la plage d'adresses IP ou le sous-réseau à ajouter à la liste verte. Si vous entrez un sous-réseau, sélectionnez le masque réseau approprié et cliquez sur **OK**. La liste blanche est alors mise à jour.
+4. Entrez l'adresse IP, la plage d'adresses IP ou le sous-réseau à ajouter à la liste verte. Si vous entrez un sous-réseau, sélectionnez le masque réseau approprié et cliquez sur **OK**. La liste verte est alors mise à jour.

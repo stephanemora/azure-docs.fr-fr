@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/10/2018
+ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 9ecdc0b7d2d21962dbfc7c14e9fff3fd969dd018
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5feedcd750841be159a7cf4a31f408aec2fffd38
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721090"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712974"
 ---
 # <a name="azure-security-white-papers"></a>Livres blancs sur la sécurité Azure
 | | |
 |-|-|
 |[Introduction&nbsp;à&nbsp;la sécurité&nbsp;Azure](azure-security.md)|Décrit la collection de contrôles de sécurité implémentés dans Azure du côté des opérations de Microsoft et du client. Fournit une vue d’ensemble complète au niveau des contrôles de sécurité orientés client disponibles avec Azure.|
 |[Meilleures pratiques de sécurité pour les solutions Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|Ensemble de meilleures pratiques de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.|
+|[Développement d’applications sécurisées sur Azure](abstract-develop-secure-apps.md)|Guide général des questions de sécurité et des contrôles que vous devez envisager à chaque phase du cycle de vie de développement logiciel lors du développement d’applications pour le cloud.|
 |[Détection avancée des menaces](azure-threat-detection.md)|Vous guide parmi les approches Azure en matière d’évaluation des vulnérabilités des menaces, de diagnostics et d’analyse. Explique comment Microsoft utilise les mécanismes de détection des menaces avancés pour sécuriser la plateforme. Explique également comment Microsoft inclut ces mécanismes dans les services et fonctionnalités publics.|
 |[Chiffrement des données au repos d’Azure](azure-security-encryption-atrest.md)|Se concentre sur la façon dont les données sont protégées au repos sur Azure et sur les divers composants impliqués dans l’implémentation de la protection des données. Passe en revue les avantages et les inconvénients des principales approches de protection de la gestion.|
 |[Journalisation et audit Azure](azure-log-audit.md)|Fournit une introduction à la génération, la collecte et l’analyse des journaux de sécurité à partir des services hébergés sur Azure. Ces journaux peuvent vous aider à obtenir des informations détaillées sur la sécurité dans vos déploiements Azure. |

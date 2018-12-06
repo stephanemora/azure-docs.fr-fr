@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/6/2018
 ms.author: tylerfox
-ms.openlocfilehash: 4bf46501a75b9dd5be7ae1b446a0db90c20be559
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 936e53ca328b0f54bfd75e7b3d4f6747b0037669
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235256"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495166"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell permet de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Azure. Dans cet article, vous allez apprendre à gérer des clusters Apache Hadoop dans Azure HDInsight à l’aide d’Azure PowerShell. Pour obtenir la liste des cmdlets PowerShell HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Azure PowerShell permet de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Azure. Dans cet article, vous allez apprendre à gérer des clusters [Apache Hadoop](https://hadoop.apache.org/) dans Azure HDInsight à l’aide d’Azure PowerShell. Pour obtenir la liste des cmdlets PowerShell HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Composants requis**
 
@@ -80,12 +80,12 @@ La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifie
 
 Impact de la modification du nombre de nœuds de données pour chaque type de cluster pris en charge par HDInsight :
 
-* Hadoop
+* Apache Hadoop
 
     Vous pouvez augmenter de façon continue le nombre de nœuds de travail dans un cluster Hadoop exécuté sans affecter aucune tâche en attente ou en cours. De nouvelles tâches peuvent également être soumises lorsque l'opération est en cours. Les défaillances dans l'opération de mise à l'échelle sont correctement gérées de sorte que le cluster reste toujours fonctionnel.
 
     Lorsqu’un cluster Hadoop est diminué par la réduction du nombre de nœuds de données, certains services du cluster sont redémarrés. Le redémarrage des services entraîne l’échec de toutes les tâches en cours ou en attente durant la réalisation de l’opération de mise à l’échelle. Toutefois, vous pouvez soumettre à nouveau les tâches une fois l'opération terminée.
-* hbase
+* Apache HBase
 
     Vous pouvez ajouter ou supprimer des nœuds en continu dans votre cluster HBase lorsque celui-ci s’exécute. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Cependant, vous pouvez équilibrer manuellement des serveurs régionaux en vous connectant au nœud principal du cluster, puis exécuter les commandes suivantes à partir d’une fenêtre d’invite de commandes :
 
@@ -95,7 +95,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
     >balancer
     ```
 
-* Storm
+* Apache Storm
 
     Vous pouvez ajouter ou supprimer des nœuds de données en continu dans votre cluster Storm lorsque celui-ci s'exécute. Mais une fois l’opération de mise à l’échelle terminée avec succès, vous devrez rééquilibrer la topologie.
 
@@ -207,25 +207,25 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>Soumettre les travaux
-**Pour envoyer des tâches MapReduce**
+**Pour envoyer des tâches Apache Hadoop MapReduce**
 
-Consultez [Exécuter les exemples MapReduce inclus dans HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Consultez [Exécuter les exemples Apache Hadoop MapReduce inclus dans HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Pour envoyer des tâches Hive**
+**Pour envoyer des travaux Apache Hive**
 
-Consultez [Exécution de requêtes Hive avec PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
+Consultez [Exécuter des requêtes Apache Hive avec PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**Pour envoyer des tâches Pig**
+**Pour envoyer des travaux Apache Pig**
 
-Consultez [Exécution de tâches Pig avec PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
+Consultez [Exécuter des tâches Apache Pig avec PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
-**Pour envoyer des tâches Sqoop**
+**Pour envoyer des travaux Apache Sqoop**
 
-Consultez l'article [Utilisation de Sqoop avec HDInsight](hadoop/hdinsight-use-sqoop.md).
+Consultez [Utiliser Apache Sqoop avec HDInsight](hadoop/hdinsight-use-sqoop.md).
 
-**Pour envoyer des tâches Oozie**
+**Pour envoyer des travaux Apache Oozie**
 
-Consultez [Utilisation d’Oozie avec Hadoop pour définir et exécuter un workflow dans HDInsight](hdinsight-use-oozie.md).
+Consultez [Utilisation d’Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow Azure HDInsight basé sur Linux](hdinsight-use-oozie.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d'objets blob Azure
 Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].
@@ -236,7 +236,7 @@ Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-up
 * [Administration de HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
 * [Création de clusters HDInsight][hdinsight-provision]
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
-* [Envoi de tâches Hadoop par programme][hdinsight-submit-jobs]
+* [Envoi de tâches Apache Hadoop par programmation][hdinsight-submit-jobs]
 * [Prise en main d’Azure HDInsight][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

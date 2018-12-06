@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 11/16/2018
+ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346693"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853827"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -323,9 +323,10 @@ Toutes les applications logiques dans une région utilisent les mêmes plages d�
 
 ### <a name="managed-connectors"></a>Connecteurs gérés
 
-Pour prendre en charge les appels que passent les [connecteurs gérés par Microsoft](../connectors/apis-list.md), configurez vos configurations de pare-feu afin qu’elles incluent ces adresses IP sortantes, selon l’emplacement de vos applications logiques.
+Pour prendre en charge les appels que passent les [connecteurs gérés par Microsoft](../connectors/apis-list.md), configurez vos configurations de pare-feu afin qu’elles incluent toutes les adresses IP sortantes spécifiées pour les emplacements de vos applications logiques. Pour [Azure Government](/azure-government/documentation-government-welcome) et [Azure China 21Vianet](/azure/china/china-welcome), les adresses IP réservées pour les connecteurs ne sont pas disponibles.
 
 > [!IMPORTANT]
+> 
 > Si vous avez des configurations existantes, mettez-les à jour **dès que possible avant le 1er septembre 2018** afin qu’elles incluent et fassent correspondre les adresses IP dans cette liste pour les régions où se trouvent vos applications logiques. 
 > 
 > Logic Apps ne prend pas en charge la connexion directe à des comptes de stockage Azure à travers des pare-feu. Pour accéder à ces comptes de stockage, utilisez une des options suivantes : 

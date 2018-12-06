@@ -11,40 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b7af23ccdd379aac9959bb9993fc1781a44e705e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684024"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275025"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Supprimer le fournisseur de ressources SQL
 
 Avant de supprimer le fournisseur de ressources SQL, vous devez supprimer toutes les dépendances de fournisseurs. Vous aurez également besoin d’une copie du package de déploiement qui a été utilisé pour installer le fournisseur de ressources.
 
-  |Version minimale d’Azure Stack|Version SQL RP|
-  |-----|-----|
-  |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-  |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
-  |     |     |
+> [!NOTE]
+> Les liens de téléchargement des programmes d’installation du fournisseur de ressources sont disponibles dans les [Conditions préalables pour le déploiement du fournisseur de ressources](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+
+Le fait d’enlever le fournisseur de ressources SQL ne supprime pas les bases de données locataires des serveurs d’hébergement.
 
 ## <a name="dependency-cleanup"></a>Nettoyage de la dépendance
 
 Vous devez effectuer plusieurs tâches de nettoyage avant d’exécuter le script DeploySqlProvider.ps1 pour supprimer le fournisseur de ressources.
 
-Les utilisateurs d'Azure Stack sont responsables des tâches de nettoyage suivantes :
-
-* Supprimer toutes les bases de données du fournisseur de ressources. (La suppression des bases de données de locataires ne supprime pas les données.)
-* Annuler l’inscription auprès de l’espace de noms du fournisseur.
-
 L'opérateur d'Azure Stack est responsable des tâches de nettoyage suivantes :
 
-* Supprimer les serveurs d’hébergement de l’adaptateur MySQL.
-* Supprimer tous les plans qui référencent l’adaptateur MySQL.
-* Supprimer tous les quotas associés au fournisseur de ressources MySQL.
+* Supprimer tous les plans qui référencent l’adaptateur SQL.
+* Supprimer tous les quotas associés à l’adaptateur SQL.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Pour supprimer le fournisseur de ressources SQL
 
@@ -53,9 +46,9 @@ L'opérateur d'Azure Stack est responsable des tâches de nettoyage suivantes :
    > [!NOTE]
    > La désinstallation du fournisseur de ressources SQL est effectuée même si des ressources dépendantes utilisent le fournisseur de ressources.
   
-2. Obtenez une copie du binaire du fournisseur de ressources SQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire.
+2. Obtenez une copie du package d’installation du fournisseur de ressources SQL, puis exécutez l’auto-extracteur pour extraire le contenu dans un répertoire temporaire.
 
-3. Ouvrez une nouvelle fenêtre de console PowerShell avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources SQL.
+3. Ouvrez une nouvelle fenêtre de console PowerShell avec élévation de privilèges, puis basculez vers le répertoire où vous avez extrait les fichiers d’installation du fournisseur de ressources SQL.
 
 4. Exécutez le script DeploySqlProvider.ps1 à l’aide des paramètres suivants :
 

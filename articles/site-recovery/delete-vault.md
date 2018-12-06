@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 6827bcc561ced0d346d79e60b3f2b2fde83bc2d8
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212418"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977045"
 ---
-# <a name="delete-a-site-recovery-recovery-services-vault"></a>Supprimer un coffre Recovery Services configuré pour Site Recovery
+# <a name="delete-a-site-recovery-services-vault"></a>Supprimer un coffre de services Site Recovery
 
 Des dépendances peuvent vous empêcher de supprimer un archivage Azure Site Recovery. Les actions à effectuer varient en fonction du scénario de Site Recovery. Pour supprimer un archivage utilisé dans Sauvegarde Microsoft Azure, voir [Supprimer un archivage Recovery Services](../backup/backup-azure-delete-vault.md).
 

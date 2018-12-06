@@ -41,7 +41,7 @@ AMS | Amsterdam, Pays-Bas | Europe
 ARN | Stockholm, Suède | Europe
 ATL | Atlanta, Géorgie, États-Unis | Amérique du Nord : côte est des États-Unis
 BAQ | Barranquilla, Colombie | Amérique latine
-BLR | Bangalore, Inde | Asie
+BLR | Bengaluru (Bangalore) | Asie
 BNJ | Newark, New Jersey, États-Unis | Amérique du Nord : côte est des États-Unis
 BOS | Boston, Massachusetts, États-Unis | Amérique du Nord : côte est des États-Unis
 BTH | Batam, Indonésie | Asie
@@ -77,9 +77,9 @@ FTY | Atlanta, Géorgie, États-Unis | Amérique du Nord : côte est des États
 GIG | Rio de Janeiro, Brésil | Amérique latine
 GRU | São Paulo, Brésil | Amérique latine
 HEL | Helsinki, Finlande | Europe
-HHP | Hong Kong | Asie
-HKC | Hong Kong | Asie
-HKG | Hong Kong | Asie
+HHP | Hong Kong (R.A.S.) | Asie
+HKC | Hong Kong (R.A.S.) | Asie
+HKG | Hong Kong (R.A.S.) | Asie
 HND | Tokyo, Japon | Asie
 IAD | Ashburn, Virginie, États-Unis | Amérique du Nord : côte est des États-Unis
 ICN | Séoul, Corée | Asie

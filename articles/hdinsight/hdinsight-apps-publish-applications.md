@@ -2,19 +2,19 @@
 title: Publication d’applications Azure HDInsight
 description: Découvrez comment créer une application HDInsight, puis la publier sur la Place de marché Microsoft Azure.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 1cfefc3463fee6e432170a16034175bb4267fad5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103568"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495363"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publier une application HDInsight sur la Place de marché Microsoft Azure
 Vous pouvez installer une application Azure HDInsight sur un cluster HDInsight basé sur Linux. Cet article explique comment publier une application HDInsight sur la Place de marché Microsoft Azure. Pour obtenir des informations générales sur la publication sur la Place de marché Microsoft Azure, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace/marketplace-publishers-guide.md).
@@ -102,6 +102,6 @@ Pour publier une application HDInsight :
 * Découvrez comment [installer des applications HDInsight](hdinsight-apps-install-applications.md) sur vos clusters.
 * Découvrez comment [installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) et déployer une application HDInsight non publiée dans HDInsight.
 * Découvrez comment [utiliser une action de script pour personnaliser des clusters HDInsight basés sur Linux](hdinsight-hadoop-customize-cluster-linux.md) et ajouter d’autres applications. 
-* Découvrez comment [créer des clusters Hadoop basés sur Linux dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Découvrez comment [créer des clusters Apache Hadoop basés sur Linux dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Découvrez comment [utiliser un nœud de périphérie vide dans HDInsight](hdinsight-apps-use-edge-node.md) pour accéder aux clusters HDInsight, tester des applications HDInsight et héberger des applications HDInsight.
 

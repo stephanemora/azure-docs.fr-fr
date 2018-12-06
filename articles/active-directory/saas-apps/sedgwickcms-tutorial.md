@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ff9f3186602b9047e53fb78edbf52c2c0d9ee574
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 796ed1cb0fde6b29a931099336fd91e2e931fc29
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423587"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Didacticiel : Intégration d’Azure Active Directory à Sedgwick CMS
 
@@ -134,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/sedgwickcms-tutorial/tutorial_general_400.png)
 
-1. Pour configurer l’authentification unique côté **Sedgwick CMS**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique Sedgwick CMS](https://www.sedgwick.com/contact/Pages/contactform.aspx). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **Sedgwick CMS**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique Sedgwick CMS](https://www.sedgwick.com/help). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 ### <a name="create-a-sedgwick-cms-test-user"></a>Créer un utilisateur de test Sedgwick CMS
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Sedgwick CMS. Travaillez avec [l’équipe de support Sedgwick CMS](https://www.sedgwick.com/contact/Pages/contactform.aspx) pour ajouter des utilisateurs dans la plateforme Sedgwick CMS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.  
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Sedgwick CMS. Collaborez avec [l’équipe du support technique de Sedgwick CMS](https://www.sedgwick.com/help) pour ajouter des utilisateurs dans la plateforme Sedgwick CMS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

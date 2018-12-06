@@ -9,16 +9,16 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 99ceeea33d3e2d9af798d5eb4161b0c16afc952d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b2f80b2d66de9e5f270c7b062c57d0efc3ab0f36
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011372"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499343"
 ---
-# <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Résolution de problèmes Storm à l’aide d’Azure HDInsight
+# <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Storm à l’aide d’Azure HDInsight
 
-Découvrez les principaux problèmes rencontrés lors de l’utilisation de charges utiles Apache Storm dans Apache Ambari, et leur résolution.
+Découvrez les principaux problèmes rencontrés lors de l’utilisation de charges utiles [Apache Storm](https://storm.apache.org/) dans [Apache Ambari](https://ambari.apache.org/), et leur résolution.
 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Comment accéder à l’interface utilisateur Storm sur un cluster ?
 Deux options vous permettent d’accéder à l’interface utilisateur Storm à partir d’un navigateur :
@@ -39,7 +39,7 @@ Exemple :
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Comment transférer les informations de point de contrôle du spout de concentrateurs d’événements Storm depuis une topologie vers une autre ?
 
-Lorsque vous développez des topologies qui lisent à partir des hubs d’événements Azure en utilisant le fichier .jar du spout Storm Eventhub, vous devez déployer une topologie portant le même nom sur un nouveau cluster. Toutefois, vous devez conserver les données de point de contrôle validées dans Apache ZooKeeper sur l’ancien cluster.
+Lorsque vous développez des topologies qui lisent à partir des hubs d’événements Azure en utilisant le fichier .jar du spout Storm Eventhub, vous devez déployer une topologie portant le même nom sur un nouveau cluster. Toutefois, vous devez conserver sur l’ancien cluster les données de point de contrôle qui ont été validées dans [Apache ZooKeeper](https://zookeeper.apache.org/).
 
 ### <a name="where-checkpoint-data-is-stored"></a>Où sont stockées les données de point de contrôle ?
 Les données de point de contrôle des décalages sont enregistrées par le spout EventHub dans Zookeeper sous deux chemins d’accès racine :
@@ -122,20 +122,20 @@ Les nœuds de travail Storm exécutent les services suivants :
 Pour plus d’informations sur l’utilisation de fichiers .jar de spout EventHub Storm avec votre topologie, consultez les ressources suivantes.
  
 ### <a name="java-based-topology"></a>Topologie basée sur Java
-[Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[Traitement des événements Azure Event Hubs avec Apache Storm sur HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>Topologie basée sur C# (Mono sur les clusters Storm HDInsight 3.4+ Linux)
-[Traiter des événements issus d’Azure Event Hubs avec Storm sur HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Traitement des événements Azure Event Hubs avec Apache Storm sur HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
-### <a name="latest-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Fichiers binaires de spout EventHub Storm les plus récents pour les clusters Storm HDInsight 3.5+ Linux
+### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Fichiers binaires de spout EventHub Apache Storm les plus récents pour les clusters Storm HDInsight 3.5+ Linux
 Pour savoir comment utiliser le spout EventHub Storm le plus récent compatible avec les clusters Storm HDInsight 3.5+ Linux, consultez le [fichier readme](https://github.com/hdinsight/mvn-repo/blob/master/README.md) du référentiel mvn-repo.
  
 ### <a name="source-code-examples"></a>Exemples de code source
 Consultez ces [exemples](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) pour savoir comment lire et écrire à partir d’Azure EventHub à l’aide d’une topologie Apache Storm (écrite en Java) sur un cluster Azure HDInsight.
  
-## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Comment localiser les fichiers de configuration Storm Log4J sur les clusters ?
+## <a name="how-do-i-locate-storm-log4j-2-configuration-files-on-clusters"></a>Comment localiser les fichiers de configuration Storm Log4J 2 sur les clusters ?
  
-Pour identifier les fichiers de configuration Apache Log4J des services Storm.
+Pour identifier les fichiers de configuration [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) des services Storm.
  
 ### <a name="on-head-nodes"></a>Sur les nœuds principaux
 Le fichier de configuration Log4J du service Nimbus est lu à partir du chemin /usr/hdp/\<version HDP\>/storm/log4j2/cluster.xml.

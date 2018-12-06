@@ -5,23 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632690"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854320"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Exécuter des tâches de compilation, de test et de correction multiétapes dans les tâches ACR
 
-Les tâches multiétapes renforcent la capacité d’ACR Tasks à compiler et envoyer des images en une fois grâce à des flux de travail à plusieurs étapes avec plusieurs conteneurs. Utilisez des tâches multiétapes pour compiler et envoyer plusieurs images, en série ou en parallèle, puis exécutez ces images sous forme de commandes dans une même exécution de tâche. Chaque étape définit une opération de compilation ou d’envoi d’image de conteneur. Elle peut également définir l’exécution d’un conteneur. Chaque étape d’une tâche multiétapes utilise un conteneur comme environnement d’exécution.
+Les tâches multiétapes renforcent la capacité d’ACR Tasks à compiler et envoyer des images en une fois grâce à des flux de travail à plusieurs étapes avec plusieurs conteneurs. Utilisez des tâches multiétapes pour générer et envoyer (push) plusieurs images, en série ou en parallèle. Exécutez ensuite ces images sous forme de commandes au sein d’une seule tâche. Chaque étape définit une opération de compilation ou d’envoi d’image de conteneur. Elle peut également définir l’exécution d’un conteneur. Chaque étape d’une tâche multiétapes utilise un conteneur comme environnement d’exécution.
 
 > [!IMPORTANT]
 > Si vous avez créé précédemment des tâches pendant la préversion avec la commande `az acr build-task`, ces tâches doivent être recréées à l’aide de la commande [az acr task][az-acr-task].
 
-Par exemple, vous pouvez exécuter une tâche avec des étapes qui automatisent ce qui suit :
+Par exemple, vous pouvez exécuter une tâche à l’aide d’étapes qui automatisent la logique suivante :
 
 1. Compiler une image d’application web
 1. Exécuter le conteneur d’application web
@@ -37,11 +37,11 @@ Toutes les étapes sont effectuées dans Azure en déchargeant les ressources de
 
 ## <a name="common-task-scenarios"></a>Scénarios de tâches courants
 
-Les tâches multiétapes permettent de réaliser des scénarios comme les suivants :
+Les tâches multiétapes conviennent aux scénarios similaires à la logique suivante :
 
 * Compiler, baliser et envoyer une ou plusieurs images de conteneurs, en série ou en parallèle.
 * Exécuter et capturer les résultats des tests unitaires et de la couverture du code.
-* Exécuter et capturer des tests fonctionnels. ACR Tasks prend en charge l’exécution de plusieurs conteneurs en exécutant toute une série de requêtes entre eux.
+* Exécuter et capturer des tests fonctionnels. ACR Tasks prend en charge l’exécution de plusieurs conteneurs, notamment l’exécution d’une série de requêtes entre ces derniers.
 * Effectuer une exécution basée sur des tâches, notamment des étapes avant/après la compilation de l’image d’un conteneur.
 * Déployer un ou plusieurs conteneurs à l’aide du moteur de déploiement de votre choix dans votre environnement cible.
 
@@ -176,5 +176,5 @@ Vous trouverez ici des références et des exemples de tâches multiétapes :
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task

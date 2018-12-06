@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 11/26/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: fef4615517da08262cc5845aaa076472c3874b34
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: mal
+ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984286"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335059"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure
 
@@ -83,11 +83,11 @@ En tant qu’administrateur Azure AD, vous pouvez ajouter des utilisateurs B2B C
 7. Sous **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
 8. Effectuez l’une des actions suivantes :
    - Si l’utilisateur invité existe déjà dans le répertoire, recherchez l’utilisateur B2B. Sélectionnez l’utilisateur, cliquez sur **Sélectionner**, puis cliquez sur **Attribuer** pour l’ajouter à l’application.
-   - Si l’utilisateur invité n’existe pas encore dans le répertoire, sélectionnez **Inviter**.
+   - Si l’utilisateur invité n’existe pas dans l’annuaire, sous **Sélectionner un membre ou inviter un utilisateur externe**, tapez l’adresse e-mail de l’utilisateur. Dans la boîte de message, tapez un message personnel facultatif. Sous la zone de message, cliquez sur **Inviter**.
            
        ![Bouton Ajouter un invité pour ajouter des membres invités](./media/add-users-administrator/AppInviteUsers.png)
    
-      Sous **Convier un invité**, entrez l’adresse e-mail et un message personnel facultatif, puis sélectionnez **Inviter**. Cliquez sur **Sélectionner**, puis cliquez sur **Attribuer** pour l’ajouter à l’application. Une invitation est automatiquement envoyée à l’utilisateur invité.
+      Cliquez sur **Sélectionner**, puis cliquez sur **Attribuer** pour l’ajouter à l’application. Une invitation est automatiquement envoyée à l’utilisateur invité.
 
 9. L’utilisateur invité s’affiche dans la liste **Utilisateurs et groupes** de l’application, avec le rôle **Accès par défaut**. Si vous souhaitez modifier le rôle, effectuez les étapes suivantes :
    - Sélectionnez l’utilisateur invité, puis cliquez sur **Modifier**. 

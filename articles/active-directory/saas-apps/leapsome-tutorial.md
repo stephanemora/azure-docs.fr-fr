@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441933"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutoriel : Intégration d’Azure Active Directory à Leapsome
 
@@ -134,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     | picture | URL de la photo de l’employé | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
-    > La valeur de l’attribut picture n’est pas réelle. Pour cette valeur, fournissez la vraie URL de photo. Pour obtenir cette valeur, contactez [l’équipe du support technique Leapsome](mailto:support@leapsome.com).
+    > La valeur de l’attribut picture n’est pas réelle. Pour cette valeur, fournissez la vraie URL de photo. Pour obtenir cette valeur, contactez [l’équipe du support technique de Leapsome](mailto:support@leapsome.com).
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
@@ -176,7 +176,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Copiez la valeur de **Login URL (point your users here to start login)** (URL de connexion (à indiquer aux utilisateurs pour démarrer la connexion)), puis collez-la dans la zone de texte **Sign-on URL** (URL de connexion) de la section **Leapsome Domain and URLs** (Domaine et URL Leapsome) du portail Azure.
 
-    c. Copiez la valeur de **Reply URL (receives response from your identity provider)** (URL de réponse - réponse reçue du fournisseur d'identité), puis collez-la dans la zone de texte **Reply URL** (URL de réponse) de la section **Leapsome Domain and URLs** (Domaine et URL Leapsome) du portail Azure.
+    c. Copiez la valeur de **Reply URL (receives response from your identity provider)** (URL de réponse [réponse reçue du fournisseur d’identité]), puis collez-la dans la zone de texte **URL de réponse** de la section **Domaine et URL Leapsome** du portail Azure.
 
     d. Dans la zone de texte **SSO Login URL (provided by identity provider)** (URL de connexion SSO - fournie par le fournisseur d'identité), collez la valeur de **l’URL du service d'authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
@@ -218,7 +218,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-leapsome-test-user"></a>Créer un utilisateur de test Leapsome
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Leapsome. Collaborez avec [l’équipe du support technique Leapsome](mailto:support@leapsome.com) pour ajouter les utilisateurs ou le domaine devant être mis en liste verte dans la plateforme Leapsome. Si le domaine est ajouté par l’équipe, les utilisateurs sont automatiquement provisionnés dans la plateforme Leapsome. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Leapsome. Collaborez avec [l’équipe du support technique de Leapsome](mailto:support@leapsome.com) pour ajouter les utilisateurs ou le domaine devant être mis en liste verte dans la plateforme Leapsome. Si le domaine est ajouté par l’équipe, les utilisateurs sont automatiquement provisionnés dans la plateforme Leapsome. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

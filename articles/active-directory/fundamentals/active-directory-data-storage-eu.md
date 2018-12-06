@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
-ms.openlocfilehash: d0015f40714b639d15245827ae0da3ca0f132df4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733395"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976891"
 ---
 # <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Où Microsoft Azure Active Directory (Azure AD) stocke les données d’identité pour les clients européens
 Azure AD vous aide à gérer les identités des utilisateurs et à créer des stratégies d’accès basées sur des fonctionnalités d’Intelligence pour sécuriser les ressources de votre organisation. Les données d’identité sont stockées dans un emplacement basé sur l’adresse fournie par votre organisation lors de la souscription à l’abonnement au service. Par exemple, lorsque vous vous êtes inscrit à Office 365 ou à Azure. Pour obtenir des informations précises sur le lieu de stockage des données d’identité, vous pouvez utiliser la section [Où se trouvent vos données ?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) de Microsoft Trust Center.
@@ -25,7 +25,7 @@ Tandis que la plupart des données d’identité européennes liées à Azure AD
 
 ## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Données stockées en dehors des centres de données européens pour les clients européens
 
-Une grande partie des données d’identité européennes concernant Azure AD, pour les organisations disposant d’adresses en Europe, restent dans des centres de données européens. Les données de Azure AD qui ne sont pas stockées dans des centres de données européens incluent :
+Une grande partie des données d’identité européennes concernant Azure AD, pour les organisations disposant d’adresses en Europe, restent dans des centres de données européens. Les données Azure AD qui sont stockées dans des centres de données européens et qui sont aussi répliquées vers des centres de données aux États-Unis incluent :
 
 - **Attributs d’identité**
 

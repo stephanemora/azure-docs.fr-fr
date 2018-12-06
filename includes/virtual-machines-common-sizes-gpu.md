@@ -2,22 +2,22 @@
 title: Fichier Include
 description: Fichier Include
 services: virtual-machines-windows, virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 10/23/2018
-ms.author: danlep;azcspmt;jonbeck
+ms.date: 11/14/2018
+ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4fde34338d5606a1f431ff4b7f7074d9cd472e90
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: b6df4ada1aa13e20c7ad52d2b58cdf9c783f9e24
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035468"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716175"
 ---
 Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article donne des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau. Le débit de stockage et la bande passante réseau sont également inclus pour chacune des tailles de ce regroupement. 
 
-* Les tailles **NC, NCv2, NCv3 et ND** sont optimisées pour les algorithmes et les applications nécessitant beaucoup de ressources réseau et de calculs. En voici quelques exemples : les applications et les simulations CUDA et OpenCL, l’intelligence artificielle et l’apprentissage profond. Équipée du GPU Tesla V100 de NVIDIA, la série NCv3 est axée sur les charges de travail informatiques à hautes performances.  La série ND est destinée à l’exécution de scénarios d’apprentissage et d’inférence pour l’apprentissage profond. Elle utilise le GPU Tesla P40 de NVIDIA.
+* Les tailles **NC, NCv2, NCv3, ND et NDv2** sont optimisées pour les algorithmes et les applications nécessitant beaucoup de ressources réseau et de calculs. En voici quelques exemples : les applications et les simulations CUDA et OpenCL, l’intelligence artificielle et l’apprentissage profond. Équipée du GPU Tesla V100 de NVIDIA, la série NCv3 est axée sur les charges de travail informatiques à hautes performances.  La série ND est destinée à l’exécution de scénarios d’apprentissage et d’inférence pour l’apprentissage profond. Elle utilise le GPU Tesla P40 de NVIDIA.
 * Les tailles **NV et NVv2** sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, l’encodage et les scénarios de VDI utilisant des infrastructures comme OpenGL ou DirectX.  Ces machines virtuelles reposent sur le GPU Tesla M60 de NVIDIA.
 
 
@@ -27,7 +27,7 @@ Stockage Premium : non pris en charge
 
 Mise en cache du Stockage Premium : non pris en charge
 
-Les machines virtuelles de série NC sont optimisées par la carte [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf). Les utilisateurs peuvent exploiter plus rapidement leurs données en tirant parti de CUDA pour les applications d’exploration d’énergie, de simulations de crash, de rendu avec lancer de rayon, de formation approfondie et bien plus encore. La configuration NC24r fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées.
+Les machines virtuelles de série NC sont optimisées par la carte [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf). Les utilisateurs peuvent exploiter plus rapidement leurs données en tirant parti de CUDA pour les applications d’exploration énergétique, les simulations de crash, le rendu de lancer de rayon, l’apprentissage profond et plus encore. La configuration NC24r fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées.
 
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau |
@@ -87,13 +87,33 @@ Les machines virtuelles de série NCv3 sont optimisées par les GPU [NVIDIA Tesl
 
 *Prenant en charge RDMA
 
+## <a name="ndv2-series-preview"></a>NDv2-series (préversion)
+
+
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
+
+Infiniband : Non pris en charge
+
+
+Les machines virtuelles de la série NDv2 rejoignent la famille de processeurs graphiques (GPU) pour répondre aux besoins des charges de travail d’intelligence artificielle, HPC et Machine Learning. Elles sont dotées de 8 GPU interconnectés NVIDIA Tesla V100 NVLINK, de 40 cœurs Intel Skylake et de 672 Gio de mémoire système. L’instance NDv2 offre d’excellentes performances FP32 et FP64 pour les charges de travail HPC et d’intelligence artificielle utilisant les frameworks Cuda, TensorFlow, Pytorch, Caffe et autres.
+
+[Inscrivez-vous et accédez à ces machines lors de la préversion](https://aka.ms/ndv2signup).
+<br>
+
+
+| Taille              | CPU virtuels | GPU              | Mémoire  | Cartes réseau (max) | Bande passante taille du disque           | Bande passante disques de données (1 023 Go chacun) | Bande passante réseau maximale | 
+|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
+| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 Gio | 8          | 1344 / 2948XIO temporaires | 32    | 24 000 Mbits/s             | 
+
 ## <a name="nd-series"></a>Série ND
 
 Stockage Premium : pris en charge
 
 Mise en cache du Stockage Premium : pris en charge
 
-Les machines virtuelles de la série ND sont une nouveauté de la famille de GPU. Elles sont spécialement conçues pour les charges de travail d’intelligence artificielle et de Deep Learning. Elles offrent d’excellentes performances pour l’apprentissage et l’inférence. Les instances ND sont optimisées par des GPU [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf). Ces instances offrent d’excellentes performances pour les opérations à virgule flottante simple précision, et pour les charges de travail d’intelligence artificielle utilisant Microsoft Cognitive Toolkit, TensorFlow, Caffe et d’autres infrastructures. La série ND offre également une taille de mémoire GPU beaucoup plus importante (24 Go), ce qui permet d’adapter des modèles de réseaux neuronaux beaucoup plus volumineux. À l’instar de la série NC, la série ND offre une configuration avec un réseau à faible latence secondaire et à haut débit grâce à l’accès direct à la mémoire à distance (RDMA), ainsi que la connectivité InfiniBand, de sorte que vous pouvez exécuter des travaux de formation à grande échelle s’étendant sur de nombreux GPU.
+Les machines virtuelles de la série ND sont nouvelles dans la famille de GPU et sont conçues pour les charges de travail d’intelligence artificielle et d’apprentissage profond. Elles offrent d’excellentes performances pour l’apprentissage et l’inférence. Les instances ND sont optimisées par des GPU [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf). Ces instances offrent d’excellentes performances pour les opérations à virgule flottante simple précision, et pour les charges de travail d’intelligence artificielle utilisant Microsoft Cognitive Toolkit, TensorFlow, Caffe et d’autres infrastructures. La série ND offre également une taille de mémoire GPU beaucoup plus importante (24 Go), ce qui permet d’adapter des modèles de réseaux neuronaux beaucoup plus volumineux. À l’instar de la série NC, la série ND offre une configuration avec un réseau à faible latence secondaire et à haut débit grâce à l’accès direct à la mémoire à distance (RDMA), ainsi que la connectivité InfiniBand, de sorte que vous pouvez exécuter des travaux de formation à grande échelle s’étendant sur de nombreux GPU.
 
 > [!IMPORTANT]
 > Pour cette famille de tailles, le quota de processeurs virtuels (cœurs) par région dans votre abonnement est défini au départ sur 0. [Demandez une augmentation du quota de processeurs virtuels](../articles/azure-supportability/resource-manager-core-quotas-request.md) pour cette famille dans une [région disponible](https://azure.microsoft.com/regions/services/).

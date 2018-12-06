@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: f68bf05ef9749794c78898e4464489e7cfb358ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231378"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819999"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Déployer votre application dans Azure App Service avec FTP/S
 
@@ -66,7 +66,7 @@ Pour une sécurité améliorée, vous devez autoriser FTP sur SSL uniquement. Vo
 
 Dans la page des ressources de votre application dans le [portail Azure](https://portal.azure.com), sélectionnez **Paramètres de l’application** dans la navigation de gauche.
 
-Pour désactiver le protocole FTP non chiffré, sélectionnez **FTPS Only** (FTPS uniquement). Pour désactiver complètement les protocoles FTP et FTPS, sélectionnez **Désactiver**. Lorsque vous avez terminé, cliquez sur **Enregistrer**. Si vous utilisez **FTPS uniquement**, appliquez TLS 1.1 ou une version ultérieure en accédant au panneau **Paramètres SSL** de votre application web. TLS 1.0 n’est pas pris en charge avec **FTPS uniquement**.
+Pour désactiver le protocole FTP non chiffré, sélectionnez **FTPS Only** (FTPS uniquement). Pour désactiver complètement les protocoles FTP et FTPS, sélectionnez **Désactiver**. Lorsque vous avez terminé, cliquez sur **Enregistrer**. Si vous utilisez **FTPS uniquement**, appliquez TLS 1.2 ou une version ultérieure en accédant au panneau **Paramètres SSL** de votre application web. TLS 1.0 et 1.1 ne sont pas pris en charge avec **FTPS uniquement**.
 
 ![Désactiver le protocole FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
