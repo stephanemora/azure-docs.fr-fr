@@ -100,9 +100,9 @@
 #### [Domaines personnalisés avec Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [Cloner une application existante](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Groupes de ressources](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations)
-#### [Exécuter des tâches en arrière-plan avec WebJobs](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Exécuter des tâches en arrière-plan avec les tâches web](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 #### [Configurer](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Paramètres de configuration personnalisés](../app-service/environment/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -115,7 +115,7 @@
 ### [Migrer un service Mobile Services existant vers App Service](app-service-mobile-migrating-from-mobile-services.md)
 ### Mettre à niveau un service Mobile Services existant vers App Service
 #### [Backend .NET](app-service-mobile-net-upgrading-from-mobile-services.md)
-#### [Back-end Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md) :
+#### [Backend Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## Sécuriser
 ### S’authentifier avec des fournisseurs d’identité
@@ -173,14 +173,14 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/app-service/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=mobile-services)
-## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Exemples
 ### [Ingénieur de terrain](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Synchronisation des données structurées](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
 ### Démarrage rapide terminé
 #### [Backend .NET](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
-#### [Back-end Node.js](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/) :
+#### [Backend Node.js](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
 #### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
 #### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
 
