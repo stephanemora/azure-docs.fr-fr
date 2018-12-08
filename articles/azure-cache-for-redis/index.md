@@ -1,31 +1,31 @@
 ---
-title: Documentation Azure Redis Cache - Didacticiels, informations de référence sur les API | Microsoft Docs
-description: Découvrez comment utiliser le Cache Redis Azure, un cache de données sécurisé et un répartiteur de messagerie qui permet aux applications d’accéder rapidement aux données. Didacticiels, références d’API et autres.
-services: redis-cache
+title: Documentation du cache Azure pour Redis - Tutoriels, informations de référence sur les API | Microsoft Docs
+description: Découvrez comment utiliser le cache Azure pour Redis, un cache de données sécurisé et un broker de messagerie qui permet aux applications d’accéder rapidement aux données. Didacticiels, références d’API et autres.
+services: azure-cache-for-redis
 author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: ''
-ms.service: redis-cache
+ms.service: azure-cache-for-redis
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: d512e4fef83a623604d43aa43115c7b4fd1e1318
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e1001d2171bc8d9fc0d3038755220b71218ac2e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946948"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53020286"
 ---
-# <a name="redis-cache-documentation"></a>Documentation Cache Redis
+# <a name="azure-cache-for-redis-documentation"></a>Documentation du cache Azure pour Redis
 
-Découvrez comment utiliser le Cache Redis Azure, un cache de données sécurisé et un répartiteur de messagerie qui permet aux applications d’accéder aux données via un débit élevé et une faible latence. Des didacticiels, des références d’API et d’autres documents vous montrent comment utiliser le Cache Redis à partir de toute application sur Azure.
+Découvrez comment utiliser le cache Azure pour Redis, un cache de données sécurisé et un broker de messagerie qui permet aux applications d’accéder aux données via un débit élevé et une faible latence. Des tutoriels, des informations de référence sur les API et d’autres documents vous montrent comment utiliser le cache Azure pour Redis à partir de toute application sur Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/redis-cache/cache-premium-tier-intro">
+        <a href="/azure/azure-cache-for-redis/cache-premium-tier-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -35,7 +35,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>En savoir plus sur le niveau Premium du Cache Redis Azure</h3>
+                        <h3>En savoir plus sur le niveau Premium du cache Azure pour Redis</h3>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bibliothèque vidéo du Cache Redis Azure</h3>
+                        <h3>Vidéothèque du cache Azure pour Redis</h3>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
         </a>
     </li>   
    <li>
-        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
+        <a href="/azure/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -70,7 +70,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bien démarrer avec le Cache Redis en utilisant .NET</h3>
+                        <h3>Bien démarrer avec le cache Azure pour Redis à l’aide de .NET</h3>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-web-app-howto">
+        <a href="/azure/azure-cache-for-redis/cache-web-app-howto">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -88,7 +88,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bien démarrer avec le Cache Redis en utilisant ASP.NET MVC</h3>
+                        <h3>Bien démarrer avec le cache Azure pour Redis à l’aide d’ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-nodejs-get-started">
+        <a href="/azure/azure-cache-for-redis/cache-nodejs-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -106,7 +106,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bien démarrer avec le Cache Redis en utilisant Node.js</h3>
+                        <h3>Bien démarrer avec le cache Azure pour Redis à l’aide de Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-java-get-started">
+        <a href="/azure/azure-cache-for-redis/cache-java-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -124,7 +124,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bien démarrer avec le Cache Redis en utilisant Java</h3>
+                        <h3>Bien démarrer avec le cache Azure pour Redis à l’aide de Java</h3>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-python-get-started">
+        <a href="/azure/azure-cache-for-redis/cache-python-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -142,7 +142,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bien démarrer avec le Cache Redis en utilisant Python</h3>
+                        <h3>Bien démarrer avec le cache Azure pour Redis à l’aide de Python</h3>
                     </div>
                 </div>
             </div>
@@ -184,7 +184,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Travailler avec des données partielles et mutables dans un cache Redis</h3>
+                        <h3>Travailler avec des données partielles et mutables dans un cache Azure pour Redis</h3>
                     </div>
                 </div>
             </div>
@@ -233,7 +233,7 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/redis/">Référence d’API REST</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/redis/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>

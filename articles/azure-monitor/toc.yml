@@ -85,7 +85,7 @@ items:
       - name: Données de journal
         href: platform/data-security.md
       - name: Gestion des données de journal personnelles
-        href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=/azure/azure-monitor/toc.json
+        href: platform/personal-data-mgmt.md
       - name: Collecte, rétention et stockage des données d’application
         href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
   - name: Insights
@@ -115,9 +115,9 @@ items:
     - name: Transition de portail OMS
       items:
       - name: Vue d’ensemble
-        href: ../log-analytics/log-analytics-oms-portal-transition.md?toc=/azure/azure-monitor/toc.json
+        href: platform/oms-portal-transition.md
       - name: Questions courantes
-        href: ../log-analytics/log-analytics-oms-portal-faq.md?toc=/azure/azure-monitor/toc.json
+        href: platform/oms-portal-faq.md
   - name: Répondre aux incidents
     items:
     - name: Alertes
@@ -153,7 +153,7 @@ items:
       - name: Sécurité et autorisations des rôles
         href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
       - name: Workspaces
-        href: ../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json
+        href: platform/manage-access.md
       - name: APPLICATIONS
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: Adresses IP
@@ -166,8 +166,6 @@ items:
         href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
       - name: Séparer développement, test et production
         href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
-      - name: Surveiller les applications dotées de plusieurs composants
-        href: ../application-insights/app-insights-monitor-multi-role-apps.md?toc=/azure/azure-monitor/toc.json
       - name: Comment ... dans Application Insights ?
         href: ../application-insights/app-insights-how-do-i.md?toc=/azure/azure-monitor/toc.json
     - name: Gestion des espaces de travail
@@ -181,7 +179,7 @@ items:
         - name: Utilisation d'Azure PowerShell
           href: learn/quick-create-workspace-posh.md
       - name: Supprimer un espace de travail
-        href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
+        href: platform/delete-workspace.md
       - name: Conception pour les fournisseurs de services
         href: platform/service-providers.md
   - name: Collecter les données
@@ -562,7 +560,7 @@ items:
         - name: Tarifs
           href: insights/network-performance-monitor-pricing-faq.md
         - name: Forum Aux Questions
-          href: ../log-analytics/log-analytics-network-performance-monitor-faq.md?toc=/azure/azure-monitor/toc.json
+          href: insights/network-performance-monitor-faq.md
     - name: Surveillance des machines virtuelles
       items:
       - name: Azure Monitor pour machines virtuelles
@@ -647,7 +645,7 @@ items:
     - name: Power BI
       items:
       - name: Exporter des données de journal
-        href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
+        href: platform/powerbi.md
       - name: Exporter des données d’application
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: Envoyer des données vers Grafana
@@ -838,7 +836,7 @@ items:
     - name: Détails du plan Entreprise pour les applications
       href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
     - name: Volume de données de journal et rétention
-      href: ../log-analytics/log-analytics-manage-cost-storage.md?toc=/azure/azure-monitor/toc.json
+      href: platform/manage-cost-storage.md
     - name: Superviser l’utilisation des données de journal$$$Journaliser l’utilisation de la supervision des données
       href: ../log-analytics/log-analytics-usage.md?toc=/azure/azure-monitor/toc.json
   - name: Automatisation
@@ -1010,9 +1008,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: ee2702e834ce782f5b690cbfc78d300efa1ee602
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc89f1634040b7002e58206aaf6d1ade6965b2a8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968167"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017900"

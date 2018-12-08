@@ -1,6 +1,6 @@
 # [Documentation Azure Advisor](index.md)
 
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Présentation d’Azure Advisor](advisor-overview.md)
 
 # Recommandations
@@ -19,7 +19,7 @@
 # Rubriques connexes
 ## [Centre de sécurité](https://azure.microsoft.com/services/security-center/)
 ## [Gestionnaire de base de données SQL](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
-## [Cache Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
+## [Cache Azure pour Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # Ressources
