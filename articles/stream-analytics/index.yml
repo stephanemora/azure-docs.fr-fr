@@ -1,22 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 439ac4e49941e425601124f2209eb67faa74cd43
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f004aa82b7fb5cd85ca0054622010f956d056baf
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687162"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084224"
 documentType: LandingData
 title: Documentation Stream Analytics
 metadata:
   title: Documentation Azure Stream Analytics - Didacticiels, informations de référence sur les API
   meta.description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
   services: stream-analytics
-  author: jasonwhowell
+  author: mamccrea
   ms.author: mamccrea
-  manager: kfile
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 04/25/2018
+  ms.date: 12/06/2018
+  ms.custom: seodec18
 abstract:
   description: Découvrez comment exécuter des analyses IoT dans le cloud avec Stream Analytics, un moteur de traitement des événements entièrement géré. Des didacticiels et d’autres documents vous montrent comment analyser les données en temps réel à partir d’applications, de capteurs, d’appareils, de réseaux sociaux et autres.
   aside:
@@ -25,7 +25,7 @@ abstract:
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: Activez les analyses en temps réel et les modèles ML dans le Cloud et sur IoT Edge avec Azure Stream Analytics. (1:15:05)
+    title: Analytique en temps réel et machine learning avec Azure Stream Analytics. (1:15:05)
     href: https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor
     width: 250
 sections:

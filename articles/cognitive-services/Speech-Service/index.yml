@@ -1,18 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 452032e21a649fe4d34616225bd168d441ac0267
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 6fa6a0f5a46d8e9a47a0750a66e9ca007864d40a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218630"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092617"
 documentType: LandingData
-title: Documentation sur le service de reconnaissance vocale
+title: Documentation Speech Services
 metadata:
-  title: Documentation du service Speech - Didacticiels, démarrages rapides, référence de l’API - Cognitive Services | Microsoft Docs
-  meta.description: >
-    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
-
-    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
+  title: Documentation Speech Services - Tutoriels, guides de démarrage rapide, informations de référence sur les API
+  titleSuffix: Azure Cognitive Services
+  description: Speech Services offre aux développeurs un moyen simple d’ajouter de puissantes fonctionnalités de reconnaissance vocale à leurs applications. Citons en exemple le contrôle des commandes vocales et les dialogues vocaux, la conversation en langage naturel, la transcription de la parole et la dictée ainsi que la traduction vocale.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,10 +20,11 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
+  ms.date: 12/06/2018
+  ms.author: erhopf
+  ms.custom: seodec18
 abstract:
-  description: Découvrez comment utiliser le service Speech et le SDK Speech pour ajouter des fonctionnalités vocales à vos applications. Vous pouvez utiliser le SDK Speech pour ajouter des fonctionnalités de <i>reconnaissance vocale</i>, <i>d’intention</i>, de <i>traduction</i> et de <i>synthèse vocale</i> à vos applications. Le service Speech a également une API REST qui fonctionne avec n’importe quel langage de programmation pouvant effectuer des requêtes HTTP.
+  description: Découvrez comment utiliser Speech Services et le SDK Speech pour ajouter des fonctionnalités vocales à vos applications. Vous pouvez utiliser le SDK Speech pour ajouter des fonctionnalités de <i>reconnaissance vocale</i>, <i>d’intention</i>, de <i>traduction</i> et de <i>synthèse vocale</i> à vos applications. Le service Speech a également une API REST qui fonctionne avec n’importe quel langage de programmation pouvant effectuer des requêtes HTTP.
 sections:
 - items:
   - type: list
@@ -34,15 +33,15 @@ sections:
     columns: 3
     items:
     - href: /azure/cognitive-services/speech-service/overview
-      html: <p>Découvrez plus d’informations sur Azure Speech Service.</p>
+      html: <p>Découvrez Azure Speech Services.</p>
       image:
         src: ../media/index/i_overview.svg
       title: Qu’est-ce que le service Speech ?
     - href: /azure/cognitive-services/speech-service/get-started
-      html: <p>Découvrez comment vous inscrire gratuitement pour le service Speech.</p>
+      html: <p>Inscrivez-vous gratuitement.</p>
       image:
         src: ../media/index/i_get-started.svg
-      title: S’inscrire pour le service Speech
+      title: S’inscrire à Speech Services
     - href: /azure/cognitive-services/speech-service/speech-devices-sdk
       html: <p>Découvrez les informations de référence sur le matériel compatible avec la reconnaissance vocale.</p>
       image:
