@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Database Migration Service pour effectuer une migration en ligne de SQL Server vers Azure SQL Database | Microsoft Docs
+title: 'Tutoriel : Utiliser Azure Database Migration Service pour effectuer une migration en ligne de SQL Server vers Azure SQL Database | Microsoft Docs'
 description: Découvrez comment effectuer une migration en ligne de SQL Server en local vers Azure SQL Database à l’aide d’Azure Database Migration Service.
 services: dms
 author: pochiraju
@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: adf9f40e351ca642ca3e8eabe1e5eb7850f1f00d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 12/04/2018
+ms.openlocfilehash: 2df899d1e9db0e2936d69636f4c9d5cd463e68c7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945533"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872209"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Migrer SQL Server vers Azure SQL Database en ligne à l’aide de DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Tutoriel : Migrer SQL Server vers Azure SQL Database en ligne à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) avec un temps d’arrêt minimal. Dans ce tutoriel, vous allez migrer la base de données **Adventureworks2012** restaurée dans une instance locale de SQL Server 2016 (ou une version ultérieure) vers Azure SQL Database à l’aide d’Azure Database Migration Service.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
@@ -30,6 +30,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Exécuter la migration.
 > * Surveiller la migration.
 > * Télécharger un rapport de migration.
+
+> [!NOTE]
+> Effectuer une migration en ligne à l’aide d’Azure Database Migration Service nécessite la création d’une instance basée sur le niveau de tarification Premium (Préversion).
 
 > [!IMPORTANT]
 > Pour une expérience de migration optimale, Microsoft vous recommande de créer une instance Azure Database Migration Service dans la même région Azure que la base de données cible. Le déplacement des données entre les régions ou les zones géographiques peut ralentir le processus de migration et introduire des erreurs.

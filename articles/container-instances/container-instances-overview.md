@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 10/02/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: b5f97dac202edd5405c51b75581275166042ac38
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802098"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841453"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -38,6 +38,8 @@ D’un point de vue historique, les conteneurs ont offert l’isolation de dépe
 
 Les conteneurs sont généralement optimisés pour n’exécuter qu’une application, mais les besoins précis de ces applications peuvent grandement varier. Azure Container Instances permet une utilisation optimale en autorisant les spécifications exactes des cœurs d’unité centrale et de la mémoire. Vous payez pour ce dont vous avez besoin et vous êtes facturé immédiatement, pour pouvoir ajuster vos dépenses selon vos besoins.
 
+Pour les travaux nécessitant beaucoup de ressources système, comme le machine learning, Azure Container Instances peut programmer des conteneurs Linux pour utiliser des [ressources GPU](container-instances-gpu.md) (préversion) NVIDIA Tesla.
+
 ## <a name="persistent-storage"></a>Stockage persistant
 
 Pour récupérer et conserver des états avec Azure Container Instances, nous proposons le [montage direct des partages de fichiers Azure](container-instances-mounting-azure-files-volume.md).
@@ -59,7 +61,7 @@ Azure Container Instances prend en charge la planification de [groupes de plusie
 Actuellement en préversion, cette fonctionnalité d’Azure Container Instances permet le [déploiement d’instances de conteneur dans un réseau virtuel Azure](container-instances-vnet.md). En déployant des instances de conteneur dans un sous-réseau au sein de votre réseau virtuel, elles peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel, y compris celles qui sont en local (via une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> Le déploiement de groupes de conteneurs sur un réseau virtuel est actuellement en préversion, des [limitations s’appliquent](container-instances-vnet.md#preview-limitations). Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> Certaines fonctionnalités d’Azure Container Instances sont en préversion et certaines [limitations s’appliquent](container-instances-vnet.md#preview-limitations). Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de ces fonctionnalités sont susceptibles d’être modifiés avant la mise à disposition générale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

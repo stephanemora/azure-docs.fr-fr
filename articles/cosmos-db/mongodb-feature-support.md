@@ -1,21 +1,19 @@
 ---
-title: Prise en charge de la fonctionnalité Azure Cosmos DB pour MongoDB | Microsoft Docs
+title: Prise en charge de la fonctionnalité Azure Cosmos DB pour MongoDB
 description: En savoir plus sur la prise en charge de fonctionnalité fournie par l’API MongoDB d’Azure Cosmos DB pour MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: d9616f87e76231c3bb587c2018572b7526b471a5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 01e8af08ff5059867cc49cb9d55ae92f2ae21cdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050338"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879667"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Prise en charge de l’API MongoDB pour la syntaxe et les fonctionnalités de MongoDB
 

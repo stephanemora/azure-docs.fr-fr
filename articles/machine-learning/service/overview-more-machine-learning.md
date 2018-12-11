@@ -8,13 +8,13 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
-ms.openlocfilehash: 182504373795b3cb0f2794acbed5e253ac6bc95c
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.date: 12/04/2018
+ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419557"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872543"
 ---
 # <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Quels sont les produits de machine learning proposés par Microsoft ?
 
@@ -22,22 +22,22 @@ Microsoft propose toute une gamme de produits pour générer, déployer et gére
 
 | Produit de machine learning | Présentation | Fonctionnalités |
 |-|-|-|
-| Dans le cloud | | |
+| ***Dans le cloud*** | | |
 | [Service Azure Machine Learning](#azure-machine-learning-services) | Service cloud managé pour ML  | Entraîner, déployer et gérer des modèles dans Azure à l’aide de Python et de l’interface CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Interface visuelle de type « glisser-déplacer » pour ML | Générer, tester et déployer des modèles à l’aide d’algorithmes préconfigurés |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Interface visuelle de type « glisser-déplacer » pour ML | Générer, tester et déployer des modèles à l’aide d’algorithmes préconfigurés |
 | [Azure Databricks](#azure-databricks) | Plateforme d’analytique basée sur Spark | Générer et déployer des modèles et des workflows de données |
 | [Azure Cognitive Services](#azure-cognitive-services) | Services Azure avec des modèles AI et ML prédéfinis | Ajouter facilement des fonctionnalités intelligentes à vos applications |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Machine virtuelle avec des outils de science des données préinstallés | Développer des solutions ML dans un environnement préconfiguré |
-| Local | | |
+| ***Local***<br>*(les serveurs locaux peuvent également être exécutés sur une machine virtuelle dans le cloud)* | | |
 | [Services de Machine Learning SQL Server](#sql-server-machine-learning-services) | Moteur d’analytique incorporé à SQL | Générer et déployer des modèles dans SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Serveur d’entreprise autonome pour l’analyse prédictive | Générer et déployer des modèles créés avec R et Python |
-| Outils de développeur | | |
+| ***Outils de développeur*** | | |
 | [ML.NET](#mlnet) | SDK ML open source, multiplateforme | Développer des solutions ML pour des applications .NET |
 | [Windows ML](#windows-ml) | Plateforme ML Windows 10 | Évaluer des modèles entraînés sur un appareil Windows 10 |
 
 ## <a name="azure-machine-learning-service"></a>Service Azure Machine Learning
 
-Le service [Azure Machine Learning](overview-what-is-azure-ml.md) (préversion) est un service cloud entièrement géré qui permet d’entraîner, de déployer et de gérer des modèles ML à grande échelle. Il prend entièrement en charge les technologies open source. Vous pouvez donc utiliser des dizaines de milliers de packages Python open source tels que TensorFlow, PyTorch et scikit-learn. Grâce à des outils puissants comme [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebook](http://jupyter.org) ou [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/), vous pouvez facilement explorer et transformer des données, puis entraîner et déployer des modèles. Le service Azure Machine Learning comprend des fonctionnalités qui automatisent la génération de modèles et qui vous permettent de les régler de manière simple, efficace et précise.
+Le service [Azure Machine Learning](overview-what-is-azure-ml.md) est un service cloud entièrement managé qui permet d’entraîner, de déployer et de gérer des modèles ML à grande échelle. Il prend entièrement en charge les technologies open source. Vous pouvez donc utiliser des dizaines de milliers de packages Python open source tels que TensorFlow, PyTorch et scikit-learn. Avec des outils puissants comme [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebook](http://jupyter.org) ou l’extension [Azure Machine Learning pour Visual Studio Code](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/), vous pouvez facilement explorer et transformer des données, puis entraîner et déployer des modèles. Le service Azure Machine Learning comprend des fonctionnalités qui automatisent la génération de modèles et qui vous permettent de les régler de manière simple, efficace et précise.
 
 Utilisez le service Azure Machine Learning pour entraîner, déployer et gérer des modèles ML à l’aide de Python et de l’interface CLI à l’échelle du cloud.
 
@@ -74,9 +74,10 @@ Utilisez Cognitive Services pour développer des applications sur divers apparei
 ## <a name="azure-data-science-virtual-machine"></a>Machine virtuelle DSVM (Data Science Virtual Machine) Azure
 
 [Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md) est un environnement de machine virtuelle personnalisé sur le cloud Microsoft Azure qui est spécialement conçu pour la science des données. Elle inclut de nombreux outils de science des données populaires et d’autres outils sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analyse avancée.
-Data Science Virtual Machine est disponible dans des versions pour Windows et Linux Ubuntu (le service Azure Machine Learning n’est pas pris en charge sur Linux CentOS).
-Pour obtenir des informations de version spécifiques et la liste des fonctionnalités incluses, consultez [Présentation d’Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
+
 Data Science Virtual Machine est pris en charge en tant que cible pour le service Azure Machine Learning.
+Elle est disponible dans des versions pour Windows et Linux Ubuntu (le service Azure Machine Learning n’est pas pris en charge sur Linux CentOS).
+Pour obtenir des informations de version spécifiques et la liste des fonctionnalités incluses, consultez [Présentation d’Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
 
 Utilisez la machine virtuelle DSVM quand vous devez exécuter ou héberger vos tâches sur un même nœud, ou si vous devez monter en puissance à distance le traitement sur un seul ordinateur.
 

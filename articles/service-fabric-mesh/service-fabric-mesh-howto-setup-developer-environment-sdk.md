@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: tylermsft
 ms.author: twhitney
-ms.date: 08/08/2018
+ms.date: 11/29/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 094cab324c7a7c66f5fcb57d488661109fcdabea
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: bec0b9a7e34f1577f80a99f5380795c479c04bc8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362668"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890464"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurer votre environnement de développement Windows pour créer des applications Service Fabric Mesh
 
@@ -73,27 +73,31 @@ Installez le runtime, le kit de développement logiciel (SDK) et les outils Serv
 
 ## <a name="build-a-cluster"></a>Générer un cluster
 
+> [!IMPORTANT]
+> Docker **doit** être en cours d’exécution pour que vous puissiez générer un cluster.
+> Vérifiez que Docker est en cours d’exécution en ouvrant une fenêtre de terminal et en exécutant `docker ps` pour voir si une erreur se produit. Si la réponse n’indique aucune erreur, Docker est en cours d’exécution et vous êtes prêt à générer un cluster.
+
 Si vous utilisez Visual Studio, vous pouvez ignorer cette section, car Visual Studio crée un cluster local pour vous si vous n’en avez pas.
 
 Pour obtenir de meilleurs performances de débogage lorsque vous créez et exécutez des applications Service Fabric, nous vous recommandons de créer un cluster de développement local à nœud unique. Ce cluster doit être en cours d’exécution chaque fois que vous déployez ou déboguez un projet Service Fabric Mesh.
 
-Docker **doit** être en cours d’exécution pour que vous puissiez générer un cluster. Vérifiez que Docker est en cours d’exécution en ouvrant une fenêtre de terminal et en exécutant `docker ps` pour voir si une erreur se produit. Si la réponse n’indique aucune erreur, Docker est en cours d’exécution et vous êtes prêt à générer un cluster.
-
-Après avoir installé le runtime, les kits de développement logiciel et les outils Visual Studio, créez un cluster de développement.
+Après avoir installé le runtime, les SDK, Visual Studio Tools et Docker, et après avoir démarré ce dernier, créez un cluster de développement.
 
 1. Fermez votre fenêtre PowerShell.
 2. Ouvrez une nouvelle fenêtre PowerShell avec élévation de privilèges en tant qu’administrateur. Cette étape est nécessaire pour charger les modules Service Fabric récemment installés.
 3. Exécutez la commande PowerShell suivante pour créer un cluster de développement :
 
     ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateMeshCluster -CreateOneNodeCluster
     ```
-
 4. Pour démarrer le gestionnaire de cluster local, exécutez la commande PowerShell suivante :
 
     ```powershell
     . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
+5. Une fois que vous avez démarré le gestionnaire de cluster (il s’affiche alors dans votre barre d’état système), faites un clic droit, puis cliquez sur **Démarrer le cluster Local**.
+
+![Figure 1 : Démarrer le cluster local](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 
 Vous êtes maintenant prêt à créer des applications Service Fabric Mesh !
 
@@ -101,11 +105,13 @@ Vous êtes maintenant prêt à créer des applications Service Fabric Mesh !
 
 Consultez le didacticiel [Créer une application Azure Service Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md).
 
+Lisez les réponses aux [questions fréquentes](service-fabric-mesh-faq.md).
+
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
 [download-runtime]: https://aka.ms/sfruntime
 [download-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK
 [download-sdkmesh]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-SDK-Mesh
-[download-tools]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.ServiceFabricMesh
+[download-tools]: https://aka.ms/sfmesh_vs2017tools
 [download-visual-studio]: https://www.visualstudio.com/downloads/

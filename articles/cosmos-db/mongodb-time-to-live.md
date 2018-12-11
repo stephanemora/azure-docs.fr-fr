@@ -1,21 +1,19 @@
 ---
-title: Découvrez comment définir les valeurs de durée de vie pour les documents Azure Cosmos DB créés par le biais de l’API MongoDB pour les vider automatiquement à partir du système après une période de temps donnée.
-description: Documentation de la fonctionnalité de durée de vie par document MongoDB.
+title: Fonctionnalité de durée de vie par document de MongoDB dans Azure Cosmos DB
+description: Découvrez comment définir les valeurs de durée de vie pour les documents Azure Cosmos DB créés par le biais de l’API MongoDB pour les vider automatiquement à partir du système après une période de temps donnée.
 services: cosmos-db
 author: orestis-ms
-manager: kfile
-editor: ''
+ms.author: orkostak
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: orkostak
-ms.openlocfilehash: 8679da0dfe92b1d611fd0b61b9f7404256b2b688
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 547ee489581b7e7e9203151fbfcdaad45dca8ea1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239863"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868751"
 ---
 # <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>Faire expirer des données dans Azure Cosmos DB API MongoDB
 

@@ -1,23 +1,20 @@
 ---
-title: Outil de migration de base de données Azure Cosmos DB | Microsoft Docs
+title: Outil de migration de base de données pour Azure Cosmos DB
 description: Découvrez comment utiliser l’outil de migration de données open source Azure Cosmos DB pour importer des données dans Azure Cosmos DB depuis différentes sources, y compris des fichiers MongoDB, SQL Server, Stockage Table, Amazon DynamoDB, CSV et JSON. Conversion CSV vers JSON.
 keywords: csv vers json, outils de migration de base de données, conversion csv vers json
 services: cosmos-db
 author: deborahc
-manager: kfile
-editor: monicar
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: e04e3443cdd3bf7aa32d023fc053950c58cf1449
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e3968155c2619b5d6b09b68a59ff01607c45fa2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853963"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843544"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Utilisez l’outil de migration de données pour migrer vos données vers Azure Cosmos DB
 
@@ -57,7 +54,7 @@ L’outil de migration de données est une solution open source permettant d’i
 * Fichiers CSV
 * Stockage de tables Azure
 * Amazon DynamoDB
-* HBase
+* hbase
 * Collections Azure Cosmos DB
 
 L’outil d’importation inclut une interface utilisateur graphique (dtui.exe) et peut aussi être piloté à partir de la ligne de commande (dt.exe). En fait, il existe une option pour générer la commande associée après avoir configuré une importation via l’interface utilisateur. Vous pouvez transformer des données sources tabulaires, comme des fichiers SQL Server ou CSV, pour créer des relations hiérarchiques (sous-documents) pendant l’importation. Poursuivez votre lecture pour en savoir plus sur les options sources, les exemples de commandes pour l’importation depuis chaque source, les options cibles et l’affichage des résultats d’importation.
@@ -271,7 +268,7 @@ dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.ama
 
 ## <a id="BlobImport"></a>Importer à partir du Stockage Blob Azure
 
-Les options d’importateur source du fichier JSON, du fichier d'exportation MongoDB et du fichier CSV vous permettent d'importer un ou plusieurs fichiers à partir du stockage d’objets blob Azure. Après avoir spécifié l’URL d’un conteneur d'objets blob et une clé de compte, fournissez une expression régulière pour sélectionner le ou les fichiers à importer.
+Les options d’importateur source du fichier JSON, du fichier d'exportation MongoDB et du fichier CSV vous permettent d'importer un ou plusieurs fichiers à partir du stockage d’objets blob Azure. Après avoir spécifié l’URL d’un conteneur d'objets blob et une clé de compte, fournissez une expression régulière pour sélectionner le ou les fichier à importer.
 
 ![Capture d’écran des options sources du fichier blob](./media/import-data/blobsource.png)
 
@@ -398,7 +395,7 @@ Par ailleurs, quand vous importez des types de date (par exemple, à partir de S
 
 L’importateur en bloc Azure Cosmos DB dispose des options avancées supplémentaires suivantes :
 
-1. Taille de lot : par défaut, l’outil utilise une taille de lot de 50.  Si les documents qui doivent être importés sont volumineux, pensez à réduire la taille du lot. À l’inverse, si les documents qui doivent être importés sont peu volumineux, pensez à augmenter la taille du lot.
+1. Taille du lot : l'outil par défaut avec une taille de lot de 50.  Si les documents qui doivent être importés sont volumineux, pensez à réduire la taille du lot. À l’inverse, si les documents qui doivent être importés sont peu volumineux, pensez à augmenter la taille du lot.
 2. Taille de script maximale (octets) : L'outil définit une taille de script maximale par défaut de 512 Ko.
 3. Désactivation de la génération automatique d’ID : si tous les documents à importer contiennent un champ ID, le fait de sélectionner cette option peut accroître les performances. Les documents qui n’ont pas de champ ID unique ne sont pas importés.
 4. Mise à jour des documents existants : par défaut, l’outil ne remplace pas les documents existants présentant des conflits d’ID. Le fait de sélectionner cette option permet de remplacer les documents existants dont les ID sont identiques. Cette fonctionnalité est utile pour les migrations de données planifiées qui mettent à jour des documents existants.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2320aaf2d502280a29562a49dfff1e4e9244d079
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443489"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872966"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutoriel : Déployer une application conteneur avec intégration et déploiement continus sur un cluster Service Fabric
 
@@ -65,7 +65,7 @@ Vérifiez votre adresse e-mail et sélectionnez votre organisation dans la liste
 
 La publication du référentiel entraîne la création d’un projet d’équipe portant le même nom que le référentiel local dans votre compte. Pour créer le référentiel dans un projet d’équipe existant, cliquez sur **Avancé** à côté du **Nom du référentiel** et sélectionnez un projet d’équipe. Vous pouvez afficher votre code sur le web en sélectionnant **See it on the web** (Visualiser sur le web).
 
-## <a name="configure-continuous-delivery-with-vsts"></a>Configurer la livraison continue avec VSTS
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Configurer la livraison continue avec Azure Pipelines
 
 Une définition de build Azure DevOps décrit un workflow qui se compose d’un ensemble d’étapes de génération exécutées séquentiellement. Créez une définition de build qui produit un package d’application Service Fabric et les autres artefacts à déployer sur un cluster Service Fabric. En savoir plus sur les [définitions de build](https://www.visualstudio.com/docs/build/define/create) Azure DevOps 
 

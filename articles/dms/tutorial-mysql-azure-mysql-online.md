@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Database Migration Service pour effectuer une migration en ligne de MySQL vers Azure Database pour MySQL | Microsoft Docs
+title: 'Tutoriel : Utiliser Azure Database Migration Service pour effectuer une migration en ligne de MySQL vers Azure Database pour MySQL | Microsoft Docs'
 description: Découvrez comment effectuer une migration en ligne de MySQL en local vers Azure Database pour MySQL à l’aide d’Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/06/2018
-ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 12/04/2018
+ms.openlocfilehash: 3c3127c7fd94ae0f66cd083e8a83dd9119f71dcb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829849"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867934"
 ---
-# <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Migration de MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
+# <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migration de MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance MySQL locale vers [Azure Database pour MySQL](https://docs.microsoft.com/azure/mysql/) avec un temps d’arrêt minimal. En d’autres termes, la migration peut être effectuée avec un temps d’arrêt minimal de l’application. Dans ce tutoriel, vous allez migrer l’exemple de base de données **Employés** à partir d’une instance MySQL 5.7 locale vers Azure Database pour MySQL à l’aide d’une activité de migration en ligne dans Azure Database Migration Service.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
@@ -28,6 +28,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer un projet de migration en utilisant Azure Database Migration Service.
 > * Exécuter la migration.
 > * Surveiller la migration.
+
+> [!NOTE]
+> Effectuer une migration en ligne à l’aide d’Azure Database Migration Service nécessite la création d’une instance basée sur le niveau de tarification Premium (Préversion).
 
 > [!IMPORTANT]
 > Pour une expérience de migration optimale, Microsoft vous recommande de créer une instance Azure Database Migration Service dans la même région Azure que la base de données cible. Le déplacement des données entre les régions ou les zones géographiques peut ralentir le processus de migration et introduire des erreurs.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 179a13d6fbb162ae7727c6a176b60879901dc4d1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426184"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633722"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -40,7 +40,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Configurer un environnement réseau de test
 > * Déployer un pare-feu
 > * Créer un itinéraire par défaut
-> * Configurer une application pour autoriser l’accès à github.com
+> * Configurer une application pour autoriser l’accès à msn.com
 > * Configurer une règle de réseau pour autoriser l’accès aux serveurs DNS externes
 > * Tester le pare-feu
 
@@ -136,7 +136,7 @@ Déployez le pare-feu dans le réseau virtuel.
 2. Cliquez sur **Mise en réseau**, et après **Recommandés**, cliquez sur **Afficher tout**.
 3. Cliquez sur **Pare-feu** > **Créer**. 
 4. Sur la page **Créer un pare-feu**, utilisez le tableau suivant pour configurer le pare-feu :
-   
+
    |Paramètre  |Valeur  |
    |---------|---------|
    |NOM     |Test-FW01|
@@ -146,12 +146,12 @@ Déployez le pare-feu dans le réseau virtuel.
    |Choisir un réseau virtuel     |**Existant** : Test-FW-VN|
    |Adresse IP publique     |**Créer un nouveau**. L’adresse IP publique doit être le type de référence (SKU) Standard.|
 
-2. Cliquez sur **Revoir + créer**.
-3. Passez en revue le résumé, puis cliquez sur **Créer** pour créer le pare-feu.
+5. Cliquez sur **Revoir + créer**.
+6. Passez en revue le résumé, puis cliquez sur **Créer** pour créer le pare-feu.
 
    Le déploiement nécessite quelques minutes.
-4. Une fois le déploiement terminé, accédez au groupe de ressources **Test-FW-RG**, puis cliquez sur le pare-feu **Test-FW01**.
-6. Notez l’adresse IP privée. Vous l’utiliserez plus tard lors de la création de l’itinéraire par défaut.
+7. Une fois le déploiement terminé, accédez au groupe de ressources **Test-FW-RG**, puis cliquez sur le pare-feu **Test-FW01**.
+8. Notez l’adresse IP privée. Vous l’utiliserez plus tard lors de la création de l’itinéraire par défaut.
 
 ## <a name="create-a-default-route"></a>Créer un itinéraire par défaut
 
@@ -182,7 +182,7 @@ Pour le sous-réseau **Workload-SN**, configurez l’itinéraire sortant par dé
 
 ## <a name="configure-an-application-rule"></a>Configurer une règle d’application
 
-Il s’agit de la règle d’application qui autorise un accès sortant à github.com.
+Il s’agit de la règle d’application qui autorise un accès sortant à msn.com.
 
 1. Ouvrez **Test-FW-RG**, et cliquez sur le pare-feu **Test-FW01**.
 2. Sur la page **Test-FW01**, sous **Paramètres**, cliquez sur **Règles**.
@@ -194,7 +194,7 @@ Il s’agit de la règle d’application qui autorise un accès sortant à githu
 8. Sous **Règles**, **Noms de domaine complets cibles**, pour **Nom**, entrez **AllowGH**.
 9. Pour **Adresses sources**, entrez **10.0.2.0/24**.
 10. Pour **Protocol:port**, entrez **http, https**.
-11. Pour **Noms de domaine complets (FQDN) cibles**, entrez **github.com**
+11. Pour **Noms de domaine complets cibles**, entrez **msn.com**
 12. Cliquez sur **Add**.
 
 Le Pare-feu Azure comprend un regroupement de règles intégré pour les noms de domaine complets d’infrastructure qui sont autorisés par défaut. Ces noms de domaine complets sont spécifiques à la plateforme et ne peuvent pas être utilisés à d’autres fins. Pour plus d’informations, consultez [Noms de domaine complets d’infrastructure](infrastructure-fqdns.md).
@@ -204,17 +204,17 @@ Le Pare-feu Azure comprend un regroupement de règles intégré pour les noms de
 Il s’agit de la règle de réseau qui autorise un accès sortant à deux adresses IP sur le port 53 (DNS).
 
 1. Cliquez sur l’onglet **Collection de règles de réseau**.
-1. Cliquez sur **Ajouter un regroupement de règles de réseau**.
-2. Pour **Nom**, entrez **Net-Coll01**.
-3. Pour **Priorité**, entrez **200**.
-4. Pour **Action**, sélectionnez **Autoriser**.
+2. Cliquez sur **Ajouter un regroupement de règles de réseau**.
+3. Pour **Nom**, entrez **Net-Coll01**.
+4. Pour **Priorité**, entrez **200**.
+5. Pour **Action**, sélectionnez **Autoriser**.
 
 6. Sous **Règles**, pour **Nom**, entrez **AllowDNS**.
-8. Pour **Protocole**, sélectionnez **UDP**.
-9. Pour **Adresses sources**, entrez **10.0.2.0/24**.
-10. Pour Adresse de destination, entrez **209.244.0.3,209.244.0.4**
-11. Pour **Ports de destination**, entrez **53**.
-12. Cliquez sur **Add**.
+7. Pour **Protocole**, sélectionnez **UDP**.
+8. Pour **Adresses sources**, entrez **10.0.2.0/24**.
+9. Pour Adresse de destination, entrez **209.244.0.3,209.244.0.4**
+10. Pour **Ports de destination**, entrez **53**.
+11. Cliquez sur **Add**.
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Modifier les adresses DNS principales et secondaires de l’interface réseau **Srv-Work**
 
@@ -235,12 +235,12 @@ Testez maintenant le pare-feu pour confirmer qu’il fonctionne comme prévu.
 1. À partir du portail Azure, passez en revue les paramètres réseau de la machine virtuelle **Srv-Work** et notez l’adresse IP privée.
 2. Connectez un bureau à distance à la machine virtuelle **Srv-Jump**, et à partir de là, ouvrez une connexion Bureau à distance à l’adresse IP privée **Srv-Work**.
 
-5. Ouvrez Internet Explorer et accédez à http://github.com.
-6. Cliquez sur **OK** > **Fermer** sur les alertes de sécurité.
+3. Ouvrez Internet Explorer et accédez à http://msn.com.
+4. Cliquez sur **OK** > **Fermer** sur les alertes de sécurité.
 
-   La page d’accueil GitHub doit s’afficher.
+   La page d’accueil MSN doit s’afficher.
 
-7. Accédez à http://www.msn.com.
+5. Accédez à http://www.msn.com.
 
    Vous devriez être bloqué par le pare-feu.
 

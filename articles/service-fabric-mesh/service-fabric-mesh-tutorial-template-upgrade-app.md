@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c82e0cd5bd6a15ff33f51b4e88f68c13080f595d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f617be79cb61932f79728feef76f056ce72ae0ab
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967963"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891127"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutoriel : Mettre à niveau une application Service Fabric s’exécutant dans Service Fabric Mesh
 
-Ce tutoriel est le troisième de la série. Vous allez apprendre à mettre à niveau une application Service Fabric [déployée sur Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) en augmentant les ressources d’UC allouées.  Une fois l’opération effectuée, vous disposez d’un service web frontend qui s’exécute avec des ressources d’UC plus importantes.
+Ce tutoriel est le troisième de la série. Vous allez apprendre à mettre à niveau une application Service Fabric [déployée sur Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) en augmentant les ressources d’UC allouées.  Une fois l’opération effectuée, vous disposez d’un service web front-end qui s’exécute avec des ressources d’UC plus importantes.
 
 Dans ce troisième volet, vous apprenez à :
 
@@ -47,7 +47,7 @@ Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Ouvrez [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md) ou [installez localement Azure CLI et l’interface CLI Service Fabric Mesh](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* Ouvrez [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md) ou [installez localement Azure CLI et l’interface CLI Service Fabric Mesh](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="upgrade-application-configurations"></a>Mettre à niveau les configurations d’application
 
@@ -59,7 +59,7 @@ Ce tutoriel utilise l’exemple de liste de tâches, qui a été [déployé au p
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-Dans le modèle de déploiement de la ressource d’application, chaque service a une propriété *cpu* qui permet de définir les ressources d’UC demandées. Une application peut comprendre plusieurs services (chacun disposant d’un seul paramètre *cpu*) déployés et gérés ensemble. Pour augmenter les ressources d’UC du service web frontend, modifiez la valeur *cpue* dans le fichier de modèle de déploiement ou de paramètres.  Mettez ensuite à niveau l’application.
+Dans le modèle de déploiement de la ressource d’application, chaque service a une propriété *cpu* qui permet de définir les ressources d’UC demandées. Une application peut comprendre plusieurs services (chacun disposant d’un seul paramètre *cpu*) déployés et gérés ensemble. Pour augmenter les ressources d’UC du service web front-end, modifiez la valeur *cpue* dans le fichier de modèle de déploiement ou le fichier de paramètres.  Mettez ensuite à niveau l’application.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modifier les paramètres du modèle de déploiement
 

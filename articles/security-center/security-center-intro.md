@@ -1,6 +1,6 @@
 ---
-title: Qu’est-ce que l’Azure Security Center ? | Microsoft Docs
-description: Découvrez le Centre de sécurité Azure, ses fonctionnalités principales et son fonctionnement.
+title: Qu’est-ce qu’Azure Security Center ? | Microsoft Docs
+description: Découvrez Azure Security Center, ses fonctionnalités principales et son fonctionnement.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1b0a6c6d6daa686404021afb2e10b25bb9f54191
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 682291cfe0e7a06aca1d4b1bef48ba36c72f48d9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319383"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839872"
 ---
-# <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
+# <a name="what-is-azure-security-center"></a>Qu’est-ce qu’Azure Security Center ?
 Azure Security Center fournit des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides. Avec Security Center, vous pouvez appliquer des stratégies de sécurité sur l’ensemble de vos charges de travail, limiter votre exposition aux menaces, détecter et répondre aux attaques.
 
 Pourquoi utiliser Security Center ?
@@ -144,7 +144,7 @@ Définissez des règles sur la façon dont les utilisateurs peuvent se connecter
 Pour plus d’informations, consultez [Gérer l’accès Juste à temps à la machine virtuelle](security-center-just-in-time.md).
 
 ## <a name="adaptive-application-controls"></a>Contrôles d’application adaptative
-Bloquez les programmes malveillants et les autres applications indésirables en appliquant des recommandations de mise en liste verte adaptées à vos charges de travail Azure spécifiques et alimentées par l’apprentissage machine.
+Bloquez les programmes malveillants et les autres applications indésirables en appliquant des recommandations de mise en liste verte adaptées à vos charges de travail Azure spécifiques et alimentées par le Machine Learning.
 
 ![Contrôles d’application adaptative][6]
 
@@ -162,7 +162,7 @@ Pour plus d’informations, consultez [Intégrer des solutions de sécurité](se
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
-- Le niveau tarifaire Gratuit de Security Center est activé avec votre abonnement Azure. Pour tirer parti des fonctionnalités avancées de gestion de la sécurité et de détection des menaces, vous devez mettre à niveau vers le niveau tarifaire Standard. Le niveau Standard est gratuit les 60 premiers jours. Pour plus d’informations, consultez la [page de tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+- Le niveau tarifaire Gratuit de Security Center est activé avec votre abonnement Azure. Pour tirer parti des fonctionnalités avancées de gestion de la sécurité et de détection des menaces, vous devez mettre à niveau vers le niveau tarifaire Standard. Le niveau Standard peut être essayé gratuitement. Pour plus d’informations, consultez la [page de tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 - Si vous êtes prêt à activer Security Center Standard dès maintenant, le [démarrage rapide : Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guidera.
 
 

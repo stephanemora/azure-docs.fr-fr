@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: d032471ef588e3ae415915e5b4d817ca5738888a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d67fbdad32612f23b1de31f7d2a1d7b4dee3b68e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678367"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889138"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>Démarrage rapide : Translittérer du texte à l’aide de l’API REST de traduction de texte Translator Text (C#)
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour translittérer du texte à l’aide de C#
 
 Dans ce guide de démarrage rapide, vous allez apprendre à translittérer (convertir) le texte d’un script dans un autre à l’aide de .NET Core (C#) et de l’API REST de traduction de texte Translator Text. Dans l’exemple fourni, le japonais est translittéré pour utiliser l’alphabet latin.
 

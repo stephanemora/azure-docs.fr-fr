@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 42a25d6c13fe1052f4aa14696a66c9c7f1fb4d65
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8c31e410713e4ba8ce6443170ba5ad5c2e740419
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685682"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52677931"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutoriel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
@@ -38,7 +38,7 @@ Vous apprendrez à :
 > * Accorder des privilèges minimaux à l’identité managée dans SQL Database
 
 > [!NOTE]
->L’authentification Azure Active Directory est _différente_ de [l’authentification Windows intégrée](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) dans Active Directory (AD DS) local. AD DS et Azure Active Directory utilisent des protocoles d’authentification totalement différents. Pour plus d’informations, consultez [Documentation Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
+>L’authentification Azure Active Directory est _différente_ de [l’authentification Windows intégrée](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) dans Active Directory (AD DS) local. AD DS et Azure Active Directory utilisent des protocoles d’authentification totalement différents. Pour plus d’informations, consultez la [documentation sur Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -174,6 +174,10 @@ Si vous souhaitez visualiser la sortie JSON complète pour chaque commande, supp
 ### <a name="reconfigure-azure-ad-administrator"></a>Reconfigurer l’administrateur Azure AD
 
 Vous avez jusqu’ici attribué l’identité managée en tant qu’administrateur Azure AD de votre service SQL Database. Vous ne pouvez pas utiliser cette identité pour une connexion interactive (en vue d’ajouter des utilisateurs de base de données) ; vous devez donc utiliser votre utilisateur Azure AD réel. Pour ajouter votre utilisateur Azure AD, suivez la procédure décrite à la section [Approvisionner un administrateur Azure Active Directory pour votre serveur Azure SQL Database](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
+
+> [!IMPORTANT]
+> Une fois ajouté, ne supprimez pas cet administrateur Azure AD pour votre base de données SQL, sauf si vous souhaitez désactiver complètement l’accès Azure AD à la base de données SQL (à partir de tous les comptes Azure AD).
+> 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Accorder des autorisations au groupe Azure Active Directory
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cca18b2aa5cb6f27df45e4b63e55251bea058625
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a9ae18c7fbf3b0f663396099f065c76969206f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968847"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890379"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutoriel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle.
 
@@ -51,7 +51,7 @@ Avant de commencer ce tutoriel :
 
 * [Installation de Docker](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [Installez localement l’interface de ligne de commande Azure et l’interface de ligne de commande Service Fabric Mesh](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Installez localement l’interface de ligne de commande Azure et l’interface de ligne de commande Service Fabric Mesh](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
@@ -205,7 +205,7 @@ Une application Service Fabric Mesh est une ressource Azure que vous pouvez dép
 Ce tutoriel utilise l’exemple de liste de tâches.  Au lieu de créer des fichiers de modèle et de paramètres, téléchargez les fichiers de [modèle de déploiement mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) et de [paramètres mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>parameters
-Si votre modèle contient des valeurs que vous prévoyez de changer une fois l’application déployée ou que vous aimeriez pouvoir changer d’un déploiement à l’autre (si vous prévoyez de réutiliser ce modèle pour d’autres déploiements), la bonne pratique consiste à paramétrer les valeurs. La bonne façon de procéder consiste à créer une section « parameters » en haut de votre modèle de déploiement, où vous spécifiez les noms et propriétés des paramètres, qui sont ensuite référencés dans le modèle de déploiement. Chaque définition de paramètre inclut les propriétés *type* et *defaultValue*, ainsi qu’une section *metadata* facultative comportant une *description*.
+Si votre modèle contient des valeurs que vous prévoyez de changer une fois l’application déployée, ou que vous souhaitez pouvoir changer d’un déploiement à l’autre (si vous prévoyez de réutiliser ce modèle pour d’autres déploiements), la bonne pratique consiste à paramétrer les valeurs. La bonne façon de procéder consiste à créer une section « parameters » en haut de votre modèle de déploiement, où vous spécifiez les noms et propriétés des paramètres, qui sont ensuite référencés dans le modèle de déploiement. Chaque définition de paramètre inclut les propriétés *type* et *defaultValue*, ainsi qu’une section *metadata* facultative comportant une *description*.
 
 La section parameters est définie au début de votre modèle de déploiement, juste avant la section *ressources* :
 
@@ -359,9 +359,27 @@ Pour déployer l’application, exécutez la commande suivante :
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-Au bout de quelques minutes, vous devriez voir :
+Cette commande génère l’extrait de code JSON ci-dessous. Sous la section ```outputs``` de la sortie JSON, copiez la propriété ```publicIPAddress```.
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+Ces informations proviennent de la section ```outputs``` du modèle ARM. Comme illustré ci-dessous, cette section fait référence à la ressource de passerelle qui récupère l’adresse IP publique. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>Ouvrir l’application
 
@@ -398,4 +416,4 @@ Dans cette partie du tutoriel, vous avez appris à :
 
 Passez au tutoriel suivant :
 > [!div class="nextstepaction"]
-> [Mettre à l’échelle une application en cours d’exécution dans Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
+> [Mettre à l’échelle une application s’exécutant dans Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)

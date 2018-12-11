@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: fedb41f6538e0c65114c4a28c8aa43ffc7ef6d7f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c2edb821eb8bd9a5da7a6cce81269e7d3f611722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957598"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869889"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Qu’est-ce que le WAN virtuel Azure ?
 
@@ -29,7 +29,7 @@ Cet article fournit un aperçu rapide de la connectivité réseau de vos charges
 
 ## <a name="s2s"></a>Connexions site à site
 
-Pour créer une connexion de site à site à l’aide du WAN virtuel, vous pouvez faire appel à un [partenaire de WAN virtuel](https://go.microsoft.com/fwlink/p/?linkid=2019615) ou établir la connexion manuellement.
+Pour créer une connexion de site à site à l’aide du WAN virtuel, vous pouvez faire appel à un [partenaire de WAN virtuel](virtual-wan-locations-partners.md) ou établir la connexion manuellement.
 
 ### <a name="s2spartner"></a>Collaboration avec un partenaire de WAN virtuel
 
@@ -46,11 +46,11 @@ Si vous ne souhaitez pas utiliser un partenaire préféré, vous pouvez configur
 
 Une connexion point à site (P2S) vous permet de créer une connexion sécurisée à votre hub virtuel à partir d’un ordinateur de client individuel. Une connexion P2S est établie en étant démarrée à partir de l’ordinateur client. Cette solution est utile pour les télétravailleurs souhaitant se connecter à partir d’un emplacement distant, comme depuis leur domicile ou pendant une conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN site à site (S2S) lorsqu’un nombre restreint de clients doit se connecter.
 
-Pour établir la connexion manuellement, consultez l’article [Créer une connexion de point à site à l’aide du WAN virtuel](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid).
+Pour établir la connexion manuellement, consultez l’article [Créer une connexion de point à site à l’aide du WAN virtuel](virtual-wan-point-to-site-portal.md).
 
 ## <a name="er"></a>Connexions ExpressRoute connections (préversion)
 
-Pour établir la connexion manuellement, consultez l’article [Créer une connexion ExpressRoute à l’aide du WAN virtuel](https://go.microsoft.com/fwlink/p/?linkid=2020148&clcid).
+Pour établir la connexion manuellement, consultez l’article [Créer une connexion ExpressRoute à l’aide du WAN virtuel](virtual-wan-expressroute-portal.md).
 
 
 ## <a name="resources"></a>Ressources du WAN virtuel
@@ -76,4 +76,4 @@ Pour configurer un WAN virtuel de bout en bout, vous devez créer les ressources
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez l’article [Partenaires Virtual WAN et emplacements](https://aka.ms/virtualwan)
+Consultez la page [Virtual WAN partners and locations](virtual-wan-locations-partners.md).

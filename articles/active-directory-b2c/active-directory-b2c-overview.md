@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954096"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724024"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Qu’est-ce qu’Azure Active Directory B2C ?
 
@@ -60,9 +60,9 @@ Azure AD B2C interagit consécutivement avec les fournisseurs d’identité, les
 
 Azure AD B2C protège vos applications contre les attaques par déni de service et les attaques de mot de passe. Azure AD B2C utilise des techniques de détection et d’atténuation, telles que les cookies SYN, ainsi que les limites de débit et de connexion, pour protéger les ressources contre les attaques par déni de service. L’atténuation couvre à la fois les attaques de mot de passe par force brute et celles basées sur un dictionnaire.
 
-#### <a name="built-in-policies"></a>Stratégies prédéfinies
+#### <a name="user-flows"></a>Flux d’utilisateurs
 
-Chaque requête qui est envoyée à Azure AD B2C spécifie une stratégie. Une stratégie contrôle la manière dont votre application interagit avec Azure AD B2C. Des stratégies intégrées sont prédéfinies pour les tâches d’identité les plus courantes, telles que l’inscription, la connexion et la modification de profil.  Par exemple, une stratégie d'inscription vous permet de contrôler les comportements en configurant les paramètres suivants :
+Chaque requête envoyée à Azure AD B2C spécifie un flux utilisateur, qui est une stratégie contrôlant la manière dont votre application interagit avec Azure AD B2C. Des flux utilisateur prédéfinis pour les tâches d’identité les plus courantes, telles que l’inscription, la connexion et la modification de profil, sont disponibles dans le portail Azure AD B2C.  Par exemple, un flux utilisateur d'inscription vous permet de contrôler les comportements en configurant les paramètres suivants :
 
 - Comptes sociaux que le client utilise pour s’inscrire à l’application
 - Données collectées auprès du client, telles que le nom ou le code postal

@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246733"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839732"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -36,8 +36,8 @@ Azure Migrate vous aide à :
 - Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
 -  Vous ne pouvez créer un projet Azure Migrate que dans la zone géographique États-Unis. Toutefois, vous pouvez planifier une migration vers n’importe quel emplacement Azure cible.
     - Seules les métadonnées détectées à partir de l’environnement local sont stockées dans la région du projet de migration.
-    - Les métadonnées sont stockées dans une des régions de la zone géographique : USA Centre-Ouest/USA Est.
-    - Si vous utilisez la visualisation des dépendances avec un espace de travail Log Analytics, il est créé dans la même région que le projet.
+    - Les métadonnées sont stockées dans l’une des régions de la zone géographique sélectionnée  : USA Centre-Ouest/USA Est.
+    - Si vous utilisez la visualisation des dépendances en créant un espace de travail Log Analytics, celui-ci est créé dans la même région que le projet.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pour quoi dois-je payer ?
@@ -51,18 +51,18 @@ Les paramètres d’évaluation peuvent être personnalisés selon vos besoins. 
 
 **Propriété** | **Détails**
 --- | ---
-**Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer.<br/><br/>Azure Migrate prend actuellement en charge 30 régions. [Vérifier les régions](https://azure.microsoft.com/global-infrastructure/services/). USA Ouest 2 est la région cible par défaut.
-**Type de stockage** | le type de disques que vous souhaitez allouer dans Azure. Elle s’applique lorsque le critère de dimensionnement est **en local**. Vous spécifiez le type de disque cible en tant que disques managés Premium (par défaut) ou Standard. Pour le dimensionnement basé sur les performances, la suggestion de dimensionnement du disque est automatiquement effectuée selon les données de performances des machines virtuelles.
-**Critère de dimensionnement** | Le dimensionnement peut être basé sur **l’historique des performances** des machines virtuelles locales, ou **localement** (par défaut) sans tenir compte de l’historique des performances.
+**Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer.<br/><br/>Azure Migrate prend actuellement en charge 33 régions comme emplacements cibles de migration. [Vérifier les régions](https://azure.microsoft.com/global-infrastructure/services/). USA Ouest 2 est la région cible par défaut.
+**Type de stockage** | Type de disques managés que vous souhaitez allouer pour toutes les machines virtuelles qui font partie de l’évaluation. Si le critère de dimensionnement est *Dimensionnement local*, vous pouvez spécifier Disques premium (valeur par défaut), Disques SSD standard ou Disques HDD standard comme type de disque cible. Pour le *dimensionnement en fonction des performances*, en plus des options ci-dessus, vous pouvez aussi sélectionner Automatique afin de vous assurer que la recommandation de taille de disque est appliquée automatiquement en fonction des données de performances des machines virtuelles. Par exemple, si vous voulez obtenir une [ instance unique de contrat SLA de 99,9 %](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), vous pouvez spécifier le type de stockage en tant que disques managés Premium afin de vous assurer que tous les disques de l’évaluation seront recommandés comme disques managés Premium. Notez qu’Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
+**Instances réservées** |  Si vous disposez d’[instances réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/) dans Azure. Azure Migrate estime le coût en conséquence.
+**Critère de dimensionnement** | Le dimensionnement peut être basé sur l’**historique des performances** des machines virtuelles locales (par défaut), ou **localement** sans tenir compte de l’historique des performances.
+**Historique des performances** | Par défaut, Azure Migrate évalue les performances des machines locales à l’aide de l’historique des performances du dernier jour, avec une valeur de centile de 95 %.
+**Facteur de confort** | Azure Migrate considère une mémoire tampon (facteur de confort) au cours de l’évaluation. Cette mémoire tampon est appliquée sur des données d’utilisation de l’ordinateur pour les machines virtuelles (processeur, mémoire, disque et réseau). Le facteur de confort prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future.<br/><br/> Par exemple, une machine virtuelle de 10 cœurs avec 20 % d’utilisation correspond normalement à une machine virtuelle à 2 cœurs. Toutefois, avec un facteur de confort de 2.0x, le résultat est une machine virtuelle de 4 cœurs. Le paramètre de confort par défaut est 1.3x.
+**Séries de machine virtuelle** | Les séries de machine virtuelle utilisées pour les estimations de taille. Par exemple, si vous disposez d’un environnement de production que vous ne souhaitez pas migrer vers des machines virtuelles de série A dans Azure, vous pouvez exclure la série A de la liste ou des séries. Le dimensionnement est uniquement basé sur les séries sélectionnées.   
+**Devise** | Devise de facturation. La valeur par défaut est le dollar américain.
+**Remise (%)** | Remise propre à un abonnement cumulable avec l’offre Azure. Le paramètre par défaut est 0 %.
+**Durée de fonctionnement de la machine virtuelle** | Si vos machines virtuelles ne s’exécutent pas 24/7 dans Azure, vous pouvez spécifier leur durée d’exécution (nombre de jours par mois et nombre d’heures par jour) ; l’estimation des coûts sera calculée en fonction. La valeur par défaut est de 31 jours par mois et de 24 heures par jour.
 **Offre Azure** | L’[offre Azure](https://azure.microsoft.com/support/legal/offer-details/) à laquelle vous êtes inscrit. Azure Migrate estime le coût en conséquence.
 **Azure Hybrid Benefit** | Si vous disposez de Software Assurance et que vous êtes éligible à [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) avec des réductions.
-**Instances réservées** |  Si vous disposez d’[instances réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/) dans Azure. Azure Migrate estime le coût en conséquence.
-**Durée de fonctionnement de la machine virtuelle** | La durée pendant laquelle les machines virtuelles seront exécutées dans Azure. Les estimations de coût sont effectuées en conséquence.
-**Niveau tarifaire** | Le [niveau tarifaire (de base/standard)](../virtual-machines/windows/sizes-general.md) des machines virtuelles Azure cibles. Par exemple, si vous envisagez de migrer un environnement de production, vous pouvez prendre en compte le niveau Standard, qui fournit des machines virtuelles avec une faible latence, mais est sans doute plus coûteux. En revanche, dans un environnement de test, vous pouvez utiliser le niveau de base avec une latence plus élevée et des coûts plus faibles. Par défaut le niveau [standard](../virtual-machines/windows/sizes-general.md) est utilisé.
-**Historique des performances** | Par défaut, Azure Migrate évalue les performances des machines locales à l’aide de l’historique des performances du dernier jour, avec une valeur de centile de 95 %.
-**Séries de machine virtuelle** | Les séries de machine virtuelle utilisées pour les estimations de taille. Par exemple, si vous disposez d’un environnement de production que vous ne souhaitez pas migrer vers des machines virtuelles de série A dans Azure, vous pouvez exclure la série A de la liste ou des séries. Le dimensionnement est uniquement basé sur les séries sélectionnées.   
-**Facteur de confort** | Azure Migrate considère une mémoire tampon (facteur de confort) au cours de l’évaluation. Cette mémoire tampon est appliquée sur des données d’utilisation de l’ordinateur pour les machines virtuelles (processeur, mémoire, disque et réseau). Le facteur de confort prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future.<br/><br/> Par exemple, une machine virtuelle de 10 cœurs avec 20 % d’utilisation correspond normalement à une machine virtuelle à 2 cœurs. Toutefois, avec un facteur de confort de 2.0x, le résultat est une machine virtuelle de 4 cœurs. Le paramètre de confort par défaut est 1.3x.
-
 
 ## <a name="how-does-azure-migrate-work"></a>Comment fonctionne Azure Migrate ?
 

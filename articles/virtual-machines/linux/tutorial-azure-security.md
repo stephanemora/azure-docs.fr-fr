@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ba23e9b8ac79a0a2a3899332bfc373665cf561af
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092609"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841161"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Didacticiel : utiliser Azure Security Center pour surveiller les machines virtuelles Linux
 
@@ -106,7 +106,7 @@ Les recommandations sont marquées comme étant résolues à mesure qu’elles s
 
 En plus des recommandations concernant la configuration des ressources, Security Center affiche des alertes de détection de menaces. La fonctionnalité d’alertes de sécurité agrège les données collectées à partir de chaque machine virtuelle, des journaux de réseau Azure et des solutions partenaires connectées pour détecter les menaces de sécurité au niveau des ressources Azure. Pour obtenir des informations détaillées sur les fonctionnalités de détection des menaces de Security Center, consultez [Fonctionnalités de détection d’Azure Security Center](../../security-center/security-center-detection-capabilities.md).
 
-La fonctionnalité d’alertes de sécurité nécessite que le niveau tarifaire de Security Center soit porté de *Gratuit* à *Standard*. Une **version d’évaluation gratuite** de 60 jours est disponible quand vous passez à ce niveau tarifaire supérieur. 
+La fonctionnalité d’alertes de sécurité nécessite que le niveau tarifaire de Security Center soit porté de *Gratuit* à *Standard*. Une **version d’essai gratuit** est disponible quand vous passez à ce niveau tarifaire supérieur. 
 
 Pour changer de niveau tarifaire :  
 

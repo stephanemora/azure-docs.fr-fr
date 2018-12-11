@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497596"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864058"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutoriel #2 : Déployer un modèle de classification d’images dans Azure Container Instances
 
@@ -22,7 +22,7 @@ Ce tutoriel est le **deuxième d’une série de deux**. Dans le [tutoriel préc
 
 Vous êtes maintenant prêt à déployer le modèle en tant que service web dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Un service web est une image, dans ce cas une image Docker, qui encapsule la logique de scoring et le modèle lui-même. 
 
-Dans cette partie du tutoriel, vous utilisez le service Azure Machine Learning pour :
+Dans cette partie du tutoriel, vous utilisez Azure Machine Learning Services pour :
 
 > [!div class="checklist"]
 > * Configurer votre environnement de test
@@ -35,10 +35,12 @@ ACI n’est pas idéal pour les déploiements de production, mais il est très u
 
 ## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
-Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://aka.ms/aml-notebook-tut-02). Exécutez le bloc-notes `02.deploy-models.ipynb` dans des Azure Notebooks ou dans votre propre serveur de bloc-notes Jupyter.
+Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Exécutez le bloc-notes `tutorials/img-classification-part2-deploy.ipynb` dans des Azure Notebooks ou dans votre propre serveur de bloc-notes Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
+>[!NOTE]
+> Le code présenté dans cet article a été testé avec le SDK Azure Machine Learning version 1.0.2
 
 ## <a name="prerequisites"></a>Prérequis
 

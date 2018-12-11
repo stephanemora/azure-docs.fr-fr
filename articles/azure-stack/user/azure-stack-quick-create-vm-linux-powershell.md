@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a2dea792db39c753d0ea720c8e610a399401315f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377502"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840569"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Démarrage rapide : créer une machine virtuelle de serveur Linux en utilisant PowerShell dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Vous pouvez créer une machine virtuelle Ubuntu Server 16.04 LTS à l’aide d’Azure Stack PowerShell. Suivez les étapes décrites dans cet article pour créer et utiliser une machine virtuelle.  Cet article vous présente également les étapes pour :
+Vous pouvez créer une machine virtuelle Ubuntu Server 16.04 LTS à l’aide d’Azure Stack PowerShell. Suivez les étapes décrites dans cet article pour créer et utiliser une machine virtuelle.  Cet article vous présente également les étapes pour :
 
 * Se connecter à la machine virtuelle avec un client distant.
 * Installer le serveur web NGINX et afficher la page d’accueil par défaut.
@@ -37,7 +37,7 @@ Vous pouvez créer une machine virtuelle Ubuntu Server 16.04 LTS à l’aide d�
 
    La Place de Marché Azure Stack ne contient pas d’image Linux par défaut. Obtenez de l’opérateur d’Azure Stack qu’il vous fournisse l’image **Ubuntu Server 16.04 LTS** dont vous avez besoin. L’opérateur peut utiliser la procédure décrite dans l’article [Télécharger des éléments de la Place de Marché à partir d’Azure dans Azure Stack](../azure-stack-download-azure-marketplace-item.md).
 
-* Azure Stack nécessite une version spécifique d’Azure PowerShell pour créer et gérer les ressources. Si PowerShell n’est pas configuré pour Azure Stack, suivez les étapes permettant d’[installer](azure-stack-powershell-install.md) PowerShell.
+* Azure Stack nécessite une version spécifique d’Azure PowerShell pour créer et gérer les ressources. Si PowerShell n’est pas configuré pour Azure Stack, suivez les étapes permettant [d’installer](azure-stack-powershell-install.md) PowerShell.
 
 * Une fois Azure Stack PowerShell configuré, vous devrez vous connecter à votre environnement Azure Stack. Pour plus d’informations, consultez [Se connecter en tant qu’utilisateur à Azure Stack à l’aide de PowerShell](azure-stack-powershell-configure-user.md).
 
@@ -47,7 +47,7 @@ Vous pouvez créer une machine virtuelle Ubuntu Server 16.04 LTS à l’aide d�
 
 Un groupe de ressources est un conteneur logique dans lequel vous pouvez déployer et gérer des ressources Azure Stack. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez le bloc de code suivant pour créer un groupe de ressources. Des valeurs sont attribuées à toutes les variables dans ce document. Vous pouvez utiliser ces valeurs ou en attribuer de nouvelles.
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup `
 
 Créez un compte de stockage, puis un conteneur de stockage pour l’image Ubuntu Server 16.04 LTS.
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -395,7 +395,7 @@ Sur un système client avec SSH installé, utilisez la commande suivante pour vo
 ssh <Public IP Address>
 ```
 
-À l’invite, entrez le nom d’utilisateur azureuser. Si vous avez utilisé une phrase secrète lors de la création des clés SSH, vous devez la fournir.
+Quand vous y êtes invité, connectez-vous en tant que **azureuser**. Si vous avez utilisé une phrase secrète lors de la création des clés SSH, vous devez la fournir.
 
 ## <a name="install-the-nginx-web-server"></a>Installer le serveur web NGINX
 
@@ -417,7 +417,7 @@ Avec NGINX installé et le port 80 ouvert sur votre machine virtuelle, vous pouv
 
 ![Page d’accueil du serveur web NGINX](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Nettoyez les ressources dont vous n’avez plus besoin. Pour supprimer ces ressources, vous pouvez utiliser la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1). Pour supprimer le groupe de ressources et toutes ses ressources, exécutez la commande suivante :
 

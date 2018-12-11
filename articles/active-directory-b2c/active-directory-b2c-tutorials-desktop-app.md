@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 2/28/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: a7a861ccff168655d866d8c9205160bface79c9e
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a135dd0b350a6129d94f1c6b0b185c3fb272668f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913408"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834491"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification d’application de bureau avec des comptes à l’aide d’Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Inscrire l’exemple d’application de bureau dans votre locataire Azure AD B2C.
-> * Créer des stratégies pour l’inscription et la connexion des utilisateurs, la modification d’un profil, et la réinitialisation d’un mot de passe.
+> * Créer des flux d’utilisateur pour l’inscription et la connexion des utilisateurs, la modification d’un profil et la réinitialisation d’un mot de passe.
 > * Configurer l’exemple d’application pour utiliser votre locataire Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -57,7 +57,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     | **Inclure une application/API web** | Non  | Sélectionnez **Non** pour une application de bureau. |
     | **Inclure le client natif** | Oui | Dans la mesure où il s’agit d’une application de bureau et qu’elle est considérée comme étant un client natif. |
     | **URI de redirection** | Valeurs par défaut | Identificateur unique vers lequel Azure AD B2C redirige l’agent utilisateur dans une réponse OAuth 2.0. |
-    | **Obtenir un URI de redirection personnalisé** | `com.onmicrosoft.contoso.appname://redirect/path` | Entrez `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path`. Les stratégies envoient des jetons à cet URI. |
+    | **Obtenir un URI de redirection personnalisé** | `com.onmicrosoft.contoso.appname://redirect/path` | Entrez `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path`. Les flux d’utilisateur envoient des jetons à cet URI. |
     
 3. Cliquez sur **Créer** pour inscrire votre application.
 
@@ -67,65 +67,89 @@ Les applications inscrites sont indiquées dans la liste des applications du cli
 
 Notez **l’ID du client d’application**. Cet ID identifie l’application de manière unique. Il est nécessaire pour configurer l’application ultérieurement dans le didacticiel.
 
-## <a name="create-policies"></a>Création des stratégies
+## <a name="create-user-flows"></a>Créer des flux d’utilisateur
 
-Une stratégie d’Azure AD B2C définit les flux de travail des utilisateurs. Par exemple, la connexion, l’inscription, le changement des mots de passe et la modification des profils sont des flux de travail courants.
+Un flux d’utilisateur Azure AD B2C définit l’expérience utilisateur pour une tâche d’identité. Par exemple, la connexion, l’inscription, le changement de mot de passe et la modification de profil sont des flux d’utilisateur courants.
 
-### <a name="create-a-sign-up-or-sign-in-policy"></a>Création d’une stratégie d’inscription ou de connexion
+### <a name="create-a-sign-up-or-sign-in-user-flow"></a>Créer un flux d’utilisateur d’inscription ou de connexion
 
-Pour inscrire des utilisateurs puis les connecter à l’application de bureau, créez une **stratégie d’inscription ou de connexion**.
+Pour inscrire des utilisateurs puis les connecter à l’application de bureau, créez un **flux d’utilisateur d’inscription ou de connexion**.
 
-1. Dans la page du portail Azure AD B2C, sélectionnez **Stratégies d’inscription ou de connexion** et cliquez sur **Ajouter**.
+1. Dans la page du portail Azure AD B2C, sélectionnez **flux d’utilisateur** et cliquez sur **Nouveau flux d’utilisateur**.
+2. Sous l’onglet **Recommandé**, cliquez sur **Inscription et connexion**.
 
-    Pour configurer votre stratégie, utilisez les paramètres suivants :
+    Pour configurer votre flux d’utilisateur, utilisez les paramètres suivants :
 
-    ![Ajouter une stratégie d’inscription ou de connexion](media/active-directory-b2c-tutorials-desktop-app/add-susi-policy.png)
-
-    | Paramètre      | Valeur suggérée  | Description                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Nom** | SiUpIn | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SiUpIn** dans l’exemple de code. | 
-    | **Fournisseur d’identité** | Inscription par e-mail | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
-    | **Attributs de l’inscription** | Nom d’affichage et Code Postal | Sélectionnez les attributs à collecter auprès de l'utilisateur pendant l'inscription. |
-    | **Revendications de l’application** | Nom d’affichage, Code Postal, L’utilisateur est nouveau, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token). |
-
-2. Cliquez sur **Créer** pour créer votre stratégie. 
-
-### <a name="create-a-profile-editing-policy"></a>Création d’une stratégie de modification de profil
-
-Pour permettre aux utilisateurs de réinitialiser eux-mêmes les informations de leur profil utilisateur, créez une **stratégie de modification de profil**.
-
-1. Dans la page du portail Azure AD B2C, sélectionnez **Stratégies de modification de profil** et cliquez sur **Ajouter**.
-
-    Pour configurer votre stratégie, utilisez les paramètres suivants :
+    ![Ajouter un flux d’utilisateur d’inscription ou de connexion](media/active-directory-b2c-tutorials-desktop-app/add-susi-user-flow.png)
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Nom** | SiPe | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SiPe** dans l’exemple de code. | 
-    | **Fournisseur d’identité** | Local Account SignIn | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
-    | **Attributs de profil** | Nom d’affichage et Code Postal | Sélectionnez les attributs que les utilisateurs peuvent modifier durant la modification du profil. |
-    | **Revendications de l’application** | Nom d’affichage, Code postal, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une modification de profil réussie. |
+    | **Nom** | SiUpIn | Entrez un **Nom** pour le flux d’utilisateur. Le nom du flux d’utilisateur est préfixé avec **B2C_1_**. Vous utilisez le nom complet du flux d’utilisateur **B2C_1_SiUpIn** dans l’exemple de code. | 
+    | **Fournisseurs d’identité** | Inscription par e-mail | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
 
-2. Cliquez sur **Créer** pour créer votre stratégie. 
+3.  Sous **Attributs utilisateur et revendications**, cliquez sur **Afficher plus** et sélectionnez les paramètres suivants :
 
-### <a name="create-a-password-reset-policy"></a>Création d’une stratégie de réinitialisation du mot de passe
+    ![Ajouter les attributs et revendications d’un utilisateur](media/active-directory-b2c-tutorials-desktop-app/add-attributes-and-claims.png)
 
-Pour activer la réinitialisation du mot de passe sur votre application, vous devez créer une **stratégie de réinitialisation de mot de passe**. Cette stratégie décrit les expériences des clients lors de la réinitialisation du mot de passe et le contenu des jetons que l’application reçoit en cas d’opération réussie.
+    | Colonne      | Valeurs suggérées  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Collecter l’attribut** | Nom d’affichage et Code Postal | Sélectionnez les attributs à collecter auprès de l'utilisateur pendant l'inscription. |
+    | **Revendication de retour** | Nom d’affichage, Code Postal, L’utilisateur est nouveau, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token). |
 
-1. Dans la page du portail Azure AD B2C, sélectionnez **Stratégies de réinitialisation de mot de passe** et cliquez sur **Ajouter**.
+4. Cliquez sur **OK**.
 
-    Pour configurer votre stratégie, utilisez les paramètres suivants.
+5. Cliquez sur **Créer** pour créer votre flux d’utilisateur. 
+
+### <a name="create-a-profile-editing-user-flow"></a>Créer un flux d’utilisateur de modification de profil
+
+Pour permettre aux utilisateurs de réinitialiser eux-mêmes les informations de leur profil utilisateur, créez un **flux d’utilisateur de modification de profil**.
+
+1. Dans la page du portail Azure AD B2C, sélectionnez **Flux d’utilisateur** et cliquez sur **Nouveau flux d’utilisateur**.
+2. Sous l’onglet **Recommandé**, cliquez sur **Modification de profil**.
+
+    Pour configurer votre flux d’utilisateur, utilisez les paramètres suivants :
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Nom** | SSPR | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SSPR** dans l’exemple de code. | 
-    | **Fournisseur d’identité** | Réinitialiser le mot de passe à l’aide d’une adresse e-mail | Il s’agit du fournisseur d’identité utilisé pour identifier l’utilisateur. |
-    | **Revendications de l’application** | ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une réinitialisation réussie du mot de passe. |
+    | **Nom** | SiPe | Entrez un **Nom** pour le flux d’utilisateur. Le nom du flux d’utilisateur est préfixé avec **B2C_1_**. Vous utilisez le nom complet du flux d’utilisateur **B2C_1_SiPe** dans l’exemple de code. | 
+    | **Fournisseurs d’identité** | Local Account SignIn | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
 
-2. Cliquez sur **Créer** pour créer votre stratégie. 
+3. Sous **Attributs utilisateur**, cliquez sur **Afficher plus** et sélectionnez les paramètres suivants :
+
+    | Colonne      | Valeurs suggérées  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Collecter l’attribut** | Nom d’affichage et Code Postal | Sélectionnez les attributs que les utilisateurs peuvent modifier durant la modification du profil. |
+    | **Revendication de retour** | Nom d’affichage, Code postal, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une modification de profil réussie. |
+
+4. Cliquez sur **OK**.
+5. Cliquez sur **Créer** pour créer votre flux d’utilisateur. 
+
+### <a name="create-a-password-reset-user-flow"></a>Créer un flux d’utilisateur de réinitialisation du mot de passe
+
+Pour activer la réinitialisation du mot de passe sur votre application, vous devez créer un **flux d’utilisateur de réinitialisation de mot de passe**. Ce flux d’utilisateur décrit les expériences des clients lors de la réinitialisation du mot de passe, et le contenu des jetons que l’application reçoit en cas d’opération réussie.
+
+1. Dans la page du portail Azure AD B2C, sélectionnez **Flux d’utilisateur** et cliquez sur **Nouveau flux d’utilisateur**.
+2. Sous l’onglet **Recommandé**, cliquez sur **Réinitialisation du mot de passe**.
+
+    Pour configurer votre flux d’utilisateur, utilisez les paramètres suivants :
+
+    | Paramètre      | Valeur suggérée  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Nom** | SSPR | Entrez un **Nom** pour le flux d’utilisateur. Le nom du flux d’utilisateur est préfixé avec **B2C_1_**. Vous utilisez le nom complet du flux d’utilisateur **B2C_1_SSPR** dans l’exemple de code. | 
+    | **Fournisseurs d’identité** | Réinitialiser le mot de passe à l’aide d’une adresse e-mail | Il s’agit du fournisseur d’identité utilisé pour identifier l’utilisateur. |
+
+3. Sous **Revendications d’application**, cliquez sur **Afficher plus** et sélectionnez les paramètres suivants :
+
+    | Colonne      | Valeur suggérée  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Revendication de retour** | ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une réinitialisation réussie du mot de passe. |
+
+4. Cliquez sur **OK**.
+5. Cliquez sur **Créer** pour créer votre flux d’utilisateur. 
 
 ## <a name="update-desktop-app-code"></a>Mettre à jour le code de l’application de bureau
 
-Maintenant que vous avez une application de bureau inscrite et des stratégies créées, vous devez configurer votre application pour utiliser votre locataire Azure AD B2C. Dans ce didacticiel, vous configurez un exemple d’application de bureau. 
+Maintenant que vous disposez d’une application de bureau inscrite et de flux d’utilisateur créés, vous devez configurer votre application pour utiliser votre locataire Azure AD B2C. Dans ce didacticiel, vous configurez un exemple d’application de bureau. 
 
 [Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [parcourez le référentiel](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clonez l’exemple à partir de GitHub.
 
@@ -135,7 +159,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 L’exemple d’application de bureau WPF montre comment une application de bureau peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs, et appeler une API web protégée.
 
-Vous devez modifier l’application pour utiliser l’inscription de l’application dans votre locataire et configurer les stratégies que vous avez créées. 
+Vous devez modifier l’application pour utiliser l’inscription de l’application dans votre locataire et configurer les flux d’utilisateur que vous avez créées. 
 
 Pour modifier les paramètres d’application :
 
@@ -148,7 +172,7 @@ Pour modifier les paramètres d’application :
     private static string ClientId = "The Application ID for your desktop app registered in your tenant";
     ```
 
-3. Mettez à jour la variable **PolicySignUpSignIn** avec le nom de la *stratégie d’inscription ou de connexion* que vous avez créée à l’étape précédente. N’oubliez pas d’inclure le préfixe *B2C_1_*.
+3. Mettez à jour la variable **PolicySignUpSignIn** avec le nom du *flux d’utilisateur d’inscription ou de connexion* que vous avez créé à l’étape précédente. N’oubliez pas d’inclure le préfixe *B2C_1_*.
 
     ```C#
     public static string PolicySignUpSignIn = "B2C_1_SiUpIn";
@@ -162,11 +186,11 @@ L’exemple d’application prend en charge l’inscription et la connexion des 
 
 ### <a name="sign-up-using-an-email-address"></a>S’inscrire au moyen d’une adresse e-mail
 
-1. Cliquez sur le bouton **Se connecter** pour vous inscrire en tant qu’utilisateur de l’application de bureau. Cette méthode utilise la stratégie **B2C_1_SiUpIn** que vous avez définie à l’étape précédente.
+1. Cliquez sur le bouton **Se connecter** pour vous inscrire en tant qu’utilisateur de l’application de bureau. Cette méthode utilise le flux d’utilisateur **B2C_1_SiUpIn** que vous avez défini à une étape précédente.
 
 2. Azure AD B2C présente une page de connexion avec un lien pour l’abonnement. Si vous ne possédez pas encore de compte, cliquez sur le lien **Inscrivez-vous maintenant**. 
 
-3. Le flux de travail d’abonnement présente une page pour collecter et vérifier l’identité de l’utilisateur à l’aide d’une adresse e-mail. Le flux de travail d’abonnement collecte également le mot de passe et les attributs demandés définis dans la stratégie.
+3. Le flux de travail d’abonnement présente une page pour collecter et vérifier l’identité de l’utilisateur à l’aide d’une adresse e-mail. Le flux de travail d’inscription collecte également le mot de passe et les attributs demandés, qui sont définis dans le flux d’utilisateur.
 
     Utilisez une adresse e-mail valide et validez à l’aide d’un code de vérification. Définissez un mot de passe. Entrez des valeurs pour les attributs requis. 
 
@@ -185,7 +209,7 @@ Vous pouvez utiliser votre client Azure AD B2C si vous envisagez d’effectuer d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à créer un locataire Azure AD B2C, créer des stratégies et mettre à jour de l’exemple d’application de bureau pour utiliser votre locataire Azure AD B2C. Passez au didacticiel suivant pour apprendre à inscrire, configurer et appeler une API web protégée à partir d’une application de bureau.
+Dans ce tutoriel, vous avez découvert comme créer un locataire Azure AD B2C, créer des flux d’utilisateur et mettre à jour l’exemple d’application de bureau pour utiliser votre locataire Azure AD B2C. Passez au didacticiel suivant pour apprendre à inscrire, configurer et appeler une API web protégée à partir d’une application de bureau.
 
 > [!div class="nextstepaction"]
 > 

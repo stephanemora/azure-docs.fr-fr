@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 01/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604338"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726404"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Didacticiel - Accorder l’accès à une API web ASP.NET depuis une application web à l’aide d’Azure Active Directory B2C
 
@@ -24,17 +24,17 @@ Ce didacticiel vous montre comment appeler une ressource d’API web protégée 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * inscrire une API web dans votre client Azure AD B2C ;
-> * définir et configurer les étendues d’une API web ;
-> * accorder à une application des autorisations d’accès à l’API web ;
-> * mettre à jour l’exemple de code pour utiliser Azure AD B2C afin de protéger une API web.
+> * Inscrire une API web dans votre locataire Azure AD B2C
+> * Définir et configurer les étendues d’une API web
+> * Accorder à une application des autorisations d’accès à l’API web
+> * Mettre à jour l’exemple de code pour utiliser Azure AD B2C afin de protéger une API web
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Suivre [Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial](active-directory-b2c-tutorials-web-app.md) (Didacticiel d’utilisation d’Azure Active Directory B2C pour l’authentification utilisateur dans une application web ASP.NET).
-* Installer [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
+* Suivez le [Tutoriel sur l’utilisation d’Azure Active Directory B2C pour l’authentification utilisateur dans une application web ASP.NET](active-directory-b2c-tutorials-web-app.md).
+* Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
 
 ## <a name="register-web-api"></a>Inscrire une API web
 
@@ -54,7 +54,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | Mon exemple d’API web | Entrez un **nom** qui décrit votre API web pour les développeurs. |
+    | **Nom** | Mon exemple d’API web | Entrez un **nom** qui décrit votre API web pour les développeurs. |
     | **Inclure une application/API web** | Oui | Sélectionnez **Oui** pour une API web. |
     | **Autoriser le flux implicite** | Oui | Sélectionnez **Oui** puisque l’API utilise la [connexion OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de réponse** | `https://localhost:44332` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C retourne les jetons demandés par votre API. Dans ce didacticiel, l’exemple d’API web s’exécute localement (localhost) et écoute sur le port 44332. |
@@ -120,7 +120,7 @@ L’exemple d’API web est inclus dans le projet que vous avez téléchargé da
 
 L’exemple de solution contient deux projets :
 
-**Exemple d’application web (TaskWebApp) :** application web permettant de créer et de modifier une liste des tâches. L’application web utilise la stratégie **Inscription ou connexion** pour inscrire ou connecter des utilisateurs possédant une adresse e-mail.
+**Exemple d’application web (TaskWebApp) :** application web permettant de créer et de modifier une liste des tâches. L’application web utilise le flux d’utilisateur d’**inscription ou de connexion** pour inscrire ou connecter des utilisateurs avec une adresse e-mail.
 
 **Exemple d’application d’API web (TaskService) :** API web qui prend en charge les fonctionnalités de la liste des tâches de création, de lecture, de mise à jour et de suppression. L’API web est sécurisée par Azure AD B2C et appelée par l’application web.
 
@@ -162,10 +162,10 @@ Ouvrez la solution **B2C-WebAPI-DotNet** dans Visual Studio.
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. Mettez à jour le paramètre de stratégie avec le nom généré quand vous avez créé votre stratégie d’inscription et de connexion.
+4. Mettez à jour le paramètre de flux d’utilisateur avec le nom généré quand vous avez créé votre flux d’utilisateur d’inscription et de connexion.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
     ```
 
 5. Configurez le paramètre des étendues pour qu’il corresponde à ce que vous avez créé dans le portail.
@@ -191,7 +191,7 @@ Vous devez exécuter les projets **TaskWebApp** et **TaskService**.
 
 Lorsque vous créez un élément de la liste de tâches, l’application web effectue une requête auprès de l’API web pour le générer. L’application web que vous avez protégée appelle l’API web protégée dans votre client Azure AD B2C.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez utiliser votre client Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 

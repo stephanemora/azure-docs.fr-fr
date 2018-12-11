@@ -1,5 +1,5 @@
 ---
-title: Guide de démarrage rapide pour l’utilisation de Machine Learning Services (avec R) dans Azure SQL Database (préversion) | Microsoft Docs
+title: Démarrage rapide pour utiliser Machine Learning Services (avec R) dans Azure SQL Database (préversion) | Microsoft Docs
 description: Cette rubrique vous montre comment utiliser Machine Learning Services dans Azure SQL Database et comment exécuter des scripts R pour une analyse avancée à grande échelle et la possibilité de rapatrier le calcul et le traitement là où les données résident, éliminant la nécessité d’extraire les données sur le réseau.
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 11/07/2018
-ms.openlocfilehash: 382ac23ea4c8e0ec54314bb754c00a8e6e43e9f6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 11/30/2018
+ms.openlocfilehash: fc5398b4ffb0b9310b6ab13561830d8d3db7a611
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300963"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725741"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Démarrage rapide : Utiliser Machine Learning Services (avec R) dans Azure SQL Database (préversion)
 
@@ -27,13 +27,13 @@ L’apprentissage automatique dans SQL Database est utilisé pour exécuter des 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="sign-up-for-the-preview"></a>S’inscrire à la version préliminaire
+## <a name="sign-up-for-the-preview"></a>S’inscrire à la préversion
 
 La préversion publique de Machine Learning Services (avec R) dans SQL Database n’est pas activée par défaut. Envoyez un e-mail à Microsoft sur [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) pour vous inscrire à la préversion publique.
 
 Une fois que vous êtes inscrit dans le programme, Microsoft vous intègre à la préversion publique et migre votre base de données existante ou en crée une nouvelle sur un service R.
 
-Les Machine Learning Services (avec R) dans SQL Database sont actuellement uniquement disponibles dans le modèle d’achat vCore des niveaux de service **General Purpose** (Usage général) et **Business Critical** (Critique pour l’entreprise) pour les bases de données seules et en pools. Dans cette préversion publique initiale, le niveau de service **Hyperscale** et **Managed Instance** ne sont pas pris en charge. N’utilisez pas Machine Learning Services avec R pour des charges de travail de production avec la préversion publique.
+Actuellement, Machine Learning Services (avec R) dans SQL Database est uniquement disponible dans le modèle d’achat vCore des niveaux de service **Usage général** et **Critique pour l’entreprise** pour les bases de données individuelles et en pool. Dans cette préversion publique initiale, le niveau de service **Hyperscale** et **Managed Instance** ne sont pas pris en charge. N’utilisez pas Machine Learning Services avec R pour des charges de travail de production avec la préversion publique.
 
 Une fois Machine Learning Services (avec R) activé pour votre base de données SQL, revenez à cette page pour savoir comment exécuter des scripts R dans le contexte d’une procédure stockée.
 
@@ -51,11 +51,10 @@ Ce guide de démarrage rapide nécessite également la configuration d’une rè
 
 ## <a name="different-from-sql-server"></a>Différences par rapport à SQL Server
 
-Le fonctionnement de Machine Learning Services (avec R) dans Azure SQL Database est similaire à celui de [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Toutefois, il existe certaines différences entre ces deux éléments :
+Le fonctionnement de Machine Learning Services (avec R) dans Azure SQL Database est similaire à celui de [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Toutefois, il existe certaines différences entre ces deux éléments :
 
 - R uniquement. Il n’existe actuellement aucune prise en charge de Python.
 - Inutile de configurer `external scripts enabled` via `sp_configure`.
-- Inutile de donner l’autorisation d’exécuter les scripts aux utilisateurs.
 - Les packages doivent être installés via **sqlmlutils**.
 - Il n’existe aucune gouvernance distincte des ressources externes. Les ressources R représentent un certain pourcentage des ressources SQL, en fonction du niveau.
 
@@ -82,16 +81,26 @@ Vous pouvez vérifier que Machine Learning Services (avec R) est activé pour vo
 
 1. Si vous rencontrez des erreurs, cela peut être dû au fait que la préversion publique de Machine Learning Services (avec R) n’est pas activée pour votre base de données SQL. Découvrez comment vous inscrire à la préversion publique ci-dessus.
 
+## <a name="grant-permissions"></a>Accorder des autorisations
+
+Si vous êtes administrateur, vous pouvez exécuter automatiquement le code externe. Toute autre personne doit recevoir une autorisation.
+
+Remplacez `<username>` par une connexion d’utilisateur de base de données valide avant d’exécuter la commande.
+
+```sql
+GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
+```
+
 ## <a name="basic-r-interaction"></a>Interaction R de base
 
 Il existe deux façons d’exécuter du code R dans SQL Database :
 
-+ Ajouter un script R en tant qu’argument de la procédure stockée du système, [sp_execute_external_script](https://docs.microsoft.com/sql//relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md).
-+ À partir d’un [client R à distance](https://review.docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client), connectez-vous à votre base de données SQL et exécutez du code en utilisant la base de données SQL en tant que contexte de calcul.
++ Ajouter un script R en tant qu’argument de la procédure stockée système [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
++ À partir d’un [client R à distance](https://docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client), connectez-vous à votre base de données SQL et exécutez du code en utilisant la base de données SQL en tant que contexte de calcul.
 
 L’exercice suivant se concentre sur le premier modèle d’interaction : comment passer du code R dans une procédure stockée.
 
-1. Exécutez un script simple pour voir comment un script R peut être exécuté dans votre base de données SQL.
+1. Exécuter un script simple pour voir comment un script R s’exécute dans votre base de données SQL.
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -119,7 +128,7 @@ N’oubliez pas que tout le contenu de l’argument `@script` doit être du code
 
 ## <a name="inputs-and-outputs"></a>Entrées et sorties
 
-Par défaut, [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) accepte un seul jeu de données d’entrée, que vous fournissez en général sous la forme d’une requête SQL valide. D’autres types d’entrées peuvent être passés en tant que variables SQL.
+Par défaut, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) accepte un seul jeu de données d’entrée, que vous fournissez en général sous la forme d’une requête SQL valide. D’autres types d’entrées peuvent être passés en tant que variables SQL.
 
 La procédure stockée retourne une trame de données R unique en tant que sortie, mais vous pouvez également générer des valeurs scalaires et des modèles sous forme de variables. Vous pouvez par exemple générer un modèle entraîné en tant que variable binaire et le passer dans une instruction T-SQL INSERT pour écrire ce modèle dans une table. Vous pouvez également générer des tracés (au format binaire) ou des valeurs scalaires (les valeurs individuelles, telles que la date et l’heure, la durée d’entraînement du modèle, etc.).
 
@@ -284,7 +293,7 @@ Vous pouvez entraîner un modèle avec R et l’enregistrer dans une table de vo
     - Fournissez les données d’entrée à utiliser pour entraîner le modèle.
 
     > [!TIP]
-    > Si vous avez besoin de vous rafraîchir la mémoire, nous vous recommandons de consulter ce didacticiel sur les modèles linéaires. Il décrit le processus d’ajustement d’un modèle avec rxLinMod : [Fitting Linear Models (Ajustement des modèles linéaires)](https://docs.microsoft.com/r-server/r/how-to-revoscaler-linear-model)
+    > Si vous avez besoin de vous rafraîchir la mémoire, nous vous recommandons de consulter ce didacticiel sur les modèles linéaires. Il décrit le processus d’ajustement d’un modèle avec rxLinMod : [Fitting Linear Models (Ajustement des modèles linéaires)](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
     Pour générer le modèle, vous devez définir la formule dans le code R et passer les données comme paramètre d’entrée.
 
@@ -337,7 +346,7 @@ Vous pouvez entraîner un modèle avec R et l’enregistrer dans une table de vo
     WHERE model_name = 'default model'
     ```
 
-4. En règle générale, la sortie de R de la procédure stockée [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) est limité à une seule trame de données.
+4. En règle générale, la sortie de R de la procédure stockée [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) est limité à une seule trame de données.
 
     Toutefois, vous pouvez retourner des sorties d’autres types, telles que des valeurs scalaires, en plus de la trame de données.
 
@@ -381,7 +390,7 @@ Utilisez le modèle créé dans la section précédente pour attribuer des score
     VALUES (40), (50), (60), (70), (80), (90), (100)
     ```
 
-    Dans cet exemple, étant donné que votre modèle est basé sur l’algorithme **rxLinMod** fourni dans le package **RevoScaleR**, vous devez appeler la fonction [rxPredict](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxpredict), plutôt que la fonction `predict` R générique.
+    Dans cet exemple, étant donné que votre modèle est basé sur l’algorithme **rxLinMod** fourni dans le package **RevoScaleR**, vous devez appeler la fonction [rxPredict](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict), plutôt que la fonction `predict` R générique.
 
     ```sql
     DECLARE @speedmodel varbinary(max) = 
@@ -410,7 +419,7 @@ Utilisez le modèle créé dans la section précédente pour attribuer des score
     + Après avoir récupéré le modèle dans la table, appelez la fonction `unserialize` sur le modèle.
 
         > [!TIP] 
-        > Intéressez-vous également aux nouvelles [fonctions de sérialisation](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxserializemodel) fournies par RevoScaleR, qui prennent en charge le scoring en temps réel.
+        > Intéressez-vous également aux nouvelles [fonctions de sérialisation](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) fournies par RevoScaleR, qui prennent en charge le scoring en temps réel.
     + Appliquez la fonction `rxPredict` avec les arguments appropriés au modèle de fonction, et fournissez les nouvelles données d’entrée.
 
     + Dans l’exemple, la fonction `str` est ajoutée au cours de la phase de test, afin de vérifier le schéma de données retourné à partir de R. Vous pourrez supprimer l’instruction ultérieurement.
@@ -439,7 +448,7 @@ Si vous devez utiliser un package qui n’est pas déjà installé dans votre ba
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    Si vous recevez une erreur du type **« R » n’est pas reconnu comme une commande interne ou externe, un programme exécutable ou un fichier de commandes**, cela signifie probablement que le chemin d’accès au fichier R.exe n’est pas inclus dans votre variable d’environnement **PATH** sous Windows. Vous pouvez ajouter le répertoire à la variable d’environnement ou accéder au répertoire dans l’invite de commandes (par exemple `cd C:\Program Files\R\R-3.5.1\bin`).
+    Si l’erreur suivante apparaît : « R n’est pas reconnu comme une commande interne ou externe, un programme exécutable ou un fichier de commandes », cela signifie probablement que le chemin du fichier R.exe n’est pas inclus dans votre variable d’environnement **PATH** sur Windows. Vous pouvez ajouter le répertoire à la variable d’environnement ou accéder au répertoire à partir de l’invite de commandes (par exemple `cd C:\Program Files\R\R-3.5.1\bin`) avant d’exécuter la commande.
 
 1. Utilisez la commande **R CMD installer** pour installer **sqlmlutils**. Spécifiez le chemin d’accès au répertoire dans lequel vous avez téléchargé le fichier zip et le nom de ce dernier. Par exemple : 
 
@@ -523,7 +532,7 @@ Si vous devez utiliser un package qui n’est pas déjà installé dans votre ba
 
 Pour plus d’informations sur Machine Learning Services, consultez les articles ci-dessous sur les Services de Machine Learning SQL Server. Bien que ces articles concernent SQL Server, la plupart des informations sont également applicables à Machine Learning Services (avec R) dans Azure SQL Database.
 
-- [Services de Machine Learning SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Didacticiel : Apprendre l’analytique en base de données avec R dans SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [Procédure pas à pas de bout en bout en science des données pour R et SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Didacticiel : Utiliser les fonctions R RevoScaleR avec des données SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Services de Machine Learning SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
+- [Didacticiel : Apprendre l’analytique en base de données avec R dans SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [Procédure pas à pas de bout en bout en science des données pour R et SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
+- [Didacticiel : Utiliser les fonctions R RevoScaleR avec des données SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

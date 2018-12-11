@@ -1,29 +1,27 @@
 ---
-title: 'Azure Cosmos DB : Didacticiel pour bien démarrer avec l’API SQL et .NET Core | Microsoft Docs'
-description: Didacticiel qui crée une application de base de données en ligne et de console C# à l’aide du SDK .NET Core de l’API SQL d’Azure Cosmos DB.
-services: cosmos-db
+title: 'Azure Cosmos DB : Tutoriel pour bien démarrer avec l’API SQL et .NET Core'
+description: Tutoriel qui crée une application de base de données en ligne et de console C# à l’aide du SDK .NET Core de l’API SQL d’Azure Cosmos DB.
 author: SnehaGunda
-manager: kfile
-editor: ''
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 03/12/2018
-ms.author: sngun
-ms.custom: devcenter
-ms.openlocfilehash: feb44920c36f2d17dafb1d33ef1c1e680fd37db4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 494e64e81655d69ae86920aeb367039de3e1c0a8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163552"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863905"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-azure-cosmos-db-sql-api-data"></a>Tutoriel : Créer une application .Net Core pour gérer les données de l’API SQL Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core (préversion)](sql-api-dotnet-core-get-started-preview.md)
+> * [.NET](sql-api-get-started.md)
+> * [.NET (préversion)](sql-api-dotnet-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Java asynchrone](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)

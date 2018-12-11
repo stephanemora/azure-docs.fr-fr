@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8ec180b40e52c5702495a0124bf8ae33d2dc24a1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425001"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727781"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Didacticiel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion privée)
 
@@ -152,7 +152,7 @@ Vous devez créer une identité managée affectée à l’utilisateur et configu
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Créez une [identité managée affectée à l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. Dans le portail, sélectionnez **Abonnements** dans le menu de gauche, puis sélectionnez votre abonnement.
-4. Sélectionnez **Contrôle d’accès (IAM)**, puis sélectionnez **Ajouter**.
+4. Sélectionnez **Contrôle d’accès (IAM)**, puis **Ajouter une attribution de rôle**.
 5. Entrez ou sélectionnez les valeurs suivantes :
 
     ![Didacticiel Azure Deployment Manager Contrôle d’accès d’identité managée affectée à l’utilisateur](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)

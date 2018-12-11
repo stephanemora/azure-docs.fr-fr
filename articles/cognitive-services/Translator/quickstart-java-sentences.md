@@ -1,146 +1,179 @@
 ---
 title: 'Démarrage rapide : Obtenir la longueur des phrases, Java - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, vous recherchez les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text avec Java dans Cognitive Services.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à déterminer la longueur de phrase à l’aide de Java et de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 59d3c194f08a8ede6ea2a56f95f7000eafe6c479
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 941467e7756faa4fd06220bafbf733f42b43e8d9
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413227"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888577"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-java"></a>Démarrage rapide : Obtenir la longueur des phrases avec l’API REST de traduction de texte Translator Text (Java)
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Java pour déterminer la longueur de phrase
 
-Dans ce démarrage rapide, vous allez rechercher les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
+Dans ce guide de démarrage rapide, vous allez apprendre à déterminer la longueur de phrase à l’aide de Java et de l’API de traduction de texte Translator Text.
+
+Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Traduction de texte Translator Text. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour compiler et exécuter ce code, vous devez disposer de [JDK 7 ou 8](https://aka.ms/azure-jdks). Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte fonctionnera également.
+* [JDK 7 ou ultérieur](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Gradle](https://gradle.org/install/)
+* Une clé d’abonnement Azure pour Translator Text
 
-Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [Comment s’inscrire à l’API de traduction de texte Translator Text](translator-text-how-to-signup.md).
+## <a name="initialize-a-project-with-gradle"></a>Initialiser un projet avec Gradle
 
-## <a name="breaksentence-request"></a>Requête BreakSentence
+Commencez par créer un répertoire de travail pour ce projet. À partir de la ligne de commande (ou d’une session Terminal Server), exécutez cette commande :
 
-Le code suivant fractionne le texte source en phrases à l’aide de la méthode [BreakSentence](./reference/v3-0-break-sentence.md).
+```console
+mkdir break-sentence-sample
+cd break-sentence-sample
+```
 
-1. Créez un projet Java dans votre éditeur de code favori.
-2. Ajoutez le code ci-dessous.
-3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-4. Exécutez le programme.
+Ensuite, initialisez un projet Gradle. Cette commande crée les fichiers de build nécessaires pour Gradle, dont le plus important est le fichier `build.gradle.kts`, qui est utilisé au moment de l’exécution pour créer et configurer votre application. Exécutez cette commande à partir de votre répertoire de travail :
+
+```console
+gradle init --type basic
+```
+
+Quand vous êtes invité à choisir un **DSL**, sélectionnez **Kotlin**.
+
+## <a name="configure-the-build-file"></a>Configurer le fichier de build
+
+Recherchez le fichier `build.gradle.kts` et ouvrez-le dans votre IDE ou éditeur de texte habituel. Copiez-y ensuite cette configuration de build :
+
+```
+plugins {
+    java
+    application
+}
+application {
+    mainClassName = "BreakSentence"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile("com.squareup.okhttp:okhttp:2.5.0")
+    compile("com.google.code.gson:gson:2.8.5")
+}
+```
+
+Notez que cet exemple présente des dépendances sur OkHttp pour les requêtes HTTP, et sur Gson pour gérer et analyser JSON. Pour en savoir plus sur les configurations de build, consultez [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/).
+
+## <a name="create-a-java-file"></a>Créer un fichier Java
+
+Créez maintenant un dossier pour votre exemple d’application. À partir de votre répertoire de travail, exécutez cette commande :
+
+```console
+mkdir -p src/main/java
+```
+
+Ensuite, dans ce dossier, créez un fichier nommé `BreakSentence.java`.
+
+## <a name="import-required-libraries"></a>Importer les bibliothèques nécessaires
+
+Ouvrez `BreakSentence.java` et ajoutez-y les instructions import suivantes :
 
 ```java
 import java.io.*;
 import java.net.*;
 import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+import com.google.gson.*;
+import com.squareup.okhttp.*;
+```
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
-/* NOTE: To compile and run this code:
-1. Save this file as BreakSentences.java.
-2. Run:
-    javac BreakSentences.java -cp .;gson-2.8.1.jar -encoding UTF-8
-3. Run:
-    java -cp .;gson-2.8.1.jar BreakSentences
-*/
+## <a name="define-variables"></a>Définir des variables
 
-public class BreakSentences {
+Vous devez tout d’abord créer une classe publique pour votre projet :
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+```java
+public class BreakSentence {
+  // All project code goes here...
+}
+```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
+Ajoutez ces lignes à la classe `BreakSentence`. Vous remarquerez qu’avec `api-version`, vous pouvez définir la langue d’entrée. Dans cet exemple, il s’agit de l’anglais.
 
-    static String host = "https://api.cognitive.microsofttranslator.com";
-    static String path = "/breaksentence?api-version=3.0";
+```java
+String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0&language=en";
+```
 
-    static String text = "How are you? I am fine. What did you do today?";
+## <a name="create-a-client-and-build-a-request"></a>Créer un client et générer une requête
 
-    public static class RequestBody {
-        String Text;
+Ajoutez cette ligne à la classe `BreakSentence` pour instancier `OkHttpClient` :
 
-        public RequestBody(String text) {
-            this.Text = text;
-        }
-    }
+```java
+// Instantiates the OkHttpClient.
+OkHttpClient client = new OkHttpClient();
+```
 
-    public static String Post (URL url, String content) throws Exception {
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Content-Length", content.length() + "");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setRequestProperty("X-ClientTraceId", java.util.UUID.randomUUID().toString());
-        connection.setDoOutput(true);
+Ensuite, générez la requête POST. Changez le texte au besoin. Le texte doit être placé dans une séquence d’échappement.
 
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-        byte[] encoded_content = content.getBytes("UTF-8");
-        wr.write(encoded_content, 0, encoded_content.length);
-        wr.flush();
-        wr.close();
+```java
+// This function performs a POST request.
+public String Post() throws IOException {
+    MediaType mediaType = MediaType.parse("application/json");
+    RequestBody body = RequestBody.create(mediaType,
+            "[{\n\t\"Text\": \"How are you? I am fine. What did you do today?\"\n}]");
+    Request request = new Request.Builder()
+            .url(url).post(body)
+            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Content-type", "application/json").build();
+    Response response = client.newCall(request).execute();
+    return response.body().string();
+}
+```
 
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
+## <a name="create-a-function-to-parse-the-response"></a>Créer une fonction pour analyser la réponse
 
-        return response.toString();
-    }
+Cette fonction simple analyse et agrémente la réponse JSON retournée par le service de traduction de texte Translator Text.
 
-    public static String BreakSentences () throws Exception {
-        URL url = new URL (host + path);
+```java
+// This function prettifies the json response.
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonElement json = parser.parse(json_text);
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
-        List<RequestBody> objList = new ArrayList<RequestBody>();
-        objList.add(new RequestBody(text));
-        String content = new Gson().toJson(objList);
+## <a name="put-it-all-together"></a>Assemblage
 
-        return Post(url, content);
-    }
+La dernière étape consiste à effectuer une requête et à obtenir une réponse. Ajoutez ces lignes à votre projet :
 
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            String response = BreakSentences ();
-            System.out.println (prettify (response));
-        }
-        catch (Exception e) {
-            System.out.println (e);
-        }
+```java
+public static void main(String[] args) {
+    try {
+        BreakSentence breakSentenceRequest = new BreakSentence();
+        String response = breakSentenceRequest.Post();
+        System.out.println(prettify(response));
+    } catch (Exception e) {
+        System.out.println(e);
     }
 }
 ```
 
-## <a name="breaksentence-response"></a>Réponse BreakSentence
+## <a name="run-the-sample-app"></a>Exécution de l'exemple d'application
+
+Voilà, vous êtes prêt à exécuter votre exemple d’application. À partir de la ligne de commande (ou d’une session Terminal Server), accédez à la racine de votre répertoire de travail, puis exécutez cette commande :
+
+```console
+gradle build
+```
+
+## <a name="sample-response"></a>Exemple de réponse
 
 Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
@@ -166,3 +199,12 @@ Explorez l’exemple de code pour ce démarrage rapide et d’autres, y compris 
 
 > [!div class="nextstepaction"]
 > [Explorer des exemples Java sur GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+
+## <a name="see-also"></a>Voir aussi
+
+* [Traduire le texte](quickstart-java-translate.md)
+* [Translittérer du texte](quickstart-java-transliterate.md)
+* [Identifier la langue par entrée](quickstart-java-detect.md)
+* [Obtenir des traductions alternatives](quickstart-java-dictionary.md)
+* [Obtenir une liste des langues prises en charge](quickstart-java-languages.md)
+* [Déterminer la longueur des phrases depuis une entrée](quickstart-java-sentences.md)

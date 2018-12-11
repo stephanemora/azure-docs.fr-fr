@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237895"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837339"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Didacticiel : Création d’une solution d’analyse des données mises en lots avec Azure et Azure Stack 
 
@@ -137,7 +137,7 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
     | Abonnement | Votre abonnement | Abonnement sous lequel est créée cette nouvelle application de fonction. |
     | **Groupe de ressources** |  |  |
     | myResourceGroup | Nom du nouveau groupe de ressources dans lequel créer votre Function App. |  |
-    | SE | Windows | L’hébergement serverless est disponible uniquement avec une exécution sur Windows. |
+    | SE |  Windows | L’hébergement serverless est disponible uniquement avec une exécution sur Windows. |
     | **Plan d’hébergement** |  |  |
     | Plan de consommation | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Dans le plan de consommation par défaut, les ressources sont ajoutées dynamiquement comme requis par vos fonctions. Avec cet hébergement serverless, vous payez uniquement pour la durée d’exécution de vos fonctions. |  |
     | Lieu | Région la plus proche de vous | Choisissez une région près de chez vous ou près d’autres services auxquels ont accès vos fonctions. |
@@ -252,7 +252,7 @@ Utilisez les étapes et paramètres ci-dessus pour créer un autre compte de sto
 
 ## <a name="test-the-queue-triggered-function"></a>Tester la fonction déclenchée par une file d’attente
 
-1.  Dans le portail Azure, accédez à la fonction. Développez les **journaux** en bas de la page et vérifiez que la diffusion en continu des journaux n’est pas suspendue.
+1.  Dans le portail Azure Stack, accédez à la fonction. Développez les **journaux** en bas de la page et vérifiez que la diffusion en continu des journaux n’est pas suspendue.
 
 2.  Ouvrez l’Explorateur Stockage et connectez-vous au compte de stockage créé au début de cette section.
 

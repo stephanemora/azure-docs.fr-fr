@@ -1,152 +1,179 @@
 ---
 title: 'Démarrage rapide : Convertir un script de texte, Java - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Java.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à translittérer (convertir) le texte d’un script dans un autre à l’aide de Java et de l’API REST de traduction de texte Translator Text. Dans cet exemple, le japonais est translittéré pour utiliser l’alphabet latin.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 0a5cc66aec3244d08fa5552c673aec8c98cb2383
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 1679445f73cd6b90423e05f985b83b818e32997e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419382"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888866"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-java"></a>Démarrage rapide : Translittérer du texte à l’aide de l’API REST de traduction de texte Translator Text (Java)
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour translittérer du texte à l’aide de Java
 
-Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text.
+Dans ce guide de démarrage rapide, vous allez apprendre à translittérer (convertir) le texte d’un script dans un autre à l’aide de Java et de l’API REST de traduction de texte Translator Text. Dans l’exemple fourni, le japonais est translittéré pour utiliser l’alphabet latin.
+
+Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Traduction de texte Translator Text. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour compiler et exécuter ce code, vous devez disposer de [JDK 7 ou 8](https://aka.ms/azure-jdks). Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte fonctionnera également.
+* [JDK 7 ou ultérieur](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Gradle](https://gradle.org/install/)
+* Une clé d’abonnement Azure pour Translator Text
 
-Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [Comment s’inscrire à l’API de traduction de texte Translator Text](translator-text-how-to-signup.md).
+## <a name="initialize-a-project-with-gradle"></a>Initialiser un projet avec Gradle
 
-## <a name="transliterate-request"></a>Requête Translittérer
+Commencez par créer un répertoire de travail pour ce projet. À partir de la ligne de commande (ou d’une session Terminal Server), exécutez cette commande :
 
-Ce qui suit convertit le texte dans la langue d’un script vers une autre en utilisant la méthode [Translittérer](./reference/v3-0-transliterate.md).
+```console
+mkdir transliterate-sample
+cd transliterate-sample
+```
 
-1. Créez un projet Java dans votre éditeur de code favori.
-2. Ajoutez le code ci-dessous.
-3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-4. Exécutez le programme.
+Ensuite, initialisez un projet Gradle. Cette commande crée les fichiers de build nécessaires pour Gradle, dont le plus important est le fichier `build.gradle.kts`, qui est utilisé au moment de l’exécution pour créer et configurer votre application. Exécutez cette commande à partir de votre répertoire de travail :
+
+```console
+gradle init --type basic
+```
+
+Quand vous êtes invité à choisir un **DSL**, sélectionnez **Kotlin**.
+
+## <a name="configure-the-build-file"></a>Configurer le fichier de build
+
+Recherchez le fichier `build.gradle.kts` et ouvrez-le dans votre IDE ou éditeur de texte habituel. Copiez-y ensuite cette configuration de build :
+
+```
+plugins {
+    java
+    application
+}
+application {
+    mainClassName = "Transliterate"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile("com.squareup.okhttp:okhttp:2.5.0")
+    compile("com.google.code.gson:gson:2.8.5")
+}
+```
+
+Notez que cet exemple présente des dépendances sur OkHttp pour les requêtes HTTP, et sur Gson pour gérer et analyser JSON. Pour en savoir plus sur les configurations de build, consultez [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/) (Création de builds Gradle).
+
+## <a name="create-a-java-file"></a>Créer un fichier Java
+
+Créez maintenant un dossier pour votre exemple d’application. À partir de votre répertoire de travail, exécutez cette commande :
+
+```console
+mkdir -p src/main/java
+```
+
+Ensuite, dans ce dossier, créez un fichier nommé `Transliterate.java`.
+
+## <a name="import-required-libraries"></a>Importer les bibliothèques nécessaires
+
+Ouvrez `Transliterate.java` et ajoutez-y les instructions import suivantes :
 
 ```java
 import java.io.*;
 import java.net.*;
 import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+import com.google.gson.*;
+import com.squareup.okhttp.*;
+```
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
-/* NOTE: To compile and run this code:
-1. Save this file as Transliterate.java.
-2. Run:
-    javac Transliterate.java -cp .;gson-2.8.1.jar -encoding UTF-8
-3. Run:
-    java -cp .;gson-2.8.1.jar Transliterate
-*/
+## <a name="define-variables"></a>Définir des variables
 
+Vous devez tout d’abord créer une classe publique pour votre projet :
+
+```java
 public class Transliterate {
+  // All project code goes here...
+}
+```
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+Ajoutez ces lignes à la classe `Transliterate`. Vous remarquerez qu’en plus d’`api-version`, deux paramètres supplémentaires ont été ajoutés à `url`. Ces paramètres servent à définir la langue d’entrée et les scripts de translittération. Dans cet exemple, il s’agit du japonais (`jpan`) et du latin (`latn`). N’oubliez pas de mettre à jour la valeur de clé d’abonnement.
 
-// Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
+```java
+String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+String url = "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
+```
 
-    static String host = "https://api.cognitive.microsofttranslator.com";
-    static String path = "/transliterate?api-version=3.0";
+## <a name="create-a-client-and-build-a-request"></a>Créer un client et générer une requête
 
-    // Transliterate text in Japanese from Japanese script (i.e. Hiragana/Katakana/Kanji) to Latin script.
-    static String params = "&language=ja&fromScript=jpan&toScript=latn";
+Ajoutez cette ligne à la classe `Transliterate` pour instancier `OkHttpClient` :
 
-    // Transliterate "good afternoon".
-    static String text = "こんにちは";
+```java
+// Instantiates the OkHttpClient.
+OkHttpClient client = new OkHttpClient();
+```
 
-    public static class RequestBody {
-        String Text;
+Ensuite, générez la requête POST. Au besoin, changez le texte pour la translittération.
 
-        public RequestBody(String text) {
-            this.Text = text;
-        }
-    }
+```java
+// This function performs a POST request.
+public String Post() throws IOException {
+    MediaType mediaType = MediaType.parse("application/json");
+    RequestBody body = RequestBody.create(mediaType,
+            "[{\n\t\"Text\": \"こんにちは\"\n}]");
+    Request request = new Request.Builder()
+            .url(url).post(body)
+            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Content-type", "application/json").build();
+    Response response = client.newCall(request).execute();
+    return response.body().string();
+}
+```
 
-    public static String Post (URL url, String content) throws Exception {
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Content-Length", content.length() + "");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setRequestProperty("X-ClientTraceId", java.util.UUID.randomUUID().toString());
-        connection.setDoOutput(true);
+## <a name="create-a-function-to-parse-the-response"></a>Créer une fonction pour analyser la réponse
 
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-        byte[] encoded_content = content.getBytes("UTF-8");
-        wr.write(encoded_content, 0, encoded_content.length);
-        wr.flush();
-        wr.close();
+Cette fonction simple analyse et agrémente la réponse JSON retournée par le service de traduction de texte Translator Text.
 
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
+```java
+// This function prettifies the json response.
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonElement json = parser.parse(json_text);
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
-        return response.toString();
-    }
+## <a name="put-it-all-together"></a>Assemblage
 
-    public static String Transliterate () throws Exception {
-        URL url = new URL (host + path + params);
+La dernière étape consiste à effectuer une requête et à obtenir une réponse. Ajoutez ces lignes à votre projet :
 
-        List<RequestBody> objList = new ArrayList<RequestBody>();
-        objList.add(new RequestBody(text));
-        String content = new Gson().toJson(objList);
-
-        return Post(url, content);
-    }
-
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            String response = Transliterate ();
-            System.out.println (prettify (response));
-        }
-        catch (Exception e) {
-            System.out.println (e);
-        }
+```java
+public static void main(String[] args) {
+    try {
+        Transliterate transliterateRequest = new Transliterate();
+        String response = transliterateRequest.Post();
+        System.out.println(prettify(response));
+    } catch (Exception e) {
+        System.out.println(e);
     }
 }
 ```
 
-## <a name="transliterate-response"></a>Réponse Translittérer
+## <a name="run-the-sample-app"></a>Exécution de l'exemple d'application
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
+Voilà, vous êtes prêt à exécuter votre exemple d’application. À partir de la ligne de commande (ou d’une session Terminal Server), accédez à la racine de votre répertoire de travail, puis exécutez cette commande :
+
+```console
+gradle build
+```
+
+## <a name="sample-response"></a>Exemple de réponse
 
 ```json
 [
@@ -163,3 +190,11 @@ Explorez l’exemple de code pour ce démarrage rapide et d’autres, y compris 
 
 > [!div class="nextstepaction"]
 > [Explorer des exemples Java sur GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+
+## <a name="see-also"></a>Voir aussi
+
+* [Traduire le texte](quickstart-java-translate.md)
+* [Identifier la langue par entrée](quickstart-java-detect.md)
+* [Obtenir des traductions alternatives](quickstart-java-dictionary.md)
+* [Obtenir une liste des langues prises en charge](quickstart-java-languages.md)
+* [Déterminer la longueur des phrases depuis une entrée](quickstart-java-sentences.md)

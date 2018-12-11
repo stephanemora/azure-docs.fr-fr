@@ -1,22 +1,22 @@
 ---
-title: Répliquer une machine virtuelle Azure vers une autre région Azure
-description: Ce démarrage rapide fournit les étapes nécessaires pour répliquer une machine virtuelle Azure dans une région Azure vers une autre région.
+title: Configurer la récupération d’urgence pour une machine virtuelle IaaS Azure vers une région Azure secondaire
+description: Ce démarrage rapide présente les étapes nécessaires à la récupération d’urgence d’une machine virtuelle IaaS Azure entre des régions Azure à l’aide du service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: c0d5b556cfeaf26e58104c1cbb7d394e5594f3e5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456162"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850497"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region"></a>Répliquer une machine virtuelle Azure vers une autre région Azure
+# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurer la récupération d’urgence vers une région Azure secondaire pour une machine virtuelle Azure 
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 
@@ -54,10 +54,10 @@ Une fois le travail de réplication terminé, vous pouvez vérifier l’état de
 
 La réplication de la machine virtuelle dans la région principale cesse quand vous désactivez la réplication pour cette machine :
 
-- Les paramètres de réplication source sont automatiquement nettoyés.
+- Les paramètres de réplication source sont automatiquement nettoyés. Notez que l’extension Site Recovery installée lors de la réplication n’est pas supprimée et doit être supprimée manuellement. 
 - La facturation Site Recovery pour la machine virtuelle cesse également.
 
-Arrêtez la réplication comme suit :
+Arrêtez la réplication comme suit :
 
 1. Sélectionnez la machine virtuelle.
 2. Dans **Récupération d’urgence**, cliquez sur **Désactiver la réplication**.

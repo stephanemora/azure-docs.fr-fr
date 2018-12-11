@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352608"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887795"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutoriel : Configurer une jonction Azure Active Directory hybride pour les domaines managés
 
@@ -140,6 +140,11 @@ Si certains de vos appareils joints à un domaine sont des appareils Windows de 
  
 - Configurer les paramètres d’intranet local pour l’inscription des appareils
 
+- Configurer l’authentification unique (SSO) fluide
+
+- Contrôler des appareils Windows de bas niveau 
+
+
 ### <a name="update-device-settings"></a>Mettre à jour les paramètres des appareils 
 
 Pour inscrire des appareils Windows de bas niveau, vous devez vous assurer que le paramètre des appareils permettant aux utilisateurs d’inscrire des appareils dans Azure AD est défini. Dans le portail Azure, ce paramètre se trouve à l’emplacement suivant :
@@ -163,6 +168,17 @@ Pour terminer la jonction Azure AD Hybride de vos appareils Windows de bas nivea
 - `https://autologon.microsoftazuread-sso.com`.
 
 Vous devez également activer **Autoriser les mises à jour de la barre d’état via le script** dans la zone Intranet local de l’utilisateur.
+
+
+### <a name="configure-seamless-sso"></a>Configurer l’authentification unique fluide
+
+Pour réussir la jonction Azure AD hybride de vos appareils de bas niveau Windows, dans un domaine managé qui utilise l’authentification directe ou la synchronisation du hachage de mot de passe comme méthode d’authentification des services de cloud Azure AD, vous devez également [configurer l’authentification unique fluide](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+
+
+### <a name="control-windows-down-level-devices"></a>Contrôler des appareils Windows de bas niveau 
+
+Pour inscrire des appareils Windows de bas niveau, vous devez télécharger et installer un package Windows Installer (.msi) à partir du Centre de téléchargement. Pour plus d’informations, cliquez [ici](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 ## <a name="verify-the-registration"></a>Vérifier l’inscription
 

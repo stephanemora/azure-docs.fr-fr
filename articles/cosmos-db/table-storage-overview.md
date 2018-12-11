@@ -1,21 +1,20 @@
 ---
-title: Vue d’ensemble du stockage de table Azure | Microsoft Docs
+title: Vue d’ensemble de Stockage Table Azure
 description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 495fc0fff39a04dee4fc707bd0d2f6b3571cc46a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5f07d041e7674cb1579247ca2b444017762c5be0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582062"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867407"
 ---
 # <a name="azure-table-storage-overview"></a>Vue d’ensemble du stockage de table Azure
 
@@ -35,6 +34,6 @@ Vous pouvez utiliser le Stockage Table pour stocker des jeux de données flexibl
 
 * Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table :
 
-    * [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Référence de la bibliothèque cliente de stockage pour .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
+    * [Référence d’API REST](https://msdn.microsoft.com/library/azure/dd179355)

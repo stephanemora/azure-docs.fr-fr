@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4881f992e5362efc7e4d7ac23898684966a066e0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334888"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890991"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Didacticiel : Créer des solutions de mise à l’échelle dans le cloud avec Azure
 
@@ -60,7 +60,7 @@ Dans ce tutoriel, vous créez un exemple d’environnement pour :
 
 -   Créez une application web au sein de l’abonnement du locataire. Notez l’URL de la nouvelle application web, car elle sera utilisée plus tard.
 
--   Déployez la machine virtuelle VSTS au sein de l’abonnement du locataire.
+-   Déployez la machine virtuelle Azure Pipelines au sein de l’abonnement du locataire.
 
 -   Une machine virtuelle Windows Server 2016 avec .NET 3.5 est nécessaire. Cette machine virtuelle est créée dans l’abonnement du locataire sur Azure Stack en tant qu’agent de build privé.
 
@@ -99,9 +99,11 @@ Configurez l’intégration continue et le déploiement continu (CI/CD) hybride 
 > [!Note]  
 > Vous avez besoin d’Azure Stack avec les images appropriées syndiquées pour s’exécuter (Windows Server et SQL), et App Service doit être déployé. Pour l’opérateur Azure Stack, consultez la section «[ Avant de commencer avec App Service sur Azure Stack ](../azure-stack-app-service-before-you-get-started.md)» dans la documentation d’App Service.
 
-### <a name="add-code-to-visual-studio-team-services-project"></a>Ajouter du code au projet Visual Studio Team Services
+### <a name="add-code-to-azure-repos"></a>Ajouter du code à Azure Repos
 
-1. Connectez-vous à Visual Studio Team Services (VSTS) avec un compte disposant des droits de création de projet sur VSTS.
+Azure Repos
+
+1. Connectez-vous à Azure Repos avec un compte ayant les droits de création de projet sur Azure Repos.
 
     La CI/CD hybride peut s’appliquer au code d’application et au code d’infrastructure. Utilisez les [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) pour les développements cloud privé et hébergé.
 
@@ -117,13 +119,13 @@ Configurez l’intégration continue et le déploiement continu (CI/CD) hybride 
 
     ![Alt text](media\azure-stack-solution-cloud-burst\image3.png)
 
-2.  Archivez le code dans VSTS avec Team Explorer.
+2.  Archivez le code dans Azure Repos avec Team Explorer.
 
-3.  Vérifiez que le code d’application a été archivé dans Visual Studio Team Services.
+3.  Vérifiez que le code d’application a été archivé dans Azure Repos.
 
 ## <a name="create-the-build-definition"></a>Créer la définition de build
 
-1. Connectez-vous à VSTS pour vérifier la possibilité de créer des définitions de build.
+1. Connectez-vous à Azure Pipelines pour vérifier la possibilité de créer des définitions de build.
 
 2. Ajoutez le code **-r win10-x64**. Cette action est nécessaire pour déclencher un déploiement autonome avec .NET Core.
 
@@ -133,11 +135,11 @@ Configurez l’intégration continue et le déploiement continu (CI/CD) hybride 
 
 ## <a name="use-an-azure-hosted-agent"></a>Utiliser un agent hébergé sur Azure
 
-L’utilisation d’un agent hébergé dans VSTS est une option pratique pour créer et déployer des applications web. La maintenance et les mises à niveau sont effectuées automatiquement par Microsoft Azure, ce qui permet le développement, le test et le déploiement continus et sans interruption.
+L’utilisation d’un agent hébergé dans Azure Pipelines est une option pratique pour créer et déployer des applications web. La maintenance et les mises à niveau sont effectuées automatiquement par Microsoft Azure, ce qui permet le développement, le test et le déploiement continus et sans interruption.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Gérer et configurer le processus CD
 
-Visual Studio Team Services et Team Foundation Server (TFS) fournissent un pipeline hautement configurable et gérable pour des mises en production sur plusieurs environnements, comme des environnements de développement, de préproduction, de contrôle qualité et de production, avec des demandes d’approbation à des étapes spécifiques.
+Azure Pipelines et Azure DevOps Server fournissent un pipeline hautement configurable et gérable pour des mises en production sur plusieurs environnements, comme des environnements de développement, de préproduction, d’assurance qualité et de production, avec des demandes d’approbation à des étapes spécifiques.
 
 ## <a name="create-release-definition"></a>Créer une définition de mise en production
 
@@ -228,11 +230,11 @@ Visual Studio Team Services et Team Foundation Server (TFS) fournissent un pipel
 21. Enregistrez toutes les modifications.
 
 > [!Note]  
-> Certains paramètres des tâches peuvent avoir été automatiquement définis en tant que [variables d’environnement](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) lors de la création d’une définition de mise en production à partir d’un modèle. Ces paramètres ne peuvent pas être modifiés dans les paramètres de la tâche ; l’élément de l’environnement parent doit être sélectionner pour modifier ces paramètres
+> Certains paramètres des tâches peuvent avoir été automatiquement définis en tant que [variables d’environnement](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) lors de la création d’une définition de mise en production à partir d’un modèle. Ces paramètres ne peuvent pas être modifiés dans les paramètres de la tâche ; l’élément de l’environnement parent doit être sélectionner pour modifier ces paramètres
 
 ## <a name="publish-to-azure-stack-via-visual-studio"></a>Publier sur Azure Stack via Visual Studio
 
-Grâce à la création de points de terminaison, une build de Visual Studio Online (VSTO) peut déployer des applications Azure Service dans Azure Stack. VSTS se connecte à l’agent de build, qui se connecte à Azure Stack.
+Grâce à la création de points de terminaison, une build de Visual Studio Online (VSTO) peut déployer des applications Azure Service dans Azure Stack. Azure Pipelines se connecte à l’agent de build, qui se connecte à Azure Stack.
 
 1.  Connectez-vous à VSTO et accédez à la page de paramètres de l’application.
 
@@ -254,18 +256,18 @@ Grâce à la création de points de terminaison, une build de Visual Studio Onli
 
 10. Sélectionnez **Enregistrer les modifications**.
 
-Maintenant que les informations du point de terminaison existent, la connexion de VSTS à Azure Stack est prête pour l’utilisation. L’agent de build dans Azure Stack obtient des instructions de VSTS, puis l’agent transmet les informations du point de terminaison pour la communication avec Azure Stack.
+Maintenant que les informations du point de terminaison ont été ajoutées, la connexion entre Azure Pipelines et Azure Stack est prête à être utilisée. L’agent de build dans Azure Stack reçoit des instructions d’Azure Pipelines, puis il transmet les informations du point de terminaison pour la communication avec Azure Stack.
 
 ## <a name="develop-the-application-build"></a>Développer la build de l’application
 
 > [!Note]  
 > Vous avez besoin d’Azure Stack avec les images appropriées syndiquées pour s’exécuter (Windows Server et SQL), et App Service doit être déployé. Pour l’opérateur Azure Stack, consultez la section «[ Avant de commencer avec App Service sur Azure Stack ](../azure-stack-app-service-before-you-get-started.md)» dans la documentation d’App Service.
 
-Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) comme du code d’application web de VSTS pour déployer dans les deux clouds.
+Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) comme du code d’application web d’Azure Repos pour le déploiement dans les deux clouds.
 
-### <a name="add-code-to-a-vsts-project"></a>Ajouter du code à un projet VSTS
+### <a name="add-code-to-a-azure-repos-project"></a>Ajouter du code à un projet Azure Repos
 
-1.  Connectez-vous à VSTS avec un compte disposant des droits de création de projet sur Azure Stack. La capture d’écran suivante montre comment se connecter au projet HybridCICD.
+1.  Connectez-vous à Azure Repos avec un compte ayant les droits de création de projet sur Azure Stack. La capture d’écran suivante montre comment se connecter au projet HybridCICD.
 
 2.  **Clonez le référentiel** en créant et en ouvrant l’application web par défaut.
 
@@ -273,13 +275,13 @@ Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resou
 
 1.  Modifiez le fichier **WebApplication.csproj** : sélectionnez **Runtimeidentifier**, puis ajoutez win10-x64. Pour plus d’informations, consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).
 
-2.  Utilisez Team Explorer pour archiver le code dans VSTS.
+2.  Utilisez Team Explorer pour archiver le code dans Azure Repos.
 
-3.  Vérifiez que le code d’application a été archivé dans Visual Studio Team Services.
+3.  Vérifiez que le code d’application a été archivé dans Azure Repos.
 
 ### <a name="create-the-build-definition"></a>Créer la définition de build
 
-1.  Connectez-vous à VSTS avec un compte permettant de créer une définition de build.
+1.  Connectez-vous à Azure Pipelines avec un compte permettant de créer une définition de build.
 
 2.  Accédez à la page **Build Web Application** (Créer une application web) du projet.
 
@@ -289,17 +291,17 @@ Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resou
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Utiliser un agent de build hébergé Azure
 
-L’utilisation d’un agent de build hébergé dans VSTS est une option pratique pour la création et le déploiement d’applications web. La maintenance et les mises à niveau de l’agent sont effectuées automatiquement par Microsoft Azure, ce qui permet un cycle de développement continu et sans interruption.
+L’utilisation d’un agent de build hébergé dans Azure Pipelines est une option pratique pour créer et déployer des applications web. La maintenance et les mises à niveau de l’agent sont effectuées automatiquement par Microsoft Azure, ce qui permet un cycle de développement continu et sans interruption.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Configurer le processus de déploiement continu (CD)
 
-Visual Studio Team Services (VSTS) et Team Foundation Server (TFS) fournissent un pipeline hautement configurable et gérable pour des mises en production sur plusieurs environnements, comme de développement, de préproduction, d’assurance qualité (AQ) et de production. Ce processus peut inclure la nécessite d’approbations à des étapes spécifique du cycle de vie de l’application.
+Azure Pipelines et Azure DevOps Server fournissent un pipeline hautement configurable et gérable pour des mises en production sur plusieurs environnements (développement, préproduction, assurance qualité et production, par exemple). Ce processus peut inclure la nécessite d’approbations à des étapes spécifique du cycle de vie de l’application.
 
 #### <a name="create-release-definition"></a>Créer une définition de mise en production
 
 La création d’une définition de mise en production est la dernière étape du processus de création d’application. Cette définition de mise en production est utilisée pour créer une mise en production et déployer une build.
 
-1.  Connectez-vous à VSTS et accédez à **Build et mise en production** pour le projet.
+1.  Connectez-vous à Azure Pipelines et accédez à **Build et mise en production** pour le projet.
 
 2.  Sous l’onglet **Versions**, sélectionnez **[ + ]**, puis choisissez **Créer une définition de mise en production**.
 
@@ -346,7 +348,7 @@ La création d’une définition de mise en production est la dernière étape d
 23. Enregistrez toutes les modifications.
 
 > [!Note]  
-> Certains paramètres des tâches de mise en production sont automatiquement définis en tant que [variables d’environnement](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) lors de la création d’une définition de mise en production à partir d’un modèle. Ces paramètres ne peuvent pas être modifiés dans les paramètres de tâche, mais peuvent être modifiés dans les éléments d’environnement parent.
+> Certains paramètres des tâches de mise en production sont automatiquement définis en tant que [variables d’environnement](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) lors de la création d’une définition de mise en production à partir d’un modèle. Ces paramètres ne peuvent pas être modifiés dans les paramètres de tâche, mais peuvent être modifiés dans les éléments d’environnement parent.
 
 ## <a name="create-a-release"></a>Créer une mise en production
 

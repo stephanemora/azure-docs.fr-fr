@@ -1,7 +1,6 @@
 ---
-title: Interroger les données d’un compte de l’API Cassandra Azure Cosmos DB
-description: Cet article montre comment interroger les données utilisateur d’un compte de l’API Cassandra Azure Cosmos DB à l’aide d’une application Java.
-services: cosmos-db
+title: 'Tutoriel : Interroger les données à partir d’un compte d’API Cassandra dans Azure Cosmos DB'
+description: Ce tutoriel montre comment interroger les données utilisateur d’un compte d’API Cassandra Azure Cosmos DB à l’aide d’une application Java.
 ms.service: cosmos-db
 author: kanshiG
 ms.author: govindk
@@ -9,16 +8,17 @@ ms.reviewer: sngun
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: a06e7e6159953bfeffa966759d29b91bbcbafd37
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+Customer intent: As a developer, I want to build a Java application to query data stored in a Cassandra API account of Azure Cosmos DB so that customers can manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+ms.openlocfilehash: 57d83516708e3105ba32f8b83420f06aadf0ace1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739207"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867510"
 ---
-# <a name="tutorial-query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>Tutoriel : Interroger les données d’un compte d’API Cassandra Azure Cosmos DB
+# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutoriel : Interroger les données à partir d’un compte d’API Cassandra dans Azure Cosmos DB
 
-Ce didacticiel montre comment interroger les données utilisateur provenant d’un compte de l’API Cassandra Azure Cosmos DB à l’aide d’une application Java. L’application Java utilise le [pilote Java](https://github.com/datastax/java-driver) et interroge des données utilisateur, comme l’ID de l’utilisateur, son nom et sa localité. 
+En tant que développeur, vous pouvez avoir des applications qui utilisent des paires clé/valeur. Vous pouvez utiliser un compte d’API Cassandra dans Azure Cosmos DB pour stocker et interroger des données de clé/valeur. Ce tutoriel montre comment interroger les données utilisateur d’un compte d’API Cassandra dans Azure Cosmos DB à l’aide d’une application Java. L’application Java utilise le [pilote Java](https://github.com/datastax/java-driver) et interroge des données utilisateur, comme l’ID de l’utilisateur, son nom et sa localité. 
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -26,9 +26,11 @@ Ce tutoriel décrit les tâches suivantes :
 > * Interroger les données d’une table Cassandra
 > * Exécution de l'application
 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
 ## <a name="prerequisites"></a>Prérequis
 
-* Cet article appartient à un tutoriel en plusieurs parties. Avant de commencer, veillez à compléter les étapes précédentes afin de créer un compte, un espace de clés et une table d’API Cassandra et de [charger des exemples de données dans la table](cassandra-api-load-data.md). 
+* Cet article appartient à un tutoriel en plusieurs parties. Avant de commencer, veillez à effectuer les étapes précédentes pour créer un compte, un espace de clés et une table d’API Cassandra, puis pour [charger des exemples de données dans la table](cassandra-api-load-data.md). 
 
 ## <a name="query-data"></a>Données de requête
 
@@ -38,7 +40,7 @@ Utilisez les étapes suivantes pour interroger des données de votre table d’A
 
    * Pour interroger tous les utilisateurs de la base de données
    * Pour interroger un utilisateur spécifique, filtré par ID d’utilisateur
-   * Pour supprimer une table.
+   * Pour supprimer une table
 
    ```java
    /**
@@ -91,7 +93,7 @@ Utilisez les étapes suivantes pour interroger des données de votre table d’A
 ## <a name="run-the-java-app"></a>Exécuter l’application Java
 1. Ouvrez une invite de commandes ou une fenêtre de terminal. Collez le bloc de code suivant. 
 
-   Ce code change de répertoire (cd) pour le chemin du dossier où vous avez créé le projet. Ensuite, il exécute la commande `mvn clean install` pour générer le fichier `cosmosdb-cassandra-examples.jar` dans le dossier cible. Enfin, il exécute l’application Java.
+   Ce code change le répertoire (cd) pour le chemin du dossier où vous avez créé le projet. Ensuite, il exécute la commande `mvn clean install` pour générer le fichier `cosmosdb-cassandra-examples.jar` dans le dossier cible. Enfin, il exécute l’application Java.
 
    ```bash
    cd "cassandra-demo"
@@ -103,9 +105,13 @@ Utilisez les étapes suivantes pour interroger des données de votre table d’A
 
 2. Maintenant, dans le Portail Azure, ouvrez l’**Explorateur de données** et confirmez la suppression de la table utilisateur.
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, le compte Azure Cosmos et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Dans ce tutoriel, vous avez appris à interroger les données d’un compte de l’API Cassandra Azure Cosmos DB. Vous pouvez maintenant passer à l’article suivant :
+Dans ce tutoriel, vous avez appris à interroger les données d’un compte d’API Cassandra dans Azure Cosmos DB. Vous pouvez maintenant passer à l’article suivant :
 
 > [!div class="nextstepaction"]
 > [Migrer des données vers un compte d’API Cassandra](cassandra-import-data.md)

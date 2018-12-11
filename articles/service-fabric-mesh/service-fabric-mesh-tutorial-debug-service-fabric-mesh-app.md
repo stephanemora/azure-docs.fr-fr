@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997010"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887506"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutoriel : Déboguer une application Service Fabric Mesh s’exécutant dans votre cluster de développement local
 
 Ce tutoriel est la deuxième partie d’une série de tutoriels. Il vous explique comment générer et déboguer une application Azure Service Fabric Mesh dans votre cluster de développement local.
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre ce qui suit :
 
 > [!div class="checklist"]
 > * Que se passe-t-il lorsque vous créez une application de maillage Azure Service Fabric
@@ -38,7 +38,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Déboguer une application Service Fabric Mesh s’exécutant dans votre cluster de développement local
 > * [Déployer une application Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * [Mettre à niveau une application Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
-> * [Nettoyer les ressources Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
+> * [Nettoyer des ressources Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -52,7 +52,7 @@ Avant de commencer ce tutoriel :
 
 ## <a name="download-the-to-do-sample-application"></a>Télécharger l’exemple d’application de tâches
 
-Si vous n’avez pas créer l’exemple d’application de tâches dans la [première partie de cette série de didacticiels](service-fabric-mesh-tutorial-create-dotnetcore.md), vous pouvez le télécharger. Dans une fenêtre Commande, exécutez la commande suivante pour cloner le référentiel de l’exemple d’application sur votre ordinateur local.
+Si vous n’avez pas créé l’exemple d’application de tâches dans la [première partie de cette série de tutoriels](service-fabric-mesh-tutorial-create-dotnetcore.md), vous pouvez le télécharger. Dans une fenêtre Commande, exécutez la commande suivante pour cloner le référentiel de l’exemple d’application sur votre ordinateur local.
 
 ```
 git clone https://github.com/azure-samples/service-fabric-mesh
@@ -74,7 +74,9 @@ Appuyez sur **F5** pour compiler et exécuter votre service localement. Lorsque 
 
 Une fois que le déploiement local est terminé et que Visual Studio exécute votre application, une fenêtre de navigateur s’ouvre sur un exemple de page web par défaut.
 
-**Conseils de débogage**
+## <a name="debugging-tips"></a>Conseils de débogage
+
+Accélérez considérablement votre premier débogage (F5) en suivant les instructions fournies dans [Optimiser le niveau de performance de Visual Studio](service-fabric-mesh-howto-optimize-vs.md).
 
 Il existe actuellement un problème entraînant l’échec de la connexion au service par l’appel de la méthode `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())`. Cette situation peut se produire chaque fois que votre adresse IP hôte change. Pour résoudre ce problème :
 
@@ -90,13 +92,13 @@ Si vous obtenez des erreurs de build dans le fichier **service.yaml**, assurez-v
 
 ### <a name="debug-in-visual-studio"></a>Déboguer dans Visual Studio
 
-Pour déboguer une application de maillage Service Fabric dans Visual Studio, vous utilisez un cluster de développement Service Fabric local. Pour voir comment des éléments de tâche sont récupérés à partir du service back-end, effectuez un débogage dans la méthode OnGet().
+Pour déboguer une application Service Fabric Mesh dans Visual Studio, vous utilisez un cluster de développement Service Fabric local. Pour voir comment des éléments de tâche sont récupérés à partir du service back-end, effectuez un débogage dans la méthode OnGet().
 1. Dans le projet **WebFrontEnd**, ouvrez **Pages** > **Index.cshtml** > **Index.cshtml.cs** et définissez un point d’arrêt dans la méthode **Get** (ligne 17).
 2. Dans le projet **ToDoService**, ouvrez **TodoController.cs** et définissez un point d’arrêt dans la méthode **OnGet** (ligne 15).
 3. Accédez à votre navigateur et actualisez la page. Vous avez atteint le point d’arrêt dans la méthode `OnGet()` du service web frontal. Vous pouvez examiner la variable `backendUrl` pour voir comment les variables d’environnement que vous avez définies dans le fichier **service.yaml** forment l’URL utilisée pour contacter le service back-end.
 4. Survolez (F10) l’appel `client.GetAsync(backendUrl).GetAwaiter().GetResult())` pour atteindre le point d'arrêt `Get()` du contrôleur. Dans cette méthode, vous pouvez voir comment la liste des éléments de tâche est récupérée à partir de la liste en mémoire.
 5. Lorsque vous avez terminé, arrêtez le débogage de votre projet dans Visual Studio en appuyant sur **Maj+F5**.
- 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Cette partie du didacticiel vous a permis de répondre aux questions suivantes :

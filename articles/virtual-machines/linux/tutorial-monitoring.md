@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406498"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868546"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Didacticiel : surveiller et mettre à jour une machine virtuelle Linux dans Azure
 
@@ -208,7 +208,7 @@ Pour planifier un nouveau déploiement de mises à jour pour la machine virtuell
 * **Classification de mise à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Les types de classification sont les suivants :
   * Mises à jour critiques et de sécurité
   * Autres mises à jour
-* **Updates to Exclude** (Mises à jour à exclure) : vous pouvez fournir une liste de noms de package qui doivent être ignorés pendant le déploiement de la mise à jour. Les noms de package prennent en charge les caractères génériques (par exemple, \*noyau\*).
+* **Updates to Exclude** (Mises à jour à exclure) : vous pouvez fournir une liste de noms de package qui doivent être ignorés pendant le déploiement de la mise à jour. Les noms de package acceptent les caractères génériques (par exemple, \*noyau\*).
 
   ![Écran Paramètres de planification des mises à jour](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 87b020e74e9eaee9a5e20acd3bb84d48e40273c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/29/2018
+ms.openlocfilehash: c53980dc2d29fbfb7e59dcba7252e0b0448d14d3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163696"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840008"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemples Azure PowerShell pour Azure SQL Database
 
@@ -25,10 +25,11 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 
 | |  |
 |---|---|
-|**Créer une base de données unique et un pool élastique**||
+|**Créer et configurer une instance managée, une base de données unique et un pool élastique**||
 | [Créer une base de données unique et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell crée une base de données SQL Azure unique et configure une règle de pare-feu au niveau du serveur. |
 | [Créer des pools élastiques et déplacer les bases de données mises en pool](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell crée des pools élastiques Azure SQL Database, déplace des bases de données mises en pool et modifie les tailles de calcul.|
-| [Créer et gérer une instance gérée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Ces scripts CLI vous montrent comment créer et gérer une instance gérée à l’aide d’Azure PowerShell. |
+| [Créer et gérer une instance gérée](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Ce script PowerShell vous montre comment créer et gérer une instance gérée à l’aide d’Azure PowerShell. |
+| [Créer et gérer une instance managée à l’aide du modèle Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell vous montre comment créer et gérer une instance managée à l’aide du modèle Azure PowerShell et Azure Resource Manager.|
 |**Configurer la géoréplication et le basculement**||
 | [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure la géoréplication active pour une base de données SQL Azure unique et la fait basculer vers le réplica secondaire. |
 | [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure la géoréplication active pour une base de données SQL Azure dans un pool élastique SQL et la fait basculer vers le réplica secondaire. |

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277764"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844836"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutoriel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -101,23 +101,29 @@ Lorsque les utilisateurs tentent de se connecter, ils voient maintenant un lien 
 
 Pour en savoir plus sur l’utilisation de cette fonction, les utilisateurs peuvent consulter la section [Réinitialiser ou déverrouiller mon mot de passe d’un compte professionnel ou scolaire](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
-## <a name="common-issues"></a>Problèmes courants
+Le journal d’audit Azure AD inclut des informations sur l’adresse IP et le ClientType associés à la réinitialisation de mot de passe.
+
+![Exemple de réinitialisation du mot de passe de l’écran d’ouverture de session dans le journal d’audit Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="limitations"></a>Limites
 
 Lorsque vous testez cette fonctionnalité à l’aide de Hyper-V, le lien « Réinitialiser le mot de passe » n’apparaît pas.
 
 * Accédez à la machine virtuelle que vous utilisez pour le test, cliquez sur **Vue** et désélectionnez **Session étendue**.
 
-Lorsque vous testez cette fonctionnalité à l’aide du Bureau à distance, le lien « Réinitialiser le mot de passe » n’apparaît pas.
+Lorsque vous testez cette fonctionnalité à l’aide du Bureau à distance ou d’une session de machine virtuelle étendue, le lien « Réinitialiser le mot de passe » n’apparaît pas.
 
 * Actuellement, la réinitialisation du mot de passe n’est pas prise en charge à partir d’un Bureau à distance.
 
-Si l’écran de verrouillage Windows est désactivé à l’aide d’une clé de registre ou d’une stratégie de groupe, **Réinitialiser le mot de passe** ne sera pas disponible.
-
 Si Ctrl + Alt + Suppr est requis par la stratégie, ou si les notifications de verrouillage d’écran sont désactivées, **Réinitialiser le mot de passe** ne fonctionnera pas.
 
-Le journal d’audit Azure AD inclut des informations sur l’adresse IP et le ClientType associés à la réinitialisation de mot de passe.
+Les paramètres de stratégie suivants sont connus pour interférer avec la possibilité de réinitialiser les mots de passe
 
-![Exemple de réinitialisation du mot de passe de l’écran d’ouverture de session dans le journal d’audit Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+   * HideFastUserSwitching est défini sur activé ou 1
+   * DontDisplayLastUserName est défini sur activé ou 1
+   * NoLockScreen est défini sur activé ou 1
+   * EnableLostMode est défini sur l’appareil
+   * Explorer.exe est remplacé par un interpréteur de commandes personnalisé
 
 Si vos ordinateurs Windows 10 sont placés derrière un serveur proxy ou pare-feu, le trafic HTTPS (443) vers passwordreset.microsoftonline.com et ajax.aspnetcdn.com devrait être autorisé.
 

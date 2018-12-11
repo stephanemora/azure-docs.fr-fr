@@ -2,20 +2,20 @@
 title: Exécuter une charge de travail parallèle - Azure Batch Python
 description: Didacticiel - Traiter des fichiers multimédias en parallèle avec ffmpeg dans Azure Batch à l’aide de la bibliothèque cliente Python Batch
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/29/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 3636faa9478555b64bb94f7dcfb1f3f587ecdca9
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6ece4d7d0a39f5ea9dd4d9503d3bdd11a4bffd89
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814166"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678574"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Didacticiel : exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API Python
 
@@ -89,7 +89,7 @@ python batch_python_tutorial_ffmpeg.py
 Lorsque vous exécutez l’exemple d’application, la sortie de la console est identique à ce qui suit. Pendant l’exécution, l’étape `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` fait l’objet d’une pause correspondant au démarrage des nœuds de calcul du pool. 
    
 ```
-Sample start: 12/12/2017 3:20:21 PM
+Sample start: 11/28/2018 3:20:21 PM
 
 Container [input] created.
 Container [output] created.
@@ -105,7 +105,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Success! All tasks completed successfully within the specified timeout period.
 Deleting container [input]....
 
-Sample end: 12/12/2017 3:29:36 PM
+Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
@@ -166,7 +166,7 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Créer un pool de nœuds de calcul
 
-Ensuite, l’exemple crée un pool de nœuds de traitement dans le compte Batch, avec un appel à `create_pool`. Cette fonction définie utilise la classe [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) Batch pour définir le nombre de nœuds, la taille de machine virtuelle et une configuration de pool. Ici, un objet [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) spécifie une référence [ImageReference](/python/api/azure.batch.models.imagereference) à une image Ubuntu Server 16.04 LTS publiée dans la Place de marché Microsoft Azure. Azure Batch prend en charge une large plage de machine virtuelle dans la Place de marché Microsoft Azure, ainsi que des images de machines virtuelles personnalisées.
+Ensuite, l’exemple crée un pool de nœuds de traitement dans le compte Batch, avec un appel à `create_pool`. Cette fonction définie utilise la classe [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) Batch pour définir le nombre de nœuds, la taille de machine virtuelle et une configuration de pool. Ici, un objet [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) spécifie une référence [ImageReference](/python/api/azure.batch.models.imagereference) sur une image Ubuntu Server 18.04 LTS publiée dans la Place de marché Azure. Azure Batch prend en charge une large plage de machine virtuelle dans la Place de marché Microsoft Azure, ainsi que des images de machines virtuelles personnalisées.
 
 Le nombre de nœuds et la taille de machine virtuelle sont définis à l’aide de constantes définies. Azure Batch prend en charge les nœuds dédiés et les [nœuds de faible priorité](batch-low-pri-vms.md) que vous pouvez utiliser dans vos pools. Les nœuds dédiés sont réservés à votre pool. Les nœuds de faible priorité sont proposés à prix réduit à partir de la capacité de machine virtuelle excédentaire dans Azure. Les nœuds de faible priorité deviennent indisponibles si la capacité d’Azure est insuffisante. L’exemple par défaut crée un pool contenant seulement 5 nœuds de faible priorité taille *Standard_A1_v2*. 
 
@@ -181,10 +181,10 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="16.04-LTS",
+            sku="18.04-LTS",
             version="latest"
             ),
-        node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
     target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,

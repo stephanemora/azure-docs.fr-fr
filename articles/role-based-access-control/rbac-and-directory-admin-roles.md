@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 5e32968ae83ef826fbc8e81f1b04eca687642343
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 9fce35f811a4d2440ba73e4f305ede6891928069
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637666"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633280"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD
 
@@ -77,13 +77,13 @@ Les autres rôles intégrés permettent de gérer des ressources Azure spécifiq
 
 Seuls le portail Azure et les API Azure Resource Manager prennent en charge RBAC. Les utilisateurs, les groupes et les applications qui se voient attribuer des rôles RBAC ne peuvent pas utiliser les [API du modèle de déploiement classique Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Dans le portail Azure, les attributions de rôles avec RBAC s’affichent dans le panneau **Contrôle d’accès (IAM)**. Vous trouverez ce panneau dans le portail, notamment pour les abonnements, les groupes de ressources et diverses ressources.
+Dans le portail Azure, les attributions de rôles avec RBAC s’affichent dans le panneau **Contrôle d’accès (IAM)**. Vous trouverez ce panneau dans le portail, notamment pour les groupes d’administration, les abonnements, les groupes de ressources et diverses ressources.
 
-![Panneau Contrôle d’accès IAM dans le portail Azure](./media/rbac-and-directory-admin-roles/access-control.png)
+![Panneau Contrôle d’accès IAM dans le portail Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
 Quand vous cliquez sur l’option **Rôles**, vous voyez la liste des rôles intégrés et personnalisés.
 
-![Rôles intégrés dans le portail Azure](./media/rbac-and-directory-admin-roles/built-in-roles.png)
+![Rôles intégrés dans le portail Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
 ## <a name="azure-ad-administrator-roles"></a>Rôles d’administrateur Azure AD
 

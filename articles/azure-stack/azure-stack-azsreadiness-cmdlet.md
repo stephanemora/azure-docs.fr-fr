@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 60e9a790a9b74bce7ccbdd58b320ad969c0932f3
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 03fd91b8412c75a994f55f589179f718189e67a7
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079276"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891161"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Informations de référence sur l’applet de commande Start-AzsReadinessChecker
 
@@ -228,7 +228,8 @@ Dans cet exemple, une table de hachage est construite avec des chemins et des mo
 **Exemple : Valider l’identité Azure**
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
-Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AzureDirectoryTenantName azurestack.contoso.com
+# Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
 Dans cet exemple, les informations d’identification du compte Administrateur de service sont demandées à des fins de sécurité, et Start-AzsReadinessChecker vérifie que le compte Azure et que l’annuaire Azure Active Directory sont valides pour un déploiement AAD avec « azurestack.contoso.com » comme nom d’annuaire de locataire.
@@ -245,9 +246,10 @@ Dans cet exemple, les informations d’identification du compte Administrateur d
 
 **Exemple : Valider l’inscription auprès d’Azure**
 ```PowerShell
-$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
-$subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
-Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment AzureCloud
+$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
+$subscriptionID = "<subscription ID"
+# Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
 Dans cet exemple, les informations d’identification du propriétaire de l’abonnement sont demandées à des fins de sécurité. Start-AzsReadinessChecker valide ensuite le compte et l’abonnement donnés pour vérifier qu’ils peuvent être utilisés pour l’inscription d’Azure Stack. 
@@ -255,8 +257,8 @@ Dans cet exemple, les informations d’identification du propriétaire de l’ab
 
 **Exemple : Valider l’inscription auprès d’Azure avec des données de déploiement (équipe de déploiement)**
 ```PowerShell
-$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
-$subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
+$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
+$subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
@@ -446,7 +448,7 @@ Spécifie l’instance des services Azure contenant les comptes, annuaires et ab
 |Tapez :                       |Chaîne   |
 |Position :                   |named    |
 |Valeur par défaut :              |Aucun     |
-|Valeurs valides :                |« Cloud Azure », « AzureChinaCloud », « AzureGermanCloud » |
+|Valeurs valides :                |« AzureCloud », « AzureChinaCloud », « AzureUSGovernment » |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 

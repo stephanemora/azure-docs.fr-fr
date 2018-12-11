@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ee2def6287a845cd0fd0260254efb20f9638ab2c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467427"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839039"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Didacticiel : configurer un laboratoire à l’aide de Azure DevTest Labs
 Dans ce didacticiel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
@@ -80,15 +80,11 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
 1. Sélectionnez **Configuration et stratégies** sur le panneau de gauche. 
 
     ![Configuration et stratégies](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Sélectionnez **Contrôle d’accès (IAM)** dans le menu, et sélectionnez **+ Ajouter** dans la barre d’outils. 
-
-    ![Contrôle d’accès - Bouton Ajouter un utilisateur](./media/tutorial-create-custom-lab/access-control-add.png)
+1. Sélectionnez **Contrôle d’accès (IAM)** dans le menu, puis sélectionnez **+ Ajouter une attribution de rôle** dans la barre d’outils. 
 1. Dans la page **Ajouter des autorisations**, effectuez les actions suivantes :
     1. Pour **Rôle**, sélectionnez **Utilisateurs de DevTest Labs**. 
     2. Sélectionnez l’**utilisateur** que vous souhaitez ajouter. 
     3. Sélectionnez **Enregistrer**.
-
-        ![Ajout d’autorisations](./media/tutorial-create-custom-lab/add-lab-user.png)
 4. Pour fermer **Configuration et Stratégies - Contrôle d’accès (IAM)**, sélectionnez **X** dans le coin droit. 
 
 ## <a name="cleanup-resources"></a>Nettoyer les ressources

@@ -7,22 +7,22 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0664316d73b1473ab52b08f8abead2ec33d121b6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025408"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836744"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Démarrage rapide : créer une machine virtuelle serveur Linux avec le portail Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Vous pouvez créer une machine virtuelle sous Ubuntu Server 16.04 LTS à l’aide du portail Azure Stack. Suivez les étapes décrites dans cet article pour créer et utiliser une machine virtuelle. Cet article vous présente également les étapes pour :
+Vous pouvez créer une machine virtuelle Ubuntu Server 16.04 LTS à partir du portail Azure Stack. Suivez les étapes décrites dans cet article pour créer et utiliser une machine virtuelle. Cet article vous présente également les étapes pour :
 
 * Se connecter à la machine virtuelle avec un client distant.
 * Installer un serveur web NGINX.
@@ -36,7 +36,7 @@ Vous pouvez créer une machine virtuelle sous Ubuntu Server 16.04 LTS à l’aid
 
 * **Une image Linux dans la Place de Marché Azure Stack**
 
-   La Place de Marché Azure Stack ne contient pas d’image Linux par défaut. Avant de pouvoir créer une machine virtuelle serveur Linux, vérifiez que l’opérateur Azure Stack fournit l’image **Ubuntu Server 16.04 LTS** dont vous avez besoin. L’opérateur peut utiliser la procédure décrite dans l’article [Télécharger des éléments de la Place de Marché à partir d’Azure dans Azure Stack](../azure-stack-download-azure-marketplace-item.md).
+   La Place de Marché Azure Stack ne propose pas d’image Linux par défaut. Vérifiez que votre opérateur Azure Stack propose l’image **Ubuntu Server 16.04 LTS** dans votre place de marché. L’opérateur peut utiliser la procédure décrite dans l’article [Télécharger des éléments de la Place de Marché à partir d’Azure dans Azure Stack](../azure-stack-download-azure-marketplace-item.md).
 
 * **Accès à un client SSH**
 
@@ -87,7 +87,7 @@ Connectez-vous au portail Azure Stack. L’adresse du portail Azure Stack varie 
 
 6. Dans la page **Paramètres**, apportez les modifications souhaitées aux valeurs par défaut.
    
-    - Depuis Azure Stack version 1808, lorsque vous configurez le **Stockage**, vous pouvez choisir d’utiliser des *disques managés*. Avant la version 1808, seuls les disques non managés peuvent être utilisés.    
+    - À compter de la version 1808 d’Azure Stack, vous pouvez désormais choisir d’utiliser des *disques managés* lorsque vous configurez le **Stockage**. Avant la version 1808, seuls les disques non managés peuvent être utilisés.    
       ![Configurer le stockage pour des disques managés](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
     Lorsque vos configurations sont prêtes, sélectionnez **OK** pour continuer.
@@ -97,11 +97,11 @@ Connectez-vous au portail Azure Stack. L’adresse du portail Azure Stack varie 
 
 ## <a name="connect-to-the-virtual-machine"></a>Connectez-vous à la machine virtuelle.
 
-1. Cliquez sur **Se connecter** dans la page de la machine virtuelle. Une chaîne de connexion SSH dont vous avez besoin pour vous connecter à la machine virtuelle apparaît. 
+1. Cliquez sur **Se connecter** dans la page de la machine virtuelle. Vous pouvez trouver la chaîne de connexion SSH dont vous avez besoin pour vous connecter à la machine virtuelle. 
 
 2. Ouvrez PuTTY.
 
-3. Sur l’écran **Configuration PuTTY**, vous utiliserez la fenêtre **Catégorie** pour faire défiler vers le haut ou vers le bas. Faites défiler jusqu'à **SSH**, développez **SSH**, puis cliquez sur **Auth**. Cliquez sur **Parcourir** et choisissez le fichier de clé privée que vous avez enregistré.
+3. Dans l’écran Configuration PuTTY, vous utiliserez la fenêtre **Catégorie** pour faire défiler vers le haut ou vers le bas. Faites défiler jusqu'à **SSH**, développez **SSH**, puis cliquez sur **Auth**. Cliquez sur **Parcourir** et choisissez le fichier de clé privée que vous avez enregistré.
    ![Connecter une machine virtuelle](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Défiler vers le haut dans la fenêtre **catégorie**, puis cliquez sur **Session**.
@@ -148,7 +148,7 @@ Ouvrez un navigateur web et accédez à ```http://<public IP address>```.
 
 ![Page d’accueil du serveur web NGINX](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Nettoyez les ressources dont vous n’avez plus besoin. Pour supprimer la machine virtuelle et ses ressources, sélectionnez le groupe de ressources sur la page de la machine virtuelle, puis cliquez sur **Supprimer**.
 

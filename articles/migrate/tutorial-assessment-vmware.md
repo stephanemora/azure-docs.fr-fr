@@ -4,15 +4,15 @@ description: Décrit comment découvrir et évaluer des machines virtuelles VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 18e1ecd4896277f0dd0dfc2ceac2185cbdd09b93
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241104"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847981"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -26,16 +26,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Configurer une machine virtuelle collector locale, pour découvrir les machines virtuelles VMware locales en vue de les évaluer.
 > * Regrouper les machines virtuelles et créer une évaluation.
 
-
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
-
 
 ## <a name="prerequisites"></a>Prérequis
 
 - **VMware** : les machines virtuelles à migrer doivent être gérées par un vCenter Server exécutant la version 5.5, 6.0 ou 6.5. De plus, vous avez besoin d'un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur.
 - **Compte de serveur vCenter** : vous avez besoin d'un compte en lecture seule pour accéder au serveur vCenter. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
 - **Autorisations** : sur le serveur vCenter, vous devez disposer des autorisations nécessaires pour créer une machine virtuelle en important un fichier au format .OVA.
-- **Paramètres de statistiques** : cette condition préalable s’applique uniquement au modèle de détection unique. Pour que la détection unique fonctionne, les paramètres de statistiques pour vCenter Server doivent être définis sur le niveau 3 avant de commencer le déploiement. Si le niveau appliqué est inférieur à 3, l’évaluation fonctionne, mais les données de performances pour le stockage et le réseau ne sont pas collectées. Dans ce cas, les recommandations de taille seront effectuées selon les données de performances pour le processeur et la mémoire, et selon les données de configuration pour les adaptateurs de disque et réseau.
 
 ## <a name="create-an-account-for-vm-discovery"></a>Créer un compte pour la découverte de machine virtuelle
 
@@ -67,20 +64,21 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 Azure Migrate crée une machine virtuelle locale connue en tant qu’appliance collecteur. Cette machine virtuelle découvre les machines virtuelles VMware sur site et envoie les métadonnées les concernant au service Azure Migrate. Pour configurer l’appliance collecteur, vous téléchargez un fichier .OVA, puis vous l’importez dans le serveur vCenter local pour créer la machine virtuelle.
 
 1. Dans le projet Azure Migrate, cliquez sur **Démarrage** > **Découvrir et évaluer** > **Découvrir des machines**.
-2. Dans **Détecter des machines**, deux options sont disponibles pour l’appliance. Cliquez sur **Télécharger** pour télécharger l’appliance de votre choix.
+2. Dans **Découvrir des machines**, cliquez sur **Télécharger** pour télécharger l’appliance.
 
-    a. **Détection unique :** l’application pour ce modèle communique avec un serveur vCenter Server pour collecter des métadonnées sur les machines virtuelles. Pour la collecte de données de performances des machines virtuelles, elle s’appuie sur les données de performances historiques stockées dans vCenter Server et collecte l’historique des performances du dernier mois. Dans ce modèle, Azure Migrate collecte des valeurs moyennes (plutôt que des valeurs maximales) pour chaque métrique. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Comme il s’agit d’une détection unique, les modifications dans l’environnement local ne sont pas reflétées lorsque la détection est terminée. Si vous souhaitez que les modifications soient reflétées, vous devez relancer une détection du même environnement pour le même projet.
-
-    b. **Détection continue :** l’appliance pour ce modèle crée en continu des profils de l’environnement local pour recueillir des données d’utilisation en temps réel pour chaque machine virtuelle. Dans ce modèle, les compteurs de valeurs maximales sont collectées pour chaque mesure (utilisation du processeur, utilisation de la mémoire etc.). Ce modèle ne dépend pas des paramètres de statistiques de vCenter Server pour la collecte des données de performances. Vous pouvez arrêter à tout moment le profilage continu à partir de l’appliance.
-
-    Notez que l’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
-
-    1. Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance et puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
-
-    2. Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
+    L’appliance Azure Migrate communique avec vCenter Server et profile en continu l’environnement local afin de recueillir des données d’utilisation en temps réel pour chaque machine virtuelle. Elle collecte les données des compteurs de valeurs maximales pour chaque métrique (utilisation du processeur, utilisation de la mémoire etc.). Ce modèle ne dépend pas des paramètres de statistiques de vCenter Server pour la collecte des données de performances. Vous pouvez arrêter à tout moment le profilage continu à partir de l’appliance.
 
     > [!NOTE]
-    > La fonctionnalité de détection continue est en préversion. Nous vous recommandons d’utiliser cette méthode, car elle collecte des données de performances granulaires pour un dimensionnement correct.
+    > L’appliance de découverte unique est désormais dépréciée, car son utilisation dépend des paramètres de statistiques vCenter Server concernant la disponibilité des points de données de performances, et nécessite la collecte des données de compteurs de performance moyenne, ce qui a comme résultat d’attribuer une taille insuffisante aux machines virtuelles pour la migration vers Azure.
+
+    **Résultats instantanés :** avec l’application de découverte continue, une fois la découverte terminée (au bout de deux heures environ, selon le nombre de machines virtuelles), vous pouvez créer immédiatement des évaluations. Étant donné que la collecte des données de performances démarre lorsque vous lancez la découverte, si vous voulez obtenir des résultats instantanément, vous devez sélectionner le critère de dimensionnement *Localement* dans l’évaluation. Pour les évaluations de performances, il est conseillé d’attendre au moins un jour après le lancement de la découverte afin d’obtenir des recommandations de taille fiables.
+
+    L’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
+
+    - Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance et puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
+
+    - Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
+
 
 3. Dans **Copier les informations d’identification du projet**, copiez l’ID de projet et la clé. Vous en aurez besoin pour la configuration du collecteur.
 
@@ -96,7 +94,20 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
 
-#### <a name="one-time-discovery"></a>Détection unique
+#### <a name="continuous-discovery"></a>Détection continue
+
+  Pour OVA version 1.0.10.4
+
+  **Algorithme** | **Valeur de hachage**
+  --- | ---
+  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
+
+
+#### <a name="one-time-discovery-deprecated-now"></a>Découverte unique (désormais dépréciée)
+
+Ce modèle est désormais déprécié, cependant, les appliances existantes continuent d’être prises en charge.
 
   Pour OVA version 1.0.9.15
 
@@ -121,33 +132,6 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
   MD5 | d0363e5d1b377a8eb08843cf034ac28a
   SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
   SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
-
-  Pour OVA version 1.0.9.8
-
-  **Algorithme** | **Valeur de hachage**
-  --- | ---
-  MD5 | b5d9f0caf15ca357ac0563468c2e6251
-  SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-  SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
-
-
-  Pour OVA version 1.0.9.7
-
-  **Algorithme** | **Valeur de hachage**
-  --- | ---
-  MD5 | d5b6a03701203ff556fa78694d6d7c35
-  SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-  SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-
-#### <a name="continuous-discovery"></a>Détection continue
-
-  Pour OVA version 1.0.10.4
-
-  **Algorithme** | **Valeur de hachage**
-  --- | ---
-  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
-  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
-  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ## <a name="create-the-collector-vm"></a>Créer la machine virtuelle collector
 
@@ -195,12 +179,9 @@ Importez le fichier téléchargé sur le serveur vCenter.
 > Si vous modifiez les paramètres d’un ordinateur que vous souhaitez évaluer, relancez une détection avant d’exécuter l’évaluation. Dans le collecteur, utilisez l’option **Redémarrer la collecte** pour ce faire. Une fois la collection terminée, sélectionnez l’option **Recalculer** pour effectuer l’évaluation dans le portail, pour obtenir des résultats d’évaluation de mise à jour.
 
 
-
 ### <a name="verify-vms-in-the-portal"></a>Vérifier les machines virtuelles dans le portail
 
-Pour la détection unique, la durée de la détection varie selon le nombre de machines virtuelles détectées. En règle générale, pour 100 machines virtuelles, après exécution du collecteur, la collecte des données de configuration et de performances prend environ une heure. Vous pouvez créer des évaluations (à la fois en fonction des performances et des évaluations locales) immédiatement après la détection.
-
-Pour la détection continue (en préversion), le collecteur créera en continu un profil pour l’environnement local et continuera d’envoyer les données de performances, heure par heure. Vous pouvez examiner les machines dans le portail une heure après l’exécution de la détection. Il est fortement recommandé d’attendre au moins un jour avant de créer des évaluations basées sur les performances pour les machines virtuelles.
+L’appliance du collecteur va profiler en continu l’environnement local et va envoyer en continu les données de performances, heure par heure. Vous pouvez afficher les machines dans le portail une heure après le lancement de la découverte.
 
 1. Dans le projet de migration, cliquez sur **Gérer** > **Machines**.
 2. Vérifiez que les machines virtuelles que vous souhaitez découvrir apparaissent dans le portail.
@@ -208,7 +189,7 @@ Pour la détection continue (en préversion), le collecteur créera en continu u
 
 ## <a name="create-and-view-an-assessment"></a>Créer et afficher une évaluation
 
-Une fois les machines virtuelles découvertes, vous les regroupez pour créer une évaluation.
+Une fois les machines virtuelles découvertes dans le portail, vous pouvez les regrouper pour créer une évaluation. Vous pouvez créer des évaluations locales dès que les machines virtuelles sont découvertes. Il est recommandé d’attendre au moins un jour avant de créer des évaluations basées sur les performances pour obtenir des recommandations de taille fiables.
 
 1. Dans la page **Vue d’ensemble** du projet, cliquez sur **Créer une évaluation**.
 2. Cliquez sur **Tout afficher** pour passer en revue les propriétés de l’évaluation.
@@ -219,7 +200,7 @@ Une fois les machines virtuelles découvertes, vous les regroupez pour créer un
 7. Cliquez sur **Exporter l’évaluation** pour la télécharger sous la forme d’un fichier Excel.
 
 > [!NOTE]
-> Pour la détection en continu, il est fortement recommandé d’attendre au moins un jour, après le démarrage de la détection, avant de créer une évaluation. Si vous souhaitez mettre à jour une évaluation existante avec les dernières données de performances, vous pouvez utiliser la commande **Recalculer** sur l’évaluation afin de la mettre à jour.
+> Il est fortement recommandé d’attendre au moins un jour, après le lancement de la découverte, avant de créer une évaluation. Si vous souhaitez mettre à jour une évaluation existante avec les dernières données de performances, vous pouvez utiliser la commande **Recalculer** sur l’évaluation afin de la mettre à jour.
 
 ### <a name="assessment-details"></a>Détails de l’évaluation
 
@@ -272,22 +253,14 @@ Pour le dimensionnement basé sur les performances, Azure Migrate a besoin des d
 
 Tous les points de données d’une évaluation peuvent ne pas être disponibles pour l’une des raisons suivantes :
 
-**Découverte unique**
-
-- Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3. Comme le modèle de découverte unique dépend des paramètres de statistiques de vCenter Server, si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau n’est pas basée sur l’utilisation. Sans tenir compte des E/S par seconde/du débit du disque, Azure Migrate ne peut pas déterminer si le disque a besoin d’un disque premium dans Azure. Dans ce cas, Azure Migrate recommande donc des disques standard pour tous les disques.
-- Le paramètre des statistiques dans vCenter Server a été défini sur le niveau 3 pour une durée plus courte, avant le lancement de la découverte. Par exemple, intéressons-nous au scénario dans lequel vous faites passer le paramètre de statistiques au niveau 3 aujourd’hui et lancez la découverte en utilisant l’appliance de collecteur demain (après 24 heures). Si vous créez une évaluation pour une journée, vous disposez de tous les points de données, et le niveau de confiance de l’évaluation est de 5 étoiles. Mais si vous modifiez la durée des performances dans les propriétés d’évaluation pour la définir à un mois, le niveau de confiance diminue, car les données de performances du disque et du réseau pour le mois dernier ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte.
-
-**Détection en continu**
-
 - Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez l’évaluation avec une durée des performances définie sur 1 jour, vous devez attendre au moins un jour après le démarrage de la découverte pour collecter tous les points de données.
 
-**Raisons courantes**  
-
 - Plusieurs machines virtuelles ont été arrêtées pendant la période de calcul de l’évaluation. Si des machines virtuelles ont été mises hors tension pendant un certain temps, vous ne pourrez pas collecter les données de performances pour cette période.
+
 - Quelques machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, l’historique des performances des nouvelles machines virtuelles ne sera pas disponible pour toute la durée définie.
 
 > [!NOTE]
-> Si le niveau de confiance d’une évaluation est inférieur à 4 étoiles, pour un modèle de découverte unique, nous vous recommandons de faire passer les paramètres de statistiques vCenter Server au niveau 3, de patienter pendant toute la période que vous souhaitez prendre en compte pour l’évaluation (1 jour/1 semaine/1 mois), puis de procéder à la découverte et à l’évaluation. Pour le modèle de découverte en continu, attendez au moins un jour que l’appliance profile l’environnement, puis *recalculez* l’évaluation. Si vous ne pouvez pas effectuer ce qui précède, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité ; nous vous recommandons alors de basculer vers le *dimensionnement local* en changeant les propriétés de l’évaluation.
+> Si l’indice de confiance d’une évaluation est inférieur à 5 étoiles, attendez au moins un jour que l’appliance profile l’environnement, puis *recalculez* l’évaluation. Si vous ne pouvez pas effectuer ce qui précède, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité ; nous vous recommandons alors de basculer vers le *dimensionnement local* en changeant les propriétés de l’évaluation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

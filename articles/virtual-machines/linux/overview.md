@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 6ed1ef6019e339768c4ba6a62d8b4d99d844f254
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06bd1216aa3f78b41526670044de0250ad0df7d7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949519"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833259"
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
 Microsoft Azure propose une collection croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, des services mobiles, la mise en réseau, le stockage et le web.&mdash;En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
@@ -76,7 +76,7 @@ Microsoft travaille en étroite collaboration avec des partenaires afin de garan
 * Red Hat - [Place de marché Azure - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Place de marché Azure - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Place de marché Azure - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
-* FreeBSD - [Place de marché Azure - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
+* FreeBSD - [Place de marché Azure - FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
 * CoreOS - [Place de marché Azure - CoreOS (Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
 * RancherOS - [Place de marché Azure - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
 * Bitnami - [Bitnami Library pour Azure](https://azure.bitnami.com/)
@@ -119,7 +119,7 @@ La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vo
 * [Présentation du réseau virtuel.](../../virtual-network/virtual-networks-overview.md)
 * [Adresses IP dans Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Ouverture de ports sur une machine virtuelle Linux dans Azure](nsg-quickstart.md)
-* [Créer un nom de domaine complet dans le Portail Azure](portal-create-fqdn.md)
+* [Créer un nom de domaine complet dans le portail Azure](portal-create-fqdn.md)
 
 ## <a name="containers"></a>Containers
 * [Machines virtuelles et conteneurs dans Azure](containers.md)

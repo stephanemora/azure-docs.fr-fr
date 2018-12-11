@@ -1,35 +1,32 @@
 ---
-title: 'Tutoriel : Gérer des appareils dans une solution de surveillance à distance Azure | Microsoft Docs'
-description: Ce didacticiel vous montre comment gérer les appareils connectés à l’accélérateur de solution de surveillance à distance.
+title: 'Tutoriel : Configurer des appareils dans une solution de supervision à distance Azure | Microsoft Docs'
+description: Ce tutoriel vous montre comment configurer les appareils connectés à l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821049"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679152"
 ---
-# <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Didacticiel : Configurer et gérer les appareils connectés à votre solution de surveillance
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutoriel : Configurer les appareils connectés à votre solution de supervision
 
-Dans ce didacticiel, vous utilisez l’accélérateur de solution de surveillance à distance pour configurer et gérer vos appareils IoT connectés. Vous ajoutez un nouvel appareil à l’accélérateur de solution, le configurez et mettez à jour le microprogramme de l’appareil.
+Dans ce didacticiel, vous utilisez l’accélérateur de solution de surveillance à distance pour configurer et gérer vos appareils IoT connectés. Vous ajoutez un nouvel appareil à l’accélérateur de solution et vous le configurez.
 
-Contoso a commandé de nouvelles machines visant à développer l’une de ses usines. En attendant la livraison des nouvelles machines, vous souhaitez exécuter une simulation pour tester le comportement de votre solution. Pour exécuter la simulation, vous ajoutez un nouveau moteur d’appareil simulé à l’accélérateur de solution de surveillance à distance et vérifiez si l’appareil simulé répond correctement aux actions et aux mises à jour de configuration.
-
-Pour fournir un moyen extensible de configurer et de gérer des appareils, l’accélérateur de solution de surveillance à distance utilise des fonctionnalités IoT Hub telles que les [travaux](../iot-hub/iot-hub-devguide-jobs.md) et les [méthodes directes](../iot-hub/iot-hub-devguide-direct-methods.md). Bien que ce didacticiel se serve d’appareils simulés, un développeur d’appareil peut implémenter des méthodes directes dans un [appareil physique connecté à l’accélérateur de solution de surveillance à distance](iot-accelerators-connecting-devices.md).
+Contoso a commandé de nouvelles machines visant à développer l’une de ses usines. En attendant la livraison des nouvelles machines, vous souhaitez exécuter une simulation pour tester le comportement de votre solution. Pour exécuter la simulation, vous ajoutez un nouvel appareil de moteur simulé à l’accélérateur de solution de supervision à distance, puis vous vérifiez si cet appareil simulé répond correctement aux mises à jour de configuration. Bien que ce didacticiel se serve d’appareils simulés, un développeur d’appareil peut implémenter des méthodes directes dans un [appareil physique connecté à l’accélérateur de solution de surveillance à distance](iot-accelerators-connecting-devices.md).
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 >[!div class="checklist"]
 > * Provisionner un appareil simulé.
 > * Tester un appareil simulé.
-> * Mettre à jour le microprogramme d’un appareil.
 > * Reconfigurer un appareil.
 > * Organiser vos appareils.
 
@@ -60,24 +57,6 @@ Dans **Détail de l’appareil**, vérifiez que votre nouvel appareil envoie des
 Le panneau **Détail de l’appareil** affiche d’autres informations sur l’appareil, telles que les valeurs d’étiquette, les méthodes qu’il prend en charge et les propriétés qu’il indique.
 
 Pour afficher les diagnostics détaillés, faites défiler le panneau **Détails de l’appareil** vers le bas pour afficher la section **Diagnostics**.
-
-## <a name="act-on-a-device"></a>Agir sur un appareil
-
-Pour vérifier si le moteur simulé répond correctement aux actions initiées depuis le tableau de bord, exécutez la méthode **FirmwareUpdate**. Pour agir sur un appareil en exécutant une méthode, sélectionnez l’appareil dans la liste des appareils, puis cliquez sur **Tâches**. Vous pouvez sélectionner autant d’appareils que vous le souhaitez. Dans le panneau **Tâches**, sélectionnez **Méthodes**. Le modèle d’appareil **Moteur** spécifie trois méthodes : **FirmwareUpdate**, **FillTank** et **EmptyTank** :
-
-[![Méthodes de moteur](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
-
-Choisissez **FirmwareUpdate**, définissez le nom de la tâche par **UpdateEngineFirmware**, définissez la version du microprogramme sur **2.0.0**, définissez l’URI du microprogramme sur **http://contoso.com/engine.bin**, puis cliquez sur **Appliquer** :
-
-[![Planifier la méthode mise à jour du microprogramme](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-expanded.png#lightbox)
-
-Pour suivre le statut de la tâche, cliquez sur **Afficher le statut de la tâche** :
-
-[![Surveiller la tâche de mise à jour du microprogramme](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-expanded.png#lightbox)
-
-Une fois la tâche terminée, retournez à la page **Appareils**. La nouvelle version du microprogramme s’affiche pour le moteur de l’appareil.
-
-Si vous sélectionnez plusieurs appareils de types différents sur la page **Appareils**, vous pouvez quand même créer une tâche pour exécuter une méthode sur ces appareils. Le panneau **Tâches** n’affiche que les méthodes qui sont communes à tous les appareils sélectionnés.
 
 ## <a name="reconfigure-a-device"></a>Reconfigurer un appareil
 

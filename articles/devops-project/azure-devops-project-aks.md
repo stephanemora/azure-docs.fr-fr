@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Déployer votre application ASP.NET Core dans Azure Kubernetes Service (AKS) avec Azure DevOps Projects'
+title: 'Tutoriel : Déployer des applications ASP.NET Core dans Azure Kubernetes Service avec Azure DevOps Projects'
 description: Azure DevOps Projects facilite la prise en main d’Azure. Avec Azure DevOps Projects, vous pouvez déployer votre application ASP.NET Core à l’aide d’Azure Kubernetes Service (AKS) en quelques étapes rapides.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6e2b53e51d7da117a7f690cb676d0ec096bcb1cd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7980ea439cfd3eaefcaa308795836a909f980043
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165545"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620640"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-kubernetes-service-aks-by-using-azure-devops-projects"></a>Tutoriel : Déployer votre application ASP.NET Core dans Azure Kubernetes Service (AKS) avec Azure DevOps Projects
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Tutoriel : Déployer des applications ASP.NET Core dans Azure Kubernetes Service avec Azure DevOps Projects
 
 Azure DevOps Projects offre une expérience simplifiée dans laquelle vous pouvez apporter vos code et dépôt Git existants ou choisir un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure. 
 
@@ -24,8 +24,9 @@ De plus, DevOps Projects :
 * Crée automatiquement des ressources Azure, telles qu’Azure Kubernetes Service (AKS)
 * Crée et configure un pipeline de mise en production dans Azure DevOps qui définit un pipeline de build et de mise en production pour CI/CD.
 * Crée une ressource Azure Application Insights pour la supervision
+* Permet à [Azure Monitor pour conteneurs](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) de superviser les performances des charges de travail de conteneur sur le cluster AKS
 
-Dans ce tutoriel, vous allez :
+Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
 > * Utiliser DevOps Projects pour déployer une application ASP.NET Core sur AKS
@@ -150,7 +151,7 @@ DevOps Projects crée et configure automatiquement les étapes nécessaires au d
  > [!NOTE]
  > La procédure suivante teste le pipeline CI/CD en apportant une modification de texte simple.
 
-Vous êtes maintenant prêt à collaborer avec une équipe sur votre application, par le biais d’un processus d’intégration et de déploiement continus (CI/CD) qui déploie automatiquement votre dernier travail sur votre site web. Chaque modification apportée au dépôt Git démarre une build dans Azure DevOps tandis qu’un pipeline CD exécute un déploiement dans Azure. Suivez la procédure décrite dans cette section, ou utilisez une autre technique pour valider les modifications dans votre dépôt. Par exemple, vous pouvez cloner le dépôt Git dans votre outil ou votre environnement de développement intégré favori, puis envoyer (push) les modifications vers ce dépôt.
+Vous êtes maintenant prêt à collaborer avec une équipe sur votre application, par le biais d’un processus d’intégration et de déploiement continus (CI/CD) qui déploie automatiquement votre dernier travail sur votre site web. Chaque modification apportée au dépôt Git démarre une build dans Azure DevOps tandis qu’un pipeline CD exécute un déploiement dans Azure. Suivez la procédure décrite dans cette section, ou utilisez une autre technique pour valider les modifications dans votre dépôt. Par exemple, vous pouvez cloner le dépôt Git dans votre outil ou environnement de développement intégré favori, puis envoyer (push) les modifications vers ce dépôt.
 
 1. Dans le menu Azure DevOps, sélectionnez **Code** > **Fichiers**, puis accédez à votre dépôt.
 

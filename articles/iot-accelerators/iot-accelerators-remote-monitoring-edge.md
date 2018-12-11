@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 329bc41555f2def0e2b7001a7b445cd3de16d439
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826339"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843306"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutoriel : Détecter des anomalies à la périphérie avec l’accélérateur de solution de supervision à distance
 
@@ -24,16 +24,26 @@ Pour présenter le traitement des données en périphérie à l’aide de la sup
 
 Contoso souhaite déployer un module de périphérie intelligent qui détecte les anomalies de température sur la pompe à pétrole. Un autre module de périphérie est chargé d’envoyer des alertes à la solution de supervision à distance. Lorsqu’une alerte est reçue, un opérateur Contoso peut la transmettre à un technicien de maintenance. Contoso peut également configurer une action automatisée, comme l’envoi d’un e-mail, qui doit être exécutée lorsque la solution reçoit une alerte.
 
-Dans ce tutoriel, vous allez utiliser votre ordinateur de développement Windows local comme appareil IoT Edge. Vous allez installer des modules de périphérie pour simuler le capteur de pompe à pétrole et détecter les anomalies de température.
+Le diagramme suivant montre les composants clés dans le scénario du tutoriel :
+
+![Vue d’ensemble](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 Dans ce tutoriel, vous allez :
 
 >[!div class="checklist"]
 > * Ajouter un appareil IoT Edge à la solution
 > * Créer un manifeste Edge
-> * Importer un package qui définit les modules à exécuter sur l’appareil
+> * Importer un manifeste sous la forme d’un package qui définit les modules à exécuter sur l’appareil
 > * Déployer le package sur votre appareil IoT Edge
 > * Afficher les alertes sur votre appareil
+
+Sur l’appareil IoT Edge :
+
+* Le runtime reçoit le package et installe les modules.
+* Le module Stream Analytics détecte les anomalies de température dans la pompe et envoie des commandes pour résoudre le problème.
+* Le module Stream Analytics transfère les données filtrées à l’accélérateur de solution.
+
+Ce tutoriel utilise une machine virtuelle Linux comme appareil IoT Edge. Vous installez également un module Edge pour simuler le capteur de pompe à pétrole.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -111,54 +121,23 @@ Les appareils de périphérie nécessitent l’installation du runtime Edge. Dan
     az vm create \
       --resource-group IoTEdgeDevices \
       --name EdgeVM \
-      --image Canonical:UbuntuServer:16.04-LTS:latest \
+      --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest \
       --admin-username azureuser \
       --generate-ssh-keys \
       --size Standard_B1ms
     ```
 
-    Notez l’adresse IP publique, car vous en aurez besoin à l’étape suivante pour la connexion SSH.
-
-1. Pour vous connecter à la machine virtuelle à l’aide du protocole SSH, exécutez la commande suivante dans Cloud Shell :
+1. Pour configurer le runtime Edge avec la chaîne de connexion de l’appareil, exécutez la commande suivante à l’aide de la chaîne de connexion de l’appareil notée précédemment :
 
     ```azurecli-interactive
-    ssh azureuser@{vm IP address}
+    az vm run-command invoke \
+      --resource-group IoTEdgeDevices \
+      --name EdgeVM \
+      --command-id RunShellScript \
+      --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-1. Une fois connecté à la machine virtuelle, exécutez les commandes suivantes pour configurer le référentiel sur la machine virtuelle :
-
-    ```azurecli-interactive
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-    ```
-
-1. Pour installer le conteneur et les runtimes Edge sur la machine virtuelle, exécutez les commandes suivantes :
-
-    ```azurecli-interactive
-    sudo apt-get update
-    sudo apt-get install moby-engine
-    sudo apt-get install moby-cli
-    sudo apt-get update
-    sudo apt-get install iotedge
-    ```
-
-1. Pour configurer le runtime Edge avec la chaîne de connexion d’appareil, modifiez le fichier de configuration :
-
-    ```azurecli-interactive
-    sudo nano /etc/iotedge/config.yaml
-    ```
-
-    Affectez la chaîne de connexion d’appareil à la variable **device_connection_string**, enregistrez vos modifications, puis quittez l’éditeur.
-
-1. Redémarrez le runtime Edge pour utiliser la nouvelle configuration :
-
-    ```azurecli-interactive
-    sudo systemctl restart iotedge
-    ```
-
-1. Vous pouvez quitter la session SSH et fermer Cloud Shell.
+    Veillez à placer votre chaîne de connexion entre guillemets doubles.
 
 Vous venez d’installer et de configurer le runtime IoT Edge sur un appareil Linux. Plus loin dans ce tutoriel, vous utiliserez la solution de supervision à distance pour déployer des modules IoT Edge sur cet appareil.
 
@@ -186,7 +165,7 @@ Définissez le travail Stream Analytics dans le portail avant de l’empaqueter 
     | Groupe de ressources | IoTEdgeDevices |
     | Lieu | USA Est |
     | Environnement d’hébergement | Edge |
-    | Unités de streaming | 1 |
+    | Unités de diffusion en continu | 1 |
 
 1. Ouvrez le travail Stream Analytics **EdgeDeviceJob** dans le portail, cliquez sur Entrées, puis ajoutez une entrée de flux **Edge Hub** appelée **telemetry**.
 

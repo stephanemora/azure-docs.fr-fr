@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: 1f1e7ce41c00078c0181fc5f32c43b7e5885eef8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857667"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727329"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
@@ -77,7 +77,7 @@ Les procédures détaillées d’octroi du rôle `AcrImageSigner` dans le Portai
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Accédez à votre registre dans le Portail Azure, puis sélectionnez **Contrôle d’accès (IAM)** > **Ajouter**. Sous **Ajouter des autorisations**, sélectionnez `AcrImageSigner` sous **Rôle**, sélectionnez un ou plusieurs utilisateurs ou principaux de service dans le champ **Sélectionner**, puis cliquez sur **Enregistrer**.
+Accédez à votre registre dans le portail Azure, puis sélectionnez **Contrôle d’accès (IAM)** > **Ajouter une attribution de rôle**. Sous **Ajouter une attribution de rôle**, sélectionnez `AcrImageSigner` sous **Rôle**, sélectionnez un ou plusieurs utilisateurs ou principaux de service dans le champ **Sélectionner**, puis cliquez sur **Enregistrer**.
 
 Dans cet exemple, le rôle `AcrImageSigner` a été assigné à deux entités : un principal de service nommé « service-principal » et un utilisateur nommé « Azure User ».
 

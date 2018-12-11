@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Rechercher des traductions alternatives, C# - API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Obtenir des traductions alternatives, C# – API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment obtenir des traductions alternatives possibles d’un terme ainsi que des exemples d’utilisation de ces traductions alternatives à l’aide de .NET Core et de l’API de traduction de texte Translator Text.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: b77113378803b3d40e3612c668a5048a936edbe2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 034b6e102d008039ddd138798900dbee17faf51d
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679322"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887948"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-c"></a>Démarrage rapide : Rechercher des traductions à l’aide de l’API REST de traduction de texte Translator Text (C#)
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-c"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour obtenir des traductions alternatives à l’aide de C#
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment obtenir des traductions alternatives possibles d’un terme ainsi que des exemples d’utilisation de ces traductions alternatives à l’aide de .NET Core et de l’API de traduction de texte Translator Text.
 

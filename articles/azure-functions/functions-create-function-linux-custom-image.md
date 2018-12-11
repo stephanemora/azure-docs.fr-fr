@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: de15d1f8c268e80ac1659c53a141ec39cc6d3cb8
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5d03b7075b1ae590c400eb96525ab84d8487fa3e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564807"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840093"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Créer une fonction sur Linux en utilisant une image personnalisée (préversion)
 
@@ -65,7 +65,8 @@ Lorsque vous incluez l’option `--docker`, un fichier Docker est généré pour
 Lorsque vous y êtes invités, choisissez un worker runtime parmi les langages suivants :
 
 * `dotnet` : crée un projet de bibliothèque de classes .NET (.csproj).
-* `node` : créer un projet JavaScript.
+* `node` : crée un projet JavaScript.
+* `python` : crée un projet Python.
 
 Lorsque la commande s’exécute, une sortie similaire à la suivante s’affiche :
 

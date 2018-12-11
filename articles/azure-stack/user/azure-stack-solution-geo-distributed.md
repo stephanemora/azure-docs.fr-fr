@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 19e7506dac82e4d12d5aecbdb5ae1c14fb944c29
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961533"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877664"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Didacticiel : Création d’une solution d’application géolocalisée avec Azure et Azure Stack
 
@@ -71,7 +71,7 @@ Avant de créer une empreinte d’application distribuée, il est préférable d
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tous lieux.  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
 > Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
 
@@ -81,7 +81,7 @@ Dans cette partie, vous allez créer une application web.
 
 > [!div class="checklist"]
 > - Créer des applications web et publier
-> - Ajouter du code au projet VSTS
+> - Ajouter du code à Azure Repos
 > - Pointez la génération de l’application sur plusieurs cibles du cloud.
 > - Gérer et configurer le processus CD
 
@@ -95,7 +95,7 @@ Un abonnement Azure et l’installation d’Azure Stack sont requis.
 
 Mettez à jour le fichier de zone DNS pour Créer des applications web et publier le domaine. Azure AD peut ensuite vérifier la propriété du nom de domaine personnalisé. Utilisez [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) pour les enregistrements DNS Azure/Office 365/externes dans Azure, ou ajouter l’entrée DNS à [un autre bureau d’enregistrement DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
-1. Enregistrez un domaine personnalisé avec un bureau d’enregistrement public.
+1. Inscrivez un domaine personnalisé auprès d’un bureau d’enregistrement public.
 
 2. Connectez-vous au Bureau d’enregistrement des noms de domaine pour le domaine. Un administrateur approuvé devra peut-être effectuer les mises à jour DNS.
 
@@ -108,11 +108,11 @@ Configurez la CI/CD hybride pour déployer Web App sur Azure et Azure Stack, et 
 > [!Note]  
 > Vous avez besoin d’Azure Stack avec les images appropriées syndiquées pour s’exécuter (Windows Server et SQL), et App Service doit être déployé. Pour l’opérateur Azure Stack, consultez la section «[ Avant de commencer avec App Service sur Azure Stack ](/articles/azure-stack/azure-stack-app-service-before-you-get-started)» dans la documentation d’App Service.
 
-#### <a name="add-code-to-vsts-project"></a>Ajouter du code au projet VSTS
+#### <a name="add-code-to-azure-repos"></a>Ajouter du code à Azure Repos
 
-1. Connectez-vous à Visual Studio avec un **compte disposant des droits de création de projet** sur VSTS.
+1. Connectez-vous à Visual Studio avec un **compte ayant les droits de création de projet** sur Azure Repos.
 
-    Vous pouvez appliquer l’intégration continue/la livraison continue (CI/CD) hybride au code d’application et au code d’infrastructure. Utilisez les [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) pour le développement cloud hébergé et privé.
+    Vous pouvez appliquer l’intégration continue/la livraison continue (CI/CD) hybride au code d’application et au code d’infrastructure. Utilisez les [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) pour les développements cloud privé et hébergé.
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image1.JPG)
 
@@ -126,13 +126,13 @@ Configurez la CI/CD hybride pour déployer Web App sur Azure et Azure Stack, et 
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image3.png)
 
-1.  **Archivez le code dans VSTS** avec Team Explorer.
+1.  **Archivez le code dans Azure Repos** avec Team Explorer.
 
-2.  Vérifiez que le **code d’application** a été archivé dans Visual Studio Team Services.
+2.  Vérifiez que le **code d’application** a été archivé dans Azure Repos.
 
 ### <a name="create-the-build-definition"></a>Créer la définition de build
 
-1. **Connectez-vous à VSTS** pour vérifier la possibilité de créer des définitions de build.
+1. **Connectez-vous à Azure Pipelines** pour vérifier la possibilité de créer des définitions de build.
 
 2. Ajoutez le code **-r win10-x64**. Cette action est nécessaire pour déclencher un déploiement autonome avec .NET Core.
 
@@ -142,11 +142,11 @@ Configurez la CI/CD hybride pour déployer Web App sur Azure et Azure Stack, et 
 
 **Utilisation d’un agent hébergé sur Azure**
 
-L’utilisation d’un agent hébergé dans VSTS est une option pratique pour créer et déployer des applications web. La maintenance et les mises à niveau sont effectuées automatiquement par Microsoft Azure, ce qui permet le développement, le test et le déploiement continus et sans interruption.
+L’utilisation d’un agent hébergé dans Azure Pipelines est une option pratique pour créer et déployer des applications web. La maintenance et les mises à niveau sont effectuées automatiquement par Microsoft Azure, ce qui permet le développement, le test et le déploiement continus et sans interruption.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Gérer et configurer le processus CD
 
-Visual Studio Team Services (VSTS) et Team Foundation Server (TFS) fournissent un pipeline hautement configurable et gérable pour des mises en production sur plusieurs environnements, comme des environnements de développement, de préproduction, de contrôle qualité et de production, avec des demandes d’approbation à des étapes spécifiques.
+Azure DevOps et Azure DevOps Server fournissent un pipeline hautement configurable et gérable pour des mises en production sur plusieurs environnements, comme des environnements de développement, de préproduction, de contrôle qualité et de production, avec des demandes d’approbation à des étapes spécifiques.
 
 #### <a name="create-release-definition"></a>Créer une définition de mise en production
 
@@ -265,9 +265,9 @@ Pour suivre ce tutoriel :
 
 -   Achetez un nom de domaine et fournissez un accès au registre DNS au fournisseur de domaine.
 
-Mettez à jour le fichier de zone DNS pour le domaine. Azure AD vérifie la propriété du nom de domaine personnalisé. Utilisez [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) pour les enregistrements DNS Azure/Office 365/externes dans Azure, ou ajouter l’entrée DNS à [un autre bureau d’enregistrement DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Mettez à jour le fichier de zone DNS pour le domaine. Azure AD vérifie la propriété du nom de domaine personnalisé. Utilisez [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) pour les enregistrements DNS Azure/Office 365/externes dans Azure, ou ajoutez l’entrée DNS à [un autre bureau d’enregistrement DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
--   Enregistrez un domaine personnalisé avec un bureau d’enregistrement public.
+-   Inscrivez un domaine personnalisé auprès d’un bureau d’enregistrement public.
 
 -   Connectez-vous au Bureau d’enregistrement des noms de domaine pour le domaine. (Il se peut qu’un administrateur approuvé doive effectuer les mises à jour DNS.)
 

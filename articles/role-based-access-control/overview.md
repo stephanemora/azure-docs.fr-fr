@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 19285bf7a1323e9698fe408566304d0596d1c983
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311261"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867896"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?
 
@@ -50,13 +50,14 @@ Les attributions de rôles vous permettent de contrôler l’accès aux ressourc
 
 ### <a name="security-principal"></a>Principal de sécurité
 
-Un *principal de sécurité* est un objet qui représente un utilisateur, un groupe ou un principal de service demandant l’accès aux ressources Azure.
+Un *principal de sécurité* est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité managée demandant l’accès à des ressources Azure.
 
 ![Principe de sécurité d’une attribution de rôle](./media/overview/rbac-security-principal.png)
 
 - Utilisateur : personne disposant d’un profil dans Azure Active Directory. Vous pouvez également attribuer des rôles aux utilisateurs dans les autres locataires. Pour plus d’informations sur les utilisateurs des autres organisations, consultez [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Groupe : ensemble d’utilisateurs créés dans Azure Active Directory. Lorsque vous attribuez un rôle à un groupe, vous l’attribuez également à tous les utilisateurs de ce groupe. 
 - Principal de service : identité de sécurité utilisée par des applications ou des services permettant d’accéder aux ressources Azure spécifiques. Vous pouvez la considérer comme une *identité utilisateur* (nom d’utilisateur, mot de passe ou certificat) pour une application.
+- Identité managée : identité dans Azure Active Directory qui est managée automatiquement par Azure. Vous utilisez généralement des [identités managées](../active-directory/managed-identities-azure-resources/overview.md) lors du développement d’applications cloud afin de gérer les informations d’identification pour l’authentification auprès des services Azure.
 
 ### <a name="role-definition"></a>Définition de rôle
 
@@ -91,7 +92,7 @@ Lorsque vous accordez l’accès à une étendue parente, ces autorisations sont
 
 ### <a name="role-assignments"></a>Affectations de rôles
 
-Une *attribution de rôle* est le processus de liaison d’une définition de rôle à un utilisateur, un groupe ou un principal de service au niveau d’une étendue spécifique pour accorder des accès. La création d’une attribution de rôle permet d’accorder un accès, qui peut être révoqué par la suppression d’une attribution de rôle.
+Une *attribution de rôle* est le processus d’attachement d’une définition de rôle à un utilisateur, un groupe, un principal de service ou une identité managée au niveau d’une étendue spécifique pour accorder des accès. La création d’une attribution de rôle permet d’accorder un accès, qui peut être révoqué par la suppression d’une attribution de rôle.
 
 Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exemple, le rôle de [contributeur](built-in-roles.md#contributor) a été attribué au groupe Marketing pour le groupe de ressources pharma-sales. Cela signifie que les utilisateurs du groupe Marketing peuvent créer ou gérer n’importe quelle ressource Azure dans le groupe de ressources pharma-sales. Les utilisateurs Marketing n’ont pas accès aux ressources en dehors du groupe de ressources pharma-sales, sauf si elles font partie d’une autre attribution de rôle.
 
@@ -101,9 +102,7 @@ Vous pouvez créer des attributions de rôles à l’aide du Portail Azure, d’
 
 ## <a name="deny-assignments"></a>Affectations de refus
 
-Jusqu’à maintenant, RBAC était exclusivement un modèle d’autorisation sans possibilité de refus, il prend désormais en charge des affectations de refus dans une certaine mesure. De façon similaire à une attribution de rôle, une *affectation de refus* lie un ensemble d’actions de refus à un utilisateur, un groupe ou un principal de service dans une étendue spécifique, afin de refuser l’accès. Une attribution de rôle définit un ensemble d’actions *autorisées*, tandis qu’une affectation de refus définit un ensemble d’actions *non autorisées*. En d’autres termes, les affectations de refus empêchent les utilisateurs d’effectuer des actions spécifiées, même si une attribution de rôle leur accorde l’accès. Les affectations de refus ont priorité sur les attributions de rôles.
-
-Actuellement, les affectations de refus sont **en lecture seule** et peuvent être définies uniquement par Azure. Même si vous ne pouvez pas créer vos propres affectations de refus, vous pouvez lister les affectations de refus, car elles peuvent affecter vos autorisations en cours. Pour obtenir des informations sur une affectation de refus, vous devez disposer de l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés](built-in-roles.md#owner). Pour plus d’informations, consultez [Comprendre les affectations de refus](deny-assignments.md).
+Jusqu’à maintenant, RBAC était exclusivement un modèle d’autorisation sans possibilité de refus, il prend désormais en charge des affectations de refus dans une certaine mesure. À l’instar d’une attribution de rôle, une *affectation de refus* attache un ensemble d’actions de refus à un utilisateur, un groupe, un principal de service ou une identité managée, sur une étendue spécifique, afin de refuser l’accès. Une attribution de rôle définit un ensemble d’actions *autorisées*, tandis qu’une affectation de refus définit un ensemble d’actions *non autorisées*. En d’autres termes, les affectations de refus empêchent les utilisateurs d’effectuer des actions spécifiées, même si une attribution de rôle leur accorde l’accès. Les affectations de refus ont priorité sur les attributions de rôles. Actuellement, les affectations de refus sont **en lecture seule** et peuvent être définies uniquement par Azure. Pour plus d’informations, consultez [Comprendre les attributions de refus](deny-assignments.md) et [Afficher les affectations de refus avec le portail Azure](deny-assignments-portal.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Comment RBAC détermine si un utilisateur a accès à une ressource
 

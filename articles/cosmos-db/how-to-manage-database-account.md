@@ -1,22 +1,22 @@
 ---
-title: Découvrez comment gérer les comptes de base de données dans Azure Cosmos DB
-description: Découvrez comment gérer les comptes de base de données dans Azure Cosmos DB
+title: Découvrir comment gérer les comptes de base de données dans Azure Cosmos DB
+description: Découvrir comment gérer les comptes de base de données dans Azure Cosmos DB
 services: cosmos-db
 author: christopheranderson
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 0683516d16bf1501eee83901c5171811b8c0e44d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9fe8142c4fce45adaa3697023eab3ac9dbb55f37
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621545"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635660"
 ---
 # <a name="manage-database-accounts-in-azure-cosmos-db"></a>Gérer les comptes de base de données dans Azure Cosmos DB
 
-Cet article explique comment gérer votre compte Azure Cosmos DB pour définir le multihébergement, ajouter/supprimer une région, configurer plusieurs régions d’écriture et définir les priorités de basculement. 
+Cet article décrit comment gérer votre compte Azure Cosmos DB. Vous apprenez à définir le multihébergement, à ajouter ou supprimer une région, à configurer plusieurs régions d’écriture et à définir les priorités de basculement. 
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
@@ -36,21 +36,21 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 ### <a id="configure-clients-multi-homing-dotnet"></a>Kit SDK .NET
 
 ```csharp
-// Create a new Connection Policy
+// Create a new connection policy.
 ConnectionPolicy policy = new ConnectionPolicy
     {
         // Note: These aren't required settings for multi-homing,
-        // just suggested defaults
+        // just suggested defaults.
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp,
         UseMultipleWriteLocations = true,
     };
-// Add regions to Preferred locations
-// The name of the location will match what you see in the portal/etc.
+// Add regions to preferred locations.
+// The name of the location will match what you see in the portal, etc.
 policy.PreferredLocations.Add("East US");
 policy.PreferredLocations.Add("North Europe");
 
-// Pass the Connection policy with the preferred locations on it to the client.
+// Pass the connection policy with the preferred locations on it to the client.
 DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
 ```
 
@@ -79,11 +79,11 @@ DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connecti
 ### <a id="configure-clients-multi-homing-javascript"></a>Kit SDK Node.js/JavaScript/TypeScript
 
 ```javascript
-// Set up the connection policy with your preferred regions
+// Set up the connection policy with your preferred regions.
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
 connectionPolicy.PreferredLocations = ["West US", "Australia East"];
 
-// Pass that connection policy to the client
+// Pass that connection policy to the client.
 const client = new CosmosClient({
   endpoint: config.endpoint,
   auth: { masterKey: config.key },
@@ -104,19 +104,19 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ### <a id="add-remove-regions-via-portal"></a>Portail Azure
 
-1. Accédez à votre compte Azure Cosmos DB et ouvrez le menu **Replicate data globally** (Répliquer les données globalement).
+1. Accédez à votre compte Azure Cosmos DB et ouvrez le menu **Répliquer les données globalement**.
 
-2. Pour ajouter des régions, sélectionnez-en une ou plusieurs sur la carte en cliquant sur les hexagones vides avec l’étiquette **"+"** correspondant à la région souhaitée. Vous pouvez également ajouter une région en sélectionnant l’option **+ Ajouter une région** et en choisissant une région dans le menu déroulant.
+2. Pour ajouter des régions, sélectionnez les hexagones sur la carte avec l’étiquette **+** qui correspond à la région souhaitée. Pour ajouter une région, sélectionnez l’option **+ Ajouter une région** et choisissez une région dans le menu déroulant.
 
-3. Pour supprimer des régions, désélectionnez-en une ou plusieurs sur la carte en cliquant sur les hexagones bleus avec une coche, ou sélectionnez l’icône (🗑) de corbeille sur le côté droit.
+3. Pour supprimer des régions, désactivez une ou plusieurs régions à partir de la carte en sélectionnant les hexagones bleus avec des coches. Vous pouvez aussi sélectionner l’icône de la « Corbeille » (🗑) en regard de la région, sur le côté droit.
 
-4. Cliquez sur « Enregistrer » pour enregistrer vos modifications.
+4. Pour enregistrer vos modifications, sélectionnez **OK**.
 
-   ![Menu pour ajouter/supprimer des régions](./media/how-to-manage-database-account/add-region.png)
+   ![Ajouter ou supprimer le menu des régions](./media/how-to-manage-database-account/add-region.png)
 
-Dans un mode d’écriture à une seule région, vous ne pouvez pas supprimer la région d’écriture. Vous devez basculer vers une autre région avant de supprimer la région d’écriture actuelle.
+Dans un mode d’écriture à une seule région, vous ne pouvez pas supprimer la région d’écriture. Vous devez basculer vers une autre région avant de pouvoir supprimer la région d’écriture actuelle.
 
-Dans un mode d’écriture à plusieurs régions, vous pouvez ajouter ou supprimer n’importe quelle région, du moment qu’il vous en reste au moins une.
+Dans un mode d’écriture à plusieurs régions, vous pouvez ajouter ou supprimer n’importe quelle région s’il vous en reste au moins une.
 
 ### <a id="add-remove-regions-via-cli"></a>Interface CLI Azure
 
@@ -147,7 +147,7 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 
 ### <a id="configure-multiple-write-regions-arm"></a>modèle Azure Resource Manager
 
-Le code JSON suivant est un exemple de modèle Resource Manager. Vous pouvez l’utiliser pour déployer un compte Azure Cosmos avec une stratégie de cohérence basée sur une obsolescence limitée : intervalle d’obsolescence maximal de 5 secondes, et nombre maximal de requêtes d’obsolescence tolérées de 100. Pour en savoir plus sur le format et la syntaxe du modèle Resource Manager, consultez la documentation [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Le code JSON suivant est un exemple de modèle Resource Manager. Vous pouvez l’utiliser pour déployer un compte Azure Cosmos DB avec une stratégie de cohérence d’obsolescence limitée. L’intervalle d’obsolescence maximale est défini à 5 secondes. Le nombre maximal de requêtes d’obsolescence qui est toléré est défini sur 100. Pour en savoir plus sur le format et la syntaxe du modèle Resource Manager, consultez [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ```json
 {
@@ -202,19 +202,19 @@ Le code JSON suivant est un exemple de modèle Resource Manager. Vous pouvez l�
 ```
 
 
-## <a id="manual-failover"></a>Activer le basculement manuel pour votre compte Azure Cosmos
+## <a id="manual-failover"></a>Activer le basculement manuel pour votre compte Azure Cosmos DB
 
 ### <a id="enable-manual-failover-via-portal"></a>Portail Azure
 
-1. Accédez à votre compte Azure Cosmos et ouvrez le menu **Répliquer les données globalement**.
+1. Accédez à votre compte Azure Cosmos DB et ouvrez le menu **Répliquer les données globalement**.
 
-2. Cliquez sur le bouton **Basculement manuel** en haut du menu.
+2. En haut du menu, sélectionnez **Basculement manuel**.
 
    ![Menu pour répliquer les données globalement](./media/how-to-manage-database-account/replicate-data-globally.png)
 
-3. Dans le menu **Basculement manuel**, sélectionnez votre nouvelle région d’écriture, puis cochez la case pour indiquer que vous avez compris que cette option modifiera votre région d’écriture.
+3. Dans le menu **Basculement manuel**, sélectionnez votre nouvelle région d’écriture. Sélectionnez la case à cocher pour indiquer que vous comprenez que cette option modifie votre région d’écriture.
 
-4. Cliquez sur OK pour déclencher le basculement.
+4. Pour déclencher le basculement, sélectionnez **OK**.
 
    ![Menu du portail pour le basculement manuel](./media/how-to-manage-database-account/manual-failover.png)
 
@@ -226,19 +226,19 @@ Le code JSON suivant est un exemple de modèle Resource Manager. Vous pouvez l�
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
 ```
 
-## <a id="automatic-failover"></a>Activer le basculement automatique pour votre compte Azure Cosmos
+## <a id="automatic-failover"></a>Activer le basculement automatique pour votre compte Azure Cosmos DB
 
 ### <a id="enable-automatic-failover-via-portal"></a>Portail Azure
 
-1. Accédez à votre compte Azure Cosmos et ouvrez le volet **Répliquer les données globalement**. 
+1. Accédez à votre compte Azure Cosmos DB et ouvrez le volet **Répliquer les données globalement**. 
 
-2. Cliquez sur le bouton **Basculement automatique** en haut du volet.
+2. En haut du volet, sélectionnez **Basculement automatique**.
 
    ![Menu pour répliquer les données globalement](./media/how-to-manage-database-account/replicate-data-globally.png)
 
-3. Dans le volet **Basculement automatique**, assurez-vous que l’option **Activer le basculement automatique** est définie sur **ON** (Activé). 
+3. Dans le volet **Basculement automatique**, vérifiez que l’option **Activer le basculement automatique** est définie sur **ACTIVÉ**. 
 
-4. Cliquez sur « Enregistrer » en bas du menu.
+4. Sélectionnez **Enregistrer**.
 
    ![Menu du portail pour le basculement automatique](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -257,21 +257,21 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
 ```
 
-## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Définir les priorités de basculement pour votre compte Azure Cosmos
+## <a name="set-failover-priorities-for-your-azure-cosmos-db-account"></a>Définir les priorités de basculement pour votre compte Azure Cosmos DB
 
 ### <a id="set-failover-priorities-via-portal"></a>Portail Azure
 
-1. Accédez à votre compte Azure Cosmos et ouvrez le volet **Répliquer les données globalement**. 
+1. Accédez à votre compte Azure Cosmos DB et ouvrez le volet **Répliquer les données globalement**. 
 
-2. Cliquez sur le bouton **Basculement automatique** en haut du volet.
+2. En haut du volet, sélectionnez **Basculement automatique**.
 
    ![Menu pour répliquer les données globalement](./media/how-to-manage-database-account/replicate-data-globally.png)
 
-3. Dans le volet **Basculement automatique**, assurez-vous que l’option **Activer le basculement automatique** est définie sur **ON** (Activé). 
+3. Dans le volet **Basculement automatique**, vérifiez que l’option **Activer le basculement automatique** est définie sur **ACTIVÉ**. 
 
-4. Vous pouvez modifier la priorité de basculement en cliquant sur les régions de lecture et en les faisant glisser. Pour ce faire, survolez la ligne avec le curseur de la souris, et cliquez sur les trois points qui s’affichent sur la gauche. 
+4. Pour modifier la priorité de basculement, faites glisser les régions de lecture via les trois points à gauche de la ligne qui s’affichent quand vous placez le curseur dessus. 
 
-5. Cliquez sur « Enregistrer » en bas du menu.
+5. Sélectionnez **Enregistrer**.
 
    ![Menu du portail pour le basculement automatique](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -285,8 +285,8 @@ az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la gestion des conflits de données et des niveaux de cohérence dans Azure Cosmos DB, consultez la documentation suivante :
+Découvrez comment gérer les niveaux de cohérence et les conflits de données dans Azure Cosmos DB. Consultez les articles suivants :
 
-* [Comment gérer la cohérence](how-to-manage-consistency.md)
-* [Comment gérer les conflits entre les régions](how-to-manage-conflicts.md)
+* [Gérer la cohérence](how-to-manage-consistency.md)
+* [Gérer les conflits entre les régions](how-to-manage-conflicts.md)
 

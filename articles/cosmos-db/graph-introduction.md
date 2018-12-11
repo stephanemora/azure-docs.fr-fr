@@ -1,25 +1,23 @@
 ---
-title: 'Introduction à Azure Cosmos DB : API Gremlin | Microsoft Docs'
+title: Présentation de l’API Gremlin Azure Cosmos DB
 description: Découvrez comment utiliser Azure Cosmos DB pour stocker, interroger et parcourir des graphes volumineux avec une faible latence grâce au langage de requête de graphe Gremlin d’Apache TinkerPop.
 services: cosmos-db
 author: LuisBosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 809dead23a12f761d46c1be6a24951b8762dc1e1
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f2ca118e137104c6dddd2945b7b88b2f535621eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092216"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849225"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Présentation de la base de données Azure Cosmos : API Gremlin
 
-[Azure Cosmos DB](introduction.md) est le service de base de données multimodèle globalement distribué de Microsoft pour les applications stratégiques. Il s’agit d’une base de données multimodèle qui prend en charge les modèles de données en colonnes, documents, graphes et clé-valeur. L’API Azure Cosmos DB Gremlin permet de stocker, d’utiliser, de modéliser et de parcourir des données de graphes.
+[Azure Cosmos DB](introduction.md) est le service de base de données multimodèle mondialement distribué de Microsoft pour les applications stratégiques. Il s’agit d’une base de données multimodèle qui prend en charge les modèles de données en colonnes, documents, graphes et clé-valeur. L’API Azure Cosmos DB Gremlin permet de stocker, d’utiliser, de modéliser et de parcourir des données de graphes.
 
 Cet article fournit une vue d’ensemble de l’API Gremlin Azure Cosmos DB, et explique comment l’utiliser pour stocker des graphiques volumineux comportant des milliards de sommets et de bords. Vous pouvez interroger les graphiques avec une latence de quelques millisecondes, et faire évoluer facilement leur structure et leur schéma. Pour interroger Azure Cosmos DB, vous pouvez utiliser le langage de parcours de graphe [Apache TinkerPop](http://tinkerpop.apache.org) ou [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 

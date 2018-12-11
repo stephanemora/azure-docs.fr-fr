@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426103"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724092"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
@@ -91,11 +91,11 @@ Quand vous créez votre premier compte Batch en mode Abonnement utilisateur, vou
 
     ![Inscrire le fournisseur Microsoft.Batch][register_provider]
 
-1. Dans la page **Abonnement**, sélectionnez **Contrôle d’accès (IAM)** > **Ajouter**.
+1. Dans la page **Abonnement**, sélectionnez **Contrôle d’accès (IAM)** > **Attributions de rôles** > **Ajouter une attribution de rôle**.
 
     ![Contrôle d’accès à l’abonnement][subscription_access]
 
-1. Dans la page **Ajouter des autorisations**, sélectionnez le rôle **Contributeur** et recherchez l’API Batch. Recherchez chacune de ces chaînes, jusqu’à ce que vous trouviez l’API :
+1. Dans la page **Ajouter une attribution de rôle**, sélectionnez le rôle **Contributeur** et recherchez l’API Batch. Recherchez chacune de ces chaînes, jusqu’à ce que vous trouviez l’API :
     1. **MicrosoftAzureBatch**.
     1. **Microsoft Azure Batch**. Les locataires Azure AD les plus récents peuvent utiliser ce nom.
     1. La chaîne **ddbf3205-c6bd-46ae-8127-60eb93363864** correspond à l’ID de l’API Batch. 
@@ -117,7 +117,7 @@ Lors de la création du compte Batch en mode Abonnement utilisateur, utilisez le
 Vous pouvez créer et gérer des comptes Batch à l’aide du portail Azure, mais également avec les outils suivants :
 
 * [Applets de commande PowerShell pour Batch](batch-powershell-cmdlets-get-started.md)
-* [interface de ligne de commande Azure](batch-cli-get-started.md)
+* [Interface de ligne de commande Azure](batch-cli-get-started.md)
 * [Gestion de lots .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Entraîner un modèle de classification d’images avec le service Azure Machine Learning'
-description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour effectuer l’apprentissage d’un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le premier d’une série de deux.
+description: Ce tutoriel montre comment utiliser Azure Machine Learning service pour entraîner un modèle de classification d’images avec scikit-learn dans un notebook Jupyter Python. Ce tutoriel est le premier d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,19 +8,19 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 11/21/2018
-ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496221"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879483"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Didacticiel n° 1 : Entraîner un modèle de classification d’images avec le service Azure Machine Learning
 
-Dans ce tutoriel, vous allez entraîner un modèle Machine Learning à la fois localement et sur des ressources de calcul distantes. Vous utiliserez le workflow de déploiement et de formation pour le service Azure Machine Learning (préversion) dans un bloc-notes Jupyter Python.  Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
+Dans ce tutoriel, vous allez entraîner un modèle Machine Learning à la fois localement et sur des ressources de calcul distantes. Vous utiliserez le workflow de déploiement et d’entraînement pour Azure Machine Learning service dans un notebook Jupyter Python.  Vous pourrez ensuite utiliser le notebook en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
 
-Ce didacticiel entraîne une régression logistique simple à l’aide du jeu de données [MNIST](http://yann.lecun.com/exdb/mnist/) et de [scikit-learn](http://scikit-learn.org) avec le service Azure Machine Learning.  MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28x28 pixels, représentant un nombre de 0 à 9. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée. 
+Ce didacticiel entraîne une régression logistique simple à l’aide du jeu de données [MNIST](https://yann.lecun.com/exdb/mnist/) et de [scikit-learn](https://scikit-learn.org) avec le service Azure Machine Learning.  MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28x28 pixels, représentant un nombre de 0 à 9. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée. 
 
 Découvrez comment :
 
@@ -36,20 +36,18 @@ Vous découvrirez comment sélectionner un modèle et le déployer dans la [deux
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
 
 >[!NOTE]
-> Le code présenté dans cet article a été testé avec le kit SDK Azure Machine Learning version 0.1.79
+> Le code présenté dans cet article a été testé avec le SDK Azure Machine Learning version 1.0.2
 
-## <a name="get-the-notebook"></a>Obtenir le bloc-notes
+## <a name="get-the-notebook"></a>Obtenir le notebook
 
-Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://aka.ms/aml-notebook-tut-01). Exécutez le bloc-notes `01.train-models.ipynb` dans des Azure Notebooks ou dans votre propre serveur de bloc-notes Jupyter.
+Pour des raisons pratiques, ce tutoriel est disponible en tant que [notebook Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Exécutez le notebook `tutorials/img-classification-part1-training.ipynb` dans Azure Notebooks ou dans votre propre serveur de notebooks Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
->[!NOTE]
-> Ce tutoriel a été testé avec le SDK Azure Machine Learning version 0.1.74. 
 
 ## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
 
-Toute la configuration pour votre travail de développement peut être effectuée dans un bloc-notes Python.  La configuration comprend les tâches suivantes :
+Toute la configuration pour votre travail de développement peut être effectuée dans un notebook Python.  La configuration comprend les tâches suivantes :
 
 * Importation des packages Python
 * Connexion à un espace de travail pour permettre la communication entre votre ordinateur local et les ressources distantes
@@ -94,11 +92,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-remote-compute-target"></a>Créer une cible de calcul distante
+### <a name="create-or-attach-existing-amlcompute"></a>Créer ou attacher un service AMlCompute existant
 
-Le calcul géré Azure ML est un service managé qui permet aux scientifiques des données d’entraîner des modèles Machine Learning sur des clusters de machines virtuelles Azure, notamment des machines virtuelles prenant en charge les GPU.  Dans ce tutoriel, vous allez créer un cluster de calcul géré Azure qui vous servira d’environnement d’entraînement. Ce code crée pour vous un cluster s’il n’existe pas encore dans votre espace de travail. 
+La capacité de calcul managée Azure Machine Learning (AmlCompute) est un service managé qui permet aux scientifiques des données d’entraîner des modèles Machine Learning sur des clusters de machines virtuelles Azure, notamment des machines virtuelles prenant en charge les GPU.  Dans ce tutoriel, vous allez créer un service AmlCompute comme environnement d’entraînement. Ce code crée des clusters de calcul si votre espace de travail n’en contient pas déjà.
 
- **La création du cluster prend environ cinq minutes.** Si le cluster se trouve déjà dans l’espace de travail, ce code l’utilise et ignore le processus de création.
+ **La création de la capacité de calcul prend environ cinq minutes.** Si la capacité de calcul se trouve déjà dans l’espace de travail, ce code l’utilise et ignore le processus de création.
 
 
 ```python
@@ -107,12 +105,17 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
-compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
 # This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
 
 
 if compute_name in ws.compute_targets:
@@ -132,7 +135,7 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+     # For a more detailed view of current AmlCompute status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -165,7 +168,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>Afficher des exemples d’images
 
-Chargez les fichiers compressés dans des tableaux `numpy`. Utilisez ensuite `matplotlib` pour tracer 30 images aléatoires du jeu de données avec leurs étiquettes au-dessus. Cette étape nécessite une fonction `load_data` qui est incluse dans un fichier `util.py`. Ce fichier est inclus dans l’exemple de dossier. Vérifiez qu’il se trouve dans le même dossier que ce bloc-notes. La fonction `load_data` analyse les fichiers compressés dans des tableaux Numpy.
+Chargez les fichiers compressés dans des tableaux `numpy`. Utilisez ensuite `matplotlib` pour tracer 30 images aléatoires du jeu de données avec leurs étiquettes au-dessus. Cette étape nécessite une fonction `load_data` qui est incluse dans un fichier `util.py`. Ce fichier est inclus dans l’exemple de dossier. Vérifiez qu’il se trouve dans le même dossier que ce notebook. La fonction `load_data` analyse les fichiers compressés dans des tableaux Numpy.
 
 
 
@@ -320,11 +323,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 Notez comment le script obtient les données et enregistre les modèles :
 
 + Le script d’entraînement lit un argument pour rechercher le répertoire contenant les données.  Quand vous envoyez le travail ultérieurement, vous pointez vers la banque de données pour cet argument : `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
-    
+
 + Le script d’entraînement enregistre votre modèle dans un répertoire nommé outputs. <br/>
 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 Tout ce qui est écrit dans ce répertoire est chargé automatiquement dans votre espace de travail. Vous accéderez à votre modèle à partir de ce répertoire plus loin dans le tutoriel.
-
 Le fichier `utils.py` est référencé à partir du script d’entraînement pour charger le jeu de données correctement.  Copiez ce script dans le dossier de script afin qu’il soit accessible en plus du script d’entraînement sur la ressource distante.
 
 
@@ -340,12 +342,12 @@ Un objet estimateur est utilisé pour soumettre l’exécution.  Créez votre es
 
 * Le nom de l’objet estimateur, `est`.
 * Le répertoire qui contient vos scripts. Tous les fichiers dans ce répertoire sont chargés dans les nœuds de cluster pour l’exécution. 
-* La cible de calcul.  Ici, vous utiliserez le cluster Batch AI que vous avez créé.
+* La cible de calcul.  Dans ce cas, vous allez utiliser le cluster de calcul Azure Machine Learning que vous avez créé.
 * Le nom du script d’entraînement, train.py.
 * Les paramètres requis à partir du script d’entraînement. 
 * Les packages Python nécessaires pour l’entraînement.
 
-Dans ce tutoriel, cette cible est le cluster Batch AI. Tous les fichiers du dossier de scripts sont chargés dans les nœuds de cluster pour l’exécution. data_folder est configuré pour utiliser la banque de données (`ds.as_mount()`).
+Dans ce tutoriel, cette cible est AmlCompute. Tous les fichiers du dossier de scripts sont chargés dans les nœuds de cluster pour l’exécution. data_folder est configuré pour utiliser la banque de données (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator
@@ -405,7 +407,7 @@ RunDetails(run).show()
 
 Voici un instantané du widget fourni à la fin de l’entraînement :
 
-![widget de bloc-notes](./media/tutorial-train-models-with-aml/widget.png)
+![widget de notebook](./media/tutorial-train-models-with-aml/widget.png)
 
 ### <a name="get-log-results-upon-completion"></a>Obtenir des résultats du journal lors de l’achèvement
 
@@ -464,7 +466,7 @@ compute_target.delete()
 Dans ce didacticiel sur le service Azure Machine Learning, vous avez utilisé Python pour :
 
 > [!div class="checklist"]
-> * Configuration de l'environnement de développement
+> * Configurer votre environnement de développement
 > * Accéder aux données et les examiner.
 > * Entraîner une régression logistique simple localement à l’aide de la bibliothèque de machine learning populaire scikit-learn.
 > * Entraîner plusieurs modèles sur un cluster distant.
