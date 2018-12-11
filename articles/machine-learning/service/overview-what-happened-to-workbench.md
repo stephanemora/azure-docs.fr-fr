@@ -8,26 +8,26 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: b8263c399f287be79590860cce7036207ef2e3f7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: db09203e86c32a7e03b4b2c4bcc670d16583ab20
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243741"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879432"
 ---
-# <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Que se passe-t-il avec Workbench dans Azure Machine Learning (préversion) ?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning"></a>Que se passe-t-il avec Workbench dans Azure Machine Learning ?
 
-L’application Workbench et d’autres fonctionnalités d’origine ont été remplacées dans la version de septembre 2018 pour faire place à une [architecture](concept-azure-machine-learning-architecture.md) améliorée. Cette version contient de nombreuses mises à jour importantes demandées par les clients dans leurs commentaires pour améliorer votre expérience. Le fonctionnement intrinsèque allant des exécutions d’expériences au déploiement de modèles n’a pas changé, mais vous pouvez désormais utiliser le <a href="https://aka.ms/aml-sdk" target="_blank">kit SDK</a> et l’[interface CLI](reference-azure-machine-learning-cli.md) pour accomplir vos tâches et vos pipelines de machine learning.  
+L’application Workbench et d’autres fonctionnalités d’origine ont été dépréciées et remplacées dans la version de septembre 2018 pour faire place à une [architecture](concept-azure-machine-learning-architecture.md) améliorée. Cette version contient de nombreuses mises à jour importantes demandées par les clients dans leurs commentaires pour améliorer votre expérience. Le fonctionnement intrinsèque allant des exécutions d’expériences au déploiement de modèles n’a pas changé, mais vous pouvez désormais utiliser le <a href="https://aka.ms/aml-sdk" target="_blank">kit SDK</a> et l’[interface CLI](reference-azure-machine-learning-cli.md) pour accomplir vos tâches et vos pipelines de machine learning.  
 
-Dans cet article, vous allez découvrir ce qui a changé et comment cela affecte votre travail pré-existant avec le service Azure Machine Learning.
+Dans cet article, vous allez découvrir ce qui a changé et comment cela affecte votre travail pré-existant avec Azure Machine Learning Workbench et ses API.
 
 ## <a name="what-changed"></a>Qu’est ce qui a changé ?
 
 La dernière version du service Azure Machine Learning comprend les éléments suivants :
 + Un [modèle de ressources Azure simplifié](concept-azure-machine-learning-architecture.md)
 + Une [nouvelle interface utilisateur du portail](how-to-track-experiments.md) pour gérer vos expériences et vos cibles de calcul
-+ Un nouveau kit <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> Pyhton plus complet
++ Un nouveau kit <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> Python plus complet
 + Une nouvelle [extension Azure CLI](reference-azure-machine-learning-cli.md) enrichie pour le machine learning.
 
 L’[architecture](concept-azure-machine-learning-architecture.md) a été repensée pour faciliter l’utilisation. Les ressources et comptes Azure multiples ont laissé la place à un [espace de travail pour le service Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace).  Vous pouvez rapidement créer des espaces de travail dans le [portail Azure](quickstart-get-started.md).  Un espace de travail peut être utilisé par plusieurs utilisateurs pour stocker les cibles de calcul des entraînements et des déploiements, les expériences des modèles, les images Docker, les modèles déployés, etc.
@@ -44,10 +44,10 @@ La plupart des artefacts créés dans la version précédente du service Azure M
 
 Vous pourrez continuer à utiliser vos comptes d’expérimentation et de gestion de modèles, ainsi que l’application Workbench pendant un certain temps après le mois de septembre 2018. La prise en charge des ressources suivantes sera progressivement retirée au cours des 3 à 4 mois suivant cette publication. Vous pourrez toujours trouver la documentation sur les anciennes fonctionnalités dans la [section Ressources](../desktop-workbench/tutorial-classifying-iris-part-1.md) située au bas de la table des matières.
 
-|Phase|Détails de la prise en charge des fonctionnalités précédentes|
+|Phase de mise&nbsp;hors service|Détails de la prise en charge des fonctionnalités précédentes|
 |:---:|----------------|
-|1|La possibilité de créer un _compte Azure Machine Learning - Expérimentation_ et un _compte Gestion des modèles_ dans le portail Azure et à partir de l’interface CLI prend fin. La possibilité de créer des environnements Capacité de calcul Machine Learning à partir de l’interface CLI prend fin également. Si vous disposez d’un compte, l’interface CLI et l’application Workbench de bureau continuent de fonctionner pendant cette phase.|
-|2|La prise en charge de tous les autres éléments, dont les API restantes et l’application Workbench de bureau, prend fin pendant cette phase.|
+|4 décembre 2018|La possibilité de créer un _compte Azure Machine Learning - Expérimentation_ et un _compte Gestion des modèles_ dans le portail Azure et à partir de l’interface CLI a pris fin. La possibilité de créer des environnements Capacité de calcul Machine Learning à partir de l’interface CLI a également pris fin. Si vous disposez d’un compte, l’interface CLI et l’application Workbench de bureau continuent de fonctionner pendant cette phase.|
+|9 janvier 2019|La prise en charge de tous les autres éléments, dont les API restantes et l’application Workbench de bureau, prend fin à cette date.|
 
 [Commencez la migration](how-to-migrate.md) aujourd’hui. Toutes les fonctionnalités les plus récentes sont disponibles dans le nouveau <a href="https://aka.ms/aml-sdk" target="_blank">kit SDK</a>, la nouvelle [interface CLI](reference-azure-machine-learning-cli.md) et le nouveau [portail](quickstart-get-started.md).
 
@@ -92,15 +92,15 @@ Dans la version la plus récente, les modèles sont déployés en tant que servi
 
 ## <a name="what-about-the-old-sdk--cli"></a>Qu’en est-il de l’ancien kit SDK et de l’ancienne interface CLI ?
 
-Ils continueront de fonctionner pendant un certain temps (voir la [chronologie](#timeline) ci-dessus). Nous vous recommandons de commencer à créer vos modèles et expériences avec le dernier kit SDK et/ou interface CLI.
+Ils continueront à fonctionner jusqu’en janvier (voir la [chronologie](#timeline) ci-dessus). Nous vous recommandons de commencer à créer vos modèles et expériences avec le dernier kit SDK et/ou interface CLI.
 
 Dans la dernière version, le nouveau SDK Python vous permet d’interagir avec le service Azure Machine Learning dans n’importe quel environnement Python. Découvrez comment installer le dernier <a href="https://aka.ms/aml-sdk" target="_blank">kit SDK</a>.  Vous pouvez également utiliser l’[extension de machine learning Azure CLI mise à jour](reference-azure-machine-learning-cli.md) avec les nombreuses commandes `az ml` pour interagir avec le service dans n’importe quel environnement de ligne de commande, dont le service Cloud Shell du portail Azure.
 
-## <a name="what-about-vs-code-tools-for-ai"></a>Qu’en est-il de VS Code Tools for AI ?
+## <a name="what-about-azure-machine-learning-for-visual-studio-code"></a>Qu’en est-il d’Azure Machine Learning pour Visual Studio Code ?
 
-Dans cette dernière version, l’extension Visual Studio (VS) Code Tools for AI a été étendue et améliorée de manière à fonctionner avec les nouvelles fonctionnalités ci-dessus.
+Dans cette dernière version, Azure Machine Learning pour Visual Studio (VS) Code a été étendu et amélioré de manière à fonctionner avec les nouvelles fonctionnalités ci-dessus.
 
-[ ![Visual Studio Code Tools for AI](./media/overview-what-happened-to-workbench/vscode.png) ] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[ ![Azure Machine Learning pour Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png) ] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>Qu’en est-il des packages de domaine ?
 
