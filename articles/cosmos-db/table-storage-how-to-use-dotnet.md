@@ -3,19 +3,18 @@ title: Prise en main du stockage de tables Azure et de l’API Table d’Azure 
 description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 00bc950493e7b4eaad4a2165779f5c8151070aee
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: fd437e42c404bec71036e760b95aef7e005d3fd9
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042577"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880197"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -75,7 +74,7 @@ Vous pouvez utiliser la bibliothèque de tables d’Azure CosmosDB dans n’impo
 ### <a name="install-the-required-nuget-packages"></a>Installer les packages NuGet requis
 Il existe trois packages recommandés auxquels vous devez vous référer dans votre projet pour suivre cet exemple :
 
-* [Bibliothèque commune de stockage Azure pour .NET (préversion)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). - Utilisez une version inférieure ou égale à 9.0.0.1 (<= 9.0.0.1).
+* [Bibliothèque commune de stockage Azure pour .NET (préversion)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). - Utilisez une version inférieure ou égal à 9.0.0.1 (<= 9.0.0.1).
 
 * [Bibliothèque de tables Microsoft Azure Cosmos DB pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Ce package fournit un accès par programmes aux ressources de données dans votre compte de stockage Table Azure ou votre compte API Table Azure Cosmos DB. Cette bibliothèque est actuellement disponible uniquement pour .NET Standard, elle n’est pas encore disponible pour .NET Core.
 
@@ -569,8 +568,8 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 * Pour obtenir des exemples supplémentaires utilisant Table Storage, voir [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 * Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table :
-* [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-* [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
+* [Référence de la bibliothèque cliente de stockage pour .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+* [Référence d’API REST](https://msdn.microsoft.com/library/azure/dd179355)
 * Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
 * [Prise en main d’Azure Blob Storage à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) pour le stockage de données non structurées.

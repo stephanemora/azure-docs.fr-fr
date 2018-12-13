@@ -4,7 +4,7 @@ description: Découvrez comment vous connecter à Base de données SQL sur Azu
 keywords: connexion à une base de données sql, sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,15 +12,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/01/2018
-ms.openlocfilehash: 4c8b8a609fe5aa531570805d7a58141a6df84090
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: f8d153ef415bcab85720f6733d4e01e9b44c9e50
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063215"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870994"
 ---
-# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database : utilisez SQL Server Management Studio pour vous connecter et exécuter des requêtes
+# <a name="quickstart-azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Guide de démarrage rapide : Azure SQL Database : utilisez SQL Server Management Studio pour vous connecter et exécuter des requêtes
 
 [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) est un environnement intégré qui gère les infrastructures SQL, de SQL Server à SQL Database pour Microsoft Windows. Ce guide de démarrage rapide montre comment utiliser SSMS pour se connecter à une base de données SQL Azure, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données. 
 

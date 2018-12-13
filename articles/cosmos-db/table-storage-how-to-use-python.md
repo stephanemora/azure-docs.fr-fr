@@ -1,21 +1,20 @@
 ---
-title: Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec Python | Microsoft Docs
+title: Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec Python
 description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 9778911d56f55ea83b542d6fbe5c31b646d85d2d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: b24116e72091fc3814df9936c311ee3f96a6b6cc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976466"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872745"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec Python
 
