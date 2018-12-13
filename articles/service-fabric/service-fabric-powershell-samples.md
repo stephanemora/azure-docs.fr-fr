@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 04/09/2018
+ms.date: 11/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 65f6252ecfa4e5850824fc7aa2e6eca2bdb88692
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5d8137b2ca6c47713b7a681090963dd2749dd1f2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205754"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634045"
 ---
 # <a name="azure-powershell-samples"></a>Exemples Azure PowerShell
 
@@ -33,7 +33,6 @@ Le tableau suivant contient des liens vers des exemples de scripts PowerShell qu
 |-|-|
 | **Créer un cluster** ||
 | [Créer un cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Crée un cluster Azure Service Fabric. |
-|[Créer un cluster de test (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Crée un cluster de test Service Fabric à trois nœuds sur Azure.|
 | **Gérer le cluster, les nœuds et l’infrastructure** ||
 | [Ajouter un certificat d’application](./scripts/service-fabric-powershell-add-application-certificate.md)| Ajoute un certificat X.509 d’application à tous les nœuds d’un cluster. |
 | [Mettre à jour la plage de ports RDP sur les machines virtuelles du cluster](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Change la plage de ports RDP sur les machines virtuelles de nœud de cluster dans un cluster déployé.|

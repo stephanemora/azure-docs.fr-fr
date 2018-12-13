@@ -1,29 +1,29 @@
 ---
-title: Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure avec Site Recovery | Microsoft Docs
-description: Découvrez comment basculer des machines virtuelles Hyper-V vers Azure et restaurer sur le site local avec Azure Site Recovery
+title: Basculer et restaurer automatiquement des machines virtuelles Hyper-V pour la reprise d’activité sur Azure avec Azure Site Recovery | Microsoft Docs
+description: Découvrez comment basculer et restaurer automatiquement des machines virtuelles Hyper-V pour la reprise d’activité sur Azure avec le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ea372b4363ce506b926a37686b85cb36e51546eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076981"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833452"
 ---
-# <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure
 
-Ce didacticiel explique comment basculer une machine virtuelle Hyper-V vers Azure. Une fois que vous avez procédé au basculement, vous restaurez automatiquement sur votre site local lorsqu’il est disponible. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel explique comment basculer une machine virtuelle Hyper-V vers Azure. Une fois que vous avez procédé au basculement, vous restaurez automatiquement sur votre site local quand il est disponible. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Vérifier la conformité des propriétés des machines virtuelles Hyper-V aux spécifications d’Azure
 > * Effectuer un basculement vers Azure
-> * Restauration automatique d’Azure vers le site local
+> * Restaurer automatiquement depuis Azure vers un site local
 > * Inverser la réplication de machines virtuelles locales pour redémarrer la réplication vers Azure
 
 Ce didacticiel est le cinquième d’une série. Il suppose que vous avez déjà effectué les tâches des didacticiels précédents.    

@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: c37b416578a76e9b12e29d68e413d851796ccc6f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7e28b8938c8c0eb258fbb599dd5765258a4d52e4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26368542"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867373"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calculer la taille totale de facturation d’un conteneur d’objets blob
 
@@ -37,7 +37,7 @@ Ce script calcule la taille d’un conteneur dans le stockage d’objets blob Az
 
 La taille totale du conteneur d’objets blob correspond à la taille du conteneur lui-même et de celle de tous les objets blob qu’il contient.
 
-Les sections suivantes décrivent comment calculer la capacité de stockage pour les conteneurs d’objets blob et les objets blob. Dans la section suivante, Len(X) désigne le nombre de caractères dans la chaîne.
+Les sections suivantes décrivent comment calculer la capacité de stockage pour les conteneurs d’objets blob et les objets blob. Dans la section suivante, Len(X) désigne le nombre de caractères dans la chaîne.
 
 ### <a name="blob-containers"></a>Conteneurs d’objets blob
 
@@ -103,16 +103,16 @@ Voici la répartition :
 * Pour les objets blob de blocs :
     * Huit octets pour la liste de blocs.
     * Nombre de blocs multiplié par la taille de l’ID de bloc en octets.
-    * Taille des données dans tous les blocs validés et non validés. 
-    
+    * Taille des données dans tous les blocs validés et non validés.
+
     >[!NOTE]
     >Quand des instantanés sont utilisés, cette taille inclut seulement les données uniques pour cet objet blob de base ou instantané. Si les blocs non validés ne sont pas utilisés après une semaine, ils sont supprimés de la mémoire. Après cela, ils ne sont plus pris en compte dans la facturation.
 
 * Pour les objets blob de pages :
     * Nombre de plages de pages non consécutives comportant des données multiplié par 12 octets. Il s’agit du nombre de plages de pages uniques que vous voyez quand vous appelez l’API **GetPageRanges**.
 
-    * Taille des données en octets de toutes les pages stockées. 
-    
+    * Taille des données en octets de toutes les pages stockées.
+
     >[!NOTE]
     >Quand des instantanés sont utilisés, cette taille inclut seulement les pages uniques pour l’objet blob de base ou l’objet blob instantané qui est comptabilisé.
 

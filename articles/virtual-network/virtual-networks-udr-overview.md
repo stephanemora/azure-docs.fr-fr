@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 867c52d87562c11eff8dfe2abd443a2c068eb9ae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978902"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871878"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -165,9 +165,9 @@ Lorsque vous substituez le préfixe d’adresse 0.0.0.0/0, en plus du flux du tr
         - Ne doit pas avoir de règle de groupe de sécurité réseau associée qui empêche la communication avec l’appareil
         - Ne doit pas refuser la communication
         - Être en mesure de translater et de transférer une adresse réseau, ou d’acheminer le trafic à travers un serveur proxy vers la ressource de destination dans le sous-réseau, et de retourner le trafic à Internet. 
-    - **Passerelle de réseau virtuel** : si la passerelle est une passerelle de réseau virtuel, un appareil local connecté à Internet peut translater et transférer les adresses du réseau ou acheminer le trafic à travers un serveur proxy vers la ressource de destination dans le sous-réseau, via l’[homologation privée](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) d’ExpressRoute. 
+    - **Passerelle de réseau virtuel** : si la passerelle est une passerelle de réseau virtuel, un appareil local connecté à Internet peut translater et transférer les adresses du réseau ou acheminer le trafic à travers un serveur proxy vers la ressource de destination dans le sous-réseau, via l’[homologation privée](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#privatepeering) d’ExpressRoute. 
 
-Si votre réseau virtuel est connecté à une passerelle VPN Azure, n’associez pas de table de routage au [sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) incluant un itinéraire avec une destination de 0.0.0.0/0. Cela peut empêcher la passerelle de fonctionner correctement. Pour plus d’informations, consultez la question *Pourquoi certains ports sont ouverts sur ma passerelle VPN ?* dans le [FAQ sur la passerelle VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#why-are-certain-ports-opened-on-my-vpn-gateway).
+Si votre réseau virtuel est connecté à une passerelle VPN Azure, n’associez pas de table de routage au [sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) incluant un itinéraire avec une destination de 0.0.0.0/0. Cela peut empêcher la passerelle de fonctionner correctement. Pour plus d’informations, consultez la question *Pourquoi certains ports sont ouverts sur ma passerelle VPN ?* dans le [FAQ sur la passerelle VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
 Consultez [Zone DMZ entre Azure et votre centre de données local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Zone DMZ entre Azure et Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) pour les détails de mise en œuvre lors de l’utilisation de passerelles et d’appliances virtuelles entre les Internet et Azure.
 

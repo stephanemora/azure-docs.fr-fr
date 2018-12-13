@@ -2,18 +2,18 @@
 title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des détails sur la façon de protéger vos partages de fichiers Azure.
 services: backup
-author: markgalioto
-ms.author: markgal
+author: rayne-wiselman
+ms.author: raynew
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 9ef3525d7867d0ef01b6f17035039d4a4e6def93
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434835"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874547"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -39,31 +39,31 @@ Oui. Toutefois, vous devrez [arrêter la protection](backup-azure-files.md#stop-
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Dans quelles zones géographiques puis-je sauvegarder des partages de fichiers Azure ? <br/>
 La sauvegarde pour les partages de fichiers Azure est actuellement en préversion et disponible uniquement dans les zones géographiques suivantes : 
--   Est de l’Australie (AE) 
+-   Australie Est (AE) 
 - Sud-Est de l’Australie (ASE) 
-- Sud du Brésil (BRS)
+- Brésil Sud (BRS)
 - Centre du Canada (CNC)
 -   Est du Canada (CE)
--   Centre des États-Unis (CUS)
--   Est de l’Asie (EA)
--   Est des États-Unis (EUS)
--   Est des États-Unis 2 (EUS2)
-- Est du Japon (JPE)
-- Ouest du Japon (JPW)
--   Centre de l’Inde (INC) 
+-   USA Centre (CUS)
+-   Asie Est (EA)
+-   USA Est (EUS)
+-   USA Est 2 (EUS2)
+- Japon Est (JPE)
+- Japon Ouest (JPW)
+-   Inde Centre (INC) 
 - Sud de l’Inde (INS)
 - Corée Centre (KRC)
 - Corée du Sud (KRS)
--   Centre-Nord des États-Unis (NCUS) 
--   Europe du Nord (NE) 
--   Centre-Sud des États-Unis (SCUS) 
--   Asie du Sud-Est (SEA)
+-   USA Centre Nord (NCUS) 
+-   Europe Nord (NE) 
+-   USA Centre Sud (SCUS) 
+-   Asie Sud-Est (SEA)
 -   Sud du Royaume-Uni (UKS) 
 -   Ouest du Royaume-Uni (UKW) 
--   Europe de l’Ouest (WE) 
--   Ouest des États-Unis (WUS)
--   Centre-Ouest des États-Unis (WCUS)
--   Ouest des États-Unis 2 (WUS 2)
+-   Europe Ouest (WE) 
+-   USA Ouest (WUS)
+-   USA Centre-Ouest (WCUS)
+-   USA Ouest 2 (WUS 2)
 
 Écrivez à [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) si vous souhaitez l’utiliser dans une région qui n’est pas spécifiée ci-dessus.
 

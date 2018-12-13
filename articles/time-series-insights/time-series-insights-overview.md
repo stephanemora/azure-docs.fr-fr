@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 85436fedacc765dcdf6a8005cf96f3d63312504c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365568"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868801"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Qu’est-ce que Azure Time Series Insights ?
 
@@ -34,7 +34,7 @@ Si vous créez une application, en vue d’une utilisation en interne ou pour de
 
 Si vous ne savez pas si vos données sont de série chronologique, voici ce que vous devez savoir.  Les données de série chronologique représentent la façon dont un élément multimédia ou un processus changent au fil du temps.  Elles sont uniques en cela qu’elles ont un horodatage et que l’heure est plus explicite sous forme d’axe.  En général, les données de série chronologique arrivent dans un ordre chronologique et sont considérées comme une instruction insert, plutôt qu’une mise à jour pour votre base de données.  Étant donné que Time Series Insights capture et stocke chaque nouvel événement sous la forme d’une ligne, le changement est mesuré dans le temps, ce qui vous permet de voir les valeurs passées et de prévoir les futurs changements.  Dans des volumes importants, le stockage, l’indexation, l’interrogation, l’analyse et la visualisation des données de série chronologique peuvent être difficiles.  
 
-## <a name="video"></a>Vidéo : 
+## <a name="video"></a>Vidéo
 
 ### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>Dans cette vidéo, nous fournissons une vue d’ensemble de Time Series Insights, une plateforme d’analytique IoT basée sur le cloud.</br>
 
