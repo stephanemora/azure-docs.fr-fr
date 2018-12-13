@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: af733b75780787f07ec28ff45bda6810c3d96baa
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165979"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888118"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Didacticiel : Mettre à l’échelle une application en cours d’exécution dans Service Fabric Mesh
 
@@ -47,7 +47,7 @@ Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* [Installez localement l’interface de ligne de commande Azure et l’interface de ligne de commande Service Fabric Mesh](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Installez localement l’interface de ligne de commande Azure et l’interface de ligne de commande Service Fabric Mesh](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="manually-scale-your-services-in-or-out"></a>Augmenter ou diminuer manuellement la taille de vos services
 

@@ -1,17 +1,17 @@
 ---
-title: Requêtes SQL pour Azure Cosmos DB | Microsoft Docs
+title: Requêtes SQL pour Azure Cosmos DB
 description: Obtenez plus d’informations sur la syntaxe SQL, les concepts de bases de données et les requêtes SQL pour Azure Cosmos DB. SQL peut être utilisé comme un langage de requête JSON dans Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: f7b3826e1e77933b49f0a742ebf8dfb994bf7ea9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444433"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848729"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Interroger des données Azure Cosmos DB avec des requêtes SQL
 

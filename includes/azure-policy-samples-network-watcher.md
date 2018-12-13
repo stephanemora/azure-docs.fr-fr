@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 8541a37a328bb7e0f5aa22e6c130665bbf46c67c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 53ff9eb5bd0b862ca66d0fdc93aabdc14e933296
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47003686"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53318203"
 ---
 ### <a name="network-watchers"></a>Network Watchers
 
 |  |  |
 |---------|---------|
-| [Audite si Network Watcher n’est pas activé pour une région](../articles/governance/policy/samples/net-watch-not-enabled.md) | Vérifie si Network Watcher n’est pas activé pour une région spécifiée. Spécifiez le nom de la région pour vérifier si Network Watcher est activé. |
+| [Audite si Network Watcher n’est pas activé pour une région](../articles/governance/policy/samples/network-watcher-not-enabled.md) | Vérifie si Network Watcher n’est pas activé pour une région spécifiée. Spécifiez le nom de la région pour vérifier si Network Watcher est activé. |

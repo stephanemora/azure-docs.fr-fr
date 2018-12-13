@@ -1,20 +1,20 @@
 ---
-title: Basculer et restaurer automatiquement des machines virtuelles Azure répliquées vers une région Azure secondaire avec Azure Site Recovery
-description: Découvrez comment basculer et restaurer automatiquement la réplication de machines virtuelles Azure vers une région Azure secondaire avec Azure Site Recovery
+title: Basculer et restaurer automatiquement des machines virtuelles IaaS Azure répliquées vers une région Azure secondaire pour exécuter un plan de récupération d’urgence avec le service Azure Site Recovery.
+description: Découvrez comment basculer et restaurer automatiquement des machines virtuelles IaaS Azure répliquées vers une région Azure secondaire pour effectuer un plan de récupération d’urgence avec le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 93928d7eb84ce986c8a9322188183e4c3dd76d99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456505"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847862"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Basculer et restaurer automatiquement des machines virtuelles Azure entre des régions Azure
 
@@ -34,7 +34,7 @@ Ce didacticiel explique comment basculer une seule machine virtuelle Azure vers 
 ## <a name="prerequisites"></a>Prérequis
 
 - Assurez-vous d’avoir effectué une [simulation de récupération d’urgence](azure-to-azure-tutorial-dr-drill.md) pour vérifier que tout fonctionne comme prévu.
-- Vérifiez les propriétés de la machine virtuelle avant d’exécuter le test de basculement. La machine virtuelle doit satisfaire aux [exigences Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
+- Vérifiez les propriétés de la machine virtuelle avant d’exécuter le test de basculement. La machine virtuelle doit satisfaire aux [exigences Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>Exécuter un basculement vers la région secondaire
 
