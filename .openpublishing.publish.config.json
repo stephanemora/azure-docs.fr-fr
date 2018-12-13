@@ -32,7 +32,7 @@
     "master-sync-work",
     "live"
   ],
-  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs.fr-fr",
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs.es-es",
   "git_repository_branch_open_to_public_contributors": "live",
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
@@ -46,7 +46,7 @@
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft.fr-fr",
+      "url": "https://github.com/Microsoft/templates.docs.msft.es-es",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -305,6 +305,12 @@
     {
       "path_to_root": "samples-cosmosdb-dotnet-web-app",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-content-moderator-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
       "branch": "master",
       "branch_mapping": {}
     }
