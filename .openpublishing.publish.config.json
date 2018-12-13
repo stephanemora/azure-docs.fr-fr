@@ -32,7 +32,7 @@
     "master-sync-work",
     "live"
   ],
-  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs.es-es",
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs.fr-fr",
   "git_repository_branch_open_to_public_contributors": "live",
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
@@ -46,7 +46,7 @@
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft.es-es",
+      "url": "https://github.com/Microsoft/templates.docs.msft.fr-fr",
       "branch": "master",
       "branch_mapping": {}
     },
