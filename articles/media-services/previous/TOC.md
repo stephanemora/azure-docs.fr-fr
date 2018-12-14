@@ -177,8 +177,8 @@
 ### [Traiter avec Content Moderator](media-services-content-moderation.md)
 
 ## [Configurer la télémétrie](media-services-telemetry-overview.md)
-###[.NET](media-services-dotnet-telemetry.md)
-###[REST](media-services-rest-telemetry.md)
+### [.NET](media-services-dotnet-telemetry.md)
+### [REST](media-services-rest-telemetry.md)
 
 ## Mettre à l'échelle
 ### [Traitement multimédia](media-services-scale-media-processing-overview.md)
