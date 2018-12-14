@@ -25,6 +25,7 @@ ms.locfileid: "52852589"
 > - [Java](sql-api-java-get-started.md)
 > - [Java asynchrone](sql-api-async-java-get-started.md)
 > - [Node.JS](sql-api-nodejs-get-started.md)
+>
 
 Bienvenue dans le tutoriel Bien démarrer avec l’API SQL Azure Cosmos DB et .NET Core ! À la fin de ce tutoriel, vous disposerez d’une application console .NET Core qui crée et interroge des ressources Azure Cosmos DB. Ce tutoriel utilise la [version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) du kit SDK .NET Azure Cosmos DB, qui cible [.NET Standard 2.0.](https://docs.microsoft.com/dotnet/standard/net-standard)
 
@@ -38,6 +39,7 @@ Ce didacticiel contient les sections suivantes :
 > - Interrogation du conteneur
 > - Opérations CRUD sur l’élément
 > - Suppression de la base de données
+
 
 Vous n’avez pas le temps de créer l’application ? Ne vous inquiétez pas ! La solution complète est disponible sur [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-core-getting-started). Pour obtenir des instructions rapides, allez à la section [Obtenir la solution complète](#GetSolution) .
 
