@@ -15,11 +15,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 12/04/2018
 ms.locfileid: "52852589"
 ---
-
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Créer une application console .NET Core pour gérer des données dans le compte d’API SQL Azure Cosmos DB (kit SDK Version 3 - préversion)
 
 > [!div class="op_single_selector"]
->
 > - [.NET Core (préversion)](sql-api-dotnet-core-get-started-preview.md)
 > - [.NET Core](sql-api-dotnetcore-get-started.md)
 > - [.NET (préversion)](sql-api-dotnet-get-started-preview.md)
@@ -33,7 +31,6 @@ Bienvenue dans le tutoriel Bien démarrer avec l’API SQL Azure Cosmos DB et .N
 Ce didacticiel contient les sections suivantes :
 
 > [!div class="checklist"]
->
 > - Création et connexion à un compte Azure Cosmos
 > - Configuration de votre projet dans Visual Studio
 > - Création d’une base de données et d’un conteneur
@@ -61,13 +58,11 @@ Vous voulez créer une application Xamarin iOS, Android ou Forms à l’aide de 
   - Vous pouvez utiliser votre propre éditeur ou télécharger [Visual Studio Code](https://code.visualstudio.com/), qui est disponible gratuitement pour les systèmes Windows, Linux et Mac OS.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Étape 1 : Créer un compte Azure Cosmos DB
-
 Commençons par créer un compte Azure Cosmos DB. Si vous avez déjà un compte que vous souhaitez utiliser, vous pouvez passer directement à l’étape [Configurer votre solution Visual Studio](#SetupVS). Si vous utilisez l’émulateur Azure Cosmos DB, suivez les étapes de la section [Émulateur Azure Cosmos DB](local-emulator.md) pour le configurer, puis passez directement à l’étape [Configurer votre projet Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>Étape 2 : Configurer votre projet Visual Studio
-
 1. Ouvrez **Visual Studio 2017** sur votre ordinateur.
 1. Dans le menu **Fichier**, sélectionnez **Nouveau**, puis choisissez **Projet**.
 1. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C#** / **Application console (.NET Core)**, donnez un nom à votre projet, puis cliquez sur **OK**.
@@ -86,9 +81,7 @@ Commençons par créer un compte Azure Cosmos DB. Si vous avez déjà un compte 
 Parfait ! L’installation étant terminée, nous pouvons passer à l’écriture du code. Vous trouverez le projet de code complet de ce didacticiel dans [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-core-getting-started/).
 
 ## <a id="Connect"></a>Étape 3 : se connecter à un compte Azure Cosmos DB
-
 1. Remplacez tout d’abord les références situées au début de votre application C#, dans le fichier **Program.cs**, par ces références :
-
    ```csharp
    using System;
    using System.Threading.Tasks;
@@ -123,7 +116,6 @@ Parfait ! L’installation étant terminée, nous pouvons passer à l’écritu
        private string containerId = "FamilyContainer";
    }
    ```
-
    Notez que si vous avez déjà utilisé la version précédente du kit SDK .NET, vous connaissez peut-être les termes « collection » et « document ». Étant donné qu’Azure Cosmos DB prend en charge plusieurs modèles d’API, les versions postérieures à la version 3.0 du kit SDK .NET utilisent les termes génériques « conteneur » et « élément ». Un conteneur peut être une collection, un graphe ou une table. Un élément peut être un document, arête/sommet ou ligne, et correspond au contenu à l’intérieur d’un conteneur. [En savoir plus sur les bases de données, les conteneurs et les éléments.](databases-containers-items.md)
 
 1. Récupérez l’URL du point de terminaison et la clé primaire à partir du [portail Azure](https://portal.azure.com).
@@ -182,13 +174,11 @@ Parfait ! L’installation étant terminée, nous pouvons passer à l’écritu
        }
    }
    ```
-
 1. Sélectionnez **F5** pour exécuter votre application. La sortie de la fenêtre de console affiche le message `End of demo, press any key to exit.` qui confirme que la connexion à Azure Cosmos DB a été établie. Vous pouvez alors fermer la fenêtre de console.
 
 Félicitations ! Vous avez établi une connexion à un compte de base de données Azure Cosmos DB.
 
 ## <a name="step-4-create-a-database"></a>Étape 4 : Créer une base de données
-
 Vous pouvez créer une base de données à l’aide de la fonction [**CreateDatabaseIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) ou [**CreateDatabaseAsync**](https://aka.ms/CosmosDotnetAPIDocs) de la classe `Databases`. Une base de données est le conteneur logique d’éléments partitionnés entre les conteneurs.
 
 1. Copiez et collez la méthode **CreateDatabase** sous votre méthode **GetStartedDemoAsync**. **CreateDatabase** crée une base de données avec l’ID `FamilyDatabase` s’il n’existe pas déjà, sinon avec l’ID spécifié dans le champ `databaseId`.
