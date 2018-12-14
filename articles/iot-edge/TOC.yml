@@ -14,7 +14,7 @@ items:
   - name: Déployer du code sur un appareil Windows
     href: quickstart.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Filtrer des données avec Azure Functions
     href: tutorial-deploy-function.md
@@ -176,7 +176,7 @@ items:
       href: /azure/iot-dps
     - name: Cartes
       href: /azure/azure-maps
-    - name: Kits de développement logiciel (SDK) IoT Service
+    - name: Kits SDK de service
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
@@ -184,7 +184,7 @@ items:
     items:
     - name: IoT Edge
       href: /azure/iot-edge
-    - name: Kits de développement logiciel (SDK) IoT Device
+    - name: Kits IoT Device SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Ressources
   items:
@@ -206,7 +206,7 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Azure IoT Edge pour VS Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
-  - name: Kit de ressources Azure IoT pour VS Code
+  - name: Azure IoT Hub Toolkit pour VS Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: Outil DeviceExplorer
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
@@ -220,15 +220,15 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Études de cas techniques
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: vidéos
+  - name: Vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 36f90f4ff43b16a7f9127d5efbabd02f15e14b2c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0f761c4395dc1e96aa58acc9dc737f115fcde09b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101702"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340842"

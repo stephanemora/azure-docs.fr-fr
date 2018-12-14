@@ -18,7 +18,7 @@ items:
   - name: Solutions de sécurité
     href: quick-security-solutions.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Protéger vos ressources
     href: tutorial-protect-resources.md
@@ -40,9 +40,7 @@ items:
     href: security-center-wdatp.md
   - name: Protéger App Service
     href: security-center-app-services.md
-  - name: Afficher les stratégies de sécurité
-    href: security-center-azure-policy.md
-  - name: Modifier des stratégies de sécurité
+  - name: Utilisation de stratégies de sécurité
     href: tutorial-security-policy.md
   - name: Personnaliser la politique de protection des informations
     href: security-center-info-protection-policy.md
@@ -69,7 +67,7 @@ items:
     - name: Protéger les ordinateurs et les applications
       href: security-center-virtual-machine-protection.md
       items:
-      - name: Apply disk encryption
+      - name: Appliquer le chiffrement de disque
         href: security-center-apply-disk-encryption.md
       - name: Appliquer des mises à jour système
         href: security-center-apply-system-updates.md
@@ -209,9 +207,9 @@ items:
     href: security-center-readiness-roadmap.md
   - name: Blog Azure sur la sécurité, la confidentialité et la conformité
     href: http://blogs.msdn.com/b/azuresecurity/
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/search?q=security-center
-  - name: vidéos
+  - name: Vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=security-center
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/security-center/
@@ -219,9 +217,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: dfcf985e2f7dec286f6b64d508e8525986315a6c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 28b701fcb85bd8deac5c0442d98730dfb10e8cd2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843357"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338683"

@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 30a415fb0df910333b81f36cfb925faafd1c8c1b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: da46b78d764465d8b9e5ce438b0843e0b79e16a9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080161"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271145"
 documentType: LandingData
 title: Documentation du service Azure Machine Learning
 metadata:
-  title: Documentation du service Azure Machine Learning - Tutoriels, informations de référence sur les API | Microsoft Docs
+  title: Documentation - Service Azure Machine Learning - Tutoriels, informations de référence sur les API | Microsoft Docs
   description: Découvrez comment gérer des algorithmes intelligents dans vos applications et vos sites. Utilisez Scikit-learn, Tensorflow, Pytorch ou toute autre infrastructure fondée sur Python pour générer votre modèle d’apprentissage automatique et effectuez son apprentissage localement ou dans le cloud. Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.
   services: machine-learning
   author: j-martens
@@ -27,13 +27,13 @@ sections:
 - items:
   - type: list
     style: cards
-    className: cardsB
-    columns: 1
+    className: cardsFTitle
     items:
-    - html: <p>Formez et déployez vos modèles ML dans un service cloud Azure. <a href="overview-what-is-azure-ml.md">En savoir plus sur le service...</a></p>
+    - title: Commencer à découvrir le service Azure Machine Learning
+      href: /azure/machine-learning/service/overview-what-is-azure-ml
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Service Azure Machine Learning
+        href: /azure/machine-learning/service/overview-what-is-azure-ml
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
@@ -46,16 +46,23 @@ sections:
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: '<b>Didacticiels</b> : découvrez comment configurer une expérience et rendre vos modèles opérationnels.'
+    text: Découvrez comment configurer une expérience et rendre vos modèles opérationnels.
+  - type: paragraph
+    text: <b>Tutoriel sur la classification des images avec des données MNIST :</b>
   - type: list
     style: unordered
     items:
-    - html: Classification d’images (première partie)&#58; <a href="tutorial-train-models-with-aml">Former votre propre modèle Machine Learning</a>
-    - html: Classification d’images (deuxième partie)&#58; <a href="tutorial-deploy-models-with-aml">Déployer ce modèle</a></br>&nbsp;
-    - html: Régression (première partie)&#58; <a href="tutorial-data-prep">préparer les données NYC Taxi pour la modélisation</a>
-    - html: Régression (deuxième partie)&#58; <a href="tutorial-auto-train-models">Générer un modèle à l’aide du machine learning automatisé</a>
+    - html: Partie 1 &#58; <a href="tutorial-train-models-with-aml">Entraîner votre propre modèle Machine learning automatique</a>
+    - html: Partie 2 &#58; <a href="tutorial-deploy-models-with-aml">Déployer ce modèle</a>
   - type: paragraph
-    text: '<b>Exemple de bloc-notes</b> : explorez Azure Machine Learning avec ces <a href="https://aka.ms/aml-notebooks">bloc-notes Jupyter</a>, disponibles sur GitHub.'
+    text: <b>Tutoriel de modélisation de régression avec des données NYC Taxi :</b>
+  - type: list
+    style: unordered
+    items:
+    - html: Partie 1 &#58; <a href="tutorial-data-prep">Préparer des données NYC Taxi pour la modélisation</a>
+    - html: Partie 2 &#58; <a href="tutorial-auto-train-models">Utiliser le machine learning automatisé pour générer des modèles</a>
+  - type: paragraph
+    text: '<b>Exemples de bloc-notes</b> : Explorez le service avec les bloc-notes suivants : <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://aka.ms/aml-notebooks">Bloc-notes Jupyter</a> sur GitHub.'
 - title: Informations de référence
   items:
   - type: list

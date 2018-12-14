@@ -1,77 +1,71 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ef0ecc7a9e89168ed57c75ab24c3233692d77151
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 865f7421172c3302333b1cbf465f66806b296759
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863565"
-documentType: LandingData
-title: Documentation Azure Machine Learning
-metadata:
-  title: Documentation Azure Machine Learning - Didacticiels, informations de référence sur les API | Microsoft Docs
-  description: Découvrez comment générer des algorithmes intelligents dans vos applications, sites web et bots pour voir, écouter, énoncer, et comprendre les besoins de vos utilisateurs au moyen de méthodes naturelles de communication. Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.
-  services: machine-learning
-  author: j-martens
-  ms.service: machine-learning
-  ms.component: core
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 12/04/2018
-  ms.author: jmartens
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314378"
 abstract:
   description: Découvrez comment générer des algorithmes intelligents dans des applications et des sites web avec ces produits Azure Machine Learning.  Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.
+documentType: LandingData
+metadata:
+  author: j-martens
+  description: Découvrez comment générer des algorithmes intelligents dans vos applications, sites web et bots pour voir, écouter, énoncer, et comprendre les besoins de vos utilisateurs au moyen de méthodes naturelles de communication. Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.
+  ms.author: jmartens
+  ms.component: core
+  ms.date: 12/04/2018
+  ms.devlang: na
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  services: machine-learning
+  title: Documentation Azure Machine Learning - Didacticiels, informations de référence sur les API | Microsoft Docs
 sections:
 - items:
-  - type: list
-    style: cards
-    className: cardsM
+  - className: cardsM
     columns: 2
     items:
     - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>Découvrez comment ce service offre aux scientifiques des données la capacité de développer et de gérer des solutions IA<br/> avec l’interface CLI et des outils et bibliothèques Python avec une variété de données Azure et de services de calcul. En savoir plus...</p>
+      html: <p>Découvrez comment ce service offre aux scientifiques des données la capacité de développer et de gérer des solutions IA<br/> à l’aide de l’interface Azure CLI et des outils et bibliothèques Python avec diverses données et des services de calcul Azure. En savoir plus...</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: Service Azure Machine Learning
-- title: Guides de démarrages rapides et tutoriels
-  items:
-  - type: paragraph
-    text: 'Découvrez comment configurer et utiliser rapidement le service Azure Machine Learning :'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/i_machine-learning.svg
-    rows:
-    - title: Bien démarrer avec le service dans le portail Azure
-      values:
-      - href: /azure/machine-learning/service/quickstart-get-started
-    - title: Bien démarrer avec le service dans Python
-      values:
-      - href: /azure/machine-learning/service/quickstart-create-workspace-with-python
-    - title: Préparer les données pour la modélisation
-      values:
-      - href: /azure/machine-learning/service/tutorial-data-prep
-    - title: Créer votre propre modèle d’apprentissage automatique
-      values:
-      - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-    - title: Générer et ajuster automatiquement des algorithmes
-      values:
-      - href: /azure/machine-learning/service/tutorial-auto-train-models
-    - title: Déployer votre modèle en tant que service web
-      values:
-      - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-    - title: Utiliser vos modèles d’apprentissage automatique
-      values:
-      - href: /azure/machine-learning/service/how-to-consume-web-service
-    - title: Créer et gérer des pipelines de machine learning
-      values:
-      - href: /azure/machine-learning/service/how-to-create-your-first-pipeline
-- title: Autres technologies Microsoft de machine learning
-  items:
-  - type: list
     style: cards
-    className: cardsM
+    type: list
+- items:
+  - text: 'Configurez le service Azure Machine Learning et commencez à l’utiliser :'
+    type: paragraph
+  - text: <b>Guides de démarrage rapide :</b>
+    type: paragraph
+  - items:
+    - html: <a href="service/quickstart-create-workspace-with-python">Utiliser Python pour bien démarrer</a>
+    - html: <a href="service/quickstart-get-started">Utiliser le portail Azure pour bien démarrer </a>
+    style: unordered
+    type: list
+  - text: <b>Tutoriel sur la classification des images avec des données MNIST :</b>
+    type: paragraph
+  - items:
+    - html: 'Partie 1 : <a href="service/tutorial-train-models-with-aml">Entraîner votre propre modèle</a>'
+    - html: 'Partie 2 : <a href="service/tutorial-deploy-models-with-aml">Déployer ce modèle</a>'
+    style: unordered
+    type: list
+  - text: <b>Tutoriel de modélisation de régression avec des données NYC Taxi :</b>
+    type: paragraph
+  - items:
+    - html: 'Partie 1 : <a href="service/tutorial-data-prep">Préparer les données pour la modélisation</a>'
+    - html: 'Partie 2 : <a href="service/tutorial-auto-train-models">Laisser le machine learning automatisé entraîner des modèles pour vous </a>'
+    style: unordered
+    type: list
+  - text: <b>Consommer vos modèles :</b>
+    type: paragraph
+  - items:
+    - html: <a href="service/how-to-consume-web-service">Consommation de modèles de requête-réponse</a>
+    - html: <a href="service/how-to-run-batch-predictions">Prédictions par lot avec des pipelines ML</a>
+    style: unordered
+    type: list
+  title: Guides de démarrages rapides et tutoriels
+- items:
+  - className: cardsM
     columns: 2
     items:
     - href: /azure/cognitive-services/
@@ -80,7 +74,7 @@ sections:
         src: /azure/machine-learning/media/index/cognitive-services.png
       title: Cognitive Services
     - href: /azure/machine-learning/studio/
-      html: <p>Découvrez comment cet outil collaboratif avec fonction glisser-déplacer peut servir à générer, tester et déployer des solutions d’analyse prédictive sur vos données. En savoir plus... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      html: <p>Outil collaboratif fonctionnant par glisser-déplacer pour générer, tester et déployer des solutions d’analytique prédictive à partir de vos données avec R ou Python. </p>
       image:
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
       title: Azure Machine Learning Studio
@@ -104,3 +98,7 @@ sections:
       image:
         src: /azure/machine-learning/media/index/virtualmachine.svg
       title: Machine virtuelle de science des données
+    style: cards
+    type: list
+  title: Autres technologies Microsoft de machine learning
+title: Documentation Azure Machine Learning

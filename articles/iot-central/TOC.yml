@@ -80,6 +80,11 @@ items:
       href: howto-trigger-azure-functions.md
     - name: Exporter vos données
       href: howto-export-data.md
+      items:
+      - name: Exporter vers Event Hubs et Service Bus
+        href: howto-export-data-event-hubs-service-bus.md
+      - name: Exporter vers le Stockage Blob
+        href: howto-export-data-blob-storage.md
     - name: Visualiser vos données dans Power BI
       href: howto-connect-powerbi.md
     - name: Connecter d’autres clouds IoT
@@ -112,7 +117,7 @@ items:
       href: /azure/iot-dps
     - name: Location Based Services
       href: /azure/location-based-services
-    - name: Kits de développement logiciel (SDK) IoT Service
+    - name: Kits SDK de service
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
@@ -120,7 +125,7 @@ items:
     items:
     - name: IoT Edge
       href: /azure/iot-edge
-    - name: Kits de développement logiciel (SDK) IoT Device
+    - name: Kits IoT Device SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Ressources
   items:
@@ -128,9 +133,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Navigateurs pris en charge
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: 59ca634e96dc1ca47bb4a1c1f550a9fd07317f90
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 691a3c5da906a66d4773ebaf458c3e99e6a03f99
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998973"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316316"

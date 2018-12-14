@@ -7,6 +7,12 @@ items:
     href: Overview/overview.md
 - name: Démarrages rapides
   items:
+  - name: Obtenir des réponses à partir de la base de connaissances
+    items:
+    - name: Utilisation de Postman
+      href: Quickstarts/get-answer-from-kb-using-postman.md
+    - name: Utilisation de cURL
+      href: Quickstarts/get-answer-from-kb-using-cURL.md
   - name: Utilisation d’API REST
     items:
     - name: Créer une base de connaissances
@@ -60,14 +66,14 @@ items:
     href: Concepts/knowledge-base.md
   - name: Cycle de vie de développement d’une base de connaissances
     href: Concepts/development-lifecycle-knowledge-base.md
-  - name: Meilleures pratiques
+  - name: Bonnes pratiques
     href: Concepts/best-practices.md
   - name: Score de confiance
     displayName: DefaultAnswer, Default answer
     href: Concepts/confidence-score.md
   - name: Sources de données prises en charge
     href: Concepts/data-sources-supported.md
-- name: Procédures
+- name: Guides pratiques
   items:
   - name: Gérer une base de connaissances
     items:
@@ -77,8 +83,6 @@ items:
       href: How-To/create-knowledge-base.md
     - name: Ajouter un échange à une base de connaissances
       href: How-to/chit-chat-knowledge-base.md
-    - name: Utiliser des métadonnées avec l’API GenerateAnswer
-      href: How-To/metadata-generateanswer-usage.md
     - name: Migrer une base de connaissances à partir de la préversion
       href: Tutorials/migrate-knowledge-base.md
     - name: Modifier une base de connaissances
@@ -91,9 +95,11 @@ items:
       href: How-To/publish-knowledge-base.md
     - name: Tester une base de connaissances
       href: How-To/test-knowledge-base.md
-  - name: Intégrer aux autres services
+  - name: Utiliser une base de connaissances
     items:
-    - name: Intégrer QnA Maker et LUIS
+    - name: Utiliser des métadonnées avec l’API GenerateAnswer
+      href: How-To/metadata-generateanswer-usage.md
+    - name: Avec un bot
       href: Tutorials/integrate-qnamaker-luis.md
   - name: Gérer le service
     items:
@@ -111,7 +117,7 @@ items:
       href: How-To/business-continuity-plan.md
     - name: Résoudre les problèmes et mettre à jour le runtime QnAMaker
       href: How-To/troubleshooting-runtime.md
-  - name: Avec l’API REST
+  - name: Utiliser l’API REST
     items:
     - name: C#
       href: Quickstarts/csharp.md
@@ -136,6 +142,20 @@ items:
   - name: Codes de réponse HTTP
     displayName: 200, 2xx, 400, 401, 403, 404
     href: http-response-codes.md
+  - name: Kits de développement logiciel (SDK)
+    items:
+    - name: C#
+      items:
+      - name: NuGet
+        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
+    - name: Node.js
+      items:
+      - name: NPM
+        href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+    - name: Ruby
+      items:
+      - name: Gem
+        href: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
 - name: Ressources
   items:
   - name: Disponibilité régionale
@@ -154,9 +174,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: e9adfa628172efa5417a14202e5f5832088fedca
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4323dcd58b35fefcfa91864bd58ce2129f1a53c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835758"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272437"

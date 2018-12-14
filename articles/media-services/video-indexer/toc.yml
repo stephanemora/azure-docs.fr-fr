@@ -17,8 +17,16 @@ items:
 - name: Concepts
   href: video-indexer-concepts.md
   items:
-  - name: Comparer les présélections VI et AMS
+  - name: Comparer les présélections Video Indexer et Media Services
     href: compare-video-indexer-with-media-services-presets.md
+  - name: Personnalisation de modèles de contenu
+    items:
+    - name: Marques
+      href: customize-brands-model-overview.md
+    - name: Langage
+      href: customize-language-model-overview.md
+    - name: Personne
+      href: customize-person-model-overview.md
 - name: Procédures
   items:
   - name: Effectuer la migration de la version 1 à la version 2
@@ -39,6 +47,26 @@ items:
     href: video-indexer-create-new.md
   - name: Incorporer des widgets dans votre application
     href: video-indexer-embed-widgets.md
+  - name: Personnaliser des modèles de contenu
+    items:
+    - name: Personne
+      items:
+      - name: utilisation du site web Video Indexer
+        href: customize-person-model-with-website.md
+      - name: utilisation de l’API Video Indexer
+        href: customize-person-model-with-api.md
+    - name: Marques
+      items:
+      - name: utilisation du site web Video Indexer
+        href: customize-brands-model-with-website.md
+      - name: utilisation de l’API Video Indexer
+        href: customize-brands-model-with-api.md
+    - name: Langage
+      items:
+      - name: utilisation du site web Video Indexer
+        href: customize-language-model-with-website.md
+      - name: utilisation de l’API Video Indexer
+        href: customize-language-model-with-api.md
 - name: Informations de référence
   items:
   - name: API Video Indexer
@@ -51,9 +79,11 @@ items:
     href: https://azure.microsoft.com/pricing/details/media-services/
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 0936678c29ac4ab4e89bcacd746bbcbb88e22c21
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+  - name: Régions
+    href: regions.md
+ms.openlocfilehash: 0ede3667a745959b2d58d1ad1f37e36728fcd503
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290805"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270077"

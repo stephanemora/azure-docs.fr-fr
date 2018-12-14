@@ -48,28 +48,28 @@ items:
       items:
       - name: Appliquer une étiquette et sa valeur par défaut
         displayName: append, builtin, concat
-        href: samples/apply-tag-def-val.md
+        href: samples/apply-tag-default-value.md
       - name: Initiative de la stratégie de facturation en fonction d’étiquettes
-        href: samples/billing-tags-policy-init.md
+        href: samples/billing-tags-policy-initiative.md
       - name: Enforce tag and its value
         displayName: deny, concat, builtin
-        href: samples/enforce-tag-val.md
+        href: samples/enforce-tag-value.md
       - name: Forcer l’application d’une étiquette et de sa valeur sur des groupes de ressources
         displayName: deny, concat
-        href: samples/enforce-tag-rg.md
+        href: samples/enforce-tag-on-resource-groups.md
     - name: Emplacements
       items:
       - name: Emplacements autorisés
         displayName: deny, builtin, location
-        href: samples/allowed-locs.md
+        href: samples/allowed-locations.md
     - name: Types de ressources
       items:
       - name: Types de ressources autorisés
         displayName: deny, builtin, resourceTypes
-        href: samples/allowed-res-types.md
+        href: samples/allowed-resource-types.md
       - name: Types de ressources non autorisés
         displayName: deny, builtin, resourceTypes
-        href: samples/not-allowed-res-type.md
+        href: samples/not-allowed-resource-types.md
   - name: Calcul
     items:
     - name: Machines virtuelles
@@ -85,10 +85,10 @@ items:
         href: samples/allowed-custom-images.md
       - name: Vérifier si une extension n’existe pas
         displayName: auditIfNotExists
-        href: samples/audit-ext-not-exist.md
+        href: samples/audit-extension-not-exist.md
       - name: Extensions de machine virtuelle non autorisées
         displayName: deny
-        href: samples/not-allowed-vm-ext.md
+        href: samples/not-allowed-vm-extension.md
     - name: 'Groupes identiques de machines virtuelles '
       items:
       - name: Auditer lorsque la machine virtuelle n’utilise pas de disque managé
@@ -107,12 +107,12 @@ items:
     items:
     - name: Appliquer le chiffrement Data Lake Store
       displayName: deny
-      href: samples/enforce-datalakestore-encryption.md
+      href: samples/enforce-data-lake-store-encryption.md
   - name: Surveillance
     items:
     - name: Auditer le paramètre de diagnostic
       displayName: auditIfNotExists, resourceTypes
-      href: samples/audit-diag-setting.md
+      href: samples/audit-diagnostic-setting.md
   - name: Réseau
     items:
     - name: Interfaces réseau
@@ -130,13 +130,19 @@ items:
       items:
       - name: Références (SKU) de passerelles d’application autorisées
         displayName: deny
-        href: samples/allowed-app-gate-sku.md
+        href: samples/allowed-app-gateway-sku.md
+      - name: Références (SKU) de passerelle de réseau virtuel autorisées
+        displayName: deny
+        href: samples/allowed-vnet-gateway-sku.md
+      - name: Références (SKU) d’équilibreur de charge autorisées
+        displayName: deny
+        href: samples/allowed-load-balancer-skus.md
       - name: Pas d’appairage réseau à un réseau ER
         displayName: deny, all, concat, ExistingResourceGroups
-        href: samples/no-peering-er-net.md
+        href: samples/no-peering-express-route-network.md
       - name: Aucune table d’itinéraires définie par l’utilisateur
         displayName: deny, all
-        href: samples/no-user-def-route-table.md
+        href: samples/no-user-defined-route-table.md
       - name: NSG X sur chaque sous-réseau
         displayName: deny, all
         href: samples/nsg-on-subnet.md
@@ -158,23 +164,23 @@ items:
       items:
       - name: Bande passante Express Route autorisée
         displayName: deny
-        href: samples/allowed-er-band.md
+        href: samples/allowed-express-route-bandwidth.md
       - name: Références (SKU) d’Express Route autorisées
         displayName: deny
-        href: samples/allowed-er-skus.md
-      - name: Emplacement d’appairage autorisé pour Express Route
+        href: samples/allowed-express-route-skus.md
+      - name: Emplacements d’appairage Express Route autorisés
         displayName: deny, Location
-        href: samples/allowed-peering-er.md
+        href: samples/allowed-express-route-peering.md
     - name: Network Watchers
       items:
       - name: Vérifier si Network Watchers n’est pas activé pour une région
         displayName: auditIfNotExists, Location
-        href: samples/net-watch-not-enabled.md
+        href: samples/network-watcher-not-enabled.md
     - name: Passerelles d’application
       items:
       - name: Références (SKU) de passerelles d’application autorisées
         displayName: deny
-        href: samples/allowed-app-gate-sku.md
+        href: samples/allowed-app-gateway-sku.md
   - name: SQL
     items:
     - name: Serveurs SQL
@@ -184,16 +190,16 @@ items:
         href: samples/audit-no-aad-admin.md
       - name: Auditer le paramètre de détection de menaces au niveau du serveur
         displayName: auditIfNotExists
-        href: samples/audit-sql-ser-threat-det-setting.md
+        href: samples/audit-sql-server-threat-detection-setting.md
       - name: Auditer les paramètres d’audit de SQL Server
         displayName: auditIfNotExists, builtin
         href: samples/sql-server-audit.md
       - name: Auditer le paramètre d’audit de niveau de SQL Server
         displayName: auditIfNotExists
-        href: samples/audit-sql-ser-leve-audit-setting.md
+        href: samples/audit-sql-server-audit-setting.md
       - name: Nécessitent SQL Server version 12.0
         displayName: deny, builtin
-        href: samples/req-sql-12.md
+        href: samples/require-sql-12.md
     - name: BASES DE DONNÉES SQL
       items:
       - name: Références (SKU) de base de données SQL autorisées
@@ -201,7 +207,7 @@ items:
         href: samples/allowed-sql-db-skus.md
       - name: Auditer le paramètre de détection de menaces au niveau de la base de données SQL
         displayName: auditIfNotExists
-        href: samples/audit-db-threat-det-setting.md
+        href: samples/audit-db-threat-detection-setting.md
       - name: Auditer le chiffrement de base de données SQL
         displayName: auditIfNotExists, disabled, indexed, builtin
         href: samples/sql-database-encryption-audit.md
@@ -215,19 +221,19 @@ items:
       href: samples/allowed-skus-storage.md
     - name: Références SKU de compte de stockage autorisées
       displayName: deny, builtin, storageSKUs
-      href: samples/allowed-stor-acct-skus.md
+      href: samples/allowed-storage-account-skus.md
     - name: Refuser les niveaux d’accès réduits pour les comptes de stockage
       displayName: deny, all
       href: samples/deny-cool-access-tiering.md
     - name: Autoriser seulement le trafic HTTPS pour le compte de stockage
       displayName: deny, all
-      href: samples/ensure-https-stor-acct.md
+      href: samples/ensure-https-storage-account.md
     - name: Appliquer le chiffrement des fichiers de stockage
       displayName: deny, all
-      href: samples/ensure-store-file-enc.md
+      href: samples/ensure-storage-file-encryption.md
     - name: Nécessitent le chiffrement du compte de stockage
       displayName: deny, builtin
-      href: samples/req-store-acct-enc.md
+      href: samples/require-storage-account-encryption.md
 - name: Concepts
   items:
   - name: Structure de définition Azure Policy
@@ -244,9 +250,9 @@ items:
   - name: Créer des stratégies par programmation
     displayName: assign, definition
     href: ./how-to/programmatically-create.md
-  - name: Obtention de données de conformité
+  - name: Obtenir des données de conformité
     displayName: evaluation, scan, summarize, query, events, log analytics
-    href: ./how-to/getting-compliance-data.md
+    href: ./how-to/get-compliance-data.md
   - name: Remédier aux ressources non conformes
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
@@ -302,9 +308,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: 6bb656f390ad7f0e3ead1928476cdbe3845be633
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6b71365c05180db643bfc9a693f40db97dd89729
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725911"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312542"

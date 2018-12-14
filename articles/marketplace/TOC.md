@@ -1,16 +1,18 @@
 # [Documentation de la Place de marché Microsoft Azure et d’AppSource](index.md)
-## [Stratégies d’évaluation et de révision](./rating-review-policies.md)   
+
 ## [Vue d’ensemble et avantages de la Place de marché Microsoft Azure et d’AppSource](./marketplace-publishers-guide.md)  
 
 ### [Devenir un éditeur sur la Place de marché](./become-publisher.md)  
 #### [Créer un compte Microsoft](./guidelines.md)
 #### [S’inscrire dans le centre de développement](./register-dev-center.md) 
 #### [Attribution de l’utilisation de client partenaire Azure](./azure-partner-customer-usage-attribution.md)
-#### [Gestion des prospects pour le marketplace cloud](./lead-management-for-cloud-marketplace.md)
 
-### [Vitrines](./comparing-appsource-azure-marketplace.md)  
+### [Une place de marché, deux vitrines](./comparing-appsource-azure-marketplace.md)  
 
-### [Déterminer l’option de publication pour votre solution](./determine-your-listing-type.md)  
+### [Options et considérations relatives à la publication](./determine-your-listing-type.md)
+#### [Gestion des prospects](./lead-management-for-cloud-marketplace.md)
+#### [Négociations sur la Place de marché Azure](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Offres privées](./private-offers.md)
 
 ### [Guide de publication par Type d’offre](./publisher-guide-by-offer-type.md)
 #### [Machines virtuelles](./marketplace-virtual-machines.md)
@@ -26,8 +28,7 @@
 ### [Développer votre activité avec la Place de marché](./grow-your-business-with-azure-marketplace.md)  
 #### [Solutions recommandées](./preferred-solutions.md) 
 #### [Validation du contenu Place de marché](./marketplace-criteria-content-validation.md)
-#### [Offres privées](./private-offers.md)
-#### [Remarques et fonctionnalités des transactions commerciales ‎ de la Place de marché](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Stratégies d’évaluation et de révision](./rating-review-policies.md)   
 
 ### [Support pour la Place de marché Microsoft Azure et Microsoft AppSource](./support-azure-marketplace.md)  
 
@@ -67,8 +68,15 @@
 #### [Problèmes courants relatifs à la création d’un disque dur virtuel](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 #### [Se connecter à une machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
 #### [Configurer une machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
-#### [Déployer une machine virtuelle à partir de disques durs virtuels](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [Modèle de déploiement de disque dur virtuel (JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+#### [Windows Remote Management](./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md) 
+##### [Configurer WinRM après la création d’une machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md)
+#### [Déployer une machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [Créer une image de machine virtuelle d’utilisateur](./cloud-partner-portal/virtual-machine/cpp-create-user-image.md)
+##### [Créer un certificat de coffre de clés](./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md)
+###### [Modèle de déploiement de coffre de clés](./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md)
+#### [Déployer une machine virtuelle à partir d’un disque dur virtuel utilisateur](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md)
+##### [Modèle de déploiement de disque dur virtuel](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+##### [Déployer une machine virtuelle à partir de la Place de marché](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 #### [Certifier l’image de machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
 #### [Obtenir une URI SAP](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 #### [Problèmes courants relatifs aux URL SAP](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
@@ -88,21 +96,53 @@
 ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
+<!-- new section for Azure apps -->
 
-## [Offre d’application Azure](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
-### [Application managée d’auteur](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
-### [Modèle de solution d’auteur](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
-### [Publier une solution de gestion](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
-### [Conseil SEO](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [Faire une offre en direct](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
-### [Mettre à jour l’offre existante](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
-### [Supprimer l’offre](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
+## [Offre d’application Azure](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
+### [Composants requis](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
+### [Créer une offre d’application Azure](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
+#### [Onglet des paramètres de l’offre](./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md)
+#### [Onglet des références SKU](./cloud-partner-portal/azure-applications/cpp-skus-tab.md)
+#### [Onglet de version d'évaluation](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
+#### [Onglet de la Place de marché](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
+#### [Onglet du support](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
+<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Publier une offre d’application Azure](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+### [Mettre à jour l’offre existante](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
-## [Offre d’application SaaS](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
-### [Guide de publication technique d’applications SaaS](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
-### [Vente SaaS via Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
+<!-- Legacy Azure App section replaced
+## [Azure application offer](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
+    Obsolete ### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
+### [Author solution template](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
+### [Publish a Management Solution](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
+### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
+### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
+### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
+   Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
+-->
+
+<!-- new for SaaS 12/05/2018 -->
+## [Offre d’application SaaS](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
+### [Composants requis](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
+### [Créer une offre d’application SaaS](./cloud-partner-portal/saas-app/cpp-create-offer.md)
+#### [Onglet des paramètres de l’offre](./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md)
+#### [Onglet des informations techniques](./cloud-partner-portal/saas-app/cpp-technical-info-tab.md)
+#### [Onglet Plans](./cloud-partner-portal/saas-app/cpp-plans-tab.md)
+#### [Onglet des informations de canal](./cloud-partner-portal/saas-app/cpp-channel-info-tab.md)
+#### [Onglet de version d'évaluation](./cloud-partner-portal/saas-app/cpp-testdrive-tab.md)
+#### [Onglet des informations sur les vitrines](./cloud-partner-portal/saas-app/cpp-storefront-tab.md)
+#### [Onglet Contacts](./cloud-partner-portal/saas-app/cpp-contacts-tab.md)
+### [Publier l’offre](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
+### [Mettre à jour l’offre existante](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 ### [API SaaS](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+
+<!-- Legacy SaaS Offer replaced
+## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
+### [SaaS apps technical publishing guide](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
+### [SaaS Sell through Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
+### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+-->
 
 ## [Offre de conteneurs](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [Composants requis](./cloud-partner-portal/containers/cpp-prerequisites.md)
