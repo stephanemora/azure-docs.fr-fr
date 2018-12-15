@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 615dfc789db805e51ed3e7c11fed9da6d7079e96
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 9e17fda2bc05eb901d3a75d6b1d455232f48a9d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319096"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970419"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Bien démarrer avec le jumeau de module et l’identité de module IoT Hub en utilisant un backend Python et un appareil Python
 
@@ -169,7 +169,7 @@ Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT
 
 
 <!-- Images. -->
-[15]:./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]:./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5be556ca13b9e4f681239998205aac073cc0fb99
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7d593a992d0ff189d23185b3422dee86a55308d1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974753"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309448"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connecter un appareil Windows IoT Core à votre application Azure IoT Central
 
@@ -57,9 +57,9 @@ Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du
 
 ### <a name="what-youll-need"></a>Ce dont vous avez besoin
 
-Pour configurer un appareil Windows 10 IoT Core physique, vous devez d’abord disposer d’un appareil exécutant Windows 10 IoT Core. Découvrez [ici](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup) comment configurer un appareil Windows 10 IoT Core.
+Pour configurer un appareil Windows 10 IoT Core physique, vous devez d’abord disposer d’un appareil exécutant Windows 10 IoT Core. Découvrez [ici](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) comment configurer un appareil Windows 10 IoT Core.
 
-Vous avez également besoin d’une application cliente qui peut communiquer avec Azure IoT Central. Vous pouvez créer votre propre application personnalisée avec le SDK Azure et la déployer sur votre appareil avec Visual Studio, ou bien vous pouvez télécharger un [exemple prégénéré](https://developer.microsoft.com/en-us/windows/iot/samples), puis simplement le déployer et l’exécuter sur l’appareil. 
+Vous avez également besoin d’une application cliente qui peut communiquer avec Azure IoT Central. Vous pouvez créer votre propre application personnalisée avec le SDK Azure et la déployer sur votre appareil avec Visual Studio, ou bien vous pouvez télécharger un [exemple prégénéré](https://developer.microsoft.com/windows/iot/samples), puis simplement le déployer et l’exécuter sur l’appareil. 
 
 ### <a name="deploying-the-sample-client-application"></a>Déploiement de l’exemple d’application cliente
 

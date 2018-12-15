@@ -3,26 +3,25 @@ title: Recommandations de coûts du conseiller Azure | Microsoft Docs
 description: Le conseiller Azure permet d’optimiser le coût de vos déploiements Azure.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: 71c380a1caae730b6b01615ce3047c2e22bd6dfb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.author: kasparks
+ms.openlocfilehash: a4de50e3dc17d9c9543bf1ec8cabb04c5d60070b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144800"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832885"
 ---
 # <a name="advisor-cost-recommendations"></a>Recommandations en matière de coûts du conseiller
 
-Le conseiller vous aide à optimiser et à réduire votre dépense Azure globale en identifiant les ressources inactives et sous-utilisées. Vous pouvez obtenir des recommandations en matière de coûts dans l’onglet **Coût** du tableau de bord Advisor.
+Le conseiller vous aide à optimiser et à réduire votre dépense Azure globale en identifiant les ressources inactives et sous-utilisées. Vous pouvez obtenir des recommandations en matière de coûts dans l’onglet **Coût** du tableau de bord Advisor.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimiser le coût de la machine virtuelle en redimensionnant ou en arrêtant les instances sous-utilisées 
 Alors que certains scénarios d’application peuvent par définition entraîner une faible utilisation, vous pouvez souvent faire des économies grâce à la gestion de la taille de vos machines virtuelles et de leur nombre. Advisor surveille l’utilisation de votre machine virtuelle pendant 14 jours et identifie les machines virtuelles faiblement utilisées. Les machines virtuelles dont l’utilisation du processeur est inférieure ou égale à 5 % et celle du réseau est inférieure ou égale à 7 Mo pendant quatre jours ou plus sont considérées comme des machines virtuelles faiblement utilisées.

@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 6fa3ba36dca45d5b99c6b5f2ba24367bcd077024
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 181f37fb72584e18cc963ba1ffde070379a1b0c6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030062"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961426"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utiliser l’ASDK pour valider une sauvegarde Azure Stack
-Après déploiement d’Azure Stack et approvisionnement de ressources utilisateur telles que des offres, des plans, des quotas et des abonnements, vous devez [activer la sauvegarde d’infrastructure Azure Stack](..\azure-stack-backup-enable-backup-console.md). La planification et l’exécution de sauvegardes d’infrastructure régulières garantit que les données de gestion d’infrastructure ne seront pas perdues en cas de défaillance catastrophique du matériel ou du service.
+Après déploiement d’Azure Stack et approvisionnement de ressources utilisateur telles que des offres, des plans, des quotas et des abonnements, vous devez [activer la sauvegarde d’infrastructure Azure Stack](../azure-stack-backup-enable-backup-console.md). La planification et l’exécution de sauvegardes d’infrastructure régulières garantit que les données de gestion d’infrastructure ne seront pas perdues en cas de défaillance catastrophique du matériel ou du service.
 
 > [!TIP]
-> Avant d’entamer cette procédure, nous vous recommandons d’[exécuter une sauvegarde à la demande](..\azure-stack-backup-back-up-azure-stack.md) afin de disposer d’une copie des données d’infrastructure les plus récentes. Une fois la sauvegarde terminée avec succès, veillez à capturer l’ID de sauvegarde. Cet ID sera nécessaire lors de la récupération à partir du cloud. 
+> Avant d’entamer cette procédure, nous vous recommandons d’[exécuter une sauvegarde à la demande](../azure-stack-backup-back-up-azure-stack.md) afin de disposer d’une copie des données d’infrastructure les plus récentes. Une fois la sauvegarde terminée avec succès, veillez à capturer l’ID de sauvegarde. Cet ID sera nécessaire lors de la récupération à partir du cloud. 
 
 Les sauvegardes d’infrastructure Azure Stack contiennent des données importantes sur votre cloud, qui peuvent être restaurées lors du redéploiement d’Azure Stack. L’ASDK permet de valider ces sauvegardes sans que cela ait d’incidence sur votre cloud de production. 
 
@@ -49,7 +49,7 @@ Vous pouvez valide les sauvegardes d’infrastructure de votre déploiement de s
 ### <a name="cloud-recovery-prerequisites"></a>Conditions préalables de récupération cloud
 Avant de commencer un déploiement de récupération cloud de l’ASDK, vérifiez que vous disposez des informations suivantes :
 
-|Condition préalable|Description|
+|Configuration requise|Description|
 |-----|-----|
 |Chemin d'accès du partage de la sauvegarde.|Chemin d'accès du partage de fichiers UNC de la dernière sauvegarde Azure Stack qui sera utilisée pour récupérer les informations d’infrastructure d’Azure Stack. Ce partage local sera créé pendant le processus de déploiement de la récupération cloud.|
 |Clé de chiffrement de la sauvegarde.|Clé de chiffrement utilisée pour planifier la sauvegarde d’infrastructure à exécuter à l’aide du portail d’administration Azure Stack.|

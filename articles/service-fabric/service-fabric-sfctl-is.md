@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 53e49099fd3486d51f021528c9354cf32f4952d2
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: abc1e835fa153fc5d061cca5a3eb009931240332
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492787"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276330"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Interroge et envoie des commandes vers le service d’infrastructure.
@@ -41,7 +41,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 |Argument|Description|
 | --- | --- |
 | --command [Requis] | Texte de la commande à appeler. Le contenu de la commande dépend de l’infrastructure. |
-| --service-id | Identité du service d’infrastructure. <br><br> Il s’agit du nom complet du service d’infrastructure sans le schéma d’URI « fabric ». Ce paramètre est obligatoire uniquement pour les clusters pour lesquels plusieurs instances du service d’infrastructure s’exécutent. |
+| --service-id | Identité du service d’infrastructure. <br><br> Il s’agit du nom complet du service d’infrastructure sans le schéma d’URI « fabric »\:. Ce paramètre est obligatoire uniquement pour les clusters pour lesquels plusieurs instances du service d’infrastructure s’exécutent. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
@@ -51,7 +51,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-is-query"></a>sfctl is query
@@ -74,7 +74,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 

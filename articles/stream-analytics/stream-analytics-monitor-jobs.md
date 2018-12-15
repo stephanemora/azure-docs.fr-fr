@@ -9,19 +9,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 2688f148185b1c1523178d190a7a2a76e6ceabef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fac56117c4c70e2735580abb52d05e008d660003
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30908783"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089411"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Créer la surveillance des tâches Stream Analytics par programmation
 
 Cet article explique comment activer la surveillance d'une tâche Stream Analytics. Par défaut, la surveillance n'est pas activée pour les travaux Stream Analytics créés par le biais des API REST, du kit de développement logiciel (SDK) Azure ou de PowerShell. Vous pouvez l’activer manuellement sur le portail Azure. Pour cela, accédez à la page Surveiller du travail et cliquez sur le bouton Activer. Vous pouvez également automatiser ce processus en suivant les étapes décrites dans cet article. Les données de surveillance sont affichées dans la zone Métriques du portail Azure pour le travail Stream Analytics.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer ce processus, vous devez disposer des éléments suivants :
 
@@ -34,14 +33,14 @@ Avant de commencer ce processus, vous devez disposer des éléments suivants :
 1. Créez une application console Visual Studio .NET C#.
 2. Dans la console du Gestionnaire de package, exécutez les commandes suivantes pour installer les packages NuGet. Le premier est le Kit de développement logiciel (SDK) .NET de gestion Azure Stream Analytics. Le second est le SDK Azure Monitor qui sera utilisé pour activer la surveillance. Le dernier est le client Azure Active Directory utilisé pour l'authentification.
    
-   ```
+   ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics
    Install-Package Microsoft.Azure.Insights -Pre
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
 3. Ajoutez la section appSettings suivante au fichier App.config.
    
-   ```
+   ```csharp
    <appSettings>
      <!--CSM Prod related values-->
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
@@ -58,12 +57,12 @@ Avant de commencer ce processus, vous devez disposer des éléments suivants :
    ```
    Remplacez les valeurs de *SubscriptionId* et *ActiveDirectoryTenantId* par votre ID d’abonnement et votre ID de locataire Azure. Vous pouvez obtenir ces valeurs en exécutant l'applet de commande PowerShell suivante :
    
-   ```
+   ```powershell
    Get-AzureAccount
    ```
 4. Ajoutez les instructions using suivantes au fichier source (Program.cs) dans le projet.
    
-   ```
+   ```csharp
      using System;
      using System.Configuration;
      using System.Threading;
@@ -75,7 +74,8 @@ Avant de commencer ce processus, vous devez disposer des éléments suivants :
      using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
 5. Ajoutez une méthode d'aide pour l'authentification.
-   
+
+```csharp   
      public static string GetAuthorizationHeader()
    
          {
@@ -112,11 +112,13 @@ Avant de commencer ce processus, vous devez disposer des éléments suivants :
    
              throw new InvalidOperationException("Failed to acquire token");
      }
+```
 
 ## <a name="create-management-clients"></a>Création de clients de gestion
 
 Le code suivant définit les variables nécessaires et les clients de gestion.
 
+```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
 
@@ -134,6 +136,7 @@ Le code suivant définit les variables nécessaires et les clients de gestion.
     StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
+```
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Activation de la surveillance pour un travail Stream Analytics existant
 
@@ -149,7 +152,7 @@ Le code suivant permet d'activer la surveillance pour un travail Stream Analytic
 > Le compte de stockage utilisé pour remplacer `<YOUR STORAGE ACCOUNT NAME>` dans le code ci-dessous doit être un compte de stockage qui se trouve dans l’abonnement du travail Stream Analytics pour lequel vous avez activé la surveillance.
 > 
 > 
-
+```csharp
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
     {
@@ -166,7 +169,7 @@ Le code suivant permet d'activer la surveillance pour un travail Stream Analytic
             }
     };
     insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
-
+```
 
 
 ## <a name="get-support"></a>Obtenir de l’aide

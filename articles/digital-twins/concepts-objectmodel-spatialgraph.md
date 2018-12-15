@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636881"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436923"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Comprendre les modèles objet Digital Twins et le graphe d’intelligence spatiale
 
@@ -48,17 +48,17 @@ Les autres catégories d’objets sont les suivantes :
 - Les **rôles** sont des ensembles d’autorisations affectées aux utilisateurs et appareils dans le graphe spatial, par exemple `Space Administrator`, `User Administrator` et `Device Administrator`.
 - Les **attributions de rôles** représentent l’association entre un rôle et un objet dans le graphe spatial. Par exemple, un utilisateur ou un principal de service peut se voir accorder l’autorisation de gérer un espace dans le graphe spatial.
 - Les **magasins de clés de sécurité** fournissent les clés de sécurité de tous les appareils de la hiérarchie sous un objet d’espace donné, ce qui permet à l’appareil de communiquer de manière sécurisée avec Digital Twins.
-- Les **fonctions définies par l’utilisateur** (ou fonctions UDF) permettent de personnaliser le traitement des données de télémétrie des capteurs dans le graphe spatial. Par exemple, une fonction UDF peut : 
-    - Définir la valeur d’un capteur. 
-    - Exécuter une logique personnalisée basée sur les lectures de capteurs, et définir la sortie vers un espace. 
-    - Attacher des métadonnées à un espace. 
-    - Envoyer des notifications quand des conditions prédéfinies sont remplies. Les fonctions UDF peuvent être écrites en JavaScript.
+- Les **fonctions définies par l’utilisateur** (ou fonctions UDF) permettent de personnaliser le traitement des données de télémétrie des capteurs dans le graphe spatial. Par exemple, une fonction UDF peut :
+  - Définir la valeur d’un capteur.
+  - Exécuter une logique personnalisée basée sur les lectures de capteurs, et définir la sortie vers un espace.
+  - Attacher des métadonnées à un espace.
+  - Envoyer des notifications quand des conditions prédéfinies sont remplies. Les fonctions UDF peuvent être écrites en JavaScript.
 - Les **matchers** sont des objets qui déterminent les fonctions UDF à exécuter pour un message de télémétrie donné.
 - Les **points de terminaison** sont les emplacements où peuvent être routés les messages de télémétrie et les événements Digital Twins, par exemple `Event Hub`, `Service Bus` et `Event Grid`.
 
 <a id="graph"></a>
 
-## <a name="spatial-intelligence-graph"></a>Graphe d’intelligence spatiale
+## <a name="spatial-intelligence-graph"></a>Graphique d’intelligence spatiale
 
 Le graphe spatial est le graphe hiérarchique des espaces, des appareils et des personnes définis dans le modèle objet Digital Twins. Le graphe spatial prend en charge l’héritage, le filtrage, le parcours, la scalabilité et l’extensibilité. Vous pouvez gérer votre graphe spatial et interagir avec ce dernier à l’aide d’une collection d’API REST.
 
@@ -103,9 +103,9 @@ Tous les appels d’API doivent être authentifiés via [OAuth](https://docs.mic
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la connectivité des appareils et sur l’envoi de messages de télémétrie à Digital Twins, consultez [Entrée de télémétrie et connectivité des appareils Azure Digital Twins](concepts-device-ingress.md).
+- Pour en savoir plus sur la connectivité des appareils et sur l’envoi de messages de télémétrie à Digital Twins, consultez [Entrée de télémétrie et connectivité des appareils Azure Digital Twins](concepts-device-ingress.md).
 
-* Pour en savoir plus sur les limitations de l’API de gestion, consultez [Gestion et limitations de l’API Azure Digital Twins](concepts-service-limits.md).
+- Pour en savoir plus sur les limitations de l’API de gestion, consultez [Gestion et limitations de l’API Azure Digital Twins](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

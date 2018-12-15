@@ -3,7 +3,7 @@ title: Surveiller le stockage en mémoire XTP | Microsoft Docs
 description: Estimer et surveiller la capacité et l’utilisation du stockage en mémoire XTP ; résoudre l’erreur de capacité 41823
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: genemi
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 2a9c01eb2c237a7c79464b930c9258f791d8f3ce
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ac7b568d95b9a2c382b1c167965942f0733012c4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161622"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874921"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Surveiller le stockage OLTP In-Memory
 Lorsque vous utilisez [OLTP en mémoire](sql-database-in-memory.md), les données des tables à mémoire optimisée et les variables de table résident dans un stockage OLTP en mémoire. Chaque niveau de service Premium et critique pour l'entreprise dispose d’une taille de stockage OLTP en mémoire maximale. Voir [Limites de ressources par DTU – base de données unique](sql-database-dtu-resource-limits-single-databases.md), [Limites de ressources par DTU – pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md), [Limites de ressources par vCore – bases de données uniques](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources par vCore – pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md).

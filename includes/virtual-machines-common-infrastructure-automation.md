@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981443"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53027912"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utiliser les outils d’automatisation d’infrastructure avec les machines virtuelles dans Azure
 Pour créer et gérer des machines virtuelles de façon cohérente à grande échelle, une forme d’automatisation est généralement souhaitée. De nombreux outils et solutions permettent d’automatiser le déploiement et la gestion du cycle de vie de toute l’infrastructure Azure. Cet article présente certains des outils d’automatisation d’infrastructure utilisables dans Azure. Ces outils s’intègrent généralement dans l’une des approches suivantes :
@@ -23,7 +23,7 @@ Pour créer et gérer des machines virtuelles de façon cohérente à grande éc
     - [Azure Automation](#azure-automation) peut effectuer des actions dans votre infrastructure Azure et votre infrastructure locale.
 
 - Automatiser le déploiement et la diffusion d’applications
-    - Les exemples incluent [Azure DevOps Services](#visual-studio-team-services) et [Jenkins](#jenkins).
+    - Les exemples incluent [Azure DevOps Services](#azure-devops-services) et [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) est un moteur d’automatisation de la gestion de la configuration, de la création de machine virtuelle ou du déploiement d’application. Ansible utilise un modèle sans agent, généralement avec des clés SSH, pour authentifier et gérer les machines cibles. Les tâches de configuration sont définies dans les playbooks, avec un certain nombre de modules Ansible permettant d’effectuer des tâches spécifiques. Pour plus d’informations, consultez [Comment fonctionne Ansible](https://www.ansible.com/how-ansible-works).

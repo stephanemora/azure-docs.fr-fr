@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 20412efac553458f3028f873bcc6d918a673f261
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707127"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838807"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gérer des comptes de laboratoire dans Azure Lab Services 
 Dans Azure Lab Services, un compte de laboratoire est un conteneur pour les laboratoires gérés tels que les laboratoires de classe. Un administrateur configure un compte de laboratoire avec Azure Lab Services et fournit l’accès à tous les propriétaires de laboratoire qui peuvent alors créer des laboratoires dans leur compte. Cet article explique comment créer un compte de laboratoire, voir tous les comptes de laboratoire et supprimer un compte de laboratoire.
@@ -47,12 +47,8 @@ Dans Azure Lab Services, un compte de laboratoire est un conteneur pour les labo
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Ajouter un utilisateur au rôle Créateur de laboratoire
 Pour configurer un laboratoire de classe dans un compte de laboratoire, l’utilisateur doit être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Le compte utilisé pour créer le compte de laboratoire est automatiquement ajouté à ce rôle. Si vous envisagez d’utiliser le même compte d’utilisateur pour créer un laboratoire de classe, vous pouvez ignorer cette étape. Pour utiliser un autre compte d’utilisateur pour créer un laboratoire de classe, procédez comme suit : 
 
-1. Dans la page **Lab account** (Compte de laboratoire), sélectionnez **Contrôle d’accès (IAM)**, puis cliquez sur **+Ajouter** dans la barre d’outils. 
-
-    ![Page Lab account (Compte de laboratoire)](../media/tutorial-setup-lab-account/access-control.png)
-2. Dans la page **Ajouter des autorisations**, sélectionnez **Créateur de laboratoire** pour **Rôle**, sélectionnez l’utilisateur que vous souhaitez ajouter au rôle Créateur de laboratoire, puis sélectionnez **Enregistrer**. 
-
-    ![Ajouter un utilisateur au rôle Créateur de laboratoire](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
+1. Dans la page **Compte Lab**, sélectionnez **Contrôle d’accès (IAM)**, puis cliquez sur **+ Ajouter une attribution de rôle** dans la barre d’outils. 
+2. Dans la page **Ajouter des autorisations**, sélectionnez **Créateur de laboratoire** pour **Rôle**, sélectionnez l’utilisateur que vous souhaitez ajouter au rôle Créateur de laboratoire, puis sélectionnez **Enregistrer**.
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Spécifier les images de la Place de marché disponibles pour les propriétaires de laboratoire
 En tant que propriétaire d’un compte de laboratoire, vous pouvez spécifier les images de la place de marché que les créateurs de laboratoire peuvent utiliser pour créer des laboratoires dans le compte de laboratoire. 

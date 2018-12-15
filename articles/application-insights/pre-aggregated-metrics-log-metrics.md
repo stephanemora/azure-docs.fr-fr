@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 136279a94d64b846247c436eb7a5fb487e05b41a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d095be8c5d921001ab4a492d2385938020fa8ce0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946899"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967212"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
 
@@ -55,7 +55,7 @@ Il existe plusieurs [méthodes pour envoyer des métriques personnalisées à pa
 
 Toutes les métriques que vous envoyez en utilisant des appels d’API [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) ou [GetMetric et TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) sont automatiquement stockées dans des journaux et des magasins de métriques. Toutefois, bien que la version basée sur le journal de votre métrique personnalisée conserve toujours toutes les dimensions, la version pré-agrégée de la métrique est stockée par défaut sans aucune dimension. Vous pouvez activer la collecte des dimensions des métriques personnalisées sur l’onglet [d’utilisation et d’estimation des coûts](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) en cochant « Enable alerting on custom metric dimensions » (Activer la génération d’alertes sur les dimensions des métriques personnalisées) : 
 
-![Utilisation et estimation des coûts](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
+![Utilisation et estimation des coûts](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>Pourquoi la collecte des dimensions des métriques personnalisées est-elle désactivée par défaut ?
 
@@ -65,7 +65,7 @@ La collecte des dimensions des métriques personnalisées est désactivée par d
 
 Utilisez Azure Monitor Metrics Explorer pour tracer des graphiques à partir des métriques pré-agrégées et basées sur le journal et créez des tableaux de bord avec des graphiques. Après avoir sélectionné la ressource Application Insights souhaitée, utilisez le sélecteur d’espace de noms pour basculer entre les métriques standard (préversion) et basées sur le journal, ou sélectionnez un espace de noms de métrique personnalisée :
 
-![Espace de noms de la métrique](.\media\pre-aggregated-metrics-log-metrics\002-metric-namespace.png)
+![Espace de noms de la métrique](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

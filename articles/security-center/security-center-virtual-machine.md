@@ -3,7 +3,7 @@ title: Azure Security Center et machines virtuelles Azure | Microsoft Docs
 description: Ce document vous a permis de découvrir comment Azure Security Center peut protéger vos machines virtuelles Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: e25b1e08ea6cb395381c065621e1137eaec2fe20
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0548cbc9c84de27dd7278d1b4ae3228993d6a49f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314806"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338275"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center et machines virtuelles Azure
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) vous aide à vous empêcher, détecter et répondre aux menaces. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
@@ -58,7 +58,7 @@ Une stratégie de sécurité définit l’ensemble des contrôles recommandés p
 ![Stratégie de sécurité](./media/security-center-virtual-machine/security-center-virtual-machine-fig1.png)
 
 > [!NOTE]
-> Pour en savoir plus sur chaque **stratégie de prévention** disponible, consultez l’article [Définir des stratégies de sécurité](security-center-azure-policy.md).
+> Pour en savoir plus sur chaque **stratégie de prévention** disponible, consultez l’article [Définir des stratégies de sécurité](tutorial-security-policy.md).
 > 
 > 
 
@@ -85,7 +85,7 @@ Après la définition d’une stratégie de sécurité, le Centre de sécurité 
 > 
 
 ## <a name="monitor-security-health"></a>Surveiller l’intégrité de la sécurité
-Une fois que vous avez activé les [stratégies de sécurité](security-center-azure-policy.md) pour les ressources d’un abonnement, Azure Security Center analyse la sécurité de vos ressources afin d’identifier les vulnérabilités potentielles.  Vous pouvez visualiser l’état de sécurité de vos ressources, ainsi que les problèmes éventuels, dans le panneau **Intégrité de la sécurité des ressources** . Lorsque vous cliquez sur **Machines virtuelles** dans la vignette **Intégrité de la sécurité des ressources**, le panneau **Machines virtuelles** s’ouvre, et indique des recommandations pour vos machines virtuelles. 
+Une fois que vous avez activé les [stratégies de sécurité](tutorial-security-policy.md) pour les ressources d’un abonnement, Azure Security Center analyse la sécurité de vos ressources afin d’identifier les vulnérabilités potentielles.  Vous pouvez visualiser l’état de sécurité de vos ressources, ainsi que les problèmes éventuels, dans le panneau **Intégrité de la sécurité des ressources** . Lorsque vous cliquez sur **Machines virtuelles** dans la vignette **Intégrité de la sécurité des ressources**, le panneau **Machines virtuelles** s’ouvre, et indique des recommandations pour vos machines virtuelles. 
 
 ![Intégrité de la sécurité](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -99,7 +99,7 @@ Sélectionnez une alerte de sécurité pour en savoir plus sur les événements 
 ## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 

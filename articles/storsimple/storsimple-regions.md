@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: d47109d541a3df93d9234e27e53d1538f6bc4c6e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
-ms.locfileid: "24879056"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969666"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Régions disponibles pour votre appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les centres de données Azure fonctionnent dans différentes zones géographiques du monde pour répondre aux besoins de performances, aux obligations et aux préférences des clients pour ce qui est de l’emplacement des données. Une zone géographique Azure est une zone définie du monde contenant au moins une région Azure. Une région Azure est une zone géographique contenant un ou plusieurs centres de données.
 
@@ -47,7 +47,7 @@ Voici la liste des régions où StorSimple Device Manager est disponible pour le
 
 ![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
-Pour le cloud Azure Government, le service StorSimple Device Manager est disponible dans les centres de données Gouvernement des États-Unis - Iowa et Gouvernement des États-Unis - Virginie.
+Pour le cloud Azure Government, le service StorSimple Device Manager est disponible dans les centres de données US Gov Iowa et US Gov Virginie.
 
 ## <a name="region-availability-for-data-stored-in-storsimple"></a>Disponibilité des régions pour les données stockées dans StorSimple
 
@@ -73,19 +73,19 @@ Si vous utilisez un appareils physique StorSimple 8100 ou 8600, il est disponibl
 | 2  | Autriche        | 17 | Hongrie     | 32 | Nigeria      | 47 | Corée du Sud          |
 | 3  | Bahreïn        | 18 | Islande     | 33 | Norvège       | 48 | Espagne                |
 | 4  | Belgique        | 19 | Inde       | 34 | Pérou         | 49 | Sri Lanka            |
-| 5  | Brésil         | 20 | Indonésie   | 35 | Philippines  | 50 | Suède               |
-| 6  | Canada         | 21 | Irlande     | 36 | Pologne       | 51 | Suisse          |
+| 5.  | Brésil         | 20 | Indonésie   | 35 | Philippines  | 50 | Suède               |
+| 6.  | Canada         | 21 | Irlande     | 36 | Pologne       | 51 | Suisse          |
 | 7  | Chili          | 22 | Israël      | 37 | Portugal     | 52 | Taïwan               |
 | 8  | Colombie       | 23 | Italie       | 38 | Porto Rico  | 53 | Thaïlande             |
 | 9  | République tchèque | 24 | Japon       | 39 | Qatar        | 54 | Turquie               |
 | 10 | Danemark        | 25 | Kenya       | 40 | Roumanie      | 55 | Ukraine              |
 | 11 | Égypte          | 26 | Koweït      | 41 | Russie       | 56 | Émirats Arabes Unis |
 | 12 | Finlande        | 27 | Macao (R.A.S.)       | 42 | Arabie Saoudite | 57 | Royaume-Uni       |
-| 13. | France         | 28 | Malaisie    | 43 | Singapour    | 58 | États-Unis        |
+| 13 | France         | 28 | Malaisie    | 43 | Singapour    | 58 | États-Unis        |
 | 14 | Allemagne        | 29 | Mexique      | 44 | Slovaquie     | 59 | Vietnam              |
 | 15 | Grèce         | 30 | Pays-bas | 45 | Slovénie     | 60 | Croatie              |
 
-Cette liste évolue au fur et à mesure que de nouveaux pays sont ajoutés. Pour obtenir la liste actualisée des zones géographiques, accédez à l’annexe sur les conditions des groupes de stockage dans les [conditions du produit](https://www.microsoft.com/en-us/Licensing/product-licensing).
+Cette liste évolue au fur et à mesure que de nouveaux pays sont ajoutés. Pour obtenir la liste actualisée des zones géographiques, accédez à l’annexe sur les conditions des groupes de stockage dans les [conditions du produit](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 Microsoft peut livrer le matériel physique et fournir des pièces matérielles de rechange pour StorSimple dans les zones géographiques indiquées dans la liste précédente.
 

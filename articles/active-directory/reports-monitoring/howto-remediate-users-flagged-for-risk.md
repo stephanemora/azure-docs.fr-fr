@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c43497a69b3188b4bc38e91b6ff9b1cc8b6bd21a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e81b87a6cbaddf61492fa1fc41e66950eb7ce1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624146"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191619"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Résoudre des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 
@@ -31,7 +31,7 @@ Si des activités inhabituelles indiquant un accès non autorisé à des comptes
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Accéder au rapport des utilisateurs avec indicateur de risque
 
-Vous pouvez analyser les utilisateurs signalés comme présentant un risque par le biais du [rapport sur les utilisateurs à risque](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) dans le portail Azure. Si vous n'avez pas Azure AD, vous pouvez vous inscrire gratuitement sur [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
+Vous pouvez analyser les utilisateurs signalés comme présentant un risque par le biais du [rapport sur les utilisateurs à risque](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) dans le portail Azure. Si vous n'avez pas Azure AD, vous pouvez vous inscrire gratuitement sur [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
 
 À partir du rapport sur les utilisateurs signalés comme présentant un risque, vous pouvez effectuer les actions suivantes pour chaque utilisateur :
 
@@ -58,9 +58,9 @@ Pour accéder aux **rapports sur les utilisateurs avec indicateur de risque** da
 
 Effectuez les actions suivantes pour aider à rectifier les comptes affectés et à sécuriser votre environnement :
 
-1.  [Validez les informations correctes](http://aka.ms/MFAValid) pour l’authentification multifacteur et la réinitialisation de mot de passe libre-service. 
-2.  [Activez l’authentification multifacteur](http://aka.ms/MFAuth) pour tous les utilisateurs. 
-3.  Utilisez ce [script de correction](http://aka.ms/remediate) pour chaque compte affecté afin d'effectuer les étapes suivantes : 
+1.  [Validez les informations correctes](https://aka.ms/MFAValid) pour l’authentification multifacteur et la réinitialisation de mot de passe libre-service. 
+2.  [Activez l’authentification multifacteur](https://aka.ms/MFAuth) pour tous les utilisateurs. 
+3.  Utilisez ce [script de correction](https://aka.ms/remediate) pour chaque compte affecté afin d'effectuer les étapes suivantes : 
 
     a. Réinitialisez le mot de passe pour sécuriser le compte et éliminez les sessions actives.
 
@@ -84,10 +84,10 @@ Effectuez les actions suivantes pour aider à rectifier les comptes affectés et
 
 De plus, vous devez :
 
-- Lire et implémenter ce [conseil sur la gestion d’activités inhabituelles](http://aka.ms/fixaccount). 
-- [Activer le pipeline d’audit](http://aka.ms/improvesecurity) pour vous aider à analyser l’activité sur votre abonnement. Une fois fini, votre banque d’informations d’audit commence à remplir les journaux d’activités. À ce stade, vous pouvez également tirer parti de la [ressource de recherche et d'enquête du centre de sécurité et de conformité](http://aka.ms/sccsearch). 
-- Utilisez ce [script pour activer l’audit de la boîte aux lettres](http://aka.ms/mailboxaudit1) pour tous vos comptes. 
-- Vérifiez les autorisations des délégués et les règles d’envoi de courrier pour toutes vos boîtes aux lettres. Vous pouvez utiliser ce [script PowerShell](http://aka.ms/delegateforwardrules) pour réaliser cette tâche. 
+- Lire et implémenter ce [conseil sur la gestion d’activités inhabituelles](https://aka.ms/fixaccount). 
+- [Activer le pipeline d’audit](https://aka.ms/improvesecurity) pour vous aider à analyser l’activité sur votre abonnement. Une fois fini, votre banque d’informations d’audit commence à remplir les journaux d’activités. À ce stade, vous pouvez également tirer parti de la [ressource de recherche et d'enquête du centre de sécurité et de conformité](https://aka.ms/sccsearch). 
+- Utilisez ce [script pour activer l’audit de la boîte aux lettres](https://aka.ms/mailboxaudit1) pour tous vos comptes. 
+- Vérifiez les autorisations des délégués et les règles d’envoi de courrier pour toutes vos boîtes aux lettres. Vous pouvez utiliser ce [script PowerShell](https://aka.ms/delegateforwardrules) pour réaliser cette tâche. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

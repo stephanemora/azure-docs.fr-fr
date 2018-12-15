@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 6597e0058176eaa819170a494e4908ab44456360
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b6df653f89f05a9b253ecea102ed8310ff2a53b7
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850531"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438274"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Créer votre première fonction hébergée sur Linux à l’aide de Core Tools et d’Azure CLI (préversion)
 
-Azure Functions vous permet d’exécuter votre code dans un environnement Linux [sans serveur](https://azure.microsoft.com/overview/serverless-computing/) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable. L’hébergement Linux est actuellement en préversion et requiert le [runtime Functions 2.0](functions-versions.md). Pour en savoir plus sur les considérations relatives à la préversion pour l’exécution de vos applications de fonction sur Linux, consultez [cet article sur les fonctions sur Linux ](https://aka.ms/funclinux).
+Azure Functions vous permet d’exécuter votre code dans un environnement Linux [sans serveur](https://azure.com/serverless) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable. L’hébergement Linux est actuellement en préversion et requiert le [runtime Functions 2.0](functions-versions.md). Pour en savoir plus sur les considérations relatives à la préversion pour l’exécution de vos applications de fonction sur Linux, consultez [cet article sur les fonctions sur Linux ](https://aka.ms/funclinux).
 
 Cet article de démarrage rapide vous guide tout au long de l’utilisation d’Azure CLI pour créer votre première application de fonction exécutée sur Linux. Le code de fonction est créé en local, puis déployé sur Azure à l’aide d’[Azure Functions Core Tools](functions-run-local.md).
 
@@ -49,7 +49,7 @@ func init MyFunctionProj
 Lorsque vous y êtes invité, utilisez les touches de direction pour sélectionner un runtime worker parmi les choix de langage suivants :
 
 + `dotnet` : crée un projet de bibliothèque de classes .NET (.csproj).
-+ `node` : crée un projet JavaScript.
++ `node` : créer un projet JavaScript.
 + `python` : crée un projet Python. Pour plus d’informations sur les fonctions Python, consultez [Démarrage rapide Python](functions-create-first-function-python.md).
 
 Lorsque la commande s’exécute, une sortie similaire à la suivante s’affiche :

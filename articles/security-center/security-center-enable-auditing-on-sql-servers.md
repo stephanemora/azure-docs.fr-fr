@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5b185486ee1adfc3e9acc12aeb15162094ab6424
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 21d261fc82e7aec6d3d4a8ae0c98d71a686be201
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310971"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335951"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Activer l’audit et la détection des menaces sur les serveurs SQL dans Azure Security Center
 Azure Security Center vous recommande d’activer l’audit et la détection des menaces pour toutes les bases de données sur vos serveurs SQL Azure si l’audit n’est pas déjà activé. L’audit et la détection des menaces peuvent vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données, et à découvrir des discordances et des anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.
@@ -52,7 +52,7 @@ Cet article vous a montré comment implémenter la recommandation de Security Ce
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.

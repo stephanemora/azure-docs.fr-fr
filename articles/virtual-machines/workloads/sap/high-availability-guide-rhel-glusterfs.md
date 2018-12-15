@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: bbb0bbc6ddbbabb37932edc6946394b020631231
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636425"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342321"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS sur les machines virtuelles Azure sur Red Hat Enterprise Linux pour SAP NetWeaver
 
@@ -110,10 +110,10 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
 1. Créer un groupe à haute disponibilité  
    Définir un domaine de mise à jour maximal
 1. Créer la machine virtuelle 1  
-   Utilisez au moins RHEL 7, dans cet exemple, l’image <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM> de Red Hat Enterprise Linux 7.4  
+   Utilisez au moins RHEL 7, dans cet exemple, l’image <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM> de Red Hat Enterprise Linux 7.4  
    Sélectionner le groupe à haute disponibilité créé précédemment  
 1. Créer la machine virtuelle 2  
-   Utilisez au moins RHEL 7, dans cet exemple, l’image <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM> de Red Hat Enterprise Linux 7.4  
+   Utilisez au moins RHEL 7, dans cet exemple, l’image <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM> de Red Hat Enterprise Linux 7.4  
    Sélectionner le groupe à haute disponibilité créé précédemment  
 1. Ajouter un disque de données pour chaque système SAP sur les deux machines virtuelles
 

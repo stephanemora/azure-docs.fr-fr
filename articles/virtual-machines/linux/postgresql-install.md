@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: zarhoads
-ms.openlocfilehash: dc7bb0eab9004b9c818a4a7cbbf6102f01b24f45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e794c191737f14fb06351e345f70edb9f7cddb7c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465225"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322054"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installer et configurer PostgreSQL sur Microsoft Azure
 PostgreSQL est une base de données open source avancée similaire à Oracle et DB2. Il inclut des fonctionnalités destinées aux entreprises, comme la conformité complète à ACID, un traitement transactionnel fiable et un contrôle d’accès concurrentiel multiversion. Il prend également en charge des normes comme ANSI SQL et SQL/MED (y compris les wrappers de données externes pour Oracle, MySQL, MongoDB et beaucoup d’autres). Il est hautement extensible, avec la prise en charge de 12 langages procéduraux, les index GIN et GIST, la prise en charge des données spatiales et plusieurs fonctionnalités de type NoSQL pour les applications JSON ou basées sur les paires clé-valeur.
@@ -76,7 +76,7 @@ Connectez-vous à la machine virtuelle Linux que vous avez créée via PuTTY. S�
 ## <a name="configure-postgresql"></a>Configurer PostgreSQL
 1. (Facultatif) Créez un lien symbolique pour raccourcir la référence PostgreSQL en n’y incluant pas le numéro de version :
    
-        # ln -s /opt/pgsql9.3.5 /opt/pgsql
+        # ln -s /opt/postgresql-9.3.5 /opt/pgsql
 2. Créez un répertoire pour la base de données :
    
         # mkdir -p /opt/pgsql_data
@@ -119,6 +119,7 @@ Connectez-vous à la machine virtuelle Linux que vous avez créée via PuTTY. S�
 7. Vous pouvez également vérifier la version de PostgreSQL :
    
         $ psql -V
+
 8. Initialisez la base de données :
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W

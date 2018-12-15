@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/28/2017
 ms.author: victorh
-ms.openlocfilehash: 8f2e2500c39f42ebd7fefb3cec941088edf126f2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045017"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993312"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
 
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure à l’adresse [http://portal.azure.com](http://portal.azure.com)
+Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 

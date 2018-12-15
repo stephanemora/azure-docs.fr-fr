@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284980"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409664"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge [l’étiquetage](resource-group-using-tags.md).
@@ -49,7 +49,7 @@ Cet article indique si un type de ressource prend en charge [l’étiquetage](re
 | apiManagementAccounts/connectionProviderAcls | Non  | 
 | apiManagementAccounts/apis | Non  | 
 
-## <a name="api-management"></a>API Management
+## <a name="api-management"></a>Gestion des API
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | service | Oui | 
@@ -68,18 +68,6 @@ Cet article indique si un type de ressource prend en charge [l’étiquetage](re
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | batchAccounts | Oui | 
-
-## <a name="batch-ai"></a>Batch AI
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| clusters | Oui | 
-| jobs | Oui | 
-| fileservers | Oui | 
-| workspaces | Oui | 
-| workspaces/clusters | Non  | 
-| workspaces/fileservers | Non  | 
-| workspaces/experiments | Non  | 
-| workspaces/experiments/jobs | Non  | 
 
 ## <a name="bing-maps"></a>Bing Maps
 | Type de ressource | Prend en charge les étiquettes |

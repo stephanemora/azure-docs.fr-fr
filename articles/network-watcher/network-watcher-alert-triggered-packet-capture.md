@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4c96ca70b9b6a82dcccec443ac0b1e06f96a2396
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2035d342a89ace6d286fc205c346591b29646c5d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597409"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270133"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions
 
@@ -34,7 +34,6 @@ En utilisant Network Watcher, les alertes et les fonctions dans l’écosystème
 ![Scénario][scenario]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * La version la plus récente [d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Une instance existante de Network Watcher. Si vous n’en avez pas, [créez une instance de Network Watcher](network-watcher-create.md).
@@ -79,7 +78,7 @@ La première étape consiste à créer une fonction Azure pour traiter l’alert
     |**Abonnement**|[Votre abonnement] L’abonnement dans lequel créer l’application de fonction.||
     |**Groupe de ressources**|PacketCaptureRG|Le groupe de ressources qui contiendra l’application de fonction.|
     |**Plan d’hébergement**|Plan de consommation| Le type de plan qu’utilise votre application de fonction. Deux options sont disponibles : Consommation ou Plan Azure App Service. |
-    |**Lieu**|Centre des États-Unis| La région dans laquelle créer l’application de fonction.|
+    |**Lieu**|USA Centre| La région dans laquelle créer l’application de fonction.|
     |**Compte de stockage**|{généré automatiquement}| Le compte de stockage dont Azure Functions a besoin pour le stockage général.|
 
 3. Dans le panneau **Function App PacketCaptureExample**, sélectionnez **Fonctions** > **Fonction personnalisée** >**+**.
@@ -332,7 +331,7 @@ L’exemple suivant correspond à du code PowerShell qui peut être utilisé dan
 
     ![Copie de l’URL de la fonction][2]
 
-Si vous avez besoin de propriétés personnalisées dans la charge utile de la demande POST du webhook, consultez l’article [Configurer un webhook sur une alerte de métrique Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Si vous avez besoin de propriétés personnalisées dans la charge utile de la demande POST du webhook, consultez l’article [Configurer un webhook sur une alerte de métrique Azure](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="configure-an-alert-on-a-vm"></a>Configurer une alerte sur une machine virtuelle
 
@@ -344,7 +343,7 @@ Accédez à une machine virtuelle existante, puis ajoutez une règle d’alerte.
 
   |**Paramètre** | **Valeur** | **Détails** |
   |---|---|---|
-  |**Name**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
+  |**Nom**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
   |**Description**|Les segments TCP envoyés ont dépassé le seuil|Description de la règle d’alerte.||
   |**Mesure**|Segments TCP envoyés| Mesure à utiliser pour déclencher l’alerte. |
   |**Condition**|Supérieur à| Condition à utiliser lors de l’évaluation de la mesure.|

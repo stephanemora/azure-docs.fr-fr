@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23c8098927a051da48c7da2bac0c96173da1d2f2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713297"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386442"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Utiliser Azure Log Analytics pour surveiller les clusters HDInsight
 
@@ -26,7 +26,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Un espace de travail Log Analytics**. Considérez cet espace de travail comme un environnement Log Analytics unique avec son propre référentiel de données, et ses propres sources de données et solutions. Pour obtenir des instructions, consultez la rubrique [Créer un espace de travail Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
+* **Un espace de travail Log Analytics**. Considérez cet espace de travail comme un environnement Log Analytics unique avec son propre référentiel de données, et ses propres sources de données et solutions. Pour obtenir des instructions, consultez la rubrique [Créer un espace de travail Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
 * Un **cluster Azure HDInsight**. Vous pouvez actuellement utiliser Log Analytics avec les types de clusters HDInsight suivants :
 
@@ -39,7 +39,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
   Pour savoir comment créer un cluster HDInsight, consultez [Bien démarrer avec Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Il est recommandé de placer le cluster HDInsight et l’espace de travail Log Analytics dans la même région pour obtenir de meilleures performances. Notez qu’Azure Log Analytics n’est pas disponible dans toutes les régions Azure.
 
 ## <a name="enable-log-analytics-by-using-the-portal"></a>Activer Log Analytics à l’aide du portail

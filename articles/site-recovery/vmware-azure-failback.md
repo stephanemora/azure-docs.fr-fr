@@ -1,19 +1,19 @@
 ---
-title: Restaurer depuis Azure vers VMware avec Azure Site Recovery | Microsoft Docs
-description: Après le basculement des machines virtuelles dans Azure, vous pouvez démarrer une restauration automatique pour replacer les machines virtuelles en local. Pour effectuer la restauration automatique, procédez comme suit.
+title: Effectuer une restauration automatique à partir d’Azure pendant la reprise d’activité de machines virtuelles VMware sur Azure avec Azure Site Recovery | Microsoft Docs
+description: Découvrez comment effectuer une restauration automatique sur le site local après un basculement vers Azure, pendant la reprise d’activité de machines virtuelles VMware et serveurs physiques sur Azure.
 author: nsoneji
 ms.service: site-recovery
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: nisoneji
-ms.openlocfilehash: 841e036555723051dfeaf946f31eaf9eedaee798
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1c5d5b97465c6747e5f766a1ce8272579d37993d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093508"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850276"
 ---
-# <a name="fail-back-from-azure-to-an-on-premises-site"></a>Restauration automatique d’Azure vers un site local
+# <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Restaurer automatiquement des machines virtuelles VMware et des serveurs physiques sur un site local à partir d’Azure
 
 Cet article explique comment restaurer automatiquement des machines virtuelles à partir des machines virtuelles Azure vers un environnement VMware local. Suivez les instructions qu’il contient pour restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure en suivant le didacticiel [Basculement dans Azure Site Recovery](site-recovery-failover.md).
 

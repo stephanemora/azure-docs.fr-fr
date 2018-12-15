@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631555"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016774"
 ---
 # <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Prise en main avec un bac à sable Apache Hadoop, un émulateur sur une machine virtuelle
 
@@ -27,7 +27,7 @@ Apprenez à installer le bac à sable (sandbox) Apache Hadoop de Hortonworks sur
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>Téléchargement et installation de la machine virtuelle
-1. Accédez aux [téléchargements Hortonworks](http://hortonworks.com/downloads/#sandbox).
+1. Accédez aux [téléchargements Hortonworks](https://hortonworks.com/downloads/#sandbox).
 
 2. Cliquez sur **TÉLÉCHARGER POUR VIRTUALBOX** pour télécharger le dernier bac à sable Hortonworks sur une machine virtuelle. Vous serez invité à vous inscrire à Hortonworks avant le lancement du téléchargement. Une à deux heures sont nécessaires pour le téléchargement, en fonction de la vitesse de votre réseau.
    
@@ -78,6 +78,6 @@ Pour télécharger un bac à sable (sandbox) de version HDP plus ancienne, déve
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Apprendre à utiliser Visual Studio avec Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Se familiariser avec Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Didacticiel Hadoop - Prise en main de HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Se familiariser avec Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Didacticiel Hadoop - Prise en main de HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

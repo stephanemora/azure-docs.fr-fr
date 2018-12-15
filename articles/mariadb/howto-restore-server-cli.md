@@ -10,32 +10,33 @@ ms.service: mariadb
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 11/10/2018
-ms.openlocfilehash: 9e8edb2aaeaa116ac71889f7007e435a1a869b7f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1f17ab167c6487d59ce31106f1bbcffd86a29fd8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516462"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955188"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MariaDB à l’aide d’Azure CLI.
 
 ## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
+
 Les serveurs Azure Database for MariaDB sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour utiliser ce guide pratique, il vous faut :
+
 - [Un serveur Azure Database for MariaDB et une base de données](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
- 
 
 > [!IMPORTANT]
 > Ce guide de procédures requiert l’utilisation de la version 2.0 Azure CLI ou version ultérieure. Pour vérifier la version, à l’invite de commande de l’interface Azure CLI, entrez `az --version`. Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Définir la configuration de sauvegarde
 
-Vous choisissez entre la configuration de votre serveur pour des sauvegardes redondantes localement ou géographiquement redondantes lors de la création du serveur. 
+Vous choisissez entre la configuration de votre serveur pour des sauvegardes redondantes localement ou géographiquement redondantes lors de la création du serveur.
 
 > [!NOTE]
 > Après la création d’un serveur, son type de redondance (géographique ou locale) ne peut pas être modifié.
@@ -58,7 +59,8 @@ L’exemple précédent modifie la période de période de rétention des sauveg
 La période de rétention de sauvegarde détermine jusqu’à quelle date une restauration à un point dans le temps peut être récupérée, dans la mesure où elle est basée sur les sauvegardes disponibles. La limite de restauration dans le temps est décrite dans la section suivante.
 
 ## <a name="server-point-in-time-restore"></a>Limite de restauration dans le temps
-Vous pouvez restaurer le serveur à une version antérieure. Les données restaurées sont copiées dans un nouveau serveur et le serveur existant est conservé tel quel. Par exemple, si une table est accidentellement supprimée à midi aujourd’hui, vous pouvez restaurer le serveur à l’état qu’il présentait juste avant midi. Vous pouvez ensuite récupérer la table et les données manquantes à partir de la copie restaurée du serveur. 
+
+Vous pouvez restaurer le serveur à une version antérieure. Les données restaurées sont copiées dans un nouveau serveur et le serveur existant est conservé tel quel. Par exemple, si une table est accidentellement supprimée à midi aujourd’hui, vous pouvez restaurer le serveur à l’état qu’il présentait juste avant midi. Vous pouvez ensuite récupérer la table et les données manquantes à partir de la copie restaurée du serveur.
 
 Pour restaurer le serveur, utilisez la commande [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) de l’interface Azure CLI.
 
@@ -85,6 +87,7 @@ Les valeurs d’emplacement et de niveau tarifaire du serveur restauré restent 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
 
 ## <a name="geo-restore"></a>Restauration géographique
+
 Si vous avez configuré votre serveur pour les sauvegardes redondantes géographiquement, un serveur peut être créé à partir de la sauvegarde de ce serveur existant. Ce nouveau serveur peut être créé dans toutes les régions dans lesquelles Azure Database for MariaDB est disponible.  
 
 Pour créer un serveur à l’aide d’une sauvegarde géo-redondante, utilisez la commande `az mariadb server georestore` Azure CLI.
@@ -96,8 +99,9 @@ Pour créer un serveur à l’aide d’une sauvegarde géo-redondante, utilisez 
 Pour géo-restaurer le serveur, à l’invite de commande de l’interface de ligne de commande Azure, entrez la commande suivante :
 
 ```azurecli-interactive
-az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
+az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
+
 Cette commande crée un nouveau serveur appelé *mydemoserver-georestored* dans la région USA Est appartenant à *myresourcegroup*. Il s’agit d’un serveur à usage général, de 5e génération avec 8 vCores. Le serveur est créé à partir de la sauvegarde géo-redondante *mydemoserver*, qui est également dans le groupe de ressources *myresourcegroup*
 
 Si vous souhaitez créer le nouveau serveur dans un autre groupe de ressources du serveur existant, dans le paramètre `--source-server`, vous devez qualifier le nom du serveur comme dans l’exemple suivant :
@@ -116,12 +120,12 @@ La commande `az mariadb server georestore` requiert les paramètres suivants :
 |location | eastus | L’emplacement du nouveau serveur. |
 |sku-name| GP_Gen5_8 | Ce paramètre définit le niveau tarifaire, la génération de calculs et le nombre de vCores du nouveau serveur. GP_Gen5_8 mappe sur un serveur d’usage général, 5e génération avec 8 vCores.|
 
-
 >[!Important]
 >Lorsque vous créez un nouveau serveur par une restauration géographique, il hérite de la même taille de stockage et du même niveau tarifaire que le serveur source. Ces valeurs ne peuvent pas être modifiées lors de la création. Une fois le nouveau serveur créé, sa taille de stockage peut être montée en puissance.
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - En savoir plus sur les [sauvegardes](concepts-backup.md) du service.
 - En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md).

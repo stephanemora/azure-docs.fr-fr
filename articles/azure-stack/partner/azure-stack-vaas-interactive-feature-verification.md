@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bc2fbf7aadf99a2f765def2d352819dfa6cd5fa4
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: dc0c6a37e11574cef857a7af773a9d90bea57357
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266014"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972063"
 ---
 # <a name="interactive-feature-verification-testing"></a>Test de vérification des fonctionnalités interactives  
 
@@ -48,7 +48,7 @@ Un test du remplacement d’un disque est un scénario courant. Dans cet exemple
 
 3.  Sélectionnez **Démarrer** sur la vignette **Passes de test**.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image1.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image1.png)
 
 4.  Entrez un nom pour le flux de travail **Test Pass**.
 
@@ -63,7 +63,7 @@ Un test du remplacement d’un disque est un scénario courant. Dans cet exemple
 > [!Note]  
 > L’utilisateur administrateur de domaine et le mot de passe doivent être spécifiés pour le test de vérification des fonctionnalités interactives d’identification de disque.
 
-![Alt text](media\azure-stack-vaas-interactive-feature-verification\image2.png)
+![Alt text](media/azure-stack-vaas-interactive-feature-verification/image2.png)
 
 ## <a name="select-the-test"></a>Sélectionner le test
 
@@ -72,51 +72,51 @@ Un test du remplacement d’un disque est un scénario courant. Dans cet exemple
     > [!Note]  
     > La version du test augmente à mesure que des améliorations sont apportées aux documentations et ressources d’accompagnement. La version la plus élevée doit toujours être utilisée, sauf indication contraire de Microsoft.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image4.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2.  Fournissez l’utilisateur administrateur de domaine et le mot de passe en sélectionnant **Modifier**.
 
 3.  Sélectionnez l’agent/le DVM d’exécution de test appropriés pour lancer le test.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image5.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
 4.  Sélectionnez **Envoyer** pour démarrer le test.
 
-![Alt text](media\azure-stack-vaas-interactive-feature-verification\image6.png)
+![Alt text](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
 ## <a name="start-the-test"></a>Démarrer le test
 
 Les invites du test d’identification de disque s’affichent sur l’ordinateur qui exécute l’agent VaaS. En général, il s’agit du DVM ou du serveur de rebond (jumpbox) de l’instance Azure Stack.
 
-![Alt text](media\azure-stack-vaas-interactive-feature-verification\image8.png)
+![Alt text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
 ## <a name="choose-the-actions"></a>Choisir les actions
 
 1.  Suivez les liens **Documentation** et **Validation** pour passer en revue les instructions de Microsoft sur l’exécution de ce scénario.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image9.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
 2.  Sélectionnez **Suivant**.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image10.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
 3.  Suivez les instructions pour exécuter le script de prévérification.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image11.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
 4.  Une fois le script de prévérification correctement effectué, exécutez le scénario manuel (Remplacement de disque) conformément aux liens **Documentation** et **Validation** disponibles sous l’onglet **Informations**.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image12.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
 5.  Ne fermez pas la boîte de dialogue pendant que vous effectuez le scénario manuel.
 
 6.  Une fois le scénario manuel terminé, suivez les instructions pour exécuter le script de post-vérification.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image13.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
 7.  En cas de réussite du scénario manuel (Remplacement de disque), sélectionnez **Suivant**.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image14.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
 > [!Important]  
 > Si vous fermez la fenêtre, le test s’arrête avant d’être terminé.
@@ -125,7 +125,7 @@ Les invites du test d’identification de disque s’affichent sur l’ordinateu
 
 1.  Une fois le test terminé, vous êtes invité à fournir des commentaires.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image15.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
 2.  Ces questions aident Microsoft à évaluer le taux de réussite et la qualité de mise sur le marché du scénario.
 
@@ -133,7 +133,7 @@ Les invites du test d’identification de disque s’affichent sur l’ordinateu
 
 1.  Attachez tous les fichiers journaux que vous voulez envoyer à Microsoft.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image16.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
 2.  Acceptez le CLUF pour l’envoi de commentaires.
 

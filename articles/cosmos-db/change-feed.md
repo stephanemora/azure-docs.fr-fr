@@ -2,16 +2,17 @@
 title: Utilisation du support de flux de modification dans Azure Cosmos DB
 description: Utilisez le support de flux de modification d’Azure Cosmos DB pour suivre les modifications dans les documents et effectuer des opérations de traitement basées sur les événements tels que des déclencheurs et la mise à jour des systèmes de cache et d’analyse.
 author: rafats
+ms.author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-ms.openlocfilehash: 4edf637d97070416c0dc2970f4bed483e5f4f34d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621307"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133746"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Flux de modification dans Azure Cosmos DB
 
@@ -82,7 +83,7 @@ Par exemple, avec un flux de modification, vous pouvez effectuer efficacement le
 
 Voici quelques-uns des scénarios que vous pouvez facilement implémenter avec le flux de modification :
 
-* Dans les applications web et mobiles [serverless](http://azure.com/serverless), vous pouvez suivre les événements tels que les modifications apportées au profil, aux préférences ou à l’emplacement de votre client, ou déclencher certaines actions, comme l’envoi de notifications Push à ses appareils avec [Azure Functions](#azure-functions). 
+* Dans les applications web et mobiles [serverless](https://azure.microsoft.com/en-us/solutions/serverless/), vous pouvez suivre les événements tels que les modifications apportées au profil, aux préférences ou à l’emplacement de votre client, ou déclencher certaines actions, comme l’envoi de notifications Push à ses appareils avec [Azure Functions](change-feed-functions.md).
 
 * Si vous utilisez Azure Cosmos DB pour créer un jeu, vous pouvez, par exemple, utiliser le flux de modification pour implémenter des classements en temps réel basés sur des scores de jeux terminés.
 
@@ -120,7 +121,7 @@ Le flux de modification est disponible pour chacune des clés de partition logiq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les flux de modification, consultez les articles suivants :
+Pour plus d’informations sur le flux de modification, consultez les articles suivants :
 
 * [Options de lecture du flux de modification](read-change-feed.md)
 * [Utilisation du flux de modification avec Azure Functions](change-feed-functions.md)

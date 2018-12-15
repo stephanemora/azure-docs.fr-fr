@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 44335137eedb67d7ceca420a061880767b895cad
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632464"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339278"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Concevoir et générer une solution de gestion dans Azure (préversion)
 > [!NOTE]
@@ -46,19 +45,19 @@ La première étape de la conception d’une solution consiste à déterminer le
 
 Il existe plusieurs façons de collecter des sources de données dans le référentiel Log Analytics, comme décrit dans [Sources de données dans Log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Cela inclut les événements du journal des événements Windows ou ceux générés par Syslog en plus des compteurs de performances pour les clients Windows et Linux.  Vous pouvez également collecter des données à partir des ressources Azure collectées par Azure Monitor.  
 
-Si vous avez besoin de données qui ne sont accessibles via aucune des sources de données disponibles, vous pouvez utiliser [l’API du collecteur de données HTTP](../../log-analytics/log-analytics-data-collector-api.md) qui vous permet d’écrire des données dans le référentiel Log Analytics à partir de n’importe quel client pouvant appeler une API REST.  L’approche la plus courante de la collecte de données personnalisées dans une solution de gestion consiste à créer un [runbook dans Azure Automation](../../automation/automation-runbook-types.md) qui collecte les données requises à partir des ressources Azure ou externes et utilise l’API du collecteur de données afin d’écrire dans le référentiel.  
+Si vous avez besoin de données qui ne sont accessibles via aucune des sources de données disponibles, vous pouvez utiliser [l’API du collecteur de données HTTP](../../azure-monitor/platform/data-collector-api.md) qui vous permet d’écrire des données dans le référentiel Log Analytics à partir de n’importe quel client pouvant appeler une API REST.  L’approche la plus courante de la collecte de données personnalisées dans une solution de gestion consiste à créer un [runbook dans Azure Automation](../../automation/automation-runbook-types.md) qui collecte les données requises à partir des ressources Azure ou externes et utilise l’API du collecteur de données afin d’écrire dans le référentiel.  
 
 ### <a name="log-searches"></a>Recherches dans les journaux
-Les [recherches dans les journaux](../../log-analytics/log-analytics-queries.md) sont utilisées pour extraire et analyser des données dans le référentiel Log Analytics.  Elles sont utilisées par les affichages et les alertes et permettent à l’utilisateur d’effectuer une analyse ad hoc des données dans le référentiel.  
+Les [recherches dans les journaux](../../azure-monitor/log-query/log-query-overview.md) sont utilisées pour extraire et analyser des données dans le référentiel Log Analytics.  Elles sont utilisées par les affichages et les alertes et permettent à l’utilisateur d’effectuer une analyse ad hoc des données dans le référentiel.  
 
 Définissez les requêtes qui peuvent être utiles à l’utilisateur même si elles ne sont pas utilisées par des vues ou des alertes.  Elles seront disponibles dans le portail en tant que recherches enregistrées, et vous pouvez également les inclure dans une [Liste de requêtes de composants de visualisation](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) dans votre vue personnalisée.
 
 ### <a name="alerts"></a>Alertes
-[Les alertes dans Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) identifient les problèmes via des [recherches dans les journaux](#log-searches) sur les données dans le référentiel.  Elles informent l’utilisateur ou exécutent automatiquement une action en réponse. Vous devez identifier différentes conditions d’alerte pour votre application et inclure des règles d’alerte correspondantes dans votre fichier solution.
+[Les alertes dans Log Analytics](../../azure-monitor/platform/alerts-overview.md) identifient les problèmes via des [recherches dans les journaux](#log-searches) sur les données dans le référentiel.  Elles informent l’utilisateur ou exécutent automatiquement une action en réponse. Vous devez identifier différentes conditions d’alerte pour votre application et inclure des règles d’alerte correspondantes dans votre fichier solution.
 
 Si le problème peut potentiellement être corrigé avec un processus automatisé, vous devrez généralement créer un runbook dans Azure Automation pour effectuer cette correction.  La plupart des services Azure peuvent être gérés avec des [cmdlets](/powershell/azure/overview) que le runbook peut exploiter pour exécuter ce type de fonctionnalité.
 
-Si votre solution nécessite une fonctionnalité externe en réponse à une alerte, alors vous pouvez utiliser une [réponse webhook](../../monitoring-and-diagnostics/alert-metric.md).  Cela vous permet d’appeler un service web externe envoyant des informations à partir de l’alerte.
+Si votre solution nécessite une fonctionnalité externe en réponse à une alerte, alors vous pouvez utiliser une [réponse webhook](../../azure-monitor/platform/alerts-metric.md).  Cela vous permet d’appeler un service web externe envoyant des informations à partir de l’alerte.
 
 ### <a name="views"></a>Views
 Les vues dans Log Analytics permettent de visualiser les données à partir du référentiel de Log Analytics.  Chaque solution contient en général une vue unique avec une [mosaïque](../../azure-monitor/platform/view-designer-tiles.md) qui s’affiche sur le tableau de bord principal de l’utilisateur.  La vue peut contenir n’importe quel nombre de [composants de visualisation](../../azure-monitor/platform/view-designer-parts.md) pour fournir différentes visualisations des données collectées à l’utilisateur.

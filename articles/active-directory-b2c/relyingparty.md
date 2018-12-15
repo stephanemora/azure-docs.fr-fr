@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8f56f287fde9e17d2a17298ca04eda63b69e3636
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: aaae119ec72a713adc2faa311dbcb6bd204035fd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159922"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835086"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -28,8 +28,8 @@ L’exemple suivant montre un élément **RelyingParty** dans le fichier de stra
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="your-tenant.onmicrosoft.com"
@@ -124,7 +124,7 @@ L’élément **SingleSignOn** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Scope | Oui | Étendue du comportement d’authentification unique. Valeurs possibles : `Suppressed`, `Tenant`, `Application` ou `Policy`. La valeur `Suppressed` indique que le comportement est supprimé. Par exemple, dans le cas d’une session d’authentification unique, aucune session n’est conservée pour l’utilisateur et celui-ci est toujours invité à sélectionner un fournisseur d’identité. La valeur `TrustFramework` indique que le comportement est appliqué pour toutes les stratégies dans l’infrastructure de confiance. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Tenant` indique que le comportement est appliqué à toutes les stratégies dans le locataire. Par exemple, un utilisateur suivant deux parcours de stratégie pour un locataire n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Application` indique que le comportement est appliqué à toutes les stratégies pour l’application qui effectue la requête. Par exemple, un utilisateur suivant deux parcours de stratégie pour une application n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Policy` indique que le comportement s’applique uniquement à une stratégie. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance est invité à sélectionner un fournisseur d’identité en cas de basculement d’une stratégie à une autre. |
+| Étendue | Oui | Étendue du comportement d’authentification unique. Valeurs possibles : `Suppressed`, `Tenant`, `Application` ou `Policy`. La valeur `Suppressed` indique que le comportement est supprimé. Par exemple, dans le cas d’une session d’authentification unique, aucune session n’est conservée pour l’utilisateur et celui-ci est toujours invité à sélectionner un fournisseur d’identité. La valeur `TrustFramework` indique que le comportement est appliqué pour toutes les stratégies dans l’infrastructure de confiance. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Tenant` indique que le comportement est appliqué à toutes les stratégies dans le locataire. Par exemple, un utilisateur suivant deux parcours de stratégie pour un locataire n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Application` indique que le comportement est appliqué à toutes les stratégies pour l’application qui effectue la requête. Par exemple, un utilisateur suivant deux parcours de stratégie pour une application n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Policy` indique que le comportement s’applique uniquement à une stratégie. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance est invité à sélectionner un fournisseur d’identité en cas de basculement d’une stratégie à une autre. |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -159,7 +159,7 @@ L’élément **ContentDefinitionParameter** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | Oui | Nom de la paire clé/valeur. |
+| NOM | Oui | Nom de la paire clé/valeur. |
 
 Pour plus d’informations, consultez [Configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées](active-directory-b2c-ui-customization-custom-dynamic.md).
 
@@ -169,7 +169,7 @@ L’élément **TechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- | 
-| Id | Oui | La valeur doit être `PolicyProfile`. |
+| ID | Oui | La valeur doit être `PolicyProfile`. |
 
 L’élément **TechnicalProfile** contient les éléments suivants :
 
@@ -177,8 +177,8 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | Chaîne qui contient le nom du profil technique présenté aux utilisateurs. |
 | Description | 0:1 | Chaîne qui contient la description du profil technique présentée aux utilisateurs. |
-| Protocol | 1:1 | Protocole utilisé pour la fédération. |
-| Metadata | 0:1 | Collection d’*éléments* de paires clé/valeur utilisée par le protocole pour communiquer avec le point de terminaison durant une transaction afin de configurer l’interaction entre la partie de confiance et les autres participants de la communauté. |
+| Protocole | 1:1 | Protocole utilisé pour la fédération. |
+| Métadonnées | 0:1 | Collection d’*éléments* de paires clé/valeur utilisée par le protocole pour communiquer avec le point de terminaison durant une transaction afin de configurer l’interaction entre la partie de confiance et les autres participants de la communauté. |
 | OutputClaims | 0:1 | Liste de types de revendications qui sont pris comme sortie dans le profil technique. Chacun de ces éléments contient une référence à un **ClaimType** déjà défini dans la section **ClaimsSchema** ou dans une stratégie dont hérite ce fichier de stratégie. |
 | SubjectNamingInfo | 0:1 | Nom du sujet utilisé dans les jetons. |
 
@@ -186,7 +186,7 @@ L’élément **Protocol** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OpenIdConnect` ou `SAML2`. La valeur `OpenIdConnect` représente la norme de protocole OpenID Connect 1.0 conformément à la spécification OpenID Foundation. `SAML2` représente la norme de protocole SAML 2.0 conformément à la spécification OASIS. N’utilisez pas de jeton SAML en production. |
+| NOM | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OpenIdConnect` ou `SAML2`. La valeur `OpenIdConnect` représente la norme de protocole OpenID Connect 1.0 conformément à la spécification OpenID Foundation. `SAML2` représente la norme de protocole SAML 2.0 conformément à la spécification OASIS. N’utilisez pas de jeton SAML en production. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
@@ -207,7 +207,7 @@ L’élément **OutputClaim** contient les attributs suivants :
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Avec l’élément **SubjectNameingInfo**, vous contrôlez la valeur du sujet du jeton :
-- **Jeton JTW** : la revendication `sub`. Il s’agit d’un principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, par exemple quand le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication du sujet est remplie avec l’ID de sujet de l’utilisateur dans l’annuaire. Pour plus d’informations, consultez [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
+- **Jeton JTW** : la revendication `sub`. Il s’agit d’un principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, par exemple quand le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. Pour plus d’informations, consultez [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
 - **Jeton SAML** : élément `<Subject><NameID>` qui identifie l’élément de sujet.
 
 L’élément **SubjectNamingInfo** contient l’attribut suivant :

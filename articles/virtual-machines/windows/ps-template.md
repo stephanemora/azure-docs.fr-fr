@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b61ee3c3baa4590dc8a2fbf91b1ff941626a01e4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7be724a93eb951a3f9e35048a3c70571e43e79cf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959818"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184744"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Créer une machine virtuelle Windows à partir d’un modèle Resource Manager
 
@@ -42,7 +42,7 @@ Toutes les ressources doivent être déployées dans un [groupe de ressources](.
 1. Obtenez la liste des emplacements disponibles où créer des ressources.
    
     ```powershell   
-    Get-AzureRmLocation | sort DisplayName | Select DisplayName
+    Get-AzureRmLocation | sort-object DisplayName | Select DisplayName
     ```
 
 2. Créez le groupe de ressources à l’emplacement sélectionné. Cet exemple illustre la création d’un groupe de ressources nommé **MyResourceGroup** dans la région **USA Ouest** :
