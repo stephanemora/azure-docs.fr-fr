@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: manayar
-ms.openlocfilehash: 0718ad7112c759dd3fdd363f38b863186ec9a978
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: deddcc8623803f9d003f3fafcef5252ebd34b813
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740160"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438331"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Mise à l’échelle automatique en utilisant des mesures invitées dans un modèle de groupe identique Linux
 
 Dans Azure, il existe deux types de mesures collectées sur les machines virtuelles et les groupes identiques : certaines proviennent de la machine virtuelle hôte et d’autres de la machine virtuelles invitée. En général, si vous utilisez des mesures de processeur, de disque et de réseau standard, les mesures d’hôte sont probablement bien adaptées. Si, en revanche, vous avez besoin d’un éventail plus large de mesures, alors les mesures invitées conviennent probablement mieux. Examinons les différences entre les deux :
 
-Les mesures d’hôte sont plus simples et plus fiables. Elles ne nécessitent aucune configuration supplémentaire, car elles sont collectées par la machine virtuelle hôte, tandis que les métriques invitées nécessitent d’installer [l’extension Microsoft Azure Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md) ou [l’extension Linux Azure Diagnostics](../virtual-machines/linux/diagnostic-extension.md) sur la machine virtuelle invitée. L’utilisation des mesures invitées à la place des mesures hôtes est courante, car les premières sont plus variées que les dernières. Les mesures de consommation de la mémoire, notamment, ne sont disponibles que via les mesures invitées. Les mesures hôtes prises en charge sont répertoriées [ici](../monitoring-and-diagnostics/monitoring-supported-metrics.md), et les mesures invitées couramment utilisées [ici](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Cet article explique comment modifier le [modèle de groupe identique viable minimal](./virtual-machine-scale-sets-mvss-start.md) pour qu’il utilise des règles de mise à l’échelle automatique en fonction des mesures invitées des groupes identiques Linux.
+Les mesures d’hôte sont plus simples et plus fiables. Elles ne nécessitent aucune configuration supplémentaire, car elles sont collectées par la machine virtuelle hôte, tandis que les métriques invitées nécessitent d’installer [l’extension Microsoft Azure Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md) ou [l’extension Linux Azure Diagnostics](../virtual-machines/linux/diagnostic-extension.md) sur la machine virtuelle invitée. L’utilisation des mesures invitées à la place des mesures hôtes est courante, car les premières sont plus variées que les dernières. Les mesures de consommation de la mémoire, notamment, ne sont disponibles que via les mesures invitées. Les mesures hôtes prises en charge sont répertoriées [ici](../azure-monitor/platform/metrics-supported.md), et les mesures invitées couramment utilisées [ici](../azure-monitor/platform/autoscale-common-metrics.md). Cet article explique comment modifier le [modèle de groupe identique viable minimal](./virtual-machine-scale-sets-mvss-start.md) pour qu’il utilise des règles de mise à l’échelle automatique en fonction des mesures invitées des groupes identiques Linux.
 
 ## <a name="change-the-template-definition"></a>Modifier la définition du modèle
 
@@ -111,7 +111,7 @@ Ensuite, modifiez le groupe identique `extensionProfile` pour y inclure l’exte
        }
 ```
 
-Enfin, ajoutez une ressource `autoscaleSettings` pour configurer la mise à l’échelle automatique en fonction de ces métriques. Cette ressource contient une clause `dependsOn` qui fait référence au groupe identique pour s’assurer que ce groupe existe avant d’essayer de le soumettre à une mise à l’échelle automatique. Pour baser la mise à l’échelle automatique sur une autre métrique, utilisez la propriété `counterSpecifier` de la configuration de l’extension Diagnostics en tant que propriété `metricName` dans la configuration de la mise à l’échelle automatique. Pour plus d’informations sur la configuration de la mise à l’échelle automatique, consultez les [meilleures pratiques en matière de mise à l’échelle automatique](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) et la [documentation de référence de l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931928.aspx).
+Enfin, ajoutez une ressource `autoscaleSettings` pour configurer la mise à l’échelle automatique en fonction de ces métriques. Cette ressource contient une clause `dependsOn` qui fait référence au groupe identique pour s’assurer que ce groupe existe avant d’essayer de le soumettre à une mise à l’échelle automatique. Pour baser la mise à l’échelle automatique sur une autre métrique, utilisez la propriété `counterSpecifier` de la configuration de l’extension Diagnostics en tant que propriété `metricName` dans la configuration de la mise à l’échelle automatique. Pour plus d’informations sur la configuration de la mise à l’échelle automatique, consultez les [meilleures pratiques en matière de mise à l’échelle automatique](..//azure-monitor/platform/autoscale-best-practices.md) et la [documentation de référence de l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931928.aspx).
 
 ```diff
 +    },

@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634266"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438198"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Vue d’ensemble des agents de surveillance Azure 
 Microsoft Azure offre plusieurs moyens de collecter différents types de données de machines virtuelles exécutant Microsoft Windows et Linux hébergées sur Azure, dans votre centre de données ou chez d’autres fournisseurs de cloud. Les trois types d’agents suivants sont disponibles pour surveiller une machine virtuelle :
@@ -31,7 +30,7 @@ Microsoft Azure offre plusieurs moyens de collecter différents types de donnée
 Cet article décrit les différences entre eux afin que vous puissiez déterminer lequel prendra en charge la gestion de votre service informatique ou les exigences générales de surveillance.  
 
 ## <a name="azure-diagnostic-extension"></a>Extension Azure Diagnostics
-L’[extension Azure Diagnostics](../../monitoring-and-diagnostics/azure-diagnostics.md) (couramment appelée extension Windows Azure Diagnostics (WAD) ou Linux Azure Diagnostics (LAD)), qui a été fournie pour Azure Cloud Services depuis qu’il a été mis à la disposition générale en 2010, est un agent qui fournit une collection simple de données de diagnostic à partir d’une ressource de calcul Azure comme une machine virtuelle, et la conserve dans un élément de stockage Azure. Une fois dans le stockage, vous pouvez choisir de l’afficher avec l’un des outils disponibles, tels que [Explorateur de serveurs dans Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) et [Explorateur Stockage Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+L’[extension Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-overview.md) (couramment appelée extension Windows Azure Diagnostics (WAD) ou Linux Azure Diagnostics (LAD)), qui a été fournie pour Azure Cloud Services depuis qu’il a été mis à la disposition générale en 2010, est un agent qui fournit une collection simple de données de diagnostic à partir d’une ressource de calcul Azure comme une machine virtuelle, et la conserve dans un élément de stockage Azure. Une fois dans le stockage, vous pouvez choisir de l’afficher avec l’un des outils disponibles, tels que [Explorateur de serveurs dans Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) et [Explorateur Stockage Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Vous pouvez choisir de collecter :
 
@@ -45,8 +44,8 @@ Vous pouvez choisir de collecter :
 L’agent Azure Diagnostics doit être utilisé lorsque vous souhaitez effectuer les opérations suivantes :
 
 * Archiver des journaux et des mesures dans le stockage Azure
-* Intégrer des données de surveillance dans des outils tiers. Ces outils utilisent une variété de méthodes incluant l'interrogation du compte de stockage, transféré vers [Event Hubs](../../event-hubs/event-hubs-about.md), ou l'interrogation avec [Azure Monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
-* Charger des données dans Azure Monitor pour créer des graphiques de métriques dans le portail Azure ou créer quasiment en temps réel [alertes de métriques](../../monitoring-and-diagnostics/alert-metric-overview.md). 
+* Intégrer des données de surveillance dans des outils tiers. Ces outils utilisent une variété de méthodes incluant l'interrogation du compte de stockage, transféré vers [Event Hubs](../../event-hubs/event-hubs-about.md), ou l'interrogation avec [Azure Monitoring REST API](../../azure-monitor/platform/rest-api-walkthrough.md).
+* Charger des données dans Azure Monitor pour créer des graphiques de métriques dans le portail Azure ou créer quasiment en temps réel [alertes de métriques](../../azure-monitor/platform/alerts-metric-overview.md). 
 * Mettre à l’échelle automatiquement des jeux de mise à l’échelle de machines virtuelles et des services cloud classiques sur la base de métriques du système d'exploitation.
 * Étudier les problèmes de démarrage de machines virtuelles grâce à des [Diagnostics de démarrage](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Comprendre le fonctionnement de vos applications et identifier de façon proactive les problèmes qui les affectent avec [Application Insights](../../azure-monitor/overview.md).
