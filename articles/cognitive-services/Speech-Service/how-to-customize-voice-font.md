@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467716"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867578"
 ---
 # <a name="creating-custom-voice-fonts"></a>Création de polices de voix personnalisée
 
@@ -87,7 +87,7 @@ Par exemple :
 Le système vocal personnalisé normalise les transcriptions en convertissant le texte en minuscules et en supprimant les signes de ponctuation superflus. Il est important que les transcriptions soient parfaitement fidèles aux enregistrements audio correspondants.
 
 > [!TIP]
-> Lors de la création de voix de synthèse vocale, sélectionnez des énoncés (ou rédigez les scripts) qui prennent en compte à la fois l’efficacité et la couverture phonétique. Des difficultés à obtenir les résultats que vous souhaitez ? [Contactez l’équipe Custom Voice](mailto:tts@microsoft.com) pour en savoir plus sur le moyen de nous consulter.
+> Lors de la création de voix de synthèse vocale, sélectionnez des énoncés (ou rédigez les scripts) qui prennent en compte à la fois l’efficacité et la couverture phonétique. Des difficultés à obtenir les résultats que vous souhaitez ? [Contactez l’équipe Custom Voice](mailto:speechsupport@microsoft.com) pour en savoir plus sur le moyen de nous consulter.
 
 ## <a name="upload-your-datasets"></a>Charger vos jeux de données
 

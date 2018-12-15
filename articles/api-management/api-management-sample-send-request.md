@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: fdcc230171006c6388e75b947e10a73fb953001a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294674"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970176"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilisation de services externes à partir du service de gestion des API Azure
 Les stratégies disponibles dans le service Gestion des API Azure permettent d’exécuter un large éventail de tâches utiles reposant strictement sur la requête entrante, la réponse sortante et les informations de configuration de base. En revanche, la possibilité d’interagir avec des services externes à partir des stratégies de gestion des API ouvre bien davantage d’opportunités.
@@ -68,13 +68,13 @@ L’utilisation d’un style « fire and forget » de requête implique certai
 La stratégie `send-request` permet d’utiliser un service externe pour exécuter des fonctions de traitement complexes et retourner des données au service Gestion des API qui peuvent être utilisées pour d’autres traitements de stratégie.
 
 ### <a name="authorizing-reference-tokens"></a>Autorisation des jetons de référence
-Une fonction majeure de la gestion des API consiste à protéger les ressources principales. Si le serveur d’autorisation utilisé par votre API crée des [jetons JWT](http://jwt.io/) dans le cadre de son flux OAuth2, comme le fait [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), vous pouvez utiliser la stratégie `validate-jwt` pour vérifier la validité du jeton. Certains serveurs d’autorisation créent des [jetons de référence](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) dont la vérification nécessite le rappel du serveur d’autorisation.
+Une fonction majeure de la gestion des API consiste à protéger les ressources principales. Si le serveur d’autorisation utilisé par votre API crée des [jetons JWT](https://jwt.io/) dans le cadre de son flux OAuth2, comme le fait [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), vous pouvez utiliser la stratégie `validate-jwt` pour vérifier la validité du jeton. Certains serveurs d’autorisation créent des [jetons de référence](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) dont la vérification nécessite le rappel du serveur d’autorisation.
 
 ### <a name="standardized-introspection"></a>Introspection normalisée
 Par le passé, il n’existait aucun moyen normalisé de vérifier un jeton de référence auprès d’un serveur d’autorisation. Néanmoins, une norme récemment proposée, [RFC 7662](https://tools.ietf.org/html/rfc7662) , qui définit comment un serveur de ressources peut vérifier la validité d’un jeton, a été publiée par l’IETF.
 
 ### <a name="extracting-the-token"></a>Extraction du jeton
-La première étape consiste à extraire le jeton de l’en-tête d’autorisation. Conformément à la norme [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1), la valeur d’en-tête doit prendre la forme du modèle d’autorisation `Bearer`, suivi d’un seul espace et du jeton d’autorisation. Malheureusement, il existe des cas où le modèle d’autorisation est omis. Pour en tenir compte lors de l’analyse, le service Gestion des API fractionne la valeur d’en-tête sur un espace et sélectionne la dernière chaîne dans le tableau de chaînes renvoyé. Une solution de contournement est ainsi trouvée pour les en-têtes d’autorisation mal formés.
+La première étape consiste à extraire le jeton de l’en-tête d’autorisation. Conformément à la norme [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1), la valeur d’en-tête doit prendre la forme du modèle d’autorisation `Bearer`, suivi d’un seul espace et du jeton d’autorisation. Malheureusement, il existe des cas où le modèle d’autorisation est omis. Pour en tenir compte lors de l’analyse, le service Gestion des API fractionne la valeur d’en-tête sur un espace et sélectionne la dernière chaîne dans le tableau de chaînes renvoyé. Une solution de contournement est ainsi trouvée pour les en-têtes d’autorisation mal formés.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
@@ -118,7 +118,7 @@ Vous pouvez utiliser une stratégie `<choose>` pour détecter si le jeton n’es
 </choose>
 ```
 
-Conformément à la norme [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) qui décrit le mode d’utilisation des jetons `bearer`, le service Gestion des API renvoie également un en-tête `WWW-Authenticate` avec la réponse 401. L’élément WWW-Authenticate a pour but d’informer un client sur la manière de créer une requête dûment autorisée. En raison de la grande variété d’approches possibles avec l’infrastructure OAuth2, il est difficile de communiquer toutes les informations nécessaires. Heureusement, tous les efforts sont déployés pour aider les [clients à découvrir comment autoriser correctement les requêtes adressées à un serveur de ressources](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Conformément à la norme [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) qui décrit le mode d’utilisation des jetons `bearer`, le service Gestion des API renvoie également un en-tête `WWW-Authenticate` avec la réponse 401. L’élément WWW-Authenticate a pour but d’informer un client sur la manière de créer une requête dûment autorisée. En raison de la grande variété d’approches possibles avec l’infrastructure OAuth2, il est difficile de communiquer toutes les informations nécessaires. Heureusement, tous les efforts sont déployés pour aider les [clients à découvrir comment autoriser correctement les requêtes adressées à un serveur de ressources](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Solution finale
 À la fin, vous obtenez la stratégie suivante :

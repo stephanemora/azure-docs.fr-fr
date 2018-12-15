@@ -1,22 +1,20 @@
 ---
-title: Gérer les interfaces réseau dans Azure Site Recovery pour la réplication d’un emplacement local sur Azure | Microsoft Docs
-description: Décrit comment gérer les interfaces réseau pour la réplication d’un emplacement local sur Azure avec Azure Site Recovery.
-services: site-recovery
+title: Gérer les interfaces réseau dans Azure Site Recovery pour la reprise d’activité de machines locales sur Azure | Microsoft Docs
+description: Décrit comment gérer les interfaces réseau pour la reprise d’activité de machines locales sur Azure avec Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 0ca2d32910e57042d2cbc9d3b772d226d835b545
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e5757cee2238f44706194da5247da7d4721762f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352408"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837568"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Gérer les interfaces réseau des machines virtuelles pour la réplication d’un emplacement local sur Azure
-
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gérer les interfaces réseau de machines virtuelles pour la reprise d’activité de machines locales sur Azure
 Une machine virtuelle (VM) dans Azure doit être associée à au moins une interface réseau. Elle peut avoir autant d’interfaces réseau qu’en prend en charge la taille de machine virtuelle.
 
 Par défaut, la première interface réseau associée à une machine virtuelle Azure est définie comme interface réseau principale. Toutes les autres interfaces réseau de la machine virtuelle sont des interfaces réseau secondaires. Par défaut, tout le trafic sortant de la machine virtuelle est envoyé à partir de l’adresse IP affectée à la configuration IP principale de l’interface réseau principale.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444765"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970329"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressources du modèle Gestion des API Azure
 La Gestion des API Azure fournit les types de ressources suivants, utilisables dans les modèles du portail des développeurs.  
@@ -176,7 +176,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |WebDocumentationTemplatesDeveloperKey|Spécifiez votre clé d’abonnement.|  
 |WebDocumentationTemplatesJavaApache|Cet exemple utilise le client HTTP Apache à partir de composants HTTP (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Fournissez des valeurs aux paramètres facultatifs, en fonction des besoins.|  
-|WebDocumentationTemplatesPhpPackage|Cet exemple utilise le package HTTP_Request2. (pour plus d’informations : http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|Cet exemple utilise le package HTTP_Request2. (pour plus d’informations : https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Fournissez des valeurs aux paramètres de chemin d’accès (indiqués entre {...}) et au corps de la demande si nécessaire.|  
 |WebDocumentationTemplatesRequestBody|Spécifiez le corps de la demande.|  
 |WebDocumentationTemplatesRequiredParams|Donnez des valeurs aux paramètres obligatoires suivants.|  
@@ -571,13 +571,13 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |ApiManagementUserLimitReached|Ce service a atteint le nombre maximal d’utilisateurs autorisés. Veuillez passer à un niveau tarifaire supérieur.|  
   
 ##  <a name="glyphs"></a> Ressources de glyphes  
- Les modèles du portail des développeurs de la Gestion des API peuvent utiliser les glyphes [Glyphicons de Bootstrap](http://getbootstrap.com/components/#glyphicons). Cet ensemble de glyphes contient plus de 250 glyphes au format de police provenant de l’ensemble Halflings [Glyphicon](http://glyphicons.com/). Pour utiliser un glyphe de cet ensemble, utilisez la syntaxe suivante.  
+ Les modèles du portail des développeurs de la Gestion des API peuvent utiliser les glyphes [Glyphicons de Bootstrap](https://getbootstrap.com/components/#glyphicons). Cet ensemble de glyphes contient plus de 250 glyphes au format de police provenant de l’ensemble Halflings [Glyphicon](https://glyphicons.com/). Pour utiliser un glyphe de cet ensemble, utilisez la syntaxe suivante.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- Pour connaître la liste complète des glyphes, consultez [Glyphicons de Bootstrap](http://getbootstrap.com/components/#glyphicons).
+ Pour connaître la liste complète des glyphes, consultez [Glyphicons de Bootstrap](https://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](api-management-developer-portal-templates.md).

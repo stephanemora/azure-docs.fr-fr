@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/11/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 85484c0d4c1838e158fe388afdfcbebc6de2f289
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 506f5102d38191e20e18e395f3a59ac12d951ab7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569754"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850616"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Exigences du serveur de configuration pour la récupération d’urgence de VMware sur Azure
 
@@ -34,7 +34,7 @@ Pour la reprise d’activité de machines virtuelles VMware sur Azure, vous deve
 
 ## <a name="hardware-requirements"></a>Configuration matérielle requise
 
-**Composant** | **Exigence** 
+**Composant** | **Prérequis** 
 --- | ---
 Cœurs d’unité centrale | 8 
 RAM | 16 Go
@@ -44,7 +44,7 @@ Espace disque disponible (disque de rétention) | 600 Go
 
 ## <a name="software-requirements"></a>Configuration logicielle requise
 
-**Composant** | **Exigence** 
+**Composant** | **Prérequis** 
 --- | ---
 Système d’exploitation | Windows Server 2012 R2 <br> Windows Server 2016
 Paramètres régionaux du système d’exploitation | Anglais (en-us)
@@ -54,7 +54,7 @@ IIS | - Aucun site web par défaut préexistant <br> - Aucune application/aucun 
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 
-**Composant** | **Exigence** 
+**Composant** | **Prérequis** 
 --- | --- 
 Type d’adresse IP | statique 
 Accès à Internet | Le serveur doit également accéder à ces URL (directement ou par le biais d’un proxy) : <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https:\//management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF doit également accéder aux URL suivantes : <br> - https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
@@ -63,7 +63,7 @@ Type de carte réseau | VMXNET3 (si le serveur de configuration est une machine 
 
 ## <a name="required-software"></a>Logiciels requis
 
-**Composant** | **Exigence** 
+**Composant** | **Prérequis** 
 --- | ---
 VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) doit être installé si le serveur de configuration est en cours d’exécution sur une machine virtuelle VMware.
 MYSQL | MySQL doit être installé. Vous pouvez l’installer manuellement ou laisser Site Recovery le faire.
@@ -72,7 +72,7 @@ MYSQL | MySQL doit être installé. Vous pouvez l’installer manuellement ou la
 
 Le tableau suivant récapitule les besoins en capacité du serveur de configuration. Si vous répliquez plusieurs machines virtuelles VMware, lisez les [considérations sur la planification de la capacité](site-recovery-plan-capacity-vmware.md) et exécutez l’outil [Planificateur de déploiement Azure Site Recovery](site-recovery-deployment-planner.md) pour la réplication VMware.read 
 
-**Composant** | **Exigence** 
+**Composant** | **Prérequis** 
 --- | ---
 **UC** | **Mémoire** | **Disque cache** | **Taux de modification des données** | **Machines répliquées**
 --- | --- | --- | --- | ---

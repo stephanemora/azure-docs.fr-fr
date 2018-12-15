@@ -12,16 +12,16 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496030"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993180"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Créer une définition OpenAPI pour une fonction
 
-Les API REST utilisent souvent une définition OpenAPI (anciennement, fichier [Swagger](http://swagger.io/)). Cette définition contient des informations sur les opérations qui sont disponibles dans une API et sur la façon dont les données de demande et de réponse de l’API doivent être structurées.
+Les API REST utilisent souvent une définition OpenAPI (anciennement, fichier [Swagger](https://swagger.io/)). Cette définition contient des informations sur les opérations qui sont disponibles dans une API et sur la façon dont les données de demande et de réponse de l’API doivent être structurées.
 
 Dans ce didacticiel, vous allez créer une fonction qui détermine si la réparation d’urgence d’une éolienne est rentable. Ensuite, vous allez créer une définition OpenAPI pour l’application de la fonction pour que la fonction puisse être appelée à partir d’autres applications et services.
 
@@ -123,7 +123,7 @@ Vous disposez maintenant d’une fonction qui détermine la rentabilité des ré
 
 ## <a name="generate-the-openapi-definition"></a>Générer la définition OpenAPI
 
-Vous êtes maintenant prêt à générer la définition OpenAPI. Cette définition peut être utilisée par d’autres technologies Microsoft, telles que API Apps, [PowerApps](functions-powerapps-scenario.md) et [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), ainsi que des outils de développement tiers comme [Postman](https://www.getpostman.com/docs/importing_swagger) et [bien d’autres packages](http://swagger.io/tools/).
+Vous êtes maintenant prêt à générer la définition OpenAPI. Cette définition peut être utilisée par d’autres technologies Microsoft, telles que API Apps, [PowerApps](functions-powerapps-scenario.md) et [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), ainsi que des outils de développement tiers comme [Postman](https://www.getpostman.com/docs/importing_swagger) et [bien d’autres packages](https://swagger.io/tools/).
 
 1. Sélectionnez uniquement les *verbes* que votre API prend en charge (dans ce cas, POST). Cela rend la définition d’API générée plus claire.
 
@@ -141,7 +141,7 @@ Vous êtes maintenant prêt à générer la définition OpenAPI. Cette définiti
 
     ![Source de la définition de l’API](media/functions-openapi-definition/api-definition-source.png)
 
-    Cette étape active une suite d’options OpenAPI pour votre application de fonction, notamment un point de terminaison pour héberger un fichier OpenAPI à partir du domaine de votre application de fonction, une copie intégrée de [l’éditeur OpenAPI](http://editor.swagger.io) et un générateur de modèles de définitions d’API.
+    Cette étape active une suite d’options OpenAPI pour votre application de fonction, notamment un point de terminaison pour héberger un fichier OpenAPI à partir du domaine de votre application de fonction, une copie intégrée de [l’éditeur OpenAPI](https://editor.swagger.io) et un générateur de modèles de définitions d’API.
 
 1. Cliquez sur **Générer le modèle de définition d’API** > **Enregistrer**.
 
@@ -168,7 +168,7 @@ Vous êtes maintenant prêt à générer la définition OpenAPI. Cette définiti
         parameters: []
         description: >-
             Replace with Operation Object
-            #http://swagger.io/specification/#operationObject
+            #https://swagger.io/specification/#operationObject
         responses:
             '200':
             description: Success operation

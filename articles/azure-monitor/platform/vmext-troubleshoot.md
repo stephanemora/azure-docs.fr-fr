@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 9907983a901062e5adf622fc6620f5f8432f6a87
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 72a24175b93057bf774810517f4d6c5e4b6c41eb
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637064"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183316"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Dépannage de l’extension de machine virtuelle Log Analytics
 Cet article présente les problèmes qui peuvent survenir avec l’extension de machine virtuelle Log Analytics sur les machines virtuelles Windows et Linux en cours d’exécution sur Microsoft Azure, puis propose des solutions possibles pour les résoudre.
@@ -46,7 +44,7 @@ Si l’extension de machine virtuelle *Microsoft Monitoring Agent* ne s’instal
 1. Vérifiez si l’agent de machine virtuelle Azure est installé et fonctionne correctement en suivant la procédure décrite dans l’article [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * Vous pouvez également consulter le fichier journal de l’agent de machine virtuelle `C:\WindowsAzure\logs\WaAppAgent.log`.
    * Si le journal n’existe pas, l’agent de machine virtuelle n’est pas installé.
-   * [Installer l’agent de machine virtuelle Azure](../../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Installer l’agent de machine virtuelle Azure](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 2. Vérifiez que la tâche de vérification des pulsations de l’extension Microsoft Monitoring Agent est en cours d’exécution en procédant comme suit :
    * Connectez-vous à la machine virtuelle.
    * Ouvrez le Planificateur de tâches et recherchez la tâche `update_azureoperationalinsight_agent_heartbeat`.
@@ -66,7 +64,7 @@ Si l’extension de machine virtuelle *Agent Log Analytics pour Linux* ne s’in
 
 1. Si l’état de l’extension est *Inconnu*, vérifiez si l’agent de machine virtuelle Azure est installé et fonctionne correctement en examinant le fichier journal de l’agent de machine virtuelle `/var/log/waagent.log`
    * Si le journal n’existe pas, l’agent de machine virtuelle n’est pas installé.
-   * [Installez l’agent de machine virtuelle Azure sur les machines virtuelles Linux](../../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+   * [Installez l’agent de machine virtuelle Azure sur les machines virtuelles Linux](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 2. Pour les autres états défectueux, examinez les fichiers journaux de l’extension de machine virtuelle Agent Log Analytics pour Linux dans `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` et `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`.
 3. Si l’extension est intègre, mais que les données ne sont pas chargées, examinez les fichiers journaux de l’Agent Log Analytics pour Linux dans `/var/opt/microsoft/omsagent/log/omsagent.log`.
 

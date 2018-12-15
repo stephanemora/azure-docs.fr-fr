@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113850"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999868"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Créer une fonction déclenchée par un stockage Blob Azure
 
@@ -27,7 +27,7 @@ Apprenez à créer une fonction déclenchée lorsque des fichiers sont chargés 
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](http://storageexplorer.com/).
++ Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](https://storageexplorer.com/).
 + Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="create-an-azure-function-app"></a>Création d’une application Azure Function
@@ -62,7 +62,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
     | Paramètre | Valeur suggérée | Description |
     |---|---|---|
-    | **Name** | Unique dans votre Function App | Nom de cette fonction déclenchée par l’objet Blob. |
+    | **Nom** | Unique dans votre Function App | Nom de cette fonction déclenchée par l’objet Blob. |
     | **Chemin d’accès**   | samples-workitems/{name}    | Emplacement du stockage Blob analysé. Le nom de fichier de l’objet Blob est transmis dans la liaison en tant que paramètre _name_.  |
     | **Connexion au compte de stockage** | AzureWebJobsStorage | Vous pouvez utiliser la connexion de compte de stockage qui est déjà utilisée par votre application de fonction, ou créez-en une.  |
 
@@ -76,7 +76,7 @@ Ensuite, vous vous connectez à votre compte Stockage Azure et créez le contene
 
     ![Obtention des informations d’identification de connexion du compte de stockage.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. Exécutez [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com/), cliquez sur l’icône de connexion situé sur la gauche, choisissez **Utiliser un nom et une clé de compte de stockage**, puis cliquez sur **Suivant**.
+1. Exécutez [l’Explorateur de stockage Microsoft Azure](https://storageexplorer.com/), cliquez sur l’icône de connexion situé sur la gauche, choisissez **Utiliser un nom et une clé de compte de stockage**, puis cliquez sur **Suivant**.
 
     ![Exécutez l’outil Explorateur de compte de stockage.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 

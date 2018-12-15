@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023744"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342236"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Intégration du contrôle de code source dans Azure Automation
 
@@ -50,7 +50,7 @@ Sur la page **Récapitulatif du contrôle de code source**, fournissez les infor
 |Propriété  |Description  |
 |---------|---------|
 |Nom du contrôle de code source     | Nom convivial du contrôle de code source.        |
-|Type de contrôle de code source     | Type de source de contrôle de code source. Options disponibles :</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
+|Type de contrôle de code source     | Type de source de contrôle de code source. Options disponibles :</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Référentiel     | Nom du référentiel ou du projet. Cette valeur est extraite du référentiel du contrôle de code source. Exemple : $/ContosoFinanceTFVCExample         |
 |Branche     | Branche de laquelle extraire les fichiers sources. Le ciblage de branche n’est pas disponible pour le type de contrôle de code source TFVC.          |
 |Chemin d’accès du dossier     | Dossier contenant les runbooks à synchroniser. Exemple : /Runbooks         |
@@ -62,7 +62,7 @@ Sur la page **Récapitulatif du contrôle de code source**, fournissez les infor
 
 ## <a name="syncing"></a>Synchronisation
 
-En configurant la synchronisation automatique lors de la configuration de l’intégration du contrôle de code source, la synchronisation initiale démarre automatiquement. Si la synchronisation automatique n’a pas été définie, sélectionnez la source dans le tableau de la page **Contrôle de code source (préversion)**. Cliquez sur **Démarrer la synchronisation** pour initialiser le processus de synchronisation.  
+En configurant la synchronisation automatique lors de la configuration de l’intégration du contrôle de code source, la synchronisation initiale démarre automatiquement. Si la synchronisation automatique n’a pas été définie, sélectionnez la source dans le tableau de la page **Contrôle de code source (préversion)**. Cliquez sur **Démarrer la synchronisation** pour initialiser le processus de synchronisation.
 
 Vous pouvez visualiser l’état du travail de synchronisation actuel ou des travaux précédents en cliquant sur l’onglet **Travaux de synchronisation**. Dans la liste déroulante **Contrôle de code source**, sélectionnez un contrôle de code source.
 

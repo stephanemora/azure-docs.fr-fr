@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 03d51cfb03de071f63578717a65eeda4b119bf0d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497857"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191578"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Créer des clusters HDInsight à l’aide de l’interface Azure Classic CLI
 
@@ -80,7 +80,7 @@ Les étapes suivantes doivent être exécutées à partir d’une ligne de comma
     * Remplacez `groupname` par le nom du groupe de ressources.
     * Remplacez `storagename` par le nom du compte de stockage.
 
-     Dans les données renvoyées, enregistrez la valeur `key` par `key1`.
+      Dans les données renvoyées, enregistrez la valeur `key` par `key1`.
 
 6. Créez un cluster HDInsight.
 
@@ -90,8 +90,8 @@ Les étapes suivantes doivent être exécutées à partir d’une ligne de comma
 
     * Remplacez `Hadoop` par le type de cluster que vous souhaitez créer. Par exemple, `Hadoop`, `HBase`, `Kafka`, `Spark` ou `Storm`.
 
-     > [!IMPORTANT]
-     > Il existe différents types de clusters HDInsight correspondant à la charge de travail ou à la technologie pour laquelle ils sont utilisés. Il n’existe aucune méthode prise en charge pour créer un cluster combinant plusieurs types, tels que Storm et HBase sur un seul cluster.
+      > [!IMPORTANT]
+      > Il existe différents types de clusters HDInsight correspondant à la charge de travail ou à la technologie pour laquelle ils sont utilisés. Il n’existe aucune méthode prise en charge pour créer un cluster combinant plusieurs types, tels que Storm et HBase sur un seul cluster.
 
     * Remplacez `location` par le même emplacement que celui utilisé aux étapes précédentes.
 
@@ -105,12 +105,12 @@ Les étapes suivantes doivent être exécutées à partir d’une ligne de comma
 
     * Remplacez `sshuser` et `sshuserpassword` par le nom et le mot de passe à utiliser lors de l’accès au cluster via SSH
 
-    > [!IMPORTANT]
-    > Cet exemple crée un cluster avec deux nœuds de travail. Vous pouvez également modifier le nombre de nœuds worker après la création du cluster en effectuant des opérations de mise à l’échelle. Si vous envisagez d’utiliser plus de 32 nœuds worker, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM. Vous pouvez définir la taille du nœud principal à l’aide du paramètre `--headNodeSize` pendant la création du cluster.
-    >
-    > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-
-    Le processus de création de cluster peut prendre plusieurs minutes. En règle générale, il dure environ 15 minutes.
+      > [!IMPORTANT]
+      > Cet exemple crée un cluster avec deux nœuds de travail. Vous pouvez également modifier le nombre de nœuds worker après la création du cluster en effectuant des opérations de mise à l’échelle. Si vous envisagez d’utiliser plus de 32 nœuds worker, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM. Vous pouvez définir la taille du nœud principal à l’aide du paramètre `--headNodeSize` pendant la création du cluster.
+      >
+      > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+      
+      Le processus de création de cluster peut prendre plusieurs minutes. En règle générale, il dure environ 15 minutes.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 

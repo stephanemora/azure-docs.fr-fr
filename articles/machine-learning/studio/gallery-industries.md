@@ -4,7 +4,6 @@ description: La section Secteurs d’activité d’Azure AI Gallery rassemble di
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-manager: jhubbard
 editor: cgronlun
 ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
 ms.service: machine-learning
@@ -14,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.custom: (previous ms.author=garye, author=garyericson)
+ms.custom: previous-ms.author=garye, previous-author=garyericson
 ms.author: amlstudiodocs
-ms.openlocfilehash: 760f47bf42be32201eea86748d69875b0bf04ce4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4f9495027c7027f659f877930b6aabc72b361ae8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317396"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269326"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Découvrir les solutions propres à un secteur dans Azure AI Gallery
 
 La section **[Secteurs d’activité](https://gallery.azure.ai/industries)** d’[Azure AI Gallery](http://gallery.cortanaintelligence.com) rassemble diverses ressources qui sont spécifiques de secteurs d’activité tels que les suivants :
 
-* [Distribution](https://gallery.azure.ai/industries/retail) – trouvez des solutions de distribution, telles que des outils de prévision de vente, de prédiction de perte de clientèle et de développement de modèles tarifaires.
-* [Industrie](https://gallery.azure.ai/industries/manufacturing) – trouvez des solutions pour l’industrie telles que des outils d’anticipation de l’entretien du matériel et de prévision des prix énergétiques.
+* [Vente au détail](https://gallery.azure.ai/industries/retail) – trouvez des solutions de vente au détail, telles que des outils de prévision de vente, de prédiction de perte de clientèle et de développement de modèles de tarification.
+* [Fabrication](https://gallery.azure.ai/industries/manufacturing) – trouvez des solutions pour la fabrication telles que des outils d’anticipation de l’entretien du matériel et de prévision des prix énergétiques.
 * [Opérations bancaires](https://gallery.azure.ai/industries/banking) – trouvez des solutions pour les opérations bancaires, telles que des outils de prédiction des risques liés au crédit et de surveillance de la fraude en ligne.
 * [Santé](https://gallery.azure.ai/industries/healthcare) – trouvez des solutions de soins de santé tels que des outils de détection de maladies et de prédiction des réadmissions à l’hôpital.
 
@@ -49,5 +48,5 @@ Sur cette page, vous pouvez parcourir toutes les ressources de la galerie. Vous 
 
 **[ALLER À LA GALERIE &gt;&gt;](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

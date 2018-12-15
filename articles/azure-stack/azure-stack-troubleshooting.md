@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c463599190c5bfaac47a70dbca7b8a67dc830f3a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363473"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957638"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Résolution des problèmes de Microsoft Azure Stack
 
@@ -43,7 +43,7 @@ Ce comportement est probablement tout simplement le résultat du comportement pa
 Vous devez ajouter un élément de la galerie et une image Windows Server avant de pouvoir déployer des machines virtuelles dans Azure Stack.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Après le redémarrage de l’hôte Azure Stack, certaines machines virtuelles ne démarrent pas automatiquement
-Vous remarquerez peut-être que les services Azure Stack ne sont pas immédiatement disponibles après le redémarrage de votre hôte.  Cela est dû au fait que la vérification de la cohérence des fournisseurs de ressources et des [machines virtuelles d’infrastructure](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) Azure Stack demande un certain temps. Toutefois, ils finissent par démarrer automatiquement.
+Vous remarquerez peut-être que les services Azure Stack ne sont pas immédiatement disponibles après le redémarrage de votre hôte.  Cela est dû au fait que la vérification de la cohérence des fournisseurs de ressources et des [machines virtuelles d’infrastructure](../azure-stack/asdk/asdk-architecture.md#virtual-machine-roles) Azure Stack demande un certain temps. Toutefois, ils finissent par démarrer automatiquement.
 
 Vous remarquerez peut-être aussi que les machines virtuelles clientes ne démarrent pas automatiquement après le redémarrage de l’hôte du Kit de développement Azure Stack. Ce problème est connu ; quelques étapes manuelles suffisent pour les mettre en ligne :
 

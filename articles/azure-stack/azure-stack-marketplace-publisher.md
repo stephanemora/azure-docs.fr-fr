@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 98a7ae31aeeae29b81a1053b38992d3bc4e0e03f
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 9f1c433be7e8adc0779860c3ec3bfb5d7174fca5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085307"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970720"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Ajouter des éléments de Place de Marché à l’aide de l’outil de publication
 
@@ -28,11 +28,11 @@ L’ajout de votre contenu à la [Place de Marché Azure Stack](azure-stack-mark
 
 ## <a name="prerequisites"></a>Prérequis
 
- - Vous devez exécuter la boîte à outils sur l’hôte Azure Stack, ou avoir une connectivité [VPN](.\asdk\asdk-connect.md#connect-with-vpn) à l’hôte ASDK à partir de la machine sur laquelle vous exécutez l’outil.
+ - Vous devez exécuter la boîte à outils sur l’hôte Azure Stack, ou avoir une connectivité [VPN](./asdk/asdk-connect.md#connect-with-vpn) à l’hôte ASDK à partir de la machine sur laquelle vous exécutez l’outil.
 
  - Téléchargez les [modèles de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) et effectuez leur extraction.
 
- - Téléchargez l’[outil d’empaquetage de la galerie Azure](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
+ - Téléchargez l’[outil d’empaquetage de la galerie Azure](https://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
  - La publication sur la Place de Marché nécessite des icônes et un fichier de miniature. Vous pouvez utiliser vos propres fichiers ou enregistrer les [exemples](azure-stack-marketplace-publisher.md#support-files) de fichiers localement pour cet exemple.
 

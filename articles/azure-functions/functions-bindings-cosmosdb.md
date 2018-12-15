@@ -2,21 +2,20 @@
 title: Liaisons Azure Cosmos DB pour Azure Functions 1.x
 description: Découvrez comment utiliser des déclencheurs et liaisons Azure Cosmos DB dans Azure Functions.
 services: functions
-documentationcenter: na
 author: craigshoemaker
+ms.author: cshoe
 manager: jeconnoc
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.service: azure-functions; cosmos-db
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: cshoe
-ms.openlocfilehash: 3d4c9e974f92f26b93900318c01dc8a659d8edbe
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 2a501129720447462d1e6e961597b51fa683dc1e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276208"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136203"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Liaisons Azure Cosmos DB pour Azure Functions 1.x
 
@@ -24,7 +23,7 @@ ms.locfileid: "52276208"
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
-Cet article explique comment utiliser des liaisons [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour Azure Cosmos DB.
+Cet article explique comment utiliser des liaisons [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour Azure Cosmos DB.
 
 > [!NOTE]
 > Cet article concerne Azure Functions 1.x.  Pour plus d’informations sur l’utilisation de ces liaisons dans Functions 2.x, consultez [Liaisons Azure Cosmos DB pour Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
@@ -38,7 +37,7 @@ Cet article explique comment utiliser des liaisons [Azure Cosmos DB](..\cosmos-d
 
 ## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
-Les liaisons Azure Cosmos DB pour Functions version 1.x sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB), version 1.x. Le code source des liaisons se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB).
+Les liaisons Azure Cosmos DB pour Functions version 1.x sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB), version 1.x. Le code source des liaisons se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -895,7 +894,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 Cette section contient les exemples suivants :
 
-* [Déclencheur de file d’attente, rechercher l’ID à partir de JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Déclencheur de file d’attente, rechercher l’ID à partir de JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [Déclencheur HTTP, rechercher l’ID à partir de la chaîne de requête](#http-trigger-look-up-id-from-query-string-javascript)
 * [Déclencheur HTTP, ID de recherche à partir des données de routage](#http-trigger-look-up-id-from-route-data-javascript)
 * [Déclencheur de file d’attente, obtenir plusieurs documents, utilisation de SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1177,7 +1176,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 Dans les fonctions C# et F#, lorsque la fonction se termine correctement, toutes les modifications apportées au document d’entrée par le biais des paramètres d’entrée nommés sont automatiquement conservées. 
 
-Dans les fonctions JavaScript, les mises à jour ne sont pas effectuées une fois la fonction terminée. Utilisez plutôt `context.bindings.<documentName>In` et `context.bindings.<documentName>Out` pour effectuer les mises à jour. Consultez [l’exemple JavaScript](#input---javascript-example).
+Dans les fonctions JavaScript, les mises à jour ne sont pas effectuées une fois la fonction terminée. Utilisez plutôt `context.bindings.<documentName>In` et `context.bindings.<documentName>Out` pour effectuer les mises à jour. Consultez [l’exemple JavaScript](#input---javascript-examples).
 
 ## <a name="output"></a>Sortie
 
@@ -1571,7 +1570,7 @@ Le constructeur de l’attribut accepte le nom de la base de données et le nom 
     }
 ```
 
-Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-example).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-examples).
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
@@ -1606,7 +1605,7 @@ Par défaut, lorsque vous écrivez dans le paramètre de sortie de votre fonctio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur le traitement de base de données serverless avec Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [En savoir plus sur le traitement de base de données serverless avec Cosmos DB](../cosmos-db/serverless-computing-database.md)
 * [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)
 
 <!---

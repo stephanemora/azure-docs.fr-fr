@@ -1,21 +1,20 @@
 ---
-title: Reprotéger des machines virtuelles depuis Azure vers un site local | Microsoft Docs
-description: Après avoir automatiquement restauré des machines virtuelles vers Azure, vous pouvez restaurer ces machines virtuelles vers votre site local. Apprenez à reprotéger des machines virtuelles avant une restauration automatique.
-services: site-recovery
+title: Reprotéger des machines virtuelles à partir d’Azure vers un site local lors de la récupération d’urgence de machines virtuelles VMware et de serveurs physiques | Microsoft Docs
+description: Après un basculement vers Azure lors d’une récupération d’urgence de machines virtuelles VMware et de serveurs physiques, découvrez comment effectuer une reprise automatique à partir d’Azure vers le site local.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e965848b0c3c009444762dafdf42acc080b6915e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346677"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834948"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Reprotéger des machines depuis Azure vers un site local
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotéger et effectuer une reprise automatique des machines vers un site local après le basculement vers Azure
 
 Après un [basculement](site-recovery-failover.md) de machines virtuelles VMware ou de serveurs physiques locaux vers Azure, la première étape de restauration automatique vers votre site local implique de reprotéger les machines virtuelles Azure qui ont été créées pendant le basculement. Cet article décrit ce processus de reprotection. 
 

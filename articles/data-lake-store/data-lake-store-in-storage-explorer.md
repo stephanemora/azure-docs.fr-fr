@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126324"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966260"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gérer les ressources Azure Data Lake Storage Gen1 en utilisant l’Explorateur Stockage
 
@@ -136,7 +136,7 @@ Les éléments suivants indiquent comment gérer les ressources au sein d’un c
 
    ![Boîte de dialogue avec le chargement en cours](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-> [!NOTE] 
+> [!NOTE]
 > Vous pouvez directement faire glisser les dossiers et fichiers sur un ordinateur local pour démarrer le chargement. 
        
 ### <a name="download-folders-or-files-to-your-local-computer"></a>Télécharger des dossiers ou des fichiers sur votre ordinateur local
@@ -164,7 +164,7 @@ Le fichier est téléchargé et ouvert à l’aide de l’application associée 
 
 ![Sélections pour la copie d’un dossier](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-> [!NOTE] 
+> [!NOTE]
 > Les opérations de Copier/Coller entre différents types de stockage ne sont pas prises en charge. Vous pouvez copier des dossiers ou fichiers Data Lake Storage Gen1 et les coller dans un autre compte Data Lake Storage Gen1, mais vous *ne pouvez pas* copier des dossiers ou fichiers Data Lake Storage Gen1 et les coller dans le stockage Blob Azure, et inversement.
 > 
 > Pour l’opération de Copier/Coller, téléchargez les dossiers ou fichiers sur l’ordinateur local, puis chargez-les vers l’emplacement de destination. L’outil n’effectue *pas* l’action sur le serveur principal. L’exécution de l’opération Copier/Coller sur les fichiers volumineux est lente. L’optimisation de l’opération Copier/Déplacer des fichiers hautes performances est en cours.

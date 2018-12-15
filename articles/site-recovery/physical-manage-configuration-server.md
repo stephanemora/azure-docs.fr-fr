@@ -5,14 +5,14 @@ services: site-recovery
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 0e8dbf47c40339c90a0e28c3ef497a8da963e481
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 62a9fd6eee15618e7153fd84030840b429e214ed
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230988"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833514"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 
@@ -22,7 +22,7 @@ Vous configurez un serveur de configuration local quand vous utilisez le service
 
 Le tableau répertorie les prérequis du déploiement d’une machine de serveur de configuration locale.
 
-| **Composant** | **Exigence** |
+| **Composant** | **Prérequis** |
 | --- |---|
 | Cœurs d’unité centrale| 8 |
 | RAM | 16 Go|

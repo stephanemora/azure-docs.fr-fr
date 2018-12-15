@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 999017e24f6c4c24735b7e0cc818bf20aaabab62
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3caa45064c41b641aa913e210aa698d818d5355e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338571"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970261"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Résolution des problèmes liés au Kit de développement Microsoft Azure Stack (ASDK)
 Ce document fournit des informations permettant de résoudre les problèmes courants liés au kit ASDK. Si vous rencontrez un problème qui n’est pas documenté, consultez le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) pour obtenir de l’aide et des informations supplémentaires.  
@@ -64,7 +64,7 @@ Oui, c’est le comportement attendu. Il a été conçu ainsi pour les raisons s
 
 Si vous voyez des VHD « orphelins », il est important de savoir s’ils font partie du dossier d’un compte de stockage supprimé. Si le compte de stockage n’a pas été supprimé, il est normal qu’ils soient toujours présents.
 
-Pour en savoir plus sur la configuration du seuil de rétention et de la récupération à la demande, consultez la page [Gérer les comptes de stockage](.\.\azure-stack-manage-storage-accounts.md).
+Pour en savoir plus sur la configuration du seuil de rétention et de la récupération à la demande, consultez la page [Gérer les comptes de stockage](../azure-stack-manage-storage-accounts.md).
 
 ## <a name="storage"></a>Stockage
 ### <a name="storage-reclamation"></a>Récupération du stockage
@@ -72,4 +72,3 @@ Il peut s’écouler jusqu’à 14 heures avant que la capacité récupérée ne
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Consulter le forum de support Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
-

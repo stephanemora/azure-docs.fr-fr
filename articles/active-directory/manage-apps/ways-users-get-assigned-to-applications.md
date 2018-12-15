@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: d34671d4197735ea2c30aafc8fd01a5893427ff3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9e27df857d560abdf5b6a54272bb022b6ed466ee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226842"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079362"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Guide pratique pour affecter des utilisateurs à des applications
 
@@ -33,15 +33,15 @@ Pour qu’un utilisateur puisse accéder à une application, il doit tout d’ab
 
 2.  Un administrateur [affecte un groupe](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) dont l’utilisateur est membre à l’application, y compris :
 
-  * Un groupe synchronisé localement
+    * Un groupe synchronisé localement
 
-  * Un groupe de sécurité statique créé dans le cloud
+    * Un groupe de sécurité statique créé dans le cloud
 
-  * Un [groupe de sécurité dynamique](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) créé dans le cloud
+    * Un [groupe de sécurité dynamique](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) créé dans le cloud
 
-  * Un groupe Office 365 créé dans le cloud
+    * Un groupe Office 365 créé dans le cloud
 
-  * Le groupe [Tous les utilisateurs](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
+    * Le groupe [Tous les utilisateurs](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
 
 3.  Un administrateur active l[’accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) pour autoriser un utilisateur à ajouter une application à l’aide de la fonctionnalité **Ajouter une application** du [volet d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction), **sans approbation de l’entreprise**
 

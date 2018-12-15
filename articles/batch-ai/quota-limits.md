@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cade124cefbd4e2e63ab4cb6fa4f22b3bd672ad0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 16032ec5ba1e613462f92b86281ce93153b70923
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391808"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409715"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Quotas et limites du service Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Comme avec d’autres services Azure, il existe des limites concernant certaines ressources associées au service Batch AI. Dans Batch AI, ces limites sont des quotas par défaut appliqués au niveau de l’abonnement pour chaque région où le service est [disponible](https://azure.microsoft.com/global-infrastructure/services/). Cet article décrit ces paramètres par défaut, et comment vous pouvez demander une augmentation de ces quotas.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: be3c8d10ef034a4bd03f178bc1334b8a9eeb2f58
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7121087d9d9699a73b88e07599f70e0c7c40c1eb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282904"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308278"
 ---
 # <a name="azure-status"></a>État Azure
 [L’état Azure](https://azure.microsoft.com/status/) vous présente une vue globale de l’intégrité des services Azure. Avec l’état Azure, vous pouvez obtenir les dernières informations sur la disponibilité du service. Tous les utilisateurs ont accès à l’état Azure et peuvent afficher l’intégrité de tous les services sous forme de rapport. 
@@ -37,8 +37,8 @@ La page de l’état Azure affiche toujours les dernières informations sur l’
 Cette page vous permet d’afficher des événements jusqu’à 90 jours dans le passé, notamment une cause racine préliminaire, l’atténuation et les étapes suivantes pour Azure.
 
 ## <a name="rss-feed"></a>Flux RSS
-L’état Azure fournit également [un flux RSS](https://azure.microsoft.com/en-us/status/feed/) des modifications de l’intégrité des services Azure auquel vous pouvez vous abonner.
+L’état Azure fournit également [un flux RSS](https://azure.microsoft.com/status/feed/) des modifications de l’intégrité des services Azure auquel vous pouvez vous abonner.
 
-# <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment obtenir une vue plus personnalisée de l’intégrité Azure avec [Service Health](./service-health-overview.md).
 * Découvrez comment obtenir une vue plus granulaire de l’intégrité de vos ressources Azure spécifiques avec [Resource Health](./resource-health-overview.md).

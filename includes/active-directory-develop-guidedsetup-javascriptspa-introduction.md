@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 8d0b0c99b743461da41a518feae9c781f90c8b63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2cb4895fc2f884d6da41b55faa91fbcb9e88f52f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988416"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978667"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Appeler l’API Microsoft Graph à partir d’une application à page unique (SPA) JavaScript
 
@@ -46,7 +46,7 @@ Ce guide utilise la bibliothèque suivante :
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Bibliothèque d’authentification Microsoft pour JavaScript Preview|
 
 > [!NOTE]
-> *msal.js* cible le *point de terminaison Azure Active Directory v2.0*, ce qui permet aux comptes personnels, scolaires et professionnels de se connecter et d’acquérir des jetons. Le *point de terminaison Azure Active Directory v2.0* a [certaines limitations](..\articles\active-directory\develop\active-directory-v2-limitations.md).
+> *msal.js* cible le *point de terminaison Azure Active Directory v2.0*, ce qui permet aux comptes personnels, scolaires et professionnels de se connecter et d’acquérir des jetons. Le *point de terminaison Azure Active Directory v2.0* a [certaines limitations](../articles/active-directory/develop/active-directory-v2-limitations.md).
 > Pour comprendre les différences entre les points de terminaison v1.0 et v2.0, consultez [Comparer le point de terminaison Azure AD v2.0 avec le point de terminaison v1.0](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

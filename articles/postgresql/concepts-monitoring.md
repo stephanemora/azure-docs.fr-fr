@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 8ad7369bc940f682bb7c11c3ed4e3444f1bb056a
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b8d5526b258e70238bf8d5e4dc91ab02f403368e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035082"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843680"
 ---
 # <a name="monitor-and-tune"></a>Surveiller et régler
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour PostgreSQL propose différentes options de surveillance pour vous informer sur le comportement de votre serveur.
@@ -35,14 +35,14 @@ Les métriques suivantes sont disponibles pour Azure Database pour PostgreSQL :
 |serverlog_storage_percent|Pourcentage de stockage du journal du serveur|Pourcentage|Pourcentage de stockage du journal du serveur utilisé par rapport au stockage du journal du serveur maximal défini pour le serveur.|
 |serverlog_storage_usage|Stockage du journal du serveur utilisé|Octets|Quantité de stockage du journal du serveur en cours d’utilisation.|
 |serverlog_storage_limit|Limite de stockage du journal du serveur|Octets|Stockage du journal du serveur maximal défini pour ce serveur.|
-|active_connections|Connexions actives|Count|Nombre de connexions actives sur le serveur.|
-|connections_failed|Connexions ayant échoué|Count|Nombre de connexions au serveur ayant échoué.|
+|active_connections|Connexions actives|Nombre|Nombre de connexions actives sur le serveur.|
+|connections_failed|Connexions ayant échoué|Nombre|Nombre de connexions au serveur ayant échoué.|
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
 |backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|
 
 ## <a name="server-logs"></a>Journaux des serveurs
-Vous pouvez activer la journalisation sur votre serveur. Ces journaux sont également disponibles via les journaux de diagnostic Azure dans [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs et dans le compte de stockage. Pour en savoir plus sur la journalisation, consultez la page [journaux serveur](concepts-server-logs.md).
+Vous pouvez activer la journalisation sur votre serveur. Ces journaux sont également disponibles via les journaux de diagnostic Azure dans [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs et dans le compte de stockage. Pour en savoir plus sur la journalisation, consultez la page [journaux serveur](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Magasin de requêtes
 [Magasin des requêtes](concepts-query-store.md) est une fonctionnalité en préversion publique qui effectue le suivi des performances des requêtes au fil du temps, y compris les statistiques d’exécution des requêtes et les événements d’attente. Cette fonctionnalité conserve les informations sur les performances d’exécution des requêtes dans une base de données système nommée **azure_sys** sous le schéma query_store. Vous pouvez contrôler la collecte et le stockage des données au moyen de différents boutons de configuration.

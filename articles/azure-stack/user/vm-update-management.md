@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.openlocfilehash: 1ef20dc35b069c5f12c2f31d0979949be27271e0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: be793fa5d346d05e6b7bd9f93f1108b7a3542fa6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323633"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959170"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Gestion et mise à jour des machines virtuelles avec Azure Stack
 Vous pouvez utiliser les fonctionnalités de solutions Azure Automation suivantes pour gérer les machines virtuelles Windows déployées à l’aide d’Azure Stack :
@@ -41,7 +41,7 @@ Plusieurs prérequis doivent être remplis avant d’utiliser ces fonctionnalit�
 Pour utiliser les fonctionnalités Azure Automation Inventory, Change Tracking et Update Management pour les machines virtuelles Windows dans Azure Stack, vous devez d’abord activer ces solutions dans Azure.
 
 > [!TIP]
-> Si ces fonctionnalités sont déjà activées pour les machines virtuelles Azure, vous pouvez utiliser vos informations d’identification d’espace de travail Log Analytics préexistantes. Si vous avez déjà une clé primaire et un ID d’espace de travail Log Analytics que vous souhaitez utiliser, passez directement à [la section suivante](.\vm-update-management.md#in-the-azure-stack-administration-portal). Sinon, poursuivez dans cette section pour créer un espace de travail Log Analytics et un compte Automation.
+> Si ces fonctionnalités sont déjà activées pour les machines virtuelles Azure, vous pouvez utiliser vos informations d’identification d’espace de travail Log Analytics préexistantes. Si vous avez déjà une clé primaire et un ID d’espace de travail Log Analytics que vous souhaitez utiliser, passez directement à [la section suivante](./vm-update-management.md#in-the-azure-stack-administration-portal). Sinon, poursuivez dans cette section pour créer un espace de travail Log Analytics et un compte Automation.
 
 La première étape de l’activation de ces solutions consiste à [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) dans votre abonnement Azure. Un espace de travail Log Analytics est un environnement Log Analytics unique avec son propre référentiel de données, et ses propres sources de données et solutions. Une fois que vous avez créé un espace de travail, notez la clé et l’ID. Pour afficher ces informations, accédez au panneau de l’espace de travail, cliquez sur **Paramètres avancés** et passez en revue les valeurs pour **ID de l’espace de travail** et **Clé primaire**. 
 

@@ -3,7 +3,7 @@ title: Résolution des problèmes de connexion courants à Azure SQL Database
 description: Opérations servant à identifier et résoudre les erreurs de connexion courantes pour Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: daleche
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a34745c5586fa90d3e167bb3be22e93dfa83b7af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 53061cde5621be06df8f992278a6510d62e51934
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041728"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872576"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Résoudre des problèmes de connexion à la base de données SQL Azure
 En cas d’échec de la connexion à la base de données SQL Azure, vous recevez des [messages d’erreur](sql-database-develop-error-messages.md). Cet article est une rubrique centralisée qui vous permet de résoudre les problèmes de connectivité des bases de données SQL Azure. Il présente les [causes courantes](#cause) des problèmes de connexion, vous recommande un [outil de dépannage](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) qui vous permet d’identifier le problème, et fournit les étapes de dépannage permettant de résoudre les [erreurs temporaires](#troubleshoot-transient-errors) et les [erreurs persistantes ou non temporaires](#troubleshoot-persistent-errors). 
@@ -79,8 +79,8 @@ Si l’application échoue de façon permanente à se connecter à la base de do
 4. Vérifiez l’état du service dans le tableau de bord. Si vous soupçonnez une panne régionale, consultez [Restauration à la suite d’une panne](sql-database-disaster-recovery.md) pour connaître les étapes de restauration vers une nouvelle zone.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Rechercher dans la documentation de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-* [Affichage des dernières mises à jour du service de base de données SQL Azure](http://azure.microsoft.com/updates/?service=sql-database)
+* [Rechercher dans la documentation de Microsoft Azure](https://azure.microsoft.com/search/documentation/)
+* [Affichage des dernières mises à jour du service de base de données SQL Azure](https://azure.microsoft.com/updates/?service=sql-database)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)

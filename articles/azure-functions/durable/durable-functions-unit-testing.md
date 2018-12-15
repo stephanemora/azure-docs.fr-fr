@@ -8,37 +8,36 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 12/11/2018
 ms.author: kadimitr
-ms.openlocfilehash: 159abb533bcc6211b4eca8b2c60f96bf9800db1a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3dcc9e4880c65e868f1cd62d3c6e1567e82b6870
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637494"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337867"
 ---
 # <a name="durable-functions-unit-testing"></a>Tests unitaires de l’extension Fonctions durables
 
-Le test unitaire est une partie importante des pratiques de développement de logiciels modernes. Les tests unitaires vérifient le comportement de la logique métier et offrent une protection contre l’introduction, dans le futur, de changements importants qui passent inaperçus. Étant donné que l’extension Fonctions durables peut aisément se complexifier, les tests unitaires permettent d’éviter les changements importants. Les sections suivantes expliquent comment effectuer des tests unitaires sur les trois types de fonctions : Client d’orchestration, Orchestrateur et Fonctions d’activité. 
+Le test unitaire est une partie importante des pratiques de développement de logiciels modernes. Les tests unitaires vérifient le comportement de la logique métier et offrent une protection contre l’introduction, dans le futur, de changements importants qui passent inaperçus. Étant donné que l’extension Fonctions durables peut aisément se complexifier, les tests unitaires permettent d’éviter les changements importants. Les sections suivantes expliquent comment effectuer des tests unitaires sur les trois types de fonctions : Client d’orchestration, Orchestrateur et Fonctions d’activité.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les exemples de cet article exigent de connaître les concepts et frameworks suivants : 
+Les exemples de cet article exigent de connaître les concepts et frameworks suivants :
 
 * Test des unités
 
-* Fonctions durables 
+* Fonctions durables
 
 * [xUnit](https://xunit.github.io/) : framework de test
 
 * [moq](https://github.com/moq/moq4) : framework de simulation
 
-
-## <a name="base-classes-for-mocking"></a>Classes de base pour la simulation 
+## <a name="base-classes-for-mocking"></a>Classes de base pour la simulation
 
 La simulation est prise en charge par le biais de trois classes abstraites dans Durable Functions :
 
-* [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) 
+* [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)
 
 * [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)
 
@@ -47,7 +46,7 @@ La simulation est prise en charge par le biais de trois classes abstraites dans 
 Ces classes sont des classes de base pour [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html), [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) et [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) qui définissent les méthodes Client d’orchestration, Orchestrateur et Activité. Les objets fictifs définissent un comportement attendu pour les méthodes de la classe de base afin que le test unitaire puisse vérifier la logique métier. Il existe un flux de travail en deux étapes pour le test unitaire de la logique métier dans le Client d’orchestration et l’Orchestrateur :
 
 1. Utilisez les classes de base à la place de l’implémentation concrète lors de la définition de signatures du Client d’orchestration et de l’Orchestrateur.
-2. Dans les tests unitaires, simulez le comportement des classes de base et vérifiez la logique métier. 
+2. Dans les tests unitaires, simulez le comportement des classes de base et vérifiez la logique métier.
 
 Pour plus d’informations sur le test des fonctions qui utilisent la liaison du client d’orchestration et la liaison du déclencheur de l’orchestrateur, consultez les paragraphes suivants.
 
@@ -57,9 +56,9 @@ Dans cette section, le test unitaire valide la logique de la fonction de déclen
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-La tâche du test unitaire est de vérifier la valeur de l’en-tête `Retry-After` fourni dans la charge utile de réponse. Le test unitaire simule alors certaines des méthodes [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) pour garantir un comportement prévisible. 
+La tâche du test unitaire est de vérifier la valeur de l’en-tête `Retry-After` fourni dans la charge utile de réponse. Le test unitaire simule alors certaines des méthodes [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) pour garantir un comportement prévisible.
 
-Tout d’abord, un élément fictif de la classe de base, [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html), est exigé. L’élément fictif peut être une nouvelle classe qui implémente [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). Toutefois, l’utilisation d’un framework de simulation comme [moq](https://github.com/moq/moq4) simplifie le processus :    
+Tout d’abord, un élément fictif de la classe de base, [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html), est exigé. L’élément fictif peut être une nouvelle classe qui implémente [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). Toutefois, l’utilisation d’un framework de simulation comme [moq](https://github.com/moq/moq4) simplifie le processus :
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -85,10 +84,10 @@ La méthode `StartNewAsync` est simulée pour retourner un ID d’instance connu
         {
             StatusCode = HttpStatusCode.OK,
             Content = new StringContent(string.Empty),
-            Headers = 
-            { 
+            Headers =
+            {
                 RetryAfter = new RetryConditionHeaderValue(TimeSpan.FromSeconds(10))
-            } 
+            }
         });
 ```
 
@@ -110,10 +109,10 @@ La méthode `StartNewAsync` est simulée pour retourner un ID d’instance connu
             Content = new StringContent("{}", Encoding.UTF8, "application/json"),
             RequestUri = new Uri("http://localhost:7071/orchestrators/E1_HelloSequence"),
         },
-        durableOrchestrationClientBaseMock.Object, 
+        durableOrchestrationClientBaseMock.Object,
         functionName,
         traceWriterMock.Object);
- ``` 
+ ```
 
  La dernière étape consiste à comparer la sortie avec la valeur attendue :
 
@@ -125,7 +124,7 @@ La méthode `StartNewAsync` est simulée pour retourner un ID d’instance connu
     Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
 ```
 
-Une fois toutes les étapes combinées, le test unitaire a le code suivant : 
+Une fois toutes les étapes combinées, le test unitaire a le code suivant :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HttpStartTests.cs)]
 
@@ -172,7 +171,7 @@ Une fois toutes les étapes combinées, le test unitaire a le code suivant :
 
 ## <a name="unit-testing-activity-functions"></a>Fonctions d’activité de test unitaire
 
-Les fonctions d’activité peuvent faire l’objet d’un test unitaire de la même façon que les fonctions non durables. 
+Les fonctions d’activité peuvent faire l’objet d’un test unitaire de la même façon que les fonctions non durables.
 
 Dans cette section, le test unitaire valide le comportement de la fonction d’activité `E1_SayHello` :
 

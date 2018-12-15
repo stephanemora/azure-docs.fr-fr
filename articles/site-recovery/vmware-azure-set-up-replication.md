@@ -1,21 +1,20 @@
 ---
-title: Configurer et gérer des stratégies de réplication pour la réplication VMware sur Azure à l’aide d’Azure Site Recovery | Microsoft Docs
-description: Décrit comment configurer les paramètres de réplication en vue d’une réplication VMware sur Azure avec Azure Site Recovery.
-services: site-recovery
+title: Configurer et gérer des stratégies de réplication pour la récupération d’urgence VMware sur Azure à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Décrit comment configurer les paramètres de réplication en vue d’une récupération d’urgence VMware sur Azure avec Azure Site Recovery.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 03197d1f42a17d6fc99b85d3fbc3635468b1e6ae
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e83b15b5e53a203a3583c02565ea9c316b7c481c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423604"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832368"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>Configurer et gérer des stratégies de réplication pour la réplication VMware
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurer et gérer des stratégies de réplication pour la récupération d’urgence VMware sur Azure
 Cet article explique comment configurer une stratégie de réplication pour la réplication d’une machine virtuelle VMware sur Azure avec [Azure Site Recovery](site-recovery-overview.md).
 
 

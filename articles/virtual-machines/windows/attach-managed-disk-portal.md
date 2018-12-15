@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 854f457e6731f69c64bf2036840d9e1c18a1cbf2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093899"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075088"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Attacher un disque de données managé à une machine virtuelle Windows à l’aide du portail Azure
 
@@ -52,30 +52,6 @@ Cet article montre comment attacher un nouveau disque de données managé à une
 8. Dans la fenêtre **Formater un nouveau disque**, vérifiez les paramètres, puis sélectionnez **Démarrer**.
 9. Un avertissement vous informe que le formatage des disques efface toutes les données. Sélectionnez **OK**.
 10. Une fois le formatage terminé, sélectionnez **OK**.
-
-## <a name="use-trim-with-standard-storage"></a>Utilisation de TRIM avec le stockage standard
-
-Si vous utilisez le stockage standard (disque dur), vous devez activer la commande **TRIM**. La commande **TRIM** ignore les blocs inutilisés sur le disque afin que vous soyez facturé uniquement pour le stockage que vous utilisez réellement. Grâce à **TRIM**, vous pouvez faire des économies si vous créez des fichiers volumineux et que vous les supprimez par la suite. 
-
-Pour vérifier le paramètre **TRIM**, ouvrez une invite de commandes sur votre machine virtuelle Windows et entrez la commande suivante :
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-Si la commande retourne 0, **TRIM** est bien activé. Sinon, si elle retourne 1, exécutez la commande suivante pour activer **TRIM** :
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-Après la suppression des données de votre disque, vous pouvez vérifier le bon vidage des opérations **TRIM** en exécutant defrag avec **TRIM** :
-
-```
-defrag.exe <volume:> -l
-```
-
-Pour vérifier que tout le volume est optimisé, vous pouvez également le formater.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5a67cdcef7f39830b747dec5f2c980483e1ab91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978333"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967893"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle
 
@@ -117,15 +117,15 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 Voici les étapes de base pour bien démarrer :
 
-1. [Créez un espace de travail Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Créez un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurez la solution Activity Log Analytics](../log-analytics/log-analytics-activity.md#configuration) pour vos espaces de travail.
+1. [Configurez la solution Activity Log Analytics](../azure-monitor/platform/collect-activity-logs.md#configuration) pour vos espaces de travail.
 
-1. [Affichez les journaux d’activité](../log-analytics/log-analytics-activity.md#using-the-solution). Un moyen rapide d’accéder à la page Vue d’ensemble de l’analytique des journaux d’activité consiste à cliquer sur l’option **Log Analytics**.
+1. [Affichez les journaux d’activité](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Un moyen rapide d’accéder à la page Vue d’ensemble de l’analytique des journaux d’activité consiste à cliquer sur l’option **Log Analytics**.
 
    ![Option Log Analytics dans le portail](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Éventuellement, utilisez la page [Recherche dans les journaux](../log-analytics/log-analytics-log-search.md) ou le [portal Analytique avancée](../log-analytics/query-language/get-started-analytics-portal.md) pour interroger et afficher les journaux. Pour plus d’informations sur ces deux options, consultez la [page Recherche dans les journaux ou le portail Analytique avancée](../log-analytics/log-analytics-log-search-portals.md).
+1. Éventuellement, utilisez la page [Recherche dans les journaux](../log-analytics/log-analytics-log-search.md) ou le [portal Analytique avancée](../azure-monitor/log-query/get-started-portal.md) pour interroger et afficher les journaux. Pour plus d’informations sur ces deux options, consultez la [page Recherche dans les journaux ou le portail Analytique avancée](../azure-monitor/log-query/portals.md).
 
 Voici une requête qui retourne les nouvelles attributions de rôle organisées par fournisseur de ressources cible :
 

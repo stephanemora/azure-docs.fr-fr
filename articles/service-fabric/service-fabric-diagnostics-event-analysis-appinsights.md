@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291043"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322787"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analyse et visualisation d’événements avec Application Insights
 
@@ -54,7 +54,7 @@ Pour découvrir en détail les fonctionnalités du portail Application Insights,
 >[!NOTE]
 >Cette configuration s’applique uniquement aux clusters Windows pour le moment.
 
-Il existe deux méthodes principales permettant d’envoyer des données à Azure Application Insights à partir de WAD, ce qui nécessite d’ajouter un récepteur Application Insights à la configuration de WAD, comme détaillé dans [cet article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Il existe deux méthodes principales permettant d’envoyer des données à Azure Application Insights à partir de WAD, ce qui nécessite d’ajouter un récepteur Application Insights à la configuration de WAD, comme détaillé dans [cet article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Ajouter une clé d’instrumentation Application Insights lors de la création d’un cluster dans le portail Azure
 
@@ -88,7 +88,7 @@ Dans l’élément « WadCfg » du modèle Resource Manager, ajoutez un récep
 
 Dans les deux extraits de code précédents, le nom « applicationInsights » a été utilisé pour décrire le récepteur. Cela n’est pas obligatoire, et tant que le nom du récepteur est inclus dans l’élément « sinks », vous pouvez définir n’importe quelle chaîne comme nom.
 
-Actuellement, les journaux du cluster s’affichent sous forme de **traces** dans la visionneuse des journaux d’Application Insights. Étant donné que la plupart des traces provenant de la plateforme sont de type « Informations », vous pouvez également envisager de modifier la configuration du récepteur pour que seuls les journaux de type « Critique » ou « Erreur » soient envoyés. Pour ce faire, ajoutez « Channels » à votre récepteur, comme illustré dans [cet article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Actuellement, les journaux du cluster s’affichent sous forme de **traces** dans la visionneuse des journaux d’Application Insights. Étant donné que la plupart des traces provenant de la plateforme sont de type « Informations », vous pouvez également envisager de modifier la configuration du récepteur pour que seuls les journaux de type « Critique » ou « Erreur » soient envoyés. Pour ce faire, ajoutez « Channels » à votre récepteur, comme illustré dans [cet article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Si vous utilisez une clé Application Insights incorrecte dans le portail ou dans votre modèle Resource Manager, vous devrez modifier manuellement la clé et mettre à jour/redéployer le cluster.
