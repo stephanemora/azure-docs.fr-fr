@@ -1,19 +1,18 @@
 ---
-title: Utiliser l’explorateur Azure Cosmos DB pour gérer vos données | Microsoft Docs
+title: Utiliser l’explorateur Azure Cosmos DB pour gérer vos données
 description: L’explorateur Azure Cosmos DB est une interface web autonome qui vous permet de voir et de gérer les données stockées dans Azure Cosmos DB.
 services: cosmos-db
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 8d1bd0d4331937e37307140e17e5aed1a6e3b0ff
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144342"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140749"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Utiliser l’explorateur Azure Cosmos DB pour gérer vos données 
 
@@ -52,4 +51,4 @@ Pour le moment, l’expérience **Ouvrir en mode plein écran** qui vous permet 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez découvert comment démarrer avec l’explorateur Azure Cosmos DB pour gérer vos données, vous pouvez :
 
-* Commencer à définir des [requêtes](sql-api-sql-query-reference.md) à l’aide de la syntaxe SQL, et faire de la [programmation côté serveur](programming.md) en vous servant de procédures stockées, d’UDF et de déclencheurs. 
+* Commencer à définir des [requêtes](sql-api-query-reference.md) à l’aide de la syntaxe SQL, et faire de la [programmation côté serveur](programming.md) en vous servant de procédures stockées, d’UDF et de déclencheurs. 

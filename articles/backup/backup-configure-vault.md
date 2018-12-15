@@ -2,19 +2,19 @@
 title: Utiliser l’agent Azure Backup pour sauvegarder des fichiers et des dossiers
 description: Utilisez l’agent Microsoft Azure Backup pour sauvegarder vos fichiers et dossiers Windows dans Azure. Créez un coffre Recovery Services, installez l’agent Backup, définissez la stratégie de sauvegarde et exécutez la sauvegarde initiale sur les fichiers et dossiers.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: coffre de sauvegarde ; sauvegarder un serveur Windows ; sauvegarder windows ;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
-ms.author: markgal
-ms.openlocfilehash: fd988e2209d8a6547ec30edb4ee62fc8ff2c803d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.author: raynew
+ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619953"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874003"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Sauvegarder un client Windows ou un serveur Windows Server dans Azure et le modèle de déploiement Resource Manager
 Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server (ou d’un client Windows) sur Azure avec Azure Backup et le modèle de déploiement Resource Manager.
@@ -250,7 +250,7 @@ Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** appara
 ![RI terminé](./media/backup-configure-vault/ircomplete.png)
 
 ## <a name="questions"></a>Des questions ?
-Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
+Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la sauvegarde des machines virtuelles ou d’autres charges de travail, consultez les références suivantes :

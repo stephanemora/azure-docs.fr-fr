@@ -15,12 +15,12 @@ ms.date: 09/05/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1269dfb3aec33e781601a1d885004ddf80127160
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 83f32cc18f1237d5d28e8340177fd6e2fae4e173
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367196"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133636"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Accéder aux applications locales via Microsoft Teams
 
@@ -31,7 +31,7 @@ Vos utilisateurs peuvent ajouter des applications cloud à leurs canaux Teams [e
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>Installer le connecteur du proxy d’application et publier votre application
 
-Si vous ne l’avez pas déjà fait, [configurez le proxy d’application pour votre abonné et installez le connecteur](application-proxy-enable.md). Ensuite, [publiez votre application locale](application-proxy-publish-azure-portal.md) pour l’accès à distance. Quand vous publiez l’application, notez l’URL externe, car elle est utilisée pour ajouter l’application à Teams.
+Si vous ne l’avez pas déjà fait, [configurez le proxy d’application pour votre abonné et installez le connecteur](application-proxy-add-on-premises-application.md). Ensuite, [publiez votre application locale](application-proxy-add-on-premises-application.md) pour l’accès à distance. Quand vous publiez l’application, notez l’URL externe, car elle est utilisée pour ajouter l’application à Teams.
 
 Si vos applications ont déjà été publiées mais que vous avez oublié leurs URL externes, recherchez-les sur le [portail Azure](https://portal.azure.com). Connectez-vous, puis accédez à **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications** > sélectionnez votre application > **Proxy d’application**.
 

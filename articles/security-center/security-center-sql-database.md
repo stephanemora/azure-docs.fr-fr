@@ -3,7 +3,7 @@ title: Azure Security Center et service SQL Database | Microsoft Docs
 description: Cet article explique comment Security Center peut vous aider à sécuriser vos bases de données dans Azure SQL Database.
 services: sql-database
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 2b16bc98c456c9c85d8e49e01171086933533707
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: rkarlin
+ms.openlocfilehash: 839c8bfe6748c1aeaf7c8804ef4388cf8a623bdb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312627"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337833"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center et service SQL Database
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) vous aide à vous empêcher, détecter et répondre aux menaces. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
@@ -60,7 +60,7 @@ Vous pouvez définir une stratégie pour afficher les recommandations d’audit 
 Pour définir une stratégie de sécurité, sélectionnez la vignette **Stratégie** dans le panneau Security Center. Sur le panneau **Stratégie de sécurité**, sélectionnez l’abonnement pour lequel vous souhaitez activer la stratégie de sécurité. Sélectionnez **Stratégie de prévention** et cliquez sur **Activé** pour les recommandations de sécurité que vous voulez utiliser pour cet abonnement.
 ![Stratégie de sécurité][3]
 
-Pour plus d’informations, consultez [Définir des stratégies de sécurité](security-center-azure-policy.md).
+Pour plus d’informations, consultez [Définir des stratégies de sécurité](tutorial-security-policy.md).
 
 ## <a name="manage-security-recommendation"></a>Gérer les recommandations de sécurité
 Le Centre de sécurité analyse l’état de sécurité de vos ressources Azure à intervalles réguliers. Lorsqu’il identifie des failles de sécurité potentielles, il crée des recommandations. Ces recommandations vous guident tout au long du processus de configuration des contrôles nécessaires.
@@ -85,7 +85,7 @@ Suivez les étapes de la rubrique [Détection de menaces pour les bases de donn�
 Pour en savoir plus sur les recommandations, consultez [Gestion des recommandations de sécurité](security-center-recommendations.md).
 
 ## <a name="monitor-security-health"></a>Surveiller l’intégrité de la sécurité
-Une fois que vous avez activé les [stratégies de sécurité](security-center-azure-policy.md) pour les ressources d’un abonnement, Azure Security Center analyse la sécurité de vos ressources afin d’identifier les vulnérabilités potentielles.  Vous pouvez visualiser l’état de sécurité de vos ressources dans la vignette **Intégrité de la sécurité des ressources**. Lorsque vous cliquez sur l’option **Données** de la vignette **Intégrité de la sécurité des ressources**, le panneau **Ressources de données** s’ouvre et affiche des recommandations SQL relatives aux problèmes, telles que la désactivation de la fonction d’audit ou de Transparent Data Encryption. Il contient également des recommandations pour l’état général de la base de données.
+Une fois que vous avez activé les [stratégies de sécurité](tutorial-security-policy.md) pour les ressources d’un abonnement, Azure Security Center analyse la sécurité de vos ressources afin d’identifier les vulnérabilités potentielles.  Vous pouvez visualiser l’état de sécurité de vos ressources dans la vignette **Intégrité de la sécurité des ressources**. Lorsque vous cliquez sur l’option **Données** de la vignette **Intégrité de la sécurité des ressources**, le panneau **Ressources de données** s’ouvre et affiche des recommandations SQL relatives aux problèmes, telles que la désactivation de la fonction d’audit ou de Transparent Data Encryption. Il contient également des recommandations pour l’état général de la base de données.
 ![Intégrité de la sécurité des ressources][6]
 
 Pour plus d’informations, consultez [Contrôle de l’intégrité de la sécurité](security-center-monitoring.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2ed5791b352ee4b19f707e52bc6f8f78e1f0e5b5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8c0e90436cf030f1280b3c50f3fdc91c7429d542
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635303"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340298"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Connexion d’Azure Active Directory Identity Protection à Azure Security Center
 Ce document vous aide à configurer l’intégration entre Azure Active Directory (AD) Identity Protection et Azure Security Center.
@@ -48,7 +48,7 @@ Une fois que vous avez terminé cette configuration, la solution Azure AD Identi
 Dans ce document, vous avez appris à connecter Azure AD Identity Protection à Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
 
 * [Connexion de Microsoft Advanced Threat Analytics à Azure Security Center](security-center-ata-integration.md)
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.

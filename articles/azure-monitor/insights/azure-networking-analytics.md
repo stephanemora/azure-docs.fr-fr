@@ -10,17 +10,15 @@ ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.component: ''
-ms.openlocfilehash: 061ad1cf8cf99d8100163bd6b7c9d72377075108
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4363d7a319eb31dbf020121bf2fa5c5630296c5a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430274"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191703"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Solutions d’analyse réseaux Azure dans Log Analytics
 
@@ -236,4 +234,4 @@ Les données collectées avant la modification ne seront pas visibles dans la no
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez les [Recherches dans les journaux dans Log Analytics](../../log-analytics/log-analytics-queries.md) pour afficher les données détaillées de diagnostics Azure.
+* Utilisez les [Recherches dans les journaux dans Log Analytics](../../azure-monitor/log-query/log-query-overview.md) pour afficher les données détaillées de diagnostics Azure.

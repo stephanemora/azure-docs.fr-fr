@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814646902a88c7170da66397709ff3a8c7b081fd
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 1d2a1be55f00b1b31609f44bd0187fd839340773
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714039"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185120"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Ajout de ressources Azure Automation à une solution de gestion (préversion)
 > [!NOTE]
@@ -317,8 +316,8 @@ Le runbook doit dépendre de la ressource de module pour vous assurer que cette 
 ### <a name="updating-modules"></a>Mise à jour des modules
 Si vous mettez à jour une solution de gestion qui inclut un runbook qui utilise une planification alors que la nouvelle version de votre solution comprend un nouveau module utilisé par ce runbook, le runbook peut utiliser l’ancienne version du module.  Vous devez inclure les runbooks suivants dans votre solution et créer une tâche à exécuter avant les autres runbooks.  Cela garantit que tous les modules sont mis à jour comme exigé avant que les runbooks ne soient chargés.
 
-* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) vous assure que tous les modules utilisés par des runbooks de votre solution sont à la version la plus récente.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) enregistre de nouveau toutes les ressources de planification pour vous assurer que les runbooks qui y sont liés utilisent les modules actuels.
+* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/) vous assure que tous les modules utilisés par des runbooks de votre solution sont à la version la plus récente.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/) enregistre de nouveau toutes les ressources de planification pour vous assurer que les runbooks qui y sont liés utilisent les modules actuels.
 
 
 

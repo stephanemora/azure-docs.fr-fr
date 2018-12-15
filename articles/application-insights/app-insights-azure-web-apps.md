@@ -9,16 +9,15 @@ ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17a0b36fffb14f423aba3dd02b5b42d44933309c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 00af4cc67dc7490727af46e12c387fb0f147371d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165388"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339839"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Surveillance des performances d'application web Azure
 Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer la surveillance des performances d’application pour vos [applications web Azure](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumente votre application afin qu’elle envoie des données de télémétrie concernant ses activités au service Application Insights, où elles sont stockées et analysées. Les graphiques de mesure et les outils de recherche peuvent alors être utilisés pour aider à diagnostiquer les problèmes, améliorer les performances et évaluer l’utilisation.
@@ -100,9 +99,9 @@ Application Insights peut fournir des données de télémétrie détaillée par 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exécuter le profileur sur une application dynamique](app-insights-profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - analyse les fonctions Azure avec Application Insights
-* [Autorisation de l’envoi de diagnostics Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) vers Application Insights.
+* [Autorisation de l’envoi de diagnostics Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) vers Application Insights.
 * [Analyse des mesures d’intégrité du service](../azure-monitor/platform/data-collection.md) pour vous assurer que votre service est disponible et réactif.
-* [Réceptions de notifications d’alerte](../monitoring-and-diagnostics/monitoring-overview-alerts.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
+* [Réceptions de notifications d’alerte](../azure-monitor/platform/alerts-overview.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.
 * Utilisation [d’Application Insights pour les pages Web et les applications JavaScript](app-insights-javascript.md) pour obtenir les données de télémétrie du client à partir des navigateurs qui consultent une page web.
 * [Configuration des tests de disponibilité web](app-insights-monitor-web-app-availability.md) , pour recevoir des alertes en cas d’interruption de votre site.
 

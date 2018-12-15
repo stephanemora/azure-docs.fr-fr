@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e4e0ff288b9d5539a0110fb157e32b4f23d06bb6
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713976"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192751"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Ciblage des solutions de gestion dans Azure (préversion)
 Quand vous ajoutez une solution de gestion à votre abonnement, elle est déployée automatiquement par défaut sur tous les agents Windows et Linux connectés à votre espace de travail Log Analytics.  Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents.  Cet article explique comment utiliser le **ciblage de solution**, une fonctionnalité qui permet d’appliquer une étendue à vos solutions.
@@ -29,7 +28,7 @@ Il existe trois étapes au ciblage d’une solution, comme décrit dans les sect
 
 
 ### <a name="1-create-a-computer-group"></a>1. Créer un groupe d’ordinateurs
-Vous spécifiez les ordinateurs que vous souhaitez inclure dans une étendue en créant un [groupe d’ordinateurs](../../log-analytics/log-analytics-computer-groups.md) dans Log Analytics.  Le groupe d’ordinateurs peut être basé sur une recherche dans les journaux ou importé à partir d’autres sources comme les groupes WSUS ou Active Directory. Comme [décrit ci-dessous](#solutions-and-agents-that-cant-be-targeted), seuls les ordinateurs qui sont directement connectés à Log Analytics figurent dans l’étendue.
+Vous spécifiez les ordinateurs que vous souhaitez inclure dans une étendue en créant un [groupe d’ordinateurs](../../azure-monitor/platform/computer-groups.md) dans Log Analytics.  Le groupe d’ordinateurs peut être basé sur une recherche dans les journaux ou importé à partir d’autres sources comme les groupes WSUS ou Active Directory. Comme [décrit ci-dessous](#solutions-and-agents-that-cant-be-targeted), seuls les ordinateurs qui sont directement connectés à Log Analytics figurent dans l’étendue.
 
 Une fois que le groupe d’ordinateurs est créé dans votre espace de travail, vous devez l’inclure dans une configuration d’étendue qui peut être appliquée à une ou plusieurs solutions.
  
@@ -75,4 +74,4 @@ Le ciblage de solution ne peut pas être utilisé avec les solutions suivantes, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les solutions de gestion, notamment les solutions qui peuvent être installées dans votre environnement en consultant [Ajout de solutions de gestion Azure Log Analytics dans votre espace de travail](solutions.md).
-- En savoir plus sur la création de groupes d’ordinateurs en consultant [Groupes d’ordinateurs dans la recherche dans les journaux de Log Analytics](../../log-analytics/log-analytics-computer-groups.md).
+- En savoir plus sur la création de groupes d’ordinateurs en consultant [Groupes d’ordinateurs dans la recherche dans les journaux de Log Analytics](../../azure-monitor/platform/computer-groups.md).

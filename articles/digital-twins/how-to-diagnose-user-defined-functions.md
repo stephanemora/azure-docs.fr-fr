@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636269"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413011"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour résoudre les problèmes liés aux fonctions définies par l’utilisateur dans Azure Digital Twins
 
@@ -25,7 +25,7 @@ Le fait de savoir comment diagnostiquer un problème qui se produit au sein de v
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Activer l’analytique des journaux pour votre instance
 
-Les journaux et les métriques de votre instance Azure Digital Twins sont exposés via Azure Monitor. La documentation suivante suppose que vous avez créé un espace de travail [Azure Log Analytics](../log-analytics/log-analytics-queries.md) par le biais du [portail Azure](../log-analytics/log-analytics-quick-create-workspace.md), d’[Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md) ou de [ PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
+Les journaux et les métriques de votre instance Azure Digital Twins sont exposés via Azure Monitor. La documentation suivante suppose que vous avez créé un espace de travail [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) par le biais du [portail Azure](../azure-monitor/learn/quick-create-workspace.md), d’[Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md) ou de [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
 > Le premier envoi d’événements à **Log Analytics** peut prendre 5 minutes.
@@ -42,7 +42,7 @@ Après avoir envoyé les données de télémétrie, ouvrez Azure Log Analytics p
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
+| where CorrelationId == 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
 | Valeur de la requête | Remplacer par |
@@ -53,7 +53,7 @@ Si vous journalisez votre fonction définie par l’utilisateur, les journaux co
 
 ```Kusto
 AzureDiagnostics
-| where Category = 'UserDefinedFunction'
+| where Category == 'UserDefinedFunction'
 ```
 
 Pour plus d’informations sur les opérations de requêtes puissantes, consultez [Bien démarrer avec les requêtes](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).

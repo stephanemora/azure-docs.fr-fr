@@ -3,7 +3,7 @@ title: Utiliser les recommandations Azure Security Center pour améliorer la sé
 description: " Découvrez comment utiliser les stratégies de sécurité et les recommandations d’Azure Security Center pour prévenir une attaque de sécurité. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
-ms.author: terrylan
-ms.openlocfilehash: 3640e4affe42986106791cba50f6cbfd97906806
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: rkarlin
+ms.openlocfilehash: d496f3f28cee711109c5c200102d48482bf6cd9c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308322"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340689"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
 Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité.
@@ -30,7 +30,7 @@ Vous pouvez réduire les risques d’un incident de sécurité en configurant un
 >
 
 ## <a name="managing-security-recommendations"></a>Gestion des Recommandations de sécurité
-Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement ou groupe de ressources spécifique. Dans Security Center, vous définissez des stratégies en fonction des exigences de sécurité de votre entreprise. Pour en savoir plus, consultez [Définir des stratégies de sécurité dans Security Center](security-center-azure-policy.md).
+Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement ou groupe de ressources spécifique. Dans Security Center, vous définissez des stratégies en fonction des exigences de sécurité de votre entreprise. Pour en savoir plus, consultez [Définir des stratégies de sécurité dans Security Center](tutorial-security-policy.md).
 
 Les stratégies de sécurité pour ce groupe de ressources sont héritées du niveau d’abonnement.
 

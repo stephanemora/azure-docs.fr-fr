@@ -10,19 +10,18 @@ ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: monitoring
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 87ceb682f35626c5bf468afd83a2f4a35901ef2b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2ecb50bdf44b93e8620d6d98a98fc735da6e87c3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632345"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186716"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Collecter des données dans Log Analytics avec un runbook Azure Automation
-Vous pouvez collecter une quantité importante de données dans Log Analytics à partir de diverses sources, y compris des [sources de données](../../azure-monitor/platform/agent-data-sources.md) sur les agents et les [données recueillies à partir d’Azure](../../log-analytics/log-analytics-azure-storage.md).  Il existe cependant des cas où vous devez recueillir des données qui ne sont pas accessibles via ces sources standard.  Dans ce cas, vous pouvez utiliser l’[API Collecte de données HTTP](../../log-analytics/log-analytics-data-collector-api.md) pour écrire des données dans Log Analytics à partir de n’importe quel client API REST.  Une méthode courante pour effectuer cette collecte de données consiste à utiliser un runbook dans Azure Automation.   
+Vous pouvez collecter une quantité importante de données dans Log Analytics à partir de diverses sources, y compris des [sources de données](../../azure-monitor/platform/agent-data-sources.md) sur les agents et les [données recueillies à partir d’Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Il existe cependant des cas où vous devez recueillir des données qui ne sont pas accessibles via ces sources standard.  Dans ce cas, vous pouvez utiliser l’[API Collecte de données HTTP](../../azure-monitor/platform/data-collector-api.md) pour écrire des données dans Log Analytics à partir de n’importe quel client API REST.  Une méthode courante pour effectuer cette collecte de données consiste à utiliser un runbook dans Azure Automation.   
 
 Ce didacticiel vous guide dans le processus de création et de planification d’un runbook dans Azure Automation pour écrire des données dans Log Analytics.
 
@@ -30,7 +29,7 @@ Ce didacticiel vous guide dans le processus de création et de planification d�
 ## <a name="prerequisites"></a>Prérequis
 Ce scénario nécessite que les ressources suivantes soient configurées dans votre abonnement Azure.  Les deux peuvent être des comptes gratuits.
 
-- [Espace de travail Log Analytics](../../log-analytics/log-analytics-quick-create-workspace.md).
+- [Espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 - [Compte Azure Automation](../..//automation/automation-quickstart-create-account.md).
 
 ## <a name="overview-of-scenario"></a>Présentation du scénario
@@ -41,7 +40,7 @@ Pour ce didacticiel, vous allez écrire un runbook qui collecte les informations
 
 
 ## <a name="1-install-data-collector-api-module"></a>1. Installer le module de l’API du collecteur de données
-Chaque [requête émanant de l’API du collecteur de données HTTP](../../log-analytics/log-analytics-data-collector-api.md#create-a-request) doit être correctement mise en forme et inclure un en-tête d’autorisation.  Vous pouvez effectuer ces actions dans votre runbook, mais vous pouvez réduire la quantité de code nécessaire en utilisant un module qui simplifie ce processus.  Vous pouvez par exemple utiliser le [module OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI) disponible dans PowerShell Gallery.
+Chaque [requête émanant de l’API du collecteur de données HTTP](../../azure-monitor/platform/data-collector-api.md#create-a-request) doit être correctement mise en forme et inclure un en-tête d’autorisation.  Vous pouvez effectuer ces actions dans votre runbook, mais vous pouvez réduire la quantité de code nécessaire en utilisant un module qui simplifie ce processus.  Vous pouvez par exemple utiliser le [module OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI) disponible dans PowerShell Gallery.
 
 Pour utiliser un [module](../../automation/automation-integration-modules.md) dans un runbook, il doit être installé dans votre compte Automation.  Tout runbook du même compte peut ensuite utiliser les fonctionnalités du module.  Vous pouvez installer un module en sélectionnant **Ressources** > **Modules** > **Ajouter un module** dans votre compte Automation.  
 
@@ -145,7 +144,7 @@ Azure Automation inclut un environnement permettant de [tester votre runbook](..
     ![Sortie post](media/runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Vérifier les enregistrements dans Log Analytics
-Une fois le test du runbook terminé, et après avoir vérifié que la sortie a bien été reçue, vous pouvez vérifier que les enregistrements ont été créés à l’aide d’une [recherche dans les journaux de Log Analytics](../../log-analytics/log-analytics-queries.md).
+Une fois le test du runbook terminé, et après avoir vérifié que la sortie a bien été reçue, vous pouvez vérifier que les enregistrements ont été créés à l’aide d’une [recherche dans les journaux de Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 ![Sortie du journal](media/runbook-datacollect/log-output.png)
 
@@ -216,4 +215,4 @@ Une fois que la planification est créée, vous devez définir les valeurs de pa
 - Intégrez votre runbook dans une [solution de gestion](../../azure-monitor/insights/solutions-creating.md) à distribuer aux clients.
 - En savoir plus sur [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - En savoir plus sur [Azure Automation](https://docs.microsoft.com/azure/automation/).
-- En savoir plus sur l’[API du collecteur de données HTTP](../../log-analytics/log-analytics-data-collector-api.md).
+- En savoir plus sur l’[API du collecteur de données HTTP](../../azure-monitor/platform/data-collector-api.md).

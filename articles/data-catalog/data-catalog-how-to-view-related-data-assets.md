@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 156673bfac9bfa38772e4daca166e3431f81c09a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404999"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958330"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Comment afficher les ressources de données associées dans Azure Data Catalog
 Azure Data Catalog vous permet d’afficher les ressources de données associées à la ressource de données sélectionnée, ainsi que les relations qui sont établies entre elles. 
@@ -31,7 +31,7 @@ Lorsque vous inscrivez des ressources de données provenant des sources de donn�
 ## <a name="view-related-data-assets"></a>Afficher les ressources de données associées
 Pour afficher les ressources de données associées au jeu de données sélectionné, cliquez sur l’onglet **Relations**, comme illustré ci-dessous : 
 
-![Azure Data Catalog - Afficher les ressources de données associées](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
+![Azure Data Catalog - Afficher les ressources de données associées](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
 Dans cet exemple, la ressource de données **ProductSubcategory** a deux relations : 
 
@@ -43,7 +43,7 @@ Dans cet exemple, la ressource de données **ProductSubcategory** a deux relatio
 
 Pour plus d’informations, telles que le nom complet de la colonne, déplacez la souris sur la colonne pour afficher une info-bulle semblable à celle-ci : 
 
-![Azure Data Catalog - Menu contextuel Relation](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
+![Azure Data Catalog - Menu contextuel Relation](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
 Pour inclure des relations entre ressources qui ont déjà été inscrites, vous devez réinscrire les ressources.
 

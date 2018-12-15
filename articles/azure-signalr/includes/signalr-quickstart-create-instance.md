@@ -1,19 +1,18 @@
 ---
 title: Fichier Include
 description: Fichier Include
-services: signalr
 author: anthonychu
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 97b8ef5e260a853ecdffb3c502f8a5051dd0e143
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c95f05127d62d366e1ad78b45df23d04ced0164a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006212"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262779"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Créer une instance de service SignalR Azure
 

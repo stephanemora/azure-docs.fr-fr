@@ -9,16 +9,15 @@ ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 83852333d8e66c76f2d2710b1813a4400622e624
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 77c0baba1c30153730e87181e24137d9a20ea6b1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417308"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012468"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Séparation des télémétries de développement, de test et de production
 
@@ -33,7 +32,7 @@ Lorsque vous définissez un suivi Application Insights pour votre application we
 En général, vous choisissez d’utiliser des ressources séparées ou une ressource partagée unique dans différents scénarios :
 
 * Applications différentes, indépendantes : utilisez une ressource et une ikey séparées pour chaque application.
-* Plusieurs composants ou rôles d’une application métier : utilisez une [ressource partagée unique](app-insights-monitor-multi-role-apps.md) pour toutes les applications de composant. La télémétrie peut être filtrée ou segmentée par la propriété cloud_RoleName.
+* Plusieurs composants ou rôles d’une application métier : utilisez une [ressource partagée unique](app-insights-app-map.md) pour toutes les applications de composant. La télémétrie peut être filtrée ou segmentée par la propriété cloud_RoleName.
 * Développement, test et publication : utilisez une ressource et une ikey séparées pour les versions du système en « tampon » ou phase de production.
 * Test A | B : utilisez une seule ressource. Créez un TelemetryInitializer pour ajouter une propriété à la télémétrie, qui identifie les variantes.
 
@@ -114,7 +113,7 @@ Il existe plusieurs méthodes de définition de la propriété Version de l’ap
     ```XML
 
     <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+    <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
       <Build type="MSBuild">
         <MSBuild>

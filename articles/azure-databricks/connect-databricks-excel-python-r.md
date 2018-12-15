@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
-ms.openlocfilehash: 6c8d0c9f5471395d1552b896b4d411dcad0a280f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421133"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995631"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Se connecter à Azure Databricks à partir d’Excel, de Python ou de R
 
@@ -102,7 +102,7 @@ Une fois que les données se trouvent dans le classeur Excel, vous pouvez effect
 Dans cette section, vous utilisez un environnement de développement intégré de langage R pour référencer des données dans Azure Databricks. Avant de commencer, vous devez avoir les composants suivants installés sur l’ordinateur.
 
 * Un environnement de développement intégré pour le langage R. Cet article utilise RStudio pour le Bureau. Vous pouvez l’installer à partir du [téléchargement RStudio](https://www.rstudio.com/products/rstudio/download/).
-* Si vous utilisez RStudio pour le Bureau comme environnement de développement intégré, installez également Microsoft R Client depuis [http://aka.ms/rclient/](http://aka.ms/rclient/). 
+* Si vous utilisez RStudio pour le Bureau comme environnement de développement intégré, installez également Microsoft R Client depuis [https://aka.ms/rclient/](https://aka.ms/rclient/). 
 
 Ouvrez RStudio et procédez comme suit :
 

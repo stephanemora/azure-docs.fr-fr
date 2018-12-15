@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Documentation Microsoft Azure
 description: Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore.
-ms.openlocfilehash: f60d41e2e6333c9d6331f18d4639ababaf748d89
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c8ba57b9173fbbfa4e00472972921073f32cb2f7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426330"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017786"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -321,9 +321,9 @@ ms.locfileid: "52426330"
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Cache Redis</p>
+                                                <p>Cache Azure pour Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1874,7 +1874,7 @@ ms.locfileid: "52426330"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1884,7 +1884,7 @@ ms.locfileid: "52426330"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cache Redis</h3>
+                                                    <h3>Cache Azure pour Redis</h3>
                                                     <p>Accès aux données à débit élevé et à latence faible pour créer des applications rapides/évolutives</p>
                                                 </div>
                                             </div>
@@ -3275,7 +3275,7 @@ ms.locfileid: "52426330"
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>interface de ligne de commande (CLI)</h2>
+                                    <h2>Interface de ligne de commande (CLI)</h2>
                                 </div>
                             </li>
                             <li>

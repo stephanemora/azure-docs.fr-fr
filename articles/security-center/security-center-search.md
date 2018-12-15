@@ -3,7 +3,7 @@ title: Recherche Azure Security Center | Microsoft Docs
 description: Découvrez comment Azure Security Center utilise la recherche Log Analytics pour récupérer et analyser vos données de sécurité.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
-ms.author: terrylan
-ms.openlocfilehash: ec8c11dcea825dfaab19643e7aefc68a82542fa9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: rkarlin
+ms.openlocfilehash: 19aed3d3da1250e6ad47bf9266f2e57aa255156a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301529"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963774"
 ---
 # <a name="azure-security-center-search"></a>Recherche Azure Security Center
 Azure Security Center utilise la [recherche Log Analytics](../log-analytics/log-analytics-log-searches.md) pour récupérer et analyser vos données de sécurité. Log Analytics inclut un langage de requête pour rapidement récupérer et consolider les données. Dans Security Center, vous pouvez utiliser la recherche Log Analytics pour construire des requêtes et analyser les données collectées.

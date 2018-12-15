@@ -1,23 +1,23 @@
 ---
-title: Restauration automatique dans Azure Site Recovery | Microsoft Docs
-description: Cet article donne une vue d’ensemble des différents types de restaurations automatiques et d’avertissements à prendre en compte lors d’une restauration locale avec le service Azure Site Recovery.
+title: Restauration automatique pendant la récupération d’urgence avec Azure Site Recovery | Microsoft Docs
+description: Cet article donne une vue d’ensemble des différents types de restaurations automatiques et d’avertissements à prendre en compte lors d’une restauration automatique locale avec le service Azure Site Recovery pendant la récupération d’urgence.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanki
-ms.openlocfilehash: 2a9ee380fc16c4088d98875dd465509c4023d037
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9b181f21affa5b762dd6e9062953badc3a37191d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920387"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841878"
 ---
 # <a name="overview-of-failback"></a>Vue d’ensemble de la restauration automatique
 
-Une fois que vous avez basculé vers Azure, vous pouvez opérer une restauration automatique sur votre site local. Deux types de restaurations automatiques sont possibles avec Azure Site Recovery : 
+Une fois que vous avez basculé vers Azure dans le cadre du processus de récupération d’urgence, vous pouvez opérer une restauration automatique sur votre site local. Deux types de restaurations automatiques sont possibles avec Azure Site Recovery : 
 
 - Restauration dans l’emplacement d’origine 
 - Restauration dans un autre emplacement

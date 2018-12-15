@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a759aad346e25fa42f16d9ccfdb42d9fd5b1cd38
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413483"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194162"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
 
-L’extension de machine virtuelle Diagnostics des performances Azure permet de collecter des données de diagnostic des performances sur des machines virtuelles Windows. Elle effectue une analyse et fournit un rapport de résultats et de recommandations permettant d’identifier et de résoudre les problèmes de performances sur la machine virtuelle. Cette extension installe un outil de résolution des problèmes appelé [PerfInsights](http://aka.ms/perfinsights).
+L’extension de machine virtuelle Diagnostics des performances Azure permet de collecter des données de diagnostic des performances sur des machines virtuelles Windows. Elle effectue une analyse et fournit un rapport de résultats et de recommandations permettant d’identifier et de résoudre les problèmes de performances sur la machine virtuelle. Cette extension installe un outil de résolution des problèmes appelé [PerfInsights](https://aka.ms/perfinsights).
 
 > [!NOTE]
-    > Si vous souhaitez exécuter des diagnostics sur votre machine virtuelle à partir du portail Azure pour les machines virtuelles non classiques, il est recommandé d’utiliser la nouvelle expérience. Pour plus d’informations, consultez [Diagnostics de performances pour les machines virtuelles Azure](performance-diagnostics.md) 
+> Si vous souhaitez exécuter des diagnostics sur votre machine virtuelle à partir du portail Azure pour les machines virtuelles non classiques, il est recommandé d’utiliser la nouvelle expérience. Pour plus d’informations, consultez [Diagnostics de performances pour les machines virtuelles Azure](performance-diagnostics.md) 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -230,7 +230,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>Informations sur les données capturées
-L’outil PerfInsights collecte différents types de journaux, de configurations et de données de diagnostic, selon le scénario sélectionné. Pour plus d’informations, consultez la [documentation PerfInsights](http://aka.ms/perfinsights).
+L’outil PerfInsights collecte différents types de journaux, de configurations et de données de diagnostic, selon le scénario sélectionné. Pour plus d’informations, consultez la [documentation PerfInsights](https://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Afficher et partager les résultats
 

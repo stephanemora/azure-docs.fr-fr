@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4cce49509a452153815c845d9ab72a1b4a8a5b7f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13a628d37ef67d0a1dc3ad8231229493191c4e7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354788"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849562"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Erreur dans la page d’une application après la connexion
 
@@ -30,7 +30,7 @@ Plusieurs raisons peuvent expliquer pourquoi l’application n’a pas accepté 
 
 -   Si l’application est la galerie Azure AD, vérifiez que vous avez suivi toutes les étapes de l’article [Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Utilisez un outil tel que [Fiddler](http://www.telerik.com/fiddler) pour capturer la demande, la réponse et le jeton SAML.
+-   Utilisez un outil tel que [Fiddler](https://www.telerik.com/fiddler) pour capturer la demande, la réponse et le jeton SAML.
 
 -   Partagez la réponse SAML avec le fournisseur de l’application pour savoir ce qui manque.
 

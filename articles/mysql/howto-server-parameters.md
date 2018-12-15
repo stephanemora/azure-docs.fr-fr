@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 07/18/2018
-ms.openlocfilehash: 686db4dc15eb42abead3eef6798ed2b83e248811
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.date: 12/06/2018
+ms.openlocfilehash: 451316b32bcda43d62bbabf0c4f73d239698c85b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136449"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078720"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Guide pratique pour configurer des paramètres de serveur dans Azure Database pour MySQL à l’aide du portail Azure
 
@@ -42,9 +42,9 @@ Le pool de mémoires tampons InnoDB et le nombre maximal de connexions ne sont p
 
 |**Niveau tarifaire**| **Génération de calcul**|**vCore(s)**|**Pool de mémoires tampons InnoDB (Mo)**| **Nombre maximal de connexions**|
 |---|---|---|---|--|
-|De base| Gen 4| 1| 1 024| 50|
+|De base| Gen 4| 1| 960| 50|
 |De base| Gen 4| 2| 2560| 100|
-|De base| Gen 5| 1| 1 024| 50|
+|De base| Gen 5| 1| 960| 50|
 |De base| Gen 5| 2| 2560| 100|
 |Usage général| Gen 4| 2| 3584| 300|
 |Usage général| Gen 4| 4| 7680| 625|
@@ -56,10 +56,12 @@ Le pool de mémoires tampons InnoDB et le nombre maximal de connexions ne sont p
 |Usage général| Gen 5| 8| 15360| 1250|
 |Usage général| Gen 5| 16| 31232| 2 500|
 |Usage général| Gen 5| 32| 62976| 5 000|
+|Usage général| Gen 5| 64| 125952| 10000|
 |Mémoire optimisée| Gen 5| 2| 7168| 600|
 |Mémoire optimisée| Gen 5| 4| 15360| 1250|
 |Mémoire optimisée| Gen 5| 8| 30720| 2 500|
 |Mémoire optimisée| Gen 5| 16| 62464| 5 000|
+|Mémoire optimisée| Gen 5| 32| 125952| 10000|
 
 Ces paramètres de serveur ne sont pas configurables dans le système :
 

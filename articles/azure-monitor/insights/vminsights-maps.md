@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3e8230ea7b2d6d0e44468bd90289ee82d5a82367
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713984"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337068"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application
 Lorsque vous visualisez les composants d’application détectés sur des machines virtuelles Windows et Linux s’exécutant dans Azure, vous pouvez observer votre environnement de deux manières avec Azure Monitor pour machines virtuelles : directement à partir d’une machine virtuelle ou à l’échelle des groupes de machines virtuelles à partir d’Azure Monitor. 
@@ -52,7 +51,7 @@ Pour permettre à la fonctionnalité Map d’afficher les alertes pertinentes, c
 - Incluez une clause de regroupement par ordinateur (par exemple, **by Computer interval 1minute**).
 - Choisissez d’alerter des mesures de métriques.
 
-Pour plus d’informations sur les alertes Azure et la création de règles d’alerte, consultez [Alertes unifiées dans Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Pour plus d’informations sur les alertes Azure et la création de règles d’alerte, consultez [Alertes unifiées dans Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
 
 L’option **Légende** dans le coin supérieur droit décrit les symboles et les rôles sur une carte.  Vous pouvez faire un zoom afin d’examiner une carte plus en détail et déplacer la carte. Les contrôles de zoom en bas à droite de la page définissent le niveau de zoom et permettent d’ajuster l’affichage selon la taille de page actuelle.  
 
@@ -107,7 +106,7 @@ Map affiche les dépendances de machines virtuelles, c’est-à-dire les process
 
 ![Vue d’ensemble de la carte de machines virtuelles multiples dans Azure Monitor](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Dans le sélecteur **Espace de travail** en haut de la page, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution et auquel des machines virtuelles envoient des rapports. Le sélecteur **Groupe** retourne les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../../log-analytics/log-analytics-computer-groups.md) et les groupes de machines virtuelles identiques associés à l’espace de travail sélectionné. Votre sélection s’applique seulement à la fonctionnalité Carte, et n’est pas reportée sur Performances ou Carte.
+Dans le sélecteur **Espace de travail** en haut de la page, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution et auquel des machines virtuelles envoient des rapports. Le sélecteur **Groupe** retourne les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../../azure-monitor/platform/computer-groups.md) et les groupes de machines virtuelles identiques associés à l’espace de travail sélectionné. Votre sélection s’applique seulement à la fonctionnalité Carte, et n’est pas reportée sur Performances ou Carte.
 
 Par défaut, la carte affiche les 30 dernières minutes. Le sélecteur **TimeRange** permet d’effectuer des requêtes sur des intervalles de temps historiques jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification).   
 

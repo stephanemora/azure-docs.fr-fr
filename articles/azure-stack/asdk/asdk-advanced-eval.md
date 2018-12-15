@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 0b65f37310b911184c05fd8fb8554eeb824814b8
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 185c4685de0c889c3b6e7b173445546ed5b7d921
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364810"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955409"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Tâches d’évaluation avancées du kit de développement Azure Stack
 Une fois familiarisé avec les fonctionnalités de base du kit de développement Azure Stack (ASDK), vous pouvez approfondir vos connaissances d’Azure Stack en testant des scénarios plus avancés. Ces tâches d’évaluation plus avancées sont intégralement documentées dans la documentation destinée aux opérateurs Azure Stack.
@@ -31,17 +31,18 @@ Une fois familiarisé avec les fonctionnalités de base du kit de développement
 ## <a name="delegate-offers-in-azure-stack"></a>Déléguer des offres dans Azure Stack
 En tant qu’opérateur Azure Stack, vous êtes souvent amené à confier à d’autres personnes la charge de créer des offres et d’inscrire les utilisateurs. Par exemple, si vous êtes un fournisseur de services et souhaitez que les revendeurs inscrivent les clients et les gèrent à votre place. Ou si vous faites partie d’un groupe informatique centralisé d’une entreprise, vous pouvez demander aux départements ou filiales d’inscrire les utilisateurs sans votre intervention.
 
-La [délégation d’offres dans Azure Stack](.\.\azure-stack-delegated-provider.md) vous aide dans ces tâches en vous permettant d’atteindre et de gérer plus d’utilisateurs que vous ne pouvez le faire directement. 
+La [délégation d’offres dans Azure Stack](../azure-stack-delegated-provider.md) vous aide dans ces tâches en vous permettant d’atteindre et de gérer plus d’utilisateurs que vous ne pouvez le faire directement.
 
 ## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack
-En tant qu’opérateur Azure Stack, vous pouvez créer des offres qui permettent aux utilisateurs de créer des bases de données SQL qu’ils peuvent utiliser avec leurs applications cloud natives, leurs sites web et leurs charges de travail. En fournissant à vos utilisateurs ces bases de données cloud à la demande et personnalisées, vous pouvez leur faire gagner du temps et économiser des ressources. 
+En tant qu’opérateur Azure Stack, vous pouvez créer des offres qui permettent aux utilisateurs de créer des bases de données SQL qu’ils peuvent utiliser avec leurs applications cloud natives, leurs sites web et leurs charges de travail. En fournissant à vos utilisateurs ces bases de données cloud à la demande et personnalisées, vous pouvez leur faire gagner du temps et économiser des ressources.
 
-Utilisez l’adaptateur du fournisseur de ressources SQL Server pour [mettre des bases de données SQL à disposition des utilisateurs Azure Stack](.\.\azure-stack-tutorial-sql-server.md) en tant que service Azure Stack. Une fois le fournisseur de ressources installé, vous le connectez à une ou plusieurs instances de SQL Server.
+Utilisez l’adaptateur du fournisseur de ressources SQL Server pour [mettre des bases de données SQL à disposition des utilisateurs Azure Stack](../azure-stack-tutorial-sql-server.md) en tant que service Azure Stack. Une fois le fournisseur de ressources installé, vous le connectez à une ou plusieurs instances de SQL Server.
 
 ## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Mettre des applications web et des API à la disposition des utilisateurs Azure Stack
 En tant qu’opérateur Azure Stack, vous pouvez créer des offres qui permettent aux utilisateurs (locataires) de créer des fonctions Azure, ainsi que des applications web et des API. En permettant à vos utilisateurs d’accéder à ces applications cloud à la demande, vous pouvez leur faire gagner du temps et économiser des ressources.
 
-Déployez le fournisseur de ressources App Service pour [mettre à la disposition de vos utilisateurs Azure Stack des applications web et des API](.\.\azure-stack-tutorial-app-service.md).
+Déployez le fournisseur de ressources App Service pour [mettre à la disposition de vos utilisateurs Azure Stack des applications web et des API](../azure-stack-tutorial-app-service.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus sur l’offre de services avec les systèmes intégrés Azure Stack](.\.\azure-stack-offer-services-overview.md)
+
+[En savoir plus sur l’offre de services avec les systèmes intégrés Azure Stack](../azure-stack-offer-services-overview.md)

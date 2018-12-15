@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 1f94e297e784d000c829a50c077e7fa6d303333f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 51482aa460826d4b364ba6b034129be9b7211ff3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962212"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872440"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatiser des rapports personnalisés avec des données Azure Application Insights
 
@@ -160,7 +159,7 @@ Ces étapes s’appliquent uniquement si vous n’avez pas encore configuré de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez la création de [requêtes Analytics](../log-analytics/query-language/get-started-queries.md).
+* Découvrez la création de [requêtes Analytics](../azure-monitor/log-query/get-started-queries.md).
 * En savoir plus sur l’[interrogation par programmation de données Application Insights](https://dev.applicationinsights.io/)
 * Découvrez plus en détail les [applications logiques](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 * Découvrez [Microsoft Flow](https://ms.flow.microsoft.com).

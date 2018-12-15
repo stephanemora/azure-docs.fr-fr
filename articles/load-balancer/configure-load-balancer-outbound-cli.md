@@ -1,24 +1,24 @@
 ---
-title: Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI | Microsoft Docs
+title: Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI
+titlesuffix: Azure Load Balancer
 description: Cet article explique comment configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: a6d442452fe5ffc61648b3c004c03f1756f8f57e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 97a7e09994ab93eb75881a2eae2b49821ca8289f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160653"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085006"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI
 
@@ -63,7 +63,7 @@ Pour accéder à votre application web sur Internet, vous avez besoin d’une ad
 
 ## <a name="create-outbound-public-ip-address"></a>Créer une adresse IP publique sortante 
 
-À l’aide de la commande [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create), créez une adresse IP standard pour la configuration sortante frontend de Load Balancer nommée *mypublicipoutbound* dans *myresourcegroupoutbound*.
+À l’aide de la commande [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create), créez une adresse IP standard pour la configuration sortante frontend de Load Balancer.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -81,7 +81,7 @@ Cette section explique en détail comment vous pouvez créer et configurer les c
 
 ### <a name="create-load-balancer"></a>Créer un équilibreur de charge
 
-À l’aide de la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create), créez un équilibreur de charge *lb* avec l’adresse IP entrante, qui inclut une configuration d’IP frontend entrante nommée *myfrontendinbound*, un pool backend nommé *bepool* qui est associé à l’adresse IP publique *mypublicipinbound* créée à l’étape précédente.
+À l’aide de la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create), créez un équilibreur de charge *lb* avec l’adresse IP entrante, qui inclut une configuration d’adresse IP frontend entrante et un pool backend qui est associé à l’adresse IP publique *mypublicipinbound* créée à l’étape précédente.
 
 ```azurecli-interactive
   az network lb create \

@@ -14,15 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2d75a432e84c3490186da6f8342562fddcaa32e1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c0109839144775e9064db4f8396f19688fcc13e8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805990"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308632"
 ---
-<a name="lcs-subscription"></a>Abonnement LCS
-================
+# <a name="lcs-subscription"></a>Abonnement LCS
 
 Ce didacticiel vous apprendra à créer un abonnement. Cet abonnement vous propose un abonné de test Microsoft Online et un projet Microsoft Dynamics Lifecycle Services où vous pouvez déployer un environnement. Vous allez également définir d’autres utilisateurs dans votre abonné Microsoft Online et gagner en expérience avec les fonctionnalités d’administration de service suivantes. Voici les compétences que vous allez acquérir :
 
@@ -32,8 +31,7 @@ Ce didacticiel vous apprendra à créer un abonnement. Cet abonnement vous propo
 - Ajout d’utilisateurs supplémentaires à Microsoft Azure Active Directory et au client.
 - Consultation de ressources Azure dans votre abonnement.
 
-<a name="key-terms"></a>Termes clés
-=========
+## <a name="key-terms"></a>Termes clés
 
 **Abonné Microsoft Online Services** : l’abonné est le regroupement de tous les abonnements et tous les utilisateurs de votre organisation. L’abonné est créé en même temps que votre premier abonnement dans Microsoft Online Services.
 

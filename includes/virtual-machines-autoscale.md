@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226922"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399860"
 ---
-Vous pouvez facilement [mettre automatiquement à l’échelle](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) vos [machines virtuelles (VM)](../articles/virtual-machines/windows/overview.md) lorsque vous utilisez [les groupes de machine virtuelles identiques](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) et [la fonctionnalité de mise à l’échelle automatique de Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Vos machines virtuelles doivent être membres d’un groupe identique pour pouvoir être mises à l’échelle automatiquement. Cet article fournit des informations vous permettant de mieux comprendre comment mettre vos machines virtuelles à l’échelle, verticalement et horizontalement, à l’aide de méthodes automatique et manuelle.
+Vous pouvez facilement [mettre automatiquement à l’échelle](../articles/azure-monitor/platform/autoscale-best-practices.md) vos [machines virtuelles (VM)](../articles/virtual-machines/windows/overview.md) lorsque vous utilisez [les groupes de machine virtuelles identiques](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) et [la fonctionnalité de mise à l’échelle automatique de Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Vos machines virtuelles doivent être membres d’un groupe identique pour pouvoir être mises à l’échelle automatiquement. Cet article fournit des informations vous permettant de mieux comprendre comment mettre vos machines virtuelles à l’échelle, verticalement et horizontalement, à l’aide de méthodes automatique et manuelle.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Mise à l’échelle horizontale ou verticale
 
@@ -35,7 +35,7 @@ Vous pouvez activer la mise à l’échelle automatique lorsque vous créez un j
  
 ### <a name="metrics"></a>Mesures
 
-La fonctionnalité de mise à l’échelle automatique d’Azure Monitor vous permet de mettre à l’échelle le nombre de machines virtuelles en cours d’exécution vers le haut ou vers le bas en fonction des [mesures](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Par défaut, les machines virtuelles fournissent des mesures de base au niveau hôte pour l’utilisation du disque dur, du réseau et du processeur. Lorsque vous configurez la collecte de données de diagnostic à l’aide de l’extension de diagnostic, des compteurs de performances supplémentaires du système d’exploitation invité sont disponibles pour le disque dur, le processeur et la mémoire.
+La fonctionnalité de mise à l’échelle automatique d’Azure Monitor vous permet de mettre à l’échelle le nombre de machines virtuelles en cours d’exécution vers le haut ou vers le bas en fonction des [mesures](../articles/azure-monitor/platform/autoscale-common-metrics.md). Par défaut, les machines virtuelles fournissent des mesures de base au niveau hôte pour l’utilisation du disque dur, du réseau et du processeur. Lorsque vous configurez la collecte de données de diagnostic à l’aide de l’extension de diagnostic, des compteurs de performances supplémentaires du système d’exploitation invité sont disponibles pour le disque dur, le processeur et la mémoire.
 
 ![Critères de mesures](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -49,7 +49,7 @@ Les [règles](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-
  
 ### <a name="notifications"></a>Notifications
 
-Vous pouvez [définir des déclencheurs](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) afin d’appeler des URL web spécifiques ou pour envoyer des messages électroniques en fonction des règles de mise à l’échelle que vous créez. Les webhooks vous permettent d’acheminer les notifications d’alerte Azure vers d’autres systèmes afin qu’elles soient post-traitées ou personnalisées.
+Vous pouvez [définir des déclencheurs](../articles/azure-monitor/platform/autoscale-webhook-email.md) afin d’appeler des URL web spécifiques ou pour envoyer des messages électroniques en fonction des règles de mise à l’échelle que vous créez. Les webhooks vous permettent d’acheminer les notifications d’alerte Azure vers d’autres systèmes afin qu’elles soient post-traitées ou personnalisées.
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>Mettre manuellement à l’échelle des machines virtuelles dans un jeu de mise à l’échelle
 

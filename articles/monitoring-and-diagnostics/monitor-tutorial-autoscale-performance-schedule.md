@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.component: autoscale
-ms.openlocfilehash: b63e1fa316e9ebeaa564731b8bb0bc3ed5ba9036
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: adf3fdf694216353c5e6a0df8726cb5cd337ddf8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264059"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385990"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Créer un paramètre de mise à l’échelle automatique pour des ressources Azure basées sur les données de performances ou une planification
 
@@ -181,7 +181,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Nettoyer des ressources
 
 
-Pour en savoir plus sur les paramètres de mise à l’échelle automatique, passez à la [vue d’ensemble de la mise à l’échelle automatique](monitoring-overview-autoscale.md).
+Pour en savoir plus sur les paramètres de mise à l’échelle automatique, passez à la [vue d’ensemble de la mise à l’échelle automatique](../azure-monitor/platform/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
 > [Archiver vos données de monitorage](monitor-tutorial-archive-monitoring-data.md)

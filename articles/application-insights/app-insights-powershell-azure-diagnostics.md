@@ -9,19 +9,18 @@ ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: e2ec165d0183510487744bc98e31688eb5de0f8c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: e8fafbe1c5fafd338009b1bdd8c5d838c3fac726
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959254"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323284"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Utilisation de PowerShell pour configurer Application Insights pour une application web Azure
-[Microsoft Azure](https://azure.com) peut être [configuré pour envoyer des Diagnostics Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) vers [Azure Application Insights](app-insights-overview.md). Les tests de diagnostic concernent Azure Cloud Services et les machines virtuelles Azure. Ils permettent de compléter les données de télémétrie que vous envoyez depuis l’application à l’aide du kit de développement logiciel d’Application Insights. Dans le cadre de l’automatisation du processus de création de nouvelles ressources dans Azure, vous pouvez configurer des diagnostics avec PowerShell.
+[Microsoft Azure](https://azure.com) peut être [configuré pour envoyer des Diagnostics Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) vers [Azure Application Insights](app-insights-overview.md). Les tests de diagnostic concernent Azure Cloud Services et les machines virtuelles Azure. Ils permettent de compléter les données de télémétrie que vous envoyez depuis l’application à l’aide du kit de développement logiciel d’Application Insights. Dans le cadre de l’automatisation du processus de création de nouvelles ressources dans Azure, vous pouvez configurer des diagnostics avec PowerShell.
 
 ## <a name="azure-template"></a>Modèle Azure
 Si l’application web est dans Azure et que vous créez vos ressources à l’aide d’un modèle Azure Resource Manager, vous pouvez configurer Application Insights en ajoutant cela au nœud de ressources :
@@ -136,6 +135,6 @@ Pour supprimer l’extension de diagnostics de chaque rôle individuel :
 
 ## <a name="see-also"></a>Voir aussi
 * [Surveiller les applications Azure Cloud Services avec Application Insights](app-insights-cloudservices.md)
-* [Envoyer des diagnostics Azure vers Application Insights.](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Envoyer des diagnostics Azure vers Application Insights.](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automatisation de la configuration des alertes](app-insights-powershell-alerts.md)
 

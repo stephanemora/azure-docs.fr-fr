@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 8afa6a29d7d97b1d961f8a8ea44a2b62896ec4da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636762"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323061"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envoyer les métriques personnalisées d’une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST
 
@@ -94,7 +94,7 @@ Si vous recevez un message d’erreur lors du processus, tenez compte des inform
 1. Vous ne pouvez pas générer de métriques si un abonnement ou un groupe de ressources est considéré comme votre ressource Azure. 
 1. Vous ne pouvez pas envoyer une métrique datant de plus de 20 minutes au magasin. Le magasin de métriques est optimisé pour la génération d’alertes et la création de graphiques en temps réel. 
 2. Le nombre de noms de dimensions doit correspondre aux valeurs, et inversement. Vérifiez les valeurs. 
-2. Vous générez peut-être des métriques pour une région qui ne prend pas en charge les métriques personnalisées. Consultez [Régions prises en charge](metrics-custom-overview.md#supported-regions). 
+2. Vous générez peut-être des métriques pour une région qui ne prend pas en charge les métriques personnalisées. Consultez [Régions prises en charge](../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -118,4 +118,4 @@ Si vous recevez un message d’erreur lors du processus, tenez compte des inform
 
  
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [métriques personnalisées](metrics-custom-overview.md).
+- En savoir plus sur les [métriques personnalisées](../azure-monitor/platform/metrics-custom-overview.md).

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 58a354950e303eda8158ca072870bfecbf33a89f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405070"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890209"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurer et utiliser Log Analytics avec une application SaaS SQL Database multilocataire
 
@@ -42,7 +42,7 @@ Pour Azure SQL Database, la surveillance et les alertes sont disponibles pour le
 
 Pour les scénarios à volumes élevés, vous pouvez utiliser Log Analytics pour la surveillance et les alertes. Log Analytics est un service Azure distinct qui permet d’analyser des journaux de diagnostic et des données de télémétrie recueillis dans un espace de travail à partir de nombreux services. Log Analytics offre un langage de requête intégré et des outils de visualisation pour l’analyse des données opérationnelles. La solution SQL Analytics fournit plusieurs vues et requêtes prédéfinies de surveillance et d’alertes pour les pools élastiques et les bases de données. Log Analytics offre également un concepteur de vues personnalisées.
 
-Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics. Les espaces de travail et les solutions d’analyse de Log Analytics s’ouvrent dans le Portail Azure. Le Portail Azure constitue le point d’accès le plus récent, mais il peut être moins évolué que le portail Operations Management Suite dans certains domaines.
+Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ». Les espaces de travail et les solutions d’analyse de Log Analytics s’ouvrent dans le Portail Azure. Le Portail Azure constitue le point d’accès le plus récent, mais il peut être moins évolué que le portail Operations Management Suite dans certains domaines.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Créer des données de diagnostic des performances en simulant une charge de travail sur vos locataires 
 
@@ -151,4 +151,4 @@ Essayez maintenant le [didacticiel sur l’analyse des locataires](saas-dbperten
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Autres didacticiels reposant sur le déploiement initial de l’application de base de données Wingtip Tickets SaaS par locataire](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
+* [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)

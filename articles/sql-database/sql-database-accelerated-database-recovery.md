@@ -2,7 +2,7 @@
 title: Récupération accélérée de base de données - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database dispose d’une nouvelle fonctionnalité qui permet une récupération de base de données rapide et cohérente, l’annulation de transaction instantanée et la troncation agressive du journal pour les bases de données uniques, les pools élastiques et Azure SQL Data Warehouse.
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: 20ad792ffa1c06e75cd39e4549b8d897a663db3e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 919a3326c009d660959fb75cfdbcf46d523fa016
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239965"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863871"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Récupération de base de données accélérée (préversion)
 

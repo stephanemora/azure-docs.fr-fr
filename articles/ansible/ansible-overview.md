@@ -8,28 +8,28 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/02/2018
 ms.topic: article
-ms.openlocfilehash: 977fef390c0efecd47ec5e19b1a82c05e2ecfd0f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 22eeb3993cd408a8369236683da3db466a348a30
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160743"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956752"
 ---
 # <a name="ansible-with-azure"></a>Ansible avec Azure
 
-[Ansible](http://www.ansible.com) est un produit open source qui automatise l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications. Il vous permet d’approvisionner les machines virtuelles, les conteneurs et le réseau, ainsi que des infrastructures cloud complètes. En outre, Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement.
+[Ansible](https://www.ansible.com) est un produit open source qui automatise l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications. Il vous permet d’approvisionner les machines virtuelles, les conteneurs et le réseau, ainsi que des infrastructures cloud complètes. En outre, Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement.
 
 Cet article présente certains des avantages de l’utilisation d’Ansible avec Azure.
 
 ## <a name="ansible-playbooks"></a>Playbooks Ansible
 
-Les [playbooks Ansible](http://docs.ansible.com/ansible/latest/playbooks.html) sont le langage d’orchestration, du déploiement et de la configuration d’Ansible. Ils peuvent décrire une stratégie que vous souhaitez que vos systèmes distants appliquent ou un ensemble d’étapes dans un processus informatique général. Lorsque vous créez un playbook, c’est à l’aide de YAML que vous le faites. YAML définit un modèle d’une configuration ou d’un processus.
+Les [playbooks Ansible](https://docs.ansible.com/ansible/latest/playbooks.html) sont le langage d’orchestration, du déploiement et de la configuration d’Ansible. Ils peuvent décrire une stratégie que vous souhaitez que vos systèmes distants appliquent ou un ensemble d’étapes dans un processus informatique général. Lorsque vous créez un playbook, c’est à l’aide de YAML que vous le faites. YAML définit un modèle d’une configuration ou d’un processus.
 
 ## <a name="ansible-modules"></a>Modules Ansible
 
-Ansible comprend une suite de [modules Ansible](http://docs.ansible.com/ansible/latest/modules_by_category.html) qui peuvent être exécutés directement sur les hôtes distants ou par le biais de [playbooks](http://docs.ansible.com/ansible/latest/playbooks.html). Les utilisateurs peuvent également créer leurs propres modules. Les modules peuvent être utilisés pour contrôler les ressources système, telles que les services, les packages ou les fichiers, ou exécuter des commandes système.
+Ansible comprend une suite de [modules Ansible](https://docs.ansible.com/ansible/latest/modules_by_category.html) qui peuvent être exécutés directement sur les hôtes distants ou par le biais de [playbooks](https://docs.ansible.com/ansible/latest/playbooks.html). Les utilisateurs peuvent également créer leurs propres modules. Les modules peuvent être utilisés pour contrôler les ressources système, telles que les services, les packages ou les fichiers, ou exécuter des commandes système.
 
-Pour interagir avec les services Azure, Ansible comprend une suite de [modules cloud Ansible](http://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) qui fournit les outils permettant de créer et d’organiser facilement votre infrastructure sur Azure. 
+Pour interagir avec les services Azure, Ansible comprend une suite de [modules cloud Ansible](https://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) qui fournit les outils permettant de créer et d’organiser facilement votre infrastructure sur Azure. 
 
 ## <a name="migrate-existing-workload-to-azure"></a>Migrer la charge de travail existante vers Azure
 
@@ -40,7 +40,7 @@ Une fois que vous avez utilisé Ansible pour définir votre infrastructure, vous
 Ansible vous permet d’automatiser des applications cloud natives dans Azure à l’aide des microservices Azure comme [Azure Functions](https://azure.microsoft.com//services/functions/) et [Kubernetes sur Azure](https://azure.microsoft.com/services/container-service/kubernetes/).  
 
 ## <a name="manage-deployments-with-dynamic-inventory"></a>Gérer des déploiements avec l’inventaire dynamique
-Via sa fonctionnalité [d’inventaire dynamique](http://docs.ansible.com/ansible/intro_dynamic_inventory.html), Ansible vous permet d’extraire l’inventaire des ressources Azure. Vous pouvez ensuite étiqueter vos déploiements Azure existants et les gérer via Ansible.
+Via sa fonctionnalité [d’inventaire dynamique](https://docs.ansible.com/ansible/intro_dynamic_inventory.html), Ansible vous permet d’extraire l’inventaire des ressources Azure. Vous pouvez ensuite étiqueter vos déploiements Azure existants et les gérer via Ansible.
 
 ## <a name="additional-azure-marketplace-options"></a>Autres options de Place de marché Microsoft Azure
 L’image Place de marché Microsoft Azure [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) par Red Hat aide les organisations à mettre à l’échelle l’automatisation des tâches informatiques et à gérer les déploiements complexes dans les infrastructures physiques, virtuelles et cloud. Ansible Tower comprend des fonctionnalités qui fournissent d’autres niveaux de visibilité, de contrôle, de sécurité et d’efficacité nécessaires aux entreprises d’aujourd’hui. Ansible Tower chiffre les informations d’identification telles que les clés SSH et Azure, afin que vous puissiez déléguer des travaux à des employés moins expérimentés sans prendre le risque d’exposer vos informations d’identification.

@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: operations-management-suite
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e5011dbaad5e5935f3aa792bd3a3ed2b271f23bc
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d6d2414935bb5d1f095ad2b200acafa97b3b9b32
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632431"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192689"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Bonnes pratiques pour la création de solutions de gestion dans Azure (préversion)
 > [!NOTE]
@@ -28,7 +27,7 @@ ms.locfileid: "52632431"
 Cet article décrit les bonnes pratiques pour la [création d’un fichier de solution de gestion](solutions-solution-file.md) dans Azure.  Ces informations seront mises à jour lorsque de meilleures pratiques supplémentaires seront identifiées.
 
 ## <a name="data-sources"></a>Sources de données
-- Des sources de données peuvent être [configurées avec un modèle Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md), mais elles ne doivent pas être incluses dans un fichier solution.  La raison en est que la configuration des sources de données n’est actuellement pas idempotente, ce qui signifie que votre solution pourrait remplacer la configuration existante dans l’espace de travail de l’utilisateur.<br><br>Par exemple, votre solution peut nécessiter des événements d’avertissement et d’erreur du journal des événements de l’application.  Si vous spécifiez cela en tant source de données dans votre solution, vous risquez de supprimer des événements d’informations si l’utilisateur avait configuré cela dans son espace de travail.  Si vous avez inclus tous les événements, vous collecterez peut-être trop d’événements d’informations dans l’espace de travail de l’utilisateur.
+- Des sources de données peuvent être [configurées avec un modèle Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), mais elles ne doivent pas être incluses dans un fichier solution.  La raison en est que la configuration des sources de données n’est actuellement pas idempotente, ce qui signifie que votre solution pourrait remplacer la configuration existante dans l’espace de travail de l’utilisateur.<br><br>Par exemple, votre solution peut nécessiter des événements d’avertissement et d’erreur du journal des événements de l’application.  Si vous spécifiez cela en tant source de données dans votre solution, vous risquez de supprimer des événements d’informations si l’utilisateur avait configuré cela dans son espace de travail.  Si vous avez inclus tous les événements, vous collecterez peut-être trop d’événements d’informations dans l’espace de travail de l’utilisateur.
 
 - Si votre solution nécessite des données à partir d’une des sources de données standard, vous devez définir cela comme une condition préalable.  Indiquez dans la documentation que le client doit configurer la source de données lui-même.  
 - Ajoutez un message de [vérification du flux de données](../../azure-monitor/platform/view-designer-tiles.md) à toutes les vues dans votre solution pour indiquer à l’utilisateur les sources de données qui doivent être configurées pour les données requises à collecter.  Ce message s’affiche sur la vignette de l’affichage lorsque les données requises ne sont pas trouvées.

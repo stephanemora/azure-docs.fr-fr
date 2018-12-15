@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 61294d8b6b84b03b1e0c8d79b4d2855452c7f0e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9af8ce84805e48dd3c91dd7fb4fcf0b136fbfc60
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056823"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410089"
 ---
 # <a name="work-with-batch-ai-clusters"></a>Travailler avec des clusters Batch AI 
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Cet article explique comment travailler avec des clusters dans Azure Batch AI. Il présente le concept de cluster, les types de configurations possibles et des exemples. La plupart des exemples de création et de gestion de cluster présentés dans cet article utilisent Azure CLI. Vous pouvez cependant vous servir d’autres outils, tels que le portail Azure et les kits de développement logiciel (SDK) Azure Batch AI, pour travailler avec des clusters.
 
@@ -40,7 +43,7 @@ Lorsque vous planifiez un cluster, commencez par déterminer vos besoins en calc
   
 * **Priorité de machine virtuelle** : Batch AI offre des machines virtuelles dédiées ou basse priorité pour un cluster. Les machines virtuelles dédiées sont réservées à votre usage dans le cluster. L’option basse priorité alloue une capacité inutilisée de machine virtuelle Azure pour un coût sensiblement réduit en échange de la possibilité d’annuler des travaux si Azure doit récupérer les machines virtuelles. Les travaux dont l’exécution dure plus de 24 heures sur une machine virtuelle basse priorité sont également automatiquement annulés. Si le budget est une considération importante, envisagez d’utiliser des machines virtuelles basse priorité pour effectuer des travaux d’expérimentation de courte durée. Ensuite, lorsque le moment est venu d’exécuter des travaux plus longs, passez à des machines virtuelles dédiées.
 
-* **Nombre de nœuds** : Batch AI offre des options de mise à l’échelle manuelle et automatique du nombre de nœuds dans le cluster. Avec l’option de mise à l’échelle manuelle, vous décidez quand augmenter ou réduire l’échelle d’un cluster. Vous gérez donc vos coûts de calcul. Avec l’option de mise à l’échelle automatique, l’échelle du cluster est toujours réduire lorsque vous l’utilisez pas. Vous minimisez donc vos coûts de calcul. 
+* **Nombre de nœuds** : Batch AI offre des options de mise à l’échelle manuelle et automatique du nombre de nœuds dans le cluster. Avec l’option de mise à l’échelle manuelle, vous décidez quand augmenter ou réduire l’échelle d’un cluster. Vous gérez donc vos coûts de calcul. Avec l’option de mise à l’échelle automatique, l’échelle du cluster est toujours réduite lorsque vous l’utilisez pas. Vous limitez donc vos coûts de calcul. 
 
   Si vous choisissez l’option de mise à l’échelle manuelle, vous définissez la valeur cible initiale lors de la création du cluster. La cible est le nombre de nœuds que Batch AI alloue initialement. Ensuite, vous pouvez redimensionner manuellement le nombre de nœuds.  
 

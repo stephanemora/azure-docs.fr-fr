@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: accb7b84793b9fc98bc20f1637ec30f97a7f4a87
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649939"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962078"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matrice de version et module Ansible
 
@@ -133,4 +133,4 @@ Le [rôle de playbook azure_preview_module](https://galaxy.ansible.com/Azure/azu
 Le rôle de playbook azure_preview_module est publié toutes les trois semaines.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les rôles de playbook, consultez [Creating Reusable Playbooks](http://docs.ansible.com/ansible/latest/playbooks_reuse.html) (Création de playbooks réutilisables). 
+Pour plus d’informations sur les rôles de playbook, consultez [Creating Reusable Playbooks](https://docs.ansible.com/ansible/latest/playbooks_reuse.html) (Création de playbooks réutilisables). 

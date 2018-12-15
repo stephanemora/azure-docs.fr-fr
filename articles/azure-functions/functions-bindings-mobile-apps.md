@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: eb77046c6e673012209f0db452b20bf25046cd67
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250969"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001659"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Liaisons Mobile Apps pour Azure Functions 
 
@@ -31,7 +31,7 @@ Les liaisons Mobile Apps vous permettent de lire et mettre à jour des tables de
 
 ## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
-Les liaisons Mobile Apps sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps), version 1.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/).
+Les liaisons Mobile Apps sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps), version 1.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -157,7 +157,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="input---usage"></a>Entrée - utilisation
 
-Dans les fonctions C#, quand l’enregistrement portant l’ID spécifié est trouvé, il est passé au paramètre [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) nommé. Si l’enregistrement est introuvable, la valeur du paramètre est `null`. 
+Dans les fonctions C#, quand l’enregistrement portant l’ID spécifié est trouvé, il est passé au paramètre [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) nommé. Si l’enregistrement est introuvable, la valeur du paramètre est `null`. 
 
 Dans les fonctions JavaScript, l’enregistrement est passé à l’objet `context.bindings.<name>`. Si l’enregistrement est introuvable, la valeur du paramètre est `null`. 
 

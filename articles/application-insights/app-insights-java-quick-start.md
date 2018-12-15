@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 45d1275ac3b78836cbb77c4e1508d0689c215d69
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246511"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998602"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Démarrer l’analyse de votre application web Java
 
@@ -29,7 +29,7 @@ Ce guide de démarrage rapide vous accompagne tout au long de l’ajout du Kit d
 Pour suivre ce guide de démarrage rapide :
 
 - Installez JRE 1.7 ou 1.8
-- Installez l’[Environnement de développement intégré Eclipse gratuit pour développeurs Java EE](http://www.eclipse.org/downloads/). Ce guide de démarrage rapide utilise Eclipse Oxygen (4.7).
+- Installez l’[Environnement de développement intégré Eclipse gratuit pour développeurs Java EE](https://www.eclipse.org/downloads/). Ce guide de démarrage rapide utilise Eclipse Oxygen (4.7).
 - Vous avez besoin d’un abonnement Azure et d’un projet web dynamique Java existant.
  
 Si vous n’avez pas de projet web dynamique Java, vous pouvez en créer un à l’aide du [guide de démarrage rapide pour la création d’une application web Java](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
@@ -54,7 +54,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
     | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
+   | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application web Java | Type de l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
@@ -67,7 +67,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    ![Formulaire de nouvelle ressource Application Insights](./media/app-insights-java-quick-start/000-j.png)
 
-2. Copiez ```http://dl.microsoft.com/eclipse``` dans le champ « Travail avec » > cochez **Kit de ressources Azure pour Java** > sélectionnez le **plug-in Application Insights pour Java** > **désactivez** l’option permettant de contacter tous les sites de mise à jour au cours de l’installation pour rechercher les logiciels requis.
+2. Copiez ```https://dl.microsoft.com/eclipse``` dans le champ « Travail avec » > cochez **Kit de ressources Azure pour Java** > sélectionnez le **plug-in Application Insights pour Java** > **désactivez** l’option permettant de contacter tous les sites de mise à jour au cours de l’installation pour rechercher les logiciels requis.
 
 3. Une fois l’installation terminée, vous êtes invité à **redémarrer Eclipse**.
 
@@ -130,9 +130,9 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    ![Graphiques des métriques de serveur](./media/app-insights-java-quick-start/livemetricsjava.png)
 
-Pour en savoir plus sur l’analyse de Java, consultez la [documentation supplémentaire sur Application Insights pour Java](.\app-insights-java-get-started.md).
+Pour en savoir plus sur l’analyse de Java, consultez la [documentation supplémentaire sur Application Insights pour Java](./app-insights-java-get-started.md).
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les didacticiels, ne supprimez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées par ce démarrage rapide dans le portail Azure.
 

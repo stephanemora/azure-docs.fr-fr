@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: aabdae370c28f8fa633372be4505c00c25254408
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d5fd55ec93ce07e30e4c6f123f9be8492581053c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403248"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972250"
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Surveiller les conteneurs avec Log Analytics
  
@@ -53,7 +53,7 @@ L’agent permet de collecter plusieurs journaux propres aux conteneurs qui peuv
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Apprenez-en davantage sur la [solution Container Monitoring de Log Analytics](../log-analytics/log-analytics-containers.md).
+* Apprenez-en davantage sur la [solution Container Monitoring de Log Analytics](../azure-monitor/insights/containers.md).
 * En savoir plus sur l’orchestration des conteneurs dans Service Fabric : [Service Fabric et conteneurs](service-fabric-containers-overview.md)
 * Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) offertes dans le cadre de Log Analytics
 * Configurez Log Analytics pour paramétrer des règles d’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics

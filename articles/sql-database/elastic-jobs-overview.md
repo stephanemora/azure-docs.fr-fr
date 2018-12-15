@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: 9df51626a1bd36b0ea171c89c67a5c1ca79d60e6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0d593e52c8dc3bc961df706ccef2da9da2f3f778
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873698"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087131"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Gérer des groupes de bases de données avec des travaux de base de données élastique
 
@@ -127,7 +127,7 @@ L’**exemple 4** montre un groupe cible qui contient un pool élastique comme c
 
 ![Exemples de groupe cible](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-L’**exemple 5** et l’*exemple 6* montrent des scénarios avancés où les serveurs SQL Azure, les pools élastiques et les bases de données peuvent être combinées avec des règles d’inclusion et d’exclusion.<br>
+L’**exemple 5** et l’**exemple 6** montrent des scénarios avancés où les serveurs SQL Azure, les pools élastiques et les bases de données peuvent être combinées avec des règles d’inclusion et d’exclusion.<br>
 L’**exemple 7** montre que les partitions d’une carte de partitions peuvent également être évaluées au moment de l’exécution du travail.
 
 ### <a name="job"></a>Travail

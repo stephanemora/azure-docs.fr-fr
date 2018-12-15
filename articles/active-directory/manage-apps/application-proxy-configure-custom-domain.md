@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b0ad4aa63dbeefce6b55e099fd51d3608ae3abb8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368477"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133347"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilisation des domaines personnalisés dans le proxy d'application Azure AD
 
@@ -37,11 +37,10 @@ Nous vous recommandons de définir des domaines personnalisés pour vos applicat
 
 ### <a name="prerequisites"></a>Prérequis
 
-
 Avant de configurer un domaine personnalisé, assurez-vous d’avoir rempli les exigences suivantes : 
 - La [vérification du domaine ajouté à Azure Active Directory](../fundamentals/add-custom-domain.md).
 - Un certificat personnalisé pour le domaine, sous la forme de fichier PFX. 
-- Une application locale [publiée via le Proxy d’application](application-proxy-publish-azure-portal.md).
+- Une application locale [publiée via le Proxy d’application](application-proxy-add-on-premises-application.md).
 
 ### <a name="configure-your-custom-domain"></a>Configurer votre domaine personnalisé
 

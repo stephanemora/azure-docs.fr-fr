@@ -1,5 +1,5 @@
 ---
-title: Prise en main du Kit de développement logiciel (SDK) Azure WebJobs
+title: Prise en main du Kit de développement logiciel (SDK) WebJobs (Azure)
 description: Introduction au Kit de développement logiciel (SDK) WebJobs pour le traitement en arrière-plan basé sur les événements. Découvrez comment accéder aux données des services Azure et des services tiers.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580431"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339805"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -63,9 +63,9 @@ Dans cet article, il est supposé que vous avez [un compte Azure](https://azure.
 
 1. Dans Visual Studio, sélectionnez **Fichier > Nouveau projet**.
 
-1. Sélectionnez **Bureau classique Windows > Application console (.NET Framework)**.
+2. Sélectionnez **Bureau classique Windows > Application console (.NET Framework)**.
 
-1. Nommez le projet *WebJobsSDKSample*, puis sélectionnez **OK**.
+3. Nommez le projet *WebJobsSDKSample*, puis sélectionnez **OK**.
 
    ![Boîte de dialogue Nouveau projet](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -182,7 +182,7 @@ Dans cette section, vous allez configurer la journalisation de console qui utili
 
 L’émulateur de stockage Azure exécuté localement ne possède pas toutes les fonctionnalités nécessaires au Kit de développement logiciel (SDK) WebJobs. Dans cette section, vous allez donc créer un compte de stockage dans Azure et configurer le projet pour l’utiliser.
 
-1. Ouvrez **l’Explorateur de serveurs** et connectez-vous à Azure. Cliquez avec le bouton droit sur le nœud **Azure**, puis sélectionner **Se connecter à un abonnement Microsoft Azure**.
+1. Ouvrez **l’Explorateur de serveurs** dans Visual Studio et connectez-vous à Azure. Cliquez avec le bouton droit sur le nœud **Azure**, puis sélectionner **Se connecter à un abonnement Microsoft Azure**.
 
    ![Connexion à Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -245,7 +245,7 @@ Dans cette section, vous allez générer et exécuter le projet localement et d�
 
 1. Fermez la fenêtre de console.
 
-1. Dans **l’Explorateur de serveurs**, développez le nœud correspondant au nouveau compte de stockage, puis cliquez avec le bouton droit sur **Files d’attente**. 
+1. Dans **l’Explorateur de serveurs** de Visual Studio, développez le nœud correspondant au nouveau compte de stockage, puis cliquez avec le bouton droit sur **Files d’attente**. 
 
 1. Sélectionnez **Créer une file d’attente**. 
 
@@ -310,7 +310,7 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
 
 ### <a name="configure-app-settings"></a>Configuration des paramètres d’application 
 
-1. Dans **l’Explorateur de serveurs**, développez le nœud **App Service** sous **Azure**.
+1. Dans **l’Explorateur de serveurs** de Visual Studio, développez le nœud **App Service** sous **Azure**.
 
 1. Développez le groupe de ressources dans lequel figure votre application App Service, puis cliquez avec le bouton droit sur votre application App Service.
 
@@ -396,7 +396,7 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
 
 Dans cette section, vous allez effectuer une nouvelle exécution locale pour vérifier que les données de journalisation accèdent maintenant à Application Insights et à la console.
 
-1. Utilisez **l’Explorateur de serveurs** pour créer un message en file d’attente, comme vous l’avez fait [précédemment](#trigger-the-function), mais entrez *Hello App Insights !* comme texte du message.
+1. Utilisez **l’Explorateur de serveurs** de Visual Studio pour créer un message en file d’attente, comme vous l’avez fait [précédemment](#trigger-the-function-in-azure), mais cette fois-ci entrez *Hello App Insights !* comme texte du message.
 
 1. Exécutez le projet.
 
@@ -442,7 +442,6 @@ Dans cette section, vous allez déployer le projet en tant que tâche web. Vous 
 
 1. Assurez-vous que l’exécution n’est pas locale (fermez la fenêtre de console si elle est toujours ouverte). Dans le cas contraire, l’instance locale risque d’être la première à traiter les messages en file d’attente que vous créez.
 
-1. Utilisez **l’Explorateur de serveurs** pour créer un message en file d’attente, comme vous l’avez fait [précédemment](#trigger-the-function), mais entrez *Hello Azure !*.
 
 1. Actualisez la page **File d’attente** dans Visual Studio ; le nouveau message a disparu, car la fonction exécutée dans Azure App Service l’a traité.
 
@@ -485,7 +484,7 @@ Les liaisons d’entrée simplifient le code qui lit les données. Pour cet exem
 
 1. Créez un conteneur d’objets blob dans votre compte de stockage.
 
-   a. Dans **l’Explorateur de serveurs**, développez le nœud de votre compte de stockage, cliquez avec le bouton droit sur **Objets blob**, puis sélectionnez **Créer un conteneur d’objets blob**.
+   a. Dans **l’Explorateur de serveurs** de Visual Studio, développez le nœud de votre compte de stockage, cliquez avec le bouton droit sur **Objets blob**, puis sélectionnez **Créer un conteneur d’objets blob**.
 
    b. Dans la boîte de dialogue **Créer un conteneur d’objets blob**, entrez *conteneur* comme nom du conteneur, puis cliquez sur **OK**.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: db4208c8fef27d2e2085e63ba3a986456d0544bf
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: fe24307f7ed01c64217bcb1f9f7645a30bce7f44
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429114"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322821"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extension Azure Diagnostics pour machines virtuelles Windows
 
@@ -37,7 +37,7 @@ L’extension Azure Diagnostics nécessite que la machine virtuelle cible soit c
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-[Le schéma et les valeurs de propriété de l’extension Azure Diagnostics sont décrits dans ce document.](../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
+[Le schéma et les valeurs de propriété de l’extension Azure Diagnostics sont décrits dans ce document.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
@@ -80,12 +80,12 @@ Vous pouvez récupérer les données sur l’état des déploiements d’extensi
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Pour plus d’informations sur la résolution des problèmes liés à l’extension Azure Diagnostics, [consultez cet article](../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md).
+Pour plus d’informations sur la résolution des problèmes liés à l’extension Azure Diagnostics, [consultez cet article](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md).
 
 ### <a name="support"></a>Support
 
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur Obtenir un support. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur l’extension Azure Diagnostics](../../monitoring-and-diagnostics/azure-diagnostics.md)
-* [Examinez le schéma et les versions de l’extension](../../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+* [En savoir plus sur l’extension Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [Examinez le schéma et les versions de l’extension](../../azure-monitor/platform/diagnostics-extension-schema.md)
