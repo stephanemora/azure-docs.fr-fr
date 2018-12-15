@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: dc37ff85deccdd5a1f8703033d300d878f9a7e4c
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: daeec38863ee7e9dd4e56f2470e5f9459dcc8bc1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887982"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958591"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurer l’interface de ligne de commande Service Fabric Mesh
 L’interface de ligne de commande Service Fabric Mesh est nécessaire pour déployer et gérer des ressources localement et dans Azure Service Fabric Mesh. 
@@ -73,7 +73,7 @@ Pour utiliser le plug-in Maven dans votre application Java Maven, ajoutez l’ex
       ...
       <plugin>
         <groupId>com.microsoft.azure</groupId>
-          <artifactId>azure-sf-maven-plugin</artifactId>
+          <artifactId>azure-sfmesh-maven-plugin</artifactId>
           <version>0.1.0</version>
           <configuration>
             ...

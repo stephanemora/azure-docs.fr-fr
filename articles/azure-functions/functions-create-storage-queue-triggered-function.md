@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fd2d19119c5be91942d9587a073be30d59c8fd6c
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 33f7367d9cdc510cf04f349f44b6e85215d46038
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113765"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995597"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Créer une fonction déclenchée par une file d’attente de stockage Azure
 
@@ -27,7 +27,7 @@ Découvrez comment créer une fonction qui est déclenchée lorsque des messages
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](http://storageexplorer.com/).
+- Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](https://storageexplorer.com/).
 
 - Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -63,7 +63,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
     | Paramètre | Valeur suggérée | Description |
     |---|---|---|
-    | **Name** | Unique dans votre Function App | Nom de cette fonction déclenchée par la file d’attente. |
+    | **Nom** | Unique dans votre Function App | Nom de cette fonction déclenchée par la file d’attente. |
     | **Nom de la file d’attente**   | myqueue-items    | Le nom de la file d’attente à connecter à votre compte de stockage. |
     | **Connexion au compte de stockage** | AzureWebJobStorage | Vous pouvez utiliser la connexion de compte de stockage qui est déjà utilisée par votre application de fonction, ou créez-en une.  |    
 
@@ -77,7 +77,7 @@ Ensuite, connectez-vous à votre compte de stockage Azure et créez la file d’
 
     ![Obtention des informations d’identification de connexion du compte de stockage.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
-1. Exécutez [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com/), cliquez sur l’icône de connexion situé sur la gauche, choisissez **Utiliser un nom et une clé de compte de stockage**, puis cliquez sur **Suivant**.
+1. Exécutez [l’Explorateur de stockage Microsoft Azure](https://storageexplorer.com/), cliquez sur l’icône de connexion situé sur la gauche, choisissez **Utiliser un nom et une clé de compte de stockage**, puis cliquez sur **Suivant**.
 
     ![Exécutez l’outil Explorateur de compte de stockage.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
 

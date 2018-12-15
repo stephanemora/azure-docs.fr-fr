@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3c7a1dd9ba688c5cc9776dbfba0841c9a06065dc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419688"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184965"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé pour le service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) pour services et appareils Java et de groupes d’inscription
 
@@ -49,20 +49,20 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
             - Sélectionnez le fichier **_RootCA.pem_** que vous venez de créer.
             - Cela fait, cliquez sur le bouton **Enregistrer**.
 
-        ![Ajouter un certificat](./media/tutorial-group-enrollments/add-certificate.png)
+           ![Ajouter un certificat](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Sélectionnez le certificat que vous venez de créer :
             - Cliquez sur **Générer le code de vérification**. Copiez le code généré.
             - Exécutez l’étape de vérification. Entrez le _code de vérification_ ou cliquez avec le bouton droit et collez-le dans la fenêtre PowerShell en cours d’exécution.  Appuyez sur **Entrée**.
             - Sélectionnez le fichier **_verifyCert4.pem_** que vous venez de créer dans le portail Azure. Cliquez sur **Vérifier**.
 
-            ![Valider le certificat](./media/tutorial-group-enrollments/validate-certificate.png)
+              ![Valider le certificat](./media/tutorial-group-enrollments/validate-certificate.png)
 
     1. Terminez en exécutant les étapes de création de vos certificats de périphérique et de nettoyage des ressources.
 
-    > [!NOTE]
-    > Lorsque vous créez des certificats de périphérique, veillez à utiliser uniquement des caractères alphanumériques minuscules et des traits d’union dans le nom de votre appareil.
-    >
+       > [!NOTE]
+       > Lorsque vous créez des certificats de périphérique, veillez à utiliser uniquement des caractères alphanumériques minuscules et des traits d’union dans le nom de votre appareil.
+       >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Créer une entrée d’inscription d’appareil

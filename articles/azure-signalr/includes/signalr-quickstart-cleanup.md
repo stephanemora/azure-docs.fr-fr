@@ -1,21 +1,20 @@
 ---
 title: Fichier Include
 description: Fichier Include
-services: signalr
 author: anthonychu
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: c74a0726bbbe635793b48b6fe6ebd6f0c72f95f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e01db73f58c77ff62f7abe707884fc2649fd042
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006199"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262778"
 ---
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées par ce démarrage rapide en procédant de la façon suivante de façon à ne pas exposer de coûts :
 
@@ -24,4 +23,3 @@ Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes 
 1. Dans la fenêtre qui s’ouvre, sélectionnez le groupe de ressources, puis cliquez sur **Supprimer le groupe de ressources**.
 
 1. Dans la nouvelle fenêtre, saisissez le nom du groupe de ressources à supprimer, puis cliquez sur **Supprimer**.
-
