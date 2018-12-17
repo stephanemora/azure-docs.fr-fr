@@ -20,7 +20,7 @@ items:
     - name: Déployer une application Reliable Services
       href: service-fabric-quickstart-java-reliable-services.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Déployer une application .NET
     items:
@@ -695,7 +695,7 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Résoudre les problèmes de votre cluster local
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: Meilleures pratiques
+  - name: Bonnes pratiques
     items:
     - name: Liste de vérification de disponibilité de la production
       href: service-fabric-production-readiness-checklist.md
@@ -820,9 +820,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 5a4a98066e4a7d222b00b0d319f7eb49b84438df
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d4973e678b9e978bae0b6ebb4bb49ac2570ea6bd
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323488"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384749"

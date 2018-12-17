@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7591e1303e69df522a02b08a079ac00bdac5f6bc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0049468330a9fcb26f023de2a8adb5dfd1544321
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870297"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436804"
 documentType: LandingData
 title: Documentation Azure SQL Database
 metadata:
@@ -48,7 +48,7 @@ sections:
       image:
         src: media/index/i_perftier.svg
       title: Niveaux de prix/service
-    - href: /azure/sql-database/sql-database-scale-resources
+    - href: /azure/sql-database/sql-database-scalability-index
       html: <p>Étendez, augmentez la taille de vos bases de données ou divisez-les, selon vos besoins, afin d’améliorer les performances de votre application.</p>
       image:
         src: media/index/i_scale.svg
@@ -78,11 +78,11 @@ sections:
       image:
         src: media/index/i_security.svg
       title: Sécurité avancée
-    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
-      html: <p>L’intelligence intégrée permet de réduire considérablement les coûts d’exécution et de gestion des bases de données, et d’optimiser les performances et la sécurité de votre application.</p>
+    - href: /azure/sql-database/sql-database-monitoring-tuning-index
+      html: <p>Le réglage intelligent et la supervision intégrés permettent de réduire considérablement les coûts d’exécution et de gestion des bases de données et d’optimiser les performances de votre application.</p>
       image:
         src: media/index/i_intelligence.svg
-      title: Intelligence intégrée
+      title: Supervision et réglage
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
@@ -144,7 +144,7 @@ sections:
       - href: 
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
-- title: Didacticiels pas à pas
+- title: Tutoriels pas à pas
   items:
   - type: paragraph
     text: Apprenez à créer, gérer et migrer des bases de données à l’aide de SQL DB

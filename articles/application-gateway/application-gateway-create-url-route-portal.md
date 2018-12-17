@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5bec7be5f7ad744960d2602aaf24fec51d869267
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056247"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993213"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure à l’adresse [http://portal.azure.com](http://portal.azure.com)
+Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
@@ -154,7 +154,7 @@ Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que 
 
     ![Enregistrer l’adresse IP publique de la passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, http://http://40.121.222.19.
+2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, http:// http://40.121.222.19.
 
     ![Tester l’URL de base dans la passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

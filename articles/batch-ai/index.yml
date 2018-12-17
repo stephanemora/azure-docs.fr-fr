@@ -1,25 +1,25 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 16fa5136457616644b91b4796769ce4050f6a462
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8cd5101c7e979c63d274f1534a3fec8190e00317
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385945"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409494"
 documentType: LandingData
-title: Documentation Azure Batch AI (préversion)
+title: Documentation Azure Batch AI (MISE HORS SERVICE)
 metadata:
-  title: Documentation Azure Batch AI (préversion)
+  title: Documentation Azure Batch AI (MISE HORS SERVICE)
   meta.description: Azure Batch AI is a managed service to help data scientists and AI researchers train and test machine learning and AI models at scale in Azure - without having to manage complex infrastructure. Learn how to use Batch AI with our quickstarts, tutorials, and samples.
   services: batch-ai
-  author: dlepow
-  manager: jeconnock
+  author: j-martens
+  manager: cjgronlun
   layout: LandingPage
   ms.service: batch-ai
   ms.topic: landing-page
-  ms.date: 08/16/2018
-  ms.author: danlep
+  ms.date: 12/14/2018
+  ms.author: jmartens
 abstract:
-  description: Azure Batch AI est un service géré aidant les chercheurs de données et les chercheurs en IA à former et tester des modèles de machine Learning et IA à grande échelle dans Azure sans avoir à gérer la complexité d’une infrastructure. Découvrez comment utiliser Azure Batch AI en tirant parti de nos guides de démarrage rapide, nos tutoriels et nos exemples.
+  description: <div class="NOTE"><p>Remarque</p><p><strong>Azure Batch AI est actuellement mis hors service.</strong> Le support de ce service va être arrêté progressivement. Les fonctionnalités d’Azure Batch AI sont maintenant disponibles comme cible de calcul managée dans Azure Machine Learning service. Pour plus d’informations, consultez <a href="overview-what-happened-batch-ai" data-linktype="relative-path">Qu’arrive-t-il à Batch AI ?</a></p></div>
 sections:
 - title: Démarrages en 5 minutes
   items:
@@ -45,7 +45,7 @@ sections:
         src: https://docs.microsoft.com/media/common/i_cligeneric.svg
       text: Azure CLI
       href: quickstart-tensorflow-training-cli.md
-- title: Didacticiels pas à pas
+- title: Tutoriels pas à pas
   items:
   - type: paragraph
     text: Découvrez comment utiliser Batch AI pour former des modèles avec différentes infrastructures.

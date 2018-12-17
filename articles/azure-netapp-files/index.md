@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/23/2018
 ms.author: b-juche
-ms.openlocfilehash: 6869d60bfadbeb3f3ed9c7b67d3560e49c73e65b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 23ec6d3a91dea91fba8565280bcce4e9385f49ae
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010240"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413233"
 ---
 # <a name="azure-netapp-files-documentation"></a>Documentation Azure NetApp Files
 
 Découvrez comment utiliser Azure NetApp Files pour créer et gérer des comptes NetApp, des pools de capacité et des volumes, configurer la stratégie d’exportation, monter un volume pour une machine virtuelle et gérer des instantanés.
 
 > [!IMPORTANT] 
-> Toutes les tâches décrites dans cette documentation nécessitent de faire partie du programme Préversion publique et de figurer dans la liste verte pour l’accès au fournisseur de ressources Azure Microsoft.NetApp. Pour plus d’informations sur l’adhésion au programme Préversion publique, consultez la [page d’inscription au programme Préversion publique d’Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+> Toutes les tâches décrites dans cette documentation nécessitent de faire partie du programme Préversion publique et de figurer dans la liste verte pour l’accès au fournisseur de ressources Azure Microsoft.NetApp. Si vous voulez rejoindre le programme de préversion publique, consultez [S’inscrire à Azure NetApp Files](azure-netapp-files-register.md). 
 
 <ul class="panelContent cardsFTitle">
     <li>

@@ -26,7 +26,7 @@ items:
   - name: Utiliser Eclipse pour lier à un cluster ESP
     href: ../spark/apache-spark-eclipse-tool-plugin.md
     maintainContext: true
-  - name: Utiliser Oozie dans des clusters ESP
+  - name: Utiliser Apache Oozie dans des clusters ESP
     href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Sécurisation des données
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
@@ -39,10 +39,10 @@ items:
   - name: Connecter HDInsight à un réseau local
     href: ../connect-on-premises-network.md
     maintainContext: true
-  - name: Créer un cluster HBase dans le réseau virtuel Azure
+  - name: Créer un cluster Apache HBase dans le réseau virtuel Azure
     href: ../hbase/apache-hbase-provision-vnet.md
     maintainContext: true
-  - name: Réplication de cluster HBase dans le réseau virtuel Azure
+  - name: Réplication de cluster Apache HBase dans le réseau virtuel Azure
     href: ../hbase/apache-hbase-replication.md
     maintainContext: true
 - name: Surveillance à l’aide de Log Analytics
@@ -62,21 +62,21 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
-  - name: Kit de développement logiciel (SDK) .NET
+  - name: Kit SDK .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Kit de développement logiciel (SDK) Python
+  - name: Kit SDK Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Kit de développement logiciel (SDK) Java
+  - name: Kit SDK Java
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Kit de développement logiciel (SDK) Go
+  - name: Kit SDK Go
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Ressources
   items:
@@ -100,9 +100,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 08e08fba0b9957babd391cada4a665e5d99fdd90
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 838d344742cdb9c19224b6831540736a86fc5b33
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155709"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433644"

@@ -164,7 +164,7 @@ items:
       href: optimize-cost-regions.md
     - name: Optimiser vos charges de travail de développement/test
       href: optimize-dev-test.md
-    - name: Prépayer pour une capacité de réserve
+    - name: Optimiser avec la capacité réservée
       href: cosmos-db-reserved-capacity.md
   - name: Sécurité
     items:
@@ -192,7 +192,7 @@ items:
     items:
     - name: Données de document de modèle
       href: modeling-data.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Créer un compte
         items:
@@ -292,7 +292,7 @@ items:
       href: mongodb-introduction.md
     - name: Support MongoDB
       href: mongodb-feature-support.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Créer un compte
         items:
@@ -342,7 +342,7 @@ items:
       href: graph-introduction.md
     - name: Support Gremlin
       href: gremlin-support.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Interroger les données
         href: tutorial-query-graph.md
@@ -358,7 +358,7 @@ items:
       href: cassandra-introduction.md
     - name: Prise en charge de Cassandra
       href: cassandra-support.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Créer un compte et une base de données
         href: create-cassandra-api-account-java.md
@@ -394,7 +394,7 @@ items:
     items:
     - name: Introduction
       href: table-introduction.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
       - name: 1 - Créer un compte
         href: tutorial-develop-table-dotnet.md
@@ -515,15 +515,15 @@ items:
       href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Configurez le pipeline CI/CD Azure DevOps
     href: tutorial-setup-ci-cd.md
-  - name: Meilleures pratiques
+  - name: Bonnes pratiques
     items:
     - name: Conseils sur les performances
       items:
-      - name: Conseils en matière de performances pour le Kit de développement logiciel (SDK) .NET
+      - name: Conseils sur les performances pour le kit SDK .NET
         href: performance-tips.md
-      - name: Conseils en matière de performances pour le Kit de développement logiciel (SDK) Java
+      - name: Conseils sur les performances pour le kit SDK Java
         href: performance-tips-java.md
-      - name: Conseils en matière de performances pour le Kit de développement logiciel (SDK) Async Java
+      - name: Conseils sur les performances pour le kit SDK Async Java
         href: performance-tips-async-java.md
       - name: Test de performances - application exemple
         href: performance-testing.md
@@ -603,9 +603,9 @@ items:
       href: use-cases.md
     - name: Applications de réseaux sociaux
       href: social-media-apps.md
-ms.openlocfilehash: b172650cc0a69169bcbebf58e0a11d0bb9cd6450
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d31364cb9d458e54ae407d10fd88d8db4e9f457f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254698"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384664"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dd8976bc9c78045830ab499f48775bcb051f6c71
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: bf2b326b6e0003b9a690e560d5a312f16659dad9
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455740"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406741"
 documentType: LandingData
 title: Documentation Azure HDInsight
 metadata:
@@ -63,19 +63,19 @@ sections:
         src: media/index/ml-server_r.svg
       text: ML Services
       href: /azure/hdinsight/r-server/r-server-get-started
-- title: Didacticiels pas à pas
+- title: Tutoriels pas à pas
   items:
   - type: paragraph
     text: 'Découvrez comment utiliser Azure HDInsight dans différents scénarios :'
   - type: list
     style: unordered
     items:
-    - html: Hadoop &#58 ; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Effectuer des opérations ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Créer des clusters à la demande</a>
-    - html: Spark &#58 ; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Exécuter des requêtes interactives</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualiser les données</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Machine learning</a>
-    - html: Kafka &#58 ; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Flux structuré avec Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Utilisation avec Storm sur HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Utiliser les API de producteur et de consommateur Kafka</a>
-    - html: HBase &#58 ; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Créer des clusters HBase dans un réseau virtuel</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Utiliser Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Se connecter à Spark</a>
+    - html: Apache Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Effectuer des opérations ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Créer des clusters à la demande</a>
+    - html: Apache Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Exécuter des requêtes interactives</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualiser les données</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Machine learning</a>
+    - html: Apache Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Flux structuré avec Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Utilisation avec Storm sur HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Utiliser les API de producteur et de consommateur Kafka</a>
+    - html: Apache HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Créer des clusters HBase dans un réseau virtuel</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Utiliser Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Se connecter à Spark</a>
     - html: Requête interactive &#58 ; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Se connecter à Power BI à l’aide d’une requête directe</a>
-    - html: Storm &#58 ; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Créer une topologie Storm dans Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Déployer des topologies Storm sur HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Écrire depuis Storm sur Data Lake Store</a>
+    - html: Apache Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Créer une topologie Storm dans Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Déployer des topologies Storm sur HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Écrire depuis Storm sur Data Lake Store</a>
     - html: ML Services &#58 ; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Utiliser Outils R pour Visual Studio</a>
 - title: Informations de référence
   items:

@@ -61,7 +61,7 @@ items:
     - name: R
       href: sql-database-connect-query-r.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Concevoir une base de données SQL Azure
     items:
@@ -157,14 +157,8 @@ items:
       href: sql-database-managed-instance-create-manage.md
     - name: Limites des ressources
       href: sql-database-managed-instance-resource-limits.md
-    - name: Configuration de réseau virtuel
-      items:
-      - name: Configuration de réseau virtuel
-        href: sql-database-managed-instance-vnet-configuration.md
-      - name: Architecture de connectivité
-        href: sql-database-managed-instance-connectivity-architecture.md
-      - name: Point de terminaison de gestion
-        href: sql-database-managed-instance-management-endpoint.md
+    - name: Architecture de connectivité
+      href: sql-database-managed-instance-connectivity-architecture.md
     - name: Différences de T-SQL
       href: sql-database-managed-instance-transact-sql-information.md
   - name: Platform as a service
@@ -287,34 +281,28 @@ items:
       href: elastic-jobs-overview.md
   - name: Comparaison des fonctionnalités SQL
     href: sql-database-features.md
-  - name: Surveillance et optimisation des performances
+  - name: Analyse et réglage
     items:
-    - name: Présentation de l’analyse et du réglage
+    - name: Surveillance et optimisation des performances
       href: sql-database-monitor-tune-overview.md
-    - name: Performances intelligentes
+    - name: Analyse des performances
       items:
-      - name: Recommandations et actions en matière de réglage
-        href: sql-database-performance.md
       - name: Query Performance Insight
         href: sql-database-query-performance.md
-      - name: Recommandations relatives aux performances de Database Advisor
-        href: sql-database-advisor.md
-    - name: Surveillance avancée
-      items:
       - name: Surveillance d’Azure SQL Analytics
         href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
       - name: Journalisation de télémétrie de diagnostic
         href: sql-database-metrics-diag-logging.md
-    - name: Informations Intelligent Insights relatives aux performances
-      href: sql-database-intelligent-insights.md
-    - name: Réglage automatique
-      href: sql-database-automatic-tuning.md
-    - name: Traitement intelligent des requêtes
+    - name: Performances intelligentes
       items:
-      - name: Traitement intelligent des requêtes
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Traitement adaptatif des requêtes
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Réglage automatique
+        href: sql-database-automatic-tuning.md
+      - name: Informations Intelligent Insights relatives aux performances
+        href: sql-database-intelligent-insights.md
+      - name: Recommandations et actions en matière de réglage
+        href: sql-database-performance.md
+      - name: Recommandations relatives aux performances de Database Advisor
+        href: sql-database-advisor.md
   - name: Fonctionnalités de bases de données
     items:
     - name: Fonctionnalités de bases de données
@@ -409,10 +397,20 @@ items:
       href: sql-database-managed-instance-migrate.md
     - name: Migrer un certificat TDE vers une instance gérée
       href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: Déterminer la taille du sous-réseau Managed Instance
+      href: sql-database-managed-instance-determine-size-vnet-subnet.md
+    - name: Créer un réseau virtuel et un sous-réseau pour Managed Instance
+      href: sql-database-managed-instance-create-vnet-subnet.md
+    - name: Configurer un réseau virtuel et un sous-réseau existants pour Managed Instance
+      href: sql-database-managed-instance-configure-vnet-subnet.md
     - name: Configurer un système DNS personnalisé
       href: sql-database-managed-instance-custom-dns.md
     - name: Synchroniser la configuration du réseau
       href: sql-database-managed-instance-sync-network-configuration.md
+    - name: Rechercher l’adresse IP de point de terminaison de gestion
+      href: sql-database-managed-instance-find-management-endpoint-ip-address.md
+    - name: Vérifier la protection de pare-feu intégrée
+      href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
     - name: Réplication transactionnelle
       href: replication-with-sql-database-managed-instance.md
     - name: Configurer la détection des menaces
@@ -543,7 +541,7 @@ items:
             href: saas-standaloneapp-provision-and-catalog.md
         - name: Base de données par client
           items:
-          - name: Introduction du didacticiel
+          - name: Introduction du tutoriel
             href: saas-dbpertenant-wingtip-app-overview.md
           - name: Déployer l’application fournie en exemple
             href: saas-dbpertenant-get-started-deploy.md
@@ -644,9 +642,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/sql-database/
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/sql-azure
-  - name: vidéos
+  - name: Vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?service=sql-database
@@ -668,9 +666,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Désinstaller une tâche élastique (déconseillé)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: bb051db62acda98e40be09c174216208578afccc
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d94f4fb39ccdee60fae434204369fd844aedeb20
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320963"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384273"

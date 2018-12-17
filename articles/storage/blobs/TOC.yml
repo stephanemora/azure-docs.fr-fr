@@ -14,7 +14,7 @@ items:
       href: storage-blobs-introduction.md
   - name: Démarrages rapides
     items:
-    - name: Créez un compte de stockage.
+    - name: Créer un compte de stockage
       href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gérer des objets blob sans code
       items:
@@ -44,7 +44,7 @@ items:
         href: storage-quickstart-blobs-javascript-client-libraries.md
       - name: PHP
         href: storage-quickstart-blobs-php.md
-  - name: Didacticiels
+  - name: Tutoriels
     items:
     - name: Télécharger et traiter une image
       items:
@@ -461,9 +461,9 @@ items:
       href: https://azure.microsoft.com/pricing/details/storage/blobs/
     - name: Calculatrice de prix
       href: https://azure.microsoft.com/pricing/calculator/
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
-    - name: vidéos
+    - name: Vidéos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
     - name: Explorateur de stockage Azure
       items:
@@ -541,7 +541,7 @@ items:
       href: ../blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Bien démarrer avec l’Explorateur Stockage Azure
       href: ../blobs/data-lake-storage-explorer.md
-  - name: Didacticiels
+  - name: Tutoriels
     items:
     - name: Extraire, transformer et charger des données à l’aide d’Azure Databricks
       href: ../blobs/data-lake-storage-handle-data-using-databricks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -557,7 +557,7 @@ items:
       href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Service d’espace de noms hiérarchique
       href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Meilleures pratiques
+    - name: Bonnes pratiques
       href: data-lake-storage-best-practices.md
     - name: Sécurité
       items:
@@ -631,9 +631,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Vidéos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 0c9bc9f6c1d47d6f53d0d8ec46939e11d47ac8b4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: fe6113657f033501f53b761b71fe4bc0104bf611
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258812"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386976"
