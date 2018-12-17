@@ -19,7 +19,7 @@
 #### [Applications Azure : modèles de solution](./marketplace-solution-templates.md)
 #### [Applications Azure : applications gérées](./marketplace-managed-apps.md)
 #### [Applications SaaS](./marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Containers](./marketplace-containers.md)
+#### [Conteneurs](./marketplace-containers.md)
 #### [Modules IoT Edge](./iot-edge-module.md) 
 #### [Service de conseil](./consulting-services.md)  
 #### [Guide de publication Office 365, Dynamics 365 et Power BI](./appsource-offer-publishing-guide.md)
@@ -91,7 +91,7 @@
 #### [Onglet de version d'évaluation](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [Onglet de la Place de marché](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [Onglet du support](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Créer des ressources techniques](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [Publier une offre d’application Azure](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [Mettre à jour l’offre existante](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 

@@ -80,7 +80,7 @@ items:
       href: consistency-levels.md
     - name: Choisir le bon niveau de cohérence
       href: consistency-levels-choosing.md
-    - name: Niveaux de cohérence et API Azure Cosmos DB
+    - name: Niveaux de cohérence et API Cosmos DB
       href: consistency-levels-across-apis.md
     - name: Cohérence, disponibilité et compromis sur les performances
       href: consistency-levels-tradeoffs.md
@@ -144,6 +144,12 @@ items:
       href: unique-keys.md
     - name: Transactions et accès concurrentiel optimiste
       href: database-transactions-optimistic-concurrency.md
+  - name: Programmation côté serveur
+    items:
+    - name: Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
+      href: stored-procedures-triggers-udfs.md
+    - name: API de requête JavaScript
+      href: javascript-query-api.md
   - name: Optimiser votre coût Azure Cosmos DB
     items:
     - name: Modèle de tarification
@@ -178,8 +184,6 @@ items:
       href: firewall-support.md
     - name: Accès à partir de réseaux virtuels
       href: vnet-service-endpoint.md
-    - name: Prise en charge de Key Vault
-      href: access-secrets-from-keyvault.md
   - name: Préparation pour l’entreprise
     items:
     - name: Sauvegarde et restauration en ligne
@@ -250,8 +254,14 @@ items:
       items:
       - name: Régler les performances des requêtes
         href: sql-api-query-metrics.md
-      - name: procédures stockées, déclencheurs et fonctions définies par l'utilisateur
-        href: programming.md
+      - name: Programmation côté serveur
+        items:
+        - name: Écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur
+          href: how-to-write-stored-procedures-triggers-udfs.md
+        - name: Écrire des procédures stockées et des déclencheurs avec l’API de requête JavaScript
+          href: how-to-write-javascript-query-api.md
+        - name: Utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur
+          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Types de données
         items:
         - name: Datetime
@@ -308,7 +318,7 @@ items:
             href: tutorial-develop-mongodb-nodejs-part3.md
           - name: Partie 4 - Créer un compte
             href: tutorial-develop-mongodb-nodejs-part4.md
-          - name: Partie 5 - Se connecter à Azure Cosmos DB
+          - name: Partie 5 - Se connecter à la base de données Cosmos DB
             href: tutorial-develop-mongodb-nodejs-part5.md
           - name: Partie 6 - Effectuer des opérations CRUD
             href: tutorial-develop-mongodb-nodejs-part6.md
@@ -479,11 +489,13 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Configurer le partage de ressources cross-origin (CORS)
       href: how-to-configure-cross-origin-resource-sharing.md
+    - name: Sécuriser avec Key Vault
+      href: access-secrets-from-keyvault.md
   - name: Préparation pour l’entreprise
     items:
     - name: Restauration des données à partir d’une sauvegarde
       href: how-to-backup-and-restore.md
-  - name: gérer
+  - name: Gérer
     items:
     - name: Gérer à l’aide de PowerShell
       href: manage-account-with-powershell.md
@@ -529,7 +541,7 @@ items:
         href: performance-testing.md
     - name: Écritures et lectures rentables
       href: key-value-store-cost.md
-  - name: Visualiser les données Azure Cosmos DB
+  - name: Visualiser les données Cosmos DB
     items:
     - name: Utiliser Power BI
       href: powerbi-visualize.md
@@ -573,7 +585,7 @@ items:
       href: bulk-executor-overview.md
 - name: Guides de résolution des problèmes
   items:
-  - name: Résoudre les problèmes du Kit de développement logiciel (SDK) Java Async
+  - name: Résoudre les problèmes du kit SDK Java Async
     href: troubleshoot-java-async-sdk.md
 - name: Ressources
   items:
@@ -589,7 +601,7 @@ items:
     href: whitepapers.md
   - name: Partenaires
     href: partners-migration-cosmosdb.md
-  - name: vidéos
+  - name: Vidéos
     href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/
@@ -603,9 +615,9 @@ items:
       href: use-cases.md
     - name: Applications de réseaux sociaux
       href: social-media-apps.md
-ms.openlocfilehash: d31364cb9d458e54ae407d10fd88d8db4e9f457f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 34fc77f13f0c0bd394d96e19b86a1632ce2846b1
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384664"
+ms.locfileid: "53410106"
