@@ -10,17 +10,15 @@ ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 5caa4940865ff0f0f684a8aa8c3164fee6f321b2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3313d7490ed9a2f51831c76148a54b7ecf19d3b3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634453"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338802"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solution Analyse VMware (version préliminaire) dans Log Analytics
 
@@ -42,7 +40,7 @@ Utilisez les informations suivantes pour installer et configurer la solution.
 vSphere ESXi Host 5.5, 6.0 et 6.5
 
 #### <a name="prepare-a-linux-server"></a>Préparer un serveur Linux
-Créez une machine virtuelle de système d’exploitation Linux pour recevoir toutes les données Syslog des hôtes ESXi. [L’agent Log Analytics Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) est le point de regroupement de toutes les données syslog de l’hôte ESXi. Vous pouvez utiliser plusieurs hôtes ESXi pour transférer des journaux à un seul serveur Linux, comme dans l’exemple suivant.
+Créez une machine virtuelle de système d’exploitation Linux pour recevoir toutes les données Syslog des hôtes ESXi. [L’agent Log Analytics Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) est le point de regroupement de toutes les données syslog de l’hôte ESXi. Vous pouvez utiliser plusieurs hôtes ESXi pour transférer des journaux à un seul serveur Linux, comme dans l’exemple suivant.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -131,7 +129,7 @@ Dans l’affichage du tableau de bord **VMware**, les panneaux sont organisés p
 
 Cliquez sur n’importe quel panneau pour ouvrir le volet de recherche de Log Analytics qui affiche des informations détaillées spécifiques pour le panneau.
 
-À partir d’ici, vous pouvez modifier la requête de recherche pour l’adapter à un aspect spécifique. Pour plus d’informations sur la création de recherches de journaux, consultez [Trouver des données avec les recherches de journaux dans Log Analytics](../../log-analytics/log-analytics-queries.md).
+À partir d’ici, vous pouvez modifier la requête de recherche pour l’adapter à un aspect spécifique. Pour plus d’informations sur la création de recherches de journaux, consultez [Trouver des données avec les recherches de journaux dans Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Rechercher des événements de l’hôte ESXi
 Un seul hôte ESXi génère plusieurs journaux basés sur leurs processus. La solution Analyse VMware les centralise et résume les nombres d’événements. Cette vue centralisée vous permet de comprendre quel hôte ESXi a un volume élevé d’événements ainsi que les événements qui se produisent le plus fréquemment dans votre environnement.
@@ -165,7 +163,7 @@ L’enregistrement des requêtes de recherche est une fonctionnalité standard d
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Créer des alertes à partir de requêtes
-Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir quand des événements spécifiques se produisent. Pour plus d’informations sur la création d’alertes, voir [Alertes dans Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md). Pour obtenir des exemples de requêtes d’alerte et d’autres requêtes, voir le billet de blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Analyser VMware à l’aide Log Analytics).
+Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir quand des événements spécifiques se produisent. Pour plus d’informations sur la création d’alertes, voir [Alertes dans Log Analytics](../../azure-monitor/platform/alerts-overview.md). Pour obtenir des exemples de requêtes d’alerte et d’autres requêtes, voir le billet de blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Analyser VMware à l’aide Log Analytics).
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Que dois-je faire avec les paramètres d’hôte ESXi ? Quel sera l’impact sur mon environnement actuel ?
@@ -206,6 +204,6 @@ Il peut y avoir plusieurs raisons :
     d. Si le fichier n’existe pas ou que les paramètres de groupe et d’utilisateur sont incorrects, prenez une mesure corrective en [Préparant un serveur Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utiliser des [recherches de journal](../../log-analytics/log-analytics-queries.md) dans Log Analytics pour afficher des données détaillées de l’hôte VMware.
+* Utiliser des [recherches de journal](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics pour afficher des données détaillées de l’hôte VMware.
 * [Créer vos propres tableaux de bord](../../azure-monitor/platform/dashboards.md) affichant des données de l’hôte VMware.
-* [Créer des alertes](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) lorsque des événements d’hôte VMware spécifiques se produisent.
+* [Créer des alertes](../../azure-monitor/platform/alerts-overview.md) lorsque des événements d’hôte VMware spécifiques se produisent.

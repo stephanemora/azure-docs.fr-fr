@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: ddfcb90090d82d8fe947292737163a81c715b32d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972825"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970584"
 ---
 # <a name="local-forwarder"></a>Redirecteur local
 
@@ -28,7 +27,7 @@ Le redirecteur local est un agent qui collecte des données de télémétrie App
 
 Le redirecteur local est un [projet Open Source sur GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Plusieurs méthodes permettent d’exécuter un redirecteur local sur des plateformes différentes.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 #### <a name="windows-service"></a>Service Windows
 
@@ -40,7 +39,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. Téléchargez le fichier LF.WindowsServiceHost.zip à partir de la [page de mise en production du redirecteur local](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) sur GitHub.
 
-    ![Capture d’écran de la page de téléchargement de la mise en production du redirecteur local](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![Capture d’écran de la page de téléchargement de la mise en production du redirecteur local](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. Dans cet exemple, pour faciliter la démonstration, nous extrayons simplement le fichier .zip vers le chemin d’accès `C:\LF-WindowsServiceHost`.
 
@@ -56,7 +55,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     Pour examiner votre nouveau service via l’interface utilisateur graphique des services, tapez ``services.msc``.
         
-     ![Capture d’écran du service de redirecteur local](.\media\opencensus-local-forwarder\002-services.png)
+     ![Capture d’écran du service de redirecteur local](./media/opencensus-local-forwarder/002-services.png)
 
 3. **Cliquez avec le bouton droit** sur le nouveau redirecteur local, puis sélectionnez **Démarrer**. Votre service est désormais en cours d’exécution.
 
@@ -74,7 +73,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. Pour confirmer vos paramètres et vérifier que le redirecteur local écoute les données de trace comme prévu, consultez le fichier ``LocalForwarder.log``. Vous devez voir des résultats similaires à l’image ci-dessous, en bas du fichier :
 
-    ![Capture d’écran du fichier LocalForwarder.log](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![Capture d’écran du fichier LocalForwarder.log](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### <a name="console-application"></a>Application de console
 

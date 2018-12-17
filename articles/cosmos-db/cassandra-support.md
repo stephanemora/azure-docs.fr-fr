@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: e3de78bdf38a326498b984dc2a9f8eaa42233d22
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f62afc91f5cb92bd6f8faa866320fdd23b2c818b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091281"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089239"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez communiquer avec l’API Cassandra Azure Cosmos DB via les [pilotes](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) clients Cassandra open source et conformes au [protocole de transmission](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) du langage de requête Cassandra (CQL) v4. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez communiquer avec l’API Cassandra Azure Cosmos DB via les [pilotes](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) clients Cassandra open source et conformes au [protocole de transmission](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) du langage de requête Cassandra (CQL) v4. 
 
 En utilisant l’API Cassandra Azure Cosmos DB, vous pouvez bénéficier des avantages des API Cassandra Apache et des fonctionnalités d’entreprise que fournit Azure Cosmos DB. Parmi les fonctionnalités d’entreprise, citons la [distribution mondiale](distribute-data-globally.md), le [partitionnement automatique de la montée en charge](partition-data.md), des garanties de disponibilité et de latence, le chiffrement au repos, les sauvegardes et bien plus encore.
 
@@ -59,7 +59,7 @@ L’API Cassandra Azure Cosmos DB prend en charge les types de données CQL suiv
 * smallint  
 * texte  
 * time  
-* timestamp  
+*  timestamp  
 * timeuuid  
 * tinyint  
 * tuple  
@@ -159,7 +159,7 @@ L’API Cassandra Azure Cosmos DB offre un choix de cohérence pour les opérati
 
 ## <a name="permission-and-role-management"></a>Gestion des rôles et des autorisations
 
-Azure Cosmos DB prend en charge le contrôle d’accès en fonction du rôle (RBAC) et les mots de passe/clés en lecture-écriture et en lecture seule, qui peuvent être obtenus via le [portail Azure](https://portal.azure.com. Azure Cosmos DB ne prend pas encore en charge les utilisateurs et les rôles pour les activités de plan de données. 
+Azure Cosmos DB prend en charge le contrôle d’accès en fonction du rôle (RBAC) et les mots de passe/clés en lecture-écriture et en lecture seule, qui peuvent être obtenus via le [portail Azure](https://portal.azure.com). Azure Cosmos DB ne prend pas encore en charge les utilisateurs et les rôles pour les activités de plan de données. 
 
 ## <a name="planned-support"></a>Futures prises en charge 
 * Utilisation conjointe de timestamp et de TTL  

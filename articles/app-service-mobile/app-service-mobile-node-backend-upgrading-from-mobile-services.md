@@ -14,19 +14,19 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 07ebf23270addc63793278d4e0510c187289b82c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154543"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002125"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
 App Service Mobile représente une nouvelle façon de créer des applications mobiles avec Microsoft Azure. Pour en savoir plus, consultez [Que sont les applications Mobile Apps ?]
 
 Cette article décrit comment mettre à niveau une application backend Node.js existante depuis Azure Mobile Services vers une nouvelle fonctionnalité App Service Mobile Apps. Pendant cette mise à niveau, votre application Mobile Services existante peut continuer à fonctionner.  Si vous devez mettre à niveau une application principale Node.js, voir [Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service](app-service-mobile-net-upgrading-from-mobile-services.md).
 
-Quand un serveur principal mobile est mis à niveau vers Azure App Service, il a accès à toutes les fonctionnalités App Service et c’est la [tarification App Service]qui est appliquée, et non celle de Mobile Services.
+Quand un serveur principal mobile est mis à niveau vers Azure App Service, il a accès à toutes les fonctionnalités App Service et c’est la [Tarification d’App Service]qui est appliquée, et non celle de Mobile Services.
 
 ## <a name="migrate-vs-upgrade"></a>Migration et mise à niveau
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
@@ -39,7 +39,7 @@ Quand un serveur principal mobile est mis à niveau vers Azure App Service, il a
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>Améliorations du Kit de développement logiciel (SDK) serveur Node.js Mobile Apps
 La mise à niveau vers le nouveau [Kit SDK Mobile Apps](https://www.npmjs.com/package/azure-mobile-apps) offre de nombreuses améliorations, notamment :
 
-* Basé sur [l’infrastructure Express](http://expressjs.com/en/index.html), le nouveau Kit de développement logiciel (SDK) Node est léger et conçu pour s’adapter aux nouvelles versions Node au fur et à mesure de leur sortie. Vous pouvez personnaliser le comportement de l’application avec l’intergiciel Express.
+* Basé sur [l’infrastructure Express](https://expressjs.com/en/index.html), le nouveau Kit de développement logiciel (SDK) Node est léger et conçu pour s’adapter aux nouvelles versions Node au fur et à mesure de leur sortie. Vous pouvez personnaliser le comportement de l’application avec l’intergiciel Express.
 * Les améliorations des performances sont significatives par rapport au Kit de développement logiciel (SDK) Mobile Services.
 * Vous pouvez désormais héberger un site web avec votre serveur principal mobile. De même, il est facile d’ajouter le Kit de développement logiciel (SDK) Azure Mobile à n’importe quelle application v4 existante.
 * Conçu pour le développement multiplateforme et local, le Kit de développement logiciel (SDK) Mobile Apps peut être développé et exécuté localement sur les plateformes Windows, Linux et OSX. Il est désormais facile d’utiliser des techniques de développement Node courantes comme l’exécution de tests [Mocha](https://mochajs.org/) avant le déploiement.
@@ -122,7 +122,7 @@ Liez la base de données existante à votre App Service :
 Vous trouverez le nom d’utilisateur et le mot de passe en affichant la chaîne de connexion de la base de données cible dans votre service mobile migré.
 
 ### <a name="set-up-authentication"></a>Configurer l’authentification
-Azure Mobile Apps vous permet de configurer l’authentification Azure Active Directory, Facebook, Google, Microsoft et Twitter au sein du service.  Une authentification personnalisée doit être développée séparément.  Pour plus d’informations, reportez-vous à la documentation relative aux [concepts d’authentification] et au [démarrage rapide de l’authentification].  
+Azure Mobile Apps vous permet de configurer l’authentification Azure Active Directory, Facebook, Google, Microsoft et Twitter au sein du service.  Une authentification personnalisée doit être développée séparément.  Pour plus d’informations, reportez-vous à la documentation relative aux [concepts d’authentification] et au [Authentication Quickstart (Démarrage rapide de l’authentification) (Démarrage rapide de l’authentification)].  
 
 ## <a name="updating-clients"></a>Mettre à jour les clients mobiles
 Une fois que vous avez un serveur principal Mobile App opérationnel, vous pouvez travailler sur une nouvelle version de votre application cliente qui la consomme. Mobile Apps inclut également une nouvelle version des Kits de développement logiciel (SDK) clients, et comme pour la mise à niveau serveur ci-dessus, vous devez supprimer toutes les références aux Kits de développement logiciel (SDK) Mobile Services avant d’installer les versions Mobile Apps.
@@ -160,13 +160,13 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[tarification App Service]: https://azure.microsoft.com/pricing/details/app-service/
+[Tarification d’App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[concepts d’authentification]: ../app-service/app-service-authentication-overview.md
-[démarrage rapide de l’authentification]: app-service-mobile-auth.md
+[Concepts d’authentification]: ../app-service/app-service-authentication-overview.md
+[Authentication Quickstart (Démarrage rapide de l’authentification) (Démarrage rapide de l’authentification)]: app-service-mobile-auth.md
 
-[portail Azure]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[Portail Azure]: https://portal.azure.com/
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -175,6 +175,6 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS Middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
