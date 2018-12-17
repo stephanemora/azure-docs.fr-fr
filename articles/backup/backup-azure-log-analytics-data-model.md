@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635150"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877579"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 Utilisez le modèle de données Log Analytics pour créer des rapports. Avec le modèle de données, vous pouvez créer des tableaux de bord et des requêtes personnalisés, ou personnaliser les données de sauvegarde Azure, comme vous le souhaitez.
@@ -30,7 +30,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux alertes.
 | AlertUniqueId_s |Texte |Identificateur unique de l’alerte générée |
 | AlertType_s |Texte |Type d’alerte, par exemple, Sauvegarde |
 | AlertStatus_s |Texte |État de l’alerte, par exemple, Active |
-| AlertOccurenceDateTime_s |Date/Heure |Date et heure de la création de l’alerte |
+| AlertOccurrenceDateTime_s |Date/Heure |Date et heure de la création de l’alerte |
 | AlertSeverity_s |Texte |Gravité de l’alerte, par exemple, Critique |
 | EventName_s |Texte |Nom de l’événement. Toujours AzureBackupCentralReport |
 | BackupItemUniqueId_s |Texte |Identificateur unique de l’élément de sauvegarde associé à l’alerte |

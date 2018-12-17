@@ -134,15 +134,15 @@ items:
     - name: Authentification des utilisateurs
       items:
       - name: S’authentifier avec Azure AD
-        href: app-service-mobile-how-to-configure-active-directory-authentication.md
+        href: configure-authentication-provider-aad.md
       - name: S’authentifier avec Facebook
-        href: app-service-mobile-how-to-configure-facebook-authentication.md
+        href: configure-authentication-provider-facebook.md
       - name: S’authentifier avec Google
-        href: app-service-mobile-how-to-configure-google-authentication.md
+        href: configure-authentication-provider-google.md
       - name: S’authentifier avec un compte Microsoft
-        href: app-service-mobile-how-to-configure-microsoft-authentication.md
+        href: configure-authentication-provider-microsoft.md
       - name: S’authentifier avec Twitter
-        href: app-service-mobile-how-to-configure-twitter-authentication.md
+        href: configure-authentication-provider-twitter.md
     - name: Authentification avancée
       href: app-service-authentication-how-to.md
     - name: Limiter les adresses IP
@@ -162,7 +162,7 @@ items:
     - name: Configurer le niveau PremiumV2
       href: app-service-configure-premium-tier.md
     - name: Augmenter la taille de plusieurs instances
-      href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+      href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
     - name: Hébergement de haute densité
       href: app-service-high-density-hosting.md
   - name: Surveiller l’application
@@ -257,9 +257,9 @@ items:
       href: ip-address-change-outbound.md
     - name: Adresse SSL
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 5a3af3678496bb850ed99397f8d6bb186ce92677
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2a0dc03143688e1aadb0666242d44ab06763f04b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53382794"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437875"

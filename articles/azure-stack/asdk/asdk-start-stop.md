@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 98ae7fe0fde922aee28ffc05b64d223a40085447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0b1affb708a8d481a1378fa691b6547865b0b214
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340917"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963587"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Démarrer et arrêter le Kit de développement Azure Stack (ASDK)
 Il n’est pas recommandé de simplement redémarrer l’ordinateur hôte ASDK. Au lieu de cela, suivez les procédures décrites dans cet article pour arrêter et redémarrer correctement les services ASDK. 
@@ -62,7 +62,7 @@ Indépendamment de la manière dont les services ASDK ont été arrêtés, vous 
    ```
 6. Examinez la sortie afin de vous assurer du redémarrage approprié des services Azure Stack.
 
-Pour en savoir plus sur les procédures recommandées d’arrêt et de redémarrage des services Azure Stack, consultez la section [Démarrer et arrêter Azure Stack](.\.\azure-stack-start-and-stop.md). 
+Pour en savoir plus sur les procédures recommandées d’arrêt et de redémarrage des services Azure Stack, consultez la section [Démarrer et arrêter Azure Stack](../azure-stack-start-and-stop.md). 
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>Résoudre les problèmes de démarrage et d’arrêt 
 Exécutez ces étapes si les services Azure Stack ne démarrent pas correctement dans les 2 heures suivant la mise sous tension de votre ordinateur hôte ASDK :
@@ -79,7 +79,7 @@ Exécutez ces étapes si les services Azure Stack ne démarrent pas correctement
    ```powershell
    Test-AzureStack
    ```
-5. Examinez la sortie et corrigez les éventuelles erreurs. Pour plus d’informations, consultez [Exécuter un test de validation d’Azure Stack](.\.\azure-stack-diagnostic-test.md).
+5. Examinez la sortie et corrigez les éventuelles erreurs. Pour plus d’informations, consultez [Exécuter un test de validation d’Azure Stack](../azure-stack-diagnostic-test.md).
 6. Redémarrez les services Azure Stack à partir de la session PEP en exécutant l’applet de commande **Start-AzureStack** :
 
    ```powershell
@@ -89,4 +89,4 @@ Exécutez ces étapes si les services Azure Stack ne démarrent pas correctement
 Si l’exécution de l’applet **Start-AzureStack** provoque une défaillance, consultez le [forum du support Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) afin de bénéficier de recommandations sur la résolution des problèmes liés à votre instance ASDK. 
 
 ## <a name="next-steps"></a>Étapes suivantes 
-Pour plus d’informations sur les outils de diagnostic Azure Stack et sur la journalisation des problèmes, consultez l’article [Outils de diagnostic Azure Stack](.\.\azure-stack-diagnostics.md).
+Pour plus d’informations sur les outils de diagnostic Azure Stack et sur la journalisation des problèmes, consultez l’article [Outils de diagnostic Azure Stack](../azure-stack-diagnostics.md).

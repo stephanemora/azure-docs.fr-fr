@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: dbb7fca08e8d5c59842f7ddfb02b463a42efadb7
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 565e7379ad12222e459bd61ed50fa38f9f9b12fc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422281"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136239"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application
 
@@ -75,7 +75,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 Le Sharepointserviceaccount peut être le compte de la machine SPS ou un compte de service dans lequel s’exécute le pool d’applications SPS.
 
 ## <a name="configure-single-sign-on"></a>Configurer l’authentification unique 
-1. Publiez votre application en suivant les instructions décrites dans [Publier des applications avec le proxy d’application](application-proxy-publish-azure-portal.md). Veillez à sélectionner **Azure Active Directory** comme **méthode de préauthentification**.
+1. Publiez votre application en suivant les instructions décrites dans [Publier des applications avec le proxy d’application](application-proxy-add-on-premises-application.md). Veillez à sélectionner **Azure Active Directory** comme **méthode de préauthentification**.
 2. Dès que votre application apparaît dans la liste des applications d’entreprise, sélectionnez-la, puis cliquez sur **Authentification unique**.
 3. Définissez le mode d’authentification unique sur **Authentification Windows intégrée**.  
 4. Entrez le **SPN d’application interne** du serveur d’applications. Dans cet exemple, le nom de principal du service pour notre application publiée est http/www.contoso.com. Ce SPN doit se trouver dans la liste des services auxquels le connecteur peut présenter des informations d’identification déléguées. 

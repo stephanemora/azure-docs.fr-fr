@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85bd9e93fbd4c5ab5c0d2388d19334bc2cd3cb9e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8782db64a39ab3994c4689e7f809005c20c6dacd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497535"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017455"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>Analyser des données Twitter avec Apache Hive dans HDInsight
 Les sites web sociaux constituent l’un des principaux motifs de l’utilisation du modèle « Big Data ». Les API publiques fournies par des sites comme Twitter représentent une source de données utile pour l'analyse et la compréhension des tendances populaires.
@@ -544,16 +544,16 @@ Dans ce didacticiel, nous avons vu comment transformer le jeu de données JSON n
 * [Utiliser Apache Sqoop avec HDInsight][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se
-[curl-download]: http://curl.haxx.se/download.html
+[curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
 [twitter-streaming-api]: https://developer.twitter.com/en/docs/api-reference-index
 [twitter-statuses-filter]: https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md

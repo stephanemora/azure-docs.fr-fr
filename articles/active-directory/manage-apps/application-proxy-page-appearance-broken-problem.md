@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2ebcf225fb0959b5c72c3cea50f2f1386beb1457
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6354b4b0224effb1eef063779dba736cb6263286
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354803"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141626"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>La page d’application ne s’affiche pas correctement pour une application de proxy d’application
 
@@ -39,4 +39,4 @@ S’il n’est pas possible de publier toutes les ressources dans la même appli
 Pour ce faire, nous vous recommandons d’utiliser la solution des [domaines personnalisés](application-proxy-configure-custom-domain.md). Toutefois, cette solution exige que vous possédiez le certificat pour votre domaine et que vos applications utilisent des noms de domaines complets (FQDN). Pour connaître d’autres options, consultez la [documentation sur la résolution des liens rompus](application-proxy-page-links-broken-problem.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Publier des applications avec le Proxy d’application Azure AD](application-proxy-publish-azure-portal.md)
+[Publier des applications avec le Proxy d’application Azure AD](application-proxy-add-on-premises-application.md)

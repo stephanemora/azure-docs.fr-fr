@@ -10,16 +10,15 @@ ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 7f0334bdd1922c6ec410ca912ccfbf639e5c770f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14f373b5459aaa7a9e51ba284f6a30094c4e7617
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634436"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194179"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Détails sur la collecte de données pour les solutions de gestion dans Azure
 Cet article fournit la liste des [solutions de gestion](solutions.md) disponibles auprès de Microsoft avec des liens vers leur documentation détaillée.  Il fournit également des informations sur leur méthode et leur fréquence de collecte de données dans Log Analytics.  Vous pouvez utiliser les informations de cet article pour identifier les différentes solutions disponibles et comprendre leurs exigences en termes de flux de données et de connexion. 
@@ -31,17 +30,17 @@ Le tableau suivant répertorie les [solutions de gestion](solutions.md) dans Azu
 Les explications des colonnes sont les suivantes :
 
 - **Microsoft Monitoring Agent** : agent utilisé sous Windows et Linux pour exécuter le pack d’administration à partir de SCOM et les solutions de gestion à partir d’Azure. Dans cette configuration, l’agent est connecté directement à Log Analytics, sans être connecté à un groupe d’administration Operations Manager. 
-- **Operations Manager** : agent identique à Microsoft Monitoring Agent. Dans cette configuration, il est [connecté à un groupe d’administration Operations Manager](../../log-analytics/log-analytics-om-agents.md) qui est connecté à Log Analytics. 
+- **Operations Manager** : agent identique à Microsoft Monitoring Agent. Dans cette configuration, il est [connecté à un groupe d’administration Operations Manager](../../azure-monitor/platform/om-agents.md) qui est connecté à Log Analytics. 
 -  **Azure Storage** : solution collectant les données à partir d’un compte de stockage Azure. 
 - **Operations Manager requis ?** : un groupe d’administration Operations Manager connecté est requis pour la collecte de données par la solution de gestion. 
-- **Données de l’agent Operations Manager envoyées via le groupe d’administration** : si l’agent est [connecté à un groupe d’administration SCOM](../../log-analytics/log-analytics-om-agents.md), les données sont envoyées depuis le serveur d’administration à Log Analytics. Dans ce cas, l’agent n’a pas besoin de se connecter directement à Log Analytics. Si cette case n’est pas cochée, les données sont envoyées directement par l’agent à Log Analytics, même si l’agent est connecté à un groupe d’administration SCOM. Il doit pouvoir communiquer avec Log Analytics via la [passerelle Log Analytics](../../azure-monitor/platform/gateway.md).
+- **Données de l’agent Operations Manager envoyées via le groupe d’administration** : si l’agent est [connecté à un groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md), les données sont envoyées depuis le serveur d’administration à Log Analytics. Dans ce cas, l’agent n’a pas besoin de se connecter directement à Log Analytics. Si cette case n’est pas cochée, les données sont envoyées directement par l’agent à Log Analytics, même si l’agent est connecté à un groupe d’administration SCOM. Il doit pouvoir communiquer avec Log Analytics via la [passerelle Log Analytics](../../azure-monitor/platform/gateway.md).
 - **Fréquence de collecte** : spécifie la fréquence de collecte des données par la solution de gestion. 
 
 
 
 | **Solution de gestion** | **Plateforme** | **Microsoft Monitoring Agent** | **Agent Operations Manager** | **Azure Storage** | **Operations Manager requis ?** | **Données de l’agent Operations Manager envoyées via un groupe d’administration** | **Fréquence de collecte** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Activity Log Analytics](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | sur notification |
+| [Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | sur notification |
 | [Évaluation d'AD](../../azure-monitor/insights/ad-assessment.md) | Windows |&#8226; |&#8226; | | |&#8226; |7 jours |
 | [État de la réplication AD](../../azure-monitor/insights/ad-replication-status.md) | Windows |&#8226; |&#8226; | | |&#8226; |5 jours |
 | [Agent Health](solution-agenthealth.md) | Windows et Linux | &#8226; | &#8226; | | | &#8226; | 1 minute |
@@ -49,17 +48,17 @@ Les explications des colonnes sont les suivantes :
 | [Alert Management](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 minute |
 | [Alert Management](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) | Windows | |&#8226; | |&#8226; |&#8226; |3 minutes |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/a |
-| [Application Insights Connector (préversion)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | sur notification |
+| [Application Insights Connector (préversion)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | sur notification |
 | [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) |  Windows | &#8226; | &#8226; |  |  |  | n/a |
 | [Azure Application Gateway Analytics](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | sur notification |
 | **Solution de gestion** | **Plateforme** | **Microsoft Monitoring Agent** | **Agent Operations Manager** | **Azure Storage** | **Operations Manager requis ?** | **Données de l’agent Operations Manager envoyées via un groupe d’administration** | **Fréquence de collecte** |
 | [Azure Network Security Group Analytics (déconseillé)](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | sur notification |
-| [Azure SQL Analytics (préversion)](../../log-analytics/log-analytics-azure-sql.md) |  Windows | | | | | | 1 minute |
+| [Azure SQL Analytics (préversion)](../../azure-monitor/insights/azure-sql.md) |  Windows | | | | | | 1 minute |
 | [Sauvegarde](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | sur notification |
 | [Capacity and Performance (préversion)](../../azure-monitor/insights/capacity-performance.md) | Windows |&#8226; |&#8226; | | |&#8226; |à l'arrivée |
 | [Suivi des modifications](../../automation/automation-change-tracking.md) | Windows |&#8226; |&#8226; | | |&#8226; |Toutes les heures |
 | [Suivi des modifications](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |Toutes les heures |
-| [Containers](../../log-analytics/log-analytics-containers.md) | Windows et Linux | &#8226; | &#8226; |  |  |  | 3 minutes |
+| [Containers](../../azure-monitor/insights/containers.md) | Windows et Linux | &#8226; | &#8226; |  |  |  | 3 minutes |
 | [Analytique Key Vault](../../azure-monitor/insights/azure-key-vault.md) | Windows | | | | | |sur notification |
 | [Malware Assessment](../../security-center/security-center-install-endpoint-protection.md) | Windows |&#8226; |&#8226; | | |&#8226; |Toutes les heures |
 | [Analyseur de performances réseau](../../azure-monitor/insights/network-performance-monitor.md) |  Windows | &#8226; | &#8226; |  |  |  | Établissements de liaisons TCP toutes les 5 secondes, données envoyées toutes les 3 minutes |
@@ -79,4 +78,4 @@ Les explications des colonnes sont les suivantes :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment [créer des requêtes](../../log-analytics/log-analytics-queries.md) pour analyser les données collectées par les solutions de gestion.
+* Découvrez comment [créer des requêtes](../../azure-monitor/log-query/log-query-overview.md) pour analyser les données collectées par les solutions de gestion.

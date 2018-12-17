@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 9526385eaea8a88f0c22e6420ba39a33f7166f96
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 4d7d1407ff57c5adcc4790db4d2f47b70737fece
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633722"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250483"
 ---
-## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Infrastructure des rapports d’utilisation pour les fournisseurs de services Cloud
+# <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Infrastructure des rapports d’utilisation pour les fournisseurs de services Cloud
 
 Azure Stack inclut l’infrastructure nécessaire pour suivre l’utilisation au moment où elle se produit et la transfère à Azure. Dans Azure, Azure Commerce traite les données d’utilisation et facture l’utilisation aux abonnements Azure appropriés. Cela se produit de la même façon que la surveillance du suivi de l’utilisation dans le cloud Azure global.
 

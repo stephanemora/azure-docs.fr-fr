@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 109f4621af3e3ca617dfe521575d9352f22c5917
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226559"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399855"
 ---
-Vous pouvez tirer parti de nombreuses possibilités d’analyser vos machines virtuelles en collectant, affichant et analysant les données de diagnostic et de journal. Pour [analyser](../articles/azure-monitor/overview.md) simplement votre machine virtuelle, vous pouvez utiliser l’écran Vue d’ensemble de la machine virtuelle sur le portail Azure. Vous pouvez utiliser des [extensions](../articles/virtual-machines/windows/extensions-features.md) pour configurer des diagnostics sur vos machines virtuelles afin de collecter des données de mesure supplémentaires. Vous pouvez également utiliser des options d’analyse plus avancées, telles que [Application Insights](../articles/application-insights/app-insights-overview.md) et [Log Analytics](../articles/log-analytics/log-analytics-queries.md).
+Vous pouvez tirer parti de nombreuses possibilités d’analyser vos machines virtuelles en collectant, affichant et analysant les données de diagnostic et de journal. Pour [analyser](../articles/azure-monitor/overview.md) simplement votre machine virtuelle, vous pouvez utiliser l’écran Vue d’ensemble de la machine virtuelle sur le portail Azure. Vous pouvez utiliser des [extensions](../articles/virtual-machines/windows/extensions-features.md) pour configurer des diagnostics sur vos machines virtuelles afin de collecter des données de mesure supplémentaires. Vous pouvez également utiliser des options d’analyse plus avancées, telles que [Application Insights](../articles/application-insights/app-insights-overview.md) et [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="diagnostics-and-metrics"></a>Mesures et diagnostics 
 
@@ -31,7 +31,7 @@ Vous pouvez définir et analyser la collecte de [données de diagnostic](https:/
 
 ## <a name="alerts"></a>Alertes
 
-Vous pouvez créer des [alertes](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) en fonction de mesures de performances spécifiques. Les alertes peuvent être utilisées par exemple pour notifier que l’utilisation moyenne de l’UC dépasse un certain seuil ou que l’espace disque disponible est inférieur à une certaine quantité. Les alertes peuvent être configurées dans le [portail Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), à l’aide d’[Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), ou d’[Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+Vous pouvez créer des [alertes](../articles/azure-monitor/platform/alerts-overview.md) en fonction de mesures de performances spécifiques. Les alertes peuvent être utilisées par exemple pour notifier que l’utilisation moyenne de l’UC dépasse un certain seuil ou que l’espace disque disponible est inférieur à une certaine quantité. Les alertes peuvent être configurées dans le [portail Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), à l’aide d’[Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), ou d’[Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 
@@ -50,7 +50,7 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 - Créer une [alerte basée sur un événement du journal d’activité](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 - [Diffusez-le en continu vers un Event Hub](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (p. ex. PowerBI) l’ingère.
 - Analysez-le dans PowerBI à l’aide du [pack de contenu PowerBI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Enregistrez-le dans un compte de stockage](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md) pour l’archivage ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide du Profil de journal.
+- [Enregistrez-le dans un compte de stockage](../articles/azure-monitor/platform/archive-activity-log.md) pour l’archivage ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide du Profil de journal.
 
 Vous pouvez également accéder aux données de journal d’activité à l’aide d’[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), d’[Azure CLI](https://docs.microsoft.com/cli/azure/monitor), ou des [API REST Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
@@ -58,7 +58,7 @@ Les [journaux de diagnostic Azure](../articles/monitoring-and-diagnostics/monito
 
 Voici ce que vous pouvez faire avec les journaux de diagnostic :
 
-- [Enregistrez-les dans un compte de stockage](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des paramètres de diagnostic des ressources.
+- [Enregistrez-les dans un compte de stockage](../articles/azure-monitor/platform/archive-diagnostic-logs.md) pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des paramètres de diagnostic des ressources.
 - [Diffusez-les en streaming sur Event Hubs](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (comme PowerBI) les ingère.
 - Analysez-les avec [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 

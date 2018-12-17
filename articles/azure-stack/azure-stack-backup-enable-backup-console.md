@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038363"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962560"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Activer la sauvegarde d’Azure Stack à partir du portail d’administration
-Activez le service de sauvegarde d’infrastructure via le portail d’administration afin qu’Azure Stack puisse générer des sauvegardes. Vous pouvez utiliser ces sauvegardes pour restaurer votre environnement avec la récupération cloud en cas [d’erreur irrécupérable](.\azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les utilisateurs ont leurs abonnements restaurés, avec notamment les autorisations d’accès en fonction du rôle et les rôles, les plans d’origine, les offres, le calcul défini précédemment, le stockage et les quotas réseau.
+Activez le service de sauvegarde d’infrastructure via le portail d’administration afin qu’Azure Stack puisse générer des sauvegardes. Vous pouvez utiliser ces sauvegardes pour restaurer votre environnement avec la récupération cloud en cas [d’erreur irrécupérable](./azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les utilisateurs ont leurs abonnements restaurés, avec notamment les autorisations d’accès en fonction du rôle et les rôles, les plans d’origine, les offres, le calcul défini précédemment, le stockage et les quotas réseau.
 
 Toutefois, le service Infrastructure Backup ne sauvegarde pas les machines virtuelles IaaS, les configurations réseau et les ressources de stockage comme que les comptes de stockage, les objets blob, les tables et ainsi de suite. Ainsi, lorsque les utilisateurs se connectent après la récupération du cloud, ils ne verront aucune de leurs ressources existantes. Les ressources et données Platform as a service (PaaS) ne sont également pas sauvegardées par le service. 
 
@@ -58,31 +58,31 @@ Les administrateurs et utilisateurs sont responsables de la sauvegarde et de la 
     ```
 10. Sélectionnez **OK** pour enregistrer vos paramètres de contrôleur de sauvegarde.
 
-    ![Azure Stack - Paramètres du contrôleur de sauvegarde](media\azure-stack-backup\backup-controller-settings.png)
+    ![Azure Stack - Paramètres du contrôleur de sauvegarde](media/azure-stack-backup/backup-controller-settings.png)
 
 ## <a name="start-backup"></a>Démarrer la sauvegarde
 Pour démarrer une sauvegarde, cliquez sur **Sauvegarder maintenant** afin de démarrer une sauvegarde à la demande. Une sauvegarde à la demande ne modifiera pas l’heure de la prochaine sauvegarde planifiée. Une fois la tâche terminée, vous pouvez confirmer les paramètres dans **Éléments principaux** :
 
-![Azure Stack - sauvegarde à la demande](media\azure-stack-backup\scheduled-backup.png)
+![Azure Stack - sauvegarde à la demande](media/azure-stack-backup/scheduled-backup.png)
 
 Vous pouvez également exécuter l’applet de commande PowerShell **Start-AzsBackup** sur votre ordinateur d’administration Azure Stack. Pour plus d’informations, voir [Sauvegarde d’Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
 ## <a name="enable-or-disable-automatic-backups"></a>Activer ou désactiver les sauvegardes automatiques
 Les sauvegardes sont automatiquement planifiées lorsque vous activez la sauvegarde. Vous pouvez vérifier la prochaine sauvegarde planifiée dans **Éléments principaux**. 
 
-![Azure Stack - sauvegarde à la demande](media\azure-stack-backup\on-demand-backup.png)
+![Azure Stack - sauvegarde à la demande](media/azure-stack-backup/on-demand-backup.png)
 
 Si vous devez désactiver les futures sauvegardes planifiées, cliquez sur **Désactiver les sauvegardes automatiques**. La désactivation des sauvegardes automatiques conservera les paramètres de sauvegarde configurés et la planification de sauvegarde. Cette action indique simplement au planificateur d’ignorer les futures sauvegardes. 
 
-![Azure Stack - Désactiver les sauvegardes planifiées](media\azure-stack-backup\disable-auto-backup.png)
+![Azure Stack - Désactiver les sauvegardes planifiées](media/azure-stack-backup/disable-auto-backup.png)
 
 Vérifiez que les futures sauvegardes planifiées ont été désactivées dans **Éléments principaux**:
 
-![Azure Stack - confirmer que les sauvegardes ont été désactivées](media\azure-stack-backup\confirm-disable.png)
+![Azure Stack - confirmer que les sauvegardes ont été désactivées](media/azure-stack-backup/confirm-disable.png)
 
 Cliquez sur **Activer les sauvegardes automatiques** pour informer le planificateur de démarrer les sauvegardes ultérieures à l’heure planifiée. 
 
-![Azure Stack - Activer les sauvegardes planifiées](media\azure-stack-backup\enable-auto-backup.png)
+![Azure Stack - Activer les sauvegardes planifiées](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  

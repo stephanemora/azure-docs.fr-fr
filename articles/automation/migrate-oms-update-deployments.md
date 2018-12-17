@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 5380372cc1f2928b79b0d20f4dd46e429a93dc5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141684"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992251"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrer vos déploiements de mises à jour OMS vers Azure
 
-Le portail Operations Management Suite (OMS) est en cours de [dépréciation](../log-analytics/log-analytics-oms-portal-transition.md). Toutes les fonctionnalités qui étaient disponibles dans le portail OMS pour Update Management sont disponibles dans le portail Azure. Cet article fournit les informations nécessaires pour migrer vers le portail Azure.
+Le portail Operations Management Suite (OMS) est en cours de [dépréciation](../azure-monitor/platform/oms-portal-transition.md). Toutes les fonctionnalités qui étaient disponibles dans le portail OMS pour Update Management sont disponibles dans le portail Azure. Cet article fournit les informations nécessaires pour migrer vers le portail Azure.
 
 ## <a name="key-information"></a>Informations essentielles
 
@@ -43,7 +43,7 @@ Dans votre compte Automation, cliquez sur **Update Management** pour ouvrir Upda
 
 ## <a name="recreate-existing-deployments"></a>Recréer des déploiements existants
 
-Tous les déploiements de mises à jour créés dans le portail OMS ont une [recherche enregistrée](../log-analytics/log-analytics-computer-groups.md), également appelée « groupe d’ordinateurs », avec le même nom que le déploiement de mises à jour existant. La recherche enregistrée contient la liste des ordinateurs pour lesquels le déploiement de mises à jour a été planifié.
+Tous les déploiements de mises à jour créés dans le portail OMS ont une [recherche enregistrée](../azure-monitor/platform/computer-groups.md), également appelée « groupe d’ordinateurs », avec le même nom que le déploiement de mises à jour existant. La recherche enregistrée contient la liste des ordinateurs pour lesquels le déploiement de mises à jour a été planifié.
 
 ![Update Management](media/migrate-oms-update-deployments/oms-deployment.png)
 
@@ -61,7 +61,7 @@ Pour les ordinateurs à mettre à jour, sélectionnez la recherche enregistrée 
 | --- | --- |
 |NOM |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Sélectionnez **Linux** ou **Windows**.|
-|Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md). |
+|Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../azure-monitor/platform/computer-groups.md) |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin. CentOS ne prend pas directement en charge cette fonction.|
 |Mises à jour à exclure|Entrez les mises à jour à exclure. Pour Windows, entrez la version KB sans le préfixe **KB**. Pour Linux, entrez le nom du package ou utilisez un caractère générique.  |
 |Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité (**Une fois** ou **Récurrent**).|| Fenêtre de maintenance |Nombre de minutes défini pour les mises à jour. La valeur ne peut pas être inférieure à 30 minutes ni supérieure à 6 heures. |

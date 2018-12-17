@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 8535caf482b10912e6f7bc6df445756094d7603f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5d32c3539446482f2dcdaeb954bb704dc9b78c58
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30261410"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274919"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurer des notifications sur l’intégrité pour les systèmes de gestion des problèmes existants à l’aide d’un Webhook
 
@@ -37,7 +37,7 @@ Si vous souhaitez utiliser une intégration préconfigurée, découvrez comment 
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Configuration d’une notification personnalisée à l’aide de la charge utile du Webhook de l’intégrité du service
 Si vous souhaitez configurer l’intégration de votre propre Webhook personnalisé, vous devez analyser la charge utile JSON envoyée au cours des notifications sur l’intégrité du service.
 
-Consultez [ici un exemple](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) de ce à quoi la charge utile du Webhook `ServiceHealth` ressemble.
+Consultez [ici un exemple](../azure-monitor/platform/activity-log-alerts-webhook.md) de ce à quoi la charge utile du Webhook `ServiceHealth` ressemble.
 
 Il est possible de déterminer qu’il s’agit d’une alerte d’intégrité du service en regardant `context.eventSource == "ServiceHealth"`. À partir de là, les propriétés qui sont les plus importantes à ingérer sont :
  * `data.context.activityLog.status`
@@ -98,11 +98,11 @@ Cela devient :
 ]
 ```
 
-Cela montre qu’il existe des problèmes avec les alertes et les mesures dans l’est et le Sud-Est de l’Australie, ainsi que des problèmes avec App Service dans le Sud-Est de l’Australie.
+Cela montre qu’il existe des problèmes avec les alertes et les mesures dans les régions Australie Est et Australie Sud-Est, ainsi que des problèmes avec App Service dans Australie Sud-Est.
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Tester l’intégration à Webhook via une demande HTTP POST
-1. Créez la charge utile d’intégrité du service que vous souhaitez envoyer. Vous trouverez un exemple de charge utile du Webhook d’intégrité du service sur la page [Webhook pour des alertes du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Créez la charge utile d’intégrité du service que vous souhaitez envoyer. Vous trouverez un exemple de charge utile du Webhook d’intégrité du service dans la page [Webhook pour des alertes du journal d’activité Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 2. Créez une requête HTTP POST comme suit :
 
@@ -118,6 +118,6 @@ Cela montre qu’il existe des problèmes avec les alertes et les mesures dans l
 4. Accédez à [PagerDuty](https://www.pagerduty.com/) pour confirmer que votre intégration a été définie avec succès.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Consultez le [schéma webhook des alertes de journal d’activité](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Consultez le [schéma webhook des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - En savoir plus sur les [notifications sur l’intégrité du service](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- En savoir plus sur les [groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- En savoir plus sur les [groupes d’actions](../azure-monitor/platform/action-groups.md).

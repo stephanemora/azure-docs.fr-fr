@@ -1,32 +1,25 @@
 ---
-title: Répliquer une application SharePoint multiniveau à l’aide d’Azure Site Recovery | Microsoft Docs
-description: Cet article explique comment répliquer une application SharePoint multiniveau à l’aide des fonctionnalités d’Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Configurer la reprise d’activité pour une application SharePoint multiniveau à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Cet article décrit comment configurer la reprise d’activité pour une application SharePoint multiniveau à l’aide des fonctionnalités d’Azure Site Recovery.
 author: sujayt
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: eb5801988b6fa966a0326c39be4a267ea08500a8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1f3168cef503fed0aea09228c9bc11dfb456f2ab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916783"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848474"
 ---
-# <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Répliquer une application SharePoint multiniveau pour la récupération d’urgence à l’aide d’Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurer la reprise d’activité pour une application SharePoint multiniveau à l’aide d’Azure Site Recovery
 
 Cet article explique en détail comment protéger une application SharePoint à l’aide d’[Azure Site Recovery](site-recovery-overview.md).
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Microsoft SharePoint est une application puissante qui peut aider un groupe ou service à s’organiser, à collaborer et à partager des informations. SharePoint permet les portails intranet, la gestion des documents et fichiers, la collaboration, les réseaux sociaux, les réseaux extranet, les sites web, la recherche de contenu d’entreprise et le décisionnel. Elle offre également des capacités d’intégration de système, d’intégration de processus et d’automatisation de flux de travail. En règle générale, les organisations le considèrent comme une application de niveau 1 sensible à la perte de données et au temps d’arrêt.
 
@@ -69,10 +62,10 @@ Pour la création de cet article, des machines virtuelles VMware avec Windows Se
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | OUI | OUI
-**VMware** | OUI | OUI
-**Serveur physique** | OUI | OUI
-**Microsoft Azure** | N/D | OUI
+**Hyper-V** | Oui | Oui
+**VMware** | Oui | Oui
+**Serveur physique** | Oui | Oui
+**Microsoft Azure** | N/D | Oui
 
 ### <a name="sharepoint-versions"></a>Versions de SharePoint
 Les versions suivantes de SharePoint Server sont prises en charge.
@@ -150,7 +143,7 @@ Un plan de récupération permet de séquencer le basculement de différents niv
 
 Vous pouvez déployer les scripts Azure Site Recovery les plus couramment utilisés dans votre compte Automation en cliquant sur le bouton « Déployer dans Azure » ci-dessous. Lorsque vous utilisez n’importe quel script publié, assurez-vous de suivre les instructions dans le script.
 
-[![Déploiement sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Déployer sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Ajoutez un script d’action préalable au « Groupe 1 » pour basculer le groupe de disponibilité SQL. Utilisez le script « ASR-SQL-FailoverAG » publié dans les exemples de script. Assurez-vous de suivre les instructions dans le script et apportez les modifications requises dans le script en conséquence.
 

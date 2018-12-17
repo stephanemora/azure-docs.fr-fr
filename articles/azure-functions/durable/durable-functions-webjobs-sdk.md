@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 427c3601d6a4ca65407a98d54b0206cde9af4235
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638394"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343154"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Guide d’exécution de Fonctions durables en tant que WebJobs
 
@@ -35,7 +35,7 @@ Pour accomplir les étapes décrites dans cet article :
 
 * [Installez Visual Studio 2017 version 15.6 ou ultérieure](https://docs.microsoft.com/visualstudio/install/) avec la charge de travail de **développement Azure**.
 
-  Si vous possédez déjà Visual Studio, mais que vous n’avez pas cette charge de travail, ajoutez-la en sélectionnant **Outils > Get Tools and Features** (Obtenir des outils et des fonctionnalités). 
+  Si vous possédez déjà Visual Studio, mais que vous n’avez pas cette charge de travail, ajoutez-la en sélectionnant **Outils > Get Tools and Features** (Obtenir des outils et des fonctionnalités).
 
   (Vous pouvez utilisez en lieu et place [Visual Studio Code](https://code.visualstudio.com/), mais certaines des instructions sont spécifiques à Visual Studio.)
 
@@ -43,7 +43,7 @@ Pour accomplir les étapes décrites dans cet article :
 
 ## <a name="webjobs-sdk-versions"></a>Versions du SDK WebJobs
 
-Cet article vous explique comment développer un projet SDK WebJobs 2.x (équivalent à Azure Functions version 1.x). Pour plus d’informations sur la version 3.x, consultez [SDK WebJobs 3.x](#webjobs-sdk-3x) plus bas dans cet article. 
+Cet article vous explique comment développer un projet SDK WebJobs 2.x (équivalent à Azure Functions version 1.x). Pour plus d’informations sur la version 3.x, consultez [SDK WebJobs 3.x](#webjobs-sdk-3x) plus bas dans cet article.
 
 ## <a name="create-console-app"></a>Créer une application console
 
@@ -190,9 +190,9 @@ Cette section fournit une vue d’ensemble de l’exécution de l’[exemple de 
 
 1. Si vous souhaitez afficher les fichiers journaux dans Application Insights lorsque vous exécutez en local :
 
-  a. Créez une ressource Application Insights, de type**Général**.
+    a. Créez une ressource Application Insights, de type**Général**.
 
-  b. Enregistrez la clé d’instrumentation dans le fichier *App.config*.
+    b. Enregistrez la clé d’instrumentation dans le fichier *App.config*.
 
 1. Exécutez le projet.
 
@@ -216,8 +216,8 @@ Le principal changement introduit par la version 3.x est l’utilisation de .NET
 
 1. Choisissez la version préliminaire 3.x des packages suivants :
 
-  * `Microsoft.Azure.WebJobs.Extensions`
-  * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
+    * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
 1. Modifier le code de méthode `Main` afin d’obtenir la chaîne de connexion de stockage et la clé d’instrumentation Application Insights à partir d’un fichier *appsettings.json*, à l’aide de l’infrastructure de configuration .NET Core.  Voici un exemple :
 
@@ -235,7 +235,7 @@ Le principal changement introduit par la version 3.x est l’utilisation de .NET
            var config = new JobHostConfiguration();
 
            config.DashboardConnectionString = "";
-           config.StorageConnectionString = 
+           config.StorageConnectionString =
                appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
            var instrumentationKey =
                appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
@@ -258,4 +258,3 @@ Le principal changement introduit par la version 3.x est l’utilisation de .NET
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur le SDK WebJobs, consultez la section [How to use the WebJobs SDK](../../app-service/webjobs-sdk-how-to.md) (Utilisation du Kit de développement logiciel (SDK) WebJobs).
-

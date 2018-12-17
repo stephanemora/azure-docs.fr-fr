@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 2f2da5b38ab39e3636ff0ac09ac2c5515e02b0c1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 034ae29b5fabae15aa2b6b96e7fefaef23c1c5a1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492333"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275225"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Effectue des opérations élémentaires au niveau des fichiers dans le magasin d’images de cluster.
@@ -35,7 +35,7 @@ Effectue des opérations élémentaires au niveau des fichiers dans le magasin d
 ## <a name="sfctl-store-delete"></a>sfctl store delete
 Supprime le contenu du magasin d’images.
 
-Supprime le contenu du magasin d’images trouvé dans le chemin d’accès relatif du magasin d’images donné. Permet de supprimer les packages d’application chargés une fois qu’ils ont été approvisionnés.
+Supprime le contenu du magasin d’images trouvé dans le chemin d’accès relatif du magasin d’images donné. Cette commande permet de supprimer les packages d’application chargés une fois qu’ils ont été approvisionnés.
 
 ### <a name="arguments"></a>Arguments
 
@@ -51,7 +51,7 @@ Supprime le contenu du magasin d’images trouvé dans le chemin d’accès rela
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-store-root-info"></a>sfctl store root-info
@@ -72,7 +72,7 @@ Retourne les informations sur le contenu du magasin d’images à la racine du m
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-store-stat"></a>sfctl store stat
@@ -94,7 +94,7 @@ Retourne les informations sur le contenu du magasin d’images dans le chemin d�
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 

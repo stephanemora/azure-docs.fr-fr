@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 77022b442a78c8d14284e06af4f156302c1e6ffc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 43ecc79db977624954109c4565c613e2471cea88
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584398"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312019"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Créer des services inclus avec un compte gratuit Azure
 
 Le compte gratuit Azure inclut une quantité limitée de services gratuits pendant 12 mois. Pour plus d’informations, consultez [Qu’est-ce que le compte Azure gratuit ?](https://azure.microsoft.com/free/free-account-faq/). Azure effectue le suivi de l’utilisation de chaque service et ne vous les facture que si vous dépassez les limites. Dans ces limites, le compte gratuit Azure fournit la flexibilité nécessaire pour utiliser différentes configurations de service en fonction de vos besoins. 
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Créer des services gratuits dans le portail Azure
-Nous vous recommandons d’utiliser la [page des services gratuits](https://go.microsoft.com/fwlink/?linkid=859151) pour créer des services. Vous pouvez aussi vous connecter au [portail Azure](http://portal.azure.com), sélectionner **Tous les services** à gauche et rechercher **services gratuits**. 
+Nous vous recommandons d’utiliser la [page des services gratuits](https://go.microsoft.com/fwlink/?linkid=859151) pour créer des services. Vous pouvez aussi vous connecter au [portail Azure](https://portal.azure.com), sélectionner **Tous les services** à gauche et rechercher **services gratuits**. 
 
 ## <a name="services-can-be-created-in-any-region"></a>Vous pouvez créer des services dans n’importe quelle région
 Tant que vous êtes dans les limites, vous pouvez créer des services gratuitement dans n’importe quelle région où les services sont disponibles. Par exemple, vous bénéficiez de 750 heures de machine virtuelle Windows B1S gratuites chaque mois avec un compte gratuit Azure. Vous pouvez créer la machine virtuelle dans n’importe quelle région où les machines virtuelles de série B sont disponibles. Azure ne vous facture que si vous dépassez 750 heures. Par exemple, un client aux États-Unis peut provisionner une machine virtuelle Windows B1S dans la région Europe Ouest et l’utiliser gratuitement pendant 750 heures. 
@@ -36,4 +36,4 @@ Vous pouvez créer gratuitement plusieurs instances de services tant que la somm
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (Support request).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

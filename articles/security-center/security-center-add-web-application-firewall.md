@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7b633b1787fc34658a84a2810de6673f9530cbf3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5e6d7dffb831e4e6541b5ef91cfc4ae4bbe88167
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310648"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343137"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Ajouter un pare-feu d'applications web dans le Centre de sécurité Azure
 Azure Security Center peut vous recommander d'ajouter un pare-feu d'applications web (WAF) d'un partenaire Microsoft afin de sécuriser vos applications web. Ce document inclut un exemple vous expliquant comment procéder pour appliquer cette recommandation.
@@ -46,7 +46,9 @@ Security Center recommande de provisionner un WAF pour vous défendre contre les
 
 6. Le panneau **Nouveau pare-feu d’applications web** s’ouvre. Vous pouvez y **configurer des machines virtuelles** et fournir des **informations sur le pare-feu d’applications web**. Sélectionnez **Configuration de machine virtuelle**.
 7. Sous **Configuration de machine virtuelle**, entrez les informations nécessaires pour créer la machine virtuelle qui exécute le pare-feu d’applications web.
-   ![VM configuration][4]
+
+   ![Configuration des machines virtuelles][4]
+   
 8. Retournez dans **Nouveau pare-feu d’applications web**, puis sélectionnez **Informations sur le pare-feu d’applications web**. Sous **Informations sur le pare-feu d’applications web**, vous pouvez configurer le pare-feu d’applications web. L’étape 7 vous permet de configurer la machine virtuelle sur laquelle le pare-feu d’applications web s'exécute, et l’étape 8 vous permet d’approvisionner le pare-feu d’applications web.
 
 ## <a name="finalize-application-protection"></a>Finaliser la protection des applications
@@ -73,7 +75,7 @@ Ce document vous a montré comment implémenter la recommandation du Centre de s
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.

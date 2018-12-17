@@ -9,22 +9,21 @@ ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 6d161a49b35bbdfedcb27dd91f9f09dcf7ba4133
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f2f237d250a6b6e2a0f6ed2e62540968d9fcc7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122024"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997969"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights pour les applications console .NET
 [Application Insights](app-insights-overview.md) vous permet de surveiller la disponibilité, les performances et l’utilisation de votre application web.
 
-Vous avez besoin d’un abonnement à [Microsoft Azure](http://azure.com). Connectez-vous avec un compte Microsoft, que vous pouvez avoir pour Windows, Xbox Live ou d’autres services cloud de Microsoft. Si votre équipe dispose d’un abonnement d’organisation, demandez à son propriétaire d’y ajouter votre compte Microsoft.
+Vous avez besoin d’un abonnement à [Microsoft Azure](https://azure.com). Connectez-vous avec un compte Microsoft, que vous pouvez avoir pour Windows, Xbox Live ou d’autres services cloud de Microsoft. Si votre équipe dispose d’un abonnement d’organisation, demandez à son propriétaire d’y ajouter votre compte Microsoft.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -125,7 +124,7 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelation
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* Pour une application .NET Framework Windows, vous pouvez également installer et initialiser le module collecteur Compteur de performances comme décrit [ici](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/).
+* Pour une application .NET Framework Windows, vous pouvez également installer et initialiser le module collecteur Compteur de performances comme décrit [ici](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/).
 
 #### <a name="full-example"></a>Exemple complet
 

@@ -9,21 +9,20 @@ ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: bf722756ed04349a06cbcb7b9686e6340e8d4b6c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c595695f3643522d36b53091656c3655f83a9345
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958404"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877834"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 Recherche (Search) est la fonctionnalité [d’Application Insights](app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
 
-(Pour les requêtes plus complexes sur vos données, utilisez [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
+(Pour les requêtes plus complexes sur vos données, utilisez [Analytics](../azure-monitor/log-query/get-started-portal.md).)
 
 ## <a name="where-do-you-see-search"></a>Où voyez-vous Recherche ?
 
@@ -102,7 +101,7 @@ Recherchez tous les éléments dont la valeur de la propriété est la même :
 ## <a name="search-the-data"></a>Recherche dans les données
 
 > [!NOTE]
-> Pour écrire des requêtes plus complexes, ouvrez [**Analytics**](../log-analytics/query-language/get-started-analytics-portal.md) à partir du haut du panneau Recherche.
+> Pour écrire des requêtes plus complexes, ouvrez [**Analytics**](../azure-monitor/log-query/get-started-portal.md) à partir du haut du panneau Recherche.
 > 
 
 Vous pouvez rechercher des termes dans une des valeurs des propriétés. Cela est particulièrement utile si vous avez écrit des [événements personnalisés](app-insights-api-custom-events-metrics.md) avec des valeurs de propriété. 
@@ -164,7 +163,7 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Étapes suivantes
-* [Écrire des requêtes complexes dans Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Écrire des requêtes complexes dans Analytics](../azure-monitor/log-query/get-started-portal.md)
 * [Envoi des journaux et de la télémétrie personnalisée à Application Insights](app-insights-asp-net-trace-logs.md)
 * [Configuration des tests de disponibilité et de réactivité](app-insights-monitor-web-app-availability.md)
 * [Dépannage](app-insights-troubleshoot-faq.md)

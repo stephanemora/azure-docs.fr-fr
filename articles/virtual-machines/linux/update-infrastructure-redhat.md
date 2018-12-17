@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: borisb
-ms.openlocfilehash: 4ccfc7d185281f4c3a76e211aecff0f60298c92a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 20fe724d32e31e1bacbad024cc934f89af12f112
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446481"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139926"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.
@@ -35,15 +35,16 @@ Les images Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG, paiement à l’
 
 * L’accès à l’infrastructure RHUI hébergée sur Azure est inclus dans le prix de l’image RHEL PAYG. Si vous annulez l’inscription à l’infrastructure RHUI hébergée sur Azure d’une machine virtuelle RHEL avec paiement à l’utilisation, cela ne convertit pas la machine virtuelle en une machine virtuelle de type BYOL (apportez votre propre licence). Si vous inscrivez la même machine virtuelle avec une autre source de mises à jour, vous pouvez être confronté à des frais doubles _indirects_. Vous êtes facturés une première fois pour les frais du logiciel RHEL de Azure. Vous êtes facturé une deuxième fois pour les abonnements Red Hat achetés précédemment. Si vous devez systématiquement utiliser une infrastructure de mise à jour autre que l’infrastructure RHUI hébergée sur Azure, envisagez de créer et déployer vos propres images (de type BYOL). Ce processus est décrit dans l’article [Créer et télécharger une machine virtuelle basée sur Red Hat pour Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-* Deux classes d’images RHEL PAYG dans Azure (RHEL for SAP HANA, RHEL for SAP Business Applications) sont connectées aux canaux RHUI dédiés qui restent sur la version secondaire RHEL spécifique requise pour la certification SAP. 
+* Deux classes d’images RHEL PAYG dans Azure (RHEL for SAP HANA, RHEL for SAP Business Applications) sont connectées aux canaux RHUI dédiés qui restent sur la version secondaire RHEL spécifique requise pour la certification SAP.
 
 * L’accès à l’infrastructure RHUI hébergée sur Azure est limité aux machines virtuelles figurant dans les [plages IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Si vous redirigez à l’aide d’un proxy tout le trafic de la machine virtuelle via une infrastructure réseau locale, vous devrez peut-être configurer des itinéraires définis par l’utilisateur pour permettre aux machines virtuelles RHEL PAYG d’accéder à Azure RHUI.
 
 ### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>Adresses IP des serveurs de distribution de contenu RHUI
 
-L’infrastructure RHUI est disponible dans toutes les régions où les images RHEL à la demande sont disponibles. Cela inclut actuellement toutes les régions publiques répertoriées sur la page [Tableau de bord Statut Azure](https://azure.microsoft.com/status/) et les régions Microsoft Azure du gouvernement des États-Unis et d’Allemagne. 
+L’infrastructure RHUI est disponible dans toutes les régions où les images RHEL à la demande sont disponibles. Cela inclut actuellement toutes les régions publiques répertoriées sur la page [Tableau de bord Statut Azure](https://azure.microsoft.com/status/) et les régions Microsoft Azure du gouvernement des États-Unis et d’Allemagne.
 
-Si vous utilisez une configuration du réseau pour restreindre davantage l’accès à partir de machines virtuelles RHEL PAYG, assurez-vous que les adresses IP suivantes sont autorisées pour que `yum update` fonctionne en fonction de votre environnement : 
+Si vous utilisez une configuration du réseau pour restreindre davantage l’accès à partir de machines virtuelles RHEL PAYG, assurez-vous que les adresses IP suivantes sont autorisées pour que `yum update` fonctionne en fonction de votre environnement :
+
 
 ```
 # Azure Global
@@ -65,11 +66,11 @@ Si vous utilisez une configuration du réseau pour restreindre davantage l’acc
 
 En septembre 2016, nous avons déployé une mise à jour de RHUI Azure. En avril 2017, nous avons mis fin à l’ancien RHUI Azure. Si vous avez utilisé les images RHEL PAYG (ou leurs captures instantanées) à partir de septembre 2016, vous vous connectez automatiquement à la nouvelle RHUI Azure. Si toutefois vous avez des captures instantanées plus anciennes sur vos machines virtuelles, vous devez mettre à jour leur configuration manuellement pour accéder à la RHUI Azure, comme décrit dans la section suivante.
 
-Les nouveaux serveurs RHUI Azure sont déployés avec [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). Dans Traffic Manager, un simple point de terminaison (rhui-1.micrsoft.com) peut être utilisé par n’importe quelle machine virtuelle, quelle que soit la région. 
+Les nouveaux serveurs RHUI Azure sont déployés avec [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). Dans Traffic Manager, un simple point de terminaison (rhui-1.micrsoft.com) peut être utilisé par n’importe quelle machine virtuelle, quelle que soit la région.
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Mettre à jour le certificat de client RHUI arrivé à expiration sur une machine virtuelle
 
-Si vous utilisez une ancienne image de machine virtuelle RHEL, par exemple, RHEL 7.4 (URN d’image : `RedHat:RHEL:7.4:7.4.2018010506`), vous rencontrerez des problèmes de connectivité à RHUI en raison d’un certificat de client SSL arrivé à expiration (le 21 novembre 2018). Pour résoudre ce problème, mettez à jour le package client RHUI sur la machine virtuelle à l’aide de la commande suivante 
+Si vous utilisez une ancienne image de machine virtuelle RHEL, par exemple, RHEL 7.4 (URN d’image : `RedHat:RHEL:7.4:7.4.2018010506`), vous rencontrerez des problèmes de connectivité à RHUI en raison d’un certificat de client SSL arrivé à expiration (le 21 novembre 2018). Pour résoudre ce problème, mettez à jour le package client RHUI sur la machine virtuelle à l’aide de la commande suivante
 
 ```bash
 sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
@@ -87,7 +88,7 @@ Si vous rencontrez des problèmes de connexion à RHUI Azure à partir de votre 
     b. Si elle pointe vers un emplacement avec le modèle suivant; `mirrorlist.*cds[1-4].cloudapp.net`, la mise à jour de la configuration est requise. Vous utilisez une ancienne capture instantanée de la machine virtuelle, et vous devez la mettre à jour pour pointer vers la nouvelle RHUI Azure.
 
 1. L’accès à la RHUI hébergée par Azure est limité aux machines virtuelles dans les [plages d’adresses IP des centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653).
- 
+
 1. Si vous utilisez la nouvelle configuration et que vous ne parvenez toujours pas à vous connecter à RHUI Azure après avoir vérifié que la machine virtuelle se connecte à l’aide de la plage d’adresses IP Azure, ouvrez une demande de support avec Microsoft ou Red Hat.
 
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Procédure de mise à jour manuelle pour utiliser les serveurs RHUI Azure
@@ -96,7 +97,7 @@ Cette procédure est fournie uniquement à titre de référence. Les images RHEL
 1. Télécharger la signature de clé publique via curl.
 
    ```bash
-   curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
+   curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc
    ```
 
 1. Vérifier la validité de la clé téléchargée.
@@ -137,20 +138,20 @@ Cette procédure est fournie uniquement à titre de référence. Les images RHEL
    ```
 
 1. Téléchargez, vérifiez et installez un package Gestionnaire de package RPM (RPM) client.
-    
+
     >[!NOTE]
     >Les versions du package varient. Si vous vous connectez manuellement à la RHUI Azure, vous trouverez la dernière version du package client pour chaque famille RHEL en approvisionnant la dernière image de la galerie.
-  
-   a. Téléchargez. 
-   
+
+   a. Téléchargez.
+
     - Pour RHEL 6 :
         ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.2-74.noarch.rpm 
+        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.2-74.noarch.rpm
         ```
-    
+
     - Pour RHEL 7 :
         ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.2-74.noarch.rpm  
+        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.2-74.noarch.rpm
         ```
 
    b. Vérifiez.
@@ -178,4 +179,5 @@ Cette procédure est fournie uniquement à titre de référence. Les images RHEL
 1. Une fois l’installation terminée, vérifiez que vous pouvez accéder à l’écran RHUI Azure depuis la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour créer une machine virtuelle Red Hat Enterprise Linux à partir d’une image PAYG dans le service Marketplace Azure et utiliser l’infrastructure RHUI hébergée sur Azure, voir [Place de marché Azure](https://azure.microsoft.com/marketplace/partners/redhat/). 
+Pour créer une machine virtuelle Red Hat Enterprise Linux à partir d’une image PAYG dans le service Marketplace Azure et utiliser l’infrastructure RHUI hébergée sur Azure, voir [Place de marché Azure](https://azure.microsoft.com/marketplace/partners/redhat/).
+

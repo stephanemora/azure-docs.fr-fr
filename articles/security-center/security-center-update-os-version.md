@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9cd89d861a758d51788dc4180af10882f0144977
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a4072e71d1e4ee54c4cffc3d16aa7c9b8e265cb8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317362"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337664"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Mettre à jour la version du système d’exploitation dans Azure Security Center
 Pour les machines virtuelles des services cloud, Azure Security Center recommande que le système d’exploitation soit mis à jour si une version plus récente est disponible.  Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés.
@@ -43,7 +43,7 @@ Cet article vous a montré comment implémenter la recommandation de Security Ce
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.

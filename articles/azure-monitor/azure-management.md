@@ -6,18 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 30898be58db228484bcd85e8896da10d0bfc29dd
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277458"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965103"
 ---
 # <a name="azure-management---monitoring"></a>Gestion et surveillance Azure
 
@@ -38,7 +37,7 @@ Les sections suivantes décrivent en bref les différents domaines de gestion et
 La surveillance consiste à recueillir et à analyser des données afin de déterminer les performances, l’intégrité et la disponibilité de votre application métier et des ressources dont elle dépend. Une stratégie de surveillance efficace vous aidera à comprendre le fonctionnement détaillé des différents composants de votre application et à accroître la durée de fonctionnement en vous signalant de manière proactive les problèmes critiques, afin que vous puissiez les résoudre au plus vite. La supervision dans Azure est fournie principalement par [Azure Monitor](../azure-monitor/overview.md) qui pourvoit des magasins communs pour le stockage des données de surveillance, des sources de données multiples pour la collecte des données à partir de différents niveaux prenant en charge votre application, ainsi que des fonctionnalités afin d’analyser et de répondre aux données collectées.
 
 ## <a name="configure"></a>Configuration
-La configuration fait référence au déploiement initial et à la configuration des applications et des ressources, ainsi qu’à leur maintenance continue au moyen de correctifs et de mises à jour.  L’automatisation de ces tâches au moyen de script et de stratégie vous permet d’éviter la redondance, en réduisant le temps et les efforts et en augmentant votre précision et efficacité.  [Azure Automation](..\automation\automation-intro.md) fournit la majeure partie des services d’automatisation des tâches de configuration.  En plus des runbooks pour automatiser les processus, il fournit la configuration et la gestion des mises à jour, ce qui vous aide à gérer la configuration via la stratégie et à identifier et déployer les mises à jour.
+La configuration fait référence au déploiement initial et à la configuration des applications et des ressources, ainsi qu’à leur maintenance continue au moyen de correctifs et de mises à jour.  L’automatisation de ces tâches au moyen de script et de stratégie vous permet d’éviter la redondance, en réduisant le temps et les efforts et en augmentant votre précision et efficacité.  [Azure Automation](../automation/automation-intro.md) fournit la majeure partie des services d’automatisation des tâches de configuration.  En plus des runbooks pour automatiser les processus, il fournit la configuration et la gestion des mises à jour, ce qui vous aide à gérer la configuration via la stratégie et à identifier et déployer les mises à jour.
 
 ## <a name="govern"></a>Gouvernance
 La gouvernance propose des mécanismes et des processus pour garder le contrôle sur vos applications et ressources dans Azure.  Elle implique la planification de vos initiatives et la définition de priorités stratégiques.  La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services.  [Azure Policy](../governance/policy/overview.md) vous permet de créer, assigner et gérer des définitions de stratégie qui appliquent différentes règles et actions sur vos ressources, qui restent donc conformes aux standards et aux contrats de niveau de service de l’entreprise. [Azure Cost Management par Cloudyn](../cost-management/overview.md) vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud, notamment AWS et Google.

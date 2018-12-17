@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 27bac5265a5e884b808c4ccb58fda0b2fffeb774
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d3dda3bb5fd39b844f50044c1262008e3610e301
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975649"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871402"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>À propos des passerelles de réseau virtuel redondantes interzone dans les Zones de disponibilité Azure
 
 Vous pouvez déployer des passerelles VPN et ExpressRoute dans des [zones de disponibilité Azure](../availability-zones/az-overview.md). Cela apporte de la résilience, de l’extensibilité et une plus grande disponibilité aux passerelles de réseau virtuel. Le déploiement de passerelles dans les zones de disponibilité Azure sépare les passerelles physiquement et logiquement au sein d’une région, tout en protégeant votre connectivité de réseau local à Azure à partir d’échecs au niveau de la zone.
 
-### <a name="zrgw"></a>Passerelles redondantes dans une zone
+### <a name="zrgw"></a>Passerelles redondantes interzone
 
 Pour déployer automatiquement vos passerelles de réseau virtuel entre des zones de disponibilité, vous pouvez utiliser des passerelles de réseau virtuel redondantes interzone. Avec les passerelles redondantes interzone, vous pouvez bénéficier de la résilience aux zones pour accéder à vos services évolutifs et critiques sur Azure.
 
@@ -59,7 +59,7 @@ Les nouvelles références SKU de passerelle sont :
 
 Les passerelles zonales et redondantes interzone s’appuient sur la référence (SKU) de ressource d’adresse IP publique *Standard*. La configuration de la ressource d’adresse IP publique Azure détermine si la passerelle que vous déployez est zonale ou redondante interzone. Si vous créez une ressource d’adresse IP publique avec une référence (SKU) *De base*, la passerelle n’aura aucune redondance de zone, et les ressources de la passerelle seront régionales.
 
-### <a name="pipzrg"></a>Passerelles redondantes dans une zone
+### <a name="pipzrg"></a>Passerelles redondantes interzone
 
 Lorsque vous créez une adresse IP publique à l’aide de la référence SKU d’adresse IP publique **Standard** sans spécifier de zone, le comportement diffère selon que la passerelle est une passerelle VPN ou une passerelle ExpressRoute. 
 
@@ -86,7 +86,7 @@ Oui, vous pouvez utiliser le Portail Azure pour déployer les nouvelles référe
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Dans quelles régions puis-je utiliser les nouvelles références SKU ?
 
-Les nouvelles références SKU sont disponibles dans les régions Azure disposant de Zones de disponibilité Azure, c’est-à-dire les régions USA Centre, France Centre et Europe Ouest. À l’avenir, nous rendrons les passerelles redondantes interzone disponibles pour vous dans d’autres régions Azure publiques.
+Les nouvelles références SKU sont disponibles dans les régions Azure disposant de Zones de disponibilité Azure, c’est-à-dire les régions USA Centre, France Centre, Europe Nord, Europe Ouest et USA Ouest 2. Prochainement, des passerelles redondantes interzone seront disponibles dans d’autres régions Azure publiques.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Puis-je changer/migrer/mettre à niveau mes passerelles de réseau virtuel existantes vers des passerelles zonales ou redondantes interzone ?
 
@@ -98,4 +98,4 @@ La coexistence de passerelles VPN et ExpressRoute dans le même réseau virtuel 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer une passerelle de réseau virtuel redondant dans une zone](create-zone-redundant-vnet-gateway.md)
+[Créer une passerelle de réseau virtuel redondante interzone](create-zone-redundant-vnet-gateway.md)

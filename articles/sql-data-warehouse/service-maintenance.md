@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/19/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 8b5b94c959ae9820cab338f3ee3317fb3ee166d6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c1e8f94a0131ace6354d070e932e414a1897260e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286599"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166300"
 ---
 # <a name="planning-for-maintenance-on-your-azure-sql-data-warehouse"></a>Planification de la maintenance de votre entrepôt Azure SQL Data Warehouse
 
@@ -32,9 +32,9 @@ Vous recevez une notification avant chaque événement de maintenance planifiée
 
 ## <a name="setting-up-alerts"></a>Configuration d’alertes
 
-Nous vous recommandons d’utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) pour configurer les alertes dans le journal de maintenance planifiée. Ces alertes peuvent vous aider à planifier la maintenance requise afin de minimiser l’impact sur votre entreprise. 
+Nous vous recommandons d’utiliser [Azure Monitor](../azure-monitor/platform/alerts-activity-log-service-notifications.md) pour configurer les alertes dans le journal de maintenance planifiée. Ces alertes peuvent vous aider à planifier la maintenance requise afin de minimiser l’impact sur votre entreprise. 
 
-Pour configurer les notifications, utilisez ces [instructions sur les alertes de journal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+Pour configurer les notifications, utilisez ces [instructions sur les alertes de journal](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la surveillance, consultez [Surveiller votre charge de travail à l’aide de vues de gestion dynamique](sql-data-warehouse-manage-monitor.md).

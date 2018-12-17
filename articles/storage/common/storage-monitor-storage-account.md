@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc03a5f43ef65ec8feaccb82fc3d31debbc6e7b9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f7b73fa4d1f596e0221c2cec3c6c7417ceb767a4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523374"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275684"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
@@ -98,7 +98,7 @@ Vous pouvez créer des alertes pour vous avertir lorsque les seuils sont atteint
 3. Entrez un **Nom** et une **Description** pour votre nouvelle règle d’alerte.
 4. Sélectionnez la **métrique** pour laquelle vous souhaitez ajouter une alerte, une **condition** d’alerte et un **seuil**. Le type d’unité de seuil change en fonction de la métrique choisie. Par exemple, « count » est le type d’unité pour *ContainerCount*, tandis que l’unité pour la métrique *PercentNetworkError* est un pourcentage.
 5. Sélectionnez la **Période**. Les métriques qui atteignent ou dépassent le seuil durant la période déclenchent une alerte.
-6. (Facultatif) Configurez des notifications **E-mail** et **Webhook**. Pour plus d’informations sur webhooks, consultez [Configurer un webhook sur une alerte de métrique Azure](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Si vous ne configurez pas de notifications e-mail ou webhook, les alertes s’affichent uniquement dans le portail Azure.
+6. (Facultatif) Configurez des notifications **E-mail** et **Webhook**. Pour plus d’informations sur webhooks, consultez [Configurer un webhook sur une alerte de métrique Azure](../../azure-monitor/platform/alerts-webhooks.md). Si vous ne configurez pas de notifications e-mail ou webhook, les alertes s’affichent uniquement dans le portail Azure.
 
 ![Panneau « Ajouter une règle d’alerte » dans le portail Azure](./media/storage-monitor-storage-account/add-alert-rule.png)
 

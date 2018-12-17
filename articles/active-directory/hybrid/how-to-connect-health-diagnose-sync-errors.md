@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: c077e8592157b5c09dd1bc99934afd9f687b1da1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8841a4d216160af4ed731570b40754307ffbb5a4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282524"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996046"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double
 
@@ -28,7 +28,7 @@ La fonctionnalité de diagnostic présente les avantages suivants :
 - Elle fournit une procédure de diagnostic qui limite les erreurs de synchronisation d’attribut en double. Elle fournit également des correctifs spécifiques.
 - Elle applique un correctif pour des scénarios dédiés à partir d’Azure AD pour résoudre l’erreur en une seule étape.
 - Aucune mise à niveau ou configuration n’est nécessaire pour activer cette fonctionnalité.
-Pour plus d’informations sur Azure AD, consultez [Synchronisation des identités et résilience d’attribut en double](https://aka.ms/dupattributeresdocs).
+Pour plus d’informations sur Azure AD, consultez [Synchronisation des identités et résilience d’attribut en double](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="problems"></a>Problèmes
 ### <a name="a-common-scenario"></a>Un scénario courant

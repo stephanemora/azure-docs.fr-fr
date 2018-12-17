@@ -4,9 +4,8 @@ description: Partagez et découvrez des ressources d’analyse et plus encore da
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
 ms.service: machine-learning
@@ -16,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 99742e8b25a406dcc08371812b943c0d01dde113
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c9acd902eb536bbd252f0aca6d162ff92d9e6e00
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310609"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270958"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partager et découvrir des ressources dans Azure AI Gallery
 
 **[Azure AI Gallery](http://gallery.cortanaintelligence.com)** est un site communautaire ayant pour but d’explorer et de partager des solutions intégrées avec Azure AI.
 La galerie contient diverses ressources que vous pouvez utiliser pour développer vos propres solutions d’analyse.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Que puis-je trouver dans la galerie ?
 Azure AI Gallery contient diverses ressources qui permettent de développer ses propres solutions d’analyse.

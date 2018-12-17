@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: dc301f218855139cfb3a5faa30109dd5a301eb07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946410"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871198"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Télécharger et extraire le Kit de développement Azure Stack (ASDK)
 Après avoir vérifié que l’ordinateur hôte du Kit de développement répond bien aux exigences de base pour l’installation du kit ASDK, vous devez télécharger puis extraire le package de déploiement du Kit de développement Azure Stack afin d’obtenir le fichier Cloudbuilder.vhdx.
@@ -29,7 +29,7 @@ Après avoir vérifié que l’ordinateur hôte du Kit de développement répond
 1. Avant de commencer le téléchargement, vérifiez que votre ordinateur répond aux prérequis suivants :
 
   - L’ordinateur doit avoir au moins 60 Go d’espace disque disponible sur quatre disques durs logiques identiques et distincts en plus du disque de système d’exploitation.
-  - [.NET Framework 4.6 (ou ultérieur)](https://aka.ms/r6mkiy) doit être installé.
+  - [.NET Framework 4.6 (ou ultérieur)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) doit être installé.
 
 2. [Accédez à la page de démarrage](https://azure.microsoft.com/overview/azure-stack/try/?v=try) sur laquelle vous pouvez télécharger le Kit de développement Azure Stack, renseignez vos informations, puis cliquez sur **Envoyer**.
 3. Téléchargez et exécutez le script de vérification des conditions requises du [vérificateur de déploiement pour le Kit de développement Azure Stack](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409). Ce script autonome passe en revue les vérifications des conditions requises réalisées par la configuration pour le Kit de développement Azure Stack. Il vous permet de vous assurer que vous respectez les exigences matérielles et logicielles avant de télécharger le package plus volumineux du Kit de développement Azure Stack.

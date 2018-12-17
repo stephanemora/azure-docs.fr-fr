@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 197b15baee81c7ceff5d76dd21ceb6db1f0f5fdf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b05a8bfd46800c5b0b0126adcf2acb4852bb6683
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424661"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339754"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Détecter et résoudre les problèmes de déconnexion avec Azure IoT Hub
 
@@ -50,7 +50,7 @@ Pour obtenir des alertes quand des appareils se déconnectent, configurez les al
 
    ![Alerte de métrique recommandée][3]
 
-Pour plus d’informations, consultez l’article [Que sont les alertes classiques dans Microsoft Azure ?](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Pour plus d’informations, consultez l’article [Que sont les alertes classiques dans Microsoft Azure ?](../azure-monitor/platform/alerts-overview.md).
 
 ## <a name="resolve-connectivity-errors"></a>Résoudre les erreurs de connectivité
 

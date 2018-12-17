@@ -9,16 +9,15 @@ ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8880fbeaad85bc2615292820527c6a9e87000d66
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d7c3134c36707fcfa079968d19d93b73d7a5f5cc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246492"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724075"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Analyse des performances des applications à l’aide d’Application Insights pour SCOM
 Si vous utilisez System Center Operations Manager (SCOM) pour gérer vos serveurs, vous pouvez analyser les performances et diagnostiquer les problèmes afférents à l’aide [d’Azure Application Insights](app-insights-asp-net.md). Application Insights analyse les demandes entrantes de votre application web, les appels SQL et REST sortants, les exceptions et les suivis de journal. Elle fournit des tableaux de bord avec des graphiques de mesure et des alertes intelligentes, ainsi que des requêtes analytiques et des outils de recherche de diagnostic efficaces sur ces données de télémétrie. 

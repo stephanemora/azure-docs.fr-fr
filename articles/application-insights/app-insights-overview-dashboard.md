@@ -9,16 +9,15 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: cd8bcc9345ec73f95e8e742446522ec41c1f0f65
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344628"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956942"
 ---
 # <a name="application-insights-overview-dashboard"></a>Tableau de bord de vue d’ensemble d’Application Insights
 
@@ -28,17 +27,17 @@ Application Insights a toujours fourni un volet d’aperçu du résumé pour per
 
 Le nouveau tableau de bord de vue d’ensemble se lance maintenant par défaut :
 
-![Volet d’aperçu de la vue d’ensemble](.\media\app-insights-overview-dashboard\overview.png)
+![Volet d’aperçu de la vue d’ensemble](./media/app-insights-overview-dashboard/overview.png)
 
 ## <a name="better-performance"></a>Meilleures performances
 
 La sélection de plage horaire a été simplifiée en une interface en un clic simple.
 
-![Période](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
+![Période](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-03.png)
 
 Les performances globales ont considérablement augmenté. Des fonctionnalités courantes comme la **Recherche** et **l’Analyse** sont accessibles d’un seul clic. Chaque vignette de KPI, qui se met à jour dynamiquement par défaut, donne des insights sur les fonctionnalités d’Application Insights correspondantes. Pour en savoir plus sur les demandes ayant échoué, sélectionnez **Échecs** sous l’en-tête **Examiner** :
 
-![Échecs](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
+![Échecs](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Tableau de bord de l’application
 
@@ -46,11 +45,11 @@ Le tableau de bord de l’application tire parti de la technologie de tableau de
 
 Pour accéder au tableau de bord par défaut, sélectionnez _Tableau de bord de l’application_ dans le coin supérieur gauche.
 
-![Vue du tableau de bord](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
+![Vue du tableau de bord](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Lors du premier accès au tableau de bord, cette action lance une vue par défaut :
 
-![Vue du tableau de bord](.\media\app-insights-overview-dashboard\0001-dashboard.png)
+![Vue du tableau de bord](./media/app-insights-overview-dashboard/0001-dashboard.png)
 
 Vous pouvez conserver la vue par défaut si elle vous convient, ou bien ajouter et supprimer des éléments du tableau de bord pour mieux répondre aux besoins de votre équipe.
 
@@ -59,7 +58,7 @@ Vous pouvez conserver la vue par défaut si elle vous convient, ou bien ajouter 
 
 Pour revenir à l’expérience de vue d’ensemble, sélectionnez simplement :
 
-![Bouton de la vue d’ensemble](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+![Bouton de la vue d’ensemble](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-07.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

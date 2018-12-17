@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 814c3ebec326ab1c17f4fea7f11b2bacaa6b42d9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195911"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997609"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure à l’adresse [http://portal.azure.com](http://portal.azure.com)
+Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
@@ -171,7 +171,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un certificat auto-signé

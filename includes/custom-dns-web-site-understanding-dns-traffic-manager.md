@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 73e95f6259c916b06fe61cb47fd36beac4c7a427
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 212e45a7b593a9607aa19a10efdf2aaf61c78d17
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572112"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344585"
 ---
 Le DNS (Domain Name System) permet de localiser des éléments sur Internet. Par exemple, lorsque vous entrez une adresse dans votre navigateur ou cliquez sur un lien d'une page Web, le DNS est utilisé pour traduire le domaine en adresse IP. L'adresse IP joue le même rôle qu'une adresse postale, tout en étant moins significative. Par exemple, il est bien plus facile de se souvenir d'un nom DNS tel que **contoso.com** que d'une adresse IP telle que 192.168.1.88 ou 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
@@ -32,7 +32,7 @@ Un enregistrement CNAME mappe un nom DNS *spécifique*, tel que **mail.contoso.c
 Lorsque le trafic parvient à Traffic Manager, il est acheminé vers votre site web à l'aide de la méthode d'équilibrage de charge pour laquelle il est configuré. Cela se fait de manière totalement transparente pour les visiteurs de votre site web. Ils ne voient que le nom de domaine personnalisé dans votre navigateur.
 
 > [!NOTE]
-> Certains bureaux d’enregistrement de domaines n’autorisent le mappage de sous-domaines qu’en cas d’utilisation d’un enregistrement CNAME (par exemple, **www.contoso.com**), et non d’un nom racine (tel que **contoso.com**). Pour plus d'informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d'enregistrement, la <a href="http://en.wikipedia.org/wiki/CNAME_record">page Wikipédia sur l'enregistrement CNAME</a> ou le document <a href="http://tools.ietf.org/html/rfc1035">Noms de domaine IETF - Implémentation et spécification</a>.
+> Certains bureaux d’enregistrement de domaines n’autorisent le mappage de sous-domaines qu’en cas d’utilisation d’un enregistrement CNAME (par exemple, **www.contoso.com**), et non d’un nom racine (tel que **contoso.com**). Pour plus d'informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d'enregistrement, la <a href="https://en.wikipedia.org/wiki/CNAME_record">page Wikipédia sur l'enregistrement CNAME</a> ou le document <a href="https://tools.ietf.org/html/rfc1035">Noms de domaine IETF - Implémentation et spécification</a>.
 > 
 > 
 
