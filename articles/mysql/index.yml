@@ -1,25 +1,21 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: aab2881462eafdc00bb0f3329f68789f07225773
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ccb64441ced792009669eb95f5311ff309c58e00
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955824"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543748"
 documentType: LandingData
 title: Documentation Azure Database pour MySQL
 metadata:
   document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
   title: Documentation Azure MySQL - Didacticiels, informations de référence sur les API | Microsoft Docs
   description: Azure Database pour MySQL est un service de base de données relationnelle dans le cloud de Microsoft conçu pour les développeurs d’après le moteur de base de données open source MySQL.
-  services: mysql
-  author: czeumault
-  manager: carolz
+  author: ajlam
+  ms.author: andrela
   ms.service: mysql
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/13/2017
-  ms.author: carolz
+  ms.date: 12/13/2018
 abstract:
   description: Azure Database pour MySQL est un service de base de données relationnelle basé sur le moteur open source MySQL Server.  C’est une base de données entièrement gérée en tant qu’offre de service capable de gérer des charges de travail critiques avec des performances prévisibles et une extensibilité dynamique. Développez des applications avec Azure Database pour MySQL en exploitant les outils open source et la plateforme de votre choix. Découvrez comment utiliser Azure Database pour MySQL avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
 sections:
@@ -54,4 +50,4 @@ sections:
     className: cardsD
     items:
     - title: Ligne de commande
-      html: <p><a href="/cli/azure/mysql">interface de ligne de commande Azure</a></p>
+      html: <p><a href="/cli/azure/mysql">Interface de ligne de commande Azure</a></p>

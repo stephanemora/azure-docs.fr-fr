@@ -1,9 +1,9 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Guide du développeur](azure-developer-guide.md) 
 ## [Kits de développement logiciel (SDK) et outils](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Démarrage rapide
-## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
+## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## Machines virtuelles
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -26,11 +26,11 @@
 
 # Exemples
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-## Azure PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+## Azure PowerShell
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
@@ -55,7 +55,7 @@
 ### [Applications sans serveur](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Cluster de microservices](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Déployer
-### [Applications Web et mobiles du contrôle de code source](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
+### [Applications Web et mobiles du contrôle de code source](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)
 ### [Microservices locaux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -100,7 +100,7 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 ## Interfaces de ligne de commande
-### [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/)
+### [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/)
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Facturation](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
