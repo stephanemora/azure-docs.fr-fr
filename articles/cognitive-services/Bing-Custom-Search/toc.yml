@@ -3,27 +3,31 @@ items:
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Qu’est-ce que la Recherche personnalisée Bing ?
+  - name: Qu’est-ce que l’API Recherche personnalisée Bing ?
     href: overview.md
   expanded: true
-- name: Démarrages rapides de l’API REST
+- name: Démarrages rapides
   items:
-  - name: Créer une première instance
+  - name: Création d’une instance de recherche personnalisée
     href: quick-start.md
-  - name: C#
-    href: call-endpoint-csharp.md
-  - name: Java
-    href: call-endpoint-java.md
-  - name: Node.js
-    href: call-endpoint-nodejs.md
-  - name: Python
-    href: call-endpoint-python.md
+  - name: Obtenir des résultats de recherche à partir de votre instance
+    items:
+    - name: API REST
+      items:
+      - name: Utilisation de C#
+        href: call-endpoint-csharp.md
+      - name: Utilisation de Java
+        href: call-endpoint-java.md
+      - name: Utilisation de Node.js
+        href: call-endpoint-nodejs.md
+      - name: Utilisation de Python
+        href: call-endpoint-python.md
+    - name: SDK
+      items:
+      - name: Utilisation de C#
+        href: sdk-csharp-quick-start.md
   expanded: true
-- name: Démarrages rapides du kit de développement logiciel (SDK)
-  items:
-  - name: Démarrage rapide du SDK C#
-    href: sdk-csharp-quick-start.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Créer une page web Recherche personnalisée
     href: ./tutorials/custom-search-web-page.md
@@ -33,23 +37,23 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
 - name: Procédures
   items:
-  - name: Configurer l’expérience de recherche personnalisée
+  - name: Configurer votre expérience de recherche personnalisée
     href: define-your-custom-view.md
-  - name: Appel de la recherche personnalisée
+  - name: Appeler votre instance de recherche personnalisée
     href: search-your-custom-view.md
-  - name: Configurer l’expérience d’interface utilisateur hébergée
+  - name: Configurer et intégrer une interface utilisateur hébergée
     href: hosted-ui.md
-  - name: Partager la recherche personnalisée
+  - name: Partager votre instance de recherche personnalisée
     href: share-your-custom-search.md
-  - name: Obtenir des images à partir de votre instance
+  - name: Obtenir des images à partir de votre instance de recherche
     href: get-images-from-instance.md
-  - name: Obtenir des vidéos à partir de votre instance
+  - name: Obtenir des vidéos à partir de votre instance de recherche
     href: get-videos-from-instance.md
-  - name: Configurer l’expérience de suggestion automatique personnalisée
+  - name: Configurer une expérience de suggestion automatique personnalisée
     href: define-custom-suggestions.md
   - name: Gérer la mise en surbrillance des correspondances
     href: hit-highlighting.md
-  - name: Paginer des pages web
+  - name: Passer d’une page web à une autre
     href: page-webpages.md
 - name: Informations de référence
   items:
@@ -69,7 +73,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+custom+search
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/global-infrastructure/services/
@@ -85,9 +89,9 @@ items:
     href: endpoint-custom.md
   - name: Prise en charge de la région et de la langue
     href: language-support.md
-ms.openlocfilehash: 62392b7ff226072108c61f10b3f0519677aaba6b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 81d0d94efc519fa241ab36979506b2baddf50d91
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431978"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555862"

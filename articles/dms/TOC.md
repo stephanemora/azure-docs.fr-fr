@@ -6,7 +6,7 @@
 # Démarrages rapides
 ## [Créer un service - Portail](quickstart-create-data-migration-service-portal.md)
 
-# Didacticiels
+# Tutoriels
 ## [Migration de SQL Server vers Azure SQL DB hors connexion](tutorial-sql-server-to-azure-sql.md)
 ## [Migration de SQL Server vers Azure SQL DB en ligne](tutorial-sql-server-azure-sql-online.md)
 ## [Migration de SQL Server vers une instance Azure SQL Database Managed Instance](tutorial-sql-server-to-managed-instance.md)
@@ -19,6 +19,7 @@
 ## [Utiliser PowerShell pour la migration de SQL Server vers Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
 ## [Utiliser PowerShell pour la migration de SQL Server vers Azure SQL DB MI](howto-sql-server-to-azure-sql-mi-powershell.md)
 ## [Surveiller l’activité de migration](how-to-monitor-migration-activity.md)
+## [Migrer des packages SSIS vers Azure](how-to-migrate-ssis-packages.md)
 
 # Ressources
 ## [État du scénario de migration d’une base de données](resource-scenario-status.md)

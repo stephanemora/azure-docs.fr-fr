@@ -15,8 +15,6 @@ items:
     href: quick-onboard-windows-computer.md
   - name: Ordinateurs Linux
     href: quick-onboard-linux-computer.md
-  - name: Solutions de sécurité
-    href: quick-security-solutions.md
   expanded: true
 - name: Tutoriels
   items:
@@ -30,6 +28,10 @@ items:
     href: security-center-permissions.md
   - name: Sécurité des données
     href: security-center-data-security.md
+  - name: Réponse aux incidents
+    href: security-center-incident-response.md
+  - name: Utiliser les recommandations pour améliorer la sécurité
+    href: security-center-using-recommendations.md
 - name: Procédures
   items:
   - name: Améliorer votre score de sécurité
@@ -44,6 +46,10 @@ items:
     href: tutorial-security-policy.md
   - name: Personnaliser la politique de protection des informations
     href: security-center-info-protection-policy.md
+  - name: Gestion des solutions de sécurité
+    href: security-center-partner-integration.md
+  - name: Automatiser l’intégration avec PowerShell
+    href: security-center-powershell-onboarding.md
   - name: Paramètres de Security Center
     href: security-center-policies-overview.md
     items:
@@ -66,50 +72,11 @@ items:
       href: security-center-monitoring.md
     - name: Protéger les ordinateurs et les applications
       href: security-center-virtual-machine-protection.md
-      items:
-      - name: Appliquer le chiffrement de disque
-        href: security-center-apply-disk-encryption.md
-      - name: Appliquer des mises à jour système
-        href: security-center-apply-system-updates.md
-      - name: Activer le chiffrement pour le compte Azure Storage
-        href: security-center-enable-encryption-for-storage-account.md
-      - name: Activer l’agent de machine virtuelle
-        href: security-center-enable-vm-agent.md
-      - name: Installer Endpoint Protection
-        href: security-center-install-endpoint-protection.md
-      - name: Redémarrer après l’application des mises à jour système
-        href: security-center-apply-system-updates.md#reboot-after-system-updates
-      - name: Corriger les configurations de sécurité
-        href: security-center-remediate-os-vulnerabilities.md
-      - name: Mettre à jour la version du système d’exploitation
-        href: security-center-update-os-version.md
-      - name: Évaluation des vulnérabilités non installée
-        href: security-center-vulnerability-assessment-recommendations.md
-      - name: Ajouter un pare-feu d’applications web
-        href: security-center-add-web-application-firewall.md
-      - name: Finaliser la protection des applications
-        href: security-center-add-web-application-firewall.md#finalize-application-protection
     - name: Protéger les ressources réseau
       href: security-center-network-recommendations.md
-      items:
-      - name: Ajouter un pare-feu de nouvelle génération
-        href: security-center-add-next-generation-firewall.md
-      - name: Activer des groupes de sécurité réseau
-        href: security-center-enable-network-security-groups.md
-      - name: Restreindre l’accès via un point de terminaison accessible sur Internet
-        href: security-center-restrict-access-through-internet-facing-endpoints.md
-      - name: Acheminer le trafic uniquement via un pare-feu de nouvelle génération
-        href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
     - name: Protéger les données et le service SQL
       href: security-center-sql-service-recommendations.md
-      items:
-      - name: Activer l’audit et la détection des menaces sur les bases de données SQL
-        href: security-center-enable-auditing-on-sql-databases.md
-      - name: Activer l’audit et la détection des menaces sur les serveurs SQL
-        href: security-center-enable-auditing-on-sql-servers.md
-      - name: Activer le chiffrement transparent des données
-        href: security-center-enable-transparent-data-encryption.md
-    - name: Surveiller l’identité et l’accès
+    - name: Protéger les identités et les accès
       href: security-center-identity-access.md
   - name: Appliquer les protections cloud
     items:
@@ -119,38 +86,61 @@ items:
       href: security-center-adaptive-application.md
     - name: Monitoring d’intégrité de fichier
       href: security-center-file-integrity-monitoring.md
-  - name: Gestion des solutions de sécurité
-    href: security-center-partner-integration.md
-    items:
-    - name: Solutions connectées
-      href: security-center-partner-solutions.md
-    - name: Solutions découvertes
-      href: security-center-partner-integration.md#discovered-solutions
-    - name: Connecter des solutions externes
-      href: quick-security-solutions.md
-    - name: Connecter Application Gateway
-      href: security-center-connect-application-gateway.md
-    - name: Se connecter à Microsoft ATA
-      href: security-center-ata-integration.md
-    - name: Connecter Azure AD Identity Protection
-      href: security-center-aadip-integration.md
-    - name: Exporter des données vers SIEM
-      href: security-center-export-data-to-siem.md
-  - name: Examiner les menaces
+  - name: Détecter les menaces
     href: security-center-detection-capabilities.md
     items:
     - name: Alertes de sécurité
       href: security-center-managing-and-responding-alerts.md
     - name: Incidents de sécurité
       href: security-center-incident.md
-    - name: Rapports de menace
-      href: security-center-threat-report.md
     - name: Types d’alertes
       href: security-center-alerts-type.md
-    - name: Alertes personnalisées
-      href: security-center-custom-alert.md
     - name: Validation de l’alerte
       href: security-center-alert-validation.md
+    - name: UEBA pour les utilisateurs et ressources Azure
+      href: security-center-ueba-mcas.md
+  - name: Archivage
+    items:
+    - name: Apply disk encryption
+      href: security-center-apply-disk-encryption.md
+    - name: Appliquer des mises à jour système
+      href: security-center-apply-system-updates.md
+    - name: Activer le chiffrement pour le compte Azure Storage
+      href: security-center-enable-encryption-for-storage-account.md
+    - name: Activer l’agent de machine virtuelle
+      href: security-center-enable-vm-agent.md
+    - name: Installer Endpoint Protection
+      href: security-center-install-endpoint-protection.md
+    - name: Redémarrer après l’application des mises à jour système
+      href: security-center-apply-system-updates.md#reboot-after-system-updates
+    - name: Corriger les configurations de sécurité
+      href: security-center-remediate-os-vulnerabilities.md
+    - name: Mettre à jour la version du système d’exploitation
+      href: security-center-update-os-version.md
+    - name: Évaluation des vulnérabilités non installée
+      href: security-center-vulnerability-assessment-recommendations.md
+    - name: Ajouter un pare-feu d’applications web
+      href: security-center-add-web-application-firewall.md
+    - name: Finaliser la protection des applications
+      href: security-center-add-web-application-firewall.md#finalize-application-protection
+    - name: Ajouter un pare-feu de nouvelle génération
+      href: security-center-add-next-generation-firewall.md
+    - name: Activer des groupes de sécurité réseau
+      href: security-center-enable-network-security-groups.md
+    - name: Restreindre l’accès via un point de terminaison accessible sur Internet
+      href: security-center-restrict-access-through-internet-facing-endpoints.md
+    - name: Acheminer le trafic uniquement via un pare-feu de nouvelle génération
+      href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
+    - name: Activer l’audit et la détection des menaces sur les bases de données SQL
+      href: security-center-enable-auditing-on-sql-databases.md
+    - name: Activer l’audit et la détection des menaces sur les serveurs SQL
+      href: security-center-enable-auditing-on-sql-servers.md
+    - name: Activer le chiffrement transparent des données
+      href: security-center-enable-transparent-data-encryption.md
+    - name: Rapports de menace
+      href: security-center-threat-report.md
+    - name: Alertes personnalisées
+      href: security-center-custom-alert.md
     - name: Score de confiance de l’alerte
       href: security-center-confidence-score.md
     - name: Carte des alertes de sécurité et informations sur les menaces
@@ -159,30 +149,12 @@ items:
       href: security-center-investigation.md
     - name: Gérer les données utilisateur d’investigation
       href: security-center-investigation-user-data.md
-    - name: UEBA pour les utilisateurs et ressources Azure
-      href: security-center-ueba-mcas.md
-  - name: Automatiser les flux de travail de sécurité
-    items:
     - name: Playbooks Logic Apps
       href: security-center-playbooks.md
     - name: Visualiser les événements
       href: security-center-events-dashboard.md
     - name: Recherche
       href: security-center-search.md
-    - name: Passer en revue la conformité (REST)
-      href: security-center-review-policy-compliance.md
-    - name: Évaluer les abonnements (REST)
-      href: security-center-compliance-rest-api.md
-    - name: Automatiser l’intégration avec PowerShell
-      href: security-center-powershell-onboarding.md
-  - name: Scénarios
-    items:
-    - name: Réponse aux incidents
-      href: security-center-incident-response.md
-    - name: Utiliser les recommandations pour améliorer la sécurité
-      href: security-center-using-recommendations.md
-  - name: Résolution des problèmes
-    href: security-center-troubleshooting-guide.md
 - name: Informations de référence
   items:
   - name: API REST
@@ -213,13 +185,13 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=security-center
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/security-center/
-  - name: Mises à jour de service
-    href: https://azure.microsoft.com/updates/?product=security-center
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 28b701fcb85bd8deac5c0442d98730dfb10e8cd2
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+  - name: Résolution des problèmes
+    href: security-center-troubleshooting-guide.md
+ms.openlocfilehash: e843dc5b29d441f4d1592a935bd35b295150f861
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338683"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545499"

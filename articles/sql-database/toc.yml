@@ -153,7 +153,7 @@ items:
     items:
     - name: Vue d’ensemble des instances managées
       href: sql-database-managed-instance-index.yml
-    - name: Vue d’ensemble de l’instance managée
+    - name: Vue d’ensemble des instances gérées
       href: sql-database-managed-instance.md
     - name: Informations de référence sur l’API de gestion
       href: sql-database-managed-instance-create-manage.md
@@ -311,8 +311,8 @@ items:
     items:
     - name: Fonctionnalités de bases de données
       href: sql-database-develop-overview.md
-    - name: Données JSON
-      href: sql-database-json-features.md
+    - name: Fonctionnalités multimodèles
+      href: sql-database-multi-model-features.md
     - name: En mémoire
       href: sql-database-in-memory.md
     - name: Tables temporelles
@@ -501,6 +501,8 @@ items:
     items:
     - name: Connectivité
       href: sql-database-libraries.md
+    - name: Utilisation de données JSON
+      href: sql-database-json-features.md
     - name: Utiliser Spark Connector
       href: sql-database-spark-connector.md
     - name: Authentifier l’application
@@ -676,9 +678,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Désinstaller une tâche élastique (déconseillé)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: d276b202da8055965a43f5313b6a8c4b335f74b2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3a4a06a79b0931c95bf1ef35e250711f1cd90de8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436022"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541793"
