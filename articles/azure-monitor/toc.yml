@@ -39,11 +39,11 @@ items:
   - name: Visualiser des données dans Log Analytics
     href: learn/tutorial-logs-dashboards.md
   - name: Archiver les métriques et données de journal de la plateforme
-    href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-archive-data.md
   - name: Alerter sur les données de journal
     href: learn/tutorial-response.md
   - name: Mise à l’échelle automatique sur les performances et le calendrier
-    href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-autoscale-performance-schedule.md
   - name: Rechercher des exceptions runtime sur les applications
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
   - name: Gestion des problèmes de performances des applications
@@ -367,8 +367,6 @@ items:
           href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
         - name: Dynamics CRM
           href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
-        - name: Autres plateformes
-          href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
       - name: Détection intelligente
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
@@ -426,10 +424,8 @@ items:
         href: platform/data-collector-api.md
       - name: Exemple de pipeline d’API collecteur de données Log Analytics
         href: platform/create-pipeline-datacollector-api.md
-      - name: Données d'application
-        href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
       - name: API REST de magasin de métriques
-        href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/metrics-store-custom-rest-api.md
       - name: Envoi de métriques de l’OS invité au magasin de métriques pour une machine virtuelle Linux (Telegraf)
         href: platform/collect-custom-metrics-linux-telegraf.md
     - name: System Center
@@ -447,9 +443,9 @@ items:
       - name: Stocker les journaux de diagnostic
         href: platform/diagnostic-logs-stream-log-store.md
       - name: Diffuser en continu le journal d’activité vers Event Hubs
-        href: ../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/activity-logs-stream-event-hubs.md
       - name: Journaux et métriques vers Event Hub
-        href: ../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Journaux de diagnostic vers Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Données d’application vers Log Analytics
@@ -538,7 +534,7 @@ items:
       - name: Analyse des applications Docker
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
     - name: Surveiller les groupes de ressources
-      href: ../monitoring-and-diagnostics/resource-group-insights.md?toc=/azure/azure-monitor/toc.json
+      href: insights/resource-group-insights.md
     - name: Superviser les bases de données
       items:
       - name: Azure SQL
@@ -659,7 +655,7 @@ items:
     - name: Afficher des événements dans le journal d’activité
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: Afficher les notifications de service
-      href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+      href: platform/service-notifications.md
     - name: Interroger des données de journal
       items:
       - name: Documentation sur le langage de requête
@@ -754,7 +750,7 @@ items:
         - name: Actions Webhook pour les alertes de journal
           href: platform/alerts-log-webhook.md
         - name: Résolution des alertes de journal
-          href: ../monitoring-and-diagnostics/alert-log-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alert-log-troubleshoot.md
       - name: Utiliser des alertes de journal d’activité
         items:
         - name: Configurer des alertes dans un événement de journal d’activité
@@ -800,7 +796,7 @@ items:
       - name: Procédure pas à pas de mise à l’échelle
         href: platform/autoscale-get-started.md
       - name: Comprendre les paramètres de mise à l’échelle automatique
-        href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-understanding-settings.md
       - name: Meilleures pratiques
         href: platform/autoscale-best-practices.md
       - name: Métriques courantes
@@ -818,7 +814,7 @@ items:
     - name: Notifications de service
       items:
       - name: Afficher les notifications de service
-        href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+        href: platform/service-notifications.md
       - name: Configurer des alertes sur les notifications de service
         href: platform/alerts-activity-log-service-notifications.md
     - name: Gestion des services informatiques
@@ -846,7 +842,7 @@ items:
     - name: PowerShell
       items:
       - name: Exemples Azure PowerShell
-        href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
+        href: platform/powershell-quickstart-samples.md
       - name: Applets de commande PowerShell
         href: platform/powershell-workspace-configuration.md
       - name: APPLICATIONS
@@ -915,6 +911,8 @@ items:
       href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: Packages NuGet
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
+    - name: Prise en charge de plateformes
+      href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
   - name: Modèle de données Application Insights
     items:
     - name: Vue d’ensemble
@@ -954,7 +952,7 @@ items:
     - name: Mesures prises en charge
       href: platform/metrics-supported.md
     - name: Mesures prises en charge pour les alertes plus récentes
-      href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-metric-near-real-time.md
   - name: Schémas
     items:
     - name: Services de journaux de diagnostic, catégories et schémas
@@ -975,7 +973,7 @@ items:
     - name: API classique de mise à l’échelle et de métrique
       href: ./platform/classic-api-retirement-metrics-autoscale.md
     - name: Génération classique d’alertes et supervision
-      href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
+      href: platform/monitoring-classic-retirement.md
     - name: Étendre des alertes de Log Analytics à Azure
       href: platform/alerts-extend.md
     - name: Copier des alertes à partir du portail OMS vers le Portail Azure
@@ -1010,9 +1008,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 31569287fa00f123d3462d6d3dc5bf35a3650d19
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 0187e9a74da758a5756ce3841953141093aa203c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549443"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601013"

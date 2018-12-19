@@ -1,45 +1,47 @@
+items:
 - name: Documentation de l’API de traduction de conversation Translator Speech
-  href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
-    - name: À propos de l'API de traduction de conversation Translator Speech
-      href: Overview.md
-    - name: Langues prises en charge
-      href: languages.md
+  - name: À propos de l'API de traduction de conversation Translator Speech
+    href: Overview.md
+  - name: Langues prises en charge
+    href: languages.md
 - name: Démarrages rapides
   items:
-    - name: 'C#'
-      href: quickstarts/csharp.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: Python
-      href: quickstarts/python.md
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node.js
+    href: quickstarts/nodejs.md
+  - name: Python
+    href: quickstarts/python.md
 - name: Didacticiels
   items:
-    - name: Application Translator
-      href: tutorial-translator-speech-csharp.md
+  - name: Application Translator
+    href: tutorial-translator-speech-csharp.md
 - name: Exemples
   items:
-    - name: Exemples sur GitHub
-      href: 'https://aka.ms/TranslatorGitHub'
-- name: Procédures
-  items:
-    - name: Inscrivez-vous à l’API de traduction de conversation Translator Speech
-      href: translator-speech-how-to-signup.md
+  - name: Exemples sur GitHub
+    href: https://aka.ms/TranslatorGitHub
 - name: Informations de référence
   href: reference.md
   items:
-    - name: Langues
-      href: languages-reference.md
+  - name: Langues
+    href: languages-reference.md
 - name: Ressources
   items:
-    - name: Forum Aux Questions
-      href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-speech-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/558796-translator'
-    - name: Dépassement de capacité de la pile
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+  - name: Forum Aux Questions
+    href: https://www.microsoft.com/en-us/translator/faq.aspx
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-speech-api/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/558796-translator
+  - name: Dépassement de capacité de la pile
+    href: https://stackoverflow.com/questions/tagged/microsoft-translator
+ms.openlocfilehash: 8519e4a514f7fa1a811966ff971c64a331378ce8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604080"

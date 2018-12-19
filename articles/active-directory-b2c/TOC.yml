@@ -87,10 +87,22 @@ items:
     href: active-directory-b2c-reference-mfa.md
   - name: Identity Experience Framework (Infrastructure d’expérience d’identité)
     items:
-    - name: Créer une stratégie personnalisée
-      href: active-directory-b2c-get-started-custom.md
     - name: Collecter les journaux à l’aide d’Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: Configurer des entrées d’utilisateur
+      href: active-directory-b2c-configure-signup-self-asserted-custom.md
+    - name: Créer une stratégie personnalisée
+      href: active-directory-b2c-get-started-custom.md
+    - name: Personnaliser l’interface utilisateur
+      href: active-directory-b2c-ui-customization-custom.md
+    - name: Personnaliser l’interface utilisateur de façon dynamique
+      href: active-directory-b2c-ui-customization-custom-dynamic.md
+    - name: Personnaliser les jetons
+      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+    - name: Définir des attributs personnalisés
+      href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+    - name: Activer le maintien de la connexion
+      href: active-directory-b2c-reference-kmsi-custom.md
     - name: Intégration des API RESTful
       items:
       - name: Valider les entrées utilisateur
@@ -123,6 +135,10 @@ items:
       href: page-contract.md
     - name: Passer le jeton d’accès
       href: idp-pass-through-custom.md
+    - name: Complexité du mot de passe
+      href: active-directory-b2c-reference-password-complexity-custom.md
+    - name: Modification de mot de passe
+      href: active-directory-b2c-reference-password-change-custom.md
     - name: Fournisseurs SAML
       items:
       - name: ADFS
@@ -131,24 +147,6 @@ items:
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: Suivre le comportement des utilisateurs
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: Flux d’utilisateurs
-      items:
-      - name: Configurer des entrées d’utilisateur
-        href: active-directory-b2c-configure-signup-self-asserted-custom.md
-      - name: Attributs personnalisés
-        href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-      - name: Personnaliser l’interface utilisateur
-        href: active-directory-b2c-ui-customization-custom.md
-      - name: Personnaliser l’interface utilisateur de façon dynamique
-        href: active-directory-b2c-ui-customization-custom-dynamic.md
-      - name: Personnaliser les jetons
-        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-      - name: Complexité du mot de passe
-        href: active-directory-b2c-reference-password-complexity-custom.md
-      - name: Modification de mot de passe
-        href: active-directory-b2c-reference-password-change-custom.md
-      - name: Activer le maintien de la connexion
-        href: active-directory-b2c-reference-kmsi-custom.md
     - name: Informations de référence
       items:
       - name: Programmes de résolution de revendication
@@ -326,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 80e90efcc500f04e3ec1f3e10c157c9b415f0eda
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d61d6726d388fd7bf18f1bcbc168078afadd1a71
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079073"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579802"
