@@ -128,10 +128,10 @@
 ## Gérer des applications
 ### [Vue d’ensemble](manage-apps/what-is-application-management.md)
 ### [Prise en main](manage-apps/plan-an-application-integration.md)
-### [Didacticiels d’intégration d’applications SaaS](saas-apps/tutorial-list.md)
+### [Tutoriels d’intégration d’applications SaaS](saas-apps/tutorial-list.md)
 
 ### [Approvisionnement/déprovisionnement des utilisateurs pour les applications SaaS](manage-apps/user-provisioning.md) 
-#### [Didacticiels d’intégration d’applications](saas-apps/tutorial-list.md) 
+#### [Tutoriels d’intégration d’applications](saas-apps/tutorial-list.md) 
 #### [Automatiser l’approvisionnement vers des applications prenant en charge le protocole SCIM](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Personnalisation des mappages d’attributs](manage-apps/customize-application-attributes.md) 
 #### [Écrire des expressions pour les mappages d’attributs](manage-apps/functions-for-customizing-application-data.md) 
@@ -274,7 +274,8 @@
 ##### [Problème de configuration de l’approvisionnement des utilisateurs - application de galerie](manage-apps/application-provisioning-config-problem.md)
 ##### [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [Les utilisateurs ne sont pas approvisionnés - application de galerie](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
-##### [Les mauvais utilisateurs ont été provisionnés - application de galerie](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [Utilisateurs incorrects provisionnés - application de galerie](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [Problèmes de compatibilité SCIM - application hors galerie](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Authentification unique
 ##### [Choisir une méthode](manage-apps/single-sign-on-modes.md)
@@ -321,10 +322,10 @@
 ## [Résolution des problèmes](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Déploiement de la preuve de concept (POC) d’Azure AD
-### [Manuel POC : Introduction](active-directory-playbook-intro.md)
-### [Manuel POC : Ingrédients](active-directory-playbook-ingredients.md)
-### [Manuel POC : Mise en œuvre](active-directory-playbook-implementation.md)
-### [Manuel POC : Blocs de construction](active-directory-playbook-building-blocks.md)
+### [Playbook PoC : Introduction](active-directory-playbook-intro.md)
+### [Playbook PoC : Ingrédients](active-directory-playbook-ingredients.md)
+### [Playbook PoC : Implémentation](active-directory-playbook-implementation.md)
+### [Playbook PoC : Modules](active-directory-playbook-building-blocks.md)
 
 # Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=active-directory)
@@ -347,5 +348,5 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=active-directory)
-## [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

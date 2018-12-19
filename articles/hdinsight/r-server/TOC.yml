@@ -41,7 +41,7 @@ items:
     - name: Utilisation de Stockage Azure
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Utilisation d’Azure Data Lake Store
+    - name: Utilisation d’Azure Data Lake Storage
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: Utiliser les outils HDInsight
@@ -190,7 +190,7 @@ items:
     - name: Charger des données pour des travaux Apache Hadoop
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: Plusieurs clusters HDInsight avec Data Lake Store
+    - name: Plusieurs clusters HDInsight avec Data Lake Storage
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: Importer et exporter des données avec Apache Sqoop
@@ -337,9 +337,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: fdf844f959d7832214795155c3af5c0cf3ec6a25
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f9bf9d14d0a4124dd19dd76777226c0976ffc84d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495813"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601353"

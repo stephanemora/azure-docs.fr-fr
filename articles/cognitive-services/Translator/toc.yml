@@ -105,7 +105,7 @@ items:
         href: quickstart-python-sentences.md
       - name: Ruby, REST
         href: quickstart-ruby-sentences.md
-  - name: Didacticiels
+  - name: Tutoriels
     items:
     - name: Créer une application WPF pour l’API de traduction de texte Translator Text
       href: tutorial-wpf-translation-csharp.md
@@ -138,9 +138,9 @@ items:
       items:
       - name: Langues
         href: reference/v3-0-languages.md
-      - name: Translate
+      - name: Traduire
         href: reference/v3-0-translate.md
-      - name: Transliterate
+      - name: Translittérer
         href: reference/v3-0-transliterate.md
       - name: Détection
         href: reference/v3-0-detect.md
@@ -175,7 +175,7 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Limites de requête
       href: request-limits.md
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice
       href: https://cognitive.uservoice.com/forums/558796-translator
@@ -201,6 +201,8 @@ items:
       href: custom-translator/document-formats-naming-convention.md
     - name: Alignement de phrase
       href: custom-translator/sentence-alignment.md
+    - name: Filtrage de données
+      href: custom-translator/data-filtering.md
     - name: Formation et modèle
       href: custom-translator/training-and-model.md
     - name: Score BLEU
@@ -235,13 +237,13 @@ items:
       href: custom-translator/faq.md
     - name: Tarifs
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-    - name: Dépassement de capacité de la pile
+    - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice
       href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
-ms.openlocfilehash: 4a1d51ba49f50ba5450a725e530a490f32b4acf4
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 7f4e3db91030f42e6b7f08a5709cdc262a00c1bc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678404"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598853"
