@@ -66,7 +66,7 @@ Dans notre cas, nous définissons ces balises personnalisées (**célébrité**,
 > [!NOTE]
 > Le didacticiel est conçu pour utiliser des clés d’abonnement dans les régions visibles dans les points de terminaison suivants. Veuillez à faire correspondre vos clés API avec la région Uris, autrement vos clés risquent de ne pas fonctionner avec les points de terminaison suivants :
 
-         // Your API keys
+        // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -128,11 +128,11 @@ Dans notre cas, nous définissons ces balises personnalisées (**célébrité**,
 4. Pour vous connecter, choisissez un des comptes dans la liste des comptes Internet disponibles.
 5. Notez les clés API affichées sur la page de votre service.
     
-   ![Clés API Vision par ordinateur](images/tutorial-computer-vision-keys.PNG)
+    ![Clés API Vision par ordinateur](images/tutorial-computer-vision-keys.PNG)
     
 6. Consultez le code source du projet de la fonction qui analyse l’image avec l’API Vision par ordinateur.
 
-         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
+        public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
         {
             var File = ImageUrl;
             string Body = $"{{\"URL\":\"{File}\"}}";
@@ -149,7 +149,7 @@ Dans notre cas, nous définissons ces balises personnalisées (**célébrité**,
                 ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
 
                 if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {                 
+                {
                     ReviewTags[2].Value = "true";
                 }
             }
@@ -161,7 +161,7 @@ Dans notre cas, nous définissons ces balises personnalisées (**célébrité**,
 
 1. [Connectez-vous](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) à la [préversion de l’API Vision personnalisée](https://www.customvision.ai/).
 2. Utilisez le [guide de démarrage rapide](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) pour créer un classifieur personnalisé afin de détecter la présence potentielle de signes, jouets et stylos.
-   ![Image de formation Vision personnalisée](images/tutorial-ecommerce-custom-vision.PNG)
+    ![Image de formation Vision personnalisée](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Obtenez l’URL du point de terminaison de prédiction](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) de votre classifieur personnalisé.
 4. Consultez le code source du projet pour voir la fonction qui appelle le point de terminaison de prédiction de votre classifieur personnalisé afin d’analyser votre image.
 
@@ -179,13 +179,15 @@ Dans notre cas, nous définissons ces balises personnalisées (**célébrité**,
                 SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
             }
             return response.IsSuccessStatusCode;
-        }       
+        }
  
 ## <a name="reviews-for-human-in-the-loop"></a>Révision pour opérateur humain
 
 1. Dans les sections précédentes, vous avez analysé les images entrantes à la recherche de contenus pour adultes et osé (Content Moderator), sur des célébrités (Vision par ordinateur) et signes (Vision personnalisée).
 2. Selon nos seuils de correspondance pour chaque analyse, réalisez des études nuancées disponibles pour une révision par un opérateur humain dans l’outil de révision.
-        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
+
+        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata)
+        {
 
             ReviewCreationRequest Review = new ReviewCreationRequest();
             Review.Item[0] = new ReviewItem();
@@ -207,7 +209,10 @@ Dans notre cas, nous définissons ces balises personnalisées (**célébrité**,
 
 1. Ce didacticiel se base sur un répertoire « C:Test » avec un fichier texte disposant d’une liste d’URL d’images.
 2. Le code suivant vérifie l’existence du fichier et lit toutes les URL dans la mémoire.
-            // Check for a test directory for a text file with the list of Image URLs to scan var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
+
+            // Check for a test directory for a text file with the list of Image URLs to scan
+            var topdir = @"C:\test\";
+            var Urlsfile = topdir + "Urls.txt";
 
             if (!Directory.Exists(topdir))
                 return;
@@ -224,7 +229,12 @@ Dans notre cas, nous définissons ces balises personnalisées (**célébrité**,
 
 1. Cette fonction de niveau supérieur fait le tour de toutes les URL d’images dans le fichier texte dont nous parlions plus tôt.
 2. Elle les analyse avec chaque API et si le score de fiabilité correspondance entre dans nos critères, elle crée une révision pour les modérateurs humains.
-             // for each image URL in the file... foreach (var Url in Urls) { // Initiatize a new review tags array ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
+
+            // for each image URL in the file...
+            foreach (var Url in Urls)
+            {
+                // Initiatize a new review tags array
+                ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
 
                 // Evaluate for potential adult and racy content with Content Moderator API
                 EvaluateAdultRacy(Url, ref ReviewTags);
@@ -249,4 +259,4 @@ Les développeurs qui utilisent Cognitive Services, notamment cette bibliothèqu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Création et extension du didacticiel en utilisant les [fichiers source du projet](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) sur Github.
+Création et extension du didacticiel en utilisant les [fichiers source du projet](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) sur GitHub.
