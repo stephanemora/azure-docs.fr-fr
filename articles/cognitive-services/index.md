@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 1d82809a4ed88ee5f84b812955e6979df2ae6070
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5477b1b3dc14a94713074a72751b732262880258
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322071"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650963"
 ---
 <h1>Documentation Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Découvrez comment générer des algorithmes intelligents dans vos applications, sites web et bots pour voir, écouter, énoncer, et comprendre les besoins de vos utilisateurs au moyen de méthodes naturelles de communication. Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.</p>
@@ -297,8 +297,8 @@ ms.locfileid: "53322071"
                     <div class="cardText">
                         <h3>API Vision</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Vision par ordinateur</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/overview">Content Moderator</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/home"><span>Service Vision personnalisée&nbsp;<sup style="font-size:70%">PRÉVERSION</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Service Vision personnalisée&nbsp;<sup style="font-size:70%">PRÉVERSION</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/face/">API Visage</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                         <p><a href="/azure/cognitive-services/emotion/home"><span>API Émotion&nbsp;<sup style="font-size:70%">RETRAIT</sup></span></a></p>

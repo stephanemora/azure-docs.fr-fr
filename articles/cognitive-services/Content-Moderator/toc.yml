@@ -1,9 +1,11 @@
 items:
 - name: Documentation de Content Moderator
+  href: index.yml
 - name: Vue d’ensemble
   items:
   - name: Qu’est-ce que Content Moderator ?
     href: overview.md
+    expanded: true
 - name: Démarrages rapides
   items:
   - name: Prise en main
@@ -20,7 +22,7 @@ items:
       items:
       - name: Analyser le contenu d’un texte
         href: text-moderation-quickstart-python.md
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: Modérer les images d’e-commerce
     href: ecommerce-retail-catalog-moderation.md
@@ -146,15 +148,15 @@ items:
     href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
   - name: Support multilingue
     href: language-support.md
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: 15d3fb94c30783cd6a620b9c53ed2e31369e5d00
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7b2d77cd0cef0146fd5eefb0c43b3489aa0f1b2b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540338"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654051"

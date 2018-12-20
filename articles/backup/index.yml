@@ -1,24 +1,24 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: ea96f7e3928e29f7d9c80d9d44b245953d102b04
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652419"
 documentType: LandingData
 title: Documentation Sauvegarde Azure
 metadata:
   title: Documentation Sauvegarde Azure - Didacticiels, informations de référence sur les API | Microsoft Docs
   description: La Sauvegarde Microsoft Azure permet de sauvegarder les données pour des serveurs locaux, des machines virtuelles, des charges de travail virtualisées, un serveur SQL, un serveur SharePoint, et bien plus encore. Découvrez comment sauvegarder et restaurer vos données avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
   services: backup
-  author: markgalioto
+  author: rayne-wiselman
   manager: carmonm
   ms.service: backup
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/22/2018
-  ms.author: markgal
-  ms.openlocfilehash: b2907330477c62cce2ee5e9498cc4445580161a2
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34606849"
+  ms.author: raynew
 abstract:
   description: Utilisez la Sauvegarde Microsoft Azure pour protéger les données pour des serveurs locaux, des machines virtuelles, des charges de travail virtualisées, un serveur SQL, un serveur SharePoint, et bien plus encore. Découvrez comment sauvegarder et restaurer vos données avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
 sections:
@@ -69,7 +69,7 @@ sections:
     className: cardsD
     items:
     - title: Ligne de commande
-      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">interface de ligne de commande Azure</a></p>
+      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Interface de ligne de commande Azure</a></p>
     - title: Langues
       html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
     - title: REST
