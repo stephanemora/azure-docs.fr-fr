@@ -1,14 +1,11 @@
 ---
-title: 'Tutoriel : Créer un équilibreur de charge interne de base à l’aide du portail Azure | Microsoft Docs'
+title: 'Tutoriel : Créer un équilibreur de charge interne - Portail Azure'
+titlesuffix: Azure Load Balancer
 description: Ce tutoriel vous montre comment créer un équilibreur de charge interne de base à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 9ccbbb107dfd8fde237cdfdd4b0c3fcc080fd70e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839243"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262348"
 ---
-# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge de base dans le portail Azure
+# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge de base sur le portail Azure
 
 L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les requêtes entrantes sur des machines virtuelles. Vous pouvez utiliser le portail Azure pour créer un équilibreur de charge de base et équilibrer le trafic interne entre des machines virtuelles. Ce tutoriel vous montre comment créer et configurer un équilibreur de charge interne, des serveurs back-end et des ressources réseau au niveau tarifaire De Base.
 
@@ -44,9 +41,9 @@ Créez d’abord un réseau virtuel. Dans le réseau virtuel, créez deux machin
    
 1. Dans le volet **Créer un réseau virtuel**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : tapez *MyVNet*.
+   - **Nom** : entrez *MyVNet*.
    - **Groupe de ressources** : sélectionnez **Créer**, entrez *MyResourceGroupLB*, puis sélectionnez **OK**. 
-   - **Sous-réseau** > **Nom** : tapez *MyBackendSubnet*.
+   - **Subnet** > **Name** : entrez *MyBackendSubnet*.
    
 1. Sélectionnez **Créer**.
 
@@ -57,16 +54,13 @@ Créez d’abord un réseau virtuel. Dans le réseau virtuel, créez deux machin
 1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Calcul** > **Windows Server 2016 Datacenter**. 
    
 1. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs suivantes sous l’onglet **De base** :
-   - **Abonnement** > **Groupe de ressources** : faites défiler la liste déroulante vers le bas, puis sélectionnez **MyResourceGroupLB**.
-   - **Détails de l’instance** > **Nom de la machine virtuelle** : tapez *MyVM1*.
+   - **Subscription** > **Resource Group** : faites défiler la liste et sélectionnez **MyResourceGroupLB**.
+   - **Détails de l’instance** > **Nom de la machine virtuelle** : entrez *MyVM1*.
    - **Détails de l’instance** > **Options de disponibilité** : 
-     1. faites défiler la liste déroulante vers le bas, puis sélectionnez **Groupe à haute disponibilité**. 
+     1. Faites défiler la liste déroulante vers le bas, puis sélectionnez **Groupe à haute disponibilité**. 
      2. Sélectionnez **Créer**, tapez *MyAvailabilitySet*, puis sélectionnez **OK**.
-   - **Compte d’administrateur** > **Nom d’utilisateur** : tapez *azureuser*.
-   - **Compte d’administrateur** > **Mot de passe** : tapez *Azure1234567*. 
-     Retapez le mot de passe dans le champ **Confirmer le mot de passe**.
    
-1. Sélectionnez l’onglet **Mise en réseau**, ou sélectionnez **Suivant : Disques**, puis **Suivant : Mise en réseau**. 
+1. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**. 
    
    Vérifiez que les éléments suivants sont sélectionnés :
    - **Réseau virtuel** : **MyVNet**
@@ -94,14 +88,14 @@ Créez un équilibreur de charge interne de base à l’aide du portail. Le nom 
    
 1. Dans le volet **Créer un équilibreur de charge**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : tapez *MyLoadBalancer*.
+   - **Nom** : entrez *MyLoadBalancer*.
    - **Type** : sélectionnez **Interne**. 
-   - **Référence (SKU)**  : sélectionnez **De base**.
-   - **Réseau virtuel** : sélectionnez **Choisir un réseau virtuel**, puis sélectionnez **MyVNet**.
-   - **Sous-réseau** : sélectionnez **Choisir un sous-réseau**, puis sélectionnez **MyBackendSubnet**.
-   - **Affectation d’adresses IP** : sélectionnez l’option **Statique** si elle n’est pas sélectionnée.
-   - **Adresse IP privée** : tapez une adresse qui se trouve dans l’espace d’adressage de votre réseau virtuel et votre sous-réseau, par exemple, *10.3.0.7*.
-   - **Groupe de ressources** : faites défiler la liste déroulante **Sélectionner** vers le bas, puis sélectionnez **MyResourceGroupLB**. 
+   - **SKU** : Sélectionnez **De base**.
+   - **Réseau virtuel** : sélectionnez **Choisir un réseau virtuel**, puis **MyVNet**.
+   - **Sous-réseau** : sélectionnez **Choisir un sous-réseau**, puis **MyBackendSubnet**.
+   - **Affectation d'adresses IP** : sélectionnez **Statique**.
+   - **Adresse IP privée** : entrez une adresse qui se trouve dans l'espace d'adressage de votre réseau virtuel et de votre sous-réseau, par exemple *10.3.0.7*.
+   - **Groupe de ressources** : faites défiler la liste déroulante **Sélectionner** et choisissez **MyResourceGroupLB**. 
    
 1. Sélectionnez **Créer**.
    
@@ -123,8 +117,8 @@ Pour répartir le trafic entre les machines virtuelles, l’équilibreur de char
    
 1. Dans la page **Ajouter un pool de backends**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : tapez *MyBackEndPool*.
-   - **Associé à** : faites défiler la liste déroulante vers le bas, puis sélectionnez **Groupe à haute disponibilité**.
+   - **Nom** : entrez *MyBackendPool*.
+   - **Associé à** : Faites défiler la liste déroulante vers le bas, puis sélectionnez **Groupe à haute disponibilité**.
    - **Groupe à haute disponibilité** : sélectionnez **MyAvailabilitySet**.
    
 1. Sélectionnez **Ajouter une configuration IP de réseau cible**. 
@@ -152,12 +146,12 @@ Pour permettre à l’équilibreur de charge de superviser l’état d’une mac
    
 1. Dans la page **Ajouter une sonde d’intégrité**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : tapez *MyHealthProbe*.
-   - **Protocole** : faites défiler la liste déroulante vers le bas, puis sélectionnez **HTTP**. 
-   - **Port**: tapez *80*. 
+   - **Nom** : entrez *MyHealthProbe*.
+   - **Protocole** : faites défiler la liste déroulante et sélectionnez **HTTP**. 
+   - **Port** : entrez *80*. 
    - **Chemin** : acceptez */* comme URI par défaut. Vous pouvez remplacer cette valeur avec n’importe quel autre URI. 
-   - **Intervalle** : tapez *15*. L’intervalle est le nombre de secondes entre les tentatives de la sonde.
-   - **Seuil de défaillance sur le plan de l’intégrité** : tapez *2*. Cette valeur est le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
+   - **Intervalle** : entrez *15*. L’intervalle est le nombre de secondes entre les tentatives de la sonde.
+   - **Seuil de défaillance sur le plan de l'intégrité** : entrez *2*. Cette valeur est le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
    
 1. Sélectionnez **OK**.
    
@@ -165,7 +159,7 @@ Pour permettre à l’équilibreur de charge de superviser l’état d’une mac
 
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
-Une règle d’équilibreur de charge définit la distribution du trafic vers les machines virtuelles. La règle définit la configuration IP front-end pour le trafic entrant, le pool d’adresses IP front-end pour recevoir le trafic, ainsi que les ports source et de destination nécessaires. 
+Une règle d’équilibreur de charge définit la distribution du trafic vers les machines virtuelles. La règle définit la configuration IP front-end pour le trafic entrant, le pool d’adresses IP front-end pour recevoir le trafic ainsi que les ports source et de destination nécessaires. 
 
 La règle d’équilibreur de charge nommée **MyLoadBalancerRule** écoute sur le port 80 dans le front-end **LoadBalancerFrontEnd**. La règle envoie le trafic réseau au pool d’adresses front-end **MyBackEndPool**, ainsi que sur le port 80. 
 
@@ -177,12 +171,12 @@ La règle d’équilibreur de charge nommée **MyLoadBalancerRule** écoute sur 
    
 1. Dans la page **Ajouter une règle d’équilibrage de charge**, tapez ou sélectionnez les valeurs suivantes (si elles ne sont pas déjà présentes) :
    
-   - **Nom** : tapez *MyLoadBalancerRule*.
-   - **Adresse IP du serveur front-end** : tapez *LoadBalancerFrontEnd* si absent.
+   - **Nom** : entrez *MyLoadBalancerRule*.
+   - **Adresse IP du serveur front-end :** entrez *LoadBalancerFrontEnd* si absent.
    - **Protocole** : sélectionnez **TCP**.
-   - **Port**: tapez *80*.
-   - **Port back-end** : tapez *80*.
-   - **Pool back-end** : sélectionnez **MyBackendPool**.
+   - **Port** : entrez *80*.
+   - **Port principal** : entrez *80*.
+   - **Pool principal** : sélectionnez **MyBackendPool**.
    - **Sonde d’intégrité** : sélectionnez **MyHealthProbe**. 
    
 1. Sélectionnez **OK**.
@@ -212,7 +206,7 @@ Tout d’abord, connectez-vous aux trois machines virtuelles avec le Bureau à d
    
 1. Dans l’écran Sécurité Windows, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. 
    
-   Entrez le nom d’utilisateur *azureuser* et le mot de passe *Azure1234567*, puis sélectionnez **OK**.
+   Entrez votre nom d'utilisateur et votre mot de passe, puis sélectionnez **OK**.
    
 1. Répondez **Oui** à toute invite de certificat. 
    

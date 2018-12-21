@@ -1,5 +1,5 @@
 ---
-title: Déployer Azure Machine Learning avec Azure IoT Edge | Microsoft Docs
+title: Tutoriel sur le déploiement d’Azure Machine Learning sur un appareil - Azure IoT Edge | Microsoft Docs
 description: Dans ce didacticiel, vous déployez Azure Machine Learning en tant que module sur un appareil Edge
 author: kgremban
 manager: philmea
@@ -8,15 +8,15 @@ ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: c98dc9019421133b83ab9aec29f725852315f6ba
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: mvc, seodec18
+ms.openlocfilehash: db8318e94b646d57c00bc2e6958ba9e7f46ec7af
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977203"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344012"
 ---
-# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
+# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutoriel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
 
 Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide tout au long du déploiement d’un module Azure Machine Learning qui prédit l’échec d’un appareil à partir des données de température de machine simulée. Pour plus d’informations sur Azure ML sur IoT Edge, consultez la [documentation Azure Machine Learning](../machine-learning/service/how-to-deploy-to-iot.md).
 
@@ -115,7 +115,7 @@ Vérifiez que votre image de conteneur a bien été créée et stockée dans le 
 
 1. Dans la section **Paramètres du registre**, ajoutez les informations d’identification que vous avez copiées à partir de votre registre de conteneurs Azure. 
 
-   ![Ajouter les informations d’identification du registre](./media/tutorial-deploy-machine-learning/registry-settings.png)
+   ![Ajouter des informations d’identification de registre au manifeste](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
 1. Si vous avez déjà déployé le module tempSensor sur votre appareil IoT Edge, il est possible qu’il se remplisse automatiquement. S’il ne figure pas encore dans la liste des modules, ajoutez-le.
 
@@ -174,7 +174,7 @@ Si vous exécutez ces commandes sur un appareil Linux, vous devez peut-être uti
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>Afficher les données reçues par votre hub IoT
 
-Vous pouvez afficher les messages appareil-cloud reçus par votre hub IoT à l’aide de [l’extension du kit de ressources Azure IoT pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+Vous pouvez afficher les messages appareil-à-cloud reçus par votre hub IoT à l’aide de [l’extension Azure IoT Hub Toolkit pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anciennement l’extension Azure IoT Toolkit).
 
 Les étapes suivantes montrent comment configurer Visual Studio Code pour surveiller les messages appareil-à-cloud reçus par votre hub IoT. 
 
@@ -182,7 +182,7 @@ Les étapes suivantes montrent comment configurer Visual Studio Code pour survei
 
 2. Sélectionnez **...**, puis **Définir la chaîne de connexion IoT Hub** dans le menu.
 
-   ![Menu plus Appareils IoT Hub](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![Définir la chaîne de connexion IoT Hub](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. Dans la zone de texte qui s’ouvre en haut de la page, entrez la chaîne de connexion iothubowner de votre hub IoT. Votre appareil IoT Edge devrait apparaître dans la liste Appareils IoT Hub.
 

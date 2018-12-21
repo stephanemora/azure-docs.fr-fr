@@ -4,15 +4,15 @@ description: Décrit comment découvrir et évaluer des machines virtuelles VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847981"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257809"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -30,17 +30,17 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **VMware** : les machines virtuelles à migrer doivent être gérées par un vCenter Server exécutant la version 5.5, 6.0 ou 6.5. De plus, vous avez besoin d'un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur.
-- **Compte de serveur vCenter** : vous avez besoin d'un compte en lecture seule pour accéder au serveur vCenter. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
-- **Autorisations** : sur le serveur vCenter, vous devez disposer des autorisations nécessaires pour créer une machine virtuelle en important un fichier au format .OVA.
+- **VMware** : les machines virtuelles à migrer doivent être gérées par un vCenter Server exécutant la version 5.5, 6.0 ou 6.5. De plus, vous avez besoin d'un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur.
+- **Compte de serveur vCenter** : vous avez besoin d’un compte en lecture seule pour accéder au serveur vCenter. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
+- **Autorisations** : sur le serveur vCenter, vous devez disposer des autorisations nécessaires pour créer une machine virtuelle en important un fichier au format .OVA.
 
 ## <a name="create-an-account-for-vm-discovery"></a>Créer un compte pour la découverte de machine virtuelle
 
 Azure Migrate doit accéder à des serveurs VMware pour découvrir automatiquement les machines virtuelles à évaluer. Créez un compte VMware avec les propriétés suivantes. Vous devez spécifier ce compte pendant la configuration d’Azure Migrate.
 
-- Type d’utilisateur : au moins un utilisateur en lecture seule
-- Autorisations : objet de centre de données > Propager vers l’objet enfant, rôle = lecture seule
-- Détails : l’utilisateur est affecté au niveau du centre de données et a accès à tous les objets du centre de données.
+- Type d’utilisateur : Au moins un utilisateur en lecture seule
+- Autorisations : Objet de centre de données -> Propager vers l’objet enfant, rôle = lecture seule
+- Détails : L’utilisateur est affecté au niveau du centre de données et a accès à tous les objets dans le centre de données.
 - Pour restreindre l’accès, attribuez le rôle Aucun accès avec l’objet Propager vers l’objet enfant défini sur les objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
 
 
@@ -54,9 +54,14 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Recherchez **Azure Migrate**, puis sélectionnez le service **Azure Migrate** dans les résultats de la recherche. Cliquez ensuite sur **Créer**.
 3. Spécifiez un nom de projet et l’abonnement Azure pour le projet.
 4. Créez un groupe de ressources.
-5. Spécifiez la zone géographique dans laquelle vous souhaitez créer le projet, puis cliquez sur **Créer**. Vous ne pouvez créer un projet Azure Migrate que dans la zone géographique États-Unis. Toutefois, vous pouvez toujours planifier votre migration pour n'importe quel emplacement Azure cible. La zone géographique spécifiée pour le projet est utilisée uniquement pour stocker les métadonnées collectées à partir des machines virtuelles locales.
+5. Spécifiez la zone géographique dans laquelle vous souhaitez créer le projet, puis cliquez sur **Créer**. Vous pouvez créer un projet Azure Migrate uniquement dans les zones géographiques suivantes. Toutefois, vous pouvez toujours planifier votre migration pour n'importe quel emplacement Azure cible. La zone géographique spécifiée pour le projet est utilisée uniquement pour stocker les métadonnées collectées à partir des machines virtuelles locales.
 
-    ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
+**Zone géographique** | **Emplacement de stockage**
+--- | ---
+États-Unis | USA Centre-Ouest ou USA Est
+Azure Government | Gouvernement américain - Virginie
+
+![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
 
 ## <a name="download-the-collector-appliance"></a>Télécharger l’appliance collecteur
@@ -71,13 +76,13 @@ Azure Migrate crée une machine virtuelle locale connue en tant qu’appliance c
     > [!NOTE]
     > L’appliance de découverte unique est désormais dépréciée, car son utilisation dépend des paramètres de statistiques vCenter Server concernant la disponibilité des points de données de performances, et nécessite la collecte des données de compteurs de performance moyenne, ce qui a comme résultat d’attribuer une taille insuffisante aux machines virtuelles pour la migration vers Azure.
 
-    **Résultats instantanés :** avec l’application de découverte continue, une fois la découverte terminée (au bout de deux heures environ, selon le nombre de machines virtuelles), vous pouvez créer immédiatement des évaluations. Étant donné que la collecte des données de performances démarre lorsque vous lancez la découverte, si vous voulez obtenir des résultats instantanément, vous devez sélectionner le critère de dimensionnement *Localement* dans l’évaluation. Pour les évaluations de performances, il est conseillé d’attendre au moins un jour après le lancement de la découverte afin d’obtenir des recommandations de taille fiables.
+    **Résultats instantanés :** avec l’application de découverte continue, une fois la découverte terminée (au bout de deux heures environ, en fonction du nombre de machines virtuelles), vous pouvez créer immédiatement des évaluations. Étant donné que la collecte des données de performances démarre lorsque vous lancez la découverte, si vous voulez obtenir des résultats instantanément, vous devez sélectionner le critère de dimensionnement *Localement* dans l’évaluation. Pour les évaluations de performances, il est conseillé d’attendre au moins un jour après le lancement de la découverte afin d’obtenir des recommandations de taille fiables.
 
     L’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
 
-    - Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance et puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
+    - Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance, puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
 
-    - Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
+    - Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas, même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
 
 
 3. Dans **Copier les informations d’identification du projet**, copiez l’ID de projet et la clé. Vous en aurez besoin pour la configuration du collecteur.
@@ -95,6 +100,14 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
 
 #### <a name="continuous-discovery"></a>Détection continue
+
+  Pour OVA version 1.0.10.9
+
+  **Algorithme** | **Valeur de hachage**
+  --- | ---
+  MD5 | 169f6449cc1955f1514059a4c30d138b
+  SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
+  SHA256 | d68fe7d94be3127eb35dd80fc5ebc60434c8571dcd0e114b87587f24d6b4ee4d
 
   Pour OVA version 1.0.10.4
 
@@ -156,12 +169,13 @@ Importez le fichier téléchargé sur le serveur vCenter.
 3. Sur le bureau, cliquez sur le raccourci **Run collector** (Exécuter le collecteur).
 4. Cliquez sur **Vérifier les mises à jour** dans la barre supérieure de l’interface utilisateur du collecteur et vérifiez que le collecteur est exécuté sur la version la plus récente. Si ce n’est pas le cas, vous pouvez choisir de télécharger le dernier package de mise à niveau à partir du lien et mettre à jour le collecteur.
 5. Dans Azure Migrate Collector, ouvrez **Set Up Prerequisites** (Configurer les prérequis).
+    - Sélectionnez le cloud Azure vers lequel vous prévoyez de migrer (Azure Global ou Azure Government).
     - Acceptez les termes de licence et lisez les informations relatives aux tiers.
     - Le collecteur vérifie que la machine virtuelle a accès à Internet.
-    - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) sur les exigences de connectivité Internet et la liste des URL auxquelles le collecteur accède.
+    - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification. [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sur les conditions de connectivité Internet et la [liste des URL](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) auxquelles le collecteur accède.
 
-    > [!NOTE]
-    > L’adresse proxy doit être saisie dans le formulaire http://ProxyIPAddress ou http://ProxyFQDN. Seuls les proxys HTTP sont pris en charge. Si vous disposez d’un proxy d’interception, il est possible que la connexion Internet échoue à l’origine si vous n’avez pas importé le certificat de proxy ; [apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sur la manière dont vous pouvez résoudre ce problème en important le certificat de proxy en tant que certificat approuvé sur la machine virtuelle collector.
+      > [!NOTE]
+      > L’adresse proxy doit être saisie dans le formulaire http://ProxyIPAddress ou http://ProxyFQDN. Seuls les proxys HTTP sont pris en charge. Si vous disposez d’un proxy d’interception, il est possible que la connexion Internet échoue à l’origine si vous n’avez pas importé le certificat de proxy ; [apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sur la manière dont vous pouvez résoudre ce problème en important le certificat de proxy en tant que certificat approuvé sur la machine virtuelle collector.
 
     - Le collecteur vérifie que le service Collector est en cours d’exécution. Le service est installé par défaut sur la machine virtuelle collector.
     - Téléchargez et installez VMware PowerCLI.

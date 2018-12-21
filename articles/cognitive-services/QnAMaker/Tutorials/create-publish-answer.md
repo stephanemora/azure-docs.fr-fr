@@ -1,23 +1,24 @@
 ---
-title: 'Didacticiel : Créer et publier une base de connaissances, et répondre à une question à partir de celle-ci – REST, C# -QnA Maker'
-titleSuffix: Azure Cognitive Services
+title: Créez, publiez, répondez
+titleSuffix: QnA Maker - Azure Cognitive Services
 description: Ce didacticiel basé sur REST vous aide à créer et publier par programmation une base de connaissances, puis à répondre à une question à partir de la base de connaissances.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 013b74165afe6eafee337bd00ca88b1034ad5662
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: dd5bc95be3959e7af5911d8a765791718680581a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299558"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162934"
 ---
-# <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Didacticiel : À l’aide de C#, créer une base de connaissances puis répondre à une question
+# <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Didacticiel : Créer une base de connaissances puis répondre à une question à l’aide de C#
 
 Ce didacticiel vous aide à créer et publier par programmation une base de connaissances (KB), puis à répondre à une question d’un client à partir de celle-ci. 
 
@@ -43,7 +44,7 @@ Ce démarrage rapide fait appel aux API QnA Maker :
 * Vous devez disposer d’un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Pour récupérer votre clé, sélectionnez **Clés** sous **Gestion des ressources** dans votre tableau de bord. 
 
 > [!NOTE] 
-> Les fichiers solution complets sont disponibles dans le dépôt Github [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> Les fichiers solution complets sont disponibles dans le dépôt GitHub [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="create-a-knowledge-base-project"></a>Créer un projet de base de connaissances
 

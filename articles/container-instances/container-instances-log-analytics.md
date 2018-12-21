@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614002"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337884"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Journalisation d’instance de conteneur avec Azure Log Analytics
 
@@ -24,7 +24,7 @@ Pour envoyer des données d’instance de conteneur à Log Analytics, vous devez
 
 Pour activer la journalisation dans vos instances de conteneur, vous avez besoin des éléments suivants :
 
-* [Espace de travail Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli) (ou [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Obtenir les informations d’identification de Log Analytics
@@ -44,7 +44,7 @@ Pour obtenir l’ID et la clé primaire de l’espace de travail Log Analytics :
 
 Maintenant que vous disposez de l’ID d’espace de travail Log Analytics et de la clé primaire, vous êtes prêt à créer un groupe de conteneurs dans lequel la journalisation est activée.
 
-Les exemples suivants illustrent deux façons de créer un groupe de conteneurs avec un seul conteneur [fluentd][fluentd] : Azure CLI et Azure CLI avec un modèle YAML. Le conteneur Fluentd produit plusieurs lignes de sortie dans sa configuration par défaut. Cette sortie étant envoyée à votre espace de travail Log Analytics, elle convient parfaitement à l’affichage et à l’interrogation des journaux.
+Les exemples suivants illustrent deux façons de créer un groupe de conteneurs avec un seul conteneur [fluentd][fluentd] : Azure CLI et Azure CLI avec un modèle YAML. Le conteneur Fluentd produit plusieurs lignes de sortie dans sa configuration par défaut. Cette sortie étant envoyée à votre espace de travail Log Analytics, elle convient parfaitement à l’affichage et à l’interrogation des journaux.
 
 ### <a name="deploy-with-azure-cli"></a>Déploiement avec l’interface de ligne de commande Azure
 
@@ -135,7 +135,7 @@ ContainerInstanceLog_CL
 Pour plus d’informations sur l’interrogation des journaux et la configuration d’alertes dans Azure Log Analytics, consultez :
 
 * [Présentation des recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-search.md)
-* [Alertes unifiées dans Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+* [Alertes unifiées dans Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Surveiller le processeur et la mémoire du conteneur

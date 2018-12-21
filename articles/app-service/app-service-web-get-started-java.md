@@ -1,5 +1,5 @@
 ---
-title: Créer votre première application web Java dans Azure
+title: Créer une application web Java - Azure App Service
 description: Découvrez comment exécuter des applications web dans App Service en déployant une application Java de base.
 services: app-service\web
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.custom: seodec18
+ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283926"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253154"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Créer votre première application web Java dans Azure
 
-[Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce guide de démarrage rapide indique comment déployer une application web Java dans App Service à l’aide de [l’environnement de développement intégré (IDE) Eclipse pour développeurs Java EE](http://www.eclipse.org/).
+[Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce guide de démarrage rapide indique comment déployer une application web Java dans App Service à l’aide de [l’environnement de développement intégré (IDE) Eclipse pour développeurs Java EE](https://www.eclipse.org/).
 
 > [!NOTE]
 >
@@ -39,10 +39,9 @@ ms.locfileid: "30283926"
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour effectuer ce démarrage rapide, installez les éléments suivants :
 
-* <a href="http://www.eclipse.org/downloads/" target="_blank">L’Environnement de développement intégré Eclipse pour développeurs Java EE</a>. Ce démarrage rapide utilise Eclipse Neon.
+* <a href="https://www.eclipse.org/downloads/" target="_blank">L’Environnement de développement intégré Eclipse pour développeurs Java EE</a>. Ce démarrage rapide utilise Eclipse Neon.
 * Le <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">kit de ressources Azure pour Eclipse</a>.
 
 > [!NOTE]
@@ -122,9 +121,9 @@ Dans la boîte de dialogue **Créer App Service** :
 * Sélectionnez un abonnement Azure.
 * Dans l’onglet **Plan App Service** :
 
-  * **Créer un nouveau** : conservez la valeur par défaut, qui correspond au nom du plan App Service.
-  * **Emplacement** : sélectionnez **Europe de l’Ouest** ou un emplacement près de chez vous.
-  * **Niveau tarifaire** : sélectionnez l’option de tarification gratuite. Pour plus d’informations sur les fonctionnalités, consultez la page [Tarification de App Service](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+  * **Créer** : conservez la valeur par défaut, qui correspond au nom du plan App Service.
+  * **Emplacement** : sélectionnez **Europe Ouest** ou un emplacement près de chez vous.
+  * **Niveau tarifaire** : sélectionnez l’option Gratuit. Pour plus d’informations sur les fonctionnalités, consultez la page [Tarification de App Service](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
    ![Boîte de dialogue Créer App Service](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
@@ -166,7 +165,7 @@ Une fois la publication terminée, sélectionnez le lien **Publié** dans la bo�
 
 ![Boîte de dialogue Journal d’activité Azure](./media/app-service-web-get-started-java/aal.png)
 
-Félicitations ! Vous avez correctement déployé votre application web dans Azure. 
+Félicitations ! Vous avez correctement déployé votre application web dans Azure. 
 
 ![« Hello Azure ! » Exemple d’application web](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

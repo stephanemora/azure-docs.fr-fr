@@ -1,21 +1,21 @@
 ---
 title: Inscrire votre contrat Entreprise Azure auprès de Cloudyn | Microsoft Docs
-description: Utilisez votre contrat Entreprise pour l’inscrire auprès de Cloudyn.
+description: Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
-ms.custom: ''
+ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 7a3ed93814407df8f3adfe7d16ba50258fcb323e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273561"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082326"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Inscrire un Accord Entreprise Azure et afficher les données de coût
 
@@ -25,22 +25,22 @@ Azure Cost Management offre des fonctionnalités similaires à Cloudyn. Azure Co
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-- Connectez-vous au portail Azure sur http://portal.azure.com.
+- Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="register-with-cloudyn"></a>S’inscrire à Cloudyn
 
 1. Dans le portail Azure, cliquez sur **Gestion des coûts + Facturation** dans la liste des services.
 2. Sous **Vue d’ensemble**, cliquez sur **Cloudyn**  
-    ![Page de Cloudyn](./media/quick-register-ea/cost-mgt-billing-service.png)
+    ![Page Cloudyn affichée dans le portail Azure](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. Dans la page **Cloudyn**, cliquez sur **Accéder à Cloudyn** pour ouvrir la page d’inscription de Cloudyn dans une nouvelle fenêtre.
 4. Sur la page d’inscription à une évaluation du portail Cloudyn, tapez le nom de votre société, sélectionnez **Azure Individual Subscription Owner** (Propriétaire d’abonnement individuel Azure).  
-    ![inscription à une évaluation](./media/quick-register-ea/trial-reg.png)
-5. Entrez votre clé d’API d’inscription au portail d’entreprise. Si vous n’avez pas votre clé, cliquez sur le [Enterprise Portal](https://ea.azure.com) lier et procédez comme suit :
+5. Entrez votre clé d’API d’inscription au portail d’entreprise. Si vous n’avez pas votre clé, cliquez sur le [Enterprise Portal](https://ea.azure.com) lier et procédez comme suit :  
+    ![Coller votre clé API sous l’onglet Facturation](./media/quick-register-ea/trial-reg.png)
   1. Connectez-vous au site web Azure Enterprise, cliquez sur **Rapports**, sur **Clé d’accès API**, puis copiez votre clé primaire.  
-    ![Clé API EA](./media/quick-register-ea/ea-key.png)
+    ![Exemple de clé API EA dans le portail EA](./media/quick-register-ea/ea-key.png)
   3. Revenez à la page d’inscription et collez votre clé API.
 6. Acceptez les conditions d’utilisation, puis validez votre clé. Cliquez sur **Next** (Suivant) pour autoriser Cloudyn à collecter des données de ressource Azure. Les données collectées incluent les données d’utilisation, de performances, de facturation et de balise de vos abonnements.  
-    ![validation de clé](./media/quick-register-ea/ea-key-validated.png)
+    ![Exemple de validation de clé API EA](./media/quick-register-ea/ea-key-validated.png)
 7. L’option pour **inviter d’autres parties prenantes** permet d’ajouter des utilisateurs en tapant leurs adresses e-mail. Lorsque vous avez terminé, cliquez sur **Suivant**. Selon la taille de votre inscription Azure, jusqu’à 24 heures peuvent être nécessaires pour que toutes vos données de facturation soient ajoutées à Cloudyn.
 8. Cliquez sur le bouton d’**accès à Cloudyn** pour ouvrir le portail Cloudyn. La page de **gestion des comptes cloud** devrait alors afficher les informations de votre compte EA inscrit.
 

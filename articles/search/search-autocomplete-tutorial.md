@@ -1,5 +1,5 @@
 ---
-title: Didacticiel d’ajout de la saisie semi-automatique à votre zone de recherche avec Recherche Azure | Microsoft Docs
+title: Didacticiel d’ajout de la saisie semi-automatique à votre zone de recherche - Recherche Azure
 description: Exemples d’améliorer de l’expérience utilisateur vis-à-vis de vos applications centrées sur les données avec la saisie automatique de Recherche Azure et les suggestions d’API.
 manager: pablocas
 author: mrcarter8
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578172"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316180"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Didacticiel : Ajouter la saisie automatique à votre zone de recherche avec Recherche Azure
 
@@ -126,7 +127,7 @@ Maintenant que nous avons passé en revue le code JavaScript de l’exemple, jet
 
 1. Ouvrez le fichier HomeController.cs sous le répertoire Controllers. 
 
-1. La première chose que vous remarquerez est une méthode en haut de la classe nommée InitSearch.  Cette méthode crée un client d’index HTTP authentifié dans le service de Recherche Azure.  Si vous souhaitez en savoir plus sur son fonctionnement, consultez le didacticiel suivant : [Utilisation de la recherche Azure depuis une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. La première chose que vous remarquerez est une méthode en haut de la classe nommée InitSearch.  Cette méthode crée un client d’index HTTP authentifié dans le service de Recherche Azure.  Si vous souhaitez en savoir plus sur son fonctionnement, consultez le didacticiel suivant : [Comment utiliser Azure Search à partir d'une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Passez à la fonction Suggest.
 

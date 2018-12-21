@@ -1,21 +1,21 @@
 ---
-title: Démarrage rapide - Créer un registre Docker privé dans Azure avec le portail Azure
+title: 'Démarrage rapide : Créer un registre Docker privé dans Azure - Portail Azure'
 description: Apprenez rapidement à créer un registre de conteneurs Docker privé avec le portail Azure.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
+ms.date: 11/06/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: a75d7e599b10b1d56bd41db1d6785dace67d5d06
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 865c53fdda60f6a0384157ec68042b4b8b243a7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857837"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255361"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Démarrage rapide : Créer un registre de conteneurs à l’aide du portail Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Démarrage rapide : Créer un registre de conteneurs privé à l’aide du portail Azure
 
 Un registre Azure Container Registry est un registre Docker privé dans Azure, dans lequel vous pouvez stocker et gérer vos images conteneurs Docker privées. Dans ce démarrage rapide, vous allez créer un registre de conteneurs avec le portail Azure, envoyer une image de conteneur dans le registre et enfin déployer le conteneur dans Azure Container Instances (ACI) à partir de votre registre.
 
@@ -27,11 +27,11 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
-Sélectionnez **Créer une ressource** > **Conteneurs** > **Azure Container Registry**.
+Sélectionnez **Créer une ressource** > **Conteneurs** > **Container Registry**.
 
 ![Création d’un registre de conteneur dans le portail Azure][qs-portal-01]
 
-Entrez les valeurs **Nom du registre** et **Groupe de ressources**. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Créez un groupe de ressources nommé `myResourceGroup`, et pour **Référence SKU**, sélectionnez « De base ». Sélectionnez **Créer** pour déployer l’instance ACR.
+Entrez les valeurs **Nom du registre** et **Groupe de ressources**. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Pour ce guide de démarrage rapide, créez un groupe de ressources dans l’emplacement `West US` nommé `myResourceGroup`, et sélectionnez « De base » pour **SKU**. Sélectionnez **Créer** pour déployer l’instance ACR.
 
 ![Création d’un registre de conteneur dans le portail Azure][qs-portal-03]
 
@@ -71,29 +71,29 @@ Pour envoyer une image dans votre registre Azure Container Registry, vous devez 
 docker pull microsoft/aci-helloworld
 ```
 
-Avant d’envoyer l’image dans votre registre, vous devez l’étiqueter avec le nom du serveur de connexion à l’ACR. Marquez l’image en utilisant la commande [docker tag][docker-tag]. Remplacez la valeur du *serveur de connexion* par le nom du serveur de connexion enregistré précédemment.
+Avant d’envoyer l’image dans votre registre, vous devez l’étiqueter avec le nom du serveur de connexion à l’ACR. Marquez l’image en utilisant la commande [docker tag][docker-tag]. Remplacez la valeur du *serveur de connexion* par le nom du serveur de connexion enregistré précédemment. Ajoutez un *nom de référentiel* tel que **`myrepo`** pour placer votre image dans un référentiel.
 
 ```bash
-docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-Enfin, utilisez la commande [docker push][docker-push] pour pousser l’image vers l’instance ACR. Remplacez la valeur du *serveur de connexion* par le nom du serveur de connexion de votre instance ACR.
+Enfin, utilisez la commande [docker push][docker-push] pour pousser l’image vers l’instance ACR. Remplacez *serveur de connexion* par le nom du serveur de connexion de votre instance ACR, et remplacez *nom du référentiel* par le nom du référentiel que vous avez utilisé dans la commande précédente.
 
 ```bash
-docker push <login server>/aci-helloworld:v1
+docker push <login server>/<repository name>/aci-helloworld:v1
 ```
 
 La sortie d’une commande `docker push` réussie ressemble à :
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
-7c701b1aeecd: Pushed
-c4332f071aa2: Pushed
-0607e25cc175: Pushed
+The push refers to repository [specificregistryname.azurecr.io/myrepo/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
 d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
-v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
 ## <a name="list-container-images"></a>Répertorier les images conteneur
@@ -114,7 +114,7 @@ Un menu contextuel s’affiche. Sélectionnez **Exécuter l’instance** :
 
 ![Lancement du menu contextuel ACI][qs-portal-11]
 
-Renseignez le **Nom du conteneur**, veillez à avoir sélectionné le bon abonnement, sélectionnez le **Groupe de ressources** existant « myResourceGroup » puis cliquez sur **OK** pour lancer Azure Container Instance.
+Renseignez le **Nom du conteneur**, veillez à avoir sélectionné le bon abonnement, sélectionnez le **Groupe de ressources** existant « myResourceGroup ». Veillez à avoir activé l’option « Adresse IP publique » en sélectionnant **Oui** puis cliquez sur **OK** pour lancer l’instance Azure Container Instance.
 
 ![Lancement des options de déploiement ACI][qs-portal-12]
 
@@ -136,7 +136,7 @@ Lorsque le conteneur passe à l’état **En cours d’exécution**, utilisez le
 
 Pour supprimer vos ressources, accédez au groupe de ressources **myResourceGroup** dans le portail. Une fois le groupe de ressources chargé, cliquez sur **Supprimer le groupe de ressources** pour supprimer le groupe de ressources, Azure Container Registry et toutes les instances Azure Container Instances.
 
-![Création d’un registre de conteneur dans le portail Azure][qs-portal-08]
+![Supprimer un groupe de ressources dans le portail Azure][qs-portal-08]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

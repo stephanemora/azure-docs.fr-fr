@@ -1,5 +1,5 @@
 ---
-title: Configurer la réplication de cluster HBase dans les réseaux virtuels Azure
+title: Configurer la réplication de cluster HBase dans les réseaux virtuels Azure - Azure HDInsight
 description: Découvrez comment configurer la réplication HBase d’une version HDInsight à une autre pour l’équilibrage de charge, la haute disponibilité, la mise à jour et migration sans interruption de service , ainsi que la récupération d’urgence.
 services: hdinsight,virtual-network
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584177"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163825"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure
 
@@ -261,12 +261,12 @@ sudo service bind9 status
 Créez un cluster [Apache HBase](http://hbase.apache.org/) dans chacun des deux réseaux virtuels avec la configuration suivante :
 
 - **Nom du groupe de ressources** : utilisez le même nom de groupe de ressources que vous avez créé pour les réseaux virtuels.
-- **Type de cluster** : HBase
-- **Version** : HBase 1.1.2 (HDI 3.6)
-- **Emplacement** : utilisez l’emplacement du réseau virtuel.  Par défaut, vnet1 représente *USA Ouest*, et vnet2 correspond à *USA Est*.
-- **Stockage** : créez un nouveau compte de stockage pour le cluster.
-- **Réseau virtuel** (dans les paramètres avancés sur le portail) : sélectionnez l’élément vnet1 que vous avez créé dans la dernière procédure.
-- **Sous-réseau** : le nom par défaut utilisé dans le modèle est **subnet1**.
+- **Type de cluster** : hbase
+- **Version** : HBase 1.1.2 (HDI 3.6)
+- **Emplacement** : utilisez le même emplacement que pour le réseau virtuel.  Par défaut, vnet1 représente *USA Ouest*, et vnet2 correspond à *USA Est*.
+- **Stockage** : créez un nouveau compte de stockage pour le cluster.
+- **Réseau virtuel** (à partir des Paramètres avancés sur le portail) : sélectionnez le réseau vnet1 que vous avez créé lors de la dernière procédure.
+- **Sous-réseau** : le nom par défaut utilisé dans le modèle est **subnet1**.
 
 Pour garantir que l’environnement est correctement configuré, vous devez pouvoir effectuer un test ping sur le nom de domaine complet du nœud principal entre les deux clusters.
 
@@ -274,7 +274,7 @@ Pour garantir que l’environnement est correctement configuré, vous devez pouv
 
 Lorsque vous répliquez un cluster, vous devez spécifier les tables à répliquer. Dans cette section, vous chargez des données dans le cluster source. Dans la section suivante, vous allez activer la réplication entre les deux clusters.
 
-Pour créer une table **Contacts** et y insérer des données, suivez les instructions du [Tutoriel Apache HBase : Bien démarrer avec Apache HBase dans HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Pour créer une table **Contacts** et y insérer des données, suivez les instructions du [tutoriel HBase : bien démarrer avec Apache HBase dans HDInsight Linux](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Activer la réplication
 
@@ -288,10 +288,10 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
 4. En haut de la page, sélectionnez **Soumettre nouveau**.
 5. Sélectionnez ou saisissez les informations suivantes :
 
-  1. **Nom** : saisissez **Activer la réplication**.
-  2. **URL du script Bash** : entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
-  4. **Paramètres** : les paramètres d’exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
+  1. **Nom** : entrez **Activer la réplication**.
+  2. **URL du script Bash** : Entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+  3.  **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
+  4. **Paramètres** : les paramètres d'exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     

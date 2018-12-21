@@ -1,20 +1,20 @@
 ---
-title: Tutoriel Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure DevOps Services
+title: Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure DevOps
 description: Cet article décrit le déploiement d’un travail Stream Analytics avec CI/CD à l’aide d’Azure DevOps Services.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 07/10/2018
-ms.openlocfilehash: 0f729725a04b19a513ca92953e997b51e4558884
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7e9ce598dbd8987ab32747f5fa9d14646ed4ee71
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986263"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164073"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure Pipelines
 Ce tutoriel explique comment configurer l’intégration et le déploiement continus pour un travail Azure Stream Analytics à l’aide d’Azure Pipelines. 
@@ -55,11 +55,11 @@ Partagez les fichiers source de votre application dans un projet Azure DevOps po
 
 2. Dans la vue **Synchronisation** de **Team Explorer**, sélectionnez le bouton **Publier le référentiel Git** sous **Push sur Azure DevOps Services**.
 
-   ![Envoyer (push) le référentiel Git](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
+   ![Appuyer sur le bouton Publier le référentiel Git dans Azure DevOps Services](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
 3. Vérifiez votre adresse e-mail et sélectionnez votre organisation dans la liste déroulante **Domaine Azure DevOps Services**. Entrez le nom de votre dépôt et sélectionnez **Publier le dépôt**.
 
-   ![Envoi (push) du dépôt Git](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
+   ![Appuyer sur le bouton Publier le référentiel du référentiel Git](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
     La publication du référentiel entraîne la création d’un projet dans votre organisation portant le même nom que le référentiel local. Pour créer le référentiel dans un projet existant, cliquez sur **Avancé** en regard de **Nom du référentiel**, puis sélectionnez un projet. Vous pouvez afficher votre code dans le navigateur en sélectionnant **See it on the web** (Le visualiser sur le web).
  
@@ -73,33 +73,33 @@ Ouvrez un navigateur web et accédez au projet que vous venez de créer dans [Az
 
 1. Dans l’onglet **Build et mise en production**, sélectionnez **Builds**, puis **+Nouveau**.  Sélectionnez **Azure DevOps Services Git** et **Continuer**.
     
-    ![Sélectionner une source](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
+    ![Sélectionner une source Git DevOps dans Azure DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
 2. Dans **Sélectionner un modèle**, cliquez sur **Processus vide** pour démarrer avec un pipeline vide.
     
-    ![Choisir le modèle de build](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
+    ![Sélectionner un processus vide à partir des options de modèle dans DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
 3. Sous **Déclencheurs**, activez l’intégration continue en cochant l’état du déclencheur **Activer l’intégration continue**.  Sélectionnez **Enregistrer et mettre en file d’attente** pour lancer une build manuellement. 
     
-    ![État du déclencheur](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
+    ![Activer l’état du déclenchement de l’intégration continue](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
 4. Les builds sont également déclenchées au moment de l’archivage ou de l’envoi (push). Pour vérifier la progression de votre build, basculez vers l’onglet **Builds**.  Une fois que vous avez vérifié que la build s’exécute correctement, vous devez définir un pipeline de mise en production assurant le déploiement de votre application sur un cluster. Cliquez avec le bouton droit sur les points de suspension situés en regard de votre pipeline de build, puis sélectionnez **Modifier**.
 
 5.  Dans **Tâches**, entrez « Hébergée » pour **File d’attente d’agents**.
     
-    ![Sélectionner une file d’attente d’agents](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue.png) 
+    ![Sélectionner la file d’attente d’agents dans le menu Tâches](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
 6. Dans **Phase 1**, cliquez sur **+** et ajoutez une tâche **NuGet**.
     
-    ![Ajouter la tâche NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget.png)
+    ![Ajouter une tâche NuGet dans la file d’attente d’agents](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
 
 7. Développez **Avancé** et ajoutez `$(Build.SourcesDirectory)\packages` dans le **Répertoire de destination**. Conservez les valeurs de configuration de NuGet par défaut restantes.
 
-   ![Configurer une tâche NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-config.png)
+   ![Configurer la tâche de restauration NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
 
 8. Dans **Phase 1**, cliquez sur **+** et ajoutez une tâche **MSBuild**.
 
-   ![Ajouter la tâche MSBuild](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-msbuild-task.png)
+   ![Ajouter une tâche MSBuild dans la file d’attente d’agents](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
 
 9. Modifiez les **Arguments MSBuild** comme suit :
 
@@ -107,11 +107,11 @@ Ouvrez un navigateur web et accédez au projet que vous venez de créer dans [Az
    /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="$(Build.SourcesDirectory)\packages\Microsoft.Azure.StreamAnalytics.CICD.1.0.0\build\StreamAnalytics.targets"
    ```
 
-   ![Configurer la tâche MSBuild](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-msbuild.png)
+   ![Configurer la tâche MSBuild dans DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
 
 10. Dans **Phase 1**, cliquez sur **+** et ajoutez une tâche **Déploiement d’un groupe de ressources Azure**. 
     
-    ![Ajouter une tâche Déploiement d’un groupe de ressources Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy.png)
+    ![Ajouter une tâche Déploiement d’un groupe de ressources Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-resource-group-deployment.png)
 
 11. Développez **Détails relatifs à Azure** et renseignez la configuration comme suit :
     
@@ -124,16 +124,16 @@ Ouvrez un navigateur web et accédez au projet que vous venez de créer dans [Az
     |Paramètres de modèle  | [Chemin d’accès de votre solution]\bin\Debug\Deploy\\[Nom de votre projet].JobTemplate.parameters.json   |
     |Remplacer les paramètres du modèle  | Tapez les paramètres du modèle à remplacer dans la zone de texte. Exemple : – storageName fabrikam – adminUsername $(vmusername) - adminPassword $(password) – azureKeyVaultName $(fabrikamFibre). Cette propriété est facultative, mais votre build provoquera des erreurs si les paramètres clés ne sont pas remplacés.    |
     
-    ![Définir des propriétés](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
+    ![Définir les propriétés pour le déploiement du groupe de ressources Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
 12. Cliquez sur **Enregistrer et mettre en file d’attente** pour tester le pipeline de build.
     
-    ![Définir les paramètres de remplacement](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
+    ![Enregistrer et mettre en file d’attente le build dans DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-and-queue-build.png)
 
 ### <a name="failed-build-process"></a>Échec du processus de génération
 Vous pouvez recevoir des erreurs pour des paramètres de déploiement de valeur Null si vous n’avez pas remplacé des paramètres de modèle dans la tâche **Déploiement d’un groupe de ressources Azure** de votre pipeline de build. Retournez dans le pipeline de build et remplacez les paramètres de valeur Null pour résoudre l’erreur.
 
-   ![Échec du processus de génération](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
+   ![Échec du processus de génération Stream Analytics DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/devops-build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>Valider et envoyer les modifications pour déclencher une mise en production
 Vérifiez que le pipeline d’intégration continue fonctionne en archivant certaines modifications de code dans Azure DevOps.    
@@ -142,11 +142,11 @@ Lorsque vous écrivez votre code, vos modifications sont suivies automatiquement
 
 1. Dans la vue **Modifications** de Team Explorer, ajoutez un message décrivant votre mise à jour, puis validez vos modifications.
 
-    ![Valider et envoyer (push) les changements](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
+    ![Valider les modifications de référentiel dans Visual Studio](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-commit-changes-visual-studio.png)
 
 2. Sélectionnez l’icône de modifications non publiées dans la barre d’état ou la vue Synchronisation de Team Explorer. Sélectionnez **Envoi (push)** pour mettre à jour votre code dans Azure DevOps.
 
-    ![Valider et envoyer (push) les changements](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
+    ![Envoyer (push) les modifications depuis Visual Studio](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-visual-studio.png)
 
 L’envoi (push) des modifications à Azure DevOps Services déclenche automatiquement une build.  Une fois le pipeline de build terminé, une mise en production est créée automatiquement et commence la mise à jour du travail sur le cluster.
 

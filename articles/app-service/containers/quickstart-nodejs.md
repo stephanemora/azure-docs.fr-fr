@@ -1,5 +1,5 @@
 ---
-title: Créer une application Node.js dans Azure App Service sur Linux | Microsoft Docs
+title: Créer une application web Node.js sous Linux - Azure App Service | Microsoft Docs
 description: Déployez votre premier programme Hello World Node.js dans Azure App Service sur Linux en quelques minutes.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.custom: seodec18
+ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969542"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253567"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Créer une application web Node.js dans Azure App Service sur Linux
 
@@ -54,7 +54,7 @@ Une fois l’extension installée, Cloud Shell affiche des informations à l’e
 The installed extension 'webapp' is in preview.
 ```
 
-## <a name="download-the-sample"></a>Téléchargez l’exemple
+## <a name="download-the-sample"></a>Télécharger l’exemple
 
 Dans Cloud Shell, créez un répertoire de démarrage rapide, puis utilisez-le.
 
@@ -190,7 +190,7 @@ Vous voyez apparaître la page Vue d’ensemble de votre application web. Elle v
 
 Le menu de gauche fournit différentes pages vous permettant de configurer votre application.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources dans Cloud Shell. Si vous avez modifié la région, mettez à jour le nom du groupe de ressources `appsvc_rg_Linux_CentralUS` pour utiliser le groupe de ressources spécifique à votre application.
 

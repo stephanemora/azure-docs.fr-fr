@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1a1281be1c1b58b21406dad5826e240ccac6c898
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 08a6134d61c4f93f891488ef24a7b81e81645897
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567755"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089800"
 ---
 # <a name="what-is-azure-iot-edge"></a>Qu’est-ce qu’Azure IoT Edge
 
@@ -71,7 +71,7 @@ Azure IoT Edge s’intègre parfaitement avec les accélérateurs de solution Az
 * Envoyer une charge de travail à un ensemble d’appareils.
 * Analyser les charges de travail en cours d’exécution sur des périphériques dans le champ.
 
-![Télémétrie, informations et les actions d’appareils sont coordonnées avec le cloud](./media/about-iot-edge/cloud-interface.png)
+![La télémétrie et les actions des appareils sont coordonnées avec le cloud](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

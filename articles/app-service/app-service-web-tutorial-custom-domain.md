@@ -1,5 +1,5 @@
 ---
-title: Mapper un nom DNS personnalisé existant à des applications web Azure | Microsoft Docs
+title: Mapper un nom DNS personnalisé existant vers Azure App Service | Microsoft Docs
 description: Découvrez comment ajouter un nom de domaine DNS (domaine personnel) à une application web, au serveur principal d’une application mobile ou à une application API dans Azure App Service.
 keywords: app service, azure app service, mappage de domaine, nom de domaine, domaine existant, nom d'hôte
 services: app-service\web
@@ -15,15 +15,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.custom: seodec18
+ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664885"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270261"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutoriel : Mapper un nom DNS personnalisé existant à des applications web Azure
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Didacticiel : Mapper un nom DNS personnalisé existant à des applications web Azure
 
 [Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment mapper un nom DNS personnalisé existant à des applications web Azure.
 
@@ -52,7 +52,7 @@ Pour suivre ce tutoriel :
 
 ## <a name="prepare-the-app"></a>Préparer l’application
 
-Pour mapper un nom DNS personnalisé à une application web, le [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) de l’application web doit être un niveau payant (**Partagé**, **De base**, **Standard** ou **Premium**). Au cours de cette étape, vous allez vous assurer que l’application App Service se trouve dans le niveau de tarification pris en charge.
+Pour mapper un nom DNS personnalisé à une application web, le [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) de l’application web doit être un niveau payant (**Partagé**, **De base**, **Standard** ou **Premium** ou **Consommation** pour Azure Functions). Au cours de cette étape, vous allez vous assurer que l’application App Service se trouve dans le niveau de tarification pris en charge.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 

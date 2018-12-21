@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946933"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135336"
 ---
-# <a name="tutorial-configure-message-routing-with-iot-hub"></a>Didacticiel : Configurer le routage des messages avec IoT Hub
+# <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutoriel : Configurer le routage des messages avec IoT Hub
 
 Le [routage des messages](iot-hub-devguide-messages-d2c.md) vous permet d’envoyer des données de télémétrie de vos appareils IoT à des points de terminaison compatibles avec Event Hub intégrés ou à des points de terminaison personnalisés, comme le stockage d’objets blob, la file d’attente Service Bus, la rubrique Service Bus et Event Hubs. Lors de la configuration du routage des messages, vous pouvez créer des [requêtes de routage](iot-hub-devguide-routing-query-syntax.md) pour personnaliser la route qui correspond à une certaine condition. Une fois la configuration effectuée, les données entrantes sont automatiquement acheminées vers les points de terminaison par l’IoT Hub. 
 
@@ -56,6 +56,10 @@ Les sections suivantes expliquent comment effectuer ces étapes. Suivez les inst
 1. Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md). 
 
 2. Créez un IoT Hub dans le niveau S1. Ajoutez un groupe de consommateurs à votre IoT Hub. Le groupe de consommateurs est utilisé par Azure Stream Analytics lors de la récupération des données.
+
+   > [!NOTE]
+   > Vous devez utiliser un hub IoT dans le cadre d'un niveau payant pour suivre ce tutoriel. Le niveau gratuit ne vous permet de configurer qu'un seul point de terminaison alors que ce tutoriel en nécessite plusieurs.
+   > 
 
 3. Créez un compte de stockage V1 standard avec la réplication Standard_LRS.
 
@@ -268,7 +272,9 @@ Vous vous apprêtez à acheminer les messages vers différentes ressources en fo
 
 ### <a name="routing-to-a-storage-account"></a>Routage vers un compte de stockage 
 
-Configurez maintenant le routage pour le compte de stockage. Vous accédez au volet Routage des messages, puis vous ajoutez une route. Lors de l’ajout de la route, définissez un nouveau point de terminaison pour la route. Une fois ceci configuré, les messages pour lesquels la propriété **level** est définie sur **storage** sont automatiquement écrits dans un compte de stockage.
+Configurez maintenant le routage pour le compte de stockage. Vous accédez au volet Routage des messages, puis vous ajoutez une route. Lors de l’ajout de la route, définissez un nouveau point de terminaison pour la route. Une fois ceci configuré, les messages pour lesquels la propriété **level** est définie sur **storage** sont automatiquement écrits dans un compte de stockage. 
+
+Les données sont écrites dans le stockage d’objets blob au format Avro.
 
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Groupes de ressources**, puis sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**. 
 
@@ -286,19 +292,29 @@ Configurez maintenant le routage pour le compte de stockage. Vous accédez au vo
 
 6. Cliquez sur **Choisir un conteneur**. Vous accédez alors à une liste de vos comptes de stockage. Sélectionnez celui que vous avez configuré dans les étapes de préparation. Ce tutoriel utilise **contosostorage**. Il montre une liste de conteneurs dans ce compte de stockage. Sélectionnez le conteneur que vous avez configuré dans les étapes de préparation. Ce didacticiel utilise **contosoresults**. Cliquez sur **Sélectionner**. Vous revenez au volet **Ajouter un point de terminaison**. 
 
-7. Utilisez les valeurs par défaut pour les autres champs. Cliquez sur **Créer** pour créer le point de terminaison de stockage et l’ajouter à la route. Vous revenez au volet **Ajouter une route**.
+7. Dans ce didacticiel, utilisez les valeurs par défaut pour les autres champs. 
 
-8.  Complétez maintenant le reste des informations de la requête de routage. Cette requête spécifie les critères pour l’envoi des messages au conteneur de stockage que vous venez d’ajouter comme point de terminaison. Renseignez les champs affichés à l’écran. 
+   > [!NOTE]
+   > Vous pouvez définir le format du nom de l’objet blob en utilisant le **format du nom du fichier de l’objet blob**. Par défaut, il s’agit de `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. Le format doit contenir {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH} et {mm} dans n’importe quel ordre. 
+   > 
+   > Par exemple, utilisez le format du nom de fichier de l’objet blob par défaut si le nom du hub est ContosoTestHub, et que la date/heure est le 30 octobre 2018 à 10h56. Le nom de l’objet blob ressemblera à ceci : `ContosoTestHub/0/2018/10/30/10/56`.
+   > 
+   > Les objets blob sont écrits au format Avro.
+   >
 
-   **Nom** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **StorageRoute**.
+8. Cliquez sur **Créer** pour créer le point de terminaison de stockage et l’ajouter à la route. Vous revenez au volet **Ajouter une route**.
 
-   **Point de terminaison** : ce champ montre le point de terminaison que vous venez de configurer. 
+9. Complétez maintenant le reste des informations de la requête de routage. Cette requête spécifie les critères pour l’envoi des messages au conteneur de stockage que vous venez d’ajouter comme point de terminaison. Renseignez les champs affichés à l’écran. 
+
+   **Nom** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **StorageRoute**.
+
+   **Point de terminaison** : ce champ présente le point de terminaison que vous venez de configurer. 
    
-   **Source de données** : sélectionnez **Messages de télémétrie des appareils** dans la liste déroulante.
+   **Source de données** : sélectionnez **Messages de télémétrie des appareils** dans la liste déroulante.
 
-   **Activer la route** : vérifiez que ceci est activé.
+   **Activer la route** : vérifiez que ceci est activé.
    
-   **Requête de routage** : entrez `level="storage"` pour la chaîne de requête. 
+   **Requête de routage** : entrez `level="storage"` pour la chaîne de requête. 
 
    ![Capture d’écran montrant la création d’une requête de routage pour le compte de stockage.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
@@ -318,23 +334,23 @@ Configurez maintenant le routage pour la file d’attente Service Bus. Vous acc�
 
 4. Renseignez les champs :
 
-   **Nom du point de terminaison** : entrez un nom pour le point de terminaison. Ce didacticiel utilise **CriticalQueue**.
+   **Nom du point de terminaison** : Entrez un nom pour le point de terminaison. Ce didacticiel utilise **CriticalQueue**.
    
-   **Espace de noms Service Bus** : cliquez sur ce champ pour afficher la liste déroulante ; sélectionnez l’espace de noms Service Bus que vous avez configuré dans les étapes de préparation. Ce didacticiel utilise **ContosoSBNamespace**.
+   **Espace de noms Service Bus** : cliquez sur ce champ pour afficher la liste déroulante ; sélectionnez l'espace de noms Service Bus que vous avez configuré lors des étapes de préparation. Ce didacticiel utilise **ContosoSBNamespace**.
 
-   **File d’attente Service Bus** : cliquez sur ce champ pour afficher la liste déroulante ; sélectionnez-y la file d’attente Service Bus. Ce didacticiel utilise **contososbqueue**.
+   **File d'attente Service Bus** : cliquez sur ce champ pour afficher la liste déroulante ; sélectionnez-y la file d'attente Service Bus. Ce didacticiel utilise **contososbqueue**.
 
 5. Cliquez sur **Créer** pour ajouter le point de terminaison de file d’attente Service Bus. Vous revenez au volet **Ajouter une route**. 
 
 6.  Vous complétez maintenant le reste des informations de la requête de routage. Cette requête spécifie les critères pour l’envoi des messages à la file d’attente Service Bus que vous venez d’ajouter comme point de terminaison. Renseignez les champs affichés à l’écran. 
 
-   **Nom** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **SBQueueRoute**. 
+   **Nom** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **SBQueueRoute**. 
 
-   **Point de terminaison** : ce champ montre le point de terminaison que vous venez de configurer.
+   **Point de terminaison** : ce champ présente le point de terminaison que vous venez de configurer.
 
-   **Source de données** : sélectionnez **Messages de télémétrie des appareils** dans la liste déroulante.
+   **Source de données** : sélectionnez **Messages de télémétrie des appareils** dans la liste déroulante.
 
-   **Requête de routage** : entrez `level="critical"` pour la chaîne de requête. 
+   **Requête de routage** : entrez `level="critical"` pour la chaîne de requête. 
 
    ![Capture d’écran montrant la création d’une requête de routage pour la file d’attente Service Bus.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
@@ -354,31 +370,31 @@ La file d’attente Service Bus doit être utilisée pour recevoir des messages 
 
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **+ Créer une ressource**. Tapez **application logique** dans la zone de recherche, puis cliquez sur Entrée. Dans les résultats de la recherche affichés, sélectionnez l’application logique, puis cliquez sur **Créer** pour continuer vers le volet **Créer une application logique**. Renseignez les champs. 
 
-   **Nom** : ce champ indique le nom de l’application logique. Ce didacticiel utilise **ContosoLogicApp**. 
+   **Nom** : ce champ indique le nom de l'application logique. Ce didacticiel utilise **ContosoLogicApp**. 
 
-   **Abonnement** : sélectionnez votre abonnement Azure.
+   **Abonnement**: Sélectionnez votre abonnement Azure.
 
-   **Groupe de ressources** : cliquez sur **Utiliser l’existant** et sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**. 
+   **Groupe de ressources** : cliquez sur **Utiliser l'existant** et sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**. 
 
-   **Emplacement** : utilisez votre emplacement. Ce didacticiel utilise **USA Ouest**. 
+   **Emplacement** : utilisez votre emplacement. Ce didacticiel utilise **USA Ouest**. 
 
-   **Log Analytics** : cette option doit être désactivée. 
+   **Log Analytics** : cette option doit être désactivée. 
 
    ![Capture d’écran montrant l’écran Créer une application logique.](./media/tutorial-routing/create-logic-app.png)
 
    Cliquez sur **Créer**.
 
-1. Accédez maintenant à l’application logique. La méthode la plus simple pour accéder à l’application logique consiste à cliquer sur **Groupe de ressources**, à sélectionner votre groupe de ressources (ce didacticiel utilise**ContosoResources**), puis à sélectionner l’application logique dans la liste des ressources. La page Concepteur d’applications logiques apparaît (vous devrez peut-être faire défiler vers la droite pour voir la page entière). Sur la page Concepteur d’applications logiques, faites défiler jusqu’à ce que vous voyiez la vignette indiquant **Application logique vide +** et cliquez dessus. 
+2. Accédez maintenant à l’application logique. La méthode la plus simple pour accéder à l’application logique consiste à cliquer sur **Groupe de ressources**, à sélectionner votre groupe de ressources (ce didacticiel utilise**ContosoResources**), puis à sélectionner l’application logique dans la liste des ressources. La page Concepteur d’applications logiques apparaît (vous devrez peut-être faire défiler vers la droite pour voir la page entière). Sur la page Concepteur d’applications logiques, faites défiler jusqu’à ce que vous voyiez la vignette indiquant **Application logique vide +** et cliquez dessus. 
 
-1. Une liste de connecteurs s’affiche. Sélectionnez **Service Bus**. 
+3. Une liste de connecteurs s’affiche. Sélectionnez **Service Bus**. 
 
    ![Capture d’écran montrant la liste des connecteurs.](./media/tutorial-routing/logic-app-connectors.png)
 
-1. Une liste de déclencheurs s’affiche. Sélectionnez **Service Bus - Quand une file d’attente reçoit un message (saisie semi-automatique)**. 
+4. Une liste de déclencheurs s’affiche. Sélectionnez **Service Bus - Quand une file d’attente reçoit un message (saisie semi-automatique)**. 
 
    ![Capture d’écran montrant la liste des déclencheurs pour Service Bus.](./media/tutorial-routing/logic-app-triggers.png)
 
-1. Dans l’écran suivant, indiquez le nom de connexion. Ce didacticiel utilise **ContosoConnection**. 
+5. Dans l’écran suivant, indiquez le nom de connexion. Ce didacticiel utilise **ContosoConnection**. 
 
    ![Capture d’écran montrant la configuration de la connexion pour la file d’attente Service Bus.](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -386,21 +402,21 @@ La file d’attente Service Bus doit être utilisée pour recevoir des messages 
    
    ![Capture d’écran montrant la fin de la configuration de la connexion.](./media/tutorial-routing/logic-app-finish-connection.png)
 
-1. Dans l’écran suivant, sélectionnez le nom de la file d’attente (ce didacticiel utilise **contososbqueue**) dans la liste déroulante. Vous pouvez utiliser les valeurs par défaut pour les autres champs. 
+6. Dans l’écran suivant, sélectionnez le nom de la file d’attente (ce didacticiel utilise **contososbqueue**) dans la liste déroulante. Vous pouvez utiliser les valeurs par défaut pour les autres champs. 
 
    ![Capture d’écran montrant les options de file d’attente.](./media/tutorial-routing/logic-app-queue-options.png)
 
-1. Définissez maintenant l’action pour envoyer un e-mail quand un message est reçu dans la file d’attente. Dans le Concepteur d’applications logiques, cliquez sur **+ Nouvelle étape** pour ajouter une étape, puis cliquez sur **Ajouter une action**. Dans le volet **Choisir une action**, recherchez **Outlook Office 365** et cliquez dessus. Dans l’écran des déclencheurs, sélectionnez **Office 365 Outlook - Envoyer un message électronique**.  
+7. Définissez maintenant l’action pour envoyer un e-mail quand un message est reçu dans la file d’attente. Dans le Concepteur d’applications logiques, cliquez sur **+ Nouvelle étape** pour ajouter une étape, puis cliquez sur **Ajouter une action**. Dans le volet **Choisir une action**, recherchez **Outlook Office 365** et cliquez dessus. Dans l’écran des déclencheurs, sélectionnez **Office 365 Outlook - Envoyer un message électronique**.  
 
    ![Capture d’écran montrant les options Office 365.](./media/tutorial-routing/logic-app-select-outlook.png)
 
-1. Ensuite, connectez-vous à votre compte Office 365 pour configurer la connexion. Spécifiez les adresses e-mail des destinataires. Indiquez également l’objet et tapez le message que vous souhaitez que le destinataire voit dans le corps de l’e-mail. Pour tester si tout fonctionne bien, indiquez votre propre adresse e-mail dans le champ des destinataires.
+8. Ensuite, connectez-vous à votre compte Office 365 pour configurer la connexion. Spécifiez les adresses e-mail des destinataires. Indiquez également l’objet et tapez le message que vous souhaitez que le destinataire voit dans le corps de l’e-mail. Pour tester si tout fonctionne bien, indiquez votre propre adresse e-mail dans le champ des destinataires.
 
    Cliquez sur **Ajouter du contenu dynamique** pour afficher le contenu du message que vous pouvez inclure. Sélectionnez **Contenu** pour que le message soit inclus dans l’e-mail. 
 
    ![Capture d’écran montrant les options d’e-mail pour l’application logique.](./media/tutorial-routing/logic-app-send-email.png)
 
-1. Cliquez sur **Enregistrer**. Puis, fermez le Concepteur d’applications logiques.
+9. Cliquez sur **Enregistrer**. Puis, fermez le Concepteur d’applications logiques.
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurer Azure Stream Analytics
 
@@ -410,75 +426,75 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource** > **Internet des objets** > **Tâche Stream Analytics**.
 
-1. Saisissez les informations ci-après concernant le travail.
+2. Saisissez les informations ci-après concernant le travail.
 
-   **Nom du travail** : nom du travail. Le nom doit être globalement unique. Ce didacticiel utilise **contosoJob**.
+   **Nom du travail** : Nom du travail. Le nom doit être globalement unique. Ce didacticiel utilise **contosoJob**.
 
-   **Groupe de ressources** : utilisez le même groupe de ressources que celui de votre IoT Hub. Ce didacticiel utilise **ContosoResources**. 
+   **Groupe de ressources** : utilisez le même groupe de ressources que celui de votre hub IoT. Ce didacticiel utilise **ContosoResources**. 
 
-   **Emplacement**: utilisez le même emplacement que celui utilisé dans le script de configuration. Ce didacticiel utilise **USA Ouest**. 
+   **Emplacement** : utilisez le même emplacement que celui utilisé dans le script de configuration. Ce didacticiel utilise **USA Ouest**. 
 
    ![Capture d’écran montrant comment créer le travail Stream Analytics.](./media/tutorial-routing/stream-analytics-create-job.png)
 
-1. Cliquez sur **Créer** pour créer le travail. Pour revenir à la tâche, cliquez sur **Groupes de ressources**. Ce didacticiel utilise **ContosoResources**. Sélectionnez le groupe de ressources, puis cliquez sur le travail Stream Analytics dans la liste des ressources. 
+3. Cliquez sur **Créer** pour créer le travail. Pour revenir à la tâche, cliquez sur **Groupes de ressources**. Ce didacticiel utilise **ContosoResources**. Sélectionnez le groupe de ressources, puis cliquez sur le travail Stream Analytics dans la liste des ressources. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Ajouter une entrée à la tâche Stream Analytics
 
-1. Sous **Topologie de la tâche**, cliquez sur **Entrées**.
+4. Sous **Topologie de la tâche**, cliquez sur **Entrées**.
 
-1. Dans le volet **Entrées**, cliquez sur **Ajouter une entrée de flux** et sélectionnez IoT Hub. Dans l’écran qui s’affiche, renseignez les champs suivants :
+5. Dans le volet **Entrées**, cliquez sur **Ajouter une entrée de flux** et sélectionnez IoT Hub. Dans l’écran qui s’affiche, renseignez les champs suivants :
 
-   **Alias d’entrée** : ce didacticiel utilise **contosoinputs**.
+   **Alias d'entrée** : Ce didacticiel utilise **contosoinputs**.
 
-   **Abonnement** : sélectionnez votre abonnement.
+   **Abonnement**: Sélectionnez votre abonnement.
 
-   **IoT Hub** : sélectionnez l’IoT Hub. Ce didacticiel utilise **ContosoTestHub**.
+   **Hub IoT** : sélectionnez le hub IoT. Ce didacticiel utilise **ContosoTestHub**.
 
-   **Point de terminaison** : sélectionnez **Messagerie**. (Si vous sélectionnez Surveillance des opérations, vous obtenez les données de télémétrie sur l’IoT Hub, plutôt que les données que vous envoyez.) 
+   **Point de terminaison** : sélectionnez **Messagerie**. (Si vous sélectionnez Surveillance des opérations, vous obtenez les données de télémétrie sur l’IoT Hub, plutôt que les données que vous envoyez.) 
 
-   **Nom de la stratégie d’accès partagé** : sélectionnez **iothubowner**. Le portail renseigne la clé de la stratégie d’accès partagé pour vous.
+   **Nom de la stratégie d'accès partagé** : sélectionnez **iothubowner**. Le portail renseigne la clé de la stratégie d’accès partagé pour vous.
 
-   **Groupe de consommateurs** : sélectionnez le groupe de consommateurs que vous avez créé précédemment. Ce didacticiel utilise **contosoconsumers**.
+   **Groupe de consommateurs** : sélectionnez le groupe de consommateurs que vous avez créé précédemment. Ce didacticiel utilise **contosoconsumers**.
    
    Pour les autres champs, acceptez les valeurs par défaut. 
 
    ![Capture d’écran montrant comment configurer les entrées du travail Stream Analytics.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-1. Cliquez sur **Enregistrer**.
+6. Cliquez sur **Enregistrer**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Ajouter une sortie à la tâche Stream Analytics
 
 1. Sous **Topologie de la tâche**, cliquez sur **Sorties**.
 
-1. Dans le volet **Sorties**, cliquez sur **Ajouter**, puis sélectionnez **Power BI**. Dans l’écran qui s’affiche, renseignez les champs suivants :
+2. Dans le volet **Sorties**, cliquez sur **Ajouter**, puis sélectionnez **Power BI**. Dans l’écran qui s’affiche, renseignez les champs suivants :
 
    **Alias de sortie** : alias unique de la sortie. Ce didacticiel utilise **contosooutputs**. 
 
-   **Nom du jeu de données** : nom du jeu de données à utiliser dans Power BI. Ce didacticiel utilise **contosodataset**. 
+   **Nom du jeu de données** : nom du jeu de données à utiliser dans Power BI. Ce didacticiel utilise **contosodataset**. 
 
-   **Nom de la table** : nom de la table à utiliser dans Power BI. Ce didacticiel utilise **contosotable**.
+   **Nom de la table** : nom de la table à utiliser dans Power BI. Ce didacticiel utilise **contosotable**.
 
    Acceptez les valeurs par défaut pour les autres champs.
 
-1. Cliquez sur **Autoriser** et connectez-vous à votre compte Power BI.
+3. Cliquez sur **Autoriser** et connectez-vous à votre compte Power BI.
 
    ![Capture d’écran montrant comment configurer les sorties du travail Stream Analytics.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-1. Cliquez sur **Enregistrer**.
+4. Cliquez sur **Enregistrer**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurer la requête de la tâche Stream Analytics
 
 1. Sous **Topologie du travail**, cliquez sur **Requête**.
 
-1. Remplacez `[YourInputAlias]` par l’alias d’entrée du travail. Ce didacticiel utilise **contosoinputs**.
+2. Remplacez `[YourInputAlias]` par l’alias d’entrée du travail. Ce didacticiel utilise **contosoinputs**.
 
-1. Remplacez `[YourOutputAlias]` par l’alias de sortie du travail. Ce didacticiel utilise **contosooutputs**.
+3. Remplacez `[YourOutputAlias]` par l’alias de sortie du travail. Ce didacticiel utilise **contosooutputs**.
 
    ![Capture d’écran montrant comment configurer la requête pour le travail Stream Analytics.](./media/tutorial-routing/stream-analytics-job-query.png)
 
-1. Cliquez sur **Enregistrer**.
+4. Cliquez sur **Enregistrer**.
 
-1. Fermez le volet Requête. Cela vous renvoie à l’affichage des ressources dans le groupe de ressources. Cliquez sur le travail Stream Analytics. Ce tutoriel l’appelle **contosoJob**.
+5. Fermez le volet Requête. Cela vous renvoie à l’affichage des ressources dans le groupe de ressources. Cliquez sur le travail Stream Analytics. Ce tutoriel l’appelle **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Exécuter la tâche Stream Analytics
 
@@ -520,7 +536,7 @@ L’application envoie un nouveau message appareil-à-cloud à l’IoT Hub toute
    * Que l’application logique qui récupère le message dans la file d’attente Service Bus fonctionne correctement.
    * Que le connecteur de l’application logique pour Outlook fonctionne correctement. 
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Groupes de ressources** et sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**. Sélectionnez le compte de stockage, cliquez sur **Objets blob**, puis sélectionnez le conteneur. Ce didacticiel utilise **contosoresults**. Vous devez voir un dossier, et vous pouvez explorer les répertoires jusqu’à voir un ou plusieurs fichiers. Ouvrez l’un de ces fichiers ; ils contiennent les entrées acheminées vers le compte de stockage. 
+2. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Groupes de ressources** et sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**. Sélectionnez le compte de stockage, cliquez sur **Objets blob**, puis sélectionnez le conteneur. Ce didacticiel utilise **contosoresults**. Vous devez voir un dossier, et vous pouvez explorer les répertoires jusqu’à voir un ou plusieurs fichiers. Ouvrez l’un de ces fichiers ; ils contiennent les entrées acheminées vers le compte de stockage. 
 
    ![Capture d’écran montrant les fichiers de résultats dans le stockage.](./media/tutorial-routing/results-in-storage.png)
 
@@ -534,35 +550,35 @@ Maintenant, avec l’application en cours d’exécution, configurez la visualis
 
 1. Connectez-vous à votre compte [Power BI](https://powerbi.microsoft.com/).
 
-1. Accédez **Espace de travail** et sélectionnez l’espace de travail que vous avez défini lors de la création de la sortie du travail Stream Analytics. Ce didacticiel utilise **My Workspace**. 
+2. Accédez **Espace de travail** et sélectionnez l’espace de travail que vous avez défini lors de la création de la sortie du travail Stream Analytics. Ce didacticiel utilise **My Workspace**. 
 
-1. Cliquez sur **Jeux de données**.
+3. Cliquez sur **Jeux de données**.
 
    Vous devez voir apparaître le jeu de données répertorié que vous avez indiqué lors de la création de la sortie du travail Stream Analytics. Ce didacticiel utilise **contosodataset**. (5 à 10 minutes peuvent être nécessaires pour que le jeu de données s’affiche la première fois.)
 
-1. Sous **ACTIONS**, cliquez sur la première icône pour créer un rapport.
+4. Sous **ACTIONS**, cliquez sur la première icône pour créer un rapport.
 
    ![Capture d’écran montrant l’espace de travail Power BI avec Actions et l’icône de rapport mis en surbrillance.](./media/tutorial-routing/power-bi-actions.png)
 
-1. Créez un graphique en courbes pour afficher la température en temps réel et au fil du temps.
+5. Créez un graphique en courbes pour afficher la température en temps réel et au fil du temps.
 
-   a. Sur la page de création de rapports, ajoutez un graphique en courbes en cliquant sur l’icône de graphiques en courbes.
+   * Sur la page de création de rapports, ajoutez un graphique en courbes en cliquant sur l’icône de graphiques en courbes.
 
    ![Capture d’écran montrant les visualisations et les champs.](./media/tutorial-routing/power-bi-visualizations-and-fields.png)
 
-   b. Sur le volet **Champs**, développez la table que vous avez indiquée lors de la création de la sortie du travail Stream Analytics. Ce didacticiel utilise **contosotable**.
+   * Sur le volet **Champs**, développez la table que vous avez indiquée lors de la création de la sortie du travail Stream Analytics. Ce didacticiel utilise **contosotable**.
 
-   c. Faites glisser **EventEnqueuedUtcTime** vers **Axe** dans le volet **Visualisations**.
+   * Faites glisser **EventEnqueuedUtcTime** vers **Axe** dans le volet **Visualisations**.
 
-   d. Faites glisser **Température** vers **Valeurs**.
+   * Faites glisser **Température** vers **Valeurs**.
 
    Un graphique en courbes est créé. L’axe des abscisses affiche la date et l’heure du fuseau horaire UTC. Quant à l’axe des ordonnées, il affiche la température fournie par le capteur.
 
-1. Créez un autre graphique en courbes pour afficher l’humidité en temps réel, au fil du temps. Pour configurer le deuxième graphique, suivez la même procédure que ci-dessus et placez **EventEnqueuedUtcTime** sur l’axe des abscisses et **Humidité** sur l’axe des ordonnées.
+6. Créez un autre graphique en courbes pour afficher l’humidité en temps réel, au fil du temps. Pour configurer le deuxième graphique, suivez la même procédure que ci-dessus et placez **EventEnqueuedUtcTime** sur l’axe des abscisses et **Humidité** sur l’axe des ordonnées.
 
    ![Capture d’écran montrant le rapport Power BI final avec les deux graphiques.](./media/tutorial-routing/power-bi-report.png)
 
-1. Cliquez sur **Enregistrer** pour enregistrer le rapport.
+7. Cliquez sur **Enregistrer** pour enregistrer le rapport.
 
 Vous devez être en mesure de voir les données sur les deux graphiques. Cela signifie :
 
@@ -572,7 +588,7 @@ Vous devez être en mesure de voir les données sur les deux graphiques. Cela si
 
 Vous pouvez actualiser les graphiques pour afficher les données les plus récentes en cliquant sur le bouton Actualiser en haut de la fenêtre Power BI. 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources 
+## <a name="clean-up-resources"></a>Supprimer des ressources 
 
 Si vous souhaitez supprimer toutes les ressources que vous avez créées, supprimez le groupe de ressources. Cette opération supprime toutes les ressources contenues dans le groupe. Dans ce cas, l’IoT Hub, l’espace de noms et la file d’attente Service Bus, l’application logique, le compte de stockage et le groupe de ressources lui-même sont supprimés. 
 
@@ -595,7 +611,6 @@ Pour supprimer le groupe de ressources, utilisez la commande [Remove-AzureRmReso
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à utiliser le routage des messages pour acheminer des messages IoT Hub vers différentes destinations en effectuant les tâches suivantes.  
@@ -615,5 +630,3 @@ Passez au didacticiel suivant pour découvrir comment gérer l’état d’un ap
 
 > [!div class="nextstepaction"]
 [Configurer vos appareils à partir d’un service back-end](tutorial-device-twins.md)
-
- <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

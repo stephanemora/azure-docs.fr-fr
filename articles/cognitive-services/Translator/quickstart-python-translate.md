@@ -1,5 +1,5 @@
 ---
-title: 'Guide de démarrage rapide : Traduire du texte, Python - API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Traduire du texte, Python - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Python en moins de dix minutes.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: db2328d09f9e06ccabdc2408327a342fe94fefe0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085977"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999584"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour traduire une chaîne à l’aide de Python
 
@@ -64,12 +64,12 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Il y existe actuellement un point de terminaison disponible pour Translator Text, et il est défini comme des `base_url`. `path` définit le chemin des `translate` et reconnaît que nous souhaitons atteindre la version 3 de l’API.
+Il y existe actuellement un point de terminaison disponible pour Translator Text, et il est défini comme des `base_url`. `path` définit le chemin des `translate` et reconnait que nous souhaitons atteindre la version 3 de l’API.
 
 Les `params` servent à définir les langues de sortie. Dans cet exemple nous traduisons de l’anglais vers l’italien et allemand : `it` et `de`.
 
 >[!NOTE]
-> Pour plus d’informations concernant les points de terminaison, les itinéraires et les paramètres de la requête, consultez [API Translator Text 3.0 : Traduire](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Pour plus d’informations sur les points de terminaison, les itinéraires et les paramètres de requête, consultez [API de traduction de texte Translator Text 3.0 : Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -161,7 +161,7 @@ Si vous avez codé en dur votre clé d’abonnement dans votre programme, veille
 
 ## <a name="see-also"></a>Voir aussi
 
-En plus de la traduction de texte, découvrez comment utiliser l’API de traduction de texte Translator Text pour :
+Apprenez à utiliser l’API de traduction de texte Translator Text pour :
 
 * [Translittérer du texte](quickstart-python-transliterate.md)
 * [Identifier la langue par entrée](quickstart-python-detect.md)

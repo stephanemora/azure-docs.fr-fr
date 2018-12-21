@@ -1,21 +1,21 @@
 ---
-title: 'Démarrage rapide : Exécuter une application dans Azure Container Instances'
-description: Dans ce démarrage rapide, vous allez utiliser le Portail Azure pour déployer une application s’exécutant dans un conteneur Docker sur Azure Container Instances
+title: 'Démarrage rapide : Exécuter une application dans Azure Container Instances - Portail'
+description: Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour déployer une application de conteneur Docker pour l’exécuter dans un conteneur isolé dans Azure Container Instances.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857718"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190286"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Démarrage rapide : Exécuter une application dans Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Démarrage rapide : Exécuter une application de conteneur dans Azure Container Instances dans le portail Azure
 
 Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker dans Azure. Vous n’avez pas besoin de déployer de machines virtuelles ou d’utiliser une plateforme d’orchestration de conteneur complète telle que Kubernetes. Dans ce démarrage rapide, vous utilisez le Portail Azure pour créer un conteneur dans Azure et mettez à disposition son application avec un nom de domaine complet. Après avoir configuré quelques paramètres et déployé le conteneur, vous pouvez accéder à l’application en cours d’exécution :
 
@@ -37,7 +37,7 @@ Entrez les valeurs suivantes dans les zones de texte **Nom du conteneur**, **Ima
 
 * Nom du conteneur : `mycontainer`
 * Image du conteneur : `microsoft/aci-helloworld`
-* Groupe de ressources : **Créer** > `myResourceGroup`
+* Groupe de ressources : **Créer** > `myResourceGroup`
 
 ![Configuration des paramètres de base pour une nouvelle instance de conteneur dans le portail Azure][aci-portal-03]
 

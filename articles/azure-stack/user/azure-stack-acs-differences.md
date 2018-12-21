@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: efdc1cda9b52b6b79a3ccdcfd16542f7cb4b891a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838546"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341896"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : différences et considérations
+# <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : Différences et considérations
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -29,7 +29,7 @@ Le stockage Azure Stack est l’ensemble des services cloud de stockage fournis 
 
 Cet article récapitule les différences connues entre le stockage Azure Stack et les services stockage Azure. Il répertorie également les points à considérer lorsque vous déployez Azure Stack. Pour connaître les différences majeures entre Azure global et Azure Stack, consultez l’article [Principales considérations](azure-stack-considerations.md).
 
-## <a name="cheat-sheet-storage-differences"></a>Aide-mémoire : différences entre les stockages
+## <a name="cheat-sheet-storage-differences"></a>Aide-mémoire : différences entre les stockages
 
 | Fonctionnalité | Azure (global) | Azure Stack |
 | --- | --- | --- |
@@ -41,6 +41,7 @@ Cet article récapitule les différences connues entre le stockage Azure Stack e
 |Disques gérés|Premium et standard pris en charge|Pris en charge lorsque vous utilisez la version 1808 ou ultérieure.
 |Nom de l’objet blob|1 024 caractères (2 048 octets)|880 caractères (1 760 octets)
 |Taille maximale d’un objet blob de blocs|4,75 To (100 Mo X 50 000 blocs)|4,75 To (100 Mo x 50 000 blocs) pour la mise à jour 1802 ou une version plus récente. 50 000 x 4 Mo (environ 195 Go) pour les versions précédentes.
+|Copie d’instantané d’objet blob de pages|Prise en charge des disques de machine virtuelle non gérés par Sauvegarde Azure attachés à une machine virtuelle en fonctionnement|Pas encore pris en charge.
 |Copie d’instantané incrémentiel d’objet blob de pages|Objets blob de pages Azure Premium et standard pris en charge|Pas encore pris en charge.
 |Niveaux de stockage pour le Stockage Blob|Niveaux de stockage chaud, à froid et archivage.|Pas encore pris en charge.
 Suppression réversible pour le Stockage Blob|VERSION PRÉLIMINAIRE|Pas encore pris en charge.
@@ -62,21 +63,21 @@ API de services de Stockage Azure :
 
 Mise à jour 1802 ou plus récente :
 
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Versions antérieures :
 
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 API de gestion des services de Stockage Azure :
 
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 ## <a name="sdk-versions"></a>Versions du SDK
 

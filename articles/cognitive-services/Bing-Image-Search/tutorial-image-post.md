@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Extraire les détails de l’image avec C# - API Recherche d’images Bing'
+title: 'Tutoriel : Extraire les détails de l’image avec l’API Recherche d’images Bing et C#'
 titleSuffix: Azure Cognitive Services
 description: Utilisez cet article pour créer une application C# qui extrait les détails de l’image avec l’API Recherche d’images Bing.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/14/2018
 ms.author: aahi
-ms.openlocfilehash: 96d011a04c97d309409062a286bdd7a17db9cda5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 36996ebed25d159cdc2a1908b5c9f1f5447c823f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297654"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259764"
 ---
-# <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutoriel : Extraire les détails de l’image avec l’API Recherche d’images Bing et C#
+# <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutoriel : Extraire les détails de l’image avec l’API Recherche d’images Bing et C#
 
 Plusieurs [points de terminaison](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint) sont disponibles via l’API Recherche d’images Bing. Le point de terminaison `/details` accepte une requête POST avec une image, et peut retourner divers détails relatifs à l’image. Cette application C# envoie une image à l’aide de cette API et affiche les détails retournés par Bing, qui sont des objets JSON, par exemple les éléments suivants :
 
@@ -59,7 +59,7 @@ Spécifiez `modules=All` dans la requête POST pour obtenir du texte JSON qui in
 * `image` : métadonnées de l’image
 * `imageInsightsToken` : un jeton pour une requête GET ultérieure qui obtient `RecognizedEntities` (personnes ou endroits visibles dans l’image) à partir de l’image.
 * `imageTags` : étiquettes pour l’image
-* `pagesIncluding` - pages web où l’image est intégrée
+* `pagesIncluding` - pages Web où l’image est intégrée
 * `relatedSearches` - recherches basées sur les détails de l’image.
 * `visuallySimilarImages` - images similaires sur le web.
 

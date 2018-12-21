@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: modification, suivi, automatisation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e4ea8f92a562ea4bc90df98d6e459377b9886777
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844904"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190014"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
@@ -102,7 +102,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Clé de Registre Windows   | Chemin d’accès pour rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
+|Clé de Registre Windows   | Chemin d’accès pour rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
 ### <a name="add-a-windows-file"></a>Ajouter un fichier Windows
 
@@ -117,7 +117,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
 |Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « c:\temp\\\*.txt »<br>Vous pouvez également utiliser des variables d’environnement telles que « %winDir%\System32\\\*.* »         |
 |Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
-|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
 ### <a name="add-a-linux-file"></a>Ajouter un fichier Linux
 
@@ -135,7 +135,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |Recursion     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
 |Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du traitement du contenu retourné.      |
-|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
    > [!NOTE]
    > L’option permettant de « Gérer » les liens n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.
@@ -177,12 +177,11 @@ L’affichage des modifications dans le Portail Azure est pratique, mais pouvoir
 
 Pour ajouter une alerte associée à l’arrêt d’un service, accédez à **Surveiller** dans le Portail Azure. Sous **Services partagés**, sélectionnez **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**.
 
-Sous **1. Définissez la condition de l’alerte**, puis cliquez sur **+ Sélectionner la cible**. Sous **Filtrer par type de ressource**, sélectionnez **Log Analytics**. Sélectionnez votre espace de travail Log Analytics, puis sélectionnez **Terminé**.
+Cliquez sur **Sélectionner** pour choisir une ressource. Sur la page **Sélectionner une ressource**, sélectionnez **Log Analytics** dans le menu déroulant **Filtrer par type de ressource**. Sélectionnez votre espace de travail Log Analytics, puis sélectionnez **Terminé**.
 
 ![Sélectionner une ressource](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Sélectionnez **+ Ajouter des critères**.
-Sous **Configurer la logique du signal**, dans le tableau, sélectionnez **Recherche de journal personnalisée**. Entrez la requête suivante dans la zone de texte de la requête de recherche :
+Cliquez sur **Ajouter une condition**, sur la page **Configurer la logique du signal**, dans le tableau, sélectionnez **Recherche de journal personnalisée**. Entrez la requête suivante dans la zone de texte de la requête de recherche :
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -194,11 +193,9 @@ Sous **Logique d’alerte**, pour **Seuil**, entrez **0**. Quand vous avez termi
 
 ![Configurer la logique du signal](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Sous **2. Définissez les détails de l’alerte**, entrez un nom et une description pour l’alerte. Définissez le niveau de **Gravité** sur **Information (gravité 2)**, **Avertissement (gravité 1)** ou **Critique (gravité 0)**.
+Sous **Groupes d’action**, sélectionnez **Créer**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Les actions peuvent inclure, sans s’y limiter, les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/platform/action-groups.md).
 
-![Définir les détails de l’alerte](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-Sous **3. Définissez un groupe d’actions**, sélectionnez **Nouveau groupe d’actions**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Les actions peuvent inclure, sans s’y limiter, les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Sous **Détails de l’alerte**, entrez un nom et une description pour l’alerte. Définissez le niveau de **Gravité** sur **Information (gravité 2)**, **Avertissement (gravité 1)** ou **Critique (gravité 0)**.
 
 Dans la zone **Nom du groupe d’actions** , entrez un nom pour l’alerte et un nom court. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
 

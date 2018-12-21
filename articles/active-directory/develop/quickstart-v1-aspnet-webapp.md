@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: a421527de275d38650c314d3722a7d2f93e8331d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 10de179c6055feb46439792ea74a0a3131f39646
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285014"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970645"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -39,7 +39,7 @@ Pour commencer, assurez-vous de remplir ces conditions préalables :
 
 * Visual Studio 2015 Update 3 ou Visual Studio 2017 installé. Ni l’un, ni l’autre ne sont installés sur votre ordinateur ? [Téléchargez gratuitement Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
-## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scénario : La connexion d’utilisateurs à partir de comptes professionnels et scolaires dans votre application ASP.NET
+## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scénario : Connecter des utilisateurs à partir de comptes professionnels et scolaires dans votre application ASP.NET
 
 ![Fonctionnement de ce guide](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
@@ -56,9 +56,9 @@ Ce démarrage rapide utilise les packages suivants :
 | [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | Intergiciel qui permet à une application d’utiliser OpenIDConnect pour l’authentification. |
 | [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |Intergiciel qui permet à une application de maintenir la session utilisateur à l’aide de cookies. |
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | Permet aux applications basées sur OWIN de s’exécuter sur IIS à l’aide du pipeline de requête ASP.NET. |
-|  |  | 
+|  |  |
 
-## <a name="step-1-set-up-your-project"></a>Étape 1 : configuration de votre projet
+## <a name="step-1-set-up-your-project"></a>Étape 1 : Configuration de votre projet
 
 Ces étapes montrent comment installer et configurer le pipeline d’authentification via l’intergiciel OWIN sur un projet ASP.NET à l’aide d’OpenID Connect.
 
@@ -66,14 +66,14 @@ Pour télécharger le projet Visual Studio de cet exemple à la place, suivez ce
 1. [Télécharger le projet sur GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
 1. Passez à [l’étape Configuration](#configure-your-webconfig-and-register-an-application) pour configurer l’exemple de code avant son exécution.
 
-## <a name="step-2-create-your-aspnet-project"></a>Étape 2 : créer votre projet ASP.NET
+## <a name="step-2-create-your-aspnet-project"></a>Étape 2 : Créer votre projet ASP.NET
 
 1. Dans Visual Studio, accédez à **Fichier -> Nouveau > Projet**.
 2. Sous **Visual C#\Web**, sélectionnez **Application web ASP.NET (.NET Framework)**.
 3. Donnez un nom à votre application et sélectionnez **OK**.
 4. Sélectionnez **Vide** et cochez la case pour ajouter des références **MVC**.
 
-## <a name="step-3-add-authentication-components"></a>Étape 3 : Ajouter les composants d’authentification
+## <a name="step-3-add-authentication-components"></a>Étape 3 : Ajouter les composants d’authentification
 
 1. Dans Visual Studio, accédez à **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**.
 2. Ajoutez **les packages NuGet de l’intergiciel OWIN** en saisissant la commande suivante dans la fenêtre Console du gestionnaire de package :
@@ -89,7 +89,7 @@ Pour télécharger le projet Visual Studio de cet exemple à la place, suivez ce
 >Les bibliothèques ci-dessus activent l’authentification unique à l’aide d’OpenID Connect via l’authentification basée sur les cookies. Une fois que l’authentification est terminée et que le jeton qui représente l’utilisateur est envoyé à votre application, l’intergiciel OWIN crée un cookie de session. Le navigateur utilise ensuite ce cookie pour les requêtes ultérieures afin que l’utilisateur n’ait pas besoin de se réauthentifier, et aucune vérification complémentaire n’est nécessaire.
 <!--end-collapse-->
 
-## <a name="step-4-configure-the-authentication-pipeline"></a>Étape 4 : configurer le pipeline d’authentification
+## <a name="step-4-configure-the-authentication-pipeline"></a>Étape 4 : Configurer le pipeline d’authentification
 
 Suivez ces étapes pour créer une *classe de démarrage* d’intergiciel OWIN pour configurer l’authentification OpenID Connect. Cette classe est exécutée automatiquement.
 
@@ -104,11 +104,11 @@ Pour créer une *classe de démarrage* d’intergiciel OWIN :
 
 1. Ajoutez les espaces de noms *OWIN* et *Microsoft.IdentityModel* à `Startup.cs` :
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 2. Remplacez la classe de démarrage par le code suivant :
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=Startup "Startup.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -119,7 +119,7 @@ Pour créer une *classe de démarrage* d’intergiciel OWIN :
 
 <!--start-use-->
 
-## <a name="step-5-add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Étape 5 : ajouter un contrôleur pour gérer les demandes de connexion et de déconnexion
+## <a name="step-5-add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Étape 5 : Ajouter un contrôleur pour gérer les demandes de connexion et de déconnexion
 
 Créez un contrôleur pour exposer les méthodes de connexion et de déconnexion.
 
@@ -129,13 +129,13 @@ Créez un contrôleur pour exposer les méthodes de connexion et de déconnexion
 4.  Nommez-le `HomeController` et sélectionnez **Ajouter**.
 5.  Ajoutez les espaces de noms **OWIN** à la classe :
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. Ajoutez les méthodes suivantes pour gérer la connexion à votre contrôleur et la déconnexion de celui-ci en lançant une demande d’authentification par le biais du code :
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
 
-## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Étape 6 : créer la page d’accueil de l’application pour connecter des utilisateurs via un bouton de connexion
+## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Étape 6 : Créer la page d’accueil de l’application pour connecter des utilisateurs via un bouton de connexion
 
 Dans Visual Studio, créez une vue pour ajouter le bouton de connexion et afficher les informations de l’utilisateur après l’authentification :
 
@@ -148,7 +148,7 @@ Dans Visual Studio, créez une vue pour ajouter le bouton de connexion et affich
 <!--start-collapse--> Cette page ajoute un bouton de connexion au format SVG avec un arrière-plan noir :<br/>![Se connecter avec Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Pour d’autres boutons de connexion, accédez à [Directives de personnalisation des applications](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
-## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Étape 7 : afficher les revendications de l’utilisateur en ajoutant un contrôleur
+## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Étape 7 : Afficher les revendications de l’utilisateur en ajoutant un contrôleur
 
 Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour protéger un contrôleur. Cet attribut limite l’accès au contrôleur en autorisant uniquement les utilisateurs authentifiés. Le code suivant tire parti de l’attribut pour afficher les revendications de l’utilisateur qui ont été récupérées dans le cadre de la connexion.
 
@@ -158,14 +158,14 @@ Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour pro
 1. Nommez-le **ClaimsController**.
 1. Remplacez le code de votre classe de contrôleur par le code suivant afin d’ajouter l’attribut `[Authorize]` à la classe :
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
-> En raison de l’utilisation de l’attribut `[Authorize]`, toutes les méthodes de ce contrôleur peuvent uniquement être exécutées si l’utilisateur est authentifié. Si l’utilisateur n’est pas authentifié et tente d’accéder au contrôleur, OWIN initialise une demande d’authentification et oblige l’utilisateur à s’authentifier. Le code ci-dessus examine la collection de revendications de l’utilisateur pour les attributs spécifiques inclus dans le jeton de l’utilisateur. Ces attributs incluent le nom complet et le nom d’utilisateur de l’utilisateur, ainsi que le sujet d’identificateur d’utilisateur global. Il contient également le *ID client*, qui représente l’identifiant de l’organisation de l’utilisateur. 
+> En raison de l’utilisation de l’attribut `[Authorize]`, toutes les méthodes de ce contrôleur peuvent uniquement être exécutées si l’utilisateur est authentifié. Si l’utilisateur n’est pas authentifié et tente d’accéder au contrôleur, OWIN initialise une demande d’authentification et oblige l’utilisateur à s’authentifier. Le code ci-dessus examine la collection de revendications de l’utilisateur pour les attributs spécifiques inclus dans le jeton de l’utilisateur. Ces attributs incluent le nom complet et le nom d’utilisateur de l’utilisateur, ainsi que le sujet d’identificateur d’utilisateur global. Il contient également le *ID client*, qui représente l’identifiant de l’organisation de l’utilisateur.
 <!--end-collapse-->
 
-## <a name="step-8-create-a-view-to-display-the-users-claims"></a>Étape 8 : créer une vue pour afficher les revendications de l’utilisateur
+## <a name="step-8-create-a-view-to-display-the-users-claims"></a>Étape 8 : Créer une vue pour afficher les revendications de l’utilisateur
 
 Dans Visual Studio, créez une vue pour afficher les revendications de l’utilisateur dans une page web :
 
@@ -179,7 +179,7 @@ Dans Visual Studio, créez une vue pour afficher les revendications de l’utili
 
 <!--start-configure-->
 
-## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>Étape 9 : configurer votre fichier *web.config* et inscrire une application
+## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>Étape 9 : Configurer votre fichier *web.config* et inscrire une application
 
 1. Dans Visual Studio, ajoutez le code suivant au fichier `web.config` (situé dans le dossier racine), sous la section `configuration\appSettings` :
 
@@ -187,7 +187,7 @@ Dans Visual Studio, créez une vue pour afficher les revendications de l’utili
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
+    <add key="Authority" value="https://login.microsoftonline.com/{0}" />
     ```
 2. Dans l’Explorateur de solutions, sélectionnez le projet et examinez la fenêtre <i>Propriétés</i> (si vous ne voyez pas une fenêtre de propriétés, appuyez sur F4).
 3. Définissez l’option SSL activé sur <code>True</code>
@@ -208,7 +208,7 @@ Dans Visual Studio, créez une vue pour afficher les revendications de l’utili
 > [!TIP]
 > Si votre compte est configuré pour l’accès à plusieurs répertoires, vérifiez que vous avez sélectionné le répertoire correspondant à l’organisation pour laquelle vous souhaitez inscrire l’application en cliquant sur le nom de votre compte en haut à droite du portail Azure, puis en vérifiant le répertoire sélectionné comme indiqué :<br/>![Sélection de l’annuaire](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
-## <a name="step-10-configure-sign-in-options"></a>Étape 10 : configurer les options de connexion
+## <a name="step-10-configure-sign-in-options"></a>Étape 10 : Configurer les options de connexion
 
 Vous pouvez configurer votre application pour autoriser uniquement la connexion des utilisateurs qui appartiennent à l’instance Azure AD d’une organisation, ou accepter les connexions des utilisateurs qui appartiennent à n’importe quelle organisation. Suivez les instructions de l’une des options suivantes :
 
@@ -227,10 +227,12 @@ Pour plus d’informations sur ce paramètre et le concept d’application mutua
 Cette option est un scénario courant pour les applications métier.
 
 Si vous souhaitez que votre application accepte les connexions uniquement à partir des comptes qui appartiennent à une instance Azure AD spécifique (y compris les *comptes invités* de cette instance), suivez les étapes suivantes :
+
 1. Remplacez le paramètre `Tenant` dans *web.config* de `Common` par le nom de locataire de l’organisation, par exemple *contoso.onmicrosoft.com*.
 1. Affectez la valeur `true` à l’argument `ValidateIssuer` dans votre [*classe de démarrage OWIN*](#configure-the-authentication-pipeline).
 
 Pour autoriser les utilisateurs à partir d’une liste d’organisations spécifiques, procédez comme suit :
+
 1. Définissez `ValidateIssuer` sur True.
 1. Utilisez le paramètre `ValidIssuers` pour spécifier une liste d’organisations.
 
@@ -259,7 +261,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--end-configure-arp-->
 <!--start-test-->
 
-## <a name="step-11-test-your-code"></a>Étape 11 : Test de votre code
+## <a name="step-11-test-your-code"></a>Étape 11 : Test de votre code
 
 1. Appuyez sur **F5** pour exécuter votre projet dans Visual Studio. Le navigateur s’ouvre et vous redirige vers `http://localhost:{port}`, où vous pouvez voir le bouton **Se connecter avec Microsoft**.
 1. Sélectionnez le bouton pour vous connecter.

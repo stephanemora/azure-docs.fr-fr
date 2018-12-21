@@ -1,21 +1,21 @@
 ---
-title: Didacticiel Azure Container Instances - Préparer votre application
-description: Didacticiel Azure Container Instances (partie 1 sur 3) - Préparer une application pour le déploiement vers Azure Container Instances
+title: Tutoriel - Préparer l’image conteneur pour Azure Container Instances
+description: Tutoriel Azure Container Instances (partie 1 sur 3) - Préparer une application dans une image conteneur pour le déploiement sur Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: dfe494eba64f546616e4e6cc9898f9d63d81eaa2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 029b4f2d0f0f88f56ca1f3e282d8c80e76f4d5c7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854777"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186410"
 ---
-# <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Tutoriel : Créer un conteneur à déployer dans Azure Container Instances
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances
 
 Azure Container Instances permet de déployer des conteneurs Docker sur l’infrastructure Azure sans configurer de machines virtuelles ni adopter de service de niveau supérieur. Dans ce tutoriel, vous allez empaqueter une petite application web Node.js dans une image de conteneur pouvant être exécuté avec Azure Container Instances.
 

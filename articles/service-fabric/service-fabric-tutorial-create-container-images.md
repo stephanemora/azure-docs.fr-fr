@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dc92524843f47b1327af5e9d3f237656cad2a37
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947531"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313783"
 ---
-# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutoriel : Créer des images conteneurs sur un cluster Service Fabric Linux
+# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Didacticiel : Créer des images conteneurs sur un cluster Service Fabric Linux
 
 Ce tutoriel est la première partie d’une série qui montre comment utiliser des conteneurs dans un cluster Service Fabric Linux. Dans le premier tutoriel, vous allez préparer une application à conteneurs multiples afin de pouvoir l’utiliser avec Service Fabric. Dans les tutoriels suivants, ces images seront utilisées dans le cadre d’une application Service Fabric. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 

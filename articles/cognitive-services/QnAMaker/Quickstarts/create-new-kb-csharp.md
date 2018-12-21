@@ -1,23 +1,24 @@
 ---
-title: 'Démarrage rapide : créer une base de connaissances - REST, C# - QnA Maker'
-titlesuffix: Azure Cognitive Services
+title: Créer une base de connaissances - REST, C#
+titlesuffix: QnA Maker- Azure Cognitive Services
 description: Ce guide de démarrage rapide C# basé sur REST vous guide dans la création, par programmation, d’un exemple de base de connaissances QnA Maker qui apparaîtra dans le tableau de bord Azure de votre compte d’API Cognitive Services.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 190a937a4239c08d844d271d2e1d8e858215a5c2
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 36f056003ec35f49120a36b15c0809b06daaecbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334957"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254807"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Démarrage rapide : créer une base de connaissances dans QnA Maker à l’aide de C#
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Démarrage rapide : Créer une base de connaissances dans QnA Maker à l’aide de C#
 
 Ce guide de démarrage rapide vous aide à créer et publier par programmation un exemple de base de connaissances QnA Maker. QnA Maker extrait automatiquement les questions et les réponses à partir du contenu semi-structuré, telles que les FAQ, de [sources de données](../Concepts/data-sources-supported.md). Le modèle de la base de connaissances est défini dans le code JSON envoyé dans le corps de la requête d’API. 
 
@@ -32,7 +33,7 @@ Ce démarrage rapide fait appel aux API QnA Maker :
 * Vous devez disposer d’un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Pour récupérer votre clé, sélectionnez **Clés** sous **Gestion des ressources** dans votre tableau de bord. 
 
 > [!NOTE] 
-> Les fichiers solution complets sont disponibles dans le dépôt Github [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
+> Les fichiers solution complets sont disponibles dans le dépôt GitHub [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
 
 ## <a name="create-a-knowledge-base-project"></a>Créer un projet de base de connaissances
 

@@ -1,23 +1,24 @@
 ---
-title: 'Démarrage rapide pour Node.js : Changer de modèle et entraîner une application LUIS'
+title: Modifier, effectuer l’apprentissage d’application, Node.js
 titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide de Node.js, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’apprentissage de l’application. Les exemples d’énoncés sont du texte utilisateur conversationnel mappé à une intention. En fournissant des exemples d’énoncés pour les intentions, vous apprenez à l’application LUIS quels types de texte fourni par l’utilisateur appartiennent à quelle intention.
+description: Dans ce démarrage rapide de Node.js, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’apprentissage de l’application.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a487f44e164830928367d9f6ea737e793e38c0a8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8f1ff88dc917c665d04f7500c8022e6baf4c94bf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036148"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164464"
 ---
-# <a name="quickstart-change-model-using-nodejs"></a>Démarrage rapide : Modifier un modèle à l’aide de Node.js
+# <a name="quickstart-change-model-using-nodejs"></a>Démarrage rapide : Changer de modèle à l’aide de Node.js
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -28,7 +29,7 @@ ms.locfileid: "47036148"
 * Dépendances NPM pour cet article : [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>Exemples d’énoncés de fichier JSON
 
@@ -78,7 +79,7 @@ Exécutez l’application à partir d’une ligne de commande avec Node.js.
 
 Appeler `npm start` permet d’ajouter les énoncés, d’effectuer l’apprentissage et d’obtenir l’état d’apprentissage.
 
-```CMD
+```console
 > npm start 
 ```
 

@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 7c1e07d73d110d5ef7f681486479ec65ff436b19
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416152"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408846"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
 [Azure App Service](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. En outre, App Service prend, de base, en charge [l’authentification et l’autorisation des utilisateurs](app-service-authentication-overview.md). Ce tutoriel montre comment sécuriser vos applications avec l’authentification et l’autorisation App Service. Il utilise une application ASP.NET Core avec un serveur frontal Angular.js, mais c’est uniquement pour notre exemple. L’authentification et l’autorisation App Service prennent en charge tous les runtimes de langage, et vous pouvez apprendre comment les appliquer à votre langage préféré en suivant le tutoriel.
 
@@ -213,11 +214,11 @@ Accédez à `http://<back_end_app_name>.azurewebsites.net` pour voir les éléme
 
 Dans cette étape, vous activez l’authentification et l’autorisation pour les deux applications. Vous configurez également l’application frontale pour générer un jeton d’accès que vous pouvez utiliser pour effectuer des appels authentifiés à l’application principale.
 
-Vous utilisez Azure Active Directory en tant que fournisseur d’identité. Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md).
+Vous utilisez Azure Active Directory en tant que fournisseur d’identité. Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](configure-authentication-provider-aad.md).
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Activer l’authentification et l’autorisation pour l’application principale
 
-Dans le [portail Azure](https://portal.azure.com), ouvrez la page de gestion de votre application principale en cliquant dans le menu de gauche : **Groupes de ressources** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
+Sur le [portail Azure](https://portal.azure.com), ouvrez la page de gestion de votre application back-end en cliquant sur ce qui suit dans le menu de gauche : **Groupes de ressources** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
 
 ![API ASP.NET Core exécuté dans Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 

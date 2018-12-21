@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287232"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311063"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 Si vous développez une application Android, Microsoft simplifie et facilite la connexion d’utilisateurs Azure Active Directory (Azure AD). Azure AD permet à votre application d’accéder à des données utilisateur via Microsoft Graph ou votre propre API web protégée.
 
-La bibliothèque Android ADAL (Azure AD Authentication Library) permet à votre application de commencer à utiliser [Microsoft Azure Cloud](https://cloud.microsoft.com) & [l’API Microsoft Graph](https://developer.microsoft.com/graph) en prenant en charge des [comptes Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) dans le respect des normes OAuth 2.0 et OpenID Connect.
+La bibliothèque Android ADAL (Azure AD Authentication Library) permet à votre application de commencer à utiliser [Microsoft Azure Cloud](https://cloud.microsoft.com) et [l’API Microsoft Graph](https://developer.microsoft.com/graph) en prenant en charge des [comptes Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) dans le respect des normes OAuth 2.0 et OpenID Connect.
 
 Dans ce guide de démarrage rapide, vous apprenez à :
 
@@ -51,23 +51,23 @@ Vous pouvez utiliser cette application pour tous les comptes Azure AD. Elle pren
 
 ## <a name="sample-code"></a>Exemple de code
 
-L’exemple complet de code est disponible [sur Github](https://github.com/Azure-Samples/active-directory-android).
+L’exemple complet de code est disponible [sur GitHub](https://github.com/Azure-Samples/active-directory-android).
 
 ```Java
 // Initialize your app with MSAL
 AuthenticationContext mAuthContext = new AuthenticationContext(
-        MainActivity.this, 
-        AUTHORITY, 
+        MainActivity.this,
+        AUTHORITY,
         false);
 
 
 // Perform authentication requests
 mAuthContext.acquireToken(
-    getActivity(), 
-    RESOURCE_ID, 
-    CLIENT_ID, 
-    REDIRECT_URI,  
-    PromptBehavior.Auto, 
+    getActivity(),
+    RESOURCE_ID,
+    CLIENT_ID,
+    REDIRECT_URI,
+    PromptBehavior.Auto,
     getAuthInteractiveCallback());
 
 // ...
@@ -76,7 +76,7 @@ mAuthContext.acquireToken(
 mAuthResult.getAccessToken()
 ```
 
-## <a name="step-1-register-and-configure-your-app"></a>Étape 1 : inscrivez et configurez votre application
+## <a name="step-1-register-and-configure-your-app"></a>Étape 1 : Inscrire et configurer votre application
 
 Vous devez disposer d’une application cliente native inscrite auprès de Microsoft via le [portail Azure](https://portal.azure.com).
 
@@ -95,13 +95,13 @@ Vous devez disposer d’une application cliente native inscrite auprès de Micro
     - Sélectionnez **Ajouter**, puis dans **Sélectionner une API**, sélectionnez ***Microsoft Graph***.
     - Sélectionnez l’autorisation **Activer la connexion et lire le profil utilisateur**, puis appuyez sur **Sélectionner** pour enregistrer.
         - Cette autorisation est mappée à l’étendue `User.Read`.
-    - Facultatif : dans **Autorisations requises > Microsoft Azure Active Directory**, supprimez l’autorisation sélectionnée **Activer la connexion et lire le profil utilisateur**. Cela permet d’éviter que la page de consentement de l’utilisateur affiche deux fois l’autorisation.
+    - Facultatif : dans **Autorisations requises > Microsoft Azure Active Directory**, supprimez l’autorisation sélectionnée **Activer la connexion et lire le profil utilisateur**. Cela permet d’éviter que la page de consentement de l’utilisateur affiche deux fois l’autorisation.
 
 4. Félicitations ! Votre application est correctement configurée. Dans la section suivante, vous aurez besoin de ce qui suit :
     - `Application ID`
     - `Redirect URI`
 
-## <a name="step-2-get-the-sample-code"></a>Étape 2 : obtenez l’exemple de code
+## <a name="step-2-get-the-sample-code"></a>Étape 2 : Obtention de l'exemple de code
 
 1. Clonez le code
     ```
@@ -110,14 +110,14 @@ Vous devez disposer d’une application cliente native inscrite auprès de Micro
 2. Ouvrez l’exemple dans Android Studio.
     - Sélectionnez **Ouvrir un projet Android Studio**.
 
-## <a name="step-3-configure-your-code"></a>Étape 3 : configurez votre code
+## <a name="step-3-configure-your-code"></a>Étape 3 : Configurer votre code
 
 Vous pouvez trouver la configuration complète de cet exemple de code dans le fichier ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java***.
 
 1. Remplacez la constante `CLIENT_ID` par `ApplicationID`.
 2. Remplacez la constante `REDIRECT URI` par la valeur `Redirect URI` que vous avez configurée précédemment (`http://localhost`).
 
-## <a name="step-4-run-the-sample"></a>Étape 4 : exécutez l’exemple
+## <a name="step-4-run-the-sample"></a>Étape 4 : Exécution de l'exemple
 
 1. Sélectionnez **Générer > Nettoyer le projet**.
 2. Sélectionnez **Exécuter > Exécuter l’application**.

@@ -1,21 +1,21 @@
 ---
-title: Didacticiel Azure Container Instances - Préparer Azure Container Registry
-description: Didacticiel Azure Container Instances (partie 2 sur 3) - Préparer Azure Container Registry
+title: Tutoriel - Préparer un registre de conteneurs pour Azure Container Instances
+description: Tutoriel Azure Container Instances (partie 2 sur 3) - Préparer un registre de conteneurs Azure et envoyer une image
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: e7cf9c5fad6219e71205c181b2dbb6828595afdd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eeb0fe5b19f23e101eab9393dca64e1e13bf6922
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855440"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188912"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Didacticiel : Déployer et utiliser Azure Container Registry
+# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Tutoriel : Déployer un registre de conteneurs Azure et envoyer une image conteneur
 
 Il s’agit de la deuxième partie d’un didacticiel en trois parties. Dans la [première partie](container-instances-tutorial-prepare-app.md) du didacticiel, vous avez créé une image de conteneur Docker pour une application web Node.js. Dans ce didacticiel, vous envoyez cette image à Azure Container Registry. Si vous n’avez pas encore créé l’image de conteneur, retournez au [Didacticiel 1 : Créer une image conteneur](container-instances-tutorial-prepare-app.md).
 

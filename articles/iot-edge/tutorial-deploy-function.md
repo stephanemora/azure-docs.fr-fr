@@ -1,6 +1,6 @@
 ---
-title: Déployer des fonctions Azure avec Azure IoT Edge | Microsoft Docs
-description: Dans ce didacticiel, vous déployez une fonction Azure en tant que module vers un appareil Edge.
+title: Tutoriel consacré au déploiement d'une fonction Azure sur un appareil - Azure IoT Edge | Microsoft Docs
+description: Dans ce tutoriel, vous allez développer une fonction Azure en tant que module IoT Edge avant de la déployer sur un appareil Edge.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: d0ae009db0d9470942a4ff5d7c09e2cdd7bcdd53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165614"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081878"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutoriel : Déployer des fonctions Azure en tant que modules IoT Edge
 
@@ -27,7 +27,7 @@ Vous pouvez utiliser Azure Functions pour déployer un code qui implémente votr
 > * Affichez les données filtrées.
 
 <center>
-![Schéma de l’architecture du didacticiel](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+![Diagramme - Tutoriel - Structurer, mettre en lots et déployer un module Function](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -59,11 +59,11 @@ Ressources de développement :
 
 Dans ce tutoriel, utilisez l’extension Azure IoT Edge pour Visual Studio Code afin de créer un module et une **image conteneur** à partir des fichiers. Puis envoyez cette image à un **registre** qui stocke et gère vos images. Enfin, déployez votre image à partir de votre registre de façon à l’exécuter sur votre appareil IoT Edge.  
 
-Vous pouvez utiliser n’importe quel registre Docker pour stocker vos images conteneur. [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) et [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) sont deux services de registre Docker populaires. Ce didacticiel utilise Azure Container Registry. 
+Vous pouvez utiliser n’importe quel registre Docker pour stocker vos images conteneur. [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) et [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) sont deux services de registre Docker connus. Ce didacticiel utilise Azure Container Registry. 
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Conteneurs** > **Container Registry**.
 
-    ![Créer un registre de conteneur](./media/tutorial-deploy-function/create-container-registry.png)
+    ![Créer un registre de conteneurs sur le portail Azure](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. Fournissez les valeurs suivantes pour créer votre registre de conteneurs :
 
@@ -90,15 +90,15 @@ L’extension Azure IoT Edge pour Visual Studio Code que vous avez installée co
 
 2. Ouvrez la palette de commandes VS Code en sélectionnant **Affichage** > **Palette de commandes**.
 
-3. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge : nouvelle solution IoT Edge**. Suivez les invites de la palette de commandes pour créer votre solution.
+3. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: New IoT Edge solution**. Suivez les invites de la palette de commandes pour créer votre solution.
 
    | Champ | Valeur |
    | ----- | ----- |
    | Sélectionner le dossier | Choisissez l’emplacement sur votre machine de développement pour que VS Code crée les fichiers de la solution. |
-   | Fournir un nom de solution | Entrez un nom descriptif pour votre solution, par exemple **FunctionSolution**, ou acceptez le nom par défaut. |
-   | Sélectionner un modèle de module | Choisissez **Azure Functions - C#**. |
-   | Fournir un nom de module | Nommez votre module **CSharpFunction**. |
-   | Fournir le référentiel d’images Docker pour le module | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. Votre image conteneur est préremplie à partir de la dernière étape. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. La chaîne finale ressemble à \<nom de registre\>.azurecr.io/CSharpFunction. |
+   | Provide a solution name (Nommer la solution) | Entrez un nom descriptif pour votre solution, par exemple **FunctionSolution**, ou acceptez le nom par défaut. |
+   | Select module template (Sélectionner un modèle de module) | Choisissez **Azure Functions - C#**. |
+   | Provide a module name (Nommer le module) | Nommez votre module **CSharpFunction**. |
+   | Provide Docker image repository for the module (Indiquer le référentiel d’images Docker pour le module) | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. Votre image conteneur est préremplie à partir de la dernière étape. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. La chaîne finale ressemble à \<nom de registre\>.azurecr.io/CSharpFunction. |
 
    ![Fourniture du référentiel d’images Docker](./media/tutorial-deploy-function/repository.png)
 
@@ -243,11 +243,11 @@ Vous pouvez utiliser le portail Azure pour déployer votre module de fonction su
 
 ## <a name="view-generated-data"></a>Afficher les données générées
 
-Vous pouvez voir tous les messages arrivant dans votre hub IoT en exécutant **Azure IoT Hub: Démarrer l’analyse du message D2C** dans la palette de commandes.
+Vous pouvez voir tous les messages arrivant dans votre hub IoT en exécutant **Azure IoT Hub: Start Monitoring D2C Message** dans la palette de commandes.
 
 Vous pouvez également filtrer pour afficher tous les messages qui arrivent dans votre hub IoT à partir d’un appareil spécifique. Cliquez avec le bouton droit sur l’appareil dans la section **Appareils Azure IoT Hub** et sélectionnez **Start Monitoring D2C Messages**.
 
-Pour arrêter la surveillance des messages, exécutez la commande **Azure IoT Hub: Stop monitoring D2C message** dans la palette de commandes. 
+Pour cesser la surveillance des messages, exécutez la commande **Azure IoT Hub: Stop monitoring D2C message** dans la palette de commandes. 
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

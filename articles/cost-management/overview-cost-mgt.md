@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 16e2da864d51cbc44457715813e851fd873c8746
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276667"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997121"
 ---
 # <a name="what-is-azure-cost-management"></a>Qu’est-ce que la gestion des coûts Azure ?
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser le portail Azure ou différentes API pour automatiser l’e
 
 ## <a name="plan-and-control-expenses"></a>Planifier et maîtriser les dépenses
 
-Cost Management vous aide à planifier et à maîtriser les coûts avec : l’analyse du coût, des budgets, des recommandations et l’exportation des données de gestion des coûts.
+Cost Management vous aide à planifier et à contrôler vos coûts de différentes façons : Analyse des coûts, budgets, suggestions et exportation des données de gestion des coûts.
 
 Utilisez l’analyse du coût pour explorer et analyser les coûts de votre organisation. Vous pouvez voir les coûts agrégés par l’organisation afin de comprendre où les coûts ont augmenté et d’identifier les tendances de dépenses. Vous pouvez aussi voir les coûts cumulés au fil du temps pour évaluer des tendances mensuelles, trimestrielles ou même annuelles par rapport à un budget.
 

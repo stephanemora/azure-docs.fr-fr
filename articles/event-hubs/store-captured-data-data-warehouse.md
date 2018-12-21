@@ -1,21 +1,22 @@
 ---
-title: Migration des données de Azure Event Hubs vers SQL Data Warehouse | Microsoft Docs
+title: Migrer des données d'événement vers SQL Data Warehouse - Azure Event Hubs | Microsoft Docs
 description: Ce didacticiel vous montre comment capturer des données de votre Event Hub dans SQL Data Warehouse à l’aide d’une fonction Azure déclenchée par une grille d’événements.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
-ms.date: 08/27/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 9673a7bff8e2d22764be28abef807434c53cc552
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 03ebdabf60882a73eb15cbd36481068591bbd3bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145207"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086281"
 ---
-# <a name="process-and-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Traiter et migrer les données Event Hubs capturées vers un SQL Data Warehouse à l’aide d’Event Grid et de Azure Functions
+# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migrer des données Event Hubs capturées vers SQL Data Warehouse à l'aide d'Event Grid et d'Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) est le moyen le plus simple pour fournir automatiquement les données diffusées en continu d’Event Hubs à un compte de stockage Blob Azure ou Azure Data Lake Store. Vous pouvez ensuite traiter et fournir les données vers n’importe quelle destination de stockage de votre choix, SQL Data Warehouse ou Cosmos DB par exemple. Dans ce didacticiel, vous allez apprendre à capturer des données de votre Event Hub dans SQL Data Warehouse à l’aide d’une fonction Azure déclenchée par une [grille d’événements](https://docs.microsoft.com/azure/event-grid/overview).
 

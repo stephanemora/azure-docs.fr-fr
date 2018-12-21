@@ -1,6 +1,7 @@
 ---
-title: 'Didacticiel : Déployer un modèle de classification d’images dans Azure Container Instances avec le service Azure Machine Learning'
-description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour déployer un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python.  Ce tutoriel est le deuxième d’une série de deux.
+title: 'Tutoriel sur la classification d’images : Déployer des modèles'
+titleSuffix: Azure Machine Learning service
+description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour déployer un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le deuxième d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,42 +10,43 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: ea446c89fc74fca444793a5e0f803a54fa251ed1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864058"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312168"
 ---
-# <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutoriel #2 : Déployer un modèle de classification d’images dans Azure Container Instances
+# <a name="tutorial--deploy-an-image-classification-model-in-azure-container-instance"></a>Tutoriel :  Déployer un modèle de classification d’images dans Azure Container Instances
 
 Ce tutoriel est le **deuxième d’une série de deux**. Dans le [tutoriel précédent](tutorial-train-models-with-aml.md), vous avez entraîné des modèles Machine Learning, puis vous avez inscrit un modèle dans votre espace de travail sur le cloud.  
 
-Vous êtes maintenant prêt à déployer le modèle en tant que service web dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Un service web est une image, dans ce cas une image Docker, qui encapsule la logique de scoring et le modèle lui-même. 
+Vous êtes maintenant prêt à déployer le modèle en tant que service web dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). Un service web est une image, dans ce cas une image Docker, qui encapsule la logique de scoring et le modèle lui-même. 
 
-Dans cette partie du tutoriel, vous utilisez Azure Machine Learning Services pour :
+Dans cette partie du tutoriel, vous utilisez Azure Machine Learning Service pour :
 
 > [!div class="checklist"]
 > * Configurer votre environnement de test
 > * Récupérer le modèle à partir de votre espace de travail
 > * Tester le modèle localement
-> * Déployer le modèle sur ACI
+> * Déployer le modèle sur Azure Container Instances
 > * Tester le modèle déployé
 
-ACI n’est pas idéal pour les déploiements de production, mais il est très utile pour tester et comprendre le flux de travail. Pour les déploiements de production évolutifs, envisagez d’utiliser [Azure Kubernetes Service](how-to-deploy-to-aks.md).
+Azure Container Instances n’est pas idéal pour les déploiements de production, mais il est très utile pour tester et comprendre le flux de travail. Pour les déploiements de production évolutifs, envisagez d’utiliser Azure Kubernetes Service. Pour plus d’informations, consultez le document [Comment et où déployer](how-to-deploy-and-where.md).
 
 ## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
-Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Exécutez le bloc-notes `tutorials/img-classification-part2-deploy.ipynb` dans des Azure Notebooks ou dans votre propre serveur de bloc-notes Jupyter.
+Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Exécutez le notebook `tutorials/img-classification-part2-deploy.ipynb` dans Azure Notebooks ou sur votre propre serveur de notebooks Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> Le code présenté dans cet article a été testé avec le SDK Azure Machine Learning version 1.0.2
+> Le code présenté dans cet article a été testé avec le kit SDK Azure Machine Learning version 1.0.2.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Effectuez l’entraînement du modèle dans le bloc-notes [Didacticiel n° 1 : entraîner un modèle de classification d’images avec le service Azure Machine Learning](tutorial-train-models-with-aml.md).  
+Effectuez l’apprentissage du modèle dans le notebook suivant : [Tutoriel 1 : Effectuer l’apprentissage d’un modèle de classification d’images avec Azure Machine Learning Service](tutorial-train-models-with-aml.md).  
 
 
 ## <a name="set-up-the-environment"></a>Configurer l’environnement
@@ -148,7 +150,7 @@ La sortie montre la matrice de confusion :
 Utilisez `matplotlib` pour afficher la matrice de confusion sous forme de graphe. Dans ce graphe, l’axe X représente les valeurs réelles, et l’axe Y représente les valeurs prédites. La couleur dans chaque grille représente le taux d’erreur. Plus la couleur est claire, plus le taux d’erreurs est élevé. Par exemple, beaucoup de 5 sont incorrectement classifiés en 3. Par conséquent, vous voyez une grille claire en (5,3).
 
 ```python
-# normalize the diagnal cells so that they don't overpower the rest of the cells when visualized
+# normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
 row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
@@ -168,23 +170,23 @@ plt.savefig('conf.png')
 plt.show()
 ```
 
-![Matrice de confusion](./media/tutorial-deploy-models-with-aml/confusion.png)
+![Schéma montrant la matrice de confusion](./media/tutorial-deploy-models-with-aml/confusion.png)
 
 ## <a name="deploy-as-web-service"></a>Déployer en tant que service web
 
-Une fois que vous avez testé le modèle et que vous êtes satisfait des résultats, déployez le modèle en tant que service web hébergé dans ACI. 
+Une fois que vous avez testé le modèle et que vous êtes satisfait des résultats, déployez le modèle en tant que service web hébergé dans Azure Container Instances. 
 
-Pour créer l’environnement approprié pour ACI, fournissez les éléments suivants :
+Pour créer l’environnement approprié pour Azure Container Instances, fournissez les éléments suivants :
 * Un script de scoring pour montrer comment utiliser le modèle
 * Un fichier d’environnement pour indiquer quels packages doivent être installés
-* Un fichier de configuration pour créer l’ACI
+* Un fichier de configuration pour créer l’instance de conteneur
 * Le modèle que vous avez précédemment entraîné
 
 <a name="make-script"></a>
 
 ### <a name="create-scoring-script"></a>Créer le script de scoring
 
-Créez le script de scoring, nommé score.py, utilisé par l’appel du service web pour montrer comment utiliser le modèle.
+Créer le script de scoring, appelé score.py. L’appel de service web utilise ce script pour montrer comment utiliser le modèle.
 
 Vous devez inclure deux fonctions nécessaires dans le script de scoring :
 * La fonction `init()`, qui charge en général le modèle dans un objet global. Cette fonction est exécutée une seule fois lors du démarrage du conteneur Docker. 
@@ -239,7 +241,7 @@ with open("myenv.yml","r") as f:
 
 ### <a name="create-configuration-file"></a>Création d’un fichier de configuration
 
-Créez un fichier de configuration de déploiement, et spécifiez le nombre de processeurs et de gigaoctets de RAM nécessaires pour votre conteneur ACI. Bien que cela dépende de votre modèle, les valeurs par défaut de 1 cœur et de 1 gigaoctet de RAM sont généralement suffisantes pour de nombreux modèles. Si vous pensez plus tard que des valeurs supérieures sont nécessaires, vous devrez recréer l’image et redéployer le service.
+Créez un fichier de configuration de déploiement, et spécifiez le nombre de processeurs et de gigaoctets de RAM nécessaires pour votre conteneur Azure Container Instances. Bien que cela dépende de votre modèle, les valeurs par défaut de 1 cœur et de 1 gigaoctet de RAM sont généralement suffisantes pour de nombreux modèles. Si vous pensez plus tard que des valeurs supérieures sont nécessaires, vous devrez recréer l’image et redéployer le service.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -250,18 +252,18 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Predict MNIST with sklearn')
 ```
 
-### <a name="deploy-in-aci"></a>Déployer dans ACI
+### <a name="deploy-in-container-instances"></a>Déployer dans Container Instances
 Durée estimée : **environ 7 à 8 minutes**
 
 Configurez l’image et déployez. Le code suivant effectue ces étapes :
 
 1. Créer une image avec :
-   * Le fichier de scoring (`score.py`)
-   * Le fichier d’environnement (`myenv.yml`)
-   * Le fichier de modèle
+   * Le fichier de scoring (`score.py`).
+   * Le fichier d’environnement (`myenv.yml`).
+   * Le fichier de modèle.
 1. Inscrire cette image sous l’espace de travail. 
-1. Envoyer l’image dans le conteneur ACI.
-1. Démarrer un conteneur dans ACI en utilisant l’image.
+1. Envoyer l’image au conteneur Azure Container Instances.
+1. Démarrer un conteneur dans Azure Container Instances à l’aide de l’image.
 1. Obtenir le point de terminaison HTTP du service web.
 
 
@@ -284,7 +286,7 @@ service = Webservice.deploy_from_model(workspace=ws,
 service.wait_for_deployment(show_output=True)
 ```
 
-Obtenir le point de terminaison HTTP du service web de scoring qui accepte les appels du client REST. Ce point de terminaison peut être partagé avec toute personne souhaitant tester le service web ou l’intégrer dans une application. 
+Obtenir le point de terminaison HTTP du service web de scoring qui accepte les appels du client REST. Vous pouvez partager ce point de terminaison avec toute personne souhaitant tester le service web ou l’intégrer dans une application. 
 
 ```python
 print(service.scoring_uri)
@@ -296,7 +298,7 @@ print(service.scoring_uri)
 Vous avez précédemment attribué un score à toutes les données de test avec la version locale du modèle. Vous pouvez maintenant tester le modèle déployé avec un échantillon aléatoire de 30 images provenant des données de test.  
 
 Le code suivant effectue ces étapes :
-1. Envoyer les données sous forme de tableau JSON au service web hébergé dans ACI. 
+1. Envoyer les données sous forme de tableau JSON au service web hébergé dans Azure Container Instances. 
 
 1. Utiliser l’API `run` du SDK pour appeler le service. Vous pouvez également effectuer des appels directs avec n’importe quel outil HTTP, comme curl.
 
@@ -337,7 +339,7 @@ for s in sample_indices:
 plt.show()
 ```
 
-Voici le résultat d’un échantillon aléatoire d’images de test : ![résultats](./media/tutorial-deploy-models-with-aml/results.png)
+Voici le résultat d’un échantillon aléatoire d’images de test : ![Schéma montrant les résultats](./media/tutorial-deploy-models-with-aml/results.png)
 
 Vous pouvez également envoyer une demande HTTP directe pour tester le service web.
 
@@ -365,7 +367,7 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Pour conserver le groupe de ressources et l’espace de travail pour d’autres tutoriels et d’autres explorations, vous pouvez supprimer seulement le déploiement ACI avec cet appel d’API :
+Pour conserver le groupe de ressources et l’espace de travail pour d’autres tutoriels et d’autres explorations, vous pouvez supprimer uniquement le déploiement Azure Container Instances avec cet appel d’API :
 
 ```python
 service.delete()
@@ -376,13 +378,6 @@ service.delete()
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel sur le service Azure Machine Learning, vous avez utilisé Python pour :
++ Apprenez-en davantage sur les [options de déploiement disponibles pour Azure Machine Learning Service](how-to-deploy-and-where.md), y compris ACI, Azure Kubernetes Service, FPGA et IoT Edge.
 
-> [!div class="checklist"]
-> * Configurer votre environnement de test
-> * Récupérer le modèle à partir de votre espace de travail
-> * Tester le modèle localement
-> * Déployer le modèle sur ACI
-> * Tester le modèle déployé
- 
-Vous pouvez également essayer le didacticiel [Sélection automatique d’un algorithme](tutorial-auto-train-models.md) pour voir comment le service Azure Machine Learning peut sélectionner automatiquement et optimiser le meilleur algorithme pour votre modèle et générer ce modèle pour vous.
++ Découvrez comment le service Azure Machine Learning peut sélectionner automatiquement et optimiser le meilleur algorithme pour votre modèle et générer ce modèle pour vous. Suivez pour cela le didacticiel [Sélection automatique d’un algorithme](tutorial-auto-train-models.md). 

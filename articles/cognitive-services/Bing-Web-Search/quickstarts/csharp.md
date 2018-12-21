@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Effectuer une recherche avec C# - API Recherche Web Bing'
+title: 'Démarrage rapide : Effectuer une recherche web avec C# - API REST Recherche Web Bing'
 titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, vous allez apprendre à effectuer votre premier appel vers l’API Recherche Web Bing en utilisant C# et vous allez recevoir une réponse JSON.
+description: Utilisez ce démarrage rapide pour envoyer des requêtes à l'API REST Recherche Web Bing à l'aide de C# et recevoir une réponse JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: d868bec1e19ddde556f3c387646c5d7aa898b7d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 844fe2f65b59caba41697db00e809e34e1fe1017
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313484"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258659"
 ---
-# <a name="quickstart-use-c-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser C# pour appeler l’API Recherche Web Bing  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Démarrage rapide : Effectuer des recherches sur le web à l'aide de l'API REST Recherche Web Bing et de C#
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel vers l’API Recherche Web Bing et recevoir une réponse JSON.  
 
@@ -28,8 +29,8 @@ Consultez également [Tarification Cognitive Services - API Recherche Bing](http
 ## <a name="prerequisites"></a>Prérequis
 Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
-* Windows : [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS : [Mono](http://www.mono-project.com/)  
+* Windows : [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* Linux/macOS : [Mono](http://www.mono-project.com/)  
 * Une clé d’abonnement
 
 Cet exemple de programme utilise uniquement des classes .NET Core.

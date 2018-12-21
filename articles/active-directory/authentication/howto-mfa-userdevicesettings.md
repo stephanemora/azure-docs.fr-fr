@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: cf470ad14c27fd36cf60bb540e823b15fc58eded
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8d3ffa2664c747f5fbbd4269b23ae54850e0d750
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496892"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320997"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestion des paramètres utilisateur avec Azure Multi-Factor Authentication dans le cloud
 
@@ -30,8 +30,8 @@ Ce paramètre force l’utilisateur à réexécuter le processus d’inscription
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Demander aux utilisateurs sélectionnés de fournir à nouveau des méthodes de contact
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
-3. Sélectionnez **Multi-Factor Authentication**. La page de l’authentification multifacteur s’affiche. 
+2. Sur la gauche, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
+3. Sur la droite, sélectionnez **Authentification multifacteur** dans la barre d’outils. La page de l’authentification multifacteur s’affiche. 
 4. Cochez la case en regard du ou des utilisateurs que vous souhaitez gérer. Une liste d’options rapides s’affiche à droite. 
 5. Sélectionnez **Gérer les paramètres utilisateur**.
 6. Cochez la case **Demander aux utilisateurs sélectionnés de fournir à nouveau des méthodes de contact**.
@@ -44,8 +44,8 @@ Ce paramètre supprime tous les mots de passe d’application créés par un uti
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Supprimer les mots de passe d’application existants des utilisateurs
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
-3. Sélectionnez **Multi-Factor Authentication**. La page de l’authentification multifacteur s’affiche. 
+2. Sur la gauche, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
+3. Sur la droite, sélectionnez **Authentification multifacteur** dans la barre d’outils. La page de l’authentification multifacteur s’affiche. 
 6. Cochez la case en regard du ou des utilisateurs que vous souhaitez gérer. Une liste d’options rapides s’affiche à droite. 
 7. Sélectionnez **Gérer les paramètres utilisateur**.
 8. Cochez la case **Supprimer tous les mots de passe d’application existants, générés par les utilisateurs sélectionnés**.
@@ -62,8 +62,8 @@ Le paramètre **Restaurer l’authentification multifacteur pour tous les appare
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Restaurer MFA sur tous les appareils interrompus d’un utilisateur
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
-3. Sélectionnez **Multi-Factor Authentication**. La page de l’authentification multifacteur s’affiche. 
+2. Sur la gauche, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
+3. Sur la droite, sélectionnez **Authentification multifacteur** dans la barre d’outils. La page de l’authentification multifacteur s’affiche. 
 6. Cochez la case en regard du ou des utilisateurs que vous souhaitez gérer. Une liste d’options rapides s’affiche à droite. 
 7. Sélectionnez **Gérer les paramètres utilisateur**.
 8. Cochez la case **Restaurer Multi-Factor Authentication sur tous les appareils mémorisés**

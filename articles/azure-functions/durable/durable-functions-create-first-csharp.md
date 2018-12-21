@@ -5,18 +5,18 @@ services: functions
 documentationcenter: na
 author: jeffhollan
 manager: jeconnoc
-keywords: azure functions, fonctions, traitement des événements, calcul, architecture serverless
+keywords: azure functions, functions, traitement des événements, calcul, architecture sans serveur
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a0aed1fd65444397b3ca084cc0100aa5af49c918
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839502"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341046"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Créer votre première fonction durable dans C\#
 
@@ -76,7 +76,7 @@ Visual Studio crée un projet d’application de fonction vide.  Ce projet conti
 
 Une nouvelle fonction durable sera ajoutée à l’application.  Ouvrez le nouveau fichier pour afficher le contenu.  Cette fonction durable est un exemple de chaînage de fonction simple.  
 
-* La méthode `RunOrchestrator` est associée à la fonction d’orchestrateur.  Cette fonction démarre, crée une liste et ajoute le résultat de trois appels de fonctions à la liste.  À la fin des trois appels de fonctions, elle retourne la liste.  La fonction appelée est la méthode `SayHello` (par défaut, elle est appelée « <NameOfFile>_Hello »).
+* La méthode `RunOrchestrator` est associée à la fonction d’orchestrateur.  Cette fonction démarre, crée une liste et ajoute le résultat de trois appels de fonctions à la liste.  À la fin des trois appels de fonctions, elle retourne la liste.  La fonction appelée est la méthode `SayHello` (par défaut, elle est appelée `<NameOfFile>_Hello`).
 * La fonction `SayHello` retourne le mot « hello ».
 * La méthode `HttpStart` décrit la fonction qui démarre les instances de l’orchestration.  Elle est associée à un [déclencheur HTTP](../functions-bindings-http-webhook.md) qui démarre une nouvelle instance de l’orchestrateur et retourne une réponse d’état de vérification.
 
@@ -92,7 +92,7 @@ Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions s
 
     ![Azure runtime local](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
-3. Collez l’URL de la requête HTTP dans la barre d’adresse de votre navigateur et exécutez la requête. La capture d’écran suivante du navigateur montre la requête renvoyée par la fonction suite à la demande locale GET : 
+3. Collez l’URL de la requête HTTP dans la barre d’adresse de votre navigateur et exécutez la requête. La capture d’écran suivante du navigateur montre la requête renvoyée par la fonction suite à la demande locale GET :
 
     ![Réponse de la fonction localhost dans le navigateur](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 

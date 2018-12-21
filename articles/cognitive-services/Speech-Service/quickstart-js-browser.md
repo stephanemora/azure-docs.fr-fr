@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK Service Speech'
+title: 'Démarrage rapide : Reconnaissance vocale, Javascript (navigateur) - Services de reconnaissance vocale'
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment procéder à la reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK Service Speech
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: b01746c20dbef7726f129badac045c1fb440f602
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467461"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087913"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Démarrage rapide : reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK Service Speech
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Démarrage rapide : Reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK de reconnaissance vocale
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer un site web en utilisant la liaison JavaScript du SDK Speech de Cognitive Services en vue de transcrire de la parole en texte.
-L’application est basée sur le kit SDK Speech de Microsoft Cognitive Services ([Télécharger la version 1.0.1](https://aka.ms/csspeech/jsbrowserpackage)).
+L’application est basée sur le kit SDK Speech de Microsoft Cognitive Services ([Télécharger la version 1.1.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Prérequis
 

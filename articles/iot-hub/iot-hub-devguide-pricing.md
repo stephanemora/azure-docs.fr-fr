@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584096"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141497"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informations sur les tarifs Azure IoT Hub
 
@@ -35,6 +35,7 @@ La [tarification d’Azure IoT Hub](https://azure.microsoft.com/pricing/details/
 | Requêtes de jumeaux de l’appareil et du module | Les requêtes sont facturées en tant que messages, en fonction de la taille du résultat, par blocs de 512 octets. |
 | Opérations de travaux <br/> (créer, mettre à jour, répertorier, supprimer) | Non facturé. |
 | Opérations de travaux par appareil | Les opérations de travaux (comme les mises à jour de jumeaux et les méthodes) sont facturées normalement. Par exemple, un travail entraînant 1 000 appels de méthode avec des demandes de 1 Ko et des réponses à corps vide est facturé comme 1 000 messages. |
+| Keep-alive messages | Lorsque vous utilisez les protocoles AMQP ou MQTT, des messages sont échangés pour établir la connexion et les messages échangés dans la négociation ne sont pas facturés. |
 
 > [!NOTE]
 > L’ensemble des tailles sont calculées en fonction de la taille en octets de la charge utile (le tramage de protocole est ignoré). Pour les messages qui ont des propriétés et un corps, la taille est calculée de manière agnostique du point de vue du protocole. Pour plus d’informations, consultez [Créer et lire des messages IoT Hub](iot-hub-devguide-messages-construct.md).

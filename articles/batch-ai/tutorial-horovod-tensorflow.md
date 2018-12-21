@@ -9,14 +9,17 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de19b20865127fd37cd7bc1ac854288a95a68091
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45255845d8645391ee33471830ac2ef27870a40d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058100"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408627"
 ---
-# <a name="tutorial-train-a-distributed-model-with-horovod"></a>Tutoriel : Entraîner un modèle distribué avec Horovod
+# <a name="tutorial-train-a-distributed-model-with-horovod"></a>Didacticiel : Effectuer l’apprentissage d’un modèle distribué avec Horovod
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Ce tutoriel a pour objectif d’entraîner un modèle de Deep Learning distribué en l’exécutant en parallèle sur plusieurs nœuds dans un cluster Batch AI. Batch AI est un service géré permettant d’effectuer l’apprentissage de modèles de Machine Learning et d’IA à grande échelle sur des clusters de GPU Azure. 
 
@@ -446,7 +449,7 @@ Epoch 1/25
 ...
 ```
 
-Le script effectue l’apprentissage sur 25 époques ou traverse le jeu de données d’apprentissage. Ce processus prend environ 60 minutes. 
+Le script effectue l’apprentissage sur 25 époques ou passe par le jeu de données d’apprentissage. Ce processus prend environ 60 minutes. 
 
 ## <a name="retrieve-the-results"></a>Récupérer les résultats
 

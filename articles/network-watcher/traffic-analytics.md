@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443030"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338581"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -39,15 +39,15 @@ Les réseaux virtuels Azure ont des journaux de flux de groupe de sécurité ré
 
 ## <a name="key-components"></a>Composants clés
 
-- **Groupe de sécurité réseau** : contient la liste des règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées à un réseau virtuel Azure. Les NSG peuvent être associés à des sous-réseaux, à des machines virtuelles spécifiques (Classic) ou à des interfaces réseau (NIC) individuelles attachées à des machines virtuelles (Resource Manager). Pour plus d’informations, consultez [Sécurité du réseau](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Journaux de flux de groupe de sécurité réseau** : ils vous permettent d’afficher des informations relatives au trafic IP entrant et sortant via un groupe de sécurité réseau. Les journaux de flux de groupe de sécurité réseau sont écrits au format JSON et affichent les flux entrants et sortants en fonction de la règle, la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), ainsi que l’autorisation ou le refus du trafic. Pour plus d’informations sur les journaux de flux de groupe de sécurité réseau, consultez [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics** : service Azure qui collecte les données de surveillance et stocke les données dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API Azure. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation. Les applications de surveillance telles que Network Performance Monitor et Traffic Analytics sont conçues avec Log Analytics comme base. Pour plus d’informations, consultez [Présentation de Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Espace de travail Log Analytics** : une instance de Log Analytics où les données appartenant à un compte Azure sont stockées. Pour plus d’informations sur les espaces de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network Watcher** : un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans Azure. Vous pouvez activer et désactiver les journaux de flux de groupe de sécurité réseau avec Network Watcher. Pour plus d’informations, consultez [Network Watcher](network-watcher-monitoring-overview.md).
+- **Groupe de sécurité réseau** : contient la liste des règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées à un réseau virtuel Azure. Les NSG peuvent être associés à des sous-réseaux, à des machines virtuelles spécifiques (Classic) ou à des interfaces réseau (NIC) individuelles attachées à des machines virtuelles (Resource Manager). Pour plus d’informations, consultez [Sécurité du réseau](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Journalisation des flux de groupe de sécurité réseau (NSG)**  : permet d’afficher des informations sur le trafic IP entrant et sortant via un groupe de sécurité réseau. Les journaux de flux de groupe de sécurité réseau sont écrits au format JSON et affichent les flux entrants et sortants en fonction de la règle, la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), ainsi que l’autorisation ou le refus du trafic. Pour plus d’informations sur les journaux de flux de groupe de sécurité réseau, consultez [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
+- **Log Analytics** : service Azure qui collecte les données de surveillance et stocke les données dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API Azure. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation. Les applications de surveillance telles que Network Performance Monitor et Traffic Analytics sont conçues avec Log Analytics comme base. Pour plus d’informations, consultez [Présentation de Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Espace de travail Log Analytics** : instance de Log Analytics où les données appartenant à un compte Azure sont stockées. Pour plus d’informations sur les espaces de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Network Watcher** : service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans Azure. Vous pouvez activer et désactiver les journaux de flux de groupe de sécurité réseau avec Network Watcher. Pour plus d’informations, consultez [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Fonctionnement de Traffic Analytics
 
-Traffic Analytics examine les journaux de flux de groupe de sécurité réseau bruts et capture les journaux réduits en agrégeant les flux communs entre l’adresse IP source, l’adresse IP de destination, le port de destination et le protocole similaires. Par exemple, l’hôte 1 (adresse IP : 10.10.10.10) communique avec l’hôte 2 (adresse IP : 10.10.20.10), 100 fois sur une période de 1 heure à l’aide d’un port (par exemple, 80) et d’un protocole (par exemple, http). Le journal réduit comporte une entrée, indiquant que les hôtes 1 et 2 ont communiqué 100 fois sur une période de 1 heure à l’aide du port *80* et du protocole *HTTP*, plutôt que de présenter 100 entrées. Les informations sur la topologie, la sécurité et la géographie viennent compléter les journaux réduits. Ils sont ensuite stockés dans l’espace de travail Log Analytics. L’illustration suivante montre le flux de données :
+Traffic Analytics examine les journaux de flux de groupe de sécurité réseau bruts et capture les journaux réduits en agrégeant les flux communs entre l’adresse IP source, l’adresse IP de destination, le port de destination et le protocole similaires. Par exemple, l’hôte 1 (adresse IP : 10.10.10.10) communique avec l’hôte 2 (adresse IP : 10.10.20.10) 100 fois sur une période de 1 heure via le port (par exemple, 80) et le protocole (par exemple, http). Le journal réduit comporte une entrée, indiquant que les hôtes 1 et 2 ont communiqué 100 fois sur une période de 1 heure à l’aide du port *80* et du protocole *HTTP*, plutôt que de présenter 100 entrées. Les informations sur la topologie, la sécurité et la géographie viennent compléter les journaux réduits. Ils sont ensuite stockés dans l’espace de travail Log Analytics. L’illustration suivante montre le flux de données :
 
 ![Flux de données pour le traitement des journaux de flux de groupe de sécurité réseau](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
@@ -291,9 +291,12 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
     ![Tableau de bord présentant la distribution de réseau virtuel](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - La topologie du réseau virtuel affiche le ruban supérieur pour sélectionner les paramètres comme les flux malveillants, les flux actifs, les connexions externes (connexions du réseau virtuel internes/actives/inactives) d’un réseau virtuel.
+- Vous pouvez filtrer la topologie du réseau virtuel en fonction des abonnements, des espaces de travail, des groupes de ressources et de l’intervalle de temps. D’autres filtres vous aident à comprendre le flux : type de flux (entre réseaux virtuels, dans un même réseau virtuel, etc.), direction du flux (entrant, sortant), état du flux (autorisé, bloqué) des réseaux virtuels (ciblé et connecté), type de connexion (peering ou passerelle - P2S et S2S) et groupe de sécurité réseau. Utilisez ces filtres pour vous concentrer sur les réseaux virtuels que vous souhaitez examiner en détail.
 - La topologie du réseau virtuel montre la distribution du trafic sur un réseau virtuel en ce qui concerne les flux (autorisés/bloqués/entrants/sortants/inoffensifs/malveillants), le protocole d’application et les groupes de sécurité réseau, par exemple :
 
     ![Topologie du réseau virtuel présentant la distribution du trafic et détails du flux](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
+    
+    ![Topologie de réseau virtuel présentant le niveau supérieur et plus de filtres](./media/traffic-analytics/virtual-network-filters.png)
 
     ![Détails du flux pour la distribution du trafic de réseau virtuel dans la recherche dans les journaux](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 

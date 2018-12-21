@@ -1,13 +1,12 @@
 ---
-title: Expérience simple dans Machine Learning Studio | Microsoft Docs
+title: Expérience simple - Azure Machine Learning Studio | Microsoft Docs
 description: Ce didacticiel sur l’apprentissage automatique vous guidera tout au long d’une expérience de science des données simple. Nous allons prédire le prix d’une voiture à l’aide d’un algorithme de régression.
 keywords: expérience,régression linéaire,algorithmes d’apprentissage automatique,didacticiel d’apprentissage automatique,techniques de modélisation prédictive,expérience de science de données
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425708"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262416"
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Didacticiel sur l’apprentissage automatique : Création de votre première expérience de science des données dans Azure Machine Learning Studio
+# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Didacticiel : Créer votre première expérience de science des données dans Azure Machine Learning Studio
 
 Si vous n’avez encore jamais utilisé **Azure Machine Learning Studio**, ce didacticiel est pour vous.
 
@@ -41,7 +40,7 @@ Dans ce didacticiel, nous allons découvrir comment utiliser Studio afin de cré
 - [Principes de base de l’apprentissage automatique avec exemples d’algorithmes](basics-infographic-with-algorithm-examples.md) : cette infographie vous permet de découvrir les différents types d’algorithmes de machine learning inclus dans Machine Learning Studio.
 - [Guide Machine Learning](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) : ce guide offre des informations semblables à celles de l’infographie ci-avant, mais dans un format interactif.
 - [Aide-mémoire d’algorithme Machine Learning](algorithm-cheat-sheet.md) et [Comment choisir les algorithmes dans Microsoft Azure Machine Learning](algorithm-choice.md) : cette affiche téléchargeable et l’article qui l’accompagne traitent des algorithmes Studio en détail.
-- [Machine Learning Studio : aide sur les algorithmes et les modules](https://msdn.microsoft.com/library/azure/dn905974.aspx) : il s’agit du document de référence complet pour tous les modules Studio, y compris les algorithmes de machine learning
+- [Machine Learning Studio : Aide sur les algorithmes et les modules](https://msdn.microsoft.com/library/azure/dn905974.aspx) - il s’agit du document de référence complet pour tous les modules Studio, y compris les algorithmes de machine learning,
 
 
 
@@ -67,25 +66,25 @@ Pour prendre en main Studio, accédez à [https://studio.azureml.net](https://st
 Dans ce didacticiel dédié au machine learning, vous allez suivre cinq étapes de base afin de concevoir une expérience dans Machine Learning Studio et ainsi créer, former et noter votre modèle :
 
 - **Création d’un modèle**
-    - [Étape 1 : obtention des données]
-    - [Étape 2 : préparation des données]
-    - [Étape 3 : définition des fonctionnalités]
+    - [Étape 1 : Obtenir des données]
+    - [Étape 2 : Préparer les données]
+    - [Étape 3 : Définition des fonctionnalités]
 - **Formation du modèle**
-    - [Étape 4 : sélection et application d’un algorithme d’apprentissage]
+    - [Étape 4 : Sélection et application d’un algorithme d’apprentissage]
 - **Notation et test du modèle**
-    - [Étape 5 : prédiction des nouveaux prix des voitures]
+    - [Étape 5 : Prédiction des nouveaux prix des voitures]
 
-[Étape 1 : obtention des données]: #step-1-get-data
-[Étape 2 : préparation des données]: #step-2-prepare-the-data
-[Étape 3 : définition des fonctionnalités]: #step-3-define-features
-[Étape 4 : sélection et application d’un algorithme d’apprentissage]: #step-4-choose-and-apply-a-learning-algorithm
-[Étape 5 : prédiction des nouveaux prix des voitures]: #step-5-predict-new-automobile-prices
+[Étape 1 : Obtenir des données]: #step-1-get-data
+[Étape 2 : Préparer les données]: #step-2-prepare-the-data
+[Étape 3 : Définition des fonctionnalités]: #step-3-define-features
+[Étape 4 : Sélection et application d’un algorithme d’apprentissage]: #step-4-choose-and-apply-a-learning-algorithm
+[Étape 5 : Prédiction des nouveaux prix des voitures]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
 > Vous pouvez obtenir une copie de travail de l’expérience suivante dans la [galerie Azure AI](https://gallery.cortanaintelligence.com). Accédez à **[Votre première expérience de science des données : prédiction sur les prix automobiles](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** () et cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
 
 
-## <a name="step-1-get-data"></a>Étape 1 : obtention des données
+## <a name="step-1-get-data"></a>Étape 1 : Obtention des données
 
 Tout d’abord, vous devez obtenir les données.
 Vous pouvez utiliser plusieurs exemples de jeux de données inclus dans Machine Learning Studio ou importer des données à partir de sources diverses. Pour les besoins de cet exemple, nous allons utiliser le jeu de données **Données sur le prix des véhicules automobiles (brutes)** inclus dans votre espace de travail.
@@ -124,7 +123,7 @@ Dans cet exemple de jeu de données, chaque instance de véhicule automobile app
 
 Fermez la fenêtre de visualisation en cliquant sur le symbole «**x**» dans le coin supérieur droit.
 
-## <a name="step-2-prepare-the-data"></a>Étape 2 : préparation des données
+## <a name="step-2-prepare-the-data"></a>Étape 2 : Préparer les données
 
 Pour pouvoir être analysé, un jeu de données nécessite généralement un traitement préalable. Vous avez peut-être remarqué l’absence de certaines valeurs dans les colonnes des différentes lignes. Pour que vous puissiez analyser les données correctement, ces valeurs manquantes doivent être nettoyées. Dans le cas qui nous occupe, nous allons supprimer toutes les lignes dans lesquelles des valeurs sont manquantes. De plus, la colonne **normalized-losses** contient une grande quantité de valeurs manquantes. Nous allons donc l’exclure du modèle.
 
@@ -186,7 +185,7 @@ Pour l’instant, nous n’avons exécuté que l’action de nettoyage dans l’
 
 Maintenant que les données sont nettoyées, nous pouvons indiquer les fonctionnalités que nous allons utiliser dans le modèle de prévision.
 
-## <a name="step-3-define-features"></a>Étape 3 : définition des fonctionnalités
+## <a name="step-3-define-features"></a>Étape 3 : Définition des fonctionnalités
 
 Dans Machine Learning, les *fonctionnalités* sont des propriétés individuelles mesurables d’un élément qui vous intéresse. Dans notre jeu de données, chaque ligne représente un véhicule et chaque colonne une fonctionnalité de ce véhicule.
 
@@ -219,7 +218,7 @@ Nous allons développer un modèle utilisant un sous-ensemble de ces fonctionnal
 
 Cela produit un jeu de données filtré qui contient uniquement les fonctionnalités que nous souhaitons transmettre à l’algorithme d’apprentissage utilisé à l’étape suivante. Plus tard, vous pouvez reprendre la procédure en utilisant une autre sélection de fonctionnalités.
 
-## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>Étape 4 : sélection et application d’un algorithme d’apprentissage
+## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>Étape 4 : Sélection et application d’un algorithme d’apprentissage
 
 À présent que les données sont prêtes, la construction d'un modèle de prévision passe par la formation et le test. Nous allons utiliser nos données pour former le modèle, puis tester le modèle pour voir dans quelle mesure il peut prédire les prix.
 <!-- For now, don't worry about *why* we need to train and then test a model.-->
@@ -273,7 +272,7 @@ Nous disposons à présent d’un modèle de régression formé qui permet de no
 <br/>
 ***Une fois l’exécution terminée, l’expérience doit ressembler à ceci :***
 
-## <a name="step-5-predict-new-automobile-prices"></a>Étape 5 : prédiction des nouveaux prix des voitures
+## <a name="step-5-predict-new-automobile-prices"></a>Étape 5 : Prédiction des nouveaux prix des voitures
 
 À présent que nous avons formé le modèle à l'aide de 75 % de nos données, nous pouvons l'utiliser pour la notation du reste de nos données (25 %), afin de voir s'il fonctionne correctement.
 
@@ -304,11 +303,11 @@ Pour afficher la sortie du module [Evaluate Model][evaluate-model], cliquez sur 
 
 Les statistiques suivantes s’affichent pour notre modèle :
 
-- **Erreur d’absolue moyenne** (EAM) : la moyenne des erreurs absolues (une *erreur* correspond à la différence entre la valeur prévue et la valeur réelle).
-- **Racine de l’erreur quadratique moyenne** (RMSE) : la racine carrée de la moyenne des erreurs carrées des prévisions effectuées sur le jeu de données de test.
-- **Erreur absolue relative**: la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Erreur carrée relative**: la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
-- **Coefficient de détermination** : aussi nommé **valeur R au carré**, il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
+- **Erreur d’absolue moyenne** (EAM) : la moyenne des erreurs absolues (une *erreur* correspond à la différence entre la valeur prévue et la valeur réelle).
+- **Racine de l’erreur quadratique moyenne** (RMSE) : la racine carrée de la moyenne des erreurs carrées des prévisions effectuées sur le jeu de données de test.
+- **Erreur d’absolue relative** : la moyenne des erreurs absolues relative à la différence absolue entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Erreur carrée relative** : la moyenne des erreurs carrées relative à la différence carrée entre les valeurs réelles et la moyenne de toutes les valeurs réelles.
+- **Coefficient de détermination** : aussi nommé **valeur R au carré**, il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
 
 Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites sont privilégiées. En effet, une valeur plus petite indique un degré de correspondance plus étroit avec la valeur réelle. Plus la valeur du **Coefficient de détermination**, est proche de un (1.0), plus la prévision est correcte.
 

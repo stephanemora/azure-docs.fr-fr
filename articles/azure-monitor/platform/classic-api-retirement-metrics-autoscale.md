@@ -7,13 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 450eac3613df18997c5b0f9189555555da20cfcf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585396"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433087"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Suppression par Azure Monitor d’API du modèle de déploiement classique pour les métriques et la mise à l’échelle automatique
 
@@ -25,7 +24,7 @@ Les mêmes opérations sont prises en charge via un ensemble d’API Azure Resou
 
 Si vous gérez la mise à l’échelle automatique via le portail Azure, le [nouveau SDK Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI ou les modèles Resource Manager, aucune action n’est nécessaire.  
 
-Si vous consommez des métriques via le portail Azure ou divers [services partenaires de surveillance](../../monitoring-and-diagnostics/monitoring-partners.md), aucune action n’est nécessaire. Microsoft collabore avec les partenaires de surveillance pour migrer vers les nouvelles API.
+Si vous consommez des métriques via le portail Azure ou divers [services partenaires de surveillance](../../azure-monitor/platform/partners.md), aucune action n’est nécessaire. Microsoft collabore avec les partenaires de surveillance pour migrer vers les nouvelles API.
 
 ## <a name="who-is-affected"></a>Qui est affecté
 
@@ -76,9 +75,9 @@ Il n’y aura aucun impact direct sur vos services Azure ou leurs charges de tra
 
 Tous les appels aux API classiques répertoriées précédemment échoueront et retourneront des messages d’erreur semblables à ce qui suit :
 
-Pour la mise à l’échelle automatique : *Cette API est déconseillée. Utilisez le portail Azure, le SDK Azure Monitor, PowerShell, CLI ou les modèles Resource Manager pour gérer les paramètres de mise à l’échelle automatique*.  
+Pour la mise à l’échelle automatique : *Cette API est obsolète. Utilisez le portail Azure, le SDK Azure Monitor, PowerShell, CLI ou les modèles Resource Manager pour gérer les paramètres de mise à l’échelle automatique*.  
 
-Pour les métriques : *Cette API est déconseillée. Utilisez le portail Azure, le SDK Azure Monitor, PowerShell, CLI pour interroger les métriques*.
+Pour les métriques : *Cette API est obsolète. Utilisez le portail Azure, le SDK Azure Monitor, PowerShell, CLI pour interroger les métriques*.
 
 ## <a name="email-notifications"></a>Notifications par e-mail
 

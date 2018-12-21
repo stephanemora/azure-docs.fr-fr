@@ -1,5 +1,5 @@
 ---
-title: Un démarrage rapide pour la création d’une application web Java dans Azure App Service sur Linux
+title: Créer une application web Java sur Linux - Azure App Service
 description: Dans ce démarrage rapide, vous déployez votre premier programme Java Hello World dans Azure App Service sur Linux en quelques minutes.
 services: app-service\web
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247553"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252607"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Démarrage rapide : créer une application web Java dans App Service sur Linux
 
@@ -108,8 +108,10 @@ Une fois le déploiement terminé, accédez à l’application déployée à l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez utilisé Maven pour créer une application web Java, configuré le [plug-in Maven pour Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), puis déployé une application web Java empaquetée dans une archive web sur App Service sur Linux. Pour savoir comment connecter des bases de données, configurer la journalisation et la surveillance, configurer la sécurité et définir les options de runtime, accédez au guide du développeur Java pour App Service sur Linux.
+Dans ce démarrage rapide, vous avez utilisé Maven pour créer une application web Java, configuré le [plug-in Maven pour Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), puis déployé une application web Java empaquetée dans une archive web sur App Service sur Linux. Consultez les didacticiels et les articles pratiques suivants pour plus d’informations sur l’hébergement des applications Java au sein d’App service sous Linux.
 
-> [!div class="nextstepaction"]
-> [Guide du développeur Java pour App Service sur Linux](app-service-linux-java.md)
+- [Didacticiel : Déployer une application Java d’entreprise avec PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+- [Configurer une source de données Tomcat](app-service-linux-java.md#connecting-to-data-sources)
+- [Intégration continue/déploiement continu avec Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+- [Configurer les outils de surveillance des performances des applications](how-to-java-apm-monitoring.md)
 

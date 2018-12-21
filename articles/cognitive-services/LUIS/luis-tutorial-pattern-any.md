@@ -1,8 +1,9 @@
 ---
-title: 'Tutoriel 5 : Entité Pattern.any pour le texte en forme libre'
+title: Entité Pattern.any
 titleSuffix: Azure Cognitive Services
 description: Utilisez l’entité pattern.any pour extraire des données à partir d’énoncés correctement mis en forme et où la fin des données peut être facilement confondue avec les mots restants de l’énoncé.
 services: cognitive-services
+ms.custom: seodec18
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
@@ -10,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ee5ba6783a50ad50489a20aa662f17af2ca4ae6a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4551968cc446bb949d0b18cb77211808169cb907
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421995"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103470"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Tutoriel 5 : Extraire des données en forme libre
+# <a name="tutorial-5-extract-free-form-data"></a>Didacticiel 5 : Extraire des données de forme libre
 
 Dans ce tutoriel, vous allez utiliser l’entité pattern.any pour extraire des données à partir d’énoncés correctement mis en forme et où la fin des données peut être facilement confondue avec les mots restants de l’énoncé. 
 

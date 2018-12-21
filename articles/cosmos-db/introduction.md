@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 89f5ae27e7ce3ec3155fd3fdbf42bb0f4322aa10
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 50abe2b067770976f19ae9b70c97c2df8354640f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835061"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091576"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 
@@ -35,11 +35,11 @@ En tant que service de base de données multi-model distribué, Azure Cosmos DB 
 * **Plusieurs modèles de données et API populaires pour la consultation et l’interrogation des données**
     * Le modèle de données atome-enregistrement-séquence (ARS) sur lequel repose Azure Cosmos DB prend en charge en mode natif plusieurs modèles de données, y compris, mais sans s’y limiter les documents, les graphes, les valeurs-clés, les tables et les modèles de données de familles de colonnes.
     * Les API pour les modèles suivants sont pris en charge avec les SDK et sont disponibles dans plusieurs langages :
-        * [API SQL](sql-api-introduction.md) : moteur de base de données JSON sans schéma avec de riches fonctions d’interrogation SQL.
-        * [API MongoDB](mongodb-introduction.md) : service *MongoDB en tant que service* hautement évolutif, alimenté par la plateforme Azure Cosmos DB. Compatible avec les bibliothèques, pilotes, outils et applications MongoDB existants.
-        * [API Cassandra](cassandra-introduction.md) : service Cassandra en tant que service mondialement distribué, alimenté par la plateforme Azure Cosmos DB. Compatible avec les bibliothèques, pilotes, outils et applications [Apache Cassandra](https://cassandra.apache.org/) existants.
-        * [API Gremlin](graph-introduction.md) : service de base de données de graphe évolutif horizontalement, entièrement managé, qui facilite la création et l’exécution d’applications qui fonctionnent avec des jeux de données hautement connectés prenant en charge les API Open Gremlin (d’après la [spécification Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
-        * [API de table](table-introduction.md): service de base de données valeur-clé créé pour offrir des fonctionnalités Premium (par exemple, indexation automatique, faible latence garantie, distribution globale) aux applications de stockage de table Azure sans apporter de modifications aux applications.
+        * [API SQL](sql-api-introduction.md) : Moteur de base de données JSON sans schéma avec des fonctionnalités étendues d’interrogation SQL.
+        * [API MongoDB](mongodb-introduction.md) : Service *MongoDB en tant que service* hautement scalable basé sur la plateforme Azure Cosmos DB. Compatible avec les bibliothèques, pilotes, outils et applications MongoDB existants.
+        * [API Cassandra](cassandra-introduction.md) : Service Cassandra en tant que service mondialement distribué basé sur la plateforme Azure Cosmos DB. Compatible avec les bibliothèques, pilotes, outils et applications [Apache Cassandra](https://cassandra.apache.org/) existants.
+        * [API Gremlin](graph-introduction.md) : Service de base de données de graphe scalable horizontalement et complètement managé, qui facilite la création et l’exécution d’applications qui fonctionnent avec des jeux de données hautement connectés prenant en charge les API Open Gremlin (d’après la [spécification Apache TinkerPop](https://tinkerpop.apache.org/), Apache Gremlin).
+        * [API Table](table-introduction.md) : Service de base de données clé-valeur créé pour fournir des fonctionnalités Premium (par exemple, indexation automatique, faible latence garantie, distribution mondiale) aux applications Stockage Table Azure sans avoir à modifier les applications.
         * Des modèles de données et des API supplémentaires seront bientôt disponibles.
 
 * **Ajuster le débit et le stockage de façon élastique et à la demande, dans le monde entier**

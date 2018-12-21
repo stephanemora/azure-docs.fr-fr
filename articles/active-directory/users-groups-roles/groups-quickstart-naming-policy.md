@@ -14,12 +14,12 @@ ms.date: 08/08/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8ebdb22ba5ca04a5c811b3b368055f5f4371c75f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8c5d980f25e196add6885d250665eae7127456f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40208907"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273117"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Démarrage rapide : Stratégie d’affectation de noms pour les groupes dans Azure Active Directory
 
@@ -80,7 +80,7 @@ Si vous êtes invité à accéder à un référentiel non approuvé, tapez **Y**
   
 ### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Étape 3 : Définir la stratégie d’affectation de noms et les éventuels mots bloqués personnalisés
 
-1. Définissez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell.
+1. Définissez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell. Pour que la fonctionnalité fonctionne correctement, [GroupName] doit être inclus dans le paramètre.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -100,21 +100,21 @@ Si vous êtes invité à accéder à un référentiel non approuvé, tapez **Y**
   
 Vous avez terminé. Vous avez défini votre stratégie d’affectation de noms et ajouté vos mots bloqués personnalisés.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-1. Définissez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell.
+1. Supprimez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =""
   ````
   
-2. Définissez les mots bloqués personnalisés sur lesquels vous voulez imposer des restrictions. L’exemple suivant illustre la façon dont vous pouvez ajouter vos propres mots personnalisés.
+2. Supprimez les mots bloqués personnalisés.
   
   ````
   $Setting["CustomBlockedWordsList"]=""
   ````
   
-3. Enregistrez les paramètres de la nouvelle stratégie pour qu’elle prenne effet, comme dans l’exemple suivant.
+3. Enregistrez les paramètres.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting

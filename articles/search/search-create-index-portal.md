@@ -1,5 +1,5 @@
 ---
-title: Créer un index de Recherche Azure dans le portail | Microsoft Docs
+title: Création d’un index Azure Search dans le portail Azure - Recherche Azure
 description: Découvrez comment créer un index pour Recherche Azure à l’aide des concepteurs d’index intégrés du portail.
 manager: cgronlun
 author: heidisteen
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 4bba8b41418dadad1b241d60ab0b7aeee4c046d7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990844"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316707"
 ---
 # <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Comment créer un index de Recherche Azure à l’aide du portail Azure
 
@@ -95,7 +96,7 @@ La documentation de l’API Azure Search inclut des exemples de code utilisant u
 
 Après avoir créé un index Azure Search, vous pouvez passer à l’étape suivante : [charger des données interrogeables dans l’index](search-what-is-data-import.md).
 
-Sinon, vous pouvez étudier les index de manière plus approfondie. Outre la collection de champs, un index spécifie également des analyseurs, des générateurs de suggestions, des profils de score et des paramètres CORS. Le portail comprend des onglets permettant de définir les éléments les plus courants : les champs, les analyseurs et les générateurs de suggestions. Pour créer ou modifier d’autres éléments, vous pouvez utiliser l’API REST ou le kit de développement logiciel (SDK) .NET.
+Sinon, vous pouvez étudier les index de manière plus approfondie. Outre la collection de champs, un index spécifie également des analyseurs, des générateurs de suggestions, des profils de score et des paramètres CORS. Le portail comprend des onglets permettant de définir les éléments les plus courants : les champs, les analyseurs et les générateurs de suggestions. Pour créer ou modifier d’autres éléments, vous pouvez utiliser l’API REST ou le kit de développement logiciel (SDK) .NET.
 
 ## <a name="see-also"></a>Voir aussi
 

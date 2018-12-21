@@ -1,6 +1,6 @@
 ---
-title: Administration des services pour Azure Search dans le portail Azure
-description: Gérez Azure Search, un service de recherche cloud hébergé sur Microsoft Azure à l’aide du portail Azure.
+title: Administration des services pour Recherche Azure sur le portail - Recherche Azure
+description: Gérez Recherche Azure, un service de recherche cloud hébergé sur Microsoft Azure, à l'aide du portail Azure.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -9,16 +9,17 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: heidist
-ms.openlocfilehash: fb09e12a5122f6e6671e55c5b5623afdd6b35c29
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.custom: seodec2018
+ms.openlocfilehash: 70343c0d66eb2a00ff2245b7e4876c2e94a96855
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842287"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314481"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration des services pour Azure Search dans le portail Azure
 > [!div class="op_single_selector"]
-> * [Portail](search-manage.md)
+> * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
@@ -26,8 +27,8 @@ ms.locfileid: "43842287"
 Azure Search est un service de recherche entièrement géré, basé sur le cloud, utilisé pour la création d’une expérience de recherche riche dans des applications personnalisées. Cet article aborde les tâches d’administration des services que vous pouvez effectuer dans le [portail Azure](https://portal.azure.com) pour un service de recherche que vous avez déjà provisionné. L’administration des services est légère de par sa conception et se limite aux tâches suivantes :
 
 * Gérer l’accès aux *clés API* utilisées pour l’accès en lecture ou en écriture à votre service.
-* Ajuster la capacité de service en modifiant l’allocation des partitions et des réplicas.
-* Surveiller l’utilisation des ressources, par rapport aux limites maximales de votre niveau de service.
+* Ajustez la capacité de service en modifiant l’allocation des partitions et des réplicas.
+* Surveillez l’utilisation des ressources, par rapport aux limites maximales de votre niveau de service.
 
 Notez que la *mise à niveau* n’est pas répertoriée comme une tâche administrative. Sachant que les ressources sont allouées pendant l’approvisionnement du service, le passage à un autre niveau nécessite de créer un nouveau service. Pour plus d’informations, consultez [Création d’un service Azure Search](search-create-service-portal.md).
 

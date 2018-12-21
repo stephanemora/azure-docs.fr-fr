@@ -1,6 +1,6 @@
 ---
-title: Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service sous Linux | Microsoft Docs
-description: Découvrez comment utiliser les fonctionnalités d’authentification et d’autorisation App Service pour sécuriser vos applications App Service, notamment l’accès aux API à distance.
+title: Authentifier et autoriser des utilisateurs de bout en bout sous Linux - Azure App Service | Microsoft Docs
+description: Apprenez à utiliser les fonctionnalités d'authentification et d'autorisation d'App Service pour sécuriser les applications App Service exécutées sous Linux, notamment l'accès aux API à distance.
 keywords: app service, azure app service, authentification, autorisation, sécurisé, sécurité, plusieurs niveaux, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
@@ -14,18 +14,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
-ms.openlocfilehash: a468c5d0f73cc182927f26ea9b7a85e2c5afb7c8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766357"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409388"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Didacticiel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service sous Linux
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service sous Linux
 
-[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. En outre, App Service prend, de base, en charge [l’authentification et l’autorisation des utilisateurs](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Ce didacticiel montre comment sécuriser vos applications avec l’authentification et l’autorisation App Service. Il utilise une application ASP.NET Core avec un serveur frontal Angular.js, mais c’est uniquement pour notre exemple. L’authentification et l’autorisation App Service prennent en charge tous les runtimes de langage, et vous pouvez apprendre comment les appliquer à votre langage préféré en suivant le didacticiel.
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. En outre, App Service prend, de base, en charge [l’authentification et l’autorisation des utilisateurs](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Ce tutoriel montre comment sécuriser vos applications avec l’authentification et l’autorisation App Service. Il utilise une application ASP.NET Core avec un serveur frontal Angular.js, mais c’est uniquement pour notre exemple. L’authentification et l’autorisation App Service prennent en charge tous les runtimes de langage, et vous pouvez apprendre comment les appliquer à votre langage préféré en suivant le tutoriel.
 
-Ce didacticiel utilise l’exemple d’application pour vous montrer comment sécuriser une application autonome (dans [Activer l’authentification et l’autorisation pour l’application principale](#enable-authentication-and-authorization-for-back-end-app)).
+Ce tutoriel utilise l’exemple d’application pour vous montrer comment sécuriser une application autonome (dans [Activer l’authentification et l’autorisation pour l’application principale](#enable-authentication-and-authorization-for-back-end-app)).
 
 ![Authentification et autorisation simples](./media/tutorial-auth-aad/simple-auth.png)
 
@@ -35,7 +36,7 @@ Il vous montre également comment sécuriser une application multiniveau, en acc
 
 Il s’agit uniquement de quelques scénarios d’authentification et d’autorisation possibles dans App Service. 
 
-Voici une liste plus complète de ce que vous allez apprendre dans ce didacticiel :
+Voici une liste plus complète de ce que vous allez apprendre dans ce tutoriel :
 
 > [!div class="checklist"]
 > * Activer l’authentification et l’autorisation intégrées
@@ -46,14 +47,13 @@ Voici une liste plus complète de ce que vous allez apprendre dans ce didacticie
 > * Utiliser des jetons d’accès à partir du code du serveur
 > * Utiliser des jetons d’accès à partir du code du client (navigateur)
 
-Vous pouvez suivre les étapes de ce didacticiel sur macOS, Linux, Windows.
+Vous pouvez suivre les étapes de ce tutoriel sur macOS, Linux, Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 * [Installer Git](https://git-scm.com/).
 * [Installez .NET Core 2.0](https://www.microsoft.com/net/core/)
@@ -238,11 +238,11 @@ Accédez à `http://<back_end_app_name>.azurewebsites.net` pour voir les éléme
 
 Dans cette étape, vous activez l’authentification et l’autorisation pour les deux applications. Vous configurez également l’application frontale pour générer un jeton d’accès que vous pouvez utiliser pour effectuer des appels authentifiés à l’application principale.
 
-Vous utilisez Azure Active Directory en tant que fournisseur d’identité. Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Vous utilisez Azure Active Directory en tant que fournisseur d’identité. Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Activer l’authentification et l’autorisation pour l’application principale
 
-Dans le [portail Azure](https://portal.azure.com), ouvrez la page de gestion de votre application principale en cliquant dans le menu de gauche : **Groupes de ressources** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
+Sur le [portail Azure](https://portal.azure.com), ouvrez la page de gestion de votre application back-end en cliquant sur ce qui suit dans le menu de gauche : **Groupes de ressources** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
 
 ![API ASP.NET Core exécuté dans Azure App Service](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -453,7 +453,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Utiliser des jetons d’accès à partir du code du serveur
 > * Utiliser des jetons d’accès à partir du code du client (navigateur)
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
+Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

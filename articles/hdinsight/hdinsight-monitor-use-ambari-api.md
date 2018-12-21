@@ -2,25 +2,25 @@
 title: Surveiller les clusters Hadoop dans HDInsight à l’aide de l’API Ambari - Azure
 description: Utilisez les API Apache Ambari pour la création, la gestion et la surveillance des clusters Hadoop. Les outils intuitifs pour opérateurs et les API masquent la complexité de Hadoop.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 23da477fc24eaea4a6f987f13ad055022d2ba032
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 062925f7e072651f4b4189cec7ca73144c0cf994
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108635"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436328"
 ---
-# <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari
-Découvrez comment surveiller les clusters HDInsight à l’aide des API Ambari.
+# <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Surveiller les clusters Apache Hadoop dans HDInsight à l'aide de l'API Apache Ambari
+Découvrez comment surveiller les clusters HDInsight à l'aide des API Apache Ambari.
 
-> [!NOTE]
-> Les informations contenues dans cet article sont adaptées principalement aux clusters HDInsight basés sur Windows, qui fournissent une version en lecture seule de l’API REST Ambari. Pour les clusters basés sur Linux, consultez la page [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md).
+> [!NOTE]  
+> Les informations contenues dans cet article sont adaptées principalement aux clusters HDInsight basés sur Windows, qui fournissent une version en lecture seule de l’API REST Ambari. Pour les clusters basés sur Linux, consultez la page [Gestion des clusters Apache Hadoop à l'aide d'Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 > 
 > 
 
@@ -36,7 +36,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
 * [cURL][curl] est facultatif. Pour l’installer, consultez [Versions et téléchargements de cURL][curl-download].
   
-  > [!NOTE]
+  > [!NOTE]  
   > Lorsque vous utilisez la commande cURL sous Windows, remplacez les guillemets simples par des guillemets doubles pour exprimer la valeur des options.
   > 
   > 
@@ -54,9 +54,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 ## <a name="jump-start"></a>Lancer rapidement
 Il existe plusieurs façons d'utiliser Ambari pour surveiller les clusters HDInsight.
 
-**Utilisation d’Azure PowerShell**
+**Utilisation d'Azure PowerShell**
 
-Le script Azure PowerShell suivant permet d’obtenir les informations de suivi des tâches MapReduce *dans un cluster HDInsight 3.5.*  La différence principale réside dans le fait que nous allons extraire ces détails à partir du service YARN (plutôt que Map Reduce).
+Le script Azure PowerShell suivant permet d’obtenir les informations de suivi des tâches MapReduce *dans un cluster HDInsight 3.5.*   La différence principale réside dans le fait que nous allons extraire ces détails à partir du service YARN (plutôt que Map Reduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -120,7 +120,7 @@ La sortie est la suivante :
 Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host_name* renvoie le nom de domaine complet du nœud au lieu du nom d’hôte. Avant la version du 8/10/2014, cet exemple renvoyait simplement «**headnode0**». Après la version du 8/10/2014, vous obtenez le nom de domaine complet «**headnode0.{ClusterDNS}.azurehdinsight.net**», comme illustré dans l’exemple précédent. Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel (VNET). Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
 
 ## <a name="ambari-monitoring-apis"></a>API de surveillance Ambari
-Le tableau suivant répertorie certains des appels d'API de surveillance Ambari les plus connus. Pour plus d’informations sur l’API, consultez la page [Référence des API Ambari][ambari-api-reference].
+Le tableau suivant répertorie certains des appels d'API de surveillance Ambari les plus connus. Pour plus d'informations sur l'API, consultez la page [Référence des API Apache Ambari][ambari-api-reference].
 
 | Appel d'API de surveillance | URI | Description |
 | --- | --- | --- |
@@ -138,7 +138,7 @@ Le tableau suivant répertorie certains des appels d'API de surveillance Ambari 
 | Obtenir des infos sur la configuration |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Types de configurations : core-site, hdfs-site, mapred-site, hive-site |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus d'informations, consultez les rubriques suivantes :
+Vous avez appris à utiliser les appels d'API de surveillance Apache Ambari. Pour plus d'informations, consultez les rubriques suivantes :
 
 * [Gestion des clusters HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
 * [Gestion des clusters HDInsight à l’aide d’Azure PowerShell][hdinsight-admin-powershell]
@@ -150,12 +150,12 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [curl]: http://curl.haxx.se
-[curl-download]: http://curl.haxx.se/download.html
+[curl-download]: https://curl.haxx.se/download.html
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

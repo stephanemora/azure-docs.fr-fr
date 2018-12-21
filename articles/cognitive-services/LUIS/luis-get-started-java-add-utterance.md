@@ -1,23 +1,24 @@
 ---
-title: 'Démarrage rapide pour Java : Changer de modèle et entraîner une application LUIS'
-titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide de Java, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’apprentissage de l’application. Les exemples d’énoncés sont du texte utilisateur conversationnel mappé à une intention. En fournissant des exemples d’énoncés pour les intentions, vous apprenez à l’application LUIS quels types de texte fourni par l’utilisateur appartiennent à quelle intention.
+title: Modifier, effectuer l'apprentissage d'une application, Java
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Dans ce démarrage rapide de Java, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’apprentissage de l’application.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bfe4aae25a34799370e52c8677871a62935ab5c2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 206b345fedb033a6b98e350fec8c66a3496f5236
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419739"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080824"
 ---
-# <a name="quickstart-change-model-using-java"></a>Démarrage rapide : Modifier un modèle à l’aide de Java 
+# <a name="quickstart-change-model-using-java"></a>Démarrage rapide : Modifier un modèle à l'aide de Java 
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -71,14 +72,14 @@ ms.locfileid: "50419739"
 
 Compiler AddUtterance avec les dépendances
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## <a name="run-code"></a>Exécuter le code
 Appeler `AddUtterance` sans argument permet d’ajouter les énoncés LUIS à l’application, sans apprentissage.
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 

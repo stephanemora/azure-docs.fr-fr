@@ -1,23 +1,24 @@
 ---
-title: 'Didacticiel : comment créer un modèle de langage avec Service Speech'
+title: 'Tutoriel : Guide pratique pour créer un modèle de langage avec le service de reconnaissance vocale'
 titlesuffix: Azure Cognitive Services
-description: Découvrez comment créer un modèle de langage avec Service Speech.
+description: Découvrez comment créer un modèle de langage avec Service Speech. Utilisez ce modèle de langage personnalisé avec des modèles vocaux existants de Microsoft pour ajouter l’interaction vocale à votre application.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468991"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093451"
 ---
-# <a name="tutorial-create-a-custom-language-model"></a>Tutoriel : Créer un modèle de langage personnalisé
+# <a name="tutorial-create-a-custom-language-model"></a>Tutoriel : Créer un modèle linguistique personnalisé
 
 Dans ce document, vous créez un modèle de langage personnalisé. Vous pouvez ensuite utiliser ce modèle de langage personnalisé avec des modèles vocaux existants de Microsoft pour ajouter l’interaction vocale à votre application.
 
@@ -48,7 +49,7 @@ Il n’est pas nécessaire que les phrases soient complètes ou grammaticalement
 
 Les données du modèle de langage doivent être écrites au format UTF-8 BOM. Le fichier texte doit contenir un exemple (phrase, énoncé ou requête) par ligne.
 
-Si vous voulez que certains termes aient plus de poids (plus d’importance), vous pouvez ajouter plusieurs énoncés qui incluent ces termes, à vos données. 
+Si vous voulez que certains termes aient plus de poids (plus d’importance), vous pouvez ajouter plusieurs énoncés qui incluent ces termes, à vos données.
 
 Les principales conditions requises pour les données de langage sont résumées dans le tableau suivant.
 
@@ -75,7 +76,7 @@ Sélectionnez le bouton **Import** (Importer) sur la ligne **Language Datasets**
 
 Quand vous êtes prêt à importer votre jeu de données de langage, connectez-vous au [portail Speech Services](https://customspeech.ai). En premier lieu, sélectionnez le menu déroulant **Custom Speech** dans le ruban supérieur. Sélectionnez ensuite **Adaptation Data** (Données d’adaptation). La première fois que vous tentez de charger des données dans Speech Services, vous voyez un tableau vide nommé **Datasets** (Jeux de données).
 
-Pour importer un nouveau jeu de données, sélectionnez le bouton **Import** (Importer) situé sur la ligne **Language Datasets** (Jeux de données de langage). Le site affiche la page de chargement d’un nouveau jeu de données. Entrez un **Name** (Nom) et une **Description** pour vous aider ultérieurement à identifier le jeu de données, puis choisissez les paramètres régionaux. 
+Pour importer un nouveau jeu de données, sélectionnez le bouton **Import** (Importer) situé sur la ligne **Language Datasets** (Jeux de données de langage). Le site affiche la page de chargement d’un nouveau jeu de données. Entrez un **Name** (Nom) et une **Description** pour vous aider ultérieurement à identifier le jeu de données, puis choisissez les paramètres régionaux.
 
 Utilisez ensuite le bouton **Choose File** (Choisir un fichier) pour rechercher le fichier texte des données de langage. Sélectionnez **Import** (Importer) pour charger ensuite le jeu de données. Selon la taille du jeu de données, l’importation peut durer plusieurs minutes.
 
@@ -97,9 +98,9 @@ Lorsque vos données de langage sont prêtes, sélectionnez **Language Models** 
 
 Les paramètres régionaux appropriés doivent être sélectionnés avant d’entreprendre une action. Les paramètres régionaux actuels sont indiqués dans le titre du tableau sur toutes les pages de données, de modèles et de déploiements. Pour modifier les paramètres régionaux, sélectionnez le bouton **Change Locale** (Changer les paramètres régionaux) situé sous le titre du tableau.  Vous êtes dirigé vers une page de confirmation des paramètres régionaux. Sélectionnez **OK** pour revenir au tableau.
 
-Dans la page Create Language Model (Créer un modèle de langage), entrez un **Name** (Nom) et une **Description** pour pouvoir effectuer un suivi sur les informations utiles de ce modèle, telles que le jeu de données qui est utilisé. Sélectionnez ensuite **Base Language Model** (Modèle de langage de base) dans le menu déroulant. Ce modèle est le point de départ de votre personnalisation. 
+Dans la page Create Language Model (Créer un modèle de langage), entrez un **Name** (Nom) et une **Description** pour pouvoir effectuer un suivi sur les informations utiles de ce modèle, telles que le jeu de données qui est utilisé. Sélectionnez ensuite **Base Language Model** (Modèle de langage de base) dans le menu déroulant. Ce modèle est le point de départ de votre personnalisation.
 
-Deux modèles de langage de base existants peuvent être sélectionnés. Le modèle Search and Dictation (Recherche et dictée) est approprié pour la reconnaissance vocale qui est destinée à une application, comme les commandes, les requêtes de recherche ou la dictée. Le modèle Conversational (Conversation) est adapté à la reconnaissance vocale d’énoncés de type conversationnel. Ce type de voix s’adresse généralement à une autre personne et se retrouve dans les centres d’appel ou les réunions. 
+Deux modèles de langage de base existants peuvent être sélectionnés. Le modèle Search and Dictation (Recherche et dictée) est approprié pour la reconnaissance vocale qui est destinée à une application, comme les commandes, les requêtes de recherche ou la dictée. Le modèle Conversational (Conversation) est adapté à la reconnaissance vocale d’énoncés de type conversationnel. Ce type de voix s’adresse généralement à une autre personne et se retrouve dans les centres d’appel ou les réunions.
 
 Le modèle Search and Dictation (Recherche et dictée) est approprié pour la reconnaissance vocale qui est destinée à une application, comme les commandes, les requêtes de recherche ou la dictée. Le modèle Conversational (Conversation) est adapté à la reconnaissance vocale d’énoncés de type conversationnel. Ce type de voix s’adresse généralement à une autre personne et se retrouve dans les centres d’appel ou les réunions. Un nouveau modèle appelé Universal (Universel) est également disponible publiquement. Le modèle Universal a pour but de convenir à tous les scénarios, et de remplacer au final les modèles Search and Dictation (Recherche et dictée) et Conversational (Conversation).
 

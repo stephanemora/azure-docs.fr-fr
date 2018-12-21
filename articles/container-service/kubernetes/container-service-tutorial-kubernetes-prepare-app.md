@@ -1,24 +1,27 @@
 ---
-title: Didacticiel Azure Container Service - Préparer l’application
-description: Didacticiel Azure Container Service - Préparer l’application
+title: (DÉPRÉCIÉ) Tutoriel Azure Container Service - Préparer l’application
+description: Tutoriel Azure Container Service - Préparer l’application
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2fe160652bf8df289d590722ef4024f0b3dd397c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a003248104c45fa2bcc1020e0ad8ea895d759457
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164348"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992374"
 ---
-# <a name="create-container-images-to-be-used-with-azure-container-service"></a>Créer des images de conteneur à utiliser avec Azure Container Service
+# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(DÉPRÉCIÉ) Créer des images conteneurs à utiliser avec Azure Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Pour obtenir la version mise à jour de ce tutoriel qui utilise Azure Kubernetes Service, consultez [Tutoriel : Préparer une application pour Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Dans ce didacticiel (le premier d’une série de sept), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les étapes effectuées sont les suivantes :  
 
@@ -90,7 +93,7 @@ Exécutez la commande [docker ps](https://docs.docker.com/engine/reference/comma
 docker ps
 ```
 
-Output:
+Sortie :
 
 ```bash
 CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES
@@ -124,7 +127,7 @@ Une fois terminé, vous disposez de deux images conteneur contenant l’applicat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Les étapes suivantes ont été effectuées :
+Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Les étapes suivantes ont été effectuées :
 
 > [!div class="checklist"]
 > * Le clonage de la source de l’application à partir de GitHub  

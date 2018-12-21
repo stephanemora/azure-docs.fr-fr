@@ -1,25 +1,24 @@
 ---
-title: 'Didacticiel : Analyse d’opinions sur les données de streaming à l’aide d’Azure Databricks'
+title: "Tutoriel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks"
 description: Découvrez comment utiliser Azure Databricks avec les API Event Hubs et Cognitive Services pour exécuter des analyses d’opinions sur des données de diffusion en continu en temps quasi-réel.
 services: azure-databricks
 author: lenadroid
+ms.author: alehall
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 10/23/2018
-ms.author: alehall
-ms.openlocfilehash: cf396dea6ee467267ea73379ea04026fc8cc53b2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 12/07/2018
+ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636575"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100178"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Didacticiel : Analyse d’opinions sur les données de streaming à l’aide d’Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutoriel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
 
-Dans ce didacticiel, vous allez apprendre à exécuter des analyses d’opinions sur un flux de données en temps quasi-réel à l’aide d’Azure Databricks. Vous allez configurer le système d’ingestion des données avec Azure Event Hubs. Vous allez lire des messages à partir d’Event Hubs dans Azure Databricks à l’aide du connecteur Spark Event Hubs. Enfin, vous allez utiliser les API Microsoft Cognitive Services pour exécuter des analyses d’opinions sur les données diffusées.
+Dans ce tutoriel, vous allez apprendre à exécuter des analyses d'opinions sur un flux de données en temps quasi-réel à l'aide d'Azure Databricks. Vous allez configurer le système d’ingestion des données avec Azure Event Hubs. Vous allez lire des messages à partir d’Event Hubs dans Azure Databricks à l’aide du connecteur Spark Event Hubs. Enfin, vous allez utiliser les API Microsoft Cognitive Services pour exécuter des analyses d’opinions sur les données diffusées.
 
 À la fin de ce didacticiel, vous disposerez de tweets diffusés de Twitter comprenant le terme « Azure » et qui exécuterez des analyses d’opinions sur les tweets.
 
@@ -151,7 +150,7 @@ Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets
 
 ## <a name="get-a-cognitive-services-access-key"></a>Obtenir une clé d’accès Cognitive Services
 
-Dans ce didacticiel, vous allez utiliser les [API Analyse de texte de Microsoft Cognitive Services](../cognitive-services/text-analytics/overview.md) pour exécuter des analyses d’opinions sur un flux de tweets en temps quasi-réel. Avant d’utiliser les API, vous devez créer un compte Microsoft Cognitive Services sur Azure et récupérez une clé d’accès pour utiliser les API Analyse de texte.
+Dans ce tutoriel, vous allez utiliser les [API Analyse de texte de Microsoft Cognitive Services](../cognitive-services/text-analytics/overview.md) pour exécuter des analyses d'opinions sur un flux de tweets en temps quasi-réel. Avant d'utiliser les API, vous devez créer un compte Microsoft Cognitive Services sur Azure et récupérer une clé d'accès pour utiliser les API Analyse de texte.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -173,7 +172,7 @@ Dans ce didacticiel, vous allez utiliser les [API Analyse de texte de Microsoft 
 
     Sélectionnez **Créer**.
 
-5. Une fois le compte créé, sélectionnez **Afficher les clés d’accès** dans l’onglet **Vue d’ensemble**.
+5. Une fois le compte créé, sélectionnez **Afficher les clés d'accès** dans l'onglet **Vue d'ensemble**.
 
     ![Afficher les clés d’accès](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Afficher les clés d’accès")
 
@@ -206,7 +205,7 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 
 ## <a name="send-tweets-to-event-hubs"></a>Envoyer des tweets vers Event Hubs
 
-Dans le notebook **SendTweetsToEventHub**, collez le code suivant, et remplacez l’espace réservé par les valeurs de votre espace de noms Event Hubs et de l’application Twitter que vous avez créés précédemment. Ce notebook diffuse les tweets avec le mot-clé « Azure » dans Event Hubs en temps réel.
+Dans le notebook **SendTweetsToEventHub**, collez le code suivant, et remplacez l'espace réservé par les valeurs de votre espace de noms Event Hubs et de l'application Twitter que vous avez créés précédemment. Ce notebook diffuse les tweets avec le mot-clé « Azure » dans Event Hubs en temps réel.
 
 ```scala
 import java.util._
@@ -313,7 +312,7 @@ val customEventhubParameters =
   EventHubsConf(connectionString)
   .setMaxEventsPerTrigger(5)
 
-val incomingStream = spark.readStream.format("eventhubs").option(customEventhubParameters.toMap).load()
+val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
 
 incomingStream.printSchema
 
@@ -396,7 +395,7 @@ La sortie ressemble maintenant à l’extrait de code suivant :
     ...
     ...
 
-Vous avez maintenant diffusé en continu les données issues d’Azure Event Hubs sur Azure Databricks presque en temps réel à l’aide du connecteur Event Hubs pour Apache Spark. Pour plus d’informations sur la façon d’utiliser le connecteur Event Hubs pour Spark, consultez la [documentation relative au connecteur](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+Vous avez diffusé en continu les données issues d'Azure Event Hubs sur Azure Databricks presque en temps réel à l'aide du connecteur Event Hubs pour Apache Spark. Pour plus d’informations sur la façon d’utiliser le connecteur Event Hubs pour Spark, consultez la [documentation relative au connecteur](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Exécuter des analyses d’opinions sur des tweets
 
@@ -509,7 +508,7 @@ object SentimentDetector extends Serializable {
 }
 ```
 
-Ajoutez une autre cellule pour définir une fonction UDF (fonction définie par l’utilisateur) Spark qui détermine le sentiment.
+Ajoutez une autre cellule pour définir une fonction UDF (fonction définie par l'utilisateur) Spark qui détermine le sentiment.
 
 ```scala
 // User Defined Function for processing content of messages to return their sentiment.
@@ -571,7 +570,7 @@ Un résultat similaire à l’extrait de code suivant doit s’afficher :
 
 Une valeur plus proche de **1** dans la colonne **Opinion** suggère une excellente expérience avec Azure. Une valeur plus proche de **0** suggère des problèmes rencontrés par des utilisateurs lors de l’utilisation de Microsoft Azure.
 
-Et voilà ! À l’aide d’Azure Databricks, vous avez réussi à diffuser en continu des données dans Azure Event Hubs, à consommer les données diffusées avec le connecteur Event Hubs et à exécuter des analyses d’opinions sur des données de diffusion en continu en temps quasi-réel.
+Et voilà ! À l'aide d'Azure Databricks, vous avez réussi à diffuser des données en continu dans Azure Event Hubs, à consommer les données diffusées avec le connecteur Event Hubs et à exécuter des analyses d'opinions sur des données de diffusion en continu en temps quasi-réel.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

@@ -1,24 +1,26 @@
 ---
-title: 'Démarrage rapide : Créer un espace de travail de service Machine Learning dans le portail Azure - Azure Machine Learning'
-description: Utilisez le portail Azure pour créer un espace de travail Azure Machine Learning. Dans le cloud, cet espace de travail est le socle que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning avec Azure Machine Learning.
+title: Démarrage rapide via le Portail Azure
+titleSuffix: Azure Machine Learning service
+description: Prise en main d’Azure Machine Learning service. Utilisez le Portail Azure pour créer un espace de travail, qui est le socle dans le cloud que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: rastala
-ms.author: roastala
+author: hning86
+ms.author: haining
 ms.date: 12/04/2018
-ms.openlocfilehash: 59887c46e3ce06eae250e106a01239a1ba969e7f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: c215a3947069e572f73692ea54010c77d78ae4fd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875312"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273559"
 ---
-# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser le portail Azure pour bien démarrer avec Azure Machine Learning
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser le Portail Azure pour prendre en main Azure Machine Learning
 
-Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer un espace de travail Azure Machine Learning. Dans le cloud, cet espace de travail est le socle que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning avec Machine Learning. Ce guide de démarrage rapide utilise des ressources cloud et ne nécessite aucune installation. Pour configurer votre propre serveur de notebook Jupyter, consultez la rubrique [Démarrage rapide : utilisation de Python pour démarrer avec Azure Machine Learning](quickstart-create-workspace-with-python.md).
+Dans ce démarrage rapide, vous utilisez le Portail Azure pour créer un espace de travail Azure Machine Learning. Dans le cloud, cet espace de travail est le socle que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning avec Machine Learning. Ce démarrage rapide utilise des ressources cloud et ne requiert aucune installation. Pour configurer votre propre serveur Jupyter Notebook à la place, consultez [Démarrage rapide : Utilisation de Python pour démarrer avec Azure Machine Learning](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -37,7 +39,7 @@ Les ressources Azure suivantes sont automatiquement ajoutées à votre espace de
 
 Les ressources que vous créez peuvent être utilisées comme prérequis dans d’autres didacticiels et guides pratiques du service Machine Learning. Comme avec d’autres services Azure, il existe des limites concernant certaines ressources associées à Machine Learning, telles que la taille de cluster de calcul. Apprenez-en davantage sur [les limites par défaut et comment augmenter votre quota](how-to-manage-quotas.md).
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree) dès aujourd’hui.
 
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail 
@@ -51,7 +53,7 @@ Sur la page de l’espace de travail, sélectionnez `Explore your Azure Machine 
 
 ## <a name="use-the-workspace"></a>Utiliser l'espace de travail
 
-Voyons maintenant comme un espace de travail vous permet de gérer vos scripts de Machine Learning. Dans cette section, vous allez :
+Voyons maintenant comme un espace de travail vous permet de gérer vos scripts d’apprentissage automatique. Dans cette section, vous allez :
 
 * Ouvrir un bloc-notes dans Azure Notebooks.
 * Exécuter le code qui crée certaines valeurs journalisées.
@@ -114,7 +116,7 @@ Vous pouvez également conserver le groupe de ressources mais supprimer un espac
 
 Vous avez créé les ressources nécessaires pour expérimenter des modèles et les déployer. Vous avez également exécuté du code dans un bloc-notes. Enfin, vous avez exploré l’historique des exécutions de ce code dans votre espace de travail dans le cloud.
 
-Pour une expérience approfondie du workflow, suivez les tutoriels de Machine Learning pour entraîner et déployer un modèle.  
+Pour une expérience approfondie du flux de travail, suivez les didacticiels Machine Learning relatifs à l’apprentissage et au déploiement d’un modèle.  
 
 > [!div class="nextstepaction"]
-> [Tutoriel : entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md)
+> [Tutoriel : Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md)

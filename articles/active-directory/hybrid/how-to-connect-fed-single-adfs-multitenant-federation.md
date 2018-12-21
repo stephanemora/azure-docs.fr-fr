@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fe5c44e834826f9dc62acd30e853c3736b432ee
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621257"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412433"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Fédérer plusieurs instances d’Azure AD avec une seule instance d’AD FS
 
@@ -39,13 +39,13 @@ Une même batterie AD FS à haute disponibilité peut fédérer plusieurs forêt
 
 Prenons un domaine contoso.com dans Azure Active Directory : contoso.onmicrosoft.com est déjà fédéré à AD FS local installé dans l’environnement Active Directory local contoso.com. Fabrikam.com est un domaine dans Azure Active Directory fabrikam.onmicrosoft.com.
 
-## <a name="step-1-establish-a-two-way-trust"></a>Étape 1 : Établir une relation d’approbation bidirectionnelle
+## <a name="step-1-establish-a-two-way-trust"></a>Étape 1 : Établir une relation d’approbation bidirectionnelle
  
 Pour qu’AD FS dans contoso.com puisse authentifier les utilisateurs de fabrikam.com, une approbation bidirectionnelle est nécessaire entre contoso.com et fabrikam.com. Suivez les instructions de cet [article](https://technet.microsoft.com/library/cc816590.aspx) pour créer l’approbation bidirectionnelle.
  
-## <a name="step-2-modify-contosocom-federation-settings"></a>Étape 2 : Modifier les paramètres de fédération contoso.com 
+## <a name="step-2-modify-contosocom-federation-settings"></a>Étape 2 : Modifier les paramètres de fédération contoso.com 
  
-L’émetteur par défaut défini pour un seul domaine fédéré sur AD FS est « http://ADFSServiceFQDN/adfs/services/trust » (par exemple, « http://fs.contoso.com/adfs/services/trust »). Azure Active Directory nécessite un émetteur unique pour chaque domaine fédéré. Étant donné qu’une même instance d’AD FS va fédérer deux domaines, la valeur de l’émetteur doit être modifiée pour être propre à chaque domaine qu’AD FS fédère avec Azure Active Directory. 
+L’émetteur par défaut défini pour un seul domaine fédéré sur AD FS est « http://ADFSServiceFQDN/adfs/services/trust » (par exemple, `http://fs.contoso.com/adfs/services/trust`). Azure Active Directory nécessite un émetteur unique pour chaque domaine fédéré. Étant donné qu’une même instance d’AD FS va fédérer deux domaines, la valeur de l’émetteur doit être modifiée pour être propre à chaque domaine qu’AD FS fédère avec Azure Active Directory. 
  
 Sur le serveur AD FS, ouvrez Azure AD PowerShell (assurez-vous que le module MSOnline est installé) et effectuez les étapes suivantes :
  
@@ -53,9 +53,9 @@ Connectez-vous à l’instance d’Azure Active Directory qui contient le domain
  
 L’émetteur du paramètre de fédération de domaines sera modifié en « http://contoso.com/adfs/services/trust» et une règle de revendication d’émission sera ajoutée pour que l’approbation de la partie de confiance Azure AD émette la valeur issuerId correspondant au suffixe UPN.
  
-## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Étape 3 : Fédérer fabrikam.com avec AD FS
+## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Étape 3 : Fédérer fabrikam.com avec AD FS
  
-Dans la session PowerShell Azure AD, suivez les étapes suivantes : connectez-vous à l’instance d’Azure Active Directory qui contient le domaine fabrikam.com.
+Dans la session PowerShell Azure AD, procédez comme suit : Connectez-vous au Azure Active Directory qui contient le domaine fabrikam.com
 
     Connect-MsolService
 Convertissez le domaine managé fabrikam.com en un domaine fédéré :

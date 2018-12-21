@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/27/2018
+ms.date: 12/07/2018
 ms.author: danlep
-ms.openlocfilehash: 2694e8cdc4f1918aab36794804ff48f5a70b44be
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a7b61702feb062c57fdec84f335ace44a47d0283
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739683"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249479"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Disponibilité des régions et quotas pour Azure Container Instances
 
@@ -29,10 +29,11 @@ Azure Container Instances est disponible dans les régions suivantes avec les li
 | Lieu | SE | UC | Mémoire (Go) |
 | -------- | -- | :---: | :-----------: |
 | USA Est, Europe Nord, Europe Ouest, USA Ouest, USA Ouest 2 | Linux | 4 | 14 |
+| Japon Est | Linux | 2 | 8 |
 | Australie Est, USA Est 2, Asie Sud-Est | Linux | 2 | 7 |
-| Canada Centre, Inde Centre, USA Centre Sud | Linux | 2 | 3,5 |
-| USA Est, Europe Ouest, USA Ouest | Windows | 4 | 14 |
-| Australie Est, Canada Centre, Inde Centre, USA Est 2, Europe Nord, USA Centre Sud, Asie Sud-Est, USA Ouest 2 | Windows | 2 | 3,5 |
+| Canada Centre, Inde Centre, Asie Est, USA Centre Nord, USA Centre Sud | Linux | 2 | 3,5 |
+| USA Est, Europe Ouest, USA Ouest |  Windows | 4 | 14 |
+| Australie Est, Canada Centre, Inde Centre, Asie Est, USA Est 2, Japon Est, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, USA Ouest 2 |  Windows | 2 | 3,5 |
 
 Les instances de conteneur créées dans les limites de ces ressources sont soumises à la disponibilité dans la région de déploiement. Quand une région a une charge importante, vous pouvez rencontrer un échec durant le déploiement des instances. Pour atténuer ce type d’échec de déploiement, essayez de déployer des instances avec des paramètres de mémoire et de processeur inférieurs, ou essayez d’effectuer le déploiement plus tard.
 

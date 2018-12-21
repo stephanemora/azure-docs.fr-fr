@@ -1,21 +1,22 @@
 ---
-title: Créer un environnement Azure Time Series Insights
+title: Créer un environnement Azure Time Series Insights | Microsoft Docs
 description: Découvrez comment créer un environnement Time Series Insights, contenant des données issues d’appareils simulés.
 services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 46fecf6f1b2826f0e23b7b6c4f4511ce9a662d1c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 1a5f9901dfb3b08a068d1051b7ea434f1d5d5412
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365687"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278489"
 ---
-# <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Didacticiel : Créer un environnement Azure Time Series Insights
+# <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutoriel : Créer un environnement Azure Time Series Insights
 
 Ce didacticiel vous guidera tout au long du processus de création d’un environnement Time Series Insight (TSI) contenant des données issues d’appareils simulés. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -26,9 +27,9 @@ Ce didacticiel vous guidera tout au long du processus de création d’un enviro
 > * Exécuter une simulation d’appareil pour transmettre des données en continu à l’environnement TSI
 > * Vérifier les données de télémétrie simulées
 
-## <a name="video"></a>Vidéo : 
+## <a name="video"></a>Vidéo
 
-### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insightsbr"></a>Dans cette vidéo, nous vous montrons comment utiliser un accélérateur de solution Azure IoT pour générer des données qui peuvent être utilisées pour démarrer avec Time Series Insights.</br>
+Dans cette vidéo, nous vous montrons comment utiliser un accélérateur de solution Azure IoT pour générer des données qui peuvent être utilisées pour démarrer avec Time Series Insights.
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
@@ -217,7 +218,7 @@ Dans cette dernière section, vous allez vérifier que les données de télémé
 
    [![Vue filtrée d’intervalle de temps de l’explorateur TSI et événements](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Ce didacticiel crée plusieurs services Azure en cours d’exécution, pour prendre en charge l’environnement TSI et la solution de simulation d’appareil. Si vous souhaitez abandonner et/ou repousser la fin de cette série de didacticiels, nous vous recommandons de supprimer toutes les ressources pour éviter des coûts inutiles. 
 

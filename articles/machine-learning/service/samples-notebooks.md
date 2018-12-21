@@ -1,5 +1,6 @@
 ---
-title: Tutoriels sur le service Azure Machine Learning dans les notebooks Jupyter
+title: Exemples de notebooks Jupyter
+titleSuffix: Azure Machine Learning service
 description: Recherchez des exemples de notebooks Jupyter pour explorer Azure Machine Learning service en Python.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 5ec010d6e0539e9ba316b48dc02110dc19e4b13e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883806"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434526"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Utiliser des notebooks Jupyter pour explorer Azure Machine Learning service
 
@@ -27,7 +29,7 @@ Découvrez comment utiliser le service en suivant la documentation de ce site et
 
 Suivez le [guide de démarrage rapide Azure Machine Learning Python](quickstart-get-started.md) pour créer un espace de travail et lancer Azure Notebooks.
 
-## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Essayez Azure Notebooks : notebooks Jupyter gratuits dans le cloud
+## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Essayez Azure Notebooks : Notebooks Jupyter gratuits dans le cloud
 
 La prise en main d’Azure Notebooks est simple. Le [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) est déjà installé et configuré dans Azure Notebooks. L’installation et les futures mises à jour sont gérées automatiquement par le biais des services Azure.
   
@@ -56,14 +58,14 @@ Le [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) et le serveu
 
 1. [Créez une machine DSVM](how-to-configure-environment.md#dsvm).
 
-1. Clonez le [dépôt GitHub](https://aka.ms/aml-notebooks).
+1. Clonez le [référentiel GitHub](https://aka.ms/aml-notebooks).
 
 1. Ajoutez un fichier de configuration d’espace de travail à la bibliothèque à l’aide de l’une des méthodes suivantes :
     * Copiez le fichier **aml_config\config.json** (que vous avez créé comme prérequis dans le guide de démarrage rapide) dans le répertoire cloné.
 
     * Créez un espace de travail à l’aide du code de [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
 
-1. Démarrez le serveur de notebooks de votre répertoire cloné.
+1. Démarrez le serveur de blocs-notes de votre répertoire cloné.
 
 ## <a name="use-your-own-jupyter-notebook-server"></a>Utiliser votre propre serveur de notebooks Jupyter
 
@@ -71,7 +73,7 @@ Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jup
 
 1. Suivez l’intégralité du guide de démarrage rapide durant lequel vous avez installé les kits SDK Azure Machine Learning.
 
-1. Clonez le [dépôt GitHub](https://aka.ms/aml-notebooks).
+1. Clonez le [référentiel GitHub](https://aka.ms/aml-notebooks).
 
 1. Ajoutez un fichier de configuration d’espace de travail à la bibliothèque à l’aide de l’une des méthodes suivantes :
     * Copiez le fichier **aml_config\config.json** (que vous avez créé comme prérequis dans le guide de démarrage rapide) dans le répertoire cloné.
@@ -82,7 +84,7 @@ Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jup
 
 1. Accédez au dossier qui contient le notebook.
 
-1. Ouvrez le notebook.
+1. Ouvrez le bloc-notes.
 
 <a name="auto"></a>
 
@@ -96,7 +98,7 @@ Vous pouvez utiliser l’une des options ci-dessus, ou bien installer l’enviro
    >[!NOTE]
    >Vous pouvez utiliser une installation existante de conda, du moment que sa version est égale ou supérieure à 4.4.10. Pour afficher la version, utilisez `conda -V`. Vous pouvez mettre à jour une version de conda avec la commande `conda update conda`. Il n’est pas nécessaire d’installer mini-conda.
 
-1. Téléchargez les exemples de notebooks [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+1. Téléchargez les exemples de notebooks [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
 ) sous la forme d’un fichier zip, puis extrayez le contenu dans un répertoire local. Les notebooks du machine learning automatisé se trouvent dans le dossier `how-to-use-azureml/automated-machine-learning`.
 
 1. Configurez un nouvel environnement Conda. 
@@ -114,9 +116,10 @@ Vous pouvez utiliser l’une des options ci-dessus, ou bien installer l’enviro
       + Configure le widget
       + Démarre un notebook Jupyter
       
-      Le script prend le nom de l’environnement Conda comme paramètre facultatif. Par défaut, le nom de l’environnement Conda est `azure_automl`. La commande exacte varie selon le système d’exploitation. 
+   >[!NOTE]
+   > Le script prend le nom de l’environnement Conda comme paramètre facultatif. Par défaut, le nom de l’environnement Conda est `azure_automl`. La commande exacte varie selon le système d’exploitation. C’est utile si vous créez un nouvel environnement ou si vous faites une mise à niveau vers une nouvelle version. Par exemple, vous pouvez utiliser « automl_setup.cmd azure_automl_sandbox » pour créer un environnement nommé « azure_automl_sandbox ». 
       
-      Une fois l’exécution du script terminée, vous voyez la page d’accueil Jupyter Notebook dans votre navigateur.
+1. Une fois l’exécution du script terminée, vous voyez la page d’accueil Jupyter Notebook dans votre navigateur.
 
 1. Accédez à l’emplacement où vous avez enregistré les notebooks. 
 

@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957921"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106071"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Didacticiel : Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
 
 Vous pouvez démarrer un [flux de travail d’application logique](../logic-apps/logic-apps-overview.md) automatisé lorsque des événements spécifiques se produisent dans des ressources Azure ou tierces. Ces ressources peuvent publier ces événements dans une [grille d’événements Azure](../event-grid/overview.md). À son tour, la grille d’événements envoie ces événements aux abonnés qui possèdent des files d’attente, webhooks ou [hubs d’événements](../event-hubs/event-hubs-what-is-event-hubs.md) comme points de terminaison. En tant qu’abonné, votre application logique peut attendre ces événements dans la grille d’événements avant d’exécuter des flux de travail automatisés pour effectuer les tâches, sans qu’il soit nécessaire d’écrire du code.
 
@@ -81,9 +81,9 @@ Tout d’abord, créez une application logique et ajoutez un déclencheur Event 
    Le Concepteur d’application logique vous montre à présent des [*connecteurs*](../connectors/apis-list.md) et des [*déclencheurs*](../logic-apps/logic-apps-overview.md#logic-app-concepts) qui vous permettent de démarrer votre application logique, ainsi que des actions que vous pouvez ajouter après un déclencheur pour effectuer des tâches. Un déclencheur est un événement qui crée une instance d’application logique et démarre le flux de l’application logique. 
    Votre application logique a besoin d’un déclencheur comme premier élément.
 
-6. Dans la zone de recherche, entrez « grille d’événements » comme filtre. Sélectionner le déclencheur : **Azure Event Grid - On a resource event**
+6. Dans la zone de recherche, entrez « grille d’événements » comme filtre. Sélectionner le déclencheur : **Azure Event Grid - On a resource event**
 
-   ![Sélectionner le déclencheur : « Azure Event Grid - On a resource event »](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Sélectionner le déclencheur : « Azure Event Grid - On a resource event »](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 7. Lorsque vous y êtes invité, connectez-vous à Azure Event Grid avec vos informations d’identification Azure.
 
@@ -101,7 +101,7 @@ Tout d’abord, créez une application logique et ajoutez un déclencheur Event 
    | **Abonnement** | *{abonnement-Azure-de-la-machine-virtuelle}* | Sélectionnez l’abonnement Azure de l’éditeur d’événements. Dans le cadre de ce didacticiel, sélectionnez l’abonnement Azure de votre machine virtuelle. | 
    | **Type de ressource** | Microsoft.Resources.resourceGroups | Sélectionnez le type de ressource de l’éditeur d’événements. Dans le cadre de ce didacticiel, sélectionnez la valeur spécifiée, afin que votre application logique ne surveille que les groupes de ressources. | 
    | **Nom de la ressource** | *{nom-du-groupe-de-ressources-de-la-machine-virtuelle}* | Sélectionnez le nom de la ressource de l’éditeur. Pour ce didacticiel, sélectionnez le nom du groupe de ressources pour votre machine virtuelle. | 
-   | Pour les paramètres facultatifs, choisissez **Afficher les options avancées**. | *{voir les descriptions}* | * **Filtre de préfixe** : pour ce didacticiel, laissez ce paramètre vide. Le comportement par défaut s’applique à toutes les valeurs. Vous pouvez cependant spécifier une chaîne de préfixe en tant que filtre, par exemple, un chemin d’accès et un paramètre pour une ressource spécifique. <p>* **Filtre de suffixe** : pour ce didacticiel, laissez ce paramètre vide. Le comportement par défaut s’applique à toutes les valeurs. Vous pouvez cependant spécifier une chaîne de suffixe en tant que filtre, par exemple, une extension de nom de fichier, si vous ne souhaitez utiliser que des types de fichiers spécifiques.<p>* **Nom de l’abonnement** : indiquez un nom unique pour votre abonnement aux événements. |
+   | Pour les paramètres facultatifs, choisissez **Afficher les options avancées**. | *{voir les descriptions}* | * **Filtre de préfixe** : pour ce didacticiel, laissez ce paramètre vide. Le comportement par défaut s’applique à toutes les valeurs. Vous pouvez cependant spécifier une chaîne de préfixe en tant que filtre, par exemple, un chemin d’accès et un paramètre pour une ressource spécifique. <p>* **Filtre de suffixe** : pour ce didacticiel, laissez ce paramètre vide. Le comportement par défaut s’applique à toutes les valeurs. Vous pouvez cependant spécifier une chaîne de suffixe en tant que filtre, par exemple, une extension de nom de fichier, si vous ne souhaitez utiliser que des types de fichiers spécifiques.<p>* **Nom d’abonnement** : Indiquez un nom unique pour votre abonnement aux événements. |
    | | | 
 
    Une fois que vous avez terminé, votre déclencheur Event Grid peut se présenter ainsi :
@@ -182,8 +182,8 @@ Ajoutez maintenant une [ *action* ](../logic-apps/logic-apps-overview.md#logic-a
    | Paramètre | Valeur suggérée | Description | 
    | ------- | --------------- | ----------- | 
    | **To** | *{adresse-e-mail-du-destinataire}* |Entrez l’adresse e-mail du destinataire. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. | 
-   | **Objet** | Mise à jour de la ressource : **Subject**| Entrez le contenu de l’objet de l’e-mail. Dans le cadre de ce didacticiel, entrez le texte suggéré et sélectionnez le champ **Subject** de l’événement. Ici, l’objet de votre e-mail comprend le nom de la ressource mise à jour (machine virtuelle). | 
-   | **Corps** | Groupe de ressources : **Topic** <p>Type d’événement : **Event Type**<p>ID d’événement : **ID**<p>Heure : **Event Time** | Entrez le contenu du corps de l’e-mail. Dans le cadre de ce didacticiel, entrez le texte suggéré et sélectionnez les champs **Topic**, **Event Type**, **ID** et **Event Time** de façon à inclure dans votre e-mail le nom du groupe de ressources, le type d’événement, son horodatage et son ID pour la mise à jour. <p>Pour ajouter des lignes vides à votre contenu, appuyez sur Maj + Entrée. | 
+   | **Objet** | Mise à jour de la ressource : **Objet**| Entrez le contenu de l’objet de l’e-mail. Dans le cadre de ce didacticiel, entrez le texte suggéré et sélectionnez le champ **Subject** de l’événement. Ici, l’objet de votre e-mail comprend le nom de la ressource mise à jour (machine virtuelle). | 
+   | **Corps** | Groupe de ressources : **Rubrique** <p>Type d’événement : **Type d’événement**<p>ID d’événement : **Identifiant**<p>Heure : **Heure de l’événement** | Entrez le contenu du corps de l’e-mail. Dans le cadre de ce didacticiel, entrez le texte suggéré et sélectionnez les champs **Topic**, **Event Type**, **ID** et **Event Time** de façon à inclure dans votre e-mail le nom du groupe de ressources, le type d’événement, son horodatage et son ID pour la mise à jour. <p>Pour ajouter des lignes vides à votre contenu, appuyez sur Maj + Entrée. | 
    | | | 
 
    > [!NOTE] 

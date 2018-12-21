@@ -1,14 +1,11 @@
 ---
-title: 'Tutoriel : équilibrer la charge de machines virtuelles à l’intérieur d’une zone - Portail Azure | Microsoft Docs'
+title: 'Didacticiel : Équilibrer la charge de machines virtuelles à l’intérieur d’une zone - Portail Azure'
+titlesuffix: Azure Load Balancer
 description: Ce tutoriel montre comment créer un équilibreur de charge standard avec serveur frontal zonal pour équilibrer la charge de machines virtuelles dans une zone de disponibilité à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 580015b7f8b1f894c69ddec0f26daeb524932e4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: seodec18
+ms.openlocfilehash: dd4600d77373894cdc9d6225ae008a8bd677fb59
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637291"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262093"
 ---
-# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutoriel : équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
+# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Didacticiel : Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
 
 Ce tutoriel crée une instance publique [Azure Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) avec un serveur frontal zonal utilisant une adresse IP publique standard à l’aide du portail Azure. Dans ce scénario, vous pouvez spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique. Vous apprenez à effectuer les fontions suivantes :
 
@@ -53,7 +50,7 @@ Standard Load Balancer prend uniquement en charge une adresse IP publique standa
 2. Dans la page **Créer un équilibreur de charge**, entrez les valeurs suivantes pour l’équilibreur de charge :
     - **myLoadBalancer** pour le nom de l’équilibreur de charge.
     - **Public** pour le type de l’équilibreur de charge.
-     - **myPublicIPZonal** : pour la nouvelle adresse IP publique créée. Sélectionnez **Choisir une adresse IP publique**. Sélectionnez ensuite **Créer nouveau**. Pour le nom, entrez **myPublicIP**. La référence SKU est standard par défaut. Pour **Zone de disponibilité**, sélectionnez **Zone 1**.
+      - **myPublicIPZonal** : pour la nouvelle adresse IP publique créée. Sélectionnez **Choisir une adresse IP publique**. Sélectionnez ensuite **Créer nouveau**. Pour le nom, entrez **myPublicIP**. La référence SKU est standard par défaut. Pour **Zone de disponibilité**, sélectionnez **Zone 1**.
     - **myResourceGroupZLB**, pour le nom du nouveau groupe de ressources que vous créez.
     - **westeurope**, pour l’emplacement.
 3. Sélectionnez **Créer** pour générer l’équilibreur de charge.
@@ -81,7 +78,7 @@ Dans cette section, vous créez un réseau virtuel. Vous créez également deux 
     - **myNetworkSecurityGroup**, pour le nom du groupe de sécurité réseau.
     - **myResourceGroupLBAZ**, pour le nom du groupe de ressources existant.
    
-    ![Créer un groupe de sécurité réseau](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+     ![Créer un groupe de sécurité réseau](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### <a name="create-nsg-rules"></a>Créer les règles du groupe de sécurité réseau
 
@@ -100,7 +97,7 @@ Dans cette section, vous créez des règles de groupe de sécurité réseau pour
     - **Autoriser HTTP**, pour **Description**.
 4. Sélectionnez **OK**.
  
- ![Créer les règles du groupe de sécurité réseau](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Créer les règles du groupe de sécurité réseau](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. Répétez les étapes 2 à 4 pour créer une autre règle nommée **myRDPRule**. Cette règle permet une connexion RDP entrante utilisant le port 3389, avec les valeurs suivantes :
     - **Service Tag**, (Identification) pour **Source**.
@@ -112,7 +109,7 @@ Dans cette section, vous créez des règles de groupe de sécurité réseau pour
     - **myRDPRule**, pour **Nom**.
     - **Autoriser RDP**, pour **Description**.
 
-    ![Créer une règle RDP](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+      ![Créer une règle RDP](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### <a name="create-virtual-machines"></a>Créer des machines virtuelles
 

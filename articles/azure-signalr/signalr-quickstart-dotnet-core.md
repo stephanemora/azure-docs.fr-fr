@@ -1,27 +1,20 @@
 ---
-title: Démarrage rapide pour apprendre à utiliser Azure SignalR Service | Microsoft Docs
+title: Démarrage rapide pour apprendre à utiliser Azure SignalR Service
 description: Un démarrage rapide pour utiliser Azure SignalR Service afin de créer une salle de conversation avec les applications MVC ASP.NET Core.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: b667f38c4e3d2a3fad323171a3b3b49ed3619fd9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959476"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260614"
 ---
-# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guide de démarrage rapide : créer une salle de conversation avec SignalR Service
+# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Démarrage rapide : Créer une salle de conversation avec SignalR Service
 
 
 Azure SignalR Service est un service Azure qui permet aux développeurs de créer facilement des applications web avec des fonctionnalités en temps réel. Ce service est basé sur [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
@@ -133,8 +126,8 @@ Dans cette section, vous allez ajouter l’outil [Secret Manager](https://docs.m
 
 Dans SignalR, un concentrateur est un composant qui expose un ensemble de méthodes pouvant être appelées à partir du client. Dans cette section, vous définissez une classe de concentrateur avec deux méthodes : 
 
-* `Broadcast` : cette méthode envoie un message à tous les clients.
-* `Echo` : cette méthode renvoie un message à l’appelant.
+* `Broadcast`: cette méthode envoie un message à tous les clients.
+* `Echo`: cette méthode renvoie un message à l’appelant.
 
 Ces deux méthodes utilisent l’interface `Clients` fournie par le Kit de développement logiciel (SDK) SignalR ASP.NET Core. Cette interface vous permet d’accéder à tous les clients connectés et d’envoyer (push) ainsi le contenu à vos clients.
 
@@ -244,7 +237,7 @@ Dans cette section, vous allez ajouter un environnement d’exécution de dével
 
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez d’exécuter le tutoriel suivant, vous pouvez conserver les ressources créées dans ce démarrage rapide.
 

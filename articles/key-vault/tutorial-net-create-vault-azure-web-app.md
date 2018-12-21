@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: defe1a109381c7ee44c6fc5e5db4c6f6ecc5ac6f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706838"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322139"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutoriel - Utiliser Azure Key Vault avec une application web Azure dans .NET
+# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutoriel : Utiliser Azure Key Vault avec une application web Azure dans .NET
 
 Azure Key Vault vous permet de protéger les secrets tels que les clés API et les chaînes de connexion de base de données. Il vous permet d’accéder à vos applications, services et ressources informatiques.
 
@@ -28,20 +28,20 @@ Dans ce tutoriel, vous allez apprendre à créer une application web Azure qui p
 Cet article vous montre comment :
 
 > [!div class="checklist"]
-> * Créer un coffre de clés.
-> * Stocker un secret dans le coffre de clés.
-> * Récupérer un secret à partir du coffre de clés.
-> * Créer une application web Azure.
+> * Création d’un coffre de clés
+> * Stockage d’un secret dans le coffre de clés.
+> * Récupération d’un secret à partir du coffre de clés.
+> * Création d’une application web Azure.
 > * Activer une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour l’application web.
-> * Accorder des autorisations requises à l’application web pour lire les données du coffre de clés.
+> * Octroi des autorisations requises à l’application web pour lire des données venant du coffre de clés.
 > * Exécuter l’application web dans Azure
 
 Avant de continuer, lisez [Concepts de base de Key Vault](key-vault-whatis.md#basic-concepts).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Sur Windows :
-  * [SDK .NET Core 2.1 ou ultérieur](https://www.microsoft.com/net/download/windows)
+* Sous Windows :
+  * [Kit de développement logiciel (SDK) .NET Core 2.1 ou version ultérieure](https://www.microsoft.com/net/download/windows)
 
 * Sur Mac :
   * [Visual Studio pour Mac](https://visualstudio.microsoft.com/vs/mac/)
@@ -56,7 +56,7 @@ Avant de continuer, lisez [Concepts de base de Key Vault](key-vault-whatis.md#ba
 
 Azure Key Vault stocke les informations d’identification de manière sécurisée, en dehors de votre code. Toutefois, vous devez vous authentifier auprès d’Azure Key Vault pour récupérer vos clés. Pour vous authentifier auprès de Key Vault, vous avez besoin d’informations d’identification. Il s’agit d’un dilemme de démarrage classique. Managed Service Identity (MSI) résout ce problème en fournissant une _identité de démarrage_.
 
-Lorsque vous activez MSI pour un service Azure (par exemple, Machines virtuelles, App Service ou Functions), Azure crée un [principal de service](key-vault-whatis.md#basic-concepts). MSI procède ainsi pour l’instance du service dans Azure Active Directory (Azure AD) et injecte les informations d’identification du principal de service dans cette instance.
+Lorsque vous activez MSI pour un service Azure (par exemple : Machines Virtuelles, App Service ou Functions), Azure crée un [principal de service](key-vault-whatis.md#basic-concepts). MSI procède ainsi pour l’instance du service dans Azure Active Directory (Azure AD) et injecte les informations d’identification du principal de service dans cette instance.
 
 ![Diagramme MSI](media/MSI.png)
 
@@ -88,9 +88,9 @@ Vous allez utiliser ce groupe de ressources tout au long du tutoriel.
 
 Pour créer un coffre de clés dans votre groupe de ressources, fournissez les informations suivantes :
 
-* Nom du coffre de clés : chaîne de 3 à 24 caractères qui peut contenir uniquement des chiffres, des lettres et des traits d’union (par exemple : 0-9, a-z, A-Z et -)
+* Nom du coffre de clés : chaîne de 3 à 24 caractères qui ne peut contenir que des chiffres, des lettres et des traits d’union (par exemple : 0-9, a-z, A-Z et -)
 * Nom de groupe ressources
-* Emplacement : **USA Ouest**
+* Localisation : **USA Ouest**
 
 Dans Azure CLI, entrez la commande suivante :
 
@@ -129,10 +129,10 @@ Suivez ce [tutoriel](../app-service/app-service-web-get-started-dotnet.md) pour 
 1. Accédez au fichier **Pages** > **About.cshtml.cs**.
 2. Installez ces packages NuGet :
    - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
-   - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
+   - [Coffre de clés](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Importez le code suivant dans le fichier About.cshtml.cs :
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -140,7 +140,7 @@ Suivez ce [tutoriel](../app-service/app-service-web-get-started-dotnet.md) pour 
 
 4. Le code de la classe AboutModel doit ressembler à ceci :
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -220,7 +220,7 @@ Azure Key Vault permet de stocker des informations d’identification et autres 
 
 1. Prenez note de `PrincipalId` quand vous publiez l’application dans Azure. À l’étape 1, la sortie de la commande doit être au format suivant :
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",

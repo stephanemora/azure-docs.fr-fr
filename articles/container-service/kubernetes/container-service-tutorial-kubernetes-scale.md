@@ -1,5 +1,5 @@
 ---
-title: Didacticiel Azure Container Service - Mettre à l’échelle une application
+title: (DÉPRÉCIÉ) Tutoriel Azure Container Service - Mettre à l’échelle une application
 description: Didacticiel Azure Container Service - Mettre à l’échelle une application
 services: container-service
 author: dlepow
@@ -9,16 +9,19 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429880"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993072"
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Mettre à l’échelle des pods Kubernetes et l’infrastructure Kubernetes
+# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(DÉPRÉCIÉ) Mettre à l’échelle des pods Kubernetes et l’infrastructure Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Pour obtenir la version mise à jour de ce tutoriel qui utilise Azure Kubernetes Service, consultez [Tutoriel : mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Si vous avez suivi les didacticiels, vous disposez d’un cluster Kubernetes opérationnel dans Azure Container Service et vous avez déployé l’application Azure Vote. 
 
@@ -65,7 +68,7 @@ Exécutez [kubectl get pods](https://kubernetes.io/docs/reference/generated/kube
 kubectl get pods
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -104,7 +107,7 @@ Pour voir l’état de la mise à l’échelle automatique, exécutez la command
 kubectl get hpa
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE

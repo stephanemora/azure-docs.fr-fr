@@ -1,13 +1,12 @@
 ---
-title: Prédire une réponse à l’aide d’un modèle simple de régression - Azure Machine Learning Studio | Microsoft Docs
+title: Prédire des réponse à l’aide de modèles de régression - Azure Machine Learning Studio | Microsoft Docs
 description: Comment créer un modèle de régression simple pour prédire un prix dans la quatrième vidéo de la série Science des données pour les débutants 4. Comprend une régression linéaire avec des données cibles.
 keywords: créer un modèle,modèle simple,prédiction de prix,modèle de régression simple
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
@@ -17,15 +16,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2862310623b2725cbeeaa4f5972a89ffcef44ff6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e2c49b9da215c038cfa47689f11da22b2dffc2dc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309774"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253573"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prédire une réponse à l’aide d’un modèle simple
-## <a name="video-4-data-science-for-beginners-series"></a>Vidéo 4 : série Science des données pour les débutants
+## <a name="video-4-data-science-for-beginners-series"></a>Vidéo 4 : série Science des données pour les débutants
 Découvrez comment créer un modèle de régression simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants 4. Nous allons dessiner un modèle de régression avec des données cibles.
 
 Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
@@ -38,11 +37,11 @@ Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [A
 ## <a name="other-videos-in-this-series"></a>Autres vidéos de cette série
 *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
 
-* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-* Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-* Vidéo 4 : Prédire une réponse à l’aide d’un modèle simple
-* Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 s)*
+* Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
+* Vidéo 4 : Prédire une réponse à l’aide d’un modèle simple
+* Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
 
 ## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcription : Prédire une réponse à l’aide d’un modèle simple
 Bienvenue dans la quatrième vidéo de la série « Science des données pour les débutants ». Dans cette vidéo, nous allons générer un modèle simple et établir une prévision.
@@ -66,7 +65,7 @@ Nous venons de créer un petit jeu de données : une table. Notez qu’elle rép
 * Et, comme nous allons le voir, nous disposons de **suffisamment** de données pour répondre à notre question
 
 ## <a name="ask-a-sharp-question"></a>Poser une question précise
-Maintenant, nous allons poser notre question d’une manière directe : « Combien coûte un diamant de 1,35 carat ? »
+Maintenant, nous allons poser notre question de façon directe : « Combien coûte un diamant de 1,35 carat ? »
 
 Notre liste ne comprend pas de diamant de 1,35 carat, et nous devrons donc à utiliser le reste de nos données pour obtenir une réponse à la question.
 
@@ -97,18 +96,18 @@ Le fait que la ligne ne passe pas exactement par tous les points n’est pas un 
 Étant donné que nous essayons de répondre à la question *Combien ?*, il s’agit une *régression*. Et comme nous utilisons une ligne droite, c’est une *régression linéaire*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Utiliser le modèle pour trouver la réponse
-Maintenant, nous disposons d’un modèle et nous lui posons notre question : combien coûte un diamant de 1,35 carat ?
+Nous avons maintenant un modèle et nous lui posons notre question : Combien coûte un diamant de 1,35 carat ?
 
-Pour répondre à notre question, nous visualisons 1,35 carat et dessinons une ligne verticale. À l’endroit où elle coupe la ligne du modèle, nous visualisons une ligne horizontale vers l’axe des dollars. Elle atteint 10 000. Et voilà ! Voici donc la réponse : un diamant de 1,35 carat coûte environ 10 000 $.
+Pour répondre à notre question, nous visualisons 1,35 carat et dessinons une ligne verticale. À l’endroit où elle coupe la ligne du modèle, nous visualisons une ligne horizontale vers l’axe des dollars. Elle atteint 10 000. Et voilà ! Voici la réponse : Un diamant de 1,35 carat coûte environ 10 000 $.
 
 ![Rechercher la réponse en utilisant le modèle](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Créer un intervalle de confiance
-Il est normal de vous demander le degré de précision de cette prédiction. Il est utile de savoir si le prix du diamant de 1,35 carat est très proche de 10 000 $, ou largement supérieur ou inférieur. Pour le déterminer, nous allons dessiner une enveloppe autour de la ligne de régression qui inclut la plupart des points. Il s’agit de notre *intervalle de confiance*: nous sommes pratiquement certains que les prix se situent dans cet intervalle, car c’était le cas dans la plupart des cas dans le passé. Nous pouvons dessiner deux lignes horizontales supplémentaires où la ligne de 1,35 carat coupe le haut et le bas de l’intervalle.
+Il est normal de vous demander le degré de précision de cette prédiction. Il est utile de savoir si le prix du diamant de 1,35 carat est très proche de 10 000 $, ou largement supérieur ou inférieur. Pour le déterminer, nous allons dessiner une enveloppe autour de la ligne de régression qui inclut la plupart des points. Il s’agit de notre *intervalle de confiance* : nous sommes pratiquement certains que les prix se situent dans cet intervalle, car c’était le cas dans la plupart des cas dans le passé. Nous pouvons dessiner deux lignes horizontales supplémentaires où la ligne de 1,35 carat coupe le haut et le bas de l’intervalle.
 
 ![intervalle de confiance](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Maintenant, nous pouvons affirmer quelque chose sur notre intervalle de confiance : nous pouvons dire en toute confiance que le prix d’un diamant de 1,35 carat est d’environ 10 000 $, et qu’il pourrait se trouver dans une plage allant de 8 000 $ à 12 000 $.
+Maintenant nous pouvons affirmer quelque chose sur notre intervalle de confiance :  nous pouvons dire en toute confiance que le prix d’un diamant de 1,35 carat est d’environ 10 000 $, et qu’il pourrait se trouver dans une plage allant de 8 000 $ à 12 000 $.
 
 ## <a name="were-done-with-no-math-or-computers"></a>Nous avons terminé, sans mathématiques ni ordinateur
 Nous avons fait ce pour quoi les scientifiques sont payés, et ce simplement en dessinant :

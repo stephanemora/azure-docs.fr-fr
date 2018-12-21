@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 84bdc560a135f8f1eb7d6c86fe4f3749135ff7e1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395071"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139042"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Utilisation du chiffrement dynamique DRM et du service de remise des licences
 
@@ -40,7 +41,7 @@ Cet article est basé sur l’exemple [Chiffrement avec DRM](https://github.com/
 
         L’application définit une restriction de type jeton JWT dans la stratégie.
 
-* Créez un élément StreamingLocator pour la ressource spécifiée, avec le nom de stratégie de diffusion en continu spécifié. Dans ce cas, la stratégie prédéfinie est utilisée. Elle définit deux clés de contenu dans l’élément StreamingLocator : AES-128 (enveloppe) et CENC (PlayReady et Widevine).  
+* Créez un élément StreamingLocator pour la ressource spécifiée, avec le nom de stratégie de diffusion en continu spécifié. Dans ce cas, la stratégie prédéfinie est utilisée. Elle définit deux clés de contenu dans l'élément StreamingLocator : AES-128 (enveloppe) et CENC (PlayReady et Widevine).  
     
     Une fois l’élément StreamingLocator créé, la ressource de sortie est publiée et mise à la disposition des clients pour la lecture.
 
@@ -51,14 +52,14 @@ Cet article est basé sur l’exemple [Chiffrement avec DRM](https://github.com/
 
     Vous pouvez ouvrir un navigateur et coller l’URL obtenue pour lancer la page de démonstration du lecteur multimédia Azure Media Player avec l’URL et le jeton que vous avez déjà renseignés.  
 
-    ![protéger avec drm](./media/protect-with-drm/playready_encrypted_url.png)
+    ![Protéger avec DRM](./media/protect-with-drm/playready_encrypted_url.png)
 
 > [!NOTE]
 > Vous pouvez chiffrer chaque ressource avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Consultez les [protocoles de diffusion en continu et les types de chiffrement](content-protection-overview.md#streaming-protocols-and-encryption-types) pour identifier la meilleure combinaison.
 
 L’exemple décrit dans cet article génère le résultat suivant :
 
-![protéger avec drm](./media/protect-with-drm/ams_player.png)
+![AMS avec la vidéo protégée par DRM](./media/protect-with-drm/ams_player.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -116,7 +117,7 @@ Dans ce tutoriel, nous créons l’entrée du travail à partir d’un fichier q
 
 Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c’est le cas. L’exemple de code ci-dessous montre comment interroger le service pour connaître l’état du [travail](https://docs.microsoft.com/rest/api/media/jobs). L’interrogation n’est pas une meilleure pratique recommandée pour les applications de production en raison de la latence potentielle. L’interrogation peut être limitée si elle est utilisée de façon excessive sur un compte. À la place, les développeurs doivent utiliser Event Grid. Consultez [Acheminer des événements Azure Media Services vers un point de terminaison personnalisé à l’aide de CLI](job-state-events-cli-how-to.md).
 
-Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez **Annulation en cours** et **Annulé** une fois l’opération terminée.
+Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez **Annulation en cours** et **Annulé** une fois l’opération terminée.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
@@ -147,7 +148,7 @@ Une fois l’encodage terminé, et la stratégie de clé de contenu configurée,
 
 Le processus de création de l’élément **StreamingLocator** est appelé publication. Par défaut, l’élément **StreamingLocator** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
 
-Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le nom **StreamingPolicyName** souhaité. Dans ce didacticiel, nous utilisons un des éléments StreamingPolicies prédéfinis, ce qui indique à Azure Media Services comment publier le contenu en vue de la diffusion en continu. Dans cet exemple, nous définissons l’élément StreamingLocator.StreamingPolicyName pour la stratégie «Predefined_MultiDrmCencStreaming». Cette stratégie indique que vous souhaitez que deux clés de contenu (enveloppe et CENC) soient générées et définies sur le localisateur. Par conséquent, les chiffrements d’enveloppe, de PlayReady et de Widevine sont appliqués (la clé est envoyée au client de la lecture en fonction des licences DRM configurées). Si vous souhaitez également chiffrer votre flux avec CBC (FairPlay), utilisez l’élément «Predefined_MultiDrmStreaming». 
+Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le nom **StreamingPolicyName** souhaité. Dans ce didacticiel, nous utilisons un des éléments StreamingPolicies prédéfinis, ce qui indique à Azure Media Services comment publier le contenu en vue de la diffusion en continu. Dans cet exemple, nous définissons l’élément StreamingLocator.StreamingPolicyName pour la stratégie «Predefined_MultiDrmCencStreaming». Cette stratégie indique que vous souhaitez que deux clés de contenu (enveloppe et CENC) soient générées et définies sur le localisateur. Par conséquent, les chiffrements d’enveloppe, de PlayReady et de Widevine sont appliqués (la clé est envoyée au client de la lecture en fonction des licences DRM configurées). Si vous voulez aussi chiffrer votre flux avec CBCS (FairPlay), utilisez l’élément «Predefined_MultiDrmStreaming». 
 
 > [!IMPORTANT]
 > Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie StreamingPolicy. Vous ne devez pas créer une stratégie StreamingPolicy pour chaque élément StreamingLocator.

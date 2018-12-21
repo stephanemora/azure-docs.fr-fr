@@ -1,5 +1,5 @@
 ---
-title: Créer une application web Java Enterprise dans Azure App Service sur Linux | Microsoft Docs
+title: Créer une application web Java Enterprise sur Linux - Azure App Service | Microsoft Docs
 description: Découvrez comment faire fonctionner une application Java entreprise dans Wildfly avec Azure App Service sur Linux.
 author: JasonFreeberg
 manager: routlaw
@@ -10,16 +10,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165456"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344225"
 ---
-# <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutoriel : Créer une application web Java EE et Postgres dans Azure
+# <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Didacticiel : Créer une application web Java EE et Postgres dans Azure
 
-Ce tutoriel vous explique comment créer une application web Java EE (Enterprise Edition) sur Azure App Service et comment la connecter à une base de données Postgres. À la fin de ce tutoriel, une application [WildFly](http://www.wildfly.org/about/) stocke les données dans [Azure Database pour Postgres](https://azure.microsoft.com/services/postgresql/) qui s’exécute sur [Azure App Service pour Linux](app-service-linux-intro.md).
+Ce tutoriel vous explique comment créer une application web Java EE (Enterprise Edition) sur Azure App Service et comment la connecter à une base de données Postgres. À la fin de ce tutoriel, une application [WildFly](https://www.wildfly.org/about/) stocke les données dans [Azure Database pour Postgres](https://azure.microsoft.com/services/postgresql/) qui s’exécute sur [Azure App Service pour Linux](app-service-linux-intro.md).
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -32,8 +33,8 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 1. [Téléchargement et installation de Git](https://git-scm.com/)
-1. [Téléchargement et installation de Maven 3](https://maven.apache.org/install.html)
-1. [Téléchargement et installation de l’interface Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [Téléchargement et installation de Maven 3](https://maven.apache.org/install.html)
+3. [Téléchargement et installation de l’interface Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="clone-and-edit-the-sample-app"></a>Cloner et modifier l’exemple d’application
 
@@ -160,10 +161,10 @@ Nous devons ensuite modifier la configuration de l’API Java Transaction, afin 
 
 Avant de déployer notre application reconfigurée, nous devons mettre à jour le serveur d’applications WildFly avec le module Postgres et ses dépendances. Pour configurer le serveur, nous avons besoin des quatre fichiers présents dans le répertoire `wildfly_config/` :
 
-- **postgresql-42.2.5.jar**, fichier JAR servant de pilote JDBC pour Postgres. Pour plus d’informations, visitez le [site officiel](https://jdbc.postgresql.org/index.html).
-- **postgres-module.xml**, fichier XML déclarant un nom pour le module Postgres (org.postgres). Il spécifie également les ressources et les dépendances nécessaires au fonctionnement du module.
-- **jboss_cli_commands.cl**, fichier contenant les commandes de configuration à exécuter par l’interface CLI JBoss. Les commandes ajoutent le module Postgres au serveur d’applications WildFly, elles fournissent les informations d’identification, déclarent un nom JNDI, définissent le seuil de délai d’expiration, etc. Si vous ne connaissez pas l’interface CLI JBoss, référez-vous à la [documentation officielle](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- **startup_script.sh**, script shell s’exécutant chaque fois que votre instance App Service est démarrée. Le script n’assure qu’une fonction : la redirection des commandes dans `jboss_cli_commands.cli` vers l’interface CLI JBoss.
+- **postgresql-42.2.5.jar** : fichier JAR servant de pilote JDBC pour Postgres. Pour plus d’informations, visitez le [site officiel](https://jdbc.postgresql.org/index.html).
+- **postgres-module.xml** : fichier XML déclarant un nom pour le module Postgres (org.postgres). Il spécifie également les ressources et les dépendances nécessaires au fonctionnement du module.
+- **jboss_cli_commands.cl** : fichier contenant les commandes de configuration à exécuter par l’interface CLI JBoss. Les commandes ajoutent le module Postgres au serveur d’applications WildFly, elles fournissent les informations d’identification, déclarent un nom JNDI, définissent le seuil de délai d’expiration, etc. Si vous ne connaissez pas l’interface CLI JBoss, référez-vous à la [documentation officielle](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **startup_script.sh** : script shell s’exécutant chaque fois que votre instance App Service est démarrée. Le script n’assure qu’une fonction : la redirection des commandes dans `jboss_cli_commands.cli` vers l’interface CLI JBoss.
 
 Nous vous suggérons fortement de lire le contenu de ces fichiers, en particulier _jboss_cli_commands.cli_.
 

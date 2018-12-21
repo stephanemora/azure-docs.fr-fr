@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309360"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310366"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Guide pratique pour planifier votre implémentation de la jonction Azure AD
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Activation Planifier votre implémentation de la jointure d’Azure AD
 
 
 La jonction Azure AD vous permet de joindre des appareils directement à Azure AD sans qu’il soit nécessaire de se joindre à Active Directory local, tout en conservant vos utilisateurs productifs et sécurisés. La jonction Azure AD est prête à l’emploi par les entreprises pour les déploiements à grande échelle et les déploiements limités.   
@@ -102,7 +102,7 @@ Si votre fournisseur d’identité ne prend pas en charge ces protocoles, la jon
 
 Vous ne pouvez pas utiliser l’authentification basée sur des cartes à puce ou sur des certificats pour joindre des appareils à Azure AD. Cependant, vous pouvez utiliser des cartes à puce pour vous connecter à des appareils joints à Azure AD si vous avez configuré AD FS.
 
-**Recommandation :** Implémentez Windows Hello Entreprise pour l’authentification forte sans mot de passe à des appareils Windows 10.
+**Recommandation :** Implémentez Windows Hello Entreprise pour l'authentification forte sans mot de passe à des appareils Windows 10.
 
 
 ### <a name="user-configuration"></a>Configuration des utilisateurs
@@ -127,7 +127,7 @@ La jonction Azure AD :
 
 - N’est pas applicable aux versions antérieures de Windows ou à d’autres systèmes d’exploitation. Si vous avez des appareils Windows 7/8.1, vous devez les mettre à niveau vers Windows 10 pour déployer la jonction Azure AD.
  
-**Recommandation :** Utilisez toujours la version de Windows 10 la plus récente pour bénéficier des fonctionnalités mises à jour.
+**Recommandation :** Utilisez toujours la version la plus récente de Windows 10 pour bénéficier de fonctionnalités à jour.
 
 
 ### <a name="management-platform"></a>Plateforme de gestion
@@ -185,13 +185,13 @@ Si vos applications sont créées de façon personnalisée et/ou hébergées loc
 
 Si vous utilisez AD FS, consultez [Vérifier et gérer l’authentification unique avec AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Recommandation :** Envisagez l’hébergement dans le cloud (par exemple Azure) et l’intégration à Azure AD pour une meilleure expérience.
+**Recommandation :** Envisagez l'hébergement dans le cloud (Azure, par exemple) et l'intégration à Azure AD pour une meilleure expérience.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Applications locales s’appuyant sur des protocoles hérités
 
 Les utilisateurs bénéficient de l’authentification unique sur les appareils joints à Azure AD si l’appareil a accès à un contrôleur de domaine. 
 
-**Recommandation :** Déployez le [proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) pour permettre l’accès sécurisé à ces applications.
+**Recommandation :** Déployez le [proxy Azure AD App](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) pour permettre un accès sécurisé à ces applications.
 
 
 ### <a name="on-premises-network-shares"></a>Partages de réseau local
@@ -213,7 +213,7 @@ Les appareils joints à AD Azure ne prennent pas en charge les applications loca
 
 ### <a name="remote-desktop-services"></a>Services Bureau à distance
 
-La connexion Bureau à distance à des appareils joints à Azure AD nécessite que l’ordinateur hôte soit joint à Azure AD ou à Azure AD Hybride. Le Bureau à distance depuis un appareil non joint ou non-Windows n’est pas pris en charge. Pour plus d’informations, consultez [Se connecter à un PC distant joint à Azure AD](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
+La connexion Bureau à distance à des appareils joints à Azure AD nécessite que l’ordinateur hôte soit joint à Azure AD ou à Azure AD Hybride. Le Bureau à distance depuis un appareil non joint ou non-Windows n’est pas pris en charge. Pour plus d’informations, consultez [Se connecter à un PC distant joint à Azure AD](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Comprendre vos options de provisionnement
@@ -310,9 +310,9 @@ Sélectionnez **Certain(e)s** ou **Tous**, en fonction de l’étendue de votre 
 
 En fonction de votre étendue, une des actions suivantes se produit : 
 
-- **L’utilisateur est dans l’étendue MDM** : Si vous avez un abonnement Azure AD Premium, l’inscription MDM est automatisée, ainsi que la jonction Azure AD. Tous les utilisateurs de l’étendue doivent avoir une licence appropriée pour votre MDM. Si l’inscription MDM échoue dans ce scénario, la jonction Azure AD est également annulée.
+- **L'utilisateur est dans l'étendue MDM** : Si vous disposez d'un abonnement Azure AD Premium, l'inscription MDM est automatisée, ainsi que la jonction Azure AD. Tous les utilisateurs de l’étendue doivent avoir une licence appropriée pour votre MDM. Si l’inscription MDM échoue dans ce scénario, la jonction Azure AD est également annulée.
     
-- **L’utilisateur n’est pas dans l’étendue MDM** : si les utilisateurs ne sont pas dans l’étendue MDM, la jonction Azure AD se termine sans aucune inscription MDM. Ceci aboutit à un appareil non géré.
+- **L'utilisateur n'est pas dans l'étendue MDM** : Si les utilisateurs ne sont pas dans l'étendue MDM, la jonction Azure AD se termine sans aucune inscription MDM. Ceci aboutit à un appareil non géré.
 
 
 ### <a name="mdm-urls"></a>URL MDM
@@ -340,7 +340,7 @@ GAM ne s’applique pas à la jonction Azure AD.
 
 Si vous voulez activer l’itinérance des états dans Azure AD, afin que les utilisateurs puissent synchroniser leurs paramètres entre différents appareils, consultez [Activer Enterprise State Roaming dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
 
-**Recommandation** : Activez ce paramètre même pour des appareils joints à Azure AD Hybride.
+**Recommandation** : Activez ce paramètre même pour des appareils joints à Azure AD hybrides.
 
 
 ## <a name="configure-conditional-access"></a>Configurer un accès conditionnel

@@ -5,39 +5,45 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: aa2e11246502175364121ca701113c36906a5e91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30196984"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53109217"
 ---
-Pour créer un réseau virtuel dans le modèle de déploiement Resource Manager à l’aide du portail Azure, suivez les étapes ci-dessous. Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres. Pour plus d’informations sur l’utilisation des réseaux virtuels, voir [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md).
+Vous pouvez créer un réseau virtuel avec le modèle de déploiement Resource Manager et le portail Azure en suivant ces étapes. Pour plus d’informations sur les réseaux virtuels, consultez [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md).
 
 >[!NOTE]
->Afin que ce réseau virtuel puisse se connecter à un emplacement local, vous devez prendre contact avec votre administrateur de réseau local pour définir une plage d’adresses IP à utiliser spécifiquement pour ce réseau virtuel. Si une plage d’adresses en double existe des deux côtés de la connexion VPN, le trafic ne sera pas correctement acheminé. En outre, si vous souhaitez connecter ce réseau virtuel à un autre réseau virtuel, l’espace d’adressage ne peut pas se chevaucher avec un autre réseau virtuel. Veillez à planifier votre configuration réseau en conséquence.
+>Afin que ce réseau virtuel puisse se connecter à un emplacement local, prenez contact avec votre administrateur de réseau local pour définir une plage d’adresses IP à utiliser spécifiquement pour ce réseau virtuel. Si une plage d’adresses en double existe des deux côtés de la connexion VPN, le trafic sera acheminé de manière inattendue. En outre, si vous souhaitez connecter ce réseau virtuel à un autre réseau virtuel, l’espace d’adressage ne peut pas se chevaucher avec un autre réseau virtuel. Planifiez votre configuration réseau en conséquence.
 >
 >
 
-1. Dans un navigateur, accédez au [portail Azure](http://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure.
-2. Cliquez sur **+** Dans le champ **Rechercher dans le marketplace**, tapez « réseau virtuel ». Localisez **Réseau virtuel** dans la liste renvoyée et cliquez pour ouvrir la page **Réseau virtuel**.
+1. Connectez-vous au [portail Azure](http://portal.azure.com) et sélectionnez **Créer une ressource**. La page **Nouveau** s’ouvre.
 
-  ![Page Localiser les ressources du réseau virtuel](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Page Localiser les ressources du réseau virtuel")
-3. En bas de la page Réseau virtuel, à partir de la liste **Sélectionner un modèle de déploiement**, choisissez **Gestionnaire des ressources** puis cliquez sur **Créer**.
+2. Dans le champ **Rechercher dans la Place de marché**, entrez *réseau virtuel* et sélectionnez **Réseau virtuel** dans la liste retournée. La page **Réseau virtuel** s’ouvre.
 
-  ![Sélectionnez le Gestionnaire de ressources](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png "Sélectionner le Gestionnaire de ressources")
-4. Sur la page **Créer un réseau virtuel**, configurez les paramètres du réseau virtuel. Lorsque vous renseignez les champs, le point d’exclamation rouge se transforme en coche verte si les caractères saisis dans le champ sont valides. Il se peut que certaines valeurs soient renseignées automatiquement. Dans ce cas, remplacez ces valeurs par les vôtres. La page **Créer un réseau virtuel** ressemble à l’exemple suivant :
+   ![Page Localiser les ressources du réseau virtuel](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Page Localiser les ressources du réseau virtuel")
 
-  ![Page Créer un réseau virtuel](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Page Créer un réseau virtuel")
-5. **Nom** : entrez le nom du réseau virtuel.
-6. **Espace d’adressage** : entrez l’espace d’adressage. Si vous avez plusieurs espaces d’adressage à ajouter, ajoutez le premier espace d’adressage. Vous pourrez ajouter des espaces d’adressage supplémentaires plus tard, après avoir créé le réseau virtuel.
-7. **Abonnement** : vérifiez que l’abonnement répertorié est approprié. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
-8. **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un nouveau en tapant un nom pour ce dernier. Si vous créez un groupe, nommez-le en fonction de vos valeurs de configuration planifiée. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-9. **Emplacement** : sélectionnez l’emplacement du réseau virtuel. L’emplacement détermine où se trouveront les ressources que vous déployez sur ce réseau virtuel.
-10. **Sous-réseau** : ajoutez le nom et de la plage d’adresses du sous-réseau. Vous pourrez ajouter des sous-réseaux supplémentaires plus tard, après avoir créé le réseau virtuel.
-11. Sélectionnez **Épingler au tableau de bord** si vous souhaitez être en mesure de trouver votre réseau virtuel facilement sur le tableau de bord, puis cliquez sur **Créer**.
+3. Dans la liste **Sélectionner un modèle de déploiement** située près du bas de la page, sélectionnez **Resource Manager**, puis **Créer**. La page **Créer un réseau virtuel** s’ouvre.
 
-  ![Épingler au tableau de bord](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "Épingler au tableau de bord")
+   ![Page Créer un réseau virtuel](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Page Créer un réseau virtuel")
+
+4. Sur la page **Créer un réseau virtuel**, configurez les paramètres du réseau virtuel. Quand vous renseignez les champs, le point d’exclamation rouge se transforme en coche verte si les caractères saisis dans le champ sont validés. Certaines valeurs sont renseignées automatiquement, et vous pouvez les remplacer par vos propres valeurs :
+
+   - **Nom** : entrez le nom du réseau virtuel.
+
+   - **Espace d’adressage** : entrez l’espace d’adressage. Si vous avez plusieurs espaces d’adressage à ajouter, entrez le premier espace d’adressage ici. Vous pouvez ajouter des espaces d’adressage supplémentaires plus tard, après avoir créé le réseau virtuel.
+
+   - **Abonnement**: vérifiez que l’abonnement listé est approprié. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
+
+   - **Groupe de ressources** : sélectionnez un groupe de ressources existant ou créez-en un nouveau en entrant un nom pour ce dernier. Si vous créez un groupe, nommez-le en fonction de vos valeurs de configuration planifiée. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+
+   - **Emplacement** : sélectionnez l’emplacement du réseau virtuel. L’emplacement détermine où se trouveront les ressources que vous déployez sur ce réseau virtuel.
+
+   - **Sous-réseau** : ajoutez le **Nom** et la **Plage d’adresses** du sous-réseau. Vous pouvez ajouter des sous-réseaux supplémentaires plus tard, après avoir créé le réseau virtuel. 
+     
+5. Sélectionnez **Créer**.

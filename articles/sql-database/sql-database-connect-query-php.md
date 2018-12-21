@@ -11,14 +11,14 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: be3ac9fab6c89c65ad9673811e108cefe2c80d00
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b768b50af7ad6736e5cc3c885e6ac5016976f48a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724245"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958540"
 ---
-# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser PHP pour interroger une base de données Azure SQL
+# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de PHP pour interroger une base de données SQL Azure
 
 Cet article explique comment utiliser [PHP](http://php.net/manual/en/intro-whatis.php) pour se connecter à une base de données SQL Azure. Vous pouvez ensuite utiliser les instructions T-SQL pour interroger des données.
 
@@ -32,9 +32,9 @@ Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous son
 
 - Le logiciel associé à PHP installé pour votre système d’exploitation :
 
-    - **MacOS** : Installez Homebrew et PHP, le pilote ODBC et SQLCMD, puis le pilote PHP pour SQL Server. Consultez les [étapes 1.2, 1.3 et 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
+    - **MacOS** : Installez PHP, le pilote ODBC, puis le pilote PHP pour SQL Server. Consultez [Étape 1, 2 et 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-    - **Ubuntu** : Installez PHP et les autres packages requis, puis installez le pilote PHP pour SQL Server. Consultez les [étapes 1.2 et 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Linux** : Installez PHP, le pilote ODBC, puis le pilote PHP pour SQL Server. Consultez [Étape 1, 2 et 3](/sql/connect/php/installation-tutorial-linux-mac).
 
     - **Windows** : Installez PHP pour IIS Express et Chocolatey, puis installez le pilote ODBC et SQLCMD. Consultez les [étapes 1.2 et 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 

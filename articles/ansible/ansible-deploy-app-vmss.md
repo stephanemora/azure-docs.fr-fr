@@ -8,22 +8,22 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391468"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408372"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Déployer des applications sur des groupes de machines virtuelles identiques dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour déployer vos applications sur Azure. Cet article vous montre comment déployer une application Java sur un groupe de machines virtuelles identiques Azure.  
 
 ## <a name="prerequisites"></a>Prérequis
 - **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Groupe de machines virtuelles identiques** : si vous ne disposez pas déjà d’un groupe de machines virtuelles identiques, vous pouvez [créer un groupe de machines virtuelles identiques avec Ansible](ansible-create-configure-vmss.md). 
 - **git** - [git](https://git-scm.com) est utilisé pour télécharger un exemple Java utilisé dans ce tutoriel.
-- **Java SE Development Kit (JDK)** : le JDK est utilisé pour générer l’exemple de projet Java.
+- **Java SE Development Kit (JDK)** : le [JDK](https://aka.ms/azure-jdks) est utilisé pour générer l’exemple de projet Java.
 - **Outils de génération Apache Maven** : les [outils de génération Apache Maven](https://maven.apache.org/download.cgi) sont utilisés pour générer l’exemple de projet Java.
 
 > [!Note]
@@ -35,7 +35,7 @@ Cette section montre comment utiliser Ansible pour récupérer des informations 
 
 Enregistrez l’exemple de playbook suivant en tant que `get-hosts-tasks.yml` : 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -63,7 +63,7 @@ Enregistrez l’exemple de playbook suivant en tant que `get-hosts-tasks.yml` :
 
 Dans cette section, vous utilisez git pour cloner un exemple de projet Java à partir de GitHub et vous générez le projet. Enregistrez le playbook suivant en tant que `app.yml` :
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -87,7 +87,7 @@ Exécutez l’exemple de playbook Ansible avec la commande suivante :
 
 La sortie de la commande ansible-playbook est similaire à celle-ci, où vous voyez qu’elle a généré l’exemple d’application cloné à partir de GitHub :
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -110,7 +110,7 @@ La section suivante d’un playbook Ansible installe l’environnement JRE (Java
 
 (Changez le `admin_password` et remplacez-le par votre propre mot de passe.)
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -167,7 +167,7 @@ Exécutez le playbook avec la commande suivante :
 
 La sortie de l’exécution de la commande ansible-playbook indique que l’exemple d’application Java a été installé sur le groupe hôte du groupe de machines virtuelles identiques :
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -208,4 +208,4 @@ Félicitations ! Votre application s’exécute maintenant dans Azure. Vous pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
-> [Exemple de playbook Ansible pour un groupe de machines virtuelles identiques](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Automatically scale a virtual machine scale set in Azure using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss) (Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Ansible)

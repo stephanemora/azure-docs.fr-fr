@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 8b9daa0fbbf84e0f602498a0847c9e120f709b17
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057556"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408933"
 ---
-# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Démarrage rapide : créer un cluster pour les travaux de formation Batch AI à l’aide du portail Azure
+# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Démarrage rapide : Créer un cluster pour les travaux de formation Batch AI à l’aide du portail Azure
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Ce démarrage rapide montre comment utiliser le portail Azure pour créer un cluster Batch AI que vous pouvez utiliser pour l’apprentissage des modèles d’intelligence artificielle et Machine Learning. Batch AI est un service managé qui permet aux scientifiques des données et aux chercheurs en IA d’effectuer l’apprentissage des modèles d’IA et de Machine Learning à l’échelle sur des clusters de machines virtuelles Azure.
 
@@ -91,7 +94,7 @@ Les étapes suivantes créent un cluster avec un seul nœud GPU. Le nœud de clu
    |**Taille de la machine virtuelle**     |Standard NC6|
    |**Nombre cible de nœuds**     |1|
 
-3. Entrez un **Nom d’utilisateur administrateur** et copiez le contenu de votre fichier de clé publique SSH dans **Clé SSH**. Acceptez les valeurs par défaut pour les autres valeurs sur cette page, puis sélectionnez **Suivant : configuration du nœud**.
+3. Entrez un **Nom d’utilisateur administrateur** et copiez le contenu de votre fichier de clé publique SSH dans **Clé SSH**. Acceptez les valeurs par défaut pour les autres valeurs sur cette page, puis sélectionnez **Suivant : Configuration du nœud**.
 
    ![Entrer les informations de base sur le cluster](./media/quickstart-create-cluster-portal/create-cluster.png)
 
@@ -127,7 +130,7 @@ Lorsque vous utilisez votre cluster pour effectuer l’apprentissage d’un mod�
 
 Le redimensionnement du cluster nécessite quelques minutes.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous souhaitez poursuivre les exemples et tutoriels Batch AI, utilisez l’espace de travail, le serveur de fichiers et le cluster Batch AI créés dans ce démarrage rapide.
 

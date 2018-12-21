@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Générer une miniature - Kit SDK, C# - Vision par ordinateur'
+title: 'Démarrage rapide : Générer une miniature - Kit de développement logiciel (SDK), C# - Vision par ordinateur'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous générez une miniature à partir d’une image, à l’aide de la bibliothèque de client Windows en C# de l’API Vision par ordinateur.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: d3340131c1f174201cc9fd1dcb31bd4a4b8cd07a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854082"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413283"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Démarrage rapide : Générer une miniature avec le kit SDK Vision par ordinateur et C#
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Démarrage rapide : Générer une miniature à l’aide du kit de développement logiciel (SDK) Vision par ordinateur et de C#
 
 Dans ce démarrage rapide, vous générez une miniature à partir d’une image à l’aide de la bibliothèque de client Windows de l’API Vision par ordinateur.
 
@@ -30,9 +30,9 @@ Dans ce démarrage rapide, vous générez une miniature à partir d’une image 
 ## <a name="generatethumbnailasync-method"></a>Méthode GenerateThumbnailAsync
 
 > [!TIP]
-> Récupérez le dernier code en tant que solution Visual Studio à partir de [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+> Récupérer le dernier code en tant que solution Visual Studio à partir de [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
-Les méthodes `GenerateThumbnailAsync` et `GenerateThumbnailInStreamAsync` encapsulent [l’API Obtention de miniature](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) pour les images distantes et locales, respectivement.  Vous pouvez utiliser ces méthodes pour générer une miniature d’une image. Vous spécifiez la hauteur et la largeur, qui peuvent différer des proportions de l’image d’entrée. L’API Vision par ordinateur utilise le rognage intelligent pour identifier la région d’intérêt et générer des coordonnées de rognage en fonction de cette région.
+Les méthodes `GenerateThumbnailAsync` et `GenerateThumbnailInStreamAsync` encapsulent [l’API Obtention de miniature](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) pour les images distantes et locales, respectivement.  Vous pouvez utiliser ces méthodes pour générer une miniature d’une image. Vous spécifiez la hauteur et la largeur, qui peuvent différer des proportions de l’image d’entrée. L’API Vision par ordinateur utilise le rognage intelligent pour identifier la zone d’intérêt et générer des coordonnées de rognage en fonction de cette région.
 
 Pour exécuter l’exemple, effectuez les étapes suivantes :
 

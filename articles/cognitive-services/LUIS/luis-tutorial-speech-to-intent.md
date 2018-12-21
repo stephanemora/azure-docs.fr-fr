@@ -1,21 +1,22 @@
 ---
-title: Utiliser le SDK de reconnaissance vocale C# avec LUIS
+title: Utiliser le SDK de reconnaissance vocale C#
 titleSuffix: Azure Cognitive Services
-description: Le service de reconnaissance vocale vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS. Le projet utilise le package NuGet Speech, déjà inclus comme référence.
+description: Le service de reconnaissance vocale vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139083"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162629"
 ---
 # <a name="integrate-speech-service"></a>Intégrer le service de reconnaissance vocale
 Le [service de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS. Le projet utilise le package [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) Speech, déjà inclus comme référence. 
@@ -26,7 +27,7 @@ Pour cet article, vous devez disposer d’un compte [LUIS][LUIS] gratuit afin d�
 Dans le portail Azure, [créer](luis-how-to-azure-subscription.md#create-luis-endpoint-key) une clé **Language Understanding** (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importer l’application Ressources humaines LUIS
-Les intentions et les énoncés de cet article proviennent de l’application Ressources humaines LUIS, disponible dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Téléchargez le fichier [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), enregistrez-le avec l’extension `.json`, puis [importez-le](luis-how-to-start-new-app.md#import-new-app) dans LUIS. 
+Les intentions et les énoncés de cet article proviennent de l’application Ressources humaines LUIS, disponible dans le référentiel GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Téléchargez le fichier [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), enregistrez-le avec l’extension `.json`, puis [importez-le](luis-how-to-start-new-app.md#import-new-app) dans LUIS. 
 
 Cette application dispose d’intentions, d’entités et d’énoncés associés au secteur des ressources humaines. Les exemples d’énoncés sont les suivants :
 
@@ -65,7 +66,7 @@ Cet article utilise l’appareil audio de votre ordinateur. Il peut s’agir d�
 
 Le Kit de développement logiciel (SDK) Speech est déjà inclus comme référence. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Capture d’écran de Visual Studio 2017 affichant le package NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Capture d’écran de Visual Studio 2017 affichant le package NuGet Microsoft.CognitiveServices.Speech](./media/luis-tutorial-speech-to-intent/nuget-package.png "Capture d’écran de Visual Studio 2017 affichant le package NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modifier le code C#
 Ouvrez le fichier `Program.cs` et modifiez les variables suivantes :

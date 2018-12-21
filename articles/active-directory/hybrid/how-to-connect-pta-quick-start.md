@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 831e5bff412f80f2140f6fd1b935a57bd412ccba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582736"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188127"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -58,13 +58,13 @@ Vérifiez que les prérequis suivants sont remplis.
 4. S’il existe un pare-feu entre vos serveurs et Azure AD, configurez les éléments suivants :
    - Assurez-vous que les agents d’authentification peuvent effectuer des requêtes *sortantes* vers Azure AD sur les ports suivants :
 
-    | Numéro de port | Utilisation |
-    | --- | --- |
-    | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat SSL |
-    | **443** | Gère toutes les communications sortantes avec le service |
-    | **8080** (facultatif) | Les agents d’authentification signalent leur état toutes les dix minutes sur le port 8080 (si le port 443 n’est pas disponible). Cet état est affiché sur le portail Azure AD. Le port 8080 _n’est pas utilisé_ pour les connexions utilisateur. |
-
-    Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
+     | Numéro de port | Utilisation |
+     | --- | --- |
+     | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat SSL |
+     | **443** | Gère toutes les communications sortantes avec le service |
+     | **8080** (facultatif) | Les agents d’authentification signalent leur état toutes les dix minutes sur le port 8080 (si le port 443 n’est pas disponible). Cet état est affiché sur le portail Azure AD. Le port 8080 _n’est pas utilisé_ pour les connexions utilisateur. |
+     
+     Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
    - Si votre pare-feu ou votre proxy autorise la mise en liste verte de DNS, vous pouvez y placer les connexions vers **\*.msappproxy.net** et **\*.servicebus.windows.net**. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine.
    - Vos agents d’authentification doivent accéder à **login.windows.net** et à **login.microsoftonline.net** pour l’inscription initiale. Par conséquent, ouvrez également votre pare-feu pour ces URL.
    - Pour valider le certificat, débloquez les URL suivantes : **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** et **www.microsoft.com:80**. Ces URL étant utilisées pour la validation de certificat avec d’autres produits Microsoft, elles sont peut-être déjà débloquées.
@@ -78,16 +78,16 @@ Activez l’authentification directe via [Azure AD Connect](whatis-hybrid-identi
 
 Si vous installez Azure AD Connect pour la première fois, choisissez le [chemin d’installation personnalisé](how-to-connect-install-custom.md). Dans la page **Connexion utilisateur**, choisissez **Authentification directe** comme **méthode d’authentification**. Si l’opération réussit, un agent d’authentification directe est installé sur le même serveur qu’Azure AD Connect. La fonctionnalité d’authentification directe est également activée sur votre locataire.
 
-![Azure AD Connect : connexion utilisateur](./media/how-to-connect-pta-quick-start/sso3.png)
+![Azure AD Connect : Connexion de l’utilisateur](./media/how-to-connect-pta-quick-start/sso3.png)
 
 Si vous avez déjà installé Azure AD Connect à l’aide du chemin [d’installation rapide](how-to-connect-install-express.md) ou [d’installation personnalisée](how-to-connect-install-custom.md), sélectionnez la tâche **Modifier la connexion utilisateur** dans Azure AD Connect, puis cliquez sur **Suivant**. Ensuite, sélectionnez **Authentification directe** comme mode d’authentification. Si l’opération réussit, un agent d’authentification directe est installé sur le même serveur qu’Azure AD Connect et la fonctionnalité est activée sur votre locataire.
 
-![Azure AD Connect : Modifier la connexion utilisateur](./media/how-to-connect-pta-quick-start/changeusersignin.png)
+![Azure AD Connect : Modifier la connexion de l’utilisateur](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
 >L’authentification directe est une fonctionnalité au niveau du locataire. Son activation affecte la connexion des utilisateurs dans _tous_ les domaines gérés dans votre locataire. Si vous passez d'Active Directory Federation Services (ADFS) à l'authentification directe, vous devez attendre au moins 12 heures avant de fermer votre infrastructure AD FS. Ce délai d'attente permet aux utilisateurs de continuer à se connecter à Exchange ActiveSync pendant la transition. Pour obtenir plus d’informations sur la migration d’AD FS vers l’authentification directe, consultez notre plan de déploiement détaillé publié [ici](https://aka.ms/adfstoptadpdownload).
 
-## <a name="step-3-test-the-feature"></a>Étape 3 : Tester la fonctionnalité
+## <a name="step-3-test-the-feature"></a>Étape 3 : Tester la fonctionnalité
 
 Suivez ces instructions pour vérifier que vous avez activé correctement l’authentification directe :
 
@@ -97,13 +97,13 @@ Suivez ces instructions pour vérifier que vous avez activé correctement l’au
 4. Vérifiez que la fonctionnalité **Authentification directe** est **activée**.
 5. Sélectionnez **Authentification directe**. Le volet **Authentification directe** répertorie les serveurs sur lesquels vos agents d’authentification sont installés.
 
-![Centre d’administration Azure Active Directory : volet Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
+![Centre d'administration Azure Active Directory : Volet Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 
-![Centre d’administration Azure Active Directory : volet Authentification directe](./media/how-to-connect-pta-quick-start/pta8.png)
+![Centre d'administration Azure Active Directory : Volet Authentification directe](./media/how-to-connect-pta-quick-start/pta8.png)
 
 À ce stade, les utilisateurs de tous les domaines gérés de votre locataire peuvent se connecter à l’aide de l’authentification directe. Toutefois, les utilisateurs des domaines fédérés continuent à se connecter à l’aide d'AD FS ou d’un autre fournisseur de fédération précédemment configuré. Si vous convertissez un domaine fédéré en domaine géré, tous les utilisateurs de ce domaine se connectent alors automatiquement à l’aide de l’authentification directe. La fonctionnalité Authentification directe n’a pas d’incidence sur les utilisateurs cloud uniquement.
 
-## <a name="step-4-ensure-high-availability"></a>Étape 4 : Garantir une haute disponibilité
+## <a name="step-4-ensure-high-availability"></a>Étape 4 : Garantir une haute disponibilité
 
 Si vous envisagez de déployer l’authentification directe dans un environnement de production, vous devez installer des agents d’authentification autonomes supplémentaires. Installez ces agents d’authentification sur des serveurs _autres_ que celui qui exécute Azure AD Connect. Cette configuration fournit une haute disponibilité pour les requêtes de connexion des utilisateurs.
 
@@ -117,9 +117,9 @@ Pour télécharger l’agent d’authentification, effectuez les étapes suivant
 3. Sélectionnez **Azure AD Connect**, **Authentification directe**, puis **Télécharger l'agent**.
 4. Cliquez sur le bouton **Accepter les conditions et télécharger**.
 
-![Centre d’administration Azure Active Directory : bouton Télécharger Agent d’authentification](./media/how-to-connect-pta-quick-start/pta9.png)
+![Centre d'administration Azure Active Directory : Bouton de téléchargement de l'Agent d'authentification](./media/how-to-connect-pta-quick-start/pta9.png)
 
-![Centre d’administration Azure Active Directory : volet Télécharger l’agent](./media/how-to-connect-pta-quick-start/pta10.png)
+![Centre d'administration Azure Active Directory : Volet Télécharger l'Agent](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
 >Vous pouvez aussi directement [télécharger le logiciel de l’agent d’authentification](https://aka.ms/getauthagent). Lisez et acceptez les [conditions de service](https://aka.ms/authagenteula) de l’agent d’authentification _avant_ de l’installer.
@@ -143,11 +143,11 @@ La deuxième solution consiste à créer et à exécuter un script de déploieme
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Migrer à partir d’AD FS vers l’authentification directe](https://aka.ms/adfstoptadp) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
-- [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
-- [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge avec l'authentification directe et ceux qui ne le sont pas.
-- [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne l'authentification directe.
-- [Forum aux questions](how-to-connect-pta-faq.md) : trouvez des réponses aux questions fréquemment posées.
-- [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
-- [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques sur l’authentification directe.
+- [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : apprenez à configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d'utilisateur.
+- [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge et non pris en charge avec l'authentification directe.
+- [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne la fonctionnalité d'authentification directe.
+- [Forum Aux Questions](how-to-connect-pta-faq.md) : obtenez des réponses aux questions fréquemment posées.
+- [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : apprenez à résoudre les problèmes courants liés à la fonctionnalité d'authentification directe.
+- [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques sur la fonctionnalité d'authentification directe.
 - [Authentification unique transparente Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.

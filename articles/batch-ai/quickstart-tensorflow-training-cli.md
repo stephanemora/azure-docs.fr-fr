@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 99d864a5d519ce56a559bea4db7fe89a113e47b9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ROBOTS: NOINDEX
+ms.openlocfilehash: 979253021f5503295e0572759b510e074ceb1a6b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157920"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408066"
 ---
 # <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>Démarrage rapide : Entraîner un modèle de Deep Learning avec Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Ce démarrage rapide montre comment entraîner un exemple de modèle de Deep Learning sur une machine virtuelle compatible GPU gérée par Batch AI. Batch AI est un service géré qui permet aux scientifiques des données et aux chercheurs en IA d’effectuer l’apprentissage de modèles d’IA et de Machine Learning à grande échelle sur des clusters de machines virtuelles Azure. 
 
@@ -284,7 +287,7 @@ az storage file download \
     --path $JOB_OUTPUT_PATH/stdouterr/stdout-wk-0.txt
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous souhaitez suivre d’autres tutoriels et exemples Batch AI, utilisez l’espace de travail, le cluster et le compte de stockage Batch AI créés dans ce démarrage rapide. 
 

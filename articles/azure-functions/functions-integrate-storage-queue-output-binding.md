@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854522"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995516"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 
@@ -31,7 +31,7 @@ Pour suivre ce guide de démarrage rapide :
 
 * Suivez les instructions de [Créer votre première fonction à l’aide du Portail Azure](functions-create-first-azure-function.md) en ignorant l’étape **Supprimer des ressources**. Ce démarrage rapide crée l’application de fonction, ainsi que la fonction que vous utilisez ici.
 
-* Installez [l’Explorateur Stockage Microsoft Azure](http://storageexplorer.com/). Il s’agit d’un outil que vous allez utiliser pour examiner les messages en file d’attente créés par votre liaison de sortie.
+* Installez [l’Explorateur Stockage Microsoft Azure](https://storageexplorer.com/). Il s’agit d’un outil que vous allez utiliser pour examiner les messages en file d’attente créés par votre liaison de sortie.
 
 ## <a name="add-binding"></a>Ajoutez une liaison de sortie
 
@@ -67,7 +67,7 @@ Maintenant que vous avez défini une liaison de sortie, vous devez mettre à jou
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Ajouter le code qui utilise la liaison de sortie
 
-Dans cette section, vous ajoutez le code qui écrit un message dans la file d’attente de sortie. Le message contient la valeur qui est transmise au déclencheur HTTP dans la chaîne de requête. Par exemple, si la chaîne de requête inclut `name=Azure`, le message de la file d’attente sera *Nom transmis à la fonction : Azure*.
+Dans cette section, vous ajoutez le code qui écrit un message dans la file d’attente de sortie. Le message contient la valeur qui est transmise au déclencheur HTTP dans la chaîne de requête. Par exemple, si la chaîne de requête inclut `name=Azure`, le message de la file d'attente sera *Nom transmis à la fonction : Azure*.
 
 1. Sélectionnez la fonction pour afficher le code de fonction dans l’éditeur.
 
@@ -122,7 +122,7 @@ Une nouvelle file d’attente nommée **outqueue** est créée dans votre compte
 
 Ignorez cette section si vous avez déjà installé et connecté l’Explorateur Stockage au compte de stockage que vous utilisez dans ce démarrage rapide.
 
-2. Exécutez [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com/), sélectionnez l’icône de connexion située sur la gauche, choisissez **Utiliser un nom et une clé de compte de stockage**, puis sélectionnez **Suivant**.
+2. Exécutez [l’Explorateur de stockage Microsoft Azure](https://storageexplorer.com/), sélectionnez l’icône de connexion située sur la gauche, choisissez **Utiliser un nom et une clé de compte de stockage**, puis sélectionnez **Suivant**.
 
     ![Exécutez l’outil Explorateur de compte de stockage.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -150,7 +150,7 @@ Ignorez cette section si vous avez déjà installé et connecté l’Explorateur
 
 1. Développez le nœud **Files d’attente**, puis sélectionnez la file d’attente nommée **outqueue**. 
 
-   La file d’attente contient le message que la liaison de sortie de file d’attente a créé lors de l’exécution de la fonction déclenchée via HTTP. Si vous avez appelé la fonction avec la valeur `name` par défaut de *Azure*, le message de la file d’attente est *Nom transmis à la fonction : Azure*.
+   La file d’attente contient le message que la liaison de sortie de file d’attente a créé lors de l’exécution de la fonction déclenchée via HTTP. Si vous avez appelé la fonction avec la valeur `name` par défaut d'*Azure*, le message de la file d'attente est *Nom transmis à la fonction : Azure*.
 
     ![Message de file d’attente affiché dans l’Explorateur Stockage](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 

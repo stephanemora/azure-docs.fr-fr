@@ -1,24 +1,27 @@
 ---
-title: Didacticiel Azure Container Service - Déployer une application
+title: (DÉCONSEILLÉ) Didacticiel Azure Container Service - Déployer une application
 description: Didacticiel Azure Container Service - Déployer une application
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7f9c0c3ad11cb6988f528503d614ab26dcc0968
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41917566"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998765"
 ---
-# <a name="run-applications-in-kubernetes"></a>Exécuter des applications dans Kubernetes
+# <a name="deprecated-run-applications-in-kubernetes"></a>(DÉCONSEILLÉ) Exécuter des applications dans Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Pour obtenir la version mise à jour de ce tutoriel qui utilise Azure Kubernetes Service, consultez [Tutoriel : Exécuter des applications dans Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Dans ce didacticiel (le quatrième d’une série de sept), un exemple d’application est déployé dans un cluster Kubernetes. Les étapes effectuées sont les suivantes :
 

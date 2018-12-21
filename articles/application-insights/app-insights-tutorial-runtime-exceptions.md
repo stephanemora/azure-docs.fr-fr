@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 48e338a08330e0674cc4410adf135ec546a5e1c3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230595"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084006"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rechercher et diagnostiquer des exceptions runtime avec Azure Application Insights
 
@@ -75,20 +75,20 @@ Application Insights collecte les échecs dans votre application et vous permet 
     ![Détails de l’exception](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identifier le code défaillant
-Le débogueur d'instantané collecte des captures instantanées des exceptions les plus fréquentes dans votre application pour vous aider à diagnostiquer leur cause racine en production.  Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Vous pouvez ensuite déboguer le code source en téléchargeant l’instantané et en l’ouvrant dans Visual Studio 2017.
+Le débogueur d'instantané collecte des captures instantanées des exceptions les plus fréquentes dans votre application pour vous aider à diagnostiquer leur cause racine en production.  Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Par la suite, vous pouvez déboguer le code source en téléchargeant l’instantané et en l’ouvrant dans Visual Studio 2017 Enterprise.
 
 1. Dans les propriétés de l’exception, cliquez sur **Ouvrir l'instantané de débogage**.
 2. Le panneau **Déboguer l'instantané** s’ouvre, affichant la pile des appels pour la demande.  Cliquez sur une méthode pour afficher les valeurs de toutes les variables locales au moment de la demande.  En partant de la méthode du haut dans cet exemple, nous pouvons voir les variables locales qui n’ont aucune valeur.
 
     ![Déboguer l'instantané](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. Le premier appel dont les valeurs sont valides est **ValidZipCode**, et nous voyons qu’un code postal a été fourni, qui contient des lettres ne pouvant pas être traduites en chiffres.  Il semble qu’il s’agisse de l’erreur de code à corriger.
+3. Le premier appel dont les valeurs sont valides est **ValidZipCode**, et nous voyons qu’un code postal a été fourni, qui contient des lettres ne pouvant pas être traduites en chiffres.  Il semble qu’il s’agisse de l’erreur de code à corriger.
 
     ![Déboguer l'instantané](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. Pour télécharger cet instantané dans Visual Studio où il est possible de localiser le code réel à corriger, cliquez sur **Télécharger l’instantané**.
-6. L’instantané est chargé dans Visual Studio.
-7. Vous pouvez maintenant exécuter une session de débogage dans Visual Studio, qui permet d’identifier rapidement la ligne de code ayant provoqué l’exception.
+4. Vous avez ensuite la possibilité de télécharger cet instantané dans Visual Studio où il est possible de localiser le code réel à corriger. Pour ce faire, cliquez sur **Télécharger l’instantané**.
+5. L’instantané est chargé dans Visual Studio.
+6. Vous pouvez maintenant exécuter une session de débogage dans Visual Studio Enterprise, qui permet d’identifier rapidement la ligne de code ayant provoqué l’exception.
 
     ![Exception dans le code](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 

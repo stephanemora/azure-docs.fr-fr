@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : chiffre une machine virtuelle IaaS Windows avec Azure PowerShell | Microsoft Docs'
-description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Azure PowerShell pour chiffrer une machine virtuelle Windows.
+description: Dans ce guide de démarrage rapide, vous découvrez comment utiliser Azure PowerShell pour chiffrer une machine virtuelle IaaS Windows dans Azure.
 services: security
 documentationcenter: na
 author: mestew
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 531da9af871595e6f8bf5d22832367bbfb301dab
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.custom: seodec18
+ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245869"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087862"
 ---
-# <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Démarrage rapide : chiffre une machine virtuelle IaaS Windows avec Azure PowerShell
+# <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Démarrage rapide : Chiffrer une machine virtuelle IaaS Windows avec Azure PowerShell
 
-Azure Disk Encryption vous permet de chiffrer vos disques de machine virtuelle IaaS Windows et Linux. La solution est intégrée à Azure Key Vault pour faciliter le contrôle et la gestion des clés et des secrets de chiffrement des disques. En utilisant Azure Disk Encryption, vous pouvez vous assurer que vos machines virtuelles sont sécurisées au repos à l’aide de la technologie de chiffrement standard. Dans ce démarrage rapide, vous allez créer une machine virtuelle Windows Server 2016 et chiffrer le disque du système d’exploitation. 
+Azure Disk Encryption vous permet de chiffrer vos disques de machine virtuelle IaaS Windows et Linux. La solution est intégrée à Azure Key Vault pour faciliter le contrôle et la gestion des clés et des secrets de chiffrement des disques. En utilisant Azure Disk Encryption, vous pouvez vous assurer que vos machines virtuelles sont sécurisées au repos à l’aide de la technologie de chiffrement standard. Dans ce démarrage rapide, vous allez créer une machine virtuelle Windows Server 2016 et chiffrer le disque du système d’exploitation.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -68,7 +69,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle 
 Vous devez maintenant créer une machine virtuelle afin de pouvoir chiffrer son disque. Le script que vous utiliserez crée une machine virtuelle Windows Server 2016 avec 8 Go de RAM et un disque dur principal de 30 Go. 
 
-1. Copiez le script dans le volet de script **Administrateur : Windows PowerShell ISE** et modifiez les trois principales variables. Le groupe de ressources et l’emplacement doivent être identiques à ceux utilisés pour le [script de conditions préalables](#bkmk_PrereqScript).  
+1. Copiez le script dans le volet de script **Administrateur : Windows PowerShell ISE** et modifiez les trois premières variables. Le groupe de ressources et l’emplacement doivent être identiques à ceux utilisés pour le [script de conditions préalables](#bkmk_PrereqScript).  
 
    ```azurepowershell
     # Variables for common values
@@ -137,7 +138,7 @@ Maintenant que vous avez créé et configuré un coffre de clés et une machine 
      ```
     ![Get-AzureRmVmDiskEncryptionStatus output](media/azure-security-disk-encryption/ade-get-encryption-status.PNG)
     
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
  **ADEPrereqScript.ps1** crée un verrou de ressource sur le coffre de clés. Pour nettoyer les ressources à partir de ce démarrage rapide, vous devez d’abord supprimer le verrou de ressource, puis supprimer le groupe de ressources. 
 
 1. Supprimez le verrou de ressource du coffre de clés

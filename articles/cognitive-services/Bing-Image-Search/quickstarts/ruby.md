@@ -1,6 +1,7 @@
 ---
-title: 'Démarrage rapide : Effectuer une recherche d’image avec Ruby - API Recherche d’images Bing'
-description: Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et recevoir une réponse JSON. Cette application Ruby simple envoie une requête de recherche à l’API et affiche les résultats bruts.
+title: 'Démarrage rapide : Rechercher des images - API REST Recherche d’images Bing et Ruby'
+titleSuffix: Azure Cognitive Services
+description: Utilisez ce guide de démarrage rapide pour envoyer des requêtes de recherche d’images à l’API REST Recherche d’images Bing à l’aide de Ruby et recevoir des réponses JSON.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -10,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: d5772b46c167b873ed4f5d60a110d31a5c8308a5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4a5b0c6e67ce4d7a533ad35023261a3c02601a83
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315934"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257656"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Démarrage rapide : Envoyer des requêtes de recherche à l’aide de l’API REST et de Ruby
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et Ruby
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et recevoir une réponse JSON. Cette application Ruby simple envoie une requête de recherche à l’API et affiche les résultats bruts.
 

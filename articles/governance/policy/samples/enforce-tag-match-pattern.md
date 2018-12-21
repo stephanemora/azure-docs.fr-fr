@@ -1,5 +1,5 @@
 ---
-title: Exemple Azure Policy - Appliquer un modèle de correspondance d’étiquettes
+title: Exemple - Appliquer un modèle de correspondance de balise
 description: Cet exemple de stratégie exige que les ressources respectent le modèle de correspondance pour la valeur des étiquettes.
 services: azure-policy
 author: DCtheGeek
@@ -8,17 +8,16 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 4de75212567c03b4fd5395818dbeae7644ee4926
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 237a5e9a54394f1227e270c0a42a160f9259710a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963234"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313885"
 ---
-# <a name="enforce-tag-match-pattern-for-tag-values"></a>Appliquer le modèle de correspondance d’étiquettes pour les valeurs des étiquettes
+# <a name="enforce-tag-match-pattern-for-tag-values"></a>Appliquer le modèle de correspondance de balise pour les valeurs de balise
 
-Exigez que la valeur d’étiquette soit conforme à un modèle de correspondance. Spécifiez le modèle autorisé dans la règle de stratégie.
+Exigez que la valeur de balise soit conforme à un modèle de correspondance. Spécifiez le modèle autorisé dans la règle de stratégie.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +29,7 @@ Vous pouvez déployer ce modèle en utilisant le [portail Azure](#deploy-with-th
 
 ## <a name="deploy-with-the-portal"></a>Déployer avec le portail
 
-[![Déploiement sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fenforce-tag-match-pattern%2Fazurepolicy.json)
+[![Déployer sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fenforce-tag-match-pattern%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 

@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ad8cc550ce69e4dc4c19a569718fa873a65b3620
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010342"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413181"
 ---
 # <a name="create-a-netapp-account"></a>Créer un compte NetApp
 La création d’un compte NetApp vous permet de configurer un pool de capacité et par la suite de créer un volume. Le panneau Azure NetApp Files permet de créer un nouveau compte NetApp.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Vous devez figurer sur la liste verte pour accéder au fournisseur de ressources Microsoft.NetApp Azure et avoir été configuré de manière à utiliser le service Azure NetApp Files.  
+Vous devez avoir inscrit votre abonnement pour l’utilisation du fournisseur de ressources NetApp et la fonctionnalité d’évaluation publique.
 
-[Page d’inscription à la préversion publique du service Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+[S’inscrire à Azure NetApp Files](azure-netapp-files-register.md)
 
 ## <a name="steps"></a>Étapes 
 
-1. Recherchez L’URL du portail Azure en préversion à partir de votre invitation à la préversion et connectez-vous au portail. 
+1. Recherchez l’URL du portail Azure en préversion à partir de votre invitation à la préversion et connectez-vous au portail. 
 2.  Accédez à Azure NetApp Files à l’aide d’une des méthodes suivantes :  
   * Recherchez **Azure NetApp Files** dans la zone de recherche du portail Azure.  
   * Cliquez sur **Tous les services** dans la navigation, puis filtrez sur Azure NetApp Files.  
@@ -60,6 +60,5 @@ Vous devez figurer sur la liste verte pour accéder au fournisseur de ressources
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-1. [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md)
-2. [Créer un volume pour Azure NetApp Files](azure-netapp-files-create-volumes.md)
-3. [Configurer une stratégie d’exportation pour un volume (facultatif)](azure-netapp-files-configure-export-policy.md)
+[Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md)
+

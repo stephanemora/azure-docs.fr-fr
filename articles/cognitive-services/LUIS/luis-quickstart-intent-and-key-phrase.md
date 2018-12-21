@@ -1,21 +1,22 @@
 ---
-title: 'Tutoriel 8 : Extraction d’expressions clés dans LUIS'
+title: Extraction d’expressions clés
 titleSuffix: Azure Cognitive Services
 description: Utilisez l’entité prédéfinie keyPhrase pour extraire le thème principal des énoncés. Vous n’avez pas besoin d’étiqueter les énoncés avec des entités prédéfinies. L’entité est détectée automatiquement.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424810"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096925"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutoriel 8 : Extraire des expressions clés d’un énoncé
 Dans ce tutoriel, vous utilisez l’entité keyPhrase prédéfinie pour extraire le thème principal des énoncés. Vous n’avez pas besoin d’étiqueter les énoncés avec des entités prédéfinies. L’entité est détectée automatiquement.
@@ -31,7 +32,6 @@ Votre application cliente peut utiliser ces valeurs, ainsi que d’autres entit�
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Utiliser l’application de tutoriel existante
 > * Ajouter une entité keyPhrase 
@@ -84,7 +84,7 @@ Ajoutez une entité prédéfinie keyPhrase pour extraire le thème des énoncés
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `does form hrf-123456 cover the new dental benefits and medical plan`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {

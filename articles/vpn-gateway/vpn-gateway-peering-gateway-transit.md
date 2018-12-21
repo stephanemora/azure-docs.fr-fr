@@ -1,5 +1,5 @@
 ---
-title: 'Configurer le transit par passerelle VPN pour l’homologation de réseaux virtuels : Azure Resource Manager | Microsoft Docs'
+title: 'Configurer le transit par passerelle VPN pour l’homologation de réseaux virtuels : Azure Resource Manager | Microsoft Docs'
 description: Configurez le transit par passerelle VPN pour l’homologation de réseaux virtuels.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: cced9a313664eaeaed4dd1298488670960b76413
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d57e251b241297c461b117edec8fee6316b337b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195768"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098030"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour l’homologation de réseaux virtuels
 
@@ -61,9 +61,9 @@ Les comptes que vous utilisez pour créer une homologation de réseaux virtuels 
     
 |Réseau virtuel|Modèle de déploiement|Rôle|Autorisations|
 |---|---|---|---|
-|Hub-RM|Gestionnaire de ressources|[Collaborateur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Classique|[Collaborateur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|Spoke-Classic|Gestionnaire de ressources|[Collaborateur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+|Hub-RM|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Classique|[Contributeur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
+|Spoke-Classic|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Classique|[Collaborateur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 Apprenez-en davantage sur les [rôles intégrés](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) et l’affectation d’autorisations spécifiques aux [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Gestionnaire des ressources uniquement).
@@ -79,7 +79,7 @@ Suivez les instructions ci-dessous pour créer ou mettre à jour les homologatio
     - Cochez l’option **Utiliser des passerelles distantes**.
     - Cliquez sur OK.
 
-    ![Homologation de Spoke-RM à Hub-RM](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+      ![Homologation de Spoke-RM à Hub-RM](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
 2. Si l’homologation est déjà créée, accédez à la ressource de l’homologation, puis activez l’option **Utiliser des passerelles distantes**, comme dans la capture d’écran présentée à l’étape 1.
 
@@ -90,7 +90,7 @@ Suivez les instructions ci-dessous pour créer ou mettre à jour les homologatio
     - Définissez l’option **Autoriser le trafic par passerelle**.
     - Cliquez sur OK.
 
-    ![Homologation de Hub-RM à Spoke-RM](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+      ![Homologation de Hub-RM à Spoke-RM](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
 4. Si l’homologation est déjà créée, accédez à la ressource de l’homologation, puis activez l’option **Autoriser le trafic par passerelle**, comme dans la capture d’écran présentée à l’étape 3.
 

@@ -1,5 +1,5 @@
 ---
-title: Didacticiel - Générer des images de conteneur dans le cloud avec Azure Container Registry Tasks
+title: 'Tutoriel : Générer des images conteneurs dans le cloud - Azure Container Registry Tasks'
 description: Dans ce didacticiel, vous allez apprendre comment générer une image de conteneur Docker dans Azure avec Azure Container Registry Tasks (ACR Tasks), puis la déployer dans Azure Container Instances.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7ac4fb62c6832920634de96c3e5befb15ce3b3a4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eafd6a75b4297056bcf4c5415f77179cefde6541
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854726"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256687"
 ---
-# <a name="tutorial-build-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Didacticiel : Générer des images de conteneur dans le cloud avec Azure Container Registry Tasks
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks
 
 **ACR Tasks** est une suite de fonctionnalités d’Azure Container Registry qui fournit des builds d’images de conteneur Docker rationalisés et efficaces dans Azure. Dans cet article, vous allez apprendre comment utiliser la fonctionnalité de *tâche rapide* d’ACR Tasks.
 
@@ -220,8 +220,8 @@ az keyvault secret set \
 
 Vous avez créé un coffre de clés Azure et il contient deux secrets :
 
-* `$ACR_NAME-pull-usr` : l’ID de principal du service, pour une utilisation comme **nom d’utilisateur** du registre de conteneurs.
-* `$ACR_NAME-pull-pwd` : le mot de passe du principal du service, pour une utilisation comme **mot de passe** du registre de conteneurs.
+* `$ACR_NAME-pull-usr` : ID de principal du service, pour une utilisation comme **nom d’utilisateur** du registre de conteneurs.
+* `$ACR_NAME-pull-pwd` : mot de passe du principal du service, pour une utilisation comme **mot de passe** du registre de conteneurs.
 
 Vous pouvez maintenant référencer ces secrets par nom lorsque vous ou vos applications et services extrayez des images du registre.
 

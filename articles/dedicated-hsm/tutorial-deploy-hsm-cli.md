@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Service HSM dédié Azure - Déploiement de modules HSM dédiés sur un réseau virtuel existant à l’aide d’Azure CLI | Microsoft Docs'
-description: Tutoriel expliquant comment déployer un module HSM dédié à l’aide de l’interface CLI
+title: "Tutoriel : Effectuer un déploiement sur un réseau virtuel existant à l’aide d'Azure CLI - Module de sécurité matériel (HSM) dédié Azure | Microsoft Docs"
+description: Tutoriel expliquant comment déployer un module de sécurité matériel (HSM) à l'aide d'Azure CLI sur un réseau virtuel existant
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,19 +8,19 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: ca30dc9d86db8faabfdd3791b74b9f86c9480ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679645"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080314"
 ---
-# <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide d’Azure CLI
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide d’Azure CLI
 
 Le service HSM dédié d’Azure fournit un appareil physique à usage exclusif du client, avec un contrôle administratif complet et une responsabilité complète de la gestion. L’utilisation d’appareils physiques nécessite que Microsoft contrôle l’allocation des appareils afin de garantir que la capacité est gérée de manière efficace. Par conséquent, dans un abonnement Azure, le service HSM dédié n’est pas visible pour le provisionnement des ressources. Tous les clients Azure qui nécessitent un accès au service HSM dédié doivent d’abord contacter leur responsable de compte Microsoft afin d’effectuer une demande d’inscription au service HSM dédié. Ce n’est qu’une fois le processus terminé que le provisionnement est possible. 
 
@@ -130,7 +130,7 @@ Une fois que les valeurs de paramètres sont définies, les fichiers doivent êt
 
 Une option de chargement/téléchargement est disponible dans la barre d’outils de l’interface de commande. Vous devez l’utiliser pour charger le fichier de modèle et le fichier de paramètres sur votre partage de fichiers :
 
-![État de l’abonnement](media/tutorial-deploy-hsm-cli/file-share.png)
+![Partage de fichiers](media/tutorial-deploy-hsm-cli/file-share.png)
 
 Une fois les fichiers chargés, vous êtes prêt à créer des ressources. Avant de créer des ressources HSM, vous devez avoir mis en place certaines ressources. Vous devez disposer d’un réseau virtuel avec des plages de sous-réseau pour le calcul, les modules HSM et la passerelle. Les commandes suivantes sont des exemples permettant de créer ce réseau virtuel.
 
@@ -177,7 +177,7 @@ Ce déploiement prend environ 25 à 30 minutes, la majeure partie de ce temps �
 
 ![état du provisionnement](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-Lorsque le déploiement est terminé, le message suivant s’affiche : "provisioningState": "Succeeded". Vous pouvez vous connecter à la machine virtuelle existante et utiliser SSH pour garantir la disponibilité du module HSM.
+Lorsque le déploiement est terminé, le message suivant s’affiche : « provisioningState » : « Succeeded ». Vous pouvez vous connecter à la machine virtuelle existante et utiliser SSH pour garantir la disponibilité du module HSM.
 
 ## <a name="verifying-the-deployment"></a>Vérification du déploiement
 
@@ -191,7 +191,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![état du provisionnement](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![Sortie de l’approvisionnement](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 Vous pouvez également voir les ressources à l’aide de l’[Explorateur de ressources Azure](https://resources.azure.com/).   Dans l’Explorateur, développez « Abonnements » sur la gauche, développez votre abonnement pour HSM dédié, développez « Groupes de ressources », développez le groupe de ressources que vous avez utilisé, puis sélectionnez l’élément « Ressources ».
 

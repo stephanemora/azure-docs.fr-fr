@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Effectuer une recherche avec PHP - API Recherche Web Bing'
+title: 'Démarrage rapide : Effectuer une recherche avec PHP - API Recherche Web Bing'
 titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, vous allez apprendre à effectuer votre premier appel vers l’API Recherche Web Bing en utilisant PHP et vous allez recevoir une réponse JSON.
+description: Utilisez ce démarrage rapide pour envoyer des requêtes à l’API REST Recherche Web Bing à l’aide de PHP et recevoir une réponse JSON
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: f4fb66997b6deb6d5e02da2e9976190f00958752
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4338d0703bbe8e55d3bf7c79d9bb30a5089ba6d2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314590"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261583"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser PHP pour appeler l’API Recherche Web Bing  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser PHP pour appeler l’API Recherche Web Bing  
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel vers l’API Recherche Web Bing et recevoir une réponse JSON en moins de 10 minutes.  
 

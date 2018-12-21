@@ -1,5 +1,5 @@
 ---
-title: Créer une application web C# Framework dans Azure | Microsoft Docs
+title: Créer une application web C# ASP.NET Framework - Azure App Service | Microsoft Docs
 description: Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web C# ASP.NET par défaut.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: cce14d91509fe051beef87acdaeac9a92d998ef6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.custom: seodec18
+ms.openlocfilehash: 5f32ed74086b26f91f3ab24cd619bb117d497012
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053776"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251264"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Créer une application web ASP.NET Framework dans Azure
 
@@ -65,7 +65,7 @@ Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le proje
 
 ![Publier à partir de l’Explorateur de solutions](./media/app-service-web-get-started-dotnet-framework/solution-explorer-publish.png)
 
-L’assistant de publication est lancé automatiquement. Sélectionnez **App Service** > **Publier** pour ouvrir la boîte de dialogue **Créer App Service**.
+L’Assistant Publication est lancé automatiquement. Sélectionnez **App Service** > **Publier** pour ouvrir la boîte de dialogue **Créer App Service**.
 
 ![Publier à partir de la page de présentation du projet](./media/app-service-web-get-started-dotnet-framework/publish-to-app-service.png)
 
@@ -108,7 +108,7 @@ Sélectionnez **OK**.
 
 ## <a name="create-and-publish-the-web-app"></a>Créer et publier l’application web
 
-Dans **Nom de l’application**, saisissez un nom d’application unique (les caractères valides sont `a-z`, `0-9` et `-`) ou acceptez le nom unique généré automatiquement. L’URL de l’application web est `http://<app_name>.azurewebsites.net`, où `<app_name>` correspond au nom de votre application.
+Dans **Nom de l’application**, saisissez un nom d’application unique (les caractères valides sont `a-z`, `0-9` et `-`) ou acceptez le nom unique généré automatiquement. L’URL de l’application web est `http://<app_name>.azurewebsites.net`, où `<app_name>` est le nom de votre application.
 
 Sélectionnez **Créer** pour commencer à créer les ressources Azure.
 

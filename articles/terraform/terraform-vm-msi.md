@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242090"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971162"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utiliser une image de la Place de marché Microsoft Azure pour créer une machine virtuelle Terraform pour Linux avec des identités managées pour des ressources Azure
 
@@ -37,7 +37,7 @@ Voici les étapes à suivre pour créer une instance de machine virtuelle Terraf
 
 3. Sur l’onglet des détails Terraform en bas à droite, sélectionnez le bouton **Créer**.
 
-    ![Créer une machine virtuelle Terraform](media\terraformmsi.png)
+    ![Créer une machine virtuelle Terraform](media/terraformmsi.png)
 
 4. Les sections suivantes décrivent les entrées pour chacune des étapes de l’Assistant à suivre pour créer la machine virtuelle Terraform pour Linux. La section suivante répertorie les entrées requises pour configurer chacune de ces étapes.
 
@@ -47,17 +47,17 @@ Entrez les informations suivantes sur l’onglet **Créer Terraform** :
 
 1. **Concepts de base**
     
-   * **Nom** : nom de votre machine virtuelle Terraform.
-   * **Nom d'utilisateur** : premier ID de connexion au compte.
-   * **Mot de passe** : premier mot de passe du compte. (Vous pouvez utiliser une clé publique SSH au lieu d’un mot de passe).
-   * **Abonnement** : l’abonnement sur lequel la machine doit être créée et facturée. Vous devez disposer des privilèges de création de ressources pour cet abonnement.
-   * **Groupe de ressources** : un nouveau groupe de ressources ou un groupe existant.
-   * **Emplacement** : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau.
+   * **Nom** : nom de votre machine virtuelle Terraform.
+   * **Nom d’utilisateur** : premier ID de connexion du compte.
+   * **Mot de passe** : premier mot de passe du compte. (Vous pouvez utiliser une clé publique SSH au lieu d’un mot de passe).
+   * **Abonnement**: abonnement sur lequel la machine doit être créée et facturée. Vous devez disposer des privilèges de création de ressources pour cet abonnement.
+   * **Groupe de ressources** : nouveau groupe de ressources ou groupe de ressources existant.
+   * **Emplacement** : centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau.
 
 2. **Paramètres supplémentaires**
 
-   * **Taille** : taille de la machine virtuelle. 
-   * **Type de disque de machine virtuelle**: disque SSD ou HDD.
+   * **Taille**: taille de la machine virtuelle. 
+   * **Type de disque de machine virtuelle** : disque SSD ou HDD.
 
 3. **Récapitulatif Terraform**
 

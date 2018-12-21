@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 06/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a731c1e0617fe0ccf9d571dd2b7d0c2ad107bc9e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 68fdb158a7d4c723bffb54f33203120afb72a8ef
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901396"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385395"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutoriel : Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide du portail Azure
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Didacticiel : Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide du portail Azure
 
 Vous pouvez filtrer le trafic réseau entrant dans un sous-réseau de réseau virtuel ou qui en sort, avec un groupe de sécurité réseau. Les groupes de sécurité réseau contiennent des règles de sécurité qui filtrent le trafic réseau par adresse IP, port et protocole. Les règles de sécurité sont appliquées aux ressources déployées dans un sous-réseau. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -38,7 +38,7 @@ Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure CLI](tuto
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur https://portal.azure.com.
 
@@ -50,11 +50,11 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | NOM                    | myVirtualNetwork                                   |
+    | Nom                    | myVirtualNetwork                                   |
     | Espace d’adressage           | 10.0.0.0/16                                        |
     | Abonnement            | Sélectionnez votre abonnement.                          |
     | Groupe de ressources          | Sélectionnez **Créer** et entrez *myResourceGroup*. |
-    | Emplacement                | Sélectionnez **Est des États-Unis**.                                |
+    | Lieu                | Sélectionnez **USA Est**.                                |
     | Nom du sous-réseau            | mySubnet                                           |
     | Plage d’adresses du sous-réseau  | 10.0.0.0/24                                        |
 
@@ -71,7 +71,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     | NOM           | myAsgWebServers                                               |
     | Abonnement   | Sélectionnez votre abonnement.                                     |
     | Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
-    | Emplacement       | Est des États-Unis                                                       |
+    | Lieu       | USA Est                                                       |
 
 4. Répétez l’étape 3 en spécifiant les valeurs suivantes :
 
@@ -80,7 +80,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     | NOM           | myAsgMgmtServers                                              |
     | Abonnement   | Sélectionnez votre abonnement.                                     |
     | Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
-    | Emplacement       | Est des États-Unis                                                       |
+    | Lieu       | USA Est                                                       |
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
@@ -93,7 +93,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     |NOM|myNsg|
     |Abonnement| Sélectionnez votre abonnement.|
     |Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*.|
-    |Emplacement|Est des États-Unis|
+    |Lieu|USA Est|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associer le groupe de sécurité réseau au sous-réseau
 
@@ -152,7 +152,7 @@ Créez deux machines virtuelles dans le réseau virtuel.
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Sélectionnez votre abonnement.|
     |Groupe de ressources| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
-    |Emplacement| Sélectionnez **Est des États-Unis**.|
+    |Lieu| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, sélectionnez les valeurs suivantes, acceptez les autres valeurs par défaut, puis cliquez sur **OK** :
@@ -212,7 +212,7 @@ Lorsque le portail a créé les machines virtuelles, il a créé une interface r
   
 11. Pour confirmer que vous pouvez accéder au serveur web *myVmWeb* depuis Internet, ouvrez un navigateur web sur votre ordinateur et accédez à `http://<public-ip-address-from-previous-step>`. L’écran d’accueil ISS s’affiche, car le port 80 autorise le trafic entrant depuis Internet vers le groupe de sécurité d’application *myAsgWebServers* dans lequel se situe l’interface réseau attachée à la machine virtuelle *myVmWeb*.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’avez plus besoin du groupe de ressources, supprimez-le, ainsi que toutes les ressources qu’il contient :
 

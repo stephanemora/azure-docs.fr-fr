@@ -1,5 +1,5 @@
 ---
-title: Créer une application web PHP dans Azure | Microsoft Docs
+title: Créer une application web PHP - Azure App Service | Microsoft Docs
 description: Déployez votre premier programme Hello World PHP dans Azure App Service Web Apps en quelques minutes.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin;cfowler
-ms.custom: mvc
-ms.openlocfilehash: 0dd8f90a39abc18263fcaa5bdb63a5b743728952
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.custom: seodec18
+ms.openlocfilehash: 02c80f3b3883af4b32b5bc0fb837680dad1e0ecf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42884962"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261549"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Créer une application web PHP dans Azure
 
@@ -41,7 +41,7 @@ Vous pouvez suivre ces étapes en utilisant un ordinateur Mac, Windows ou Linux.
 Pour suivre ce guide de démarrage rapide :
 
 * <a href="https://git-scm.com/" target="_blank">Installez Git</a>
-* <a href="http://php.net/manual/install.php" target="_blank">Installez PHP</a>
+* <a href="https://php.net/manual/install.php" target="_blank">Installez PHP</a>
 
 ## <a name="download-the-sample-locally"></a>Téléchargez l’exemple localement
 

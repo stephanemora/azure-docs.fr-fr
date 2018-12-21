@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9553d1dd5dd8d8ff11ea480618b471b9898985e3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456556"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341233"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Comment provisionner des appareils hérités avec des clés symétriques
 
@@ -90,7 +90,7 @@ Le SDK inclut l’exemple de code pour l’appareil simulé. Cet appareil simul�
 4. Exécutez la commande suivante qui génère une version du SDK propre à votre plateforme cliente de développement. Une solution Visual Studio pour l’appareil simulé est générée dans le répertoire `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Si `cmake` ne trouve pas votre compilateur C++, vous obtiendrez peut-être des erreurs de build lors de l’exécution de la commande ci-dessus. Si cela se produit, essayez d’exécuter cette commande dans [l’invite de commandes de Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -98,7 +98,7 @@ Le SDK inclut l’exemple de code pour l’appareil simulé. Cet appareil simul�
     Une fois la génération terminée, les dernières lignes de sortie doivent ressembler à la sortie suivante :
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -120,15 +120,15 @@ Le SDK inclut l’exemple de code pour l’appareil simulé. Cet appareil simul�
 
 3. Dans **Ajouter un groupe d’inscriptions**, entrez les informations suivantes, puis cliquez sur le bouton **Enregistrer**.
 
-    - **Nom du groupe** : entrez **mylegacydevices**.
+    - **Nom du groupe** : entrez **mylegacydevices**.
 
-    - **Type d’attestation** : sélectionnez **Clé symétrique**.
+    - **Type d’attestation** : sélectionnez **Clé symétrique**.
 
-    - **Générer automatiquement les clés** : cochez cette case.
+    - **Générer automatiquement les clés** : activez cette case à cocher.
 
-    - **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Configuration statique** pour pouvoir affecter à un hub spécifique.
+    - **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Configuration statique** afin de les affecter à un hub spécifique.
 
-    - **Sélectionner les hubs IoT auxquels ce groupe peut être affecté** : sélectionnez un de vos hubs.
+    - **Sélectionner les hubs IoT auxquels ce groupe peut être attribué** : sélectionnez un de vos hubs.
 
     ![Ajouter un groupe d’inscription pour l’attestation de clé symétrique](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
@@ -239,22 +239,25 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Cliquez avec le bouton droit sur le projet **prov\_dev\_client\_sample** et sélectionnez **Définir comme projet de démarrage**. 
-
-7. Dans la fenêtre *Explorateur de solutions* de Visual Studio, accédez au projet **hsm\_security\_client** et développez-le. Développez **Fichiers sources**, puis ouvrez **hsm\_client\_key.c**. 
-
-    Recherchez la déclaration des constantes `REGISTRATION_NAME` et `SYMMETRIC_KEY_VALUE`. Apportez les changements suivants au fichier, puis enregistrez-le.
-
-    Remplacez la valeur de la constante `REGISTRATION_NAME` par **l’ID d’inscription unique de votre appareil**.
-    
-    Remplacez la valeur de la constante `SYMMETRIC_KEY_VALUE` par votre **clé d’appareil dérivée**.
+6. Recherchez l’appel vers `prov_dev_set_symmetric_key_info()` dans **prov\_dev\_client\_sample.c** qui est commenté.
 
     ```c
-    static const char* const REGISTRATION_NAME = "sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6";
-    static const char* const SYMMETRIC_KEY_VALUE = "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-7. Dans le menu Visual Studio, sélectionnez **Déboguer** > **Exécuter sans débogage** pour exécuter la solution. Dans l’invite pour régénérer le projet, cliquez sur **Oui** pour régénérer le projet avant l’exécution.
+    Supprimez les commentaires de l’appel de fonction et remplacez les valeurs d’espace réservé (y compris les crochets) par l’ID d’inscription unique de votre appareil et la clé d’appareil dérivée que vous avez générée.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6", "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=");
+    ```
+   
+    Enregistrez le fichier .
+
+7. Cliquez avec le bouton droit sur le projet **prov\_dev\_client\_sample** et sélectionnez **Définir comme projet de démarrage**. 
+
+8. Dans le menu Visual Studio, sélectionnez **Déboguer** > **Exécuter sans débogage** pour exécuter la solution. Dans l’invite pour régénérer le projet, cliquez sur **Oui** pour régénérer le projet avant l’exécution.
 
     La sortie suivante est un exemple illustrant le démarrage réussi de l’appareil simulé et sa connexion à une instance de service Device Provisioning pour l’affecter à un hub IoT :
 
@@ -273,7 +276,7 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
     Press enter key to exit:
     ```
 
-8. Dans le portail, accédez au hub IoT auquel votre appareil simulé a été affecté, puis cliquez sur l’onglet **Appareils IoT**. En cas de réussite du provisionnement de l’appareil simulé sur le hub, son ID d’appareil s’affiche sur le panneau **Appareils IoT**, avec un *ÉTAT* **activé**. Vous devrez peut-être cliquer sur le bouton **Actualiser** dans la partie supérieure. 
+9. Dans le portail, accédez au hub IoT auquel votre appareil simulé a été affecté, puis cliquez sur l’onglet **Appareils IoT**. En cas de réussite du provisionnement de l’appareil simulé sur le hub, son ID d’appareil s’affiche sur le panneau **Appareils IoT**, avec un *ÉTAT* **activé**. Vous devrez peut-être cliquer sur le bouton **Actualiser** dans la partie supérieure. 
 
     ![L’appareil est inscrit avec le hub IoT](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -290,7 +293,7 @@ Ne perdez pas de vue que ceci laisse la clé d’appareil dérivée incluse dans
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md) 
-* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
+* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
 * Pour en savoir plus sur le déprovisionnement, consultez [Guide pratique pour déprovisionner des appareils auparavant provisionnés automatiquement](how-to-unprovision-devices.md) 
 
 

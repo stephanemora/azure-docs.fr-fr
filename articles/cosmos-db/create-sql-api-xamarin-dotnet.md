@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB : Créer une application de liste de tâches avec Xamarin'
+title: 'Azure Cosmos DB : Créer une application de liste de tâches avec Xamarin'
 description: Cet article présente un exemple de code Xamarin que vous pouvez utiliser pour vous connecter à Azure Cosmos DB, et pour interroger les données
 services: cosmos-db
 author: codemillmatt
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 0099bacb98d921a852ece8787bcb7152c5eae3f2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f955e0386cd601212eb992870f02607538b537e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838564"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252624"
 ---
-# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB : Créer une application de liste de tâches avec Xamarin
+# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB : Créer une application de liste de tâches avec Xamarin
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -64,7 +64,7 @@ Si vous utilisez un Mac, vous pouvez télécharger la version **gratuite** de [V
 
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
-Nous allons maintenant cloner l’application API SQL Xamarin à partir de github, vérifier le code, récupérer les clés API et procéder à l’exécution. Vous verrez combien il est facile de travailler par programmation avec des données.
+Nous allons maintenant cloner l’application API SQL Xamarin à partir de GitHub, vérifier le code, récupérer les clés API et procéder à l’exécution. Vous verrez combien il est facile de travailler par programmation avec des données.
 
 1. Ouvrez une invite de commandes, créez un nouveau dossier nommé git-samples, puis fermez l’invite de commandes.
 
@@ -90,7 +90,7 @@ Nous allons maintenant cloner l’application API SQL Xamarin à partir de githu
 
 Revenez dans le portail Azure pour récupérer vos informations de clé API et les copier dans l’application.
 
-1. Dans le [portail Azure](http://portal.azure.com/), dans votre compte d’API SQL Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Clés**, puis sur **Clés en lecture-écriture**. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier APIKeys.cs à l’étape suivante.
+1. Dans le [portail Azure](https://portal.azure.com/), dans votre compte d’API SQL Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Clés**, puis sur **Clés en lecture-écriture**. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier APIKeys.cs à l’étape suivante.
 
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-sql-api-xamarin-dotnet/keys.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un pipeline de recherche cognitive dans Recherche Azure à l’aide du portail | Microsoft Docs'
+title: 'Démarrage rapide : Pipeline de recherche cognitive dans le portail Azure - Recherche Azure'
 description: Exemple de compétences en matière d’extraction de données, de langage naturel et de traitement d’image dans le portail Azure à l’aide d’exemples de données.
 manager: cgronlun
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec2018
+ms.openlocfilehash: 7d579bfdaf38b6c06b26cfa7b36f8e4d2ac5a1f2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264123"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386262"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Démarrage rapide : Créer un pipeline de recherche cognitive à l’aide de compétences et d’exemples de données
 
@@ -47,7 +48,9 @@ Vous pouvez essayer la recherche cognitive dans un service Recherche Azure cré�
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 > [!NOTE]
-> La recherche cognitive est disponible en version préliminaire publique. L’exécution d’ensemble de compétences, ainsi que l’extraction et la normalisation d’images, sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
+> À compter du 21 décembre 2018, vous pouvez associer une ressource Cognitive Services à un ensemble de qualifications Recherche Azure. Cela nous permet de commencer la facturation pour l’exécution des ensembles de qualifications. À compter de cette date, nous commençons également à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents continue d’être offerte sans frais supplémentaires.
+>
+> L’exécution des compétences intégrées est facturée au prix actuel du [paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits dans la page [Tarification de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [En savoir plus](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -66,7 +69,7 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
 
 1. Cliquez sur **Créer une ressource**, recherchez Recherche Azure et cliquez sur **Créer**. Consultez [Créer un service Recherche Azure dans le portail](search-create-service-portal.md) si vous configurez un service de recherche pour la première fois et avez besoin d’aide supplémentaire.
 
-  ![Portail de tableau de bord](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Créer un service Recherche Azure dans le portail")
+  ![Portail de tableau de bord](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Créer un service Recherche Azure dans le portail")
 
 1. Pour Groupe de ressources, créez un groupe de ressources qui contiendra toutes les ressources que vous créerez dans ce guide de démarrage rapide. Cela facilite le nettoyage des ressources lorsque vous avez terminé le guide de démarrage rapide.
 
@@ -76,16 +79,18 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
 
   Un service gratuit est limité à 3 index, à une taille maximale d’objet blob de 16 Mo et à 2 minutes d’indexation, ce qui est insuffisant pour exercer toutes les fonctionnalités de recherche cognitive. Pour passer en revue les limites des différents niveaux, consultez [Limites du service](search-limits-quotas-capacity.md).
 
+  ![Page de définition du service dans le portail](./media/cognitive-search-tutorial-blob/create-search-service1.png "Page de définition du service dans le portail")
+  ![Page de définition du service dans le portail](./media/cognitive-search-tutorial-blob/create-search-service2.png "Page de définition du service dans le portail")
   > [!NOTE]
-  > La recherche cognitive est disponible en préversion publique. L’exécution des compétences est actuellement disponible dans tous les niveaux, y compris le niveau gratuit. Le prix de cette fonctionnalité sera annoncé à une date ultérieure.
+  > La recherche cognitive est disponible en préversion publique. L’exécution des compétences est actuellement disponible dans tous les niveaux, y compris le niveau gratuit. Vous serez en mesure d’effectuer un nombre limité d’enrichissements sans associer une ressource Cognitive Services payante. [En savoir plus](cognitive-search-attach-cognitive-services.md).
 
 1. Épinglez le service au tableau de bord pour accéder rapidement aux informations du service.
 
-  ![Page de définition de service dans le portail](./media/cognitive-search-tutorial-blob/create-search-service.png "Page de définition de service dans le portail")
+  ![Page de définition de service dans le portail](./media/cognitive-search-tutorial-blob/create-search-service3.png "Page de définition de service dans le portail")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurer le service Blob Azure et charger les données d’exemple
 
-Le pipeline d’enrichissement procède à l’extraction à partir des sources de données Azure prises en charge par les [indexeurs de recherche Azure](search-indexer-overview.md). Pour cet exercice, nous utilisons le stockage d’objets blob pour présenter plusieurs types de contenu.
+Le pipeline d’enrichissement procède à l’extraction à partir des sources de données Azure prises en charge par les [indexeurs de recherche Azure](search-indexer-overview.md). Notez que Stockage Table Azure n’est pas pris en charge pour la recherche cognitive. Pour cet exercice, nous utilisons le stockage d’objets blob pour présenter plusieurs types de contenu.
 
 1. [Téléchargez les exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consistant en un petit ensemble de fichiers de types différents. 
 
@@ -99,11 +104,11 @@ Le pipeline d’enrichissement procède à l’extraction à partir des sources 
 
 Revenez à la page de tableau de bord du service Recherche Azure et cliquez sur **Importer des données** sur la barre de commandes pour configurer l’enrichissement en quatre étapes.
 
-### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d’une source de données
+### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
 
 Dans **Se connecter à vos données** > **Stockage Blob Azure**, sélectionnez le compte et le conteneur que vous avez créés. Donnez un nom à la source de données et utilisez les valeurs par défaut pour le reste. 
 
-   ![Configuration d’objets blob Azure](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   ![Configuration d’objets blob Azure](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
 
 
 Cliquez sur **OK** pour créer la source de données.
@@ -124,7 +129,7 @@ Cliquez sur **OK** pour accepter la définition.
 
 Les compétences en matière de traitement en langage naturel fonctionnent sur le contenu de texte dans l’exemple de jeu de données. Étant donné que nous n’avons sélectionné aucune option de traitement des images, les fichiers JPEG trouvés dans l’exemple de jeu de données ne seront pas traités dans ce guide de démarrage rapide. 
 
-### <a name="step-3-configure-the-index"></a>Étape 3 : Configurer l’index
+### <a name="step-3-configure-the-index"></a>Étape 3 : Configurer l’index
 
 Vous vous souvenez de l’index créé avec la source de données ? Dans cette étape, vous pouvez afficher son schéma et potentiellement modifier les paramètres. 
 
@@ -149,7 +154,7 @@ Cliquez sur **OK** pour accepter la définition d’index.
 > [!NOTE]
 > Les champs inutilisés ont été retirés de la capture d’écran par souci de concision. Si vous poursuivez dans le portail, votre liste affiche les champs supplémentaires.
 
-### <a name="step-4-configure-the-indexer"></a>Étape 4 : Configurer l’indexeur
+### <a name="step-4-configure-the-indexer"></a>Étape 4 : Configurer l’indexeur
 
 L’indexeur est une ressource de niveau supérieur qui gère le processus d’indexation. Il spécifie le nom de la source de données, l’index et la fréquence d’exécution. Le résultat final de l’Assistant **Importer des données** est toujours un indexeur que vous pouvez exécuter à plusieurs reprises.
 
@@ -210,4 +215,4 @@ Vous pouvez expérimenter l’indexation et l’enrichissement en réexécutant 
 Vous pouvez également réutiliser les exemples de données et de services créés et apprendre à effectuer les mêmes tâches par programme dans le tutoriel suivant. 
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Learn the cognitive search REST APIs (Découvrir les API REST de recherche cognitive)](cognitive-search-tutorial-blob.md)
+> [Tutoriel : Découvrir les API REST de la recherche cognitive](cognitive-search-tutorial-blob.md)

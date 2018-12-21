@@ -1,5 +1,5 @@
 ---
-title: Créer une application web monopage Azure Time Series Insights
+title: Créer une application web monopage Azure Time Series Insights | Microsoft Docs
 description: Découvrez comment créer une application web monopage qui interroge et restitue les données à partir d’un environnement STI.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,14 +7,15 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626753"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275837"
 ---
-# <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutoriel : créer une application web monopage Azure Time Series Insights
+# <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Didacticiel : Créer une application web monopage Azure Time Series Insights
 
 Ce tutoriel vous guide tout au long du processus de création de votre propre application web monopage (SPA) pour accéder aux données TSI, modélisées d’après l’[exemple d’application Time Series Insights (TSI)](https://insights.timeseries.azure.com/clientsample). Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 
@@ -34,7 +35,7 @@ Vous devrez également installer Visual Studio, si vous ne l’avez pas déjà f
 Comme indiqué, l’exemple d’application TSI fournit la base pour la conception et le code utilisé dans ce tutoriel. Le code inclut l’utilisation de la bibliothèque JavaScript cliente TSI. La bibliothèque cliente TSI fournit une abstraction pour les deux catégories d’API principales :
 
 - **Méthodes de wrapper pour appeler les API de requête TSI** : API REST qui vous permettent d’exécuter des requêtes pour obtenir des données TSI à l’aide d’expressions reposant sur JSON. Les méthodes sont organisées sous l’espace de noms `TsiClient.server` de la bibliothèque.
-- **Méthodes pour créer et remplir plusieurs types de contrôles de graphique** : méthodes utilisées pour visualiser les données TSI dans une page web. Les méthodes sont organisées sous l’espace de noms `TsiClient.ux` de la bibliothèque.
+- **Méthodes pour créer et remplir plusieurs types de contrôles graphiques** : Méthodes utilisées pour visualiser les données TSI dans une page web. Les méthodes sont organisées sous l’espace de noms `TsiClient.ux` de la bibliothèque.
 
 Ce tutoriel utilise également les données provenant de l’environnement TSI de l’exemple d’application. Pour plus d’informations sur la structure de l’exemple d’application TSI et son utilisation de la bibliothèque cliente TSI, reportez-vous au tutoriel [Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights](tutorial-explore-js-client-lib.md).
 
@@ -51,7 +52,7 @@ Avant de générer l’application, vous devez l’inscrire auprès d’Azure AD
    
    Paramètre|Description
    ---|---
-   **Name** | Fournissez un nom d’inscription explicite.  
+   **Nom** | Fournissez un nom d’inscription explicite.  
    **Type d’application** | Étant donné que vous créez une application web SPA, conservez « application web/API ».
    **URL d’authentification** | Saisissez l’URL de la page d’accueil/de connexion de l’application. Étant donné que l’application sera hébergée dans Azure App Service (ultérieurement), vous devez utiliser une URL dans le domaine « https://azurewebsites.net ». Dans cet exemple, le nom est basé sur le nom de l’inscription.
 
@@ -91,7 +92,7 @@ Avant de générer l’application, vous devez l’inscrire auprès d’Azure AD
    > Selon le navigateur, vous devrez peut-être corriger l’extension de fichier (en HTML ou CSS) avant d’enregistrer le fichier.
 
    - **index.html** HTML et JavaScript pour la page https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
-   - **sampleStyles.css :** feuille de style CSS : https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
+   - **sampleStyles.css** : Feuille de style CSS : https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
 1. Démarrez et connectez-vous à Visual Studio, pour créer un projet d’application web. Sur le **Fichier** menu, sélectionnez les options **Ouvrir**, **Site web**. Sur la boîte de dialogue **Ouvrir le site Web**, sélectionnez le répertoire de travail où vous avez stocké les fichiers HTML et CSS, puis cliquez sur **Ouvrir** :
 
@@ -178,10 +179,10 @@ Avant de générer l’application, vous devez l’inscrire auprès d’Azure AD
 Code d’erreur/condition | Description
 ---------------------| -----------
 *AADSTS50011 : Aucune adresse de réponse n’est inscrite pour l’application.* | Il manque la propriété « URL de réponse » dans l’inscription Azure AD. Accédez à la page **Paramètres** / **URL de réponse** pour votre inscription d’application Azure AD. Vérifiez que l’URL **de connexion** spécifiée à l’étape 3 de [Inscrire l’application auprès d’Azure AD](#register-the-application-with-azure-ad) est présente. 
-*AADSTS50011 : l’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : « <Application ID GUID> ».* | Le `postLogoutRedirectUri` spécifié à l’étape 4.b de [Générer et publier l’application web](#build-and-publish-the-web-application), doit correspondre à la valeur spécifiée sous la propriété **Paramètres** / **URL de réponse** dans votre inscription d’application Azure AD. Veillez à modifier également l’**URL de destination** pour utiliser `https`, conformément à l’étape 5.e de la section [Générer et publier l’application web](#build-and-publish-the-web-application).
+*AADSTS50011 : L’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : « <Application ID GUID> ».* | Le `postLogoutRedirectUri` spécifié à l’étape 4.b de [Générer et publier l’application web](#build-and-publish-the-web-application), doit correspondre à la valeur spécifiée sous la propriété **Paramètres** / **URL de réponse** dans votre inscription d’application Azure AD. Veillez à modifier également l’**URL de destination** pour utiliser `https`, conformément à l’étape 5.e de la section [Générer et publier l’application web](#build-and-publish-the-web-application).
 L’application web charge, mais comporte une page de connexion textuelle non mise en forme et un arrière-plan blanc. | Vérifiez que les chemins d’accès indiqués dans l’étape 4.a de la section [Générer et publier l’application web](#build-and-publish-the-web-application) sont corrects. Si l’application web ne trouve pas les fichiers .css, la page ne sera pas mise en forme correctement.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Ce tutoriel crée plusieurs services Azure en cours d’exécution. Si vous ne prévoyez pas de terminer cette série de tutoriels, nous vous recommandons de supprimer toutes les ressources pour éviter des coûts inutiles. 
 

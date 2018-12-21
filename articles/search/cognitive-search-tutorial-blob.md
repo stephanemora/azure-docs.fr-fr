@@ -1,5 +1,5 @@
 ---
-title: Didacticiel d’appel des API de recherche cognitive dans Recherche Azure | Microsoft Docs
+title: Didacticiel d’appel des API de recherche cognitive - Recherche Azure
 description: Dans ce didacticiel, parcourez un exemple d’extraction de données, de langage naturel et de traitement AI d’image dans l’indexation Recherche Azure pour l’extraction et la transformation de données.
 manager: pablocas
 author: luiscabrer
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730662"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386228"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutoriel : Appeler des API de recherche cognitive (version préliminaire)
+# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Didacticiel : Appeler des API de recherche cognitive (préversion)
 
 Dans ce tutoriel, vous apprendrez les mécanismes d’enrichissement des données de programmation dans Recherche Azure à l’aide de *compétences cognitives*. Les compétences cognitives sont des opérations de traitement en langage naturel (NLP) et d’analyse d’image qui extraient le texte et les représentations textuelles d’une image, détectent la langue, les entités, les expressions clés, etc. Le résultat final est un contenu supplémentaire riche dans un index Recherche Azure, créé par un pipeline d’indexation de recherche cognitive. 
 
@@ -34,7 +35,9 @@ La sortie obtenue est un index de recherche en texte intégral sur Recherche Azu
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 > [!NOTE]
-> La recherche cognitive est disponible en version préliminaire publique. L’exécution d’ensemble de compétences, ainsi que l’extraction et la normalisation d’images, sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
+> À compter du 21 décembre 2018, vous pouvez associer une ressource Cognitive Services à un ensemble de compétences Recherche Azure. Cela nous permettra de commencer la facturation pour l’exécution des ensembles de compétences. Ce jour-là, nous commencerons également à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents continuera d’être offerte sans frais supplémentaires.
+>
+> L’exécution des compétences intégrées sera facturée au prix actuel du [paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits à la page [Tarification Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). En savoir [plus](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -52,30 +55,31 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
 
 1. Cliquez sur **Créer une ressource**, recherchez Recherche Azure et cliquez sur **Créer**. Consultez [Créer un service Recherche Azure dans le portail](search-create-service-portal.md) si vous configurez un service de recherche pour la première fois.
 
-  ![Portail de tableau de bord](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Créer un service Recherche Azure dans le portail")
+  ![Portail de tableau de bord](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Créer un service Recherche Azure dans le portail")
 
 1. Pour Groupe de ressources, créez un groupe de ressources qui contiendra toutes les ressources que vous créerez dans ce tutoriel. Cela facilite le nettoyage des ressources une fois le tutoriel terminé.
 
-1. Pour Emplacement, choisissez **USA Centre Sud** ou **Europe Ouest**. Actuellement, la version préliminaire est disponible uniquement dans ces régions.
+1. Concernant l’endroit, choisissez l’une des [régions prises en charge](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) pour la Recherche cognitive.
 
 1. Pour le niveau tarifaire, vous pouvez créer un service **Gratuit** pour effectuer les tutoriels et les guides de démarrage rapide. Pour un examen plus approfondi à l’aide de vos propres données, créez un [service payant](https://azure.microsoft.com/pricing/details/search/), tel qu’un service **De base** ou **Standard**. 
 
   Un service gratuit est limité à 3 index, à une taille maximale d’objet blob de 16 Mo et à 2 minutes d’indexation, ce qui est insuffisant pour exercer toutes les fonctionnalités de recherche cognitive. Pour passer en revue les limites des différents niveaux, consultez [Limites du service](search-limits-quotas-capacity.md).
 
-  > [!NOTE]
-  > La recherche cognitive est disponible en préversion publique. L’exécution des compétences est actuellement disponible dans tous les niveaux, y compris le niveau gratuit. Le prix de cette fonctionnalité sera annoncé à une date ultérieure.
+  ![Page de définition du service dans le portail](./media/cognitive-search-tutorial-blob/create-search-service1.png "Page de définition du service dans le portail")
+  ![Page de définition du service dans le portail](./media/cognitive-search-tutorial-blob/create-search-service2.png "Page de définition du service dans le portail")
 
+ 
 1. Épinglez le service au tableau de bord pour accéder rapidement aux informations du service.
 
-  ![Page de définition de service dans le portail](./media/cognitive-search-tutorial-blob/create-search-service.png "Page de définition de service dans le portail")
+  ![Page de définition de service dans le portail](./media/cognitive-search-tutorial-blob/create-search-service3.png "Page de définition de service dans le portail")
 
-1. Une fois que le service a été créé, collectez les informations suivantes : **URL** à partir de la page Vue d’ensemble et **Clé API** (principale ou secondaire) à partir de la page Clés.
+1. Lorsque le service est créé, collectez les informations suivantes : **URL** à partir de la page Vue d’ensemble, et **api-key** (principal ou secondaire) à partir de la page Clés.
 
   ![Informations sur les points de terminaison et les clés dans le portail](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Informations sur les points de terminaison et les clés dans le portail")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurer le service Blob Azure et charger les données d’exemple
 
-Le pipeline d’enrichissement extrait des données des sources de données Azure. Les données sources doivent provenir d’un type de source de données pris en charge d’un [indexeur Recherche Azure](search-indexer-overview.md). Pour cet exercice, nous utilisons le stockage d’objets blob pour présenter plusieurs types de contenu.
+Le pipeline d’enrichissement extrait des données des sources de données Azure. Les données sources doivent provenir d’un type de source de données pris en charge d’un [indexeur Recherche Azure](search-indexer-overview.md). Notez que Stockage Table Azure n’est pas pris en charge pour la recherche cognitive. Pour cet exercice, nous utilisons le stockage d’objets blob pour présenter plusieurs types de contenu.
 
 1. [Téléchargez les exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Les données d’exemple se composent d’un petit ensemble de fichiers de types différents. 
 
@@ -127,7 +131,7 @@ Dans la mesure où il s’agit de votre première demande, vérifiez le portail 
 Si vous avez obtenu une erreur 403 ou 404, vérifiez la construction de la demande : `api-version=2017-11-11-Preview` doit être sur le point de terminaison, `api-key` doit être dans l’en-tête après `Content-Type` et sa valeur doit être valide pour un service de recherche. Vous pouvez réutiliser l’en-tête pour les étapes restantes de ce tutoriel.
 
 > [!TIP]
-> À présent, avant d’avoir effectué de nombreuses tâches, il est judicieux de vérifier que le service de recherche est en cours d’exécution dans l’un des emplacements pris en charge assurant la fonctionnalité d’aperçu : USA Centre Sud ou Europe Ouest.
+> À présent, avant d’avoir effectué de nombreuses tâches, il est judicieux de vérifier que le service de recherche est en cours d’exécution dans l’un des emplacements pris en charge assurant la fonctionnalité d’évaluation : USA Centre Sud ou Europe Ouest.
 
 ## <a name="create-a-skillset"></a>Créer un ensemble de compétences
 
@@ -523,7 +527,7 @@ Pour réindexer vos documents avec les nouvelles définitions :
 2. Modifiez un ensemble de compétences et la définition d’index.
 3. Recréez un index et un indexeur sur le service pour exécuter le pipeline. 
 
-Vous pouvez utiliser le portail pour supprimer les index et les indexeurs. Les ensembles de compétences peuvent uniquement être supprimés via une commande HTTP, si vous décidez de les supprimer.
+Vous pouvez utiliser le portail pour supprimer des index, des indexeurs et des ensembles de compétences.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview

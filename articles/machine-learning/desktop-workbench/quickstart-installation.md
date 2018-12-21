@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: a45b8e1dd2f59bf1399c92e3ff1a3c66ca8956ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 21ab3448f080e7f4874464dbb4befc0cbed63282
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956878"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276500"
 ---
-# <a name="quickstart-install-and-get-started-with-azure-machine-learning-service"></a>Démarrage rapide : Installer le service Azure Machine Learning et bien démarrer
+# <a name="quickstart-install-and-get-started-with-azure-machine-learning-service"></a>Démarrage rapide : Installer Azure Machine Learning service et bien démarrer
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -117,7 +117,7 @@ Azure Machine Learning Workbench est disponible pour Windows ou macOS. Consultez
    
    | |Chemin d’accès d’installation d’Azure Machine Learning Workbench|
    |--------|------------------------------------------------|
-   |Windows|C:\Users\\<user\>\AppData\Local\AmlWorkbench|
+   | Windows|C:\Users\\<user\>\AppData\Local\AmlWorkbench|
    |macOS|/Applications/Azure ML Workbench.app|
 
    Le programme d’installation télécharge et configure toutes les dépendances nécessaires, telles que Python, Miniconda et d’autres bibliothèques associées. Cette installation inclut également l’outil en ligne de commande multiplateforme Azure, également appelé Azure CLI.
@@ -203,7 +203,7 @@ Vous pouvez obtenir de l’aide sur les commandes de l’interface de commande A
 
 ```az ml --help```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
@@ -213,7 +213,7 @@ Vous avez créé les comptes Azure Machine Learning nécessaires et installé l�
 Pour obtenir une expérience plus approfondie de ce flux de travail, notamment la façon de déployer votre modèle Iris en tant que service web, suivez le didacticiel *Classifying Iris* (Classification d’iris) intégral. Ce dernier contient des étapes détaillées pour la [préparation des données](../desktop-workbench/tutorial-classifying-iris-part-1.md), [l’expérimentation](../desktop-workbench/tutorial-classifying-iris-part-2.md) et la [gestion des modèles](../desktop-workbench/tutorial-classifying-iris-part-3.md). 
 
 > [!div class="nextstepaction"]
-> [Classification d’Iris, partie 1 : préparer les données](../desktop-workbench/tutorial-classifying-iris-part-1.md)
+> [Tutoriel : Classifier Iris - Préparation des données](../desktop-workbench/tutorial-classifying-iris-part-1.md)
 
 >[!NOTE]
 > Même si vous avez créé un compte Gestion des modèles, votre environnement n’est pas encore configuré pour le déploiement de services web. Découvrez comment configurer votre [environnement de déploiement](../desktop-workbench/deployment-setup-configuration.md).

@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : API Recherche d’actualités Bing, C#'
+title: 'Démarrage rapide : Effectuer une recherche d’actualités à l’aide de C# - API REST Recherche d’actualités Bing'
 titlesuffix: Azure Cognitive Services
-description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’actualités Bing.
+description: Utilisez ce démarrage rapide pour envoyer une requête à l’API REST Recherche d’actualités Bing à l’aide de C# et recevoir une réponse JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: b69e00a31d5746b7f25ef6156b703a4505a89630
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 20a5e24a4fce2bb8dc817cb74c2a58a1bc304fae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314839"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250414"
 ---
-# <a name="quickstart-bing-news-search-api-with-c"></a>Démarrage rapide : API Recherche d’actualités Bing avec C#
+# <a name="quickstart-perform-a-news-search-using-c-and-the-bing-news-search-rest-api"></a>Démarrage rapide : Effectuer une recherche d’actualités à l’aide de C# et de l’API REST Recherche d’actualités Bing
 
 Cet article vous montre comment utiliser l’API Recherche Bing qui fait partie de Microsoft Cognitive Services sur Azure. Si d’un côté l’article utilise C#, de l’autre, l’API est un service web RESTful compatible avec n’importe quel langage de programmation dès lors qu’il est capable de formuler des requêtes HTTP et d’analyser un format JSON. 
 

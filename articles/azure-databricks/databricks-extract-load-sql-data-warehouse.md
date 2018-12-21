@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : effectuer des opérations ETL à l’aide d’Azure Databricks'
+title: 'Didacticiel : Effectuer des opérations ETL à l’aide d’Azure Databricks'
 description: Découvrez comment extraire des données de Data Lake Store dans Azure Databricks, les transformer, puis les charger dans Azure SQL Data Warehouse.
 services: azure-databricks
 author: mamccrea
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 48b2cdb26994d01dfced8216bb70493802f672a7
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265260"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413674"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -44,9 +44,9 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
-- Créez une instance Azure SQL Data Warehouse, créez une règle de pare-feu au niveau du serveur et connectez-vous au serveur en tant qu’administrateur du serveur. Suivez les instructions indiquées dans [Démarrage rapide : créer et interroger un entrepôt de données SQL Azure dans le portail Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
+- Créez une instance Azure SQL Data Warehouse, créez une règle de pare-feu au niveau du serveur et connectez-vous au serveur en tant qu’administrateur du serveur. Suivez les instructions du [Démarrage rapide : Créer un Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Créez une clé principale de base de données pour Azure SQL Data Warehouse. Suivez les instructions indiquées dans [Créer une clé principale de base de données](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Créez un compte de stockage Blob Azure et un conteneur dans celui-ci. Récupérez également la clé d’accès au compte de stockage. Suivez les instructions indiquées dans [Démarrage rapide : Créer un compte de stockage d’objets blob Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Créez un compte de stockage Blob Azure et un conteneur dans celui-ci. Récupérez également la clé d’accès au compte de stockage. Suivez les instructions du [Démarrage rapide : Créez un compte de stockage Blob Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
@@ -54,7 +54,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 
-Dans cette section, vous créez un espace de travail Azure Databricks en utilisant le portail Azure. 
+Dans cette section, vous créez un espace de travail Azure Databricks en utilisant le portail Azure.
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Données + Analytique** > **Azure Databricks**.
 
@@ -65,7 +65,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     ![Créer un espace de travail Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Créer un espace de travail Azure Databricks")
 
     Renseignez les valeurs suivantes :
-     
+    
     |Propriété  |Description  |
     |---------|---------|
     |**Nom de l’espace de travail**     | Renseignez un nom pour votre espace de travail Databricks.        |
@@ -106,11 +106,11 @@ Dans cette section, vous créez un compte Azure Data Lake Store et vous l’asso
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Stockage** > **Data Lake Store**.
 3. Dans le panneau **Nouveau magasin Data Lake Store**, fournissez les valeurs indiquées dans la capture d’écran suivante :
-   
+
     ![Créer un compte Azure Data Lake Store](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "Créer un compte Azure Data Lake")
 
-    Renseignez les valeurs suivantes : 
-     
+    Renseignez les valeurs suivantes :
+    
     |Propriété  |Description  |
     |---------|---------|
     |**Nom**     | Entrez un nom unique pour le compte Data Lake Store.        |
@@ -125,7 +125,7 @@ Dans cette section, vous créez un compte Azure Data Lake Store et vous l’asso
 Vous créez maintenant un principal du service Azure Active Directory et associez-le au compte Data Lake Store que vous avez créé.
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>Créer un principal du service Azure Active Directory
-   
+
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **All services** (Tous les services), puis recherchez **Azure Active Directory**.
 
 2. Sélectionnez **Inscriptions d’applications**.
@@ -193,7 +193,7 @@ Lors d’une connexion par programmation, vous devez transmettre l’ID de locat
 
 ## <a name="upload-data-to-data-lake-store"></a>Téléchargement de données vers Data Lake Store
 
-Dans cette section, vous chargez un exemple de fichier de données sur Data Lake Store. Vous allez utiliser ce fichier ultérieurement dans Azure Databricks pour exécuter quelques transformations. Les exemples de données (**small_radio_json.json**) que vous utilisez dans ce didacticiel sont disponibles dans ce [référentiel Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+Dans cette section, vous chargez un exemple de fichier de données sur Data Lake Store. Vous allez utiliser ce fichier ultérieurement dans Azure Databricks pour exécuter quelques transformations. Les exemples de données (**small_radio_json.json**) que vous utilisez dans ce didacticiel sont disponibles dans ce [référentiel GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez le compte Data Lake Store que vous avez créé.
 
@@ -376,9 +376,9 @@ Les exemples de données brutes **small_radio_json.json** capturent l’audience
 
 Dans cette section, vous chargez les données transformées dans Azure SQL Data Warehouse. À l’aide du connecteur Azure SQL Data Warehouse pour Azure Databricks, vous pouvez charger directement une trame de données sous forme de table dans l’entrepôt de données SQL.
 
-Comme mentionné précédemment, le connecteur d’entrepôt de données SQL utilise le Stockage Blob Azure comme emplacement de stockage temporaire pour charger des données entre Azure Databricks et Azure SQL Data Warehouse. Vous commencez donc par fournir la configuration pour vous connecter au compte de stockage. Vous devez déjà avoir créé le compte dans le cadre de la configuration requise pour cet article.
+Comme mentionné précédemment, le connecteur Azure SQL Data Warehouse utilise le Stockage Blob Azure comme emplacement de stockage temporaire pour charger des données entre Azure Databricks et Azure SQL Data Warehouse. Vous commencez donc par fournir la configuration pour vous connecter au compte de stockage. Vous devez déjà avoir créé le compte dans le cadre de la configuration requise pour cet article.
 
-1. Fournissez la configuration pour accéder au compte de Stockage Azure à partir d’Azure Databricks. Si vous copiez l’URL de votre stockage Blob à partir du portail, veillez à supprimer *https://* au début. 
+1. Fournissez la configuration pour accéder au compte de Stockage Azure à partir d’Azure Databricks. Si vous copiez l’URL de votre stockage Blob à partir du portail, veillez à supprimer *https://* au début.
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -410,7 +410,7 @@ Comme mentionné précédemment, le connecteur d’entrepôt de données SQL uti
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.date: 11/27/2018
 ms.topic: article
-ms.openlocfilehash: 86474fe612fb93f3a5853f9fea98eb9ab2dd00e5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 770a583ad09ec1aaa8191f5dafb3db61b2386e68
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336507"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166232"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>Connexion entre Azure Kubernetes Service et Azure Database pour PostgreSQL
 
@@ -22,24 +22,24 @@ Azure Kubernetes Service (AKS) fournit un cluster Kubernetes managé que vous po
 
 
 ## <a name="accelerated-networking"></a>Mise en réseau accélérée
-Utilisez des machines virtuelles sous-jacentes avec mise en réseau accélérée dans votre cluster AKS. Lorsque la mise en réseau accélérée est activée sur une machine virtuelle, il y a une latence plus faible, une instabilité moindre et une utilisation du processeur limitée sur la machine virtuelle. En savoir plus sur le fonctionnement de la mise en réseau accélérée, les versions de système d’exploitation prises en charge et les instances de machine virtuelle prises en charge pour [Linux](../virtual-network/create-vm-accelerated-networking-cli.md).
+Utilisez des machines virtuelles sous-jacentes dotées de la mise en réseau accélérée dans votre cluster AKS. Lorsque la mise en réseau accélérée est activée sur une machine virtuelle, celle-ci bénéficie d’une latence plus faible, d’une diminution de l’instabilité et d’une utilisation moins importante du processeur. Apprenez-en davantage sur le fonctionnement de la mise en réseau accélérée, les versions de système d’exploitation prises en charge et les instances de machine virtuelle compatibles pour [Linux](../virtual-network/create-vm-accelerated-networking-cli.md).
 
-À partir de novembre 2018, AKS prend en charge la mise en réseau accélérée sur ces instances de machine virtuelle prises en charge. La mise en réseau accélérée est activée par défaut sur les nouveaux clusters AKS qui utilisent ces machines virtuelles.
+À partir de novembre 2018, AKS prend en charge la mise en réseau accélérée sur ces instances de machine virtuelle prises en charge. La mise en réseau accélérée est activée par défaut sur les nouveaux clusters AKS qui utilisent ces machines virtuelles.
 
-Vous pouvez vérifier si votre cluster AKS a la mise en réseau accélérée :
+Vous pouvez vérifier si votre cluster AKS dispose de la mise en réseau accélérée de la façon suivante :
 1. Accédez au portail Azure et sélectionnez votre cluster AKS.
 2. Sélectionnez l’onglet Propriétés.
 3. Copiez le nom du **Groupe de ressources d’infrastructure**.
 4. Utilisez la barre de recherche du portail pour localiser et ouvrir le groupe de ressources d’infrastructure.
 5. Sélectionnez une machine virtuelle dans ce groupe de ressources.
 6. Accédez à l’onglet **Mise en réseau** de la machine virtuelle.
-7. Confirmez si la **Mise en réseau accélérée** est « Activée ».
+7. Vérifiez que la **Mise en réseau accélérée** est activée.
 
 
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker pour Azure 
 [Open Service Broker pour Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) vous permet de provisionner des services Azure directement à partir de Kubernetes ou de Cloud Foundry. C’est une implémentation de [l’API Open Service Broker](https://www.openservicebrokerapi.org/) pour Azure.
 
-Avec OSBA, vous pouvez créer un serveur Azure Database pour PostgreSQL et liez-le à votre cluster AKS à l’aide du langage natif Kubernetes. En savoir plus sur l’utilisation d’OSBA et d’Azure Database pour PostgreSQL sur la page [Github OSBA](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
+Avec OSBA, vous pouvez créer un serveur Azure Database pour PostgreSQL et liez-le à votre cluster AKS à l’aide du langage natif Kubernetes. En savoir plus sur l’utilisation d’OSBA et d’Azure Database pour PostgreSQL sur la page [GitHub OSBA](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
 
 
 ## <a name="connection-pooling"></a>Regroupement de connexions

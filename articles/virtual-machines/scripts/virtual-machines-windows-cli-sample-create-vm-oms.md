@@ -1,6 +1,6 @@
 ---
-title: Exemple de script Azure CLI - Création d’une machine virtuelle Windows Server 2016 avec surveillance Log Analytics | Microsoft Docs
-description: Exemple de script Azure CLI - Création d’une machine virtuelle Windows Server 2016 avec surveillance Log Analytics
+title: Exemple Azure CLI - Créer une machine virtuelle Azure exécutant la supervision Log Analytics | Microsoft Docs
+description: Exemple Azure CLI - Créer une machine virtuelle Azure exécutant Windows Server 2016 et la supervision Log Analytics.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.custom: mvc
-ms.openlocfilehash: d4b73981e3cb21f7b4caefaf443014853929b708
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: mvc,seodec18
+ms.openlocfilehash: a3dcb7a7c15c3bf8e5578371e05519e802355fdc
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403387"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188161"
 ---
 # <a name="monitor-a-vm-with-log-analytics"></a>Surveillance d’une machine virtuelle avec Log Analytics
 

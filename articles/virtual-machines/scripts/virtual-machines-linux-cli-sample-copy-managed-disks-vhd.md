@@ -1,6 +1,6 @@
 ---
-title: 'Exemple de script d’interface de ligne de commande Azure : exporter/copier le VHD sous-jacent des disques managés vers un compte de stockage | Microsoft Docs'
-description: 'Exemple de script d’interface de ligne de commande Azure : exporter/copier le VHD sous-jacent des disques managés vers un compte de stockage'
+title: Exemple Azure CLI - Copier un disque managé dans un compte de stockage
+description: Exemple Azure CLI - Exporter ou copier un disque managé dans un compte de stockage
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.custom: mvc
-ms.openlocfilehash: c5f06a8c8fb707a2bf0451f8e9ed391ac0c5bad9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: mvc,seodec18
+ms.openlocfilehash: 4ee8b9dbb22e4530beb81bea9735867ecf21a1d4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045240"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183028"
 ---
-# <a name="exportcopy-the-underlying-vhd-of-a-managed-disk-to-a-storage-account-with-cli"></a>Exporter/copier le VHD sous-jacent d’un disque managé vers un compte de stockage avec l’interface CLI
+# <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exporter/copier un disque managé vers un compte de stockage à l’aide d’Azure CLI
 
 Ce script permet d’exporter le VHD sous-jacent d’un disque managé vers un compte de stockage situé dans la même région ou dans une autre région. Il génère d’abord l’URI SAS du disque managé, puis l’utilise pour copier le VHD vers un compte de stockage. Utilisez ce script pour copier vos disques managés en vue d’une extension régionale. 
 

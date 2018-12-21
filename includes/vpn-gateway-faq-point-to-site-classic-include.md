@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b8a785293c4e555b547c4b002f5ef5906a7633c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30198177"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323664"
 ---
-Ce FAQ s’applique aux connexions P2S utilisant le modèle de déploiement classique.
+Ce FAQ s’applique aux connexions P2S qui utilisent le modèle de déploiement classique.
 
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Quels systèmes d’exploitation clients puis-je utiliser avec une connexion de point à site ?
 
@@ -29,37 +29,37 @@ Les systèmes d’exploitation clients pris en charge sont les suivants :
 * Windows Server 2012 R2 (64 bits uniquement)
 * Windows 10
 
-### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp"></a>Puis-je utiliser un client VPN logiciel pour une connexion point à site qui prend en charge le protocole SSTP ?
+### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>Puis-je utiliser un client VPN logiciel qui prend en charge le protocole SSTP pour une connexion point à site ?
 
-Non. La prise en charge est limitée aux versions de système d'exploitation Windows répertoriées ci-dessus.
+ Non. La prise en charge est limitée aux versions de système d’exploitation Windows répertoriées.
 
-### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?
+### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN ma configuration point à site peut-elle comporter ?
 
-Nous prenons en charge jusqu'à 128 clients VPN pouvant se connecter à un réseau virtuel en même temps.
+Jusqu’à 128 clients VPN peuvent se connecter à un réseau virtuel en même temps.
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>Puis-je utiliser ma propre AC racine PKI interne pour une connectivité point à site ?
 
-Oui. Auparavant, seuls les certificats racines auto-signés pouvaient être utilisés. Vous pouvez toujours charger 20 certificats racine.
+Oui. Auparavant, seuls les certificats racines auto-signés pouvaient être utilisés. Vous pouvez toujours télécharger jusqu’à 20 certificats racine.
 
-### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Puis-je parcourir les serveurs proxy et les pare-feu à l’aide de la fonctionnalité point à site ?
+### <a name="can-i-traverse-proxies-and-firewalls-by-using-point-to-site"></a>Puis-je parcourir les serveurs proxy et les pare-feux à l’aide d’une connexion point à site ?
 
-Oui. Nous utilisons SSTP (Secure Socket Tunneling Protocol) pour avoir un tunnel traversant les pare-feu. Ce tunnel apparaît comme une connexion HTTPS.
+Oui. Nous utilisons le protocole SSTP (Secure Socket Tunneling Protocol) pour avoir un tunnel traversant les pare-feux. Ce tunnel apparaît comme une connexion HTTPS.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Si je redémarre un ordinateur client avec une configuration point à site, le réseau VPN va-t-il se reconnecter automatiquement ?
 
-Par défaut, l'ordinateur client ne rétablit pas automatiquement la connexion VPN.
+Par défaut, l’ordinateur client ne rétablit pas automatiquement la connexion VPN.
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>La configuration point à site prend-elle en charge la reconnexion automatique et DDNS sur les clients VPN ?
 
-La reconnexion automatique et DDNS ne sont actuellement pas pris en charge dans les configurations VPN point à site.
+ Non. La reconnexion automatique et DDNS ne sont actuellement pas pris en charge dans les configurations VPN point à site.
 
-### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Puis-je avoir des configurations coexistantes site à site et point à site pour un même réseau virtuel ?
+### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>Puis-je avoir des configurations site à site et point à site pour un même réseau virtuel ?
 
-Oui. Ces deux solutions fonctionnent si vous avez un type de réseau VPN basé sur un itinéraire pour votre passerelle. Pour le modèle de déploiement Classic, vous avez besoin d’une passerelle dynamique. Nous ne prenons pas en charge la configuration point à site pour les passerelles VPN à routage statique ou les passerelles utilisant l’applet de commande `-VpnType PolicyBased`.
+Oui. Les deux solutions fonctionnent si vous avez un type de réseau VPN basé sur un itinéraire pour votre passerelle. Pour le modèle de déploiement Classic, vous avez besoin d’une passerelle dynamique. Nous ne prenons pas en charge la configuration point à site pour les passerelles VPN à routage statique ou les passerelles qui utilisent la cmdlet **-VpnType PolicyBased**.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Puis-je configurer un client point à site pour me connecter à plusieurs réseaux virtuels en même temps ?
 
-Oui, vous pouvez. Néanmoins les réseaux virtuels ne peuvent pas avoir de préfixes IP qui se chevauchent, et les espaces d’adressage point à site ne doivent pas se chevaucher entre les réseaux virtuels.
+Oui. Toutefois, les réseaux virtuels ne peuvent pas avoir de préfixes IP qui se chevauchent, et les espaces d’adressage point à site ne doivent pas se chevaucher entre les réseaux virtuels.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Quel débit puis-je attendre des connexions site à site ou point à site ?
 

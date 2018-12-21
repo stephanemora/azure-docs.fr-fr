@@ -1,48 +1,50 @@
 ---
-title: Créer une passerelle d’application redondante dans une zone, avec une mise à l’échelle automatique et avec une adresse IP réservée - Azure PowerShell
-description: Apprenez à créer une passerelle d’application redondante dans une zone, avec une mise à l’échelle automatique et avec une adresse IP réservée à l’aide d’Azure PowerShell.
+title: 'Tutoriel : Créer une passerelle d’application redondante dans une zone, avec une mise à l’échelle automatique et avec une adresse IP réservée - Azure PowerShell'
+description: Dans ce tutoriel, apprenez à créer une passerelle d'application redondante dans une zone, avec une mise à l'échelle automatique et avec une adresse IP réservée à l’aide d'Azure PowerShell.
 services: application-gateway
 author: amitsriva
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 9/26/2018
+ms.date: 11/26/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d86ce2e1bac2fb58df8df748381a00eac21e65cb
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 99fa5d6f0ba74b56a53f2d1af1b99c7e5c2896a7
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48016932"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323198"
 ---
-# <a name="tutorial-create-an-autoscaling-zone-redundant-application-gateway-with-a-reserved-virtual-ip-address-using-azure-powershell"></a>Didacticiel : Créer une passerelle d’application redondante dans une zone, avec une mise à l’échelle automatique et avec une adresse IP virtuelle réservée à l’aide d’Azure PowerShell
+# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutoriel : Créer une passerelle d'application qui améliore l'accès aux applications web
 
-Ce didacticiel explique comment créer une passerelle Azure Application Gateway à l’aide des cmdlets Azure PowerShell et du modèle de déploiement Azure Resource Manager. Ce didacticiel se concentre sur les différences entre la nouvelle référence SKU de mise à l’échelle automatique et la référence SKU Standard existante. Plus précisément, les fonctionnalités de prise en charge de la mise à l’échelle automatique, de redondance de zone et d’adresses IP virtuelles réservées (adresses IP statiques).
+Si vous êtes un administrateur informatique soucieux d'améliorer l'accès aux applications web, vous pouvez optimiser votre passerelle d'application pour qu'elle s'adapte à la demande des clients et s'étende sur plusieurs zones de disponibilité. Ce tutoriel vous aide à configurer les fonctionnalités Azure Application Gateway qui gèrent la mise à l'échelle automatique, la redondance de zone et les adresses IP virtuelles réservées (adresses IP statiques). Vous allez utiliser des cmdlets Azure PowerShell et le modèle de déploiement Azure Resource Manager pour résoudre le problème.
 
-Pour plus d’informations sur la mise à l’échelle de la passerelle d’application et la redondance interzone, consultez [Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)](application-gateway-autoscaling-zone-redundant.md).
-
-> [!IMPORTANT]
-> La référence SKU de la passerelle d’application redondante interzone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!IMPORTANT] 
+> La référence SKU de la passerelle d’application redondante interzone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Configurer le paramètre de configuration de mise à l’échelle automatique
-> * Utiliser le paramètre de zone
-> * Utiliser une adresse IP virtuelle statique
+> * Créer un réseau virtuel avec mise à l'échelle automatique
+> * Créer une adresse IP publique réservée
+> * Configurer l'infrastructure de votre passerelle d'application
+> * Spécifier la mise à l’échelle automatique
 > * Créer la passerelle Application Gateway
-
+> * Tester la passerelle d’application
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
+## <a name="prerequisites"></a>Prérequis
+
 Pour ce didacticiel, vous devez exécuter Azure PowerShell localement. Vous devez disposer du module Azure PowerShell version 6.9.0 ou d’une version ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
 
-## <a name="sign-in-to-your-azure-account"></a>Connexion à votre compte Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 ```azurepowershell
 Connect-AzureRmAccount
 Select-AzureRmSubscription -Subscription "<sub name>"
 ```
+
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 Créer un groupe de ressources dans l’un des emplacements disponibles.
 
@@ -54,8 +56,9 @@ $rg = "<rg name>"
 New-AzureRmResourceGroup -Name $rg -Location $location
 ```
 
-## <a name="create-a-vnet"></a>Créer un réseau virtuel
-Créez un réseau virtuel avec un sous-réseau dédié pour une passerelle d’application de mise à l’échelle automatique. Actuellement, une seule passerelle d’application de mise à l’échelle automatique peut être déployée dans chaque sous-réseau dédié.
+## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+
+Créez un réseau virtuel composé d'un sous-réseau dédié pour une passerelle d'application avec mise à l'échelle automatique. Actuellement, une seule passerelle d’application de mise à l’échelle automatique peut être déployée dans chaque sous-réseau dédié.
 
 ```azurepowershell
 #Create VNet with two subnets
@@ -67,7 +70,7 @@ $vnet = New-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
 
 ## <a name="create-a-reserved-public-ip"></a>Créer une adresse IP publique réservée
 
-Spécification de la méthode d’allocation PublicIPAddress **Statique**. Une adresse IP virtuelle de passerelle d’application de mise à l’échelle automatique peut être uniquement statique. Les adresses IP dynamiques ne sont pas prises en charge. Seule la référence SKU PublicIpAddress standard est prise en charge.
+Définissez la méthode d'allocation d'adresses PublicIPAddress sur **Statique**. Une adresse IP virtuelle de passerelle d’application de mise à l’échelle automatique peut être uniquement statique. Les adresses IP dynamiques ne sont pas prises en charge. Seule la référence SKU PublicIpAddress standard est prise en charge.
 
 ```azurepowershell
 #Create static public IP
@@ -77,7 +80,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
 
 ## <a name="retrieve-details"></a>Récupérer les détails
 
-Récupérez les détails du groupe de ressources, du sous-réseau et de l’adresse IP dans un objet local pour créer des informations de configuration d’adresse IP de passerelle d’application.
+Récupérez les détails du groupe de ressources, du sous-réseau et de l'adresse IP dans un objet local afin de créer des informations de configuration d'adresse IP pour la passerelle d'application.
 
 ```azurepowershell
 $resourceGroup = Get-AzureRmResourceGroup -Name $rg
@@ -85,8 +88,10 @@ $publicip = Get-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP"
 $vnet = Get-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
 $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
-## <a name="configure-application-gateway-infrastructure"></a>Configurer une infrastructure de passerelle d’application
-Configurez l’adresse IP, l’adresse IP frontend, le pool principal, les paramètres HTTP, le certificat, le port, l’écouteur et la règle dans un format identique à celui de la passerelle Application Gateway Standard existante. La nouvelle référence SKU suit le même modèle d’objet que la référence SKU Standard.
+
+## <a name="configure-the-infrastructure"></a>Configurer l’infrastructure
+
+Configurez l'adresse IP, l'adresse IP frontend, le pool principal, les paramètres HTTP, le certificat, le port, l'écouteur et la règle dans un format identique à celui de la passerelle d'application standard existante. La nouvelle référence SKU suit le même modèle d’objet que la référence SKU Standard.
 
 ```azurepowershell
 $ipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
@@ -114,14 +119,15 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleTyp
 
 ## <a name="specify-autoscale"></a>Spécifier la mise à l’échelle automatique
 
-Vous pouvez maintenant spécifier la configuration de mise à l’échelle automatique pour la passerelle d’application. Deux types de configuration de mise à l’échelle automatique sont pris en charge :
+Vous pouvez maintenant spécifier la configuration de mise à l'échelle automatique pour la passerelle d'application. Deux types de configuration de mise à l’échelle automatique sont pris en charge :
 
-- **Mode de capacité fixe**. Dans ce mode, la passerelle d’application n’effectue pas de mise à l’échelle automatique et fonctionne à une capacité d’unité d’échelle fixe.
+* **Mode de capacité fixe**. Dans ce mode, la passerelle d’application n’effectue pas de mise à l’échelle automatique et fonctionne à une capacité d’unité d’échelle fixe.
 
    ```azurepowershell
    $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
    ```
-- **Mode de mise à l’échelle automatique**. Dans ce mode, la passerelle d’application se met automatiquement à l’échelle en fonction du modèle de trafic d’application.
+
+* **Mode de mise à l’échelle automatique**. Dans ce mode, la passerelle d’application se met automatiquement à l’échelle en fonction du modèle de trafic d’application.
 
    ```azurepowershell
    $autoscaleConfig = New-AzureRmApplicationGatewayAutoscaleConfiguration -MinCapacity 2
@@ -130,9 +136,7 @@ Vous pouvez maintenant spécifier la configuration de mise à l’échelle autom
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
-Créez une passerelle Application Gateway et incluez des zones de redondance. 
-
-La configuration de zone est prise en charge uniquement dans les régions où les zones Azure sont disponibles. Dans les régions où les zones Azure ne sont pas disponibles, le paramètre de zone ne doit pas être utilisé. Une passerelle d’application peut également être déployée dans une zone unique, deux zones ou les trois zones. PublicIPAddress pour une passerelle d’application de zone unique doit être lié à la même zone. Pour une passerelle d’application redondante sur deux ou trois zones, PublicIPAddress doit aussi présenter une redondance avec la zone, et donc ne pas avoir de zone spécifiée.
+Créez la passerelle d'application et incluez les zones de redondance et la configuration de mise à l'échelle automatique.
 
 ```azurepowershell
 $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
@@ -145,24 +149,17 @@ $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Utilisez [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) pour obtenir l’adresse IP publique de la passerelle d’application. Copiez l’adresse IP publique ou le nom DNS, puis collez cette donnée dans la barre d’adresses de votre navigateur.
+Utilisez Get-AzureRmPublicIPAddress pour obtenir l'adresse IP publique de la passerelle d'application. Copiez l’adresse IP publique ou le nom DNS, puis collez cette donnée dans la barre d’adresses de votre navigateur.
 
 `Get-AzureRmPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Explorez d’abord les ressources qui ont été créées avec la passerelle d’application puis, lorsque vous n’en avez plus besoin, utilisez la commande `Remove-AzureRmResourceGroup` pour supprimer le groupe de ressources, la passerelle d’application et toutes les ressources associées.
+
+Commencez par explorer les ressources créées avec la passerelle d'application. Puis, lorsque vous n'en aurez plus besoin, vous pourrez utiliser la commande `Remove-AzureRmResourceGroup` pour supprimer le groupe de ressources, la passerelle d'application et toutes les ressources associées.
 
 `Remove-AzureRmResourceGroup -Name $rg`
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Dans ce tutoriel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Utiliser une adresse IP virtuelle statique
-> * Configurer le paramètre de configuration de mise à l’échelle automatique
-> * Utiliser le paramètre de zone
-> * Créer la passerelle Application Gateway
 
 > [!div class="nextstepaction"]
 > [Créer une passerelle d’application avec des règles d’acheminement par chemin d’URL](./tutorial-url-route-powershell.md)

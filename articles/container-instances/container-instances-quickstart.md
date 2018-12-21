@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Exécuter une application dans Azure Container Instances'
-description: Dans ce démarrage rapide, vous allez utiliser Azure CLI pour déployer une application s’exécutant dans un conteneur Docker sur Azure Container Instances
+title: 'Démarrage rapide : Exécuter une application dans Azure Container Instances - CLI'
+description: Dans ce guide de démarrage rapide, vous utilisez l'interface de ligne de commande Azure pour déployer une application de conteneur Docker pour l’exécuter dans un conteneur isolé dans Azure Container Instances.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855661"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189606"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Démarrage rapide : Exécuter une application dans Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Démarrage rapide : Exécuter une application de conteneur dans Azure Container Instances à l'aide de l'interface de ligne de commande Azure
 
-Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker dans Azure. Vous n’avez pas besoin de déployer de machines virtuelles ou d’utiliser une plateforme d’orchestration de conteneur complète telle que Kubernetes. Dans ce démarrage rapide, vous utilisez le Portail Azure pour créer un conteneur dans Azure et mettez à disposition son application avec un nom de domaine complet. Quelques secondes après l’exécution d’une seule commande de déploiement, vous pouvez accéder à l’application en cours d’exécution :
+Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker dans Azure. Vous n’avez pas besoin de déployer de machines virtuelles ou d’utiliser une plateforme d’orchestration de conteneur complète telle que Kubernetes. Dans ce guide de démarrage rapide, vous utilisez l'interface de ligne de commande Azure pour créer un conteneur dans Azure et mettez à disposition son application avec un nom de domaine complet. Quelques secondes après l’exécution d’une seule commande de déploiement, vous pouvez accéder à l’application en cours d’exécution :
 
 ![Application déployée dans Azure Container Instances affichée dans le navigateur][aci-app-browser]
 

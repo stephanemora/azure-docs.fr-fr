@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : authentification unique transparente - Fonctionnement | Microsoft Docs'
+title: 'Azure AD Connect : authentification unique transparente - Fonctionnement | Microsoft Docs'
 description: Cet article décrit le fonctionnement de la fonctionnalité d’authentification unique transparente d’Azure Active Directory.
 services: active-directory
 keywords: Qu’est-ce qu’Azure AD Connect, Installation d’Active Directory, Composants requis pour Azure AD, SSO, Authentification unique
@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 54b614e49bc7c03325ebeada60232fca861874e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687399"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193074"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : immersion technique
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : Présentation technique approfondie
 
 Cet article vous fournit des détails techniques sur le fonctionnement de la fonctionnalité d’authentification unique (SSO) transparente d’Azure Active Directory.
 
 ## <a name="how-does-seamless-sso-work"></a>Fonctionnement de l’authentification unique transparente (SSO)
 
 Cette section est composée de trois parties :
+
 1. Configuration de la fonctionnalité d’authentification unique transparente.
 2. Fonctionnement d’une transaction de connexion mono-utilisateur dans un navigateur web avec l’authentification unique transparente
 3. Fonctionnement d’une transaction de connexion mono-utilisateur sur un client natif avec l’authentification unique transparente
@@ -36,6 +37,7 @@ Cette section est composée de trois parties :
 ### <a name="how-does-set-up-work"></a>Comment la configuration s’opère-t-elle ?
 
 L’authentification unique transparente s’active via Azure AD Connect comme indiqué [ici](how-to-connect-sso-quick-start.md). Voici ce qu’il se passe pendant l’activation de la fonctionnalité :
+
 - Un compte d’ordinateur nommé `AZUREADSSOACC` (c’est-à-dire Azure AD) est créé sur votre instance Active Directory (AD) locale, dans chaque forêt AD.
 - La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD. S’il existe plusieurs forêts AD, chacun a sa propre clé de déchiffrement Kerberos.
 - Par ailleurs, deux noms de principal du service (SPN) Kerberos sont créés pour représenter les deux URL utilisées pendant la connexion à Azure AD.
@@ -56,8 +58,8 @@ Le flux de connexion dans un navigateur web est le suivant :
 2. Si l’utilisateur n’est pas déjà connecté, il est redirigé vers la page de connexion Azure AD.
 3. L’utilisateur tape son nom d’utilisateur dans la page de connexion Azure AD.
 
-  >[!NOTE]
-  >Pour [certaines applications](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), les étapes 2 et 3 ne sont pas nécessaires.
+   >[!NOTE]
+   >Pour [certaines applications](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), les étapes 2 et 3 ne sont pas nécessaires.
 
 4. En utilisant JavaScript en arrière-plan, Azure AD demande au client, via une réponse 401 Non autorisé, de fournir un ticket Kerberos.
 5. À son tour, le navigateur demande un ticket à Active Directory pour le compte d’ordinateur `AZUREADSSOACC` (qui représente Azure AD).

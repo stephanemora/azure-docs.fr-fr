@@ -1,24 +1,27 @@
 ---
-title: Didacticiel Azure Container Service - Mettre à jour une application
+title: (DÉPRÉCIÉ) Tutoriel Azure Container Service - Mettre à jour une application
 description: Didacticiel Azure Container Service - Mettre à jour une application
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9cb5769d7f54a1036bf14199c87961c95ed2e7ce
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 99e282b720bb29ed5fb94ad2c9779ae56a019836
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432404"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993513"
 ---
-# <a name="update-an-application-in-kubernetes"></a>Mettre à jour une application dans Kubernetes
+# <a name="deprecated-update-an-application-in-kubernetes"></a>(DÉPRÉCIÉ) Mettre à jour une application dans Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Pour obtenir la version mise à jour de ce tutoriel qui utilise Azure Kubernetes Service, consultez [Tutoriel : Mettre à jour une application dans Azure Kubernetes Service (AKS).](../../aks/tutorial-kubernetes-app-update.md)
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Après avoir déployé une application dans Kubernetes, vous pouvez la mettre à jour en spécifiant une nouvelle image conteneur ou une nouvelle version de l’image. Cette mise à jour se fait alors étape par étape, afin que seulement une partie du déploiement soit mise à jour simultanément. Cette mise à jour progressive permet à l’application de poursuivre son exécution pendant la mise à jour. Elle fournit également un mécanisme de restauration en cas d’échec du déploiement. 
 
@@ -135,7 +138,7 @@ Pour surveiller le déploiement, utilisez la commande [kubectl get pod](https://
 kubectl get pod
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE

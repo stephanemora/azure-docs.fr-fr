@@ -1,5 +1,5 @@
 ---
-title: Comparer les produits de machine learning de Microsoft - Azure | Microsoft Docs
+title: Comparer les options de produits de machine learning de Microsoft
 description: Comparez la gamme de produits proposés par Microsoft pour générer, déployer et gérer vos modèles Machine Learning. Décidez quel produits choisir pour votre solution.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872543"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274109"
 ---
-# <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Quels sont les produits de machine learning proposés par Microsoft ?
+# <a name="what-are-the-machine-learning-products-at-microsoft"></a>Quels sont les produits de machine learning proposés par Microsoft ?
 
 Microsoft propose toute une gamme de produits pour générer, déployer et gérer vos modèles Machine Learning. Comparez ces produits et choisissez celui qu’il vous faut pour optimiser le développement de vos solutions de machine learning.
 
@@ -41,8 +41,7 @@ Le service [Azure Machine Learning](overview-what-is-azure-ml.md) est un service
 
 Utilisez le service Azure Machine Learning pour entraîner, déployer et gérer des modèles ML à l’aide de Python et de l’interface CLI à l’échelle du cloud.
 
->[!Note]
-> Vous pouvez essayer Azure Machine Learning gratuitement. Pas de carte de crédit ni d’abonnement Azure requis. Commencez dès maintenant. https://azure.microsoft.com/free/
+Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree) dès aujourd’hui.
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 

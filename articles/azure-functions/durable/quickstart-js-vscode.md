@@ -5,18 +5,18 @@ services: functions
 documentationcenter: na
 author: ColbyTresness
 manager: jeconnoc
-keywords: azure functions, fonctions, traitement des événements, calcul, architecture serverless
+keywords: azure functions, functions, traitement des événements, calcul, architecture sans serveur
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 7dceed4d81f1e1767cbf91804573043d1204beee
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ad17b6ef032c7bc25a019d53f12cc33baa3163f3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838903"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340894"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Créer votre première fonction durable dans JavaScript
 
@@ -44,66 +44,35 @@ Pour suivre ce tutoriel :
 
 [!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-create-function-app-vs-code.md)]
 
+## <a name="install-the-durable-functions-npm-package"></a>Installer le package npm Durable Functions
+
+1. Installez le package npm `durable-functions` en exécutant `npm install durable-functions` dans le répertoire racine de l’application de fonction.
+
 ## <a name="create-a-starter-function"></a>Créer une fonction de démarrage
 
 Tout d’abord, créez une fonction déclenchée via HTTP qui démarre une orchestration de fonction durable.
 
-1. À partir d’**Azure : Functions**, cliquez sur l’icône de Créer une fonction.
+1. À partir d’**Azure : Functions**, cliquez sur l’icône Créer une fonction.
 
     ![Créer une fonction](./media/quickstart-js-vscode/create-function.png)
 
-1. Sélectionnez le dossier avec votre projet d’application de fonction, puis le modèle de fonction **Déclencheur HTTP**.
+2. Sélectionnez le dossier avec votre projet d’application de fonction, puis le modèle de fonction **Déclencheur HTTP**.
 
     ![Choisir le modèle de déclencheur HTTP](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-1. Tapez `HttpStart` pour le nom de fonction et appuyez sur Entrée, puis sélectionnez l’authentification **Anonyme**.
+3. Tapez `HttpStart` pour le nom de fonction et appuyez sur Entrée, puis sélectionnez l’authentification **Anonyme**.
 
     ![Choisir une authentification anonyme](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
     Une fonction est créée dans le langage que vous avez choisi à l’aide du modèle de fonction déclenchée via HTTP.
 
-1. Remplacez index.js par le code JavaScript suivant :
+4. Remplacez index.js par le code JavaScript suivant :
 
-    ```javascript
-    const df = require("durable-functions");
-    
-    module.exports = async function (context, req) {
-        const client = df.getClient(context);
-        const instanceId = await client.startNew(req.params.functionName, undefined, req.body);
-    
-        context.log(`Started orchestration with ID = '${instanceId}'.`);
-    
-        return client.createCheckStatusResponse(context.bindingData.req, instanceId);
-    };
-    ```
+    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-1. Remplacez function.json par le code JSON ci-dessous :
+5. Remplacez function.json par le code JSON ci-dessous :
 
-    ```JSON
-    {
-      "bindings": [
-        {
-          "authLevel": "anonymous",
-          "name": "req",
-          "type": "httpTrigger",
-          "direction": "in",
-          "route": "orchestrators/{functionName}",
-          "methods": ["post"]
-        },
-        {
-          "name": "$return",
-          "type": "http",
-          "direction": "out"
-        },
-        {
-          "name": "starter",
-          "type": "orchestrationClient",
-          "direction": "in"
-        }
-      ],
-      "disabled": false
-    }
-    ```
+    [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
 Nous avons maintenant créé un point d’entrée dans notre fonction durable. Ajoutons un orchestrateur.
 
@@ -113,11 +82,11 @@ Créez maintenant une autre fonction qui servira d’orchestrateur. Nous utiliso
 
 1. Répétez les étapes de la section précédente pour créer une deuxième fonction à l’aide du modèle de déclencheur HTTP. Cette fois, nommez la fonction `OrchestratorFunction`.
 
-1. Ouvrez le fichier index.js de la nouvelle fonction et remplacez son contenu par le code suivant :
+2. Ouvrez le fichier index.js de la nouvelle fonction et remplacez son contenu par le code suivant :
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-1. Ouvrez le fichier function.json et remplacez-le par le code JSON suivant :
+3. Ouvrez le fichier function.json et remplacez-le par le code JSON suivant :
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
 
@@ -127,11 +96,11 @@ Nous avons ajouté un orchestrateur pour coordonner les fonctions d’activité.
 
 1. Répétez les étapes des sections précédentes pour créer une troisième fonction à l’aide du modèle de déclencheur HTTP. Cette fois, nommez la fonction `SayHello`.
 
-1. Ouvrez le fichier index.js de la nouvelle fonction et remplacez son contenu par le code suivant :
+2. Ouvrez le fichier index.js de la nouvelle fonction et remplacez son contenu par le code suivant :
 
     [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-1. Remplacez function.json par le code JSON ci-dessous :
+3. Remplacez function.json par le code JSON ci-dessous :
 
     [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
 
@@ -141,19 +110,20 @@ Nous avons maintenant ajouté tous les composants nécessaires pour démarrer un
 
 Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions sur votre ordinateur de développement local. Vous êtes invité à installer ces outils la première fois que vous démarrez une fonction dans Visual Studio Code.  
 
-1. Installez le package npm durable-functions en exécutant `npm install durable-functions` dans le répertoire racine de l’application de fonction.
-
 1. Sur un ordinateur Windows, démarrez l’émulateur de stockage Azure et vérifiez que la propriété **AzureWebJobsStorage** de local.settings.json a la valeur `UseDevelopmentStorage=true`. Sur un ordinateur Mac ou Linux, définissez la propriété **AzureWebJobsStorage** sur la chaîne de connexion d’un compte de stockage Azure existant. Vous créerez le compte de stockage plus loin dans cet article.
 
-1. Pour tester votre fonction, définissez un point d’arrêt dans le code de fonction et appuyez sur F5 pour démarrer le projet d’application de fonction. La sortie de Core Tools est affichée dans le panneau **Terminal**. Si vous utilisez Durable Functions pour la première fois, l’extension Durable Functions est installée et la génération peut prendre plusieurs secondes.
+2. Pour tester votre fonction, définissez un point d’arrêt dans le code de fonction et appuyez sur F5 pour démarrer le projet d’application de fonction. La sortie de Core Tools est affichée dans le panneau **Terminal**. Si vous utilisez Durable Functions pour la première fois, l’extension Durable Functions est installée et la génération peut prendre plusieurs secondes.
 
-1. Dans le panneau **Terminal**, copiez le point de terminaison de l’URL de votre fonction déclenchée via HTTP.
+    > [!NOTE]
+    > Durable Functions JavaScript requiert la version **1.7.0** ou supérieure de l’extension **Microsoft.Azure.WebJobs.Extensions.DurableTask**. Vérifiez si la version de l’extension Durable Functions dans votre fichier `extensions.csproj` est conforme à cette exigence. Si ce n’est pas le cas, arrêtez votre application de fonction, changez de version, puis appuyez sur F5 pour redémarrer votre application de fonction.
+
+3. Dans le panneau **Terminal**, copiez le point de terminaison de l’URL de votre fonction déclenchée via HTTP.
 
     ![Sortie Azure locale](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-1. Collez l’URL de la requête HTTP dans la barre d’adresse de votre navigateur et vérifiez l’état de votre orchestration.
+4. Collez l’URL de la requête HTTP dans la barre d’adresse de votre navigateur et vérifiez l’état de votre orchestration.
 
-1. Pour arrêter le débogage, appuyez sur Maj + F1.
+5. Pour arrêter le débogage, appuyez sur Maj + F1.
 
 Après avoir vérifié que la fonction s’exécute correctement sur votre ordinateur local, il est temps de publier le projet sur Azure.
 
@@ -165,9 +135,9 @@ Après avoir vérifié que la fonction s’exécute correctement sur votre ordin
 
 1. Copiez l’URL du déclencheur HTTP à partir du panneau **Sortie**. L’URL qui appelle la fonction déclenchée via HTTP doit être au format suivant :
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>
+        http://<functionappname>.azurewebsites.net/orchestrators/<functionname>
 
-1. Collez cette nouvelle URL de requête HTTP dans la barre d’adresse de votre navigateur. Vous devez obtenir la même réponse d’état que lorsque vous avez utilisé l’application publiée.
+2. Collez cette nouvelle URL de requête HTTP dans la barre d’adresse de votre navigateur. Vous devez obtenir la même réponse d’état que lorsque vous avez utilisé l’application publiée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

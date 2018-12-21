@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que l’API de traduction de texte Translator Text ?
+title: Qu’est-ce que l’API de traduction de texte Translator Text ? - API de traduction de texte Translator Text
 titlesuffix: Azure Cognitive Services
 description: Intégrez l’API de traduction de texte Translator Text à vos applications, sites web, outils et autres solutions, pour offrir une expérience utilisateur multilingue.
 services: cognitive-services
@@ -8,28 +8,31 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
-ms.date: 05/10/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.custom: seodec18
+ms.openlocfilehash: eed06d64e81196bbd6964aa33840f37dc5f14dbc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645021"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091609"
 ---
 # <a name="what-is-translator-text-api"></a>Qu’est-ce que l’API de traduction de texte Translator Text ?
 
-Vous pouvez intégrer l’API de traduction de texte Translator Text en toute transparence à vos applications, sites web, outils ou autres solutions pour offrir une expérience utilisateur multilingue dans [plus de 60 langues](languages.md). Cette API peut prendre en charge la traduction de texte sur n’importe quelle plateforme matérielle et avec tout système d’exploitation.
+Il est facile d’intégrer l’API de traduction de texte Translator Text dans vos applications, sites web, outils et solutions. Cette interface vous permet d’ajouter des expériences utilisateur multilingues dans [plus de 60 langues](languages.md). Elle peut être utilisée sur tout type de plateforme matérielle possédant un système d’exploitation adapté à la traduction de texte en texte.
 
-L’API de traduction de texte Translator Text fait partie de la [collection d’API Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) d’algorithmes de machine learning et d’intelligence artificielle dans le cloud, que vous pouvez utiliser directement dans vos projets de développement.
+L’API de traduction de texte Translator Text fait partie de la collection d’[API Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) Azure d’algorithmes de machine learning et d’intelligence artificielle dans le cloud, que vous pouvez utiliser directement dans vos projets de développement.
 
 ## <a name="about-microsoft-translator"></a>À propos de Microsoft Translator
 
-Microsoft Translator est un service de traduction informatique. Au cœur de ce service figurent l’API de traduction de texte Translator Text et [l’API de traduction de conversation Translator Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation) qui alimentent différents produits et services Microsoft et que des milliers d’entreprises à travers le monde utilisent dans leurs applications et flux de travail pour proposer leur contenu à un public international.
+Microsoft Translator est un service de traduction informatique. Son service principal est l’API de traduction de texte Translator Text, qui alimente un certain nombre de produits et services Microsoft. Il est utilisé par des milliers d’entreprises à travers le monde, dans leurs applications et flux de travail qui proposent leur contenu à un public international.
 
-La traduction vocale est également disponible par le biais de la [préversion du service Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/), qui combine l’API de traduction de conversation Translator Speech, l’API Reconnaissance vocale Bing et le service Custom Speech Service (préversion) existants au sein d’un service unifié et entièrement personnalisable.  
+La traduction vocale, alimentée par l’API de traduction de texte Translator Text, est également disponible via le [Service Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Il combine les fonctionnalités de l’API de traduction de conversation Translator Speech,de l’API Reconnaissance vocale Bing et du Custom Speech Service (préversion) en un service unifié et entièrement personnalisable. Le Speech Service remplace l’API de traduction de conversation Translator Speech, qui sera désactivé le 15 octobre 2019.
 
-Découvrez-en plus sur le [service Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx).
+## <a name="language-support"></a>Support multilingue
+
+Microsoft Translator fournit une prise en charge multilingue pour la traduction, translittération, détection de la langue et les dictionnaires. Consultez [Prise en charge de la langue](language-support.md) pour obtenir une liste complète, ou accéder à la liste par programmation avec l’[API REST](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 
 ## <a name="language-customization"></a>Personnalisation de la langue
 

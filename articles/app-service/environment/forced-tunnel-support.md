@@ -1,5 +1,5 @@
 ---
-title: Configurer votre environnement Azure App Service pour le tunneliser de force
+title: Configurer App Service Environment pour le tunneliser de force - Azure
 description: Configurez votre environnement App Service pour qu’il fonctionne quand du trafic sortant est tunnelisé de force
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: ba93aab14c8eaccf9e3ed9ae9db0d169f41dddea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.custom: seodec18
+ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024043"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272728"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurer votre environnement App Service avec le tunneling forcé
 
@@ -105,13 +105,13 @@ Pour tunneliser tout le trafic sortant à partir de votre ASE, à l’exception 
 
 3. Recherchez les adresses qui seront utilisées pour tout le trafic sortant de votre environnement App Service vers Internet. Si vous effectuez un tunneling forcé, il s’agit de vos adresses NAT ou adresses IP de passerelle. Si vous voulez acheminer le trafic sortant de l’environnement App Service via une appliance virtuelle réseau, l’adresse de sortie est l’adresse IP publique de l’appliance.
 
-4. _Pour définir les adresses de sortie dans un environnement App Service existant :_ accédez à resources.azure.com, and go to Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier**. Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
+4. _Pour définir les adresses de sortie dans une instance App Service Environment existante :_ accédez à resources.azure.com, puis à Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier**. Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
    Sélectionnez **PUT** (Placer) en haut. Cette option déclenche une opération de mise à l’échelle de votre environnement App Service et ajuste le pare-feu.
 
-_Pour créer votre ASE avec les adresses de sortie_ : suivez les instructions de [Créer un environnement App Service à l’aide d’un modèle][template] et extrayez le modèle approprié.  Modifiez la section « resources » dans le fichier azuredeploy.json, mais pas dans le bloc « properties », et incluez une ligne pour **userWhitelistedIpRanges** avec vos valeurs.
+_Pour créer votre ASE avec les adresses de sortie_ : suivez les instructions de [Créer un ASE à l’aide d’un modèle Azure Resource Manager][template] et extrayez le modèle approprié.  Modifiez la section « resources » dans le fichier azuredeploy.json, mais pas dans le bloc « properties », et incluez une ligne pour **userWhitelistedIpRanges** avec vos valeurs.
 
     "resources": [
       {

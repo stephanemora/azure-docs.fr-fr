@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 12/11/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 9085bea06553bcb2b8cf871153ddd1fb767c04f4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445706"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277741"
 ---
-# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec Analyse du coût
+# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
 Pour pouvoir contrôler et optimiser vos coûts Azure correctement, vous devez comprendre d’où proviennent les coûts au sein de votre organisation. Il est également utile de connaître le coût de vos services, notamment en fonction des environnements et des systèmes. La visibilité de la totalité des coûts est essentielle pour comprendre avec précision les modèles de dépenses de l’organisation. Les modèles de dépenses peuvent être utilisés pour appliquer des mécanismes de maîtrise des coûts, comme les budgets.
 
@@ -35,7 +35,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 L’analyse du coût est accessible à tous les clients bénéficiant d’un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût. Pour plus d’informations sur l’attribution de l’accès aux données Cost Management, consultez [Assigner l’accès aux données](assign-access-acm-data.md).
 
 - Compte de facturation
-- Division
+- department
 - Compte d’inscription
 - Groupe d’administration
 - Abonnement
@@ -43,7 +43,7 @@ L’analyse du coût est accessible à tous les clients bénéficiant d’un [Co
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-- Connectez-vous au portail Azure sur http://portal.azure.com.
+- Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="review-costs-in-cost-analysis"></a>Passer en revue les coûts dans l’analyse du coût
 
@@ -63,7 +63,7 @@ L’affichage initial de l’analyse du coût inclut les zones suivantes :
 
 **(Graphiques croisés dynamiques (anneau)** – fournissent des tableaux croisés dynamiques où le coût total est détaillé par un ensemble commun de propriétés standard. Ils montrent les coûts cumulés, du plus élevé au plus faible, pour le mois en cours. Vous pouvez changer les graphiques croisés dynamiques à tout moment en sélectionnant un critère de croisement différent. Les coûts sont classés par : service (catégorie comptage), localisation (région) et étendue enfant par défaut. Par exemple, les comptes d’inscription sous les comptes de facturation, les groupes de ressources sous les abonnements et les ressources sous les groupes de ressources.
 
-![Affichage initial de l’analyse du coût](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+![Vue initiale de l’analyse des coûts dans le Portail Azure](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
 ## <a name="customize-cost-views"></a>Personnaliser les vues des coûts
 
@@ -76,21 +76,23 @@ Toutefois, il existe de nombreux cas où vous avez besoin d’une analyse plus a
 
 L’analyse du coût affiche les données du mois en cours par défaut. Utilisez le sélecteur de date pour passer rapidement au mois dernier, au mois actuel, au trimestre civil actuel, à l’année civile actuelle ou à une plage de dates personnalisée de votre choix. La sélection du dernier mois est le moyen le plus rapide pour analyser votre dernière facture Azure et effectuer facilement le rapprochement des frais. Les options du trimestre actuel et de l’année actuelle facilitent le suivi des coûts par rapport aux budgets à long terme. Vous pouvez également sélectionner une autre plage de dates. Par exemple, vous pouvez sélectionner un seul jour, les sept derniers jours ou même des jours qui remontent jusqu’à un an.
 
-![Sélecteur de date](./media/quick-acm-cost-analysis/date-selector.png)
+![Sélecteur de date affichant un exemple de sélection pour ce mois](./media/quick-acm-cost-analysis/date-selector.png)
 
 L’analyse du coût montre les coûts **cumulés** par défaut. Les coûts cumulés incluent tous les coûts de chaque jour plus des jours précédents, pour obtenir une vue toujours plus complète de vos coûts quotidiens cumulés. Cette vue est optimisée pour montrer les tendances par rapport à un budget pendant l’intervalle de temps sélectionné.
 
 Il existe aussi la vue **quotidienne** qui montre les coûts de chaque jour. La vue quotidienne n’affiche pas de tendance géométrique. Elle est conçue pour montrer les irrégularités comme les pics ou les chutes de dépenses de chaque jour. Si vous avez sélectionné un budget, la vue quotidienne indique aussi une estimation de ce à quoi peut ressembler votre budget quotidien. Quand vos coûts quotidiens sont constamment au-dessus du budget quotidien estimé, vous pouvez vous attendre à exploser votre budget mensuel. Le budget quotidien estimé est simplement un moyen pour vous aider à visualiser votre budget à un niveau inférieur. Si les coûts quotidiens présentent des fluctuations, la comparaison du budget quotidien estimé au budget mensuel est moins précise.
 
-![Affichage quotidien](./media/quick-acm-cost-analysis/daily-view.png)
+En général, attendez-vous à voir des données ou des notifications correspondant aux ressources utilisées dans les huit heures.
+
+![Vue quotidienne présentant un exemple des coûts quotidiens pour le mois actuel](./media/quick-acm-cost-analysis/daily-view.png)
 
 Vous pouvez **effectuer un regroupement** pour sélectionner une catégorie de groupe afin de changer l’affichage des données dans le graphique en aires Total supérieur. Le regroupement vous permet de voir rapidement comment vos dépenses sont classées par propriétés de ressources et d’utilisation communes, comme des étiquettes de ressources ou de groupes de ressources. Pour regrouper par étiquettes, sélectionnez la clé d’étiquette d’après laquelle vous souhaitez effectuer le regroupement, et vous verrez les coûts répartis par valeur pour cette étiquette, avec un segment supplémentaire pour les ressources pour lesquelles cette étiquette n’est pas appliquée. Notez que Cost Management prend uniquement en charge les étiquettes de ressources à compter de la date à laquelle les étiquettes sont appliquées directement à la ressource. Les étiquettes de groupes de ressources ne sont pas prises en charge à l’heure actuelle. Voici une vue des coûts des services Azure pour le mois dernier.
 
-![Affichage cumulé quotidien regroupé](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
+![Vue cumulée quotidienne groupée présentant un exemple de coûts du service Azure pour le mois dernier](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
 Les graphiques croisés dynamiques sous le graphique principal affichent différents regroupements pour vous donner une vue d’ensemble de vos coûts globaux pour la période et les filtres sélectionnés. Sélectionnez une propriété ou une étiquette pour afficher les coûts agrégés d’après n’importe quelle dimension. L’ensemble complet des données pour l’affichage total est visible en bas de l’écran en développant le tiroir **Données** ou en sélectionnant **Exporter > Télécharger le fichier CSV** en haut de l’écran. Voici un exemple du tiroir de données pour les groupes de ressources.
 
-![Données complètes pour l’affichage actuel](./media/quick-acm-cost-analysis/full-data-set.png)
+![Données complètes pour la vue actuelle présentant les noms de groupe de ressources](./media/quick-acm-cost-analysis/full-data-set.png)
 
 L’image précédente montre les noms de groupe de ressources. Bien que vous puissiez regrouper par étiquette pour afficher le total des coûts par étiquette, l’affichage de toutes les étiquettes par ressource ou par groupe de ressources n’est disponible dans aucune vue d’analyse des coûts.
 

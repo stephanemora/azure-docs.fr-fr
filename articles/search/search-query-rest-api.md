@@ -1,6 +1,6 @@
 ---
-title: Interroger un index (API REST - Recherche Azure) | Microsoft Docs
-description: Créez une requête de recherche dans Azure Search et utilisez des paramètres de recherche pour filtrer et trier les résultats de recherche.
+title: Interroger un index dans le code à l’aide de l’API REST - Recherche Azure
+description: Commandes HTTP et code d’API REST pour générer une requête de recherche dans Recherche Azure. Ajouter des paramètres de recherche pour filtrer et trier les résultats de la recherche.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 035dc4ac349513867253e5593e01fab4fec62f6b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: ccdb872646dded34cb50cd64f56733445132c4b7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186509"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316921"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Interroger votre index Azure Search à l’aide de l’API REST
 > [!div class="op_single_selector"]

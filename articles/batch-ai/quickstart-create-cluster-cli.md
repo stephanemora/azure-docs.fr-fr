@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 0d4ba7edfb22a6710222c854ceb2bf86284d2d77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1ea12c9a544704ea91b85ae944e611e6769b5592
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057590"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407131"
 ---
-# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Démarrage rapide : créer un cluster pour les travaux de formation Batch AI à l’aide de l’interface de ligne de commande Azure
+# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Démarrage rapide : Créer un cluster pour les travaux de formation Batch AI à l’aide d'Azure CLI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Ce démarrage rapide montre comment utiliser l’interface de ligne de commande Azure pour créer un cluster Batch AI que vous pouvez utiliser pour l’apprentissage des modèles d’intelligence artificielle et Machine Learning. Batch AI est un service managé qui permet aux scientifiques des données et aux chercheurs en IA d’effectuer l’apprentissage des modèles d’IA et de Machine Learning à l’échelle sur des clusters de machines virtuelles Azure.
 
@@ -32,9 +35,9 @@ Au départ, le cluster comporte un seul nœud GPU. À l’issue de ce démarrage
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite que vous exécutiez la version 2.0.38 minimum d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce démarrage rapide exige au minimum la version 2.0.38 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). 
 
-Ce démarrage rapide suppose l’exécution des commandes dans un interpréteur de commandes Bash, dans Cloud Shell ou sur votre ordinateur local.
+Ce démarrage rapide suppose d’exécuter les commandes dans un interpréteur de commandes Bash, soit dans Cloud Shell soit sur un ordinateur local.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -50,7 +53,7 @@ az group create \
 
 ## <a name="create-a-batch-ai-cluster"></a>Créer un cluster Batch AI
 
-Tout d’abord, utilisez la commande `az batchai workspace create` pour créer un *espace de travail* Batch AI. Vous avez besoin d’un espace de travail pour organiser vos clusters Batch AI et autres ressources.
+Tout d’abord, utilisez la commande `az batchai workspace create` pour créer un *espace de travail* Batch AI. Il vous faut un espace de travail pour organiser vos clusters Batch AI et autres ressources.
 
 ```azurecli-interactive
 az batchai workspace create \
@@ -139,11 +142,11 @@ az batchai cluster resize \
 
 Le redimensionnement du cluster nécessite quelques minutes.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous souhaitez poursuivre les exemples et tutoriels Batch AI, utilisez l’espace de travail Batch AI créé dans ce démarrage rapide. 
 
-Vous êtes facturé pour le cluster Batch AI lorsque les nœuds sont en cours d’exécution. Si vous souhaitez conserver la configuration du cluster lorsque vous ne disposez d’aucun travail à exécuter, redimensionnez le cluster sur 0 nœud. 
+Vous êtes facturé pour le cluster Batch AI lorsque les nœuds sont en cours d’exécution. Si vous souhaitez conserver la configuration du cluster alors que vous n’avez aucune tâche à exécuter, redimensionnez le cluster sur zéro nœud. 
 
 ```azurecli-interactive
 az batchai cluster resize \
@@ -153,7 +156,7 @@ az batchai cluster resize \
     --target 0
 ```
 
-Ensuite, redimensionnez-le sur 1 ou plusieurs nœuds pour exécuter vos travaux. Lorsque vous n’avez plus besoin d’un cluster, supprimez-le avec la commande `az batchai cluster delete` :
+Par la suite, redimensionnez-le sur un ou plusieurs nœuds pour exécuter vos tâches. Lorsque vous n’avez plus besoin d’un cluster, supprimez-le avec la commande `az batchai cluster delete` :
 
 ```azurecli-interactive
 az batchai cluster delete \

@@ -1,6 +1,7 @@
 ---
-title: 'Démarrage rapide : Utilisation du Kit de développement logiciel (SDK) Python afin de créer un espace de travail pour le service de Machine Learning - Azure Machine Learning'
-description: Prise en main d’Azure Machine Learning. Installez le Kit de développement logiciel Python et utilisez-le pour créer un espace de travail. Dans le cloud, cet espace de travail est le socle que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning avec Azure Machine Learning.
+title: 'Démarrage rapide :  Bien démarrer dans Python'
+titleSuffix: Azure Machine Learning service
+description: Bien démarrer avec le service Azure Machine Learning dans Python. Utilisez le kit SDK Python pour créer un espace de travail, qui est le socle dans le cloud que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +10,17 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 12/04/2018
-ms.openlocfilehash: f16d39238b46a811f34fdfe291d6c09bee662b9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870064"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268499"
 ---
-# <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utilisation de Python pour démarrer avec Azure Machine Learning
+# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utilisation du kit SDK Python pour démarrer avec Azure Machine Learning
 
-Dans ce guide de démarrage rapide, vous utilisez le Kit de développement logiciel (SDK) Python d’Azure Machine Learning pour créer et utiliser un [espace de travail](concept-azure-machine-learning-architecture.md) destiné au service Machine Learning. Dans le cloud, cet espace de travail est le socle que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning avec Machine Learning. Dans ce démarrage rapide, vous commencez par configurer votre propre environnement Python et le serveur Jupyter Notebook. Pour exécuter sans installation, consultez [Démarrage rapide : Utiliser le Portail Azure pour bien démarrer avec Azure Machine Learning](quickstart-get-started.md).
+Dans ce guide de démarrage rapide, vous utilisez le Kit de développement logiciel (SDK) Python d’Azure Machine Learning pour créer et utiliser un [espace de travail](concept-azure-machine-learning-architecture.md) destiné au service Machine Learning. Dans le cloud, cet espace de travail est le socle que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning avec Machine Learning. Dans ce démarrage rapide, vous commencez par configurer votre propre environnement Python et le serveur Jupyter Notebook. Pour l’exécuter sans installation, consultez le [guide de démarrage rapide : Utiliser le Portail Azure pour prendre en main Azure Machine Learning](quickstart-get-started.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -38,14 +40,12 @@ Les ressources Azure suivantes sont automatiquement ajoutées à votre espace de
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
->[!NOTE]
-> Le code présenté dans cet article a été testé avec le kit SDK Azure Machine Learning version 1.0.2 
-
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
-
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante de Azure Machine Learning service](http://aka.ms/AMLFree) dès aujourd’hui.
 
 ## <a name="install-the-sdk"></a>Installer le Kit de développement logiciel (SDK)
+
+>[!NOTE]
+> Le code présenté dans cet article nécessite le kit SDK Azure Machine Learning version 1.0.2 ou ultérieure. 
 
 *Ignorez cette section si vous utilisez une machine virtuelle de science des données créée après le 27 septembre 2018.* Ces machines virtuelles de science des données sont fournies avec le Kit de développement logiciel (SDK) Python préinstallé.
 
@@ -204,6 +204,6 @@ Vous avez besoin de quelques packages supplémentaires dans votre environnement 
 Après avoir installé ces packages, suivez les didacticiels pour entraîner et déployer un modèle. 
 
 > [!div class="nextstepaction"]
-> [Tutoriel : entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md)
+> [Didacticiel : Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md)
 
 Vous pouvez aussi consulter des [exemples plus avancés sur GitHub](https://aka.ms/aml-notebooks).

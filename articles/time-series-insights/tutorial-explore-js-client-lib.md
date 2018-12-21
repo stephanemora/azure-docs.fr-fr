@@ -1,5 +1,5 @@
 ---
-title: Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights
+title: Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights | Microsoft Docs
 description: Obtenez des informations sur la bibliothèque cliente JavaScript de Azure Time Series Insights et le modèle de programmation associé.
 author: ashannon7
 manager: cshankar
@@ -8,14 +8,15 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 33dcf6f69d1287b4e040b3cccf4164667db2b75f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706991"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269972"
 ---
-# <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutoriel : Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights
+# <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Didacticiel : Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights
 
 Pour aider les développeurs web à exécuter des requêtes afin de visualiser les données stockées dans Time Series Insights (TSI), une bibliothèque cliente TSI JavaScript basée sur D3 a été développée.  Ce tutoriel utilise un exemple d’application web pour vous guider dans une exploration de la bibliothèque cliente de TSI et du modèle de programmation associé.
 
@@ -82,7 +83,7 @@ Commençons par examiner le code source HTML et JavaScript derrière la page aff
 
 3. Développez l’élément `<div class="chartsWrapper">` et vous trouvez plus d’élément `<div>` enfants. Ces éléments sont utilisés pour placer chaque exemple de contrôle de graphique. Notez qu’il existe plusieurs paires d’éléments `<div>`, une pour chaque exemple de graphique :
 
-   - Le premier élément (`class="rowOfCardsTitle"`) contient un titre descriptif qui résume ce que le ou les graphiques illustrent. Par exemple : « Graphiques en courbes statiques avec légendes pleine taille »
+   - Le premier élément (`class="rowOfCardsTitle"`) contient un titre descriptif qui résume ce que le ou les graphiques illustrent. Par exemple :  « Graphiques en courbes statiques avec légendes pleine taille. »
    - Le second élément (`class="rowOfCards"`) est un parent contenant des éléments `<div>` enfants supplémentaires qui positionnent le ou les contrôles de graphique réels dans une ligne.
 
    ![Éléments div du corps](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -96,7 +97,7 @@ Commençons par examiner le code source HTML et JavaScript derrière la page aff
 Même si nous ne l’examinons pas en détail, fondamentalement, la bibliothèque du client TSI **tsclient.js** fournit une abstraction pour deux catégories importantes :
 
 - **Méthodes de wrapper pour appeler les API de requête TSI** : API REST qui vous permettent d’exécuter des requêtes pour obtenir des données TSI à l’aide d’expressions d’agrégation. Les méthodes sont organisées sous l’espace de noms `TsiClient.Server` de la bibliothèque.
-- **Méthodes pour créer et remplir plusieurs types de contrôles de graphique** : Méthodes utilisées pour afficher les données d’agrégation TSI dans une page web. Les méthodes sont organisées sous l’espace de noms `TsiClient.UX` de la bibliothèque.
+- **Méthodes pour créer et remplir plusieurs types de contrôles graphiques** : Méthodes utilisées pour rendre les données d’agrégation TSI dans une page web. Les méthodes sont organisées sous l’espace de noms `TsiClient.UX` de la bibliothèque.
 
 Les concepts suivants sont universels et applicables aux API de la bibliothèque du client TSI en général.
 
@@ -235,15 +236,15 @@ Examinez le code derrière la section de code HTML sous le commentaire `// Examp
 
 1. Tout d’abord, une série d’actions personnalisées sont définies. Chaque action contient un tableau avec un ou plusieurs éléments. Chaque élément définit un élément de menu contextuel :
 
-   - `barChartActions` : cette action définit le menu contextuel pour le graphique à secteurs, qui contient un seul élément pour définir un élément individuel :
-     - `name` : le texte qui est utilisé pour l’élément de menu : « Imprimer les paramètres dans la console »
-     - `action` : l’action qui est associée à l’élément de menu. L’action associée est toujours une fonction anonyme acceptant trois arguments en fonction de l’expression d’agrégation utilisée pour créer le graphique. Dans ce cas, les arguments sont écrits dans la fenêtre de console du navigateur :
-       - `ae` : le tableau des expressions d’agrégation.
-       - `splitBy` : la valeur splitBy.
-       - `timestamp` : l’horodateur.
+   - `barChartActions`: cette action définit le menu contextuel pour le graphique à secteurs, qui contient un seul élément pour définir un élément individuel :
+     - `name`: texte utilisé pour l’élément de menu : « Paramètres d’impression dans la console. »
+     - `action`: action associée à l’élément de menu. L’action associée est toujours une fonction anonyme acceptant trois arguments en fonction de l’expression d’agrégation utilisée pour créer le graphique. Dans ce cas, les arguments sont écrits dans la fenêtre de console du navigateur :
+       - `ae`: tableau des expressions d’agrégation.
+       - `splitBy`: valeur splitBy.
+       - `timestamp`: horodateur.
 
-   - `pieChartActions` : cette action définit le menu contextuel pour le graphique à barres, qui contient un seul élément pour définir un élément individuel. La forme et le schéma sont identiques à l’élément `barChartActions` précédent, mais notez que la fonction `action` est radicalement différente, elle instancie et affiche le graphique à barres. Notez également que ’argument `ae` est utilisé pour spécifier le tableau des expressions d’agrégation transmis lors de l’exécution, pendant l’ouverture de l’élément de menu. La fonction définit également la propriété `ae.contextMenu` avec le menu contextuel `barChartActions`.
-   - `contextMenuActions` : cette action définit le menu contextuel pour le graphique en courbes, qui contient trois éléments pour définir trois éléments de menu. La forme et le schéma de chaque élément sont identiques aux éléments décrits précédemment. Tout comme l’élément `barChartActions`, le premier élément écrit les trois arguments de fonction dans la fenêtre de console du navigateur. De façon similaire à l’élément `pieChartActions`, les deux seconds éléments instancient et affichent les graphiques à secteurs et à barres, respectivement. Les deux seconds éléments définissent également leurs propriétés `ae.contextMenu` avec les menus contextuels `pieChartActions` et `barChartActions`, respectivement.
+   - `pieChartActions`: cette action définit le menu contextuel pour le graphique à barres, qui contient un seul élément pour définir un élément individuel. La forme et le schéma sont identiques à l’élément `barChartActions` précédent, mais notez que la fonction `action` est radicalement différente, elle instancie et affiche le graphique à barres. Notez également que ’argument `ae` est utilisé pour spécifier le tableau des expressions d’agrégation transmis lors de l’exécution, pendant l’ouverture de l’élément de menu. La fonction définit également la propriété `ae.contextMenu` avec le menu contextuel `barChartActions`.
+   - `contextMenuActions`: cette action définit le menu contextuel pour le graphique en courbes, qui contient trois éléments pour définir trois éléments de menu. La forme et le schéma de chaque élément sont identiques aux éléments décrits précédemment. Tout comme l’élément `barChartActions`, le premier élément écrit les trois arguments de fonction dans la fenêtre de console du navigateur. De façon similaire à l’élément `pieChartActions`, les deux seconds éléments instancient et affichent les graphiques à secteurs et à barres, respectivement. Les deux seconds éléments définissent également leurs propriétés `ae.contextMenu` avec les menus contextuels `pieChartActions` et `barChartActions`, respectivement.
 
 2. Ensuite, deux expressions d’agrégation sont envoyées sur le `aes` tableau d’expressions d’agrégation et spécifient le tableau `contextMenuActions` pour chaque élément. Ces expressions sont utilisées avec le contrôle de graphique en courbes.
 
@@ -262,10 +263,10 @@ Les pinceaux sont utilisés pour délimiter une plage de temps afin de définir 
 Le code utilisé pour illustrer les pinceaux apparaît également dans l’exemple précédent « Graphique en courbes avec menu contextuel pour créer le graphique à secteurs/barres », décrivant les [menus contextuels](#popup-context-menus-section).
 
 1. Les actions de pinceau sont semblables à un menu contextuel dans le sens où elles définissent une série d’actions personnalisées pour le pinceau. Chaque action contient un tableau avec un ou plusieurs éléments. Chaque élément définit un élément de menu contextuel :
-   - `name` : le texte qui est utilisé pour l’élément de menu : « Imprimer les paramètres dans la console »
-   - `action` : l’action associée à l’élément de menu, toujours une fonction anonyme acceptant deux arguments. Dans ce cas, les arguments sont écrits dans la fenêtre de console du navigateur :
-      - `fromTime` : l’horodateur « de » de la sélection de pinceaux.
-      - `toTime` : l’horodateur « à » de la sélection de pinceaux.
+   - `name`: texte utilisé pour l’élément de menu : « Paramètres d’impression dans la console. »
+   - `action`: action associée à l’élément de menu, toujours une fonction anonyme acceptant deux arguments. Dans ce cas, les arguments sont écrits dans la fenêtre de console du navigateur :
+      - `fromTime`: horodateur « de » de la sélection de pinceaux.
+      - `toTime`: horodateur « à » de la sélection de pinceaux.
 
 2. Les actions de pinceau sont ajoutées sous la forme d’une autre propriété d’option de graphique. Remarquez la propriété `brushContextMenuActions: brushActions` transmise à l’appel `linechart.Render`.
 

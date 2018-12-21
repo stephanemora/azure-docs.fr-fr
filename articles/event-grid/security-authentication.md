@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914037"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413477"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -25,26 +25,28 @@ Azure Event Grid dispose de trois types d’authentification :
 
 ## <a name="webhook-event-delivery"></a>Remise d’événement WebHook
 
-Un Webhook constitue l’un des nombreux moyens de recevoir des événements provenant d’Azure Event Grid. Quand un nouvel événement est prêt, le service EventGrid envoie une requête HTTP (POST) au point de terminaison configuré avec l’événement dans le corps de la requête.
+Un Webhook constitue l’un des nombreux moyens de recevoir des événements provenant d’Azure Event Grid. Lorsqu'un nouvel événement est prêt, le service Event Grid envoie une requête HTTP (POST) au point de terminaison configuré avec l'événement dans le corps de la requête.
 
-Comme de nombreux autres services qui prennent en charge les Webhooks, EventGrid vous demande de prouver que vous êtes « propriétaire » de votre point de terminaison Webhook avant de démarrer la diffusion d’événements vers ce point de terminaison. Cette exigence vise à empêcher un point de terminaison non averti de devenir la cible pour la remise des événements à partir de EventGrid. Toutefois, lorsque vous utilisez un des trois services Azure répertoriés ci-dessous, l’infrastructure Azure gère automatiquement cette validation :
+Comme de nombreux autres services qui prennent en charge les Webhooks, Event Grid vous demande de prouver que vous êtes propriétaire de votre point de terminaison Webhook avant de démarrer la diffusion d'événements vers ce point de terminaison. Cette condition empêche tout utilisateur malveillant d'inonder votre point de terminaison d'événements. Lorsque vous utilisez un des trois services Azure répertoriés ci-dessous, l'infrastructure Azure gère automatiquement cette validation :
 
 * Azure Logic Apps
 * Azure Automation
 * Azure Functions pour le déclencheur EventGrid
 
-Si vous utilisez un autre type de point de terminaison, comme une fonction Azure basée sur un déclencheur HTTP, le code de votre point de terminaison doit participer à l’établissement de liaison d’une validation avec EventGrid. EventGrid prend en charge deux modèles d’établissement de liaison de validation différents :
+Si vous utilisez un autre type de point de terminaison, comme une fonction Azure basée sur un déclencheur HTTP, le code de votre point de terminaison doit participer à l'établissement d'une liaison de validation avec EventGrid. Event Grid prend en charge deux méthodes de validation de l'abonnement.
 
-1. **Établissement de liaison ValidationCode** : au moment de la création de l’abonnement à l’événement, EventGrid envoie une requête POST d’« événement de validation d’abonnement » à votre point de terminaison. Le schéma de cet événement est semblable à n’importe quel autre EventGridEvent, et la partie données de cet événement inclut une propriété `validationCode`. Une fois que l’application a confirmé que la requête de validation concerne un abonnement d’événement attendu, votre code d’application doit répondre en renvoyant le code de validation à EventGrid. Ce mécanisme d’établissement de liaison est pris en charge dans toutes les versions d’EventGrid.
+1. **Établissement d'une liaison ValidationCode (par programmation)**  : Cette méthode est recommandée si vous contrôlez le code source de votre point de terminaison. Au moment de la création de l'abonnement aux événements, Event Grid envoie un événement de validation d'abonnement à votre point de terminaison. Le schéma de cet événement est semblable à celui de n'importe quel autre événement Event Grid. La partie données de cet événement inclut une propriété `validationCode`. Votre application vérifie que la requête de validation concerne un abonnement aux événements attendu et renvoie le code de validation à Event Grid. Ce mécanisme d'établissement de liaison est pris en charge dans toutes les versions d'Event Grid.
 
-2. **Établissement de liaison ValidationURL (établissement manuel)**  : dans certains cas, vous ne contrôlez pas le code source du point de terminaison pour implémenter l’établissement de liaison en fonction de ValidationCode. Par exemple, si vous utilisez un service tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous ne pouvez pas renvoyer le code de validation par programmation. À compter de la version 2018-05-01-preview, EventGrid prend en charge un établissement de liaison de validation manuel. Si vous créez un abonnement aux événements à l’aide d’un SDK ou outil qui utilise la version d’API 2018-05-01-preview ou ultérieure, EventGrid envoie une propriété `validationUrl` dans la partie des données de la validation d’abonnement aux événements. Pour terminer l’établissement de liaison, il vous suffit d’envoyer une requête GET sur cette URL, via un client REST ou à l’aide de votre navigateur web. L’URL de validation fournie est valide uniquement pendant 10 minutes environ. Pendant ce temps, l’état d’approvisionnement de l’abonnement aux événements est `AwaitingManualAction`. Si vous n’effectuez pas la validation manuelle dans les 10 minutes, l’état d’approvisionnement est défini sur `Failed`. Vous devez recréer l’abonnement aux événements avant de commencer la validation manuelle.
+2. **Établissement d'une liaison ValidationURL (manuel)**  : Dans certains cas, il est impossible d'accéder au code source du point de terminaison pour implémenter l'établissement de la liaison ValidationCode. Par exemple, si vous utilisez un service tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous ne pouvez pas envoyer le code de validation par programmation.
 
-Le mécanisme de validation manuelle est en préversion. Pour l’utiliser, vous devez installer [l’extension Event Grid](/cli/azure/azure-cli-extensions-list) pour [Azure CLI](/cli/azure/install-azure-cli). Vous pouvez l’installer avec `az extension add --name eventgrid`. Si vous utilisez l’API REST, assurez-vous d’utiliser `api-version=2018-05-01-preview`.
+   À partir de la version 2018-05-01-preview, Event Grid prend en charge l'établissement d'une liaison de validation manuel. Si vous créez un abonnement aux événements à l'aide d'un kit de développement logiciel (SDK) ou d'un outil qui utilise l'API 2018-05-01-preview ou version ultérieure, Event Grid envoie une propriété `validationUrl` dans la partie données de l'événement de validation de l'abonnement. Pour terminer l'établissement de la liaison, recherchez cette URL dans les données d'événement et envoyez-lui manuellement une requête GET. Vous pouvez utiliser un client REST ou votre navigateur web.
+
+   L'URL fournie est valable pendant 10 minutes. Pendant ce temps, l’état d’approvisionnement de l’abonnement aux événements est `AwaitingManualAction`. Si vous n’effectuez pas la validation manuelle dans les 10 minutes, l’état d’approvisionnement est défini sur `Failed`. Vous devez recréer l’abonnement aux événements avant de commencer la validation manuelle.
 
 ### <a name="validation-details"></a>Détails de validation
 
-* Lors de la création/mise à jour de l’abonnement d’événement, Event Grid publie un événement de validation d’abonnement dans le point de terminaison cible. 
-* L’événement contient une valeur d’en-tête « aeg-event-type: SubscriptionValidation ».
+* Au moment de la création/mise à jour de l'abonnement aux événements, Event Grid publie un événement de validation d'abonnement sur le point de terminaison cible. 
+* L'événement contient une valeur d'en-tête « aeg-event-type: SubscriptionValidation ».
 * Le corps de l’événement dispose du même schéma que les autres événements Event Grid.
 * La propriété eventType de l’événement correspond à `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * La propriété de données de l’événement inclut une propriété `validationCode` avec une chaîne générée de façon aléatoire, par exemple « validationCode: acb13… ».
@@ -78,9 +80,11 @@ Pour prouver que vous êtes propriétaire du point de terminaison, renvoyez le c
 }
 ```
 
+Vous devez renvoyer un code d'état de réponse HTTP 200 OK. HTTP 202 Accepté n'est pas considéré comme une réponse de validation d'abonnement Event Grid valide.
+
 Sinon, vous pouvez valider manuellement l’abonnement en envoyant une demande GET à l’URL de validation. L’abonnement aux événements reste dans un état d’attente jusqu’à ce qu’il soit validé.
 
-Vous trouverez un échantillon C# qui montre comment gérer l’établissement de liaison pour la validation d’abonnement à l’adresse https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
+Pour accéder à un exemple de gestion d'établissement de liaison de validation d'abonnement, consultez un [exemple C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### <a name="checklist"></a>Liste de contrôle
 
@@ -93,7 +97,7 @@ Lors de la création de l’abonnement aux événements, si vous voyez un messag
 
 ### <a name="event-delivery-security"></a>Sécurité de la remise des événements
 
-Vous pouvez sécuriser votre point de terminaison Webhook en ajoutant des paramètres de requête à l’URL Webhook lorsque vous créez un abonnement à un événement. Définissez un de ces paramètres de requête en tant que secret, par exemple un [jeton d’accès](https://en.wikipedia.org/wiki/Access_token). Le webhook peut l’utiliser pour établir que l’événement provient d’Event Grid avec des autorisations valides. Event Grid va inclure ces paramètres de requête dans chaque remise d’événement au Webhook.
+Vous pouvez sécuriser votre point de terminaison Webhook en ajoutant des paramètres de requête à l’URL Webhook lorsque vous créez un abonnement à un événement. Définissez un de ces paramètres de requête en tant que secret, par exemple un [jeton d’accès](https://en.wikipedia.org/wiki/Access_token). Le webhook peut utiliser le secret pour établir que l'événement provient d'Event Grid avec des autorisations valides. Event Grid va inclure ces paramètres de requête dans chaque remise d’événement au Webhook.
 
 Lorsque vous modifiez l’abonnement aux événements, les paramètres de requête ne sont pas affichés ni retournés, sauf si le paramètre [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) est utilisé dans [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -269,7 +273,7 @@ Si vous avez besoin de spécifier des autorisations autres que les rôles intég
 
 Voici des exemples de définitions de rôle dans Event Grid permettant aux utilisateurs d’effectuer différentes actions. Ces rôles personnalisés sont différents des rôles intégrés car ils confèrent un accès qui va au-delà des abonnements aux événements.
 
-**EventGridReadOnlyRole.json** : pour autoriser uniquement les opérations en lecture seule.
+**EventGridReadOnlyRole.json** : autorise uniquement les opérations en lecture seule.
 
 ```json
 {
@@ -288,7 +292,7 @@ Voici des exemples de définitions de rôle dans Event Grid permettant aux utili
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json** : pour autoriser des actions de publication limitées, et interdire les actions de suppression.
+**EventGridNoDeleteListKeysRole.json** : autorise des actions de publication limitées, et interdit les actions de suppression.
 
 ```json
 {
@@ -311,7 +315,7 @@ Voici des exemples de définitions de rôle dans Event Grid permettant aux utili
 }
 ```
 
-**EventGridContributorRole.json**: pour autoriser toutes les actions dans Event Grid.
+**EventGridContributorRole.json** : autorise toutes les actions Event Grid.
 
 ```json
 {

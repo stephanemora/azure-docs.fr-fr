@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839732"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250574"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -22,10 +22,10 @@ Le service Azure Migrate évalue les charges de travail locales pour la migratio
 
 Azure Migrate vous aide à :
 
-- **Évaluer la préparation pour Azure** : évaluer si vos ordinateurs locaux sont appropriés pour l’exécution dans Azure.
-- **Obtenir des recommandations sur la taille** : obtenir des recommandations de taille pour des machines virtuelles Azure, en fonction de l’historique des performances des machines virtuelles locales.
-- **Estimer les coûts mensuels** : obtenir les coûts estimés pour l’exécution d’ordinateurs locaux dans Azure.  
-- **Migrer en toute confiance** : visualiser les dépendances des machines locales pour créer des groupes d’ordinateurs que vous pourrez évaluer et migrer en même temps.
+- **Évaluer la préparation pour Azure** : évaluez si vos machines locales se prêtent à une exécution dans Azure.
+- **Obtenir des recommandations de taille** : obtenez des recommandations de taille pour les machines virtuelles Azure, en fonction de l’historique des performances des machines virtuelles locales.
+- **Estimer les coûts mensuels** : obtenez les coûts estimés pour l’exécution de machines locales dans Azure.  
+- **Migrer en toute confiance** : visualisez les dépendances des machines locales pour créer des groupes de machines que vous pourrez évaluer et migrer en même temps.
 
 ## <a name="current-limitations"></a>Limitations actuelles
 
@@ -34,10 +34,14 @@ Azure Migrate vous aide à :
 - Vous pouvez détecter jusqu’à 1500 machines virtuelles par détection et jusqu’à 1500 machines virtuelles par projet. En outre, vous pouvez évaluer jusqu’à 1500 machines virtuelles par évaluation.
 - Si vous voulez découvrir un environnement plus grand, vous pouvez séparer la découverte et créer plusieurs projets. [Plus d’informations](how-to-scale-assessment.md) Azure Migrate prend en charge jusqu’à 20 projets par abonnement.
 - Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
--  Vous ne pouvez créer un projet Azure Migrate que dans la zone géographique États-Unis. Toutefois, vous pouvez planifier une migration vers n’importe quel emplacement Azure cible.
-    - Seules les métadonnées détectées à partir de l’environnement local sont stockées dans la région du projet de migration.
-    - Les métadonnées sont stockées dans l’une des régions de la zone géographique sélectionnée  : USA Centre-Ouest/USA Est.
-    - Si vous utilisez la visualisation des dépendances en créant un espace de travail Log Analytics, celui-ci est créé dans la même région que le projet.
+-  Vous ne pouvez créer un projet Azure Migrate que dans les zones géographiques suivantes. Toutefois, cela ne restreint pas votre capacité à créer des évaluations pour d’autres emplacements Azure cibles.
+    **Zone géographique** | **Emplacement de stockage**
+    --- | ---
+    États-Unis | USA Centre-Ouest ou USA Est
+    Azure Government | Gouvernement américain - Virginie
+
+    La zone géographique associée au projet de migration est utilisée pour stocker les métadonnées détectées à partir de l’environnement local. Les métadonnées sont stockées dans l’une des régions en fonction de la zone géographique spécifiée pour le projet de migration. Si vous utilisez la visualisation des dépendances en créant un espace de travail Log Analytics, celui-ci est créé dans la même région que le projet.
+- La fonctionnalité de visualisation de dépendance n’est pas disponible dans Azure Government.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pour quoi dois-je payer ?
@@ -94,7 +98,7 @@ Machine virtuelle locale | Espace de travail Log Analytics | [TCP 443] | [Micros
 Une fois que vous avez évalué des machines locales, vous pouvez utiliser deux outils pour effectuer la migration :
 
 - **Azure Site Recovery** : vous pouvez utiliser Azure Site Recovery pour migrer vers Azure. Pour ce faire, vous [préparez les composants Azure](../site-recovery/tutorial-prepare-azure.md) dont vous avez besoin, y compris un compte de stockage et un réseau virtuel. En local, vous [préparez votre environnement VMware](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Lorsque tout est prêt, vous configurez et activez la réplication vers Azure et vous migrez les machines virtuelles. [Plus d’informations](../site-recovery/vmware-azure-tutorial.md)
-- **Azure Database Migration**: si des machines locales sont en cours d’exécution sur une base de données telle que SQL Server, MySQL ou Oracle, vous pouvez utiliser [Azure Database Migration Service](../dms/dms-overview.md) pour les migrer vers Azure.
+- **Azure Database Migration** : si des machines locales sont en cours d’exécution sur une base de données telle que SQL Server, MySQL ou Oracle, vous pouvez utiliser [Azure Database Migration Service](../dms/dms-overview.md) pour les migrer vers Azure.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

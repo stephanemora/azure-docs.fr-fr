@@ -1,6 +1,7 @@
 ---
-title: Que se passe-t-il avec Azure Machine Learning Workbench ? | Microsoft Docs
-description: Découvrez ce qui se passe avec l’application Workbench, ce qui a changé dans Azure Machine Learning et quelle est la chronologie de prise en charge.
+title: Qu’est devenu Workbench ?
+titleSuffix: Azure Machine Learning service
+description: Découvrez ce qui est arrivé à l’application Workbench, ce qui a changé dans le service Azure Machine Learning et la chronologie de la prise en charge.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: db09203e86c32a7e03b4b2c4bcc670d16583ab20
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: c9559e07cc70cbd7adafd75c23b9e67d45bee48a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879432"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184303"
 ---
-# <a name="what-is-happening-to-workbench-in-azure-machine-learning"></a>Que se passe-t-il avec Workbench dans Azure Machine Learning ?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-service"></a>Que se passe-t-il avec Workbench dans le service Azure Machine Learning ?
 
 L’application Workbench et d’autres fonctionnalités d’origine ont été dépréciées et remplacées dans la version de septembre 2018 pour faire place à une [architecture](concept-azure-machine-learning-architecture.md) améliorée. Cette version contient de nombreuses mises à jour importantes demandées par les clients dans leurs commentaires pour améliorer votre expérience. Le fonctionnement intrinsèque allant des exécutions d’expériences au déploiement de modèles n’a pas changé, mais vous pouvez désormais utiliser le <a href="https://aka.ms/aml-sdk" target="_blank">kit SDK</a> et l’[interface CLI](reference-azure-machine-learning-cli.md) pour accomplir vos tâches et vos pipelines de machine learning.  
 
@@ -27,7 +29,7 @@ Dans cet article, vous allez découvrir ce qui a changé et comment cela affecte
 La dernière version du service Azure Machine Learning comprend les éléments suivants :
 + Un [modèle de ressources Azure simplifié](concept-azure-machine-learning-architecture.md)
 + Une [nouvelle interface utilisateur du portail](how-to-track-experiments.md) pour gérer vos expériences et vos cibles de calcul
-+ Un nouveau kit <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> Python plus complet
++ Un nouveau kit <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> Pyhton plus complet
 + Une nouvelle [extension Azure CLI](reference-azure-machine-learning-cli.md) enrichie pour le machine learning.
 
 L’[architecture](concept-azure-machine-learning-architecture.md) a été repensée pour faciliter l’utilisation. Les ressources et comptes Azure multiples ont laissé la place à un [espace de travail pour le service Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace).  Vous pouvez rapidement créer des espaces de travail dans le [portail Azure](quickstart-get-started.md).  Un espace de travail peut être utilisé par plusieurs utilisateurs pour stocker les cibles de calcul des entraînements et des déploiements, les expériences des modèles, les images Docker, les modèles déployés, etc.
@@ -82,13 +84,13 @@ Découvrez comment commencer [dans Python avec le kit SDK principal](quickstart-
  
 Les modèles que vous avez enregistrés dans votre ancien registre de modèles doivent être migrés vers votre nouvel espace de travail si vous voulez continuer à les utiliser. Pour ce faire, vous pouvez [télécharger les modèles et les réenregistrer ](how-to-migrate.md) dans votre nouvel espace de travail. 
 
-Les images que vous avez créées dans votre ancien registre d’images doivent être recréées dans le nouvel espace de travail pour continuer à les utiliser. Pour cela, suivez la procédure décrite dans la section [créer une image docker](how-to-deploy-to-aci.md#configure-an-image). 
+Les images que vous avez créées dans votre ancien registre d’images doivent être recréées dans le nouvel espace de travail pour continuer à les utiliser. Pour cela, suivez les sections [Configurer et créer une image](how-to-deploy-and-where.md#configureimage). 
 
 ## <a name="what-about-deployed-web-services"></a>Qu’en est-il des services web déployés ?
 
 Les modèles que vous avez déployés en tant que services web à l’aide de votre compte Gestion des modèles continueront de fonctionner tant qu’Azure Container Service (ACS) est pris en charge. Ces services web fonctionneront même après la fin de la prise en charge des comptes Gestion des modèles. Toutefois, la fin de la prise en charge de l’ancienne interface CLI marque aussi la fin de la possibilité de gérer ces services web.
 
-Dans la version la plus récente, les modèles sont déployés en tant que services web sur des clusters [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) ou [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS). Vous pouvez également [déployer les modèles sur des FPGA et sur IoT edge](how-to-deploy-and-where.md). Sans avoir à modifier l’un de vos fichiers de notation, dépendances et schémas, vous pouvez redéployer vos modèles à l’aide du nouveau kit SDK ou de la nouvelle interface CLI. 
+Dans la version la plus récente, les modèles sont déployés en tant que services web sur des clusters Azure Container Instances (ACI) ou Azure Kubernetes Service (AKS). Vous pouvez également déployer les modèles sur des FPGA et sur IoT Edge. Pour plus d’informations, consultez le document [Comment et où déployer](how-to-deploy-and-where.md). Sans avoir à modifier l’un de vos fichiers de notation, dépendances et schémas, vous pouvez redéployer vos modèles à l’aide du nouveau kit SDK ou de la nouvelle interface CLI. 
 
 ## <a name="what-about-the-old-sdk--cli"></a>Qu’en est-il de l’ancien kit SDK et de l’ancienne interface CLI ?
 
@@ -111,5 +113,5 @@ Les packages de domaine pour [Vision par ordinateur, Analyse de texte et Prévis
 Découvrez l’[architecture la plus récente du service Azure Machine Learning](concept-azure-machine-learning-architecture.md) et essayez l’un démarrages rapides ou tutoriels :
 
 * [Qu’est-ce que le service Azure Machine Learning ?](overview-what-is-azure-ml.md)
-* [Démarrage rapide : créer un espace de travail avec Python](quickstart-get-started.md)
-* [Tutoriel : entraîner un modèle](tutorial-train-models-with-aml.md)
+* [Démarrage rapide : Créer un espace de travail avec Python](quickstart-get-started.md)
+* [Tutoriel : Entraîner un modèle](tutorial-train-models-with-aml.md)

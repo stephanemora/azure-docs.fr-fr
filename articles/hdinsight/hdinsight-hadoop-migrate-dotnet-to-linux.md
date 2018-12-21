@@ -2,19 +2,19 @@
 title: Utiliser .NET avec Hadoop MapReduce dans HDInsight basé sur Linux - Azure
 description: Découvrez comment utiliser des applications .NET pour la diffusion MapReduce sur HDInsight sous Linux.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: f8a29c744d0ebfbab4127c421d0dba22e8d7ff52
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43111089"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384194"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migration de solutions .NET pour HDInsight sous Windows vers HDInsight sous Linux
 
@@ -26,7 +26,7 @@ La version 4.2.1 de Mono est incluse dans la version 3.6 de HDInsight. Pour plus
 
 Pour plus d’informations sur la compatibilité entre Mono et .NET, consultez le document [sur la compatibilité avec Mono (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > L’infrastructure SCP.NET est compatible avec Mono. Pour plus d’informations sur l’utilisation de SCP.NET avec Mono, consultez la rubrique [Utiliser Visual Studio pour développer des topologies C# pour Apache Storm sur HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="automated-portability-analysis"></a>Analyse de portabilité automatisée
@@ -47,7 +47,7 @@ L’[Analyseur de portabilité .NET](https://marketplace.visualstudio.com/items?
 
     ![Boîte de dialogue des résultats de l’analyseur de portabilité](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > L’analyseur ne peut pas détecter tous les problèmes liés à votre solution. Par exemple, le chemin d’accès `c:\temp\file.txt` est considéré comme correct si Mono fonctionne sous Windows. Il n’est pas valide sur une plateforme Linux.
 
 ## <a name="manual-portability-analysis"></a>Analyse de portabilité manuelle
@@ -64,12 +64,12 @@ Après avoir modifié votre solution avec les recommandations de l’analyseur d
 
 Pour plus d’informations sur l’accès aux journaux, consultez les documents suivants :
 
-* [Accéder aux journaux des applications YARN dans HDInsight sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Accéder aux journaux des applications Apache Hadoop YARN dans la version Linux de HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation de C# avec MapReduce dans HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Utilisation des fonctions C# définies par l’utilisateur avec Hive et Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Utiliser des fonctions C# définies par l'utilisateur avec Apache Hive et Apache Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Développement de topologies C# pour Storm sur HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [Développer des topologies C# pour Apache Storm sur HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: b90009c1cd08a1004e58c4b9f25cd6350712fbcd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358606"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184540"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Résoudre les erreurs d’inscription de fournisseurs de ressources
 
@@ -41,15 +41,15 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
-Le message d’erreur doit fournir des suggestions pour les emplacements et les versions d’API pris en charge. Vous pouvez changer votre modèle en l’une des valeurs suggérées. La plupart des fournisseurs sont inscrits automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous. Si vous n’avez pas déjà utilisé un fournisseur de ressources spécifique, vous devrez peut-être inscrire ce dernier.
+Le message d’erreur doit fournir des suggestions pour les emplacements et les versions d’API pris en charge. Vous pouvez changer votre modèle en l’une des valeurs suggérées. La plupart des fournisseurs sont inscrits automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous. Si vous n’avez pas déjà utilisé un certain fournisseur de ressources, vous devrez peut-être l’inscrire.
 
 ## <a name="cause"></a>Cause :
 
 Ces erreurs apparaissent pour l’une des trois raisons suivantes :
 
-1. Le fournisseur de ressources n’a pas été inscrit pour votre abonnement.
-1. La version de l’API n’est pas prise en charge pour le type de ressource.
-1. L’emplacement n’est pas pris en charge pour le type de ressource.
+* Le fournisseur de ressources n’a pas été inscrit pour votre abonnement
+* La version de l’API n’est pas prise en charge pour le type de ressource.
+* L’emplacement n’est pas pris en charge pour le type de ressource.
 
 ## <a name="solution-1---powershell"></a>Solution 1 : PowerShell
 
@@ -101,10 +101,22 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 Vous pouvez voir l’état de l’inscription et inscrire un espace de noms de fournisseur de ressources par le biais du portail.
 
+1. À partir du portail Azure, sélectionnez **Tous les services**.
+
+   ![Sélectionner Tous les services](./media/resource-manager-register-provider-errors/select-all-services.png)
+
+1. Sélectionnez **Abonnements**.
+
+   ![Sélectionner des abonnements](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+
+1. Dans la liste des abonnements, sélectionnez l’abonnement que vous souhaitez utiliser pour inscrire le fournisseur de ressources.
+
+   ![Sélectionner l’abonnement pour inscrire le fournisseur de ressources](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
+
 1. Sur votre abonnement, sélectionnez **Fournisseurs de ressources**.
 
-   ![sélectionner Fournisseurs de ressources](./media/resource-manager-register-provider-errors/select-resource-provider.png)
+   ![Sélectionner les fournisseurs de ressources](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
 1. Passez en revue la liste des fournisseurs de ressources et, si nécessaire, sélectionnez le lien **Inscrire** pour inscrire le fournisseur de ressources du type que vous voulez déployer.
 
-   ![répertorier les fournisseurs de ressources](./media/resource-manager-register-provider-errors/list-resource-providers.png)
+   ![Répertorier les fournisseurs de ressources](./media/resource-manager-register-provider-errors/list-resource-providers.png)

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: f54a9e40c4f75704e66c4a3a90ad4b293d1e6309
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 9929662f1fe4612e51c82248f64e3191f7fdb223
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889223"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955199"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-by-using-the-portal"></a>Démarrage rapide : Configurer Azure DNS pour la résolution de noms à l’aide du portail
 
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour toutes les étapes du portail, connectez-vous au [portail Azure](https://portal.azure.com).
 
-## <a name="create-a-dns-zone"></a>Créer une zone DNS
+## <a name="create-a-dns-zone"></a>Création d’une zone DNS
 
 Une zone DNS contient les entrées DNS d’un domaine. Pour commencer à héberger votre domaine dans Azure DNS, vous devez créer une zone DNS pour ce nom de domaine. 
 
@@ -41,8 +41,8 @@ Une zone DNS contient les entrées DNS d’un domaine. Pour commencer à héberg
    
 1. Dans la page **Créer une zone DNS**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : pour ce guide de démarrage rapide, tapez *contoso.xyz*. Vous pouvez affecter comme nom de zone DNS toute valeur qui n’est pas encore configurée sur les serveurs Azure DNS. Une valeur réelle est un domaine que vous avez acheté auprès d’un bureau d’enregistrement de noms de domaine.
-   - **Groupe de ressources** : sélectionnez **Créer**, entrez *dns-test*, puis sélectionnez **OK**. Le nom du groupe de ressources doit être unique au sein de l’abonnement Azure. 
+   - **Nom** : Pour l’exemple de ce guide de démarrage rapide, tapez *contoso.xyz*. Vous pouvez affecter comme nom de zone DNS toute valeur qui n’est pas encore configurée sur les serveurs Azure DNS. Une valeur réelle est un domaine que vous avez acheté auprès d’un bureau d’enregistrement de nom de domaine.
+   - **Groupe de ressources** : Sélectionnez **Créer**, entrez *dns-test*, puis sélectionnez **OK**. Le nom du groupe de ressources doit être unique au sein de l’abonnement Azure. 
    
 1. Sélectionnez **Créer**.
 
@@ -62,15 +62,15 @@ Vous créez des entrées ou enregistrements DNS pour votre domaine à l’intér
 
 1. Dans la page **Ajouter un jeu d’enregistrements**, tapez ou sélectionnez les valeurs suivantes :
 
-   - **Nom** : tapez *www*. Le nom d’enregistrement est le nom d’hôte que vous souhaitez résoudre en l’adresse IP spécifiée.
-   - **Type** : sélectionnez **A**. Les enregistrements « A » sont les plus courants, mais il existe d’autres types d’enregistrements pour les serveurs de messagerie (« MX »), les adresses IPv6 (« AAAA »), et ainsi de suite. 
-   - **TTL** : tapez *1*. La *durée de vie* (TTL) de la requête DNS spécifie la durée pendant laquelle les clients et serveurs DNS peuvent mettre en cache une réponse.
-   - **Unité de durée de vie** : sélectionnez **Heures**. Il s’agit de l’unité de temps pour la valeur **TTL**. 
-   - **Adresse IP** : pour ce guide de démarrage rapide, tapez *10.10.10.10*. Cette valeur est l’adresse IP en laquelle est résolu le nom d’enregistrement. Dans votre scénario réel, vous devez entrer l’adresse IP publique de votre serveur web.
+   - **Nom** : Tapez *www*. Le nom d’enregistrement est le nom d’hôte que vous souhaitez résoudre en l’adresse IP spécifiée.
+   - **Type** : Sélectionnez **A**. Les enregistrements « A » sont les plus courants, mais il existe d’autres types d’enregistrements pour les serveurs de messagerie (« MX »), les adresses IPv6 (« AAAA »), et ainsi de suite. 
+   - **DURÉE DE VIE** : Tapez *1*. La *durée de vie* (TTL) de la requête DNS spécifie la durée pendant laquelle les clients et serveurs DNS peuvent mettre en cache une réponse.
+   - **Unité de durée de vie** : Sélectionnez **Heures**. Il s’agit de l’unité de temps pour la valeur **TTL**. 
+   - **Adresse IP** : Pour l’exemple de ce guide de démarrage rapide, tapez *10.10.10.10*. Cette valeur est l’adresse IP en laquelle est résolu le nom d’enregistrement. Dans votre scénario réel, vous devez entrer l’adresse IP publique de votre serveur web.
 
 Dans la mesure où ce guide de démarrage rapide n’utilise pas un domaine réel, il n’est pas nécessaire de configurer les serveurs de noms Azure DNS auprès d’un bureau d’enregistrement de noms de domaine. Avec un domaine réel, vous souhaiterez que tous les internautes puissent résoudre le nom d’hôte pour se connecter à votre serveur web ou à votre application. Vous consulterez votre bureau d’enregistrement de noms de domaine afin de remplacer les enregistrements de serveur par les serveurs de noms Azure DNS. Pour plus d’informations, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
-## <a name="test-the-name-resolution"></a>Tester la résolution de noms
+## <a name="test-the-name-resolution"></a>Tester la résolution de nom
 
 Maintenant que vous disposez d’une zone DNS test avec un enregistrement « A » test, vous pouvez tester la résolution de noms avec un outil appelé *nslookup*. 
 

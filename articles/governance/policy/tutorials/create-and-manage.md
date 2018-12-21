@@ -4,17 +4,17 @@ description: Utilisez une stratégie Azure pour appliquer des normes, se conform
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6ee7a4190248c8c18f747ee579aadc04a136696b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7cfcb71567931b1581618cf8f2239fb004befff8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583078"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087029"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -56,7 +56,7 @@ La première étape de l’application de la conformité avec une stratégie Azu
 
    ![Rechercher une stratégie](../media/create-and-manage/select-available-definition.png)
 
-1. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, laissez *Exiger SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.  Le champ **Affectée par** est automatiquement renseigné en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
+1. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, laissez *Exiger SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.  **Affectée par** est automatiquement renseigné en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
 
 1. Laissez la case **Créer une identité managée** non cochée. Vous _devez_ la cocher si la stratégie ou l’initiative affectée inclut une stratégie avec l’effet [deployIfNotExists](../concepts/effects.md#deployifnotexists). Comme ce n’est pas le cas pour la stratégie utilisée dans ce tutoriel, ne cochez pas la case. Pour plus d’informations, consultez [Identités managées](../../../active-directory/managed-identities-azure-resources/overview.md) et [Fonctionnement de la sécurité par correction](../how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -70,7 +70,7 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
 
    ![Définition sous Création](../media/create-and-manage/definition-under-authoring.png)
 
-1. Sélectionnez **+ Définition de stratégie** en haut de la page. La page **Définition de stratégie** s’ouvre.
+1. Sélectionnez **+ Définition de stratégie** en haut de la page. Ce bouton ouvre la page **Définition de stratégie**.
 
 1. Entrez les informations suivantes :
 
@@ -110,7 +110,7 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
     }
     ```
 
-    La valeur de la propriété de *champ* de la règle de stratégie doit être l’une des suivantes : Nom, Type, Emplacement, Balises ou un alias. Exemple d’alias : `"Microsoft.Compute/VirtualMachines/Size"`.
+    La propriété *field* dans la règle de stratégie doit avoir l’une des valeurs suivantes : Name, Type, Location, Tags ou un alias. Exemple d’alias : `"Microsoft.Compute/VirtualMachines/Size"`.
 
     Pour voir d’autres exemples relatifs à Azure Policy, consultez [Exemples Azure Policy](../samples/index.md).
 
@@ -158,7 +158,7 @@ Incluez un texte de demande semblable à l’exemple suivant :
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Créer une définition de stratégie avec PowerShell
 
-Avant de passer à l’exemple PowerShell, assurez-vous d’avoir installé la dernière version d’Azure PowerShell. Les paramètres de stratégie ont été ajoutés dans la version 3.6.0. Si vous utilisez une version antérieure, les exemples renvoient une erreur indiquant que le paramètre est introuvable.
+Avant de passer à l’exemple PowerShell, assurez-vous d’avoir installé la dernière version d’Azure PowerShell. Les paramètres de stratégie ont été ajoutés dans la version 3.6.0. Si vous utilisez une version antérieure, les exemples retournent une erreur indiquant que le paramètre est introuvable.
 
 Vous pouvez créer une définition de stratégie en utilisant l’applet de commande `New-AzureRmPolicyDefinition`.
 
@@ -322,7 +322,7 @@ Elle renvoie toutes les définitions de stratégie disponibles, y compris les st
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Créer et attribuer une définition d’initiative
 
-Avec une définition d’initiative, vous pouvez regrouper plusieurs définitions de stratégie pour atteindre un objectif global. Vous créez une définition initiative pour vous assurer que les ressources dans l’étendue de la définition restent confirmes aux définitions de stratégie qui composent la définition d’initiative. Pour plus d’informations sur les définitions d’initiative, consultez [Vue d’ensemble d’Azure Policy](../overview.md).
+Avec une définition d’initiative, vous pouvez regrouper plusieurs définitions de stratégie pour atteindre un objectif global. Vous créez une définition d’initiative pour confirmer que les ressources dans l’étendue de la définition restent conformes aux définitions de stratégie qui composent la définition d’initiative. Pour plus d’informations sur les définitions d’initiative, consultez [Vue d’ensemble d’Azure Policy](../overview.md).
 
 ### <a name="create-an-initiative-definition"></a>Créer une définition d’initiative
 
@@ -338,7 +338,7 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
 1. Entrez le **nom** et la **description** de l’initiative.
 
-   Cet exemple garantit que les ressources sont conformes aux définitions de stratégie relatives à la sécurisation. Nommez l’initiative **Garantir la sécurité** et indiquez la description **Cette initiative a été créée pour gérer toutes les définitions de stratégie associées à la sécurisation des ressources**.
+   Cet exemple vérifie que les ressources sont conformes aux définitions de stratégie relatives à la sécurisation. Nommez l’initiative **Garantir la sécurité** et définissez la description comme suit : **Cette initiative a été créée pour gérer toutes les définitions de stratégie associées à la sécurisation des ressources**.
 
 1. Pour **Catégorie**, choisissez une des options existantes ou créez une catégorie.
 
@@ -350,11 +350,11 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
    - [Preview]: Monitor possible app Whitelisting in Security Center.
    - [Preview]: Monitor unencrypted VM Disks in Security Center.
 
-   Après avoir sélectionné la définition de stratégie dans la liste, celle-ci est ajoutée sous **Stratégies et paramètres**.
+   Une fois que vous avez sélectionné la définition de stratégie dans la liste, elle est ajoutée sous **Stratégies et paramètres**.
 
    ![Définitions d’initiative](../media/create-and-manage/initiative-definition-2.png)
 
-1. Si une définition de stratégie ajoutée à l’initiative comporte des paramètres, ils apparaissent sous le nom de la stratégie dans la zone **Stratégies et paramètres**. La _valeur_ peut être définie sur « Définir une valeur » (codée en dur pour toutes les affectations de cette initiative) ou « Utiliser le paramètre d'initiative » (définie au cours de chaque affectation d’initiative). Si « Définir une valeur » est sélectionné, la liste déroulante à droite de _Valeurs_ permet d’entrer ou sélectionner le(s) valeur(s) souhaitée(s). Si l’option Utiliser le paramètre d’initiative est sélectionnée, une nouvelle section **Paramètres d’initiative** s’affiche, ce qui vous permet de définir le paramètre défini durant l’affectation d’initiative. Les valeurs autorisées sur ce paramètre d’initiative peuvent restreindre davantage ce qui peut être défini au cours de l’affectation d’initiative.
+1. Si une définition de stratégie ajoutée à l’initiative comporte des paramètres, ils apparaissent sous le nom de la stratégie dans la zone **Stratégies et paramètres**. La _valeur_ peut être définie sur « Définir une valeur » (codée en dur pour toutes les affectations de cette initiative) ou « Utiliser le paramètre d'initiative » (définie au cours de chaque affectation d’initiative). Si « Définir une valeur » est sélectionné, la liste déroulante à droite de _Valeurs_ permet d’entrer ou de sélectionner les valeurs. Si l’option Utiliser le paramètre d’initiative est sélectionnée, une nouvelle section **Paramètres d’initiative** s’affiche, ce qui vous permet de définir le paramètre défini durant l’affectation d’initiative. Les valeurs autorisées sur ce paramètre d’initiative peuvent restreindre davantage ce qui peut être défini au cours de l’affectation d’initiative.
 
    ![Paramètres de la définition d’initiative](../media/create-and-manage/initiative-definition-3.png)
 
@@ -378,10 +378,10 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 1. Renseignez la page **Garantir la sécurité : affecter l’initiative** en entrant les exemples d’informations suivants. Vous pouvez utiliser vos propres informations.
 
    - Étendue : l’abonnement ou le groupe d’administration dans lequel vous avez enregistré l’initiative devient la valeur par défaut.  Vous pouvez changer l’étendue pour affecter l’initiative à un abonnement ou un groupe de ressources, à l’emplacement d’enregistrement.
-   - Exclusions : configurez des ressources dans l’étendue de sorte à empêcher que l’affectation d’initiative leur soit appliquée.
-   - Nom de la définition d’initiative et de l’affectation : Garantir la sécurité (préremplie en tant que nom de l’initiative affectée).
-   - Description : cette affectation d’initiative est adaptée de sorte à appliquer ce groupe de définitions de stratégie.
-   - Affectée par : automatiquement renseigné en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
+   - Exclusions : configurez des ressources dans l’étendue afin d’empêcher que l’affectation d’initiative leur soit appliquée.
+   - Définition d’initiative et Nom de l’affectation : Garantir la sécurité (prérenseigné avec le nom de l’initiative assignée).
+   - Description : cette affectation d’initiative est adaptée afin d’appliquer ce groupe de définitions de stratégie.
+   - Affectée par : renseigné automatiquement en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
 
 1. Laissez la case **Créer une identité managée** non cochée. Vous _devez_ la cocher si la stratégie ou l’initiative affectée inclut une stratégie avec l’effet [deployIfNotExists](../concepts/effects.md#deployifnotexists). Comme ce n’est pas le cas pour la stratégie utilisée dans ce tutoriel, ne cochez pas la case. Pour plus d’informations, consultez [Identités managées](../../../active-directory/managed-identities-azure-resources/overview.md) et [Fonctionnement de la sécurité par correction](../how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -403,10 +403,10 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exempter une ressource non conforme ou refusée en utilisant l’exclusion
 
-Selon l’exemple ci-dessus, après avoir attribué la définition de stratégie pour demander SQL Server version 12.0, tout serveur SQL créé avec une autre version sera refusé. Dans cette section, vous allez résoudre pas à pas une situation dans laquelle la création d’un serveur SQL a été refusée en créant une exclusion sur un seul groupe de ressources. L’exclusion empêche l’application de la stratégie (ou de l’initiative) à cette ressource.
+Selon l’exemple ci-dessus, après avoir attribué la définition de stratégie pour demander SQL Server version 12.0, tout serveur SQL créé avec une autre version sera refusé. Dans cette section, vous allez résoudre pas à pas une situation dans laquelle la demande de création d’un serveur SQL a été refusée en créant une exclusion sur un seul groupe de ressources. L’exclusion empêche l’application de la stratégie (ou de l’initiative) à cette ressource.
 Dans l’exemple suivant, toutes les versions de serveur SQL Server sont autorisées dans un seul groupe de ressources. Une exclusion peut s’appliquer à un abonnement, un groupe de ressources ou à des ressources particulières.
 
-Un déploiement bloqué en raison d’une stratégie ou une initiative affectée est consultable à deux emplacements :
+Un déploiement bloqué en raison d’une stratégie ou d’une initiative affectée est consultable à deux emplacements :
 
 - Sur le groupe de ressources ciblé par le déploiement : sélectionnez **Déploiements** dans la partie gauche de la page, puis cliquez sur le **nom du déploiement** qui a échoué. La ressource refusée est listée avec l’état _Interdit_. Pour déterminer la stratégie ou initiative et l’affectation qui a refusé la ressource, cliquez sur **Échec. Cliquez ici pour plus d’informations ->** dans la page Vue d’ensemble du déploiement. Une fenêtre s’ouvre dans la partie droite de la page pour présenter les informations d’erreur. Sous **Détails de l’erreur** figurent les GUID des objets de stratégie associés.
 
@@ -416,7 +416,7 @@ Un déploiement bloqué en raison d’une stratégie ou une initiative affectée
 
   ![Vue d’ensemble de la conformité d’une stratégie affectée](../media/create-and-manage/compliance-overview.png)
 
-Dans cet exemple, Trent Baker, un des experts en virtualisation de Contoso effectue ce qu’il doit faire. Nous avons besoin de lui octroyer une exception, mais nous ne voulons pas qu’un groupe de ressources comporte des serveurs dont la version est autre que 12.0. Nous avons créé un groupe de ressources, **SQLServers_Excluded** et allons à présent lui octroyer une exception à cette affectation de stratégie.
+Dans cet exemple, Trent Baker, l’un des spécialistes de la virtualisation chez Contoso, effectuait des tâches requises. Nous avons besoin d’octroyer à Trent une exception, mais nous ne voulons pas qu’un groupe de ressources comporte des serveurs dont la version est autre que 12.0. Nous avons créé un groupe de ressources, **SQLServers_Excluded** et allons à présent lui octroyer une exception à cette affectation de stratégie.
 
 ### <a name="update-assignment-with-exclusion"></a>Mettre à jour une affectation avec une exclusion
 
@@ -433,7 +433,7 @@ Dans cet exemple, Trent Baker, un des experts en virtualisation de Contoso effec
 
 1. Cliquez sur **Sélectionner**, puis sur **Enregistrer**.
 
-Dans cette section, vous avez résolu le refus de tentative de création d’une version interdite de serveur SQL en créant une exclusion sur un seul groupe de ressources.
+Dans cette section, vous avez résolu la demande refusée en créant une exclusion sur un seul groupe de ressources.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -447,7 +447,7 @@ Si vous avez fini d’utiliser les ressources de ce tutoriel, effectuez les éta
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez effectué avec succès les opérations suivantes :
+Dans ce didacticiel, vous avez effectué avec succès les tâches suivantes :
 
 > [!div class="checklist"]
 > - Attribué une stratégie pour appliquer une condition aux ressources que vous créez dans le futur

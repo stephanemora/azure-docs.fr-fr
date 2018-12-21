@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Déploiement de modules HSM dédiés Azure sur un réseau virtuel existant à l’aide de PowerShell | Microsoft Docs'
-description: Déployer des modules HSM sur un réseau virtuel existant à l’aide de PowerShell
+title: 'Tutoriel : Effectuer un déploiement sur un réseau virtuel existant à l’aide de PowerShell - Module de sécurité matériel (HSM) dédié Azure | Microsoft Docs'
+description: Tutoriel expliquant comment déployer un module de sécurité matériel dédié (HSM) à l'aide de PowerShell sur un réseau virtuel existant
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,17 +8,17 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a714a52ecd6398fde459c5814b8a6cf223655eff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318754"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086303"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide de PowerShell
 
@@ -37,7 +37,7 @@ Ce tutoriel concerne l’intégration d’une paire de modules de sécurité mat
 
 ## <a name="prerequisites"></a>Prérequis
 
-Le service HSM dédié d’Azure n’est pas disponible dans le portail Azure. Par conséquent, toutes les interactions avec le service se font via la ligne de commande ou PowerShell. Ce tutoriel utilise PowerShell dans Azure Cloud Shell. Si vous débutez avec PowerShell, suivez les instructions fournies ici : [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
+Le service HSM dédié d’Azure n’est pas disponible dans le portail Azure. Par conséquent, toutes les interactions avec le service se font via la ligne de commande ou PowerShell. Ce tutoriel utilise PowerShell dans Azure Cloud Shell. Si vous débutez avec PowerShell, suivez les instructions fournies ici : [Prise en main d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
 
 Il est supposé que :
 
@@ -143,6 +143,14 @@ $delegation = New-AzureRmDelegation `
 ```
 
 ```powershell
+$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+  -Name hsmsubnet ` 
+  -AddressPrefix 10.2.1.0/24 ` 
+  -Delegation $delegation 
+
+```
+
+```powershell
 
 $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
@@ -177,9 +185,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName myRG `
 
 L’exécution de cette commande prend environ 20 minutes. L’option « -verbose » garantit que l’état sera affiché en permanence.
 
-![État du provisionnement](media/tutorial-deploy-hsm-powershell/progress-status.png)
+![état du provisionnement](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-Lorsque l’exécution est terminée (ce qui est indiqué par "provisioningState": "Succeeded"), vous pouvez vous connecter à la machine virtuelle existante et utiliser SSH pour garantir la disponibilité du module HSM.
+Lorsque l'opération a abouti, ce qui est indiqué par « provisioningState » : « Succeeded », vous pouvez vous connecter à la machine virtuelle existante et utiliser SSH pour garantir la disponibilité de l'appareil HSM.
 
 ## <a name="verifying-the-deployment"></a>Vérification du déploiement
 

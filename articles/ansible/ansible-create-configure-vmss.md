@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8dacfb054a36801c076435037a530daa87c4a89c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918573"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409386"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Créer des groupes de machines virtuelles identiques dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer votre groupe de machines virtuelles identiques dans Azure comme vous le feriez pour toute autre ressource Azure. Cet article vous montre comment utiliser Ansible pour créer et augmenter le nombre d’instances d’un groupe de machines virtuelles identiques. 
 
 ## <a name="prerequisites"></a>Prérequis
 - **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
 > Ansible 2.6 est nécessaire pour exécuter les exemples de playbooks suivants dans ce tutoriel. 
@@ -37,7 +37,7 @@ Cette section présente un exemple de playbook Ansible qui définit les ressourc
 
 Entrez votre propre mot de passe pour la valeur de *admin_password*.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -141,7 +141,7 @@ Pour exécuter le playbook Ansible, utilisez la commande **ansible-playbook** co
 
 Une fois le playbook exécuté, une sortie similaire à l’exemple suivant montre que le groupe de machines virtuelles identiques a été correctement créé :
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -190,7 +190,7 @@ Vous obtenez des résultats similaires à la sortie suivante :
 
 Augmentons maintenant le nombre d’instances de deux à trois. Le code du playbook Ansible suivant récupère les informations sur le groupe de machines virtuelles identiques et fait passer sa capacité de deux à trois. 
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -225,7 +225,7 @@ La commande suivante exécute le playbook :
 
 La sortie de l’exécution du playbook Ansible montre que l’augmentation du nombre d’instances du groupe de machines virtuelles identiques a été effectuée correctement :
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -275,4 +275,6 @@ Les résultats de l’exécution de la commande dans Cloud Shell montrent qu’i
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
-> [Exemple de playbook Ansible pour un groupe de machines virtuelles identiques](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Déployer des applications sur des groupes de machines virtuelles identiques avec Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
+
+> [Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

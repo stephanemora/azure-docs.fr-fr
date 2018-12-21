@@ -13,14 +13,15 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 3a84f9ed35bac7f56d4a6aa2af94d1c28e335b74
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334208"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093197"
 ---
-# <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager
+# <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutoriel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager
 
 Découvrez comment récupérer des valeurs secrètes auprès d’Azure Key Vault et comment transmettre ces valeurs sous forme de paramètres lors d’un déploiement Resource Manager. La valeur n’est jamais exposée, car vous référencez uniquement son ID Key Vault. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](./resource-manager-keyvault-parameter.md).
 
@@ -48,7 +49,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./resource-manager-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
+    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Tutoriel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./resource-manager-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
 ## <a name="prepare-the-key-vault"></a>Préparer le coffre Key Vault
 
@@ -81,7 +82,7 @@ Pour créer un coffre Key Vault :
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un coffre Key Vault et un secret Key Vault.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" /></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Sélectionnez ou entrez les valeurs suivantes.  Ne sélectionnez pas **Acheter** après avoir entré ces valeurs.
 
@@ -94,8 +95,8 @@ Pour créer un coffre Key Vault :
     * **Id de locataire**: la fonction de modèle récupère automatiquement votre id de locataire.  Ne modifiez pas la valeur par défaut.
     * **ID d’utilisateur Azure Active Directory** : entrez votre ID objet utilisateur Azure AD que vous avez récupéré à partir de la dernière procédure.
     * **Nom du secret** : le nom par défaut est **vmAdminPassword**. Si vous modifiez le nom du secret à cet emplacement, vous devez mettre à jour ce nom lorsque vous déployez la machine virtuelle.
-    * **Valeur du secret** : entrez votre secret.  Le secret correspond au mot de passe utilisé pour la connexion à la machine virtuelle. Il est recommandé d’utiliser le mot de passe généré que vous avez créé au cours de la dernière procédure.
-    * **J’accepte les termes et conditions mentionnés ci-dessus** : cochez la case.
+    * **Valeur du secret** : entrez votre secret.  Le secret correspond au mot de passe utilisé pour la connexion à la machine virtuelle. Il est recommandé d’utiliser le mot de passe généré que vous avez créé au cours de la dernière procédure.
+    * **J’accepte les termes et conditions mentionnés ci-dessus** : cochez la case.
 3. Sélectionnez **Modifier les paramètres** en haut de la page pour examiner le modèle.
 4. Accédez à la ligne 28 du fichier JSON du modèle. Il s’agit de la définition de la ressource Key Vault.
 5. Accédez à la ligne 35 :

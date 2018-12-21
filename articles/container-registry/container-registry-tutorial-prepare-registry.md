@@ -1,5 +1,5 @@
 ---
-title: Didacticiel Azure Container Registry - Préparer un registre de conteneurs Azure géorépliqué | Microsoft Docs
+title: Didacticiel - Créer un registre Docker géorépliqué dans Azure
 description: Créez un registre de conteneurs Azure, configurez la géoréplication, préparez une image Docker et déployez-la dans le registre. Première partie d’une série en trois parties.
 services: container-registry
 author: dlepow
@@ -7,13 +7,13 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854301"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261311"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Didacticiel : Préparer un registre de conteneurs Azure géorépliqué
 
@@ -49,8 +49,8 @@ Sélectionnez **Créer une ressource** > **Conteneurs** > **Azure Container Regi
 
 Configurez votre nouveau registre avec les paramètres suivants :
 
-* **Nom du registre** : créez un nom de registre qui est globalement unique dans Azure et contient entre 5 et 50 caractères alphanumériques.
-* **Groupe de ressources** : **Créer** > `myResourceGroup`
+* **Nom du registre** : créez un nom de registre qui est globalement unique dans Azure et contient entre 5 et 50 caractères alphanumériques
+* **Groupe de ressources** : **Créer un nouveau** > `myResourceGroup`
 * **Emplacement** : `West US`
 * **Utilisateur administrateur** : `Enable` (requis pour que Web App pour conteneurs puisse extraire des images)
 * **Référence** : `Premium` (requise pour la géoréplication)

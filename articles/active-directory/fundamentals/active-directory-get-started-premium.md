@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour s’inscrire aux éditions Azure Active Directory Premium | Microsoft Docs
-description: Instructions pas à pas se rapportant à l’inscription aux éditions Azure Active Directory Premium.
+title: S’inscrire aux éditions Premium - Azure Active Directory| Microsoft Docs
+description: Instructions permettant de s’inscrire aux éditions Azure Active Directory Premium.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro
-ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394695"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073990"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Guide pratique : S’inscrire à Azure Active Directory Premium
-Vous pouvez acheter Azure Active Directory (Azure AD) Premium et l’associer à votre abonnement Azure. Si vous devez créer un nouvel abonnement Azure, vous devez aussi activer votre offre de licences et l’accès au service Azure AD.
+# <a name="sign-up-for-azure-active-directory-premium-editions"></a>S’inscrire aux éditions Azure Active Directory Premium
+Vous pouvez acheter des éditions Azure Active Directory (Azure AD) Premium et les associer à votre abonnement Azure. Si vous devez créer un nouvel abonnement Azure, vous devez aussi activer votre offre de licences et l’accès au service Azure AD.
 
 > [!NOTE]
 >Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure AD ne sont pas prises en charge dans le service Azure géré par 21Vianet en Chine. Pour plus d’informations, contactez-nous sur le [forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).

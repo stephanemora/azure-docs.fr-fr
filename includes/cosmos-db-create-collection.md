@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: cf77eaa07d45222cecf0450fb33fe62e556bcd9e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e287741fd6643c2eba192a9e29f46219faf520ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38728989"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111909"
 ---
 Vous pouvez désormais utiliser l’outil Explorateur de données dans le portail Azure pour créer une base de données et une collection. 
 
@@ -21,16 +21,16 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     
     La zone **Ajouter une collection** est affichée à l’extrême droite : il peut donc être nécessaire de faire défiler à droite pour l’afficher.
 
-    ![Explorateur de données du portail Azure, panneau Ajouter une collection](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    ![Explorateur de données du portail Azure, volet Ajouter une collection](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
 2. Dans la page **Ajouter une collection**, entrez les paramètres pour la nouvelle collection.
 
     Paramètre|Valeur suggérée|Description
     ---|---|---
-    ID de base de données|Tâches|Entrez *Tasks* comme nom pour la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères /, \\, # ou ?, ni d’espace de fin.
+    ID de base de données|Tâches|Entrez *Tasks* comme nom pour la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères `/, \\, #, ?`, ni un espace de fin.
     ID de la collection|Éléments|Entrez *Items* comme nom pour votre nouvelle collection. Les ID de collection sont soumis aux mêmes spécifications de caractères que les noms de base de données.
-    Capacité de stockage| Fixe (10 Go)|Utilisez la valeur par défaut **Fixe (10 Go)**. Cette valeur correspond à la capacité de stockage de la base de données.
-    Débit|400 RU|Changez le débit en indiquant 400 unités de requête par seconde (RU/s). La capacité de stockage doit être définie sur **Fixe (10 Go)** afin de définir le débit sur 400 RU/s. Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite. 
+    Clé de partition| <Your partition key>| Entrez une clé de partition comme */userid*.
+    Débit|400 RU|Changez le débit en indiquant 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite. 
     
     Outre les paramètres précédents, vous pouvez ajouter des **clés uniques** pour la collection. Laissez le champ vide dans cet exemple. Les clés uniques permettent aux développeurs d’ajouter une couche d’intégrité des données à la base de données. En créant une stratégie de clé unique durant la création d’une collection, vous garantissez l’unicité d’une ou de plusieurs valeurs par clé de partition. Pour en savoir plus, référez-vous à l’article [Clés uniques dans Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
     

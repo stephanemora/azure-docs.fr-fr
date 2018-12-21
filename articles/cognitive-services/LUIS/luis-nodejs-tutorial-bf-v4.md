@@ -1,23 +1,24 @@
 ---
-title: Bot LUIS avec Node.js - Tutoriel - Bot d’application web - Bot Framework SDK 4.0
+title: Bot - Node.js - v4
 titleSuffix: Azure Cognitive Services
 description: À l’aide de Node.js, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot conversationnel utilise l’application Ressources humaines pour implémenter rapidement une solution de bot. Le bot est créé avec Bot Framework version 4 et le bot d’application web Azure.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 20d2ed28291c8d8adfed4779b48f93c657438e0d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385904"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134969"
 ---
-# <a name="tutorial-luis-bot-in-nodejs"></a>Tutoriel : Bot LUIS en Node.js
+# <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutoriel : Bot LUIS dans Node.js avec Bot Framework 4.x et bot d’application web Azure
 À l’aide de Node.js, vous pouvez créer un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot utilise l’application HomeAutomation pour implémenter une solution de bot. Le bot est créé avec le [bot d’application web](https://docs.microsoft.com/azure/bot-service/) Azure et [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
 
 **Ce tutoriel vous montre comment effectuer les opérations suivantes :**
@@ -32,8 +33,6 @@ ms.locfileid: "49385904"
 
 ## <a name="prerequisites"></a>Prérequis
 
-<!--* Samples from 
-https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp-with-luis-->
 * [Émulateur de bot](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
@@ -115,7 +114,7 @@ Pour développer le code de bot d’application web, téléchargez-le et utilise
 
 6. Ouvrez le fichier bot.js et recherchez `const results = await this.luisRecognizer.recognize(context);`. C’est à cet endroit qu’est envoyé à LUIS l’énoncé de l’utilisateur entré dans le bot.
 
-    ```javascript
+    ```nodejs
     /**
      * Driver code that does one of the following:
      * 1. Display a welcome card upon startup
@@ -199,7 +198,7 @@ Avant de changer tout code ou paramètre, vérifiez que le bot fonctionne.
 3. Créez un fichier destiné à contenir les variables d’environnement recherchées par le code de bot. Nommez le fichier `.env`. Ajoutez les variables d’environnement suivantes :
 
     <!--there is no code language that represents an .env file correctly-->
-    ```
+    ```env
     botFilePath=
     botFileSecret=
     ```
@@ -214,7 +213,7 @@ Avant de changer tout code ou paramètre, vérifiez que le bot fonctionne.
 
 5. Quand le bot démarre, la fenêtre de terminal affiche le port local sur lequel le bot est en cours d’exécution :
 
-    ```
+    ```console
     > basic-bot@0.1.0 start C:\Users\pattiowens\repos\BFv4\luis-nodejs-bot-src
     > node ./index.js NODE_ENV=development
 
@@ -248,7 +247,7 @@ Dans le fichier `bot.js`, ajoutez du code pour gérer les nouvelles intentions.
 
 1. En haut du fichier, recherchez la section **Supported LUIS Intents** (Intentions LUIS prises en charge) et ajoutez des constantes pour les intentions HomeAutomation :
 
-    ```javascript
+    ```nodejs
     // Supported LUIS Intents
     const GREETING_INTENT = 'Greeting';
     const CANCEL_INTENT = 'Cancel';
@@ -262,7 +261,7 @@ Dans le fichier `bot.js`, ajoutez du code pour gérer les nouvelles intentions.
 
 2. Recherchez la méthode **isTurnInterrupted** qui reçoit la prédiction LUIS de l’énoncé et ajoutez une ligne pour afficher le résultat dans la console.
 
-    ```node
+    ```nodejs
     /**
      * Look at the LUIS results and determine if we need to handle
      * an interruptions due to a Help or Cancel intent
@@ -277,7 +276,7 @@ Dans le fichier `bot.js`, ajoutez du code pour gérer les nouvelles intentions.
 
     Le bot n’ayant pas exactement la même réponse qu’une demande d’API REST de LUIS, il est important de découvrir les différences en examinant la réponse JSON. Les propriétés de texte et des intentions sont les mêmes, mais les valeurs de propriété des entités ont été modifiées. 
 
-    ```JSON
+    ```json
     {
         "$instance": {
             "HomeAutomation_Device": [
@@ -310,7 +309,7 @@ Dans le fichier `bot.js`, ajoutez du code pour gérer les nouvelles intentions.
 
 3. Ajoutez les intentions à l’instruction switch de la méthode onTurn pour le cas `DialogTurnStatus.empty` :
 
-    ```javascript
+    ```nodejs
     switch (topIntent) {
         case GREETING_INTENT:
             await dc.begin(GREETING_DIALOG);
@@ -343,7 +342,7 @@ Dans le fichier `bot.js`, ajoutez du code pour gérer les nouvelles intentions.
 
 2. Le bot répond comme suit :
 
-    ```JSON
+    ```json
     TurnOn intent found, entities included: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
     ```
 

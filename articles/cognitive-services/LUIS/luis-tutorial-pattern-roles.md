@@ -1,7 +1,8 @@
 ---
-title: 'Tutoriel 4 : Rôles de modèle pour les données liées au contexte'
+title: Rôles de modèle
 titleSuffix: Azure Cognitive Services
 description: Utilisez un modèle pour extraire des données à partir d’un énoncé de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427486"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094404"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutoriel 4 : Extraire des modèles relatifs au contexte
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutoriel 4 : Extraire des modèles relatifs au contexte
 
 Dans ce tutoriel, vous allez utiliser un modèle pour extraire des données à partir d’un énoncé de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.  Lorsque vous utilisez des modèles, l’intention nécessite moins d’exemples d’énoncés.
 
@@ -28,7 +29,7 @@ Le nom du nouvel employé, Billy Patterson, ne fait pas encore partie de l’ent
 
 Le nouvel employé et sa famille doivent être transférés de la ville actuelle vers la ville où se trouve la société fictive. Étant donné qu’un nouvel employé peut venir de n’importe quelle ville, les emplacements doivent être détectés. Une liste définie comme une entité de liste ne fonctionnerait pas car seules les villes de la liste seront extraites.
 
-Les noms de rôles associés aux villes d’origine et de destination doivent être uniques sur toutes les entités. Un moyen simple de s’assurer que les rôles sont uniques consiste à les associer à l’entité apparentée à l’aide d’une stratégie d’affectation de noms. L’entité **NewEmployeeRelocation** est une entité simple à deux rôles : **NewEmployeeReloOrigin** et **NewEmployeeReloDestination**. Relo est l’abréviation de Relocation.
+Les noms de rôles associés aux villes d’origine et de destination doivent être uniques sur toutes les entités. Un moyen simple de s’assurer que les rôles sont uniques consiste à les associer à l’entité apparentée à l’aide d’une stratégie d’affectation de noms. L’entité **NewEmployeeRelocation** est une entité simple avec deux rôles : **NewEmployeeReloOrigin** et **NewEmployeeReloDestination**. Relo est l’abréviation de Relocation.
 
 Comme l’exemple d’énoncé `Move new employee Robert Williams from Sacramento and San Francisco` contient uniquement des entités issues de l’apprentissage automatique, il est important de fournir suffisamment d’exemples d’énoncés à l’intention afin de détecter les entités.  
 
@@ -128,7 +129,7 @@ Dans ces étapes, l’étiquetage des entités peut être simplifié si l’enti
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Move Wayne Berry from Miami to Mount Vernon`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -258,7 +259,7 @@ Tout comme les noms de personnes, les villes posent parfois problème car elles 
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Move wayne berry from miami to mount vernon`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

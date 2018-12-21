@@ -1,5 +1,5 @@
 ---
-title: 'Présentation d’ExpressRoute : étendre votre réseau local à Azure via une connexion privée | Microsoft Docs'
+title: "Étendre votre réseau local à Azure via une connexion privée - Présentation d'ExpressRoute : Azure | Microsoft Docs"
 description: La présentation technique d’ExpressRoute détaille le fonctionnement d’une connexion ExpressRoute pour étendre votre réseau local à Azure via une connexion privée.
 services: expressroute
 author: mialdrid
@@ -7,19 +7,20 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/18/2018
 ms.author: mialdrid
-ms.openlocfilehash: fb3e7ac449934fe9fa36b1683bda20ff3e07f0f4
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.custom: seodec18
+ms.openlocfilehash: 56baabb95a7873b48a27943a58b8e26c56efb6b7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429403"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139552"
 ---
 # <a name="expressroute-overview"></a>Présentation d’ExpressRoute
-Microsoft Azure ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Office 365 et Dynamics 365.
+ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Office 365 et Dynamics 365.
 
 La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent ainsi de meilleurs niveaux de fiabilité, de rapidité, de latence et de sécurité que les connexions classiques sur Internet. Pour plus d’informations sur la connexion de votre réseau à Microsoft à l’aide d’ExpressRoute, consultez [Modèles de connectivité ExpressRoute](expressroute-connectivity-models.md).
 
-![](./media/expressroute-introduction/expressroute-connection-overview.png)
+![Présentation de la connexion à ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>Principaux avantages
 
@@ -77,7 +78,7 @@ Avec ExpressRoute Direct, les clients ont la possibilité de se connecter direct
 Les principales fonctionnalités offertes par ExpressRoute Direct sont les suivantes (sans s’y limiter) :
 
 * Ingestion de données massive dans des services comme le stockage et Cosmos DB
-* Isolation physique pour les secteurs qui sont réglementés, pour lesquels la connectivité isolée et dédiée est obligatoire (secteur bancaire, public et de vente au détail, par exemple)
+* Isolation physique pour les secteurs qui sont réglementés, pour lesquels la connectivité isolée et dédiée est obligatoire (banque, secteur public et commerce de détail, par exemple)
 * Contrôle précis de la distribution du circuit en fonction de l’unité commerciale
 
 Pour plus d’informations, consultez [A propos d’ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
