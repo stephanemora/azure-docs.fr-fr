@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 1ce74afd8ee2266439a591730686b4f5277e1b03
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603191"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322003"
 ---
-# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Didacticiel - Accorder l’accès à une API web Node.js depuis une application de bureau à l’aide d’Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutoriel : Accorder l’accès à une API web Node.js depuis une application de bureau à l’aide d’Azure Active Directory B2C
 
 Ce didacticiel vous montre comment appeler une ressource d’API web Node.js protégée par Azure Active Directory (Azure AD) B2C depuis une application de bureau Windows Presentation Foundation (WPF).
 
@@ -55,7 +55,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | Mon exemple d’API web Node.js | Entrez un **nom** qui décrit votre API web pour les développeurs. |
+    | **Nom** | Mon exemple d’API web Node.js | Entrez un **nom** qui décrit votre API web pour les développeurs. |
     | **Inclure une application/API web** | Oui | Sélectionnez **Oui** pour une API web. |
     | **Autoriser le flux implicite** | Oui | Sélectionnez **Oui** puisque l’API utilise la [connexion OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de réponse** | `http://localhost:5000` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C retourne les jetons demandés par votre API. Dans ce didacticiel, l’exemple d’API web s’exécute localement (localhost) et écoute sur le port 5000. |
@@ -125,7 +125,7 @@ L’exemple d’API web Node.js utilise la bibliothèque Passport.js pour active
 
 ### <a name="configure-the-web-api"></a>Configurer l’API web
 
-1. Ouvrez le fichier `index.html` dans l’exemple d’API web Node.js.
+1. Ouvrez le fichier `index.js` dans l’exemple d’API web Node.js.
 2. Configurez l’exemple avec les informations d’inscription des locataires Azure AD B2C. Modifiez les lignes de code suivantes :
 
 ```nodejs
@@ -159,7 +159,7 @@ Exécutez l’application de bureau :
 
 L’application de bureau envoie une requête à l’API web et obtient une réponse avec le nom d’affichage de l’utilisateur connecté. L’application de bureau que vous avez protégée appelle l’API web protégée dans votre locataire Azure AD B2C.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez utiliser votre client Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 

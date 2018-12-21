@@ -1,5 +1,5 @@
 ---
-title: Didacticiel - Déployer les travaux ASA sur des appareils Azure IoT Edge | Microsoft Docs
+title: Tutoriel consacré au déploiement d'une tâche Azure Stream Analytics sur un appareil - Azure IoT Edge | Microsoft Docs
 description: Dans ce tutoriel, vous déployez Azure Stream Analytics en tant que module dans une zone d’un appareil Edge
 author: kgremban
 manager: philmea
@@ -7,16 +7,15 @@ ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566939"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139809"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Stream Analytics en tant que module IoT Edge - (prévision)
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutoriel : Déployer Azure Stream Analytics en tant que module IoT Edge
 
 De nombreuses solutions IoT utilisent les services d’analytiques pour obtenir des informations sur les données envoyées par les appareils IoT au fur et à mesure de leur arrivée dans le Cloud. Avec Azure IoT Edge, vous pouvez utiliser cette logique [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) et la transposer à l’appareil lui-même. Lors du traitement des flux de données de télémétrie en périphérie, vous pouvez réduire la quantité de données chargées et réduire le temps nécessaire pour réagir aux informations actionnables.
 
@@ -34,11 +33,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Déployer le travail Azure Stream Analytics sur un appareil IoT Edge depuis le portail Azure.
 
 <center>
-![Schéma de l’architecture du didacticiel](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+![Diagramme - Tutoriel - Structurer, mettre en lots et déployer une tâche ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
->[!NOTE]
->Les modules Azure Stream Analytics pour IoT Edge sont en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -207,7 +204,7 @@ Pour ce didacticiel, vous déployez deux modules. Le premier est **tempSensor**,
 
     Vous devez voir le nouveau module Stream Analytics en cours d’exécution avec le module Agent IoT Edge et IoT Edge Hub.
 
-    ![Sortie de module](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![tempSensor et module ASA signalés par l'appareil](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Afficher les données
 
@@ -229,7 +226,7 @@ Vous pouvez désormais aller sur votre appareil IoT Edge pour consulter les inte
 
 Vous devriez voir la température de l’ordinateur augmenter progressivement jusqu’à ce qu’elle atteigne 70 degrés pendant 30 secondes. Le module Stream Analytics déclenche alors une réinitialisation qui fait redescendre la température de l’ordinateur à 21. 
 
-   ![Journal de docker](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![Réinitialiser la sortie de commande dans les journaux du module](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources 
 

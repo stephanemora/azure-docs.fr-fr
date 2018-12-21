@@ -1,6 +1,6 @@
 ---
 title: Importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager | Microsoft Docs
-description: Découvrir comment utiliser l’extension SQL Database pour importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager
+description: Découvrez comment utiliser l’extension SQL Database pour importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/04/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9f1b3ea74c59383561b019d32a80f1502716b29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 249356644772ae75b12f5c940ff5f9ed49b2c795
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879211"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994990"
 ---
-# <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Didacticiel : Importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager
+# <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutoriel : Importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager
 
-Découvrez comment utiliser l’extension SQL Database pour importer un fichier BACPAC. Dans ce didacticiel, vous créez un modèle pour déployer un SQL Server Azure, une SQL Database et un fichier BACPAC. Pour plus d’informations sur le déploiement des extensions de machines virtuelles Azure à l’aide de modèles Azure Resource Manager, consultez [Didacticiel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager](./resource-manager-tutorial-deploy-vm-extensions.md).
+Découvrez comment utiliser les extensions Azure SQL Database pour importer un fichier SQL BACPAC avec des modèles Azure Resource Manager. Les artefacts de déploiement correspondent à tous les fichiers, en plus du fichier de modèle principal, requis pour effectuer un déploiement. Le fichier BACPAC est un artefact. Dans ce tutoriel, vous créez un modèle pour déployer un SQL Server Azure, une SQL Database et importer un fichier BACPAC. Pour plus d’informations sur le déploiement des extensions de machines virtuelles Azure à l’aide de modèles Azure Resource Manager, consultez [Tutoriel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager](./resource-manager-tutorial-deploy-vm-extensions.md).
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -45,11 +45,11 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./resource-manager-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
+    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Tutoriel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./resource-manager-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
 ## <a name="prepare-a-bacpac-file"></a>Préparer un fichier BACPAC
 
-Un fichier BACPAC est partagé sur un [compte de Stockage Azure avec l’accès public](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac). Pour créer le vôtre, consultez [Exporter une base de données SQL Azure dans un fichier BACPAC](../sql-database/sql-database-export.md). Si vous choisissez de publier le fichier sur votre propre emplacement, vous devez mettre à jour le modèle plus tard dans ce didacticiel.
+Un fichier BACPAC est partagé sur un [compte de Stockage Azure](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac) avec l’accès public. Pour créer le vôtre, consultez [Exporter une base de données SQL Azure dans un fichier BACPAC](../sql-database/sql-database-export.md). Si vous choisissez de publier le fichier sur votre propre emplacement, vous devez mettre à jour le modèle plus tard dans ce didacticiel.
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
@@ -68,12 +68,13 @@ Modèles de démarrage rapide Azure est un référentiel pour les modèles Resou
     * `Microsoft.Sql/servers`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
     * `Microsoft.SQL/servers/securityAlertPolicies`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
     * `Microsoft.SQL.servers/databases`.  Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+
     Il est préférable de comprendre quelques notions basiques du modèle avant de le personnaliser.
 4. Sélectionnez **Fichier**>**Enregistrer sous** pour enregistrer une copie du fichier sur votre ordinateur local avec le nom **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Modifier le modèle
 
-Vous devez ajouter deux ressources supplémentaires au modèle.
+Ajoutez deux ressources supplémentaires au modèle.
 
 * Pour permettre à l’extension de base de données SQL d’importer des fichiers BACPAC, vous devez autoriser l’accès aux services Azure. Ajoutez le code JSON suivant à la définition du serveur SQL :
 
@@ -82,7 +83,7 @@ Vous devez ajouter deux ressources supplémentaires au modèle.
         "type": "firewallrules",
         "name": "AllowAllAzureIps",
         "location": "[parameters('location')]",
-        "apiVersion": "2014-04-01",
+        "apiVersion": "2015-05-01-preview",
         "dependsOn": [
             "[variables('databaseServerName')]"
         ],
@@ -126,11 +127,11 @@ Vous devez ajouter deux ressources supplémentaires au modèle.
 
     Pour comprendre la définition de ressource, consultez la [référence de l’extension SQL Database](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Voici quelques éléments importants :
 
-    * **dependsOn** : la ressource d’extension doit être créée une fois que la base de données SQL a été créée.
-    * **storageKeyType** : le type de la clé de stockage à utiliser. La valeur peut être `StorageAccessKey` ou `SharedAccessKey`. Étant donné que le fichier BACPAC fourni est partagé sur un compte de Stockage Azure avec un accès public, « SharedAccessKey » est utilisé ici.
-    * **storageKey** : la clé de stockage à utiliser. Si le type de clé de stockage est SharedAccessKey, il doit être précédé de « ? ».
-    * **storageUri** : l’URI de stockage à utiliser. Si vous choisissez de ne pas utiliser le fichier BACPAC fourni, vous devez mettre à jour les valeurs.
-    * **administratorLoginPassword** : le mot de passe de l’administrateur SQL. Il est recommandé d’utiliser un mot de passe généré. Consultez les [Conditions préalables](#prerequisites).
+    * **dependsOn** : la ressource d’extension doit être créée une fois que la base de données SQL a été créée.
+    * **storageKeyType** : type de clé de stockage à utiliser. La valeur peut être `StorageAccessKey` ou `SharedAccessKey`. Étant donné que le fichier BACPAC fourni est partagé sur un compte de Stockage Azure avec un accès public, « SharedAccessKey » est utilisé ici.
+    * **storageKey** : clé de stockage à utiliser. Si le type de clé de stockage est SharedAccessKey, il doit être précédé de « ? ».
+    * **storageUri** : l'URI de stockage à utiliser. Si vous choisissez de ne pas utiliser le fichier BACPAC fourni, vous devez mettre à jour les valeurs.
+    * **administratorLoginPassword** : mot de passe de l'administrateur SQL. Utilisez un mot de passe généré. Consultez les [Conditions préalables](#prerequisites).
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -151,7 +152,7 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
     -TemplateFile azuredeploy.json
 ```
 
-Il est recommandé d’utiliser un mot de passe généré. Consultez les [Conditions préalables](#prerequisites).
+Utilisez un mot de passe généré. Consultez les [Conditions préalables](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Vérifier le déploiement
 
@@ -170,7 +171,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez déployé un SQL Server, une SQL Database, et avez importé un fichier BACPAC. Pour savoir comment déployer des ressources Azure dans plusieurs régions et comment utiliser des pratiques de déploiement sécurisées, consultez
+Dans ce didacticiel, vous avez déployé un SQL Server, une SQL Database, et avez importé un fichier BACPAC. Le fichier BACPAC est stocké dans un compte de stockage Azure. Toute personne en possession de l'URL peut y accéder. Pour savoir comment sécuriser le fichier BACPAC (artefact), consultez
 
 > [!div class="nextstepaction"]
-> [Utiliser Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Sécuriser des artefacts](./resource-manager-tutorial-secure-artifacts.md)

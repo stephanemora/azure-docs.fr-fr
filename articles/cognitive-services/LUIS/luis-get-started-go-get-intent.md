@@ -1,23 +1,26 @@
 ---
-title: Démarrage rapide pour le langage Go - Prédire une intention - LUIS
-titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. À l’aide de GO, envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique. Au niveau du point de terminaison, LUIS applique le modèle de l’application publique pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application.
+title: Reconnaître l’intention, Go
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Dans ce démarrage rapide Go, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f19c46fcc7dcff2e02786bb3a03082f831e880a2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9768e7945a94c5b28a1f28ea0264108cd47865d6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032731"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104711"
 ---
-# <a name="quickstart-get-intent-using-go"></a>Démarrage rapide : Reconnaître l’intention à l’aide du langage Go
+# <a name="quickstart-get-intent-using-go"></a>Démarrage rapide : Reconnaître l’intention à l’aide de Go
+
+Dans ce démarrage rapide, vous allez transmettre des énoncés à un point de terminaison LUIS et obtenir en retour une intention et des entités.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 

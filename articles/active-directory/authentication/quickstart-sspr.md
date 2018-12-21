@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c40cb3192d514d990ea2a5d66e1484ff204e9b10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d04d27ee6136edec8d9af16f9133cf9a7cc0720c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223555"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311556"
 ---
-# <a name="quickstart-self-service-password-reset"></a>Démarrage rapide : réinitialisation du mot de passe libre-service
+# <a name="quickstart-self-service-password-reset"></a>Démarrage rapide : Réinitialisation de mot de passe libre-service
 
 Avec ce guide de démarrage rapide, vous serez guidé pas à pas pour configurer la réinitialisation du mot de passe en libre-service (SSPR) pour que les administrateurs informatiques disposent de moyens simples pour permettre aux utilisateurs de réinitialiser leurs mots de passe ou de déverrouiller leurs comptes.
 
@@ -25,7 +25,7 @@ Avec ce guide de démarrage rapide, vous serez guidé pas à pas pour configurer
 
 * Un locataire Azure AD fonctionnel avec au moins une licence d’essai active.
 * Un compte avec des privilèges d’administrateur général.
-* Un utilisateur test non-administrateur avec un mot de passe que vous connaissez, si vous avez besoin de créer un utilisateur, consultez l’article [Démarrage rapide : ajouter de nouveaux utilisateurs à Azure Active Directory](../add-users-azure-active-directory.md).
+* Un utilisateur test non-administrateur avec un mot de passe que vous connaissez, si vous avez besoin de créer un utilisateur, consultez l’article [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](../add-users-azure-active-directory.md).
 * Un groupe pilote avec lequel tester si l’utilisateur test non-administrateur est membre, si vous avez besoin de créer un groupe, consultez l’article [Créer un groupe et ajouter des membres dans Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Activer la réinitialisation du mot de passe libre-service
@@ -39,7 +39,7 @@ Avec ce guide de démarrage rapide, vous serez guidé pas à pas pour configurer
     * Cliquez sur **Enregistrer**.
 
 3. À partir de la page **Méthodes d’authentification**, sélectionnez les choix suivants :
-   * Nombre de méthodes requises pour réinitialiser : **1**
+   * Nombre de méthodes requises pour la réinitialisation : **1**
    * Méthodes disponibles pour les utilisateurs :
       * **Téléphone mobile**
       * **Téléphone de bureau**
@@ -48,7 +48,7 @@ Avec ce guide de démarrage rapide, vous serez guidé pas à pas pour configurer
     ![Authentification][Authentication]
 
 4. À partir de la page **Inscription**, sélectionnez un des choix suivants :
-   * Obliger les utilisateurs à s’inscrire à la connexion : **Oui**
+   * Obliger les utilisateurs à s’inscrire durant la connexion : **Oui**
    * Définir le nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification : **365**
 
 ## <a name="test-self-service-password-reset"></a>Tester la réinitialisation de mot de passe en libre-service
@@ -62,9 +62,9 @@ Avec ce guide de démarrage rapide, vous serez guidé pas à pas pour configurer
 5. Entrez l’ID d’utilisateur de vos utilisateurs de test non administrateurs, les caractères du test CAPTCHA, puis cliquez sur **Suivant**.
 6. Suivez les étapes de vérification pour réinitialiser votre mot de passe
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Il est facile de désactiver la réinitialisation du mot de passe libre-service. Ouvrez votre locataire Azure AD et accédez à **Réinitialisation de mot de passe** > **Propriétés**, puis sélectionnez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**.
+Il est facile de désactiver la réinitialisation du mot de passe libre-service. Ouvrez votre locataire Azure AD et accédez à **Propriétés** > **Réinitialisation de mot de passe**, puis sélectionnez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

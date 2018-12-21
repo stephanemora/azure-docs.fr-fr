@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7fa266039b64721912277b73cd5cae5e750c9bf5
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 89bab4d2751cdbc3ba9b2303bc88dba874bc117b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556660"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723941"
 documentType: LandingData
 title: Documentation Azure Cosmos DB
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: Documentation Azure Cosmos DB - Tutoriels, informations de référence sur les API
-  description: Apprenez à utiliser Azure Cosmos DB pour créer des bases de données multi-modèles distribuées mondialement. Le composant Tutoriels vous montre comment créer et interroger des documents, des bases de données de graphe et de clé/valeur.
+  description: Apprenez à utiliser Azure Cosmos DB pour créer des bases de données multi-modèles distribuées mondialement. Le composant Tutoriels vous montre comment créer et interroger des documents, des bases de données de graphique et de clé/valeur.
   services: cosmos-db
   author: SnehaGunda
   ms.author: sngun
@@ -18,7 +18,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
 abstract:
-  description: Azure Cosmos DB est un service de base de données multimodèle mondialement distribué qui prend en charge les bases de données de documents, de valeurs clés, à colonne large et de graphes. Découvrez comment utiliser Azure Cosmos DB avec nos guides de démarrage rapide, tutoriels et exemples.
+  description: Azure Cosmos DB est un service de base de données multimodèle mondialement distribué qui prend en charge les bases de données de documents, de valeurs clés, de colonne large et de graphes. Découvrez comment utiliser Azure Cosmos DB avec nos mises en route rapides, tutoriels et exemples.
   aside:
     image:
       alt: 
@@ -44,27 +44,27 @@ sections:
       html: <p>Utilisez l’API SQL si vous créez une nouvelle base de données de documents non relationnelle, que vous souhaitez interroger en suivant une syntaxe SQL classique.</p>
       image:
         src: media/index/sql-api.svg
-      title: API Azure Cosmos DB pour SQL
+      title: API SQL
     - href: /azure/cosmos-db/graph-introduction/
-      html: <p>Utilisez l’API Gremlin si vous créez une base de données de graphe pour modéliser et parcourir les relations entre les entités.</p>
+      html: <p>Utilisez l’API Gremlin si vous créez une base de données graphique pour modéliser et parcourir les relations entre les entités.</p>
       image:
         src: media/index/graph-api.svg
-      title: API Azure Cosmos DB pour Gremlin
+      title: API Gremlin
     - href: /azure/cosmos-db/mongodb-introduction/
-      html: <p>Utilisez l’API Azure Cosmos DB pour MongoDB si vous migrez des données d’une base de données MongoDB vers le service complètement managé Azure Cosmos DB.</p>
+      html: <p>Utilisez Azure Cosmos DB pour l’API MongoDB si vous migrez des données d’une base de données MongoDB vers le service complètement managé Azure Cosmos DB.</p>
       image:
         src: media/index/mongodb-api.svg
-      title: API Azure Cosmos DB pour MongoDB
+      title: Azure Cosmos DB pour l’API MongoDB
     - href: /azure/cosmos-db/table-introduction/
       html: <p>Utilisez l’API Table si vous migrez des données du Stockage Table Azure vers l’offre de table premium d’Azure Cosmos DB.</p>
       image:
         src: media/index/table-api.svg
-      title: API Azure Cosmos DB pour Table
+      title: API de table
     - href: /azure/cosmos-db/cassandra-introduction/
-      html: <p>Utilisez l’API Cassandra si vous migrez des données de Cassandra vers le service complètement managé Azure Cosmos DB.</p>
+      html: <p>Utilisez l’API Cassandra si vous migrez des données de Cassandra vers le service entièrement administré d’Azure Cosmos DB.</p>
       image:
         src: media/index/cassandra-api.png
-      title: API Azure Cosmos DB pour Cassandra
+      title: API Cassandra
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
@@ -94,7 +94,7 @@ sections:
         src: media/index/logo_xamarin.svg
       title: Xamarin
     rows:
-    - title: API Azure Cosmos DB pour SQL
+    - title: API SQL
       values:
       - href: /azure/cosmos-db/create-sql-api-java
       - href: /azure/cosmos-db/create-sql-api-dotnet
@@ -103,7 +103,7 @@ sections:
       - href: 
       - href: 
       - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
-    - title: API Azure Cosmos DB pour MongoDB
+    - title: Azure Cosmos DB pour l’API MongoDB
       values:
       - href: /azure/cosmos-db/create-mongodb-java
       - href: /azure/cosmos-db/create-mongodb-dotnet
@@ -112,7 +112,7 @@ sections:
       - href: 
       - href: /azure/cosmos-db/create-mongodb-golang
       - href: /azure/cosmos-db/create-mongodb-xamarin
-    - title: API Azure Cosmos DB pour Gremlin
+    - title: API Gremlin
       values:
       - href: /azure/cosmos-db/create-graph-java
       - href: /azure/cosmos-db/create-graph-dotnet
@@ -121,7 +121,7 @@ sections:
       - href: /azure/cosmos-db/create-graph-gremlin-console
       - href: 
       - href: 
-    - title: API Azure Cosmos DB pour Table
+    - title: API de table
       values:
       - href: /azure/cosmos-db/create-table-java
       - href: /azure/cosmos-db/create-table-dotnet
@@ -130,7 +130,7 @@ sections:
       - href: 
       - href: 
       - href: 
-    - title: API Azure Cosmos DB pour Cassandra
+    - title: API Cassandra
       values:
       - href: /azure/cosmos-db/create-cassandra-java
       - href: /azure/cosmos-db/create-cassandra-dotnet
@@ -181,13 +181,13 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: API Azure Cosmos DB pour SQL
+    - title: API SQL
       html: <p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">Flux de modification .NET</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.JS</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">API REST Resource Provider</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
-    - title: API Azure Cosmos DB pour MongoDB
+    - title: Azure Cosmos DB pour l’API MongoDB
       html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Protocole Wire</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.JS</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
-    - title: API Azure Cosmos DB pour Table
+    - title: API de table
       html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.JS</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
-    - title: API Azure Cosmos DB pour Gremlin
+    - title: API Gremlin
       html: <p><a href="https://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="https://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>
-    - title: API Azure Cosmos DB pour Cassandra
+    - title: API Cassandra
       html: <p><a href="https://github.com/datastax/nodejs-driver">Node.JS</a></p><p><a href="https://github.com/datastax/python-driver">Python</a></p><p><a href="https://github.com/datastax/java-driver">Java</a></p>

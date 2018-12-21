@@ -1,5 +1,5 @@
 ---
-title: Créer une application multiconteneur (préversion) dans Web App pour conteneurs
+title: Créer une application pour plusieurs conteneurs dans Web App pour conteneurs - Azure App Service
 description: Découvrez comment utiliser plusieurs conteneurs sur Azure avec des fichiers de configuration Docker Compose et Kubernetes, avec une application WordPress et MySQL.
 keywords: service d’application Azure, application web, Linux, Docker, Compose, multiconteneur, plusieurs conteneurs, Web App pour conteneurs, plusieurs conteneurs, conteneurs, Kubernetes, Wordpress, base de données Azure pour MySQL, base de données de production avec des conteneurs
 services: app-service
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: c8002b10e2c7c0823cd59bf300283d04fca5ce2e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.custom: seodec18
+ms.openlocfilehash: 7feb168d9cbcb9fc19e6fcd320bbf87c15077a50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390208"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251638"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Didacticiel : Création d’une application à plusieurs conteneurs (version préliminaire) à l’aide d’Azure Web App pour conteneurs
+# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutoriel : Créer une application multiconteneur (préversion) dans Web App pour conteneurs
 
 [Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Dans ce didacticiel, vous allez apprendre à créer une application à plusieurs conteneurs à l’aide de WordPress et de MySQL. Vous allez effectuer ce tutoriel dans Cloud Shell, mais vous pouvez également exécuter ces commandes localement avec l’outil en ligne de commande [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 ou ultérieur).
 
@@ -235,7 +235,7 @@ Une fois la base de données créée, Cloud Shell affiche des informations simil
 
 ### <a name="configure-database-variables-in-wordpress"></a>Configuration des variables de la base de données dans WordPress
 
-Pour connecter l’application WordPress à ce nouveau serveur MySQL, vous devez configurer quelques variables d’environnement spécifiques à WordPress, y compris le chemin d’accès de l’autorité de certification SSL défini par `MYSQL_SSL_CA`. Le [certificat racine CyberTrust Baltimore](https://www.digicert.com/digicert-root-certificates.htm) de [DigiCert](http://www.digicert.com/) est fourni dans [l’image personnalisée](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) ci-dessous.
+Pour connecter l’application WordPress à ce nouveau serveur MySQL, vous devez configurer quelques variables d’environnement spécifiques à WordPress, y compris le chemin d’accès de l’autorité de certification SSL défini par `MYSQL_SSL_CA`. Le [certificat racine CyberTrust Baltimore](https://www.digicert.com/digicert-root-certificates.htm) de [DigiCert](https://www.digicert.com/) est fourni dans [l’image personnalisée](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) ci-dessous.
 
 Pour effectuer ces modifications, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell. Les paramètres d’application respectent la casse et sont séparés par des espaces.
 

@@ -8,29 +8,29 @@ ms.component: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f2ca118e137104c6dddd2945b7b88b2f535621eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e9e0d2f452a21f2da29568b953238318cb4477df
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849225"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077442"
 ---
-# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Présentation de la base de données Azure Cosmos : API Gremlin
+# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Présentation d’Azure Cosmos DB : API Gremlin
 
-[Azure Cosmos DB](introduction.md) est le service de base de données multimodèle mondialement distribué de Microsoft pour les applications stratégiques. Il s’agit d’une base de données multimodèle qui prend en charge les modèles de données en colonnes, documents, graphes et clé-valeur. L’API Azure Cosmos DB Gremlin permet de stocker, d’utiliser, de modéliser et de parcourir des données de graphes.
+[Azure Cosmos DB](introduction.md) est le service de base de données multimodèle globalement distribué de Microsoft pour les applications stratégiques. Il s’agit d’une base de données multimodèle qui prend en charge les modèles de données en colonnes, documents, graphes et clé-valeur. L’API Azure Cosmos DB Gremlin permet de stocker, d’utiliser, de modéliser et de parcourir des données de graphes.
 
-Cet article fournit une vue d’ensemble de l’API Gremlin Azure Cosmos DB, et explique comment l’utiliser pour stocker des graphiques volumineux comportant des milliards de sommets et de bords. Vous pouvez interroger les graphiques avec une latence de quelques millisecondes, et faire évoluer facilement leur structure et leur schéma. Pour interroger Azure Cosmos DB, vous pouvez utiliser le langage de parcours de graphe [Apache TinkerPop](http://tinkerpop.apache.org) ou [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
+Cet article fournit une vue d’ensemble de l’API Gremlin Azure Cosmos DB, et explique comment l’utiliser pour stocker des graphiques volumineux comportant des milliards de sommets et de bords. Vous pouvez interroger les graphiques avec une latence de quelques millisecondes, et faire évoluer facilement leur structure et leur schéma. Pour interroger Azure Cosmos DB, vous pouvez utiliser le langage de parcours de graphe [Apache TinkerPop](https://tinkerpop.apache.org) ou [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 
 ## <a name="what-is-a-graph-database"></a>Qu’est une base de données de graphes
 Les données telles qu’elles apparaissent dans le monde réel sont naturellement connectées. La modélisation de données traditionnelle se concentre sur les entités. Pour bon nombre d’applications, il y a aussi un besoin de modélisation ou de modélisation des entités et des relations de façon naturelle.
 
-Un [graphique](http://mathworld.wolfram.com/Graph.html) est une structure composée de [sommets](http://mathworld.wolfram.com/GraphVertex.html) et de [bords](http://mathworld.wolfram.com/GraphEdge.html). Les sommets et les bords peuvent avoir un nombre arbitraire de propriétés. 
+Un [graphique](https://mathworld.wolfram.com/Graph.html) est une structure composée de [sommets](http://mathworld.wolfram.com/GraphVertex.html) et de [bords](http://mathworld.wolfram.com/GraphEdge.html). Les sommets et les bords peuvent avoir un nombre arbitraire de propriétés. 
 
 * **Sommets** – Les sommets désignent des objets discrets, comme une personne, un lieu ou un événement. 
 
 * **Arêtes** – Les arêtes désignent les relations entre les sommets. Par exemple, une personne peut en connaître une autre, être impliquée dans un événement et avoir récemment été dans un lieu. 
 
-* **Properties** – Les propriétés expriment des informations sur les arêtes et les sommets, par exemple, le nom et l’âge d’un sommet ou la date, l’heure et le poids d’une arête. Plus formellement, ce modèle est appelé un [graphique de propriétés](http://tinkerpop.apache.org/docs/current/reference/#intro). Azure Cosmos DB prend en charge le modèle de graphique de propriétés.
+* **Properties** – Les propriétés expriment des informations sur les arêtes et les sommets, par exemple, le nom et l’âge d’un sommet ou la date, l’heure et le poids d’une arête. Plus formellement, ce modèle est appelé un [graphique de propriétés](https://tinkerpop.apache.org/docs/current/reference/#intro). Azure Cosmos DB prend en charge le modèle de graphique de propriétés.
 
 Ainsi, l’exemple de graphe suivant met en évidence des relations entre des personnes, des appareils mobiles, des centres d’intérêt et des systèmes d’exploitation :
 
@@ -80,18 +80,18 @@ Azure Cosmos DB peut également utiliser plusieurs modèles, tels que des docume
 
 ## <a name="get-started"></a>Prise en main
 
-Pour créer des comptes d’API Gremlin Azure Cosmos DB, il est possible d’utiliser l’interface de ligne de commande (CLI) Azure, Azure PowerShell ou le Portail Azure. Une fois le compte créé, vous pouvez accéder à ses bases de données de graphes à l’aide d’un point de terminaison de service API Gremlin, `https://<youraccount>.gremlin.cosmosdb.azure.com`, qui fournit un serveur frontal WebSocket pour Gremlin. Vous pouvez configurer vos outils compatibles avec TinkerPop, tels que la [console Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), pour vous connecter à ce point de terminaison et créer des applications en Java, Node.js, ou tout pilote de client Gremlin.
+Pour créer des comptes d’API Gremlin Azure Cosmos DB, il est possible d’utiliser l’interface de ligne de commande (CLI) Azure, Azure PowerShell ou le Portail Azure. Une fois le compte créé, vous pouvez accéder à ses bases de données de graphes à l’aide d’un point de terminaison de service API Gremlin, `https://<youraccount>.gremlin.cosmosdb.azure.com`, qui fournit un serveur frontal WebSocket pour Gremlin. Vous pouvez configurer vos outils compatibles avec TinkerPop, tels que la [console Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), pour vous connecter à ce point de terminaison et créer des applications en Java, Node.js, ou tout pilote de client Gremlin.
 
 Le tableau suivant présente des pilotes Gremlin courants que vous pouvez utiliser sur Azure Cosmos DB :
 
 | Download | Documentation | Mise en route | Version du connecteur prise en charge |
 | --- | --- | --- | --- |
-| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET sur GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Créer un graphe avec .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Créer un graphe avec Java](create-graph-java.md) | 3.2.0+ |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET sur GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Créer un graphe avec .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Créer un graphe avec Java](create-graph-java.md) | 3.2.0+ |
 | [Node.JS](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript sur GitHub](https://github.com/jbmusso/gremlin-javascript) | [Créer un graphe avec Node.js](create-graph-nodejs.md) | 2.6.0|
-| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python sur GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Créer un graphe avec Python](create-graph-python.md) | 3.2.7 |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python sur GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Créer un graphe avec Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP sur GitHub](https://github.com/PommeVerte/gremlin-php) | [Créer un graphe avec PHP](create-graph-php.md) | 3.1.0 |
-| [Console Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documents TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Créer un graphe à l’aide de la console Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |
+| [Console Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documents TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Créer un graphe à l’aide de la console Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="graph-database-design-considerations"></a>Considérations relatives à la conception de bases de données de graphes
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e25cdd0677efce0ea8d40ad1c8ae07a5d071a67f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614514"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969785"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données SQL Azure
 Dans ce tutoriel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL Azure.    
@@ -61,7 +61,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 
     Voici le diagramme général de la solution : 
 
-    ![Chargement incrémentiel de données](media\tutorial-incremental-copy-multiple-tables-portal\high-level-solution-diagram.png)
+    ![Chargement incrémentiel de données](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -248,7 +248,7 @@ END
 1. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 1. Sélectionnez **Épingler au tableau de bord**.     
 1. Cliquez sur **Créer**.      
-1. Sur le tableau de bord, vous voyez la mosaïque suivante avec l’état : **Déploiement de fabrique de données**. 
+1. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
 
     ![mosaïque déploiement de fabrique de données](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
 1. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
@@ -277,7 +277,7 @@ Lorsque vous déplacez des données d’un magasin de données d’un réseau pr
 1. Entrez **MySelfHostedIR** pour le **Nom**, puis cliquez sur **Suivant**. 
 
    ![Nom de runtime d’intégration auto-hébergé](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. Cliquez sur **Cliquez ici pour lancer l’installation rapide pour cet ordinateur** dans la section **Option 1 : installation rapide**. 
+1. Cliquez sur **Cliquez ici pour lancer l’installation rapide pour cet ordinateur** dans la section **Option 1 : installation rapide**. 
 
    ![Cliquer sur le lien d’installation rapide](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Dans la fenêtre **Installation rapide du runtime d’intégration (auto-hébergé)**, cliquez sur **Fermer**. 

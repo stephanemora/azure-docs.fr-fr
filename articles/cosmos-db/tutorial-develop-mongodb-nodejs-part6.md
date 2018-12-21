@@ -1,23 +1,23 @@
 ---
-title: Tutoriel MongoDB, Angular et Node pour Azure - Partie 6
+title: Application Angular Node.Js à l’aide de l’API MongoB (Partie 6)
+titleSuffix: Azure Cosmos DB
 description: Il s’agit de la partie 6 de cette série de didacticiels sur la création d’une application MongoDB avec Angular et Node sur Azure Cosmos DB à l’aide des mêmes API que celles utilisées pour MongoDB
-services: cosmos-db
 author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/17/2018
+ms.date: 12/06/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: 5188065022ef19a72068aa0bbb36b1c603d830dd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: ec6fc4237fd2be11d1e937ec6aed12898689e73f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869248"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139977"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Créer une application MongoDB avec Angular et Azure Cosmos DB - Partie 6 : ajouter des fonctions Publier, Placer et Supprimer à l’application
+# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-crud-functions-to-the-app"></a>Créer une application MongoDB avec Angular et Azure Cosmos DB - Partie 6 : Ajouter des fonctions à l’application CRUD
 
 Ce didacticiel en plusieurs parties montre comment créer une application [API MongoDB](mongodb-introduction.md) écrite en Node.js avec Express et Angular, puis comment se connecter à la base de données Azure Cosmos DB.
 

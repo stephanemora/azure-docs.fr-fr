@@ -1,37 +1,37 @@
 ---
-title: 'Tutoriel 3 : Données validées par une expression régulière - Extraire des données bien formées'
+title: Entité Expression régulière
 titleSuffix: Azure Cognitive Services
 description: Extrayez des données mises en forme de façon homogène depuis un énoncé à l’aide de l’entité Expression régulière.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423413"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135574"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>Tutoriel 3 : Extraire des données bien formées
+# <a name="tutorial-3-extract-well-formatted-data"></a>Tutoriel 3 : Extraire des données au format approprié
 Dans ce tutoriel, vous modifiez l’application Ressources humaines pour extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
 
 L’objectif d’une entité est d’extraire les données importantes contenues dans l’énoncé. Dans cette application, l’utilisation de l’entité d’expression régulière consiste à extraire les numéros de formulaire de Ressources humaines (RH) à partir d’un énoncé. Bien que l’intention de l’énoncé soit toujours déterminée avec l’apprentissage automatique, ce type d’entité spécifique n’est pas issu du machine learning. 
 
 **Les exemples d’énoncés sont les suivants :**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|Exemples d’énoncés|
+|--|
+|Où se trouve HRF-123456 ?|
+|Qui a créé HRF-123234 ?|
+|HRF-456098 est-il publié en français ?|
+|HRF-456098|
+|Date de HRF-456098 ?|
  
 Une expression régulière est un choix approprié pour ce type de données quand :
 
@@ -129,7 +129,7 @@ Créez une entité d’expression régulière pour indiquer à LUIS ce qu’est 
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `When were HRF-123456 and hrf-234567 published in the last year?`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `FindForm` avec les deux numéros de formulaire `HRF-123456` et `hrf-234567`.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

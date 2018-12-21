@@ -1,6 +1,6 @@
 ---
-title: Didacticiel des synonymes en C# dans le service Recherche Azure | Microsoft Docs
-description: Dans ce didacticiel, ajoutez la fonctionnalité des synonymes à un index dans Recherche Azure.
+title: Tutoriel C# des synonymes - Recherche Azure
+description: Dans ce tutoriel C#, découvrez comment ajouter la fonctionnalité des synonymes à un index dans Recherche Azure. Une carte de synonymes est une liste de termes équivalents. Les champs avec prise en charge des synonymes étendent les requêtes afin d'inclure le terme fourni par l’utilisateur et tous les synonymes associés.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990559"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309227"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Didacticiel : Ajouter des synonymes pour le service Recherche Azure en C#
+# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Tutoriel : Ajouter des synonymes pour le service Recherche Azure en C#
 
 Les synonymes développent une requête en faisant correspondre les termes considérés comme sémantiquement équivalents à l’expression entrée. Par exemple, vous souhaiterez peut-être que le terme « voiture » vous permette de trouver des documents contenant les mots « automobile » ou « véhicule ». 
 
@@ -37,7 +38,7 @@ La configuration requise du didacticiel est la suivante :
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Service Recherche Azure](search-create-service-portal.md)
 * [Bibliothèque .NET Microsoft.Azure.Search](https://aka.ms/search-sdk)
-* [Comment utiliser la Recherche Azure à partir d’une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Comment utiliser Azure Search à partir d'une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -165,9 +166,9 @@ L’ajout de synonymes modifie complètement l’expérience de recherche. Dans 
 ## <a name="sample-application-source-code"></a>Code source de l'exemple d'application
 Vous trouverez le code source complet de l’exemple d’application utilisé dans cette procédure sur [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Le moyen le plus rapide de procéder à un nettoyage après un didacticiel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez supprimer le groupe de ressources maintenant pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
+Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

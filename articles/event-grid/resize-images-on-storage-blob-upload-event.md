@@ -3,7 +3,7 @@ title: Utiliser Azure Event Grid pour automatiser le redimensionnement des image
 description: Azure Event Grid peut être déclenché en cas de chargement d’objets blob dans le stockage Azure. Vous pouvez utiliser cette fonctionnalité pour envoyer des fichiers image chargés dans le stockage Azure vers d’autres services, tels qu’Azure Functions, en vue de les redimensionner ou de leur apporter d’autres améliorations.
 services: event-grid, functions
 author: ggailey777
-manager: cfowler
+manager: jpconnoc
 editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f08de2398174363604576874627026dcc6199ac5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585575"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104660"
 ---
-# <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatiser le redimensionnement des images chargées à l’aide d’Event Grid
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutoriel : Automatiser le redimensionnement des images chargées à l’aide d’Event Grid
 
 [Azure Event Grid](overview.md) est un service d’événement pour le cloud. Event Grid permet de créer des abonnements aux événements qui sont déclenchés par les services Azure ou des ressources tierces.  
 
-Ce didacticiel constitue la deuxième partie d’une série de didacticiels sur le stockage. Il développe le [didacticiel précédent sur le stockage][previous-tutorial] en y ajoutant la génération automatique de miniatures sans serveur à l’aide d’Azure Event Grid et d’Azure Functions. Event Grid permet à [Azure Functions](..\azure-functions\functions-overview.md) de répondre aux événements de [Stockage Blob Azure](..\storage\blobs\storage-blobs-introduction.md) et de générer les miniatures d’images chargées. Un abonnement est créé pour l’événement de création de Stockage Blob. Lorsqu’un objet blob est ajouté à un conteneur de stockage d’objets blob, un point de terminaison de fonction est appelé. Les données passées à la liaison de fonction à partir d’Event Grid sont utilisées pour accéder à l’objet blob et pour générer l’image miniature.
+Ce didacticiel constitue la deuxième partie d’une série de didacticiels sur le stockage. Il développe le [didacticiel précédent sur le stockage][previous-tutorial] en y ajoutant la génération automatique de miniatures sans serveur à l’aide d’Azure Event Grid et d’Azure Functions. Event Grid permet à [Azure Functions](../azure-functions/functions-overview.md) de répondre aux événements de [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md) et de générer les miniatures d’images chargées. Un abonnement est créé pour l’événement de création de Stockage Blob. Lorsqu’un objet blob est ajouté à un conteneur de stockage d’objets blob, un point de terminaison de fonction est appelé. Les données passées à la liaison de fonction à partir d’Event Grid sont utilisées pour accéder à l’objet blob et pour générer l’image miniature.
 
 Pour ajouter la fonctionnalité de redimensionnement à une application existante de chargement d’images, utilisez Azure CLI et le portail Azure.
 
@@ -40,7 +40,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce tutoriel :
 
-Vous devez avoir suivi entièrement le didacticiel précédent sur Stockage Blob intitulé [Charger des données d’image dans le cloud avec Stockage Azure][previous-tutorial].
+Vous devez avoir terminé le tutoriel précédent sur le stockage d'objets blob : [Charger des données d’image dans le cloud avec le Stockage Azure][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -158,19 +158,18 @@ Un abonnement d’événement indique les événements générés par le fournis
 
 3. Utilisez les paramètres d’abonnement d’événement, comme spécifié dans le tableau.
     
-    ![Créer un abonnement d’événement à partir de la fonction dans le portail Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
+    ![Créer un abonnement d’événement à partir de la fonction dans le portail Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | imageresizersub | Nom du nouvel abonnement d’événement. | 
     | **Type de rubrique** |  Comptes de stockage | Choisissez le fournisseur d’événements de compte de stockage. | 
     | **Abonnement** | Votre abonnement Azure | Par défaut, votre abonnement Azure actuel est sélectionné.   |
     | **Groupe de ressources** | myResourceGroup | Sélectionnez **Utiliser l’existant**, puis choisissez le groupe de ressources que vous avez utilisé dans ce didacticiel.  |
-    | **Instance** |  Votre compte de stockage Blob |  Choisissez le compte de stockage Blob que vous avez créé. |
+    | **Ressource** |  Votre compte de stockage Blob |  Choisissez le compte de stockage Blob que vous avez créé. |
     | **Types d’événements** | BlobCreated | Décochez tous les types autres que **BlobCreated**. Seuls les types d’événements de `Microsoft.Storage.BlobCreated` sont passés à la fonction.| 
-    | **Type d’abonné** |  Webhook |  Les choix sont Webhook ou Event Hubs. |
+    | **Type d’abonné** |  autogenerated |  Prédéfini comme webhook. |
     | **Point de terminaison de l’abonné** | autogenerated | Utilisez l’URL de point de terminaison qui est générée automatiquement. | 
-    | **Filtre de préfixe** | /blobServices/default/containers/images/blobs/ | Filtre les événements de stockage pour n’afficher que ceux concernant le conteneur **images**.| 
+    | **Nom** | imageresizersub | Nom du nouvel abonnement d’événement. | 
 
 4. Cliquez sur **Créer** pour ajouter l’abonnement d’événement. Cela crée un abonnement d’événement qui déclenche `imageresizerfunc` lorsqu’un objet blob est ajouté au conteneur *images*. La fonction redimensionne les images et les ajoute au conteneur *thumbnails*.
 
@@ -201,6 +200,6 @@ Passez à la troisième partie de la série de didacticiels sur le stockage pour
 > [Sécuriser l’accès aux données d’une application dans le cloud](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 + Pour plus d’informations sur Event Grid, consultez [Présentation d’Event Grid](overview.md). 
-+ Pour essayer un autre didacticiel utilisant Azure Functions, consultez [Créer une fonction qui s’intègre à Azure Logic Apps](..\azure-functions\functions-twitter-email.md). 
++ Pour essayer un autre didacticiel utilisant Azure Functions, consultez [Créer une fonction qui s’intègre à Azure Logic Apps](../azure-functions/functions-twitter-email.md). 
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md

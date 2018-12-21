@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341835"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191527"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Protéger des machines virtuelles déployées sur Azure Stack
 
@@ -55,10 +55,10 @@ Planifiez votre stratégie de récupération d’urgence et de sauvegarde-récup
 
 |  | Azure global | Azure Stack déployé dans un centre de données de fournisseur de services cloud et géré par un fournisseur de services cloud | Azure Stack déployé dans un centre de données de client et géré par un client |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack déployé dans un centre de données de fournisseur de services cloud et géré par un fournisseur de services cloud** | Les machines virtuelles utilisateur sont déployées sur le compte Azure Stack géré par le fournisseur de services cloud. Les machines virtuelles utilisateur sont restaurées à partir de la sauvegarde ou basculées directement sur Azure. | Le fournisseur de services cloud gère les instances principales et secondaires d’Azure Stack dans ses propres centres de données. Les machines virtuelles utilisateur sont restaurées ou basculées entre les deux instances Azure Stack. | Le fournisseur de services cloud gère Azure Stack dans le site principal. Le centre de données du client est la cible de la restauration ou du basculement. |
-| **Azure Stack déployé dans un centre de données de client et géré par un client** | Les machines virtuelles utilisateur sont déployées sur le compte Azure Stack géré par le client. Les machines virtuelles utilisateur sont restaurées à partir de la sauvegarde ou basculées directement sur Azure. | Le client gère les instances principales et secondaires d’Azure Stack dans ses propres centres de données. Les machines virtuelles utilisateur sont restaurées ou basculées entre les deux instances Azure Stack. | Le client gère Azure Stack dans le site principal. Le centre de données du fournisseur de services cloud est la cible de la restauration ou du basculement. |
+| **Azure Stack déployé dans un centre de données de fournisseur de services cloud et géré par un fournisseur de services cloud** | Les machines virtuelles utilisateur sont déployées sur le compte Azure Stack géré par le fournisseur de services cloud.<br><br>Les machines virtuelles utilisateur sont restaurées à partir de la sauvegarde ou basculées directement sur Azure. | Le fournisseur de services cloud gère les instances principales et secondaires d’Azure Stack dans ses propres centres de données.<br><br>Les machines virtuelles utilisateur sont restaurées ou basculées entre les deux instances Azure Stack. | Le fournisseur de services cloud gère Azure Stack dans le site principal.<br><br>Le centre de données du client est la cible de la restauration ou du basculement. |
+| **Azure Stack déployé dans un centre de données de client et géré par un client** | Les machines virtuelles utilisateur sont déployées sur le compte Azure Stack géré par le client.<br><br>Les machines virtuelles utilisateur sont restaurées à partir de la sauvegarde ou basculées directement sur Azure. | Le client gère Azure Stack dans le site principal.<br><br>Le centre de données du fournisseur de services cloud est la cible de la restauration ou du basculement. | Le client gère les instances principales et secondaires d’Azure Stack dans ses propres centres de données.<br><br>Les machines virtuelles utilisateur sont restaurées ou basculées entre les deux instances Azure Stack. |
 
-![Combinaisons source/cible](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Combinaisons source/cible](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>Objectifs de récupération d’application
 
@@ -77,13 +77,13 @@ Il existe une autre métrique, le **temps moyen de récupération** (MTTR), qui 
 
 Le schéma de protection le plus courant pour les applications basées sur une machine virtuelle consiste à utiliser un logiciel de sauvegarde. En général, la sauvegarde d’une machine virtuelle inclut le système d’exploitation, la configuration du système d’exploitation, les fichiers binaires d’application et les données d’application. Les sauvegardes sont créées en prenant un cliché instantané des volumes, des disques ou de la machine virtuelle entière. Avec Azure Stack, vous avez la possibilité de sauvegarder à partir du contexte du système d’exploitation invité ou à partir du stockage Azure Stack et des API de calcul. Azure Stack ne prend pas en charge les sauvegardes prises au niveau de l’hyperviseur.
  
-![Sauvegarde-restauration](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Sauvegarde-restauration](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 La récupération de l’application nécessite la restauration d’une ou de plusieurs machines virtuelles dans le même cloud ou un nouveau cloud. Vous pouvez cibler un cloud dans votre centre de données ou le cloud public. Le choix du cloud n’appartient qu’à vous et dépend de vos exigences de souveraineté et de confidentialité des données.
  
- - RTO : temps d’arrêt mesuré en heures
+ - RTO : temps d’arrêt mesuré en heures
  - RPO : perte de données variable (selon la fréquence de sauvegarde)
- - Topologie du déploiement : actif/passif
+ - Topologie du déploiement : actif/passif
 
 #### <a name="planning-your-backup-strategy"></a>Planification de votre stratégie de sauvegarde
 
@@ -107,11 +107,11 @@ Pour prendre en charge la haute disponibilité, il existe une autre approche qui
 
 Avec cette approche, l’application est déployée dans un cloud et sa machine virtuelle dans l’autre. Lorsqu’un basculement est déclenché, les machines virtuelles secondaires doivent être démarrées dans le second cloud. Dans certains cas, le basculement crée les machines virtuelles et y attache des disques. Ce processus peut prendre un certain temps, surtout avec une application à plusieurs niveaux exigeant une séquence de démarrage particulière. Il peut être nécessaire de passer par d’autres étapes pour que l’application soit prête à traiter les requêtes.
 
-![Réplication-basculement manuel](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Réplication-basculement manuel](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
- - RTO : temps d’arrêt mesuré en minutes
+ - RTO : temps d’arrêt mesuré en minutes
  - RPO : perte de données variable (selon la fréquence de réplication)
- - Topologie du déploiement : en veille actif/passif
+ - Topologie du déploiement : en veille actif/passif
  
 ### <a name="high-availabilityautomatic-failover"></a>Haute disponibilité/basculement automatique
 
@@ -121,9 +121,9 @@ En combinaison avec des groupes identiques, votre application doit prendre en ch
 
 Avec cette approche, l’application n’est active que dans un cloud, mais le logiciel est déployé dans plusieurs clouds. Les autres clouds sont en mode veille, prêts à démarrer l’application lorsque le basculement est déclenché.
 
- - RTO : temps d’arrêt mesuré en secondes
- - RPO : perte de données minimale
- - Topologie du déploiement : en veille actif/actif
+ - RTO : temps d’arrêt mesuré en secondes
+ - RPO : perte de données minimale
+ - Topologie du déploiement : en veille actif/actif
 
 ### <a name="fault-tolerance"></a>Tolérance de panne
 
@@ -133,16 +133,16 @@ Tout d’abord, vous devez vous assurer que les machines virtuelles de l’appli
 
 Gardez à l’esprit que chaque cloud Azure Stack est indépendant des autres ; les clouds sont donc toujours considérés comme actifs du point de vue de l’infrastructure. Dans ce cas, plusieurs instances actives de l’application sont déployées dans un ou plusieurs clouds actifs.
 
- - RTO : aucun temps d’arrêt
- - RPO : aucune perte de données
- - Topologie du déploiement : actif/actif
+ - RTO : aucun temps d’arrêt
+ - RPO : Aucune perte de données
+ - Topologie du déploiement : actif/actif
 
 ### <a name="no-recovery"></a>Aucune récupération
 
 Certaines applications de votre environnement peuvent ne pas avoir besoin d’être protégées contre des temps d’arrêt non planifiés ou une perte de données. Par exemple, les machines virtuelles utilisées pour le développement et le test n’ont généralement pas besoin d’être récupérées. C’est à vous de décider si vous souhaitez protéger une application ou une machine virtuelle spécifique. Azure Stack n’offre pas de sauvegarde ou réplication des machines virtuelles à partir de l’infrastructure sous-jacente. Comme dans Azure, vous devez choisir la protection de chaque machine virtuelle dans chacun de vos abonnements.
 
- - RTO : irrécupérable
- - RPO : perte complète des données
+ - RTO : irrécupérable
+ - RPO : perte complète des données
 
 ## <a name="recommended-topologies"></a>Topologies recommandées
 

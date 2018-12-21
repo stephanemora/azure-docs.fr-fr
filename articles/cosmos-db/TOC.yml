@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: À propos d’Azure Cosmos DB
+  - name: Bienvenue dans Azure Cosmos DB
     href: introduction.md
 - name: Démarrages rapides
   items:
@@ -192,7 +192,7 @@ items:
       href: compliance.md
 - name: API multi-modèles
   items:
-  - name: Documents API SQL
+  - name: API SQL
     items:
     - name: Données de document de modèle
       href: modeling-data.md
@@ -296,11 +296,11 @@ items:
         href: /rest/api/cosmos-db/
       - name: Fournisseur de ressources REST
         href: /rest/api/cosmos-db-resource-provider/
-  - name: Documents API MongoDB
+  - name: API MongoDB
     items:
     - name: Introduction
       href: mongodb-introduction.md
-    - name: Support MongoDB
+    - name: Prise en charge du protocole filaire
       href: mongodb-feature-support.md
     - name: Tutoriels
       items:
@@ -346,11 +346,11 @@ items:
         href: mongodb-time-to-live.md
       - name: Gérer l’indexation des données
         href: mongodb-indexing.md
-  - name: Documents API Gremlin
+  - name: API Gremlin
     items:
     - name: Introduction
       href: graph-introduction.md
-    - name: Support Gremlin
+    - name: Prise en charge du protocole filaire
       href: gremlin-support.md
     - name: Tutoriels
       items:
@@ -362,11 +362,11 @@ items:
         href: bulk-executor-graph-dotnet.md
       - name: Partitionnement des données graphiques
         href: graph-partitioning.md
-  - name: Documents API Cassandra
+  - name: API Cassandra
     items:
     - name: Introduction
       href: cassandra-introduction.md
-    - name: Prise en charge de Cassandra
+    - name: Prise en charge du protocole filaire
       href: cassandra-support.md
     - name: Tutoriels
       items:
@@ -400,7 +400,7 @@ items:
         href: cassandra-spark-aggregation-ops.md
       - name: Copier les données de la table
         href: cassandra-spark-table-copy-ops.md
-  - name: Documents API Table
+  - name: API de table
     items:
     - name: Introduction
       href: table-introduction.md
@@ -495,7 +495,7 @@ items:
     items:
     - name: Restauration des données à partir d’une sauvegarde
       href: how-to-backup-and-restore.md
-  - name: Gérer
+  - name: gérer
     items:
     - name: Gérer à l’aide de PowerShell
       href: manage-account-with-powershell.md
@@ -531,11 +531,11 @@ items:
     items:
     - name: Conseils sur les performances
       items:
-      - name: Conseils sur les performances pour le kit SDK .NET
+      - name: Conseils en matière de performances pour le Kit de développement logiciel (SDK) .NET
         href: performance-tips.md
-      - name: Conseils sur les performances pour le kit SDK Java
+      - name: Conseils en matière de performances pour le Kit de développement logiciel (SDK) Java
         href: performance-tips-java.md
-      - name: Conseils sur les performances pour le kit SDK Async Java
+      - name: Conseils en matière de performances pour le Kit de développement logiciel (SDK) Async Java
         href: performance-tips-async-java.md
       - name: Test de performances - application exemple
         href: performance-testing.md
@@ -585,7 +585,7 @@ items:
       href: bulk-executor-overview.md
 - name: Guides de résolution des problèmes
   items:
-  - name: Résoudre les problèmes du kit SDK Java Async
+  - name: Résoudre les problèmes du Kit de développement logiciel (SDK) Java Async
     href: troubleshoot-java-async-sdk.md
 - name: Ressources
   items:
@@ -601,7 +601,7 @@ items:
     href: whitepapers.md
   - name: Partenaires
     href: partners-migration-cosmosdb.md
-  - name: Vidéos
+  - name: vidéos
     href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/
@@ -615,9 +615,9 @@ items:
       href: use-cases.md
     - name: Applications de réseaux sociaux
       href: social-media-apps.md
-ms.openlocfilehash: 34fc77f13f0c0bd394d96e19b86a1632ce2846b1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0afac84a08028219e5aa0acdc94ec9775d16c368
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410106"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728021"

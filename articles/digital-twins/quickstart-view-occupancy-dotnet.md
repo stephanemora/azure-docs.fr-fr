@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582392"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105510"
 ---
-# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Démarrage rapide : Rechercher des salles disponibles avec Azure Digital Twins
+# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Démarrage rapide : Rechercher des salles disponibles avec Azure Digital Twins
 
 Le service Azure Digital Twins vous permet de recréer une image numérique de votre environnement physique. Vous pouvez ensuite recevoir des notifications sur les événements dans votre environnement et personnaliser les réponses que vous y apportez. 
 
@@ -57,11 +57,11 @@ Créez l’application d’occupation en suivant ces étapes.
 1. Exécutez `cd occupancy-quickstart/src`.
 1. Exécutez `dotnet restore`.
 1. Modifiez **appSettings.json** afin d’actualiser les variables suivantes :
-    - **IdClient** : Entrez l’ID d’application de l’inscription de votre application Azure AD, tel qu’indiqué dans la section précédente.
-    - **Locataire** : Entrez l’ID d’annuaire de votre locataire Azure AD, également indiqué dans la section précédente.
-    - **UrlBase** : L’URL de l’API de gestion de votre instance Digital Twins est au format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Remplacez les espaces réservés de cette URL par les valeurs de votre instance de la section précédente.
+    - **ClientId** : Entrez l’ID d’application de l’inscription de votre application Azure AD, tel qu’indiqué dans la section précédente.
+    - **Tenant** : Entrez l’ID d’annuaire de votre locataire Azure AD, également indiqué dans la section précédente.
+    - **BaseUrl** : L’URL de l’API de gestion de votre instance Digital Twins est au format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Remplacez les espaces réservés de cette URL par les valeurs de votre instance de la section précédente.
 
-## <a name="provision-graph"></a>Provisionner le graphe
+## <a name="provision-graph"></a>Approvisionner le graphique
 
 Cette étape provisionne votre graphe spatial Digital Twins avec :
  
@@ -71,7 +71,7 @@ Cette étape provisionne votre graphe spatial Digital Twins avec :
 - Une fonction personnalisée. 
 - Une attribution de rôle.
  
-Le graphe spatial est provisionné à l’aide du fichier [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
+Le graphe spatial est provisionné à l’aide du fichier [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml). 
 
 1. Exécutez `dotnet run ProvisionSample`.
     >[!NOTE]
@@ -88,6 +88,9 @@ Le graphe spatial est provisionné à l’aide du fichier [provisionSample.yaml]
 1. À la fin de l’exécution, copiez la `ConnectionString` de l’appareil pour l’utiliser dans l’exemple de simulateur d’appareil. Copiez uniquement la chaîne surlignée dans cette image.
 
     ![Provisionner l’exemple][1]
+
+    >[!TIP]
+    > Vous pouvez afficher et modifier votre graphe spatial à l’aide de la [Visionneuse de graphe Azure Digital Twins](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## <a name="send-sensor-data"></a>Envoyer les données du capteur
 
@@ -160,7 +163,7 @@ Pour continuer à suivre des tutoriels, ne nettoyez pas les ressources créées 
 Ce guide de démarrage rapide a utilisé un scénario simple pour montrer comment trouver des salles avec des bonnes conditions de travail. Pour une analyse approfondie de ce scénario, consultez ce tutoriel :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Déployer Azure Digital Twins et configurer un graphe spatial](tutorial-facilities-setup.md)
+> [Tutoriel : Déployer Azure Digital Twins et configurer un graphique spatial](tutorial-facilities-setup.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png

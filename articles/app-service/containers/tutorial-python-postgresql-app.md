@@ -1,5 +1,5 @@
 ---
-title: Générer une application web Python et PostgreSQL dans Azure App Service | Microsoft Docs
+title: Créer une application web Python avec PostgresSQL sur Linux - Azure App Service | Microsoft Docs
 description: Découvrez comment exécuter une application Python orientée données dans Azure avec une connexion à une base de données PostgreSQL.
 services: app-service\web
 documentationcenter: python
@@ -11,13 +11,13 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
-ms.custom: mvc
-ms.openlocfilehash: 3963e2ffb521a4b4732814e9b2992f4e83af1835
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865622"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337986"
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Créer une application web Python et PostgreSQL dans Azure App Service
 
@@ -205,7 +205,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 > [!NOTE]
 > Ce paramètre autorise les connexions de réseau à partir de toutes les adresses IP au sein du réseau Azure. À des fins de production, essayez de configurer les règles de pare-feu les plus restrictives possibles en [utilisant uniquement les adresses IP sortantes utilisées par votre application](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-Dans Cloud Shell, exécutez à nouveau la commande pour autoriser l’accès à partir de votre ordinateur local en remplaçant *\<your_ip_address>* par [votre adresse IP IPv4 locale](http://www.whatsmyip.org/).
+Dans Cloud Shell, exécutez à nouveau la commande pour autoriser l’accès à partir de votre ordinateur local en remplaçant *\<your_ip_address>* par [votre adresse IP IPv4 locale](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -287,7 +287,7 @@ Django valide l’en-tête `HTTP_HOST` dans les requêtes entrantes. Pour que vo
 ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
-Comme Django ne prend pas en charge le [traitement des fichiers statiques en production](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), vous devez ensuite activer cette opération manuellement. Pour ce tutoriel, vous utilisez [WhiteNoise](http://whitenoise.evans.io/en/stable/). Le package WhiteNoise est déjà inclus dans _requirements.txt_. Vous devez simplement configurer Django pour qu’il l’utilise. 
+Comme Django ne prend pas en charge le [traitement des fichiers statiques en production](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), vous devez ensuite activer cette opération manuellement. Pour ce tutoriel, vous utilisez [WhiteNoise](https://whitenoise.evans.io/en/stable/). Le package WhiteNoise est déjà inclus dans _requirements.txt_. Vous devez simplement configurer Django pour qu’il l’utilise. 
 
 Dans _azuresite/settings.py_, recherchez le paramètre `MIDDLEWARE` et ajoutez le middleware `whitenoise.middleware.WhiteNoiseMiddleware` à la liste, juste en dessous du middleware `django.middleware.security.SecurityMiddleware`. Votre paramètre `MIDDLEWARE` doit avoir l’aspect suivant :
 
@@ -307,7 +307,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 
-Pour plus d’informations sur la configuration de WhiteNoise, consultez la [documentation WhiteNoise](http://whitenoise.evans.io/en/stable/).
+Pour plus d’informations sur la configuration de WhiteNoise, consultez la [documentation WhiteNoise](https://whitenoise.evans.io/en/stable/).
 
 > [!IMPORTANT]
 > La section sur les paramètres de la base de données respecte déjà les bonnes pratiques de sécurité pour l’utilisation de variables d’environnement. Pour les suggestions de déploiement complet, consultez [Documentation Django : Liste de vérifications pour le déploiement](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).

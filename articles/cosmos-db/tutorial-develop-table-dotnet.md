@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB : développer avec l’API Table dans .NET'
-description: Découvrez comment développer avec l’API Table d’Azure Cosmos DB en utilisant .NET
-services: cosmos-db
+title: Développer avec l’API Table en utilisant le kit de développement logiciel (SDK) .NET
+titleSuffix: Azure Cosmos DB
+description: Découvrez comment développer avec l’API Table dans Azure Cosmos DB en utilisant le kit de développement logiciel (SDK) .NET
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
+ms.date: 12/07/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: f10cb17f0300b6bd21d17b1e2ff204d57e4a7988
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877733"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251179"
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB : développer avec l’API Table dans .NET
+# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>Développer avec l’API Table d’Azure Cosmos DB en utilisant le kit de développement logiciel (SDK) .NET
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des bases de données de documents, de paires clé-valeur et de graphiques, qui bénéficient toutes des fonctionnalités de distribution mondiale et de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
 
@@ -97,7 +97,7 @@ Commençons par créer un compte Azure Cosmos DB dans le portail Azure.
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application. Cette opération permet à votre application de communiquer avec votre base de données hébergée. 
 
-1. Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Chaîne de connexion**. 
+1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Chaîne de connexion**. 
 
     Utilisez les boutons de copie sur le côté droit de l’écran pour copier la CHAÎNE DE CONNEXION PRINCIPALE.
 
@@ -180,7 +180,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 Ce client est initialisé à l’aide des valeurs de configuration `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` et `TablePreferredLocations` si elles sont spécifiées dans les paramètres d’application.
 
 ## <a name="create-a-table"></a>Création d’une table
-Ensuite, vous créez une table à l’aide de `CloudTable`. Dans Azure Cosmos DB, le stockage et le débit peuvent être mis à l’échelle indépendamment pour chaque table, et le partitionnement est géré automatiquement par le service. Azure Cosmos DB prend à la fois en charge une taille fixe et un nombre illimité de tables. Pour plus d’informations, consultez [Partitionnement dans Azure Cosmos DB](partition-data.md). 
+
+Ensuite, vous créez une table à l’aide de `CloudTable`. Dans Azure Cosmos DB, le stockage et le débit peuvent être mis à l’échelle indépendamment pour chaque table, et le partitionnement est géré automatiquement par le service. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

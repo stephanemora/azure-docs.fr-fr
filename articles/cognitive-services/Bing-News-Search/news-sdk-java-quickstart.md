@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Kit de développement logiciel (SDK) Java pour Recherche d’actualités Bing, Java'
+title: "Démarrage rapide : Effectuer une recherche d'actualités - Kit de développement logiciel (SDK) Recherche d'actualités Bing pour Java"
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment configurer l’application console du Kit de développement logiciel (SDK) pour Recherche d’actualités Bing.
+description: Utilisez ce démarrage rapide pour rechercher des actualités à l’aide du Kit de développement logiciel (SDK) Recherche d’actualités Bing pour Java et traiter la réponse.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: f01f31c5cfc30ac31ea41db2a8504454e1f05799
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 056d75a1039e805786b14aa19c896bda78d04150
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316869"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251587"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-java"></a>Démarrage rapide : Kit de développement logiciel (SDK) Java pour Recherche d’actualités Bing avec Java
+# <a name="quickstart-bing-news-search-sdk-with-java"></a>Démarrage rapide : Kit de développement logiciel (SDK) Recherche d’actualités Bing avec Java
 
 Le Kit de développement logiciel (SDK) pour Recherche d’actualités Bing fournit les fonctionnalités de l’API REST pour les recherches d’actualités et l’analyse des résultats.  Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) sous **Recherche**.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 

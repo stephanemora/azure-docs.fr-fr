@@ -10,50 +10,66 @@ items:
   expanded: true
 - name: Démarrages rapides
   items:
-  - name: Reconnaissance vocale
+  - name: Kit SDK
     items:
-    - name: Utilisation de C# (.NET sur Windows)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-csharp-dotnet-windows.md
-    - name: Utilisation de C# (.NET Core sur Windows)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-csharp-dotnetcore-windows.md
-    - name: Utilisation de C# (plateforme Windows universelle C++)
-      displayName: recognize speech, speech recognition, speech to text, stt, C#, UWP
-      href: quickstart-csharp-uwp.md
-    - name: Utilisation de C++ (Windows)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-cpp-windows.md
-    - name: Utilisation de C++ (Linux)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-cpp-linux.md
-    - name: Utilisation de Java (Android)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-java-android.md
-    - name: Utilisation de Java (Windows ou Linux)
-      displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
-      href: quickstart-java-jre.md
-    - name: Utilisation de JavaScript (Navigateur)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-js-browser.md
-    - name: Utilisation de JavaScript (Node.js)
-      displayName: recognize speech, speech recognition, speech to text, stt
-      href: quickstart-js-node.md
-    - name: Utilisation d’Objective-C (iOS)
-      displayName: recognize speech, speech recognition, speech to text, stt, xcode
-      href: quickstart-objectivec-ios.md
-    - name: Utilisation de Python
-      displayName: recognize speech, speech recognition, speech to text, stt, python
-      href: quickstart-python.md
-  - name: Synthèse vocale
+    - name: Reconnaissance vocale
+      items:
+      - name: C# (.NET Framework Windows)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-csharp-dotnet-windows.md
+      - name: C# (.NET Core Windows)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-csharp-dotnetcore-windows.md
+      - name: C# (UWP)
+        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        href: quickstart-csharp-uwp.md
+      - name: C++ (Windows)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-cpp-windows.md
+      - name: C++ (Linux)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-cpp-linux.md
+      - name: Java (Android)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-java-android.md
+      - name: Java (Windows, Linux)
+        displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
+        href: quickstart-java-jre.md
+      - name: JavaScript (navigateur)
+        href: quickstart-js-browser.md
+      - name: JavaScript (Node.js)
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-js-node.md
+      - name: Objective-C (iOS)
+        displayName: recognize speech, speech recognition, speech to text, stt, xcode
+        href: quickstart-objectivec-ios.md
+      - name: Python
+        displayName: recognize speech, speech recognition, speech to text, stt
+        href: quickstart-python.md
+    - name: Traduction vocale
+      items:
+      - name: C# (.NET Core Windows)
+        href: quickstart-translate-speech-dotnetcore-windows.md
+      - name: C# (.NET Framework Windows)
+        href: quickstart-translate-speech-dotnetframework-windows.md
+      - name: C# (UWP)
+        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        href: quickstart-translate-speech-uwp.md
+      - name: C++ (Windows)
+        href: quickstart-translate-speech-cpp-windows.md
+      - name: Java (Windows, Linux)
+        href: quickstart-translate-speech-java-jre.md
+  - name: API REST
     items:
-    - name: Utilisation de C#, REST
-      href: quickstart-dotnet-text-to-speech.md
-    - name: Utilisation de Node.js, REST
-      href: quickstart-nodejs-text-to-speech.md
-    - name: Utilisation de Python, REST
-      href: quickstart-python-text-to-speech.md
-  - name: Prise en main du Kit de développement logiciel (SDK) de dispositifs vocaux
+    - name: Convertir la synthèse vocale
+      items:
+      - name: C# (.NET Core)
+        href: quickstart-dotnet-text-to-speech.md
+      - name: Node.js
+        href: quickstart-nodejs-text-to-speech.md
+      - name: Python
+        href: quickstart-python-text-to-speech.md
+  - name: Kit de développement logiciel (SDK) Speech Devices
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk-qsg.md
 - name: Tutoriels
@@ -188,7 +204,7 @@ items:
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk.md
     items:
-    - name: Download
+    - name: Téléchargement
       href: get-speech-devices-sdk.md#download-the-speech-devices-sdk
     - name: Exemples
       href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
@@ -200,7 +216,7 @@ items:
     - name: Mentions tierces
       displayName: roobo, speech devices sdk
       href: devices-sdk-third-party-notices.md
-  - name: Résoudre les problèmes avec le Kit de développement logiciel (SDK) Speech
+  - name: Résoudre les problèmes du kit SDK Speech
     href: troubleshooting.md
   - name: Support
     href: support.md
@@ -210,9 +226,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Confidentialité et cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 47335f2e0b09f797b01bfcbcc876f9a09dc57ecc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 16459f36ce6c65199fb609310ceac0a8863a6324
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605821"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715033"

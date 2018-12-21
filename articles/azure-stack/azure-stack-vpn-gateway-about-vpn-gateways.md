@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 86fcec0321e8f1b92fdc554532cb8f949b1b1569
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496200"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081385"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>À propos de la passerelle VPN pour Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : Systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Avant que vous puissiez envoyer du trafic réseau entre votre réseau virtuel Azure et votre site local, vous devez créer une passerelle de réseau virtuel pour votre réseau virtuel.
 
@@ -108,9 +108,9 @@ Le tableau suivant présente les types de passerelle et le débit total estimé 
 
 |   | Débit de passerelle VPN *(1)* | Tunnels IPsec max de passerelle VPN *(2)* |
 |-------|-------|-------|
-|**Référence SKU de base** ***(3)***    | 100 Mbits/s  | 10    |
-|**Référence Standard**       | 100 Mbits/s  | 10    |
-|**Référence hautes performances** | 200 Mbits/s    | 5 |
+|**Référence SKU de base** ***(3)***    | 100 Mbits/s  | 20    |
+|**Référence Standard**       | 100 Mbits/s  | 20    |
+|**Référence hautes performances** | 200 Mbits/s    | 10    |
 
 **Notes de la table :**
 

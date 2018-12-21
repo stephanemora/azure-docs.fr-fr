@@ -1,5 +1,5 @@
 ---
-title: Création d’une application ASP.NET dans Azure avec SQL Database | Microsoft Docs
+title: Créer une application ASP.NET avec SQL Database - Azure App Service | Microsoft Docs
 description: Découvrez comment déployer une application ASP.NET C# avec une base de données SQL Server sur Azure.
 services: app-service\web
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 783bf93c8507e76717a4293b2b29a9c11e9a1eed
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353814"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257775"
 ---
-# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutoriel : Création d’une application ASP.NET dans Azure avec SQL Database
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutoriel : Création d’une application ASP.NET dans Azure avec SQL Database
 
 [Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment déployer dans Azure une application web ASP.NET axée sur les données et comment la connecter à [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Lorsque vous avez terminé, vous disposez d’une application ASP.NET exécutée dans Azure et connectée à la base de données SQL.
 
