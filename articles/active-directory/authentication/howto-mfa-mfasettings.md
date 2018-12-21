@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e0c612407047a51c4e3d4101a0ee192f55458afe
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7bd63dc991500f1d7f68169342b9612c1b303a07
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497002"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320656"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -87,8 +87,8 @@ Configurez la fonctionnalité d’_alerte de fraude_ pour que vos utilisateurs p
 
 ### <a name="configuration-options"></a>Options de configuration
 
-* **Bloquer l’utilisateur en cas de signalement de fraude** : si un utilisateur fait l’objet d’un signalement de fraude, son compte est bloqué pendant 90 jours ou jusqu’à ce qu’un administrateur le débloque. Un administrateur peut consulter les connexions à l’aide du rapport de connexion et prendre les mesures appropriées pour empêcher les fraudes futures. Un administrateur peut ensuite [débloquer](#unblock-a-user) le compte de l’utilisateur.
-* **Code pour signaler une fraude lors du message d’accueil initial** : quand les utilisateurs reçoivent un appel téléphonique, pour effectuer la vérification en deux étapes, ils appuient normalement sur **#** pour confirmer leur connexion. Pour signaler une fraude, l’utilisateur doit saisir un code avant d’appuyer sur **#**. Ce code est **0** par défaut, mais vous pouvez le personnaliser.
+* **Bloquer l’utilisateur en cas de fraude signalée** : si un utilisateur fait l’objet d’un signalement de fraude, son compte est bloqué pendant 90 jours ou jusqu’à ce qu’un administrateur le débloque. Un administrateur peut consulter les connexions à l’aide du rapport de connexion et prendre les mesures appropriées pour empêcher les fraudes futures. Un administrateur peut ensuite [débloquer](#unblock-a-user) le compte de l’utilisateur.
+* **Code pour signaler une fraude lors du message d’accueil initial** : quand les utilisateurs reçoivent un appel téléphonique, pour effectuer la vérification en deux étapes, ils appuient normalement sur **#** pour confirmer leur connexion. Pour signaler une fraude, l’utilisateur doit saisir un code avant d’appuyer sur **#**. Ce code est **0** par défaut, mais vous pouvez le personnaliser.
 
    >[!NOTE]
    >Le message d’accueil par défaut de Microsoft demande aux utilisateurs d’appuyer sur **0#** pour envoyer une alerte de fraude. Si vous souhaitez utiliser un code autre que **0**, enregistrez et chargez vos propres messages d’accueil vocaux personnalisés avec les instructions appropriées pour vos utilisateurs.
@@ -257,12 +257,15 @@ Les utilisateurs peuvent aussi créer des mots de passe d’application après l
 
 La fonctionnalité d’_adresses IP approuvées_ d’Azure Multi-Factor Authentication est utilisée par les administrateurs d’un locataire géré ou fédéré. Elle contourne la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet d’entreprise. Cette fonctionnalité est disponible dans la version complète d’Azure Multi-Factor Authentication, mais pas dans la version gratuite pour les administrateurs. Pour plus d’informations sur l’obtention de la version complète d’Azure Multi-Factor Authentication, consultez [Présentation d’Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
+> [!NOTE]
+> Les adresses IP MFA de confiance et les emplacements nommés avec accès conditionnel fonctionnent uniquement avec les adresses IPV4.
+
 Si votre organisation déploie l’extension de serveur NPS pour fournir l’authentification multifacteur aux applications locales, notez que l’adresse IP source apparaît toujours comme étant le serveur NPS qu’emprunte la tentative d’authentification.
 
 | Type de locataire Azure AD | Options de la fonctionnalité Adresses IP approuvées |
 |:--- |:--- |
-| Adresses IP gérées |**Plages d’adresses IP spécifiques** : les administrateurs peuvent spécifier une plage d’adresses IP pouvant contourner la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet de l’entreprise.|
-| Adresses IP fédérées |**All Federated Users (Tous les utilisateurs fédérés)** : tous les utilisateurs fédérés qui se connectent au sein de l’organisation peuvent contourner la vérification en deux étapes. Les utilisateurs contournent la vérification à l’aide d’une revendication émise par les Services de fédération Active Directory (AD FS).<br/>**Plages d’adresses IP spécifiques** : les administrateurs peuvent spécifier une plage d’adresses IP pouvant contourner la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet de l’entreprise. |
+| Adresses IP gérées |**Plage d’adresses IP spécifiques** : les administrateurs peuvent spécifier une plage d’adresses IP pouvant contourner la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet de l’entreprise.|
+| Adresses IP fédérées |**Tous les utilisateurs fédérés** : tous les utilisateurs fédérés qui se connectent au sein de l’organisation peuvent contourner la vérification en deux étapes. Les utilisateurs contournent la vérification à l’aide d’une revendication émise par les Services de fédération Active Directory (AD FS).<br/>**Plage d’adresses IP spécifiques** : les administrateurs peuvent spécifier une plage d’adresses IP pouvant contourner la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet de l’entreprise. |
 
 Le contournement des adresses IP approuvées ne fonctionne que depuis l’intranet de l’entreprise. Si vous sélectionnez l’option **All Federated Users (Tous les utilisateurs fédérés)** et qu’un utilisateur se connecte en dehors de l’intranet de l’entreprise, il doit s’authentifier avec la vérification en deux étapes. Le processus est le même, même si l’utilisateur présente une revendication AD FS. 
 
@@ -293,11 +296,11 @@ Que la fonctionnalité Adresses IP approuvées soit activée ou non, la vérific
 3. Sélectionnez **Configurer des adresses IP approuvées MFA**.
 4. Dans la page **Paramètres du service**, sous **Adresses IP approuvées**, choisissez l’une des deux options suivantes :
 
-   * **Pour les demandes issues d’utilisateurs fédérés provenant de mon intranet** : pour choisir cette option, activez sa case à cocher. Tous les utilisateurs fédérés qui se connectent depuis le réseau d’entreprise contournent la vérification en deux étapes en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :
+   * **Pour les requêtes issues d’utilisateurs fédérés provenant de mon intranet** : Pour choisir cette option, activez la case à cocher. Tous les utilisateurs fédérés qui se connectent depuis le réseau d’entreprise contournent la vérification en deux étapes en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Pour les demandes provenant d’une plage spécifique d’adresses IP** : pour choisir cette option, saisissez les adresses IP dans la zone de texte en notation CIDR.
+   * **Pour les requêtes provenant d’une plage spécifique d’adresses IP** : pour choisir cette option, saisissez les adresses IP dans la zone de texte en notation CIDR.
       * Pour les adresses IP qui se trouvent entre xxx.xxx.xxx.1 et xxx.xxx.xxx.254, utilisez la notation **xxx.xxx.xxx.0/24**.
       * Pour une seule adresse IP, utilisez la notation **xxx.xxx.xxx.xxx/32**.
       * Vous pouvez saisir jusqu’à 50 plages d’adresses IP. Les utilisateurs qui se connectent à partir de ces adresses IP contournent la vérification en deux étapes.
@@ -312,11 +315,11 @@ Que la fonctionnalité Adresses IP approuvées soit activée ou non, la vérific
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
 5. Dans la page **Paramètres du service**, sous **Adresses IP approuvées**, choisissez une des deux options suivantes (ou les deux) :
 
-   * **For requests from federated users on my intranet (Pour les demandes issues d’utilisateurs fédérés provenant de mon intranet)** : pour choisir cette option, activez sa case à cocher. Tous les utilisateurs fédérés qui se connectent depuis le réseau d’entreprise contournent la vérification en deux étapes en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :
+   * **Pour les requêtes issues d’utilisateurs fédérés de mon intranet** : Pour choisir cette option, activez la case à cocher. Tous les utilisateurs fédérés qui se connectent depuis le réseau d’entreprise contournent la vérification en deux étapes en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **For requests from a specified range of IP address subnets (Pour les demandes provenant d’une plage d’adresses IP spécifique)** : pour choisir cette option, saisissez les adresses IP dans la zone de texte en notation CIDR.
+   * **Pour les requêtes provenant d’une plage spécifique d’adresses IP** : pour choisir cette option, saisissez les adresses IP dans la zone de texte en notation CIDR.
       * Pour les adresses IP qui se trouvent entre xxx.xxx.xxx.1 et xxx.xxx.xxx.254, utilisez la notation **xxx.xxx.xxx.0/24**.
       * Pour une seule adresse IP, utilisez la notation **xxx.xxx.xxx.xxx/32**.
       * Vous pouvez saisir jusqu’à 50 plages d’adresses IP. Les utilisateurs qui se connectent à partir de ces adresses IP contournent la vérification en deux étapes.
@@ -384,3 +387,7 @@ La fonctionnalité réduit le nombre d’authentifications sur les applications 
 ### <a name="mark-a-device-as-trusted"></a>Marquer un appareil en tant qu’appareil de confiance
 
 Après avoir activé la fonctionnalité Mémoriser Multi-Factor Authentication, les utilisateurs peuvent affecter un dispositif comme approuvé quand ils se connectent, en sélectionnant **Ne plus me demander**.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Modifier la personnalisation de la page de connexion Azure AD](../fundamentals/customize-branding.md)

@@ -1,21 +1,18 @@
 ---
 title: Configurer la récupération d’urgence de machines virtuelles ou de serveurs physiques VMware sur un site secondaire avec Azure Site Recovery | Microsoft Docs
 description: Découvrez comment configurer la récupération d’urgence de machines virtuelles VMware, ou de serveurs physiques Windows et Linux, sur un site secondaire avec Azure Site Recovery.
-services: site-recovery
-author: nsoneji
-manager: gauarvd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2198d7520d660904423eabbec8df71e55e3011dd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618986"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338632"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurer la récupération d’urgence de machines virtuelles ou de serveurs physiques VMware locaux sur un site secondaire
 
@@ -31,8 +28,8 @@ Le scénario Azure Site Recovery de réplication entre des centres de données V
 
 En 2018 et 2019, deux mises à jour seront publiées : 
 
--   Mise à jour 7 : résout les problèmes de configuration et de conformité réseau, et prend en charge TLS 1.2.
--   Mise à jour 8 : ajoute la prise en charge des systèmes d’exploitation Linux RHEL/CentOS 7.3/7.4/7.5 et de SUSE 12
+-   Mise à jour 7 : résout des problèmes de configuration et de conformité réseau et prend en charge TLS 1.2.
+-   Mise à jour 8 : ajoute la prise en charge des systèmes d’exploitation Linux RHEL/CentOS 7.3/7.4/7.5 et SUSE 12
 
 Après la mise à jour 8, aucune autre mise à jour ne sera publiée. La prise en charge du correctif logiciel sera limitée pour les systèmes d’exploitation ajoutés dans la mise à jour 8 et les corrections de bogues seront basées sur le meilleur effort.
 
@@ -100,18 +97,18 @@ Téléchargez le fichier .zip de [mise à jour](https://aka.ms/asr-scout-update6
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
   - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - UA update 4 bits pour RHEL5, OL5, OL6, SUSE 10, SUSE 11 : UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - UA update4 bits pour RHEL5, OL5, OL6, SUSE 10, SUSE 11 : UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. Extrayez les fichiers .zip.
-2. **Serveur RX** : copiez **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** sur le serveur RX, puis extrayez-le. Dans le dossier extrait, exécutez **/Install**.
+2. **Serveur RX** : copiez **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** sur le serveur RX, puis extrayez-le. Dans le dossier extrait, exécutez **/Install**.
 3. **Serveur de configuration et serveur de processus** : copiez **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** sur le serveur de configuration et le serveur de processus. Double-cliquez dessus pour l’exécuter.<br>
-4. **Serveur cible maître Windows** : pour mettre à jour l’agent unifié, copiez **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** sur le serveur cible maître. Double-cliquez dessus pour l’exécuter. La même mise à jour de l’agent unifié s’applique aussi au serveur source. Si la source n’a pas été mise à jour vers Update 4, vous devez mettre à jour l’agent unifié.
+4. **Serveur cible maître Windows** : Pour mettre à jour l’agent unifié, copiez **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** sur le serveur. Double-cliquez dessus pour l’exécuter. La même mise à jour de l’agent unifié s’applique aussi au serveur source. Si la source n’a pas été mise à jour vers Update 4, vous devez mettre à jour l’agent unifié.
   Vous n’avez pas besoin d’appliquer la mise à jour au serveur cible maître préparé avec **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**, étant donné qu’il s’agit du nouveau programme d’installation avec toutes les dernières modifications.
-5. **Serveur vContinuum** : copiez **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** sur le serveur.  Vérifiez que vous avez fermé l’Assistant vContinuum. Double-cliquez sur le fichier pour l’exécuter.
+5. **Serveur vContinuum** :  copiez **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** sur le serveur.  Vérifiez que vous avez fermé l’Assistant vContinuum. Double-cliquez sur le fichier pour l’exécuter.
     Vous n’avez pas besoin d’appliquer la mise à jour au serveur cible maître préparé avec **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**, étant donné qu’il s’agit du nouveau programme d’installation avec toutes les dernières modifications.
-6. **Serveur cible maître Linux** : pour mettre à jour l’agent unifié, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur cible maître et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
-7. **Serveur source Windows** : pour mettre à jour l’agent unifié, copiez **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** sur le serveur source. Double-cliquez sur le fichier pour l’exécuter. 
+6. **Serveur cible maître Linux** : pour mettre à jour l’agent unifié, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur cible maître et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
+7. **Serveur source Windows** : Pour mettre à jour l’agent unifié, copiez **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** sur le serveur source. Double-cliquez sur le fichier pour l’exécuter. 
     Vous n’avez pas besoin d’installer l’agent Update 5 sur le serveur source si ce dernier a déjà été mis à jour avec l’Update 4 ou si l’agent source est installé avec le programme d’installation le plus récent **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Serveur source Linux** : pour mettre à jour l’agent unifié, copiez la version correspondante du fichier de l’agent unifié sur le serveur Linux et extrayez-le. Dans le dossier extrait, exécutez **/Install**.  Par exemple : pour le serveur RHEL 6.7 64 bits, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
+8. **Serveur source Linux** : pour mettre à jour l’agent unifié, copiez la version correspondante du fichier de l’agent unifié sur le serveur Linux et extrayez-le. Dans le dossier extrait, exécutez **/Install**.  Exemple : pour le serveur RHEL 6.7 64 bits, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
 
 ## <a name="enable-replication"></a>Activer la réplication
 
@@ -127,7 +124,7 @@ Téléchargez le fichier .zip de [mise à jour](https://aka.ms/asr-scout-update6
 ## <a name="updates"></a>Mises à jour
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
-Mise à jour : 12 octobre 2017
+Date de mise à jour : 12 octobre 2017
 
 Téléchargez [Scout Update 6](https://aka.ms/asr-scout-update6).
 
@@ -145,7 +142,7 @@ Scout Update 6 est une mise à jour cumulative. Elle contient tous les correctif
 > [!NOTE]
 > * Actualisation du programme d’installation d’agent unifié (UA) de base pour prendre en charge Windows Server 2016. Le nouveau programme d’installation **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** est disponible dans le package Scout GA de base (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Le même programme d’installation sera utilisé pour toutes les versions Windows prises en charge. 
 > * Actualisation des programmes d’installation du serveur cible maître et de Windows vContinuum de base pour prendre en charge Windows Server 2016. Le nouveau programme d’installation **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** est disponible dans le package Scout GA de base (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Le même programme d’installation sera utilisé pour déployer les serveurs cibles maîtres Windows 2016 et Windows 2012R2.
-> * Téléchargez le package GA à partir du portail, comme décrit dans [créer un coffre](#create-a-vault).
+> * Windows Server 2016 sur serveur physique n’est pas pris en charge par ASR Scout. Il prend en charge uniquement les machines virtuelles VMware Windows Server 2016. 
 >
 
 #### <a name="bug-fixes-and-enhancements"></a>Résolutions de bogues et améliorations
@@ -171,12 +168,12 @@ Scout Update 5 est une mise à jour cumulative. Elle contient tous les correctif
     * Corrigé : échec de la protection du cluster à un seul nœud en raison d’un problème de non-correspondance SCSI. 
     * Corrigé : échec de la reprotection du serveur de cluster Windows P2V si les disques du cluster cible sont présents. 
     
-* Corrigé : lors de la protection de la restauration automatique, si le serveur cible maître sélectionné ne se trouve pas sur le même serveur ESXi que la machine source protégée (lors de la protection du transfert), vContinuum sélectionne le mauvais serveur cible maître lors la récupération de la restauration automatique, ce qui entraîne l’échec de l’opération de récupération.
+* Corrigé : lors de la protection de la restauration automatique, si le serveur cible maître sélectionné ne se trouve pas sur le même serveur ESXi que la machine source protégée (lors de la protection du transfert), vContinuum sélectionne le mauvais serveur cible maître lors la récupération de la restauration automatique, ce qui entraîne l’échec de l’opération de récupération.
 
 > [!NOTE]
 > * Les correctifs de cluster P2V s’appliquent seulement aux clusters MSCS physiques qui sont nouvellement protégés avec Site Recovery Scout Update 5. Pour installer les correctifs de cluster sur des clusters P2V MSCS protégés avec des mises à jour plus anciennes, suivez les étapes de mise à niveau mentionnées dans la section 12 de [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes).
 > * Si, au moment de la reprotection. le même jeu de disques est actif sur chaque nœud de cluster comme ils l’étaient quand ils ont été initialement protégés, la reprotection d’un cluster MSCS physique peut seulement réutiliser les disques cibles existants. Dans le cas contraire, utilisez la procédure manuelle mentionnée dans la section 12 de [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes) pour déplacer les disques côté cible dans le chemin du magasin de données adéquat, de façon à les réutiliser lors de la reprotection. Si vous reprotégez le cluster MSCS en mode P2V sans appliquer la procédure de mise à niveau, il crée un nouveau disque sur le serveur ESXi cible. Vous devrez supprimer manuellement les anciens disques du magasin de données.
-> * Quand une source SLES11 ou SLES11 (avec n’importe quel Service Pack) est redémarré normalement, marquez manuellement les paires de réplications de disque **racine** pour la resynchronisation. Aucune notification n’est faite dans l’interface CX. Si vous ne marquez pas le disque racine pour la resynchronisation, des problèmes d’intégrité des données peuvent apparaître.
+> * Quand une source SLES11 ou SLES11 (avec n’importe quel Service Pack) est redémarré normalement, marquez manuellement les paires de réplications de disque **racine** pour la resynchronisation. Aucune notification n’est faite dans l’interface CX. Si vous ne marquez pas le disque racine pour la resynchronisation, des problèmes d’intégrité des données peuvent apparaître.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4
@@ -206,7 +203,7 @@ Scout Update 4 est une mise à jour cumulative. Elle contient tous les correctif
 * Des vérifications et des journaux supplémentaires ont été ajoutés pour les modifications de la configuration réseau lors des tests de basculement et de récupération d’urgence.
 * Correctif pour un problème qui provoquait la non-communication des informations de conservation au serveur de configuration.  
 * Pour les clusters physiques, correctif pour un problème qui provoquait l’échec du redimensionnement du volume dans l’Assistant vContinuum lors de la réduction du volume source.
-* Correctif pour un problème de protection du cluster qui échouait avec l’erreur « Impossible de trouver la signature de disque » quand le disque de cluster était un disque PRDM.
+* Un correctif pour un problème de protection du cluster qui a échoué avec l’erreur : « Impossible de trouver la signature de disque » lorsque le disque de cluster est un disque PRDM.
 * Correctif pour le blocage du serveur de transport cxps provoqué par une exception relative au dépassement des limites.
 * Les colonnes Nom du serveur et Adresse IP sont à présent redimensionnables dans la page **Installation Push** de l’Assistant vContinuum.
 * Améliorations de l’API RX :
@@ -249,17 +246,17 @@ Update 3 résout les problèmes suivants :
   * CentOS 6 Update 7
 * Les consoles du serveur de configuration et du serveur RX affichent désormais des notifications pour la paire, qui passe en mode bitmap.
 * Les correctifs de sécurité suivants ont été ajoutés dans RX :
-    * Contournement des autorisations via l’altération de paramètre : accès limité aux utilisateurs non applicables.
-    * Falsification de requête intersites : le concept de jeton de page a été implémenté et il est généré aléatoirement pour chaque page. Cela signifie qu’il n’existe qu’une seule instance de connexion pour le même utilisateur et que l’actualisation de la page ne fonctionne pas. Au lieu de cela, elle redirige vers le tableau de bord.
-    * Chargement de fichiers malveillants : les fichiers sont limités à des extensions spécifiques : z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml et zip.
-    * Scripts intersites permanents : des validations des entrées ont été ajoutées.
+    * Contournement de l’autorisation par falsification de paramètres : Accès restreint pour des utilisateurs non applicables.
+    * Falsification de requête intersite : Le concept de jeton de page a été implémente et il est généré aléatoirement pour chaque page. Cela signifie qu’il n’existe qu’une seule instance de connexion pour le même utilisateur et que l’actualisation de la page ne fonctionne pas. Au lieu de cela, elle redirige vers le tableau de bord.
+    * Téléchargement de fichiers malveillants : les fichiers sont limités à certaines extensions : z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml et zip.
+    * Scripts intersites permanents : des validations des entrées ont été ajoutées.
 
 ### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
 
 Les révisions apportées dans Update 2 sont les suivantes :
 
-* **Serveur de configuration** : problèmes empêchant le fonctionnement normal de la fonctionnalité de contrôle (gratuite pendant 31 jours) lorsque le serveur de configuration était inscrit dans le coffre Azure Site Recovery.
-* **Agent unifié** : résolution d’un problème dans Update 1 empêchant l’installation de la mise à jour sur le serveur cible maître lors de sa mise à niveau de la version 8.0 à la version 8.0.1.
+* **Serveur de configuration** : problèmes empêchant le fonctionnement normal de la fonctionnalité de contrôle (gratuite pendant 31 jours) lorsque le serveur de configuration était inscrit dans le coffre Azure Site Recovery.
+* **Agent unifié** : résolution d’un problème dans Update 1 empêchant l’installation de la mise à jour sur le serveur cible maître lors de sa mise à niveau de la version 8.0 à la version 8.0.1.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 Update 1
 Update 1 contient les correctifs de bogues et les nouvelles fonctionnalités suivants :

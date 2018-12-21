@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7ea4a58f072071f60cf87d1e8817ae19658be5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037760"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310417"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>offre de service de conseil Azure et Dynamics 365
 
 <table> <tr> <td>Cette section explique comment publier un service de conseil sur la <a href="https://azuremarketplace.microsoft.com">Place de marché Microsoft Azure</a> ou la <a href="https://appsource.microsoft.com">Place de marché AppSource</a>. Les solutions basées sur des applications <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> et <a href="https://powerapps.microsoft.com">PowerApps</a> Microsoft peuvent être répertoriées sur AppSource. D’autres offres basées sur d’autres <a href="https://azure.microsoft.com/services">services Microsoft Azure</a> sont éligibles pour être répertoriées sur la Place de marché Microsoft Azure. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
 
-# <a name="publishing-benefits"></a>Avantages liés à la publication
+## <a name="publishing-benefits"></a>Avantages liés à la publication
 
 La publication sur l’une des places de marché Microsoft présente des avantages substantiels :
 
@@ -36,13 +36,11 @@ La publication sur l’une des places de marché Microsoft présente des avantag
 - Bénéficiez d’une promotion de vos services assurée par les équipes de terrain et de télévente de Microsoft.
 
 
-<a name="define-your-consulting-services-offer"></a>Définir votre offre de services de conseil
--------------------------------------
+## <a name="define-your-consulting-services-offer"></a>Définir votre offre de services de conseil
 
 Définissez votre offre de services de conseil. Concentrez-vous sur une offre de préparation à la vente de portée limitée, de durée fixe et de prix estimé ou fixe (ou gratuit), pour un client unique. Sélectionnez des engagements en package reproductibles qui ont été beaucoup demandés et qui ont généré de nouvelles opportunités.
 
-<a name="publish-a-consulting-service-offer"></a>Publier une offre de services de conseil
-----------------------------------
+## <a name="publish-a-consulting-service-offer"></a>Publier une offre de services de conseil
 
 Les sections suivantes décrivent le processus de publication de votre offre de services de conseil
 
@@ -62,7 +60,7 @@ Pour créer une offre, exécutez les étapes suivantes :
 
 ### <a name="define-offer-settings"></a>Définir les paramètres de l’offre
 
-Dans l’écran Nouvelle offre, la première étape consiste à créer l’identité de l’offre.  L’identité de l’offre consiste en trois aspects : **ID de l’offre**, **ID de l’éditeur** et **Nom**.  Chacune de ces parties est présentée individuellement dans les sections suivantes.
+Dans l’écran Nouvelle offre, la première étape consiste à créer l’identité de l’offre.  L’identité de l’offre se compose de trois parties : **ID de l'offre**, **ID de l'éditeur** et **Nom**.  Chacune de ces parties est présentée individuellement dans les sections suivantes.
 
 #### <a name="offer-id"></a>ID de l’offre
 
@@ -80,7 +78,7 @@ Cet identificateur est associé à votre compte. Lorsque vous êtes connecté av
 
 Cette chaîne s’affiche en tant que nom de l’offre sur la Place de marché AppSource ou Azure.
 
-**Important :** entrez uniquement entrer le nom réel du service ici. Ne mentionnez pas la durée ni le type de service.
+**Important :** n'entrez ici que le nom réel du service. Ne mentionnez pas la durée ni le type de service.
 
 L’exemple suivant par Edgewater Fullscope montre comment se compose le nom de l’offre. Le nom de l’offre s’affiche comme suit :
 
@@ -95,17 +93,17 @@ Le nom de l’offre se compose de quatre parties :
 
 La liste suivante contient plusieurs noms d’offres bien nommés :
 
--   Essentials pour services professionnels : réunion d’information 1 heure
--   Plateforme de migration cloud : réunion d’information 1 heure
--   PowerApps and Microsoft Flow : atelier 1 journée
--   Azure Machine Learning Services : preuve de concept de 3 semaines
--   Solution de vente au détail physique et en ligne : réunion d’information 1 heure
--   Utilisez vos propres données : atelier 1 semaine
--   Analytique cloud : atelier de 3 jours
--   Formation Power BI : atelier de 3 jours
--   Solution de gestion des ventes : implémentation en 1 semaine
--   Démarrage rapide CRM : atelier 1 journée
--   Dynamics 365 pour les ventes : évaluation de 2 jours
+-   Essentials pour services professionnels : réunion d'information d'une heure
+-   Plateforme de migration cloud : réunion d'information d'une heure
+-   PowerApps et Microsoft Flow : atelier d'une journée
+-   Azure Machine Learning Services : *** Preuve de concept de 3 semaines
+-   Solution de vente au détail physique et en ligne : réunion d'information d'une heure
+-   Apportez vos propres données : atelier d'une semaine
+-   Cloud Analytics : atelier de 3 jours
+-   Formation Power BI : atelier de 3 jours
+-   Solution de gestion des ventes : Implémentation d'une semaine
+-   Démarrage rapide CRM : atelier d'une journée
+-   Dynamics 365 pour les ventes : évaluation de 2 jours
 
 Une fois que vous avez complété l’onglet **Paramètres de l’offre**, vous pouvez enregistrer votre soumission. Le nom de l’offre s’affiche maintenant au-dessus de l’éditeur, et vous pouvez le retrouver dans toutes les offres.
 
@@ -131,28 +129,28 @@ Le résumé de l’offre est une description courte de votre offre, qui figure j
 
 *Exemple 1*
 
--   **Nom de l’offre :** Analytique cloud : atelier de 3 jours
--   **Résumé de l’offre** : vue d’ensemble de Microsoft Azure et Power BI, évaluation de l’environnement actuel et mini preuve de concept.
+-   **Nom de l'offre :** Cloud Analytics : atelier de 3 jours
+-   **Résumé de l'offre :** vue d’ensemble de Microsoft Azure et Power BI, évaluation de l'environnement actuel et mini preuve de concept.
 
 *Exemple 2*
 
--   **Nom de l’offre** : Azure Industrial IoT : preuve de concept 30 jours
--   **Résumé de l’offre** : créer un pilote industriel de produit connecté pour connecter en toute sécurité des appareils de terrain à une solution Azure IoT Hub, avec tableaux de bord, rapports et notifications.
+-   **Nom de l'offre :** IoT industriel Azure : preuve de concept de 30 jours
+-   **Résumé de l'offre :** créer un pilote industriel de produit connecté pour connecter en toute sécurité des appareils de terrain à une solution Azure IoT Hub, avec tableaux de bord, rapports et notifications.
 
 *Exemple 3*
 
--   **Nom de l’offre** : services professionnels : réunion d’information 1 heure
--   **Résumé de l’offre** : vue d’ensemble et démonstration de la solution étendue Dynamics 365 for Operations préconfigurée, avec améliorations de la gestion des projets, de la facturation et des ressources pour les services professionnels.
+-   **Nom de l'offre :** Services professionnels : réunion d'information d'une heure
+-   **Résumé de l'offre :** vue d’ensemble et démonstration de la solution étendue Dynamics 365 for Operations préconfigurée, avec améliorations de la gestion des projets, de la facturation et des ressources pour les services professionnels.
 
 *Exemple 4*
 
--   **Nom de l’offre** : Power BI dans votre monde : atelier de 4 heures
--   **Résumé de l’offre** : être rapidement opérationnel avec votre premier tableau de bord et découvrir les meilleures pratiques. 12 participants au maximum, sur site.
+-   **Nom de l'offre :** Power BI dans votre monde : atelier de 4 heures
+-   **Résumé de l'offre :** être rapidement opérationnel avec votre premier tableau de bord et découvrir les meilleures pratiques. 12 participants au maximum, sur site.
 
 *Exemple 5*
 
--   **Nom de l’offre** : Dynamics et projets : évaluation de 3 jours
--   **Résumé de l’offre** : collecte des exigences et évaluation de la solution ERP conçue pour les sociétés de services professionnels et entreprises orientées projet.
+-   **Nom de l'offre :** Dynamics et projets : évaluation de 3 jours
+-   **Résumé de l'offre :** collecte des exigences et évaluation de la solution ERP conçue pour les sociétés de services professionnels et entreprises orientées projet.
 
 ##### <a name="offer-description"></a>Description de l’offre
 
@@ -168,11 +166,11 @@ Restez bref dans la description de votre offre, et respectez la limite de nombre
 
 L’exemple suivant montre une description d’offre bien composée, avec son nom et son résumé :
 
-**Nom de l’offre :** Analytique cloud : atelier de 3 jours
+**Nom de l'offre :** Cloud Analytics : atelier de 3 jours
 
-**Résumé de l’offre** : vue d’ensemble de Microsoft Azure et Power BI, évaluation de l’environnement actuel et mini preuve de concept.
+**Résumé de l'offre :** vue d’ensemble de Microsoft Azure et Power BI, évaluation de l'environnement actuel et mini preuve de concept.
 
-**Description de l’offre** : cet atelier de 3 jours est destiné aux responsables techniques et commerciaux. Il a lieu sur site chez le client.
+**Description de l’offre :** cet atelier de 3 jours est destiné aux responsables techniques et commerciaux. Il a lieu sur site chez le client.
 
 ***Agenda***
 
@@ -236,11 +234,11 @@ Microsoft se concentre exclusivement les services de conseil de portée définie
 
 Les cinq types d’offres suivants sont inclus :
 
--   **Évaluation** : évaluation de l’environnement d’un client pour déterminer la mise en application d’une solution et fournir une estimation du coût et de la durée.
--   **Réunion d’information** : présentation d’une solution ou d’un service de conseil pour susciter l’intérêt du client à l’aide de frameworks, de démonstrations et d’exemples de clients. Les réunions d’information doivent se tenir sur site.
--   **Implémentation :** installation complète qui résulte en une solution entièrement fonctionnelle. Pour ce programme pilote, Microsoft vous recommande de vous limiter à des solutions qui peuvent être implémentées en une semaine au maximum.
--   **Preuve de concept** : implémentation limitée permettant de déterminer si la solution répond aux besoins du client.
--   **Atelier** : engagement interactif effectué sur le site d’un client et qui peut comprendre des sessions de formation, des réunions d’information, des évaluations ou des démonstrations basées sur les données ou l’environnement du client.
+-   **Évaluation :** évaluation de l'environnement d'un client pour déterminer la mise en application d'une solution et fournir une estimation du coût et de la durée.
+-   **Réunion d'information :** présentation d'une solution ou d'un service de conseil pour susciter l'intérêt du client à l'aide de frameworks, de démonstrations et d'exemples de clients. Les réunions d’information doivent se tenir sur site.
+-   **Implémentation :** installation complète qui résulte en une solution entièrement fonctionnelle. Pour ce programme pilote, Microsoft vous recommande de vous limiter à des solutions qui peuvent être implémentées en une semaine au maximum.
+-   **Preuve de concept :** implémentation limitée permettant de déterminer si la solution répond aux besoins du client.
+-   **Atelier :** engagement interactif effectué dans les locaux d'un client et qui peut comprendre des sessions de formation, des réunions d'information, des évaluations ou des démonstrations basées sur les données ou l'environnement du client.
 
 **Disponibilité par pays/région**
 

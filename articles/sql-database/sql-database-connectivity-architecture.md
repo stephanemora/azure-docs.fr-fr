@@ -1,6 +1,6 @@
 ---
-title: Architecture de connectivité Azure SQL Database | Microsoft Docs
-description: Ce document décrit l’architecture de connectivité Azure SQL Database dans et en dehors d’Azure.
+title: Diriger le trafic Azure vers Azure SQL Database et SQL Data Warehouse | Microsoft Docs
+description: Ce document décrit l'architecture de la connectivité Azure SQL Database et SQL Data Warehouse dans et en dehors d'Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,66 +11,77 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/02/2018
-ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/13/2018
+ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978399"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435716"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Architecture de connectivité Azure SQL Database
+# <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
-Cet article explique l’architecture de connectivité Azure SQL Database et comment les différents composants fonctionnent pour diriger le trafic vers votre instance Azure SQL Database. Ces composants de connectivité Azure SQL Database permettent de diriger le trafic réseau vers la base de données Azure avec des clients se connectant à partir d’Azure et d’autres se connectant en dehors d’Azure. Cet article comporte également des exemples de script permettant de modifier la façon dont la connectivité se produit et des considérations liées à la modification des paramètres de connectivité par défaut.
+Cet article décrit l'architecture de la connectivité Azure SQL Database et SQL Data Warehouse, et explique comment les différents composants fonctionnent pour diriger le trafic vers votre instance d'Azure SQL. Ces composants de connectivité permettent de diriger le trafic réseau vers Azure SQL Database ou SQL Data Warehouse, avec des clients se connectant à partir d'Azure et d'autres en dehors d'Azure. Cet article comporte également des exemples de script permettant de modifier la façon dont la connectivité se produit et des considérations liées à la modification des paramètres de connectivité par défaut.
+
+> [!IMPORTANT]
+> **[Changement à venir] Pour les connexions des points de terminaison de service avec les serveurs Azure SQL, le comportement de connectivité `Default` est remplacé par `Redirect`.**
+>
+> Ce changement est déjà effectif depuis le 10 novembre 2018 pour les régions Brésil Sud et Europe Ouest. Pour toutes les autres régions, il entrera en vigueur le 2 janvier 2019.
+>
+> Pour éviter que ce changement n'entraîne une interruption lorsque la connectivité s'effectue via un point de terminaison de service dans les environnements existants, nous utilisons la télémétrie suivante :
+> - Pour les serveurs détectés auxquels on accédait auparavant par l'intermédiaire de points de terminaison de service, nous passons au type de connexion `Proxy`.
+> - Pour tous les autres serveurs, nous passons au type de connexion `Redirect`.
+>
+> Les utilisateurs des points de terminaison de service peuvent encore être affectés dans les scénarios suivants : 
+> - L'application se connecte rarement à un serveur existant, de sorte que notre télémétrie n'a pas capturé les informations relatives à cette application. 
+> - La logique de déploiement automatisé crée un serveur logique en supposant que le comportement par défaut des connexions aux points de terminaison de service est `Proxy`. 
+>
+> Si les connexions des points de terminaison de service n'ont pas pu être établies avec Azure SQL Server et que vous pensez être affecté par ce changement, vérifiez que le type de connexion est explicitement défini sur `Redirect`. Si tel est le cas, vous devez ouvrir les règles de pare-feu VM et les groupes de sécurité réseau (NSG) à toutes les adresses IP Azure de la région qui appartiennent à la [balise de service​​](../virtual-network/security-overview.md#service-tags) SQL pour les ports 11000-12000. Si cette option ne vous convient pas, basculez explicitement le serveur vers `Proxy`.
+
+> [!NOTE]
+> Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
 
 ## <a name="connectivity-architecture"></a>Architecture de connectivité
 
 Le diagramme suivant donne une vue d’ensemble détaillée de l’architecture de connectivité Azure SQL Database.
 
-![Présentation de l’architecture](./media/sql-database-connectivity-architecture/architecture-overview.png)
+![Présentation de l’architecture](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
-Les étapes suivantes décrivent la manière dont une connexion est établie vers une base de données SQL Azure via l’équilibreur de charge logiciel et la passerelle Azure SQL Database.
+Les étapes suivantes expliquent comment une connexion est établie avec une base de données SQL Azure :
 
-- Les clients se connectent à l’équilibreur de charge logiciel, qui détient une adresse IP publique et écoute le port 1433.
-- L’équilibreur de charge logiciel transfère le trafic vers la passerelle Azure SQL Database.
-- Cette passerelle, en fonction de la stratégie de connexion en place, redirige ou appliquer un proxy au trafic vers l’intergiciel de proxy approprié.
-- Celui-ci transfère le trafic vers la base de données SQL Azure appropriée.
-
-> [!IMPORTANT]
-> Chacun de ces composants dispose d’une protection contre les attaques par déni de service distribué (DDoS) intégrée au niveau du réseau et de la couche d’application.
+- Les clients se connectent à la passerelle, qui possède une adresse IP publique et écoute le port 1433.
+- Cette passerelle, en fonction de la stratégie de connexion en place, redirige ou applique un proxy au trafic vers le cluster de bases de données approprié.
+- À l'intérieur du cluster de bases de données, le trafic est transféré vers la base de données SQL Azure appropriée.
 
 ## <a name="connection-policy"></a>Stratégie de connexion
 
 Azure SQL Database prend en charge les trois options suivantes pour la configuration de la stratégie de connexion d’un serveur SQL Database :
 
-- **Redirection (recommandée) :** les clients établissent les connexions directement sur le nœud qui héberge la base de données. Pour activer la connectivité, les clients doivent autoriser les règles de pare-feu de trafic sortant pour toutes les adresses IP Azure de la région (essayez avec des groupes de sécurité réseau avec [balises de service](../virtual-network/security-overview.md#service-tags)), et pas seulement les adresses IP de la passerelle Azure SQL Database. Étant donné que les paquets vont directement à la base de données, la latence et le débit améliorent les performances.
-- **Proxy :** dans ce mode, toutes les connexions sont traitées via les passerelles Azure SQL Database. Pour activer la connectivité, le client doit créer des règles de pare-feu de trafic sortant qui autorisent uniquement les adresses IP de la passerelle Azure SQL Database (généralement deux adresses IP par région). Ce mode peut entraîner une latence plus élevée et un débit inférieur, en fonction de la nature de la charge de travail. Nous vous recommandons la stratégie de connexion Redirection sur la stratégie de connexion Proxy pour bénéficier d’une plus faible latence et d’un débit plus élevé.
-- **Par défaut :** stratégie de connexion en vigueur sur tous les serveurs après la création, sauf si vous remplacez explicitement la stratégie de connexion par Proxy ou Redirection. La stratégie effective dépend si les connexions sont issues d’Azure (Redirection) ou en dehors d’Azure (Proxy).
+- **Redirection (recommandée) :** les clients établissent les connexions directement sur le nœud qui héberge la base de données. Pour activer la connectivité, les clients doivent autoriser les règles de pare-feu de trafic sortant pour toutes les adresses IP Azure de la région (avec groupes de sécurité réseau et [balises de service](../virtual-network/security-overview.md#service-tags)) pour les ports 11000-12000, et pas seulement les adresses IP de la passerelle Azure SQL Database sur le port 1433. Étant donné que les paquets vont directement à la base de données, la latence et le débit améliorent les performances.
+- **Proxy :** dans ce mode, toutes les connexions sont traitées via les passerelles Azure SQL Database. Pour activer la connectivité, le client doit créer des règles de pare-feu de trafic sortant qui autorisent uniquement les adresses IP de la passerelle Azure SQL Database (généralement deux adresses IP par région). Ce mode peut entraîner une latence plus élevée et un débit inférieur, en fonction de la nature de la charge de travail. Nous vous recommandons la stratégie de connexion `Redirect` sur la stratégie de connexion `Proxy` pour bénéficier d'une plus faible latence et d'un débit plus élevé.
+- **Par défaut :** stratégie de connexion en vigueur sur tous les serveurs après la création, sauf si vous remplacez explicitement la stratégie de connexion par `Proxy` ou `Redirect`. La stratégie effective varie selon que les connexions proviennent d'Azure (`Redirect`) ou de l'extérieur d'Azure (`Proxy`).
 
 ## <a name="connectivity-from-within-azure"></a>Connectivité dans Azure
 
-Si vous vous connectez à partir d’Azure sur un serveur créé après le 10 novembre 2018, vos connexions ont la stratégie de connexion par **Redirection** par défaut. Une stratégie de **redirection** signifie qu’une fois les connexions établies après la session TCP vers la base de données SQL Azure, la session du client est redirigée vers l’intergiciel de proxy en modifiant l’adresse (en la faisant passer de celle de la passerelle de base de données SQL Azure à celle de l’intergiciel de proxy). Ainsi, tous les paquets suivants flux se dirigent directement vers l’intergiciel de proxy en ignorant la passerelle Azure SQL Database. Le schéma suivant illustre ce flux de trafic :
+Si vous vous connectez à partir d'Azure, la stratégie de connexion par défaut de vos connexions est `Redirect`. Une stratégie de `Redirect` signifie qu'après l'établissement de la session TCP avec la base de données SQL Azure, la session client est redirigée vers le cluster de base de données approprié avec une modification de l'adresse IP virtuelle de destination (celle de la passerelle Azure SQL Database est remplacée par celle du cluster). Tous les paquets suivants se dirigent ensuite directement vers le cluster, en contournant la passerelle Azure SQL Database. Le schéma suivant illustre ce flux de trafic :
 
-![Présentation de l’architecture](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
-
-> [!IMPORTANT]
-> Si vous avez créé un serveur de base de données SQL Server avant le 10 novembre 2018, votre stratégie de connexion a été définie explicitement sur **Proxy**. Si vous utilisez des points de terminaison de service, nous vous recommandons vivement de modifier votre stratégie de connexion et d’adopter une stratégie **Redirection** afin de bénéficier de meilleures performances. La modification de votre stratégie de connexion pour adopter une stratégie **Redirection** ne sera pas suffisante pour autoriser le trafic sortant de votre Groupe de sécurité réseau vers les adresses IP de passerelle Azure SQL Database répertoriées ci-dessous. Vous devez autoriser le trafic sortant vers toutes les adresses IP Azure SQL Database. Pour ce faire, vous pouvez vous aider des balises de service du Groupe de sécurité réseau. Pour plus d'informations, consultez la rubrique [Balises de service](../virtual-network/security-overview.md#service-tags).
+![Présentation de l’architecture](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Connectivité en dehors d’Azure
 
-Si vous vous connectez en dehors d’Azure, vos connexions disposent d’une stratégie de connexion de **proxy** par défaut. Une stratégie de **Proxy** signifie que la session TCP est établie via la passerelle Azure SQL Database et que tous les paquets suivants transitent via la passerelle. Le schéma suivant illustre ce flux de trafic :
+Si vous vous connectez en dehors d'Azure, la stratégie de connexion par défaut de vos connexions est `Proxy`. Une stratégie de `Proxy` signifie que la session TCP est établie via la passerelle Azure SQL Database et que tous les paquets suivants transitent via la passerelle. Le schéma suivant illustre ce flux de trafic :
 
-![Présentation de l’architecture](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+![Présentation de l’architecture](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Adresses IP de la passerelle Azure SQL Database
 
-Pour vous connecter à une base de données SQL Azure à partir de ressources locales, vous devez autoriser le trafic réseau sortant vers la passerelle Azure SQL Database pour votre région Azure. Les connexions transitent uniquement via la passerelle lors de la connexion en mode Proxy, qui est le mode par défaut lors de la connexion à partir de ressources locales.
+Pour vous connecter à une base de données SQL Azure à partir de ressources locales, vous devez autoriser le trafic réseau sortant vers la passerelle Azure SQL Database pour votre région Azure. Les connexions transitent uniquement via la passerelle en cas d'utilisation du mode `Proxy`, qui est le mode par défaut lors d'une connexion à partir de ressources locales.
 
 Le tableau suivant répertorie les adresses IP principales et secondaires de la passerelle Azure SQL Database pour toutes les régions de données. Pour certaines régions, il existe deux adresses IP. Dans ces régions, l’adresse IP principale est l’adresse IP actuelle de la passerelle et la deuxième adresse IP est une adresse IP de basculement. L’adresse de basculement est l’adresse vers laquelle nous pouvons déplacer votre serveur pour maintenir la haute disponibilité du service. Pour ces régions, nous vous conseillons d’autoriser le trafic sortant vers les deux adresses IP. La deuxième adresse IP est détenue par Microsoft et n’écoute pas les services tant qu’elle n’est pas activée par Azure SQL Database de manière à accepter les connexions.
 
 | Nom de la région | Adresse IP principale | Adresse IP secondaire |
 | --- | --- |--- |
-| Australie Est | 191.238.66.109 | 13.75.149.87 |
+| Australie Est | 13.75.149.87 | 40.79.161.1 |
 | Sud-Est de l’Australie | 191.239.192.109 | 13.73.109.251 |
 | Brésil Sud | 104.41.11.5 | |
 | Centre du Canada | 40.85.224.249 | |
@@ -107,14 +118,14 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | USA Ouest 2 | 13.66.226.202 | |
 ||||
 
-\* **REMARQUE :** *USA Est* a également l’adresse IP tertiaire `52.167.104.0`.
+\* **REMARQUE :** *USA Est 2* possède également l'adresse IP tertiaire `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modifier la stratégie de connexion Azure SQL Database
 
 Pour modifier la stratégie de connexion Azure SQL Database pour un serveur Azure SQL Database, utilisez la commande [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 
-- Si votre stratégie de connexion est définie sur **Proxy**, tous les paquets réseau transitent via la passerelle Azure SQL Database. Pour ce paramètre, vous devez autoriser le trafic sortant uniquement vers l’IP de la passerelle Azure SQL Database. L’utilisation d’un paramètre de **Proxy** offre plus de latence qu’un paramètre de **redirection**.
-- Si votre stratégie de connexion repose sur le paramètre de **redirection**, tous les paquets réseau se dirigent directement vers le proxy de l’intergiciel. Pour ce paramètre, vous devez autoriser le trafic sortant vers plusieurs adresses IP.
+- Si votre stratégie de connexion est définie sur `Proxy`, tous les paquets réseau transitent via la passerelle Azure SQL Database. Pour ce paramètre, vous devez autoriser le trafic sortant uniquement vers l’IP de la passerelle Azure SQL Database. L'utilisation d'un paramètre de `Proxy` offre plus de latence qu'un paramètre de `Redirect`.
+- Si votre stratégie de connexion repose sur le paramètre de `Redirect`, tous les paquets réseau se dirigent directement vers le cluster de bases de données. Pour ce paramètre, vous devez autoriser le trafic sortant vers plusieurs adresses IP.
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>Script permettant de modifier les paramètres de connexion via PowerShell
 
@@ -125,55 +136,17 @@ Pour modifier la stratégie de connexion Azure SQL Database pour un serveur Azur
 Le script PowerShell suivant montre comment modifier la stratégie de connexion.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName <Subscription Name>
+# Get SQL Server ID
+$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
 
-# Azure Active Directory ID
-$tenantId = "<Azure Active Directory GUID>"
-$authUrl = "https://login.microsoftonline.com/$tenantId"
+# Set URI
+$id="$sqlserverid/connectionPolicies/Default"
 
-# Subscription ID
-$subscriptionId = "<Subscription GUID>"
+# Get current connection policy
+(Get-AzureRmResource -ResourceId $id).Properties.connectionType
 
-# Create an App Registration in Azure Active Directory.  Ensure the application type is set to NATIVE
-# Under Required Permissions, add the API:  Windows Azure Service Management API
-
-# Specify the redirect URL for the app registration
-$uri = "<NATIVE APP - REDIRECT URI>"
-
-# Specify the application id for the app registration
-$clientId = "<NATIVE APP - APPLICATION ID>"
-
-# Logical SQL Server Name
-$serverName = "<LOGICAL DATABASE SERVER - NAME>"
-
-# Resource Group where the SQL Server is located
-$resourceGroupName= "<LOGICAL DATABASE SERVER - RESOURCE GROUP NAME>"
-
-
-# Login and acquire a bearer token
-$AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
-$result = $AuthContext.AcquireToken(
-"https://management.core.windows.net/",
-$clientId,
-[Uri]$uri,
-[Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
-)
-
-$authHeader = @{
-'Content-Type'='application\json; '
-'Authorization'=$result.CreateAuthorizationHeader()
-}
-
-#Get current connection Policy
-Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method GET -Headers $authHeader
-
-#Set connection policy to Proxy
-$connectionType="Proxy" <#Redirect / Default are other options#>
-$body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
-
-# Apply Changes
-Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
+# Update connection policy
+Set-AzureRmResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script permettant de modifier les paramètres de connexion via Azure CLI
@@ -184,9 +157,8 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 Le script CLI suivant montre comment modifier la stratégie de connexion.
 
 ```azurecli-interactive
-<pre>
 # Get SQL Server ID
-sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
 id="$sqlserverid/connectionPolicies/Default"
@@ -196,8 +168,6 @@ az resource show --ids $id
 
 # Update connection policy
 az resource update --ids $id --set properties.connectionType=Proxy
-
-</pre>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

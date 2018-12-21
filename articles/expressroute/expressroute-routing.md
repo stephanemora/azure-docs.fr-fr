@@ -1,18 +1,19 @@
 ---
-title: Configuration de routage requise pour Azure ExpressRoute | Microsoft Docs
+title: 'Configuration requise - ExpressRoute : Azure | Microsoft Docs'
 description: Cette page détaille les conditions nécessaires à la configuration et à la gestion du routage pour les circuits ExpressRoute.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/13/2018
 ms.author: ganesr
-ms.openlocfilehash: cb48a9470a39cbe152f821333050e3dd5a28e1ca
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230941"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406553"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -100,7 +101,7 @@ Si vos préfixes et le numéro ASN ne vous sont pas affectés dans les registres
 Un numéro ASN privé est autorisé avec l’homologation Microsoft, mais nécessite également une validation manuelle. Nous supprimons également les numéros AS privés dans le chemin AS PATH pour les préfixes reçus. En conséquence, vous ne pouvez pas ajouter de numéros AS privés au chemin AS PATH pour [influencer le routage pour l’homologation Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Ne publiez pas le même itinéraire d’adresse IP publique sur l’Internet public et sur ExpressRoute. Nous vous recommandons vivement de publier un itinéraire plus spécifique sur ExpressRoute et un itinéraire plus général sur Internet pour [NAT](expressroute-nat.md). En plus de l’itinéraire public pour NAT, vous pouvez publier sur ExpressRoute les adresses IP publiques utilisées par les serveurs de votre réseau local, qui communiquent avec des points de terminaison Office 365 dans Microsoft. 
+> Ne publiez pas le même itinéraire d’adresse IP publique sur l’Internet public et sur ExpressRoute. Pour réduire tout risque de configuration incorrecte pouvant entraîner un routage asymétrique, nous recommandons vivement que les[adresses IP NAT](expressroute-nat.md) transmises à Microsoft via ExpressRoute proviennent d’une plage qui n’est pas du tout publiée sur Internet. Si ce n’est pas possible, il est essentiel de vous assurer d’utiliser une plage plus spécifique via ExpressRoute que celle sur la connexion Internet. En plus de l’itinéraire public pour NAT, vous pouvez publier sur ExpressRoute les adresses IP publiques utilisées par les serveurs de votre réseau local, qui communiquent avec des points de terminaison Office 365 dans Microsoft. 
 > 
 > 
 

@@ -1,12 +1,11 @@
 ---
-title: Utiliser les paramètres de service web Azure Machine Learning Studio | Microsoft Docs
+title: Paramètres de service web - Azure Machine Learning Studio | Microsoft Docs
 description: Comment utiliser les paramètres de service Web Azure Machine Learning pour modifier le comportement de votre modèle au moment d’accéder au service Web.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 0e8a1a4bb90f935bf3890bd803b9375d10261aa7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b929608d64e747d6e768da4ee6627f9e6b09a83a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312008"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270081"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Utiliser les paramètres de service web Azure Machine Learning Studio
 Un service Web Azure Machine Learning est créé en publiant une expérience qui contient des modules avec des paramètres configurables. Il se peut que, dans certains cas, vous souhaitiez modifier le comportement du module lorsque le service Web est en cours d'exécution. Vous pouvez effectuer cette tâche grâce aux *paramètres de service Web*. 
@@ -30,7 +29,7 @@ Un exemple courant consiste à configurer le module [Importer les données][read
 
 Vous pouvez définir des paramètres de service web et les associer à un ou plusieurs paramètres de module dans votre expérience, en spécifiant s’ils sont obligatoires ou facultatifs. L’utilisateur du service web peut ensuite fournir des valeurs pour ces paramètres quand il appelle le service web. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="how-to-set-and-use-web-service-parameters"></a>Comment configurer et utiliser les paramètres de service Web
 Pour définir un paramètre de service Web, cliquez sur l'icône située à côté du paramètre pour module et sélectionnez « Définir en tant que paramètre du service Web ». Cette opération crée un nouveau paramètre de service Web et le connecte à ce paramètre de module. L'utilisateur peut ensuite, lorsqu’il accède au service Web, spécifier une valeur pour le paramètre de service Web. Celle-ci est appliquée au paramètre de module.

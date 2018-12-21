@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : reconnaissance vocale dans Java sur Android à l’aide du kit SDK Service Speech'
+title: 'Démarrage rapide : Reconnaissance vocale, Java (Android) - Services de reconnaissance vocale'
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment procéder à la reconnaissance vocale dans Java sur Android à l’aide du kit SDK Service Speech
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8c974b3d2a53210b49c3f29a8984038da93dd64c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466513"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090106"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale dans Java sur Android à l’aide du kit SDK Speech
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Java sur Android à l’aide du kit SDK de reconnaissance vocale
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer une application Java pour Android à l’aide du Kit de développement logiciel (SDK) Cognitive Services Speech pour transcrire de la parole en texte.
-L’application est basée sur le package Maven, version 1.0.1, du Kit de développement logiciel (SDK) Speech de Microsoft Cognitive Services et sur Android Studio 3.1.
-Le kit SDK Speech est actuellement compatible avec les appareils Android équipés de processeurs ARM 32 bits ou 64 bits.
+L’application est basée sur le package Maven, version 1.1.0, du Kit de développement logiciel (SDK) Speech de Microsoft Cognitive Services et sur Android Studio 3.1.
+Le kit SDK Speech est actuellement compatible avec les appareils Android équipés de processeurs ARM 32/64 bits et Intel x86/x64 compatibles.
 
 > [!NOTE]
 > Pour le kit SDK Speech et l’appareil Roobo, consultez le [kit SDK Speech Devices](speech-devices-sdk.md).
@@ -42,7 +42,7 @@ Vous avez besoin d’une clé d’abonnement au service Speech pour suivre ce gu
 
    ![Capture d’écran de l’Assistant de création d’un projet](media/sdk/qs-java-android-02-create-android-project.png)
 
-1. Dans l’écran **Target Android Devices** (Appareils Android cibles), sélectionnez uniquement **Phone and Tablet** (Téléphone et tablette). Dans la liste déroulante en dessous, choisissez **API 23: Android 6.0 (Marshmallow)**, puis sélectionnez **Next** (Suivant).
+1. Dans l’écran **Target Android Devices** (Appareils Android cibles), sélectionnez uniquement **Phone and Tablet** (Téléphone et tablette). Dans la liste déroulante en dessous, choisissez **API 23 : Android 6.0 (Marshmallow)**, puis sélectionnez **Suivant**.
 
    ![Capture d’écran de l’Assistant de création d’un projet](media/sdk/qs-java-android-03-target-android-devices.png)
 
@@ -58,12 +58,12 @@ Quelques minutes sont nécessaires à Android Studio pour préparer votre nouvea
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `1.0.1`.
+La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `1.1.0`.
 
 Le Kit de développement logiciel (SDK) Speech pour Android est empaqueté sous forme de package [AAR (bibliothèque Android)](https://developer.android.com/studio/projects/android-library), qui inclut les bibliothèques nécessaires ainsi que les autorisations Android requises pour son utilisation.
 Il est hébergé dans un référentiel Maven dans https://csspeechstorage.blob.core.windows.net/maven/.
 
-Configurez votre projet pour utiliser le kit SDK Speech. Ouvrez la fenêtre de structure du projet en choisissant **File (Fichier)** > **Project Structure (Structure de projet)** dans la barre de menus Android Studio. Dans la fenêtre de structure du projet, apportez les modifications suivantes : 
+Configurez votre projet pour utiliser le kit SDK Speech. Ouvrez la fenêtre de structure du projet en choisissant **File (Fichier)** > **Project Structure (Structure de projet)** dans la barre de menus Android Studio. Dans la fenêtre de structure du projet, apportez les modifications suivantes :
 
 1. Dans la liste située sur le côté gauche de la fenêtre, sélectionnez **Project** (Projet). Modifiez les paramètres **Default Library Repository** (Référentiel de bibliothèque par défaut) en ajoutant une virgule et l’URL du référentiel Maven, entourée de guillemets simples. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
@@ -73,7 +73,7 @@ Configurez votre projet pour utiliser le kit SDK Speech. Ouvrez la fenêtre de s
 
    ![Capture d’écran de la fenêtre de structure d’un projet](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Dans la fenêtre qui s’affiche, entrez le nom et la version du kit SDK Speech pour Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1`. Sélectionnez ensuite **OK**.
+1. Dans la fenêtre qui s’affiche, entrez le nom et la version du kit SDK Speech pour Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0`. Sélectionnez ensuite **OK**.
    Le Kit de développement logiciel (SDK) Speech devrait à présent apparaître dans la liste des dépendances, comme indiqué ci-dessous :
 
    ![Capture d’écran de la fenêtre de structure d’un projet](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -118,7 +118,7 @@ Le texte et la représentation graphique de votre interface utilisateur doivent 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * La méthode `onCreate` inclut du code qui demande une autorisation d’accès au microphone et à Internet, et établit la liaison de la plateforme native. La configuration des liaisons à la plateforme native n’est à effectuer qu’une seule fois. Elle doit être réalisée au début de l’initialisation de l’application.
-   
+
    * La méthode `onSpeechButtonClicked` est, comme indiqué précédemment, le gestionnaire de clic du bouton. Un appui sur le bouton déclenche la transcription de la reconnaissance vocale.
 
 1. Dans le même fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement.

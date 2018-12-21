@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346420"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409443"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -37,16 +37,6 @@ Sauf indication contraire, les exemples de cet article concernent la version 2.x
 ## <a name="install-the-azure-functions-core-tools"></a>Installer Azure Functions Core Tools
 
 [Azure Functions Core Tools] inclut une version du même runtime qu’Azure Functions, que vous pouvez exécuter sur votre ordinateur de développement local. Il fournit également des commandes pour créer des fonctions, se connecter à Azure et déployer des projets de fonction.
-
-### <a name="v1"></a>Version 1.x
-
-La version d’origine des outils utilise le runtime de Functions 1.x. Cette version utilise .NET Framework (4.7) et n’est prise en charge que sur les ordinateurs Windows. Avant d’installer les outils de la version 1.x, vous devez [installer NodeJS](https://docs.npmjs.com/getting-started/installing-node), qui inclut npm.
-
-Pour installer les outils de la version 1.x, utilisez la commande suivante :
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
 
 ### <a name="v2"></a>Version 2.x
 
@@ -155,7 +145,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--force`** | Initialiser le projet même lorsque celui-ci contient des fichiers existants. Ce paramètre remplace les fichiers existants portant le même nom. D’autres fichiers dans le dossier du projet ne sont pas affectés. |
 | **`--no-source-control -n`** | Empêche la création par défaut d’un référentiel Git dans la version 1.x. Dans la version 2.x, le référentiel git n’est pas créé par défaut. |
 | **`--source-control`** | Contrôle la création d’un référentiel git. Par défaut, un référentiel n’est pas créé. Un référentiel est créé lorsque `true`. |
-| **`--worker-runtime`** | Définit le runtime de langage pour le projet. Les valeurs prises en charge sont `dotnet`, `node` (JavaScript), et `java`. Lorsqu’il n’est pas défini, vous êtes invité à choisir votre runtime pendant l’initialisation. |
+| **`--worker-runtime`** | Définit le runtime de langage pour le projet. Les valeurs prises en charge sont `dotnet`, `node` (JavaScript), `java` et `python`. Lorsqu’il n’est pas défini, vous êtes invité à choisir votre runtime pendant l’initialisation. |
 
 > [!IMPORTANT]
 > Par défaut, la version 2.x des outils Core crée les projets d’application de fonctions pour le runtime .NET en tant que [projets de classes C#](functions-dotnet-class-library.md) (.csproj). Ces projets C#, qui peuvent être utilisés avec Visual Studio ou Visual Studio Code, sont compilés pendant les tests et lors de la publication sur Azure. Si vous voulez plutôt créer et utiliser les mêmes fichiers de script C# (.csx) que ceux créés dans la version 1.x et dans le portail, vous devez inclure le paramètre `--csx` quand vous créez et que vous déployez des fonctions.
@@ -220,7 +210,7 @@ Même si vous utilisez l’émulateur de stockage pour le développement, vous p
 
   ![Copier une chaîne de connexion à partir du portail Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Utilisez l’[Explorateur Stockage Azure](http://storageexplorer.com/) pour vous connecter à votre compte Azure. Dans l’**Explorateur**, développez votre abonnement, sélectionnez votre compte de stockage et copiez la chaîne de connexion principale ou secondaire. 
++ Utilisez l’[Explorateur Stockage Azure](https://storageexplorer.com/) pour vous connecter à votre compte Azure. Dans l’**Explorateur**, développez votre abonnement, sélectionnez votre compte de stockage et copiez la chaîne de connexion principale ou secondaire. 
 
   ![Copier une chaîne de connexion à partir de l’Explorateur Stockage Azure](./media/functions-run-local/storage-explorer.png)
 
@@ -313,12 +303,12 @@ La commande `host` est requise uniquement dans la version 1.x.
 | **`--cors`** | Liste séparée par des virgules d’origines CORS, sans espaces. |
 | **`--debug`** | Démarrage de l’hôte avec le port de débogage ouvert afin que vous puissiez associer le processus **func.exe** à partir de [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) ou [Visual Studio 2017](functions-dotnet-class-library.md). Les valeurs autorisées sont `VSCode` et `VS`.  |
 | **`--language-worker`** | Arguments pour configurer le travailleur de langage. Version 2.x uniquement. |
-| **`--nodeDebugPort -n`** | Port du débogueur de nœud à utiliser. Valeur par défaut : une valeur issue de launch.json ou 5858. Version 1.x uniquement. |
+| **`--nodeDebugPort -n`** | Port du débogueur de nœud à utiliser. Valeur par défaut : une valeur issue de launch.json ou 5858. Version 1.x uniquement. |
 | **`--password`** | Le mot de passe ou un fichier qui contient le mot de passe pour un fichier .pfx. Utilisé uniquement avec `--cert`. Version 2.x uniquement. |
 | **`--port -p`** | Port local à écouter. Valeur par défaut : 7071. |
 | **`--pause-on-error`** | Marquage d’une pause pour des entrées supplémentaires avant de quitter le processus. Uniquement utilisé lors du lancement des outils de base à partir d’un environnement de développement intégré (IDE).|
 | **`--script-root --prefix`** | Utilisé pour spécifier le chemin d’accès à la racine de l’application de fonction qui doit être exécutée ou déployée. Il est utilisé pour les projets compilés qui génèrent des fichiers projet dans un sous-dossier. Par exemple, lorsque vous générez un projet de bibliothèque de classes C#, les host.json, local.settings.json et function.json sont générés dans un sous-dossier *racine* avec un chemin d’accès comme `MyProject/bin/Debug/netstandard2.0`. Dans ce cas, définissez le préfixe comme `--script-root MyProject/bin/Debug/netstandard2.0`. Il s’agit de la racine de l’application de fonction lors de l’exécution sur Azure. |
-| **`--timeout -t`** | Délai d’expiration pour le démarrage de l’hôte Functions, en secondes. Valeur par défaut : 20 secondes.|
+| **`--timeout -t`** | Délai d’expiration pour le démarrage de l’hôte Functions, en secondes. Valeur par défaut : 20 secondes.|
 | **`--useHttps`** | Liaison avec `https://localhost:{port}` plutôt que `http://localhost:{port}`. Par défaut, cette option crée un certificat de confiance sur votre ordinateur.|
 
 Pour un projet de bibliothèque de classes C# (.csproj), vous devez inclure l’option `--build` pour générer le fichier .dll de bibliothèque.
@@ -420,11 +410,11 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Les outils de base prennent en charge deux types de déploiement, le déploiement des fichiers projet de fonction directement dans votre application de fonction et le déploiement d’un conteneur Linux personnalisé, qui est pris en charge uniquement dans la version 2.x. Vous devez avoir déjà [créé une application de fonction dans votre abonnement Azure](functions-cli-samples.md#create).
 
-Dans la version 2.x, vous devez avoir [inscrit vos extensions](#register-extensions) dans votre projet avant toute publication. Les projets qui nécessitent une compilation doivent être générés pour favoriser le déploiements des fichiers binaires.
+Dans la version 2.x, vous devez avoir [inscrit vos extensions](#register-extensions) dans votre projet avant toute publication. Les projets qui nécessitent une compilation doivent être générés pour favoriser le déploiements des fichiers binaires. 
 
 ### <a name="project-file-deployment"></a>Déploiement de fichier projet  
 
-La méthode de déploiement la plus courante implique l’utilisation d’outils de base pour créer un package contenant votre projet d’application de fonction et déployer le package vers votre application de fonction. Le cas échéant, vous pouvez [exécuter vos fonctions directement à partir du package de déploiement](run-functions-from-deployment-package.md).
+La méthode de déploiement la plus courante implique l’utilisation d’outils de base pour créer un package contenant votre projet d’application de fonction, les fichiers binaires et les dépendances et déployer le package vers votre application de fonction. Le cas échéant, vous pouvez [exécuter vos fonctions directement à partir du package de déploiement](run-functions-from-deployment-package.md).
 
 Pour publier un projet Functions dans une application de fonction au sein d’Azure, utilisez la commande `publish` :
 
@@ -440,21 +430,23 @@ La commande `publish` charge le contenu du répertoire du projet Functions. Si v
 > Lorsque vous créez une application de fonction dans le portail Azure, elle utilise par défaut la version 2.x du runtime de Function. Pour que l’application de fonction utilise la version 1.x du runtime, suivez les instructions dans [Exécution sur la version 1.x](functions-versions.md#creating-1x-apps).  
 > Vous ne pouvez pas modifier la version du runtime pour une application de fonction qui possède des fonctions déjà existantes.
 
-Vous pouvez utiliser les options de publication suivantes qui s’appliquent pour les versions 1.x et 2.x :
+Les options de publication de projet suivantes s’appliquent aux versions 1.x et 2.x :
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publier dans Azure les paramètres figurant dans local.settings.json, avec demande de confirmation du remplacement si le paramètre existe déjà. Si vous utilisez l’émulateur de stockage, vous modifiez le paramètre d’application en choisissant une [connexion de stockage réelle](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Supprimer l’invite de remplacement des paramètres de l’application lorsque `--publish-local-settings -i` est utilisé.|
 
-Les options de publication suivantes sont uniquement prises en charge dans la version 2.x :
+Les options de publication de projet suivantes sont uniquement prises en charge dans la version 2.x :
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Publiez les paramètres uniquement et ignorez le contenu. Par défaut, l’accord de l’utilisateur est sollicité. |
 |**`--list-ignored-files`** | Affiche une liste de fichiers ignorés lors de la publication basée sur le fichier .funcignore. |
 | **`--list-included-files`** | Affiche une liste de fichiers publiés basée sur le fichier .funcignore. |
-| **`--zip`** | Publiez dans le package Run-From-Zip. Nécessite qu’un paramètre AzureWebJobsStorage soit défini dans l’application. |
+| **`--nozip`** | Désactive le mode par défaut `Run-From-Zip`. |
+| **`--build-native-deps`** | Ignore la création du dossier .wheels dossier lors de la publication des applications de fonction python. |
+| **`--additional-packages`** | Liste des packages à installer lors de la création des dépendances natives. Par exemple : `python3-dev libevent-dev`. |
 | **`--force`** | Ignorez la vérification de prépublication dans certains scénarios. |
 | **`--csx`** | Publiez un projet de Script C# (.csx). |
 | **`--no-build`** | Ignorez la génération de fonctions dotnet. |

@@ -1,23 +1,24 @@
 ---
-title: Workflows de configuration d’un circuit Azure ExpressRoute | Microsoft Docs
-description: Cette page vous guide tout au long des workflows pour la configuration du circuit ExpressRoute et des homologations
+title: 'Workflows de configuration de circuit - ExpressRoute : Azure| Microsoft Docs'
+description: Cette page vous présente les workflows pour la configuration du circuit ExpressRoute et des peerings
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.custom: seodec18
+ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301036"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101685"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
 Cette page vous guide de façon sommaire tout au long des workflows d’approvisionnement du service et de configuration du routage.
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![workflow de circuit](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 L'illustration et les étapes correspondantes suivantes montrent les tâches que vous devez effectuer pour approvisionner un circuit ExpressRoute de bout en bout. 
 
@@ -35,7 +36,7 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
      > 
      > 
      
-     ![](./media/expressroute-workflows/routing-workflow.png)
+     ![workflows de routage](./media/expressroute-workflows/routing-workflow.png)
 5. Liaison de réseaux virtuels à des circuits ExpressRoute - vous pouvez lier des réseaux virtuels à votre circuit ExpressRoute. Suivez les instructions [pour lier des réseaux virtuels](expressroute-howto-linkvnet-arm.md) à votre circuit. Ces réseaux virtuels peuvent figurer dans le même abonnement Azure que le circuit ExpressRoute, ou dans un autre abonnement.
 
 ## <a name="expressroute-circuit-provisioning-states"></a>États d’approvisionnement du circuit ExpressRoute

@@ -4,9 +4,8 @@ description: Identifiez et corrigez les problèmes courants rencontrés quand vo
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
@@ -16,41 +15,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307200"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252777"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Résolution des problèmes de réentraînement d’un service web Azure Machine Learning Studio classique
 ## <a name="retraining-overview"></a>Vue d’ensemble de la reformation
-Lorsque vous déployez une expérience prédictive en tant que service web d’évaluation, il s’agit d’un modèle statique. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, le modèle doit être réentraîné. 
+Lorsque vous déployez une expérience prédictive en tant que service web d’évaluation, il s’agit d’un modèle statique. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, le modèle doit être reformé. 
 
 Pour une procédure pas à pas complète du processus de reformation d’un service web classique, consultez [Reformation des modèles Machine Learning par programme](retrain-models-programmatically.md).
 
 ## <a name="retraining-process"></a>Processus de reformation
-Lorsque vous devez réentraîner le service web, vous devez ajouter quelques éléments supplémentaires :
+Lorsque vous devez reformer le service web, vous devez ajouter quelques éléments supplémentaires :
 
 * Un service web déployé à partir de l’expérience de formation. L’expérience doit avoir un module de **sortie de service web** attaché à la sortie du module **Modèle de formation**.  
   
     ![Attachez la sortie de service web au modèle de formation.][image1]
 * Un nouveau point de terminaison ajouté à votre service web d’évaluation.  Vous pouvez ajouter le point de terminaison par programme à l’aide de l’exemple de code référencé dans la rubrique Reformation des modèles Machine Learning par programme ou via le portail des services web Azure Machine Learning.
 
-Vous pouvez utiliser l’exemple de code C# de la page d’aide API du service web de formation pour réentraîner le modèle. Après avoir évalué les résultats et que vous en êtes satisfait, vous mettez à jour le service web d’évaluation du modèle entraîné à l’aide du nouveau point de terminaison que vous avez ajouté.
+Vous pouvez utiliser l’exemple de code C# de la page d’aide API du service web de formation pour reformer le modèle. Après avoir évalué les résultats et que vous en êtes satisfait, vous mettez à jour le service web d’évaluation du modèle formé à l’aide du nouveau point de terminaison que vous avez ajouté.
 
-Une fois tous les éléments en place, les principales étapes à suivre pour réentraîner le modèle sont les suivantes :
+Une fois tous les éléments en place, les principales étapes à suivre pour reformer le modèle sont les suivantes :
 
-1. Appelez le service web de formation : l’appel est destiné au service d’exécution de lots (BES, Batch Execution Service), et non au service de requête-réponse (RRS, Request-Response Service). Vous pouvez utiliser l’exemple de code C# sur la page d’aide API pour effectuer l’appel. 
-2. Recherchez les valeurs pour *BaseLocation*, *RelativeLocation* et *SasBlobToken* : ces valeurs sont retournées dans la sortie à partir de votre appel au service web de formation. 
+1. Appelez le service web de formation :  l'appel est destiné au service d'exécution de lots (BES, Batch Execution Service), et non au service de requête-réponse (RRS, Request-Response Service). Vous pouvez utiliser l’exemple de code C# sur la page d’aide API pour effectuer l’appel. 
+2. Recherchez les valeurs de *BaseLocation*, *RelativeLocation* et *SasBlobToken* : ces valeurs sont renvoyées dans le résultat de l'appel passé au service web de formation. 
    ![Affichage de la sortie de l’exemple de reformation et des valeurs BaseLocation, RelativeLocation et SasBlobToken.][image6]
-3. Mettez à jour le point de terminaison ajouté à partir du service web d’évaluation avec le nouveau modèle entraîné : à l’aide de l’exemple de code fourni dans la rubrique Réentraîner des modèles Machine Learning programmatiquement, mettez à jour le nouveau point de terminaison que vous avez ajouté au modèle d’évaluation avec le modèle nouvellement entraîné à partir du service web d’entraînement.
+3. Mettez à jour le point de terminaison ajouté à partir du service web d'évaluation avec le nouveau modèle formé : à l'aide de l'exemple de code fourni dans la rubrique Reformation des modèles Machine Learning par programme, mettez à jour le nouveau point de terminaison que vous avez ajouté au modèle d'évaluation avec le modèle nouvellement formé à partir du service web de formation.
 
 ## <a name="common-obstacles"></a>Obstacles courants
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Vérifiez que vous disposez de l’URL d’application de correctifs appropriée
 L’URL d’application de correctifs que vous utilisez doit être celle associée au nouveau point de terminaison d’évaluation que vous avez ajouté au service web d’évaluation. Il existe plusieurs façons d’obtenir l’URL des CORRECTIFS :
 
-**Option 1 : par programme**
+**Option 1 : par programme**
 
 Pour obtenir l’URL d’application de correctifs appropriée :
 
@@ -61,7 +60,7 @@ Pour obtenir l’URL d’application de correctifs appropriée :
 3. Collez l’URL dans un navigateur pour accéder à une page qui fournit des liens d’aide pour le service web.
 4. Cliquez sur le lien de **Mettre à jour la ressource** pour ouvrir la page d’aide sur le correctif.
 
-**Option 2 : utiliser le portail des services web Azure Machine Learning**
+**Option 2 : utiliser le portail des services web Azure Machine Learning**
 
 1. Connectez-vous au portail des [services web Azure Machine Learning](https://services.azureml.net/).
 2. Cliquez sur **Services web** ou **Services web classiques** en haut de la page.
@@ -71,7 +70,7 @@ Pour obtenir l’URL d’application de correctifs appropriée :
 7. Sous **l’URL d’application de correctifs**, cliquez sur **Aide de l’API** pour ouvrir la page d’aide d’application de correctifs.
 
 > [!NOTE]
-> Si vous avez ajouté le point de terminaison au service web de formation plutôt qu’au service web prédictif, lorsque vous cliquez sur le lien **Mettre à jour la ressource**, vous recevrez un message d’erreur signalant que cette fonctionnalité n’est pas prise en charge ou disponible dans ce contexte. Ce service web n’a aucune ressource actualisable. Veuillez nous excuser pour ce désagrément. Nous travaillons actuellement à l’amélioration de ce flux de travail.
+> Si vous avez ajouté le point de terminaison au service web de formation plutôt qu'au service web prédictif, lorsque vous cliquerez sur le lien **Mettre à jour la ressource**, vous recevrez un message d'erreur signalant que cette fonctionnalité n'est pas prise en charge ou disponible dans ce contexte. Ce service web n’a aucune ressource actualisable. Veuillez nous excuser pour ce désagrément. Nous travaillons actuellement à l’amélioration de ce flux de travail.
 > 
 > 
 
@@ -80,8 +79,8 @@ La page d’aide d’application de correctifs contient l’URL d’application 
 ![URL d’application de correctifs.][image5]
 
 ### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Vérifiez que vous mettez à jour le point de terminaison d’évaluation approprié
-* N’appliquez pas de correctifs au service web de formation : l’opération d’application de correctifs doit être effectuée sur le service web d’évaluation.
-* N’appliquez pas de correctifs au point de terminaison par défaut du service web : l’opération d’application de correctifs doit être effectuée sur le nouveau point de terminaison du service web d’évaluation que vous avez ajouté.
+* N'appliquez pas de correctifs au service web de formation : l'opération d'application de correctifs doit être effectuée sur le service web d’évaluation.
+* N'appliquez pas de correctifs au point de terminaison par défaut du service web : l'opération d'application de correctifs doit être effectuée sur le nouveau point de terminaison du service web d'évaluation que vous avez ajouté.
 
 Vous pouvez vérifier sur quel service web se trouve le point de terminaison en visitant le portail des services web. 
 

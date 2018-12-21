@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eec628a5084dc663978e16e617192802d3ecfcfa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307654"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994755"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
-| Produit/service | Article |
+| Produit/Service | Article |
 | --------------- | ------- |
 | **Délimitation d’approbation machine** | <ul><li>[Vérifier que les ACL appropriées sont configurées pour limiter l’accès non autorisé aux données sur l’appareil](#acl-restricted-access)</li><li>[Vérifier que le contenu sensible d’application spécifique à l’utilisateur est stocké dans le répertoire du profil utilisateur](#sensitive-directory)</li><li>[Vérifier que les applications déployées sont exécutées avec des privilèges minimum](#deployed-privileges)</li></ul> |
 | **Application Web** | <ul><li>[Appliquer l’ordre d’étapes séquentiel pendant le traitement du flux de logique d’entreprise](#sequential-logic)</li><li>[Implémenter le mécanisme de limitation du débit pour empêcher une énumération](#rate-enumeration)</li><li>[Vérifier que l’autorisation appropriée est en place et que le principe de privilèges minimum est respecté](#principle-least-privilege)</li><li>[Les décisions de logique d’entreprise et d’autorisation d’accès aux ressources ne doivent pas être basées sur les paramètres de demande entrante](#logic-request-parameters)</li><li>[Vérifier que le contenu et les ressources ne sont pas énumérables ou accessibles via la navigation forcée](#enumerable-browsing)</li></ul> |
@@ -349,7 +349,7 @@ L’élément `<behaviorExtensions/>` du fichier de configuration WCF ci-dessous
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique, NET Framework 3 |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
+| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Étapes** | <p>Ce service n’utilise pas un contrôle d’autorisation. Lorsqu’un client appelle un service WCF particulier, WCF fournit divers schémas d’autorisation qui vérifient que l’appelant est autorisé à exécuter la méthode de service sur le serveur. Si les contrôles d’autorisation ne sont pas activés pour les services WCF, un utilisateur authentifié peut obtenir une élévation des privilèges.</p>|
 
 ### <a name="example"></a>Exemples

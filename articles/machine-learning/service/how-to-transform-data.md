@@ -1,5 +1,6 @@
 ---
-title: Transformer des données avec le SDK de préparation des données Azure Machine Learning - Python
+title: 'Transformations : SDK Python de préparation des données'
+titleSuffix: Azure Machine Learning service
 description: Apprenez-en davantage sur la transformation et le nettoyage des données avec le SDK de préparation des données Azure Machine Learning. Utilisez des méthodes de transformation pour ajouter des colonnes, filtrer les lignes ou les colonnes indésirables, et imputer des valeurs manquantes.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: 988301f24f710a3e29fad1254d405501166e8a4e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: d32244cd49ebd42192b2388215f79a64cacb3caa
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309791"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186138"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformer des données avec le SDK de préparation des données Azure Machine Learning
 
@@ -26,7 +28,7 @@ Il existe actuellement des fonctions pour les tâches suivantes :
 - [Ajouter une colonne à l’aide d’une expression](#column)
 - [Imputer des valeurs manquantes](#impute-missing-values)
 - [Dériver une colonne par un exemple](#derive-column-by-example)
-- [Filtrage](#filtering)
+- [Filtering](#filtering)
 - [Transformations Python personnalisées](#custom-python-transforms)
 
 ## <a name="add-column-using-an-expression"></a>Ajouter une colonne à l’aide d’une expression
@@ -160,7 +162,7 @@ imputed_longitude = df_imputed.to_pandas_dataframe()['Longitude'][2]
 assert imputed_longitude == 42
 ```
 
-## <a name="derive-column-by-example"></a>Dériver une colonne par un exemple
+## <a name="derive-column-by-example"></a>Dériver des colonnes par exemple
 
 L’une des fonctionnalités les plus avancées du SDK de préparation de données Azure Machine Learning est la capacité à dériver des colonnes à l’aide d’exemples de résultats désirés. Elle vous permet de fournir un exemple au SDK, qui génère ensuite du code pour obtenir la transformation prévue.
 
@@ -216,16 +218,16 @@ builder.preview(skip=30)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|30|11/1/2015 22:54|Jan 1, 2015 10PM-12AM|
-|31|11/1/2015 23:54|Jan 1, 2015 10PM-12AM|
-|32|11/1/2015 23:59|Jan 1, 2015 10PM-12AM|
-|33|11/2/2015 0:54|Feb 1, 2015 12AM-2AM|
-|34|11/2/2015 1:00|Feb 1, 2015 12AM-2AM|
-|35|11/2/2015 1:54|Feb 1, 2015 12AM-2AM|
-|36|11/2/2015 2:54|Feb 1, 2015 2AM-4AM|
-|37|11/2/2015 3:54|Feb 1, 2015 2AM-4AM|
-|38|11/2/2015 4:00|Feb 1, 2015 4AM-6AM|
-|39|11/2/2015 4:54|Feb 1, 2015 4AM-6AM|
+|30|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
+|31|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
+|32|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
+|33|1/2/2015 0:54|Feb 1, 2015 12AM-2AM|
+|34|1/2/2015 1:00|Feb 1, 2015 12AM-2AM|
+|35|1/2/2015 1:54|Feb 1, 2015 12AM-2AM|
+|36|1/2/2015 2:54|Feb 1, 2015 2AM-4AM|
+|37|1/2/2015 3:54|Feb 1, 2015 2AM-4AM|
+|38|1/2/2015 4:00|Feb 1, 2015 4AM-6AM|
+|39|1/2/2015 4:54|Feb 1, 2015 4AM-6AM|
 
 On constate ici un problème avec le programme généré. En se basant uniquement sur l’exemple que vous avez fourni ci-dessus, le programme de dérivation a choisi d’analyser la date en tant que « Jour/Mois/Année », ce qui ne correspond pas à ce que vous souhaitez ici. Pour résoudre ce problème, fournissez un autre exemple en utilisant la fonction `add_example()` sur la variable `builder`.
 

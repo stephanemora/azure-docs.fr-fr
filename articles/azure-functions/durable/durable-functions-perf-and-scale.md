@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 54a88188a432a23476af6a1670635a23fb72eea7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638204"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341166"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -33,7 +33,7 @@ Lorsqu’une instance d’orchestration doit s’exécuter, les lignes appropri�
 
 La table d’**instances** est une autre table de stockage Azure qui contient les états de toutes les instances d’orchestration au sein d’un hub de tâches. Au fur et à mesure que des instances sont créées, des lignes sont ajoutées à cette table. La clé de partition de cette table est l’ID d’instance d’orchestration, alors que la clé de ligne est une constante fixe. Il y a une ligne par instance d’orchestration.
 
-Cette table est utilisée pour répondre aux demandes de requête d’instance provenant de l’API [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) et de l’[API HTTP de requête d’état](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). Sa cohérence avec le contenu de la table d’**historique** mentionnée précédemment est conservée. L’utilisation d’une table de stockage Azure distincte pour satisfaire les opérations de requête d’instance de cette façon est influencée par le [modèle de séparation des responsabilités en matière de commande et de requête (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Cette table est utilisée pour répondre aux demandes de requête d’instance provenant des API [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) (.NET) et `getStatus` (JavaScript) et de l’[API HTTP de requête d’état](durable-functions-http-api.md#get-instance-status). Sa cohérence avec le contenu de la table d’**historique** mentionnée précédemment est conservée. L’utilisation d’une table de stockage Azure distincte pour satisfaire les opérations de requête d’instance de cette façon est influencée par le [modèle de séparation des responsabilités en matière de commande et de requête (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Déclencheurs de file d’attente interne
 
@@ -53,10 +53,24 @@ Les files d’attente de contrôle contiennent différents types de message couv
 
 Les files d’attente, les tables et les blobs utilisés par Fonctions durables sont créés dans un compte de stockage Azure configuré. Le compte à utiliser peut être spécifié à l’aide du paramètre `durableTask/azureStorageConnectionStringName` dans le fichier **host.json**.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+    }
   }
 }
 ```
@@ -67,6 +81,8 @@ S’il n’est pas spécifié, le compte de stockage `AzureWebJobsStorage` par d
 
 Les fonctions d’activité sont sans état et automatiquement mises à l’échelle par l’ajout de machines virtuelles. Les fonctions d’orchestrateur sont, quant à elles, *partitionnées* sur une ou plusieurs files d’attente de contrôle. Le nombre de files d’attente de contrôle est défini dans le fichier **host.json**. L’exemple suivant d’extrait de code host.json définit la propriété `durableTask/partitionCount` sur `3`.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
@@ -74,6 +90,19 @@ Les fonctions d’activité sont sans état et automatiquement mises à l’éch
   }
 }
 ```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "partitionCount": 3
+    }
+  }
+}
+```
+
 Un hub de tâches peut être configuré avec 1 à 16 partitions. Si ce paramètre n’est pas spécifié, le nombre de partitions par défaut s’élève à **4**.
 
 Durant la mise à l’échelle sur plusieurs instances de l’hôte de fonction (généralement sur différentes machines virtuelles), chaque instance acquiert un verrou sur l’une des files d’attente de contrôle. Ces verrous sont implémentés en interne comme des baux de stockage blob et ils garantissent qu’une instance d’orchestration s’exécute uniquement sur une seule instance d’hôte à la fois. Si un hub de tâches est configuré avec trois files d’attente de contrôle, la charge des instances d’orchestration peut être équilibrée sur trois machines virtuelles. Il est possible d’ajouter des machines virtuelles supplémentaires pour augmenter la capacité d’exécution de la fonction d’activité.
@@ -106,11 +135,26 @@ Azure Functions prend en charge l’exécution simultanée de plusieurs fonction
 
 Les deux limites de concurrence de la fonction d’activité et de la fonction d’orchestrateur peuvent être configurées dans le fichier **host.json**. Les paramètres appropriés sont respectivement `durableTask/maxConcurrentActivityFunctions` et `durableTask/maxConcurrentOrchestratorFunctions`.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
   }
 }
 ```
@@ -121,15 +165,31 @@ Dans l’exemple précédent, un maximum de 10 fonctions d’orchestrateur et 10
 > Ces paramètres permettent de gérer l’utilisation de la mémoire et du processeur sur une seule machine virtuelle. Toutefois, lors de la répartition sur plusieurs machines virtuelles, chaque machine virtuelle a son propre ensemble de limites défini. Ces paramètres ne peuvent pas être utilisés pour contrôler la concurrence au niveau global.
 
 ## <a name="orchestrator-function-replay"></a>Relecture de la fonction d’orchestrateur
+
 Comme mentionné précédemment, les fonctions d’orchestrateur sont relues à l’aide du contenu de la table d’**historique**. Par défaut, le code de fonction d’orchestrateur est relu chaque fois qu’un lot de messages est enlevé d’une file d’attente de contrôle.
 
 Ce comportement de relecture agressif peut être estompé avec l’activation de **sessions étendues**. Lorsque des sessions étendues sont activées, les instances de fonction d’orchestrateur sont conservées en mémoire plus longtemps et les nouveaux messages peuvent être traités sans une relecture complète. Les sessions étendues sont activées par la définition de `durableTask/extendedSessionsEnabled` sur `true` dans le fichier **host.json**. Le paramètre `durableTask/extendedSessionIdleTimeoutInSeconds` permet de contrôler la durée pendant laquelle une session inactive sera conservée en mémoire :
+
+### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
   "durableTask": {
     "extendedSessionsEnabled": true,
     "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "extendedSessionsEnabled": true,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
   }
 }
 ```
@@ -150,10 +210,10 @@ Par exemple, si `durableTask/extendedSessionIdleTimeoutInSeconds` est défini su
 
 Lors de la planification de l’utilisation de Fonctions durables pour une application de production, il est important de tenir compte très rapidement des exigences de performances dans le processus de planification. Cette section décrit certains scénarios d’utilisation de base et les débits maximaux attendus.
 
-* **Exécution de l’activité séquentielle** : ce scénario décrit une fonction d’orchestrateur qui exécute une série de fonctions d’activité, l’une après l’autre. Il ressemble beaucoup à l’exemple de [chaînage de fonctions](durable-functions-sequence.md).
-* **Exécution d’activité parallèle** : ce scénario décrit une fonction d’orchestrateur qui exécute de nombreuses fonctions d’activité en parallèle à l’aide du modèle [fan-out/fan-in](durable-functions-cloud-backup.md).
-* **Traitement de la réponse en parallèle** : ce scénario constitue la seconde moitié du modèle [fan-out/fan-in](durable-functions-cloud-backup.md). Il se concentre sur les performances du scénario fan-in. Contrairement au scénario fan-out, le scénario fan-in est réalisé par une instance de fonction d’orchestrateur unique et peut donc uniquement s’exécuter sur une seule machine virtuelle.
-* **Traitement de l’événement externe** : ce scénario représente une instance unique de la fonction d’orchestrateur, qui attend les [événements externes](durable-functions-external-events.md), un par un.
+* **Exécution d’activité séquentielle** : ce scénario décrit une fonction d’orchestrateur qui exécute une série de fonctions d’activité, l’une après l’autre. Il ressemble beaucoup à l’exemple de [chaînage de fonctions](durable-functions-sequence.md).
+* **Exécution d’activité parallèle** : ce scénario décrit une fonction d’orchestrateur qui exécute de nombreuses fonctions d’activité en parallèle à l’aide du modèle [fan-out/fan-in](durable-functions-cloud-backup.md).
+* **Traitement de la réponse en parallèle** : ce scénario constitue la seconde moitié du modèle [fan-out/fan-in](durable-functions-cloud-backup.md). Il se concentre sur les performances du scénario fan-in. Contrairement au scénario fan-out, le scénario fan-in est réalisé par une instance de fonction d’orchestrateur unique et peut donc uniquement s’exécuter sur une seule machine virtuelle.
+* **Traitement des événements externes** : ce scénario représente une instance unique de la fonction d’orchestrateur, qui attend les [événements externes](durable-functions-external-events.md), un par un.
 
 > [!TIP]
 > Contrairement aux opérations fan-out, les opérations fan-in sont limitées à une seule machine virtuelle. Si votre application utilise le modèle fan-out/fan-in et si vous vous préoccupez des performances de scénario fan-in, pensez à sous-diviser le scénario fan-out de fonction d’activité sur plusieurs [sous-orchestrations](durable-functions-sub-orchestrations.md).

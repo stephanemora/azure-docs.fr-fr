@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955693"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261532"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Authentification des utilisateurs finaux auprès d’Azure Data Lake Storage Gen1 à l’aide du SDK .NET
 > [!div class="op_single_selector"]
@@ -104,7 +104,7 @@ Pour simplifier l’utilisation, l’extrait de code suivant utilise les valeurs
 
 Voici quelques informations utiles concernant l’extrait de code précédent :
 
-* L’extrait de code précédent utilise les fonctions d’assistance `GetTokenCache` et `GetCreds_User_Popup`. Le code de ces fonctions d’assistance est disponible [ici sur Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* L’extrait de code précédent utilise les fonctions d’assistance `GetTokenCache` et `GetCreds_User_Popup`. Le code de ces fonctions d'assistance est disponible [ici sur GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
 * Pour vous aider à effectuer le didacticiel plus rapidement, l’extrait de code utilise un ID client d’application native disponible par défaut pour tous les abonnements Azure. Vous pouvez donc **utiliser cet extrait de code en l’état dans votre application**.
 * Cependant, si vous souhaitez utiliser votre propre ID client application et domaine Azure AD, vous devez créer une application native Azure AD, puis utiliser l’ID locataire, l’ID client et l’URI de redirection Azure AD de l’application que vous avez créée. Pour obtenir des instructions, voir la page [Créer une application Active Directory pour l’authentification des utilisateurs finaux auprès de Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
 

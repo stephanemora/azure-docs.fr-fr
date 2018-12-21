@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: b595e62e032743be2655406ac02c8db94cf708f9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5052ec73114c040a4c140d258b197fdde58f6667
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281748"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409324"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure Mobile Apps pour Android
 
@@ -189,15 +189,15 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Pour savoir comment créer des tables supplémentaires dans votre backend Mobile Apps, consultez [Définir un contrôleur de table][15] (backend .NET) ou [Définir des tables à l’aide d’un schéma dynamique][16] (backend Node.js).
+Pour apprendre à créer des tables supplémentaires sur votre serveur principal Mobile Apps, consultez [Procédure : Définir un contrôleur de table][15] (principal .NET) ou [Définir des tables à l'aide d'un schéma dynamique][16] (principal Node.js).
 
 Une table de serveur principal Azure Mobile Apps définit cinq champs spéciaux, dont quatre sont disponibles pour les clients :
 
-* `String id` : l’ID global unique pour l’enregistrement.  Nous vous recommandons de faire de l’ID la représentation de chaîne d’un objet [UUID][17].
-* `DateTimeOffset updatedAt` : la date/l’heure de la dernière mise à jour.  Le champ updatedAt est défini par le serveur et ne doit jamais être défini par votre code client.
-* `DateTimeOffset createdAt` : la date/l’heure de création de l’objet.  Le champ createdAt est défini par le serveur et ne doit jamais être défini par votre code client.
-* `byte[] version` : généralement représentée sous forme de chaîne, la version est également définie par le serveur.
-* `boolean deleted` : indique que l’enregistrement a été supprimé mais pas encore vidé.  N’utilisez pas `deleted` en tant que propriété dans votre classe.
+* `String id`: ID global unique de l'enregistrement.  Nous vous recommandons de faire de l’ID la représentation de chaîne d’un objet [UUID][17].
+* `DateTimeOffset updatedAt`: date/heure de la dernière mise à jour.  Le champ updatedAt est défini par le serveur et ne doit jamais être défini par votre code client.
+* `DateTimeOffset createdAt`: date/heure de création de l'objet.  Le champ createdAt est défini par le serveur et ne doit jamais être défini par votre code client.
+* `byte[] version`: généralement représentée sous forme de chaîne, la version est également définie par le serveur.
+* `boolean deleted`: indique que l'enregistrement a été supprimé mais pas encore vidé.  N’utilisez pas `deleted` en tant que propriété dans votre classe.
 
 Le champ `id` est obligatoire.  Les champs `updatedAt` et `version` sont utilisés pour la synchronisation hors connexion (pour la synchronisation incrémentielle et la résolution des conflits, respectivement).  Le champ `createdAt` est un champ de référence et n’est pas utilisé par le client.  Les noms sont des noms « à travers le câble » des propriétés et ne sont pas réglables.  Toutefois, vous pouvez créer un mappage entre votre objet et les noms « à travers le câble » à l’aide de la bibliothèque [gson][3].  Par exemple : 
 
@@ -446,7 +446,7 @@ Une demande pour tous les enregistrements à l’aide de cette méthode crée un
 > [!TIP]
 > Le choix de la taille de page appropriée est un équilibre entre l’utilisation de la mémoire pendant l’exécution de la demande, l’utilisation de la bande passante et le délai de réception de toutes les données.  La valeur par défaut (50 enregistrements) convient à tous les appareils.  Si vous travaillez exclusivement sur des appareils avec une grande capacité de mémoire, augmentez cette valeur jusqu’à 500.  Nous avons constaté que l’augmentation de la taille de page au-delà de 500 enregistrements engendre des retards inacceptables et d’importants problèmes de mémoire.
 
-### <a name="chaining"></a>Procédure de concaténation de méthodes de requête
+### <a name="chaining"></a>Procédure : Concaténer les méthodes de requête
 
 Les méthodes utilisées dans les requêtes de tables de backend peuvent être concaténées. La concaténation des méthodes de requêtes vous permet de sélectionner des colonnes spécifiques de lignes filtrées, qui sont triées et paginées. Vous pouvez créer des filtres logiques complexes.  Chaque méthode de requête retourne un objet de requête. Pour mettre fin à la série de méthodes et exécuter la requête, appelez la méthode **execute** . Par exemple : 
 
@@ -672,7 +672,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Procédure : utilisation de données non typées
+## <a name="untyped"></a>Procédure : Utiliser des données non typées
 
 Le modèle de programmation non typé vous offre un contrôle total de la sérialisation JSON.  Il existe certains scénarios courants où vous pouvez utiliser un modèle de programmation non typé. Par exemple, si la table de votre backend contient un grand nombre de colonnes et que vous n’avez besoin de faire référence qu’à quelques-unes d’entre elles.  Avec le modèle typé, vous devez définir toutes les colonnes du serveur principal Mobile Apps dans votre classe de données.  La plupart des appels d'API permettant d'accéder aux données sont similaires à ceux des appels de programmation typés. La principale différence est que, dans le modèle non typé, vous appelez des méthodes dans l'objet **MobileServiceJsonTable** plutôt que dans l'objet **MobileServiceTable**.
 
@@ -767,10 +767,10 @@ Les mêmes méthodes de filtrage et de pagination disponibles pour le modèle ty
 
 Le Kit de développement logiciel (SDK) Azure Mobile Apps Client implémente également la synchronisation hors connexion des données à l’aide d’une base de données SQLite pour stocker une copie des données du serveur en local.  Les opérations effectuées sur une table en mode hors connexion ne nécessitent pas de connectivité mobile pour fonctionner.  La synchronisation hors connexion contribue à la résilience et aux performances au détriment d’une logique plus complexe pour la résolution des conflits.  Le Kit de développement logiciel (SDK) Azure Mobile Apps Client implémente les fonctionnalités suivantes :
 
-* Synchronisation incrémentielle : seuls les enregistrements nouveaux et mis à jour sont téléchargés, ce qui permet d’économiser de la bande passante et de la mémoire.
-* Accès concurrentiel optimiste : les opérations sont supposées réussir.  La résolution des conflits est différée jusqu’à ce que des mises à jour soient effectuées sur le serveur.
-* Résolution des conflits : le Kit de développement logiciel (SDK) détecte les modifications conflictuelles ayant été apportées au niveau du serveur et fournit des hooks pour avertir l’utilisateur.
-* Suppression réversible : les enregistrements supprimés sont marqués comme supprimés, ce qui permet à d’autres appareils de mettre à jour leur cache hors connexion.
+* Synchronisation incrémentielle : seuls les enregistrements nouveaux et mis à jour sont téléchargés, ce qui permet d'économiser de la bande passante et de la mémoire.
+* Accès concurrentiel optimiste : les opérations sont supposées aboutir.  La résolution des conflits est différée jusqu’à ce que des mises à jour soient effectuées sur le serveur.
+* Résolution des conflits : le Kit de développement logiciel (SDK) détecte les modifications conflictuelles ayant été apportées au niveau du serveur et fournit des hooks pour avertir l'utilisateur.
+* Suppression réversible : les enregistrements supprimés sont marqués comme supprimés, ce qui permet à d'autres appareils de mettre à jour leur cache hors connexion.
 
 ### <a name="initialize-offline-sync"></a>Initialiser la synchronisation hors connexion
 
@@ -892,7 +892,7 @@ La méthode **invokeApi** est appelée sur le client pour envoyer une requête P
 
 Les didacticiels décrivent déjà en détail l’ajout de ces fonctionnalités.
 
-App Service prend en charge [l’authentification des utilisateurs d’applications](app-service-mobile-android-get-started-users.md) via divers fournisseurs d’identité externes : Facebook, Google, compte Microsoft, Twitter et Azure Active Directory. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans votre serveur principal.
+App Service prend en charge l'[authentification des utilisateurs de l'application](app-service-mobile-android-get-started-users.md) par l'intermédiaire de différents fournisseurs d'identité externes : Facebook, Google, compte Microsoft, Twitter et Azure Active Directory. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans votre serveur principal.
 
 Deux flux d’authentification sont pris en charge : un flux **serveur** et un flux **client**. Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface Web des fournisseurs d’identité.  Aucun SDK supplémentaires n’est requis pour implémenter l’authentification de flux serveur. L’authentification de flux serveur ne fournit pas une intégration approfondie dans l’appareil mobile et elle est uniquement recommandée dans des scénarios de preuve de concept.
 
@@ -907,7 +907,7 @@ Quatre étapes sont nécessaires pour activer l'authentification dans votre appl
 
 Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser le SID d’un utilisateur authentifié pour modifier des demandes.  Pour plus d’informations, consultez la rubrique [Prise en main de l’authentification] et les instructions pour le Kit de développement logiciel (SDK) Server.
 
-### <a name="caching"></a>Authentification : flux serveur
+### <a name="caching"></a>Authentification : Flux serveur
 
 Le code suivant démarre un processus de connexion du flux serveur à l’aide du fournisseur Google.  Une configuration supplémentaire est nécessaire en raison des exigences de sécurité pour le fournisseur Google :
 
@@ -1289,31 +1289,31 @@ Ce code doit être exécuté avant de créer une référence de client mobile à
 
 <!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
+[ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
 [Prise en main de l’authentification]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
-[2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
+[2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5
-[4]: http://go.microsoft.com/fwlink/p/?LinkId=296840
+[4]: https://go.microsoft.com/fwlink/p/?LinkId=296840
 [5]: app-service-mobile-android-get-started-push.md
 [6]: ../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps
 [7]: app-service-mobile-android-get-started-users.md#cache-tokens
-[8]: http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html
-[9]: http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html
+[8]: https://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html
+[9]: https://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html
 [10]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [11]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-[12]: http://azure.github.io/azure-mobile-apps-android-client/
+[12]: https://azure.github.io/azure-mobile-apps-android-client/
 [13]: app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend
-[14]: http://go.microsoft.com/fwlink/p/?LinkID=717034
+[14]: https://go.microsoft.com/fwlink/p/?LinkID=717034
 [15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [16]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [17]: https://developer.android.com/reference/java/util/UUID.html
 [18]: https://github.com/google/guava/wiki/ListenableFutureExplained
-[19]: http://www.odata.org/documentation/odata-version-3-0/
-[20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
+[19]: https://www.odata.org/documentation/odata-version-3-0/
+[20]: https://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
-[AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
+[22]: ../app-service/configure-authentication-provider-aad.md
+[Future]: https://developer.android.com/reference/java/util/concurrent/Future.html
+[AsyncTask]: https://developer.android.com/reference/android/os/AsyncTask.html

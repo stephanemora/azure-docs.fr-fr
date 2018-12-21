@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3a7701dacece515bb24567ff6117c183bfe2b526
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3dfcb74852f90615af90f9eab3711b1b235c53e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638094"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341386"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
@@ -55,7 +55,7 @@ Voici le code qui implémente la fonction d’orchestrateur :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
@@ -67,9 +67,10 @@ Cette fonction d’orchestrateur effectue essentiellement les opérations suivan
 4. Attend la fin de tous les chargements.
 5. Retourne le nombre total d’octets qui ont été chargés dans Stockage Blob Azure.
 
-Notez la ligne `await Task.WhenAll(tasks);` (C#) et `yield context.df.Task.all(tasks);` (JS). Tous les appels à la fonction `E2_CopyFileToBlob` n’ont *pas* été attendus. Cela est intentionnel pour les autoriser à s’exécuter en parallèle. Lorsque nous transmettons ce tableau de tâches à `Task.WhenAll`, nous obtenons une tâche qui ne se termine pas *tant que toutes les opérations de copie ne sont pas finies*. Si vous connaissez la bibliothèque parallèle de tâches (Task Parallel Library, TPL) dans .NET, cela n’est pas nouveau pour vous. La différence est que ces tâches peuvent s’exécuter simultanément sur plusieurs machines virtuelles, et que l’extension Fonctions durables garantit que l’exécution de bout en bout n’est pas interrompue par un recyclage de processus.
+Notez les lignes `await Task.WhenAll(tasks);` (C#) et `yield context.df.Task.all(tasks);` (JavaScript). Tous les appels à la fonction `E2_CopyFileToBlob` n’ont *pas* été attendus. Cela est intentionnel pour les autoriser à s’exécuter en parallèle. Lorsque nous transmettons ce tableau de tâches à `Task.WhenAll` (C#) ou `context.df.Task.all` (JavaScript), nous obtenons une tâche qui ne se termine pas *tant que toutes les opérations de copie ne sont pas finies*. Si vous connaissez la bibliothèque parallèle de tâches (Task Parallel Library, TPL) dans .NET ou [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) dans JavaScript, cela n’est pas nouveau pour vous. La différence est que ces tâches peuvent s’exécuter simultanément sur plusieurs machines virtuelles, et que l’extension Fonctions durables garantit que l’exécution de bout en bout n’est pas interrompue par un recyclage de processus.
 
-Les tâches sont très semblables au concept de promesses JavaScript. Toutefois, `Promise.all` présente des différences par rapport à `Task.WhenAll`. Le concept de `Task.WhenAll` a été déplacé dans le cadre du module JavaScript `durable-functions` et il est exclusif à ce dernier.
+> [!NOTE]
+> Bien que les tâches soient conceptuellement similaires aux promesses JavaScript, les fonctions d’orchestrateur doivent utiliser `context.df.Task.all` et `context.df.Task.any` plutôt que `Promise.all` et `Promise.race` pour gérer la parallélisation de la tâche.
 
 Après avoir attendu `Task.WhenAll` (ou en cessant temporairement l’exécution à partir de `context.df.Task.all`), nous savons que tous les appels de fonction sont terminés et nous ont retourné des valeurs. Chaque appel à `E2_CopyFileToBlob` renvoie le nombre d’octets chargés. Pour calculer le nombre total d’octets, il suffit donc d’additionner toutes ces valeurs retournées.
 
@@ -85,7 +86,7 @@ Et voici l’implémentation :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
@@ -104,7 +105,7 @@ L’implémentation C# est également très simple. Elle utilise certaines des f
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
 
 L’implémentation JavaScript n’a pas accès à la fonctionnalité `Binder` Azure Functions. Par conséquent, le [Kit de développement logiciel (SDK) Azure Storage pour Node](https://github.com/Azure/azure-storage-node) prend sa place.
 

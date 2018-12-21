@@ -1,6 +1,6 @@
 ---
-title: Choisir un niveau tarifaire ou référence (SKU) pour le service Recherche Azure | Microsoft Docs
-description: 'Azure Search peut être configuré sur ces niveaux de référence (SKU) : Gratuit, De base et Standard, où Standard est disponible dans différentes configurations de ressources et différents niveaux de capacité.'
+title: Choisir un niveau tarifaire ou une référence SKU pour le service Recherche Azure | Recherche Azure
+description: 'Le service Recherche Azure peut être configuré sur les références SKU suivantes : Gratuit, De base et Standard, sachant que la référence Standard est disponible sous différentes configurations de ressources et différents niveaux de capacité.'
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.custom: seodec2018
+ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785305"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315551"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
@@ -43,7 +44,7 @@ Dans Recherche Azure, le concept de facturation le plus important à comprendre 
 
 L’unité de recherche est le produit des *réplicas* et des *partitions* utilisés par un service : **`(R X P = SU)`**
 
-Chaque service commence avec 1 unité de recherche (un réplica multipliée par une partition) au minimum. Le maximum pour les services est de 36 unités de recherche, qui peuvent être obtenues de plusieurs façons : 6 partitions x 6 réplicas, ou 3 partitions x 12 réplicas, pour n’en citer que quelques-uns. 
+Chaque service commence avec 1 unité de recherche (un réplica multipliée par une partition) au minimum. Quel que soit le service, le maximum est de 36 unités de recherche, ce nombre pouvant être atteint de différentes manières : 6 partitions x 6 réplicas, ou 3 partitions x 12 réplicas, par exemple. 
 
 Il est courant de ne pas utiliser la capacité totale. Par exemple, un service de 3 réplicas et 3 partitions, facturé comme 9 unités de recherche. 
 

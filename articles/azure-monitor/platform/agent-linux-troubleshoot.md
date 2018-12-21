@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: c9445793061b84a1bd1632d00b64ea99800bc2d1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1f772e1a3e5b3e121b968d358166e9018c80d573
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638004"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192688"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
 
@@ -62,7 +60,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 | NOT_DEFINED | Les dépendances nécessaires n’étant pas installées, le plug-in auoms auditd n’est pas installé. | L’installation d’auoms a échoué, installez le package auditd. |
 | 2 | Option non valide fournie au bundle de l’interpréteur de commandes. Exécutez `sudo sh ./omsagent-*.universal*.sh --help` pour l’utilisation. |
 | 3 | Aucune option fournie au bundle de l’interpréteur de commandes. Exécutez `sudo sh ./omsagent-*.universal*.sh --help` pour l’utilisation. |
-| 4 | Paramètres de proxy non valide ou type de package non valide ; les packages omsagent-*rpm*.sh peuvent être installés uniquement sur des systèmes basés sur RPM, et les packages omsagent -*deb*.sh peuvent être installés uniquement sur des systèmes Debian. Nous vous recommandons d’utiliser le programme d’installation universel de la [dernière version](../../log-analytics/log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux). Par ailleurs, [lisez ces informations](#issue:-unable-to-connect-through-proxy-to-log-analytics) pour vérifier vos paramètres de proxy. |
+| 4 | Paramètres de proxy non valide ou type de package non valide ; les packages omsagent-*rpm*.sh peuvent être installés uniquement sur des systèmes basés sur RPM, et les packages omsagent -*deb*.sh peuvent être installés uniquement sur des systèmes Debian. Nous vous recommandons d’utiliser le programme d’installation universel de la [dernière version](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Par ailleurs, [lisez ces informations](#issue:-unable-to-connect-through-proxy-to-log-analytics) pour vérifier vos paramètres de proxy. |
 | 5. | Le bundle de l’interpréteur de commandes doit être exécuté en tant qu’utilisateur root ou une erreur 403 a été retournée pendant l’intégration. Exécutez votre commande à l’aide de `sudo`. |
 | 6. | Architecture du package non valide ou erreur 200 retournée pendant l’intégration ; les packages omsagent-*x64.sh ne peuvent être installés que sur des systèmes 64 bits, et les packages omsagent-* x86.sh ne peuvent être installés que sur des systèmes 32 bits. Téléchargez le package approprié pour votre architecture à partir de la [dernière version](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Échec de l’installation du package OMS. Examinez le résultat de la commande pour déterminer l’échec de root. |
@@ -175,7 +173,7 @@ Sous le plug-in de sortie, supprimez les marques de commentaire de la section su
     |*.blob.core.windows.net | Port 443| Trafic entrant et sortant |  
     |* .azure-automation.net | Port 443| Trafic entrant et sortant | 
 
-## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problème : Vous recevez une erreur 403 lorsque vous tentez d’effectuer l’intégration
+## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problème : vous voyez une erreur 403 lorsque vous tentez d’effectuer l’intégration
 
 ### <a name="probable-causes"></a>Causes probables
 * La date et l’heure sont incorrectes sur le serveur Linux 
@@ -187,10 +185,10 @@ Sous le plug-in de sortie, supprimez les marques de commentaire de la section su
 2. Vérifiez que vous avez installé la dernière version de l’agent Log Analytics pour Linux.  Celle-ci vous avertit si le décalage horaire est à l’origine de l’échec d’intégration.
 3. Relancez l’intégration avec la bonne clé et le bon identifiant d’espace de travail en suivant les instructions d’installation fournies précédemment dans cet article.
 
-## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problème : Vous voyez une erreur 500 et 404 dans le fichier journal juste après l’intégration
+## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problème : vous voyez une erreur 500 et 404 dans le fichier journal juste après l’intégration
 Il s’agit d’un problème connu qui se produit lors du premier chargement de données Linux dans un espace de travail Log Analytics. Cela n’affecte pas les données envoyées ni l’expérience du service.
 
-## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problème : vous ne voyez pas toutes les données dans le portail Azure
+## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problème : vous ne voyez pas les données dans le portail Azure
 
 ### <a name="probable-causes"></a>Causes probables
 
@@ -208,7 +206,7 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
     >Ce problème est résolu dans l’agent version 1.1.0-28 et versions ultérieures.
 
 
-## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Problème : Vous ne voyez pas les messages Syslog transférés 
+## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Problème : vous ne voyez pas les messages Syslog transférés 
 
 ### <a name="probable-causes"></a>Causes probables
 * La configuration appliquée au serveur Linux n’autorise pas la collecte des fonctionnalités et/ou niveaux du journal envoyés.
@@ -222,7 +220,7 @@ Il s’agit d’un problème connu qui se produit lors du premier chargement de 
 * Simulez un message Syslog pour Log Analytics à l’aide de la commande `logger`.
   * `logger -p local0.err "This is my test message"`
 
-## <a name="issue-you-are-receiving-errno-address-already-in-use-in-omsagent-log-file"></a>Problème : Vous recevez une erreur Errno indiquant qu’une adresse est déjà en cours d’utilisation dans le fichier journal omsagent
+## <a name="issue-you-are-receiving-errno-address-already-in-use-in-omsagent-log-file"></a>Problème : vous recevez une erreur Errno indiquant qu’une adresse est déjà en cours d’utilisation dans le fichier journal omsagent
 Si vous voyez `[error]: unexpected error error_class=Errno::EADDRINUSE error=#<Errno::EADDRINUSE: Address already in use - bind(2) for "127.0.0.1" port 25224>` dans omsagent.log.
 
 ### <a name="probable-causes"></a>Causes probables
@@ -243,7 +241,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 3. Redémarrez omsagent (`sudo /opt/microsoft/omsagent/bin/service_control restart`).
 4. Redémarrez le service syslog.
 
-## <a name="issue-you-are-unable-to-uninstall-omsagent-using-purge-option"></a>Problème : Vous ne parvenez pas à désinstaller omsagent en utilisant l’option de vidage
+## <a name="issue-you-are-unable-to-uninstall-omsagent-using-purge-option"></a>Problème : vous ne parvenez pas à désinstaller omsagent en utilisant l’option de vidage
 
 ### <a name="probable-causes"></a>Causes probables
 
@@ -254,7 +252,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 1. Désinstallez l’extension de diagnostic Linux (LAD).
 2. Supprimez les fichiers de l’extension de diagnostic Linux de la machine s’ils sont présents à l’emplacement suivant : `/var/lib/waagent/Microsoft.Azure.Diagnostics.LinuxDiagnostic-<version>/` et `/var/opt/microsoft/omsagent/LAD/`.
 
-## <a name="issue-you-cannot-see-data-any-nagios-data"></a>Problème : Vous ne pouvez pas voir de données Nagios 
+## <a name="issue-you-cannot-see-data-any-nagios-data"></a>Problème : vous ne pouvez pas voir de données Nagios 
 
 ### <a name="probable-causes"></a>Causes probables
 * L’utilisateur omsagent n’a pas les autorisations nécessaires pour lire le fichier journal Nagios
@@ -277,7 +275,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
     </filter>
     ```
 
-## <a name="issue-you-are-not-seeing-any-linux-data"></a>Problème : Vous ne pouvez pas voir de données Linux 
+## <a name="issue-you-are-not-seeing-any-linux-data"></a>Problème : vous ne pouvez pas voir de données Linux 
 
 ### <a name="probable-causes"></a>Causes probables
 * Échec de l’intégration du service Log Analytics
@@ -347,7 +345,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
     sudo service crond start
     ```
 
-## <a name="issue-when-configuring-collection-from-the-portal-for-syslog-or-linux-performance-counters-the-settings-are-not-applied"></a>Problème : Quand vous configurez la collection à partir du portail pour les compteurs de performances Syslog ou Linux, les paramètres ne sont pas appliqués
+## <a name="issue-when-configuring-collection-from-the-portal-for-syslog-or-linux-performance-counters-the-settings-are-not-applied"></a>Problème : quand vous configurez la collection à partir du portail pour les compteurs de performances Syslog ou Linux, les paramètres ne sont pas appliqués
 
 ### <a name="probable-causes"></a>Causes probables
 * L’agent Log Analytics pour Linux n’a pas récupéré la configuration la plus récente.
@@ -361,7 +359,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 
   2. Vérifiez que l’agent `omsconfig` peut communiquer avec le service Log Analytics en exécutant la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`. Cette commande retourne la configuration que l’agent reçoit du service, dont les paramètres Syslog, les compteurs de performances Linux et les journaux personnalisés. Si cette commande échoue, exécutez la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. Cette commande force l’agent omsconfig à parler au service Log Analytics pour récupérer la configuration la plus récente.
 
-## <a name="issue-you-are-not-seeing-any-custom-log-data"></a>Problème : Vous ne pouvez pas voir de données de journal personnalisé 
+## <a name="issue-you-are-not-seeing-any-custom-log-data"></a>Problème : vous ne pouvez pas voir de données de journal personnalisé 
 
 ### <a name="probable-causes"></a>Causes probables
 * Échec de l’intégration du service Log Analytics.
@@ -380,14 +378,14 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 
 2. Vérifiez que l’agent `omsconfig` peut communiquer avec le service Log Analytics en exécutant la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Cette commande retourne la configuration que l’agent reçoit du service, dont les paramètres Syslog, les compteurs de performances Linux et les journaux personnalisés. Si cette commande échoue, exécutez la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Cette commande force l’agent omsconfig à parler au service Log Analytics pour récupérer la configuration la plus récente.
 
-**Contexte :** Au lieu que l’agent Log Analytics pour Linux opère en tant qu’utilisateur privilégié - `root`, l’agent opère en tant qu’utilisateur `omsagent`. Dans la plupart des cas, une autorisation explicite doit être accordée à cet utilisateur pour la lecture de certains fichiers. Pour accorder l’autorisation à l’utilisateur `omsagent`, exécutez les commandes suivantes :
+**Contexte** : au lieu que l’agent Log Analytics pour Linux opère en tant qu’utilisateur privilégié - `root`, l’agent opère en tant qu’utilisateur `omsagent`. Dans la plupart des cas, une autorisation explicite doit être accordée à cet utilisateur pour la lecture de certains fichiers. Pour accorder l’autorisation à l’utilisateur `omsagent`, exécutez les commandes suivantes :
 
 1. Ajoutez l’utilisateur `omsagent` à un groupe spécifique : `sudo usermod -a -G <GROUPNAME> <USERNAME>`
 2. Accordez l’accès en lecture universel au fichier requis : `sudo chmod -R ugo+rx <FILE DIRECTORY>`
 
 Il existe un problème connu lié à une condition de concurrence affectant les versions de l’agent Log Analytics pour Linux antérieures à 1.1.0-217. Après mise à jour vers le dernier agent, exécutez la commande suivante pour obtenir la dernière version du plug-in de sortie : `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 
-## <a name="issue-you-are-trying-to-reonboard-to-a-new-workspace"></a>Problème : Vous tentez d’effectuer une réintégration dans un nouvel espace de travail
+## <a name="issue-you-are-trying-to-reonboard-to-a-new-workspace"></a>Problème : vous tentez d’effectuer une réintégration dans un nouvel espace de travail
 Quand vous tentez de réintégrer un agent dans un espace de travail, la configuration de l’agent Log Analytics doit être nettoyée avant la réintégration. Pour nettoyer l’ancienne configuration de l’agent, exécutez le bundle de l’interpréteur de commandes avec `--purge`
 
 ```
@@ -410,12 +408,12 @@ Vous pouvez poursuivre la réintégration après avoir utilisé l’option `--pu
 ### <a name="resolution"></a>Résolution : 
 Effectuez les étapes suivantes pour résoudre le problème.
 1. Supprimez l’extension du portail Azure.
-2. Installez l’agent en suivant les [instructions](../../log-analytics/log-analytics-quick-collect-linux-computer.md).
+2. Installez l’agent en suivant les [instructions](../../azure-monitor/learn/quick-collect-linux-computer.md).
 3. Redémarrez l’agent en exécutant la commande suivante : `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 * Patientez quelques minutes ; l’état du provisionnement passe alors à **Approvisionnement réussi**.
 
 
-## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Problème : Mise à jour de l’agent Log Analytics à la demande
+## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Problème : Mise à jour de l’agent Log Analytics à la demande
 
 ### <a name="probable-causes"></a>Causes probables
 

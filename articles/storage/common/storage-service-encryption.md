@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094890"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384120"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption pour les données au repos
 Azure Storage Service Encryption pour les données au repos vous permet de protéger vos données pour garantir le respect des engagements de votre organisation en matière de sécurité et de conformité. Avec cette fonctionnalité, la plateforme de stockage Azure chiffre automatiquement vos données avant de les rendre persistantes dans Azure Managed Disks, Azure Storage Blob, File d’attente Azure, Stockage Table ou Azure Files, et déchiffre ces données avant l’extraction. La gestion du chiffrement, le chiffrement au repos, le déchiffrement et la gestion des clés dans Storage Service Encryption se font de façon transparente pour les utilisateurs. Toutes les données écrites dans la plateforme de stockage Azure sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, l’un des plus puissants chiffrements par blocs disponibles.
@@ -81,7 +81,7 @@ Oui, toutes les copies du compte de stockage sont chiffrées. Toutes les options
 Storage Service Encryption est disponible dans toutes les régions.
 
 **Storage Service Encryption est-il conforme à la norme FIPS 140-2 ?**  
-Oui, Storage Service Encryption est conforme à la norme FIPS 140-2.
+Oui, Storage Service Encryption est conforme à la norme FIPS 140-2. Pour plus d’informations sur les modules cryptographiques de Storage Service Encryption, consultez [Cryptography API : nouvelle génération](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
 **Comment faire pour obtenir de l’aide si je rencontre des problèmes ou que je souhaite envoyer des commentaires ?**  
 Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) pour faire part de vos problèmes ou commentaires liés à Storage Service Encryption.
