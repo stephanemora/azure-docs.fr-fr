@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 1e35d650f6fc99bff5bf49e517e2b38fcdc58dde
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853147"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076999"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Démarrage rapide : Créer un script Python pour détecter et encadrer des visages dans une image
 
@@ -28,14 +28,18 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 - Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
 - [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
 - Outil [pip](https://pip.pypa.io/en/stable/installing/)
-- SDK Python de l’API Visage. Vous pouvez l’installer en exécutant la commande suivante :
-    ```bash
-    pip install cognitive_face
-    ```
+
+## <a name="get-the-face-sdk"></a>Obtenir le SDK Visage
+
+Installez le SDK Python Visage en ouvrant l’invite de commandes et en exécutant la commande suivante :
+
+```shell
+pip install cognitive_face
+```
 
 ## <a name="detect-faces-in-an-image"></a>Détecter des visages dans une image
 
-Créez un script Python, _FaceQuickstart.py_. Ajoutez le code suivant. Il s’agit de la fonctionnalité de base de la détection des visages. Vous devez remplacer `<Subscription Key>` par la valeur de votre clé. Vous devrez aussi peut-être changer la valeur de `BASE_URL` pour utiliser l’identificateur de région approprié pour votre clé. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Les clés d’abonnement d’essai gratuit sont générées dans la région **westus**. Si vous le souhaitez, définissez `img_url` avec l’URL d’une image que vous souhaitez utiliser.
+Créez un script Python nommé _FaceQuickstart.py_ et ajoutez le code suivant. Il s’agit de la fonctionnalité de base de la détection des visages. Vous devez remplacer `<Subscription Key>` par la valeur de votre clé. Vous devrez aussi peut-être changer la valeur de `BASE_URL` pour utiliser l’identificateur de région approprié pour votre clé. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Les clés d’abonnement d’essai gratuit sont générées dans la région **westus**. Si vous le souhaitez, définissez `img_url` avec l’URL d’une image que vous souhaitez utiliser.
 
 Le script détecter les visages en appelant la méthode **cognitive_face.face.detect**, laquelle inclut dans un wrapper l’API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) et retourne une liste de visages.
 

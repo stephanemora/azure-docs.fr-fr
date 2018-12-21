@@ -1,24 +1,24 @@
 ---
-title: Créer un blueprint Azure avec l’API REST
+title: Créer un blueprint avec l'API REST
 description: Utilisez des blueprints Azure pour créer, définir et déployer des artefacts.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: b873ee869b2044977ebefcfd65331567c24e7ec8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.custom: seodec18
+ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974202"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311420"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Définir et affecter un blueprint Azure avec l’API REST
 
-Une organisation qui sait comment créer et affecter des blueprints dans Azure peut définir des modèles courants de cohérence et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
+Un utilisateur qui sait comment créer et affecter des blueprints peut définir des modèles courants et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
 
 > [!div class="checklist"]
 > - Créer un blueprint et ajouter divers artefacts pris en charge
@@ -32,7 +32,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="getting-started-with-rest-api"></a>Bien démarrer avec l’API REST
 
-Si vous ne connaissez pas bien l’API REST, commencez par passer en revue [Référence de l’API REST Azure](/rest/api/azure/) pour obtenir des informations générales sur l’API REST, en particulier sur l’URI de demande et le corps de la demande. Cet article utilise ces concepts pour fournir des instructions sur l’utilisation des blueprints Azure et suppose une connaissance pratique de ces derniers. Des outils comme [ARMClient](https://github.com/projectkudu/ARMClient) qui peuvent gérer l’autorisation automatiquement sont recommandés pour les débutants.
+Si vous ne connaissez pas bien l’API REST, commencez par passer en revue [Référence de l’API REST Azure](/rest/api/azure/) pour obtenir des informations générales sur l’API REST, en particulier sur l’URI de requête et le corps de la requête. Cet article utilise ces concepts pour fournir des instructions sur l’utilisation des blueprints Azure et suppose une connaissance pratique de ces derniers. Des outils comme [ARMClient](https://github.com/projectkudu/ARMClient) qui peuvent gérer l’autorisation automatiquement sont recommandés pour les débutants.
+
+Pour les caractéristiques des blueprints, consultez [API REST Azure Blueprints](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>API REST et PowerShell
 
@@ -59,7 +61,7 @@ Remplacez `{subscriptionId}` dans la variable **$restUri** ci-dessus pour obteni
 
 ## <a name="create-a-blueprint"></a>Créer un blueprint
 
-La première étape de la définition d’un modèle standard à des fins de conformité est de composer un blueprint à partir des ressources disponibles. Dans cet exemple, vous allez créer un blueprint nommé « MyBlueprint » pour configurer les attributions de rôle et de stratégie pour l’abonnement, ajouter un groupe de ressources, puis créer un modèle Resource Manager et une attribution de rôle sur le groupe de ressources.
+La première étape de la définition d’un modèle standard à des fins de conformité est de composer un blueprint à partir des ressources disponibles. Nous allons créer un blueprint nommé « MyBlueprint » pour configurer les attributions de rôle et de stratégie pour l’abonnement. Ensuite, nous allons ajouter un groupe de ressources, un modèle Resource Manager et une attribution de rôle sur le groupe de ressources.
 
 > [!NOTE]
 > Quand vous utilisez l’API REST, l’objet _blueprint_ est créé en premier. Pour chaque _artefact_ à ajouter contenant des paramètres, vous devez définir ces paramètres à l’avance sur le _blueprint_ initial.
@@ -69,7 +71,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
 - Remplacer `{YourMG}` par le nom de votre groupe d’administration
 - Remplacer `{subscriptionId}` par votre ID d’abonnement
 
-1. Créez l’objet _blueprint_ initial. Le **corps de la demande** inclut des propriétés sur le blueprint, les groupes de ressources à créer et tous les paramètres au niveau du blueprint qui sont définis durant l’affectation et utilisés par les artefacts ajoutés dans les étapes ultérieures.
+1. Créez l’objet _blueprint_ initial. Le **corps de la requête** inclut des propriétés du blueprint, les groupes de ressources à créer et tous les paramètres au niveau du blueprint. Les paramètres sont définis durant l’affectation et utilisés par les artefacts ajoutés aux étapes ultérieures.
 
    - URI de l’API REST
 
@@ -148,7 +150,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
      }
      ```
 
-1. Ajoutez une affectation de stratégie au niveau de l’abonnement. Le **corps de la demande** définit le _genre_ d’artefact, définit les propriétés qui sont alignées avec une définition de stratégie ou d’initiative, et configure l’affectation de stratégie pour utiliser les paramètres de blueprint définis (à configurer durant l’affectation du blueprint).
+1. Ajoutez une affectation de stratégie au niveau de l’abonnement. Le **corps de la requête** définit le _genre_ d’artefact, définit les propriétés qui sont alignées sur une définition de stratégie ou d’initiative, et configure l’affectation de stratégie pour utiliser les paramètres de blueprint définis (à configurer durant l’affectation du blueprint).
 
    - URI de l’API REST
 
@@ -176,7 +178,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
      }
      ```
 
-1. Ajoutez une autre affectation de stratégie pour l’étiquette Storage (réutilisation du paramètre _storageAccountType_) au niveau de l’abonnement. Cet artefact d’affectation de stratégie supplémentaire montre qu’un paramètre défini sur le blueprint peut être utilisé par plusieurs artefacts. Dans l’exemple, **storageAccountType** sert à définir une étiquette sur le groupe de ressources pour fournir des informations sur le compte de stockage créé à l’étape suivante.
+1. Ajoutez une autre affectation de stratégie pour l’étiquette Storage (réutilisation du paramètre _storageAccountType_) au niveau de l’abonnement. Cet artefact d’affectation de stratégie supplémentaire montre qu’un paramètre défini sur le blueprint peut être utilisé par plusieurs artefacts. Dans l’exemple, l’élément **storageAccountType** sert à définir une étiquette sur le groupe de ressources. Cette valeur fournit des informations sur le compte de stockage créé à l’étape suivante.
 
    - URI de l’API REST
 
@@ -204,7 +206,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
      }
      ```
 
-1. Ajoutez le modèle sous le groupe de ressources. Le **corps de la demande** pour un modèle Resource Manager inclut le composant JSON normal du modèle, définit le groupe de ressources cible avec **properties.resourceGroup** et réutilise les paramètres de blueprint  **storageAccountType**, **tagName** et **tagValue** en fournissant chacun d’eux au modèle. Pour que les paramètres de blueprint soient accessibles au modèle, définissez **properties.parameters**. Dans le modèle JSON, cette clé/valeur est utilisée pour injecter la valeur. Vous pouvez avoir des noms de paramètres de blueprint et de modèle identiques, mais ils sont nommés différemment pour illustrer la manière dont chacun est passé du blueprint à l’artefact de modèle.
+1. Ajoutez le modèle sous le groupe de ressources. Le **corps de la requête** pour un modèle Resource Manager inclut le composant JSON normal du modèle et définit le groupe de ressources cible avec **properties.resourceGroup**. Le modèle réutilise également les paramètres de blueprint **storageAccountType**, **tagName** et **tagValue** en transmettant chacun au modèle. Pour que les paramètres de blueprint soient accessibles au modèle, définissez **properties.parameters**. Dans le modèle JSON, cette paire clé/valeur est utilisée pour injecter la valeur. Vous pouvez avoir des noms de paramètres de blueprint et de modèle identiques, mais ils sont nommés différemment pour illustrer la manière dont chacun est transmis du blueprint à l’artefact de modèle.
 
    - URI de l’API REST
 
@@ -321,11 +323,11 @@ Maintenant que les artefacts ont été ajoutés au blueprint, il est temps de le
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2017-11-11-preview
   ```
 
-La valeur de `{BlueprintVersion}` est une chaîne de lettres, de chiffres et de traits d’union qui ne doit pas dépasser 20 caractères et qui ne doit pas contenir d’espaces ou d’autres caractères spéciaux. Utilisez un nom unique et informatif tel que **v20180622-135541**.
+La valeur de `{BlueprintVersion}` est une chaîne de lettres, de chiffres et de traits d’union qui ne doit pas dépasser 20 caractères et qui ne doit pas contenir d’espaces ou d’autres caractères spéciaux. Utilisez un nom unique et informatif tel que **v20180622-135541**.
 
 ## <a name="assign-a-blueprint"></a>Affecter un blueprint
 
-Une fois qu’un blueprint a été publié à l’aide de l’API REST, il peut être affecté à un abonnement. Affectez le blueprint que vous avez créé à l’un des abonnements sous votre hiérarchie de groupes d’administration. Le **corps de la demande** spécifie le blueprint à affecter, fournit le nom et l’emplacement des groupes de ressources dans la définition de blueprint, et fournit tous les paramètres définis sur le blueprint et utilisés par un ou plusieurs artefacts attachés.
+Une fois qu’un blueprint a été publié à l’aide de l’API REST, il peut être affecté à un abonnement. Affectez le blueprint que vous avez créé à l’un des abonnements sous votre hiérarchie de groupes d’administration. Le **corps de la requête** spécifie le blueprint à affecter, fournit le nom et l’emplacement des groupes de ressources dans la définition de blueprint, et fournit tous les paramètres définis sur le blueprint et utilisés par un ou plusieurs artefacts attachés.
 
 1. Octroyez au principal de service Azure Blueprint le rôle **Propriétaire** sur l’abonnement cible. L’AppId est statique (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mais l’ID de principal de service varie en fonction du locataire. Vous pouvez demander les détails de votre locataire à l’aide de l’API REST suivante. Elle utilise [l’API Graph Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) qui a une autorisation différente.
 
@@ -388,7 +390,7 @@ Une fois qu’un blueprint a été publié à l’aide de l’API REST, il peut 
 
 ## <a name="unassign-a-blueprint"></a>Annuler l’affectation d’un blueprint
 
-Vous pouvez supprimer des blueprints d’un abonnement s’ils ne sont plus nécessaires ou s’ils ont été remplacés par d’autres plus récents avec des modèles, des stratégies et des conceptions mis à jour. Quand un blueprint est supprimé, les artefacts affectés dans le cadre de ce blueprint sont abandonnés. Pour supprimer une affectation de blueprint, utilisez l’opération d’API REST suivante :
+Vous pouvez supprimer un blueprint d’un abonnement. La suppression est souvent effectuée lorsque les ressources d’artefact ne sont plus nécessaires. Quand un blueprint est supprimé, les artefacts affectés dans le cadre de ce blueprint sont abandonnés. Pour supprimer une affectation de blueprint, utilisez l’opération d’API REST suivante :
 
 - URI de l’API REST
 

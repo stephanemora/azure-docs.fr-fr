@@ -1,21 +1,22 @@
 ---
-title: Événements personnalisés pour Azure Event Grid avec le portail Azure| Microsoft Docs
-description: Utilisez Azure Event Grid et PowerShell pour publier une rubrique et pour vous abonner à cet événement.
+title: Envoyer des événements personnalisés à un point de terminaison web - Event Grid, Portail Azure
+description: Utilisez Azure Event Grid et le portail Azure pour publier une rubrique personnalisée et pour vous abonner aux événements de cette rubrique. Les événements sont gérés par une application web.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: seodec18
+ms.openlocfilehash: e93ee410d1d6ac0de0646194c716d64ffb8e4316
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040624"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093443"
 ---
-# <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Créer et acheminer des événements personnalisés avec le portail Azure et Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers un point de terminaison web avec le portail Azure et Event Grid
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez le Portail Azure pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
 
@@ -45,7 +46,7 @@ Une rubrique de grille d’événement fournit un point de terminaison défini p
 
    ![Étapes de démarrage](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Donnez un nom unique à la rubrique personnalisée. Le nom de la rubrique doit être unique, car elle est représentée par une entrée DNS. N’utilisez pas le nom indiqué dans l’image. Au lieu de cela, créez votre propre nom. Fournissez un nom pour le groupe de ressources. Sélectionnez **Créer**.
+1. Donnez un nom unique à la rubrique personnalisée. Le nom de la rubrique doit être unique, car elle est représentée par une entrée DNS. N’utilisez pas le nom indiqué dans l’image. Au lieu de cela, créez votre propre nom : il doit comprendre entre 3 et 50 caractères, et contenir uniquement des valeurs a-z, A-Z, 0-9 et « - ». Fournissez un nom pour le groupe de ressources. Sélectionnez **Créer**.
 
    ![Donner des valeurs à la rubrique Event Grid](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

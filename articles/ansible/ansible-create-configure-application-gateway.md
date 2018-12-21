@@ -1,41 +1,43 @@
 ---
-title: Gérer le trafic web avec Azure Application Gateway à l’aide d’Ansible (préversion)
-description: Découvrez comment utiliser Ansible pour créer et configurer une passerelle Azure Application Gateway pour gérer le trafic web
+title: Gérer le trafic web avec Azure Application Gateway à l’aide d’Ansible
+description: Découvrez comment utiliser Ansible pour créer et configurer une passerelle Azure Application Gateway pour gérer le trafic Web
 ms.service: ansible
-keywords: ansible, azure, devops, bash, playbook, azure application gateway, équilibreur de charge, trafic web
+keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, trafic web
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 02b98cb22d897fc9599f6e44ddc57ef4211b0893
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: af7f22ae5c289a01e6876d8ce586cb32383c8d3b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410813"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253352"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-using-ansible-preview"></a>Gérer le trafic web avec Azure Application Gateway à l’aide d’Ansible (préversion)
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) est un équilibreur de charge du trafic web qui vous permet de gérer le trafic vers vos applications web. 
+# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Gérer le trafic web avec Azure Application Gateway à l’aide d’Ansible
 
-Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Cet article vous montre comment utiliser Ansible pour créer une passerelle Azure Application Gateway et l’utiliser pour gérer le trafic de deux serveurs web exécutés dans des instances de conteneurs Azure. 
+[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) est un équilibreur de charge du trafic web qui vous permet de gérer le trafic vers vos applications web.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ansible vous aide à automatiser le déploiement et la configuration de ressources dans votre environnement. Cet article explique comment utiliser Ansible pour créer une passerelle d’application. Il explique également comment utiliser la passerelle pour gérer le trafic vers les deux serveurs Web exécutés dans Azure Container Instances.
+
+Ce didacticiel vous explique les procédures suivantes :
 
 > [!div class="checklist"]
 > * Configurer le réseau
-> * Créer deux instances de conteneurs Azure avec une image httpd
-> * Créer une passerelle d’application avec les instances de conteneurs Azure précédentes dans le pool principal
-
+> * Créer deux instances de conteneurs Azure avec des images HTTPD
+> * Créer une passerelle d’application qui fonctionne avec les instances de conteneurs Azure dans le pool de serveurs
 
 ## <a name="prerequisites"></a>Prérequis
+
 - **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 est nécessaire pour exécuter les exemples de playbooks suivants dans ce tutoriel. Vous pouvez installer Ansible 2.7 RC en exécutant `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 sera disponible en octobre 2018. Ensuite, vous n’aurez plus besoin de préciser la version ici, car la version 2.7 sera celle par défaut. 
+> Ansible 2.7 est nécessaire pour exécuter les exemples de playbooks suivants dans ce didacticiel. 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+
 Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.  
 
 L’exemple suivant crée un groupe de ressources nommé **myResourceGroup** à l’emplacement **eastus**.
@@ -52,15 +54,17 @@ L’exemple suivant crée un groupe de ressources nommé **myResourceGroup** à 
         location: "{{ location }}"
 ```
 
-Enregistrez le playbook précédent sous *rg.yml*. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+Enregistrez ce playbook sous *rg.yml*. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+
 ```bash
 ansible-playbook rg.yml
 ```
 
-## <a name="create-network-resources"></a>Créer des ressources réseau 
-Vous devez créer un réseau virtuel pour que la passerelle d’application puisse communiquer avec d’autres ressources. 
+## <a name="create-network-resources"></a>Créer des ressources réseau
 
-L’exemple suivant crée un réseau virtuel nommé **myVNet**, un sous-réseau nommé **myAGSubnet** et une adresse IP publique nommée **myAGPublicIPAddress** avec le domaine nommé **mydomain**. 
+Tout d’abord, créez un réseau virtuel pour que la passerelle d’application puisse communiquer avec d’autres ressources.
+
+L’exemple suivant crée un réseau virtuel nommé **myVNet**, un sous-réseau nommé **myAGSubnet** et une adresse IP publique nommée **myAGPublicIPAddress** avec un domaine nommé **mydomain**.
 
 ```yml
 - hosts: localhost
@@ -98,13 +102,15 @@ L’exemple suivant crée un réseau virtuel nommé **myVNet**, un sous-réseau 
         domain_name_label: "{{ publicip_domain }}"
 ```
 
-Enregistrez le playbook précédent sous *vnet_create.yml*. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+Enregistrez ce playbook sous *vnet_create.yml*. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+
 ```bash
 ansible-playbook vnet_create.yml
 ```
 
-## <a name="create-backend-servers"></a>Créer des serveurs principaux
-Dans cet exemple, vous créez deux instances de conteneurs Azure avec des images httpd à utiliser en tant que serveurs de backend pour la passerelle d’application.  
+## <a name="create-servers"></a>Créer des serveurs
+
+L’exemple suivant vous explique comment créer deux instances de conteneurs Azure avec des images HTTPD, à utiliser en tant que serveurs Web pour la passerelle d’application.  
 
 ```yml
 - hosts: localhost
@@ -147,22 +153,22 @@ Dans cet exemple, vous créez deux instances de conteneurs Azure avec des images
               - 80
 ```
 
-Enregistrez le playbook précédent sous *aci_create.yml*. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+Enregistrez ce playbook sous *aci_create.yml*. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+
 ```bash
 ansible-playbook aci_create.yml
 ```
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
-Maintenant, créons une passerelle d’application. L’exemple suivant crée une passerelle d’application nommée **myAppGateway** avec la configuration backend, frontend et http.  
+L’exemple suivant crée une passerelle d’application nommée **myAppGateway** avec les configurations back end, front end et HTTP.  
 
-> [!div class="checklist"]
-> * **appGatewayIP** défini dans le bloc **gateway_ip_configurations** : la référence du sous-réseau est requise pour la configuration IP de la passerelle. 
-> * **appGatewayBackendPool** défini dans le bloc **backend_address_pools** : une passerelle d’application doit avoir au moins un pool d’adresses backend. 
-> * **appGatewayBackendHttpSettings** défini dans le bloc **backend_http_settings_collection** : spécifie que le port 80 et le protocole HTTP sont utilisés pour la communication. 
-> * **appGatewayHttpListener** défini dans le bloc **backend_http_settings_collection** : l’écouteur par défaut associé à appGatewayBackendPool. 
-> * **appGatewayFrontendIP** défini dans le bloc **frontend_ip_configurations** : attribue myAGPublicIPAddress à appGatewayHttpListener. 
-> * **rule1** défini dans **request_routing_rules** : règle de routage par défaut associée à appGatewayHttpListener. 
+* **appGatewayIP** est défini dans le bloc **gateway_ip_configurations**. Une référence de sous-réseau est requise pour la configuration IP de la passerelle.
+* **appGatewayBackendPool** est défini dans le bloc **backend_address_pools**. Une passerelle d’application doit avoir au moins un pool d’adresses principal.
+* **appGatewayBackendHttpSettings** est défini dans le bloc **backend_http_settings_collection**. Il spécifie que le port 80 et un protocole HTTP sont utilisés pour la communication.
+* **appGatewayHttpListener** est défini dans le bloc **backend_http_settings_collection**. Il s’agit de l’écouteur par défaut associé à appGatewayBackendPool.
+* **appGatewayFrontendIP** est défini dans le bloc **frontend_ip_configurations**. Il assigne myAGPublicIPAddress à appGatewayHttpListener.
+* **rule1** est défini dans le bloc **request_routing_rules**. Il s’agit de la règle de routage par défaut associée à appGatewayHttpListener.
 
 ```yml
 - hosts: localhost
@@ -246,22 +252,23 @@ Maintenant, créons une passerelle d’application. L’exemple suivant crée un
             name: rule1
 ```
 
-Enregistrez le playbook précédent sous *appgw_create.yml*. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+Enregistrez ce playbook sous *appgw_create.yml*. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+
 ```bash
 ansible-playbook appgw_create.yml
 ```
 
-La création de la passerelle d’application peut prendre plusieurs minutes. 
+La création de la passerelle d’application peut prendre plusieurs minutes.
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Dans l’exemple de playbook ci-dessus pour les ressources réseau, le domaine nommé **mydomain** a été créé dans **eastus**. Maintenant vous pouvez accéder au navigateur, tapez `http://mydomain.eastus.cloudapp.azure.com`, la page suivante confirmant que la passerelle d’application fonctionne comme prévu doit s’afficher.
+Dans l’exemple de playbook pour les ressources réseau, vous créez le domaine **mydomain** dans **eastus**. Accédez à `http://mydomain.eastus.cloudapp.azure.com` dans votre navigateur. Si vous voyez la page suivante, la passerelle d’application fonctionne comme prévu.
 
-![Accéder à Application Gateway](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
+![Test réussi d’une passerelle d’application opérationnelle](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez pas besoin de ces ressources, vous pouvez les supprimer en exécutant l’exemple ci-dessous. Il supprime un groupe de ressources appelé **myResourceGroup**. 
+Si vous n’avez pas besoin de ces ressources, vous pouvez les supprimer en exécutant le code ci-dessous. Il supprime un groupe de ressources appelé **myResourceGroup**.
 
 ```yml
 - hosts: localhost
@@ -274,11 +281,13 @@ Si vous n’avez pas besoin de ces ressources, vous pouvez les supprimer en exé
         state: absent
 ```
 
-Enregistrez le playbook précédent sous *rg_delete*.yml. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+Enregistrez ce playbook sous *rg_delete*.yml. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+
 ```bash
 ansible-playbook rg_delete.yml
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-> [!div class="nextstepaction"] 
+
+> [!div class="nextstepaction"]
 > [Ansible sur Azure](https://docs.microsoft.com/azure/ansible/)

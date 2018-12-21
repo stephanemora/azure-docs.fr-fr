@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: f2cb5d33b8d7a7442da16a38e268c56de363a9c6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: secdec18
+ms.openlocfilehash: 9a27efe7908b2a15ceb823d7a85c4a12603731ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274078"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075979"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Activer des abonnements et des comptes Azure avec Cloudyn
 
@@ -41,7 +41,7 @@ Si le rôle **Collaborateur** est affecté à votre compte, vous ne disposez pas
 3. Dans Azure Active Directory, sélectionnez **Paramètres utilisateur**.
 4. Vérifiez l’option **Inscriptions d’applications**.
     - Si elle est définie sur **Oui**, les utilisateurs non-administrateurs peuvent inscrire des applications AD. Ce paramètre signifie que n’importe quel utilisateur dans Azure AD peut inscrire une application.  
-    ![Inscriptions des applications](./media/activate-subs-accounts/app-register.png)
+    ![Sélectionner des inscriptions d’applications dans les paramètres utilisateur](./media/activate-subs-accounts/app-register.png)
     - Si l’option **Inscriptions des applications** est définie sur **Non**, seuls les utilisateurs administratifs de locataire peuvent inscrire des applications Azure Active Directory. Votre administrateur de locataire doit inscrire l’application CloudynCollector.
 
 
@@ -53,12 +53,12 @@ Quand vous ajoutez un compte ou mettez à jour un abonnement, vous accordez à C
 
 1. Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Cloud Accounts** (Comptes cloud).
 2. Cliquez sur **Ajouter un compte** ; la boîte de dialogue **Ajouter un compte** s’affiche. Entrez les informations requises.  
-    ![Boîte de dialogue Ajouter un nouveau compte](./media/activate-subs-accounts//add-new-account.png)
+    ![Entrer les informations nécessaires dans la zone Ajouter un nouveau compte](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Mettre à jour un abonnement
 
 1. Si vous souhaitez mettre à jour un abonnement _non activé_ qui existe déjà dans la section de gestion des comptes de Cloudyn, cliquez sur le symbole crayon (modification) à droite du _GUID de locataire_ parent. Les abonnements sont regroupés sous un locataire parent, évitez donc d’activer les abonnements individuellement.
-    ![Redécouvrir les abonnements](./media/activate-subs-accounts/existing-sub.png)
+    ![Sélectionner votre ID de locataire dans la zone Redécouvrir les abonnements](./media/activate-subs-accounts/existing-sub.png)
 2. Si nécessaire, entrez l’ID de locataire. Si vous ne le connaissez pas, effectuez les étapes suivantes pour le rechercher :
     1. Connectez-vous au [Portail Azure](https://portal.azure.com).
     2. Dans le portail Azure, sélectionnez **Azure Active Directory**.
@@ -106,7 +106,7 @@ Vous devrez peut-être également accorder aux administrateurs de service, propr
 Seul un administrateur de service Azure peut activer Cloudyn. Les autorisations de coadministrateur sont insuffisantes. Vous pouvez toutefois contourner l’exigence de l’administrateur. Vous pouvez demander à votre administrateur Azure Active Directory qu’il vous accorde une autorisation afin d’autoriser le **CloudynAzureCollector** avec un script PowerShell. Le script suivant accorde l’autorisation d’inscrire le principal du service Azure Active Directory **CloudynAzureCollector**.
 
 
-```
+```powershell
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #Tenant - enter your tenant ID or Name

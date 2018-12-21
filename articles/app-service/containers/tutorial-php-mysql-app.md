@@ -1,6 +1,6 @@
 ---
-title: Créer une application web PHP et MySQL dans Azure App Service sur Linux | Microsoft Docs
-description: Découvrez comment faire fonctionner une application PHP dans Azure en établissant une connexion à une base de données MySQL dans Azure.
+title: Créer une application web PHP avec MySQL sur Linux - Azure App Service | Microsoft Docs
+description: Découvrez comment faire fonctionner une application PHP dans Azure App Service sur Linux en établissant une connexion à une base de données MySQL dans Azure.
 services: app-service\web
 author: cephalin
 manager: erikre
@@ -10,13 +10,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 91beef3076005fc7b95b1ffd208be238e23a7b8b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: 5d9843eecfed56f09c3a6d659976ca1ce5f42d80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291485"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342356"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Créer une application web PHP et MySQL dans Azure App Service sur Linux
 
@@ -45,9 +45,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Pour suivre ce tutoriel :
 
 * [Installez Git](https://git-scm.com/)
-* [Installez PHP 5.6.4 ou version ultérieure](http://php.net/downloads.php)
+* [Installez PHP 5.6.4 ou version ultérieure](https://php.net/downloads.php)
 * [Installez Composer](https://getcomposer.org/doc/00-intro.md)
-* Activation des extensions PHP suivantes requises par Laravel : OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* Activez les extensions PHP suivantes dont Laravel a besoin : OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Installez et démarrez MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Préparation du MySQL local
@@ -62,7 +62,7 @@ Dans une fenêtre de terminal, connectez-vous à votre serveur MySQL local. Vous
 mysql -u root -p
 ```
 
-Si vous êtes invité à entrer un mot de passe, tapez le mot de passe du compte `root`. Si vous avez oublié votre mot de passe de compte racine, consultez [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html) (MySQL : réinitialisation du mot de passe racine).
+Si vous êtes invité à entrer un mot de passe, tapez le mot de passe du compte `root`. Si vous avez oublié votre mot de passe de compte racine, consultez [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html) (MySQL : Réinitialisation du mot de passe racine).
 
 Si la commande est exécutée correctement, votre serveur MySQL est en cours d’exécution. Dans le cas contraire, assurez-vous que votre serveur MySQL local est démarré en suivant ces [étapes consécutives à l’installation de MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-Dans Cloud Shell, exécutez à nouveau la commande pour autoriser l’accès à partir de votre ordinateur local en remplaçant *\<your_ip_address>* par [votre adresse IP IPv4 locale](http://www.whatsmyip.org/).
+Dans Cloud Shell, exécutez à nouveau la commande pour autoriser l’accès à partir de votre ordinateur local en remplaçant *\<your_ip_address>* par [votre adresse IP IPv4 locale](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
@@ -350,7 +350,7 @@ La commande suivante configure les paramètres d’application `DB_HOST`, `DB_DA
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-Vous pouvez utiliser la méthode PHP [getenv](http://php.net/manual/en/function.getenv.php) pour accéder aux paramètres. Votre code Laravel utilise un wrapper [env](https://laravel.com/docs/5.4/helpers#method-env) sur le PHP `getenv`. Par exemple, la configuration MySQL dans _config/database.php_ ressemble au code suivant :
+Vous pouvez utiliser la méthode PHP [getenv](https://php.net/manual/en/function.getenv.php) pour accéder aux paramètres. Votre code Laravel utilise un wrapper [env](https://laravel.com/docs/5.4/helpers#method-env) sur le PHP `getenv`. Par exemple, la configuration MySQL dans _config/database.php_ ressemble au code suivant :
 
 ```php
 'mysql' => [

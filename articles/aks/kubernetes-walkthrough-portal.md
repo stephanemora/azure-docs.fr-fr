@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 0b4e334ea9a423ed4eb9a0830d68ad7f4b843a88
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6075086b390a14e807e493bd574ac889b81272bf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833640"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437348"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Démarrage rapide : Déployer un cluster Azure Kubernetes Service (AKS)
 
 Dans ce guide de démarrage rapide, vous allez déployer un cluster AKS à l’aide du portail Azure. Une application de plusieurs conteneurs composée d’un serveur web frontal et d’une instance Redis est alors exécutée sur le cluster. Ceci fait, l’application est accessible via internet.
 
@@ -36,22 +36,22 @@ Sélectionnez **Créer une ressource** > **Kubernetes Service** dans le coin sup
 Pour créer un cluster AKS, exécutez les étapes suivantes :
 
 1. **Bases** - Configurez les options suivantes :
-    - *DÉTAILS DE PROJET* : choisissez un abonnement Azure, puis sélectionnez ou créez un groupe de ressources Azure, tel que *myResourceGroup*. Entrez un **nom du cluster Kubernetes**, tel que *myAKSCluster*.
-    - *DÉTAILS DU CLUSTER* : sélectionnez une région, une version de Kubernetes, et le préfixe de nom DNS pour le cluster AKS.
-    - *MISE À L’ÉCHELLE* : sélectionnez une taille de machine virtuelle pour les nœuds AKS. Elle ne sera **pas modifiable** une fois le cluster AKS déployé.
+    - *DÉTAILS DU PROJET* : Choisissez un abonnement Azure, puis sélectionnez ou créez un groupe de ressources Azure, comme *myResourceGroup*. Entrez un **nom du cluster Kubernetes**, tel que *myAKSCluster*.
+    - *DÉTAILS DU CLUSTER* : Sélectionnez une région, une version de Kubernetes et le préfixe du nom DNS du cluster AKS.
+    - *MISE À L’ÉCHELLE* : Sélectionnez une taille de machine virtuelle pour les nœuds AKS. Elle ne sera **pas modifiable** une fois le cluster AKS déployé.
         - Sélectionnez également le nombre de nœuds à déployer dans le cluster. Pour effectuer ce démarrage rapide, définissez le **Nombre de nœuds** à *1*. Le nombre de nœuds est **modifiable** après le déploiement du cluster.
     
     ![Créer un cluster AKS - fournir des informations de base](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Sélectionnez **Suivant : authentification** lorsque vous avez terminé.
+    Sélectionnez **Suivant : Authentification** lorsque vous avez terminé.
 
-1. **Authentification** : configurez les options suivantes :
+1. **Authentification** : Configurez les options suivantes :
     - Créez un principal de service ou *Configurez*-en un pour utiliser un principal existant. Si vous utilisez un nom de principal du service existant, indiquez l’ID client et la clé secrète associés.
     - Activez l’option pour les contrôles d’accès en fonction des rôles Kubernetes (RBAC). Ces options fournissent un contrôle plus précis sur l’accès aux ressources Kubernetes déployées dans votre cluster AKS.
 
     Sélectionnez **Suivant : Mise en réseau** lorsque vous avez terminé.
 
-1. **Mise en réseau** : configurez les options de mise en réseau suivantes, qui doivent être réglées par défaut :
+1. **Mise en réseau** : Configurez les options de mise en réseau suivantes :
     
     - **Routage des applications HTTP** - Sélectionnez **Oui** pour configurer un contrôleur d’entrée intégré en activant la création automatique de noms DNS publics. Pour plus d’informations sur le routage HTTP, voir [DNS et routage HTTP AKS][http-routing].
     - **Configuration réseau** - Sélectionnez la configuration réseau **De base**, à l’aide du plug-in [kubenet][kubenet] de Kubernetes, plutôt que de choisir une configuration réseau avancée, avec [Azure CNI][azure-cni]. Pour plus d’informations sur les options de mise en réseau, voir [Vue d’ensemble de la mise en réseau AKS][aks-network].
@@ -88,7 +88,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-L’exemple de sortie suivant montre le nœud unique créé au cours des étapes précédentes.
+L’exemple de sortie suivant montre le nœud unique créé au cours des étapes précédentes. Assurez-vous que l’état du nœud est « Prêt ».
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION

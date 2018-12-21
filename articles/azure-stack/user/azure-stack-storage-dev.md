@@ -2,30 +2,30 @@
 title: Bien démarrer avec les outils de développement du stockage Azure Stack | Microsoft Docs
 description: Guide de démarrage pour l’utilisation des outils de développement du stockage Azure Stack
 services: azure-stack
-author: mabriggs
+author: mattbriggs
 ms.author: mabrigg
-ms.date: 10/10/2018
+ms.date: 11/05/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3eefa13a7283febbebd2adc16047b28ffcae55fe
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078373"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341556"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Bien démarrer avec les outils de développement du stockage Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et au Kit de développement Azure Stack*
 
 L’infrastructure Microsoft Azure Stack fournit un ensemble de services de stockage incluant le stockage d’objets blob, de tables et de files d’attente.
 
 Utilisez cet article comme un guide de démarrage concernant l’utilisation des outils de développement du stockage Azure Stack. Des informations plus détaillées et des exemples de code sont disponibles dans les didacticiels correspondants du Stockage Azure.
 
-> [!NOTE]  
-> Le stockage Azure Stack et le stockage Azure présentent quelques différences connues, notamment certaines exigences propres à chaque plateforme. Par exemple, Azure Stack a des bibliothèques clientes spécifiques, de même que des exigences spécifiques en matière de suffixe de point de terminaison. Pour plus d’informations, consultez [stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
+> [!NOTE]
+> Le stockage Azure Stack et le stockage Azure présentent quelques différences connues, notamment certaines exigences propres à chaque plateforme. Par exemple, Azure Stack a des bibliothèques clientes spécifiques, de même que des exigences spécifiques en matière de suffixe de point de terminaison. Pour plus d’informations, consultez [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Bibliothèques clientes Azure
 

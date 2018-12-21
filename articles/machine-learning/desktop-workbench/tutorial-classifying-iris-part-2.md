@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/15/2018
+ms.date: 03/15/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2e4ede4a699eaac1e5f8c632901239fb04ebcd30
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997310"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276755"
 ---
-# <a name="tutorial-2-classify-iris---build-a-model"></a>Didacticiel 2 : Classifier Iris - Générer un modèle
+# <a name="tutorial-2-classify-iris---build-a-model"></a>Tutoriel 2 : Classifier Iris - Générer un modèle
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -518,7 +518,7 @@ Vous pouvez également exécuter ce script dans un cluster HDInsight Spark. Déc
    >[!NOTE]
    >Lorsque vous effectuez une exécution sur un cluster HDInsight distant, vous pouvez également afficher les détails de l’exécution du travail YARN (Yet Another Resource Negotiator) à l’adresse `https://<your_cluster_name>.azurehdinsight.net/yarnui` à l’aide du compte d’utilisateur `admin`.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

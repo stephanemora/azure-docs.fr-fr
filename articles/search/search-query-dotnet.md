@@ -1,6 +1,6 @@
 ---
-title: Interroger un index (API .NET - Recherche Azure) | Microsoft Docs
-description: Créez une requête de recherche dans Azure Search et utilisez des paramètres de recherche pour filtrer et trier les résultats de recherche.
+title: Interroger un index dans le code à l’aide du Kit de développement logiciel (SDK) .NET - Azure Search
+description: Exemple de code C# pour la création d’une requête de recherche dans Recherche Azure. Ajouter des paramètres de recherche pour filtrer et trier les résultats de la recherche.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/19/2017
-ms.openlocfilehash: 83f7f29471d49c4dbbf1630b4e8e9006144638cc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 5c89902da5e773c60c8e2694159ddeed874ecab2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797784"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316996"
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Interroger un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET
 > [!div class="op_single_selector"]
@@ -30,7 +31,7 @@ Cet article explique comment interroger un index à l’aide du [Kit de dévelop
 Avant de commencer cette procédure, vous devez déjà avoir [créé un index Azure Search](search-what-is-an-index.md) et y avoir [ajouté des données](search-what-is-data-import.md).
 
 > [!NOTE]
-> Tous les exemples de code figurant dans cet article sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto). Vous pouvez également consulter le [kit de développement logiciel (SDK) .NET Azure Search](search-howto-dotnet-sdk.md) pour une description plus détaillée de l’exemple de code.
+> Tous les exemples de code figurant dans cet article sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](https://aka.ms/search-dotnet-howto). Vous pouvez également consulter le [kit de développement logiciel (SDK) .NET Azure Search](search-howto-dotnet-sdk.md) pour une description plus détaillée de l’exemple de code.
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Identifier la clé API de requête de votre service Azure Search
 Maintenant que vous avez créé un index Azure Search, vous êtes presque prêt à générer des requêtes à l’aide du Kit de développement logiciel (SDK) .NET. Tout d’abord, vous devez obtenir l’une des clés API de requête qui a été générée pour le service de recherche que vous avez configuré. À chaque demande, le Kit de développement logiciel (SDK) .NET envoie la clé API à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
@@ -49,7 +50,7 @@ Dans le cadre de l’interrogation d’un index, vous pouvez utiliser l’une de
 ## <a name="create-an-instance-of-the-searchindexclient-class"></a>Créer une instance de la classe SearchIndexClient
 Pour générer des requêtes avec le Kit de développement logiciel (SDK) .NET Azure Search, vous devez créer une instance de la classe `SearchIndexClient` . Cette classe dispose de plusieurs constructeurs. Celui qui vous intéresse prend le nom du service de recherche, le nom de l’index et un objet `SearchCredentials` en tant que paramètres. `SearchCredentials` encapsule votre clé API.
 
-Le code ci-dessous génère un nouveau `SearchIndexClient` pour les index « hotels » (créés dans [Création d’un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-create-index-dotnet.md)) en utilisant les valeurs du nom du service de recherche et de la clé API, stockées dans le fichier de configuration de l’application (`appsettings.json` dans le cas de [l’exemple d’application](http://aka.ms/search-dotnet-howto)) :
+Le code ci-dessous génère un nouveau `SearchIndexClient` pour les index « hotels » (créés dans [Création d’un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-create-index-dotnet.md)) en utilisant les valeurs du nom du service de recherche et de la clé API, stockées dans le fichier de configuration de l’application (`appsettings.json` dans le cas de [l’exemple d’application](https://aka.ms/search-dotnet-howto)) :
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)

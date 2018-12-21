@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: a36c1e68ddd68e497966d50122e9f27c72609948
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 22b2f247de97a0bf0b4a145062c7b92fec61ee9a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834449"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074976"
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec .NET et Azure Cosmos DB 
+# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec .NET et Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -87,7 +87,7 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application. Cette opération permet à votre application de communiquer avec votre base de données hébergée. 
 
-1. Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Chaîne de connexion**. 
+1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Chaîne de connexion**. 
 
     Utilisez les boutons de copie sur le côté droit de la fenêtre pour copier la **CHAÎNE DE CONNEXION PRINCIPALE**.
 

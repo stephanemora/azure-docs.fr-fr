@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide avec Azure Container Service - Déployer un cluster DC/OS
+title: (DÉCONSEILLÉ) Démarrage rapide avec Azure Container Service - Déployer un cluster DC/OS
 description: Démarrage rapide avec Azure Container Service - Déployer un cluster DC/OS
 services: container-service
 author: iainfoulds
@@ -9,20 +9,22 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cd7f2284f3449fe8abdf1a6f8e85b9b0b712d7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efaf82c3f378f572c289b587dbe5df1923a58c62
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998557"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000515"
 ---
-# <a name="deploy-a-dcos-cluster"></a>Déployer un cluster DC/OS
+# <a name="deprecated-deploy-a-dcos-cluster"></a>(DÉCONSEILLÉ) Déployer un cluster DC/OS
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS propose une plateforme distribuée destinée à exécuter des applications en conteneur modernes. Avec Azure Container Service, l’approvisionnement d’un cluster DC/OS prêt pour la production est une opération simple et rapide. Ce démarrage rapide décrit en détail les étapes de base à suivre pour déployer un cluster DC/OS et exécuter une charge de travail de base.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Ce tutoriel nécessite Azure CLI 2.0.4 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli). 
+Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure 
 
@@ -165,7 +167,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez déployé un cluster DC/OS et exécuté un conteneur Docker simple sur le cluster. Pour en savoir plus sur Azure Container Service, passez aux tutoriels ACS.
+Dans ce démarrage rapide, vous avez déployé un cluster DC/OS et exécuté un conteneur Docker simple sur le cluster. Pour en savoir plus sur Azure Container Service, passez aux didacticiels ACS.
 
 > [!div class="nextstepaction"]
 > [Gérer un cluster ACS DC/OS](container-service-dcos-manage-tutorial.md)

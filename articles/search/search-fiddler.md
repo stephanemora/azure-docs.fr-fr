@@ -1,5 +1,5 @@
 ---
-title: Explorer les API REST de Fiddler ou Postman (REST de la Recherche Azure) | Microsoft Docs
+title: Explorer les API REST dans Fiddler ou les outils de test HTTP web Postman - Recherche Azure
 description: Découvrez comment émettre des demandes HTTP et des appels d’API REST vers la Recherche Azure, via Fiddler ou Postman.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: f73ec81686575efde70b7f90239299ec4deca00c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190183"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312974"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Explorer les API REST de la Recherche Azure à l’aide de Fiddler ou Postman
 
@@ -65,7 +66,7 @@ La composition d’en-tête de la demande inclut deux éléments, à savoir le t
 
 ### <a name="fiddler"></a>Fiddler
 
-Formulez une demande comparable à la capture d’écran suivante. Choisissez le verbe **PUT**. Fiddler ajoute la chaîne `User-Agent=Fiddler`. Vous pouvez coller les deux en-têtes de demande supplémentaires sur les nouvelles lignes en dessous. Incluez le type de contenu et la clé d’API de votre service, en utilisant la clé d’accès d’administrateur pour votre service.
+Formulez une requête comparable à la capture d’écran suivante. Choisissez le verbe **PUT**. Fiddler ajoute la chaîne `User-Agent=Fiddler`. Vous pouvez coller les deux en-têtes de demande supplémentaires sur les nouvelles lignes en dessous. Incluez le type de contenu et la clé d’API de votre service, en utilisant la clé d’accès d’administrateur pour votre service.
 
 ![En-tête de demande Fiddler][1]
 
@@ -74,7 +75,7 @@ Formulez une demande comparable à la capture d’écran suivante. Choisissez le
 
 ### <a name="postman"></a>postman
 
-Formulez une demande comparable à la capture d’écran suivante. Choisissez le verbe **PUT**. 
+Formulez une requête comparable à la capture d’écran suivante. Choisissez le verbe **PUT**. 
 
 ![En-tête de demande Postman][6]
 
@@ -110,13 +111,13 @@ Si vous obtenez HTTP 504, vérifiez que l'URL spécifie HTTPS. Si vous voyez HT
 
 ### <a name="fiddler"></a>Fiddler
 
-Copiez la définition de l’index dans le corps de la demande, comme dans la capture d’écran suivante, puis cliquez sur l’option **Exécuter** affichée sur l’angle supérieur droit de la page pour envoyer la demande terminée.
+Copiez la définition de l’index dans le corps de la demande, comme dans la capture d’écran suivante, puis cliquez sur l’option **Exécuter** affichée en haut à droite de la page pour envoyer la demande terminée.
 
 ![Corps de la demande Fiddler][7]
 
 ### <a name="postman"></a>postman
 
-Copiez la définition de l’index dans le corps de la demande, comme dans la capture d’écran suivante, puis cliquez sur l’option **Envoyer** affichée sur l’angle supérieur droit de la page pour envoyer la demande terminée.
+Copiez la définition de l’index dans le corps de la demande, comme dans la capture d’écran suivante, puis cliquez sur l’option **Envoyer** affichée en haut à droite de la page pour envoyer la demande terminée.
 
 ![Corps de la demande Postman][8]
 
@@ -217,7 +218,7 @@ Maintenant qu'un index et des documents sont chargés, vous pouvez émettre des 
 + Modifiez le point de terminaison de manière inclure les paramètres de requête, y compris les chaînes de recherche. Voici un exemple d’URL de requête : `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + Maintenez les en-têtes de demande en l’état
 
-Cette requête effectue des recherches sur la base du mot « motel » et renvoie un certain nombre de documents dans les résultats de recherche. La demande et la réponse doivent ressembler à l’écran suivant Postman suivant, une fois que vous avez cliqué sur **Envoyer**. Le code d’état doit être 200.
+Cette requête effectue des recherches sur la base du mot « motel » et renvoie un certain nombre de documents dans les résultats de recherche. La requête et la réponse doivent ressembler à la capture d’écran suivante pour Postman, une fois que vous avez cliqué sur **Envoyer**. Le code d’état doit être 200.
 
  ![Réponse à la requête Postman][11]
 

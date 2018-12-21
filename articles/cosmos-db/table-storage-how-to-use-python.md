@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: b24116e72091fc3814df9936c311ee3f96a6b6cc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1010ff2222599a4a0a63e49fefd89f93f4784c02
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872745"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316668"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec Python
 
@@ -31,7 +31,7 @@ Cet exemple montre comment utiliser le [Kit de développement logiciel (SDK) de 
 * Insérer et interroger des entités
 * Modifier des entités
 
-Pendant que vous étudiez les scénarios de cet exemple, vous pouvez vous référer à la [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python).
+Pendant que vous étudiez les scénarios de cet exemple, vous pouvez vous référer à la [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -221,9 +221,9 @@ table_service.delete_table('tasktable')
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [FAQ - Développer avec l’API Table](https://docs.microsoft.com/azure/cosmos-db/faq#develop-with-the-table-api)
-* [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python)
+* [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)
 * [Centre de développement Python](https://azure.microsoft.com/develop/python/)
-* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) : une application gratuite et multiplateforme de Microsoft qui vous permet d’exploiter visuellement les données de stockage Azure sur Windows, macOS et Linux.
+* [Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) : une application gratuite et multiplateforme qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 * [Utilisation de Python dans Visual Studio (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 

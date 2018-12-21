@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : API Cassandra avec Java - Azure Cosmos DB'
+title: 'Démarrage rapide : API Cassandra avec Java - Azure Cosmos DB'
 description: Ce guide de démarrage rapide montre comment utiliser l’API Cassandra Azure Cosmos DB pour créer une application de profil avec le portail Azure et Java
 services: cosmos-db
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 1683bdcdac5f34b4dd0795befe0b87d6ba1278b0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0ba2143847d51bda7bc15c0c93835c758505cd0b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421371"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089171"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Guide de démarrage rapide : Créer une application Cassandra avec Java et Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application Cassandra avec Java et Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -39,7 +39,7 @@ Par ailleurs, vous devez avoir :
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * Sur Ubuntu, exécutez `apt-get install default-jdk` pour installer le JDK.
     * Veillez à définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
-* [Téléchargement](http://maven.apache.org/download.cgi) et [installation](http://maven.apache.org/install.html) d’une archive binaire [Maven](http://maven.apache.org/)
+* [Téléchargement](https://maven.apache.org/download.cgi) et [installation](https://maven.apache.org/install.html) d’une archive binaire [Maven](https://maven.apache.org/)
     * Sur Ubuntu, vous pouvez exécuter `apt-get install maven` pour installer Maven.
 * [Git](https://www.git-scm.com/)
     * Sur Ubuntu, vous pouvez exécuter `sudo apt-get install git` pour installer Git.
@@ -152,7 +152,7 @@ Les extraits suivants sont tirés du fichier `src/main/java/com/azure/cosmosdb/c
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application. Les détails de la chaîne de connexion permettent à votre application de communiquer avec votre base de données hébergée.
 
-1. Dans le [portail Azure](http://portal.azure.com/), sélectionnez **Chaîne de connexion**. 
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Chaîne de connexion**. 
 
     ![Afficher et copier un nom d’utilisateur depuis la page Chaîne de connexion du portail Azure](./media/create-cassandra-java/keys.png)
 

@@ -11,71 +11,77 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/02/2018
-ms.openlocfilehash: b5b0c1dd6f241d9b76ff766adc221c3fcb36ee1a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 12/10/2018
+ms.openlocfilehash: b9c33da4f002504a55802e4253d648ff87847d92
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062702"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271825"
 ---
-# <a name="use-python-to-query-an-azure-sql-database"></a>Utilisation de Python pour interroger une base de données SQL Azure
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Python pour interroger une base de données SQL Azure
 
- Ce didacticiel de démarrage rapide montre comment utiliser [Python](https://python.org) pour se connecter à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données. Pour plus d’informations de Kit de développement logiciel (SDK), consultez notre documentation de [référence](https://docs.microsoft.com/python/api/overview/azure/sql), un [exemple](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) pyodbc et le référentiel GitHub [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/).
+ Ce didacticiel de démarrage rapide montre comment utiliser [Python](https://python.org) pour se connecter à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données. Pour plus d’informations concernant le kit de développement logiciel (SDK), consultez notre documentation de [référence](https://docs.microsoft.com/python/api/overview/azure/sql), le [référentiel GitHub pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) et un [exemple pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
+  
 - Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce démarrage rapide.
+  
+- Python et les logiciels connexes pour votre système d’exploitation :
+  
+  - **macOS** : Installez Homebrew et Python, installez le pilote ODBC et SQLCMD, puis installez le pilote Python pour SQL Server. Consultez les étapes 1.2, 1.3 et 2.1 dans [Créer des applications Python à l’aide de SQL Server sur macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/). Pour plus d’informations, consultez [Installer le pilote ODBC Microsoft sur Linux et macOS](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+    
+  - **Ubuntu** : Installez Python et les autres packages requis à l’aide de `sudo apt-get install python python-pip gcc g++ build-essential`. Téléchargez et installez le pilote ODBC, SQLCMD ainsi que le pilote Python pour SQL Server. Pour obtenir des instructions, consultez [Configurer un environnement de développement pour le développement Python pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
+    
+  - **Windows** : Installez Python, le pilote ODBC, SQLCMD ainsi que le pilote Python pour SQL Server. Pour obtenir des instructions, consultez [Configurer un environnement de développement pour le développement Python pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
 
-- Installé Python et les logiciels connexes sur votre système d’exploitation :
-
-    - **MacOS** : installez Homebrew et Python, installez le pilote ODBC et SQLCMD, puis installez le pilote Python pour SQL Server. Consultez les [étapes 1.2, 1.3 et 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
-    - **Ubuntu** : installez Python et les autres packages requis, puis installez le pilote Python pour SQL Server. Consultez les [étapes 1.2, 1.3 et 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
-    - **Windows** : installez la version la plus récente de Python (la variable d’environnement est désormais configurée pour vous), installez le pilote ODBC et SQLCMD, puis installez le pilote Python pour SQL Server. Consultez les [étapes 1.2, 1.3 et 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/). 
-
-## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
+## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
     
-## <a name="insert-code-to-query-sql-database"></a>Insertion du code pour interroger la base de données SQL 
+## <a name="create-code-to-query-your-sql-database"></a>Créer du code pour interroger votre base de données SQL 
 
-1. Dans votre éditeur de texte favori, créez un nouveau fichier nommé **sqltest.py**.  
-
-2. Remplacez le contenu par le code suivant et ajoutez les valeurs appropriées pour votre serveur, base de données, utilisateur et mot de passe.
-
-```Python
-import pyodbc
-server = 'your_server.database.windows.net'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
-row = cursor.fetchone()
-while row:
-    print (str(row[0]) + " " + str(row[1]))
-    row = cursor.fetchone()
-```
+1. Créez un nouveau fichier nommé *sqltest.py* dans un éditeur de texte.  
+   
+1. Ajoutez le code suivant. Utilisez vos propres valeurs pour \<serveur >, \<base de données >, \<nom d’utilisateur >, et \<mot de passe >.
+   
+   >[!IMPORTANT]
+   >Dans cet exemple, le code utilise les exemples de données AdventureWorksLT que vous pouvez choisir comme source lors de la création de votre base de données. Si votre base de données comporte des données différentes, utilisez des tables de votre propre base de données dans la requête SELECT. 
+   
+   ```python
+   import pyodbc
+   server = '<server>.database.windows.net'
+   database = '<database>'
+   username = '<username>'
+   password = '<password>'
+   driver= '{ODBC Driver 17 for SQL Server}'
+   cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
+   cursor = cnxn.cursor()
+   cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
+   row = cursor.fetchone()
+   while row:
+       print (str(row[0]) + " " + str(row[1]))
+       row = cursor.fetchone()
+   ```
+   
 
 ## <a name="run-the-code"></a>Exécuter le code
 
-1. Exécutez ensuite les commandes suivantes dans l’invite de commandes :
+1. Depuis une invite de commandes, exécutez la commande suivante :
 
-   ```Python
+   ```cmd
    python sqltest.py
    ```
 
-2. Vérifiez que les 20 premières lignes sont renvoyées, puis fermez la fenêtre d’application.
+1. Vérifiez que les 20 premières lignes catégorie/produit sont retournées, puis fermez la fenêtre de commande.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
-- [Python SQL Driver](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/) (Pilote SQL Python)
+- [Pilote Microsoft Python pour SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Centre de développement Python](https://azure.microsoft.com/develop/python/?v=17.23h)
 

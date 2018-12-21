@@ -1,5 +1,5 @@
 ---
-title: Exemple Azure Policy - Auditer le chiffrement transparent des données de SQL Database
+title: Exemple - Auditer le chiffrement transparent des données de SQL Database
 description: Cet exemple de stratégie vérifie si le chiffrement transparent des données n’est pas activé pour SQL Database.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 10/29/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: d7e8571c0b8301da953d84893ac48934a2392d55
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 36eb62dfa7ae45b70f5907241c66f2286f9ce760
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230001"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310621"
 ---
 # <a name="audit-sql-database-encryption"></a>Audit du chiffrement de la base de données SQL
 

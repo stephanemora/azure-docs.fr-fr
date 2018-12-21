@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 06/13/2018
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: e0a38a8494e0a0ae9288aab5c3d491946dc629f8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3c27f436b726290c6a3af0956b956e1c351a729a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231547"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956174"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Prise en main du stockage de files d’attente Azure à l’aide de .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -27,13 +27,13 @@ Le stockage de files d’attente Azure fournit une messagerie cloud entre les co
 ### <a name="about-this-tutorial"></a>À propos de ce didacticiel
 Ce didacticiel montre comment écrire du code .NET pour des scénarios courants d’utilisation du stockage de files d’attente Azure. Les scénarios traités sont les suivants : création et suppression de files d’attente, et ajout, lecture et suppression des messages de file d’attente.
 
-**Durée estimée :** 45 minutes
+**Durée estimée :** 45 minutes
 
 **Configuration requise :**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Bibliothèque cliente Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-* [Gestionnaire de configuration Azure pour .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+* [Gestionnaire de configuration Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 * Un [compte de stockage Azure](../common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]

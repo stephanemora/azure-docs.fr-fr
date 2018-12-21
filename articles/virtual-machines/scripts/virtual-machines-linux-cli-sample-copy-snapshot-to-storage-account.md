@@ -1,6 +1,6 @@
 ---
-title: Exemple de Script Azure CLI - Exporter/copier une capture instantanée en tant que VHD vers un compte de stockage dans une autre région | Microsoft Docs
-description: Exemple de Script Azure CLI - Exporter/copier une capture instantanée en tant que VHD vers un compte de stockage dans un abonnement identique ou différent
+title: Exemple Azure CLI - Copier une capture instantanée dans un stockage de compte dans une autre région | Microsoft Docs
+description: Exemple de Script Azure CLI - Exporter/copier une capture instantanée en tant que VHD vers un compte de stockage dans une région identique ou différente.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
-ms.custom: mvc
-ms.openlocfilehash: cd555cfea6a84a0bdf0d0c4c9b9b68ae079fbc7b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: mvc,seodec18
+ms.openlocfilehash: bdc9da206e938c0c7fd3d027ee02b11d01a1b4d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852604"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106717"
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>Exporter/copier des captures instantanées managée en tant que VHD vers un compte de stockage dans une région différente avec l’interface de ligne de commande.
+# <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Exporter/copier une capture instantanée vers un compte de stockage dans une région différente à l’aide de CLI
 
 Ce script exporte une capture instantanée managée vers un compte de stockage dans une région différente. Il génère d’abord l’URI SAP de la capture instantanée et l’utilise ensuite pour copier celle-ci vers un compte de stockage dans une autre région. Ce script vous permet de conserver la sauvegarde de vos disques gérés dans une autre région en cas de récupération d’urgence. 
 

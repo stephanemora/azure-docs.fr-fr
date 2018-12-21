@@ -1,14 +1,11 @@
 ---
-title: 'Tutoriel : Équilibrer la charge du trafic internet sur les machines virtuelles - Portail Azure | Microsoft Docs'
+title: 'Tutoriel : Équilibrer la charge du trafic Internet sur les machines virtuelles - Portail Azure'
+titlesuffix: Azure Load Balancer
 description: Ce didacticiel vous montre comment créer et gérer un Standard Load Balancer (équilibreur de charge standard) avec le portail Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create and Standard Load balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 76d7f0b959037808c3358c2b78b837a783117457
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687304"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260002"
 ---
-# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic internet sur les machines virtuelles avec le portail Azure
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic Internet sur les machines virtuelles avec le portail Azure
 
 L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce tutoriel, vous découvrez les différents composants d’Azure Standard Load Balancer qui répartissent le trafic Internet entre les machines virtuelles et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
 

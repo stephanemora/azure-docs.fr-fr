@@ -1,5 +1,5 @@
 ---
-title: Exemple Azure Policy - Appliquer un modèle de correspondance
+title: Exemple - Appliquer un modèle de correspondance
 description: Cet exemple de stratégie exige que les ressources respectent le modèle de correspondance pour les conventions de nommage.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: da2b4621604a29d9104669e4f0a0c40cc44ca319
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e0b202f8fd348feaa87b9a9409180e22b0781f4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999560"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311964"
 ---
 # <a name="enforce-match-pattern-for-naming-conventions"></a>Appliquer le modèle de correspondance pour les conventions d’affectation de noms
 
@@ -30,7 +29,7 @@ Vous pouvez déployer ce modèle en utilisant le [portail Azure](#deploy-with-th
 
 ## <a name="deploy-with-the-portal"></a>Déployer avec le portail
 
-[![Déploiement sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fenforce-match-pattern%2Fazurepolicy.json)
+[![Déployer sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fenforce-match-pattern%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 

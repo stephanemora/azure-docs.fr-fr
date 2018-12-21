@@ -1,23 +1,22 @@
 ---
-title: Connecter une application MongoDB à Azure Cosmos DB à l’aide de Node.js
-description: Apprenez à connecter une application MongoDB Node.js existante à Azure Cosmos DB
-services: cosmos-db
+title: Connecter une application MongoDB Node.js à Azure Cosmos DB
+description: Ce démarrage rapide montre comment connecter une application MongoDB écrite en Node.js à Azure Cosmos DB.
 author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/19/2017
-ms.author: sngun
-ms.openlocfilehash: 6844fc2450154b7e71c74ad9728929c3dc9df2f9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: d9754cf66b05059c986c7ffbff94290e207f706a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844479"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141372"
 ---
-# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB : migrer une application web MongoDB Node.js existante 
+# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB : Migrer une application web MongoDB Node.js existante 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -45,13 +44,13 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-En plus d’Azure CLI, vous devez avoir installé [Node.js](https://nodejs.org/) et [Git](http://www.git-scm.com/downloads) localement pour exécuter les commandes `npm` et `git`.
+En plus d’Azure CLI, vous devez avoir installé [Node.js](https://nodejs.org/) et [Git](https://www.git-scm.com/downloads) localement pour exécuter les commandes `npm` et `git`.
 
 Vous devriez avoir une bonne connaissance de Node.js. Ce démarrage rapide n’est pas destiné à vous aider à développer des applications Node.js en général.
 
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
-Exécutez les commandes suivantes pour cloner l’exemple de référentiel. Cet exemple de référentiel contient l’application [MEAN.js](http://meanjs.org/) par défaut.
+Exécutez les commandes suivantes pour cloner l’exemple de référentiel. Cet exemple de référentiel contient l’application [MEAN.js](https://meanjs.org/) par défaut.
 
 1. Ouvrez une invite de commandes, créez un nouveau dossier nommé git-samples, puis fermez l’invite de commandes.
 
@@ -180,7 +179,7 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>Récupérer la clé
 
-Pour se connecter à une base de données Azure Cosmos DB, vous avez besoin de la clé de la base de données. Utilisez la commande [az documentdb list-keys](/cli/azure/cosmosdb#list-keys) pour récupérer la clé primaire.
+Pour se connecter à une base de données Azure Cosmos DB, vous avez besoin de la clé de la base de données. Utilisez la commande [az documentdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) pour récupérer la clé primaire.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"

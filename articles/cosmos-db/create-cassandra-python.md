@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 5ffd134bd4e47f92264f8b299f8fd4bdb76f6c9f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: c9a0d6ce868fd7fcf14f4b4c1690c99b7f964f8a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870314"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253508"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application web Cassandra avec Python et Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application Cassandra avec Python et Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -36,7 +36,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 Par ailleurs, vous devez avoir :
 * [Python](https://www.python.org/downloads/) version v2.7.14
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Pilote Python pour Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
@@ -138,7 +138,7 @@ Cette étape est facultative. Si vous voulez savoir comment le code crée les re
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application. La chaîne de connexion permet à votre application de communiquer avec votre base de données hébergée.
 
-1. Dans le [portail Azure](http://portal.azure.com/), sélectionnez **Chaîne de connexion**. 
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Chaîne de connexion**. 
 
     Utilisez le ![bouton Copier](./media/create-cassandra-python/copy.png) à droite de l’écran pour copier la valeur supérieure, c’est-à-dire le POINT DE CONTACT.
 

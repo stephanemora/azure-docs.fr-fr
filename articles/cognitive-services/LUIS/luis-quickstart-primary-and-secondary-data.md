@@ -1,23 +1,24 @@
 ---
-title: 'Tutoriel 7 : Entité simple avec une liste d’expressions dans LUIS'
+title: Entité Simple, liste d’expressions
 titleSuffix: Azure Cognitive Services
-description: Extraire d’un énoncé des données issues du machine learning
+description: Dans ce tutoriel, vous allez extraire les données de nom de poste de travail issues du machine learning à partir d’un énoncé utilisant l’entité Simple. Pour augmenter la précision de l’extraction, ajoutez une liste d’expressions dont les termes sont spécifiques à l’entité simple.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425243"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166266"
 ---
-# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutoriel 7 : Extraire des noms avec une entité simple et une liste d’expressions
+# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutoriel 7 : Extraire des noms avec une entité Simple et une liste d’expressions
 
 Dans ce tutoriel, vous allez extraire les données de nom de poste de travail issues du machine learning à partir d’un énoncé utilisant l’entité **Simple**. Pour augmenter la précision de l’extraction, ajoutez une liste d’expressions dont les termes sont spécifiques à l’entité simple.
 
@@ -92,7 +93,7 @@ Une fois les entités marquées dans les exemples d’énoncés, il est importan
 
 3. Dans l’énoncé, `I want to apply for the new accounting job`, sélectionnez `accounting`, entrez `Job` dans le premier champ de la liste déroulante, puis sélectionnez **Créer une nouvelle entité** dans le menu contextuel. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Capture d’écran de LUIS avec intention « ApplyForJob » et étapes de la création d’entité mises en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Capture d’écran de LUIS avec l’intention « ApplyForJob »avec les étapes de création de l’entité mises en surbrillance](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Capture d’écran de LUIS avec l’intention « ApplyForJob » avec les étapes de création de l’entité mises en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 4. Dans la fenêtre contextuelle, vérifiez le nom de l’entité et le type et sélectionnez **Terminé**.
 
@@ -100,7 +101,7 @@ Une fois les entités marquées dans les exemples d’énoncés, il est importan
 
 5. Dans l’énoncé, `Submit resume for engineering position`, étiquetez le mot `engineering` comme entité Poste. Sélectionnez le mot `engineering`, puis sélectionnez **Poste** dans le menu contextuel. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Capture d’écran de LUIS, avec étiquetage des entités de poste mis en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Capture d’écran de LUIS avec l’étiquetage d’entité de travail mis en surbrillance](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Capture d’écran de LUIS avec l’étiquetage d’entité de travail mis en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
     Tous les énoncés sont étiquetés mais cinq énoncés ne sont pas suffisants pour apprendre à LUIS ce que sont les mots et expressions liés aux postes. Les postes qui utilisent des nombres ne nécessitent pas plus d’exemples car ils utilisent une entité d’expression régulière. Les tâches qui sont des mots ou des expressions nécessitent au moins 15 exemples supplémentaires. 
 
@@ -157,7 +158,7 @@ L’étiquetage, ou _marquage_, de l’entité montre à LUIS où celle-ci se tr
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Here is my c.v. for the programmer job`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner les énoncés `ApplyForJob`.
 
-    ```JSON
+    ```json
     {
       "query": "Here is my c.v. for the programmer job",
       "topScoringIntent": {
@@ -226,7 +227,7 @@ L’application LUIS a trouvé l’intention correcte avec un niveau de confianc
 
 Dans le JSON suivant, LUIS répond avec l’intention correcte, `ApplyForJob`, mais n’a pas été extrait le nom du poste `lead welder`. 
 
-```JSON
+```json
 {
   "query": "This is the lead welder paperwork.",
   "topScoringIntent": {
@@ -283,7 +284,7 @@ Un nom pouvant être tout et n’importe quoi, LUIS prédit les entités plus pr
 
 ## <a name="to-boost-signal-add-phrase-list"></a>Ajouter une liste d’expressions pour améliorer le signal
 
-Ouvrez le document [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) à partir du référentiel Github LUIS-Samples. La liste comprend plus d’un millier de mots et d’expressions de poste. Consultez la liste pour trouver des mots de poste qui sont significatifs pour vous. Si les mots ou les expressions ne sont pas dans la liste, ajoutez les vôtres.
+Ouvrez le document [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) à partir du référentiel GitHub LUIS-Samples. La liste comprend plus d’un millier de mots et d’expressions de poste. Consultez la liste pour trouver des mots de poste qui sont significatifs pour vous. Si les mots ou les expressions ne sont pas dans la liste, ajoutez les vôtres.
 
 1. Dans la section **Générer** de l’application LUIS, sélectionnez **Listes d’expressions** dans le menu **Améliorer les performances de l’application**.
 
@@ -291,13 +292,13 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samp
 
 3. Nommez la nouvelle liste d’expressions `Job` et copiez la liste depuis jobs-phrase-list.csv vers la zone de texte **Valeurs**. Sélectionnez Enter (Entrer). 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Capture d’écran avec fenêtre contextuelle de création d’une nouvelle liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Si vous voulez ajouter d’autres mots à la liste d’expressions, passez en revue les **valeurs associées** et ajoutez celles qui sont pertinentes. 
 
 4. Sélectionnez **Enregistrer** pour activer la liste d’expressions.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Capture d’écran de boîte de dialogue contextuelle de création de nouvelle liste d’expressions avec mots dans la zone de valeurs de la liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions avec des mots dans la zone de valeurs de liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions avec des mots dans la zone de valeurs de liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 5. [Entraînez](#train) et [publiez](#publish) à nouveau l’application pour utiliser la liste d’expressions.
 
@@ -305,7 +306,7 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samp
 
     La réponse JSON inclut l’entité extraite :
 
-    ```JSON
+    ```json
     {
         "query": "This is the lead welder paperwork.",
         "topScoringIntent": {

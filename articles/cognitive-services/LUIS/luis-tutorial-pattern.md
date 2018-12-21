@@ -1,23 +1,24 @@
 ---
-title: 'Tutoriel 3 : Modèles pour améliorer les prédictions LUIS'
+title: Modèles
 titleSuffix: Azure Cognitive Services
 description: Utilisez des modèles pour augmenter la prédiction des intentions et des entités tout en fournissant moins d’exemples d’énoncés. Le modèle est fourni par le biais d’un exemple d’énoncé de modèle, qui inclut la syntaxe pour identifier les entités et le texte pouvant être ignoré.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138325"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075520"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Tutoriel 3 : Ajouter des formats d’énoncé courants
+# <a name="tutorial-3-add-common-utterance-formats"></a>Tutoriel 3 : Ajouter des formats d’énoncé courants
 
 Dans ce tutoriel, vous allez utiliser des modèles pour augmenter la prédiction des intentions et des entités tout en fournissant moins d’exemples d’énoncés. Le modèle est fourni par le biais d’un exemple d’énoncé de modèle, qui inclut la syntaxe pour identifier les entités et le texte pouvant être ignoré. Un modèle est une combinaison de correspondance par expression et de machine learning.  Les exemples de modèles d’énoncés, ainsi que les énoncés de l’intention, permettent à LUIS de mieux comprendre quels énoncés correspondent à l’intention. 
 
@@ -106,7 +107,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Who is the boss of Jill Jones?`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -229,7 +230,7 @@ Dans ce tutoriel, vous ajoutez deux nouvelles intentions : `OrgChart-Manager` e
 
 Une fois que LUIS retourne une prédiction à l’application cliente, le nom de l’intention peut être utilisé comme nom de fonction dans l’application cliente, et l’entité Employee peut être utilisée comme paramètre de cette fonction.
 
-```Javascript
+```nodejs
 OrgChartManager(employee){
     ///
 }
@@ -277,7 +278,7 @@ Souvenez-vous : les employés ont été créés dans le [tutoriel d’entité d
 
 3. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Who is the boss of Jill Jones?` en tant qu’énoncé. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -388,13 +389,13 @@ Exemples des énoncés de modèle :
 
 L’utilisation de la syntaxe facultative des crochets, `[]`, facilite l’ajout d’un énoncé de modèle à ce texte facultatif, ce dernier peut se voir imbriqué à un deuxième niveau, `[[]]`, et peut inclure des entités ou du texte.
 
-**Question : Pourquoi les deux derniers exemples d’énoncés n’ont-ils pas pu fusionner en un seul énoncé de modèle ?** Le modèle ne prend pas en charge la syntaxe OR. Pour entrer à la fois la version `in` et la version `on`, chaque énoncé doit être un énoncé de modèle séparé.
+**Question : Pourquoi les deux derniers exemples d’énoncés n’ont-ils pas pu fusionner en un seul énoncé de modèle ?** Le modèle ne prend pas en charge la syntaxe OR. Pour entrer à la fois la version `in` et la version `on`, chaque énoncé doit être un énoncé de modèle séparé.
 
-**Question : Pourquoi toutes les lettres `w`, la première lettre de chaque énoncé de modèle, sont en minuscules ? Le fait qu’elles soient en majuscules ou en minuscules n’est-il pas facultatif ?** L’énoncé soumis au point de terminaison de requête par l’application cliente, est converti en minuscules. L’énoncé de modèle peut être en majuscules ou minuscules, tout comme l’énoncé du point de terminaison. La comparaison est toujours effectuée après la conversion en minuscules.
+**Question : Pourquoi toutes les lettres `w`, la première lettre de chaque énoncé de modèle, sont en minuscules ? Le fait qu’elles soient en majuscules ou en minuscules n’est-il pas facultatif ?** L’énoncé soumis au point de terminaison de requête par l’application cliente, est converti en minuscules. L’énoncé de modèle peut être en majuscules ou minuscules, tout comme l’énoncé du point de terminaison. La comparaison est toujours effectuée après la conversion en minuscules.
 
-**Question : Pourquoi le nombre prédéfini ne fait pas partie de l’énoncé de modèle alors que le 3 mars est prédit à la fois comme un nombre `3` et une date `March 3`?** L’énoncé de modèle utilise une date en fonction du contexte, soit littéralement comme dans `March 3`, ou de façon abstraite comme dans `in a month`. Une date peut contenir un nombre mais un nombre ne peut pas nécessairement être considéré comme une date. Utilisez toujours l’entité qui représente au mieux le type à retourner dans les résultats JSON de prédiction.  
+**Question : Pourquoi le nombre prédéfini ne fait pas partie de l’énoncé de modèle alors que le 3 mars est prédit à la fois comme un nombre `3` et une date `March 3` ?** L’énoncé de modèle utilise une date en fonction du contexte, soit littéralement comme dans `March 3`, ou de façon abstraite comme dans `in a month`. Une date peut contenir un nombre mais un nombre ne peut pas nécessairement être considéré comme une date. Utilisez toujours l’entité qui représente au mieux le type à retourner dans les résultats JSON de prédiction.  
 
-**Question : Qu’en est-il des énoncés incompréhensibles, comme avec `Who will {Employee}['s] manager be on March 3?`.** Les conjugaisons grammaticalement différentes, comme dans le cas où le `will` et le `be` sont séparés, doivent constituer un nouvel énoncé de modèle. L’énoncé de modèle existant ne correspond pas. Bien que l’intention de l’énoncé n’ait pas changé, le placement du mot dans l’énoncé a changé. Cette modification affecte la prédiction dans LUIS.
+**Question : Qu’en est-il des énoncés incompréhensibles comme `Who will {Employee}['s] manager be on March 3?`.** Les conjugaisons grammaticalement différentes, comme dans le cas où le `will` et le `be` sont séparés, doivent constituer un nouvel énoncé de modèle. L’énoncé de modèle existant ne correspond pas. Bien que l’intention de l’énoncé n’ait pas changé, le placement du mot dans l’énoncé a changé. Cette modification affecte la prédiction dans LUIS.
 
 **N’oubliez pas : les entités sont les premières trouvées, le modèle étant ensuite mis en correspondance.**
 

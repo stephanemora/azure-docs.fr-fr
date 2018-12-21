@@ -1,5 +1,5 @@
 ---
-title: Créer une application web Ruby et Postgres dans Azure App Service sur Linux | Microsoft Docs
+title: Créer une application web Ruby avec Postgres sur Linux - Azure App Service | Microsoft Docs
 description: Découvrez comment faire fonctionner une application Ruby dans Azure en établissant une connexion à une base de données PostgreSQL dans Azure.
 services: app-service\web
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445074"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271026"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Créer une application web Ruby et Postgres dans Azure App Service sur Linux
 
-[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce tutoriel vous explique comment créer une application web Ruby et comment la connecter à une base de données PostgreSQL. Une fois terminé, vous disposerez d’une application [Ruby on Rails](http://rubyonrails.org/) s’exécutant dans App Service sur Linux.
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce tutoriel vous explique comment créer une application web Ruby et comment la connecter à une base de données PostgreSQL. Une fois terminé, vous disposerez d’une application [Ruby on Rails](https://rubyonrails.org/) s’exécutant dans App Service sur Linux.
 
 ![Application Ruby on Rails s’exécutant dans Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -43,7 +43,7 @@ Pour suivre ce tutoriel :
 
 * [Installez Git](https://git-scm.com/)
 * [Installez Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
-* [Installez Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Installez Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Téléchargez et exécutez PostgreSQL](https://www.postgresql.org/download/)
 
 ## <a name="prepare-local-postgres"></a>Préparation du Postgres local
@@ -92,7 +92,7 @@ bundle install --path vendor/bundle
 
 ### <a name="run-the-sample-locally"></a>Télécharger l’exemple localement
 
-Exécutez les [migrations de Rails](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) pour créer les tables requises par l’application. Pour identifier les tables créées dans les migrations, consultez le répertoire _db/migrate_ dans le dépôt Git.
+Exécutez les [migrations de Rails](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations) pour créer les tables requises par l’application. Pour identifier les tables créées dans les migrations, consultez le répertoire _db/migrate_ dans le dépôt Git.
 
 ```bash
 rake db:create

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB : Développer une application Xamarin.Forms avec .NET et l’API MongoDB'
+title: 'Azure Cosmos DB : Créer une application Xamarin.Forms avec .NET et l’API MongoDB'
 description: Cet article présente un exemple de code Xamarin que vous pouvez utiliser pour vous connecter à l’API MongoDB d’Azure Cosmos DB, et pour l’interroger.
 services: cosmos-db
 author: codemillmatt
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 4fde6d203999b15f0f60d4879c2fdc595e1fb7e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ece6780803809829e69fccc320ae65a0c7b0f94b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835554"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089256"
 ---
-# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Démarrage rapide : Développer une application Xamarin.Forms API MongoDB avec .NET et le Portail Azure
+# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Démarrage rapide : Créer une application Xamarin.Forms API MongoDB avec .NET et le portail Azure
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -156,7 +156,7 @@ Les extraits de code suivants sont tirés de la classe `MongoService`, à l’em
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. Dans le [portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Chaîne de connexion**, puis sur **Clés en lecture-écriture**. Dans les prochaines étapes, vous allez utiliser les boutons de copie sur le côté droit de l’écran pour copier la Chaîne de connexion principale.
+1. Dans le [portail Azure](https://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Chaîne de connexion**, puis sur **Clés en lecture-écriture**. Dans les prochaines étapes, vous allez utiliser les boutons de copie sur le côté droit de l’écran pour copier la Chaîne de connexion principale.
 
 2. Ouvrez le fichier **APIKeys.cs** dans le répertoire **Helpers** du projet **TaskList.Core**.
 

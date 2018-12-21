@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : API Cassandra avec .NET - Azure Cosmos DB'
+title: 'Démarrage rapide : API Cassandra avec .NET - Azure Cosmos DB'
 description: Ce guide de démarrage rapide montre comment utiliser l’API Cassandra Azure Cosmos DB pour créer une application de profil avec le portail Azure et .NET
 services: cosmos-db
 ms.service: cosmos-db
@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3708027b766ff9070831dd3677e821565e0dd4fa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50c2362e961d882afc109a0554303d364d52384b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994953"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089424"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application Cassandra avec .NET et Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Vous pouvez également [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, ni frais ni engagement.
 
-Par ailleurs : 
+Par ailleurs, vous devez avoir : 
 * Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
 * Installez [Git](https://www.git-scm.com/) pour cloner l’exemple.
 
@@ -48,7 +48,7 @@ Par ailleurs :
 
 À présent, travaillons sur le code. Nous allons cloner une application API Cassandra à partir de GitHub, configurer la chaîne de connexion et l’exécuter. Vous verrez combien il est facile de travailler par programmation avec des données. 
 
-1. Ouvrez une invite de commandes. Créez un dossier appelé `git-samples`. Ensuite, fermez l’invite de commandes.
+1. Ouvrez une invite de commandes. Créez un dossier nommé `git-samples`. Ensuite, fermez l’invite de commandes.
 
     ```bash
     md "C:\git-samples"
@@ -96,7 +96,7 @@ Cette étape est facultative. Si vous voulez savoir comment le code crée les re
 * Insérez des entités utilisateur à l’aide de l’objet IMapper avec une nouvelle session qui se connecte à l’espace de clés uprofile.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Faites une requête pour obtenir les informations de tous les utilisateurs.
@@ -118,7 +118,7 @@ Cette étape est facultative. Si vous voulez savoir comment le code crée les re
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application. Les informations de la chaîne de connexion permettent à votre application de communiquer avec votre base de données hébergée.
 
-1. Dans le [portail Azure](http://portal.azure.com/), sélectionnez **Chaîne de connexion**.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Chaîne de connexion**.
 
     Utilisez le ![bouton Copier](./media/create-cassandra-dotnet/copy.png) à droite de l’écran pour copier la valeur NOM D'UTILISATEUR.
 
@@ -161,7 +161,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     Appuyez sur CTRL + C pour arrêter l’exécution du programme et fermer la fenêtre de console. 
     
-4. Dans le portail Azure, ouvrez l’**Explorateur de données** pour interroger, modifier et utiliser ces nouvelles données.
+4. Dans le portail Azure, ouvrez **l’Explorateur de données** pour interroger, modifier et utiliser ces nouvelles données.
 
     ![Afficher les données dans l’Explorateur de données](./media/create-cassandra-dotnet/data-explorer.png)
 

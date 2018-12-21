@@ -1,5 +1,5 @@
 ---
-title: Exemple Azure Policy - NSG x sur chaque carte réseau
+title: Exemple - Groupe de sécurité réseau x sur chaque carte réseau
 description: Cet exemple de stratégie nécessite qu’un groupe de sécurité réseau spécifique soit utilisé avec chaque interface de réseau virtuel.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 9e853e293611d58ac936228fd02fcd0c0a6d8dda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e24697620b61e942699f2748590c94f1063d3216
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948296"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313477"
 ---
 # <a name="nsg-x-on-every-nic"></a>NSG x sur chaque carte réseau
 
@@ -30,7 +29,7 @@ Vous pouvez déployer ce modèle en utilisant le [portail Azure](#deploy-with-th
 
 ## <a name="deploy-with-the-portal"></a>Déployer avec le portail
 
-[![Déploiement sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-nic%2Fazurepolicy.json)
+[![Déployer sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-nic%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 

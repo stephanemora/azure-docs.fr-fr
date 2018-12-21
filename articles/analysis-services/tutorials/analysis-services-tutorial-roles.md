@@ -1,20 +1,21 @@
 ---
-title: 'Tutoriel : leçon du tutoriel, configurer l’administrateur du serveur Azure Analysis Services et les rôles d’utilisateur | Microsoft Docs'
+title: 'Didacticiel : Configurer l’administrateur d’Azure Analysis Services et les rôles d’utilisateur | Microsoft Docs'
+description: Découvrez comment configurer des rôles Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: a1e6e04c4019086d56cc0eb25176a507e514c477
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929227"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000643"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutoriel : configurer l’administrateur du serveur et les rôles d’utilisateur
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Didacticiel : Configurer l’administrateur du serveur et les rôles d’utilisateur
 
  Dans ce tutoriel, vous utiliserez SQL Server Management Studio (SSMS) pour vous connecter à votre serveur dans Azure afin de configurer l’administrateur du serveur et les rôles de base de données model. Vous serez également initié au [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL est un langage de script JSON pour les modèles tabulaires de niveau de compatibilité 1200 et supérieurs. Il peut être utilisé pour automatiser de nombreuses tâches de modélisation tabulaire. TMSL est souvent utilisé avec PowerShell, mais dans ce didacticiel, vous utilisez l’éditeur de requête XMLA dans SSMS. Durant ce tutoriel, vous effectuerez les tâches suivantes : 
   
@@ -35,7 +36,7 @@ Pour en savoir plus sur la sécurité utilisateur dans Azure Analysis Services, 
 - [Ajoutez l’exemple de modèle adventureworks](../analysis-services-create-sample-model.md) à votre serveur.
 - [Installez la dernière version de SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
 Connectez-vous au [portail](https://portal.azure.com/).
 
@@ -134,7 +135,7 @@ Dans cette tâche, vous utilisez la commande [Créer](https://docs.microsoft.com
 
     ![Vérifier dans l’Explorateur d’objets](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les comptes d’utilisateur ou de groupe et les rôles. Pour ce faire, utilisez **Propriétés du rôle** > **Appartenance** pour supprimer des comptes d’utilisateur, ou cliquez sur un rôle avec le bouton droit de la souris, puis cliquez sur **Supprimer**.
 
@@ -143,5 +144,5 @@ Lorsque vous n’en avez plus besoin, supprimez les comptes d’utilisateur ou d
 Dans ce tutoriel, vous avez appris comment vous connecter à votre serveur Azure Analysis Services et comment explorer les exemples de bases de données model adventureworks et les propriétés dans SSMS. Vous avez également appris à utiliser des scripts SSMS et TMSL pour ajouter des utilisateurs ou des groupes à des rôles existants et nouveaux. Maintenant que vous disposez d’autorisations d’utilisateur configurées pour votre serveur et votre exemple de base de données model, vous ainsi que les autres utilisateurs pouvez vous y connecter à l’aide d’applications clientes telles que Power BI. Pour en savoir plus, passez au didacticiel suivant. 
 
 > [!div class="nextstepaction"]
-> [Tutoriel : se connecter avec Power BI Desktop](analysis-services-tutorial-pbid.md)
+> [Didacticiel : Se connecter avec Power BI Desktop](analysis-services-tutorial-pbid.md)
 

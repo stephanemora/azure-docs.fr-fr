@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 5d209d0290d8ca813101b531f18fc0f08a6edf8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b03a0538e92ac126a50a1346eb1bf7fb003189f9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246886"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966855"
 ---
-# <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutoriel : mise à jour de l’inventaire à l’aide du portail Azure et des rubriques/abonnements
+# <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutoriel : Mettre à jour l’inventaire avec le portail Azure et des rubriques/abonnements
 
 Microsoft Azure Service Bus est un service de messagerie cloud multi-locataire qui envoie des informations entre les applications et les services. Le fonctionnement asynchrone vous offre un service de messagerie répartie flexible, avec messagerie premier entré, premier sorti (FIFO) et fonctionnalités de publication/abonnement. Ce tutoriel montre comment utiliser les rubriques et abonnements Service Bus dans un scénario d’inventaire de vente au détail, avec des canaux de publication/abonnement à l’aide du portail Azure et de .NET.
 
@@ -70,7 +70,7 @@ Créer un espace de noms génère automatiquement une règle de signature d’ac
 1. Cliquez sur **Toutes les ressources**, puis sur le nom de l’espace de noms que vous venez de créer.
 2. Dans la fenêtre Espace de noms, cliquez sur **Stratégies d’accès partagé**.
 3. Dans l’écran **Stratégies d’accès partagé**, cliquez sur **RootManageSharedAccessKey**.
-4. Dans la fenêtre **Stratégie : RootManageSharedAccessKey**, cliquez sur le bouton **Copier** situé en regard de **Chaîne de connexion primaire**, pour copier la chaîne de connexion dans le presse-papiers pour une utilisation ultérieure. Copiez cette valeur dans le Bloc-notes ou un autre emplacement temporaire.
+4. Dans la fenêtre **Stratégie : RootManageSharedAccessKey**, cliquez sur le bouton **Copier** situé en regard de **Chaîne de connexion principale**, pour copier la chaîne de connexion dans le presse-papiers pour une utilisation ultérieure. Copiez cette valeur dans le Bloc-notes ou un autre emplacement temporaire.
 
     ![connection-string][connection-string]
 5. Répétez l’étape précédente, en copiant et collant la valeur de **Clé primaire** dans un emplacement temporaire pour l’utiliser ultérieurement.
@@ -91,7 +91,7 @@ Pour créer une rubrique Service Bus, spécifiez l’espace de noms dans lequel 
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Créer des règles de filtre sur les abonnements
 
-Une fois que l’espace de noms et les rubriques/abonnements sont configurés, et que vous disposez des informations d’identification nécessaires, vous êtes prêt à créer des règles de filtre sur les abonnements, puis à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters).
+Une fois que l’espace de noms et les rubriques/abonnements sont configurés, et que vous disposez des informations d’identification nécessaires, vous êtes prêt à créer des règles de filtre sur les abonnements, puis à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters).
 
 ### <a name="send-and-receive-messages"></a>Envoyer et recevoir des messages
 

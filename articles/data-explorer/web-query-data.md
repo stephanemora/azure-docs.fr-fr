@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Interroger des données dans l’Explorateur de données Azure'
+title: 'Démarrage rapide : Interroger des données dans Azure Data Explorer'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à interroger et partager des données dans l’Explorateur de données Azure.
 services: data-explorer
 author: orspod
@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7b9bc52e07bccf931593cd2dbddd68e973d1b26c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394355"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106445"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Démarrage rapide : Interroger des données dans l’Explorateur de données Azure
+# <a name="quickstart-query-data-in-azure-data-explorer"></a>Démarrage rapide : Interroger des données dans Azure Data Explorer
 
-L’Explorateur de données Azure est un service d’exploration de données rapide et hautement scalable pour les données des journaux et de télémétrie. L’Explorateur de données Azure fournit une application web qui vous permet d’exécuter et de partager des requêtes. L’application est disponible dans le portail Azure en tant qu’application web autonome. Dans cet article, vous travaillez dans la version autonome, laquelle vous permet de vous connecter à plusieurs clusters et de partager des liens ciblés vers vos requêtes.
+L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure fournit une application web qui vous permet d’exécuter et de partager des requêtes. L’application est disponible dans le portail Azure en tant qu’application web autonome. Dans cet article, vous travaillez dans la version autonome, laquelle vous permet de vous connecter à plusieurs clusters et de partager des liens ciblés vers vos requêtes.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -134,7 +134,7 @@ Maintenant que vous avez vu comment fonctionnent les requêtes simples, voyons c
 
 1. Exécutez la requête suivante.
 
-    ```Kutso
+    ```Kusto
     StormEvents
     | sort by StartTime desc
     | where DamageProperty > 5000
@@ -148,7 +148,7 @@ Maintenant que vous avez vu comment fonctionnent les requêtes simples, voyons c
 
     Ce panneau fonctionne comme la liste des champs des tableaux croisés dynamiques dans Excel, ce qui vous permet d’effectuer davantage d’analyses dans la grille elle-même.
 
-1. Sélectionnez **Mode Pivot** et faites glisser les colonnes comme suit : **State** sur **Groupes de lignes**, **DamageProperty** sur **Valeurs** et **EventType** sur **Étiquettes de colonne**.  
+1. Sélectionnez **Mode Pivot**, puis faites glisser les colonnes comme suit : **State** sur **Groupes de lignes**, **DamageProperty** sur **Valeurs** et **EventType** sur **Étiquettes de colonne**.  
 
     ![Mode Pivot](media/web-query-data/pivot-mode.png)
 

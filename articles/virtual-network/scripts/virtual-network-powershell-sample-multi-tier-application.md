@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
-ms.openlocfilehash: 3a57827616e4722b8520dcddb64e4e67fa8c79c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ebc0e18ecea61705ea8cb925a25d4233bfc9a2cb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599887"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340502"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Créer un réseau pour des exemples de script d’applications multiniveau
 
@@ -32,10 +32,11 @@ Vous pouvez exécuter le script à partir d’Azure [Cloud Shell](https://shell.
 
 ## <a name="sample-script"></a>Exemple de script
 
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> Un ID de sous-réseau est assigné une fois que vous avez créé un réseau virtuel, plus précisément, à l’aide du cmdlet New-AzureRmVirtualNetwork avec l’option Sous-réseau. Si vous configurez le sous-réseau à l’aide du cmdlet New-AzureRmVirtualNetworkSubnetConfig avant d’appeler le New-AzureRmVirtualNetwork, l’ID de sous-réseau sera visible seulement après l’appel.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées :
 

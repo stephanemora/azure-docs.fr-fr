@@ -1,5 +1,5 @@
 ---
-title: Envoyer des événements personnalisés pour Azure Event Grid vers Event Hubs | Microsoft Docs
+title: Envoyer des événements personnalisés à Event Hubs - Event Grid, Azure CLI
 description: Utilisez Azure Event Grid et Azure CLI pour publier une rubrique et pour vous abonner à cet événement. Un concentrateur d’événements est utilisé comme point de terminaison.
 services: event-grid
 keywords: ''
@@ -8,14 +8,15 @@ ms.author: tomfitz
 ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 0d8504dc002fa43c25f689b4c5b3f78c822cf5b0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.custom: seodec18
+ms.openlocfilehash: 08039932583fce24db9cd264a15f31b6df782627
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069418"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086898"
 ---
-# <a name="route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Acheminer des événements personnalisés vers Azure Event Hubs avec Azure CLI et Event Grid
+# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Démarrage rapide : Acheminer des événements personnalisés vers Azure Event Hubs avec Azure CLI et Event Grid
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Azure Event Hubs est l’un des gestionnaires d’événements pris en charge. Dans cet article, vous utilisez l’interface de ligne de commande Azure pour créer une rubrique personnalisée, vous abonner à cette rubrique personnalisée et déclencher l’événement pour afficher le résultat. Vous envoyez les événements à un concentrateur d’événements.
 

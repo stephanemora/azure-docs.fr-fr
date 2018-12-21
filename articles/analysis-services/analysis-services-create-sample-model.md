@@ -1,21 +1,21 @@
 ---
-title: 'Didacticiel : ajouter un exemple de modèle de base à votre serveur Azure Analysis Services à l’aide du portail | Microsoft Docs'
+title: 'Tutoriel : Ajouter un exemple de modèle à un serveur Azure Analysis Services | Microsoft Docs'
 description: Dans cette leçon de didacticiel, découvrez comment ajouter un exemple de modèle dans Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: def7ee54390a716027fcacb433b99826d3650f6f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6a492085984eba165bc7cfc5839fa4e1705e823c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428690"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001637"
 ---
-# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Didacticiel : ajouter un exemple de modèle à partir du portail
+# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutoriel : Ajouter un exemple de modèle à partir du portail
 
 Dans ce didacticiel, vous ajoutez un exemple de base de données de modèle tabulaire Adventure Works à votre serveur. L’exemple de modèle est une version complète de l’exemple de modèle de données Adventure Works Internet Sales (1200). Un exemple de modèle sert à tester la gestion des modèles, à se connecter à des outils et des applications clientes, ainsi qu’à interroger des données de modèle. Un serveur Analysis Services dans votre abonnementCe didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
 
@@ -74,6 +74,6 @@ Ces étapes décrivent comment supprimer un modèle d’un serveur à l’aide d
 Dans ce didacticiel, vous avez appris comment ajouter un exemple de modèle de base à votre serveur. Maintenant que vous disposez d’une base de données de modèle, vous pouvez la connecter à SQL Server Management Studio et ajouter des rôles d’utilisateur. Pour en savoir plus, passez au didacticiel suivant.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : configurer les rôles d’utilisateur et d’administrateur de serveur](analysis-services-database-users.md)
+> [Tutoriel : Configurer les rôles d’utilisateur et d’administrateur de serveur](analysis-services-database-users.md)
 
 

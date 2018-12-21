@@ -1,5 +1,5 @@
 ---
-title: Créer une application web HTML statique dans Azure | Microsoft Docs
+title: Créer une application web HTML statique - Azure App Service | Microsoft Docs
 description: Découvrez comment exécuter des applications web dans Azure App Service en déployant un exemple d’application HTML statique.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: cee0bdffb99076903df988d30fcaa4f6cb2234c6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.custom: seodec18
+ms.openlocfilehash: c7d01d4c079eacfd2af1ebad4ac41d70f792a0bb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123188"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253566"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Créer une application web HTML statique dans Azure
 
@@ -146,7 +146,7 @@ Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, v
 
 Le menu de gauche fournit différentes pages vous permettant de configurer votre application.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources en exécutant la commande suivante dans Cloud Shell. Souvenez-vous que le nom du groupe de ressources a été généré automatiquement pour vous à l’étape [créer une application web](#create-a-web-app).
 

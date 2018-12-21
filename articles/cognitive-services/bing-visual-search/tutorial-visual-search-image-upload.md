@@ -10,14 +10,14 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 24b4bacd6a369812a07095b1d9c114f557d10d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443455"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960055"
 ---
-# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutoriel : Décomposer de chargement d’une image Recherche visuelle Bing
+# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutoriel : Détails du chargement d’une image Recherche visuelle Bing
 
 Ce tutoriel détaille le processus de chargement d’une image vers Bing et les informations reçues. Il montre également comment accéder à ces informations et les afficher dans la réponse JSON. Pour afficher l’exemple de code HTML et JavaScript complet, consultez [Code complet](#complete-code).
 
@@ -30,7 +30,7 @@ Pour démarrer un abonnement dans le portail Azure :
 2. Sous Place de marché dans la liste déroulante, sélectionnez `Bing Search v7`.
 3. Entrez `Name` pour la nouvelle ressource.
 4. Sélectionnez l’abonnement `Pay-As-You-Go`.
-5. Sélectionnez le niveau tarifaire `S9`.
+5. Sélectionnez le niveau de tarification `S9`.
 6. Cliquez sur `Enable` pour démarrer l’abonnement.
 
 ## <a name="where-to-start"></a>Prêt à commencer ?
@@ -1340,4 +1340,4 @@ Voici l’exemple complet de code HTML et JavaScript.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour voir comment obtenir des informations à l’aide et d’un jeton, consultez le [tutoriel sur le Kit de développement logiciel (SDK) Recherche visuelle Bing à l’aide du jeton ImageInsightsToken](.\tutorial-visual-search-insights-token.md).
+Pour voir comment obtenir des informations à l’aide et d’un jeton, consultez le [tutoriel sur le Kit de développement logiciel (SDK) Recherche visuelle Bing à l’aide du jeton ImageInsightsToken](./tutorial-visual-search-insights-token.md).

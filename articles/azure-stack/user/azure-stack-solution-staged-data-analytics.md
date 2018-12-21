@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837339"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969530"
 ---
-# <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Didacticiel : Création d’une solution d’analyse des données mises en lots avec Azure et Azure Stack 
+# <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutoriel : Créer une solution d'analyse des données mises en lots avec Azure et Azure Stack 
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S'applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Apprenez à utiliser à la fois les environnements locaux et de cloud public pour répondre aux besoins des entreprises disposant de plusieurs sites. Azure Stack offre une solution rapide, sécurisée et flexible pour la collecte, le traitement, le stockage et la distribution des données locales et distantes, en particulier lorsque la sécurité, la confidentialité, les stratégies d’entreprise et les exigences réglementaires diffèrent d’un site à l’autre et d’un utilisateur à l’autre.
 
@@ -49,7 +49,7 @@ Dans ce didacticiel, vous créez un exemple d’environnement pour :
 
 Certaines tâches de préparation sont nécessaires pour générer cette solution :
 
--   L’extension Azure Stack installée et opérationnelle (des informations supplémentaires sont disponibles ici : [Vue d’ensemble d’Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
+-   Une extension Azure Stack installée et opérationnelle (des informations supplémentaires sont disponibles ici : [Vue d'ensemble d’Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
 
 -   Un abonnement Azure. (Créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
@@ -83,27 +83,27 @@ Le compte de stockage et le conteneur d’objets blob conservent toutes les donn
 
     a.  Nom : **Votre choix**
 
-    b.  Modèle de déploiement : **Gestionnaire des ressources**
+    b.  Modèle de déploiement : **Resource Manager**
 
-    c.  Type de compte : **Stockage (Usage général V1)**
+    c.  Type de compte : **Stockage (Universel v1)**
 
-    d.  Emplacement : **USA Ouest**
+    d.  Emplacement : **USA Ouest**
 
-    e.  Réplication : **Stockage localement redondant (LRS)**
+    e.  Réplication : **Stockage localement redondant (LRS)**
 
-    f.  Performances : **Standard**
+    f.  Performances : **Standard**
 
-    g.  Transfert sécurisé requis : **Désactivé**
+    g.  Transfert sécurisé requis : **Désactivé**
 
-    h.  Abonnement : choisissez l’abonnement
+    h.  Abonnement : Choisir une option
 
-    i.  Groupe de ressources : spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant
+    i.  Groupe de ressources : Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant
 
-    j.  Configurer des réseaux virtuels : **Désactivé**
+    j.  Configurer des réseaux virtuels : **Désactivé**
 
 4.  Sélectionnez **Créer pour créer le compte de stockage**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image1.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  Une fois créé, sélectionnez le nom du compte de stockage.
 
@@ -111,11 +111,11 @@ Le compte de stockage et le conteneur d’objets blob conservent toutes les donn
 
 7.  En haut du panneau, sélectionnez **+ Conteneur** et sélectionnez **Conteneur**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image2.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
 
 8.  Nom : **Votre choix**
 
-9.  Niveau d’accès public : **Conteneur** (accès en lecture anonyme pour les conteneurs et les objets blob)
+9.  Niveau d'accès public : **Conteneur** (accès en lecture anonyme pour les conteneurs et les objets blob)
 
 10.  Sélectionnez **OK**.
 
@@ -146,31 +146,31 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
 
     **Exemple :**
 
-    ![Définir de nouveaux paramètres d’application de fonction](media\azure-stack-solution-staged-data-analytics\image6.png)
+    ![Définir de nouveaux paramètres d’application de fonction](media/azure-stack-solution-staged-data-analytics/image6.png)
 
 5.  Sélectionnez **Créer** pour configurer et déployer l’application de fonction.
 
 6.  Cliquez sur l’icône Notification en haut à droite du portail pour voir le message **Le déploiement a été effectué**.
 
-    ![Définir de nouveaux paramètres d’application de fonction](media\azure-stack-solution-staged-data-analytics\image7.png)
+    ![Définir de nouveaux paramètres d’application de fonction](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  Sélectionnez **Accéder à la ressource** pour afficher la nouvelle application de fonction.
 
-![Function App créée avec succès.](media\azure-stack-solution-staged-data-analytics\image8.png)
+![Function App créée avec succès.](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Ajout d’une fonction à l’application de la fonction Azure Stack
 
 1.  Créez une nouvelle fonction en cliquant sur **Fonctions**, puis sur le bouton **+ Nouvelle fonction**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image3.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  Sélectionnez **Déclencheur de minuteur**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image4.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  Sélectionnez **C\#** comme langage et nommez la fonction : `upload-to-azure` Définissez la planification sur `0 0 * * * *`, qui, en notation CRON, correspond à une fois par heure.
+3.  Sélectionnez le langage **C\#** et nommez la fonction : `upload-to-azure`  Définissez la planification sur `0 0 * * * *`, ce qui, en notation CRON, correspond à une fois par heure.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image5.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Créer une fonction déclenchée par le stockage Blob
 
@@ -178,7 +178,7 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
 
 2.  Dans la zone de recherche, saisissez `blob`, puis sélectionnez la langue souhaitée pour le modèle de **déclencheur d’objet Blob**.
 
-  ![Sélectionnez le modèle déclencheur de stockage d’objets blob.](media\azure-stack-solution-staged-data-analytics\image10.png)
+  ![Sélectionnez le modèle déclencheur de stockage d’objets blob.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
 3.  Utilisez les paramètres spécifiés dans le tableau ci-dessous :
 
@@ -190,7 +190,7 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
 
     **Exemple :**
 
-    ![Création de la fonction déclenchée par le stockage Blob.](media\azure-stack-solution-staged-data-analytics\image11.png)
+    ![Création de la fonction déclenchée par le stockage Blob.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
 4.  Sélectionnez **Créer** pour créer la fonction.
 
@@ -202,7 +202,7 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
 
 3.  Développez le compte de stockage, les **conteneurs d’objets blob** et l’objet blob que vous avez créé précédemment. Sélectionnez **Charger**, puis **Charger des fichiers**.
 
-    ![Chargement d’un fichier dans le conteneur d’objets blob.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Chargement d’un fichier dans le conteneur d’objets blob.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  Dans la boîte de dialogue Charger des fichiers, cliquez sur le champ Fichiers. Accédez à un fichier sur un ordinateur local, par exemple un fichier image, sélectionnez-le, puis sélectionnez **Ouvrir** et **Charger**.
 
@@ -210,7 +210,7 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
 
     **Exemple :**
 
-    ![Affichage du message dans les journaux.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Affichage du message dans les journaux.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>Création d’un compte de stockage Azure Stack
 
@@ -232,9 +232,9 @@ Utilisez les étapes et paramètres ci-dessus pour créer un autre compte de sto
 
 4.  Sélectionnez **OK**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image14.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image15.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>Créer une fonction déclenchée par une file d’attente
 
@@ -258,7 +258,7 @@ Utilisez les étapes et paramètres ci-dessus pour créer un autre compte de sto
 
 3.  Développez le compte de stockage, les **conteneurs d’objets blob** et l’objet blob que vous avez créé précédemment. Sélectionnez **Charger**, puis **Charger des fichiers**.
 
-    ![Chargement d’un fichier dans le conteneur d’objets blob.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Chargement d’un fichier dans le conteneur d’objets blob.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  Dans la boîte de dialogue Charger des fichiers, cliquez sur le champ Fichiers. Accédez à un fichier sur un ordinateur local, par exemple un fichier image, sélectionnez-le, puis sélectionnez **Ouvrir** et **Charger**.
 
@@ -266,7 +266,7 @@ Utilisez les étapes et paramètres ci-dessus pour créer un autre compte de sto
 
   **Exemple :**
 
-    ![Affichage du message dans les journaux.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Affichage du message dans les journaux.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Données conformes stockées et accessibles en toute sécurité
 

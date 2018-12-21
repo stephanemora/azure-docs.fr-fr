@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Translittérer du texte, Python – API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Translittérer du texte, Python – API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous allez apprendre à translittérer (convertir) le texte d’un script dans un autre à l’aide de Python et de l’API de traduction de texte Translator Text. Dans cet exemple, le japonais est translittéré pour utiliser l’alphabet latin.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 24887e39b98c41cbafbe962cb81391571d8b86b9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4f6418602fcf1de6ea98c45635029f71aa6fdf06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247876"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999284"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour translittérer du texte à l’aide de Python
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Démarrage rapide : Utiliser l'API de traduction de texte Translator Text pour translittérer du texte à l'aide de Python
 
 Dans ce démarrage rapide, vous allez apprendre à translittérer (convertir) le texte d’un script dans un autre à l’aide de Python et de l’API de traduction de texte Translator Text. Dans l’exemple fourni, le japonais est translittéré pour utiliser l’alphabet latin.
 
@@ -64,12 +64,12 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Il y existe actuellement un point de terminaison disponible pour Translator Text, et il est défini comme des `base_url`. `path` définit le chemin des `transliterate` et reconnaît que nous souhaitons atteindre la version 3 de l’API.
+Il y existe actuellement un point de terminaison disponible pour Translator Text, et il est défini comme des `base_url`. `path` définit le chemin des `transliterate` et reconnait que nous souhaitons atteindre la version 3 de l’API.
 
 Les `params` sont utilisés pour définir la langue d’entrée, ainsi que les scripts d’entrée et de sortie. Dans cet exemple, nous allons translittérer le japonais pour utiliser l’alphabet latin.
 
 >[!NOTE]
-> Pour plus d’informations concernant les points de terminaison, les itinéraires et les paramètres de la requête, consultez [API Translator Text 3.0 : Translittérer](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Pour plus d'informations sur les points de terminaison, les itinéraires et les paramètres de requête, consultez [API de traduction de texte Translator Text 3.0 : Translittérer](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -151,9 +151,9 @@ Si vous avez codé en dur votre clé d’abonnement dans votre programme, veille
 
 ## <a name="see-also"></a>Voir aussi
 
-En plus de la translittération de texte, découvrez comment utiliser l’API de traduction de texte Translator Text pour :
+Apprenez à utiliser l'API de traduction de texte Translator Text pour :
 
-* [Traduire du texte](quickstart-python-translate.md)
+* [Traduire le texte](quickstart-python-translate.md)
 * [Identifier la langue par entrée](quickstart-python-detect.md)
 * [Obtenir des traductions alternatives](quickstart-python-dictionary.md)
 * [Obtenir une liste des langues prises en charge](quickstart-python-languages.md)

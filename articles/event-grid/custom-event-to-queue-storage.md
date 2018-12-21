@@ -1,21 +1,22 @@
 ---
-title: Envoyer des événements personnalisés pour Azure Event Grid vers la file d’attente de stockage | Microsoft Docs
+title: Envoyer des événements personnalisés à une file d’attente de stockage - Event Grid, Azure CLI
 description: Utilisez Azure Event Grid et Azure CLI pour publier une rubrique et pour vous abonner à cet événement. Une file d’attente de stockage est utilisée pour le point de terminaison.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: c9b5e33f7994209bf1530200cf14d812fa1cf67d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.custom: seodec18
+ms.openlocfilehash: 065ace2f34f95cf0813f0088a188c7fdb1d66d2e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299144"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093962"
 ---
-# <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Acheminer des événements personnalisés vers le Stockage File d’attente Azure avec Azure CLI et Event Grid
+# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Démarrage rapide : Acheminer des événements personnalisés vers le Stockage File d’attente Azure avec Azure CLI et Event Grid
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Le Stockage File d’attente Azure est l’un des gestionnaires d’événements pris en charge. Dans cet article, vous utilisez l’interface de ligne de commande Azure pour créer une rubrique personnalisée, vous abonner à cette rubrique personnalisée et déclencher l’événement pour afficher le résultat. Vous envoyez les événements vers le Stockage File d’attente.
 

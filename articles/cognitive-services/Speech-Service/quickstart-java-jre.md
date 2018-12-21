@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale dans Java (Windows ou Linux)'
+title: 'Démarrage rapide : Reconnaissance vocale, Java - services Services'
 titleSuffix: Azure Cognitive Services
 description: Découvrir comment fonctionne la reconnaissance vocale dans Java (Windows ou Linux)
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467257"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103113"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Démarrage rapide : Reconnaissance vocale dans Java sur Windows ou Linux avec le kit SDK du service Speech
 
@@ -74,7 +74,7 @@ Si vous utilisez Ubuntu 16.04, avant de démarrer Eclipse, exécutez les comman
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Ajoutez également un élément `dependencies` avec le Kit de développement logiciel (SDK) Speech version 1.0.1 en tant que dépendance :
+  * Ajoutez également un élément `dependencies` avec le Kit de développement logiciel (SDK) Speech version 1.1.0 en tant que dépendance :
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

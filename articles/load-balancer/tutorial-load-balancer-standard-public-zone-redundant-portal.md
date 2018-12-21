@@ -1,14 +1,11 @@
 ---
-title: 'Didacticiel : Équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure | Microsoft Docs'
+title: 'Tutoriel : Équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure'
+titlesuffix: Azure Load Balancer
 description: Ce didacticiel montre comment créer un équilibreur de charge standard avec frontend redondant interzone pour équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.custom: seodec18
+ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304458"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255328"
 ---
-# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Didacticiel : Équilibrer la charge des machines virtuelles entre des zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge des machines virtuelles sur les zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Ce didacticiel détaille les étapes à suivre pour créer un équilibreur de charge standard public qui équilibre la charge des machines virtuelles entre des zones de disponibilité. Vous pouvez ainsi protéger vos applications et vos données dans l’éventualité peu probable d’une défaillance ou d’une perte d’un centre de données entier. Avec la redondance dans une zone, une ou plusieurs zones de disponibilité peuvent échouer sans empêcher le chemin de données de survivre tant qu’une zone de la région reste intègre. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -179,7 +176,7 @@ Pour distribuer le trafic vers les machines virtuelles, un pool d’adresses pri
 4. Cliquez sur **Ajouter une nouvelle ressource principal** pour ajouter chaque machine virtuelle (*myVM2* et *myVM3*) au pool de principal de l’équilibreur de charge.
 5. Cliquez sur **Add**.
 
-    ![Ajout au pool d’adresses principal - ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![Ajout au pool d’adresses principal - ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. Vérifiez que le paramètre du pool principal de l’équilibreur de charge affiche les trois machines virtuelles : **myVM1**, **myVM2** et **myVM3**.
 
@@ -197,7 +194,7 @@ Pour permettre à l’équilibrage de charge de surveiller l’état de votre ap
     - *2* : pour le nombre de **seuils de défaillance** ou d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
 4. Cliquez sur **OK**.
 
-   ![Ajout d'une sonde](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
+   ![Ajout d’une sonde](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
@@ -231,4 +228,4 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’éq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur l’[équilibreur de charge standard](load-balancer-standard-overview.md).
+En savoir plus sur la [l’équilibreur de charge standard](load-balancer-standard-overview.md).

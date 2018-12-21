@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 342fdce9a0e9b47380a8d8c975703ebb7f57e3b6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087127"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965545"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données SQL Azure vers un stockage Blob Azure. 
@@ -43,7 +43,7 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 ## <a name="overview"></a>Vue d’ensemble
 Voici le diagramme général de la solution : 
 
-![Chargement incrémentiel de données](media\tutorial-Incremental-copy-portal\incrementally-load.png)
+![Chargement incrémentiel de données](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
 Voici les étapes importantes à suivre pour créer cette solution : 
 
@@ -172,7 +172,7 @@ END
 5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 6. Sélectionnez **Épingler au tableau de bord**.     
 7. Cliquez sur **Créer**.      
-8. Sur le tableau de bord, vous voyez la mosaïque suivante avec l’état : **Déploiement de fabrique de données**. 
+8. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
 
     ![mosaïque déploiement de fabrique de données](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.

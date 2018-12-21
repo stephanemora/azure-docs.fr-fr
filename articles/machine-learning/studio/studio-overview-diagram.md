@@ -4,10 +4,9 @@ description: Diagramme imprimable des fonctionnalités d’Azure Machine Learnin
 keywords: machine learning studio,diagramme de vue d’ensemble,télécharger
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
-ms.author: amlstudiodocs
-manager: mwinkle
+author: garyericson
+ms.custom: previous-ms.author=haining, previous-author=hning86
+ms.author: garye
 editor: cgronlun
 ms.assetid: 5b302c6c-41fd-4551-a4ae-0f5b450e1e6b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: d972cc9f162e16d5b688919dcdb5b7b06ad90736
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ce842d11d47529eca2be894a230b60417cea102f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312461"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278013"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio
 Le diagramme **Vue d’ensemble des capacités de Microsoft Azure Machine Learning Studio** offre une vue générale des possibilités de Machine Learning Studio pour développer un modèle d’analyse prédictive et l’utiliser dans le cloud Azure.
@@ -40,9 +39,9 @@ Ce diagramme montre l’imbrication de tous ces éléments.
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Téléchargez le diagramme de vue d’ensemble de Machine Learning Studio
 Téléchargez le diagramme **Vue d’ensemble des capacités de Microsoft Azure Machine Learning Studio** et obtenez une vue d’ensemble des fonctionnalités de Machine Learning Studio. Imprimez le diagramme au format tabloïd (11 x 17 pouces) pour le conserver à portée de main.
 
-**Téléchargez le diagramme ici : [Vue d’ensemble des fonctionnalités de Microsoft Azure Machine Learning Studio](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**Téléchargez le diagramme ici : [Vue d’ensemble des fonctionnalités de Microsoft Azure Machine Learning Studio](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 
-![Vue d’ensemble des capacités de Microsoft Azure Machine Learning Studio][studio-overview]
+![Microsoft Azure Machine Learning Studio : de quoi s’agit-il ?][studio-overview]
 
 [studio-overview]: ./media/studio-overview-diagram/ml_studio_overview_v1.1.png
 
@@ -52,5 +51,5 @@ Téléchargez le diagramme **Vue d’ensemble des capacités de Microsoft Azure 
 * Pour une vue d’ensemble de Machine Learning Studio, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](what-is-ml-studio.md).
 * Pour consulter une présentation détaillée des algorithmes d’apprentissage automatique disponibles dans Machine Learning Studio, consultez [Comment choisir les algorithmes dans Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

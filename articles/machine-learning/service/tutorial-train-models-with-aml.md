@@ -1,6 +1,7 @@
 ---
-title: 'Didacticiel : Entraîner un modèle de classification d’images avec le service Azure Machine Learning'
-description: Ce tutoriel montre comment utiliser Azure Machine Learning service pour entraîner un modèle de classification d’images avec scikit-learn dans un notebook Jupyter Python. Ce tutoriel est le premier d’une série de deux.
+title: 'Tutoriel sur la classification d’images : Entraîner des modèles'
+titleSuffix: Azure Machine Learning service
+description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour effectuer l’apprentissage d’un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le premier d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +10,17 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879483"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310111"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Didacticiel n° 1 : Entraîner un modèle de classification d’images avec le service Azure Machine Learning
+# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutoriel : Effectuer l’apprentissage d’un modèle de classification d’images avec Azure Machine Learning service
 
-Dans ce tutoriel, vous allez entraîner un modèle Machine Learning à la fois localement et sur des ressources de calcul distantes. Vous utiliserez le workflow de déploiement et d’entraînement pour Azure Machine Learning service dans un notebook Jupyter Python.  Vous pourrez ensuite utiliser le notebook en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
+Dans ce tutoriel, vous allez entraîner un modèle Machine Learning à la fois localement et sur des ressources de calcul distantes. Vous utiliserez le workflow de déploiement et d’entraînement pour le service Azure Machine Learning dans un bloc-notes Jupyter Python.  Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
 
 Ce didacticiel entraîne une régression logistique simple à l’aide du jeu de données [MNIST](https://yann.lecun.com/exdb/mnist/) et de [scikit-learn](https://scikit-learn.org) avec le service Azure Machine Learning.  MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28x28 pixels, représentant un nombre de 0 à 9. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée. 
 
@@ -33,21 +35,21 @@ Découvrez comment :
 
 Vous découvrirez comment sélectionner un modèle et le déployer dans la [deuxième partie de ce tutoriel](tutorial-deploy-models-with-aml.md). 
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree) dès aujourd’hui.
 
 >[!NOTE]
-> Le code présenté dans cet article a été testé avec le SDK Azure Machine Learning version 1.0.2
+> Le code présenté dans cet article a été testé avec le kit SDK Azure Machine Learning version 1.0.2
 
-## <a name="get-the-notebook"></a>Obtenir le notebook
+## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
-Pour des raisons pratiques, ce tutoriel est disponible en tant que [notebook Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Exécutez le notebook `tutorials/img-classification-part1-training.ipynb` dans Azure Notebooks ou dans votre propre serveur de notebooks Jupyter.
+Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-notes Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Exécutez le bloc-notes `tutorials/img-classification-part1-training.ipynb` dans des Azure Notebooks ou dans votre propre serveur de bloc-notes Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 
 ## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
 
-Toute la configuration pour votre travail de développement peut être effectuée dans un notebook Python.  La configuration comprend les tâches suivantes :
+Toute la configuration pour votre travail de développement peut être effectuée dans un bloc-notes Python.  La configuration comprend les tâches suivantes :
 
 * Importation des packages Python
 * Connexion à un espace de travail pour permettre la communication entre votre ordinateur local et les ressources distantes
@@ -168,7 +170,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>Afficher des exemples d’images
 
-Chargez les fichiers compressés dans des tableaux `numpy`. Utilisez ensuite `matplotlib` pour tracer 30 images aléatoires du jeu de données avec leurs étiquettes au-dessus. Cette étape nécessite une fonction `load_data` qui est incluse dans un fichier `util.py`. Ce fichier est inclus dans l’exemple de dossier. Vérifiez qu’il se trouve dans le même dossier que ce notebook. La fonction `load_data` analyse les fichiers compressés dans des tableaux Numpy.
+Chargez les fichiers compressés dans des tableaux `numpy`. Utilisez ensuite `matplotlib` pour tracer 30 images aléatoires du jeu de données avec leurs étiquettes au-dessus. Cette étape nécessite une fonction `load_data` qui est incluse dans un fichier `util.py`. Ce fichier est inclus dans l’exemple de dossier. Vérifiez qu’il se trouve dans le même dossier que ce bloc-notes. La fonction `load_data` analyse les fichiers compressés dans des tableaux Numpy.
 
 
 
@@ -382,15 +384,15 @@ Au total, la première exécution prend **environ 10 minutes**. Mais pour les e
 
 Voici ce qui se passe pendant que vous attendez :
 
-- **Création d’image** : une image Docker correspondant à l’environnement Python spécifié par l’estimateur est créée. L’image est chargée dans l’espace de travail. La création et le chargement de l’image prennent **environ cinq minutes**. 
+- **Création d’images** : une image Docker correspondant à l’environnement Python spécifié par l’estimateur est créée. L’image est chargée dans l’espace de travail. La création et le chargement de l’image prennent **environ cinq minutes**. 
 
   Cette étape se produit une fois pour chaque environnement Python, puisque le conteneur est mis en cache pour les exécutions suivantes.  Lors de la création d’image, les journaux sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de la création d’image à l’aide de ces journaux.
 
 - **Mise à l’échelle** : si le cluster distant nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement, des nœuds supplémentaires sont ajoutés automatiquement. En général, la mise à l’échelle prend **environ cinq minutes.**
 
-- **Exécution** : durant cette étape, les fichiers et les scripts nécessaires sont envoyés à la cible de calcul, les banques de données sont montées/copiées, puis entry_script est exécuté. Pendant que le travail s’exécute, stdout et le répertoire ./logs sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de l’exécution à l’aide de ces journaux.
+- **Exécution** : durant cette étape, les fichiers et les scripts nécessaires sont envoyés à la cible de calcul, les banques de données sont montées/copiées, puis entry_script est exécuté. Pendant que le travail s’exécute, stdout et le répertoire ./logs sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de l’exécution à l’aide de ces journaux.
 
-- **Post-traitement** : le répertoire ./outputs de l’exécution est copié dans l’historique d’exécutions dans votre espace de travail afin que vous puissiez accéder à ces résultats.
+- **Post-traitement** : le répertoire ./outputs de l’exécution est copié dans l’historique des exécutions de votre espace de travail, afin que vous puissiez accéder à ces résultats.
 
 
 Vous pouvez vérifier la progression d’un travail en cours d’exécution de plusieurs façons. Ce tutoriel utilise un widget Jupyter ainsi qu’une méthode `wait_for_completion`. 
@@ -407,7 +409,7 @@ RunDetails(run).show()
 
 Voici un instantané du widget fourni à la fin de l’entraînement :
 
-![widget de notebook](./media/tutorial-train-models-with-aml/widget.png)
+![widget de bloc-notes](./media/tutorial-train-models-with-aml/widget.png)
 
 ### <a name="get-log-results-upon-completion"></a>Obtenir des résultats du journal lors de l’achèvement
 
@@ -466,7 +468,7 @@ compute_target.delete()
 Dans ce didacticiel sur le service Azure Machine Learning, vous avez utilisé Python pour :
 
 > [!div class="checklist"]
-> * Configurer votre environnement de développement
+> * Configuration de l'environnement de développement
 > * Accéder aux données et les examiner.
 > * Entraîner une régression logistique simple localement à l’aide de la bibliothèque de machine learning populaire scikit-learn.
 > * Entraîner plusieurs modèles sur un cluster distant.

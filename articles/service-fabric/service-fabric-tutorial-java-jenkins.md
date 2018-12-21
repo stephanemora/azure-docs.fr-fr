@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124978"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162220"
 ---
-# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutoriel : Configurer un environnement Jenkins pour activer l’intégration/le déploiement continus pour une application Java sur Service Fabric
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Didacticiel : Configurer un environnement Jenkins pour activer l’intégration/le déploiement continus (CI/CD) pour une application Java sur Service Fabric
 
-Ce tutoriel est la cinquième partie de la série. Il vous explique comment utiliser Jenkins pour déployer des mises à niveau pour votre application. Dans ce didacticiel, le plug-in Jenkins Service Fabric est utilisé en association avec un référentiel Github hébergeant l’application Voting pour déployer l’application vers un cluster.
+Ce tutoriel est la cinquième partie de la série. Il vous explique comment utiliser Jenkins pour déployer des mises à niveau pour votre application. Dans ce didacticiel, le plug-in Jenkins Service Fabric est utilisé en association avec un référentiel GitHub hébergeant l’application Voting pour déployer l’application vers un cluster.
 
 Dans ce cinquième volet, vous apprenez à :
 > [!div class="checklist"]
@@ -84,7 +84,7 @@ Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Ser
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Créer et configurer un travail Jenkins
 
-1. Tout d’abord, si vous n’avez pas de référentiel pour héberger le projet Voting sur Github, créez-en un. Le référentiel est appelé **dev_test** pour le reste de ce tutoriel.
+1. Tout d’abord, si vous n’avez pas de référentiel pour héberger le projet Voting sur GitHub, créez-en un. Le référentiel est appelé **dev_test** pour le reste de ce tutoriel.
 
 1. Créez un **élément** sur votre tableau de bord Jenkins à l’emplacement ``http://<HOST-IP>:8080``.
 
@@ -181,7 +181,7 @@ Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Ser
     </CodePackage>
     ```
 
-1. Pour initialiser un travail Jenkins qui effectue une mise à niveau de l’application, envoyez (par push) vos nouvelles modifications à votre référentiel Github.
+1. Pour initialiser un travail Jenkins qui effectue une mise à niveau de l’application, envoyez (par push) vos nouvelles modifications à votre référentiel GitHub.
 
 1. Dans Service Fabric Explorer, cliquez sur la liste déroulante **Applications**. Pour afficher l’état de votre mise à niveau, cliquez sur l’onglet **Upgrades in Progress** (Mises à niveau en cours).
 

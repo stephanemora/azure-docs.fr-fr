@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide pour afficher les membres et groupes de votre organisation dans Azure Active Directory | Microsoft Docs
-description: Démarrage rapide avec la procédure permettant de rechercher et d’afficher les groupes et membres assignés de votre organisation à l’aide du Portail Azure.
+title: Démarrage rapide pour afficher les membres et groupes de votre organisation - Azure Active Directory | Microsoft Docs
+description: Instructions permettant de rechercher et d’afficher les groupes et membres assignés de votre organisation.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,18 +10,18 @@ ms.component: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 9da9f055163f5df4ea064bd46caa811e39fba20c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 002b4bb4ab20e531132b461f90857cfab6aecfd3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056401"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087471"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Démarrage rapide : Afficher les membres et groupes de votre organisation dans Azure Active Directory
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Démarrage rapide : Afficher les membres et groupes de votre organisation dans Azure Active Directory
 Vous pouvez afficher les groupes et les membres de groupes existants de votre organisation à l’aide du Portail Azure. Les groupes sont utilisés pour gérer des utilisateurs (membres) qui ont tous besoin des mêmes accès et autorisations pour les services et applications potentiellement limités.
 
 Dans ce démarrage rapide, vous allez afficher tous les groupes existants de votre organisation, ainsi que les membres assignés.
@@ -43,11 +43,11 @@ Créez un groupe nommé _MDM policy - West_ (Stratégie GPM - Ouest). Pour plus 
 
 2. Renseignez la page **Groupe** :
     
-    - **Type de groupe :** sélectionnez **Sécurité**
+    - **Type du groupe :** Sélectionnez **Sécurité**
     
-    - **Nom du groupe :** saisissez _MDM policy - West_ (Stratégie GPM - Ouest)
+    - **Nom du groupe :** Tapez _MDM policy - West_ (Stratégie GPM - Ouest)
     
-    - **Type d’appartenance :** sélectionnez **Affecté**.
+    - **Type d’appartenance :** Sélectionnez **Assigné**.
 
 3. Sélectionnez **Créer**.
 
@@ -58,9 +58,9 @@ Créez un utilisateur nommé _Alain Charon_. Un utilisateur doit exister avant d
 
 2. Renseignez la page **Utilisateur** :
 
-    - **Nom :** saisissez _Alain Charon_.
+    - **Nom :** Tapez _Alain Charon_.
 
-    - **Nom d’utilisateur :** saisissez *alain@contoso.com*.
+    - **Nom d’utilisateur :** Tapez *alain@contoso.com*.
 
 3. Copiez le mot de passe généré automatiquement fourni dans le champ **Mot de passe**, puis sélectionnez **Créer**.
 

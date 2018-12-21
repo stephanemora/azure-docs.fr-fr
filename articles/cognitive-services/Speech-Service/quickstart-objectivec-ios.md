@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale dans Objective-C sur iOS à l’aide du SDK Speech Service'
+title: 'Démarrage rapide : Reconnaissance vocale, Objective-C - Services de reconnaissance vocale'
 titleSuffix: Azure Cognitive Services
 description: Découvrez la reconnaissance vocale dans Objective-C sur iOS à l’aide du SDK Speech Service
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 7d1e05e13e55b8b7bc07eda71d63f96f12c81ff9
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219186"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090198"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Démarrage rapide : Reconnaissance vocale dans Objective-C sur iOS à l’aide du SDK Speech Service
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Démarrage rapide : Reconnaissance vocale dans Objective-C sur iOS avec le kit SDK de reconnaissance vocale
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -25,8 +25,11 @@ Dans cet article, vous allez découvrir comment créer une application iOS en Ob
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Clé d’abonnement pour le service Speech. Consultez l’article [Essayez le service Speech gratuitement](get-started.md).
-* Un Mac avec Xcode 9.4.1 installé en tant qu’environnement de développement iOS. Ce tutoriel cible iOS versions 11.4. Si vous n’avez pas encore Xcode, vous pouvez l’installer à partir de l’[App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
+Avant de commencer, voici une liste de prérequis :
+
+* [Clé d’abonnement](get-started.md) pour le service de reconnaissance vocale
+* Ordinateur macOS avec [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou version ultérieure
+* Cible définie sur iOS version 11.4 ou ultérieure
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obtenir le SDK Speech pour iOS
 
@@ -37,7 +40,7 @@ La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `
 Le SDK Speech Cognitive Services pour Mac et iOS est actuellement distribué sous forme de framework Cocoa.
 Vous pouvez le télécharger à l’adresse suivante : https://aka.ms/csspeech/iosbinary. Téléchargez le fichier dans votre répertoire de base.
 
-## <a name="create-an-xcode-project"></a>Créer un projet Xcode 
+## <a name="create-an-xcode-project"></a>Créer un projet Xcode
 
 Démarrez Xcode et démarrez un nouveau projet en cliquant sur **File** > **New** > **Project** (Fichier->Nouveau->Projet).
 Dans la boîte de dialogue de sélection de modèle, choisissez le modèle « iOS Single View App ».
@@ -54,7 +57,7 @@ Dans les boîtes de dialogue qui suivent, effectuez les sélections suivantes :
     1. Choisissez votre répertoire de base pour y placer le projet. Cela crée un répertoire `helloworld` dans votre répertoire de base, où sont stockés tous les fichiers du projet Xcode.
     1. Désactivez la création d’un dépôt Git pour cet exemple de projet.
     1. Ajustez les chemins du SDK dans les *paramètres du projet*.
-        1. Sous l’onglet **General**, sous l’en-tête **Embedded Binaries** (Binaires incorporés), ajoutez la bibliothèque du SDK en tant que framework : **Add embedded binaries (Ajouter des binaires incorporés)** > **Add other... (Ajouter autres)** > Accédez à votre répertoire de base et choisissez le fichier `MicrosoftCognitiveServicesSpeech.framework`. Cela ajoutera aussi automatiquement la bibliothèque du SDK à l’en-tête **Linked Framework and Libraries** (Bibliothèques et framework liés).
+        1. Sous l’onglet **Général** sous l’en-tête **Embedded Binaries** (Binaires incorporés), ajoutez la bibliothèque du SDK comme framework : **Add embedded binaries** > **Add other...** (Ajouter des binaires incorporés > Ajouter un autre) > Accédez à votre répertoire de base et choisissez le fichier `MicrosoftCognitiveServicesSpeech.framework`. Cela ajoutera aussi automatiquement la bibliothèque du SDK à l’en-tête **Linked Framework and Libraries** (Bibliothèques et framework liés).
         ![Framework ajouté](media/sdk/qs-objectivec-framework.png)
         1. Accédez à l’onglet **Build Settings** (paramètres de Build) et activez tous les paramètres (**All**).
         1. Ajoutez le répertoire `$(SRCROOT)/..` aux chemins de recherche de framework (*Framework Search Paths*) sous l’en-tête **Search Paths** (chemins de recherche).
@@ -103,4 +106,3 @@ Recherchez cet exemple dans le dossier `quickstart/objectivec-ios`.
 
 > [!div class="nextstepaction"]
 > [Découvrez nos exemples](speech-sdk.md#get-the-samples)
-

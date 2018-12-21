@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: f06094fb82f10276f7a41d1b22f6dd99836a497f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095508"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957263"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications 
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  
@@ -171,7 +171,7 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 6. Sélectionnez **Épingler au tableau de bord**.     
 7. Cliquez sur **Créer**.      
-8. Sur le tableau de bord, vous voyez la mosaïque suivante avec l’état : **Déploiement de fabrique de données**. 
+8. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
 
     ![mosaïque déploiement de fabrique de données](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
@@ -322,7 +322,7 @@ Cliquez sur **Déclencher** dans la barre d’outils du pipeline, puis cliquez s
 ### <a name="review-the-results"></a>Passer en revue les résultats.
 Vous voyez un fichier nommé `incremental-<GUID>.txt` dans le dossier `incchgtracking` du conteneur `adftutorial`. 
 
-![Fichier de sortie d’une copie complète](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![Fichier de sortie d’une copie complète](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 Le fichier doit contenir les données de la base de données Azure SQL :
 
@@ -445,7 +445,7 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
 ### <a name="review-the-results"></a>Passer en revue les résultats.
 Vous voyez le second fichier dans le dossier `incchgtracking` du conteneur `adftutorial`. 
 
-![Fichier de sortie de la copie incrémentielle](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![Fichier de sortie de la copie incrémentielle](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 Le fichier ne doit contenir que les données delta de la base de données Azure SQL. L’enregistrement avec `U` correspond à la ligne mise à jour dans la base de données et `I` à la ligne ajoutée. 
 
@@ -453,7 +453,7 @@ Le fichier ne doit contenir que les données delta de la base de données Azure�
 1,update,10,2,U
 6,new,50,1,I
 ```
-Les trois premières colonnes correspondent aux données modifiées de data_source_table. Les deux dernières colonnes correspondent aux métadonnées de la table système de suivi des modifications. La quatrième colonne correspond à SYS_CHANGE_VERSION de chaque ligne modifiée. La cinquième colonne correspond à l’opération : U = mise à jour, I = insertion.  Pour plus d’informations sur le suivi des modifications, consultez [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+Les trois premières colonnes correspondent aux données modifiées de data_source_table. Les deux dernières colonnes correspondent aux métadonnées de la table système de suivi des modifications. La quatrième colonne correspond à SYS_CHANGE_VERSION de chaque ligne modifiée. La cinquième colonne correspond à l’opération :  U = mise à jour, I = insertion.  Pour plus d’informations sur le suivi des modifications, consultez [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================

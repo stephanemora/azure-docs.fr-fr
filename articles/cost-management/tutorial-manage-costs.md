@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7d319c82da09ec5c960e1f40bc26edce8ee372b9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274421"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083561"
 ---
-# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutoriel : Gérer les coûts à l’aide de Cloudyn
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutoriel : Gérer les coûts à l’aide de Cloudyn
 
 Vous gérez les coûts et générez des rapports de récupération des données de facturation dans Cloudyn en allouant les coûts en fonction des étiquettes. Le processus d’allocation des coûts affecte des coûts à vos ressources cloud consommées. Les coûts sont entièrement alloués quand toutes les ressources sont classées avec des balises. Une fois les coûts alloués, vous pouvez fournir à vos utilisateurs des informations de récupération des données de facturation ou de facturation interne sous la forme de rapports et de tableaux de bord. Toutefois, il arrive que de nombreuses ressources ne soient pas étiquetées ou étiquetables quand vous commencez à utiliser Cloudyn.
 
@@ -53,13 +53,11 @@ Quand vous démarrez l’allocation des coûts, vous devez commencer par défini
 
 Pour créer un modèle d’affectation des coûts personnalisé, sélectionnez **Costs** (Coûts) &gt; **Cost Management** (Gestion des coûts) &gt; **Cost Allocation 360°** (Affectation des coûts 360°) dans le menu du rapport.
 
-![Sélection de l’option Cost Allocation 360°(Allocation des coûts 360°)](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Exemple illustrant un tableau de bord dans lequel vous sélectionnez Cost Allocation 360 (Allocation des coûts 360)](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 Dans la page **Cost Allocation 360** (Allocation des coûts 360), sélectionnez **Add** (Ajouter), puis entrez un nom et une description pour votre modèle de coût. Sélectionnez tous les comptes ou des comptes individuels. Si vous souhaitez utiliser des comptes individuels, vous pouvez sélectionner plusieurs comptes à partir de plusieurs fournisseurs de services cloud. Ensuite, cliquez sur **Categorization** (Catégorisation) pour choisir les balises découvertes qui classent les données de coût. Choisissez les balises (catégories) que vous souhaitez inclure dans votre modèle. Dans l’exemple suivant, la balise **Unit** (Unité) est sélectionnée.
 
-![Exemple de catégorisation avec modèle de coût](./media/tutorial-manage-costs/cost-model01.png)
-
-
+![Exemple illustrant une catégorisation avec modèle de coût](./media/tutorial-manage-costs/cost-model01.png)
 
 L’exemple montre qu’un montant de 19 680 $ n’entre dans aucune des catégories (aucune balise spécifique associée).
 
@@ -97,7 +95,7 @@ Pour définir une nouvelle règle, dans la zone **Rules** (règles), créez une 
 
 L’image suivante montre un exemple de règles créées pour une nouvelle catégorie nommée **Work-Load** (Charge de travail) :
 
-![Exemple de catégorie](./media/tutorial-manage-costs/category01.png)
+![Exemple illustrant la nouvelle catégorie work-load (charge de travail)](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>Sources et rapports de balise
 
@@ -124,7 +122,7 @@ La méthode qu’utilisent les organisations pour effectuer des opérations de r
 
 Pour afficher les résultats de l’allocation des coûts, ouvrez le rapport d’analyse des coûts et sélectionnez le modèle de coût que vous avez créé. Ensuite, ajoutez un regroupement en fonction d’une ou de plusieurs balises sélectionnées dans le modèle de coût.
 
-![Rapport d’analyse des coûts](./media/tutorial-manage-costs/cost-analysis.png)
+![Rapport d’analyse des coûts illustrant un exemple de données issues du nouveau coût](./media/tutorial-manage-costs/cost-analysis.png)
 
 Vous pouvez facilement créer et enregistrer des rapports axés sur des services spécifiques utilisés par des groupes donnés. Par exemple, vous pouvez avoir un département qui utilise beaucoup les machines virtuelles Azure. Vous pouvez créer un rapport qui est filtré sur les machines virtuelles Azure pour afficher la consommation et les coûts.
 

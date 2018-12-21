@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : fonctions JavaScript définies par l’utilisateur Azure Stream Analytics | Microsoft Docs '
+title: 'Tutoriel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics | Microsoft Docs '
 description: Dans ce didacticiel, vous effectuez des requêtes avancées avec les fonctions JavaScript définies par l’utilisateur
 keywords: JavaScript, fonctions définies par l’utilisateur
 services: stream-analytics
@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: rodrigoa
-ms.openlocfilehash: 56ac08593d29a9003f5509f2be52f50fa250bd75
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431593"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088873"
 ---
-# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Didacticiel : fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutoriel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
  
 Azure Stream Analytics prend en charge les fonctions définies par l’utilisateur écrites en JavaScript. Avec le large éventail de méthodes **String**, **RegExp**, **Math**, **Array** et **Date** que fournit JavaScript, les transformations complexes de données des travaux Stream Analytics sont plus faciles à créer.
 
@@ -58,7 +58,7 @@ Pour créer une simple fonction JavaScript définie par l’utilisateur dans un 
 4.  Dans le panneau **Nouvelle fonction**, pour **Type de fonction**, sélectionnez **JavaScript**. Un modèle de fonction par défaut apparaît dans l’éditeur.
 5.  Pour l’**alias de fonction définie par l’utilisateur**, entrez **hex2Int**, puis modifiez l’implémentation de la fonction de la façon suivante :
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -73,7 +73,7 @@ Pour créer une simple fonction JavaScript définie par l’utilisateur dans un 
 1. Dans l’éditeur de requêtes, sous **TOPOLOGIE DE LA TÂCHE**, sélectionnez **Requête**.
 2.  Modifiez votre requête, puis appelez la fonction définie par l’utilisateur comme suit :
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ Si vous avez une étape de traitement de suivi qui prend la sortie du travail St
 
 **Définition de la fonction JavaScript définie par l’utilisateur :**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **Exemple de requête :**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

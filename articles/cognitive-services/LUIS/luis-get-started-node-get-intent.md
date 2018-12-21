@@ -1,23 +1,26 @@
 ---
-title: Démarrage rapide pour Node.js - Prédire une intention - LUIS
-titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. À l’aide de Node.js, envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique. Au niveau du point de terminaison, LUIS applique le modèle de l’application publique pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application.
+title: Obtenir l’intention, Node.js
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. À l’aide de Node.js, envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92e10b1f4ec8be1dc67ff449df32ef76e365b5f2
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038916"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162662"
 ---
-# <a name="quickstart-get-intent-using-nodejs"></a>Démarrage rapide : Reconnaître l’intention à l’aide de Node.js
+# <a name="quickstart-get-intent-using-nodejs"></a>Démarrage rapide : Obtenir l’intention à l’aide de Node.js
+
+Dans ce démarrage rapide, vous allez transmettre des énoncés à un point de terminaison LUIS et obtenir en retour une intention et des entités.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -31,7 +34,7 @@ ms.locfileid: "47038916"
 
 
 > [!NOTE] 
-> La solution Node.js complète est disponible dans le [**référentiel Github** LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node) (Exemples-LUIS).
+> La solution Node.js complète est disponible dans le référentiel GitHub [**LUIS-Samples**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
 
 ## <a name="get-luis-key"></a>Obtenir la clé LUIS
 

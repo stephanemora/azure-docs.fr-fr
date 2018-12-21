@@ -1,23 +1,24 @@
 ---
-title: 10 minutes pour votre première application LUIS
-titleSuffix: Azure Cognitive Services
+title: 'Démarrage rapide : Créer une application'
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Créez une application LUIS qui utilise le domaine prédéfini `HomeAutomation` pour allumer et éteindre des lumières et des appliances. Ce domaine prédéfini vous fournit les intentions, les entités et des exemples d’énoncés. À la fin du processus, vous disposerez d’un point de terminaison LUIS exécuté dans le cloud.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 657f5b6879f7782cbd94588657dc0082eff1f9c5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71f3084be697dd84f3f262d2a79cd04a0ba76d8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423328"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086808"
 ---
-# <a name="quickstart-use-prebuilt-home-automation-app"></a>Guide de démarrage rapide : Utiliser une application domotique prédéfinie
+# <a name="quickstart-use-prebuilt-home-automation-app"></a>Démarrage rapide : Utiliser une application domotique prédéfinie
 
 Dans ce guide de démarrage rapide, vous allez créer une application LUIS qui utilise le domaine prédéfini `HomeAutomation` pour allumer et éteindre des lumières et des appareils électriques. Ce domaine prédéfini vous fournit les intentions, les entités et des exemples d’énoncés. À la fin du processus, vous disposerez d’un point de terminaison LUIS exécuté dans le cloud.
 
@@ -32,11 +33,11 @@ Vous pouvez créer et gérer vos applications sur la page **Mes applications**.
 
 2. Sélectionnez **Créer une application**.
 
-    [![](media/luis-quickstart-new-app/app-list.png "Capture d’écran de la liste des applications")](media/luis-quickstart-new-app/app-list.png)
+    [![Capture d’écran de liste d’applications](media/luis-quickstart-new-app/app-list.png "Capture d’écran de liste d’applications")](media/luis-quickstart-new-app/app-list.png)
 
 3. Dans la boîte de dialogue, nommez votre application « HomeAutomation ».
 
-    [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Capture d’écran de la boîte de dialogue contextuelle Créer une application")](media/luis-quickstart-new-app/create-new-app-dialog.png)
+    [![Capture d’écran de la boîte de dialogue contextuelle Créer une application](media/luis-quickstart-new-app/create-new-app-dialog.png "Capture d’écran de la boîte de dialogue contextuelle Créer une application")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
 4. Choisissez la culture de votre application. Pour cette application HomeAutomation, sélectionnez Anglais. Ensuite, sélectionnez **Terminé**. LUIS crée l’application HomeAutomation. 
 
@@ -47,11 +48,11 @@ Vous pouvez créer et gérer vos applications sur la page **Mes applications**.
 
 Sélectionnez **Domaines prédéfinis** dans le volet de navigation de gauche. Lancez une recherche sur le terme « Home ». Sélectionnez **Ajouter un domaine**.
 
-[![](media/luis-quickstart-new-app/home-automation.png "Capture d’écran du domaine HomeAutomation affiché dans le menu de domaines prédéfinis")](media/luis-quickstart-new-app/home-automation.png)
+[![Capture d’écran du domaine de domotique appelé dans le menu de domaine prédéfini](media/luis-quickstart-new-app/home-automation.png "Capture d’écran du domaine de domotique appelé dans le menu de domaine prédéfini")](media/luis-quickstart-new-app/home-automation.png)
 
 Une fois le domaine ajouté, la zone de domaine prédéfini affiche un bouton **Supprimer le domaine**.
 
-[![](media/luis-quickstart-new-app/remove-domain.png "Capture d’écran du domaine HomeAutomation avec le bouton Supprimer")](media/luis-quickstart-new-app/remove-domain.png)
+[![Capture d’écran du domaine de domotique avec le bouton Supprimer](media/luis-quickstart-new-app/remove-domain.png "Capture d’écran du domaine de domotique avec le bouton Supprimer")](media/luis-quickstart-new-app/remove-domain.png)
 
 ## <a name="intents-and-entities"></a>Intentions et entités
 
@@ -62,7 +63,7 @@ Sélectionnez **Intentions** dans le volet de navigation de gauche pour afficher
 
 Sélectionnez l’intention **HomeAutomation.TurnOff**. Vous pouvez voir que l’intention contient une liste d’énoncés qui sont associés à des entités.
 
-[![](media/luis-quickstart-new-app/home-automation-turnon.png "Capture d’écran de l’intention HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![Capture d’écran de l’intention HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnon.png "Capture d’écran de l’intention HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 
@@ -79,7 +80,7 @@ Vérifiez que l’intention avec le score le plus élevé correspond à l’inte
 
 Dans cet exemple, « Éteindre les lumières » doit apparaître comme l’intention avec le score le plus élevé pour « HomeAutomation.TurnOff ».
 
-[![](media/luis-quickstart-new-app/test.png "Capture d’écran du panneau Test avec l’énoncé mis en surbrillance")](media/luis-quickstart-new-app/test.png)
+[![Capture d’écran du panneau Tester avec énoncé mis en surbrillance](media/luis-quickstart-new-app/test.png "Capture d’écran du panneau Tester avec énoncé mis en surbrillance")](media/luis-quickstart-new-app/test.png)
 
 
 Sélectionnez à nouveau **Tester** pour réduire le volet de test. 
@@ -96,7 +97,7 @@ Sélectionnez à nouveau **Tester** pour réduire le volet de test.
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, entrez `turn off the living room light`, puis appuyez sur Entrée. Le navigateur affiche la réponse JSON de votre point de terminaison HTTP.
 
-    [![](media/luis-quickstart-new-app/turn-off-living-room.png "Capture d’écran du navigateur avec le résultat JSON identifiant l’intention TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    [![Capture d’écran de navigateur avec résultat JSON indiquant la détection de l’intention TurnOff](media/luis-quickstart-new-app/turn-off-living-room.png "Capture d’écran de navigateur avec résultat JSON indiquant la détection de l’intention TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
     
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

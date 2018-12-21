@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 28884b9b7d29a3c8da1fee0f0b54269bdaadf926
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b8623acc9d29f083e34c7fa7494e866317146802
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427621"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252556"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Démarrage rapide : contrôler un appareil connecté à un hub IoT (Android)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Démarrage rapide : contrôler un appareil connecté à un hub IoT (Android)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -36,30 +36,30 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 
-* Android Studio à partir de https://developer.android.com/studio/. Pour plus d’informations sur l’installation d’Android Studio, consultez [android-installation](https://developer.android.com/studio/install). 
+* Android Studio à partir de https://developer.android.com/studio/. Pour plus d’informations sur l’installation d’Android Studio, consultez [android-installation](https://developer.android.com/studio/install).
 
-* Android SDK 27 est utilisé par l’exemple dans cet article. 
+* Android SDK 27 est utilisé par l’exemple dans cet article.
 
-* Deux exemples d’application sont requis par ce guide de démarrage rapide : l’[exemple d’application Android du kit SDK d’appareil](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) et l’[exemple d’application Android du kit SDK de service](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Ces deux exemples font partie du dépôt azure-iot-samples-java sur Github. Téléchargez ou clonez le dépôt [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+* Deux exemples d’applications sont requis pour ce guide de démarrage rapide : l’[exemple d’application Android du kit SDK d’appareil](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) et l’[exemple d’application Android du kit SDK de service](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Ces deux exemples font partie du dépôt azure-iot-samples-java sur GitHub. Téléchargez ou clonez le dépôt [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-Si vous avez terminé le précédent [Démarrage rapide : envoyer des données de télémétrie depuis un appareil à un hub IoT](quickstart-send-telemetry-android.md), vous pouvez ignorer cette étape et utiliser le hub IoT que vous avez déjà créé.
+Si vous avez terminé le précédent [Démarrage rapide : envoyer des données de télémétrie depuis un appareil à un hub IoT](quickstart-send-telemetry-android.md), vous pouvez ignorer cette étape et utiliser le hub IoT que vous avez déjà créé.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Inscrire un appareil
 
-Si vous avez terminé le précédent [Démarrage rapide : envoyer des données de télémétrie depuis un appareil à un hub IoT](quickstart-send-telemetry-android.md), vous pouvez ignorer cette étape et utiliser l’appareil inscrit dans le guide de démarrage rapide précédent.
+Si vous avez terminé le précédent [Démarrage rapide : envoyer des données de télémétrie depuis un appareil à un hub IoT](quickstart-send-telemetry-android.md), vous pouvez ignorer cette étape et utiliser l’appareil inscrit dans le guide de démarrage rapide précédent.
 
 Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dans ce démarrage rapide, vous utilisez Azure Cloud Shell pour inscrire un appareil simulé.
 
-1. Exécutez les commandes suivantes dans Azure Cloud Shell pour ajouter l’extension CLI IoT Hub et créer l’identité d’appareil. 
+1. Exécutez les commandes suivantes dans Azure Cloud Shell pour ajouter l’extension CLI IoT Hub et créer l’identité d’appareil.
 
-   **YourIoTHubName** : remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
-   **MyAndroidDevice**: cette valeur correspond au nom donné à l’appareil inscrit. Utilisez MyAndroidDevice comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous pouvez également être amené à utiliser ce nom pour l’ensemble de cet article et à mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
+   **MyAndroidDevice** : cette valeur correspond au nom donné à l’appareil inscrit. Utilisez MyAndroidDevice comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous pouvez également être amené à utiliser ce nom pour l’ensemble de cet article et à mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -69,7 +69,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 2. Exécutez les commandes suivantes dans Azure Cloud Shell pour obtenir la _chaîne de connexion_ à l’appareil que vous venez d’inscrire :
 
-   **YourIoTHubName**: remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -87,8 +87,8 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 ## <a name="retrieve-the-service-connection-string"></a>Récupérer la chaîne de connexion de service
 
 Vous avez également besoin d’une _chaîne de connexion de service_ pour permettre aux applications de service back-end de se connecter à votre hub IoT afin d’exécuter les méthodes et de récupérer les messages. La commande suivante récupère la chaîne de connexion de service correspondant à votre hub IoT :
-   
-**YourIoTHubName** : remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+
+**YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIoTHubName --output table
@@ -104,7 +104,7 @@ Vous utiliserez cette valeur plus loin dans ce démarrage rapide. La chaîne de 
 
 L’exemple d’application de kit SDK d’appareil peut être exécuté sur un appareil Android physique ou sur un émulateur Android. Cet exemple se connecte à un point de terminaison spécifique de l’appareil sur votre hub IoT, envoie les données de télémétrie simulée et écoute les appels de méthode directe provenant de votre hub. Dans ce démarrage rapide, l’appel de méthode directe à partir du concentrateur indique à l’appareil de modifier la fréquence à laquelle il envoie des données de télémétrie. L’appareil simulé renvoie un accusé de réception à votre concentrateur après l’exécution de la méthode directe.
 
-1. Ouvrez l’exemple de projet Android github dans Android Studio. Ce projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+1. Ouvrez l’exemple de projet Android GitHub dans Android Studio. Ce projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez utiliser Azure Cloud Shell avec l’[extension Io
 
 1. À l’aide d’Azure Cloud Shell, exécutez la commande suivante pour vous connecter et lire les messages à partir de votre hub IoT :
 
-   **YourIoTHubName**: remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
@@ -145,13 +145,13 @@ Par défaut, l’application de télémétrie envoie les données de télémétr
 
 ## <a name="call-the-direct-method"></a>Appeler la méthode directe
 
-L’application de service se connecte au point de terminaison côté service sur votre hub IoT. L’application effectue des appels de méthode directe à un appareil via votre IoT Hub et écoute les accusés de réception. 
+L’application de service se connecte au point de terminaison côté service sur votre hub IoT. L’application effectue des appels de méthode directe à un appareil via votre IoT Hub et écoute les accusés de réception.
 
 Exécutez cette application sur un appareil Android physique ou un émulateur Android distinct.
 
-Une application de service back-end de hub IoT s’exécute généralement dans le cloud où il est plus facile d’atténuer les risques associés à la chaîne de connexion sensible qui contrôle tous les appareils sur un hub IoT. Dans cet exemple, nous l’exécutons comme une application Android uniquement à des fins de démonstration. Les versions de ce guide de démarrage rapide propres à d’autres langages fournissent d’autres exemples qui s’alignent plus étroitement avec une application de service back-end. 
+Une application de service back-end de hub IoT s’exécute généralement dans le cloud où il est plus facile d’atténuer les risques associés à la chaîne de connexion sensible qui contrôle tous les appareils sur un hub IoT. Dans cet exemple, nous l’exécutons comme une application Android uniquement à des fins de démonstration. Les versions de ce guide de démarrage rapide propres à d’autres langages fournissent d’autres exemples qui s’alignent plus étroitement avec une application de service back-end.
 
-1. Ouvrez l’exemple de projet Android de service github dans Android Studio. Ce projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+1. Ouvrez l’exemple de projet Android de service GitHub dans Android Studio. Ce projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
         \azure-iot-samples-java\iot-hub\Samples\service\AndroidSample
 
@@ -159,14 +159,14 @@ Une application de service back-end de hub IoT s’exécute généralement dans 
 
     ```
     ConnectionString=HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}
-    DeviceId=MyAndroidDevice    
+    DeviceId=MyAndroidDevice
     ```
 
 3. Dans Android Studio, cliquez sur **Fichier** > **Synchronisation du projet avec les fichiers Gradle**. Vérifiez que la build est terminée.
 
 4. Une fois la build terminée, cliquez sur **Exécuter** > **Exécuter « application »**. Configurez l’application pour l’exécuter sur un appareil Android physique ou un émulateur Android distinct. Pour plus d’informations sur l’exécution d’une application Android sur un appareil physique ou un émulateur, consultez [Exécuter votre application](https://developer.android.com/training/basics/firstapp/running-app).
 
-5. Une fois l’application chargée, mettez à jour la valeur **Définir l’intervalle de messagerie** sur **1000** et cliquez sur **Appeler**. 
+5. Une fois l’application chargée, mettez à jour la valeur **Définir l’intervalle de messagerie** sur **1000** et cliquez sur **Appeler**.
 
     L’intervalle de messagerie de télémétrie est exprimé en millisecondes. L’intervalle de télémétrie par défaut de l’exemple d’appareil est défini sur 5 secondes. Ce changement met à jour l’appareil IoT Android afin que les données de télémétrie soient envoyées à chaque seconde.
 
@@ -189,4 +189,4 @@ Dans ce guide de démarrage rapide, vous avez appelé une méthode directe sur u
 Pour savoir comment acheminer les messages appareil-à-cloud vers différentes destinations dans le cloud, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](tutorial-routing.md)
+> [Didacticiel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](tutorial-routing.md)

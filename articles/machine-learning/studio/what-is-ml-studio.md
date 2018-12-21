@@ -1,12 +1,12 @@
 ---
-title: Azure Machine Learning Studio - De quoi s'agit-il ? | Microsoft Docs
+title: Vue d’ensemble - Azure Machine Learning Studio | Microsoft Docs
 description: Vue d'ensemble d'Azure ML Studio, un outil de glisser-déplacer pour créer rapidement des modèles à partir d'une bibliothèque prête à l'emploi d'algorithmes et de modules.
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.component: studio
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: d893a0817be6ae8a271d403ed0477fa04238954b
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264401"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250516"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio - De quoi s'agit-il ?
 Microsoft Azure Machine Learning Studio est un outil collaboratif fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d'analyse prédictive à partir de vos données. Machine Learning Studio publie des modèles en tant que services web pouvant facilement être consommés par des applications personnalisées ou des outils décisionnels tels qu'Excel.
@@ -41,7 +41,7 @@ Aucune programmation n'est nécessaire : il suffit de visualiser la connexion d
 > 
 > 
 
-![Diagramme Azure ML Studio : créer des expériences, lire les données de nombreuses sources, écrire des données évaluées, écrire des modèles.][ml-studio-overview]
+![Diagramme d’Azure ML Studio : créez des expériences, lisez les données de nombreuses sources, écrivez des données évaluées, écrivez des modèles.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Prise en main de Machine Learning Studio
 Quand vous ouvrez [Machine Learning Studio](https://studio.azureml.net) pour la première fois, la page **Accueil** apparaît. À partir de là, vous pouvez afficher la documentation, des vidéos, des webinaires et rechercher d’autres ressources précieuses.
@@ -146,19 +146,19 @@ Dans le cadre d’un apprentissage supervisé, si vous formez un modèle de dét
 Une fois que votre modèle est formé, évaluez-le en utilisant les autres données de test. Vous utilisez des données dont vous connaissez déjà les résultats afin de pouvoir déterminer si votre modèle prédit correctement.
 
 ## <a name="other-common-machine-learning-terms"></a>Autres termes courants relatifs à l’apprentissage automatique
-* **Algorithme**: ensemble de règles utilisées pour résoudre les problèmes de traitement des données, de calcul mathématique ou de déduction automatisée.
-* **Détection d’anomalies**: modèle qui signale les valeurs ou les événements hors normes et qui vous permet d’identifier les problèmes. Par exemple, la détection de fraudes à la carte de crédit consiste à rechercher les achats inhabituels.
-* **Données catégorielles**: données organisées en catégories et pouvant être divisées en groupes. Par exemple, un jeu de données catégorielles relatif à des véhicules peut spécifier l’année, la marque, le modèle et le prix.
-* **Classification**: modèle d'organisation des points de données en catégories basées sur un jeu de données dont les groupes de catégorie sont déjà connus.
-* **Conception de caractéristiques**: processus d'extraction ou de sélection des caractéristiques liées à un jeu de données afin d'améliorer ce dernier et les résultats. Par exemple, les données relatives aux prix des billets d’avion peuvent être améliorées par jour de la semaine et par période de vacance. Consultez la page [Ingénierie et sélection de caractéristiques dans Azure Machine Learning](../team-data-science-process/create-features.md).
-* **Module**: élément fonctionnel d’un modèle Machine Learning Studio, comme le module Entrer des données, qui permet d’entrer et de modifier de petits jeux de données. Un algorithme est également un type de module dans Machine Learning Studio.
-* **Modèle**: dans le cadre d’un apprentissage supervisé, un modèle est le résultat d’une expérience d’apprentissage automatique, comprenant des données de formation, un module d’algorithme et des modules fonctionnels, comme un module d’évaluation.
-* **Données numériques**: données qui ont une signification sous forme de mesures (données continues) ou de compteurs (données discrètes). Également appelées *données quantitatives*.
-* **Partition**: méthode permettant de diviser les données en échantillons. Consultez la page [Partition et échantillon](https://msdn.microsoft.com/library/azure/dn905960.aspx) pour plus d'informations.
-* **Prédiction**: prévision d'une valeur ou de plusieurs valeurs, à partir d'un modèle d'apprentissage automatique. On rencontre parfois le terme « note prédite ». Toutefois, les notes prédites ne sont pas le résultat final d’un modèle. L’évaluation du modèle suit la note.
-* **Régression**: modèle permettant de prédire une valeur en fonction de variables indépendantes, comme la prédiction du prix d’une voiture en fonction de son année et de sa marque.
-* **Note**: valeur prédite générée à partir d'un modèle formé de régression ou de classification, à l'aide du module [Noter le modèle](https://msdn.microsoft.com/library/azure/dn905995.aspx) dans Machine Learning Studio. Les modèles de classification retournent également une note pour la probabilité de la valeur prédite. Une fois que vous avez généré les notes à partir d'un modèle, vous pouvez évaluer la précision du modèle à l'aide du module [Évaluer le modèle](https://msdn.microsoft.com/library/azure/dn905915.aspx).
-* **Échantillon**: partie d'un jeu de données destinée à être représentative de l'ensemble. Les échantillons peuvent être sélectionnés de manière aléatoire ou sur la base de fonctionnalités spécifiques du jeu de données.
+* **Algorithme** : ensemble de règles utilisées pour résoudre les problèmes de traitement des données, de calcul mathématique ou de déduction automatisée.
+* **Détection d’anomalie** : modèle qui signale les valeurs ou les événements hors normes et qui vous permet d’identifier les problèmes. Par exemple, la détection de fraudes à la carte de crédit consiste à rechercher les achats inhabituels.
+* **Données catégorielles** : données organisées en catégories et pouvant être divisées en groupes. Par exemple, un jeu de données catégorielles relatif à des véhicules peut spécifier l’année, la marque, le modèle et le prix.
+* **Classification** : modèle d'organisation des points de données en catégories basées sur un jeu de données dont les groupes de catégorie sont déjà connus.
+* **Ingénierie des caractéristiques** : processus d'extraction ou de sélection des caractéristiques liées à un jeu de données afin d’améliorer ce dernier et les résultats. Par exemple, les données relatives aux prix des billets d’avion peuvent être améliorées par jour de la semaine et par période de vacance. Consultez la page [Ingénierie et sélection de caractéristiques dans Azure Machine Learning](../team-data-science-process/create-features.md).
+* **Module** : élément fonctionnel d’un modèle Machine Learning Studio, comme le module Entrer des données, qui permet d’entrer et de modifier de petits jeux de données. Un algorithme est également un type de module dans Machine Learning Studio.
+* **Modèle** : dans le cadre d’un apprentissage supervisé, un modèle est le résultat d’une expérience de Machine Learning, comprenant des données de formation, un module d’algorithme et des modules fonctionnels, comme un module d’évaluation.
+* **Données numériques** : données qui ont une signification sous forme de mesures (données continues) ou de compteurs (données discrètes). Également appelées *données quantitatives*.
+* **Partition** : méthode permettant de diviser les données en échantillons. Consultez la page [Partition et échantillon](https://msdn.microsoft.com/library/azure/dn905960.aspx) pour plus d'informations.
+* **Prédiction** : prédiction d’une valeur ou de plusieurs valeurs, à partir d’un modèle Machine Learning. On rencontre parfois le terme « note prédite ». Toutefois, les notes prédites ne sont pas le résultat final d’un modèle. L’évaluation du modèle suit la note.
+* **Régression** : modèle permettant de prédire une valeur en fonction de variables indépendantes, comme la prédiction du prix d’une voiture en fonction de son année et de sa marque.
+* **Note** : valeur prédite générée à partir d’un modèle formé de régression ou de classification, à l’aide du module [Noter le modèle](https://msdn.microsoft.com/library/azure/dn905995.aspx) dans Machine Learning Studio. Les modèles de classification retournent également une note pour la probabilité de la valeur prédite. Une fois que vous avez généré les notes à partir d'un modèle, vous pouvez évaluer la précision du modèle à l'aide du module [Évaluer le modèle](https://msdn.microsoft.com/library/azure/dn905915.aspx).
+* **Échantillon** : partie d’un jeu de données destinée à être représentative de l’ensemble. Les échantillons peuvent être sélectionnés de manière aléatoire ou sur la base de fonctionnalités spécifiques du jeu de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez apprendre les principes fondamentaux de l’analyse prédictive et de l’apprentissage automatique à l’aide d’un [didacticiel](create-experiment.md) et avec la [génération à partir d’exemples](sample-experiments.md).  

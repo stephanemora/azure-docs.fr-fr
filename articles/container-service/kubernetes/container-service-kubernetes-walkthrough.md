@@ -1,24 +1,27 @@
 ---
-title: 'Démarrage rapide : Cluster Azure Kubernetes pour Linux'
+title: '(DÉCONSEILLÉ) Démarrage rapide : Cluster Azure Kubernetes pour Linux'
 description: Découvrez rapidement comment créer un cluster Kubernetes pour des conteneurs Linux dans Azure Container Service, avec Azure CLI.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2186bd8c28851552bdbd80a74ba7cefd9f7a82d7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c5320a541e189043fc27f5c4bcd29afd5d7c70f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950350"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994162"
 ---
-# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Déployer un cluster Azure Kubernetes pour des conteneurs Linux
+# <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(DÉCONSEILLÉ) Déployer un cluster Azure Kubernetes pour des conteneurs Linux
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Pour la version mise à jour de ce démarrage rapide qui utilise Azure Kubernetes Service, consultez [Démarrage rapide : Déployer un cluster Azure Kubernetes Service (AKS)](../../aks/kubernetes-walkthrough.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Dans ce guide de démarrage rapide, un cluster Kubernetes est déployé à l’aide de l’interface CLI d’Azure. Une application à plusieurs conteneurs composée d’un serveur web frontal et d’une instance Redis est ensuite déployée, puis exécutée sur le cluster. Ceci fait, l’application est accessible via internet. 
 
@@ -44,7 +47,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 az group create --name myResourceGroup --location westeurope
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -89,7 +92,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME                    STATUS                     AGE       VERSION
@@ -172,7 +175,7 @@ Utilisez la commande [kubectl create](https://kubernetes.io/docs/reference/gener
 kubectl create -f azure-vote.yml
 ```
 
-Output:
+Sortie :
 
 ```bash
 deployment "azure-vote-back" created

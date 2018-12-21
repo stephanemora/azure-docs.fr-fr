@@ -1,27 +1,25 @@
 ---
-title: Vue d’ensemble d’Azure Load Balancer | Microsoft Docs
-description: Présentation des fonctionnalités, de l'architecture et de l'implémentation d’Azure Load Balancer. Découvrez comment fonctionne Load Balancer et l’exploiter dans le cloud.
+title: Qu’est-ce qu’Azure Load Balancer ?
+titlesuffix: Azure Load Balancer
+description: Présentation des fonctionnalités, de l'architecture et de l'implémentation de l'équilibrage de charge Azure. Découvrez comment fonctionne Load Balancer et l’exploiter dans le cloud.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 618b00906a799e1b8cfcfac5ee6bcc3a714c2f87
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918740"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185611"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -31,15 +29,15 @@ Load Balancer distribue les nouveaux flux entrants qui arrivent sur son frontend
 
 De plus, un équilibreur de charge public peut fournir des connexions sortantes pour des machines virtuelles à l’intérieur de votre réseau virtuel en traduisant leurs adresses IP privées en adresses IP publiques.
 
-Azure Load Balancer se décline en deux références SKU : De base et Standard. Celles-ci présentent des différences en termes de mise à l’échelle, de fonctionnalités et de tarification. N’importe quel scénario possible avec la référence SKU De base de Load Balancer peut également être créé avec la référence SKU Standard, même si l’approche à suivre peut varier légèrement. Pour bien comprendre le fonctionnement de Load Balancer, il est important de se familiariser avec ses capacités de base et les différences propres aux références SKU.
+Azure Load Balancer se décline en deux références SKU : De base et Standard. Celles-ci présentent des différences en termes de mise à l’échelle, de fonctionnalités et de tarification. N’importe quel scénario possible avec la référence SKU De base de Load Balancer peut également être créé avec la référence SKU Standard, même si l’approche à suivre peut varier légèrement. Pour bien comprendre le fonctionnement de Load Balancer, il est important de se familiariser avec ses capacités de base et les différences propres aux références SKU.
 
 ## <a name="why-use-load-balancer"></a>Pourquoi utiliser Load Balancer ? 
 
 Vous pouvez utiliser Azure Load Balancer pour :
 
-* Équilibrer la charge du trafic Internet entrant sur vos machines virtuelles. Cette configuration est appelée [Équilibreur de charge public](#publicloadbalancer).
-* Équilibrer la charge du trafic entre les machines virtuelles à l’intérieur d’un réseau virtuel. Vous pouvez également communiquer avec un frontend d’équilibreur de charge à partir d’un réseau local dans le cadre d’un scénario hybride. Ces deux scénarios s’appuient sur une configuration appelée [Équilibreur de charge interne](#internalloadbalancer).
-* Réacheminer le trafic d’un port vers un port spécifique sur des machines virtuelles données avec des règles de traduction d’adresses réseau (NAT) entrantes.
+* équilibrer la charge du trafic Internet entrant sur vos machines virtuelles. Cette configuration est appelée [Équilibreur de charge public](#publicloadbalancer).
+* équilibrer la charge du trafic entre les machines virtuelles à l’intérieur d’un réseau virtuel. Vous pouvez également communiquer avec un frontend d’équilibreur de charge à partir d’un réseau local dans le cadre d’un scénario hybride. Ces deux scénarios s’appuient sur une configuration appelée [Équilibreur de charge interne](#internalloadbalancer).
+* réacheminer le trafic d’un port vers un port spécifique sur des machines virtuelles données avec des règles de traduction d’adresses réseau (NAT) entrantes.
 * Fournir une [connectivité sortante](load-balancer-outbound-connections.md) aux machines virtuelles de votre réseau virtuel à l’aide d’un équilibreur de charge public.
 
 
@@ -48,7 +46,7 @@ Vous pouvez utiliser Azure Load Balancer pour :
 
 ## <a name="what-are-load-balancer-resources"></a>Que sont les ressources Load Balancer ?
 
-Une ressource Load Balancer peut exister sous la forme d’un équilibreur de charge public ou d’un équilibreur de charge interne. Les fonctions d’une ressource Load Balancer sont exprimées sous la forme d’une définition de frontend, de règle, de sonde d’intégrité et de pool backend. Vous placez des machines virtuelles dans le pool backend en spécifiant celui-ci à partir de la machine virtuelle.
+Une ressource Load Balancer peut exister sous la forme d’un équilibreur de charge public ou d’un équilibreur de charge interne. Les fonctions d’une ressource Load Balancer sont exprimées sous la forme d’une définition de frontend, de règle, de sonde d’intégrité et de pool backend. Vous placez des machines virtuelles dans le pool principal en spécifiant le pool principal à partir de la machine virtuelle.
 
 Les ressources Load Balancer sont des objets dans lesquels vous pouvez exprimer la manière dont Azure doit programmer son infrastructure multilocataire pour obtenir le scénario que vous souhaitez créer. Il n’existe aucune relation directe entre les ressources Load Balancer et l’infrastructure réelle. La création d’un équilibreur de charge ne crée pas d’instance et la capacité demeure toujours disponible. 
 
@@ -66,11 +64,11 @@ Load Balancer offre les fonctionnalités de base suivantes pour les applications
 
     ![Distribution basée sur le hachage](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *Figure : distribution basée sur le hachage*
+    *Figure : Distribution basée sur le hachage*
 
 * **Réacheminement de port**
 
-    Load Balancer vous permet de créer une règle NAT entrante pour réacheminer le trafic d’un port spécifique d’une adresse IP donnée du serveur frontal vers un port spécifique d’une instance donnée du serveur principal à l’intérieur du réseau virtuel. Cette opération est accomplie à l’aide de la même distribution basée sur le hachage que l’équilibrage de charge. Les scénarios courants pour cette fonctionnalité incluent les sessions de protocole RDP (Remote Desktop Protocol) ou SSH (Secure Shell) avec des instances de machines virtuelles individuelles à l’intérieur du réseau virtuel Azure. Vous pouvez mapper plusieurs points de terminaison internes à des ports différents sur la même adresse IP de serveur frontal. Vous pouvez les utiliser pour administrer à distance vos machines virtuelles via Internet sans avoir besoin de serveur de rebond supplémentaire.
+    Load Balancer vous permet de créer une règle NAT entrante pour réacheminer le trafic d’un port spécifique d’une adresse IP donnée du serveur frontal vers un port spécifique d’une instance donnée du serveur principal à l’intérieur du réseau virtuel. Cette opération est accomplie à l’aide de la même distribution basée sur le hachage que l’équilibrage de charge. Les scénarios courants pour cette fonctionnalité incluent les sessions de protocole RDP (Remote Desktop Protocol) ou SSH (Secure Shell) avec des instances de machines virtuelles individuelles à l’intérieur du réseau virtuel Azure. Vous pouvez mapper plusieurs points de terminaison internes à des ports différents sur la même adresse IP de serveur frontal. Vous pouvez utiliser les adresses IP frontales pour administrer à distance vos machines virtuelles via Internet sans avoir besoin de serveur de rebond supplémentaire.
 
 * **Indépendance vis-à-vis des applications et transparence**
 
@@ -90,7 +88,7 @@ Load Balancer offre les fonctionnalités de base suivantes pour les applications
      
     Load Balancer fournit des [types de sonde d’intégrité différents](load-balancer-custom-probe-overview.md#types) pour les points de terminaison TCP, HTTP et HTTPS.
 
-    En outre, lorsque vous utilisez les services de cloud classique, un type supplémentaire est autorisé : [agent invité](load-balancer-custom-probe-overview.md#guestagent).  Il s’agit d’une sonde d’intégrité de dernier recours qui n’est pas recommandée lorsque d’autres options sont viables.
+    De plus, quand vous utilisez des services cloud classiques, un type supplémentaire est autorisé :  [Agent invité](load-balancer-custom-probe-overview.md#guestagent).  Il s’agit d’une sonde d’intégrité de dernier recours qui n’est pas recommandée lorsque d’autres options sont viables.
     
 * **Connexions sortantes (SNAT)**
 
@@ -133,7 +131,7 @@ La figure suivante présente un point de terminaison à charge équilibrée pour
 
 ![Exemple d’équilibreur de charge public](./media/load-balancer-overview/IC727496.png)
 
-*Figure : équilibrage du trafic web à l’aide d’un équilibreur de charge public*
+*Figure : Équilibrage du trafic web à l’aide d’un équilibreur de charge public*
 
 Quand les clients Internet envoient des requêtes de pages web à l’adresse IP publique d’une application web sur le port TCP 80, Azure Load Balancer distribue les requêtes entre les trois machines virtuelles du groupe soumis à l’équilibrage de charge. Des informations supplémentaires sur les algorithmes Load Balancer sont disponibles dans la section[Fonctionnalités de Load Balancer](load-balancer-overview.md##fundamental-load-balancer-features) de cet article.
 
@@ -145,14 +143,14 @@ Un équilibreur de charge interne dirige le trafic uniquement vers les ressource
 
 Un équilibreur de charge interne permet d’effectuer les types d’équilibrage de charge suivants :
 
-* **Dans un réseau virtuel** : équilibrage de charge des machines virtuelles dans le réseau virtuel à un ensemble de machines virtuelles qui résident au sein du même réseau virtuel.
-* **Pour un réseau virtuel intersites** : équilibrage de charge des ordinateurs locaux à un ensemble de machines virtuelles qui résident au sein du même réseau virtuel. 
-* **Pour les applications à plusieurs niveaux** : équilibrage de charge pour les applications multiniveau accessibles sur Internet dans lesquelles les niveaux principaux ne sont pas accessibles sur Internet. Les niveaux principaux nécessitent un équilibrage de la charge du trafic du niveau accessible sur Internet (voir la figure suivante).
-* **Pour les applications métier** : équilibrage de charge pour des applications métier hébergées dans Azure, sans matériel ou logiciel d’équilibrage de charge supplémentaire. Ce scénario inclut des serveurs locaux dans l’ensemble d’ordinateurs dont la charge du trafic est équilibrée.
+* **Dans un réseau virtuel** : Équilibrage de charge des machines virtuelles dans le réseau virtuel vers un ensemble de machines virtuelles qui se trouvent au sein du même réseau virtuel.
+* **Pour un réseau virtuel entre sites locaux** : Équilibrage de charge des ordinateurs locaux vers un ensemble de machines virtuelles qui se trouvent au sein du même réseau virtuel. 
+* **Pour les applications multiniveaux** : Équilibrage de charge pour les applications multiniveaux accessibles sur Internet dans lesquelles les niveaux back-end ne sont pas accessibles sur Internet. Les niveaux principaux nécessitent un équilibrage de la charge du trafic du niveau accessible sur Internet (voir la figure suivante).
+* **Pour les applications métier** : Équilibrage de charge pour les applications métier hébergées dans Azure, sans matériel ou logiciel d’équilibreur de charge supplémentaire. Ce scénario inclut des serveurs locaux dans l’ensemble d’ordinateurs dont la charge du trafic est équilibrée.
 
 ![Exemple d’équilibreur de charge interne](./media/load-balancer-overview/IC744147.png)
 
-*Figure : applications multiniveaux utilisant à la fois un équilibreur de charge public et un équilibreur de charge interne*
+*Figure : Applications multiniveaux utilisant à la fois un équilibreur de charge public et un équilibreur de charge interne*
 
 ## <a name="pricing"></a>Tarifs
 L’utilisation de la référence SKU Standard de Load Balancer est facturée en fonction du nombre de règles d’équilibrage de charge configurées et de la quantité de données traitées en entrée et en sortie. Pour plus d’informations sur la tarification de Load Balancer Standard, consultez la page [Tarification de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

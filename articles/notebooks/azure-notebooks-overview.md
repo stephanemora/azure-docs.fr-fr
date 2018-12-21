@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble d’Azure Notebooks | Microsoft Docs
-description: Exécutez des notebooks Jupyter dans le cloud à l’aide du service gratuit Azure Notebooks.
+title: Vue d’ensemble d’Azure Notebooks
+description: Exécutez des notebooks Jupyter dans le cloud à l'aide du service gratuit Azure Notebooks, pour lequel aucune installation ou configuration n'est requise.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a84f71c2656c73867ee076d4b993026558a0a504
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 92cfdea12dc51884ea04ed894a79ded7f532d88b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853359"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085397"
 ---
 # <a name="overview-of-azure-notebooks"></a>Vue d’ensemble d’Azure Notebooks
 
-Azure Notebooks est un service hébergé gratuit à l’aide duquel vous pouvez développer et exécuter des notebooks Jupyter dans le cloud sans aucune installation. [Jupyter](http://jupyter.org/) (anciennement IPython) est un projet open source qui vous permet de combiner facilement du texte Markdown, du code exécutable, des données persistantes, des graphiques et des visualisations dans un canevas partageable appelé *notebook* (image tirée de jupyter.org) :
+Azure Notebooks est un service hébergé gratuit à l’aide duquel vous pouvez développer et exécuter des notebooks Jupyter dans le cloud sans aucune installation. [Jupyter](https://jupyter.org/) (anciennement IPython) est un projet open source qui vous permet de combiner facilement du texte Markdown, du code exécutable, des données persistantes, des graphiques et des visualisations dans un canevas partageable appelé *notebook* (image tirée de jupyter.org) :
 
-[![](http://jupyter.org/assets/jupyterpreview.png "Notebooks Jupyter")](http://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![](https://jupyter.org/assets/jupyterpreview.png "Notebooks Jupyter")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Fort de cette solide combinaison de code, de graphiques et de texte explicatif, Jupyter est devenu populaire dans de nombreuses utilisations, notamment les instructions de science des données, le nettoyage et la transformation des données, la simulation numérique, la modélisation statistique et le développement de modèles Machine Learning.
 
@@ -51,7 +51,7 @@ Azure Notebooks étant une plateforme générale d’écriture, d’exécution e
 En bref, Azure Notebooks vous aide à accomplir votre travail plus efficacement.
 
 > [!Note]
-> Vous trouverez plus d’informations sur Jupyter proprement dit sur [jupyter.org](http://jupyter.org/) et dans la [documentation Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).
+> Vous trouverez plus d’informations sur Jupyter proprement dit sur [jupyter.org](https://jupyter.org/) et dans la [documentation Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/).
 
 ## <a name="pricing-and-quotas"></a>Tarifs et quotas
 
@@ -71,7 +71,7 @@ Pour chaque notebook, vous sélectionnez le noyau (autrement dit, l’environnem
 
 Azure Notebooks contient également des packages supplémentaires en plus des distributions de base. Les noyaux Python, par exemple, comprennent les bibliothèques numpy, pandas, scikit-learn, matplotlib et bokeh.
 
-Vous pouvez également personnaliser un projet afin de créer un environnement pour tous les notebooks de ce projet. Pour plus d’informations, consultez [Démarrage rapide : Créer un projet avec un environnement personnalisé](quickstart-create-jupyter-notebook-project-environment.md).
+Vous pouvez également personnaliser un projet afin de créer un environnement pour tous les notebooks de ce projet. Pour plus d'informations, consultez le document [Démarrage rapide : Créer un projet avec un environnement personnalisé](quickstart-create-jupyter-notebook-project-environment.md).
 
 En plus des distributions de base, Azure Notebooks est préinstallé avec de nombreux packages supplémentaires utiles aux scientifiques des données. Vous pouvez aussi installer vos propres packages à l’aide de la procédure standard pour chaque langage.
 
@@ -79,11 +79,11 @@ En plus des distributions de base, Azure Notebooks est préinstallé avec de nom
 
 Azure Notebooks est préconfiguré avec les extensions Jupyter suivantes :
 
-- [RISE](https://github.com/damianavila/RISE) : Extension de diaporama Jupyter (également appelée live_reveal). Pour plus d’informations, consultez [Exécuter un diaporama de notebook](present-jupyter-notebooks-slideshow.md).
+- [RISE](https://github.com/damianavila/RISE) : extension de diaporama Jupyter (également appelée live_reveal). Pour plus d’informations, consultez [Exécuter un diaporama de notebook](present-jupyter-notebooks-slideshow.md).
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab) : environnement de calcul complet pour travailler avec des notebooks Jupyter.
 - [Altair](https://github.com/ellisonbg/altair) : bibliothèque de visualisation de statistiques déclarative pour Python.
-- [BQPlot](https://github.com/bloomberg/bqplot) : framework de traçage interactif pour Jupyter Notebooks.
-- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets) : widgets HTML interactifs pour Jupyter Notebooks.
+- [BQPlot](https://github.com/bloomberg/bqplot) : framework de traçage interactif pour notebooks Jupyter.
+- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets) : widgets HTML interactifs pour notebooks Jupyter.
 
 ## <a name="issues-and-getting-help"></a>Problèmes et assistance
 
@@ -105,7 +105,7 @@ Pour discuter de vos questions sur Azure Notebooks, signalez un problème dans l
   - [Utiliser un environnement personnalisé](quickstart-create-jupyter-notebook-project-environment.md)
   - [Se connecter et définir un identifiant utilisateur](quickstart-sign-in-azure-notebooks.md)
 
-- Tutoriels :
+- Didacticiels :
 
   - [Créer et exécuter un notebook](tutorial-create-run-jupyter-notebook.md  )
 

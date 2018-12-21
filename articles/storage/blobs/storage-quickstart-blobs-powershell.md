@@ -6,24 +6,26 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: 13d28e43f9f712f5e597da8171ba9ebf4118bd49
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 700a4c22b7ae08449e2bb599b99cd7438e74ba6d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712039"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311998"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Guide de démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Azure PowerShell
+# <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Démarrage rapide : charger, télécharger et répertorier des objets blob à l’aide d’Azure PowerShell
 
 Utilisez le module Azure PowerShell pour créer et gérer les ressources Azure. La création ou la gestion des ressources Azure peut se faire depuis une ligne de commande PowerShell ou dans des scripts. Ce guide décrit l’utilisation de PowerShell pour transférer des fichiers entre un disque local et le Stockage Blob Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+Pour accéder à Stockage Azure, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 Ce démarrage rapide requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+[!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 

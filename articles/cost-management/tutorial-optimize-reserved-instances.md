@@ -5,22 +5,22 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: db4a2356d3de91e4951acd69dc858730349019d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a5376aed3e9cdb12be58cb07d7eb00303a03a963
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274550"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074875"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
-# <a name="tutorial-optimize-reserved-instances"></a>Didacticiel : Optimiser les instances réservées
+# <a name="tutorial-optimize-reserved-instances"></a>Tutoriel : Optimiser les instances réservées
 
 Dans ce tutoriel, vous allez découvrir comment Cloudyn peut vous aider à optimiser l’utilisation des instances réservées et les coûts associés pour Azure et AWS (Amazon Web Services). Une instance réservée auprès d’un fournisseur de services cloud est un engagement d’utilisation de la machine virtuelle se présentant sous la forme d’un contrat à long terme. Elle peut vous permettre de réaliser des économies considérables par rapport à un modèle de tarification à l’utilisation standard. Vous bénéficiez de ces économies potentielles uniquement lorsque vous utilisez toute la capacité de vos instances réservées.
 
@@ -112,7 +112,7 @@ Par exemple, si vous achetez une réservation pour une machine virtuelle de type
 
 Cependant, si la machine virtuelle ne s’exécute que 50 % du temps, le seuil de rentabilité sera atteint au bout du 10e mois et vous n’économiserez que 49,74 $ par an. L’achat de la réservation pour ce type d’instance ne sera peut-être pas avantageux pour vous. Consultez le graphique suivant :
 
-![Seuil de rentabilité dans Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
+![Exemple de seuil de rentabilité pour les machines virtuelles Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## <a name="view-ri-costs"></a>Afficher les coûts associés aux instances réservées
 
@@ -127,11 +127,11 @@ Les rapports Actual Cost Analysis (Analyse du coût réel) et Analysis Over Time
 
 Accédez à **Coûts** > **Analyse des coûts** > dans le portail Cloudyn, puis sélectionnez **Analyse du coût réel** ou **Coûts réels dans le temps**. Définissez ensuite les filtres. Par exemple, filtrez sur le service Azure/VM et regroupez les résultats par Type de ressource et Modèle de prix. Consultez le graphique suivant :
 
-![Coût réel de l’instance réservée](./media/tutorial-optimize-reserved-instances/azure05.png)
+![Exemple de coût réel des instances réservées](./media/tutorial-optimize-reserved-instances/azure05.png)
 
 Vous pouvez filtrer sur un service, **Azure/VM** dans cet exemple, et regroupez les résultats par **Modèle de prix** et **Type de ressource** comme indiqué dans l’image suivante :
 
-![Filtres et groupes du rapport sur les coûts réels](./media/tutorial-optimize-reserved-instances/azure06.png)
+![Exemple de groupes de rapports de coût réel et de filtres regroupés par type de ressource et modèle de prix](./media/tutorial-optimize-reserved-instances/azure06.png)
 
 Vous pouvez également analyser les types de paiements effectués tels que les frais uniques, les frais d’utilisation et les frais de licence.
 
@@ -145,7 +145,7 @@ Le rapport Coût réel affiche un pic correspondant à un achat d’instance ré
 
 Pour l’afficher, accédez à **Coûts** > **Analyse des coûts** >, puis sélectionnez **Amortized Cost Analysis** (Analyse des coûts amortis) ou **Amortized Cost Over Time** (Coûts amortis dans le temps).
 
-![Coût amorti de l’instance réservée](./media/tutorial-optimize-reserved-instances/azure07.png)
+![Exemple de rapport montrant le coût amorti de l’instance réservée](./media/tutorial-optimize-reserved-instances/azure07.png)
 
 ## <a name="optimize-aws-ri-costs"></a>Optimiser les coûts associés aux instances réservées AWS
 
@@ -166,25 +166,25 @@ Dans le menu Rapports en haut du portail, cliquez sur **Optimizer (Optimiseur)**
 
 L’image suivante montre des recommandations d’achat telles qu’elles s’affichent dans le rapport.
 
-![Recommandations d’achat](./media/tutorial-optimize-reserved-instances/aws01.png)
+![Exemple montrant des recommandations d’achat dans le rapport Recommandations d’achat EC2](./media/tutorial-optimize-reserved-instances/aws01.png)
 
 Dans cet exemple, le compte Cloudyn\_A a 32 recommandations d’achat d’instances réservées. En suivant toutes les recommandations d’achat, vous pourriez économiser 137 770 $ par an. Gardez à l’esprit que les recommandations d’achat fournies par Cloudyn se basent sur une utilisation constante de vos charges de travail en cours d’exécution.
 
 Pour afficher les détails de chaque recommandation d’achat, cliquez sur le signe plus ( **+** ) sous **Justifications**. Voici un exemple de la première recommandation de la liste.
 
-![Justifications de l’achat](./media/tutorial-optimize-reserved-instances/aws02.png)
+![Exemple montrant des détails de justification d’achat](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 L’exemple précédent indique que l’exécution à la demande de la charge de travail coûterait 90 456 $ par an. Par contre, si vous achetez la réservation à l’avance, la même charge de travail ne vous coûterait que 56 592 $, soit une économie de 33 864 $ par an.
 
 Cliquez sur le signe plus en regard de **EC2 RI Purchase Impact** (Impact de l’achat d’instances réservées EC2) pour afficher votre seuil de rentabilité sur un an et savoir à peu près à quel moment votre investissement sera rentabilisé. Environ huit mois après l’achat, les coûts cumulés d’utilisation à la demande commencent à dépasser les coûts cumulés des instances réservées dans l’exemple suivant :
 
-![Impact de l’achat](./media/tutorial-optimize-reserved-instances/aws03.png)
+![Exemple montrant des détails sur l’impact de l’achat](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 Vous commencez à économiser de l’argent à ce moment précis.
 
 Vous pouvez consulter le document **Instances over Time** (Instances dans le temps) pour vérifier l’exactitude de la recommandation d’achat. Dans cet exemple, six instances ont été utilisées en moyenne pour la charge de travail au cours des 30 derniers jours.
 
-![Instances dans le temps](./media/tutorial-optimize-reserved-instances/aws04.png)
+![Exemple montrant l’historique d’utilisation des instances dans le temps](./media/tutorial-optimize-reserved-instances/aws04.png)
 
 ## <a name="modify-unused-reservations"></a>Modifier des réservations inutilisées
 
@@ -196,23 +196,23 @@ Dans le menu Rapports en haut du portail, cliquez sur **Optimizer (Optimiseur)**
 
 Les images suivantes montrent le rapport contenant des instances réservées inutilisées.
 
-![Réservations inutilisées](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
+![Exemple montrant un résumé des informations sur les réservations inutilisées](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
 
 Cliquez sur le signe plus sous **Détails** pour afficher les informations détaillées d’une réservation spécifique.
 
-![Informations détaillées sur les réservations inutilisées](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
+![Exemple montrant des détails sur les réservations inutilisées](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
 
 Dans l’exemple précédent, on dénombre un total de 77 réservations inutilisées dans différentes zones de disponibilité. La première réservation a 51 instances inutilisées. Plus bas dans la liste, il est possible d’apporter des modifications aux instances réservées en utilisant le type d’instance **m3.2xlarge** dans la zone de disponibilité **us-east-1c**.
 
 Cliquez sur **Modifier** pour la première réservation de la liste afin d’ouvrir la page **Modify RI** (Modifier les instances réservées) qui affiche les données concernant la réservation.
 
-![Modifier les instances réservées](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
+![Exemple montrant des réservations que vous pouvez modifier](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
 
 La page affiche les instances réservées que vous pouvez modifier. Dans l’exemple suivant, il y a 51 instances inutilisées que vous pouvez modifier, mais 54 instances sont requises pour les deux réservations. Si vous modifiez vos instances inutilisées afin de toutes les utiliser, quatre instances continueront à s’exécuter à la demande. Pour cet exemple, répartissez vos instances inutilisées pour que la première réservation en utilise 30 et la seconde réservation 21.
 
 Cliquez sur le signe plus pour la première entrée de réservation et définissez la **quantité de réservation** sur **30**. Pour la deuxième entrée, définissez la quantité de réservation sur **21**, puis cliquez sur **Appliquer**.
 
-![Modifier la quantité de réservation](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
+![Exemple montrant des modifications apportées à la quantité de réservation](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
 
 Toutes vos instances inutilisées pour la réservation sont désormais entièrement utilisées et 51 instances ne s’exécutent plus à la demande. Dans cet exemple, votre entreprise réalise des économies en réduisant de manière considérable le taux d’utilisation à la demande et en utilisant les réservations pour lesquelles elle a déjà payé.
 

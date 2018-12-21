@@ -1,5 +1,5 @@
 ---
-title: Créer une application web PHP et MySQL dans Azure | Microsoft Docs
+title: Créer une application PHP avec MySQL - Azure App Service | Microsoft Docs
 description: Découvrez comment faire fonctionner une application PHP dans Azure en établissant une connexion à une base de données MySQL dans Azure.
 services: app-service\web
 documentationcenter: php
@@ -14,15 +14,15 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 9a1468c27e668663ca9079f5f1c9e5e97e51d2d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291283"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251672"
 ---
-# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutoriel : Créer une application web PHP et MySQL dans Azure
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutoriel : Créer une application web PHP et MySQL dans Azure
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer une application web PHP et MySQL dans Azure App Service sur Linux](./containers/tutorial-php-mysql-app.md).
@@ -49,9 +49,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Pour suivre ce tutoriel :
 
 * [Installez Git](https://git-scm.com/)
-* [Installez PHP 5.6.4 ou version ultérieure](http://php.net/downloads.php)
+* [Installez PHP 5.6.4 ou version ultérieure](https://php.net/downloads.php)
 * [Installez Composer](https://getcomposer.org/doc/00-intro.md)
-* Activation des extensions PHP suivantes requises par Laravel : OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* Activez les extensions PHP suivantes dont Laravel a besoin : OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Installez et démarrez MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Préparation du MySQL local
@@ -66,7 +66,7 @@ Dans une fenêtre de terminal, connectez-vous à votre serveur MySQL local. Vous
 mysql -u root -p
 ```
 
-Si vous êtes invité à entrer un mot de passe, tapez le mot de passe du compte `root`. Si vous avez oublié votre mot de passe de compte racine, consultez [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html) (MySQL : réinitialisation du mot de passe racine).
+Si vous êtes invité à entrer un mot de passe, tapez le mot de passe du compte `root`. Si vous avez oublié votre mot de passe de compte racine, consultez [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html) (MySQL : Réinitialisation du mot de passe racine).
 
 Si la commande est exécutée correctement, votre serveur MySQL est en cours d’exécution. Dans le cas contraire, assurez-vous que votre serveur MySQL local est démarré en suivant ces [étapes consécutives à l’installation de MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
@@ -598,9 +598,9 @@ Une fois que la diffusion a démarré, actualisez l’application web Azure dans
 Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`.
 
 > [!TIP]
-> Une application PHP peut utiliser la commande [error_log()](http://php.net/manual/function.error-log.php) pour envoyer le résultat vers la console. L’exemple d’application utilise cette approche dans _app/Http/routes.php_.
+> Une application PHP peut utiliser la commande [error_log()](https://php.net/manual/function.error-log.php) pour envoyer le résultat vers la console. L’exemple d’application utilise cette approche dans _app/Http/routes.php_.
 >
-> [Laravel utilise Monolog](https://laravel.com/docs/5.4/errors) comme fournisseur de journalisation, de la même manière qu’une infrastructure web. Pour savoir comment faire en sorte que Monolog envoie les messages vers la console, consultez [PHP : utilisation de Monolog pour envoyer le journal vers la console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> [Laravel utilise Monolog](https://laravel.com/docs/5.4/errors) comme fournisseur de journalisation, de la même manière qu’une infrastructure web. Pour voir comment faire pour que Monolog génère des messages de sortie sur la console, consultez [PHP: How to use monolog to log to console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out) (PHP : Utilisation de monolog pour se connecter à la console (php://out)).
 >
 >
 

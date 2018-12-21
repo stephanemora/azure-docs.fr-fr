@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : utiliser Azure Database Migration Service pour effectuer une migration en ligne de SQL Server vers Azure SQL Database Managed Instance | Microsoft Docs'
+title: 'Tutoriel : Utiliser Azure Database Migration Service pour effectuer une migration en ligne de SQL Server vers Azure SQL Database Managed Instance | Microsoft Docs'
 description: Découvrez comment effectuer une migration en ligne de SQL Server en local vers Azure SQL Database Managed Instance à l’aide d’Azure Database Migration Service.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: ccbfc6e204981a4e14812759715d0482e5b6cb67
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 030cd89bbd6407cd2e83a9b56942adbf419e069b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874755"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956701"
 ---
-# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutoriel : migrer SQL Server vers Azure SQL Database Managed Instance en ligne à l’aide de DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutoriel : Migrer SQL Server vers Azure SQL Database Managed Instance en ligne à l’aide d’Azure Database Migration Service
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers une instance [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md) avec un temps d’arrêt minimal. Pour des méthodes supplémentaires pouvant nécessiter un effort manuel, voir l’article [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md).
 
 >[!IMPORTANT]
@@ -64,24 +64,24 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 1. Connectez-vous au portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
 
-    ![Afficher les abonnements au portail](media\tutorial-sql-server-to-managed-instance-online\portal-select-subscriptions.png)        
+    ![Afficher les abonnements au portail](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)        
 2. Sélectionnez l’abonnement dans lequel vous souhaitez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources**.
 
-    ![Afficher les fournisseurs de ressources](media\tutorial-sql-server-to-managed-instance-online\portal-select-resource-provider.png)
+    ![Afficher les fournisseurs de ressources](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
 
 3. Recherchez migration, puis à droite de **Microsoft.DataMigration**, sélectionnez **Inscrire**.
 
-    ![S’inscrire auprès du fournisseur de ressources](media\tutorial-sql-server-to-managed-instance-online\portal-register-resource-provider.png)   
+    ![S’inscrire auprès du fournisseur de ressources](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)   
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Créer une instance Azure Database Migration Service
 
 1. Dans le portail Azure, sélectionnez **+ Créer une ressource**, recherchez **Azure Database Migration Service**, puis sélectionnez **Azure Database Migration Service** dans la liste déroulante.
 
-     ![Place de marché Azure](media\tutorial-sql-server-to-managed-instance-online\portal-marketplace.png)
+     ![Place de marché Azure](media/tutorial-sql-server-to-managed-instance-online/portal-marketplace.png)
 
 2. Dans l’écran **Azure Database Migration Service**, sélectionnez **Créer**.
 
-    ![Créer une instance Azure Database Migration Service](media\tutorial-sql-server-to-managed-instance-online\dms-create1.png)
+    ![Créer une instance Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-create1.png)
 
 3. Dans l’écran **Créer un service de migration**, spécifiez un nom pour le service, l’abonnement, et un réseau virtuel nouveau ou existant.
 
@@ -102,7 +102,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
    
     Pour plus d’informations sur les coûts et les niveaux de tarification, consultez la [page de tarification](https://aka.ms/dms-pricing).
    
-    ![Créer un service DMS](media\tutorial-sql-server-to-managed-instance-online\dms-create-service3.png)
+    ![Créer un service DMS](media/tutorial-sql-server-to-managed-instance-online/dms-create-service3.png)
 
 7.  Sélectionnez **Créer** pour créer le service.
 
@@ -112,7 +112,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 1. Dans le portail Azure, sélectionnez **Tous les services**, recherchez Azure Database Migration Service, puis sélectionnez **Azure Database Migration Services**.
 
-    ![Rechercher toutes les instances Azure Database Migration Service](media\tutorial-sql-server-to-managed-instance-online\dms-search.png)
+    ![Rechercher toutes les instances Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
 
 2. Sur l’écran **Azure Database Migration Service**, recherchez le nom de l’instance que vous avez créée, puis sélectionnez-la.
  
@@ -120,7 +120,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 4. Sur l’écran **Nouveau projet de migration**, spécifiez un nom pour le projet. Dans la zone de texte **Type de serveur source**, sélectionnez **SQL Server**. Dans la zone de texte **Type de serveur cible**, sélectionnez **Azure SQL Database Managed Instance**. Enfin, dans **Choisir un type d’activité**, sélectionnez **Online data migration (preview)** (Migration de données en ligne (préversion)).
 
-   ![Créer un projet DMS](media\tutorial-sql-server-to-managed-instance-online\dms-create-project3.png)
+   ![Créer un projet DMS](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 
 5. Sélectionnez **Créer et exécuter une activité** pour créer le projet.
 
@@ -135,7 +135,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
     > [!CAUTION]
     > Les connexions SSL chiffrées à l’aide d’un certificat auto-signé n’offrent pas de sécurité renforcée. Elles sont vulnérables aux attaques de l’intercepteur. Vous ne devez pas compter sur SSL utilisant des certificats auto-signés dans un environnement de production ou sur des serveurs connectés à Internet.
 
-   ![Détails de la source](media\tutorial-sql-server-to-managed-instance-online\dms-source-details2.png)
+   ![Détails de la source](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
 3. Sélectionnez **Enregistrer**.
 
@@ -151,7 +151,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 3. Indiquez **l’utilisateur SQL** et le **mot de passe** pour vous connecter à l’instance cible d’Azure SQL Database Managed Instance.
 
-    ![Sélectionner la cible](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![Sélectionner la cible](media/tutorial-sql-server-to-managed-instance-online/dms-target-details3.png)
 
 2.  Sélectionnez **Enregistrer**.
 
@@ -159,7 +159,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 1. Dans l’écran **Sélectionner la base de données source**, sélectionnez la base de données source que vous souhaitez migrer.
 
-    ![Sélectionner les bases de données sources](media\tutorial-sql-server-to-managed-instance-online\dms-select-source-databases2.png)
+    ![Sélectionner les bases de données sources](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
 
 2. Sélectionnez **Enregistrer**.
 
@@ -175,7 +175,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
     |**Subscription of the Azure Storage Account** (Abonnement du compte Stockage Azure) | Sélectionnez l’abonnement qui contient le compte Stockage Azure. |
     |**Compte Stockage Azure** | Sélectionnez le compte Stockage Azure sur lequel Azure Database Migration Service peut charger les fichiers de sauvegarde à partir du partage réseau SMB et qu’il peut utiliser pour la migration de base de données.  Nous vous recommandons de sélectionner le compte de stockage se trouvant dans la même région qu’Azure Database Migration Service pour bénéficier de performances de chargement de fichiers optimales. |
     
-    ![Configurer les paramètres de migration](media\tutorial-sql-server-to-managed-instance-online\dms-configure-migration-settings4.png)
+    ![Configurer les paramètres de migration](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
 2. Sélectionnez **Enregistrer**.
  
@@ -185,7 +185,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 2. Examinez et vérifiez les détails associés au projet de migration.
  
-    ![Récapitulatif du projet de migration](media\tutorial-sql-server-to-managed-instance-online\dms-project-summary3.png)
+    ![Récapitulatif du projet de migration](media/tutorial-sql-server-to-managed-instance-online/dms-project-summary3.png)
 
 ## <a name="run-and-monitor-the-migration"></a>Exécuter et surveiller la migration
 
@@ -193,11 +193,11 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 2. Dans l’écran de l’activité de migration, sélectionnez **Actualiser** pour mettre à jour l’affichage.
  
-   ![Activité de migration en cours](media\tutorial-sql-server-to-managed-instance-online\dms-monitor-migration2.png)
+   ![Activité de migration en cours](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration2.png)
 
     Vous pouvez développer davantage les catégories de bases de données et de connexions pour surveiller l’état de la migration des objets serveur respectifs.
 
-   ![Activité de migration en cours](media\tutorial-sql-server-to-managed-instance-online\dms-monitor-migration-extend2.png)
+   ![Activité de migration en cours](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>Exécution du basculement de migration
 
@@ -213,11 +213,11 @@ Une fois la sauvegarde de base de données complète restaurée sur l’instance
 
 4.  Sélectionnez **Confirmer**, puis **Appliquer**.
 
-    ![Préparation à la fin du basculement](media\tutorial-sql-server-to-managed-instance-online\dms-complete-cutover.png)
+    ![Préparation à la fin du basculement](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
 5.  Lorsque la migration de base de données présente l’état **Terminé**, connectez vos applications à la nouvelle instance cible d’Azure SQL Database Managed Instance.
 
-    ![Basculement terminé](media\tutorial-sql-server-to-managed-instance-online\dms-cutover-complete.png)
+    ![Basculement terminé](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

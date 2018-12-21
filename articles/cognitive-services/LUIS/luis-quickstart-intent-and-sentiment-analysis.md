@@ -1,23 +1,24 @@
 ---
-title: 'Tutoriel 9 : Analyse des sentiments notamment des sentiments positifs, négatifs et neutres dans LUIS'
+title: analyse de sentiments
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application montrant comment extraire le sentiment positif, négatif et neutre des énoncés. Le sentiment est déterminé à partir de l’énoncé entier.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424848"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098919"
 ---
-# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutoriel 9 : Extraire le sentiment de l’énoncé global
+# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutoriel 9 :  Extraire le sentiment de l'énoncé global
 Dans ce tutoriel, vous allez créer une application montrant comment extraire le sentiment positif, négatif et neutre des énoncés. Le sentiment est déterminé à partir de l’énoncé entier.
 
 L’analyse des sentiments permet de déterminer si l’énoncé d’un utilisateur est positif, négatif ou neutre. 
@@ -94,7 +95,7 @@ Ajouter une nouvelle intention de recueillir des commentaires employés de la pa
 
 2. Activez **Analyse des sentiments** pour activer ce paramètre. 
 
-    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
+    ![Activer l'Analyse des sentiments comme paramètre de publication](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
 ## <a name="publish"></a>Publish
 
@@ -106,7 +107,7 @@ Ajouter une nouvelle intention de recueillir des commentaires employés de la pa
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Jill Jones work with the media team on the public portal was amazing`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `EmployeeFeedback` avec l’analyse des sentiments extraite.
     
-    ```JSON
+    ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {

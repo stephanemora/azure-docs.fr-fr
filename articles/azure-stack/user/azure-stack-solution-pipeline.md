@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280739"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967059"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : Systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Découvrez comment déployer une application sur Azure et Azure Stack à l’aide d’un pipeline d’intégration continue/de livraison continue (CI/CD) hybride.
 
@@ -126,27 +126,27 @@ Un principal du service nécessite une clé pour l’authentification. Procédez
 
 1. Dans **Inscriptions d’applications** dans Azure Active Directory, sélectionnez votre application.
 
-    ![Sélectionner l’application](media\azure-stack-solution-hybrid-pipeline\000_01.png)
+    ![Sélectionner l’application](media/azure-stack-solution-hybrid-pipeline/000_01.png)
 
 2. Notez la valeur de **l’ID d’application**. Vous l’utiliserez lors de la configuration du point de terminaison du service dans Azure DevOps Services.
 
-    ![ID de l'application](media\azure-stack-solution-hybrid-pipeline\000_02.png)
+    ![ID de l'application](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
 3. Pour générer une clé d’authentification, sélectionnez **Paramètres**.
 
-    ![Modifier les paramètres de l’application](media\azure-stack-solution-hybrid-pipeline\000_03.png)
+    ![Modifier les paramètres de l’application](media/azure-stack-solution-hybrid-pipeline/000_03.png)
 
 4. Pour générer une clé d’authentification, sélectionnez **Clés**.
 
-    ![Configurer des paramètres de clé](media\azure-stack-solution-hybrid-pipeline\000_04.png)
+    ![Configurer des paramètres de clé](media/azure-stack-solution-hybrid-pipeline/000_04.png)
 
 5. Fournissez une description de la clé et définissez la durée de la clé. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
 
-    ![Description et durée de la clé](media\azure-stack-solution-hybrid-pipeline\000_05.png)
+    ![Description et durée de la clé](media/azure-stack-solution-hybrid-pipeline/000_05.png)
 
     Une fois la clé enregistrée, la clé **VALUE** s’affiche. Copiez cette valeur, car vous ne pourrez pas l’obtenir ultérieurement. Vous fournissez la **valeur de la clé** avec l’ID d’application pour vous connecter en tant qu’application. Stockez la valeur de la clé à un emplacement où votre application peut la récupérer.
 
-    ![VALEUR de la clé](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+    ![VALEUR de la clé](media/azure-stack-solution-hybrid-pipeline/000_06.png)
 
 ### <a name="get-the-tenant-id"></a>Obtenir l’ID de locataire
 
@@ -154,45 +154,45 @@ Dans le cadre de la configuration du point de terminaison de service, Azure DevO
 
 1. Sélectionnez **Azure Active Directory**.
 
-    ![Azure Active Directory pour locataire](media\azure-stack-solution-hybrid-pipeline\000_07.png)
+    ![Azure Active Directory pour locataire](media/azure-stack-solution-hybrid-pipeline/000_07.png)
 
 2. Pour obtenir l’ID de locataire, sélectionnez **Propriétés** pour votre client Azure AD.
 
-    ![Afficher les propriétés du locataire](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+    ![Afficher les propriétés du locataire](media/azure-stack-solution-hybrid-pipeline/000_08.png)
 
 3. Copiez l’**ID Directory**. Cette valeur est votre ID de locataire.
 
-    ![ID du répertoire](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+    ![ID du répertoire](media/azure-stack-solution-hybrid-pipeline/000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Accorder au principal du service les droits nécessaires pour déployer des ressources dans l’abonnement Azure Stack
 
-Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Choisissez le rôle qui représente les meilleures autorisations pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Choisissez le rôle qui représente les meilleures autorisations pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue Par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes ses ressources.
 
 1. Accédez au niveau d’étendue que vous souhaitez affecter à l’application. Par exemple, pour affecter un rôle sur l’étendue de l’abonnement, sélectionnez **Abonnements**.
 
-    ![Sélectionner des abonnements](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+    ![Sélectionner des abonnements](media/azure-stack-solution-hybrid-pipeline/000_10.png)
 
 2. Dans **Abonnement**, sélectionnez Visual Studio Enterprise.
 
-    ![Visual Studio Enterprise](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+    ![Visual Studio Enterprise](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
 3. Dans Visual Studio Enterprise, sélectionnez **Contrôle d’accès (IAM)**.
 
-    ![Contrôle d’accès (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![Contrôle d’accès (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
 
 4. Sélectionnez **Ajouter**.
 
-    ![Ajouter](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+    ![Ajouter](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
 5. Dans **Ajouter des autorisations**, sélectionnez le rôle que vous souhaitez assigner à l’application. Dans cet exemple, le rôle **Propriétaire**.
 
-    ![Rôle Propriétaire](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+    ![Rôle Propriétaire](media/azure-stack-solution-hybrid-pipeline/000_14.png)
 
 6. Par défaut, les applications Azure Active Directory ne figurent pas dans les options disponibles. Pour trouver votre application, vous devez fournir son nom dans le champ **Sélectionner** pour le rechercher. Sélectionnez l’application.
 
-    ![Résultat de la recherche d’application](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+    ![Résultat de la recherche d’application](media/azure-stack-solution-hybrid-pipeline/000_16.png)
 
 7. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle. Votre application apparaît dans la liste des utilisateurs affectés à un rôle pour cette étendue.
 
@@ -212,37 +212,37 @@ Créez un jeton d’accès personnel pour accéder à Azure DevOps Services.
 
 2. Sélectionnez **Gérer la sécurité** pour accéder à la page de création d’un jeton d’accès.
 
-    ![Connexion de l’utilisateur](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![Connexion de l’utilisateur](media/azure-stack-solution-hybrid-pipeline/000_17.png)
 
-    ![Sélectionner un projet](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Sélectionner un projet](media/azure-stack-solution-hybrid-pipeline/000_18.png)
 
-    ![Ajouter un jeton d’accès personnel](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+    ![Ajouter un jeton d’accès personnel](media/azure-stack-solution-hybrid-pipeline/000_18a.png)
 
-    ![Créer un jeton](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+    ![Créer un jeton](media/azure-stack-solution-hybrid-pipeline/000_18b.png)
 
 3. Copiez le jeton.
 
     > [!Note]
     > Enregistrez les informations du jeton. Ces informations ne sont pas stockées et ne s’affichent plus lorsque vous quittez la page web.
 
-    ![Jeton d’accès personnel](media\azure-stack-solution-hybrid-pipeline\000_19.png)
+    ![Jeton d’accès personnel](media/azure-stack-solution-hybrid-pipeline/000_19.png)
 
 ### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Installer l’agent de build Azure DevOps Services sur le serveur de builds hébergé sur Azure Stack
 
 1. Connectez-vous au serveur de build que vous avez déployé sur l’hôte Azure Stack.
 2. Téléchargez et déployez l’agent de build en tant que service avec votre jeton d’accès personnel, et exécutez-le en tant que compte d’administrateur de la machine virtuelle.
 
-    ![Télécharger l’agent de build](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+    ![Télécharger l’agent de build](media/azure-stack-solution-hybrid-pipeline/010_downloadagent.png)
 
 3. Accédez au dossier de l’agent de build extrait. Exécutez le fichier **config.cmd** à partir d’une invite de commandes avec élévation de privilèges.
 
-    ![Agent de build extrait](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+    ![Agent de build extrait](media/azure-stack-solution-hybrid-pipeline/000_20.png)
 
-    ![Inscrire l’agent de build](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+    ![Inscrire l’agent de build](media/azure-stack-solution-hybrid-pipeline/000_21.png)
 
 4. Une fois l’exécutée de config.cmd terminée, le dossier de l’agent de build est mis à jour avec des fichiers supplémentaires. Le dossier avec le contenu extrait doit se présenter comme suit :
 
-    ![Mise à jour du dossier de l’agent de build](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
+    ![Mise à jour du dossier de l’agent de build](media/azure-stack-solution-hybrid-pipeline/009_token_file.png)
 
     Vous pouvez voir l’agent dans le dossier Azure DevOps Services.
 
@@ -250,23 +250,23 @@ Créez un jeton d’accès personnel pour accéder à Azure DevOps Services.
 
 Grâce à la création de points de terminaison, une build de Visual Studio Online (VSTO) peut déployer des applications Azure Service dans Azure Stack. Azure DevOps Services se connecte à l’agent de build, qui se connecte à Azure Stack.
 
-![Exemple d’application NorthwindCloud dans VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+![Exemple d’application NorthwindCloud dans VSTO](media/azure-stack-solution-hybrid-pipeline/012_securityendpoints.png)
 
 1. Connectez-vous à VSTO et accédez à la page de paramètres de l’application.
 2. Dans **Paramètres**, sélectionnez **Sécurité**.
 3. Dans **Groupes Azure DevOps Services**, sélectionnez **Créateurs de points de terminaison**.
 
-    ![Créateurs de points de terminaison NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+    ![Créateurs de points de terminaison NorthwindCloud](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
 
 4. Sous l’onglet **Membres**, sélectionnez **Ajouter**.
 
-    ![Ajouter un membre](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+    ![Ajouter un membre](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
 5. Dans **Ajouter des utilisateurs et groupes**, entrez un nom d’utilisateur et sélectionnez cet utilisateur dans la liste des utilisateurs.
 6. Sélectionnez **Enregistrer les modifications**.
 7. Dans la liste **Groupes Azure DevOps Services**, sélectionnez **Administrateurs de points de terminaison**.
 
-    ![Administrateurs du point de terminaison NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+    ![Administrateurs du point de terminaison NorthwindCloud](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. Sous l’onglet **Membres**, sélectionnez **Ajouter**.
 9. Dans **Ajouter des utilisateurs et groupes**, entrez un nom d’utilisateur et sélectionnez cet utilisateur dans la liste des utilisateurs.
@@ -297,13 +297,13 @@ Vous pouvez créer une connexion de service en utilisant le mappage suivant :
 
 Maintenant que le point de terminaison est créé, la connexion de DevOps à Azure Stack est prête pour l’utilisation. L’agent de build dans Azure Stack obtient des instructions de DevOps, puis l’agent transmet les informations du point de terminaison pour la communication avec Azure Stack.
 
-![Agent de build Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+![Agent de build Azure AD](media/azure-stack-solution-hybrid-pipeline/016_save_changes.png)
 
 ### <a name="create-an-endpoint-for-ad-fs"></a>Créer un point de terminaison pour AD FS
 
 La dernière mise à jour d’Azure DevOps permet de créer une connexion de service en utilisant un principal du service muni d’un certificat pour l’authentification. Cela est nécessaire lorsque Azure Stack est déployé avec AD FS en tant que fournisseur d’identité. 
 
-![Agent de build AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+![Agent de build AD FS](media/azure-stack-solution-hybrid-pipeline/image06.png)
 
 Vous pouvez créer une connexion de service en utilisant le mappage suivant :
 
@@ -342,17 +342,17 @@ La CI/CD hybride peut s’appliquer au code d’application et au code d’infra
 
 1. Connectez-vous à Azure DevOps Services à l’aide d’une organisation disposant des droits de création de projet sur Azure Stack. La capture d’écran suivante montre comment se connecter au projet HybridCICD.
 
-    ![Se connecter à un projet](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+    ![Se connecter à un projet](media/azure-stack-solution-hybrid-pipeline/017_connect_to_project.png)
 
 2. **Clonez le référentiel** en créant et en ouvrant l’application web par défaut.
 
-    ![Cloner le référentiel](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+    ![Cloner le référentiel](media/azure-stack-solution-hybrid-pipeline/018_link_arm.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Créer un déploiement d’applications web autonomes pour App Services dans les deux clouds
 
-1. Modifiez le fichier **WebApplication.csproj**. Sélectionnez **Runtimeidentifier**, puis ajoutez `win10-x64.`. Pour plus d’informations, consultez la documentation [Déploiements autonomes](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).
+1. Modifiez le fichier **WebApplication.csproj** : sélectionnez **Runtimeidentifier**, puis ajoutez `win10-x64.`. Pour plus d’informations, consultez la documentation [Déploiements autonomes](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).
 
-    ![Configurer Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+    ![Configurer Runtimeidentifier](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 
 2. Utilisez Team Explorer pour archiver le code dans Azure DevOps Services.
 
@@ -366,7 +366,7 @@ La CI/CD hybride peut s’appliquer au code d’application et au code d’infra
 
 3. Dans **Arguments**, ajoutez le code **-r win10-x64**. Cette action est requise pour déclencher un déploiement autonome avec .NET Core.
 
-    ![Ajouter un pipeline de build d’argument](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Ajouter un pipeline de build d’argument](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 
 4. Exécutez la build. Le processus de [build de déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) publie des artefacts qui peuvent s’exécuter sur Azure et Azure Stack.
 
@@ -385,89 +385,89 @@ La création d’un pipeline de mise en production est la dernière étape du pr
 1. Connectez-vous à Azure DevOps Services et accédez aux **Pipelines Azure** pour votre projet.
 2. Sous l’onglet **Versions**, sélectionnez  **\[ +]**, puis choisissez **Créer une définition de mise en production**.
 
-   ![Créer un pipeline de mise en production](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Créer un pipeline de mise en production](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
 
 3. Sous **Sélectionner un modèle**, choisissez **Déploiement d'Azure App Service**, puis sélectionnez **Appliquer**.
 
-    ![Appliquer le modèle](media\azure-stack-solution-hybrid-pipeline\102.png)
+    ![Appliquer le modèle](media/azure-stack-solution-hybrid-pipeline/102.png)
 
 4. Sous **Ajouter un artefact**, dans le menu déroulant **Source (définition de build)**, sélectionnez l’application de build Azure Cloud.
 
-    ![Ajoutez un artefact](media\azure-stack-solution-hybrid-pipeline\103.png)
+    ![Ajoutez un artefact](media/azure-stack-solution-hybrid-pipeline/103.png)
 
 5. Sous l’onglet **Pipeline**, sélectionnez le lien **1 Phase**, **1 Tâche** vers **Afficher les tâches d’environnement**.
 
-    ![Tâches de la vue Pipeline](media\azure-stack-solution-hybrid-pipeline\104.png)
+    ![Tâches de la vue Pipeline](media/azure-stack-solution-hybrid-pipeline/104.png)
 
 6. Sous l’onglet **Tâches**, entrez Azure comme **nom d’environnement** et sélectionnez AzureCloud Traders-Web EP dans la liste déroulante **Abonnement Azure**.
 
-    ![Définition des variables d'environnement](media\azure-stack-solution-hybrid-pipeline\105.png)
+    ![Définition des variables d'environnement](media/azure-stack-solution-hybrid-pipeline/105.png)
 
 7. Entrez le **nom de l’Azure App Service**, qui est « northwindtraders » dans la capture d’écran suivante.
 
-    ![Nom de l’App Service](media\azure-stack-solution-hybrid-pipeline\106.png)
+    ![Nom de l’App Service](media/azure-stack-solution-hybrid-pipeline/106.png)
 
 8. Pour la phase d’agent, sélectionnez **VS2017 hébergé** dans la liste déroulante **File d’attente d’agents**.
 
-    ![Agent hébergé](media\azure-stack-solution-hybrid-pipeline\107.png)
+    ![Agent hébergé](media/azure-stack-solution-hybrid-pipeline/107.png)
 
 9. Dans **Déployer Azure App Service**, sélectionnez le **package ou dossier** valide pour l’environnement.
 
-    ![Sélectionner le package ou dossier](media\azure-stack-solution-hybrid-pipeline\108.png)
+    ![Sélectionner le package ou dossier](media/azure-stack-solution-hybrid-pipeline/108.png)
 
 10. Dans **Sélectionner un fichier ou un dossier**, sélectionnez **OK** pour **Emplacement**.
 
-    ![Texte de remplacement](media\azure-stack-solution-hybrid-pipeline\109.png)
+    ![Texte de remplacement](media/azure-stack-solution-hybrid-pipeline/109.png)
 
 11. Enregistrez toutes les modifications et revenez à **Pipeline**.
 
-    ![Texte de remplacement](media\azure-stack-solution-hybrid-pipeline\110.png)
+    ![Texte de remplacement](media/azure-stack-solution-hybrid-pipeline/110.png)
 
 12. Sous l’onglet **Pipeline**, sélectionnez **Ajouter un artefact** et choisissez **NorthwindCloud Traders-Vessel** dans la liste déroulante **Source (définition de build)**.
 
-    ![Ajouter un nouvel artefact](media\azure-stack-solution-hybrid-pipeline\111.png)
+    ![Ajouter un nouvel artefact](media/azure-stack-solution-hybrid-pipeline/111.png)
 
 13. Sous **Sélectionner un modèle**, ajoutez un autre environnement. Choisissez **Déploiement d'Azure App Service**, puis sélectionnez **Appliquer**.
 
-    ![Sélectionner un modèle](media\azure-stack-solution-hybrid-pipeline\112.png)
+    ![Sélectionner un modèle](media/azure-stack-solution-hybrid-pipeline/112.png)
 
 14. Entrez « Azure Stack » comme **nom d’environnement**.
 
-    ![Nom de l’environnement](media\azure-stack-solution-hybrid-pipeline\113.png)
+    ![Nom de l’environnement](media/azure-stack-solution-hybrid-pipeline/113.png)
 
 15. Sous l’onglet **Tâches**, recherchez et sélectionnez Azure Stack.
 
-    ![Environnement Azure Stack](media\azure-stack-solution-hybrid-pipeline\114.png)
+    ![Environnement Azure Stack](media/azure-stack-solution-hybrid-pipeline/114.png)
 
 16. Dans la liste déroulante **Abonnement Azure**, sélectionnez « AzureStack Traders-Vessel EP » pour le point de terminaison Azure Stack.
 
-    ![Texte de remplacement](media\azure-stack-solution-hybrid-pipeline\115.png)
+    ![Texte de remplacement](media/azure-stack-solution-hybrid-pipeline/115.png)
 
 17. Entrez le nom de l’application web Azure Stack comme **nom de l’App Service**.
 
-    ![Nom de l’App Service](media\azure-stack-solution-hybrid-pipeline\116.png)
+    ![Nom de l’App Service](media/azure-stack-solution-hybrid-pipeline/116.png)
 
 18. Sous **Sélection de l’Agent**, choisissez « AzureStack -bDouglas Fir » dans la liste déroulante **file d’attente d’agents**.
 
-    ![Choisir l’agent](media\azure-stack-solution-hybrid-pipeline\117.png)
+    ![Choisir l’agent](media/azure-stack-solution-hybrid-pipeline/117.png)
 
 19. Pour **Déployer Azure App Service**, sélectionnez le **package ou dossier** valide pour l’environnement. Sous **Sélectionner un fichier ou un dossier**, sélectionnez **OK** pour le dossier **Emplacement**.
 
-    ![Choisir le package ou dossier](media\azure-stack-solution-hybrid-pipeline\118.png)
+    ![Choisir le package ou dossier](media/azure-stack-solution-hybrid-pipeline/118.png)
 
-    ![Approuver l’emplacement](media\azure-stack-solution-hybrid-pipeline\119.png)
+    ![Approuver l’emplacement](media/azure-stack-solution-hybrid-pipeline/119.png)
 
 20. Sous l’onglet **Variable**, recherchez la variable nommée **VSTS_ARM_REST_IGNORE_SSL_ERRORS**. Définissez la valeur de la variable sur **true** et définissez sa portée sur **Azure Stack**.
 
-    ![Configurer la variable](media\azure-stack-solution-hybrid-pipeline\120.png)
+    ![Configurer la variable](media/azure-stack-solution-hybrid-pipeline/120.png)
 
 21. Sous l’onglet **Pipeline**, sélectionnez l’icône **Déclencheur de déploiement continu** pour l’artefact NorthwindCloud Traders-Web et définissez le **Déclencheur de déploiement continu** sur **Activé**.  Procédez de la même manière pour l’artefact « NorthwindCloud Traders-Vessel ».
 
-    ![Définir la déclencheur de déploiement continu](media\azure-stack-solution-hybrid-pipeline\121.png)
+    ![Définir la déclencheur de déploiement continu](media/azure-stack-solution-hybrid-pipeline/121.png)
 
 22. Pour l’environnement Azure Stack, sélectionnez l’icône **Conditions préalables au déploiement** et définissez le déclencheur sur **Après la mise en production**.
 
-    ![Définir le déclencheur de conditions préalables au déploiement](media\azure-stack-solution-hybrid-pipeline\122.png)
+    ![Définir le déclencheur de conditions préalables au déploiement](media/azure-stack-solution-hybrid-pipeline/122.png)
 
 23. Enregistrez toutes vos modifications.
 
@@ -480,15 +480,15 @@ Maintenant que vous avez terminé les modifications du pipeline de mise en produ
 
 1. Sous l’onglet **Pipeline**, ouvrez la liste déroulante **Version finale** et choisissez **Créer une mise en production**.
 
-    ![Créer une mise en production](media\azure-stack-solution-hybrid-pipeline\200.png)
+    ![Créer une mise en production](media/azure-stack-solution-hybrid-pipeline/200.png)
 
 2. Entrez une description pour la mise en production, vérifiez que les artefacts corrects sont sélectionnés, puis choisissez **Créer**. Après quelques instants, une bannière s’affiche, indiquant que la nouvelle mise en production a été créée ; le nom de la mise en production est affichée sous forme de lien. Choisissez le lien pour afficher la page récapitulative de la mise en production.
 
-    ![Bannière de création de mise en production](media\azure-stack-solution-hybrid-pipeline\201.png)
+    ![Bannière de création de mise en production](media/azure-stack-solution-hybrid-pipeline/201.png)
 
 3. La page récapitulative de mise en production fournit des détails sur la mise en production. Dans la capture d’écran suivante pour « Release-2 », la section **Environnements** indique que l’**état du déploiement** d’Azure est « IN PROGRESS » (En cours) et que l’état d’Azure Stack est « SUCCEEDED » (Réussi). Lorsque l’état du déploiement de l’environnement Azure passe à « SUCCEEDED » (Réussi), une bannière indiquant que la mise en production est prête pour l’approbation s’affiche. Lorsqu’un déploiement est en attente ou a échoué, une icône d’informations **(i)** bleue est affichée. Pointez sur l’icône pour afficher une fenêtre contextuelle qui indique le motif du retard ou de l’échec.
 
-    ![Page récapitulative de mise en production](media\azure-stack-solution-hybrid-pipeline\202.png)
+    ![Page récapitulative de mise en production](media/azure-stack-solution-hybrid-pipeline/202.png)
 
 D’autres vues, comme la liste des mises en production, affichent aussi une icône indiquant qu’une approbation est en attente. La fenêtre contextuelle de cette icône indique le nom de l’environnement et plus de détails sur le déploiement. Un administrateur peut facilement voir la progression globale des mises en production et savoir quelles mises en production sont en attente d’approbation.
 
@@ -502,7 +502,7 @@ Cette section montre comment vous pouvez surveiller et suivre tous vos déploiem
 
 2. Lorsque le déploiement est terminé, l’intégralité du fichier journal s’affiche dans le volet droit. Vous pouvez choisir une **étape** dans le volet gauche pour afficher le fichier journal d’une seule étape telle que « Initialiser le travail ». La possibilité de voir les journaux individuels facilite le suivi et le débogage de parties du déploiement global. Vous pouvez également **enregistrer** le fichier journal d’une étape ou **Télécharger tous les journaux au format zip**.
 
-    ![Journaux de mise en production](media\azure-stack-solution-hybrid-pipeline\203.png)
+    ![Journaux de mise en production](media/azure-stack-solution-hybrid-pipeline/203.png)
 
 3. Ouvrez l’onglet **Résumé** pour afficher des informations générales sur la mise en production. Cette vue montre les détails de la build, les environnements où elle a été déployée, l’état du déploiement et d’autres informations sur la mise en production.
 

@@ -1,21 +1,22 @@
 ---
-title: Comparaison des services de messagerie Azure
-description: Compare Azure Event Grid, Event Hubs et Service Bus. Recommande le service à utiliser pour différents scénarios.
+title: Comparaison des messageries Azure - Event Grid, Event Hubs, Service Bus
+description: Décrit les trois services de messagerie Azure - Azure Event Grid, Event Hubs et Service Bus. Recommande le service à utiliser pour différents scénarios.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852195"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166521"
 ---
-# <a name="choose-between-azure-services-that-deliver-messages"></a>Choisir entre des services Azure qui remettent des messages
+# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Choisissez entre les trois services de messagerie Azure - Event Grid, Event Hubs et Service Bus
 
 Azure propose trois services qui facilitent la remise des messages d’événement dans une solution. Ces services sont :
 
@@ -33,7 +34,7 @@ Il existe une distinction importante entre les services qui remettent un événe
 
 Un événement est une notification légère d’une condition ou d’un changement d’état. Le serveur de publication de l’événement n’a aucune attente vis-à-vis de la façon dont est géré l’événement. Le consommateur de l’événement décide ce qu’il fait de la notification. Les événements peuvent être des unités discrètes ou appartenir à une série.
 
-Les événements discrets signalent un changement d’état et sont actionnables. Pour passer à l’étape suivante, le consommateur a uniquement besoin de savoir que quelque chose s’est produit. Les données d’événement contiennent des informations sur ce qui est arrivé, mais ne comportent pas les données qui ont déclenché l’événement. Par exemple, un événement avertit les consommateurs qu’un fichier a été créé. Il peut contenir des informations générales sur le fichier, mais pas le fichier lui-même. Les événements discrets conviennent parfaitement aux solutions sans serveur qui ont besoin d’être mises à l’échelle.
+Les événements discrets signalent un changement d’état et sont actionnables. Pour passer à l’étape suivante, le consommateur a uniquement besoin de savoir que quelque chose s’est produit. Les données d’événement contiennent des informations sur ce qui est arrivé, mais ne comportent pas les données qui ont déclenché l’événement. Par exemple, un événement avertit les consommateurs qu’un fichier a été créé. Il peut contenir des informations générales sur le fichier, mais pas le fichier lui-même. Les événements discrets conviennent parfaitement aux solutions [sans serveur](http://azure.com/serverless) qui ont besoin d’être mises à l’échelle.
 
 Les événements en série signalent une condition et sont analysables. Ces événements sont chronologiques et liés entre eux. Le consommateur a besoin de la série séquencée des événements pour analyser ce qui s’est passé.
 

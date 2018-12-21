@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Apache Kafka avec Apache Storm sur HDInsight - Azure '
+title: 'Didacticiel : Utiliser Apache Storm pour lire et écrire des données avec Apache Kafka - Azure HDInsight'
 description: Découvrez comment créer un pipeline de diffusion en continu à l’aide d’Apache Storm et Apache Kafka sur HDInsight. Dans ce didacticiel, vous utilisez les composants KafkaBolt et KafkaSpout pour transmettre des données à partir de Kafka.
 services: hdinsight
 author: hrasheed-msft
@@ -8,15 +8,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/21/2018
-ms.openlocfilehash: 74cdaed91624e9d0602ce6a85ccc5cd341b9519e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/06/2018
+ms.openlocfilehash: 1c2a61ba936fa86bb3acb560909b29cda762693c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496629"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166572"
 ---
-# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutoriel : Utiliser Apache Storm avec Apache Kafka sur HDInsight
+# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Didacticiel : Utiliser Apache Storm avec Apache Kafka sur HDInsight
 
 Ce tutoriel montre comment utiliser une topologie [Apache Storm](https://storm.apache.org/) pour lire et écrire des données avec [Apache Kafka](https://kafka.apache.org/) sur HDInsight. Ce tutoriel montre également comment conserver des données dans le stockage [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) sur le cluster Storm.
 
@@ -65,19 +65,19 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 Apache Storm fournit plusieurs composants pour l’utilisation d’Apache Kafka. Les composants suivants sont utilisés dans ce didacticiel :
 
-* `org.apache.storm.kafka.KafkaSpout` : ce composant lit les données à partir de Kafka. Ce composant s’appuie sur les composants suivants :
+* `org.apache.storm.kafka.KafkaSpout`: ce composant lit les données à partir de Kafka. Ce composant s’appuie sur les composants suivants :
 
-    * `org.apache.storm.kafka.SpoutConfig` : fournit une configuration pour le composant Spout.
+    * `org.apache.storm.kafka.SpoutConfig`: fournit une configuration pour le composant Spout.
 
     * `org.apache.storm.spout.SchemeAsMultiScheme` et `org.apache.storm.kafka.StringScheme` : comment les données issues de Kafka sont transformées en tuple Storm.
 
-* `org.apache.storm.kafka.bolt.KafkaBolt` : ce composant écrit des données dans Kafka. Ce composant s’appuie sur les composants suivants :
+* `org.apache.storm.kafka.bolt.KafkaBolt`: ce composant écrit des données dans Kafka. Ce composant s’appuie sur les composants suivants :
 
-    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector` : décrit la rubrique qui reçoit les écritures.
+    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector`: décrit la rubrique qui reçoit les écritures.
 
-    * `org.apache.kafka.common.serialization.StringSerializer` : configure Bolt pour sérialiser les données en tant que valeur de chaîne.
+    * `org.apache.kafka.common.serialization.StringSerializer`: configure Bolt pour sérialiser les données en tant que valeur de chaîne.
 
-    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper` : effectue un mappage à partir de la structure de données tuple utilisée dans la topologie Storm vers les champs stockés dans Kafka.
+    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: effectue un mappage à partir de la structure de données tuple utilisée dans la topologie Storm vers les champs stockés dans Kafka.
 
 Ces composants sont disponibles dans le package `org.apache.storm : storm-kafka`. Utilisez la version du package qui correspond à la version Storm. Pour HDInsight 3.6, la version Storm est 1.1.0.
 Vous avez également besoin du package `org.apache.kafka : kafka_2.10` qui contient les composants Kafka supplémentaires. Utilisez la version du package qui correspond à la version Kafka. Pour HDInsight 3.6, la version Kafka est 0.10.0.0.
@@ -135,15 +135,15 @@ Les topologies sont définies à l’aide de [Flux](https://storm.apache.org/rel
 
 Les paramètres suivants sont définis au moment de l’exécution pour les topologies suivantes :
 
-* `${kafka.topic}` : nom de la rubrique Kafka dans laquelle les topologies lisent et écrivent.
+* `${kafka.topic}`: nom de la rubrique Kafka dans laquelle les topologies lisent et écrivent.
 
-* `${kafka.broker.hosts}` : hôtes sur lesquels les répartiteurs Kafka s’exécutent. Les informations sur les répartiteurs sont utilisées par le KafkaBolt lors de l’écriture sur Kafka.
+* `${kafka.broker.hosts}`: hôtes sur lesquels les répartiteurs Kafka s’exécutent. Les informations sur les répartiteurs sont utilisées par le KafkaBolt lors de l’écriture sur Kafka.
 
 * `${kafka.zookeeper.hosts}`: hôtes sur lesquels Zookeeper s’exécute dans le cluster Kafka.
 
-* `${hdfs.url}` : URL de système de fichiers pour le composant HDFSBolt. Indique si les données sont écrites sur un compte de stockage Azure ou Azure Data Lake Store.
+* `${hdfs.url}`: URL de système de fichiers pour le composant HDFSBolt. Indique si les données sont écrites sur un compte de stockage Azure ou Azure Data Lake Store.
 
-* `${hdfs.write.dir}` : répertoire dans lequel les données sont écrites.
+* `${hdfs.write.dir}`: répertoire dans lequel les données sont écrites.
 
 Pour plus d’informations sur les topologies des flux, consultez [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
@@ -565,13 +565,13 @@ Kafka stocke les données dans une _rubrique_. Vous devez créer la rubrique ava
 
     Les paramètres utilisés avec cette commande sont les suivants :
 
-    * `org.apache.storm.flux.Flux` : utilisez Flux pour configurer et exécuter cette topologie.
+    * `org.apache.storm.flux.Flux`: utilisez Flux pour configurer et exécuter cette topologie.
 
-    * `--remote` : envoyez la topologie à Nimbus. La topologie est distribuée sur les nœuds de travail dans le cluster.
+    * `--remote`: envoyez la topologie à Nimbus. La topologie est distribuée sur les nœuds de travail dans le cluster.
 
-    * `-R /writer.yaml` : utilisez le fichier `writer.yaml` pour configurer la topologie. `-R` indique que cette ressource est incluse dans le fichier jar. Il se trouve à la racine du fichier jar, donc `/writer.yaml` est le chemin d’accès à celui-ci.
+    * `-R /writer.yaml`: utilisez le fichier `writer.yaml` pour configurer la topologie. `-R` indique que cette ressource est incluse dans le fichier jar. Il se trouve à la racine du fichier jar, donc `/writer.yaml` est le chemin d’accès à celui-ci.
 
-    * `--filter` : complétez les entrées de la topologie `writer.yaml` à l’aide des valeurs figurant dans le fichier `dev.properties`. Par exemple, la valeur de l’entrée `kafka.topic` dans le fichier est utilisée pour remplacer l’entrée `${kafka.topic}` dans la définition de la topologie.
+    * `--filter`: complétez les entrées de la topologie `writer.yaml` à l’aide des valeurs figurant dans le fichier `dev.properties`. Par exemple, la valeur de l’entrée `kafka.topic` dans le fichier est utilisée pour remplacer l’entrée `${kafka.topic}` dans la définition de la topologie.
 
 ## <a name="start-the-reader"></a>Démarrer le lecteur
 

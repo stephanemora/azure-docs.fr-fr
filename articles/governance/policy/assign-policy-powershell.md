@@ -1,24 +1,24 @@
 ---
-title: Démarrage rapide - Utiliser PowerShell pour créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure
-description: Dans ce démarrage rapide, vous utiliserez PowerShell pour créer une attribution de stratégie Azure pour identifier les ressources non conformes.
+title: Créer une stratégie pour identifier les ressources non conformes avec Azure PowerShell
+description: Utilisez Azure PowerShell pour créer une affectation de stratégie Azure afin d’identifier les ressources non conformes.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 3a71815e3a400b4366a2f60637cb0daab77b1cd6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.custom: seodec18
+ms.openlocfilehash: 32fe811c80fd34b4ea3390a3f46a1d36aba7534e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946168"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310706"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier les ressources non conformes à l’aide du module AzureRM PowerShell
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide d’Azure PowerShell
 
-La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Dans ce démarrage rapide, vous créerez une attribution de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques managés. Lorsque vous aurez terminé, vous identifierez les machines virtuelles qui ne sont *pas conformes* à l’attribution de stratégie.
+La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Dans ce démarrage rapide, vous créerez une affectation de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques managés. Lorsque vous aurez terminé, vous identifierez les machines virtuelles qui ne sont *pas conformes* à l’attribution de stratégie.
 
 Le module AzureRM PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. Ce guide explique comment utiliser AzureRM pour créer une attribution de stratégie. La stratégie identifie les ressources non conformes dans votre environnement Azure.
 
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 - Si ce n’est pas déjà fait, installez [ARMClient](https://github.com/projectkudu/ARMClient). C’est un outil qui envoie des requêtes HTTP aux API Azure Resource Manager.
 - Avant de commencer, assurez-vous que la dernière version de PowerShell est installée. Consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour plus de détails.
 - Mettez à jour votre module AzureRM PowerShell vers la dernière version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
-- Inscrivez le fournisseur de ressources Policy Insights à l’aide d’Azure PowerShell. L’inscription du fournisseur de ressources permet de s’assurer que votre abonnement fonctionne avec lui. Pour inscrire un fournisseur de ressources, vous devez être autorisé à effectuer l’opération d’inscription pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
+- Inscrivez le fournisseur de ressources Policy Insights à l’aide d’Azure PowerShell. L’inscription du fournisseur de ressources permet de s’assurer que votre abonnement fonctionne avec lui. Pour inscrire un fournisseur de ressources, vous devez avoir l’autorisation pour une opération de fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
 
   ```azurepowershell-interactive
   Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
@@ -39,20 +39,20 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
-Dans ce guide de démarrage rapide, vous créez une affectation de stratégie et attribuons la définition *Audit Virtual Machines without Managed Disks (Auditer des machines virtuelles sans disques gérés)*. Cette définition de stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans la définition de stratégie.
+Dans ce guide de démarrage rapide, vous allez créer une affectation de stratégie et affecter la définition *Audit VMs without managed disks* (Auditer les machines virtuelles sans disques managés). Cette stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans sa définition.
 
 Exécutez la commande suivante pour créer une nouvelle attribution de stratégie :
 
 ```azurepowershell-interactive
 $rg = Get-AzureRmResourceGroup -Name '<resourceGroupName>'
 $definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
-New-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit Virtual Machines without Managed Disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs without managed disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 Les commandes précédentes utilisent les informations suivantes :
 
 - **Name** : nom réel de l’attribution.  Pour cet exemple, *audit-vm-manageddisks* a été utilisé.
-- **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser *Audit Virtual Machines without Managed Disks Assignment* (Auditer des machines virtuelles sans attribution de disques managés).
+- **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation *Audit VMs without managed disks* (Auditer les machines virtuelles sans disques managés).
 - **Definition** : définition de la stratégie, que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie *Auditer les machines virtuelles qui n’utilisent pas de disques managés*.
 - **Scope** : une étendue détermine les ressources ou le regroupement de ressources sur lequel l’attribution de stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources. Assurez-vous de remplacer &lt;scope&gt; par le nom de votre groupe de ressources.
 
@@ -63,7 +63,7 @@ Vous êtes maintenant prêt à identifier les ressources non conformes pour comp
 Utilisez les informations suivantes pour identifier les ressources qui ne sont pas conformes à l’attribution de stratégie que vous avez créée. Exécutez les commandes suivantes :
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -103,9 +103,9 @@ Vos résultats doivent ressembler à l’exemple suivant :
 
 Les résultats sont comparables à ce que vous devriez généralement voir sous **Ressources non conformes** dans la vue du portail Azure.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Les guides suivants de cette collection sont basés sur ce démarrage rapide. Si vous prévoyez de continuer avec d’autres didacticiels, ne nettoyez pas les ressources créées dans ce démarrage rapide. Dans le cas contraire, vous pouvez supprimer l’attribution que vous avez créée en exécutant cette commande :
+Utilisez la commande suivante pour supprimer l’affectation créée :
 
 ```azurepowershell-interactive
 Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
@@ -115,7 +115,7 @@ Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscripti
 
 Dans ce démarrage rapide, vous avez affecté une définition de stratégie pour identifier les ressources non conformes de votre environnement Azure.
 
-Pour plus d’informations sur l’attribution de stratégies et garantir que les ressources que vous créerez **à l’avenir** sont conformes, continuez avec le didacticiel suivant :
+Pour en savoir plus sur l’affectation de stratégies pour vérifier que les nouvelles ressources sont conformes, suivez le didacticiel :
 
 > [!div class="nextstepaction"]
 > [Création et gestion des stratégies](./tutorials/create-and-manage.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Analyser une image - Kit SDK, C# - Vision par ordinateur'
+title: 'Démarrage rapide : Analyser une image - Kit de développement logiciel (SDK), C# - Vision par ordinateur'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous analysez une image à l’aide de la bibliothèque de client Windows en C# de l’API Vision par ordinateur.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 7de7a87c73c2dabddf2268a6a0bc2992d6017e4d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0983978221e9872e92ca366edd3bd3f2bfd9c3f4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853929"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413317"
 ---
-# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Démarrage rapide : Analyser une image à l’aide du kit SDK Vision par ordinateur et de C#
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Démarrage rapide : Analyser une image à l’aide du kit de développement logiciel (SDK) Vision par ordinateur et de C#
 
 Dans ce démarrage rapide, vous analysez une image locale ou distante pour extraire des fonctionnalités visuelles à l’aide de la bibliothèque de client Windows de l’API Vision par ordinateur.
 
@@ -30,7 +30,7 @@ Dans ce démarrage rapide, vous analysez une image locale ou distante pour extra
 ## <a name="analyzeimageasync-method"></a>Méthode AnalyzeImageAsync
 
 > [!TIP]
-> Récupérez le dernier code en tant que solution Visual Studio à partir de [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+> Récupérer le dernier code en tant que solution Visual Studio à partir de [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Les méthodes `AnalyzeImageAsync` et `AnalyzeImageInStreamAsync` encapsulent [l’API Analyser une image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pour les images distantes et locales, respectivement. Vous pouvez utiliser ces méthodes pour extraire des fonctionnalités visuelles en fonction du contenu de l’image et choisir les fonctionnalités à retourner, notamment :
 
@@ -162,7 +162,7 @@ namespace ImageAnalyze
 
 Une réponse correcte affiche la légende la plus pertinente pour chaque image.
 
-Consultez [Démarrages rapides de l’API : analyser une image locale avec C#](../QuickStarts/CSharp-analyze.md#examine-the-response) pour obtenir un exemple de sortie JSON brute.
+Consultez [Démarrages rapides de l’API : Analyser une image locale avec C#](../QuickStarts/CSharp-analyze.md#examine-the-response) pour obtenir un exemple de sortie JSON brute.
 
 ```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg

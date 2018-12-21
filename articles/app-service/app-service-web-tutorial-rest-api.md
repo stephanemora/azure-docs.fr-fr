@@ -1,5 +1,5 @@
 ---
-title: API RESTful avec CORS dans Azure App Service | Microsoft Docs
+title: Héberger une API RESTful avec CORS - Azure App Service | Microsoft Docs
 description: Découvrir comment Azure App Service vous aide à héberger vos API RESTful avec prise en charge de CORS.
 services: app-service\api
 documentationcenter: dotnet
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 4d8a95ee4afc844868cfda78087773a6a37c07c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: b22ea49367009a4c76135d979d783c5b73449d9d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445427"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261566"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service
 
@@ -58,7 +58,7 @@ Exécutez la commande suivante pour cloner l’exemple de référentiel :
 git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-Ce référentiel contient une application créée en fonction du didacticiel suivant : [Pages d’aide d’API web ASP.NET Core à l’aide de Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Elle utilise un générateur de Swagger pour traiter l’[interface utilisateur Swagger](https://swagger.io/swagger-ui/) et le point de terminaison JSON de Swagger.
+Ce référentiel contient une application créée en fonction du didacticiel suivant : [Pages d’aide d’API web ASP.NET Core avec Swagger/OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Elle utilise un générateur de Swagger pour traiter l’[interface utilisateur Swagger](https://swagger.io/swagger-ui/) et le point de terminaison JSON de Swagger.
 
 ### <a name="run-the-application"></a>Exécution de l'application
 

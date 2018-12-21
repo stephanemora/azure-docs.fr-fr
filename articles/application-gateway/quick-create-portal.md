@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6ad839b9cf1179e282b9163df5a38e13417408e2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7e11affece7e7eb133aa22e159ec07d4f15e96f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706226"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999596"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Portail Azure
 
@@ -25,7 +25,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
@@ -87,10 +87,10 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
     - *azureuser* : pour le nom d’utilisateur administrateur.
     - *Azure123456!* pour le mot de passe.
 
-   Acceptez toutes les autres valeurs par défaut et cliquez sur **Suivant : Disques**.
-4. Acceptez les valeurs de disque par défaut et cliquez sur **Suivant : Réseau**.
+   Acceptez toutes les autres valeurs par défaut et cliquez sur **Suivant : Disques**.
+4. Acceptez toutes les autres valeurs par défaut et cliquez sur **Suivant : Mise en réseau**.
 5. Assurez-vous que **myVNet** est sélectionné pour le réseau virtuel et que le sous-réseau est **myBackendSubnet**.
-6. Acceptez les autres valeurs par défaut et cliquez sur **Suivant : Gestion**.
+6. Acceptez toutes les autres valeurs par défaut et cliquez sur **Suivant : Gestion**.
 7. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage. Acceptez les autres valeurs par défaut et cliquez sur **Vérifier + créer**.
 8. Vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.
 9. Attendez la fin de la création de la machine virtuelle avant de continuer.

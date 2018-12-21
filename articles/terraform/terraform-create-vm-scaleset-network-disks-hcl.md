@@ -9,36 +9,36 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4784672364e2bdf44f0415ab4e1e386a5a80076b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228400"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313052"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Utiliser Terraform pour créer un groupe de machines virtuelles identiques Azure
 
-[Les groupes de machines virtuelles identiques Azure](/azure/virtual-machine-scale-sets) vous permettent de créer et de gérer un groupe de machines virtuelles identiques dont la charge est équilibrée et où le nombre d’instances de machine virtuelle peut automatiquement augmenter ou diminuer en fonction de la demande ou d’une calendrier défini. 
+[Les groupes de machines virtuelles identiques Azure](/azure/virtual-machine-scale-sets) vous permettent de créer et de gérer un groupe de machines virtuelles identiques dont la charge est équilibrée et où le nombre d’instances de machine virtuelle peut automatiquement augmenter ou diminuer en fonction de la demande ou d’une calendrier défini.
 
 Dans ce didacticiel, vous allez apprendre à utiliser [Azure Cloud Shell](/azure/cloud-shell/overview) pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Configurer un déploiement Terraform
-> * Utiliser des variables et des sorties pour le déploiement Terraform 
+> * Utiliser des variables et des sorties pour le déploiement Terraform
 > * Créer et déployer une infrastructure réseau
 > * Créer et déployer un groupe de machines virtuelles identiques et le joindre au réseau
 > * Créer et déployer une jumpbox pour la connexion aux machines virtuelles via SSH
 
 > [!NOTE]
-> La version la plus récente des fichiers config de Terraform utilisés dans cet article se trouve dans le [référentiel Awesome Terraform sur Github](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
+> La version la plus récente des fichiers config de Terraform utilisés dans cet article se trouve dans le [référentiel Awesome Terraform sur GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
+- **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
-- **Installation de Terraform** : suivez les instructions de l’article [Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure](/azure/virtual-machines/linux/terraform-install-configure).
+- **Installer Terraform** : Suivez les instructions de l’article [Terraform et configuration de l’accès à Azure ](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Création d’une paire de clés SSH** : si vous n’avez pas encore de paire de clés SSH, suivez les instructions dans l’article [Étapes rapides : Créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Créez une paire de clés SSH** : Si vous n’avez pas encore de paire de clés SSH, suivez les instructions dans l’article [Créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## <a name="create-the-directory-structure"></a>Créer la structure de répertoire
 
@@ -122,7 +122,8 @@ Dans l’instance Azure Cloud Shell, effectuez les étapes suivantes :
 
 1. Passez en mode insertion en sélectionnant la touche I.
 
-1. Collez le code suivant dans l’éditeur pour exposer le nom de domaine complet pour les machines virtuelles. :
+1. Collez le code suivant dans l’éditeur pour exposer le nom de domaine complet pour les machines virtuelles.
+:
 
   ```JSON
     output "vmss_public_ip" {
@@ -139,9 +140,9 @@ Dans l’instance Azure Cloud Shell, effectuez les étapes suivantes :
     ```
 
 ## <a name="define-the-network-infrastructure-in-a-template"></a>Définir l’infrastructure réseau dans un modèle
-Dans cette section, vous allez créer l’infrastructure réseau suivante dans un nouveau groupe de ressources Azure : 
+Dans cette section, vous allez créer l’infrastructure réseau suivante dans un nouveau groupe de ressources Azure :
 
-  - Un réseau virtuel avec l’espace d’adressage 10.0.0.0/16 
+  - Un réseau virtuel avec l’espace d’adressage 10.0.0.0/16
   - Un sous-réseau avec l’espace d’adressage 10.0.2.0/24
   - Deux adresses IP publiques. Une est utilisée par l’équilibrage de charge du groupe de machines virtuelles identiques et l’autre est utilisée pour la connexion à la jumpbox SSH.
 
@@ -155,7 +156,7 @@ Dans l’instance Azure Cloud Shell, effectuez les étapes suivantes :
 
 1. Passez en mode insertion en sélectionnant la touche I.
 
-1. Collez le code suivant à la fin du fichier pour exposer le nom de domaine complet pour les machines virtuelles. 
+1. Collez le code suivant à la fin du fichier pour exposer le nom de domaine complet pour les machines virtuelles.
 
   ```JSON
   resource "azurerm_resource_group" "vmss" {
@@ -210,7 +211,7 @@ Dans le répertoire où vous avez créé les fichiers config (.tf), utilisez Azu
 1. Initialisez Terraform.
 
   ```bash
-  terraform init 
+  terraform init
   ```
 
 1. Exécutez la commande suivante pour déployer l’infrastructure définie dans Azure.
@@ -235,8 +236,8 @@ Dans le répertoire où vous avez créé les fichiers config (.tf), utilisez Azu
 Dans cette section, vous allez apprendre à ajouter les ressources suivantes au modèle :
 
 - Un équilibreur de charge Azure et des règles pour prendre en charge l’application et l’attacher à l’adresse IP publique configurée précédemment dans cet article
-- Un pool d’adresses principales Azure qui est ensuite assigné à l’équilibreur de charge 
-- Un port de sonde d’intégrité utilisé par l’application et configuré sur l’équilibrage de charge 
+- Un pool d’adresses principales Azure qui est ensuite assigné à l’équilibreur de charge
+- Un port de sonde d’intégrité utilisé par l’application et configuré sur l’équilibrage de charge
 - Un groupe de machines virtuelles identiques derrière l’équilibreur de charge, exécuté sur le réseau virtuel déployé précédemment dans cet article
 - [Nginx](http://nginx.org/) sur les nœuds du groupe de machines virtuelles identiques à l’aide de [cloud-init](http://cloudinit.readthedocs.io/en/latest/).
 
@@ -359,7 +360,7 @@ Dans Cloud Shell, effectuez la procédure suivante :
     :wq
     ```
 
-1. Créez un fichier nommé `web.conf` pour prendre en charge la configuration cloud-init des machines virtuelles appartenant au groupe identique. 
+1. Créez un fichier nommé `web.conf` pour prendre en charge la configuration cloud-init des machines virtuelles appartenant au groupe identique.
 
     ```bash
     vi web.conf
@@ -407,7 +408,7 @@ Dans Cloud Shell, effectuez la procédure suivante :
   variable "admin_password" {
       description = "Default password for admin account"
   }
-  ``` 
+  ```
 
 1. Quittez le mode insertion en sélectionnant la touche Échap.
 
@@ -430,14 +431,14 @@ Dans Cloud Shell, effectuez la procédure suivante :
 1. Déployez les nouvelles ressources dans Azure.
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
   La sortie de la commande doit ressembler à la capture d’écran suivante :
 
   ![Groupe de ressources du groupe de machines virtuelles identiques Terraform](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
-1. Ouvrez un navigateur et connectez-vous au nom de domaine complet qui a été retourné par la commande. 
+1. Ouvrez un navigateur et connectez-vous au nom de domaine complet qui a été retourné par la commande.
 
   ![Résultats après avoir recherché le nom de domaine complet](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
@@ -545,7 +546,7 @@ Une *jumpbox* SSH est un serveur unique dans lequel vous passez rapidement pour 
 1. Déployez la jumpbox.
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
 Une fois le déploiement terminé, le contenu du groupe de ressources ressemble à ce qui est présenté dans la capture d’écran suivante :
@@ -555,7 +556,7 @@ Une fois le déploiement terminé, le contenu du groupe de ressources ressemble 
 > [!NOTE]
 > La possibilité de connexion avec un mot de passe est désactivée sur la jumpbox et le groupe de machines virtuelles identiques que vous avez déployés. Connectez-vous avec SSH pour accéder aux machines virtuelles.
 
-## <a name="environment-cleanup"></a>Suppression de l’environnement 
+## <a name="environment-cleanup"></a>Suppression de l’environnement
 
 Pour supprimer les ressources Terraform qui ont été créées au cours de ce didacticiel, entrez la commande suivante dans Cloud Shell :
 
@@ -566,9 +567,9 @@ terraform destroy
 Le processus de suppression peut prendre plusieurs minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez découvert comment utiliser Terraform pour créer un groupe de machines virtuelles identiques Azure. Pour en savoir plus sur Terraform sur Azure, consultez les ressources supplémentaires suivantes : 
+Dans cet article, vous avez découvert comment utiliser Terraform pour créer un groupe de machines virtuelles identiques Azure. Pour en savoir plus sur Terraform sur Azure, consultez les ressources supplémentaires suivantes :
 
- [Hub Terraform sur Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentation Terraform Azure Provider](https://aka.ms/terraform)  
- [Source Terraform Azure Provider](https://aka.ms/tfgit)  
+[Terraform Hub sur Microsoft.com](https://docs.microsoft.com/azure/terraform/)
+[Documentation Terraform Azure Provider](https://aka.ms/terraform)
+[Source Terraform Azure Provider](https://aka.ms/tfgit) 
  [Modules Terraform Azure](https://aka.ms/tfmodules)

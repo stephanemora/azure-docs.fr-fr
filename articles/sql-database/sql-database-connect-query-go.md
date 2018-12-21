@@ -11,31 +11,31 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 94da0ad79b0e01f3baa7f20661e45f873c742fd6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 12/07/2018
+ms.openlocfilehash: 34b3ee54c48040eaa6f7b7569921678869baa84b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063368"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092364"
 ---
-# <a name="use-go-to-query-an-azure-sql-database"></a>Utiliser Go pour interroger une base de données Azure SQL
+# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser Go pour interroger une base de données Azure SQL
 
-Ce guide de démarrage rapide montre comment utiliser [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) pour se connecter à une base de données Azure. Les instructions Transact-SQL permettant d’interroger et de modifier des données sont également présentées.
+Ce guide de démarrage rapide explique comment utiliser le langage de programmation [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) pour se connecter à une base de données SQL Azure, et pour exécuter des instructions Transact-SQL visant à interroger et modifier des données. [Go](https://golang.org/) est un langage de programmation open source qui permet de créer facilement des logiciels simples, fiables et efficaces.  
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce démarrage rapide, vérifiez que vous avez :
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce démarrage rapide.
+- Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md) configurée pour l’adresse IP publique de votre ordinateur.
 
-- Installé Go et les logiciels connexes sur votre système d’exploitation :
+- Go et les logiciels associés installés pour votre système d’exploitation :
 
-    - **MacOS** : installez Homebrew et GoLang. Voir [l’Étape 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-    - **Ubuntu** : installez GoLang. Voir [l’Étape 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-    - **Windows** : installez GoLang. Voir [l’Étape 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
+    - **MacOS** : Installez Homebrew et GoLang. Voir [l’Étape 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+    - **Ubuntu** :  Installez GoLang. Voir [l’Étape 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+    - **Windows** : Installez GoLang. Voir [l’Étape 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
 
 ## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
 
@@ -49,7 +49,7 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
    mkdir SqlServerSample
    ```
 
-2. Accédez au répertoire **SqlServerSample**, puis obtenez et installez le pilote SQL Server pour Go :
+2. Accédez au répertoire **SqlServerSample**, puis installez le pilote SQL Server pour Go.
 
    ```bash
    cd SqlServerSample
@@ -59,7 +59,7 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 ## <a name="create-sample-data"></a>Créer des exemples de données
 
-1. À l’aide de l’éditeur de texte de votre choix, créez un fichier nommé **CreateTestData.sql** dans le dossier **SqlServerSample**. Copiez et collez le code T-SQL suivant dans ce fichier. Ce code crée un schéma et une table, puis insère quelques lignes.
+1. Dans l’éditeur de texte de votre choix, créez un fichier nommé **CreateTestData.sql** dans le dossier **SqlServerSample**. Dans le fichier, copiez et collez le code T-SQL suivant, qui crée un schéma et une table, et y insère quelques lignes.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -82,7 +82,7 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
    GO
    ```
 
-2. Connectez-vous à la base de données à l’aide de sqlcmd, puis exécutez le script SQL pour créer le schéma et la table et insérer des lignes. Remplacez les valeurs par celles correspondant à votre serveur, base de données, nom d’utilisateur et mot de passe.
+2. Utilisez `sqlcmd` pour vous connecter à la base de données et exécuter votre script SQL nouvellement créé. Remplacez les valeurs par celles correspondant à votre serveur, base de données, nom d’utilisateur et mot de passe.
 
    ```bash
    sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
@@ -92,7 +92,7 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 1. Créez un fichier nommé **sample.go** dans le dossier **SqlServerSample**.
 
-2. Ouvrez le fichier et remplacez son contenu par le code suivant. Ajoutez les valeurs appropriées pour votre serveur, base de données, nom d’utilisateur et mot de passe. Cet exemple utilise les méthodes de contexte de GoLang pour garantir qu’il existe une connexion active au serveur de base de données.
+2. Ouvrez le fichier et collez-y le code suivant. Ajoutez les valeurs appropriées pour votre serveur, base de données, nom d’utilisateur et mot de passe. Cet exemple utilise les méthodes de contexte de GoLang pour vérifier qu’il existe une connexion active au serveur de base de données.
 
    ```go
    package main
@@ -288,13 +288,13 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 ## <a name="run-the-code"></a>Exécuter le code
 
-1. Exécutez ensuite les commandes suivantes dans l’invite de commandes :
+1. Exécutez ensuite la commande suivante dans l’invite de commandes.
 
    ```bash
    go run sample.go
    ```
 
-2. Vérifiez la sortie :
+2. Vérifiez la sortie.
 
    ```text
    Connected!

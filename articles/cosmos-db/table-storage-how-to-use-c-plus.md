@@ -9,12 +9,12 @@ ms.devlang: cpp
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: dff665a26efb00ed74ddfab4259c5c35ca1abb38
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9bfc6ed2c781ddc54815665c492e7f2413033ca0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880129"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087114"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Procédure d’utilisation du Stockage Table Azure et de l’API de Table Azure Cosmos DB avec C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "52880129"
 Ce guide décrit la procédure d’exécution des scénarios courants en utilisant le service de stockage Table Azure ou l’API de Table Azure Cosmos DB. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Les scénarios traités incluent la **création et la suppression d’une table**, ainsi que **l’utilisation d’entités de table**.
 
 > [!NOTE]
-> Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 2.2.0, disponible par le biais de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp/).
+> Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 2.2.0, disponible par le biais de [NuGet](https://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
 
 ## <a name="create-an-azure-service-account"></a>Créer un compte de service Azure
@@ -41,8 +41,8 @@ Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent 
 
 Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
 
-* **Linux :** suivez les instructions disponibles dans la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
-* **Windows :** dans Visual Studio, cliquez sur **Outils &gt; Gestionnaire de package NuGet &gt; Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur Entrée.  
+* **Linux :** suivez les instructions disponibles dans la page [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
+* **Windows :** Dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](/nuget/tools/package-manager-console) et appuyez sur Entrée.  
   
      Install-Package wastorage
 
@@ -478,5 +478,5 @@ Suivez ces liens pour en savoir plus sur le stockage Azure et l’API de Table d
 * [Introduction à l’API de Table](table-introduction.md)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 * [Listage des ressources Azure Storage en C++](../storage/common/storage-c-plus-plus-enumeration.md)
-* [Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
+* [Référence de la bibliothèque cliente de stockage pour C++](https://azure.github.io/azure-storage-cpp)
 * [Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

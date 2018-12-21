@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 609f48d0c2ba41d658850ade367d9b225941b105
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 992abf97751695c10f28f355e1086a12530b9456
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982606"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165229"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Qu’est-ce que l’accès utilisateur invité dans Azure Active Directory B2B ?
 
@@ -73,7 +73,7 @@ Vous pouvez déléguer la gestion des utilisateurs invités aux propriétaires d
 
 Intégrez vos partenaires externes de façon personnalisée en fonction des besoins de votre organisation.
 - Utilisez les [API d’invitation B2B Collaboration](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) pour personnaliser votre expérience d’intégration, notamment pour créer des portails d’inscription libre-service. 
-- Utilisez l’exemple de code pour un portail libre-service fourni [sur Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
+- Utilisez l’exemple de code pour un portail libre-service fourni [sur GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
 ![portail d’inscription](media/what-is-b2b/sign-up-portal.png)
 

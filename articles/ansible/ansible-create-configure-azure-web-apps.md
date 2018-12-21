@@ -1,5 +1,5 @@
 ---
-title: Créer des applications web Azure avec Ansible (préversion)
+title: Créer des applications web Azure avec Ansible
 description: Découvrez comment utiliser Ansible pour créer une application web avec Java 8 et le runtime du conteneur Tomcat dans App Service sur Linux
 ms.service: ansible
 keywords: ansible, azur, devops, bash, playbook, Azure App Service, Web App, Java
@@ -7,15 +7,15 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2018
-ms.openlocfilehash: 48b4c201b2b96bd4662e8c90be7298a4f418af53
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.date: 12/08/2018
+ms.openlocfilehash: a7e7c04b458575cdc9f2608d0c84f0df105bf202
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426549"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261753"
 ---
-# <a name="create-azure-app-service-web-apps-by-using-ansible-preview"></a>Créer des applications web Azure App Service avec Ansible (préversion)
+# <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Créer des applications web Azure App Service avec Ansible
 [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (ou simplement Web Apps) héberge des applications web, des API REST et des backends mobiles. Vous pouvez développer dans votre langage préféré&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
 
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Cet article vous explique comment utiliser Ansible pour créer une application web à l’aide du runtime Java. 
@@ -25,19 +25,20 @@ Ansible vous permet d’automatiser le déploiement et la configuration de resso
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 est nécessaire pour exécuter les exemples de playbooks suivants dans ce didacticiel. Vous pouvez installer la version 2. 7 RC d’Ansible en exécutant `sudo pip install ansible[azure]==2.7.0rc2`. Après sa mise en production, vous n’aurez plus besoin de préciser la version ici car la version 2.7 sera celle par défaut. 
+> Ansible 2.7 est nécessaire pour exécuter les exemples de playbooks suivants dans ce didacticiel.
 
 ## <a name="create-a-simple-app-service"></a>Création d’un service d’application simple
 Cette section présente un exemple de playbook Ansible qui définit les ressources suivantes :
 - Groupe de ressources, dans lequel votre plan App Service et votre application web seront déployés
 - Web App avec Java 8 et le runtime du conteneur Tomcat dans App Service sur Linux
 
-```
+```yml
 - hosts: localhost
   connection: local
   vars:
-    resource_group: myfirstResourceGroup
+    resource_group: myResourceGroup
     webapp_name: myfirstWebApp
+    plan_name: myAppServicePlan
     location: eastus
   tasks:
     - name: Create a resource group
@@ -51,7 +52,7 @@ Cette section présente un exemple de playbook Ansible qui définit les ressourc
         name: "{{ webapp_name }}"
         plan:
           resource_group: "{{ resource_group }}"
-          name: myappplan
+          name: "{{ plan_name }}"
           is_linux: true
           sku: S1
           number_of_workers: 1
@@ -71,17 +72,22 @@ ansible-playbook firstwebapp.yml
 
 La sortie de l’exécution du playbook Ansible indique que l’application web a été créée avec succès :
 
-```
+```Output
+PLAY [localhost] *************************************************
+
+TASK [Gathering Facts] *************************************************
+ok: [localhost]
+
 TASK [Create a resource group] *************************************************
 changed: [localhost]
 
-TASK [Create App Service on Linux with Java Runtime] ******************************
- [WARNING]: Azure API profile latest does not define an entry for
-WebSiteManagementClient
+TASK [Create App Service on Linux with Java Runtime] *************************************************
+ [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
+
 changed: [localhost]
 
-PLAY RECAP *********************************************************************
-localhost                  : ok=2    changed=2    unreachable=0    failed=0   
+PLAY RECAP *************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ```
 
 ## <a name="create-an-app-service-by-using-traffic-manager"></a>Créer un service d’application à l’aide de Traffic Manager
@@ -98,33 +104,33 @@ Cette section présente un exemple de playbook Ansible qui définit les ressourc
 - Profil Traffic Manager
 - Point de terminaison de Traffic Manager, en utilisant le site web créé
 
-```
+```yml
 - hosts: localhost
   connection: local
   vars:
+    resource_group_webapp: myResourceGroupWebapp
     resource_group: myResourceGroup
-    plan_resource_group: planResourceGroup
-    app_name: myLinuxWebApp
+    webapp_name: myLinuxWebApp
+    plan_name: myAppServicePlan
     location: eastus
-    linux_plan_name: myAppServicePlan
     traffic_manager_profile_name: myTrafficManagerProfile
     traffic_manager_endpoint_name: myTrafficManagerEndpoint
 
   tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
+        name: "{{ resource_group_webapp }}"
         location: "{{ location }}"
 
   - name: Create secondary resource group
     azure_rm_resourcegroup:
-        name: "{{ plan_resource_group }}"
+        name: "{{ resource_group }}"
         location: "{{ location }}"
 
   - name: Create App Service Plan
     azure_rm_appserviceplan:
-      resource_group: "{{ plan_resource_group }}"
-      name: "{{ linux_plan_name }}"
+      resource_group: "{{ resource_group }}"
+      name: "{{ plan_name }}"
       location: "{{ location }}"
       is_linux: true
       sku: S1
@@ -132,11 +138,11 @@ Cette section présente un exemple de playbook Ansible qui définit les ressourc
 
   - name: Create App Service on Linux with Java Runtime
     azure_rm_webapp:
-        resource_group: "{{ resource_group }}"
-        name: "{{ app_name }}"
+        resource_group: "{{ resource_group_webapp }}"
+        name: "{{ webapp_name }}"
         plan:
-          resource_group: "{{ plan_resource_group }}"
-          name: "{{ linux_plan_name }}"
+          resource_group: "{{ resource_group }}"
+          name: "{{ plan_name }}"
           is_linux: true
           sku: S1
           number_of_workers: 1
@@ -151,13 +157,13 @@ Cette section présente un exemple de playbook Ansible qui définit les ressourc
 
   - name: Get web app facts
     azure_rm_webapp_facts:
-      resource_group: "{{ resource_group }}"
-      name: "{{ app_name }}"
+      resource_group: "{{ resource_group_webapp }}"
+      name: "{{ webapp_name }}"
     register: webapp
     
   - name: Create Traffic Manager Profile
     azure_rm_trafficmanagerprofile:
-      resource_group: "{{ resource_group }}"
+      resource_group: "{{ resource_group_webapp }}"
       name: "{{ traffic_manager_profile_name }}"
       location: global
       routing_method: performance
@@ -171,13 +177,12 @@ Cette section présente un exemple de playbook Ansible qui définit les ressourc
 
   - name: Add endpoint to traffic manager profile, using created web site
     azure_rm_trafficmanagerendpoint:
-      resource_group: "{{ resource_group }}"
+      resource_group: "{{ resource_group_webapp }}"
       profile_name: "{{ traffic_manager_profile_name }}"
       name: "{{ traffic_manager_endpoint_name }}"
       type: azure_endpoints
       location: "{{ location }}"
       target_resource_id: "{{ webapp.webapps[0].id }}"
-
 ```
 Enregistrez le playbook ci-dessus sous **webapp.yml**, ou [téléchargez le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
 
@@ -187,7 +192,12 @@ ansible-playbook webapp.yml
 ```
 
 La sortie de l’exécution du playbook Ansible indique que le plan App Service, l’application Web, le profil de Traffic Manager et le point de terminaison ont été créés avec succès :
-```
+```Output
+PLAY [localhost] *************************************************
+
+TASK [Gathering Facts] *************************************************
+ok: [localhost]
+
 TASK [Create resource group] ****************************************************************************
 changed: [localhost]
 
@@ -222,4 +232,4 @@ localhost                  : ok=9    changed=6    unreachable=0    failed=0
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
-> [Ansible sur Azure](https://docs.microsoft.com/azure/ansible/)
+> [Mettre à l’échelle des applications web Azure App Service avec Ansible](https://docs.microsoft.com/azure/ansible/ansible-scale-azure-web-apps)

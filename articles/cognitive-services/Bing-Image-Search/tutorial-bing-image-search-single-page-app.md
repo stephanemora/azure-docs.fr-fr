@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une application web monopage - API Recherche d’images Bing'
+title: 'Tutoriel : Créer une application web monopage - API Recherche d’images Bing'
 titleSuffix: Azure cognitive services
 description: L’API Recherche d’images Bing vous permet de rechercher sur le web des images pertinentes de qualité. Utilisez ce tutoriel pour créer une application web monopage qui peut envoyer des requêtes de recherche à l’API et afficher les résultats dans la page web.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297449"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253950"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutoriel : Créer une application monopage avec l’API Recherche d’images Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutoriel : Créer une application monopage avec l’API Recherche d’images Bing
 
 L’API Recherche d’images Bing vous permet de rechercher sur le web des images pertinentes de qualité. Utilisez ce tutoriel pour créer une application web monopage qui peut envoyer des requêtes de recherche à l’API et afficher les résultats dans la page web. Ce tutoriel est similaire au [tutoriel correspondant](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) pour l’API Recherche Web Bing.
 
-L’application du tutoriel illustre comment :
+L’application du didacticiel illustre les actions suivantes :
 
 > [!div class="checklist"]
 > * Effectuer un appel d’API Recherche d’images Bing dans JavaScript

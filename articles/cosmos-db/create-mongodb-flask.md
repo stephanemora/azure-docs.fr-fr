@@ -3,21 +3,21 @@ title: 'Azure Cosmos DB : Générer une application web Flask avec Python et l�
 description: Cet article présente un exemple de code Python Flask que vous pouvez utiliser pour vous connecter à l’API MongoDB d’Azure Cosmos DB, et pour l’interroger.
 services: cosmos-db
 author: slyons
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.author: sclyon
-ms.openlocfilehash: 70a103aa7c03abeed98237a3b1dc3ec8b514810a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849055"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165110"
 ---
-# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB : Générer une application Flask avec l’API MongoDB
+# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB : Générer une application Flask avec l’API MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -120,7 +120,7 @@ Les extraits de code suivants proviennent tous du fichier app.py et utilisent la
 
 Si vous souhaitez tester le code par rapport à un compte Azure Cosmos DB actif, accédez au portail Azure pour créer un compte et obtenir vos informations de chaîne de connexion. Ensuite, copiez-les dans l’application.
 
-1. Dans le [portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Chaîne de connexion**, puis sur **Clés en lecture-écriture**. Vous utiliserez le bouton Copier sur le côté droit de l’écran pour copier le nom d’utilisateur, le mot de passe et l’hôte dans le fichier Dal.cs à l’étape suivante.
+1. Dans le [portail Azure](https://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Chaîne de connexion**, puis sur **Clés en lecture-écriture**. Vous utiliserez le bouton Copier sur le côté droit de l’écran pour copier le nom d’utilisateur, le mot de passe et l’hôte dans le fichier Dal.cs à l’étape suivante.
 
 2. Ouvrez le fichier **app.py** dans le répertoire racine.
 
@@ -134,7 +134,7 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
 
 ## <a name="deploy-to-azure"></a>Déployer dans Azure
 
-Pour déployer cette application, vous pouvez créer une application web dans Azure et activer le déploiement continu avec une duplication (fork) de ce dépôt github. Suivez ce [didacticiel](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) pour configurer le déploiement continu avec Github dans Azure.
+Pour déployer cette application, vous pouvez créer une application web dans Azure et activer le déploiement continu avec une duplication (fork) de ce référentiel GitHub. Suivez ce [didacticiel](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) pour configurer le déploiement continu avec GitHub dans Azure.
 
 Lors du déploiement sur Azure, vous devez supprimer vos clés d’application et vérifier que la section ci-dessous n’est pas commentée :
 
@@ -149,11 +149,11 @@ Vous devez ensuite ajouter vos valeurs MONGOURL, MONGO_PASSWORD et MONGO_USERNAM
 Si vous ne souhaitez pas créer de duplication de ce dépôt, vous pouvez également cliquer sur le bouton Déployer sur Azure ci-dessous. Vous devez ensuite aller dans Azure et configurer les paramètres d’application avec vos informations de compte Cosmos DB.
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
-<img src="http://azuredeploy.net/deploybutton.png"/>
+<img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]
-> Si vous envisagez de stocker votre code dans Github ou d’autres options de contrôle de code source, n’oubliez pas de supprimer vos chaînes de connexion du code. Elles peuvent être définies avec des paramètres d’application pour l’application web à la place.
+> Si vous envisagez de stocker votre code dans GitHub ou d’autres options de contrôle de code source, n’oubliez pas de supprimer vos chaînes de connexion du code. Elles peuvent être définies avec des paramètres d’application pour l’application web à la place.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 858d098f18604d1360af8509eb8a0cec6fa7d0c7
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354556"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381471"
 ---
 ## <a name="prepare-your-web-app"></a>Préparation de votre application web
 
@@ -41,7 +41,7 @@ Vérifiez que votre application web ne se trouve pas dans le niveau **F1** ou **
 
 ![Vérification du niveau de tarification](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-Le certificat SSL personnalisé n’est pas pris en charge pour les niveaux **F1** et **D1**. Si vous avez besoin de monter en puissance, consultez la section ci-après. Sinon, fermez la page **Augmentation de la taille des instances**  et passez à [Charger et lier votre certificat SSL](#upload).
+Le certificat SSL personnalisé n’est pas pris en charge pour les niveaux **F1** et **D1**. Si vous avez besoin de monter en puissance, consultez la section ci-après. Sinon, fermez la page **Monter en puissance** et ignorez la section [Évolution de votre plan App Service](#scale-up-your-app-service-plan).
 
 ### <a name="scale-up-your-app-service-plan"></a>Évolution de votre plan App Service
 

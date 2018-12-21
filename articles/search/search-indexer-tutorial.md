@@ -1,5 +1,5 @@
 ---
-title: Didacticiel pour l’indexation de bases de données SQL Azure dans Recherche Azure | Microsoft Docs
+title: Didacticiel pour l’indexation de bases de données SQL Azure dans le portail Azure | Microsoft Docs
 description: Dans ce didacticiel, vous allez analyser une base de données Azure SQL pour extraire les données pouvant faire l’objet d’une recherche et renseigner un index Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988793"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312049"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Didacticiel : Analyser une base de données SQL Azure à l’aide d’indexeurs Recherche Azure
 
@@ -270,13 +271,13 @@ Tous les indexeurs, y compris celui que vous venez de créer par programme, sont
   ![Vignettes d’indexeur et de source de données](./media/search-indexer-tutorial/tiles-portal.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Le moyen le plus rapide de procéder à un nettoyage après un didacticiel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez supprimer le groupe de ressources maintenant pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
+Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez attacher des algorithmes intégrant l’intelligence artificielle à un pipeline d’indexeur. Comme prochaine étape, passez au didacticiel suivant.
+Vous pouvez attacher des algorithmes intégrant l’intelligence artificielle à un pipeline d’indexeur. Comme prochaine étape, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
 > [Indexation de documents dans Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)

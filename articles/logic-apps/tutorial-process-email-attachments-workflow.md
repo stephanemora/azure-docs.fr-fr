@@ -1,25 +1,25 @@
 ---
-title: Générer des flux de travail qui traitent les e-mails et les pièces jointes - Azure Logic Apps | Microsoft Docs
-description: Ce didacticiel montre comment créer des flux de travail automatisés pour vous permettre de traiter les e-mails et les pièces jointes avec Azure Logic Apps, Stockage Azure et Azure Functions
+title: Didacticiel - Automatiser le traitement des e-mails et des pièces jointes - Azure Logic Apps | Microsoft Docs
+description: Didacticiel - Créer des flux de travail automatisés qui traitent les e-mails et les pièces jointes avec Azure Logic Apps, Stockage Azure et Azure Functions
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231966"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140504"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Traiter les e-mails et les pièces jointes avec Azure Logic Apps
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Didacticiel : Automatiser la gestion des e-mails et des pièces jointes avec Azure Logic Apps
 
-Azure Logic Apps vous aide à automatiser les flux de travail et à intégrer des données dans les services Azure et Microsoft, d’autres applications SaaS (software-as-a-service) et des systèmes locaux. Ce didacticiel montre comment créer une [application logique](../logic-apps/logic-apps-overview.md) qui gère les e-mails entrants et les éventuelles pièces jointes. Cette application logique traite ce contenu, enregistre le contenu dans Stockage Azure et envoie des notifications de révision de ce contenu. 
+Azure Logic Apps vous aide à automatiser les flux de travail et à intégrer des données dans les services Azure et Microsoft, d’autres applications SaaS (software-as-a-service) et des systèmes locaux. Ce didacticiel montre comment créer une [application logique](../logic-apps/logic-apps-overview.md) qui gère les e-mails entrants et les éventuelles pièces jointes. Cette application logique analyse le contenu de l’e-mail, enregistre le contenu dans Stockage Azure et envoie des notifications de révision de ce contenu. 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -68,7 +68,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
    | **Performances** | standard | Ce paramètre spécifie les types de données pris en charge et les médias de stockage des données. Voir [Types de compte de stockage](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Transfert sécurisé requis** | Désactivé | Ce paramètre spécifie la sécurité requise pour les demandes de connexions. Voir [Exiger un transfert sécurisé dans Stockage Azure](../storage/common/storage-require-secure-transfer.md). | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
-   | **Groupe de ressources** | LA-Tutorial-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser et gérer les ressources connexes. <p>**Remarque :** un groupe de ressources existe dans une région spécifique. Même si les éléments de ce didacticiel ne sont pas forcément disponibles dans toutes les régions, essayez d’utiliser la même région dans la mesure du possible. | 
+   | **Groupe de ressources** | LA-Tutorial-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser et gérer les ressources connexes. <p>**Remarque :** Un groupe de ressources existe dans une région spécifique. Même si les éléments de ce didacticiel ne sont pas forcément disponibles dans toutes les régions, essayez d’utiliser la même région dans la mesure du possible. | 
    | **Configurer des réseaux virtuels** | Désactivé | Pour ce didacticiel, maintenez le paramètre **Désactivé**. | 
    |||| 
 
@@ -144,7 +144,7 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
    | **Groupe de ressources** | LA-Tutorial-RG | Groupe de ressources Azure que vous avez utilisé précédemment. | 
    | **Plan d’hébergement** | Plan de consommation | Ce paramètre détermine l’affectation et la mise à l’échelle des ressources, telles que la puissance de calcul, pour l’exécution de votre application de fonction. Voir [Comparaison des plans d’hébergement](../azure-functions/functions-scale.md). | 
    | **Lieu** | USA Ouest | Région que vous avez utilisée précédemment. | 
-   | **Stockage** | cleantextfunctionstorageacct | Créez un compte de stockage pour votre application de fonction. Utilisez uniquement des lettres minuscules et des chiffres. <p>**Remarque :** ce compte de stockage contient vos applications de fonction et diffère du compte de stockage créé précédemment pour les pièces jointes. | 
+   | **Stockage** | cleantextfunctionstorageacct | Créez un compte de stockage pour votre application de fonction. Utilisez uniquement des lettres minuscules et des chiffres. <p>**Remarque :** Ce compte de stockage contient vos applications de fonction et diffère du compte de stockage créé précédemment pour les pièces jointes. | 
    | **Application Insights** | Off | Active la surveillance des applications avec [Application Insights](../application-insights/app-insights-overview.md), mais pour ce didacticiel, choisissez le paramètre **Désactivé**. | 
    |||| 
 
@@ -246,11 +246,11 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
 ## <a name="monitor-incoming-email"></a>Surveiller les e-mails entrants
 
-1. Dans la zone de recherche du concepteur, entrez « À la réception d’un e-mail » comme filtre. Sélectionnez ce déclencheur pour votre fournisseur de messagerie : **À la réception d’un e-mail - <*votre-fournisseur-de-messagerie*>**
+1. Dans la zone de recherche du concepteur, entrez « À la réception d’un e-mail » comme filtre. Sélectionnez ce déclencheur pour votre fournisseur de messagerie : **Lorsqu’un nouvel e-mail arrive - <*your-email-provider*>**
 
    Par exemple : 
 
-   ![Sélectionner ce déclencheur pour le fournisseur de messagerie : « À la réception d’un e-mail »](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
+   ![Sélectionnez ce déclencheur pour votre fournisseur de messagerie : « When a new email arrives » (Quand un nouvel e-mail arrive)](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
    * Pour les comptes Azure professionnels ou scolaires, sélectionnez Office 365 Outlook. 
    * Pour les comptes Microsoft personnels, sélectionnez Outlook.com. 
@@ -274,7 +274,7 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
       | Paramètre | Valeur | Description | 
       | ------- | ----- | ----------- | 
-      | **Contient une pièce jointe** | Oui | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. | 
+      | **Contient une pièce jointe** | Oui | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** Le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. | 
       | **Inclure des pièces jointes** | Oui | Récupérez les pièces jointes en tant qu’entrée de votre flux de travail au lieu de les rechercher simplement. | 
       | **Filtre Objet** | ```Business Analyst 2 #423501``` | Texte à rechercher dans l’objet de l’e-mail. | 
       |  |  |  | 
@@ -328,7 +328,7 @@ Ajoutez maintenant une condition qui sélectionne uniquement les e-mails contena
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -377,15 +377,15 @@ Cette étape ajoute votre fonction Azure créée précédemment à votre applica
 
    ![À l’intérieur de « Si true », ajouter une action](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-2. Dans la zone de recherche, entrez « azure functions », puis sélectionnez cette action : **Choisir une fonction Azure - Azure Functions**.
+2. Dans la zone de recherche, recherchez « Azure Functions » et sélectionnez cette action : **Choisissez une fonction Azure - Azure Functions**
 
    ![Sélectionner une action pour « Choisir une fonction Azure »](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Sélectionnez votre application de fonction créée précédemment : **CleanTextFunctionApp**.
+3. Sélectionnez votre application de fonction créée précédemment : **CleanTextFunctionApp**
 
    ![Sélectionner votre application de fonction Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
-4. À présent, sélectionnez votre fonction : **RemoveHTMLFunction**.
+4. Sélectionnez votre fonction : **RemoveHTMLFunction**
 
    ![Sélectionner votre application de fonction](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 

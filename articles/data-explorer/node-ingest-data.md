@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Node de l’Explorateur de données Azure'
+title: "Démarrage rapide : Ingérer des données à l'aide de la bibliothèque Node d'Azure Data Explorer"
 description: Dans ce démarrage rapide, vous apprendrez comment ingérer (charger) des données dans l’Explorateur de données Azure à l’aide de Node.js.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: fa322ee685d09717ac5b98398d4d1d61de2be1e9
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: c638369efc89ca4442b69c9337827fe3872fd197
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706624"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085958"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Node de l’Explorateur de données Azure
+# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Démarrage rapide : Ingérer des données à l'aide de la bibliothèque Node d'Azure Data Explorer
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure fournit deux bibliothèques clientes pour Node : une [bibliothèque d’ingestion](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) et une [bibliothèque de données](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Ces bibliothèques vous permettent d’ingérer (charger) des données dans un cluster et d’interroger les données de votre code. Dans ce guide de démarrage rapide, vous allez d’abord créer une table et un mappage de données dans un cluster de test. Ensuite, vous allez mettre en file d’attente l’ingestion sur le cluster et valider les résultats.
 
@@ -54,8 +54,8 @@ Définissez les valeurs de `authorityId`, `kustoUri`, `kustoIngestUri` et `kusto
 ```javascript
 const authorityId = "<TenantId>";
 const kustoUri = "https://<ClusterName>.<Region>.kusto.windows.net:443/";
-const kustoIngestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/"
-const kustoDatabase  = "<DatabaseName>"
+const kustoIngestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/";
+const kustoDatabase  = "<DatabaseName>";
 ```
 
 Maintenant, créez la chaîne de connexion. Cet exemple utilise l’authentification de l’appareil pour accéder au cluster. Vous pouvez également utiliser un certificat d’application, une clé d’application, et un utilisateur et mot de passe Azure Active Directory.
@@ -64,9 +64,7 @@ Vous allez créer la table de destination et le mappage dans une étape ultérie
 
 ```javascript
 const kcsbIngest = KustoConnectionStringBuilder.withAadDeviceAuthentication(kustoIngestUri, authorityId);
-
 const kcsbData = KustoConnectionStringBuilder.withAadDeviceAuthentication(kustoUri, authorityId);
-
 const destTable = "StormEvents";
 const destTableMapping = "StormEvents_CSV_Mapping";
 ```
@@ -81,20 +79,19 @@ from azure.kusto.ingest import KustoIngestClient, IngestionProperties, FileDescr
 
 const container = "samplefiles";
 const account = "kustosamplefiles";
-const sas = "?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D"
+const sas = "?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
 const filePath = "StormEvents.csv";
-const fileSize = 64158321    # in bytes
-
-const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePath}${sas}";
+const fileSize = 64158321; // in bytes
+const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePath}${sas}`;
 ```
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Créer une table sur votre cluster de test
 
-Créer une table qui correspond au schéma des données dans le fichier `StormEvents.csv`. Lorsque ce code s’exécute, il retourne un message similaire au suivant : *Pour vous connecter, utilisez un navigateur web pour ouvrir la page https://microsoft.com/devicelogin et entrez le code XXXXXXXXX pour l’authentification*. Suivez les étapes pour vous connecter, puis revenez pour exécuter le bloc de code suivant. Les blocs de code suivants qui établissent une connexion vous demanderont de vous reconnecter.
+Créer une table qui correspond au schéma des données dans le fichier `StormEvents.csv`. Lorsque ce code s'exécute, il renvoie un message semblable au suivant : *Pour vous connecter, utilisez un navigateur web afin d'ouvrir la page https://microsoft.com/devicelogin et entrez le code XXXXXXXXX pour vous authentifier*. Suivez les étapes pour vous connecter, puis revenez pour exécuter le bloc de code suivant. Les blocs de code suivants qui établissent une connexion vous demanderont de vous reconnecter.
 
 ```javascript
 const kustoClient = new KustoClient(kcsbData);
-const createTableCommand = ".create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)"
+const createTableCommand = ".create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)";
 
 kustoClient.executeMgmt(kustoDatabase, createTableCommand, (err, results) => {
     console.log(result.primaryResults[0]);

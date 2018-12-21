@@ -1,33 +1,26 @@
 ---
-title: Didacticiel relatif à l’authentification des clients du service Azure SignalR | Microsoft Docs
+title: Didacticiel relatif à l’authentification des clients du service Azure SignalR
 description: Dans ce didacticiel, vous allez découvrir comment authentifier les clients du service Azure SignalR.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
-ms.workload: tbd
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 8751e3485b97b67fd8dd4821480fecd7735c08cd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: beaedf754df2b1c4739c5dfb2abcdc40c163dc81
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268510"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254120"
 ---
-# <a name="tutorial-azure-signalr-service-authentication"></a>Didacticiel : Authentification par le service Azure SignalR
+# <a name="tutorial-azure-signalr-service-authentication"></a>Didacticiel : Authentification par Azure SignalR Service
 
-Ce didacticiel s’appuie sur l’application de salle de conversation présentée dans le démarrage rapide. Si vous n’avez pas effectué l’exercice de [création de salle de conversation avec le service SignalR](signalr-quickstart-dotnet-core.md), exécutez-le dans un premier temps. 
+Ce didacticiel s’appuie sur l’application de salle de conversation présentée dans le démarrage rapide. Si vous n’avez pas effectué l’exercice de [création de salle de conversation avec le service SignalR](signalr-quickstart-dotnet-core.md), exécutez-le dans un premier temps.
 
-Dans ce didacticiel, vous allez découvrir comment implémenter votre propre authentification et l’intégrer dans le service Microsoft Azure SignalR. 
+Dans ce didacticiel, vous allez découvrir comment implémenter votre propre authentification et l’intégrer dans le service Microsoft Azure SignalR.
 
-L’authentification utilisée initialement dans l’application de salle de conversation du démarrage rapide est trop simple pour les scénarios concrets. L’application permet à chaque client de revendiquer son identité, et le serveur accepte cet état de fait. Cette approche n’est pas très utile dans les applications concrètes, où un utilisateur non autorisé pourrait usurper l’identité d’un autre utilisateur pour accéder à des données sensibles. 
+L’authentification utilisée initialement dans l’application de salle de conversation du démarrage rapide est trop simple pour les scénarios concrets. L’application permet à chaque client de revendiquer son identité, et le serveur accepte cet état de fait. Cette approche n’est pas très utile dans les applications concrètes, où un utilisateur non autorisé pourrait usurper l’identité d’un autre utilisateur pour accéder à des données sensibles.
 
 [GitHub](https://github.com/) fournit des API d’authentification basées sur un protocole standard populaire appelé [OAuth](https://oauth.net/). Ces API autorisent des applications tierces à authentifier des comptes GitHub. Dans ce didacticiel, vous utiliserez ces API pour implémenter l’authentification via un compte GitHub, avant de prendre en charge les connexions clientes sur l’application de salle de conversation. Une fois le compte GitHub authentifié, ses données sont ajoutées sous forme de cookie à mettre à profit pour l’authentification du client web.
 
@@ -37,9 +30,7 @@ Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les éta
 
 Le code de ce didacticiel est disponible au téléchargement dans le [référentiel AzureSignalR-samples GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
 
-
 ![Flux OAuth complet hébergé dans Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
-
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -56,10 +47,9 @@ Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
 
 * Compte créé sur [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
-* [Kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download/windows) 
+* [Kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download/windows)
 * [Azure Cloud Shell configuré](https://docs.microsoft.com/azure/cloud-shell/quickstart)
-* Référentiel [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub téléchargé ou cloné.
-
+* Téléchargez ou clonez le référentiel GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
 
 ## <a name="create-an-oauth-app"></a>Créer une application OAuth
 
@@ -80,7 +70,6 @@ Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
 
         dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
         dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
-
 
 ## <a name="implement-the-oauth-flow"></a>Implémenter le flux OAuth
 
@@ -127,7 +116,7 @@ Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
         });
     ```
 
-4. Ajoutez la méthode d’aide `GetUserCompanyInfoAsync` à la classe `Startup`.    
+4. Ajoutez la méthode d’aide `GetUserCompanyInfoAsync` à la classe `Startup`.
 
     ```csharp
     private static async Task GetUserCompanyInfoAsync(OAuthCreatingTicketContext context)
@@ -149,14 +138,14 @@ Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
             });
             context.Principal.AddIdentity(companyIdentity);
         }
-    }        
+    }
     ```
 
 5. Mettez à jour la méthode `Configure` de la classe de démarrage avec la ligne suivante de code, puis enregistrez le fichier.
 
-        app.UseAuthentication();
-
-
+    ```csharp
+    app.UseAuthentication();
+    ```
 
 ### <a name="add-an-authentication-controller"></a>Ajoutez un contrôleur d’authentification
 
@@ -189,14 +178,14 @@ Dans cette section, vous allez implémenter une API `Login` qui authentifie les 
                 return Redirect("/");
             }
         }
-    }    
+    }
     ```
 
-3. Enregistrez vos modifications.    
+3. Enregistrez vos modifications.
 
 ### <a name="update-the-hub-class"></a>Mettre à jour la classe de concentrateur
 
-Par défaut, lorsqu’un client tente de se connecter au service SignalR, la connexion est accordée en fonction d’un jeton d’accès fourni en interne. Ce jeton d’accès n’est associé à aucune identité authentifiée. Il s’agit en réalité d’un accès anonyme. 
+Par défaut, lorsqu’un client tente de se connecter au service SignalR, la connexion est accordée en fonction d’un jeton d’accès fourni en interne. Ce jeton d’accès n’est associé à aucune identité authentifiée. Il s’agit en réalité d’un accès anonyme.
 
 Dans cette section, vous allez activer l’authentification réelle en ajoutant l’attribut `Authorize` à la classe de concentrateur, et en ajoutant les méthodes du concentrateur afin de lire le nom d’utilisateur à partir de la réclamation de l’utilisateur authentifié.
 
@@ -265,7 +254,7 @@ Dans cette section, vous allez activer l’authentification réelle en ajoutant 
         }
         return '';
     }
-    var username = getCookie('githubchat_username');    
+    var username = getCookie('githubchat_username');
     ```
 
 2. Juste sous la ligne de code ajoutée pour utiliser le cookie, ajoutez la définition suivante pour la fonction `appendMessage` :
@@ -327,8 +316,8 @@ Dans cette section, vous allez activer l’authentification réelle en ajoutant 
             messageInput.focus();
             event.preventDefault();
         });
-    }    
-    ```    
+    }
+    ```
 
 4. Dans la partie inférieure de *index.html*, mettez à jour le gestionnaire d’erreurs `connection.start()` tel qu’indiqué ci-dessous afin d’inviter l’utilisateur à se connecter.
 
@@ -349,13 +338,11 @@ Dans cette section, vous allez activer l’authentification réelle en ajoutant 
         });
     ```
 
-5. Enregistrez vos modifications.    
-
-
+5. Enregistrez vos modifications.
 
 ## <a name="build-and-run-the-app-locally"></a>Générer et exécuter l’application localement
 
-1. Enregistrez les modifications sur l’ensemble des fichiers. 
+1. Enregistrez les modifications sur l’ensemble des fichiers.
 
 2. Générez l’application à l’aide de l’interface CLI .NET Core, exécutez la commande suivante dans l’interpréteur de commandes :
 
@@ -371,22 +358,21 @@ Dans cette section, vous allez activer l’authentification réelle en ajoutant 
         Hosting environment: Production
         Content root path: E:\Testing\chattest
         Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.    
+        Application started. Press Ctrl+C to shut down.
 
-4. Lancez une fenêtre de navigateur, puis accédez à `http://localhost:5000`. Cliquez sur le lien **ici** dans la partie supérieure afin de vous connecter avec GitHub. 
+4. Lancez une fenêtre de navigateur, puis accédez à `http://localhost:5000`. Cliquez sur le lien **ici** dans la partie supérieure afin de vous connecter avec GitHub.
 
     ![Flux OAuth complet hébergé dans Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-    Vous serez invité à autoriser l’accès de l’application de conversation à votre compte GitHub. Cliquez sur le bouton **Autoriser**. 
-    
+    Vous serez invité à autoriser l’accès de l’application de conversation à votre compte GitHub. Cliquez sur le bouton **Autoriser**.
+
     ![Autoriser l’application OAuth](media/signalr-authenticate-oauth/signalr-authorize-oauth-app.png)
-    
+
     Vous serez redirigé vers l’application de conversation et connecté avec votre nom de compte GitHub. L’application web a identifié le nom de votre compte en vous authentifiant à l’aide de la nouvelle authentification ajoutée.
 
     ![Compte identifié](media/signalr-authenticate-oauth/signalr-oauth-account-identified.png)
 
-    Maintenant que l’application de conversation exécute l’authentification avec GitHub et stocke les données d’authentification sous forme de cookies, vous avez intérêt à la déployer sur Azure afin de permettre à d’autres utilisateurs de s’authentifier avec leurs comptes et de communiquer à partir d’autres stations de travail. 
-
+    Maintenant que l’application de conversation exécute l’authentification avec GitHub et stocke les données d’authentification sous forme de cookies, vous avez intérêt à la déployer sur Azure afin de permettre à d’autres utilisateurs de s’authentifier avec leurs comptes et de communiquer à partir d’autres stations de travail.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -401,7 +387,6 @@ az extension add -n signalr
 ```
 
 Lorsque vous créez les ressources suivantes, veillez à utiliser le groupe de ressources hébergeant la ressource de votre service SignalR. Cette approche simplifie grandement l’étape de nettoyage que vous exécuterez au moment de la suppression de l’ensemble des ressources. Les exemples fournis supposent que vous avez utilisé le nom de groupe recommandé dans les didacticiels précédents, *SignalRTestResources*.
-
 
 ### <a name="create-the-web-app-and-plan"></a>Créer l’application web et le plan
 
@@ -426,18 +411,13 @@ az appservice plan create --name $WebAppPlan --resource-group $ResourceGroupName
 # Create the new Web App
 az webapp create --name $WebAppName --resource-group $ResourceGroupName \
     --plan $WebAppPlan
-
-
 ```
-
 
 | Paramètre | Description |
 | -------------------- | --------------- |
-| ResourceGroupName | Ce nom de groupe de ressources a été conseillé dans les didacticiels précédents. Il est judicieux de grouper l’ensemble des ressources de didacticiels. Utilisez le groupe de ressources employé dans les didacticiels précédents. | 
-| WebAppPlan | Saisissez un nouveau nom unique de plan App Service. | 
-| WebAppName | Ce sera le nom de la nouvelle application web et une portion de l’URL. Utilisez un nom unique. Par exemple, signalrtestwebapp22665120.   | 
-
-
+| ResourceGroupName | Ce nom de groupe de ressources a été conseillé dans les didacticiels précédents. Il est judicieux de grouper l’ensemble des ressources de didacticiels. Utilisez le groupe de ressources employé dans les didacticiels précédents. |
+| WebAppPlan | Saisissez un nouveau nom unique de plan App Service. |
+| WebAppName | Ce sera le nom de la nouvelle application web et une portion de l’URL. Utilisez un nom unique. Par exemple, signalrtestwebapp22665120.   |
 
 ### <a name="add-app-settings-to-the-web-app"></a>Ajouter des paramètres d’application à l’application web
 
@@ -467,7 +447,7 @@ WebAppName=myWebAppName
 signalRhostname=$(az signalr show --name $SignalRServiceResource \
     --resource-group $ResourceGroupName --query hostName -o tsv)
 
-# Get the SignalR primary key 
+# Get the SignalR primary key
 signalRprimarykey=$(az signalr key list --name $SignalRServiceResource \
     --resource-group $ResourceGroupName --query primaryKey -o tsv)
 
@@ -477,27 +457,24 @@ connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 #Add an app setting to the web app for the SignalR connection
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "Azure__SignalR__ConnectionString=$connstring" 
+    --settings "Azure__SignalR__ConnectionString=$connstring"
 
 #Add the app settings to use with GitHub authentication
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "GitHubClientId=$GitHubClientId" 
+    --settings "GitHubClientId=$GitHubClientId"
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "GitHubClientSecret=$GitHubClientSecret" 
-
+    --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
 | Paramètre | Description |
 | -------------------- | --------------- |
 | GitHubClientId | Affectez à cette variable l’ID secret du client pour votre application GitHub OAuth. |
 | GitHubClientSecret | Affectez à cette variable le mot de passe secret pour votre application GitHub OAuth. |
-| ResourceGroupName | Mettez à jour cette variable afin qu’il s’agisse du nom du groupe de ressources utilisé dans la section précédente. | 
-| SignalRServiceResource | Mettez à jour cette variable avec le nom de la ressource du service SignalR créée dans le démarrage rapide. Par exemple, signalrtestsvc48778624. | 
-| WebAppName | Mettez à jour cette variable avec le nom de l’application web créée dans la section précédente. | 
-
-
+| ResourceGroupName | Mettez à jour cette variable afin qu’il s’agisse du nom du groupe de ressources utilisé dans la section précédente. |
+| SignalRServiceResource | Mettez à jour cette variable avec le nom de la ressource du service SignalR créée dans le démarrage rapide. Par exemple, signalrtestsvc48778624. |
+| WebAppName | Mettez à jour cette variable avec le nom de l’application web créée dans la section précédente. |
 
 ### <a name="configure-the-web-app-for-local-git-deployment"></a>Configurer l’application web pour le déploiement Git local
 
@@ -524,19 +501,16 @@ az webapp deployment user set --user-name $DeploymentUserName \
 az webapp deployment source config-local-git --name $WebAppName \
     --resource-group $ResourceGroupName \
     --query [url] -o tsv
-
 ```
 
 | Paramètre | Description |
 | -------------------- | --------------- |
 | DeploymentUserName | Choisissez un nouveau nom d’utilisateur de déploiement. |
 | DeploymentUserPassword | Choisissez un mot de passe pour le nouvel utilisateur de déploiement. |
-| ResourceGroupName | Utilisez le nom du groupe de ressources employé dans la section précédente. | 
-| WebAppName | Ce sera le nom de la nouvelle application web créée précédemment. | 
-
+| ResourceGroupName | Utilisez le nom du groupe de ressources employé dans la section précédente. |
+| WebAppName | Ce sera le nom de la nouvelle application web créée précédemment. |
 
 Notez l’URL du déploiement Git renvoyée par cette commande. Vous l’utiliserez ultérieurement.
-
 
 ### <a name="deploy-your-code-to-the-azure-web-app"></a>Déployer votre code sur l’application web Azure
 
@@ -544,24 +518,32 @@ Pour déployer votre code, exécutez les commandes suivantes dans l’interprét
 
 1. Accédez à la racine du répertoire de votre projet. Si vous ne possédez pas le projet initialisé avec un référentiel Git, exécutez la commande suivante :
 
-        git init
+    ```bash
+    git init
+    ```
 
 2. Ajoutez une instance distante pour l’URL de déploiement Git notée précédemment :
 
-        git remote add Azure <your git deployment url>
+    ```bash
+    git remote add Azure <your git deployment url>
+    ```
 
 3. Indexez l’ensemble des fichiers dans le référentiel initialisé et ajoutez une validation.
 
-        git add -A
-        git commit -m "init commit"
+    ```bash
+    git add -A
+    git commit -m "init commit"
+    ```
 
-4. Déployez votre code sur l’application web dans Azure.        
+4. Déployez votre code sur l’application web dans Azure.
 
-        git push Azure master
+    ```bash
+    git push Azure master
+    ```
 
     Vous serez invité à vous authentifier pour déployer le code sur Azure. Saisissez le nom d’utilisateur et le mot de passe de l’utilisateur de déploiement créé plus haut.
 
-### <a name="update-the-github-oauth-app"></a>Mettre à jour l’application GitHub OAuth 
+### <a name="update-the-github-oauth-app"></a>Mettre à jour l’application GitHub OAuth
 
 Pour finir, vous devez mettre à jour l’**URL de la page d’accueil** et l’**URL de rappel d’autorisation** de l’application GitHub OAuth afin de pointer vers la nouvelle application hébergée.
 
@@ -574,33 +556,27 @@ Pour finir, vous devez mettre à jour l’**URL de la page d’accueil** et l’
     | URL de la page d’accueil | https://signalrtestwebapp22665120.azurewebsites.net/home |
     | URL de rappel d’autorisation | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
 
-
 3. Accédez à l’URL de votre application web, puis testez l’application.
 
     ![Flux OAuth complet hébergé dans Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
-
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez d’exécuter le tutoriel suivant, vous pouvez conserver les ressources créées dans ce démarrage rapide.
 
-Sinon, si l’exemple d’application de démarrage rapide était votre dernière opération, vous pouvez supprimer les ressources Azure créées dans ce démarrage rapide afin d’éviter tout frais. 
+Sinon, si l’exemple d’application de démarrage rapide était votre dernière opération, vous pouvez supprimer les ressources Azure créées dans ce démarrage rapide afin d’éviter tout frais.
 
 > [!IMPORTANT]
 > La suppression d’un groupe de ressources est définitive ; le groupe de ressources et l’ensemble des ressources qu’il contient sont supprimés de manière permanente. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé les ressources pour l’hébergement de cet exemple dans un groupe de ressources existant contenant des ressources que vous souhaitez conserver, vous pouvez supprimer chaque ressource individuellement à partir de son panneau respectif, au lieu de supprimer l’intégralité du groupe de ressources.
-> 
-> 
 
 Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
 
 Dans la zone de texte **Filtrer par nom.**, saisissez le nom de votre groupe de ressources. Les instructions relatives à cet article utilisaient un groupe de ressources nommé *SignalRTestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
 
-   
 ![Supprimer](./media/signalr-authenticate-oauth/signalr-delete-resource-group.png)
 
-
 Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer**.
-   
+
 Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,5 +1,5 @@
 ---
-title: Registres de conteneurs Docker privés dans Azure
+title: Registres de conteneurs Docker privés dans Azure - Présentation
 description: Présentation du service Azure Container Registry, proposant des registres Docker privés, gérés et basés sur le cloud.
 services: container-registry
 author: stevelas
@@ -7,13 +7,13 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
-ms.custom: mvc
-ms.openlocfilehash: 3cc44b58d3e715a1e3c264be03b887f27c0c753c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b2ea63ec13e1e0b79a87b7bfa5bae4a6cf409331
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633493"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253236"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Présentation des registres de conteneurs Docker privés dans Azure
 
@@ -36,7 +36,7 @@ Configurez [ACR Tasks](#azure-container-registry-build) pour automatiquement rec
 
 ## <a name="key-concepts"></a>Concepts clés
 
-* **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Les registres sont disponibles dans trois références (SKU) : [De base, Standard et Premium](container-registry-skus.md), chacune prenant en charge l’intégration de Webhook, l’authentification de registres avec Azure Active Directory et la fonctionnalité de suppression. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Utilisez la fonctionnalité [géoréplication](container-registry-geo-replication.md) des registres Premium pour les scénarios avancés de réplication et de distribution d’image conteneur. Un nom de Registre complet se présente sous la forme `myregistry.azurecr.io`.
+* **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Les registres sont disponibles dans trois références SKU : [De base, Standard et Premium](container-registry-skus.md), chacune prenant en charge l’intégration de Webhook, l’authentification de registres avec Azure Active Directory et la fonctionnalité de suppression. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Utilisez la fonctionnalité [géoréplication](container-registry-geo-replication.md) des registres Premium pour les scénarios avancés de réplication et de distribution d’image conteneur. Un nom de Registre complet se présente sous la forme `myregistry.azurecr.io`.
 
   Vous [contrôlez l’accès](container-registry-authentication.md) à un registre de conteneur à l’aide d’un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) pris en charge par Azure Active Directory ou un compte d’administration fourni. Exécutez la commande `docker login` standard pour vous authentifier auprès d’un registre.
 

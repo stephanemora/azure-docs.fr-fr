@@ -10,14 +10,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9c779e1f214369de9390e2c0f1037042c161c8aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cddf60c3e9356b9c18ab60adbea8eb5af768ad90
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425876"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269248"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-powershell"></a>S’inscrire aux événements d’une rubrique personnalisée avec PowerShell
 
@@ -25,13 +25,19 @@ Ce script crée un abonnement Event Grid aux événements d’une rubrique perso
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Exemple de script
+L’exemple de script en préversion requiert le module Event Grid. Pour l’installer, exécutez `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+
+## <a name="sample-script---stable"></a>Exemple de script : stable
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-custom-topic/subscribe-to-custom-topic.ps1 "Subscribe to custom topic")]
 
+## <a name="sample-script---preview-module"></a>Exemple de script : module en préversion
+
+[!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-custom-topic-preview/subscribe-to-custom-topic-preview.ps1 "Subscribe to custom topic")]
+
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour créer l’abonnement aux événements. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise la commande suivante pour créer l’abonnement aux événements. Chaque commande du tableau renvoie à une documentation spécifique.
 
 | Commande | Notes |
 |---|---|

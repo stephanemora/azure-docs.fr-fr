@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide Azure IoT Edge + Linux | Microsoft Docs
-description: Dans ce démarrage rapide, découvrez comment déployer à distance un code prédéfini sur un appareil IoT Edge.
+title: 'Démarrage rapide : Créer un appareil Azure IoT Edge sous Linux | Microsoft Docs'
+description: Utilisez ce guide de démarrage rapide pour apprendre à créer un appareil IoT Edge et à déployer du code préconfiguré à distance à partir du portail Azure.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,15 +8,15 @@ ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 4e53d0d492213373794821e14d4c08ec9db2ad5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 6757438512c03ad7b5a80c08babf5a37417dbe49
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495456"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339499"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil Linux x64
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil Linux x64
 
 Azure IoT Edge s’empare du pouvoir du cloud et l’offre à vos appareils Internet des Objets. Dans ce démarrage rapide, découvrez comment utiliser l’interface de cloud pour déployer à distance un code prédéfini sur un appareil IoT Edge.
 
@@ -27,7 +27,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 3. Installez et démarrez le runtime IoT Edge sur votre appareil.
 4. Déployez à distance un module vers un appareil IoT Edge.
 
-![Architecture du démarrage rapide](./media/quickstart-linux/install-edge-full.png)
+![Diagramme - Démarrage rapide : architecture pour appareil et cloud](./media/quickstart-linux/install-edge-full.png)
 
 Ce démarrage rapide transforme votre machine virtuelle ou ordinateur Linux en appareil IoT Edge. Vous pouvez ensuite déployer un module depuis le portail Azure vers votre appareil. Le module que vous déployez dans ce démarrage rapide est un capteur simulé qui génère des données de pression, d’humidité et de température. Les autres tutoriels Azure IoT Edge s’appuient sur le travail que vous effectuez ici en déployant des modules qui analysent les données simulées des informations métier.
 
@@ -67,7 +67,7 @@ Appareil IoT Edge :
 
 Commencez le guide de démarrage rapide en créant votre hub IoT avec Azure CLI.
 
-![Créer un hub IoT](./media/quickstart-linux/create-iot-hub.png)
+![Diagramme - Créer un hub IoT dans le cloud](./media/quickstart-linux/create-iot-hub.png)
 
 Le niveau gratuit d'IoT Hub fonctionne pour ce démarrage rapide. Si vous avez utilisé IoT Hub par le passé et que vous avez créé gratuitement un hub, vous pouvez utiliser cet IoT Hub. Chaque abonnement peut avoir uniquement un IoT hub gratuit. 
 
@@ -82,7 +82,7 @@ Le code suivant crée un hub gratuit **F1** dans le groupe de ressources **IoTEd
 ## <a name="register-an-iot-edge-device"></a>Enregistrer un appareil IoT Edge
 
 Inscrivez l’appareil IoT Edge avec votre IoT Hub récemment créé.
-![Inscrire un appareil](./media/quickstart-linux/register-device.png)
+![Diagramme - Inscrire un appareil avec une identité IoT Hub](./media/quickstart-linux/register-device.png)
 
 Créez une identité d’appareil pour votre appareil simulé afin qu’il puisse communiquer avec votre IoT Hub. L’identité d’appareil se trouve dans le cloud, et une chaîne unique de connexion d’appareil vous permet d’associer un appareil physique à une identité d’appareil. 
 
@@ -107,7 +107,7 @@ Créez une identité d’appareil pour votre appareil simulé afin qu’il puiss
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Installer et démarrer le runtime IoT Edge
 
 Installez et démarrez le runtime Azure IoT Edge sur votre appareil IoT Edge. 
-![Inscrire un appareil](./media/quickstart-linux/start-runtime.png)
+![Diagramme - Démarrer le runtime sur l'appareil](./media/quickstart-linux/start-runtime.png)
 
 Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le **démon de sécurité IoT Edge** démarre chaque fois qu’un appareil Edge démarre et amorce l’appareil en démarrant l’agent IoT Edge. **L’agent IoT Edge** facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge, notamment le hub IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub. 
 
@@ -228,7 +228,7 @@ Votre appareil IoT Edge est maintenant configuré. Il est prêt à exécuter les
 ## <a name="deploy-a-module"></a>Déployer un module
 
 Gérez votre appareil Azure IoT Edge depuis le cloud pour déployer un module qui transmettra des données de télémétrie à IoT Hub.
-![Inscrire un appareil](./media/quickstart-linux/deploy-module.png)
+![Diagramme - Déployer un module du cloud vers un appareil](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
@@ -254,7 +254,7 @@ Afficher les messages envoyés à partir du module tempSensor :
 
 Le module de capteur de température peut attendre de se connecter à Edge Hub si la dernière ligne que vous voyez dans le journal est `Using transport Mqtt_Tcp_Only`. Essayez d’arrêter le module et de laisser l’agent Edge le redémarrer. Vous pouvez l’arrêter avec la commande `sudo docker stop tempSensor`.
 
-Vous pouvez également regarder les messages arriver sur votre hub IoT avec [l’extension Azure IoT Toolkit pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Vous pouvez également regarder les messages arriver sur votre hub IoT avec l'[extension Azure IoT Hub Toolkit pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anciennement Azure IoT Toolkit). 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

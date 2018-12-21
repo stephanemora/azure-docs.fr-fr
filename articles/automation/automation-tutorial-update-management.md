@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679900"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184982"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gérer les mises à jour Windows à l’aide d’Azure Automation
 
@@ -82,48 +82,24 @@ Cliquez n’importe où sur la mise à jour pour ouvrir le volet **Recherche dan
 
 ## <a name="configure-alerts"></a>Configurer des alertes
 
-Dans cette étape, vous allez apprendre à configurer une alerte pour être tenu informé des mises à jour qui ont été correctement déployées via une requête Log Analytics ou grâce au suivi du runbook principal pour la gestion des mises à jour des déploiements qui ont échoué.
+Lors de cette étape, vous allez configurer une alerte afin d’être informé de l’état d’un déploiement de mise à jour.
 
 ### <a name="alert-conditions"></a>Conditions d’alerte
 
-Pour chaque type d’alerte, il existe différentes conditions d’alerte qui doivent être définies.
+Dans votre compte Automation, sous **Supervision** accédez à **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**.
 
-#### <a name="log-analytics-query-alert"></a>Alerte de requête Log Analytics
+Votre compte Automation est déjà sélectionné en tant que ressource. Si vous souhaitez changer, vous pouvez cliquer sur **Sélectionner** puis, dans la page **Sélectionner une ressource**, sélectionner **Comptes Automation** dans la liste déroulante **Filtrer par type de ressource**. Sélectionnez votre compte Automation, puis **Terminé**.
 
-Vous pouvez créer une alerte basée sur une requête Log Analytics pour les déploiements réussis. Pour les déploiements ayant échoué, vous pouvez utiliser les étapes de l’[Alerte de runbook](#runbook-alert) pour être averti lorsque le runbook principal qui orchestre les déploiements de mises à jour échoue. Vous pouvez écrire une requête personnalisée pour que d’autres alertes couvrent d’autres scénarios.
+Cliquez sur **Ajouter une condition** pour sélectionner le signal qui convient à votre déploiement de mises à jour. Le tableau suivant présente les détails des deux signaux disponibles pour les déploiements de mises à jour :
 
-Dans le portail Azure, accédez à **Surveiller**, puis sélectionnez **Créer une alerte**.
+|Nom du signal|Dimensions|Description|
+|---|---|---|
+|**Nombre total d’exécutions de déploiement de mises à jour**|- Nom du déploiement de mises à jour</br>- Statut|Ce signal sert à générer des alertes concernant le statut global d’un déploiement de mises à jour.|
+|**Nombre total d’exécutions de déploiement de mises à jour d’ordinateurs**|- Nom du déploiement de mises à jour</br>- Statut</br>- Ordinateur cible</br>- ID d’exécution du déploiement des mises à jour|Ce signal sert à générer des alertes concernant le statut d’un déploiement de mises à jour ciblant des ordinateurs spécifiques|
 
-Sous **1. Définir la condition de l’alerte**, cliquez sur **Sélectionner la cible**. Sous **Filtrer par type de ressource**, sélectionnez **Log Analytics**. Sélectionnez votre espace de travail Log Analytics, puis sélectionnez **Terminé**.
-
-![Créer une alerte](./media/automation-tutorial-update-management/create-alert.png)
-
-Sélectionnez **Ajouter des critères**.
-
-Sous **Configurer la logique du signal**, dans le tableau, sélectionnez **Recherche de journal personnalisée**. Entrez la requête suivante dans la zone de texte **Requête de recherche** :
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize by UpdateRunName, Computer
-```
-Cette requête retourne le nom des ordinateurs et de l’exécution de mise à jour qui s’est déroulée dans le délai d’exécution spécifié.
-
-Sous **Logique d’alerte**, pour **Seuil**, entrez **1**. Quand vous avez terminé, cliquez sur **Terminé**.
+Pour les valeurs de dimension, sélectionnez une valeur valide dans la liste. Si la valeur que vous recherchez ne figure pas dans la liste, cliquez sur le signe **\+** à côté de la dimension et tapez le nom personnalisé. Vous pouvez ensuite sélectionner la valeur que vous souhaitez rechercher. Si vous souhaitez sélectionner toutes les valeurs d’une dimension, cliquez sur le bouton **Sélectionner \***. Si vous ne choisissez pas une valeur pour une dimension, celle-ci sera ignorée lors de l’évaluation.
 
 ![Configurer la logique du signal](./media/automation-tutorial-update-management/signal-logic.png)
-
-#### <a name="runbook-alert"></a>Alerte de runbook
-
-Pour les déploiements ayant échoué, vous devez signaler l’échec du runbook maître.
-Dans le portail Azure, accédez à **Surveiller**, puis sélectionnez **Créer une alerte**.
-
-Sous **1. Définir la condition de l’alerte**, cliquez sur **Sélectionner la cible**. Sous **Filtrer par type de ressource**, sélectionnez **Comptes Automation**. Sélectionnez votre compte Automation, puis **Terminé**.
-
-Pour **Nom du runbook**, cliquez sur le signe **\+** et entrez **Patch-MicrosoftOMSComputers** comme nom personnalisé. Pour **État**, choisissez **Échec** ou cliquez sur le signe **\+** pour entrer **Échec**.
-
-![Configurer la logique du signal pour des runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 Sous **Logique d’alerte**, pour **Seuil**, entrez **1**. Quand vous avez terminé, cliquez sur **Terminé**.
 
@@ -133,7 +109,7 @@ Sous **2. Définissez les détails de l’alerte**, entrez un nom et une descrip
 
 ![Configurer la logique du signal](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Sous **3. Définissez un groupe d’actions**, sélectionnez **Nouveau groupe d’actions**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Les actions peuvent inclure, sans s’y limiter, les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Sous **Groupes d’action**, sélectionnez **Créer**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Les actions peuvent inclure, sans s’y limiter, les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/platform/action-groups.md).
 
 Dans la zone **Nom du groupe d’actions** , entrez un nom pour l’alerte et un nom court. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
 
@@ -155,15 +131,15 @@ Pour planifier un nouveau déploiement de mises à jour pour la machine virtuell
 
 Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
 
-* **Nom** : entrez un nom unique pour le déploiement de mises à jour.
+* **Nom** : entrez un nom unique pour le déploiement de mises à jour.
 
-* **Système d’exploitation** : sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
+* **Système d’exploitation** : sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
 
-* **Groupes à mettre à jour (préversion)** : définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
+* **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
 
-* **Machines to update** (Ordinateurs à mettre à jour) : sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../azure-monitor/platform/computer-groups.md)
+* **Ordinateurs à mettre à jour** : Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../azure-monitor/platform/computer-groups.md)
 
-* **Classification de mise à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Pour ce didacticiel, conservez tous les types sélectionnés.
+* **Classification des mises à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Pour ce didacticiel, conservez tous les types sélectionnés.
 
   Les types de classification sont les suivants :
 
@@ -176,14 +152,14 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
 * **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](automation-update-management.md#inclusion-behavior)
 
-* **Paramètres de planification** : le volet **Paramètres de planification** s’ouvre. L’heure de début par défaut est dans 30 minutes. Vous pouvez définir l’heure de début à tout moment à partir de 10 minutes à l’avenir.
+* **Paramètres de planification** : le volet **Paramètres de planification** s’affiche. L’heure de début par défaut est dans 30 minutes. Vous pouvez définir l’heure de début à tout moment à partir de 10 minutes à l’avenir.
 
    Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Sous **Récurrence**, sélectionnez **Une fois**. Laissez la valeur par défaut sur 1 jour et sélectionnez **OK**. Cela configure une planification récurrente.
 
-* **Pré-scripts + post-scripts** : sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer les pré-scripts et les post-scripts](pre-post-scripts.md).
-* **Fenêtre de maintenance (en minutes)** : conservez la valeur par défaut. Vous pouvez définir la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
+* **Préscripts + postscripts** : sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer les pré-scripts et les post-scripts](pre-post-scripts.md).
+* **Fenêtre de maintenance (minutes)**  : Conservez la valeur par défaut. Vous pouvez définir la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
-* **Reboot options** (Options de redémarrage) : ce paramètre détermine comment les redémarrages doivent être traités. Options disponibles :
+* **Options de redémarrage** : ce paramètre détermine comment les redémarrages doivent être traités. Options disponibles :
   * Redémarrer si nécessaire (par défaut)
   * Toujours redémarrer
   * Ne jamais redémarrer
@@ -210,9 +186,9 @@ Sous **Résultats des mises à jour**, un récapitulatif indique le nombre total
 
 La liste suivante présente les valeurs disponibles :
 
-* **Aucune tentative effectuée** : la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée définie pour la fenêtre de maintenance.
-* **Réussi** : la mise à jour a réussi.
-* **Échec** : la mise à jour a échoué.
+* **Aucune tentative effectuée** : la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée définie pour la fenêtre de maintenance.
+* **Réussite** : la mise à jour a réussi.
+* **Échec** : la mise à jour a échoué.
 
 Pour afficher toutes les entrées de journal créées par le déploiement, sélectionnez **Tous les journaux**.
 

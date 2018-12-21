@@ -1,30 +1,22 @@
 ---
-title: Démarrage rapide du service Azure SignalR serverless - C# | Microsoft Docs
+title: Démarrage rapide du service Azure SignalR serverless - C#
 description: Un démarrage rapide pour utiliser le service Azure SignalR et Azure Functions afin de créer une salle de conversation.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
 ms.date: 09/23/2018
 ms.author: zhshang
-ms.openlocfilehash: 7c28385c9b29f98968bcdf758f4a9a5b08da3f9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: db54282563acc6afac4dada7a45f6dff0716879a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993102"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255055"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Démarrage rapide : créer une salle de conversation avec Azure Functions et le service SignalR à l’aide de C#
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Démarrage rapide : Créer une salle de conversation avec Azure Functions et le service SignalR avec C\#
 
 Le service Azure SignalR vous permet d’ajouter facilement des fonctionnalités en temps réel à votre application. Azure Functions est une plateforme serverless qui vous permet d’exécuter votre code sans gérer d’infrastructures. Dans ce démarrage rapide, découvrez comment utiliser le service SignalR et Functions pour générer une application serverless de conversation en temps réel.
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,16 +24,13 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compte Azure.
 
-
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
-
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurer et exécuter l’application de fonction Azure
 
@@ -68,9 +57,7 @@ Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compt
 
     ![Déboguer l’application](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
 
-
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
-
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

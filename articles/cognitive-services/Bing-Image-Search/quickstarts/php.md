@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Effectuer une recherche d’image avec PHP - API Recherche d’images Bing'
+title: 'Démarrage rapide : Rechercher des images - API REST Recherche d’images Bing et PHP'
 titleSuffix: Azure Cognitive Services
-description: Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et recevoir une réponse JSON. L’application simple présentée dans cet article envoie une requête de recherche et affiche les résultats bruts.
+description: Utilisez ce démarrage rapide pour envoyer des requêtes de recherche d’image à l’API REST Recherche d’images Bing à l’aide de PHP et recevoir des réponses JSON.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: b3143a34590e41d0222b4e4aa6eeda07ee407e45
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 239ceb7ad88dd711ce082ae70391dae09bfc5e1f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311855"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261124"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Démarrage rapide : Envoyer des requêtes de recherche à l’aide de l’API REST Recherche d’images Bing et PHP
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et de PHP
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et recevoir une réponse JSON. L’application simple présentée dans cet article envoie une requête de recherche et affiche les résultats bruts.
 

@@ -8,20 +8,19 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/09/2018
+ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b0180f162996c5fc4647071feaf02d42320b7c9a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: aceacdea8b3c86a5c4f26a5f082f4c6cf0b3805d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036317"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011975"
 ---
-# <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Didacticiel : Configurer l’authentification unique SAML pour une application avec Azure Active Directory
+# <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutoriel : Configurer l’authentification unique SAML pour une application avec Azure Active Directory
 
-Ce didacticiel utilise le [portail Azure](https://portal.azure.com) pour configurer une authentification unique SAML pour une application avec Azure Active Directory (Azure AD). Utilisez ce didacticiel pour la configuration des applications ne disposant pas d’un [didacticiel spécifique](../saas-apps/tutorial-list.md). 
-
+Ce didacticiel utilise le [portail Azure](https://portal.azure.com) pour configurer une authentification unique SAML pour une application avec Azure Active Directory (Azure AD). Utilisez ce tutoriel quand un [tutoriel propre à l’application](../saas-apps/tutorial-list.md) n’est pas disponible. 
 
 Ce didacticiel utilise le Portail Azure pour :
 
@@ -36,13 +35,13 @@ Ce didacticiel utilise le Portail Azure pour :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-1. Si l’application n’a pas été ajoutée à votre locataire Azure AD, consultez [Guide de démarrage rapide : ajouter une application à votre locataire Azure AD](add-application-portal.md).
+1. Si l’application n’a pas été ajoutée à votre locataire Azure AD, consultez [Démarrage rapide : Ajouter une application à votre locataire Azure AD](add-application-portal.md).
 
 2. Demandez les informations décrites dans [Configurer le domaine et les URL](#configure-domain-and-urls) à votre fournisseur d’applications.
 
 3. Pour tester les étapes de ce didacticiel, nous recommandons l’utilisation d’un environnement de non-production. Si vous n’avez pas d’environnement de non-production Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
-4. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général pour votre tenant Azure AD, administrateur d’application cloud ou administrateur d’application.
+4. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur d’application cloud ou administrateur d’application pour votre locataire Azure AD.
 
 ## <a name="select-a-single-sign-on-mode"></a>Sélectionner un mode d'authentification unique
 
@@ -56,7 +55,7 @@ Pour ouvrir les paramètres de l'authentification unique :
 
 3. À partir du menu déroulant **Type d’Application**, sélectionnez **Toutes les Applications**, puis cliquez sur **Appliquer**.
 
-4. Saisissez le nom de l’application pour laquelle vous souhaitez configurer l’authentification unique. Choisissez votre propre application, ou utilisez l’application de test GitHub ajoutée dans le guide de démarrage rapide [Ajouter une application](add-application-portal.md).
+4. Saisissez le nom de l’application pour laquelle vous souhaitez configurer l’authentification unique. Choisissez votre propre application, ou entrez **GitHub-test** pour configurer l’application que vous avez ajoutée dans le guide de démarrage rapide [Ajouter une application](add-application-portal.md).
 
 5. Cliquez sur **Authentification unique**. Sous **Mode d’authentification unique**, **Authentification SAML** apparaît comme option par défaut. 
 
@@ -72,8 +71,8 @@ Pour configurer le domaine et les URL :
 
     | Paramètres de configuration | Initiée par SP | Initiée par idP | Description |
     |:--|:--|:--|:--|
-    | URL de connexion | Obligatoire | Ne pas spécifier | Lorsqu’un utilisateur ouvre cette URL, le fournisseur de services redirige vers Azure AD pour authentifier et connecter l’utilisateur. Azure AD utilise l’URL pour démarrer l’application à partir d’Office 365 et du panneau d’accès Azure AD. Lorsqu’elle est vide, Azure AD effectue une authentification unique initiée par idP lorsqu’un utilisateur lance l’application à partir d’Office 365, du panneau d’accès Azure AD ou de l’URL d’authentification unique Azure AD.|
-    | Identificateur (ID d'entité) | Requis pour certaines applications | Requis pour certaines applications | Identifie de façon unique l’application pour laquelle l’authentification unique est en cours de configuration. Azure AD renvoie l’identificateur à l’application en tant que paramètre Audience du jeton SAML et l’application doit la valider. Cette valeur apparaît également en tant qu’ID d’entité dans les métadonnées SAML fournies par l’application.|
+    | URL de connexion | Obligatoire | Ne spécifiez pas | Lorsqu’un utilisateur ouvre cette URL, le fournisseur de services redirige vers Azure AD pour authentifier et connecter l’utilisateur. Azure AD utilise l’URL pour démarrer l’application à partir d’Office 365 ou du panneau d’accès Azure AD. Quand elle est vide, Azure AD s’appuie sur le fournisseur d’identité pour lancer l’authentification unique quand un utilisateur démarre l’application.|
+    | Identificateur (ID d'entité) | Requis pour certaines applications | Requis pour certaines applications | Identifie de façon unique l’application pour laquelle l’authentification unique est en cours de configuration. Azure AD envoie l’identificateur à l’application en tant que paramètre Audience du jeton SAML. L’application est censée le valider. Cette valeur apparaît également en tant qu’ID d’entité dans les métadonnées SAML fournies par l’application.|
     | URL de réponse | Facultatif | Obligatoire | Spécifie l’adresse où l’application attend le jeton SAML. L’URL de réponse est aussi appelée URL ACS (Assertion Consumer Service). |
     | État de relais | Facultatif | Facultatif | Indique à l’application où rediriger l’utilisateur une fois l’authentification terminée. En général, la valeur est une URL valide pour l’application. Cependant, certaines applications utilisent ce champ différemment. Pour plus d’informations, consultez le fournisseur de l’application.
 
@@ -87,7 +86,7 @@ Pour configurer le domaine et les URL :
 
 ## <a name="configure-user-attributes"></a>Configurer les attributs de l’utilisateur
 
-Les attributs de l’utilisateur vous permettent de contrôler les informations qu’Azure AD envoie à l’application. Par exemple, Azure AD peut lui envoyer le nom, l’adresse e-mail et l’ID d’employé de l’utilisateur. Azure AD envoie les attributs utilisateur à l’application dans le jeton SAML à chaque fois qu’un utilisateur se connecte. 
+Les attributs de l’utilisateur vous permettent de contrôler les informations qu’Azure AD envoie à l’application dans le jeton SAML chaque fois qu’un utilisateur se connecte. Par exemple, Azure AD peut lui envoyer le nom, l’adresse e-mail et l’ID d’employé de l’utilisateur. 
 
 Ces attributs peuvent être obligatoires ou facultatifs afin que l’authentification unique fonctionne correctement. Pour plus d’informations, consultez le [didacticiel spécifique à l’application](../saas-apps/tutorial-list.md), ou demandez au fournisseur de l’application.
 
@@ -115,7 +114,7 @@ Azure AD utilise un certificat pour signer les jetons SAML qu’il envoie à l�
 
 2. Pour configurer un certificat, cliquez sur **Créer un nouveau certificat**.
 
-3. Dans le panneau **Créer un nouveau certificat**, définissez la date d’expiration, puis cliquez sur **Enregistrer**.
+3. Dans le panneau **Créer un nouveau certificat**, définissez la **date d’expiration**, puis cliquez sur **Enregistrer**.
 
 4. Cliquez sur **Activer le nouveau certificat**.
 
@@ -129,7 +128,7 @@ Microsoft recommande de tester l’authentification unique avec plusieurs utilis
 
 Pour affecter un utilisateur ou un groupe à l’application :
 
-1. Ouvrez l’application dans le portail, si elle n’est pas déjà ouverte.
+1. Ouvrez l’application dans le portail, si elle n’est pas encore ouverte.
 2. Dans le panneau gauche des applications, cliquez sur **Utilisateurs et groupes**.
 3. Cliquez sur **Add User**.
 4. Dans le panneau **Ajouter une affectation**, cliquez sur **Utilisateurs et groupes**.
@@ -146,7 +145,7 @@ Vous avez presque terminé.  Dans la dernière étape, vous devez configurer l�
     ![Configurer une application](media/configure-single-sign-on-portal/configure-app.png)
 
 2. Cliquez sur **Configurer application** dans le portail, puis suivez les instructions.
-3. Créez manuellement des comptes d’utilisateur dans l’application à des fins de test de l’authentification unique. Créez les comptes d’utilisateur que vous avez affectés à l’application dans la [section précédente](#assign-users-to-the-application).   Lorsque vous êtes prêt à déployer l’application pour organisation, nous recommandons l’utilisation d’un approvisionnement utilisateur automatique pour créer automatiquement des comptes d’utilisateur dans l’application.
+3. Créez manuellement des comptes d’utilisateur dans l’application afin de tester l’authentification unique. Créez les comptes d’utilisateur que vous avez affectés à l’application dans la [section précédente](#assign-users-to-the-application). 
 
 ## <a name="test-single-sign-on"></a>Tester l’authentification unique
 
@@ -158,12 +157,12 @@ Vous êtes maintenant prêt à tester vos paramètres.
 
     ![Options de test d’authentification unique](media/configure-single-sign-on-portal/test-single-sign-on.png) 
 
-3. Cliquez sur **Se connecter en tant qu’utilisateur actuel**. Cela vous permet de commencer par voir si l’authentification unique fonctionne pour vous, l’administrateur.
+3. Cliquez sur **Se connecter en tant qu’utilisateur actuel**. Ce test vous permet de commencer par voir si l’authentification unique fonctionne pour vous, l’administrateur.
 4. Si une erreur se produit, un message d’erreur s’affiche. Copiez et collez les détails dans la case **À quoi ressemble l’erreur ?**.
 
     ![Obtenir l’aide de résolution](media/configure-single-sign-on-portal/error-guidance.png)
 
-5. Cliquez sur **Obtenir l’aide de résolution**. L’aide de résolution et de la cause racine apparait.  Dans cet exemple, l’utilisateur n’était pas affecté à l’application.
+5. Cliquez sur **Obtenir l’aide de résolution**. L’aide de résolution et de la cause racine apparaît.  Dans cet exemple, l’utilisateur n’était pas affecté à l’application.
 
     ![Corriger les erreurs](media/configure-single-sign-on-portal/fix-error.png)
 
@@ -174,7 +173,7 @@ Vous êtes maintenant prêt à tester vos paramètres.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez utilisé le portail Azure pour configurer une application pour l’authentification unique avec Azure AD. Vous avez trouvé la page de configuration d’authentification unique et vous avez configurez les paramètres de l’authentification unique. Après avoir terminé la configuration, vous avez affecté un utilisateur à l’application et vous avez configuré l’application pour utiliser l’authentification unique SAML. Une fois tout ce travail terminé, vous avez vérifié que l’authentification SAML fonctionne correctement.
+Dans ce tutoriel, vous avez configuré les paramètres d’authentification unique pour une application. Après avoir terminé la configuration, vous avez affecté un utilisateur à l’application et vous avez configuré l’application pour utiliser l’authentification unique SAML. Une fois tout ce travail terminé, vous avez vérifié que l’authentification SAML fonctionne correctement.
 
 Voici les étapes que vous avez effectuées :
 > [!div class="checklist"]
@@ -183,12 +182,12 @@ Voici les étapes que vous avez effectuées :
 > * Configurer les attributs de l’utilisateur
 > * Créer un certificat de signature SAML
 > * Affecter manuellement des utilisateurs ou des groupes à l’application
-> * Configurer l’application pour l’authentification unique
+> * Configurer l’application pour utiliser Azure AD en tant que fournisseur d’identité SAML
 > * Tester l’authentification unique SAML
 
-Pour déployer l’application vers d’autres utilisateurs de votre organisation, nous vous recommandons d’utiliser le provisionnement automatique.
+Pour déployer l’application pour d’autres utilisateurs de votre organisation, nous vous recommandons d’utiliser le provisionnement d’utilisateur automatique.
 
 > [!div class="nextstepaction"]
->[Découvrez comment affecter des utilisateurs avec le provisionnement automatique](configure-automatic-user-provisioning-portal.md)
+>[Découvrir comment affecter des utilisateurs avec le provisionnement automatique](configure-automatic-user-provisioning-portal.md)
 
 

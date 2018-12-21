@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352658"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434951"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutoriel : Configurer une jonction Azure Active Directory hybride pour les domaines fédérés
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Didacticiel : Configurer la jointure hybride Azure Active Directory pour des domaines fédérés
 
 À l’instar d’un utilisateur, un appareil devient une autre identité que vous souhaitez protéger et aussi utiliser pour protéger vos ressources à tout moment et en tout lieu. Vous pouvez atteindre cet objectif en intégrant les identités de vos appareils à Azure AD suivant l’une des méthodes ci-dessous :
 
@@ -53,9 +53,12 @@ Ce tutoriel part du principe que vous connaissez :
 -  [Comment contrôler la jointure hybride Azure Active Directory pour vos appareils](hybrid-azuread-join-control.md)
 
 
+
 Pour configurer le scénario décrit dans ce tutoriel, vous avez besoin de ce qui suit :
 
 - Windows Server 2012 R2 avec AD FS
+
+- Une instance Active Directory (AD) locale avec un niveau de schéma de 85 ou supérieur. Pour plus d’informations, consultez [Mettre à niveau votre schéma Active Directory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0 ou une version ultérieure 
  
@@ -156,6 +159,8 @@ Si certains de vos appareils joints à un domaine sont des appareils Windows de 
  
 - Configurer les paramètres d’intranet local pour l’inscription des appareils
 
+- Contrôler des appareils Windows de bas niveau 
+
 
 ### <a name="update-device-settings"></a>Mettre à jour les paramètres des appareils 
 
@@ -165,7 +170,7 @@ Pour inscrire des appareils Windows de bas niveau, vous devez vous assurer que l
 
 
     
-La stratégie ci-après doit être définie sur la valeur **Tous** : **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD**.
+La stratégie suivante doit être définie sur **Tout** : **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD**
 
 ![Inscrire des appareils](./media/hybrid-azuread-join-federated-domains/23.png)
 
@@ -176,8 +181,6 @@ Pour terminer la jonction Azure AD Hybride de vos appareils Windows de bas nivea
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - Le service d’émission de jeton de sécurité de votre organisation (STS - domaines fédérés)
 
 - `https://autologon.microsoftazuread-sso.com` (pour l’authentification unique fluide).
@@ -185,6 +188,10 @@ Pour terminer la jonction Azure AD Hybride de vos appareils Windows de bas nivea
 Vous devez également activer **Autoriser les mises à jour de la barre d’état via le script** dans la zone Intranet local de l’utilisateur.
 
 
+
+### <a name="control-windows-down-level-devices"></a>Contrôler des appareils Windows de bas niveau 
+
+Pour inscrire des appareils Windows de bas niveau, vous devez télécharger et installer un package Windows Installer (.msi) à partir du Centre de téléchargement. Pour plus d’informations, cliquez [ici](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 ## <a name="verify-the-registration"></a>Vérifier l’inscription
 

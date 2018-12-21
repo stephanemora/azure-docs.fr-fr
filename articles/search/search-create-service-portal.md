@@ -1,6 +1,6 @@
 ---
-title: Créer un service Recherche Azure dans le portail | Microsoft Docs
-description: Configurez un service Recherche Azure dans le portail.
+title: Créer un service Recherche Azure dans le portail - Recherche Azure
+description: Approvisionnez un service Recherche Azure dans le Portail Azure. Choisissez les groupes de ressources, régions et références SKU ou niveaux tarifaires.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.custom: seodec2018
+ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713925"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315977"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Création d'un service Azure Search dans le portail
 
@@ -58,7 +59,7 @@ Un groupe de ressources correspond à une collection de services et de ressource
 En sa qualité de service Azure, Recherche Azure peut être hébergé dans les centres de données du monde entier. Veuillez noter que les [prix peuvent varier](https://azure.microsoft.com/pricing/details/search/) selon la zone géographique.
 
 ## <a name="select-a-pricing-tier-sku"></a>Sélectionner un niveau de tarification (SKU)
-[Azure Search est actuellement disponible à différents niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/): Gratuit, De base ou Standard. Chaque niveau a ses propres [capacité et limites](search-limits-quotas-capacity.md). Pour obtenir de l’aide, voir [Choisir un niveau tarifaire ou une référence (SKU)](search-sku-tier.md) .
+[Recherche Azure est actuellement disponible dans différents niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/) : Gratuit, De base ou Standard. Chaque niveau a ses propres [capacité et limites](search-limits-quotas-capacity.md). Pour obtenir de l’aide, voir [Choisir un niveau tarifaire ou une référence (SKU)](search-sku-tier.md) .
 
 Standard est généralement choisi pour les charges de production, mais la plupart des clients démarrent avec le service gratuit.
 

@@ -1,21 +1,21 @@
 ---
-title: 'Didacticiel : Automatiser la génération des images de conteneur en fonction de la mise à jour d’une image de base avec Azure Container Registry Tasks'
-description: Dans ce didacticiel, vous allez découvrir comment configurer une tâche pour déclencher automatiquement la génération des images de conteneur dans le cloud lorsqu’une image de base est mise à jour.
+title: 'Didacticiel : Automatiser la génération des images conteneur en fonction de la mise à jour d’une image de base - Azure Container Registry Tasks'
+description: Dans ce didacticiel, vous allez découvrir comment configurer une tâche Azure Container Registry pour déclencher automatiquement la génération des images conteneur dans le cloud lorsqu’une image de base est mise à jour.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 54e8892787fa2b7b093609ee5d09f3a87e103411
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b3d8c3aea4955d6f95ead69d5bed147cc486e7c8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856579"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254035"
 ---
-# <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-tasks"></a>Didacticiel : automatiser la génération des images en fonction de la mise à jour d’une image de base avec Azure Container Registry Tasks
+# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Didacticiel : Automatiser la génération des images conteneur quand une image de base est mise à jour dans un registre de conteneurs Azure 
 
 ACR Tasks prend en charge l’exécution des générations automatisées lorsque l’image de base d’un conteneur est mise à jour, par exemple lorsque vous retouchez le système d’exploitation ou l’infrastructure d’application dans l’une de vos images de base. Dans ce didacticiel, vous allez découvrir comment créer une tâche dans ACR Tasks qui déclenche une génération dans le cloud lorsque l’image de base d’un conteneur a été envoyée vers votre registre.
 
@@ -73,9 +73,9 @@ Lorsqu’une image de base est mise à jour, vous voyez la nécessité de régé
 
 Ce didacticiel vous guide dans un scénario de mise à jour d’une image de base. [L’exemple de code][code-sample] comprend deux fichiers Dockerfile : une image d’application et une image spécifiée comme image de base. Dans les sections suivantes, vous allez créer une tâche ACR Tasks qui déclenche automatiquement une génération de l’image d’application lorsqu’une nouvelle version de l’image de base est envoyée vers le registre de conteneurs.
 
-[Dockerfile-app][dockerfile-app] : petite application web Node.js qui restitue une page web statique, affichant la version de Node.js sur laquelle elle est basée. La chaîne de version est simulée : elle affiche le contenu d’une variable d’environnement, `NODE_VERSION`, qui est définie dans l’image de base.
+[Dockerfile-app][dockerfile-app] : Une petite application web Node.js qui restitue une page web statique en affichant la version de Node.js sur laquelle elle est basée. La chaîne de version est simulée : elle affiche le contenu d’une variable d’environnement, `NODE_VERSION`, qui est définie dans l’image de base.
 
-[Dockerfile-base][dockerfile-base] : image spécifiée par `Dockerfile-app` comme son image de base. Elle est elle-même basée sur une image [Nœud][base-node] et inclut la variable d’environnement `NODE_VERSION`.
+[Dockerfile-base][dockerfile-base] : Image spécifiée par `Dockerfile-app` comme son image de base. Elle est elle-même basée sur une image [Nœud][base-node] et inclut la variable d’environnement `NODE_VERSION`.
 
 Dans les sections suivantes, vous allez créer une tâche, mettre à jour la valeur `NODE_VERSION` dans le fichier Dockerfile d’image de base, puis utiliser ACR Tasks pour générer l’image de base. Lorsqu’ACR Tasks envoie la nouvelle image de base dans le registre, il déclenche automatiquement une génération de l’image de l’application. Si vous le souhaitez, vous pouvez exécuter l’image de conteneur d’application en local pour voir les différentes chaînes de version dans les images générées.
 
@@ -128,7 +128,7 @@ az acr task run --registry $ACR_NAME --name taskhelloworld
 
 Une fois la tâche terminée, prenez note de l’**ID d’exécution** (par exemple, « da6 ») si vous souhaitez terminer l’étape facultative suivante.
 
-### <a name="optional-run-application-container-locally"></a>Facultatif : exécuter localement un conteneur d’application
+### <a name="optional-run-application-container-locally"></a>Facultatif : Exécuter localement un conteneur d’application
 
 Si vous travaillez localement (pas dans Cloud Shell) et si vous avez installé Docker, exécutez le conteneur pour voir l’application affichée dans un navigateur web avant de régénérer son image de base. Si vous utilisez Cloud Shell, ignorez cette section (Cloud Shell ne prend en charge ni `az acr login` ni `docker run`).
 
@@ -214,7 +214,7 @@ da1                       Linux       Succeeded  Manual        2018-09-17T22:29:
 
 Si vous souhaitez effectuer l’étape facultative suivante de l’exécution du conteneur nouvellement généré pour voir le numéro de version mis à jour, prenez note de la valeur **ID D’EXÉCUTION** de la génération déclenchée par la mise à jour de l’image (dans la sortie précédente, il s’agit de « da8 »).
 
-### <a name="optional-run-newly-built-image"></a>Facultatif : exécuter l’image qui vient d’être générée
+### <a name="optional-run-newly-built-image"></a>Facultatif : Exécuter l’image qui vient d’être générée
 
 Si vous travaillez localement (pas dans Cloud Shell) et si vous avez installé Docker, exécutez la nouvelle image de l’application une fois sa génération terminée. Remplacez `<run-id>` par l’ID D’EXÉCUTION obtenu à l’étape précédente. Si vous utilisez Cloud Shell, ignorez cette section (Cloud Shell ne prend pas en charge `docker run`).
 

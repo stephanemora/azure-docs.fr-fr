@@ -1,5 +1,5 @@
 ---
-title: Créer une application web .NET Core et SQL Database dans Azure App Service sur Linux | Microsoft Docs
+title: Créer une application .NET Core et SQL Database sur Linux - Azure App Service | Microsoft Docs
 description: Découvrez comment faire fonctionner une application .NET Core dans Azure App Service sur Linux en établissant une connexion à une instance SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: ddea4621277303dd6c153205b683b4eea0151db0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: cb81699671bd2a0e86838d043ad0a4442eb79a6c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432260"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254239"
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Créer une application web .NET Core et SQL Database dans Azure App Service sur Linux
 
@@ -330,7 +330,7 @@ Recherchez l’élément `<td>` contenant les assistances de balise `asp-action`
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 

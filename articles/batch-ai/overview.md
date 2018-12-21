@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37f1bf5dc20d097f7f5f560e3bf1fdd25dc38045
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052697"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408049"
 ---
 # <a name="what-is-azure-batch-ai"></a>Présentation d’Azure Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Azure Batch AI est un service géré aidant les chercheurs de données et les chercheurs en IA à former et tester des modèles de machine Learning et IA à grande échelle dans Azure sans avoir à gérer la complexité d’une infrastructure. Décrivez les ressources de calcul, les tâches que vous souhaitez exécuter, l’emplacement où stocker les entrées et les sorties du modèle, et Batch AI s’occupe du reste.
 
@@ -49,13 +52,13 @@ Après avoir effectué l'apprentissage d’un modèle, utilisez Batch AI pour te
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Utilisez les kits de développement logiciel (SDK) Batch AI, les scripts de ligne de commande ou le portail Azure pour gérer les ressources de calcul et planifier des travaux pour l’apprentissage et le test de l’intelligence artificielle : 
+Utilisez les kits de développement logiciel (SDK) Batch AI, les scripts de ligne de commande ou le portail Azure pour gérer les ressources de calcul et planifier des travaux pour l’apprentissage et le test de l’intelligence artificielle : 
 
 * **Approvisionner et mettre à l’échelle des clusters de machines virtuelles** - choisissez le nombre de nœuds (machines virtuelles) et sélectionnez une machine virtuelle compatible GPU ou une autre taille de machine virtuelle qui répond à vos besoins d’apprentissage. Augmentez ou diminuez le nombre de nœuds automatiquement ou manuellement afin d’utiliser uniquement les ressources nécessaires. 
 
 * **Gérer les dépendances et les conteneurs** - par défaut, les clusters Batch AI exécuter des images de machines virtuelles Linux avec des dépendances préinstallées pour exécuter des infrastructures d’apprentissage basées sur des conteneurs, sur GPU ou unités centrales. Pour une configuration supplémentaire, utilisez des images personnalisées ou exécutez des scripts de démarrage.
 
-* **Distribuer des données** - choisissez une ou plusieurs options de stockage pour gérer les données d’entrée, les scripts et la sortie du travail : Azure Files, stockage Blob Azure ou un serveur NFS managé. Batch AI prend également en charge des solutions de stockage personnalisées, y compris les systèmes de fichiers parallèles hautes performances. Montez des systèmes de fichiers de stockage sur les nœuds de cluster et les conteneurs de travaux en utilisant de simples fichiers de configuration.
+* **Distribuer des données** : choisissez une ou plusieurs options de stockage pour gérer les données d'entrée, les scripts et la sortie du travail : Azure Files, stockage d'objets blob Azure ou serveur NFS managé. Batch AI prend également en charge des solutions de stockage personnalisées, y compris les systèmes de fichiers parallèles hautes performances. Montez des systèmes de fichiers de stockage sur les nœuds de cluster et les conteneurs de travaux en utilisant de simples fichiers de configuration.
 
 * **Planifier des travaux** - envoyez des travaux vers une file d’attente axée sur les priorités pour partager des ressources de cluster et tirer parti des machines virtuelles à basse priorité ainsi que des instances réservées.
 

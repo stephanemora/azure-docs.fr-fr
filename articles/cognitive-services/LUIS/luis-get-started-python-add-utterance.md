@@ -1,23 +1,24 @@
 ---
-title: 'Démarrage rapide pour Python : Changer de modèle et entraîner une application LUIS'
-titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide de Python, vous allez ajouter des exemples d’énoncés à une application de domotique et entraîner l’application. Les exemples d’énoncés sont du texte utilisateur conversationnel mappé à une intention. En fournissant des exemples d’énoncés pour les intentions, vous apprenez à l’application LUIS quels types de texte fourni par l’utilisateur appartiennent à quelle intention.
+title: Modifier, effectuer l’apprentissage d’application, Python
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Dans ce démarrage rapide de Python, vous allez ajouter des exemples d’énoncés à une application de domotique et entraîner l’application.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6d05859977a7cba385877298405b9ce77034da68
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040174"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166351"
 ---
-# <a name="quickstart-change-model-using-python"></a>Démarrage rapide : Modifier un modèle à l’aide de Python
+# <a name="quickstart-change-model-using-python"></a>Démarrage rapide : Changer de modèle à l’aide de Python
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -27,7 +28,7 @@ ms.locfileid: "47040174"
 * [Python 3.6](https://www.python.org/downloads/) ou version ultérieure.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>Exemples d’énoncés de fichier JSON
 
@@ -46,7 +47,7 @@ Exécutez l’application à partir d’une ligne de commande avec Python 3.6.
 
 Appeler add-utterance sans argument permet d’ajouter un énoncé à l’application, sans apprentissage.
 
-```CMD
+```console
 > python add-utterances-3-6.py
 ```
 
@@ -83,7 +84,7 @@ Le code suivant illustre le résultat d’une requête d’apprentissage ayant a
 }
 ```
 
-```JSON
+```json
 Requested training status.
 [
    {

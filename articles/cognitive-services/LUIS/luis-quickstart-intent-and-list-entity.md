@@ -1,21 +1,22 @@
 ---
-title: 'Tutoriel 4 : Correspondance de texte exacte - Entité de liste LUIS'
+title: Correspondance de texte exacte
 titleSuffix: Azure Cognitive Services
 description: Obtenez des données qui correspondent à une liste d’éléments prédéfinie. Chaque élément de la liste peut avoir des synonymes qui correspondent également exactement
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425069"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096687"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Tutoriel 4 : Extraire des correspondances de texte exactes
 Ce tutoriel explique comment obtenir des données correspondant à une liste de termes prédéfinie. Chaque élément de la liste peut inclure une liste de synonymes. Pour l’application de ressources humaines, un employé peut être identifié avec plusieurs éléments d’information essentiels tels que le nom, l’adresse e-mail, le numéro de téléphone et le numéro d’identification du contribuable (USA). 
@@ -106,11 +107,11 @@ Le nom _canonique_ principal pour chaque élément est le numéro d’employé. 
 
 3. Dans la fenêtre de dialogue contextuelle des entités, saisir `Employee` dans le nom d’entité, et **List** pour le type d’entité. Sélectionnez **Terminé**.  
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Capture d’écran de la fenêtre contextuelle Creating new entity")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Capture d’écran de la boîte de dialogue contextuelle de création d’une entité](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Capture d’écran de la boîte de dialogue contextuelle de création d’une entité")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
 4. Sur la page Employee entity, saisissez la valeur `Employee-24612`.
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Capture d’écran de saisie de valeur")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
+    [![Capture d’écran de saisie de valeur](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Capture d’écran de saisie de valeur")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
 5. Pour Synonyms (synonymes), ajoutez les valeurs suivantes :
 
@@ -122,7 +123,7 @@ Le nom _canonique_ principal pour chaque élément est le numéro d’employé. 
     |Numéro de téléphone mobile personnel|425-555-1212|
     |Numéro de sécurité sociale (USA)|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Capture d’écran de saisie des synonymes")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+    [![Capture d’écran de saisie de synonymes](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Capture d’écran de saisie de synonymes")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 6. Saisissez la valeur `Employee-45612`.
 
@@ -150,7 +151,7 @@ Le nom _canonique_ principal pour chaque élément est le numéro d’employé. 
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `shift 123-45-6789 from Z-1242 to T-54672`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **q**uery. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `MoveEmployee` avec `Employee` extrait.
 
-  ```JSON
+  ```json
   {
     "query": "shift 123-45-6789 from Z-1242 to T-54672",
     "topScoringIntent": {

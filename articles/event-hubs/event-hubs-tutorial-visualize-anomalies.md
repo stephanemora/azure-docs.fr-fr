@@ -1,22 +1,22 @@
 ---
-title: Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs | Microsoft Docs
+title: Visualiser les anomalies des données dans les événements en temps réel - Azure Event Hubs | Microsoft Docs
 description: 'Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Microsoft Azure Event Hubs'
 services: event-hubs
-author: robinsh
+author: ShubhaVijayasarathy
 manager: timlt
-ms.author: robinsh
-ms.date: 06/26/2018
+ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
-ms.custom: mvc
-ms.openlocfilehash: 28c03d12954b172388a92dd0c3f6aed2266ffaf7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132677"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091677"
 ---
-# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
+# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
 
 Avec Azure Event Hubs, vous pouvez utiliser Azure Stream Analytics pour vérifier les données entrantes et rejeter les anomalies, que vous pouvez ensuite visualiser dans Power BI. Supposons que vous avez des milliers d’appareils qui envoient en permanence des données en temps réel à un hub d’événements, ajoutant des millions d’événements par seconde. Comment trouver les anomalies ou les erreurs dans de telles quantités de données ? Par exemple, que se passe-t-il si les appareils envoient des transactions par carte de crédit, et que vous devez les capturer partout où vous avez plusieurs transactions dans plusieurs pays dans un intervalle de 5 secondes ? Ce scénario peut se produire si quelqu’un vole des cartes de crédit et les utilise pour acheter des articles à travers le monde au même moment. 
 
@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Configurer une tâche Stream Analytics pour traiter ces transactions
 > * Configurer une visualisation Power BI pour afficher les résultats
 
-Pour suivre ce tutoriel, vous devez disposer d’un abonnement Azure. Si vous n’en avez pas, créez un [Créer un compte gratuit][] avant de commencer.
+Pour suivre ce tutoriel, vous devez disposer d’un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit][] avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -174,13 +174,13 @@ Vous pouvez maintenant envoyer des données dans votre hub d’événements. Pou
 
 2. Entrez les informations suivantes pour la tâche :
 
-   **Nom de la tâche** : utilisez **contosoEHjob**. Ce champ est le nom de la tâche et il doit être globalement unique.
+   **Nom du travail** : utilisez **contosoEHjob**. Ce champ est le nom de la tâche et il doit être globalement unique.
 
-   **Abonnement** : sélectionnez votre abonnement.
+   **Abonnement**: Sélectionnez votre abonnement.
 
-   **Groupe de ressources** : utilisez le même groupe de ressources que celui utilisé par votre hub d’événements (**ContosoResourcesEH**).
+   **Groupe de ressources** : utilisez le même groupe de ressources que celui utilisé par votre hub d’événements (**ContosoResourcesEH**).
 
-   **Emplacement** : utilisez le même emplacement que celui utilisé dans le script de configuration (**West US**).
+   **Emplacement** : utilisez le même emplacement que celui utilisé dans le script de configuration (**USA Ouest**).
 
    ![Capture d’écran montrant comment créer une tâche Azure Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -199,17 +199,17 @@ Les entrées pour la tâche Stream Analytics sont les transactions par carte de 
 
 2. Dans le volet **Entrées**, cliquez sur **Ajouter une entrée de flux** et sélectionnez Event Hubs. Dans l’écran qui apparaît, renseignez les champs suivants :
 
-   **Alias d’entrée** : utilisez **contosoinputs**. Ce champ est le nom du flux d’entrée, utilisé lors de la définition de la requête pour les données.
+   **Alias d’entrée** : utilisez **contosoinputs**. Ce champ est le nom du flux d’entrée, utilisé lors de la définition de la requête pour les données.
 
-   **Abonnement** : sélectionnez votre abonnement.
+   **Abonnement**: Sélectionnez votre abonnement.
 
-   **Espace de noms Event Hubs** : sélectionnez l’espace de noms de votre hub d’événements ($**eventHubNamespace**). 
+   **Espace de noms Event Hubs** : sélectionnez l’espace de noms de votre hub d’événements ($**eventHubNamespace**). 
 
-   **Nom du hub d’événements** : cliquez sur **Utiliser l’existant** et sélectionnez votre hub d’événements ($**eventHubName**).
+   **Nom du hub d’événements** : cliquez sur **Utiliser l’existant** et sélectionnez votre hub d’événements ($**eventHubName**).
 
-   **Nom de la stratégie Event Hubs** : sélectionnez **RootManageSharedAccessKey**.
+   **Nom de la stratégie du hub d’événements** : sélectionnez **RootManageSharedAccessKey**.
 
-   **Groupe de consommateurs Event Hubs** : laissez ce champ vide pour utiliser le groupe de consommateurs par défaut.
+   **Groupe de consommateurs du hub d’événements**  : laissez ce champ vide pour utiliser le groupe de consommateurs par défaut.
 
    Acceptez les valeurs par défaut pour les autres champs.
 
@@ -223,11 +223,11 @@ Les entrées pour la tâche Stream Analytics sont les transactions par carte de 
 
 2. Dans le volet **Sorties**, cliquez sur **Ajouter**, puis sélectionnez **Power BI**. Dans l’écran qui apparaît, renseignez les champs suivants :
 
-   **Alias de sortie** : utilisez **contosooutputs**. Ce champ est l’alias unique de la sortie. 
+   **Alias de sortie** : utilisez **contosooutputs**. Ce champ est l’alias unique de la sortie. 
 
-   **Nom du jeu de données** : utilisez **contosoehdataset**. Ce champ est le nom du jeu de données à utiliser dans Power BI. 
+   **Nom du jeu de données** : utilisez **contosoehdataset**. Ce champ est le nom du jeu de données à utiliser dans Power BI. 
 
-   **Nom de la table** : utilisez **contosoehtable**. Ce champ est le nom de la table à utiliser dans Power BI. 
+   **Nom de la table** : utilisez **contosoehtable**. Ce champ est le nom de la table à utiliser dans Power BI. 
 
    Acceptez les valeurs par défaut pour les autres champs.
 
@@ -382,4 +382,4 @@ Passez à l’article suivant pour découvrir plus d’informations sur Azure Ev
 > [!div class="nextstepaction"]
 > [Bien démarrer avec l’envoi de messages vers Azure Event Hubs dans .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
-[Créer un compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[créez un compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

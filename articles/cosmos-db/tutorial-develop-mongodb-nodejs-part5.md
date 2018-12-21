@@ -1,23 +1,23 @@
 ---
-title: Tutoriel MongoDB, Angular et Node pour Azure - Partie 5
+title: Application Angular Node.Js à l’aide de l’API MongoB (Partie 5)
+titleSuffix: Azure Cosmos DB
 description: Il s’agit de la partie 5 de cette série de didacticiels sur la création d’une application MongoDB avec Angular et Node sur Azure Cosmos DB à l’aide des mêmes API que celles utilisées pour MongoDB
-services: cosmos-db
 author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 12/06/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: ce4ad1c069d34e79c81b8335bf2d58cb95068b9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: bda500c07e2ecccc317b5b669a947a415aaf147f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866174"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134129"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Créer une application MongoDB avec Angular et Azure Cosmos DB - Partie 5 : utiliser Mongoose pour se connecter à Azure Cosmos DB
+# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-connect-to-azure-cosmos-db"></a>Créer une application MongoDB avec Angular et Azure Cosmos DB - Partie 5 : Se connecter à Azure Cosmos DB 
 
 Ce didacticiel en plusieurs parties montre comment créer une application Node.js avec Express et Angular ainsi que comment se connecter à un compte de l’[API MongoDB d’Azure Cosmos DB](mongodb-introduction.md).
 
@@ -70,7 +70,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
     const mongoose = require('mongoose');
     /**
      * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
+     * Per https://mongoosejs.com/docs/promises.html
      */
     mongoose.Promise = global.Promise;
 

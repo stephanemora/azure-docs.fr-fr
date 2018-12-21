@@ -1,21 +1,22 @@
 ---
-title: 'Démarrage rapide : Publier une base de connaissances - REST, Java - QnA Maker'
-titleSuffix: Azure Cognitive Services
-description: Ce guide de démarrage rapide basé sur REST vous aide à publier votre base de connaissances qui envoie (par push) la dernière version de la base de connaissances testée à un index de Recherche Azure dédié représentant la base de connaissances publiée. Il crée également un point de terminaison qui peut être appelé dans votre application ou bot conversationnel.
+title: Publier une base de connaissances, REST, Java
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: Ce guide de démarrage rapide basé sur REST Java vous aide à publier votre base de connaissances qui envoie (push) la dernière version de la base de connaissances testée à un index de Recherche Azure dédié représentant la base de connaissances publiée. Il crée également un point de terminaison qui peut être appelé dans votre application ou bot conversationnel.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 58d34aa84d57c8c69a146666f23ce9f769554f88
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a115c5180044da1fe66349fefd9c28824fdd2e51
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165592"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163954"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Démarrage rapide : Publier une base de connaissances dans QnA Maker à l’aide de Java
 
@@ -40,7 +41,7 @@ Ce démarrage rapide fait appel aux API QnA Maker :
     Si vous n’avez pas encore de base de connaissances, vous pouvez créer un exemple à utiliser pour ce démarrage rapide : [Créer une base de connaissances](create-new-kb-csharp.md).
 
 > [!NOTE] 
-> Les fichiers solution complets sont disponibles dans le dépôt Github [**Azure-Samples/cognitive-services-qnamaker-java**](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> Les fichiers solution complets sont disponibles dans le [dépôt GitHub **Azure-Samples/cognitive-services-qnamaker-java**](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-a-java-file"></a>Créer un fichier Java
 
@@ -83,7 +84,7 @@ Toutes les autres réponses sont renvoyées inchangées.
 
 ## <a name="build-and-run-the-program"></a>Créez et exécutez le projet.
 
-Générez et exécutez le programme à partir de la ligne de commande. Il envoie automatiquement la requête à l’API QnA Maker, puis il affiche la réponse dans la fenêtre de console.
+Générez et exécutez le programme à partir de la ligne de commande. Il envoie automatiquement la requête à l’API QnA Maker, puis affiche la réponse dans la fenêtre de console.
 
 1. Générez le fichier :
 

@@ -1,21 +1,21 @@
 ---
-title: Didacticiel Azure Container Instances - Déployer des applications
-description: Didacticiel Azure Container Instances (3/3) – Déployer une application
+title: Tutoriel - Déployer une application conteneur sur Azure Container Instances
+description: Tutoriel Azure Container Instances (partie 3 sur 3) - Déployer une application conteneur sur Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9e8a72564151bea9194ef5180589fa8eae001df5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863718"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191090"
 ---
-# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Didacticiel : Déployer un conteneur sur Azure Container Instances
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutoriel : Déployer une application conteneur sur Azure Container Instances
 
 Il s’agit du didacticiel final d’une série en trois parties. Dans les deux premières parties, [nous avons créé une image conteneur](container-instances-tutorial-prepare-app.md) et [nous l’avons envoyée à Azure Container Registry](container-instances-tutorial-prepare-acr.md). Cet article termine la série en déployant le conteneur sur Azure Container Instances.
 

@@ -1,5 +1,5 @@
 ---
-title: Exemple Azure Policy - Ne pas auditer l’administrateur Azure AD
+title: Exemple - Ne pas auditer l’administrateur Azure AD
 description: Cet exemple de stratégie permet d’effectuer un audit si aucun administrateur Azure Active Directory n’est affecté au serveur SQL Server.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: f85653f57d5052c60ca2a6170370513c88c3b8cf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4ca215fbb905eed22b1e1911d25a773e236fe4c2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965294"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311743"
 ---
 # <a name="audit-no-azure-active-directory-administrator"></a>Aucun audit sur administrateur Azure Active Directory
 
@@ -30,7 +29,7 @@ Vous pouvez déployer ce modèle en utilisant le [portail Azure](#deploy-with-th
 
 ## <a name="deploy-with-the-portal"></a>Déployer avec le portail
 
-[![Déploiement sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Faudit-if-no-sql-active-directory-admin%2Fazurepolicy.json)
+[![Déployer sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Faudit-if-no-sql-active-directory-admin%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 

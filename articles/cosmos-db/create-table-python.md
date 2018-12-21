@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : API Table avec Python - Azure Cosmos DB'
+title: 'Démarrage rapide : API Table avec Python - Azure Cosmos DB'
 description: Ce guide de démarrage rapide montre comment utiliser l’API Table d’Azure Cosmos DB pour créer une application avec le portail Azure et Python
 services: cosmos-db
 author: SnehaGunda
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 70a7f17ed0ecb78337d13f68a260fc9f860e3a4a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 046c8f79ceea9ce40b5a60f720f205157110789e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837016"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161570"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec Python et Azure Cosmos DB
 
@@ -84,7 +84,7 @@ Par ailleurs :
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application. Cette opération permet à votre application de communiquer avec votre base de données hébergée. 
 
-1. Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Chaîne de connexion**. 
+1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Chaîne de connexion**. 
 
     ![Afficher et copier la CHAÎNE DE CONNEXION dans le volet Chaîne de connexion](./media/create-table-python/connection-string.png)
 

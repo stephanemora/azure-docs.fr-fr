@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/13/2018
+ms.date: 03/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52757098436349d38538f4c2168a70e53ad58421
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946610"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270159"
 ---
-# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Didacticiel 3 : Classifier Iris : déployer un modèle
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutoriel 3 : Classifier Iris : Déployer un modèle
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -168,7 +168,7 @@ Vous pouvez utiliser le _mode local_ pour le développement et de test. Le moteu
    az provider show -n Microsoft.ContainerRegistry 
    ``` 
 
-   La troisième ligne de la sortie affiche **"registrationState": "Registering"**. Attendez quelques instants et répétez la commande **show**, jusqu’à ce que la sortie affiche **"registrationState": "Registered"**.
+   La troisième ligne de la sortie affiche **« registrationState »: « Registering »**. Attendez quelques instants et répétez la commande **Show** jusqu’à ce que la sortie affiche **« registrationState » : « Registered ».**
 
    >[!NOTE] 
    Si vous déployez sur un cluster ACS, vous devez inscrire le fournisseur de ressources **Microsoft.ContainerService** et utiliser exactement la même approche.
@@ -234,19 +234,19 @@ Vous êtes maintenant prêt à créer le service web en temps réel.
 
    Les commutateurs suivants sont utilisés avec la commande **az ml service create realtime** :
 
-   * `-f` : le nom du fichier de script de notation.
+   * `-f`: Le nom du fichier de script de notation.
 
-   * `--model-file` : le fichier de modèle. Dans ce cas, il s’agit du fichier pickle model.pkl.
+   * `--model-file`: Le fichier de modèle. Dans ce cas, il s’agit du fichier pickle model.pkl.
 
-   * `-s` : Le schéma de service. Il a été généré dans une étape précédente en exécutant le script **score_iris.py** localement.
+   * `-s`: Le schéma de service. Il a été généré dans une étape précédente en exécutant le script **score_iris.py** localement.
 
-   * `-n` : le nom de l’application, qui doit être en minuscules uniquement.
+   * `-n`: Le nom de l’application, qui doit être en minuscules uniquement.
 
-   * `-r` : le runtime du modèle. Dans ce cas, il s’agit d’un modèle Python. Les runtimes valides sont `python` et `spark-py`.
+   * `-r`: Le runtime du modèle. Dans ce cas, il s’agit d’un modèle Python. Les runtimes valides sont `python` et `spark-py`.
 
-   * `--collect-model-data true` : ce commutateur active la collecte de données.
+   * `--collect-model-data true`: Ce commutateur active la collecte de données.
 
-   * `-c`: chemin d’accès au fichier de dépendances Conda où les packages supplémentaires sont spécifiés.
+   * `-c`: Chemin d’accès au fichier de dépendances Conda où les packages supplémentaires sont spécifiés.
 
    >[!IMPORTANT]
    >Le nom du service, qui est également le nouveau nom d’image Docker, doit être en minuscules uniquement. Sinon, vous recevez un message d’erreur. 
@@ -351,21 +351,21 @@ Pour tester le service web **irisapp** exécuté, utilisez un enregistrement JSO
 
 1. Vous pouvez utiliser ces données à partir du stockage Blob Azure. Une variété d’outils utilisent des logiciels Microsoft et des outils open source, tels que :
 
-   * Machine Learning : ouvrez le fichier CSV en l’ajoutant en tant que source de données.
+   * Machine Learning : Ouvrez le fichier CSV en l’ajoutant en tant que source de données.
 
-   * Excel : ouvrir les fichiers CSV quotidiens sous la forme d’une feuille de calcul.
+   * Excel : Ouvrir les fichiers CSV quotidiens sous la forme d’une feuille de calcul.
 
-   * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/) : créer des graphiques avec les données extraites des données CSV d’objets blob.
+   * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/) : Créer des graphiques avec les données extraites des données CSV d’objets blob.
 
-   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started) : chargez les données CSV dans une table Hive et effectuez des requêtes SQL directement sur les objets blob.
+   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started) : Chargez les données CSV dans une table Hive et effectuez des requêtes SQL directement sur les objets blob.
 
-   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview) : créer un cadre de données avec une grande partie des données CSV.
+   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview) : Créer un cadre de données avec une grande partie des données CSV.
 
       ```python
       var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
       ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

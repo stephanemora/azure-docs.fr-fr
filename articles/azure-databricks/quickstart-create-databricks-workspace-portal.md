@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure'
+title: "Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l'aide du portail Azure"
 description: Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un espace de travail Azure Databricks et un cluster Apache Spark et exécuter une tâche Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 080bf465d65199c54e0d09eab8c7bccbc9616ed7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568952"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259543"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l'aide du portail Azure
 
 Ce guide de démarrage rapide montre comment créer un espace de travail Azure Databricks et un cluster Apache Spark au sein de cet espace de travail. Enfin, vous découvrirez comment exécuter un travail Spark sur le cluster Databricks. Pour plus d’informations sur Azure Databricks, consultez [Présentation d’Azure Databricks](what-is-azure-databricks.md)
 
@@ -86,12 +86,12 @@ Pour plus d’informations sur la création de clusters, consultez [Créer un cl
 ## <a name="download-a-sample-data-file"></a>Télécharger un exemple de fichier de données
 Téléchargez un exemple de fichier de données JSON, et enregistrez-le dans le stockage blob Azure.
 
-1. Téléchargez cet exemple de fichier de données JSON [à partir de Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) vers votre ordinateur local. Cliquez sur le bouton droit de la souris, et sélectionnez Enregistrer sous pour enregistrer le fichier brut localement.
+1. Téléchargez cet exemple de fichier de données JSON sur votre ordinateur local [à partir de GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). Cliquez sur le bouton droit de la souris, et sélectionnez Enregistrer sous pour enregistrer le fichier brut localement.
 
 2. Si vous ne disposez pas d'un compte de stockage, créez-en un.
     - Dans le portail Azure, sélectionnez **Créer une ressource**. Sélectionnez la catégorie **Stockage**, puis **Comptes de stockage**.
     - Attribuez un nom unique au compte de stockage.
-    - Sélectionnez **Type de compte** : **Stockage Blob**.
+    - Sélectionnez **Type de compte** : **Stockage d'objets blob**
     - Sélectionnez un nom de **Groupe de ressources**. Utilisez le même groupe de ressources que vous avez créé avec l’espace de travail Databricks.
     
     Pour plus d’informations, consultez la rubrique [Créer un compte de stockage Blob Azure](../storage/common/storage-quickstart-create-account.md).
@@ -200,7 +200,7 @@ Une fois l’article terminé, vous pouvez arrêter le cluster. Pour cela, dans 
 
 ![Arrêter un cluster Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Arrêter un cluster Databricks")
 
-Si vous n’arrêtez pas le cluster manuellement, il s’arrête automatiquement, à condition d’avoir coché **Arrêter après \_\_ minutes d’inactivité** lors de la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
+Si vous n’arrêtez pas le cluster manuellement, il s’arrête automatiquement, à condition d’avoir coché la case **Arrêter après \_\_ minutes d’inactivité** durant la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

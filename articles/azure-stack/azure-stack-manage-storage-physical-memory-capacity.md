@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: a914d20f61b5b632e792ca29f6c201964db4a203
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0516ee7a8319b85765280b4c84f5febec8343ada
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452137"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965613"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gérer la capacité de mémoire physique pour Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : Systèmes intégrés Azure Stack*
 
 Pour augmenter la capacité de mémoire totale disponible pour Azure Stack, vous pouvez ajouter plus de mémoire. Dans Azure Stack, votre serveur physique est également appelé un *nœud d’unité d’échelle*. Tous les nœuds d’unité d’échelle qui sont membres d’une seule unité d’échelle doivent avoir la même quantité de mémoire.
 
@@ -33,7 +33,7 @@ Pour augmenter la capacité de mémoire totale disponible pour Azure Stack, vous
 
 L’organigramme suivant illustre la procédure générale d’ajout de mémoire à chaque nœud d’unité d’échelle.
 
-![Ajouter de la mémoire dans chaque nœud d’unité d’échelle](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![Ajouter de la mémoire dans chaque nœud d’unité d’échelle](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
 
 ## <a name="add-memory-to-an-existing-node"></a>Ajouter de la mémoire à un nœud existant
 Les étapes suivantes fournissent une vue d’ensemble globale du processus d’ajout de mémoire. 

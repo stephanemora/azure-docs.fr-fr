@@ -1,21 +1,21 @@
 ---
-title: Didacticiel - Automatiser les générations d’image conteneur avec des tâches Azure Container Registry
-description: Dans ce didacticiel, vous allez découvrir comment configurer une tâche pour déclencher automatiquement la génération des images de conteneur dans le cloud lorsque vous validez le code source dans un référentiel Git.
+title: 'Didacticiel : automatiser la génération des images de conteneur - Azure Container Registry Tasks'
+description: Dans ce didacticiel, vous allez découvrir comment configurer une tâche Azure Container Registry Task pour déclencher automatiquement la génération des images de conteneur dans le cloud lorsque vous validez le code source dans un référentiel Git.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 3dc602589dc3a909ea2a2cf2925d37df0a97605b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857225"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436243"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>Didacticiel : automatiser les générations d’image conteneur avec des tâches Azure Container Registry
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Didacticiel : automatiser la génération des images de conteneur dans le cloud lorsque vous validez le code source
 
 Outre une [tâche rapide](container-registry-tutorial-quick-task.md), ACR Tasks prend en charge la génération automatisée des images de conteneur Docker avec la *tâche de génération*. Dans ce didacticiel, vous allez utiliser Azure CLI pour créer une tâche afin de déclencher automatiquement la génération des images dans le cloud lorsque vous validez le code source dans un référentiel Git.
 
@@ -41,7 +41,7 @@ Pour suivre ce didacticiel, vous devez avoir déjà effectué les étapes du [di
 
 ### <a name="container-registry"></a>Registre de conteneurs
 
-Pour effectuer ce didacticiel, vous devez disposer d’un registre de conteneurs Azure dans votre abonnement Azure. Si vous avez besoin d’un registre, consultez le [didacticiel précédent](container-registry-tutorial-quick-task.md) ou [Démarrage rapide : Créer un registre de conteneurs à l’aide de l’interface de ligne de commande Azure](container-registry-get-started-azure-cli.md).
+Pour effectuer ce didacticiel, vous devez disposer d’un registre de conteneurs Azure dans votre abonnement Azure. Si vous avez besoin d’un registre, consultez le [didacticiel précédent](container-registry-tutorial-quick-task.md) ou le [Démarrage rapide : Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure](container-registry-get-started-azure-cli.md).
 
 ## <a name="overview-of-acr-tasks"></a>Vue d’ensemble d’ACR Tasks
 
@@ -155,7 +155,7 @@ $ az acr task create \
           "branch": "master",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "Github"
+          "sourceControlType": "GitHub"
         },
         "sourceTriggerEvents": [
           "commit"

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Développer une application web ASP.NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure'
+title: 'Démarrage rapide : Créer une application web ASP.NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure'
 description: Dans ce guide de démarrage rapide, vous utiliserez l’API SQL Azure Cosmos DB et le portail Azure pour créer une application web ASP.NET.
 author: deborahc
 ms.service: cosmos-db
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
 clicktale: true
-ms.openlocfilehash: 7686baf2476942748a67ae7c73b02596b6588607
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4422e656759418d715fb0bd26643581a0ca99a4f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853406"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089120"
 ---
-# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Démarrage rapide : Développer une application web ASP.NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure
+# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Démarrage rapide : Créer une application web ASP.NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure
 
 > [!div class="op_single_selector"]
 > * [.NET (préversion)](create-sql-api-dotnet-preview.md)
@@ -90,7 +90,7 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 
 Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
 
-Notez que si vous avez déjà utilisé la version précédente du SDK Python, vous connaissez peut-être les termes « collection » et « document ». Étant donné qu’Azure Cosmos DB prend en charge plusieurs modèles d’API, les versions ultérieures à 3.0 du SDK JavaScript utilisent les termes génériques « conteneur » et « élément ». Un conteneur peut être une collection, un graphe ou une table. Un élément peut être un document, arête/sommet ou ligne, et correspond au contenu à l’intérieur d’un conteneur. [Apprenez-en davantage sur les bases de données, les conteneurs et les éléments.](databases-containers-items.md)
+Notez que si vous avez déjà utilisé la version précédente du SDK Python, vous connaissez peut-être les termes « collection » et « document ». Étant donné qu’Azure Cosmos DB prend en charge plusieurs modèles d’API, les versions postérieures à la version 3.0 du kit SDK .NET utilisent les termes génériques « conteneur » et « élément ». Un conteneur peut être une collection, un graphique ou une table. Un élément peut être un document, arête/sommet ou ligne, et correspond au contenu à l’intérieur d’un conteneur. [Apprenez-en davantage sur les bases de données, les conteneurs et les éléments.](databases-containers-items.md)
 
 Tous les extraits de code suivants proviennent du fichier ToDoItemService.cs.
 
@@ -117,7 +117,7 @@ Tous les extraits de code suivants proviennent du fichier ToDoItemService.cs.
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. Dans le [Portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, sélectionnez **Clés**, puis **Clés en lecture-écriture**. Vous utiliserez les boutons Copier sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier web.config à l’étape suivante.
+1. Dans le [Portail Azure](https://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, sélectionnez **Clés**, puis **Clés en lecture-écriture**. Vous utiliserez les boutons Copier sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier web.config à l’étape suivante.
 
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-sql-api-dotnet/keys.png)
 

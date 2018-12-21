@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: af8b2c3f0b319ce9769e9789f6639e1d5eb266f6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a2c7b7c5dc68bb96e0b54dc89f2c170cdb20c792
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865214"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081902"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Créer une application web Python Flask à l’aide d’Azure Cosmos DB
 
@@ -61,15 +61,15 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 
 * [Compilateur Microsoft Visual C++ pour Python 2.7](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
 
-## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Étape 1 : création d’un compte de base de données Azure Cosmos DB
-Commençons par créer un compte Azure Cosmos DB. Si vous possédez déjà un compte ou si vous utilisez l’émulateur Azure Cosmos DB pour ce didacticiel, vous pouvez passer à [l’étape 2 : création d’une application web Python Flask](#step-2-create-a-new-python-flask-web-application).
+## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Étape 1 : Créer un compte de base de données Azure Cosmos DB
+Commençons par créer un compte Azure Cosmos DB. Si vous possédez déjà un compte ou si vous utilisez l'émulateur Azure Cosmos DB pour ce tutoriel, vous pouvez passer à [l’étape 2 : Créer une application web Python Flask](#step-2-create-a-new-python-flask-web-application).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <br/>
 Voyons à présent comment créer une application web Python Flask de A à Z.
 
-## <a name="step-2-create-a-new-python-flask-web-application"></a>Étape 2 : Création d’une application web Python Flask
+## <a name="step-2-create-a-new-python-flask-web-application"></a>Étape 2 : Créer une application web Python Flask
 1. Dans Visual Studio, dans le menu **Fichier**, pointez sur **Nouveau**, puis cliquez sur **Projet**.
    
     La boîte de dialogue **Nouveau projet** apparaît.
@@ -88,7 +88,7 @@ Voyons à présent comment créer une application web Python Flask de A à Z.
    
     La fenêtre de sortie affiche `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` quand l’environnement est correctement installé.
 
-## <a name="step-3-modify-the-python-flask-web-application"></a>Étape 3 : Modification de l’application web Python Flask
+## <a name="step-3-modify-the-python-flask-web-application"></a>Étape 3 : Modifier l'application web Python Flask
 ### <a name="add-the-python-flask-packages-to-your-project"></a>Ajouter les packages Python Flask à votre projet
 Une fois votre projet configuré, vous devez y ajouter les packages Flask requis, dont pydocumentdb, le package Python pour l’API SQL Azure Cosmos DB.
 
@@ -349,7 +349,7 @@ def vote():
    
     ![Capture d’écran de la fenêtre Explorateur de solutions de Visual Studio](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
 
-## <a name="step-4-run-your-web-application-locally"></a>Étape 4 : Exécution locale de votre application web
+## <a name="step-4-run-your-web-application-locally"></a>Étape 4 : Exécuter votre application web localement
 1. Appuyez sur **Ctrl**+**Maj**+**B** pour générer la solution.
 2. Une fois la génération terminée, démarrez le site Web en appuyant sur **F5**. Vous devez voir ceci sur votre écran.
    
@@ -365,7 +365,7 @@ def vote():
     ![Capture d’écran des résultats de la page de vote affichée](./media/sql-api-python-application/cosmos-db-voting-results.png)
 6. Arrêtez le débogage du projet en appuyant sur Maj+F5.
 
-## <a name="step-5-deploy-the-web-application-to-azure"></a>Étape 5 : Déploiement de l’application web sur Azure
+## <a name="step-5-deploy-the-web-application-to-azure"></a>Étape 5 : Déployer l'application web sur Azure
 Maintenant que l’application complète fonctionne correctement avec la base de données Azure Cosmos DB en local, nous allons créer un fichier web.config, mettre à jour les fichiers sur le serveur pour assurer la cohérence avec l’environnement local, puis déployer l’application complète sur Azure. Cette procédure est spécifique à Visual Studio 2017. Si vous utilisez une autre version de Visual Studio, consultez l’article [Publication dans Azure App Service](/visualstudio/python/publishing-to-azure).
 
 1. Dans **l’Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le projet, puis sélectionnez **Ajouter > Nouvel élément...**. Dans la boîte de dialogue qui s’affiche, sélectionnez le modèle **Azure web.config (Fast CGI)**, puis **OK**. Cette opération crée un fichier `web.config` dans le dossier racine de votre projet. 
@@ -436,4 +436,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application web, pas
 
 Pour plus d’informations sur Azure, Visual Studio et Python, consultez le [Centre de développement Python](https://azure.microsoft.com/develop/python/). 
 
-Pour d’autres didacticiels Python Flask, consultez [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
+Pour plus de tutoriels Python Flask, consultez [The Flask Mega-Tutorial, Part I: Hello, World!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 

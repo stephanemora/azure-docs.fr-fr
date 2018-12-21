@@ -1,21 +1,21 @@
 ---
-title: Didacticiel d’Azure Container Registry - Déployer une application web à partir d’Azure Container Registry
-description: Déployez une application web basée sur Linux à l’aide d’une image de conteneur à partir d’un registre de conteneurs Azure géorépliqué. Deuxième partie d’une série de trois.
+title: Didacticiel - Déployer l’application à partir du registre Docker géorépliqué dans Azure
+description: Déployez une application web basée sur Linux sur deux régions Azure différentes à l’aide d’une image conteneur à partir d’un registre de conteneurs Azure géorépliqué. Deuxième partie d’une série de trois.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: d1924d730f2c2a64063496d4be759194cef99175
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853859"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253831"
 ---
-# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Didacticiel : Déployer une application web à partir d’Azure Container Registry
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Didacticiel : Déployer une application web à partir d’un registre de conteneurs Azure géorépliqué
 
 Ceci est la deuxième partie d’une série de didacticiels qui en compte trois. Dans la [première partie](container-registry-tutorial-prepare-registry.md), un registre de conteneurs privé et géorépliqué a été créé, et une image de conteneur a été générée à partir de la source et envoyée au registre. Cet article explique comment tirer parti de la proximité réseau du registre géorépliqué en déployant le conteneur dans deux instances d’application web situées dans deux régions Azure distinctes. Chaque instance extrait ensuite l’image conteneur du registre le plus proche.
 

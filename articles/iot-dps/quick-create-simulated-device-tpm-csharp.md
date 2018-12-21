@@ -9,24 +9,26 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 812b707b9711d61d0a1326a86644e57ecbe84513
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f574c85252614fd24734657affe3264d72130dd3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157888"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997000"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé auprès du service IoT Hub Device Provisioning à l’aide du C# Device SDK
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-Ces étapes indiquent comment générer un exemple d’appareil TPM simulé à l’aide de l’Azure IoT Hub C# SDK sur un ordinateur de développement sous Windows et comment connecter cet appareil simulé au service Device Provisioning et à votre hub IoT. Cet exemple de code utilise le simulateur de module de plateforme sécurisée Windows comme [module de sécurité matériel (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) de l’appareil. 
+Ces étapes expliquent comment utiliser les [échantillons Azure IoT pour C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) afin de simuler un appareil TPM sur une machine de développement exécutant le système d'exploitation Windows. L'échantillon connecte également l'appareil simulé à un hub IoT à l'aide de l'instance de Device Provisioning Service. 
 
-Si vous ne connaissez pas le processus de provisionnement automatique, pensez également à consulter [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
+Cet exemple de code utilise le simulateur de module de plateforme sécurisée Windows comme [module de sécurité matériel (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) de l’appareil. 
 
-Le service Azure IoT Device Provisioning prend en charge deux types d’inscription :
+Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter également l’article [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
+
+Le service Azure IoT Device Provisioning prend en charge deux types d’inscriptions :
 - [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
-- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
+- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
 
 Cet article présente les inscriptions individuelles.
 
@@ -35,14 +37,14 @@ Cet article présente les inscriptions individuelles.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement 
 
-1. Vérifiez que le [.Net core SDK](https://www.microsoft.com/net/download/windows) est bien installé sur votre ordinateur. 
+1. Vérifiez que le Kit de développement logiciel (SDK) [.Net Core 2.1 ou version ultérieure](https://www.microsoft.com/net/download/windows) est bien installé sur votre ordinateur. 
 
 1. Assurez-vous que l’élément `git` est installé sur votre machine et est ajouté aux variables d’environnement accessibles à la fenêtre de commande. Consultez la section relative aux [outils clients de Software Freedom Conservancy](https://git-scm.com/download/) pour accéder à la dernière version des outils `git` à installer, qui inclut **Git Bash**, l’application de ligne de commande que vous pouvez utiliser pour interagir avec votre référentiel Git local. 
 
-4. Ouvrez une invite de commandes ou Git Bash. Clonez le référentiel GitHub Azure IoT SDK for C# :
+1. Ouvrez une invite de commandes ou Git Bash. Clonez les échantillons Azure IoT pour le référentiel C# GitHub :
     
     ```cmd
-    git clone --recursive https://github.com/Azure/azure-iot-sdk-csharp.git
+    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="provision-the-simulated-device"></a>Approvisionner l’appareil simulé
@@ -56,7 +58,7 @@ Cet article présente les inscriptions individuelles.
 2. Dans une invite de commandes, accédez au répertoire du projet contenant l’exemple d’approvisionnement d’appareil TPM.
 
     ```cmd
-    cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientTpm
+    cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
     ```
 
 2. Tapez la commande suivante pour générer et exécuter l’exemple d’approvisionnement d’appareil TPM. Remplacez la valeur `<IDScope>` par l’étendue de l’ID de votre service d’approvisionnement. 
@@ -65,21 +67,22 @@ Cet article présente les inscriptions individuelles.
     dotnet run <IDScope>
     ```
 
-1. La fenêtre de commande affiche la **_paire de clés de type EK (Endorsement Key)_**, **_l’ID d’inscription_** et un **_ID d’appareil_** nécessaires à l’inscription de l’appareil. Notez ces valeurs. 
+    Cette commande lancera le simulateur de puce TPM dans une invite de commandes distincte.  
+
+1. La fenêtre de commande affiche la **_paire de clés de type EK (Endorsement Key)_**, **_l’ID d’inscription_** et un **_ID d’appareil_** nécessaires à l’inscription de l’appareil. Prenez note de ces valeurs. Vous utiliserez ces valeurs pour créer une inscription individuelle dans votre instance de Device Provisioning Service. 
    > [!NOTE]
    > Ne confondez pas la fenêtre contenant la sortie de la commande avec la fenêtre contenant la sortie du simulateur TPM Vous devrez peut-être cliquer sur la fenêtre de commande pour l’amener au premier plan.
 
     ![Sortie de la fenêtre Commande](./media/quick-create-simulated-device-tpm-csharp/output1.png) 
 
-
 4. Dans le panneau de résumé du service Device Provisioning du portail Azure, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles**, puis cliquez sur le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
 
 5. Sous **Ajouter une inscription**, entrez les informations suivantes :
     - Sélectionnez **TPM** comme *mécanisme* d’attestation d’identité.
-    - Entrez l’*ID d’inscription* et la *paire de clés de type EK (Endorsement Key)* pour votre appareil de module de plateforme sécurisée. 
+    - Entrez l'*ID d'inscription* et la *paire de clés de type EK (Endorsement Key)* de votre appareil TPM que vous avez notés précédemment.
     - Vous pouvez aussi sélectionner un hub IoT lié à votre service d’approvisionnement.
     - Entrez un ID d’appareil unique. Vous pouvez entrer l’ID d’appareil proposé dans l’exemple de sortie ou votre propre ID. Si vous utilisez le vôtre, évitez les données sensibles au moment de le nommer. 
-    - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
+    - Vous pouvez également mettre à jour l'**État initial du jumeau d'appareil** avec la configuration initiale de votre choix pour l'appareil.
     - Cela fait, cliquez sur le bouton **Enregistrer**. 
 
     ![Saisir les informations d’inscription d’appareil dans le panneau du portail](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  

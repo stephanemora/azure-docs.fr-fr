@@ -1,0 +1,315 @@
+---
+title: Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
+description: Découvrez comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
+author: markjbrown
+ms.service: cosmos-db
+ms.topic: sample
+ms.date: 12/11/2018
+ms.author: mjbrown
+ms.openlocfilehash: d38cc37a23e954ad172e2c59a7b815fbd24b0d89
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53411148"
+---
+# <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
+
+Azure Cosmos DB fournit une exécution transactionnelle avec langage intégré de JavaScript qui vous permet d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur**. Lorsque vous utilisez l’API SQL dans Azure Cosmos DB, vous pouvez définir les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur dans le langage JavaScript. Vous pouvez écrire votre logique dans JavaScript et l’exécuter dans le moteur de base de données. Vous pouvez créer et exécuter des déclencheurs, des procédures stockées et des fonctions définies par l’utilisateur à l’aide du [Portail Azure](https://portal.azure.com/), de [l’API de requête avec langage intégré JavaScript dans Azure Cosmos DB](javascript-query-api.md) et des [Kits de développement logiciel (SDK) clients de l’API SQL Cosmos DB](sql-api-dotnet-samples.md). 
+
+Pour appeler une procédure stockée, un déclencheur, une fonction définie par l’utilisateur, vous devez les inscrire. Pour plus d’informations, consultez [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) (Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB).
+
+## <a id="stored-procedures"></a>Comment écrire des procédures stockées
+
+Les procédures stockées sont écrites à l’aide de JavaScript ; elles peuvent créer, mettre à jour, lire, interroger et supprimer des éléments à l’intérieur d’un conteneur Azure Cosmos. Les procédures stockées sont enregistrées par collection, et elles peuvent s’appliquer à tout document ou pièce jointe figurant dans cette collection.
+
+**Exemple**
+
+Voici une simple procédure stockée qui renvoie une réponse « Hello World ».
+
+```javascript
+var helloWorldStoredProc = {
+    id: "helloWorld",
+    serverScript: function () {
+        var context = getContext();
+        var response = context.getResponse();
+
+        response.setBody("Hello, World");
+    }
+}
+```
+
+L’objet de contexte donne accès à toutes les opérations pouvant être effectuées dans Azure Cosmos DB, ainsi que l’accès aux objets de requête et de réponse. En l’occurrence, vous utilisez l’objet de réponse pour définir le corps de la réponse renvoyée au client.
+
+Une fois écrite, la procédure stockée doit être inscrite auprès d’une collection. Pour plus d’informations, consultez l’article [How to use stored procedures in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#stored-procedures) (Comment utiliser des procédures stockées dans Azure Cosmos DB).
+
+### <a id="create-an-item"></a>Créer un élément à l’aide de la procédure stockée
+
+Lorsque vous créez un élément à l’aide d’une procédure stockée, l’élément est inséré dans le conteneur Azure Cosmos DB et un ID pour l’élément nouvellement créé est renvoyé. La création d’un élément est une opération asynchrone, et varie selon les fonctions de rappel JavaScript. La fonction de rappel présente deux paramètres : un pour l’objet d’erreur en cas d’échec de l’opération et un autre pour une valeur renvoyée, ici l’objet créé. À l’intérieur du rappel, vous pouvez gérer l’exception ou générer une erreur. Si aucun rappel n’est fourni et qu’une erreur se produit, le runtime d’Azure Cosmos DB génère une erreur. 
+
+La procédure stockée inclut également un paramètre pour définir la description ; il s’agit d’une valeur booléenne. Lorsque le paramètre est défini sur true et si la description est manquante, la procédure stockée génère une exception. Sinon, le reste de la procédure stockée continue de s’exécuter.
+
+L’exemple de procédure stockée suivant prend un nouvel élément Azure Cosmos DB en tant qu’entrée, l’insère dans le conteneur Azure Cosmos DB et renvoie l’id de l’élément qui vient d’être créé. Dans cet exemple, nous utilisons l’exemple ToDoList de l’article [Démarrage rapide : Développer une application web .NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure](create-sql-api-dotnet.md)
+
+```javascript
+function createToDoItem(itemToCreate) {
+
+    var context = getContext();
+    var container = context.getCollection();
+
+    var accepted = container.createDocument(container.getSelfLink(),
+        itemToCreate,
+        function (err, itemCreated) {
+            if (err) throw new Error('Error' + err.message);
+            context.getResponse().setBody(itemCreated.id)
+        });
+    if (!accepted) return;
+}
+```
+
+### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Tableaux en tant que paramètres d’entrée pour les procédures stockées 
+
+Quand vous définissez une procédure stockée dans le Portail Azure, les paramètres d’entrée sont toujours envoyés sous forme de chaîne à la procédure stockée. Même si vous passez un tableau de chaînes sous forme d’entrée, le tableau est converti en chaîne et envoyé à la procédure stockée. Pour contourner cela, vous pouvez définir une fonction à l’intérieur de votre procédure stockée pour que la chaîne soit analysée en tant que tableau. Le code suivant montre comment analyser un paramètre d’entrée de chaîne sous forme de tableau :
+
+```javascript
+function sample(arr) {
+    if (typeof arr === "string") arr = JSON.parse(arr);
+
+    arr.forEach(function(a) {
+        // do something here
+        console.log(a);
+    });
+}
+```
+
+### <a id="transactions"></a>Transactions dans des procédures stockées
+
+Vous pouvez implémenter des transactions sur des éléments dans un conteneur à l’aide d’une procédure stockée. L’exemple suivant utilise des transactions au sein d’une application de jeu de football fantastique pour échanger des joueurs entre deux équipes dans une seule opération. La procédure stockée essaie de lire les deux éléments Azure Cosmos DB, qui correspondent chacun aux ID de joueur transmis en tant qu’arguments. Si deux joueurs sont trouvés, la procédure stockée met à jour les éléments en intervertissant leurs équipes. Si des erreurs se produisent, elle génère une exception JavaScript qui annule implicitement la transaction.
+
+```javascript
+// JavaScript source code
+function tradePlayers(playerId1, playerId2) {
+    var context = getContext();
+    var container = context.getCollection();
+    var response = context.getResponse();
+
+    var player1Document, player2Document;
+
+    // query for players
+    var filterQuery = 'SELECT * FROM Players p where p.id  = "' + playerId1 + '"';
+    var accept = container.queryDocuments(container.getSelfLink(), filterQuery, {},
+        function (err, items, responseOptions) {
+            if (err) throw new Error("Error" + err.message);
+
+            if (items.length != 1) throw "Unable to find both names";
+            player1Item = items[0];
+
+            var filterQuery2 = 'SELECT * FROM Players p where p.id = "' + playerId2 + '"';
+            var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
+                function (err2, items2, responseOptions2) {
+                    if (err2) throw new Error("Error" + err2.message);
+                    if (items2.length != 1) throw "Unable to find both names";
+                    player2Item = items2[0];
+                    swapTeams(player1Item, player2Item);
+                    return;
+                });
+            if (!accept2) throw "Unable to read player details, abort ";
+        });
+
+    if (!accept) throw "Unable to read player details, abort ";
+
+    // swap the two players’ teams
+    function swapTeams(player1, player2) {
+        var player2NewTeam = player1.team;
+        player1.team = player2.team;
+        player2.team = player2NewTeam;
+
+        var accept = container.replaceDocument(player1._self, player1,
+            function (err, itemReplaced) {
+                if (err) throw "Unable to update player 1, abort ";
+
+                var accept2 = container.replaceDocument(player2._self, player2,
+                    function (err2, itemReplaced2) {
+                        if (err) throw "Unable to update player 2, abort"
+                    });
+
+                if (!accept2) throw "Unable to update player 2, abort";
+            });
+
+        if (!accept) throw "Unable to update player 1, abort";
+    }
+}
+```
+
+### <a id="bounded-execution"></a>Exécution liée dans des procédures stockées
+
+Voici un exemple de procédure stockée qui importe en bloc des éléments dans un conteneur Azure Cosmos. La procédure stockée gère l’exécution liée en vérifiant la valeur de retour booléenne à partir de `createDocument`, puis utilise le nombre d’éléments insérés dans chaque appel de la procédure stockée pour effectuer le suivi de la progression et la reprendre d’un lot à un autre.
+
+```javascript
+function bulkImport(items) {
+    var container = getContext().getCollection();
+    var containerLink = container.getSelfLink();
+
+    // The count of imported items, also used as current item index.
+    var count = 0;
+
+    // Validate input.
+    if (!items) throw new Error("The array is undefined or null.");
+
+    var itemsLength = items.length;
+    if (itemsLength == 0) {
+        getContext().getResponse().setBody(0);
+    }
+
+    // Call the create API to create an item.
+    tryCreate(items[count], callback);
+
+    // Note that there are 2 exit conditions:
+    // 1) The createDocument request was not accepted.
+    //    In this case the callback will not be called, we just call setBody and we are done.
+    // 2) The callback was called items.length times.
+    //    In this case all items were created and we don’t need to call tryCreate anymore. Just call setBody and we are done.
+    function tryCreate(item, callback) {
+        var isAccepted = container.createDocument(containerLink, item, callback);
+
+        // If the request was accepted, callback will be called.
+        // Otherwise report current count back to the client,
+        // which will call the script again with remaining set of items.
+        if (!isAccepted) getContext().getResponse().setBody(count);
+    }
+
+    // This is called when container.createDocument is done in order to process the result.
+    function callback(err, item, options) {
+        if (err) throw err;
+
+        // One more item has been inserted, increment the count.
+        count++;
+
+        if (count >= itemsLength) {
+            // If we created all items, we are done. Just set the response.
+            getContext().getResponse().setBody(count);
+        } else {
+            // Create next document.
+            tryCreate(items[count], callback);
+        }
+    }
+}
+```
+
+## <a id="triggers"></a>Comment écrire des déclencheurs
+
+Azure Cosmos DB prend en charge les prédéclencheurs et les post-déclencheurs. Les prédéclencheurs sont exécutés avant de modifier un élément de la base de données, et les post-déclencheurs sont exécutés après la modification d’un élément de la base de données.
+
+### <a id="pre-triggers"></a>Prédéclencheurs
+
+Voici un exemple de la façon dont un prédéclencheur est utilisé pour valider les propriétés d’un élément Azure Cosmos DB en cours de création. Dans cet exemple, nous utilisons l’exemple ToDoList de l’article [Démarrage rapide : Développer une application web .NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure](create-sql-api-dotnet.md) pour ajouter une propriété timestamp à un élément nouvellement ajouté qui n’en contient pas.
+
+```javascript
+function validateToDoItemTimestamp() {
+    var context = getContext();
+    var request = context.getRequest();
+
+    // item to be created in the current operation
+    var itemToCreate = request.getBody();
+
+    // validate properties
+    if (!("timestamp" in itemToCreate)) {
+        var ts = new Date();
+        itemToCreate["timestamp"] = ts.getTime();
+    }
+
+    // update the item that will be created
+    request.setBody(itemToCreate);
+}
+```
+
+Les pré-déclencheurs ne peuvent pas avoir de paramètres en entrée. L’objet de requête dans le déclencheur est utilisé pour manipuler le message de requête associé à l’opération. Dans l’exemple précédent, le prédéclencheur est exécuté lors de la création d’un élément Azure Cosmos DB, et le corps du message de requête contient l’élément qui doit être créé au format JSON.
+
+Lorsque les déclencheurs sont inscrits, vous pouvez spécifier les opérations avec lesquelles ils peuvent s’exécuter. Ce déclencheur doit être créé avec une valeur `TriggerOperation` de `TriggerOperation.Create`, ce qui signifie que l’utilisation du déclencheur dans une opération de remplacement comme indiqué dans le code suivant n’est pas autorisée.
+
+Pour des exemples d’inscription et d’appel d’un prédéclencheur, consultez les articles dédiés aux [prédéclencheurs](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) et aux [post-déclencheurs](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
+
+### <a id="post-triggers"></a>Post-déclencheurs
+
+L’exemple suivant illustre un post-déclencheur. Ce déclencheur interroge l’élément de métadonnées et le met à jour avec des informations relatives à l’élément qui vient d’être créé.
+
+
+```javascript
+function updateMetadata() {
+var context = getContext();
+var container = context.getCollection();
+var response = context.getResponse();
+
+// item that was created
+var createdItem = response.getBody();
+
+// query for metadata document
+var filterQuery = 'SELECT * FROM root r WHERE r.id = "_metadata"';
+var accept = container.queryDocuments(container.getSelfLink(), filterQuery,
+    updateMetadataCallback);
+if(!accept) throw "Unable to update metadata, abort";
+
+function updateMetadataCallback(err, items, responseOptions) {
+    if(err) throw new Error("Error" + err.message);
+        if(items.length != 1) throw 'Unable to find metadata document';
+
+        var metadataItem = items[0];
+
+        // update metadata
+        metadataItem.createdItems += 1;
+        metadataItem.createdNames += " " + createdItem.id;
+        var accept = container.replaceDocument(metadataItem._self,
+            metadataItem, function(err, itemReplaced) {
+                    if(err) throw "Unable to update metadata, abort";
+            });
+        if(!accept) throw "Unable to update metadata, abort";
+        return;
+}
+```
+
+Un élément important à noter est l’exécution transactionnelle des déclencheurs dans Azure Cosmos DB. Ce post-déclencheur s’exécute dans le cadre de la même transaction que celle utilisée par l’élément Azure Cosmos DB créé. Par conséquent, si vous recevez une exception pendant l’exécution du post-déclencheur (par exemple, si vous ne pouvez pas mettre à jour l’élément de métadonnées), la transaction entière échoue et est annulée. L’élément Azure Cosmos DB est ainsi créé et une exception est renvoyée.
+
+Pour des exemples d’inscription et d’appel d’un prédéclencheur, consultez les articles dédiés aux [prédéclencheurs](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) et aux [post-déclencheurs](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
+
+## <a id="udfs"></a>Comment écrire des fonctions définies par l’utilisateur
+
+L’exemple suivant crée une fonction définie par l’utilisateur pour calculer les impôts sur le revenu en fonction de diverses tranches de revenu. Cette fonction définie par l’utilisateur peut ensuite être utilisée dans une requête. Dans le cadre de cet exemple, supposons qu’il existe un conteneur appelé « Revenus » avec des propriétés comme suit :
+
+```json
+{
+   name = "Satya Nadella",
+   country = "USA",
+   income = 70000
+}
+```
+
+Ce qui suit correspond à une définition de fonction pour calculer les impôts sur le revenu en fonction de diverses tranches de revenu :
+
+```javascript
+function tax(income) {
+
+        if(income == undefined)
+            throw 'no input';
+
+        if (income < 1000)
+            return income * 0.1;
+        else if (income < 10000)
+            return income * 0.2;
+        else
+            return income * 0.4;
+    }
+```
+
+Pour des exemples d’inscription et d’utilisation d’une fonction définie par l’utilisateur, consultez l’article [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) (Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez plus de concepts et comment écrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB :
+
+* [Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
+
+* [How to write stored procedures and triggers in Azure Cosmos DB by using the JavaScript query API](how-to-write-javascript-query-api.md) (Comment écrire des procédures stockées et des déclencheurs à l’aide de l’API de requête JavaScript dans Azure Cosmos DB)
+
+* [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions](stored-procedures-triggers-udfs.md) (Utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur Azure Cosmos DB)
+
+* [Working with JavaScript language-integrated query API with Azure Cosmos DB](javascript-query-api.md) (Utiliser l’API de requête avec langage intégré JavaScript dans Azure Cosmos DB)

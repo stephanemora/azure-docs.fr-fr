@@ -4,17 +4,17 @@ description: Azure Blueprint est un service Azure qui vous permet de créer, de 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498593"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967689"
 ---
 # <a name="what-is-azure-blueprints"></a>Qu’est-ce qu’Azure Blueprint ?
 
@@ -111,7 +111,7 @@ Pour affecter ou annuler l’affectation d’un blueprint, votre compte doit avo
 > [!NOTE]
 > Comme les affectations de blueprint sont créées sur un abonnement, les autorisations d’affectation de blueprint et d’annulation d’affectation de blueprint doivent être accordées sur une étendue d’abonnement ou être héritées dans une étendue d’abonnement.
 
-En plus des autorisations d’affectation de blueprint, ces autorisations sont incluses dans le rôle **Propriétaire** et dans les rôles **Contributeur**. Si ces rôles intégrés ne répondent pas à vos besoins de sécurité, songez à créer un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
+Toutes les autorisations ci-dessus sont incluses dans le rôle **Propriétaire**. Le rôle **Contributeur** est autorisé à créer et supprimer des blueprints, mais pas à en affecter. Si ces rôles intégrés ne répondent pas à vos besoins de sécurité, songez à créer un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > Le principal de service pour Azure Blueprint nécessite le rôle **Propriétaire** sur l’abonnement affecté pour pouvoir activer le déploiement. Si vous utilisez le portail, ce rôle est automatiquement accordé et révoqué pour le déploiement. Si vous utilisez l’API REST, ce rôle doit être accordé manuellement, mais il est toujours automatiquement révoqué une fois le déploiement terminé.

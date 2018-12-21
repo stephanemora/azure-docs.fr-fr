@@ -1,5 +1,5 @@
 ---
-title: Stocker des données avec le module SQL Azure IoT Edge | Microsoft Docs
+title: 'Didacticiel : Stocker des données avec le module SQL - Azure IoT Edge | Microsoft Docs'
 description: Découvrez comment stocker des données localement sur votre appareil IoT Edge avec un module SQL Server
 services: iot-edge
 author: kgremban
@@ -8,15 +8,15 @@ ms.author: kgremban
 ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833991"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163410"
 ---
-# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutoriel : Stocker des données en périphérie avec les bases de données SQL Server
+# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Didacticiel : Stocker des données en périphérie avec les bases de données SQL Server
 
 Utilisez Azure IoT Edge et SQL Server pour stocker et interroger des données en périphérie. Azure IoT Edge comprend des fonctionnalités de stockage de base qui mettent en cache les messages quand un appareil est mis hors connexion, puis qui les transmettent une fois la connexion rétablie. Toutefois, vous souhaitez peut-être des capacités de stockage plus avancées, telles que la possibilité d’interroger des données localement. En incorporant des bases de données locales, vos appareils IoT Edge peuvent effectuer des calculs plus complexes sans avoir à gérer une connexion à IoT Hub. Par exemple, un capteur d’ordinateur charge des données dans le cloud une fois par mois dans le but de créer des rapports sur un module de machine learning et de l’améliorer. Cependant, si un technicien de terrain travaille sur cet ordinateur, il peut accéder localement aux données de capteur qui ont été enregistrées au cours des derniers jours.
 
@@ -163,7 +163,7 @@ Les étapes suivantes vous montrent comment créer une fonction IoT Edge à l’
                        {
                            //Execute the command and log the # rows affected.
                            var rows = await cmd.ExecuteNonQueryAsync();
-                           log.Info($"{rows} rows were updated");
+                           logger.LogInformation($"{rows} rows were updated");
                        }
                    }
 
@@ -251,7 +251,7 @@ Un [manifeste de déploiement](module-composition.md) déclare les modules que l
    }
    ```
 
-   ![Ajouter un conteneur SQL Server](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![Ajouter le module SQL Server au manifeste](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. Selon le type des conteneurs Docker présents sur votre appareil IoT Edge, mettez à jour les paramètres du module **sql** avec le code suivant :
    * Conteneurs Windows :
@@ -416,7 +416,7 @@ Une fois que votre table est créée, le module sqlFunction démarre le stockage
    GO
    ```
 
-   ![Afficher les données locales](./media/tutorial-store-data-sql-server/view-data.png)
+   ![Afficher le contenu de la base de données locale](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

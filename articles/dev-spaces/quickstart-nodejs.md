@@ -10,14 +10,14 @@ ms.date: 09/26/2018
 ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: efb3e63841dbe88bd8711881b373ab505468eabd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 52cca29392f226aa0f33081b9303a8c5d1f41036
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704764"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413334"
 ---
-# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Guide de démarrage rapide : créer un espace de développement Kubernetes avec Azure Dev Spaces (Node.js)
+# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Démarrage rapide : Créer un espace de développement Kubernetes avec Azure Dev Spaces (Node.js)
 
 Dans ce guide, vous allez apprendre à :
 
@@ -37,12 +37,12 @@ Dans ce guide, vous allez apprendre à :
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
     ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurer Azure Dev Spaces
 
-Il est possible d’installer l’interface de ligne de commande Azure et l’extension Azure Dev Spaces puis de les exécuter sur des ordinateurs Windows, Mac ou Linux. Pour Linux, les distributions suivantes sont prises en charge : Ubuntu (18.04, 16.04 et 14.04), Debian 8 et 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 et SLES 12.
+Il est possible d’installer l’interface de ligne de commande Azure et l’extension Azure Dev Spaces puis de les exécuter sur des ordinateurs Windows, Mac ou Linux. Pour Linux, les distributions prises en charge sont les suivantes : Ubuntu (18.04 16.04 et 14.04), Debian 8 et 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 et SLES 12.
 
 Pour configurer Azure Dev Spaces, procédez comme suit :
 

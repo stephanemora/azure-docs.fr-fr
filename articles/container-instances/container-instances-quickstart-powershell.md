@@ -1,21 +1,21 @@
 ---
-title: 'Démarrage rapide : Exécuter une application dans Azure Container Instances'
-description: Dans ce démarrage rapide, vous allez utiliser Azure PowerShell pour déployer une application s’exécutant dans un conteneur Docker sur Azure Container Instances
+title: 'Démarrage rapide : Exécuter une application dans Azure Container Instances - PowerShell'
+description: Dans ce guide de démarrage rapide, vous utilisez Azure PowerShell pour déployer une application de conteneur Docker sur Azure Container Instances avec Azure PowerShell
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 33444e810a2deebee11e535c73ce3e249f42b340
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b17cca7f0c00aba260b97b29345ff33156a50138
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854641"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183945"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Démarrage rapide : Exécuter une application dans Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Démarrage rapide : Exécuter une application de conteneur dans Azure Container Instances avec Azure PowerShell
 
 Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker dans Azure. Vous n’avez pas besoin de déployer de machines virtuelles ou d’utiliser une plateforme d’orchestration de conteneur complète telle que Kubernetes. Dans ce démarrage rapide, vous utilisez le Portail Azure pour créer un conteneur Windows dans Azure et mettez à disposition son application avec un nom de domaine complet. Quelques secondes après l’exécution d’une seule commande de déploiement, vous pouvez accéder à l’application en cours d’exécution :
 

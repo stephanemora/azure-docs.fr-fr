@@ -1,5 +1,5 @@
 ---
-title: Exemple Azure Policy - Modèles de noms multiples
+title: Exemple - plusieurs modèles de nom
 description: Pour cet exemple de stratégie, la ressource doit correspondre à l’un des modèles de noms fournis.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: a2dad5529a8c13acb5b929e3113bad658b59ba6f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1cee71394c1fa4143dbbcfaa780c8f2d63a24bbd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975953"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309652"
 ---
 # <a name="allow-multiple-name-patterns"></a>Autoriser plusieurs modèles de nom
 
@@ -30,7 +29,7 @@ Vous pouvez déployer ce modèle en utilisant le [portail Azure](#deploy-with-th
 
 ## <a name="deploy-with-the-portal"></a>Déployer avec le portail
 
-[![Déploiement sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fallow-multiple-name-patterns%2Fazurepolicy.json)
+[![Déployer sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fallow-multiple-name-patterns%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 

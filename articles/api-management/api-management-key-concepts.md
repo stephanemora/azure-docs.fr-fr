@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435999"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965153"
 ---
 # <a name="what-is-api-management"></a>Présentation de Gestion des API
 
@@ -59,7 +59,7 @@ Le système est constitué des composants suivants :
   * créer un compte et s’abonner pour obtenir les clés d’une API ;
   * accéder aux analyses relatives à leur propre utilisation.
 
-Pour plus d'informations, consultez le livre blanc [Gestion des API basées sur le cloud : maîtrise de la puissance des API](http://j.mp/ms-apim-whitepaper), disponible en version PDF. Ce livre blanc d’introduction à la gestion des API, publié par CITO Research, présente les opérations suivantes : 
+Pour plus d’informations, consultez le livre blanc au format PDF [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper). Ce livre blanc d’introduction à la gestion des API, publié par CITO Research, présente les opérations suivantes : 
  
  * Configuration requise des API et défis communs
  * Découplage des API et présentation des façades

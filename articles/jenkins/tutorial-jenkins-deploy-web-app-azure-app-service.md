@@ -8,14 +8,14 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 274de7ac63df0afc1a59e197deebeb7929cf1ef8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855010"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438470"
 ---
-# <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutoriel : Effectuer un déploiement sur Azure App Service à partir de GitHub avec l’intégration continue et le déploiement continu Jenkins
+# <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Didacticiel : Effectuer un déploiement sur Azure App Service à partir de GitHub avec l’intégration continue et le déploiement continu Jenkins
 
 Ce tutoriel explique comment déployer un exemple d’application web Java de GitHub sur [Azure App Service sur Linux](/azure/app-service/containers/app-service-linux-intro), en configurant l’intégration continue (CI) et le déploiement continu (CD) dans Jenkins. Lorsque vous mettez à jour l’application en envoyant (push) des validations à GitHub, Jenkins génère et republie automatiquement votre application dans Azure App Service. L’exemple d’application de ce tutoriel a été développé avec le framework [Spring Boot](http://projects.spring.io/spring-boot/). 
 
@@ -43,7 +43,7 @@ Pour les besoins de ce tutoriel, vous devez disposer des éléments suivants :
 
 * Un serveur [Jenkins](https://jenkins.io/) sur lequel sont installés le kit de développement Java (JDK) et les outils Maven, sur une machine virtuelle Linux Azure
 
-  Si vous n’avez pas de serveur Jenkins, suivez ces étapes dans le portail Azure : [Créer un serveur Jenkins sur une machine virtuelle Linux Azure à partir du portail Azure](/azure/jenkins/install-jenkins-solution-template)
+  Si vous n’avez pas de serveur Jenkins, suivez ces étapes dans le portail Azure : [Créer un serveur Jenkins sur une machine virtuelle Linux Azure](/azure/jenkins/install-jenkins-solution-template)
 
 * Un compte [GitHub](https://github.com) afin d’obtenir une copie de travail ([duplication (fork)](#fork)) de l’exemple d’application web Java 
 
@@ -92,7 +92,7 @@ Pour que Jenkins supervise GitHub et réponde quand de nouvelles validations son
 > 
 > Les étapes suivantes créent des informations d’identification de jeton d’accès personnel pour que Jenkins puisse utiliser GitHub avec votre nom d’utilisateur et de votre mot de passe GitHub. 
 > Toutefois, si votre compte GitHub utilise l’authentification à deux facteurs, vous devrez créer votre jeton dans GitHub et configurer Jenkins pour qu’il utilise ce jeton. 
-> Pour plus d’informations, consultez la documentation du [plug-in Jenkins GitHub](https://wiki.jenkins.io/display/JENKINS/Github+Plugin).
+> Pour plus d’informations, consultez la documentation du [plug-in Jenkins GitHub](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin).
 
 1. Dans la page **Manage Jenkins**, sélectionnez **Configure System**. 
 
@@ -164,7 +164,7 @@ Voici la sortie générée par la commande **`create-for-rbac`**  :
 
    | Propriété | Valeur | Description | 
    |----------|-------|-------------| 
-   | **Identifiant d’abonnement** | <*yourAzureSubscription-ID*> | Valeur GUID de votre abonnement Azure <p>**Conseil** : Si vous ne connaissez pas votre ID d’abonnement Azure, exécutez cette commande Azure CLI à partir de la ligne de commande ou dans Cloud Shell, puis utilisez la valeur GUID `id` : <p>`az account list` | 
+   | **Identifiant d’abonnement** | <*yourAzureSubscription-ID*> | Valeur GUID de votre abonnement Azure <p>**Conseil** : Si vous ne connaissez pas votre ID d’abonnement Azure, exécutez cette commande Azure CLI à partir de la ligne de commande ou dans Cloud Shell, puis utilisez la valeur GUID `id` : <p>`az account list` | 
    | **ID client** | <*yourAzureServicePrincipal-ID*> | Valeur GUID `appId` générée précédemment pour votre principal de service Azure | 
    | **Clé secrète client** | <*yourSecurePassword*> | Valeur ou « secret » `password` que vous avez fourni(e) pour votre principal de service Azure | 
    | **Tenant ID** | <*yourAzureActiveDirectoryTenant-ID*> | Valeur GUID `tenant` de votre locataire Azure Active Directory | 

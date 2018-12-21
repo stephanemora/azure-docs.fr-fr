@@ -1,21 +1,22 @@
 ---
-title: 'Tutoriel 5 : Relations parent/enfant - Entité hiérarchique LUIS pour les données issues d’un apprentissage contextuel'
+title: Entité hiérarchique
 titleSuffix: Azure Cognitive Services
 description: Recherchez des ensembles de données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination d’un déménagement physique depuis un bâtiment et un bureau vers un autre bâtiment et un autre bureau sont liés.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424698"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104405"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutoriel 5 : Extraire des données relatives au contexte
 Dans ce tutoriel, vous allez rechercher des ensembles de données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination d’un déménagement physique depuis un bâtiment et un bureau vers un autre bâtiment et un autre bureau sont liés. Pour générer un ordre de travail, les deux ensembles de données peuvent être nécessaires et ils sont liés entre eux.  
@@ -32,7 +33,6 @@ L’entité hiérarchique est adaptée à ce type de données, car les deux ense
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Utiliser l’application de tutoriel existante
 > * Ajouter une intention 
@@ -55,7 +55,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `hier`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Supprimer l’entité de nombre prédéfinie de l’application
-Afin d’afficher l’énoncé complet et de marquer les enfants hiérarchiques, supprimez temporairement l’entité de nombre prédéfinie.
+Pour afficher l'énoncé complet et marquer les enfants hiérarchiques, [supprimez temporairement l'entité de nombre prédéfinie](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -90,7 +90,7 @@ LUIS a besoin de comprendre ce qu’est un emplacement en étiquetant l’origin
 
 Prenez l’énoncé suivant :
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
@@ -100,19 +100,19 @@ Si un seul enfant (origine ou destination) d’une entité hiérarchique est pr�
 
 1. Dans l’énoncé `Displace 425-555-0000 away from g-2323 toward hh-2345`, sélectionnez le mot `g-2323`. Un menu déroulant apparaît avec une zone de texte à son sommet. Entrez le nom de l’entité `Locations` dans la zone de texte, puis sélectionnez **Créer une entité** dans le menu déroulant. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Capture d’écran de création d’une nouvelle entité sur la page d’intention")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Capture d'écran illustrant la création d'une entité sur la page d'intention](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Capture d'écran illustrant la création d'une entité sur la page d'intention")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. Dans la fenêtre contextuelle, sélectionnez le type d’entité **hiérarchique** avec `Origin` et `Destination` comme entités enfants. Sélectionnez **Terminé**.
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Capture d’écran de la boîte de dialogue contextuelle de création d’une entité pour une nouvelle entité Emplacement")
+    ![Capture d'écran de la boîte de dialogue contextuelle de création d'entité pour la nouvelle entité Emplacement](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Capture d'écran de la boîte de dialogue contextuelle de création d'entité pour la nouvelle entité Emplacement")
 
 3. L’étiquette de `g-2323` est marquée comme `Locations` car LUIS ne sait pas si le terme désigne l’origine ou la destination ou aucun des deux. Sélectionnez `g-2323`, puis **Locations** (Emplacement), puis suivez le menu à droite et cliquez sur `Origin`.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Capture d’écran de la boîte de dialogue contextuelle d’étiquetage d’une entité pour modifier l’enfant d’entité de l’emplacement")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Capture d'écran de la boîte de dialogue contextuelle d'étiquetage des entités permettant de changer l'enfant de l'entité Emplacements](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Capture d'écran de la boîte de dialogue contextuelle d'étiquetage des entités permettant de changer l'enfant de l'entité Emplacements")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. Étiquetez les autres emplacements de tous les autres énoncés en sélectionnant le bâtiment et le bureau de l’énoncé, puis Locations (Emplacements), puis le menu à droite pour choisir `Origin` ou `Destination`. Lorsque tous les emplacements sont étiquetés, les énoncés dans **Tokens View** (Vue du jeton) commencent à ressembler à un modèle. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Capture d’écran de l’entité Locations (emplacements) étiquetée dans les énoncés")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Capture d'écran de l'entité Emplacements étiquetée dans les énoncés](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Capture d'écran de l'entité Emplacements étiquetée dans les énoncés")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>Ajouter l’entité de nombre prédéfinie dans l’application
 Ajoutez l’entité de nombre prédéfinie dans l’application.
@@ -140,7 +140,7 @@ Ajoutez l’entité de nombre prédéfinie dans l’application.
 
 2. Allez à la fin de l’URL dans la barre d’adresses, puis entrez `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `MoveEmployee` avec l’entité hiérarchique extraite.
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

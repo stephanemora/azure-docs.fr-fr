@@ -1,6 +1,6 @@
 ---
-title: Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure AD ? - préversion | Microsoft Docs
-description: Découvrez comment utiliser le degré de sécurisation Identity Secure Score pour améliorer la méthode de sécurité de votre locataire Azure AD.
+title: Qu’est-ce qu’un degré de sécurisation Identity Secure Score ? - Azure Active Directory (préversion publique) | Microsoft Docs
+description: Instructions permettant d’utiliser le degré de sécurisation Identity Secure Score pour améliorer la méthode de sécurité de votre locataire Azure AD.
 services: active-directory
 keywords: Identity Secure Score, Azure AD, sécuriser l’accès aux ressources de l’entreprise
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a9bb22cae2e9fcd607a81d442f4fb51f12c43454
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro
+ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224135"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092065"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure AD ? - préversion
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure Active Directory ? (Préversion publique)
 
 Dans quelle mesure votre locataire Azure AD est-il sécurisé ? Si vous ne savez pas comment répondre à cette question, lisez cet article pour savoir comment le degré de sécurisation Identity Secure Score vous aide à surveiller et améliorer votre méthode de sécurité relative aux identités. 
 

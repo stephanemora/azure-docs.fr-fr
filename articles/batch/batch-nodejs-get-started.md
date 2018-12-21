@@ -11,12 +11,12 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115559"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164617"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Bien démarrer avec le Kit de développement logiciel (SDK) Batch pour Node.js
 
@@ -65,7 +65,7 @@ Cette commande installe la dernière version du Kit de développement logiciel (
 >
 >
 
-### <a name="step-2-create-an-azure-batch-account"></a>Étape 2 : Créer un compte Azure Batch
+### <a name="step-2-create-an-azure-batch-account"></a>Étape 2 : Créer un compte Azure Batch
 
 Vous pouvez le créer à partir du [portail Azure](batch-account-create-portal.md) ou de la ligne de commande ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure)).
 
@@ -85,7 +85,7 @@ Chaque compte Batch possède ses clés d’accès correspondantes. Ces clés son
 
 Copiez et stockez la clé à utiliser dans les étapes suivantes.
 
-### <a name="step-3-create-an-azure-batch-service-client"></a>Étape 3 : créer un client du service Azure Batch
+### <a name="step-3-create-an-azure-batch-service-client"></a>Étape 3 : créer un client du service Azure Batch
 L’extrait de code suivant importe tout d’abord le module Node.js pour Azure Batch, puis crée un client du service Batch. Vous devez d’abord créer un objet SharedKeyCredentials avec la clé du compte Batch copiée à l’étape précédente.
 
 ```nodejs
@@ -119,7 +119,7 @@ Reportez-vous à la capture d’écran :
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>Étape 4 : créer un pool Azure Batch
+### <a name="step-4-create-an-azure-batch-pool"></a>Étape 4 : créer un pool Azure Batch
 Un pool Azure Batch se compose de plusieurs machines virtuelles (également appelées nœuds Batch). Le service Azure Batch déploie les tâches sur ces nœuds et les gère. Vous pouvez définir les paramètres de configuration suivants pour le pool.
 
 * Type d’image de machine virtuelle
@@ -254,7 +254,7 @@ Ci-après figure un exemple d’objet de résultat retourné par la fonction poo
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>Étape 4 : soumettre un travail Azure Batch
+### <a name="step-4-submit-an-azure-batch-job"></a>Étape 4 : soumettre un travail Azure Batch
 Un travail Azure Batch est un groupe logique de tâches similaires. Dans notre scénario, il s’agit du travail « Process csv to JSON ». Ici, chaque tâche peut traiter les fichiers csv présents dans chaque conteneur Stockage Azure.
 
 Ces tâches sont exécutées en parallèle et déployées sur plusieurs nœuds, et orchestrées par le service Azure Batch.
@@ -279,14 +279,14 @@ Vous pouvez charger le script sur un compte de stockage Azure et générer un UR
 
 Une tâche de préparation est spécifiée lors de la soumission d’un travail Azure Batch. Ci-après figurent les paramètres de configuration de tâche de préparation :
 
-* **ID** : identificateur unique de la tâche de préparation
-* **commandLine** : ligne de commande pour exécuter la tâche exécutable
-* **resourceFiles** : tableau des objets qui fournissent des détails des fichiers qui doivent être téléchargés pour l’exécution de cette tâche.  Ses options sont les suivantes :
-    - blobSource : URI SAS du fichier
-    - filePath : chemin d’accès local pour télécharger et enregistrer le fichier
-    - fileMode : applicable uniquement pour les nœuds Linux, fileMode est au format octal avec la valeur 0770 par défaut
-* **waitForSuccess** : si cette option est définie sur la valeur true, la tâche ne s’exécute pas en cas d’échec des tâches de préparation
-* **runElevated** : définissez cette option sur la valeur True si des privilèges élevés sont requis pour l’exécution de la tâche.
+* **ID** : identificateur unique de la tâche de préparation
+* **commandLine** : ligne de commande pour exécuter la tâche exécutable
+* **resourceFiles** : tableau des objets qui fournissent des détails des fichiers qui doivent être téléchargés pour l’exécution de cette tâche.  Ses options sont les suivantes :
+    - blobSource : URI SAS du fichier
+    - filePath : chemin d’accès local pour télécharger et enregistrer le fichier
+    - fileMode : applicable uniquement pour les nœuds Linux, fileMode est au format octal avec la valeur 0770 par défaut
+* **waitForSuccess** : si cette option est définie sur la valeur true, la tâche ne s’exécute pas en cas d’échec des tâches de préparation
+* **runElevated** : définissez cette option sur la valeur True si des privilèges élevés sont requis pour l’exécution de la tâche.
 
 L’extrait de code suivant illustre un exemple de configuration de script d’une tâche de préparation :
 
@@ -311,14 +311,14 @@ Si aucun composant requis ne doit être installé pour l’exécution de vos tâ
 ```
 
 
-### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Étape 5 : soumettre des tâches Azure Batch pour un travail
+### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Étape 5 : soumettre des tâches Azure Batch pour un travail
 
 Maintenant que le travail de traitement des fichiers csv est créé, nous allons créer des tâches pour celui-ci. En supposant que nous possédons quatre conteneurs, nous devons créer quatre tâches, une par conteneur.
 
 Le [script Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py) accepte deux paramètres :
 
-* nom du conteneur : conteneur de stockage à partir duquel télécharger des fichiers
-* modèle : paramètre facultatif d’un modèle de nom de fichier
+* nom du conteneur : conteneur de stockage à partir duquel télécharger des fichiers
+* modèle : paramètre facultatif d’un modèle de nom de fichier
 
 En supposant que nous disposons de quatre conteneurs « con1 », « con2 », « con3 » et « con4 », le code suivant illustre la soumission des tâches pour le travail Azure Batch « process csv » que nous avons créé précédemment.
 

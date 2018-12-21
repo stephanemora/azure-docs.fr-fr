@@ -1,22 +1,25 @@
 ---
-title: 'Démarrage rapide pour le langage Go : Changer de modèle et entraîner une application LUIS'
-description: Dans ce guide de démarrage rapide sur le langage Go, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’entraînement de l’application. Les exemples d’énoncés sont du texte utilisateur conversationnel mappé à une intention. En fournissant des exemples d’énoncés pour les intentions, vous apprenez à l’application LUIS quels types de texte fourni par l’utilisateur appartiennent à quelle intention.
-titleSuffix: Microsoft Cognitive Services
+title: Modifier, effectuer l'apprentissage d'une application, Go
+description: Dans ce guide de démarrage rapide sur le langage Go, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’entraînement de l’application.
+titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2cd8c1aa2deb2af97d4f720efa0e40146b15b888
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e3fb6b2532f2dc99a48cc3c2eac9029367c52185
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031864"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100283"
 ---
-# <a name="quickstart-change-model-using-go"></a>Démarrage rapide : Modifier un modèle à l’aide de Go
+# <a name="quickstart-change-model-using-go"></a>Démarrage rapide : Modifier un modèle à l'aide de Go
+
+Dans ce démarrage rapide, vous allez transmettre des énoncés à un point de terminaison LUIS et obtenir en retour une intention et des entités.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -66,7 +69,7 @@ ms.locfileid: "47031864"
 
 2. Exécutez l’application Go à partir de la ligne de commande en entrant le texte suivant dans l’invite de commandes : 
 
-    ```CMD
+    ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
     ```
@@ -75,7 +78,7 @@ ms.locfileid: "47031864"
 
     Cette invite de commandes affiche les résultats :
 
-    ```CMD
+    ```console
     add example utterances requested
     [
         {

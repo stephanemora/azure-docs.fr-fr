@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Extraire du texte - kit SDK, C# - Vision par ordinateur'
+title: 'Démarrage rapide : Extraire du texte - Kit de développement logiciel (SDK), C# - Vision par ordinateur'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous extrayez du texte à partir d’une image, à l’aide de la bibliothèque de client Windows en C# de la Vision par ordinateur.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: pafarley
-ms.openlocfilehash: c1b25db440023618d3d633f9a2b2ebcd5c0a6293
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: c0323c215e83850dc53acd5e350d7eeeeb9a05b1
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852484"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413215"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Démarrage rapide : Extraire du texte à l’aide du kit SDK Vision par ordinateur et de C#
+# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Démarrage rapide : Extraire du texte à l’aide du kit de développement logiciel (SDK) Vision par ordinateur et de C#
 
 Dans ce guide de démarrage rapide, vous extrayez du texte manuscrit ou imprimé à partir d’une image, à l’aide de la bibliothèque de client Windows de la Vision par ordinateur.
 
@@ -30,7 +30,7 @@ Dans ce guide de démarrage rapide, vous extrayez du texte manuscrit ou imprimé
 ## <a name="recognizetextasync-method"></a>Méthode RecognizeTextAsync
 
 > [!TIP]
-> Récupérez le dernier code en tant que solution Visual Studio à partir de [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+> Récupérer le dernier code en tant que solution Visual Studio à partir de [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Les méthodes `RecognizeTextAsync` et `RecognizeTextInStreamAsync` encapsulent [l’API Reconnaître le texte](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) pour les images locales et distantes, respectivement. La méthode `GetTextOperationResultAsync` encapsule [l’API Get Reconnaître les résultats des opérations sur le texte](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).  Vous pouvez utiliser ces méthodes pour détecter le texte dans une image, et extraire les caractères reconnus dans un flux de caractères exploitable automatiquement.
 
@@ -188,7 +188,7 @@ namespace ExtractText
 
 Une réponse réussie affiche les lignes du texte reconnu pour chaque image.
 
-Consultez [Démarrage rapide : Extraire le texte manuscrit - REST, C#](../QuickStarts/CSharp-hand-text.md#examine-the-response) pour obtenir un exemple de sortie JSON brute.
+Consultez [Démarrage rapide : Extraire le texte manuscrit - REST, C#](../QuickStarts/CSharp-hand-text.md#examine-the-response) pour obtenir un exemple de sortie JSON brute.
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()

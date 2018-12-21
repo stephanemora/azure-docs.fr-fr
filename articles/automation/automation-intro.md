@@ -10,12 +10,12 @@ keywords: azure automation, DSC, powershell, configuration de l’état souhait�
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 8f6473603bb6e6ae734bde722742c58514d777c8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428094"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958694"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
 
@@ -40,18 +40,26 @@ Vous pouvez obtenir l’inventaire relatif aux ressources intégrées pour voir 
 
 Mettez à jour les systèmes Windows et Linux dans des environnements hybrides avec Azure Automation. Vous pouvez voir la conformité des mises à jour sur les clouds Azure, locaux ou sur d’autres clouds. Vous pouvez créer des déploiements de calendrier pour coordonner l’installation de mises à jour dans une fenêtre de maintenance définie. Si une mise à jour ne doit pas être installée sur une machine, vous pouvez exclure ces mises à jour d’un déploiement.
 
-### <a name="shared-capabilities"></a>Fonctionnalités partagées
+### <a name="shared-resources"></a>Ressources partagées
 
 Azure Automation se compose d’un ensemble de ressources partagées qui facilitent l’automatisation et la configuration de vos environnements à grande échelle.
 
-* **[Contrôle d’accès basé sur le rôle](automation-role-based-access-control.md)** - Permet de contrôler l’accès au compte avec un rôle d’opérateur Automation qui permet l’exécution de tâches sans en permettre la création.
-* **[Variables](automation-variables.md)** - Permettent de stocker du contenu pouvant être utilisé dans des runbooks et des configurations. Vous pouvez modifier les valeurs sans avoir à modifier les runbooks et les configurations qui y font référence.
-* **[Informations d’identification](automation-credentials.md)** - Permettent de stocker en toute sécurité des informations sensibles pouvant être utilisées par des runbooks et des configurations lors de l’exécution.
-* **[Certificats](automation-certificates.md)** - Peuvent être stockés et mis à disposition lors de l’exécution pour qu’ils puissent être utilisés pour l’authentification et la sécurisation des ressources déployées.
-* **[Connexions](automation-connections.md)** - Permettent de stocker des paires nom/valeur d’informations contenant des informations courantes lors de la connexion à des systèmes dans des ressources de connexion. Les connexions sont définies par l’auteur du module en vue d’une utilisation lors de l’exécution dans des runbooks et des configurations.
 * **[Calendriers](automation-schedules.md)** - Utilisés dans le service pour déclencher l’automatisation à des heures prédéfinies.
-* **[Intégration au contrôle de code source](automation-source-control-integration.md)** -Permet de promouvoir la configuration en tant que code où les runbooks et les configurations peuvent être examinées dans un système de contrôle de code source.
-* **[Modules PowerShell](automation-integration-modules.md)** - Les modules permettent de gérer Azure et d’autres systèmes. Importez-les dans le compte d’automatisation de ressources DSC et d’applets de commande définis personnalisés de Microsoft, d’un tiers ou d’une communauté.
+* **[Modules](automation-integration-modules.md)** - Les modules permettent de gérer Azure et d’autres systèmes. Importez-les dans le compte Automation pour Microsoft, un tiers ou une communauté, ou des ressources DSC et des applets de commande définies personnalisées.
+* **[Galerie de modules](automation-runbook-gallery.md)** - Intégration native à PowerShell Gallery pour afficher des runbooks et les importer dans le compte Automation.
+* **[Packages Python 2](python-packages.md)** - Ajoutez des packages Python 2 à votre compte Automation pour les utiliser dans vos runbooks Python.
+* **[Informations d’identification](automation-credentials.md)** - Permettent de stocker en toute sécurité des informations sensibles pouvant être utilisées par des runbooks et des configurations lors de l’exécution.
+* **[Connexions](automation-connections.md)** - Permettent de stocker des paires nom/valeur d’informations contenant des informations courantes lors de la connexion à des systèmes dans des ressources de connexion. Les connexions sont définies par l’auteur du module en vue d’une utilisation lors de l’exécution dans des runbooks et des configurations.
+* **[Certificats](automation-certificates.md)** - Peuvent être stockés et mis à disposition lors de l’exécution pour qu’ils puissent être utilisés pour l’authentification et la sécurisation des ressources déployées.
+* **[Variables](automation-variables.md)** - Permettent de stocker du contenu pouvant être utilisé dans des runbooks et des configurations. Vous pouvez modifier les valeurs sans avoir à modifier les runbooks et les configurations qui y font référence.
+
+### <a name="source-control-integration"></a>Intégration du contrôle de code source
+
+Azure Automation a la capacité de s’[intégrer au contrôle de code source](source-control-integration.md) et de promouvoir ainsi la configuration en tant que code où les runbooks ou les configurations peuvent être archivés dans un système de contrôle de code source.
+
+### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+
+Azure Automation prend en charge le contrôle d’accès en fonction du rôle pour contrôler l’accès au compte Automation et ses ressources. Pour en savoir plus sur la configuration du contrôle d’accès en fonction du rôle sur votre compte Automation, les runbooks et les travaux, consultez [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
 
 ### <a name="windows-and-linux"></a>Windows et Linux
 

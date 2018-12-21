@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Créer un registre Docker privé dans Azure avec l’interface de ligne de commande Azure
+title: 'Démarrage rapide : Créer un registre Docker privé dans Azure - Azure CLI'
 description: Apprenez rapidement à créer un registre de conteneurs Docker privé avec l’interface de ligne de commande Azure.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: danlep
-ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 57c72056b669865278fa8109cd7f4963a1f0887a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, H1Hack27Feb2017, mvc
+ms.openlocfilehash: e75a2d126680c71542aa04bae5a30ea7c376cea1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855236"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255922"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Démarrage rapide : Créer un registre de conteneurs à l’aide de l’interface de ligne de commande Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Démarrage rapide : Créer un registre de conteneurs privé avec Azure CLI
 
 Azure Container Registry est un service de registre de conteneurs Docker géré utilisé pour stocker des images de conteneurs Docker privés. Ce guide détaille comment créer un registre de conteneurs Azure Container Registry avec Azure CLI, envoyer une image de conteneur dans le registre et enfin déployer le conteneur dans Azure Container Instances (ACI) à partir de votre registre.
 

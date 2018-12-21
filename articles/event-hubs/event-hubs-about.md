@@ -1,5 +1,5 @@
 ---
-title: Nouveautés des concentrateurs d'événements Azure ? | Microsoft Docs
+title: Nouveautés des concentrateurs d'événements Azure ? - service d'ingestion de Big Data | Microsoft Docs
 description: Apprenez-en plus sur Azure Event Hubs, un service de diffusion en continu Big Data qui ingère des millions d’événements par seconde.
 services: event-hubs
 documentationcenter: na
@@ -7,17 +7,17 @@ author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: overview
-ms.custom: mvc
-ms.date: 08/01/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5493819efb32fa594cf27695b2ab5d1273225756
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: cffa9f566c6b2f4feb0fd7426eeea54a4644fda8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429885"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140147"
 ---
-# <a name="what-is-azure-event-hubs"></a>Nouveautés des concentrateurs d'événements Azure ?
+# <a name="azure-event-hubs---a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - plateforme de diffusion en continu de Big Data et service d'ingestion d'événements
 
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. 
 
@@ -34,7 +34,7 @@ Event Hubs est utilisé dans quelques-uns des scénarios courants suivants :
 
 ## <a name="why-use-event-hubs"></a>Pourquoi utiliser Azure Event Hubs ?
 
-Les données ne sont importantes que lorsqu’il y a une manière facile de les traiter et d’obtenir des insights en temps voulu de sources de données. Event Hubs fournit une plateforme de traitement de flux de données distribuées avec une latence faible et une intégration fluide, avec des services d’analyses et des données dans et hors d’Azure pour créer un pipeline Big Data complet.
+Les données ne sont importantes que lorsqu’il y a une manière facile de les traiter et d’obtenir des insights en temps voulu de sources de données. Event Hubs fournit une plateforme de traitement de flux de données distribuées avec une latence faible et une intégration transparente, avec des services d’analyses et des données dans Azure et hors d’Azure pour créer votre pipeline Big Data complet.
 
 Event Hubs représente la « porte d’entrée » pour un pipeline d’événements, parfois qualifié de service de *réception d’événements* dans des architectures de solution. Un service de réception d'événements est un composant ou service qui se trouve entre les éditeurs d'événements et les consommateurs d'événements pour dissocier la production d'un flux d'événements de leur consommation. Event Hubs fournit une plateforme de diffusion en continu unifiée, avec mise en mémoire tampon avec durée de rétention, en séparant les producteurs d’événements des consommateurs d'événements. 
 
@@ -60,17 +60,17 @@ Avec Event Hubs, vous pouvez commencer avec des flux de données en mégaoctets 
 
 [Event Hubs pour les écosystèmes d’Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permet aux clients et applications [Apache Kafka (1.0 et versions ultérieures)](https://kafka.apache.org/) de communiquer avec Event Hubs sans avoir à gérer tous les clusters.
  
-Avec un vaste écosystème disponible dans différents [langages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), vous pouvez facilement lancer le traitement de vos flux en provenance d’Event Hubs. Tous les langages client pris en charge fournissent une intégration de faible niveau.
+Avec un vaste écosystème disponible dans différents [langages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), vous pouvez facilement lancer le traitement de vos flux en provenance d’Event Hubs. Tous les langages client pris en charge fournissent une intégration de faible niveau. L’écosystème fournit également une intégration transparente aux services Azure tels que Stream Analytics et Azure Functions, ce qui vous permet de générer des architectures sans serveur.
 
 ## <a name="key-architecture-components"></a>Composants clés de l’architecture
 
 Cette solution fournit une fonctionnalité de gestion du flux de messages mais présente des caractéristiques différentes de la messagerie d’entreprise traditionnelle. Ses fonctionnalités reposent sur des scénarios de traitement des événements et un débit élevé. Les concentrateurs d’événements incluent les [éléments clés suivants](event-hubs-features.md) :
 
-- **Producteurs d’événements** : entité qui envoie des données à un concentrateur d’événements. Les éditeurs d’événements peuvent publier des événements à l’aide du protocole HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 et plus récent).
-- **Partition** : chaque consommateur lit uniquement un sous-ensemble spécifique (partition) du flux de messages.
-- **Groupes de consommateurs** : une vue (état, position ou décalage) d’un concentrateur d’événements dans sa totalité. Les groupes de consommateurs permettent à plusieurs applications consommatrices d'avoir chacune une vue distincte du flux d'événements et de lire le flux indépendamment à leur propre rythme et avec leurs propres décalages.
-- **Unités de débit** : unités de capacité qui contrôlent la capacité de débit d’Event Hubs, achetées préalablement.
-- **Récepteurs d’événements** : entité qui lit des données d’événement à partir d’un concentrateur d’événements. Tous les consommateurs Azure Event Hubs se connectent par le biais de la session AMQP 1.0 ; les événements sont remis par le biais de cette session dès qu’ils sont disponibles. Tous les consommateurs de Kafka se connectent via le protocole Kafka 1.0 et versions ultérieures.
+- **Producteurs d’événements** : entité qui envoie des données à un hub d'événements. Les éditeurs d’événements peuvent publier des événements à l’aide du protocole HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 et plus récent).
+- **Partitions** : chaque consommateur lit uniquement un sous-ensemble spécifique (partition) du flux de messages.
+- **Groupes de consommateurs** : vue (état, position ou décalage) d'un hub d'événements dans sa totalité. Les groupes de consommateurs permettent à plusieurs applications consommatrices d'avoir chacune une vue distincte du flux d'événements et de lire le flux indépendamment à leur propre rythme et avec leurs propres décalages.
+- **Unités de débit** : unités de capacité qui contrôlent la capacité de débit d'Event Hubs, achetées préalablement.
+- **Récepteurs d’événements** : entité qui lit des données d'événement à partir d'un hub d’événements. Tous les consommateurs Azure Event Hubs se connectent par le biais de la session AMQP 1.0 ; les événements sont remis par le biais de cette session dès qu’ils sont disponibles. Tous les consommateurs de Kafka se connectent via le protocole Kafka 1.0 et versions ultérieures.
 
 La figure suivante montre l’architecture de traitement de flux Event Hubs :
 
@@ -81,9 +81,9 @@ La figure suivante montre l’architecture de traitement de flux Event Hubs :
 
 Pour prendre en main Event Hubs, consultez les articles suivants :
 
-1. **Créer un hub d’événements** : [portail Azure](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modèle Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
-2. **Envoyer des événements vers un hub d’événements** : [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js ](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-3. **Recevoir des événements d’un hub d’événements** : [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js ](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
+1. **Créer un hub d'événements** : [portail Azure](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modèle Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
+2. **Envoyer des événements à un hub d'événements** : [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+3. **Recevoir des événements d'un hub d'événements** : [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
 
 Pour plus d’informations sur les hubs d’événements, consultez les articles suivants :
 

@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: a12107fe0dd25a383e7be1adbc717c7c1c654fa5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6f3f1f6eb89127e6b0ac0e2983a27dfd731651cb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846536"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094234"
 ---
-# <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application API SQL avec Python et le Portail Azure
+# <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB : Créer une application d’API SQL avec Python et le portail Azure
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -153,7 +153,7 @@ Tous les extraits suivants proviennent du fichier `CosmosGetStarted.py`.
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. Dans le [portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, cliquez sur **Clés** dans le volet de navigation de gauche. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier **l’URI** et la **Clé primaire** dans le fichier `CosmosGetStarted.py` à l’étape suivante.
+1. Dans le [portail Azure](https://portal.azure.com/), dans votre compte Azure Cosmos DB, cliquez sur **Clés** dans le volet de navigation de gauche. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier **l’URI** et la **Clé primaire** dans le fichier `CosmosGetStarted.py` à l’étape suivante.
 
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-sql-api-dotnet/keys.png)
 
@@ -173,7 +173,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Dans Visual Studio Code, sélectionnez **Affichage**>**Palette de commandes**. 
 
-2. À l’invite, saisissez **Python: Select Interpreter**, puis sélectionnez la version de Python à utiliser.
+2. À l’invite, entrez **Python: Select Interpreter**, puis sélectionnez la version de Python à utiliser.
 
     Le pied de page dans Visual Studio Code affiche désormais l’interpréteur sélectionné. 
 

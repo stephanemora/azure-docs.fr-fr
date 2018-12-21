@@ -1,5 +1,5 @@
 ---
-title: 'Portail Azure : Créer une instance gérée SQL | Microsoft Docs'
+title: 'Portail Azure : Créer une instance SQL Database Managed Instance | Microsoft Docs'
 description: Créez une instance gérée SQL, un environnement réseau et une machine virtuelle client pour l’accès.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: d5be25abc634200e0c0afed6946b38fd163fb78e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 4b8c67cfff89b54b4776ebc8b4586cd8f52950b3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890498"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342610"
 ---
-# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Guide de démarrage rapide : Créer une instance Azure SQL Database Managed Instance
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Créer une instance Azure SQL Database Managed Instance
 
 Ce guide de démarrage rapide vous montre comment créer une instance Azure SQL Database [Managed Instance](sql-database-managed-instance.md) dans le portail Azure.
 
@@ -48,7 +48,7 @@ La procédure suivante explique comment créer une instance Managed Instance.
    |**Connexion administrateur de l’instance managée**|Nom d’utilisateur non valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). N’utilisez pas « serveradmin », car il s’agit d’un rôle réservé au niveau du serveur.|
    |**Mot de passe**|Mot de passe valide|Le mot de passe doit contenir au moins 16 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Lieu**|Emplacement dans lequel vous souhaitez créer l’instance Managed Instance.|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
-   |**Réseau virtuel**|Sélectionnez **Créer un réseau virtuel** ou un réseau virtuel créé précédemment dans le groupe de ressources que vous avez fourni précédemment dans ce formulaire.| Pour configurer un réseau virtuel pour une instance Managed Instance avec des paramètres personnalisés, consultez [Configurer un modèle d’environnement de réseau virtuel SQL Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) dans GitHub. Pour obtenir des informations sur les exigences liées à la configuration de l’environnement réseau pour une instance Managed Instance, consultez [Configurer un réseau virtuel pour Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md). |
+   |**Réseau virtuel**|Sélectionnez **Créer un réseau virtuel** ou un réseau virtuel et un sous-réseau valides.| Si un réseau/sous-réseau est grisé, il doit être [modifié pour respecter la configuration réseau requise](sql-database-managed-instance-configure-vnet-subnet.md) avant de pouvoir le sélectionner en tant que cible de la nouvelle instance Managed Instance. Pour obtenir des informations sur les exigences liées à la configuration de l’environnement réseau pour une instance Managed Instance, consultez [Configurer un réseau virtuel pour Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md). |
    |**Groupe de ressources**|Nouveau groupe de ressources ou groupe de ressources existant.|Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom).|
 
    ![formulaire de l’instance Managed Instance](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

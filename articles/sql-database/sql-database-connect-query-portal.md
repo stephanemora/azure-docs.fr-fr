@@ -1,5 +1,5 @@
 ---
-title: 'Portail Azure : interroger une base de données SQL Azure à l’aide de l’éditeur de requête | Microsoft Docs'
+title: 'Portail Azure : Interroger une base de données SQL Azure à l’aide de l’éditeur de requête | Microsoft Docs'
 description: Découvrez comment se connecter à une base de données SQL dans le portail Azure à l’aide de l’éditeur de requête SQL. Ensuite, exécutez des instructions Transact-SQL (T-SQL) pour interroger et modifier des données.
 keywords: se connecter à la base de données sql, portail azure, portail, éditeur de requête
 services: sql-database
@@ -12,87 +12,89 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/10/2018
-ms.openlocfilehash: bd956348a26d32687e1ff76f0ffcc58cc9dcf932
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.date: 12/05/2018
+ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241716"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091388"
 ---
-# <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portail Azure : utilisez l’éditeur de requête SQL pour vous connecter et effectuer des requêtes de données
+# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Démarrage rapide : Utiliser l’éditeur de requête SQL du portail Azure pour se connecter et interroger des données
 
-L’éditeur de requête SQL est un outil de requête de navigateur qui offre un moyen efficace et léger pour exécuter des requêtes SQL sur votre base de données SQL Azure ou Azure SQL Data Warehouse sans quitter le portail Azure. Ce guide de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.
+L’éditeur de requête SQL est un outil de navigateur du portail Azure qui offre un moyen simple d’exécuter des requêtes SQL sur votre base de données SQL Azure ou sur un entrepôt de données SQL Azure. Ce guide de démarrage rapide montre comment utiliser l’éditeur de requête pour se connecter à une base de données SQL et exécuter des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’un de ces guides de démarrage rapide :
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 > [!NOTE]
-> Assurez-vous que le paramètre « Autoriser l’accès aux services Azure » est défini sur « ON » dans les paramètres du pare-feu de votre serveur SQL. Cette option fournit l’accès à l’éditeur de requête SQL pour vos bases de données et les entrepôts de données.
+> Vérifiez que l’option **Autoriser l’accès aux services Azure** est définie sur **ACTIVÉ** dans les paramètres du pare-feu de votre serveur SQL. Cette option permet à l’éditeur de requête SQL d’accéder à vos bases de données et à vos entrepôts de données.
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="sign-in-the-azure-portal"></a>Se connecter au portail Azure
 
 Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
+## <a name="connect-using-sql-authentication"></a>Se connecter avec l’authentification SQL
 
-## <a name="connect-using-sql-authentication"></a>Se connecter à l’aide de l’authentification SQL
+1. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez **mySampleDatabase**.
 
-1. Cliquez sur **Bases de données SQL** depuis le menu de gauche et cliquez sur la base de données que vous souhaitez interroger.
-
-2. Sur la page Bases de données SQL de votre base de données, recherchez **Éditeur de requête (préversion)** dans le menu de gauche et cliquez dessus.
+2. Dans le menu de gauche, recherchez et sélectionnez **Éditeur de requête (préversion)**. La page **Connexion** apparaît.
 
     ![rechercher un éditeur de requête](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. Cliquez sur **Connexion**, puis, lorsque vous y êtes invité, sélectionnez **Authentification du serveur SQL Server** et indiquez l’identifiant et le mot de passe de connexion administrateur que vous avez indiqués lors de la création de la base de données.
+3. Dans le menu déroulant **Type d’autorisation**, sélectionnez **Authentification SQL Server**, puis entrez l’ID utilisateur et le mot de passe du compte d’administrateur du serveur utilisé pour créer la base de données.
 
-    ![se connecter](./media/sql-database-connect-query-portal/login-menu.png)
+    ![se connecter](./media/sql-database-connect-query-portal/login-menu.png) 
 
-4. Cliquez sur **OK pour vous connecter**.
+4. Sélectionnez **OK**.
 
 
-## <a name="connect-using-azure-ad"></a>Se connecter avec Azure AD
+## <a name="connect-using-azure-active-directory"></a>Se connecter avec Azure Active Directory
 
-La configuration d’un administrateur Active Directory vous permet d’utiliser une identité unique pour vous connecter au portail Azure et votre base de données SQL. Suivez les étapes ci-dessous pour configurer un administrateur Active Directory pour le serveur SQL que vous avez créé.
+La configuration d’un administrateur Active Directory vous permet d’utiliser une même identité pour vous connecter au portail Azure et à votre base de données SQL. Suivez les étapes ci-dessous afin de configurer un administrateur AD pour votre serveur SQL Server.
 
 > [!NOTE]
-> Les comptes de messagerie (par exemple outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ne sont pas encore pris en charge comme des administrateurs Active Directory. Veillez à choisir un utilisateur créé en mode natif dans Azure Active Directory, ou fédéré dans Azure Active Directory.
+* Les comptes de messagerie (par exemple outlook.com, gmail.com, yahoo.com, etc.) ne sont pas encore pris en charge comme administrateurs AD. Veillez à choisir un utilisateur créé en mode natif dans Azure AD ou fédéré dans Azure AD.
+* La connexion d’un administrateur Azure AD ne fonctionne pas avec les comptes pour lesquels l’authentification à deux facteurs est activée.
 
-1. Sélectionnez **Serveurs SQL** depuis le menu de gauche, puis sélectionnez votre serveur SQL à partir de la liste de serveurs.
+1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis sélectionnez votre serveur SQL server.
 
-2. Sélectionnez le paramètre **Administrateur Active Directory** à partir du menu Paramètres de votre serveur SQL.
+2. Dans le menu **Paramètres** de votre serveur SQL Server, sélectionnez **Administrateur Active Directory**.
 
-3. Dans le panneau d’administration Active Directory, cliquez sur la commande **Set admin** et sélectionnez l’utilisateur ou le groupe qui sera l’administrateur de Active Directory.
+3. Dans la barre d’outils de la page d’administration d’AD, sélectionnez **Définir l’administrateur**, puis choisissez l’utilisateur ou le groupe destiné à être votre administrateur Active Directory.
 
     ![Sélectionner Active Directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. En haut du panneau d’administration Active Directory, cliquez sur **Enregistrer** pour définir votre administrateur Active Directory.
+4. Dans la barre d’outils de la page d’administration d’AD, sélectionnez **Enregistrer**.
 
-Accédez à la base de données SQL que vous voulez interroger, cliquez sur **Explorateur de données (préversion préliminaire)** dans le menu de gauche. La page de l’Explorateur de données s’ouvre et vous connecte automatiquement à la base de données.
+5. Accédez à la base de données **mySampleDatabase** puis, dans le menu de gauche, sélectionnez **Éditeur de requête (préversion)**. La page **Connexion** apparaît. Si vous êtes administrateur AD, sur le côté droit, sous **Authentification unique Active Directory**, un message s’affiche indiquant que vous avez été connecté. 
+   
+6. Sélectionnez **OK**.
 
 
-## <a name="run-query-using-query-editor"></a>Exécuter une requête à l’aide de l’éditeur de requête
+## <a name="view-data"></a>Afficher les données
 
-Une fois authentifié, saisissez la requête suivante dans le volet de l’éditeur de requête afin de connaître les 20 premiers produits par catégorie.
+1. Une fois que vous êtes authentifié, collez le code SQL suivant dans l’éditeur de requête pour extraire les 20 premiers produits par catégorie.
 
-```sql
- SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
- FROM SalesLT.ProductCategory pc
- JOIN SalesLT.Product p
- ON pc.productcategoryid = p.productcategoryid;
-```
+   ```sql
+    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+    FROM SalesLT.ProductCategory pc
+    JOIN SalesLT.Product p
+    ON pc.productcategoryid = p.productcategoryid;
+   ```
 
-Cliquez sur **Exécuter**, puis passez en revue les résultats de la requête dans le volet **Résultats**.
+2. Dans la barre d’outils, sélectionnez **Exécuter**, puis passez en revue la sortie dans le volet **Résultats**.
 
 ![query editor results](./media/sql-database-connect-query-portal/query-editor-results.png)
 
-## <a name="insert-data-using-query-editor"></a>Insérer des données à l’aide de l’éditeur de requête
+## <a name="insert-data"></a>Insertion des données
 
-Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product à l’aide de l’instruction Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
+Utilisez l’instruction Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) suivante pour ajouter un nouveau produit dans la table `SalesLT.Product`.
 
-1. Dans la fenêtre de requête, remplacez la requête précédente par la requête suivante :
+1. Remplacez la requête précédente par celle-ci.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -114,13 +116,15 @@ Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.
            ,GETDATE() );
    ```
 
-2. Dans la barre d’outils, cliquez sur **Exécuter** pour insérer une nouvelle ligne dans la table Product.
 
-## <a name="update-data-using-query-editor"></a>Mettre à jour des données à l’aide de l’éditeur de requête
+2. Sélectionnez **Exécuter** pour insérer une nouvelle ligne dans la table Product. Le volet **Messages** affiche **Requête réussie : Lignes affectées : 1**.
 
-Utilisez le code suivant pour mettre à jour le nouveau produit que vous avez ajouté précédemment à l’aide de l’instruction Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
-1. Dans la fenêtre de requête, remplacez la requête précédente par la requête suivante :
+## <a name="update-data"></a>Mettre à jour des données
+
+Utilisez l’instruction Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) suivante pour modifier votre nouveau produit.
+
+1. Remplacez la requête précédente par celle-ci.
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -128,45 +132,39 @@ Utilisez le code suivant pour mettre à jour le nouveau produit que vous avez aj
    WHERE Name = 'myNewProduct';
    ```
 
-2. Dans la barre d’outils, cliquez sur **Exécuter** pour mettre à jour la ligne spécifiée dans la table Product.
+2. Sélectionnez **Exécuter** pour mettre à jour la ligne spécifiée dans la table Product. Le volet **Messages** affiche **Requête réussie : Lignes affectées : 1**.
 
-## <a name="delete-data-using-query-editor"></a>Supprimer des données à l’aide de l’éditeur de requête
+## <a name="delete-data"></a>Suppression de données
 
-Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté précédemment à l’aide de l’instruction Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
+Utilisez l’instruction Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) suivante pour supprimer votre nouveau produit.
 
-1. Dans la fenêtre de requête, remplacez la requête précédente par la requête suivante :
+1. Remplacez la requête précédente par celle-ci :
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Dans la barre d’outils, cliquez sur **Exécuter** pour supprimer la ligne spécifiée dans la table Product.
+2. Sélectionnez **Exécuter** pour supprimer la ligne spécifiée dans la table Product. Le volet **Messages** affiche **Requête réussie : Lignes affectées : 1**.
 
 
 ## <a name="query-editor-considerations"></a>Considérations relatives à l’éditeur de requête
 
-Il y a quelques éléments à connaître lorsque vous travaillez avec l’éditeur de requête :
+Il y a quelques informations à connaître quand vous travaillez avec l’éditeur de requête.
 
-1. Assurez-vous que le paramètre « Autoriser l’accès aux services Azure » est défini sur « ON » dans les paramètres du pare-feu de votre serveur SQL Azure. Cette option fournit l’accès de l’éditeur de requête SQL pour vos bases de données SQL et les entrepôts de données.
+* Vous ne pouvez pas utiliser l’éditeur de requête pour interroger des bases de données SQL Server dans un réseau virtuel.
 
-2. Si le serveur SQL est dans un réseau virtuel, l’éditeur de requête ne peut pas être utilisé pour interroger les bases de données de ce serveur.
+* Le fait d’appuyer sur F5 réinitialise la page de l’éditeur de requête, effaçant la requête sur laquelle vous travaillez.
 
-3. Appuyer sur la touche F5 actualise la page de l’éditeur de requête et entraîne la perte de la requête en cours de traitement. Utilisez le bouton Exécuter dans la barre d’outils pour exécuter des requêtes.
+* L’éditeur de requête ne prend pas en charge la connexion à la base de données master.
 
-4. L’éditeur de requête ne prend pas en charge la connexion à une base de données master
+* Il y a un délai d’expiration de 5 minutes pour l’exécution des requêtes.
 
-5. Il y a un délai d’attente de 5 minutes pour l’exécution des requêtes.
+* L’éditeur de requête prend en charge seulement la projection cylindrique des types de données géographiques.
 
-6. La connexion de l’administrateur de Azure Active Directory ne fonctionne pas lorsque l’authentification à 2 facteurs est activée.
-
-7. Les comptes de messagerie (par exemple outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ne sont pas encore pris en charge comme des administrateurs Active Directory. Veillez à choisir un utilisateur créé en mode natif dans Azure Active Directory, ou fédéré dans Azure Active Directory
-
-8. L’éditeur de requête prend uniquement en charge la projection cylindrique pour les types de données de géographie.
-
-9. IntelliSense n’est pas pris en charge pour les tables et les vues de base de données. Toutefois, l’éditeur prend en charge la saisie semi-automatique des noms déjà saisis.
+* IntelliSense n’est pas pris en charge pour les tables et les vues de base de données. L’éditeur prend cependant en charge la complétion automatique des noms déjà saisis.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir des informations sur le Transact-SQL pris en charge dans les bases de données SQL Azure, consultez [Différences de Transact-SQL dans la base de données SQL](sql-database-transact-sql-information.md).
+Pour plus d’informations sur les instructions Transact-SQL prises en charge dans les bases de données SQL Azure, consultez [Résolution des différences de Transact-SQL durant la migration vers SQL Database](sql-database-transact-sql-information.md).

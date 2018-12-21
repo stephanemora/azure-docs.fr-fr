@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b8d45e72e15ff86b53f7355634e8f197b94260bd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887795"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435427"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutoriel : Configurer une jonction Azure Active Directory hybride pour les domaines managés
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutoriel : Configurer la jointure hybride Azure Active Directory pour des domaines managés
 
-À l’instar d’un utilisateur, un appareil devient une autre identité que vous souhaitez protéger et utiliser aussi pour protéger vos ressources à tout moment et en tout lieu. Vous pouvez atteindre cet objectif en intégrant les identités de vos appareils à Azure AD suivant l’une des méthodes ci-dessous :
+À l’instar d’un utilisateur, un appareil devient une autre identité que vous souhaitez protéger et aussi utiliser pour protéger vos ressources à tout moment et en tout lieu. Vous pouvez atteindre cet objectif en intégrant les identités de vos appareils à Azure AD suivant l’une des méthodes ci-dessous :
 
 - jointure Azure AD ;
 - jointure Azure AD hybride ;
@@ -53,7 +53,11 @@ Ce tutoriel part du principe que vous connaissez :
 -  [Comment contrôler la jointure hybride Azure Active Directory pour vos appareils](hybrid-azuread-join-control.md)
   
 
-Pour configurer le scénario dans cet article, la [toute dernière version d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou ultérieure) doit être installée. 
+Pour configurer le scénario décrit dans cet article, vous avez besoin de ce qui suit :
+
+- Une instance Active Directory locale avec un niveau de schéma de 85 ou supérieur. Pour plus d’informations, consultez [Mettre à niveau votre schéma ActiveDirectory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
+
+- La [version la plus récente d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou supérieure) à installer. 
 
 Vérifiez qu’Azure AD Connect a synchronisé les objets ordinateurs des appareils qui deviendront hybrides et joints à Azure AD. Si les objets ordinateurs appartiennent à des unités d’organisation (UO), celles-ci doivent être également configurées du point de vue de la synchronisation dans Azure AD Connect.
 
@@ -153,7 +157,7 @@ Pour inscrire des appareils Windows de bas niveau, vous devez vous assurer que l
 
 
     
-La stratégie ci-après doit être définie sur la valeur **Tous** : **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD**.
+La stratégie suivante doit être définie sur **All** (Tout) : **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD**
 
 ![Inscrire des appareils](media/hybrid-azuread-join-managed-domains/23.png)
 
@@ -172,7 +176,7 @@ Vous devez également activer **Autoriser les mises à jour de la barre d’éta
 
 ### <a name="configure-seamless-sso"></a>Configurer l’authentification unique fluide
 
-Pour réussir la jonction Azure AD hybride de vos appareils de bas niveau Windows, dans un domaine managé qui utilise l’authentification directe ou la synchronisation du hachage de mot de passe comme méthode d’authentification des services de cloud Azure AD, vous devez également [configurer l’authentification unique fluide](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+Pour réussir la jonction Azure AD hybride de vos appareils de bas niveau Windows, dans un domaine managé qui utilise l’authentification directe ou la synchronisation du hachage de mot de passe comme méthode d’authentification des services de cloud Azure AD, vous devez également [configurer l’authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Contrôler des appareils Windows de bas niveau 

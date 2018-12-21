@@ -4,72 +4,72 @@ description: Azure Policy est un service dans Azure, que vous utilisez pour cré
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: dbdffc7a6f77f3f34ce7937c60eb7a53e5f72590
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 11384d1bbffb675bd322469d129464f58a48bb6b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961278"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311829"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
-La gouvernance informatique garantit que votre organisation est en mesure d’atteindre ses objectifs via une utilisation efficace de l’informatique. Pour cela, elle clarifie les objectifs de l’entreprise et les projets informatiques.
+La gouvernance valide le fait que votre organisation peut atteindre ses objectifs via une utilisation efficace de l’informatique. Elle répond à ce besoin en clarifiant les objectifs métier et les projets informatiques.
 
 Votre société rencontre un nombre important de problèmes informatiques qui ne semblent jamais résolus ?
-Une bonne gouvernance informatique implique la planification de vos initiatives et la définition de priorités à un niveau stratégique. De cette manière, vous pouvez gérer et éviter les problèmes de manière plus efficace. C’est ici qu’Azure Policy entre en jeu.
+Une bonne gouvernance informatique implique la planification de vos initiatives et la définition de priorités à un niveau stratégique. De cette manière, vous pouvez gérer et éviter les problèmes de manière plus efficace. C’est pour répondre à ce besoin stratégique qu’Azure Policy entre en jeu,
 
-Azure Policy est un service d’Azure que vous utilisez pour créer, affecter et gérer des stratégies. Ces stratégies appliquent différentes règles et effets sur vos ressources, qui restent donc conformes aux normes et aux contrats de niveau de service de l’entreprise. Pour ce faire, Azure Policy effectue des évaluations de vos ressources et recherche celles qui ne sont pas conformes aux stratégies que vous avez créées. Par exemple, vous pouvez disposer d’une stratégie qui n’autorise qu’une certaine taille de référence SKU de machines virtuelles dans votre environnement. Une fois que cette stratégie a été implémentée, elle sera évaluée lors de la création et la mise à jour des ressources, ainsi que pour vos ressources déjà existantes. Plus tard dans ce document, nous allons parler plus en détail de la manière de créer et d’implémenter des stratégies avec Azure Policy.
+Azure Policy est un service d’Azure que vous utilisez pour créer, affecter et gérer des stratégies. Ces stratégies appliquent différentes règles et effets sur vos ressources, qui restent donc conformes aux normes et aux contrats de niveau de service de l’entreprise. en évaluant vos ressources pour vérifier leur conformité par rapport aux stratégies affectées. Par exemple, vous pouvez disposer d’une stratégie qui n’autorise qu’une certaine taille de référence SKU de machines virtuelles dans votre environnement. Une fois que cette stratégie est implémentée, les ressources nouvelles et existantes sont évaluées en termes de conformité. Avec le bon type de stratégie, les ressources existantes peuvent être mises en conformité. Plus tard dans ce document, nous allons parler plus en détail de la manière de créer et d’implémenter des stratégies avec Azure Policy.
 
 > [!IMPORTANT]
 > L’évaluation de la conformité Azure Policy est désormais fournie pour toutes les affectations, quel que soit le niveau de tarification. Si vos affectations n’affichent pas les données de conformité, vérifiez que l’abonnement est inscrit auprès du fournisseur de ressources Microsoft.PolicyInsights.
 
 ## <a name="how-is-it-different-from-rbac"></a>Quelle est la différence avec RBAC ?
 
-Il existe quelques différences importantes entre la stratégie et le contrôle d’accès en fonction du rôle (RBAC). Le contrôle RBAC porte sur les actions des utilisateurs dans différentes étendues. Par exemple, le rôle de contributeur peut vous être attribué pour un groupe de ressources dans l’étendue de votre choix. Ce rôle vous permet d’apporter des modifications à ce groupe de ressources.
-La stratégie se focalise sur les propriétés des ressources pendant le déploiement et sur les ressources existantes. Par exemple, vous pouvez utiliser des stratégies pour contrôler les types de ressources qui peuvent être approvisionnées. Vous pouvez aussi restreindre les emplacements auxquels les ressources peuvent être approvisionnées. Contrairement à RBAC, la stratégie est, par défaut, un système explicite d'autorisation et de refus.
+Il existe quelques différences importantes entre la stratégie et le contrôle d’accès en fonction du rôle (RBAC). Le contrôle RBAC porte sur les actions des utilisateurs dans différentes étendues. Vous pouvez être ajouté au rôle de contributeur pour un groupe de ressources, ce qui vous permet d’apporter des modifications à ce groupe de ressources. La stratégie se focalise sur les propriétés des ressources pendant le déploiement et sur les ressources existantes. La stratégie contrôle les propriétés comme les types ou emplacements des ressources. Contrairement à RBAC, la stratégie est, par défaut, un système explicite d’autorisation et de refus.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Autorisations RBAC dans Azure Policy
 
-Azure Policy dispose d’autorisations, représentées sous la forme d’opérations, dans les deux fournisseurs de ressources différents :
+Azure Policy dispose d’autorisations, aussi appelées opérations, dans deux fournisseurs de ressources :
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Plusieurs rôles intégrés présentent des niveaux d’autorisation différents pour les ressources Azure Policy. Par exemple, l’**administrateur de la sécurité** peut gérer les affectations et les définitions de stratégie, mais ne peut pas afficher les informations de conformité. Par ailleurs, le **lecteur** peut lire les détails concernant les affectations et définitions de stratégie, mais ne peut pas modifier ni afficher les informations de conformité. Le **propriétaire** dispose de l’intégralité des droits, tandis que le **contributeur** ne bénéficie d’aucune autorisation Azure Policy. Pour autoriser l’accès aux informations de conformité Azure Policy, créez un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
+Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource (préversion)** inclut la plupart des opérations de stratégie. Quant au rôle **Propriétaire**, il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** peuvent utiliser toutes les opérations en lecture de stratégie, mais le rôle **Contributeur** peut aussi les corriger.
+
+Si aucun des rôles intégrés ne dispose d’autorisations, créez un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 
 ## <a name="policy-definition"></a>Définition de stratégie
 
-Pour créer et implémenter une stratégie dans Azure Policy, il faut commencer par créer une définition de stratégie. Chaque définition de stratégie présente des conditions dans lesquelles elle est appliquée. Si les conditions sont remplies, un effet d’accompagnement a lieu.
+Pour créer et implémenter une stratégie dans Azure Policy, il faut commencer par créer une définition de stratégie. Chaque définition de stratégie présente des conditions dans lesquelles elle est appliquée. Si les conditions sont remplies, un effet défini se produit.
 
-Dans Azure Policy, nous offrons quelques stratégies intégrées qui sont disponibles par défaut. Par exemple : 
+Dans Azure Policy, nous proposons plusieurs stratégies intégrées qui sont disponibles par défaut. Par exemple : 
 
-- **Nécessitent SQL Server 12.0** : cette définition de stratégie a des conditions/règles garantissant que tous les serveurs SQL Server utilisent la version 12.0. Son effet consiste à refuser tous les serveurs qui ne répondent pas à ces critères.
-- **Références (SKU) de compte de stockage autorisées**: cette définition de stratégie a un ensemble de conditions/règles qui déterminent si un compte de stockage qui est déployé est dans un ensemble de tailles de référence (SKU). Son effet consiste à refuser tous les comptes de stockage dont la taille ne fait pas partie de l’ensemble de tailles de références (SKU) définies.
-- **Type de ressource autorisé**: cette définition de stratégie a un ensemble de conditions/règles pour spécifier les types de ressources que votre organisation peut déployer. Son effet consiste à refuser toutes les ressources qui ne font pas partie de cette liste définie.
-- **Emplacements autorisés** : cette stratégie vous permet de restreindre les emplacements que votre organisation peut spécifier lors du déploiement de ressources. Son effet permet d’appliquer vos exigences de conformité géographique.
-- **Références SKU de machine virtuelle autorisées** : cette stratégie permet de spécifier un ensemble de références SKU de machine virtuelle que votre organisation peut déployer.
-- **Appliquer une balise et sa valeur par défaut** : cette stratégie applique une balise requise et sa valeur par défaut si elle n’est pas spécifiée par l’utilisateur.
-- **Imposer une balise et sa valeur** : cette stratégie applique une balise requise et sa valeur à une ressource.
-- **Types de ressource non autorisés** : cette stratégie permet de spécifier les types de ressource que votre organisation ne peut pas déployer.
+- **Exiger SQL Server 12.0** : Valide le fait que tous les serveurs SQL utilisent la version 12.0. Son effet consiste à refuser tous les serveurs qui ne répondent pas à ces critères.
+- **Références SKU de compte de stockage autorisées** : Détermine si un compte de stockage en cours de déploiement se trouve dans un ensemble de tailles de référence SKU. Son effet consiste à refuser tous les comptes de stockage dont la taille ne fait pas partie de l’ensemble de tailles de référence SKU définies.
+- **Type de ressource autorisé** : Définit les types de ressources que vous pouvez déployer. Son effet consiste à refuser toutes les ressources qui ne font pas partie de cette liste définie.
+- **Emplacements autorisés** : Restreint les emplacements disponibles pour les nouvelles ressources. Son effet permet d’appliquer vos exigences de conformité géographique.
+- **Références SKU de machine virtuelle autorisées** : Spécifie un ensemble de références SKU de machine virtuelle que vous pouvez déployer.
+- **Appliquer la balise et sa valeur par défaut** : Applique une balise requise et sa valeur par défaut si elle n’est pas spécifiée par la requête de déploiement.
+- **Appliquer la balise et sa valeur** : Applique une balise requise et sa valeur à une ressource.
+- **Types de ressources non autorisés** : Empêche une liste de types de ressources d’être déployés.
 
 Pour implémenter ces définitions de stratégie (définitions intégrées et personnalisées), vous devez les affecter. Vous pouvez affecter l’une de ces stratégies par le biais du portail Azure, de PowerShell ou d’Azure CLI.
 
-N’oubliez pas qu’une réévaluation de la stratégie est effectuée toutes les heures. Ainsi, si vous modifiez la définition de votre stratégie après l’avoir implémentée (et donc avoir créé une affectation de la stratégie), elle sera réévaluée auprès de vos ressources dans l’heure qui suit.
+Une évaluation de la stratégie a lieu avec plusieurs actions différentes comme l’affectation de stratégie ou les mises à jour de stratégie. Pour obtenir la liste complète, consultez [Policy evaluation triggers](./how-to/get-compliance-data.md#evaluation-triggers) (Déclencheurs d’évaluation de stratégie).
 
 Pour plus d’informations sur les structures des définitions de stratégie, consultez [Structure des définitions de stratégie](./concepts/definition-structure.md).
 
 ## <a name="policy-assignment"></a>Affectation de rôle
 
-Une affectation de stratégie est une définition de stratégie qui a été affectée avec une étendue spécifique. Cette étendue peut aller d’un [groupe d’administration](../management-groups/overview.md) à un groupe de ressources. Le terme *étendue* désigne l’ensemble des groupes de ressources, abonnements ou groupes d’administration auxquels la définition de stratégie est affectée. Toutes les ressources enfants héritent des affectations de stratégie. Ainsi, si une stratégie est appliquée à un groupe de ressources, elle l’est à toutes les ressources de ce groupe de ressources. Toutefois, vous pouvez exclure une sous-étendue de l’affectation de stratégie.
+Une affectation de stratégie est une définition de stratégie qui a été affectée avec une étendue spécifique. Cette étendue peut aller d’un [groupe d’administration](../management-groups/overview.md) à un groupe de ressources. Le terme *étendue* désigne l’ensemble des groupes de ressources, abonnements ou groupes d’administration auxquels la définition de stratégie est affectée. Toutes les ressources enfants héritent des affectations de stratégie. Grâce à cette structure, si une stratégie est appliquée à un groupe de ressources, elle est également appliquée à toutes les ressources de ce groupe de ressources. Toutefois, vous pouvez exclure une sous-étendue de l’affectation de stratégie.
 
-Par exemple, dans l’étendue de l’abonnement, vous pouvez affecter une stratégie qui empêche la création de ressources réseau. Toutefois, vous excluez un groupe de ressources au sein de l’abonnement qui est destiné à l’infrastructure réseau. Vous accordez l’accès à ce groupe de ressources réseau aux utilisateurs auxquels vous faites confiance avec la création des ressources réseau.
+Par exemple, dans l’étendue de l’abonnement, vous pouvez affecter une stratégie qui empêche la création de ressources réseau. Vous pouvez exclure un groupe de ressources au sein de cet abonnement qui est destiné à l’infrastructure réseau. Vous accordez ensuite l’accès à ce groupe de ressources réseau aux utilisateurs auxquels vous faites confiance avec la création des ressources réseau.
 
-Dans un autre exemple, vous souhaiterez peut-être affecter une stratégie de liste verte de type de ressource au niveau du groupe d’administration. Affectez ensuite une stratégie plus permissive (autorisant plus de types de ressources) à un groupe d’administration enfant ou même directement aux abonnements. Toutefois, cet exemple ne fonctionnera pas, car la stratégie est un système de refus explicite. Au lieu de cela, vous devez exclure le groupe d’administration enfant ou l’abonnement de l’attribution de stratégie au niveau du groupe d’administration. Affectez ensuite la stratégie plus permissive au niveau du groupe d’administration enfant ou de l’abonnement. Pour résumer, si une stratégie se traduit par le refus d’une ressource, alors la seule façon d’autoriser la ressource est de modifier la stratégie de refus.
+Dans un autre exemple, vous souhaiterez peut-être affecter une stratégie de liste verte de type de ressource au niveau du groupe d’administration. Affectez ensuite une stratégie plus permissive (autorisant plus de types de ressources) à un groupe d’administration enfant ou même directement aux abonnements. Toutefois, cet exemple ne fonctionnera pas, car la stratégie est un système de refus explicite. Au lieu de cela, vous devez exclure le groupe d’administration enfant ou l’abonnement de l’attribution de stratégie au niveau du groupe d’administration. Affectez ensuite la stratégie plus permissive au niveau du groupe d’administration enfant ou de l’abonnement. Si une stratégie se traduit par le refus d’une ressource, alors la seule façon d’autoriser la ressource est de modifier la stratégie de refus.
 
 Pour plus d’informations sur les définitions de stratégie et les affectations par le biais du portail, consultez [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure](assign-policy-portal.md). Les étapes pour [PowerShell](assign-policy-powershell.md) et [Azure CLI](assign-policy-azurecli.md) sont également disponibles.
 
@@ -77,9 +77,9 @@ Pour plus d’informations sur les définitions de stratégie et les affectation
 
 Les paramètres de stratégie permettent de simplifier la gestion des stratégies en réduisant le nombre de définitions de stratégies que vous devez créer. Vous pouvez définir des paramètres lors de la création d’une définition de stratégie, pour la rendre plus générique. Vous pouvez ensuite réutiliser cette définition de stratégie pour différents scénarios. Pour ce faire, transmettez différentes valeurs lors de l’affectation de la définition de stratégie. Par exemple, spécifiez un ensemble d’emplacements pour un abonnement.
 
-Les paramètres sont définis/créés lors de la création d’une définition de stratégie. Quand un paramètre est défini, un nom lui est affecté et éventuellement une valeur. Par exemple, vous pouvez définir un paramètre pour une stratégie intitulée *Emplacement*. Vous pouvez ensuite lui attribuer différentes valeurs comme *EastUS* ou *WestUS* lors de l’affectation d’une stratégie.
+Les paramètres sont définis lors de la création d’une définition de stratégie. Quand un paramètre est défini, un nom lui est affecté et éventuellement une valeur. Par exemple, vous pouvez définir un paramètre pour une stratégie intitulée *Emplacement*. Vous pouvez ensuite lui attribuer différentes valeurs comme *EastUS* ou *WestUS* lors de l’affectation d’une stratégie.
 
-Pour plus d’informations sur les paramètres de stratégie, consultez [Vue d’ensemble des stratégies de ressources - Paramètres](./concepts/definition-structure.md#parameters).
+Pour plus d’informations sur les paramètres de stratégie, consultez [Definition structure - Parameters](./concepts/definition-structure.md#parameters) (Structure de la définition - Paramètres).
 
 ## <a name="initiative-definition"></a>Définition d’initiative
 
@@ -88,19 +88,18 @@ Une définition d’initiative est une collection de définitions de stratégie 
 Dans cette initiative, vous avez par exemple des définitions de stratégie comme celles-ci :
 
 - **Surveiller les bases de données non chiffrées dans Security Center** : pour surveiller les bases de données et les serveurs SQL Server non chiffrés.
-- **Surveiller les vulnérabilités du système d’exploitation dans Security Center** : pour surveiller les serveurs qui ne répondent pas à la base de référence configurée.
+- **Surveiller les vulnérabilités du système d’exploitation dans Security Center** : pour surveiller les serveurs qui ne répondent pas à la ligne de base configurée.
 - **Surveiller l’absence d’Endpoint Protection dans Security Center** : pour surveiller les serveurs où un agent Endpoint Protection n’est pas installé.
 
 ## <a name="initiative-assignment"></a>Affectation d’initiative
 
 Comme une affectation de stratégie, une affectation d’initiative est une définition d’initiative affectée à une étendue spécifique. Les affectations d’initiative réduisent la nécessité de créer plusieurs définitions d’initiative pour chaque étendue. Cette étendue peut également aller d’un groupe d’administration à un groupe de ressources.
 
-Dans l’exemple précédent, l’initiative **Activer la surveillance dans Azure Security Center** peut être affectée à différentes étendues. Par exemple, une affectation peut être attribuée à **subscriptionA**.
-Une autre peut être attribuée à **subscriptionB**.
+Chaque initiative est affectable à différentes étendues. Une initiative peut être affectée à **subscriptionA** et **subscriptionB**.
 
 ## <a name="initiative-parameters"></a>Paramètres d’initiative
 
-Comme les paramètres de stratégie, les paramètres d’initiative permettent de simplifier la gestion en réduisant la redondance. Les paramètres d’initiative sont essentiellement la liste des paramètres utilisés par les définitions de stratégie dans l’initiative.
+Comme les paramètres de stratégie, les paramètres d’initiative permettent de simplifier la gestion en réduisant la redondance. Les paramètres d’initiative sont les paramètres utilisés par les définitions de stratégie dans l’initiative.
 
 Par exemple, imaginons un scénario où vous avez une définition d’initiative (**initiativeC**) avec les définitions de stratégie **policyA** et **policyB**, et chacune des définitions de stratégie attend un type de paramètre différent :
 
@@ -111,11 +110,11 @@ Par exemple, imaginons un scénario où vous avez une définition d’initiative
 
 Dans ce scénario, quand vous définissez les paramètres d’initiative pour **initiativeC**, vous avec trois options :
 
-- Utiliser les paramètres des définitions de stratégie dans cette initiative : dans cet exemple, *allowedLocations* et *allowedSingleLocation* deviennent des paramètres d’initiative pour **initiativeC**.
+- Utilisez les paramètres des définitions de stratégie dans cette initiative : Dans cet exemple, *allowedLocations* et *allowedSingleLocation* deviennent des paramètres d’initiative pour **initiativeC**.
 - Fournir des valeurs pour les paramètres des définitions de stratégie dans la définition de cette initiative. Dans cet exemple, vous pouvez fournir une liste d’emplacements au **paramètre de policyA, allowedLocations** et au **paramètre de policyB, allowedSingleLocation**. Vous pouvez également fournir des valeurs lors de l’affectation de cette initiative.
 - Fournir une liste d’options de *valeurs* qui peuvent être utilisées lors de l’affectation de cette initiative. Lorsque vous affectez cette initiative, les paramètres hérités des définitions de stratégie dans l’initiative peuvent avoir seulement des valeurs provenant de cette liste fournie.
 
-Par exemple, vous pouvez créer une liste d’options de valeur dans une définition d’initiative contenant les valeurs *EastUS*, *WestUS*, *CentralUS* et *WestEurope*. Si tel est le cas, vous ne pouvez pas entrer une valeur différente comme *Asie Sud-Est* pendant l’affectation d’initiative, car elle ne fait pas partie de la liste.
+Lorsque vous créez des options de valeur dans une définition d’initiative, vous ne pouvez pas entrer de valeur différente lors de l’affectation d’initiative, car elle ne fait pas partie de la liste.
 
 ## <a name="maximum-count-of-policy-objects"></a>Nombre maximal d’objets de stratégie Azure Policy
 
@@ -123,17 +122,22 @@ Par exemple, vous pouvez créer une liste d’options de valeur dans une défini
 
 ## <a name="recommendations-for-managing-policies"></a>Recommandations pour la gestion des stratégies
 
-Voici quelques conseils que nous vous recommandons de suivre lors de la création et de la gestion des définitions et des affectations de stratégie :
+Voici quelques conseils et astuces à garder à l’esprit :
 
-- Si vous créez des définitions de stratégie dans votre environnement, nous recommandons de commencer par un effet d’audit, et non pas un effet de refus, de façon à conserver un suivi de l’impact de votre définition de stratégie sur les ressources de votre environnement. Si vous avez déjà des scripts en place pour mettre à l’échelle automatiquement vos applications, la définition d’un effet de refus peut entraver ces tâches d’automatisation que vous avez déjà en place.
-- Il est important de garder à l’esprit les hiérarchies de l’organisation lors de la création de définitions et d’affectations. Nous recommandons de créer les définitions à un niveau plus élevé, par exemple au niveau du groupe d’administration ou de l’abonnement, et d’affecter au niveau enfant suivant. Par exemple, si vous créez une définition de stratégie au niveau du groupe d’administration, une affectation de stratégie de cette définition peut être limitée au niveau d’un abonnement dans ce groupe d’administration.
-- Nous recommandons de toujours utiliser des définitions d’initiative au lieu de définitions de stratégie, même si vous n’avez qu’une seule stratégie à l’esprit. Par exemple, si vous avez une définition de stratégie *policyDefA* et que vous la créez sous la définition d’initiative *initiativeDefC*, si vous décidez de créer une autre définition de stratégie ultérieurement pour *policyDefB* avec des objectifs similaires à ceux de *policyDefA*, vous pouvez simplement l’ajouter sous *initiativeDefC* et mieux les suivre de cette façon.
-- N’oubliez pas qu’une fois que vous avez créé une affectation d’initiative à partir d’une définition d’initiative, toutes les nouvelles définitions de stratégie ajoutées à la définition d’initiative sont automatiquement ajoutées sous la ou les affectations d’initiative sous cette définition d’initiative.
-- Une fois qu’une affectation de l’initiative est déclenchée, toutes les stratégies dans l’initiative sont également déclenchées. Toutefois, si vous devez exécuter une stratégie individuellement, il est préférable de ne pas l’inclure dans une initiative.
+- Commencez avec un effet d’audit plutôt qu’un effet de refus pour suivre l’impact de la définition de votre stratégie sur votre environnement. Si vous avez déjà des scripts en place pour mettre automatiquement à l’échelle vos applications, la définition d’un effet de refus peut entraver ces tâches d’automatisation déjà en place.
+
+- Tenez compte des hiérarchies de l’organisation lors de la création de définitions et d’affectations. Nous vous recommandons de créer des définitions à des niveaux supérieurs, comme au niveau de l’abonnement ou du groupe d’administration. Ensuite, créez l’affectation au niveau enfant suivant. Si vous créez une définition au niveau d’un groupe d’administration, l’affectation peut être limitée à un abonnement ou groupe de ressources au sein de ce groupe d’administration.
+
+- Nous vous recommandons de créer et d’affecter des définitions d’initiative même pour une définition de stratégie unique.
+Par exemple, vous avez la définition de stratégie *policyDefA* et la créez sous la définition d’initiative *initiativeDefC*. Si vous créez une autre définition de stratégie ultérieurement pour *policyDefB* avec des objectifs similaires à *policyDefA*, vous pouvez l’ajouter sous *initiativeDefC* et les suivre ensemble.
+
+- Une fois que vous avez créé une affectation d’initiative, les définitions de stratégie ajoutées à l’initiative font également partie des affectations d’initiatives.
+
+- Lors de l’évaluation d’une affectation d’initiative, toutes les stratégies dans l’initiative sont également évaluées. Si vous devez évaluer une stratégie individuellement, il est préférable de ne pas l’inclure dans une initiative.
 
 ## <a name="video-overview"></a>Présentation vidéo
 
-La présentation suivante d’Azure Policy est à partir de la Build 2018. Pour le téléchargement des diapositives ou de la vidéo, accédez à [Govern your Azure environment through Azure Policy (Gouvernance de votre environnement Azure à l’aide d’Azure Policy)](https://channel9.msdn.com/events/Build/2018/THR2030) sur Channel 9.
+La présentation suivante d’Azure Policy est à partir de la Build 2018. Pour le téléchargement des diapositives ou de la vidéo, accédez à [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Gouvernance de votre environnement Azure à l’aide d’Azure Policy) sur Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
 

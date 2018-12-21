@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd10581888da64114debec40cba8564023033864
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990159"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278506"
 ---
-# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Didacticiel 1 : Classifier Iris - Préparation des données
+# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Tutoriel 1 : Classifier Iris - Préparation des données
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -45,11 +45,11 @@ Pour suivre ce didacticiel, vous avez besoin de :
 - un compte Azure Machine Learning Expérimentation ;
 - Azure Machine Learning Workbench installé.
 
-Si vous n’avez pas encore ces conditions préalables, suivez les étapes décrites dans l’article [Démarrage rapide : Installer et démarrer](quickstart-installation.md) pour configurer vos comptes et installer l’application Azure Machine Learning Workbench. 
+Si vous ne disposez pas encore de ces prérequis, suivez les étapes décrites dans l’article [Démarrage rapide : Installer et démarrer](quickstart-installation.md) pour configurer vos comptes et installer l’application Azure Machine Learning Workbench. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Créer un projet dans Workbench
 
-Si vous avez suivi les étapes décrites dans l’article [Démarrage rapide : Installer et démarrer](quickstart-installation.md), vous devez disposer déjà de ce projet et pouvez passer à la section suivante.
+Si vous avez suivi les étapes décrites dans l’article [Démarrage rapide : Installer et démarrer](quickstart-installation.md), vous devez déjà disposer de ce projet et pouvez passer à la section suivante.
 
 1. Ouvrez l’application Azure Machine Learning Workbench et connectez-vous si nécessaire. 
    
@@ -152,7 +152,7 @@ Ce package de préparation des données peut être transmis ultérieurement à u
    1. Cliquez avec le bouton droit pour la sélectionner. 
    1. Sélectionnez **Nombre de valeurs** dans le menu déroulant. 
 
-   Le volet **Inspecteurs** s’ouvre au-dessous des données. Un histogramme comprenant quatre barres s’affiche. La colonne cible comporte quatre valeurs distinctes : **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**et une valeur **(null)**.
+   Le volet **Inspecteurs** s’ouvre au-dessous des données. Un histogramme comprenant quatre barres s’affiche. La colonne cible comporte quatre valeurs distinctes : **Iris-virginica**, **Iris-versicolor**, **Iris-setosa** et une valeur **(null)**.
 
    ![Sélectionner les nombres de valeur](media/tutorial-classifying-iris/value_count.png)
 
@@ -207,7 +207,7 @@ Ce package de préparation des données peut être transmis ultérieurement à u
    
    Pour en savoir plus sur la préparation des données dans Azure Machine Learning Workbench, consultez le guide [Bien démarrer avec la préparation des données](data-prep-getting-started.md).
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

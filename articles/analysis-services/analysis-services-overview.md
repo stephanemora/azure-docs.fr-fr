@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429437"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970193"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -23,13 +23,13 @@ Azure Analysis Services est une plateforme entièrement gérée en tant que serv
 
 ![Sources de données](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Vidéo** : consultez [Vue d’ensemble d’Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) pour savoir comment Azure Analysis Services s’intègre aux fonctionnalités BI globales de Microsoft.
+**Vidéo :** consultez [Vue d'ensemble d'Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) pour savoir comment Azure Analysis Services s'intègre aux fonctionnalités BI globales de Microsoft.
 
 ## <a name="get-up-and-running-quickly"></a>Opérationnel rapidement
 
 Dans le portail Azure, vous pouvez [créer un serveur](analysis-services-create-server.md) en quelques minutes. Et, avec les [modèles](../azure-resource-manager/resource-manager-create-first-template.md) Azure Resource Manager et PowerShell, vous pouvez créer des serveurs à l’aide d’un modèle déclaratif. Un même modèle vous permet de déployer plusieurs ressources de serveur, ainsi que d’autres composants Azure tels que des comptes de stockage et Azure Functions. 
 
-**Vidéo :** consultez [Automatisation du déploiement](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) pour en savoir plus sur la façon dont vous pouvez utiliser Azure Automation pour accélérer la création du serveur.
+**Vidéo :** consultez [Automatisation du déploiement](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) afin d'en savoir plus sur la façon dont vous pouvez utiliser Azure Automation pour accélérer la création du serveur.
 
 Azure Analysis Services s’intègre à de nombreux services Azure qui vous permettent de créer des solutions d’analyse élaborées. Son intégration à [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) assure un accès sécurisé en fonction du rôle à vos données critiques. L’intégration aux pipelines [Azure Data Factory](../data-factory/introduction.md) est possible grâce à l’inclusion d’une activité qui charge des données dans le modèle. [Azure Automation](../automation/automation-intro.md) et [Azure Functions](../azure-functions/functions-overview.md) sont utilisables pour une orchestration légère de modèles à l’aide d’un code personnalisé. 
 
@@ -146,7 +146,7 @@ Les modèles tabulaires dans Azure Analysis Services prennent en charge une gran
 
 ## <a name="your-data-is-secure"></a>Sécuriser vos données
 
-Azure Analysis Services protège vos données sensibles à plusieurs niveaux. Au niveau du serveur : pare-feu, authentification Azure, rôles administrateur de serveur et chiffrement côté serveur. Et au niveau du modèle de données, les rôles utilisateur, la sécurité au niveau des lignes et des objets garantissent la protection de vos données et qu’elles ne sont visibles que pour les utilisateurs censés pouvoir les afficher.
+Azure Analysis Services protège vos données sensibles à plusieurs niveaux. Au niveau du serveur : pare-feu, authentification Azure, rôles d'administrateur de serveur et chiffrement côté serveur. Et au niveau du modèle de données, les rôles utilisateur, la sécurité au niveau des lignes et des objets garantissent la protection de vos données et qu’elles ne sont visibles que pour les utilisateurs censés pouvoir les afficher.
 
 ### <a name="firewall"></a>Pare-feu
 
@@ -182,7 +182,7 @@ Les principaux de service sont des ressources d’application Azure Active Direc
 
 ### <a name="azure-governance"></a>Gouvernance Azure
 
-Azure Analysis Services est régi par les [Termes du contrat Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) et la [Déclaration de confidentialité Microsoft](https://privacy.microsoft.com/privacystatement).
+Azure Analysis Services est régi par les [Termes du contrat Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) et la [Déclaration de confidentialité Microsoft](https://privacy.microsoft.com/privacystatement).
 Pour plus d’informations sur la sécurité Azure, consultez [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ## <a name="use-the-tools-you-already-know"></a>Utiliser les outils que vous connaissez déjà
@@ -251,7 +251,7 @@ Analysis Services a une communauté active d’utilisateurs. Rejoignez la conver
 > [S’inscrire pour un essai gratuit d’Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : créer un serveur - Portail](analysis-services-create-server.md)   
+> [Démarrage rapide : Créer un serveur - Portail](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : créer un serveur - PowerShell](analysis-services-create-powershell.md)  
+> [Démarrage rapide : Créer un serveur - PowerShell](analysis-services-create-powershell.md)  
