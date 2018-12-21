@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 3ae454be8327c1f9ce605899e4b26105d44ab0f6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157851"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189300"
 ---
-# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Démarrage rapide: Approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel (SDK) C Azure IoT
+# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Démarrage rapide : Approvisionner un appareil TPM simulé à l'aide du Kit de développement logiciel (SDK) Azure IoT pour C
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -24,9 +24,9 @@ Dans ce démarrage rapide, vous allez apprendre à créer et exécuter un simula
 
 Si vous ne connaissez pas le processus de provisionnement automatique, veuillez consulter [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md) avant de poursuivre ce démarrage rapide. 
 
-Le service Azure IoT Device Provisioning prend en charge deux types d’inscription :
+Le service Azure IoT Device Provisioning prend en charge deux types d’inscriptions :
 - [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
-- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
+- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
 
 Cet article présente les inscriptions individuelles.
 
@@ -142,15 +142,15 @@ Dans cette section, vous allez générer et exécuter un exemple qui lit la pair
 
 3. Dans **Ajouter une inscription**, entrez les informations suivantes, puis cliquez sur le bouton **Enregistrer**.
 
-    - **Méchanisme :** sélectionnez **TPM** comme *mécanisme* d’attestation d’identité.
-    - **Paire de clés de type EK :** entrez la *paire de clés de type EK* que vous avez généré pour votre appareil TPM en exécutant le projet *tpm_device_provision*.
-    - **ID d’inscription :** entrez l’*ID d’inscription* que vous avez généré pour votre appareil TPM en exécutant le projet *tpm_device_provision*.
-    - **Appareil IoT Edge :** sélectionnez **Désactiver**.
-    - **ID d’appareil IoT Hub :** entrez **test-docs-device** pour donner un ID à l’appareil.
+    - **Mécanisme :** Sélectionnez **TPM** comme *mécanisme* d’attestation d’identité.
+    - **Paire de clés de type EK (Endorsement Key) :** entrez la *paire de clés de type EK* que vous avez générée pour votre appareil TPM en exécutant le projet *tpm_device_provision*.
+    - **ID d'inscription :** entrez l'*ID d'inscription* que vous avez généré pour votre appareil TPM en exécutant le projet *tpm_device_provision*.
+    - **Appareil IoT Edge :** Sélectionnez **Désactiver**.
+    - **ID de l'appareil IoT Hub :** entrez **test-docs-device** pour donner un ID à l'appareil.
 
-    ![Saisir les informations d’inscription d’appareil dans le portail](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+      ![Saisir les informations d’inscription d’appareil dans le portail](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-    Lorsque l’inscription aboutit, *l’ID d’inscription* de votre appareil s’affiche dans la liste sous l’onglet *Inscriptions individuelles*. 
+      Lorsque l’inscription aboutit, *l’ID d’inscription* de votre appareil s’affiche dans la liste sous l’onglet *Inscriptions individuelles*. 
 
 
 <a id="firstbootsequence"></a>

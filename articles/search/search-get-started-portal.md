@@ -1,5 +1,5 @@
 ---
-title: Tutoriel sur l’indexation, l’interrogation et le filtrage dans Recherche Azure à l’aide du portail | Microsoft Docs
+title: Tutoriel sur l’indexation, l’interrogation et le filtrage dans le Portail Azure - Recherche Azure
 description: Dans ce tutoriel, utilisez le portail Azure et des exemples de données prédéfinis pour générer un index dans Recherche Azure. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: aac579da3aaf6ab1507bbc12d79a5b183a82d665
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.custom: seodec2018
+ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592753"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314021"
 ---
-# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>Tutoriel : Utiliser des outils intégrés pour l’indexation et les requêtes dans Recherche Azure
+# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Tutoriel : Utiliser des outils du portail intégrés pour l’indexation et les requêtes dans Recherche Azure
 
 Pour passer rapidement en revue les concepts de Recherche Azure et les maîtriser, vous pouvez utiliser les outils intégrés fournis dans le portail Azure, dans la page de service correspondante. Ces outils n’offrent pas toujours toutes les fonctionnalités des API .NET et REST. Toutefois, les assistants et les éditeurs proposent une présentation sans code de Recherche Azure pour vous permettre d’écrire immédiatement des requêtes intéressantes d’après un jeu de données fourni à titre d’exemple.
 
@@ -55,7 +56,7 @@ Les requêtes de recherche se répètent sur un [*index*](search-what-is-an-inde
 
 Pour les besoins de ce didacticiel, nous utilisons un exemple de jeu de données intégré qu’il est possible d’analyser à l’aide d’un [*indexeur*](search-indexer-overview.md) par le biais de l’Assistant **Importer des données**. Un indexeur est un robot d’indexation spécifique à la source qui peut lire les métadonnées et le contenu des sources de données prises en charge Azure. Dans le portail, ces indexeurs sont exposés via l’Assistant **Importer des données**. Par la suite, vous pourrez créer et gérer ces indexeurs en tant que ressources indépendantes, par le biais d’un programme.
 
-### <a name="step-1-start-the-import-data-wizard"></a>Étape 1 : Démarrer l’Assistant Importer des données
+### <a name="step-1-start-the-import-data-wizard"></a>Étape 1 : Démarrer l’Assistant Importer des données
 
 1. Dans le tableau de bord du service Recherche Azure, cliquez sur **Importer des données** dans la barre de commandes pour démarrer l’Assistant. Cet Assistant vous permet de créer et remplir un index de recherche.
 
@@ -76,7 +77,7 @@ La fonction **Importer des données** inclut une étape facultative concernant l
 
    ![Ignorer l’étape des compétences cognitives][11]
 
-### <a name="step-2-define-the-index"></a>Étape 2 : définir l’index
+### <a name="step-2-define-the-index"></a>Étape 2 : Définir l’index
 
 En règle générale, la création d’un index est un exercice manuel effectué en utilisant du code. Pour les besoins de ce didacticiel, l’Assistant génère un index pour n’importe quelle source de données à analyser. Un index requiert au minimum un nom et une collection de champs. L’un de ces champs servira de clé du document pour identifier chaque document de façon unique.
 
@@ -92,7 +93,7 @@ Par défaut, l’Assistant analyse la source de données pour y rechercher des i
 
 Cliquez sur **OK** pour créer l’index.
 
-### <a name="step-3-define-the-indexer"></a>Étape 3 : définir l’indexeur
+### <a name="step-3-define-the-indexer"></a>Étape 3 : Définir l’indexeur
 
 Toujours dans l’Assistant **Importer des données**, cliquez sur **Indexeur** > **Nom**, puis tapez un nom pour l’indexeur.
 
@@ -106,7 +107,7 @@ Pour surveiller le processus d’importation des données, revenez au tableau de
 
    ![Message de progression de l’indexeur][4]
 
-### <a name="step-4-view-the-index"></a>Étape 4 : afficher l’index
+### <a name="step-4-view-the-index"></a>Étape 4 : Afficher l’index
 
 Les vignettes du tableau de bord du service fournissent des informations résumées des différents objets d’une ressource, mais aussi un accès aux informations détaillées. La vignette **Index** dresse la liste des index existants, notamment de l’index *realestate-us-sample* que vous avez créé à l’étape précédente.
 

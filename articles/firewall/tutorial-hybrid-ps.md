@@ -5,14 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/27/2018
+ms.date: 12/14/2018
 ms.author: victorh
-ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316394"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435563"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
@@ -24,7 +25,7 @@ Pour ce tutoriel, vous créez trois réseaux virtuels :
 
 - **VNet-Hub** : Le pare-feu se trouve dans ce réseau virtuel.
 - **VNet-Spoke** : Le réseau virtuel spoke correspond à la charge de travail sur Azure.
-- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion Express Route. Par souci de simplicité, ce tutoriel utilise une connexion de passerelle VPN, sachant qu’un réseau virtuel situé sur Azure est utilisé pour représenter un réseau local.
+- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion Route. Par souci de simplicité, ce tutoriel utilise une connexion de passerelle VPN, sachant qu’un réseau virtuel situé sur Azure est utilisé pour représenter un réseau local.
 
 ![Pare-feu dans un réseau hybride](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -54,6 +55,12 @@ Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 - Assurez-vous de définir **AllowGatewayTransit** lors de l’appairage de VNet-Hub avec VNet-Spoke et **UseRemoteGateways** lors de l’appairage de VNet-Spoke avec VNet-Hub.
 
 Consultez la section [Créer des itinéraires](#create-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
+
+>[!NOTE]
+>Le Pare-feu Azure doit avoir une connectivité Internet directe. Si vous avez activé le tunneling forcé en local via ExpressRoute ou Application Gateway, vous devez configurer UDR 0.0.0.0/0 avec la valeur **NextHopType** définie en tant que **Internet**, puis l’attribuer à **AzureFirewallSubnet**.
+
+>[!NOTE]
+>Le trafic entre les réseaux virtuels directement appairés est acheminé directement même si l’UDE pointe vers le Pare-feu Azure en tant que passerelle par défaut. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, la route définie par l’utilisateur doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -482,4 +489,4 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 Ensuite, vous pouvez surveiller les journaux de Pare-feu Azure.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Surveiller les journaux de Pare-feu Azure](./tutorial-diagnostics.md)
+> [Didacticiel : Surveiller les journaux de pare-feu Azure](./tutorial-diagnostics.md)

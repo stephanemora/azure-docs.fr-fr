@@ -1,21 +1,21 @@
 ---
 title: Inscrire votre abonnement Azure auprès de Cloudyn | Microsoft Docs
-description: Utilisez votre abonnement Azure pour vous inscrire auprès de Cloudyn.
+description: Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/07/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
-ms.custom: ''
+ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 4b0c0a6fdf8d84b6519d1228f148342b8486c282
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b5975f3d11a76d7713928ab008dbd9ec19b85738
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276395"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082576"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Inscrire un abonnement Azure individuel et afficher les données de coût
 
@@ -23,23 +23,23 @@ Utilisez votre abonnement Azure pour l’inscrire auprès de Cloudyn. Votre insc
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-- Connectez-vous au portail Azure sur http://portal.azure.com.
+- Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="register-with-cloudyn"></a>S’inscrire à Cloudyn
 
 1. Dans le portail Azure, cliquez sur **Gestion des coûts + Facturation** dans la liste des services.
 2. Sous **Vue d’ensemble**, cliquez sur **Cloudyn**  
-    ![Page de Cloudyn](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
+    ![Page Cloudyn affichée dans le portail Azure](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
 3. Dans la page **Gestion des coûts**, cliquez sur **Accéder à Cloudyn** pour ouvrir la page d’inscription de Cloudyn dans une nouvelle fenêtre.
 4. Sur la page d’inscription à une évaluation du portail Cloudyn, tapez le nom de votre société, sélectionnez **Azure Individual Subscription Owner** (Propriétaire d’abonnement individuel Azure), puis cliquez sur **Next** (Suivant). Vos nom de compte et ID de client sont automatiquement ajoutés au formulaire.  
-    ![Inscription à un essai](./media/quick-register-azure-sub/trial-reg-ind.png)
+    ![Page d’inscription d’évaluation où vous entrez vos informations d’inscription](./media/quick-register-azure-sub/trial-reg-ind.png)
 5. Sélectionnez les **Offer ID - Name** (ID d’offre - Nom) associés à votre abonnement. Si vous ignorez l’ID taux de votre abonnement, vous pouvez consulter votre facture Azure et rechercher **ID d’offre**.
 6. Acceptez les conditions d’utilisation, validez vos informations, puis cliquez sur **Next** (Suivant).
 7. Dans la page **Gather additional data**, (Collecter des données supplémentaires) cliquez sur **Next** (Suivant) pour autoriser Cloudyn à collecter des données concernant les ressources Azure. Les données collectées incluent les données d’utilisation, de performances, de facturation et de balise de vos abonnements.  
-    ![Collecter des données supplémentaires](./media/quick-register-azure-sub/gather-additional.png)
+    ![Page de collecte de données supplémentaires où vous autorisez Cloudyn](./media/quick-register-azure-sub/gather-additional.png)
 8. Votre navigateur vous conduit à la page de connexion à Cloudyn. Connectez-vous avec les informations d’identification de votre abonnement Azure.
 9. Cliquez sur **Go to Cloudyn** (Accéder à Cloudyn) pour ouvrir le portail Cloudyn, puis, dans la page **Accounts Management** (gestion des comptes), vous devriez voir les informations de compte de votre abonnement Azure.  
-    ![Gestion des comptes](./media/quick-register-azure-sub/accounts-mgt.png)
+    ![Page de gestion des comptes affichant les informations d’abonnement Azure](./media/quick-register-azure-sub/accounts-mgt.png)
 
 Pour regarder la vidéo d’un tutoriel sur l’inscription de votre abonnement Azure, consultez [Finding your Directory GUID and Rate ID for use in Cloudyn](https://youtu.be/PaRjnyaNGMI).
 

@@ -1,5 +1,5 @@
 ---
-title: Tutoriel pour la recherche de données semi-structurées dans le stockage cloud Azure dans Recherche Azure | Microsoft Docs
+title: Didacticiel pour la recherche de données semi-structurées dans le stockage cloud Azure - Recherche Azure
 description: Dans ce tutoriel, découvrez comment rechercher des données d’objets blob Azure semi-structurées à l’aide de Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
-ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005075"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313817"
 ---
-# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Tutoriel : Rechercher des données semi-structurées dans le stockage cloud Azure
+# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Didacticiel : Rechercher des données semi-structurées dans le stockage cloud Azure
 
 Dans cette série de didacticiels en deux parties, vous allez apprendre à rechercher des données semi-structurées et non structurées à l’aide de la fonction Recherche Azure. La [Partie 1](../storage/blobs/storage-unstructured-search.md) vous a expliqué comment rechercher des données non structurées, mais contenait également des explications indispensables pour pouvoir suivre ce didacticiel, notamment sur la création du compte de stockage. 
 
@@ -279,7 +280,7 @@ N’hésitez pas à mettre en pratique ce que vous avez appris et à essayer vou
 
 Le paramètre `$filter` fonctionne uniquement avec des métadonnées qui ont été marquées comme « filtrables » lors de la création de l’index.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
 
