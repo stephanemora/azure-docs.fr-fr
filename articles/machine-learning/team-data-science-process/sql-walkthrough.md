@@ -1,6 +1,6 @@
 ---
-title: Créer et déployer un modèle Machine Learning à l’aide de SQL Server sur une machine virtuelle Azure | Microsoft Docs
-description: Processus d’analyse avancé et technologie en action
+title: Construire et déployer un modèle dans une machine virtuelle SQL Server - Processus Team Data Science Process
+description: Créez et déployez un modèle Machine Learning à l’aide de SQL Server sur une machine virtuelle Azure avec un ensemble de données disponible publiquement.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: cad56d2e8de071feb9a02e0cfc6bcc884eebe91a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445461"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141405"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
@@ -46,15 +46,15 @@ La clé unique permettant de joindre trip\_data et trip\_fare se compose des cha
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
 Nous allons formuler trois problèmes de prédiction reposant sur le champ *tip\_amount* (montant du pourboire), à savoir :
 
-1. Classification binaire : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *tip\_amount* de 0 $ est un exemple négatif.
-2. Classification multiclasse : prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
+1. Classification binaire : Prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *tip\_amount* de 0 $ est un exemple négatif.
+2. Classification multiclasse : Prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Tâche de régression : prédire le montant du pourboire versé pour une course.  
+3. Tâche de régression : Prédire le montant du pourboire versé pour une course.  
 
 ## <a name="setup"></a>Configuration de l’environnement de science des données Azure pour l’analyse avancée
 Comme vous l’explique le guide [Planifier votre environnement](plan-your-environment.md) , vous disposez de plusieurs options pour travailler sur le jeu de données NYC Taxi Trips dans Azure :
@@ -79,7 +79,7 @@ Pour configurer votre environnement de science des données Azure :
    > 
    > 
 
-Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario \# 5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](plan-sample-scenarios.md#largelocaltodb).
+Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario \#5 : Jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Récupérer les données de la source publique
 Pour récupérer le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) depuis son emplacement public, vous pouvez utiliser l’une des méthodes décrites dans l’article [Déplacer des données vers et depuis le stockage d’objets blob Azure](move-azure-blob.md) afin de copier les données dans votre nouvelle machine virtuelle.
@@ -163,7 +163,7 @@ Pour vérifier rapidement le nombre de lignes et de colonnes des tables précéd
     -- Report number of columns in table nyctaxi_trip
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
-#### <a name="exploration-trip-distribution-by-medallion"></a>Exploration : distribution des courses par médaillon
+#### <a name="exploration-trip-distribution-by-medallion"></a>Exploration : Distribution des courses par médaillon
 Cet exemple identifie le médaillon (numéro de taxi) sur plus de 100 courses au cours d’une période donnée. Cette requête tire avantage de l’accès aux tables partitionnées, car elle est conditionnée par le schéma de partition de **pickup\_datetime**. L’exécution d’une requête portant sur le jeu de données complet tire également profit de l’analyse d’index et/ou de table partitionnée.
 
     SELECT medallion, COUNT(*)
@@ -172,14 +172,14 @@ Cet exemple identifie le médaillon (numéro de taxi) sur plus de 100 courses a
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploration : distribution des courses par médaillon et par licence de taxi
+#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Évaluation de la qualité des données : vérifier les enregistrements avec une longitude et/ou une latitude incorrectes
+#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Évaluation de la qualité des données : Vérifier les enregistrements indiquant une longitude et/ou une latitude incorrectes
 Cet exemple vérifie si l’un des champs de longitude et/ou de latitude contient une valeur incorrecte (le nombre de degrés doit être compris entre -90 et 90) ou présente des coordonnées (0, 0).
 
     SELECT COUNT(*) FROM nyctaxi_trip
@@ -191,7 +191,7 @@ Cet exemple vérifie si l’un des champs de longitude et/ou de latitude contien
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploration : distribution des courses avec et sans pourboire
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploration : Pourboire payé et avec et sans pourboire
 Cet exemple recherche le nombre de courses avec et sans pourboire sur une période donnée (ou dans le jeu de données complet si la requête porte sur l’année entière). Cette distribution reflète la distribution des étiquettes binaires à utiliser par la suite pour la modélisation de classification binaire.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -200,7 +200,7 @@ Cet exemple recherche le nombre de courses avec et sans pourboire sur une pério
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-#### <a name="exploration-tip-classrange-distribution"></a>Exploration : distribution des classes/fourchettes de pourboires
+#### <a name="exploration-tip-classrange-distribution"></a>Exploration : Distribution des classes/fourchettes de pourboires
 Cet exemple calcule la distribution des fourchettes de pourboires sur une période donnée (ou dans le jeu de données complet si la requête porte sur l’année entière). Il s’agit de la distribution des classes d’étiquette à utiliser par la suite pour la modélisation de classification multiclasse.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
@@ -215,7 +215,7 @@ Cet exemple calcule la distribution des fourchettes de pourboires sur une pério
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploration : calculer et comparer les distances des trajets
+#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploration : Calculer et comparer les distances des courses
 Cet exemple convertit la longitude et la latitude des points d’embarquement et de débarquement en points géographiques SQL, calcule la distance des trajets en se basant sur la différence entre ces points géographiques et renvoie un échantillon aléatoire des résultats pour comparaison. Cet exemple limite les résultats aux coordonnées valides en utilisant la requête d’évaluation de la qualité des données précédemment décrite.
 
     SELECT
@@ -328,14 +328,14 @@ Nous sommes désormais prêts à explorer les données échantillonnées. Nous s
 
     df1['trip_distance'].describe()
 
-#### <a name="visualization-box-plot-example"></a>Visualisation : exemple de diagramme à surfaces
+#### <a name="visualization-box-plot-example"></a>Visualisation : Exemple de diagramme à surfaces
 Nous examinons ensuite le diagramme à surfaces concernant la distance des trajets afin de visualiser les quantiles.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Diagramme #1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualisation : exemple de diagramme de distribution
+#### <a name="visualization-distribution-plot-example"></a>Visualisation : Exemple de diagramme de distribution
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -344,7 +344,7 @@ Nous examinons ensuite le diagramme à surfaces concernant la distance des traje
 
 ![Diagramme #2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualisation : diagrammes en bâtons et linéaires
+#### <a name="visualization-bar-and-line-plots"></a>Visualisation : Diagrammes en bâtons et linéaires
 Dans cet exemple, nous compartimentons la distance des trajets en cinq zones et nous visualisons les résultats de cette opération.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -362,7 +362,7 @@ Nous pouvons représenter la distribution des compartiments ci-dessus dans un di
 
 ![Diagramme #4][4]
 
-#### <a name="visualization-scatterplot-example"></a>Visualisation : exemple de diagramme de dispersion
+#### <a name="visualization-scatterplot-example"></a>Visualisation : Exemple de diagramme de dispersion
 Nous représentons le diagramme de dispersion entre **trip\_time\_in\_secs** et **trip\_distance** pour déterminer s’il existe une corrélation.
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -407,7 +407,7 @@ Dans cette section, nous allons joindre les tables **nyctaxi\_trip** et **nyctax
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Exploration des données à l’aide de requêtes SQL dans Notebook IPython
 Dans cette section, nous allons explorer les distributions de données à l’aide de l’échantillon de 1 % des données que nous avons stocké dans la table créée ci-dessus. Notez que vous pouvez effectuer des explorations similaires à l’aide des tables d’origine, le cas échéant en utilisant **TABLESAMPLE** pour limiter l’échantillon d’exploration ou en restreignant les résultats à une période spécifique au moyen des partitions **pickup\_datetime**, comme décrit à la section [Exploration des données et ingénierie de caractéristiques dans SQL Server](#dbexplore).
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Exploration : distribution quotidienne des courses
+#### <a name="exploration-daily-distribution-of-trips"></a>Exploration : Distribution quotidienne des courses
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM nyctaxi_one_percent
@@ -416,7 +416,7 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Exploration : distribution des courses par médaillon
+#### <a name="exploration-trip-distribution-per-medallion"></a>Exploration : Distribution des courses par médaillon
     query = '''
         SELECT medallion,count(*) AS c
         FROM nyctaxi_one_percent
@@ -428,7 +428,7 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 ### <a name="feature-generation-using-sql-queries-in-ipython-notebook"></a>Génération de fonctionnalités à l’aide de requêtes SQL dans Notebook IPython
 Dans cette section, nous allons générer de nouvelles étiquettes et fonctionnalités directement par le biais de requêtes SQL, en utilisant la table d’échantillon de 1 % des données que nous avons créée à la section précédente.
 
-#### <a name="label-generation-generate-class-labels"></a>Génération d’étiquettes : générer des étiquettes de classe
+#### <a name="label-generation-generate-class-labels"></a>Génération d’étiquettes : Générer des étiquettes de classe
 Dans l’exemple suivant, nous générons deux jeux d’étiquettes à utiliser pour la modélisation :
 
 1. Étiquettes de classe binaires **tipped** (prédisant si un pourboire va être versé)
@@ -456,7 +456,7 @@ Dans l’exemple suivant, nous générons deux jeux d’étiquettes à utiliser 
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Conception de fonctionnalités : fonctionnalités de décompte pour les colonnes catégorielles
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Conception de fonctionnalités : Fonctionnalités de décompte pour les colonnes catégorielles
 Cet exemple transforme un champ catégoriel en champ numérique en remplaçant chaque catégorie par le nombre de ses occurrences dans les données.
 
     nyctaxi_one_percent_insert_col = '''
@@ -486,7 +486,7 @@ Cet exemple transforme un champ catégoriel en champ numérique en remplaçant c
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Conception de fonctionnalités : fonctionnalités de compartimentage pour les colonnes numériques
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Conception de fonctionnalités : Fonctionnalités de compartimentage pour les colonnes numériques
 Cet exemple transforme un champ numérique continu en plages de catégories prédéfinies ; autrement dit, il transforme un champ numérique en champ catégoriel.
 
     nyctaxi_one_percent_insert_col = '''
@@ -514,7 +514,7 @@ Cet exemple transforme un champ numérique continu en plages de catégories pré
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Conception de fonctionnalités : extraire des fonctionnalités d’emplacement des valeurs décimales de latitude/longitude
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Conception de fonctionnalités : Extraire des fonctionnalités d’emplacement des valeurs décimales de latitude/longitude
 Cet exemple décompose la représentation décimale d’un champ de latitude et/ou de longitude en plusieurs champs d’emplacement de différentes granularités, tels que pays, région, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
@@ -546,9 +546,9 @@ Cet exemple décompose la représentation décimale d’un champ de latitude et/
 
 Nous pouvons à présent passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont prêtes pour tous les problèmes de prédiction identifiés précédemment, à savoir :
 
-1. Classification binaire : prédire si un pourboire a ou non été versé pour une course.
-2. Classification multiclasse : prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
-3. Tâche de régression : prédire le montant du pourboire versé pour une course.  
+1. Classification binaire : Prédire si un pourboire a ou non été versé pour une course.
+2. Classification multiclasse : Prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
+3. Tâche de régression : Prédire le montant du pourboire versé pour une course.  
 
 ## <a name="mlmodel"></a>Création de modèles dans Azure Machine Learning
 Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de travail Azure Machine Learning. Si vous n’avez pas encore créé d’espace de travail d’apprentissage automatique, consultez l’article [Créer un espace de travail Azure Machine Learning](../studio/create-workspace.md).

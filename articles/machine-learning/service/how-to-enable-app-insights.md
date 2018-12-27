@@ -1,6 +1,7 @@
 ---
-title: Activer Application Insights pour le service Azure Machine Learning
-description: Découvrir comment définir Application Insights pour les services déployés par le biais du service Azure Machine Learning
+title: Surperviser les modèles avec Application Insights
+titleSuffix: Azure Machine Learning service
+description: Utiliser Application Insights pour superviser les services web déployés par le biais du service Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 176d0f00774106bbf9ae8dade0fe3fd4062530bb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275052"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277170"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Superviser vos modèles Azure Machine Learning avec Application Insights
 
@@ -25,12 +27,11 @@ Dans cet article, vous allez apprendre à configurer Application Insights pour v
 
 [En savoir plus sur Application Insights](../../application-insights/app-insights-overview.md) 
 
->[!NOTE]
-> Le code présenté dans cet article a été testé avec le kit SDK Azure Machine Learning version 0.1.74
-
 
 ## <a name="prerequisites"></a>Prérequis
-* Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
+
+* Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree) dès aujourd’hui.
+
 * Un espace de travail Azure Machine Learning, un répertoire local contenant vos scripts, et le SDK Azure Machine Learning pour Python. Pour savoir comment obtenir ces prérequis, consultez [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md).
 * Un modèle de machine learning entraîné à déployer sur Azure Kubernetes Service (AKS) ou Azure Container Instances (ACI). Si vous n’en avez pas, consultez le tutoriel [Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md).
 
@@ -51,7 +52,7 @@ Dans cet article, vous allez apprendre à configurer Application Insights pour v
     ```
 
 ### <a name="log-custom-traces-in-your-service"></a>Journaliser des traces personnalisées dans votre service
-Si vous voulez journaliser des traces personnalisées, suivez le processus de déploiement standard pour [AKS](how-to-deploy-to-aks.md) ou [ACI](how-to-deploy-to-aci.md). Ensuite :
+Si vous voulez journaliser des traces personnalisées, suivez le processus de déploiement standard pour AKS ou ACI dans le document [Comment et où déployer](how-to-deploy-and-where.md). Puis procédez comme suit :
 
 1. Mettez à jour le fichier de scoring en ajoutant des instructions print.
     
@@ -100,7 +101,7 @@ Vous pouvez activer et désactiver Application Insights dans le portail Azure.
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre espace de travail.
 1. Sélectionnez **Déploiements**, sélectionnez le service, puis sélectionnez **Modifier**.
 
-   [![Bouton Modifier](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Utiliser le bouton Modifier](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. Dans **Paramètres avancés**, décochez la case **Activer les diagnostics AppInsights**. 
 
@@ -130,7 +131,7 @@ Pour plus d’informations sur l’utilisation d’Application Insights, consult
 
 ## <a name="example-notebook"></a>Exemple de bloc-notes
 
-Le notebook [00.Getting Started/13.enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/13.enable-app-insights) illustre les concepts présentés dans cet article.  Consultez ce bloc-notes :
+Le notebook [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) illustre les concepts présentés dans cet article. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Analyser les application dans Azure App Service | Microsoft Docs
+title: Analyser les applications - Azure App Service | Microsoft Docs
 description: Découvrez comment surveiller les applications dans Azure App Service à l’aide du portail Azure.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 9c58e5c64ea3689634d7afb4c5fef08c9b21798c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 103b5c1d2bc70f187b6e65a9fa9d80a35ad8e0c1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244370"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321577"
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>Surveillance des applications dans Azure App Service
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>Activation Surveiller les applications dans Azure App Service
 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de surveillance intégrées dans le [portail Azure](https://portal.azure.com).
 Le portail Azure comprend la possibilité d’examiner les **quotas** et les **métriques** d’une application et du plan App Service, la configuration **d’alertes**, et même une **mise à l’échelle** automatique en fonction de ces métriques.
 
@@ -53,7 +54,7 @@ Les **quotas** des applications **gratuites** ou **partagées** sont les suivant
 
 Le seul quota applicable aux applications hébergées sur les plans **De base**, **Standard** et **Premium** est **Système de fichiers**.
 
-Pour plus d’informations sur les quotas, limites et fonctionnalités spécifiques disponibles pour les différentes références (SKU) App Service, consultez [Limites du service d’abonnement Azure](../azure-subscription-service-limits.md#app-service-limits)
+Pour plus d’informations sur les quotas, limites et fonctionnalités spécifiques disponibles pour les différentes références (SKU) App Service, consultez ce qui suit : [Limites du service d’abonnement Azure](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Application de quotas
 Si une application dépasse le quota **CPU (short)** (Temps processeur (court)), **CPU (Day)** (Temps processeur (jour)) ou **Bande passante**, l’application est arrêtée jusqu’à la réinitialisation du quota. Pendant ce laps de temps, toutes les requêtes entrantes donnent lieu à une erreur **HTTP 403**.
@@ -75,7 +76,7 @@ Pour une **application**, les métriques disponibles sont les suivantes :
 * **Plage de travail moyenne de la mémoire**
   * Quantité moyenne de mémoire, en MiB, utilisée par l’application.
 * **Temps processeur**
-  * Quantité d’UC, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez [Temps processeur et pourcentage UC](#cpu-time-vs-cpu-percentage).
+  * Quantité d’UC, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez : [Temps processeur et pourcentage UC](#cpu-time-vs-cpu-percentage)
 * **Données entrantes**
   * Quantité de bande passante entrante, en MiB, consommée par l’application.
 * **Données sortantes**
@@ -141,26 +142,26 @@ Les métriques d’une application et d’un plan App Service sont journalisées
 Vous pouvez examiner l’état des différents **quotas** et **métriques** en affectant une application dans le [portail Azure](https://portal.azure.com).
 
 ![][quotas]
-Les **quotas** sont accessibles sous Paramètres &gt; **Quotas**. L’expérience utilisateur vous permet de consulter : (1) le nom du quota, (2) son intervalle de réinitialisation, (3) sa limite actuelle et (4) sa valeur actuelle.
+Les **quotas** sont accessibles sous Paramètres &gt; **Quotas**. L’expérience utilisateur vous permet de consulter : (1) le nom du quota, (2) son intervalle de réinitialisation, (3) sa limite actuelle et (4) sa valeur actuelle.
 
 Les ![][metrics]
-**métriques** sont directement accessibles à partir de la page de ressources. Vous pouvez également personnaliser le graphique en : (1) **cliquant** sur ce dernier, puis en sélectionnant (2) **Modifier le graphique**.
+**métriques** sont directement accessibles à partir de la page de ressources. Vous pouvez également personnaliser le graphique : (1) en **cliquant** sur ce dernier, puis en sélectionnant (2) **Modifier le graphique**.
 À ce stade, vous pouvez modifier (3) **l’intervalle de temps**, (4) le **type de graphique** et (5) les **métriques** à afficher.  
 
-Pour plus d’informations sur les métriques, voir [Surveiller les mesures de qualité du service](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Vous pouvez en apprendre plus sur les métriques ici : [Surveillance des mesures de service](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertes et mise à l’échelle automatique
 Les métriques pour une application ou un plan App Service peuvent être rattachées à des alertes. Pour en savoir plus, consultez [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Les applications App Service hébergées dans les plans App Service De base, Standard ou Premium prennent en charge la **mise à l’échelle automatique**. La mise à l’échelle automatique vous permet de configurer des règles qui analysent les métriques du plan App Service. Les règles peuvent diminuer ou augmenter le nombre d’instances en fournissant des ressources supplémentaires lorsque nécessaire. Les règles peuvent aussi vous permettre d’économiser de l’argent lorsque l’application est surprovisionnée. Pour plus d’informations sur la mise à l’échelle automatique, voir [Mise à l’échelle](../monitoring-and-diagnostics/insights-how-to-scale.md) et [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md).
+Les applications App Service hébergées dans les plans App Service De base, Standard ou Premium prennent en charge la **mise à l’échelle automatique**. La mise à l’échelle automatique vous permet de configurer des règles qui analysent les métriques du plan App Service. Les règles peuvent diminuer ou augmenter le nombre d’instances en fournissant des ressources supplémentaires lorsque nécessaire. Les règles peuvent aussi vous permettre d’économiser de l’argent lorsque l’application est surprovisionnée. Vous pouvez en apprendre plus sur la mise à l’échelle automatique ici : [Procédure de mise à l’échelle](../monitoring-and-diagnostics/insights-how-to-scale.md) et [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
 
 > [!NOTE]
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
-[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
+[fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Mise à l’échelle automatique et environnement App Service v1
+title: Mise à l’échelle automatique et environnement App Service v1 - Azure
 description: Mise à l’échelle automatique et environnement App Service
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 0feb6e4862f643c35a58c0321181bdda22b032e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22987564"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270023"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Mise à l’échelle automatique et environnement App Service v1
 
@@ -66,10 +67,10 @@ Frank est administrateur système pour une entreprise. Il a migré une partie de
 
 L’environnement App Service est configuré sur mise à l’échelle manuelle, comme suit :
 
-* **Serveurs frontaux** : 3
-* **Pool de Workers 1**: 10
-* **Pool de Workers 2**: 5
-* **Pool de Workers 3**: 5
+* **Serveurs frontaux :** 3
+* **Pool de Workers 1** : 10
+* **Pool de Workers 2** : 5.
+* **Pool de Workers 3** : 5.
 
 Le pool de Workers 1 est utilisé pour les charges de travail, tandis que le pool de Workers 2 et le pool de Workers 3 sont utilisés pour les charges de travail de développement et d’assurance qualité.
 
@@ -81,31 +82,31 @@ Frank connaît bien l’application. Il sait que les heures de pointe de charge 
 
 | **Profil de la mise à l’échelle automatique – Jours de semaine – Plan App Service** | **Profil de la mise à l’échelle automatique – Week-ends – Plan App Service** |
 | --- | --- |
-| **Nom :** profil jour de semaine |**Nom :** profil week-end |
-| **Mise à l’échelle selon :** Planification et règles de performances |**Mise à l’échelle selon :** Planification et règles de performances |
-| **Profil :** jours de la semaine |**Profil :** week-end |
-| **Type :** périodicité |**Type :** périodicité |
-| **Plage cible :** 5 à 20 instances |**Plage cible :** 3 à 10 instances |
-| **Jours :** lundi, mardi, mercredi, jeudi, vendredi |**Jours :** samedi, dimanche |
-| **Heure de début :** 9 h |**Heure de début :** 9 h |
-| **Fuseau horaire :** UTC-08 |**Fuseau horaire :** UTC-08 |
+| **Nom :** Profil jour de semaine |**Nom :** Profil week-end |
+| **Mise à l’échelle par :** Règles de planification et de performance |**Mise à l’échelle par :** Règles de planification et de performance |
+| **Profil :** Les jours de la semaine |**Profil :** Week-end |
+| **Type :** Périodicité |**Type :** Périodicité |
+| **Plage cible :** Entre 5 et 20 instances |**Plage cible :** Entre 3 et 10 instances |
+| **Jours :** Lundi, mardi, mercredi, jeudi, vendredi |**Jours :** Samedi, dimanche |
+| **Heure de début :** 9 h 00 |**Heure de début :** 9 h 00 |
+| **Fuseau horaire :** UTC-08 |**Fuseau horaire :** UTC-08 |
 |  | |
 | **Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |**Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |
-| **Ressource :** Production (environnement App Service) |**Ressource :** Production (environnement App Service) |
-| **Mesure :** % d’utilisation de l’unité centrale |**Mesure :** % d’utilisation de l’unité centrale |
-| **Fonctionnement :** supérieur à 60 % |**Fonctionnement :** supérieur à 80 % |
+| **Ressource :** Production (App Service Environment) |**Ressource :** Production (App Service Environment) |
+| **Mesure :** % d’UC |**Mesure :** % d’UC |
+| **Opération :** Supérieur à 60 % |**Opération :** Supérieur à 80 % |
 | **Durée :** 5 minutes |**Durée :** 10 minutes |
-| **Agrégation de temps :** moyenne |**Agrégation de temps :** moyenne |
-| **Action :** augmenter le nombre de 2 |**Action :** augmenter le nombre de 1 |
+| **Agrégation de temps :** Moyenne |**Agrégation de temps :** Moyenne |
+| **Action :** Augmenter le nombre de 2 |**Action :** Augmenter le nombre de 1 |
 | **Refroidissement (minutes) :** 15 |**Refroidissement (minutes) :** 20 |
 |  | |
 | **Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |
-| **Ressource :** Production (environnement App Service) |**Ressource :** Production (environnement App Service) |
-| **Mesure :** % d’utilisation de l’unité centrale |**Mesure :** % d’utilisation de l’unité centrale |
-| **Fonctionnement :** inférieur à 30 % |**Fonctionnement :** inférieur à 20 % |
-| **Durée :** 10 minutes |**Durée :** 15 minutes |
-| **Agrégation de temps :** moyenne |**Agrégation de temps :** moyenne |
-| **Action :** diminuer le nombre de 1 |**Action :** diminuer le nombre de 1 |
+| **Ressource :** Production (App Service Environment) |**Ressource :** Production (App Service Environment) |
+| **Mesure :** % d’UC |**Mesure :** % d’UC |
+| **Opération :** Inférieur à 30 % |**Opération :** Inférieur à 20 % |
+| **Durée :** 10 minutes |**Durée :** 15 minutes |
+| **Agrégation de temps :** Moyenne |**Agrégation de temps :** Moyenne |
+| **Action :** Diminuer le nombre de 1 |**Action :** Diminuer le nombre de 1 |
 | **Refroidissement (minutes) :** 20 |**Refroidissement (minutes) :** 10 |
 
 ### <a name="app-service-plan-inflation-rate"></a>Taux d’inflation du plan App Service
@@ -152,31 +153,31 @@ Grâce à ces informations, Frank peut définir le profil et les règles de mise
 
 | **Profil de mise à l’échelle automatique – Jours de la semaine** | **Profil de mise à l’échelle automatique – Week-ends** |
 | --- | --- |
-| **Nom :** profil jour de semaine |**Nom :** profil week-end |
-| **Mise à l’échelle selon :** Planification et règles de performances |**Mise à l’échelle selon :** Planification et règles de performances |
-| **Profil :** jours de la semaine |**Profil :** week-end |
-| **Type :** périodicité |**Type :** périodicité |
-| **Plage cible :** 13 à 25 instances |**Plage cible :** 6 à 15 instances |
-| **Jours :** lundi, mardi, mercredi, jeudi, vendredi |**Jours :** samedi, dimanche |
-| **Heure de début :** 7 h |**Heure de début :** 9 h |
-| **Fuseau horaire :** UTC-08 |**Fuseau horaire :** UTC-08 |
+| **Nom :** Profil jour de semaine |**Nom :** Profil week-end |
+| **Mise à l’échelle par :** Règles de planification et de performance |**Mise à l’échelle par :** Règles de planification et de performance |
+| **Profil :** Les jours de la semaine |**Profil :** Week-end |
+| **Type :** Périodicité |**Type :** Périodicité |
+| **Plage cible :** Entre 13 et 25 instances |**Plage cible :** Entre 6 et 15 instances |
+| **Jours :** Lundi, mardi, mercredi, jeudi, vendredi |**Jours :** Samedi, dimanche |
+| **Heure de début :** 7 h 00 |**Heure de début :** 9 h 00 |
+| **Fuseau horaire :** UTC-08 |**Fuseau horaire :** UTC-08 |
 |  | |
 | **Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |**Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |
-| **Ressource :** pool de Workers 1 |**Ressource :** pool de Workers 1 |
-| **Mesure :** Employés disponibles |**Mesure :** Employés disponibles |
-| **Fonctionnement :** inférieur à 8 |**Fonctionnement :** inférieur à 3 |
-| **Durée :** 20 minutes |**Durée :** 30 minutes |
-| **Agrégation de temps :** moyenne |**Agrégation de temps :** moyenne |
-| **Action :** augmenter le nombre de 8 |**Action :** augmenter le nombre de 3 |
+| **Ressource :** Pool de Workers 1 |**Ressource :** Pool de Workers 1 |
+| **Mesure :** WorkersAvailable |**Mesure :** WorkersAvailable |
+| **Opération :** Inférieur à 8 |**Opération :** Inférieur à 3 |
+| **Durée :** 20 minutes |**Durée :** 30 minutes |
+| **Agrégation de temps :** Moyenne |**Agrégation de temps :** Moyenne |
+| **Action :** Augmenter le nombre de 8 |**Action :** Augmenter le nombre de 3 |
 | **Refroidissement (minutes) :** 180 |**Refroidissement (minutes) :** 180 |
 |  | |
 | **Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |
-| **Ressource :** pool de Workers 1 |**Ressource :** pool de Workers 1 |
-| **Mesure :** Employés disponibles |**Mesure :** Employés disponibles |
-| **Fonctionnement :** supérieur à 8 |**Fonctionnement :** supérieur à 3 |
-| **Durée :** 20 minutes |**Durée :** 15 minutes |
-| **Agrégation de temps :** moyenne |**Agrégation de temps :** moyenne |
-| **Action :** diminuer le nombre de 2 |**Action :** diminuer le nombre de 3 |
+| **Ressource :** Pool de Workers 1 |**Ressource :** Pool de Workers 1 |
+| **Mesure :** WorkersAvailable |**Mesure :** WorkersAvailable |
+| **Opération :** Supérieur à 8 |**Opération :** Supérieur à 3 |
+| **Durée :** 20 minutes |**Durée :** 15 minutes |
+| **Agrégation de temps :** Moyenne |**Agrégation de temps :** Moyenne |
+| **Action :** Diminuer le nombre de 2 |**Action :** Diminuer le nombre de 3 |
 | **Refroidissement (minutes) :** 120 |**Refroidissement (minutes) :** 120 |
 
 La plage cible définie dans le profil est calculée par le nombre d’instances minimales du profil pour le plan App Service + la mémoire tampon.
@@ -197,31 +198,31 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente après que les fro
 
 | **Profil de l’échelle automatique : serveurs frontaux** |
 | --- |
-| **Nom :** Mise à l’échelle automatique – Frontends |
-| **Mise à l’échelle selon :** Planification et règles de performances |
-| **Profil :** tous les jours |
-| **Type :** périodicité |
-| **Plage cible :** 3 à 10 instances |
-| **Jours :** tous les jours |
-| **Heure de début :** 9 h |
-| **Fuseau horaire :** UTC-08 |
+| **Nom :** Mise à l’échelle automatique – Serveurs frontaux |
+| **Mise à l’échelle par :** Règles de planification et de performance |
+| **Profil :** Tous les jours |
+| **Type :** Périodicité |
+| **Plage cible :** Entre 3 et 10 instances |
+| **Jours :** Tous les jours |
+| **Heure de début :** 9 h 00 |
+| **Fuseau horaire :** UTC-08 |
 |  |
 | **Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |
-| **Ressource :** Pool frontal |
-| **Mesure :** % d’utilisation de l’unité centrale |
-| **Fonctionnement :** supérieur à 60 % |
-| **Durée :** 20 minutes |
-| **Agrégation de temps :** moyenne |
-| **Action :** augmenter le nombre de 3 |
+| **Ressource :** Nom du pool frontal |
+| **Mesure :** % d’UC |
+| **Opération :** Supérieur à 60 % |
+| **Durée :** 20 minutes |
+| **Agrégation de temps :** Moyenne |
+| **Action :** Augmenter le nombre de 3 |
 | **Refroidissement (minutes) :** 120 |
 |  |
 | **Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |
-| **Ressource :** pool de Workers 1 |
-| **Mesure :** % d’utilisation de l’unité centrale |
-| **Fonctionnement :** inférieur à 30 % |
+| **Ressource :** Pool de Workers 1 |
+| **Mesure :** % d’UC |
+| **Opération :** Inférieur à 30 % |
 | **Durée :** 20 minutes |
-| **Agrégation de temps :** moyenne |
-| **Action :** diminuer le nombre de 3 |
+| **Agrégation de temps :** Moyenne |
+| **Action :** Diminuer le nombre de 3 |
 | **Refroidissement (minutes) :** 120 |
 
 <!-- IMAGES -->

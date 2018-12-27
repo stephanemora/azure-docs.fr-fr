@@ -9,41 +9,46 @@ ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2016
+ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: 92cbd3570d48bf12d603f68593465aafed62985c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: feb2e2f9f36ab20c0b96fab9432df41faf4f9569
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852314"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407930"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
-Windows offre un large éventail de [compteurs de performance](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) tels que le niveau d’occupation du processeur, la mémoire, le disque et l’utilisation du réseau. Vous pouvez également définir les vôtres. [Application Insights](app-insights-overview.md) peut afficher ces compteurs de performance si votre application est exécutée sous IIS sur un hôte ou une machine virtuelle local sur lequel vous disposez d’un accès administratif. Les graphiques indiquent les ressources disponibles pour votre application active, et peuvent vous aider à identifier l’équilibrage de charge entre les instances de serveur.
 
-Les compteurs de performance s’affichent dans le panneau Serveurs, qui inclut une table qui segmente par instance de serveur.
-
-![Compteurs de performances signalés dans Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
-
-(Les compteurs de performance ne sont pas disponibles pour les applications web Azure. Vous pouvez toutefois [envoyer des diagnostics Azure vers Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
+Windows offre un large éventail de [compteurs de performance](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) tels que le niveau d’occupation du processeur, la mémoire, le disque et l’utilisation du réseau. Vous pouvez également définir vos propres compteurs de performances. Tant que votre application est exécutée sous IIS sur un hôte ou une machine virtuelle local sur lequel vous disposez d’un accès administratif.
 
 ## <a name="view-counters"></a>Afficher des compteurs
-Le panneau Serveurs affiche un ensemble de compteurs de performances par défaut. 
 
-Pour afficher d’autres compteurs, modifiez les graphiques dans le panneau Serveurs ou ouvrez un nouveau panneau [Metrics Explorer](app-insights-metrics-explorer.md) et ajoutez de nouveaux graphiques. 
+Le volet Métriques affiche un ensemble de compteurs de performances par défaut.
 
-Les compteurs disponibles sont répertoriés en tant que mesures lorsque vous modifiez un graphique.
+![Compteurs de performances signalés dans Application Insights](./media/app-insights-performance-counters/performance-counters.png)
 
-![Compteurs de performances signalés dans Application Insights](./media/app-insights-performance-counters/choose-performance-counters.png)
+Les compteurs par défaut actuels qui sont collectés pour les applications web .NET sont les suivants :
+
+         - % Process\\Processor Time
+         - % Process\\Processor Time Normalized
+         - Memory\\Available Bytes
+         - ASP.NET Requests/Sec
+         - .NET CLR Exceptions Thrown / sec
+         - ASP.NET ApplicationsRequest Execution Time
+         - Process\\Private Bytes
+         - Process\\IO Data Bytes/sec
+         - ASP.NET Applications\\Requests In Application Queue
+         - Processor(_Total)\\% Processor Time
 
 Pour afficher tous vos graphiques utiles au même emplacement, créez un [tableau de bord](app-insights-dashboards.md) et épinglez-les à celui-ci.
 
 ## <a name="add-counters"></a>Ajouter des compteurs
-Si le compteur de performances souhaité n’apparaît pas dans la liste des mesures, c’est parce que le Kit de développement logiciel (SDK) Application Insights ne le collecte pas sur votre serveur web. Vous pouvez le configurer pour qu’il le fasse.
 
-1. Découvrez les compteurs disponibles sur votre serveur à l’aide de la commande PowerShell suivante au niveau du serveur :
+Si le compteur de performances que vous souhaitez n’est pas inclus dans la liste des métriques, vous pouvez l’y ajouter.
+
+1. Découvrez les compteurs disponibles sur votre serveur à l’aide de la commande PowerShell suivante sur le serveur local :
    
     `Get-Counter -ListSet *`
    
@@ -65,7 +70,7 @@ Si le compteur de performances souhaité n’apparaît pas dans la liste des mes
 
 ```
 
-Vous pouvez capturer les compteurs standard et ceux que vous avez implémentés vous-même. `\Objects\Processes` est un exemple de compteur standard, disponible sur tous les systèmes Windows. `\Sales(photo)\# Items Sold` est un exemple de compteur personnalisé qui peut être implémenté dans un service web. 
+Vous pouvez capturer les compteurs standard et ceux que vous avez implémentés vous-même. `\Objects\Processes` est un exemple de compteur standard disponible sur tous les systèmes Windows. `\Sales(photo)\# Items Sold` est un exemple de compteur personnalisé qui peut être implémenté dans un service web. 
 
 Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégories qui ne présentent aucune instance : `\Category\Counter`, tout simplement.
 
@@ -114,13 +119,14 @@ Comme les autres données de télémétrie, **performanceCounters** possède ég
 *Quelle est la différence entre le taux d’exceptions et les mesures d’exceptions ?*
 
 * *taux d’exceptions* est un compteur de performances système. Le CLR compte l’ensemble des exceptions gérées et non gérées qui sont levées et divise le total d’un intervalle d'échantillonnage par la longueur de cet intervalle. Le Kit de développement logiciel (SDK) Application Insights collecte ce résultat et l’envoie au portail.
+
 * *Exceptions* représente le nombre de rapports TrackException reçus par le portail au cours de l’intervalle d’échantillonnage du graphique. Il comprend uniquement les exceptions gérées pour lesquelles vous avez écrit des appels TrackException dans votre code et n’inclut pas toutes les [exceptions non gérées](app-insights-asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Compteurs de performances dans les applications Asp.Net Core
+## <a name="performance-counters-in-aspnet-core-applications"></a>Compteurs de performances dans les applications ASP.Net Core
 Les compteurs de performances ne sont pris en charge que si l’application cible le .NET Framework complet. Il est impossible de collecter les compteurs de performances pour les applications .Net Core.
 
 ## <a name="alerts"></a>Alertes
-Comme d’autres mesures, vous pouvez [définir une alerte](app-insights-alerts.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le panneau Alertes et cliquez sur Ajouter une alerte.
+Comme d’autres mesures, vous pouvez [définir une alerte](app-insights-alerts.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
 
 ## <a name="next"></a>Étapes suivantes
 * [Suivi des dépendances](app-insights-asp-net-dependencies.md)

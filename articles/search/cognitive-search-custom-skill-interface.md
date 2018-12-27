@@ -1,5 +1,5 @@
 ---
-title: Définition d’interface pour des compétences personnalisées dans un pipeline de recherche cognitive (Recherche Azure) | Microsoft Docs
+title: Définition d’interface pour des compétences personnalisées dans un pipeline de recherche cognitive - Recherche Azure
 description: Interface d’extraction de données personnalisée pour compétence personnalisée d’API web dans un pipeline de recherche cognitive dans Recherche Azure
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: luisca
-ms.openlocfilehash: 2218a96702a02a32df18da9640ea9946d05acdb1
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.custom: seodec2018
+ms.openlocfilehash: 1df2a565b1c9e8bd2bea75ce78abc84608c89eea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145743"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314650"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Comment ajouter une compétence personnalisée à un pipeline de recherche cognitive
 
@@ -148,7 +149,7 @@ Lorsque vous créez un enrichisseur d’API web, vous pouvez décrire des en-tê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ [Exemple : création d’une compétence personnalisée pour l’API Traduire le texte](cognitive-search-create-custom-skill-example.md)
-+ [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)
++ [Exemple : Création d’une compétence personnalisée pour l’API Traduire le texte](cognitive-search-create-custom-skill-example.md)
++ [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Créer un jeu de compétences (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Guide pratique pour mapper des champs enrichis](cognitive-search-output-field-mapping.md)

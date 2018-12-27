@@ -1,5 +1,5 @@
 ---
-title: Procédure détaillée d’Azure Event Hubs Capture | Microsoft Docs
+title: Lire des données capturées à partir d’une application Python - Azure Event Hubs | Microsoft Docs
 description: Exemple qui utilise le Kit de développement logiciel (SDK) Azure Python pour illustrer l’utilisation de la fonctionnalité Event Hubs Capture.
 services: event-hubs
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 76102e1238346cbbb8f5159d2ffcd94c788c16d6
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 72efe156920bb78631ea71a0f47f7f5fe19c7e23
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145744"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133653"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Procédure pas à pas d’Event Hubs Capture : Python
 
@@ -38,10 +39,9 @@ Cet exemple utilise le [Kit de développement logiciel (SDK) Azure Python](https
 ## <a name="prerequisites"></a>Prérequis
 
 - Python 2.7x
-- Abonnement Azure
-- Un [hub d’événements et un espace de noms Event Hubs](event-hubs-create.md) actifs
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+- Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+- Un [hub d’événements et un espace de noms Event Hubs](event-hubs-create.md) actifs. 
+- Activez la fonctionnalité **Capture** pour le hub d’événements en suivant les instructions ci-après : [Activer Event Hubs Capture à l’aide du portail Azure](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>Créer un compte de stockage d’objets blob Azure
 1. Connectez-vous au [portail Azure][Azure portal].
