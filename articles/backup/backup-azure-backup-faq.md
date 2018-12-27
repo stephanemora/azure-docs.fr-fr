@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261664"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262263"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -33,15 +33,15 @@ Les données que vous souhaitez récupérer ensemble doivent utiliser la même p
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Puis-je déplacer mon coffre d’un abonnement vers un autre ?
 
- Non. Le coffre est créé au niveau de l’abonnement et ne peut pas être réaffecté à un autre abonnement.
+Non. Le coffre est créé au niveau de l’abonnement et ne peut pas être réaffecté à un autre abonnement.
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Puis-je déplacer des données de sauvegarde vers un autre coffre ?
 
- Non. Les données de sauvegarde stockées dans un coffre ne peuvent pas être déplacées vers un autre coffre.
+Non. Les données de sauvegarde stockées dans un coffre ne peuvent pas être déplacées vers un autre coffre.
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Puis-je passer du stockage GRS au stockage LRS après une sauvegarde ?
 
- Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les options de stockage avant de commencer le stockage des sauvegardes.
+Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les options de stockage avant de commencer le stockage des sauvegardes.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Puis-je effectuer une restauration de niveau élément (ILR) pour les machines virtuelles sauvegardées dans un coffre Recovery Services ?
 ILR n’est pas pris en charge.
@@ -79,7 +79,7 @@ Les versions de DPM prises en charge sont résumées dans la [matrice de prise e
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Puis-je enregistrer mon serveur dans plusieurs coffres ?
 
- Non. Chaque serveur DPM ou serveur Sauvegarde Azure peut être inscrit auprès d’un seul coffre.
+Non. Chaque serveur DPM ou serveur Sauvegarde Azure peut être inscrit auprès d’un seul coffre.
 
 
 
@@ -88,7 +88,7 @@ Oui.
 
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Puis-je utiliser DPM pour sauvegarder des applications dans Azure Stack ?
- Non. Vous pouvez utiliser la sauvegarde Azure pour protéger Azure Stack, mais la sauvegarde Azure ne prend pas en charge actuellement l’utilisation de DPM pour sauvegarder des applications dans Azure Stack.
+Non. Vous pouvez utiliser la sauvegarde Azure pour protéger Azure Stack, mais la sauvegarde Azure ne prend pas en charge actuellement l’utilisation de DPM pour sauvegarder des applications dans Azure Stack.
 
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Si j’ai installé l’agent Sauvegarde Azure pour protéger mes fichiers et dossiers, puis-je installer System Center DPM pour sauvegarder les charges de travail locales vers Azure ?
@@ -159,7 +159,7 @@ Microsoft Exchange |Somme de toutes les bases de données Exchange sur un serve
 Il n’existe aucune limite pour la quantité de données que vous pouvez sauvegarder dans un coffre Recovery Services.
 
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Si j’annule une opération de sauvegarde en cours, les données de sauvegarde transférées sont-elles supprimées ?
- Non. Toutes les données transférées dans le coffre avant l’annulation de l’opération de sauvegarde sont conservées. Azure Backup utilise un mécanisme de point de contrôle pour ajouter occasionnellement des points de contrôle aux données de sauvegarde pendant la sauvegarde. En présence de points de contrôle dans les données de sauvegarde le processus de sauvegarde suivant est en mesure de valider l’intégrité des fichiers. La prochaine tâche de sauvegarde sera incrémentielle par rapport aux données précédemment sauvegardées. Les sauvegardes incrémentielles transfèrent uniquement les données nouvelles ou modifiées, ce qui équivaut à une meilleure utilisation de la bande passante.
+Non. Toutes les données transférées dans le coffre avant l’annulation de l’opération de sauvegarde sont conservées. Azure Backup utilise un mécanisme de point de contrôle pour ajouter occasionnellement des points de contrôle aux données de sauvegarde pendant la sauvegarde. En présence de points de contrôle dans les données de sauvegarde le processus de sauvegarde suivant est en mesure de valider l’intégrité des fichiers. La prochaine tâche de sauvegarde sera incrémentielle par rapport aux données précédemment sauvegardées. Les sauvegardes incrémentielles transfèrent uniquement les données nouvelles ou modifiées, ce qui équivaut à une meilleure utilisation de la bande passante.
 
 Si vous annulez une tâche de sauvegarde pour une machine virtuelle Azure, toutes les données transférées sont ignorées. La tâche de sauvegarde suivante transfère des données incrémentielles à partir de la dernière sauvegarde réussie.
 
@@ -173,7 +173,7 @@ Non. La Sauvegarde Azure ne prend pas en charge la suppression ou le vidage des 
 
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Si j’annule une opération de sauvegarde après son démarrage, les données de sauvegarde transférées sont-elles supprimées ?
 
- Non. Toutes les données transférées dans le coffre avant l’annulation de l’opération de sauvegarde sont conservées.
+Non. Toutes les données transférées dans le coffre avant l’annulation de l’opération de sauvegarde sont conservées.
 - Azure Backup utilise un mécanisme de point de contrôle pour ajouter occasionnellement des points de contrôle aux données de sauvegarde pendant la sauvegarde.
 - En présence de points de contrôle dans les données de sauvegarde le processus de sauvegarde suivant est en mesure de valider l’intégrité des fichiers.
 - La prochaine tâche de sauvegarde sera incrémentielle par rapport aux données précédemment sauvegardées. Les sauvegardes incrémentielles transfèrent uniquement les données nouvelles ou modifiées, ce qui équivaut à une meilleure utilisation de la bande passante.
@@ -190,7 +190,7 @@ Oui, elles ont toutes les deux des stratégies quotidienne, hebdomadaire, mensue
 Oui, vous pouvez personnaliser les stratégies. Par exemple, vous pouvez configurer une rétention hebdomadaire et quotidienne, mais pas annuelle ou mensuelle.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Puis-je utiliser des heures différentes pour la planification de la sauvegarde et les stratégies de rétention ?
- Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Par exemple, ces images montrent une stratégie de rétention pour les sauvegardes effectuées à 0h00 et 18h00.
+Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Par exemple, ces images montrent une stratégie de rétention pour les sauvegardes effectuées à 0h00 et 18h00.
 
 ![Planification de sauvegarde et rétention](./media/backup-azure-backup-faq/Schedule.png)
 
@@ -217,7 +217,7 @@ Vous pouvez créer jusqu’à 9 999 points de récupération par instance prot
 Il n’existe aucune limite concernant le nombre de récupérations dans Azure Backup.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>En cas de restauration de données, dois-je payer pour le trafic de sortie à partir d’Azure ?
- Non. La récupération est gratuite et le trafic sortant ne vous est pas facturé.
+Non. La récupération est gratuite et le trafic sortant ne vous est pas facturé.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>Que se passe-t-il lorsque je modifie ma stratégie de sauvegarde ?
 
@@ -235,8 +235,8 @@ Oui. Les données sont chiffrées sur l’ordinateur local avec AES256. Les donn
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Les données de sauvegarde sont-elles également chiffrées dans Azure ?
 
 Oui. Les données dans Azure sont chiffrées au repos.
-- Pour la sauvegarde sur site, le chiffrement à la réinitialisation est assuré à l’aide de la phrase secrète que vous fournissez lorsque vous sauvegardez sur Azure.
-- Pour les machines virtuelles Azure, les données sont chiffrées à la réinitialisation à l’aide de Storage Service Encryption (SSE).
+- Pour la sauvegarde sur site, le chiffrement au repos est assuré à l’aide de la phrase secrète que vous fournissez lorsque vous sauvegardez sur Azure.
+- Pour les machines virtuelles Azure, les données sont chiffrées au repos à l’aide de Storage Service Encryption (SSE).
 
 Microsoft ne déchiffre les données de sauvegarde à aucun moment.
 

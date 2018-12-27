@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242821"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270397"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Forum aux questions sur SQL Database
 
@@ -196,9 +196,9 @@ Par exemple :
 > [!NOTE]
 > Pendant une durée limitée, les frais de sauvegarde et d’E/S ne sont pas facturés.
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Comment l’utilisation de la géoréplication active dans un pool élastique apparaît-elle sur ma facture ?
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>Comment l’utilisation de la géoréplication active ou des groupes de basculement automatique dans un pool élastique apparaît-elle sur ma facture ?
 
-Contrairement aux bases de données uniques, l’utilisation de la [géoréplication active](sql-database-geo-replication-overview.md) avec des bases de données élastiques n’a pas d’incidence directe sur la facturation.  Vous êtes uniquement facturé pour les ressources provisionnées pour chaque pool (pool principal et pool secondaire)
+Contrairement aux bases de données uniques, l’utilisation de la [géoréplication active](sql-database-active-geo-replication.md) ou des [groupes de basculement automatique](sql-database-auto-failover-group.md) avec des bases de données élastiques n’a pas d’incidence directe sur la facturation. Vous êtes uniquement facturé pour les ressources provisionnées pour chaque pool (pool principal et pool secondaire)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Quel est l’impact de l’utilisation de la fonctionnalité d’audit sur ma facture ?
 
@@ -217,7 +217,7 @@ Consultez [Gestion des bases de données et des connexions](sql-database-manage-
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Comment faire en sorte que seules les adresses IP autorisées puissent accéder à un serveur ?
 
-Voir [Configuration des paramètres de pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md).
+Consultez [Procédure : Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md).
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>Quel décalage de réplication est attendu lors de la géoréplication d’une base de données entre deux régions au sein de la même zone géographique Azure ?
 
