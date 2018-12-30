@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 36cdd944dd33f9aa9ae1c805011df23fc864c345
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: de084b2139bcc3ddef09b4438f8774df177b6f3c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705988"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315936"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Insertion de publicités du côté client
 Cet article contient des informations sur l’insertion de différents types de publicité du côté client.
@@ -94,7 +94,7 @@ Un fichier VAST spécifie la ou les publicités à afficher. Le code XML suivant
     </VAST>
 ```
 
-La publicité linéaire est décrite par l’élément <**Linear**>. Ce dernier spécifie la durée de la publicité, les événements de suivi, les clics publicitaires, le suivi des clics et un certain nombre d’éléments **MediaFile**. Les événements de suivi sont spécifiés au sein de l’élément **<TrackingEvents>** et permettent à un serveur publicitaire de suivre différents événements qui se produisent lors du visionnage de la publicité. Dans ce cas, le suivi porte sur les événements de début, de milieu et de fin de visionnage, ainsi que sur les événements de développement. L’événement de début se produit lorsque la publicité est affichée. L’événement de milieu survient quand au moins 50 % de la chronologie de la publicité ont été visionnés. L’événement de fin a lieu lorsque la publicité a été visionnée dans son intégralité. L’événement de développement se produit lorsque l’utilisateur développe le lecteur vidéo afin de l’afficher en mode plein écran. Les clics publicitaires sont spécifiés dans un élément <**ClickThrough**> au sein d'un élément <**VideoClicks**> et indiquent un URI vers une ressource à afficher lorsque l'utilisateur clique sur la publicité. Le suivi des clics est spécifié dans un élément <**ClickTracking**>, figurant également au sein de l’élément <**VideoClicks**> et indique une ressource de suivi que le lecteur doit demander lorsque l’utilisateur clique sur la publicité. Les éléments <**MediaFile**> spécifient des informations sur le codage spécifique d’une publicité. En présence de plusieurs éléments <**MediaFile**>, le lecteur vidéo peut choisir l’encodage le plus approprié pour la plateforme. 
+La publicité linéaire est décrite par l’élément <**Linear**>. Ce dernier spécifie la durée de la publicité, les événements de suivi, les clics publicitaires, le suivi des clics et un certain nombre d’éléments **MediaFile**. Les événements de suivi sont spécifiés au sein de l’élément **<TrackingEvents>** et permettent à un serveur publicitaire de suivre différents événements qui se produisent lors du visionnage de la publicité. Dans ce cas, le suivi porte sur les événements de début, de milieu et de fin de visionnage, ainsi que sur les événements de développement. L’événement de début se produit lorsque la publicité est affichée. L’événement de milieu survient quand au moins 50 % de la chronologie de la publicité ont été visionnés. L’événement de fin a lieu lorsque la publicité a été visionnée dans son intégralité. L’événement de développement se produit lorsque l’utilisateur développe le lecteur vidéo afin de l’afficher en mode plein écran. Les clics publicitaires sont spécifiés dans un élément <**ClickThrough**> au sein d'un élément <**VideoClicks**> et indiquent un URI vers une ressource à afficher lorsque l'utilisateur clique sur la publicité. Le suivi des clics est spécifié dans un élément <**ClickTracking**>, figurant également au sein de l’élément <**VideoClicks**> et indique une ressource de suivi que le lecteur doit demander lorsque l’utilisateur clique sur la publicité. Les éléments <**MediaFile**> spécifient des informations sur le codage spécifique d’une publicité. En présence de plusieurs éléments <**MediaFile**>, le lecteur vidéo peut choisir l’encodage le plus approprié pour la plateforme.
 
 Les publicités linéaires peuvent être affichées dans un ordre bien précis. Pour ce faire, ajoutez des éléments <Ad> supplémentaires au fichier VAST et spécifiez l’ordre à l’aide de l’attribut de séquence. L'exemple suivant illustre ce mécanisme :
 
@@ -325,16 +325,16 @@ Un fichier MAST vous permet de spécifier les déclencheurs qui définissent le 
 ```
 
 
-Un fichier MAST commence par un élément **MAST** qui contient un élément **triggers**. L’élément <triggers> contient un ou plusieurs éléments **trigger** qui définissent le moment où une publicité doit être affichée. 
+Un fichier MAST commence par un élément **MAST** qui contient un élément **triggers**. L’élément <triggers> contient un ou plusieurs éléments **trigger** qui définissent le moment où une publicité doit être affichée.
 
-L’élément **trigger** contient un élément **startConditions** qui spécifie quand la diffusion d’une publicité doit commencer. L’élément **startConditions** contient un ou plusieurs éléments <condition>. Quand chaque <condition> prend la valeur True, un déclencheur est lancé ou révoqué, selon que la <condition> est contenue respectivement dans un élément **startConditions** ou **endConditions**. En présence de plusieurs éléments <condition>, ces derniers sont traités comme une condition OR implicite ; autrement dit, toute condition prenant la valeur True entraîne le lancement du déclencheur. Les éléments <condition> peuvent être imbriqués. Lorsque des éléments <condition> enfants sont prédéfinis, ils sont traités comme une condition AND implicite ; autrement dit, toutes les conditions doivent prendre la valeur True pour que le déclencheur soit lancé. L’élément <condition> contient les attributs suivants qui définissent la condition : 
+L’élément **trigger** contient un élément **startConditions** qui spécifie quand la diffusion d’une publicité doit commencer. L’élément **startConditions** contient un ou plusieurs éléments <condition>. Quand chaque <condition> prend la valeur True, un déclencheur est lancé ou révoqué, selon que la <condition> est contenue respectivement dans un élément **startConditions** ou **endConditions**. En présence de plusieurs éléments <condition>, ces derniers sont traités comme une condition OR implicite ; autrement dit, toute condition prenant la valeur True entraîne le lancement du déclencheur. Les éléments <condition> peuvent être imbriqués. Lorsque des éléments <condition> enfants sont prédéfinis, ils sont traités comme une condition AND implicite ; autrement dit, toutes les conditions doivent prendre la valeur True pour que le déclencheur soit lancé. L’élément <condition> contient les attributs suivants qui définissent la condition :
 
 1. **type** : spécifie le type de condition, d’événement ou de propriété.
 2. **name** : nom de la propriété ou de l’événement à utiliser au cours de l’évaluation.
 3. **value** : valeur à laquelle une propriété sera comparée.
-4. **operator** : opération à utiliser pendant l’évaluation : EQ (égal à), NEQ (différent de), GTR (supérieur à), GEQ (supérieur ou égal à), LT (inférieur à), LEQ (inférieur ou égal à), MOD (modulo).
+4. **operator** : opération à utiliser pendant l’évaluation : EQ (égal à), NEQ (différent de), GTR (supérieur à), GEQ (supérieur ou égal à), LT (inférieur à), LEQ (inférieur ou égal à), MOD (modulo).
 
-**&lt;endConditions&gt;** contient également des éléments <condition>. Quand une condition prend la valeur true, le déclencheur est réinitialisé. L’élément <trigger> contient également un élément <sources> qui comprend un ou plusieurs éléments <source>. Les éléments <source> définissent l’URI vers la réponse publicitaire et le type de réponse publicitaire. Dans cet exemple, un URI est donné à une réponse VAST. 
+**&lt;endConditions&gt;** contient également des éléments <condition>. Quand une condition prend la valeur true, le déclencheur est réinitialisé. L’élément <trigger> contient également un élément <sources> qui comprend un ou plusieurs éléments <source>. Les éléments <source> définissent l’URI vers la réponse publicitaire et le type de réponse publicitaire. Dans cet exemple, un URI est donné à une réponse VAST.
 
 ```xml
     <trigger id="postroll" description="postroll"  >
@@ -352,7 +352,7 @@ L’élément **trigger** contient un élément **startConditions** qui spécifi
 ### <a name="using-video-player-ad-interface-definition-vpaid"></a>Utilisation de VPAID (Video Player-Ad Interface Definition)
 VPAID est une API permettant la communication d’unités publicitaires exécutables avec un lecteur vidéo. Cela permet d’offrir une expérience publicitaire hautement interactive. L’utilisateur peut interagir avec la publicité, cette dernière pouvant répondre aux actions effectuées par la personne qui la visionne. Par exemple, une publicité peut afficher des boutons permettant à l’utilisateur d’afficher des informations supplémentaires ou une version plus longue de la publicité. Le lecteur vidéo doit prendre en charge l’API VPAID ; quant à la publicité exécutable, elle doit implémenter cette API. Lorsqu’un lecteur demande une publicité auprès d’un serveur publicitaire, ce dernier peut renvoyer une réponse VAST qui contient une publicité VPAID.
 
-Une publicité exécutable est créée dans un code qui doit être exécuté dans un environnement d’exécution, tel qu’Adobe Flash™ ou JavaScript, pouvant être exécuté dans un navigateur web. Lorsqu’un serveur publicitaire renvoie une réponse VAST contenant une publicité VPAID, la valeur de l’attribut apiFramework dans l’élément <MediaFile> doit être « VPAID ». Cet attribut spécifie que la publicité contenue est une publicité VPAID exécutable. L’attribut de type doit être défini sur le type MIME de l’exécutable, comme « application/x-shockwave-flash » ou « application/x-javascript ». L’extrait de code XML suivant montre l’élément <MediaFile> d’une réponse VAST contenant une publicité VPAID exécutable. 
+Une publicité exécutable est créée dans un code qui doit être exécuté dans un environnement d’exécution, tel qu’Adobe Flash™ ou JavaScript, pouvant être exécuté dans un navigateur web. Lorsqu’un serveur publicitaire renvoie une réponse VAST contenant une publicité VPAID, la valeur de l’attribut apiFramework dans l’élément <MediaFile> doit être « VPAID ». Cet attribut spécifie que la publicité contenue est une publicité VPAID exécutable. L’attribut de type doit être défini sur le type MIME de l’exécutable, comme « application/x-shockwave-flash » ou « application/x-javascript ». L’extrait de code XML suivant montre l’élément <MediaFile> d’une réponse VAST contenant une publicité VPAID exécutable.
 
 ```xml
     <MediaFiles>
@@ -586,7 +586,7 @@ Cet exemple utilise VmapSchedulerPlugin pour planifier des publicités à l’ai
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implémentation d'un lecteur vidéo iOS avec prise en charge de publicités
-Plateforme multimédia Microsoft : infrastructure de lecteur pour iOS contient une collection d’exemples d’applications qui vous montrent comment implémenter une application de lecteur vidéo à l’aide de l’infrastructure. Vous pouvez télécharger l'infrastructure de lecteur et les exemples depuis la page [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). La page github comporte un lien vers un site Wiki qui contient des informations supplémentaires sur l'infrastructure de lecteur, ainsi qu'une présentation de l'exemple de lecteur : [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+Plateforme multimédia Microsoft : infrastructure de lecteur pour iOS contient une collection d’exemples d’applications qui vous montrent comment implémenter une application de lecteur vidéo à l’aide de l’infrastructure. Vous pouvez télécharger l'infrastructure de lecteur et les exemples depuis la page [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). La page GitHub comporte un lien vers un site Wiki qui contient des informations supplémentaires sur l'infrastructure de lecteur, ainsi qu'une présentation de l'exemple de lecteur : [Lecteur multimédia Azure Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Planification de publicités avec VMAP
 L’exemple ci-dessous montre comment planifier des publicités à l’aide d’un fichier VMAP.
@@ -605,7 +605,7 @@ L’exemple ci-dessous montre comment planifier des publicités à l’aide d’
                 if (![framework scheduleVMAPWithManifest:manifest])
                 {
                     [self logFrameworkError];
-                }          
+                }
             }
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: À propos d’Azure ExpressRoute Direct | Microsoft Docs
+title: À propos d'ExpressRoute Direct | Microsoft Docs
 description: Cette page propose une vue d’ensemble d’ExpressRoute Direct (préversion).
 services: expressroute
 author: mialdrid
@@ -7,21 +7,22 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: mialdrid
-ms.openlocfilehash: 3b46f24edf10fee7001b35ffdd9fa218aa438e19
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 2f984eb8cb09e5d65c4a366b827f695c739003f3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959671"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163819"
 ---
 # <a name="about-expressroute-direct-preview"></a>À propos d’ExpressRoute Direct (préversion)
 
-Avec ExpressRoute Direct, les clients ont la possibilité de se connecter directement au réseau international de Microsoft à partir d’emplacements d’appairage qui sont distribués stratégiquement dans le monde entier. ExpressRoute Direct offre une double connectivité de 100 Gbit/s qui prend en charge la connectivité Active/Active à grande échelle.
+ExpressRoute Direct vous offre la possibilité de vous connecter directement au réseau mondial Microsoft à partir d’emplacements d’homologation qui sont distribués stratégiquement dans le monde entier. ExpressRoute Direct offre une double connectivité de 100 Gbit/s qui prend en charge la connectivité Active/Active à grande échelle.
 
 Les principales fonctionnalités offertes par ExpressRoute Direct sont les suivantes (sans s’y limiter) :
 
 * Ingestion de données massive dans des services comme le stockage et Cosmos DB
-* Isolement physique dans les secteurs réglementés pour lesquels une connectivité isolée et dédiée est obligatoire (secteur bancaire, secteur public et vente au détail, par exemple)
+* Isolation physique pour les secteurs qui sont réglementés, pour lesquels la connectivité isolée et dédiée est obligatoire, notamment : banque, secteur public et commerce de détail
 * Contrôle précis de la distribution du circuit en fonction de l’unité commerciale
 
 > [!IMPORTANT]
@@ -44,7 +45,7 @@ Vous devez commencer par inscrire votre abonnement à la préversion pour pouvoi
 | --- | --- |
 | Utilisation de fournisseurs de services pour permettre une intégration et une connectivité rapides dans l’infrastructure existante | Infrastructure de 100 Gbit/s et gestion complète de toutes les couches obligatoires
 | Intégration avec des centaines de fournisseurs, y compris Ethernet et MPLS | Capacité directe dédiée pour les secteurs réglementés et ingestion massive de données |
-| Références SKU de circuits de 50 Mbit/s à 10 Gbit/s | Possibilité pour le client de sélectionner une combinaison entre les références SKU de circuits suivantes : 5 Gbit/s, 10 Gbit/s, 40 Gbit/s, 100 Gbit/s, dans la limite de 200 Gbit/s au total
+| Références SKU de circuits de 50 Mbit/s à 10 Gbit/s | Possibilité pour le client de sélectionner une combinaison entre les références SKU de circuits suivantes : 5 Gbit/s, 10 Gbit/s, 40 Gbit/s, 100 Gbit/s, dans la limite de 200 Gbit/s au total
 | Optimisé pour monolocataire | Optimisé pour monolocataire/fournisseurs de services cloud/unités commerciales multiples
 
 ## <a name="expressroute-direct-circuits"></a>Circuits ExpressRoute Direct

@@ -1,5 +1,5 @@
 ---
-title: Ressources de documentation sur la recherche cognitive (Recherche Azure) | Microsoft Docs
+title: Ressources de documentation sur la recherche cognitive - Recherche Azure
 description: Liste annotée d’articles, de tutoriels, d’exemples et de billets de blog sur les charges de travail de recherche cognitive dans la Recherche Azure.
 services: search
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: bad73d2bf8bdf4adee4ce6e40550e506a35a2083
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165664"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314599"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Ressources de documentation sur les charges de travail de recherche cognitive
 
@@ -24,8 +25,8 @@ Les articles suivants constituent la documentation complète de la recherche cog
 
 ## <a name="getting-started"></a>Prise en main
 + [Qu’est-ce que la recherche cognitive ?](cognitive-search-concept-intro.md)
-+ [Démarrage rapide : Essayer la recherche cognitive sur le portail](cognitive-search-quickstart-blob.md)
-+ [Tutoriel : Apprendre à utiliser les API de recherche cognitive](cognitive-search-tutorial-blob.md)
++ [Démarrage rapide : Essayer la recherche cognitive sur le portail](cognitive-search-quickstart-blob.md)
++ [Tutoriel : Découvrir les API de recherche cognitive](cognitive-search-tutorial-blob.md)
 + [Exemple : Créer une compétence personnalisée](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Guides pratiques

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309342"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309176"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
 **Q : J’ai enregistré récemment l’appareil. Pourquoi ne puis-je pas voir l’appareil sous mes informations d’utilisateur dans le portail Azure ? Ou : Pourquoi le propriétaire de l’appareil est-il marqué N/A pour les appareils hybrides Azure AD joints  ?**
-**R :** Les appareils Windows 10 qui sont joints à Azure AD hybride ne s’affichent pas en tant qu’appareils UTILISATEUR.
+**R :** Les appareils Windows 10 qui sont joints à Azure AD hybride ne s’affichent pas en tant qu’appareils UTILISATEUR.
 Vous devez utiliser la vue Tous les appareils dans le portail Azure. Vous pouvez également utiliser la cmdlet PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 Seuls les appareils suivants sont répertoriés en tant qu’appareils UTILISATEUR :
@@ -38,7 +38,7 @@ Seuls les appareils suivants sont répertoriés en tant qu’appareils UTILISATE
 
 **Q : Comment puis-je connaître l’état de l’inscription d’appareils du client ?**
 
-**R :** Vous pouvez utiliser le portail Azure, accéder à Tous les appareils et rechercher l’appareil à l’aide de son ID. Vérifiez la valeur dans la colonne de type de jointure. Parfois, l’appareil peut avoir été réinitialisé ou reconfiguré. Il est donc essentiel de vérifier également l’état d’enregistrement de l’appareil sur l’appareil :
+**R :** Vous pouvez utiliser le portail Azure, accéder à Tous les appareils et rechercher l’appareil à l’aide de son ID. Vérifiez la valeur dans la colonne de type de jointure. Parfois, l’appareil peut avoir été réinitialisé ou reconfiguré. Il est donc essentiel de vérifier également l’état d’enregistrement de l’appareil sur l’appareil :
 
 - Pour les appareils Windows 10 et Windows Server 2016 ou versions ultérieures, exécutez dsregcmd.exe /status.
 - Pour les versions de système d’exploitation de niveau inférieur, exécutez « %programFiles%\Microsoft Workplace Join\autoworkplace.exe »
@@ -53,7 +53,7 @@ Seuls les appareils suivants sont répertoriés en tant qu’appareils UTILISATE
 
 **Q : J’ai supprimé l’appareil dans le portail Azure ou à l’aide de Windows PowerShell, mais l’état local sur l’appareil indique qu’il est toujours inscrit ?**
 
-**R :** Il s’agit du comportement par défaut. L’appareil n’aura pas accès aux ressources dans le cloud. 
+**R :** C’est normal. L’appareil n’aura pas accès aux ressources dans le cloud. 
 
 Si vous souhaitez inscrire à nouveau l’appareil, vous devez effectuer une action manuelle sur celui-ci. 
 
@@ -89,14 +89,14 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 **Q : Pourquoi un utilisateur peut-il toujours accéder aux ressources à partir d’un appareil que j’ai désactivé dans le portail Azure ?**
 
-**R :** Une opération de révocation peut prendre jusqu’à une heure pour être entièrement appliquée.
+**R :** Une opération de révocation peut prendre jusqu’à une heure pour être entièrement appliquée.
 
 >[!Note] 
 >Pour les appareils inscrits, nous vous recommandons de réinitialiser l’appareil pour vous assurer que les utilisateurs ne puissent pas accéder aux ressources. Pour plus d’informations, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 ---
 
-# <a name="azure-ad-join-faq"></a>FAQ Azure AD Join
+## <a name="azure-ad-join-faq"></a>FAQ Azure AD Join
 
 **Q : Comment disjoindre un appareil joint à Azure AD localement sur l’appareil ?**
 
@@ -121,26 +121,26 @@ Les utilisateurs supprimés ou désactivés qui ne se sont pas connectés aupara
 
 ---
 
-**Q : Mes utilisateurs ne peuvent pas rechercher d’imprimantes à partir d’appareils joints à Azure AD. Comment activer l’impression à partir d’appareils joints à Azure AD ?**
+**Q : Mes utilisateurs ne peuvent pas rechercher d’imprimantes à partir d’appareils joints à Azure AD. Comment activer l’impression à partir d’appareils joints à Azure AD ?**
 
-**R :** Pour le déploiement d’imprimantes pour les appareils joints à Azure AD, consultez [Impression cloud hybride](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
+**R :** Pour le déploiement d’imprimantes pour les appareils joints à Azure AD, consultez [Impression cloud hybride](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
 
 ---
 
-**Q : Comment puis-je me connecter à un appareil distant joint à Azure AD?**
-**R :** Pour le savoir, consultez l’article https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc.
+**Q : Comment puis-je me connecter à un appareil distant joint à Azure AD?**
+**R :** Pour le savoir, consultez l’article https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc.
 
 ---
 
 **Q : Pourquoi mes utilisateurs voient-ils s’afficher « Vous ne pouvez pas accéder à cet emplacement à partir d’ici » ?**
 
-**R :** Si vous avez configuré certaines règles d’accès conditionnel pour exiger un état d’appareil spécifique et que l’appareil ne respecte pas les critères, les utilisateurs sont bloqués et ce message s’affiche. Veuillez évaluer les règles de la stratégie d’accès conditionnel et vous assurer que l’appareil est en mesure de respecter les critères pour éviter l’affichage de ce message.
+**R :** Si vous avez configuré certaines règles d’accès conditionnel pour exiger un état d’appareil spécifique et que l’appareil ne respecte pas les critères, les utilisateurs sont bloqués et ce message s’affiche. Évaluez les règles de la stratégie d’accès conditionnel et vous assurer que l’appareil est en mesure de respecter les critères pour éviter l’affichage de ce message.
 
 ---
 
 **Q : Pourquoi certains de mes utilisateurs ne reçoivent pas d’invites MFA sur des appareils joints à Azure AD ?**
 
-**R :** Si l’utilisateur joint ou inscrit un appareil auprès d’Azure AD à l’aide de l’authentification multifacteur, l’appareil lui-même devient un second facteur approuvé pour cet utilisateur particulier. Par la suite, chaque fois que le même utilisateur se connecte à l’appareil et accède à une application, Azure AD considère l’appareil comme second facteur et permet à l’utilisateur d’accéder en toute transparence à ses applications sans invites MFA supplémentaires. Ce comportement n’est pas applicable à un autre utilisateur se connectant à cet appareil. Par conséquent, les autres utilisateurs accédant à cet appareil sont toujours invités à répondre à un Challenge MFA avant d’accéder aux applications qui requièrent l’authentification MFA.
+**R :** Si l’utilisateur joint ou inscrit un appareil auprès d’Azure AD à l’aide de l’authentification multifacteur, l’appareil lui-même devient un second facteur approuvé pour cet utilisateur particulier. Par la suite, chaque fois que le même utilisateur se connecte à l’appareil et accède à une application, Azure AD considère l’appareil comme second facteur et permet à l’utilisateur d’accéder en toute transparence à ses applications sans invites MFA supplémentaires. Ce comportement n’est pas applicable à un autre utilisateur se connectant à cet appareil. Par conséquent, les autres utilisateurs accédant à cet appareil sont toujours invités à répondre à un Challenge MFA avant d’accéder aux applications qui requièrent l’authentification MFA.
 
 ---
 
@@ -158,40 +158,40 @@ Les utilisateurs supprimés ou désactivés qui ne se sont pas connectés aupara
 
 ---
 
-**Q : Pourquoi la boîte de dialogue « Désolé... une erreur s’est produite ! » s’affiche-t-elle lorsque j’essaye de joindre mon ordinateur à Azure AD ?**
+**Q : Pourquoi la boîte de dialogue « Désolé... une erreur s’est produite ! » s’affiche-t-elle lorsque j’essaye de joindre mon ordinateur à Azure AD ?**
 
-**R :** Cela résulte de la configuration de l’inscription Azure Active Directory avec Intune. Assurez-vous que l’utilisateur qui tente de créer la jointure Azure AD dispose de la licence Intune appropriée. Pour plus d’informations, consultez [Configurer la gestion des appareils Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**R :** Cela résulte de la configuration de l’inscription Azure Active Directory avec Intune. Assurez-vous que l’utilisateur qui tente de créer la jointure Azure AD dispose de la licence Intune appropriée. Pour plus d’informations, consultez [Configurer la gestion des appareils Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 
 **Q : Pourquoi ma tentative d’inscription Azure AD d’un ordinateur a-t-elle échoué alors que je n’ai reçu aucune information d’erreur ?**
 
-**R :** Une cause possible est que l’utilisateur est connecté à l’appareil à l’aide du compte administrateur local intégré. Créez un compte local distinct avant d’utiliser Azure Active Directory Join pour terminer la configuration. 
+**R :** Une cause possible est que l’utilisateur est connecté à l’appareil à l’aide du compte administrateur local intégré. Créez un compte local distinct avant d’utiliser Azure Active Directory Join pour terminer la configuration. 
 
 ---
 
-# <a name="hybrid-azure-ad-join-faq"></a>FAQ sur les jointures Azure AD hybrides
+## <a name="hybrid-azure-ad-join-faq"></a>FAQ sur les jointures Azure AD hybrides
 
 **Q : Où puis-je trouver des informations de résolution des problèmes concernant le diagnostic d’échecs de jointures AD ?**
 
 **R :** Pour obtenir des informations de résolution des problèmes, consultez :
 
-- [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD – Windows 10 et Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
+- [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD – Windows 10 et Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
 
 - [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD pour les clients de bas niveau Windows](troubleshoot-hybrid-join-windows-legacy.md)
  
 
 ---
 
-# <a name="azure-ad-register-faq"></a>FAQ sur les inscriptions Azure AD
+## <a name="azure-ad-register-faq"></a>FAQ sur les inscriptions Azure AD
 
-**Q : Puis-je inscrire des appareils BYOD Android ou iOS ?**
+**Q : Puis-je inscrire des appareils BYOD Android ou iOS ?**
 
 **R :** Oui, mais seulement avec le service d’inscription d’appareils d’Azure et seulement pour les clients hybrides. Cette inscription n’est pas prise en charge par le service local d’inscription d’appareils d’AD FS.
 
 **Q : Comment puis-je inscrire un appareil macOS ?**
 
-**R :** Pour inscrire un appareil macOS :
+**R :** Pour inscrire un appareil macOS :
 
 1.  [Créez une stratégie de conformité](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
 2.  [Définissez une stratégie d’accès conditionnel pour les appareils macOS](../active-directory-conditional-access-azure-portal.md) 

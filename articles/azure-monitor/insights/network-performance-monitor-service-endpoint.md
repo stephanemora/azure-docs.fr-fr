@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: d818b4c045139eace88c3ef6b9675e5199c2ed4b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429534"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186206"
 ---
 # <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
@@ -97,11 +95,11 @@ Dans la vue des **nœuds de test**, vous pouvez observer la connectivité résea
 
 Déterminez si les performances médiocres de l’application sont dues au réseau ou à un problème émanant du fournisseur de l’application en observant la corrélation entre le temps de réponse de l’application et la latence du réseau. 
 
-* **Problème d’application :** un pic dans le temps de réponse, mais une latence de réseau cohérente suggèrent que le réseau fonctionne correctement et que le problème émane peut-être de l’application. 
+* **Problème d'application :** un pic dans le temps de réponse, mais une latence de réseau cohérente suggèrent que le réseau fonctionne correctement et que le problème émane peut-être de l’application. 
 
     ![Problème d’application Moniteur de connectivité de service.](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
-* **Problème réseau :** un pic dans le temps de réponse accompagné d’un pic correspondant de la latence du réseau suggère que l’augmentation du temps de réponse est peut-être due à une augmentation de la latence du réseau. 
+* **Problème réseau :** un pic dans le temps de réponse accompagné d’un pic correspondant de la latence du réseau suggère que l’augmentation du temps de réponse est peut-être due à une augmentation de la latence du réseau. 
 
     ![Problème de réseau Moniteur de connectivité de service.](media/network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 
@@ -131,4 +129,4 @@ Si vous observez une anomalie, procédez comme suit :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Rechercher dans les journaux](../../log-analytics/log-analytics-queries.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
+[Rechercher dans les journaux](../../azure-monitor/log-query/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.

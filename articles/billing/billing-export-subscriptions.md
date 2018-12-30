@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: 5c32b90c8a291ff744b4894af12f8d623cb95137
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 09231ab69276f3b4763f07c51230921d15333f63
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391402"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339431"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Exporter et visualiser les informations générales de vos abonnements
 Si vous avez besoin de visualiser l’ensemble des ID d’abonnement associés à vos informations d’identification utilisateur, [téléchargez un fichier .json avec les informations de vos abonnements à partir du Centre des comptes Azure](http://account.azure.com/subscriptions/download).
@@ -28,12 +28,13 @@ Si vous avez besoin de visualiser l’ensemble des ID d’abonnement associés �
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 Le fichier .json téléchargé fournit les informations suivantes :
-- Email : adresse e-mail associée à votre compte.
-- Puid : identificateur unique associé à votre compte de facturation.
-- SubscriptionIds : liste des abonnements qui appartiennent à votre compte, énumérés par ID d’abonnement.
+- E-mail : adresse e-mail associée à votre compte.
+- Puid : identificateur unique associé à votre compte de facturation.
+- SubscriptionIds : liste des abonnements qui appartiennent à votre compte, énumérés par ID d’abonnement.
 
 ### <a name="subscriptionsjson-sample"></a>Exemple de fichier subscriptions.json
-~~~~
+
+```json
 {
   "Email":"admin@contoso.com",
   "Puid":"00052xxxxxxxxxxx",
@@ -46,4 +47,4 @@ Le fichier .json téléchargé fournit les informations suivantes :
     "90757cdc-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   ]
 }
-~~~~
+```

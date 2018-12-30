@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345303"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337476"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Database Managed Instance
 
@@ -60,7 +60,7 @@ Vous pouvez sélectionner des ressources de calcul et de stockage au moment du d
 Pour apprendre à créer l’infrastructure de réseau virtuel et l’option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> Il est important de toujours maintenir votre réseau virtuel de destination et le sous-réseau en adéquation avec la [Configuration requise pour les réseaux virtuels Managed Instance](sql-database-managed-instance-vnet-configuration.md#requirements). Toute incompatibilité risque de vous empêcher de créer des instances ou d’utiliser celles que vous avez déjà créées.
+> Il est important de toujours maintenir votre réseau virtuel de destination et le sous-réseau en adéquation avec la [Configuration requise pour les réseaux virtuels Managed Instance](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Toute incompatibilité risque de vous empêcher de créer des instances ou d’utiliser celles que vous avez déjà créées. Apprenez-en davantage sur la [création de réseaux](sql-database-managed-instance-create-vnet-subnet.md) et la [configuration de réseaux existants](sql-database-managed-instance-configure-vnet-subnet.md).
 
 ## <a name="select-migration-method-and-migrate"></a>Sélectionner une méthode de migration et effectuer la migration
 
@@ -117,8 +117,7 @@ Suivez le comportement et les performances des applications après la migration.
 
 Pour réduire les risques liés à la migration, modifiez le niveau de compatibilité de la base de données uniquement après l’analyse des performances. Utilisez la fonctionnalité Magasin des requêtes en tant qu’outil optimal pour obtenir des informations sur les performances des charges de travail avant et après la modification du niveau de compatibilité des bases de données, comme indiqué dans [Maintenir la stabilité des performances pendant la mise à niveau vers une version plus récente de SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 
-Une fois que vous êtes sur une plateforme entièrement gérée, profitez des avantages automatiques du service SQL Database. Par exemple, vous n’êtes pas obligé de créer des sauvegardes sur Managed Instance : le service les effectue pour vous automatiquement. Vous n’avez plus à vous soucier de la planification, de l’exécution et de la gestion des sauvegardes. Managed Instance vous offre la possibilité d’effectuer une restauration à partir de n’importe quel point dans le temps compris dans cette période de rétention à l’aide d’une [récupération jusqu’à une date et heure](sql-database-recovery-using-backups.md#point-in-time-restore). Dans la préversion publique, la période de rétention est définie à sept jours.
-De plus, vous n’avez pas à vous soucier de la configuration de la [haute disponibilité](sql-database-high-availability.md) car elle est intégrée.
+Une fois que vous êtes sur une plateforme entièrement gérée, profitez des avantages automatiques du service SQL Database. Par exemple, vous n’êtes pas obligé de créer des sauvegardes sur Managed Instance : le service les effectue pour vous automatiquement. Vous n’avez plus à vous soucier de la planification, de l’exécution et de la gestion des sauvegardes. Managed Instance vous offre la possibilité d’effectuer une restauration à partir de n’importe quel point dans le temps compris dans cette période de rétention à l’aide d’une [récupération jusqu’à une date et heure](sql-database-recovery-using-backups.md#point-in-time-restore). De plus, vous n’avez pas à vous soucier de la configuration de la [haute disponibilité](sql-database-high-availability.md) car elle est intégrée.
 
 Pour renforcer la sécurité, envisagez d’utiliser certaines des fonctionnalités disponibles :
 

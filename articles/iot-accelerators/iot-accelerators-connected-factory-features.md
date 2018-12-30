@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3478217771418ab31772d6a42a7ed8d8a2e8069a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: af2a2c84f9eb420a7ca9a8bd5909cbf856d29a5e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626494"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309193"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Qu’est-ce que l’accélérateur de solution IoT Usine connectée ?
 
 Usine connectée est une implémentation de l’architecture de référence de Microsoft Azure Industrial IoT, sous la forme d’une solution open source. Vous pouvez l’utiliser comme point de départ pour un produit commercial. Vous pouvez déployer une version prédéfinie de la solution Usine connectée dans votre abonnement Azure à partir des [accélérateurs de solution Azure IoT Suite](https://www.azureiotsolutions.com/#solutions/types/CF).
 
 ![Tableau de bord de la solution Usine connectée](./media/iot-accelerators-connected-factory-features/dashboard.png)
+
+Le [code de l’accélérateur de solution Usine connectée est disponible sur GitHub](https://github.com/Azure/azure-iot-connected-factory).
 
 Usine connectée propose les fonctionnalités suivantes :
 

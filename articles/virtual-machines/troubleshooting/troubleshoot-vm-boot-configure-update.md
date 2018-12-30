@@ -1,5 +1,5 @@
 ---
-title: Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows. N’éteignez pas l’ordinateur. » dans Azure | Microsoft Docs
+title: Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows. N’éteignez l’ordinateur » dans Azure | Microsoft Docs
 description: Présentation des étapes de résolution du problème de démarrage de machine virtuelle bloqué sur « Préparation de Windows. N’éteignez pas l’ordinateur. »
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 2bcdb2b458327a5e87dc36e4a5f50f0ac46bf96a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: eb27b4e6c60f23a55a58cd2aae3cff927ffeaf03
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621025"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316095"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows. N’éteignez pas l’ordinateur. » dans Azure
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows. N’éteignez pas l’ordinateur. » dans Azure
 
-Cet article vous aide à résoudre le problème rencontré lorsque votre Machine virtuelle est bloquée à l’étape « Préparation de Windows. N’éteignez pas l’ordinateur. » lors du démarrage.
+Cet article vous aide à résoudre le problème rencontré lorsque votre Machine virtuelle est bloquée à l’étape « Préparation de Windows. N’éteignez pas l'ordinateur » lors du démarrage.
 
 ## <a name="symptoms"></a>Symptômes
 
-Lorsque vous utilisez les **Diagnostics de démarrage** pour obtenir la capture d’écran d’une machine virtuelle, vous découvrez que le système d’exploitation ne démarre pas entièrement. Par ailleurs, la machine virtuelle affiche le message **« Préparation de Windows. N’éteignez pas l’ordinateur. »** .
+Lorsque vous utilisez les **Diagnostics de démarrage** pour obtenir la capture d’écran d’une machine virtuelle, le système d’exploitation ne démarre pas entièrement. La machine virtuelle affiche le message « Préparation de Windows. N’éteignez pas l’ordinateur. »
 
-![Exemple de message](./media/troubleshoot-vm-configure-update-boot/message1.png)
+![Exemple de message pour Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
 ![Exemple de message](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
@@ -39,17 +39,17 @@ Ce problème se produit généralement lorsque le serveur effectue le redémarra
 
 ## <a name="back-up-the-os-disk"></a>Sauvegarder le disque du système d’exploitation
 
-Avant d’essayer de résoudre le problème, sauvegardez le disque du système d’exploitation :
+Avant d’essayer de résoudre le problème, sauvegardez le disque du système d’exploitation.
 
 ### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>Pour des machines virtuelles dotées d’un disque chiffré, vous devez commencer par déverrouiller les disques
 
-Vérifiez si la machine virtuelle est chiffrée. Pour ce faire, procédez comme suit :
+Suivez ces étapes pour déterminer si la machine virtuelle est chiffrée.
 
-1. Sur le portail, ouvrez votre machine virtuelle, puis accédez aux disques.
+1. Sur le portail Azure, ouvrez votre machine virtuelle, puis accédez aux disques.
 
-2. Vous voyez un appel de colonne « Chiffrement » qui vous l’indiquera si le chiffrement est activé.
+2. Examinez la colonne **Chiffrement** pour voir si le chiffrement est activé.
 
-Si le disque du système d’exploitation est chiffré, déverrouillez-le. Pour ce faire, procédez comme suit :
+Si le disque du système d’exploitation est chiffré, déverrouillez-le. Pour déverrouiller le disque, procédez comme suit.
 
 1. Créez une machine virtuelle de récupération dans les mêmes groupe de ressources, compte de stockage et emplacement que la machine virtuelle affectée.
 
@@ -72,7 +72,7 @@ Si le disque du système d’exploitation est chiffré, déverrouillez-le. Pour 
     Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
     ```
 
-5. Une fois le nom du secret en votre possession, exécutez les commandes suivantes dans PowerShell :
+5. Une fois le nom du secret en votre possession, exécutez les commandes suivantes dans PowerShell.
 
     ```Powershell
     $secretName = 'SecretName'
@@ -83,7 +83,7 @@ Si le disque du système d’exploitation est chiffré, déverrouillez-le. Pour 
 6. Convertissez la valeur codée en Base64 en octets, et écrivez la sortie dans un fichier. 
 
     > [!Note]
-    > Si vous utilisez l’option de déverrouillage d’USB, le nom du fichier BEK doit correspondre au GUID BEK d’origine. Avant de passer aux étapes suivantes, vous devez également créer sur votre lecteur C un dossier nommé « BEK ».
+    > Si vous utilisez l’option de déverrouillage d’USB, le nom du fichier BEK doit correspondre au GUID BEK d’origine. Avant de passer aux étapes suivantes, vous devez également créer un dossier nommé « BEK » sur votre lecteur C.
     
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
@@ -92,46 +92,46 @@ Si le disque du système d’exploitation est chiffré, déverrouillez-le. Pour 
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. Une fois le fichier BEK créé sur votre ordinateur, copiez-le vers la machine virtuelle Site Recovery à laquelle le disque du système d’exploitation verrouillé est attaché. Exécutez la commande suivante en utilisant l’emplacement du fichier BEK :
+7. Une fois le fichier BEK créé sur votre ordinateur, copiez-le vers la machine virtuelle Site Recovery à laquelle le disque du système d’exploitation verrouillé est attaché. Exécutez les commandes suivante en utilisant l’emplacement du fichier BEK.
 
     ```Powershell
     manage-bde -status F:
     manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
     ```
-    **Facultatif** : dans certains scénarios il peut être nécessaire de déchiffrer également le disque avec cette commande.
+    **Facultatif** : Dans certains scénarios, il peut être nécessaire de déchiffrer le disque à l’aide de cette commande.
    
     ```Powershell
     manage-bde -off F:
     ```
 
     > [!Note]
-    > Cela en considérant que le lecteur à chiffrer est identifié par la lettre F.
+    > La commande précédente suppose que le disque à chiffrer est identifié par la lettre F.
 
-8. Si vous avez besoin de collecter des journaux, vous pouvez naviguer vers le chemin d’accès **LETTRE DE LECTEUR:\Windows\System32\winevt\Logs**.
+8. S'il vous faut collecter des journaux, accédez au chemin d’accès **LETTRE DE LECTEUR:\Windows\System32\winevt\Logs**.
 
 9. Détachez le lecteur de la machine de récupération.
 
 ### <a name="create-a-snapshot"></a>Créer un instantané
 
-Pour créer un instantané, procédez de la manière décrite dans [Effectuer la capture instantanée d’un disque](..\windows\snapshot-copy-managed-disk.md).
+Pour créer un instantané, procédez de la manière décrite dans [Effectuer la capture instantanée d’un disque](../windows/snapshot-copy-managed-disk.md).
 
 ## <a name="collect-an-os-memory-dump"></a>Collecter un vidage mémoire du système d’exploitation
 
-Suivez les étapes décrites dans la section [Collecter un vidage mémoire du système d’exploitation](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) pour recueillir un vidage mémoire du système d’exploitation quand la machine virtuelle est bloquée au niveau de la configuration.
+Suivez les étapes décrites dans la section [Collecter un vidage mémoire du système d’exploitation](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) pour recueillir un vidage mémoire du système d’exploitation lorsque la machine virtuelle est bloquée au niveau de la configuration.
 
 ## <a name="contact-microsoft-support"></a>Contact Microsoft support
 
 Après avoir recueilli le fichier de vidage mémoire, contactez le [Support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour lui demander d’analyser la cause racine.
 
 
-## <a name="rebuild-the-vm-using-powershell"></a>Régénérer la machine virtuelle à l’aide de PowerShell
+## <a name="rebuild-the-vm-by-using-powershell"></a>Régénérer la machine virtuelle à l’aide de PowerShell
 
 Après avoir recueilli le fichier de vidage mémoire, procédez comme suit pour régénérer la machine virtuelle.
 
 **Pour les disques non managés**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -162,7 +162,7 @@ New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 **Pour les disques managés**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -183,7 +183,7 @@ $avName = "AvailabilitySetName";
 $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
-#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
+#This can be found by selecting the Managed Disks you wish you use in the Azure portal if the format below doesn't match
 $osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 
