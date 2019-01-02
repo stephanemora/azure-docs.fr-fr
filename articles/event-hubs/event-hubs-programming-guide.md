@@ -1,22 +1,22 @@
 ---
-title: Guide de programmation pour Azure Event Hubs | Microsoft Docs
-description: Écrivez du code pour les concentrateurs d’événements Azure à l'aide du Kit de développement logiciel (SDK) .NET d'Azure.
+title: Guide de programmation - Azure Event Hubs | Microsoft Docs
+description: Cet article explique comment rédiger du code pour Azure Event Hubs à l’aide du SDK Azure .NET.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 ms.service: event-hubs
+ms.custom: seodec18
 ms.topic: article
-ms.date: 08/12/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bfb2db8a4a0091e26cc2b893e615ba831da30ac7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746322"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138073"
 ---
-# <a name="event-hubs-programming-guide"></a>Guide de programmation de concentrateurs d’événements
-
+# <a name="programming-guide-for-azure-event-hubs"></a>Guide de programmation pour Azure Event Hubs
 Cet article décrit quelques scénarios courants de l’écriture de code à l’aide du service Azure Event Hubs. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Éditeurs d'événements
@@ -55,7 +55,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="send-events-to-an-event-hub"></a>Envoyer des événements à un concentrateur d'événements
 
-Vous envoyez des événements à un Event Hub en créant une instance [EventHubClient][] et en l’envoyant de manière asynchrone par le biais de la méthode [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync). Cette méthode prend un seul paramètre d’instance [EventData][] et l’envoie de façon synchrone à un concentrateur d'événements.
+Vous envoyez des événements à un Event Hub en créant une instance [EventHubClient][] et en l’envoyant de manière asynchrone par le biais de la méthode [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync). Cette méthode prend un seul paramètre d’instance [EventData][] et l’envoie de façon asynchrone à un hub d’événements.
 
 ## <a name="event-serialization"></a>Sérialisation d'événement
 
@@ -76,7 +76,7 @@ Lors de l’envoi des données d’événement, vous pouvez spécifier une valeu
 
 ### <a name="availability-considerations"></a>Considérations relatives à la disponibilité
 
-L’utilisation d’une clé de partition est facultative, et vous devez réfléchir attentivement au besoin d’en utiliser une ou non. Dans de nombreux cas, l’utilisation d’une clé de partition est un bon choix si l’ordre des événements est important. Lorsque vous utilisez une clé de partition, les partitions nécessitent une disponibilité sur un nœud unique, et des interruptions peuvent se produire dans le temps, par exemple, lors du redémarrage et de la correction des nœuds de calcul. Par conséquent, si vous définissez un ID de partition et que cette partition devient indisponible pour une raison quelconque, une tentative d’accès aux données de la partition échouera. Si la haute disponibilité représente le critère le plus important, ne spécifiez pas de clé de partition ; dans ce cas, les événements sont envoyés aux partitions à l’aide du modèle de tourniquet (round-robin) décrit précédemment. Dans ce scénario, vous effectuez un choix explicite entre la disponibilité (aucun ID de partition) et la cohérence (épinglage d’événements à un ID de partition).
+L’utilisation d’une clé de partition est facultative, et vous devez réfléchir attentivement au besoin d’en utiliser une ou non. Si vous ne spécifiez aucune clé de partition lors de la publication d’un événement, une affectation de type tourniquet (round robin) est utilisée. Dans de nombreux cas, l’utilisation d’une clé de partition est un bon choix si l’ordre des événements est important. Lorsque vous utilisez une clé de partition, les partitions nécessitent une disponibilité sur un nœud unique, et des interruptions peuvent se produire dans le temps, par exemple, lors du redémarrage et de la correction des nœuds de calcul. Par conséquent, si vous définissez un ID de partition et que cette partition devient indisponible pour une raison quelconque, une tentative d’accès aux données de la partition échouera. Si la haute disponibilité représente le critère le plus important, ne spécifiez pas de clé de partition ; dans ce cas, les événements sont envoyés aux partitions à l’aide du modèle de tourniquet (round-robin) décrit précédemment. Dans ce scénario, vous effectuez un choix explicite entre la disponibilité (aucun ID de partition) et la cohérence (épinglage d’événements à un ID de partition).
 
 Une autre considération peut être la gestion des retards dans le traitement des événements. Dans certains cas, il est préférable de supprimer les données et d’effectuer une nouvelle tentative plutôt que d’essayer de poursuivre le traitement, ce qui peut entraîner davantage de retards de traitement en aval. Par exemple, avec un téléscripteur pour le marché boursier, il est préférable d’attendre les données à jour complètes, mais dans une conversation en direct ou un scénario VOIP, vous préférerez plutôt obtenir les données rapidement, même incomplètes.
 

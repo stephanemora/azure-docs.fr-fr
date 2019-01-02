@@ -1,6 +1,6 @@
 ---
-title: Modèles Azure Resource Manager de cohérence du cloud | Microsoft Docs
-description: Développez des modèles Azure Resource Manager de cohérence du cloud. Créez ou mettez à jour des modèles existants pour Azure Stack.
+title: Réutiliser les modèles dans des clouds - Azure Resource Manager
+description: Développez des modèles Azure Resource Manager qui fonctionnent de manière identique pour des environnements cloud différents. Créez ou mettez à jour des modèles existants pour Azure Stack.
 services: azure-resource-manager
 documentationcenter: na
 author: marcvaneijk
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/09/2018
 ms.author: mavane
-ms.openlocfilehash: f1ff151c0b8d89910949d961b732c10901f19293
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723371"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135625"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Développer des modèles Azure Resource Manager de cohérence du cloud
 
@@ -434,7 +435,7 @@ Les ressources peuvent avoir des références à d’autres services sur la plat
 Les deux exemples suivants sont des espaces de noms de point de terminaison communs qui doivent être spécifiés explicitement lors de la création d’une ressource :
 
 * Comptes de stockage (objets blob, file d’attente, table et fichier)
-* Chaînes de connexion pour les bases de données et le Cache Redis
+* Chaînes de connexion pour les bases de données et le cache Redis Azure
 
 Les espaces de noms du point de terminaison peuvent également être utilisés dans la sortie d’un modèle en tant qu’informations pour l’utilisateur lorsque le déploiement est terminé. Voici quelques exemples courants :
 

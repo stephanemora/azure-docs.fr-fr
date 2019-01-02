@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory avec Infinite Campus | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Infinite Campus | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Infinite Campus.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632804"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099951"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Didacticiel : intégration d’Azure Active Directory avec Infinite Campus
+# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutoriel : Intégration d’Azure Active Directory à Infinite Campus
 
 Ce didacticiel explique comment intégrer Infinite Campus avec Azure Active Directory (Azure AD).
 
@@ -111,11 +111,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](common/editconfigure.png)
 
-5. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**(étape **11.b**), effectuez les étapes suivantes :
+5. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services** (passez à l’étape **11.c**), effectuez les étapes suivantes :
 
     a. Cliquez sur **Charger un fichier de métadonnées**.
 
-    ![image](common/b9_saml.png)
+        ![image](common/b9_saml.png)
 
     b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
 
@@ -128,9 +128,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     d. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant (le domaine varie en fonction du modèle d’hébergement) : `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
-    > Sur la page de configuration du fournisseur du service d’authentification unique de Infinite Campus, vous obtenez le **fichier de métadonnées du fournisseur de services**, abordé plus loin dans le didacticiel.
+    > Sur la page de configuration du fournisseur du service d’authentification unique de Infinite Campus, vous obtenez le **fichier de métadonnées du fournisseur de services**, abordé plus loin dans le didacticiel. Si vous débutez avec une nouvelle configuration de fournisseur de services SAML dans Infinite Campus, passez à l’**étape 11** pour terminer l’exportation du fichier de métadonnées du fournisseur de services.
 
-6. Si vous n’avez pas de **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
+6. Si vous n’avez pas de **fichier de métadonnées du fournisseur de services**, effectuez les étapes suivantes (notez que le domaine varie selon le modèle d’hébergement) :
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -169,10 +169,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Authentification unique](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
     a. Sélectionnez **Activer l’authentification unique SAML**.
+    
+    b. Dans la section **Select an option to retrieve Identity Provider (IDP) server data** (Sélectionnez une option pour récupérer les données de serveur du fournisseur d’identité), sélectionnez **Metadata URL** (URL des métadonnées), collez l’**URL des métadonnées de fédération d’application** dans la zone, puis cliquez sur **Sync** (Synchroniser).
 
-    b. Cliquez sur le lien **Service Provider Metadata** (Métadonnées du fournisseur de services) pour enregistrer le **fichier de métadonnées du fournisseur de services** sur votre ordinateur, et le charger dans la section **Configuration SAML de base** afin de renseigner automatiquement les valeurs **Identificateur** et **URL de réponse** dans le portail Azure (reportez-vous à l’étape 5).
-
-    c. Dans la section **Sélectionnez une option pour récupérer les données de serveur du fournisseur d’identité**, sélectionnez **URL des métadonnées**, collez l’**URL des métadonnées de fédération d’application** dans la zone de texte, puis cliquez sur **Synchroniser**.
+    c. Cliquez sur le lien **Service Provider Metadata** (Métadonnées du fournisseur de services) pour enregistrer le **fichier de métadonnées du fournisseur de services** sur votre ordinateur, et le charger dans la section **Configuration SAML de base** afin de renseigner automatiquement les valeurs **Identificateur** et **URL de réponse** du portail Azure (reportez-vous à l’étape 4 pour charger et remplir automatiquement les valeurs, ou à l’étape 5 pour les entrer manuellement).
 
     d. Après avoir cliqué sur **Synchroniser**, les valeurs sont automatiquement renseignées dans la page **Configuration du fournisseur de services d’authentification unique**.
 

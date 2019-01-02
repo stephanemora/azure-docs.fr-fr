@@ -1,5 +1,5 @@
 ---
-title: Contrôle du trafic entrant vers un environnement App Service
+title: Contrôle du trafic entrant vers un environnement App Service - Azure
 description: Découvrez comment configurer des règles de sécurité réseau pour contrôler le trafic entrant vers un environnement App Service.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
-ms.openlocfilehash: ed72bf3202d6cb2d2161bc0df693d3e6a1fc58ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 84575dcb67845a074ce19cf9d819e1dda3f90e20
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22987004"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271956"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Contrôle du trafic entrant vers un environnement App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -38,16 +39,16 @@ Avant de verrouiller le trafic réseau entrant à l'aide d'un groupe de sécurit
 
 La liste suivante présente les ports utilisés par un environnement App Service. Tous les ports sont **TCP**, sauf indication contraire clairement spécifiée :
 
-* 454 : **Port obligatoire** utilisé par l'infrastructure Azure pour la gestion et la maintenance des environnements App Service par le biais de SSL.  Ne bloquez pas le trafic vers ce port.  Ce port est toujours lié à l’adresse IP virtuelle publique d’un ASE.
-* 455 : **Port obligatoire** utilisé par l'infrastructure Azure pour la gestion et la maintenance des environnements App Service par le biais de SSL.  Ne bloquez pas le trafic vers ce port.  Ce port est toujours lié à l’adresse IP virtuelle publique d’un ASE.
-* 80 : Port par défaut pour le trafic HTTP entrant vers des applications s'exécutant dans plans App Service d'un environnement App Service.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
-* 443 : port par défaut pour le trafic SSL entrant vers des applications s'exécutant dans plans App Service d'un environnement App Service.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
-* 21 : Canal de contrôle pour FTP.  Ce port peut être bloqué en toute sécurité si FTP n'est pas utilisé.  Sur un ASE avec équilibrage de charge interne, ce port peut être lié à l’adresse d’équilibrage de charge interne d’un ASE.
-* 990 : Canal de contrôle pour FTPS.  Ce port peut être bloqué en toute sécurité si FTPS n’est pas utilisé.  Sur un ASE avec équilibrage de charge interne, ce port peut être lié à l’adresse d’équilibrage de charge interne d’un ASE.
-* 10001-10020 : Canaux de données pour FTP.  Comme avec le canal de contrôle, ces ports peuvent être bloqués en toute sécurité si FTP n’est pas utilisé.  Sur un ASE avec équilibrage de charge interne, ce port peut être lié à l’adresse d’équilibrage de charge interne de l’ASE.
-* 4016 : Utilisé pour le débogage à distance avec Visual Studio 2012.  Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
-* 4018 : Utilisé pour le débogage à distance avec Visual Studio 2013.  Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
-* 4020 : Utilisé pour le débogage à distance avec Visual Studio 2015.  Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
+* 454 :  **Port obligatoire** utilisé par l’infrastructure Azure pour la gestion et la maintenance des environnements App Service par le biais de SSL.  Ne bloquez pas le trafic vers ce port.  Ce port est toujours lié à l’adresse IP virtuelle publique d’un ASE.
+* 455 :  **Port obligatoire** utilisé par l’infrastructure Azure pour la gestion et la maintenance des environnements App Service par le biais de SSL.  Ne bloquez pas le trafic vers ce port.  Ce port est toujours lié à l’adresse IP virtuelle publique d’un ASE.
+* 80 :  Port par défaut pour le trafic HTTP entrant vers des applications s’exécutant dans plans App Service d’un environnement App Service.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
+* 443 : port par défaut pour le trafic SSL entrant vers des applications s’exécutant dans plans App Service d’un environnement App Service.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
+* 21 :  Canal de contrôle pour FTP.  Ce port peut être bloqué en toute sécurité si FTP n'est pas utilisé.  Sur un ASE avec équilibrage de charge interne, ce port peut être lié à l’adresse d’équilibrage de charge interne d’un ASE.
+* 990 :  Canal de contrôle pour FTPS.  Ce port peut être bloqué en toute sécurité si FTPS n’est pas utilisé.  Sur un ASE avec équilibrage de charge interne, ce port peut être lié à l’adresse d’équilibrage de charge interne d’un ASE.
+* 10001-10020 : Canaux de données pour FTP.  Comme avec le canal de contrôle, ces ports peuvent être bloqués en toute sécurité si FTP n’est pas utilisé.  Sur un ASE avec équilibrage de charge interne, ce port peut être lié à l’adresse d’équilibrage de charge interne de l’ASE.
+* 4016 : Utilisé pour le débogage à distance avec Visual Studio 2012.  Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
+* 4018 : Utilisé pour le débogage à distance avec Visual Studio 2013.  Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
+* 4020 : Utilisé pour le débogage à distance avec Visual Studio 2015.  Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.  Sur un ASE avec équilibrage de charge interne, ce port est lié à l’adresse d’équilibrage de charge interne de l’ASE.
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Connectivité sortante et configuration DNS requise
 Pour qu’un environnement App Service fonctionne correctement, il requiert également un accès sortant à différents points de terminaison. Une liste complète des points de terminaison externes utilisés par un ASE est disponible dans la section « Connectivité réseau requise » de l’article [Configuration réseau pour ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
@@ -59,7 +60,7 @@ Il est également recommandé de configurer les serveurs DNS personnalisés sur 
 ## <a name="creating-a-network-security-group"></a>Création d'un groupe de sécurité réseau
 Pour plus d'informations sur le fonctionnement des groupes de sécurité réseau, consultez les [informations][NetworkSecurityGroups] suivantes.  L’exemple Gestion des services Azure ci-dessous aborde les points principaux relatifs aux groupes de sécurité réseau, en se concentrant sur la configuration et l’application d’un groupe de sécurité réseau à un sous-réseau contenant un environnement App Service.
 
-**Remarque :** les groupes de sécurité réseau peuvent être configurés sous forme graphique à l’aide du [portail Azure](https://portal.azure.com) ou via Azure PowerShell.
+**Remarque :** les groupes de sécurité réseau peuvent être configurés sous forme graphique à l’aide du [Portail Azure](https://portal.azure.com) ou via Azure PowerShell.
 
 Les groupes de sécurité réseau sont tout d’abord créés en tant qu’entités autonomes associées à un abonnement. Dans la mesure où les groupes de sécurité réseau sont créés dans une région Azure, assurez-vous que le groupe de sécurité réseau est créé dans la même région que l'environnement App Service.
 

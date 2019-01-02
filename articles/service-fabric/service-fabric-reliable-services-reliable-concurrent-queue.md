@@ -3,7 +3,7 @@ title: ReliableConcurrentQueue dans Azure Service Fabric
 description: ReliableConcurrentQueue est une file d’attente à débit élevé qui permet des mises en file d’attente et retraits de file d’attente parallèles.
 services: service-fabric
 documentationcenter: .net
-author: sangarg
+author: tylermsft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: sangarg
-ms.openlocfilehash: e04123f7870921a2979564d0f6c68424d4d7711c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206575"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185033"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Présentation de ReliableConcurrentQueue dans Azure Service Fabric
 Une file d’attente simultanée fiable est une file d’attente asynchrone, transactionnelle et répliquée, qui permet d’effectuer des opérations de mise en file d’attente et de retrait de file d’attente avec un niveau élevé de simultanéité. Elle est conçue pour offrir un débit élevé et une latence faible en assouplissant la séquence stricte de premier entré, premier sorti fournie par une [file d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx), et fournit à la place un classement selon le principe de l’effort optimal.
@@ -55,7 +55,7 @@ Examinons quelques extraits de code et leurs sorties attendues. La gestion des e
 ### <a name="enqueueasync"></a>EnqueueAsync
 Voici quelques extraits de code pour l’utilisation d’EnqueueAsync, suivis de leurs sorties attendues.
 
-- *Cas 1 : tâche de mise en file d’attente unique*
+- *Cas 1 : tâche de mise en file d’attente unique*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -74,7 +74,7 @@ Supposons que la tâche s’est achevée correctement et qu’aucune transaction
 > 20, 10
 
 
-- *Cas 2 : tâche de mise en file d’attente parallèle*
+- *Cas 2 : tâche de mise en file d’attente parallèle*
 
 ```
 // Parallel Task 1
@@ -103,7 +103,7 @@ Supposons que les tâches aient été accomplies avec succès, qu’elles aient 
 Voici quelques extraits de code pour l’utilisation de TryDequeueAsync, suivis des résultats attendus. Supposons que la file d’attente contient déjà les éléments suivants :
 > 10, 20, 30, 40, 50, 60
 
-- *Cas 1 : simple tâche de retrait de file d’attente*
+- *Cas 1 : tâche de retrait de la file d’attente unique*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -118,7 +118,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 Supposons que la tâche s’est achevée correctement et qu’aucune transaction simultanée ne modifiait la file d’attente. Dans la mesure où aucune inférence ne peut être effectuée concernant l’ordre des éléments dans la file d’attente, trois éléments quelconques peuvent être retirés de celle-ci, dans n’importe quel ordre. La file d’attente essaie de conserver les éléments dans l’ordre (de mise en file d’attente) d’origine, mais peut être obligée à les réorganiser en raison d’opérations simultanées ou d’erreurs.  
 
-- *Cas 2 : tâche de retrait de file d’attente parallèle*
+- *Cas 2 : tâche de retrait de la file d’attente parallèle*
 
 ```
 // Parallel Task 1
@@ -146,7 +146,7 @@ Supposons que les tâches aient été accomplies avec succès, qu’elles aient 
 
 Un même élément n’apparaît *pas* dans les deux listes. Par conséquent, si la liste dequeue1 comprend *10* et *30*, la liste dequeue2 contient *20* et *40*.
 
-- *Cas 3 : ordre de retrait de file d’attente avec abandon de transaction*
+- *Cas 3 : ordre de retrait de file d’attente avec abandon de transaction*
 
 L’abandon d’une transaction avec des retraits de file d’attente a pour effet de remettre les éléments en tête de la file d’attente. L’ordre dans lequel les éléments sont remis en tête de la file d’attente n’est pas garanti. Examinons le code suivant :
 

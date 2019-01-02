@@ -1,44 +1,37 @@
 ---
-title: Créer et modifier un circuit ExpressRoute à l’aide du portail Azure | Microsoft Docs
-description: Cet article explique comment créer, approvisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute.
-documentationcenter: na
+title: 'Création et modification d’un circuit ExpressRoute - portail : Azure | Microsoft Docs'
+description: Créez, approvisionnez, vérifiez, mettez à jour, supprimez et déprovisionnez un circuit ExpressRoute.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/20/2017
+ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29389510"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091525"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Création et modification d’un circuit ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [interface de ligne de commande Azure](howto-circuit-cli.md)
-> * [Vidéo - portail Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Interface de ligne de commande Azure](howto-circuit-cli.md)
+> * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
 >
 
-Cet article explique comment créer un circuit ExpressRoute à l’aide du portail Azure et du modèle de déploiement Azure Resource Manager. Les étapes suivantes vous montreront également comment vérifier l’état du circuit, mettre à jour celui-ci, le supprimer et annuler son approvisionnement.
+Cet article vous explique comment créer un circuit ExpressRoute à l’aide du Portail Azure et du modèle de déploiement Azure Resource Manager. Vous pouvez également vérifier l’état, mettre à jour, supprimer ou déprovisionner un circuit.
 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 * Examinez les [conditions préalables](expressroute-prerequisites.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 * Vérifiez que vous avez accès au [portail Azure](https://portal.azure.com).
 * Assurez-vous que vous disposez des autorisations nécessaires pour créer des ressources réseau. Contactez votre administrateur de compte si vous n'avez pas les autorisations appropriées.
-* Vous pouvez [visualiser une vidéo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) avant de commencer afin de mieux comprendre les étapes.
+* Vous pouvez [visualiser une vidéo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) avant de commencer afin de mieux comprendre les étapes.
 
 ## <a name="create"></a>Créer et approvisionner un circuit ExpressRoute
 ### <a name="1-sign-in-to-the-azure-portal"></a>1. Connectez-vous au portail Azure.
@@ -84,20 +77,20 @@ Dans cette page, **Statut du fournisseur** fournit des informations sur l’éta
 
 Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
 
-Statu du fournisseur : Non approvisionné<BR>
-Statut du circuit : Activé
+État du fournisseur : non approvisionné<BR>
+État du circuit : activé
 
 ![Lancer le processus d’approvisionnement](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Le circuit passe à l’état suivant quand le fournisseur de connectivité est sur le point de l’activer pour vous :
 
-Statut du fournisseur : En cours d’approvisionnement <BR>
-Statut du circuit : Activé
+État du fournisseur : Approvisionnement<BR>
+État du circuit : activé
 
 Pour pouvoir être utilisé, un circuit ExpressRoute doit être dans l’état suivant :
 
-Statut du fournisseur : Approvisionné<BR>
-Statut du circuit : Activé
+État du fournisseur : approvisionné<BR>
+État du circuit : activé
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Vérifier régulièrement le statut et l’état de la clé du circuit
 Vous pouvez afficher les propriétés du circuit qui vous intéressent en le sélectionnant. Vérifiez le **Statut du fournisseur** et vérifiez qu’il est passé à **Approvisionné** avant de continuer.
@@ -151,7 +144,7 @@ Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **
 * Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est **En cours d’approvisionnement** ou **Approvisionné**, vous devez vous mettre en relation avec votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuons à réserver des ressources et à vous facturer jusqu’à ce que le fournisseur de services termine le désapprovisionnement du circuit et nous en avertisse.
 * Si le fournisseur de services a annulé l’approvisionnement du circuit (l’état d’approvisionnement du fournisseur de services affiche la valeur **Non approvisionné**), vous pouvez supprimer le circuit. Cette opération arrête la facturation du circuit.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir créé votre circuit, passez aux étapes suivantes :
 
 * [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)

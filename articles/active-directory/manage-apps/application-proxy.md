@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 428f094dae2b9a69b58912190d2959a7dfc467ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ec5c75b5de912988efeb5167107f6d0dfe07da2e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365260"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139950"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Offrir un accès à distance sécurisé aux applications locales
 
@@ -59,16 +59,16 @@ Avec le Proxy d’application Azure AD, vous pouvez accéder à différents type
 * Applications clientes complètes intégrées à Active Directory Authentication Library (ADAL)
 
 ## <a name="how-does-application-proxy-work"></a>Comment fonctionne le Proxy d’application ?
-Vous devez configurer deux composants pour faire fonctionner le Proxy d’application : un connecteur et un point de terminaison externe. 
+Vous devez configurer deux composants pour faire fonctionner le proxy d’application : un connecteur et un point de terminaison. 
 
 Le connecteur est un agent léger qui se trouve sur un serveur Windows au sein de votre réseau. Le connecteur fluidifie le flux de trafic du service de Proxy d’application dans le cloud vers votre application locale. Il n’utilise que des connexions sortantes ; vous n’êtes donc pas obligé d’ouvrir des ports entrants ou de placer quoi que ce soit dans la zone démilitarisée. Les connecteurs sont sans état et extraient les informations dont ils ont besoin sur le cloud. Pour savoir comment les connecteurs équilibrent la charge ou s’authentifient, voir [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md). 
 
-C’est par le point de terminaison externe que vos utilisateurs atteignent les applications hors de votre réseau. Ils peuvent accéder directement à une URL externe que vous déterminez, ou accéder à l’application via le portail MyApps. Lorsque les utilisateurs passent par l’un de ces points de terminaison, ils s’authentifient dans Azure AD, puis sont acheminés via le connecteur vers l’application locale.
+Le point de terminaison peut être une URL ou un [portail d’utilisateurs finaux](end-user-experiences.md). Les utilisateurs peuvent accéder à des applications en dehors de votre réseau au moyen d’une URL externe. Les utilisateurs au sein de votre réseau peuvent accéder à l’application par le biais d’une URL ou d’un portail d’utilisateurs finaux. Lorsque les utilisateurs passent par l’un de ces points de terminaison, ils s’authentifient dans Azure AD, puis sont acheminés via le connecteur vers l’application locale.
 
  ![Diagramme du Proxy d’application Azure AD](./media/application-proxy/azureappproxxy.png)
 
-1. L’utilisateur accède à l’application par le biais du service de proxy d’application et il est dirigé vers la page de connexion Azure AD pour s’identifier.
-2. Après la connexion, un jeton est généré et envoyé à l’appareil client.
+1. Une fois que l’utilisateur a accédé à l’application par le biais d’un point de terminaison, il est dirigé vers la page de connexion Azure AD. 
+2. Après la connexion, un jeton est généré et envoyé à l’appareil client de l’utilisateur.
 3. Le client envoie le jeton au service de proxy d’application qui récupère le nom d’utilisateur principal (UPN) et le nom de sécurité principal (SPN) du jeton, puis dirige la requête vers le connecteur du proxy d’application.
 4. Si vous avez configuré l’authentification unique, le connecteur effectue toute authentification supplémentaire requise pour le compte de l’utilisateur.
 5. Le connecteur envoie la requête à l’application locale.  
@@ -88,8 +88,8 @@ Avant de configurer le Proxy d’application, assurez-vous d’être l’adminis
 
 Prise en main du Proxy d’application en deux étapes :
 
-1. [Activer le proxy d’application et configurer le connecteur](application-proxy-enable.md).    
-2. [Publier des applications](application-proxy-publish-azure-portal.md) : utilisez l’Assistant simple et rapide pour publier vos applications locales et les rendre accessibles à distance.
+1. [Activer le proxy d’application et configurer le connecteur](application-proxy-add-on-premises-application.md).    
+2. [Publier des applications](application-proxy-add-on-premises-application.md) : utilisez l’Assistant simple et rapide pour publier vos applications locales et les rendre accessibles à distance.
 
 ## <a name="whats-next"></a>Et ensuite ?
 Une fois votre première application publiée, vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
@@ -100,5 +100,5 @@ Une fois votre première application publiée, vous pouvez faire bien d’autres
 * [Utiliser des serveurs proxy locaux actuels](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [Définir une page d’accueil personnalisée](application-proxy-configure-custom-home-page.md)
 
-Pour les dernières nouvelles et mises à jour, consultez le site [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+Pour les dernières nouvelles et mises à jour, consultez le site [Application Proxy blog](https://blogs.technet.com/b/applicationproxyblog/)
 

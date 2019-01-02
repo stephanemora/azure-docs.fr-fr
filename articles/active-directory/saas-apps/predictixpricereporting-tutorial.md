@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Predictix Price Reporting | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Predictix Price Reporting | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Predictix Price Reporting.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 3686a90cb088dae99d20df619c161251b5bdfd60
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a7b6122638636193b363d0ac57aae22a9c7da57a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438941"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014750"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Didacticiel : Intégration d’Azure Active Directory à Predictix Price Reporting
+# <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutoriel : Intégration d’Azure Active Directory à Predictix Price Reporting
 
 Dans ce didacticiel, vous allez apprendre à intégrer Predictix Price Reporting à Azure AD (Azure Active Directory).
 
@@ -113,13 +113,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname-pricing>.predictix.com/sso/request`
 
     b. Dans la zone de texte **Identificateur**, entrez une URL au format suivant :
+    
     | |
     |--|
     | `https://<companyname-pricing>.predictix.com` |
     | `https://<companyname-pricing>.dev.predictix.com` |
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support Predictix Price Reporting](http://www.infor.com/company/customer-center/). 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support Predictix Price Reporting](https://www.infor.com/company/customer-center/). 
  
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
@@ -133,10 +134,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configuration de Predictix Price Reporting](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_configure.png) 
 
-1. Pour configurer l’authentification unique côté **Predictix Price Reporting**, vous devez envoyer le **Certificat (Base64)** téléchargé, **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe du support Predictix Price Reporting](http://www.infor.com/company/customer-center/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **Predictix Price Reporting**, vous devez envoyer le **Certificat (Base64)** téléchargé, **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe du support Predictix Price Reporting](https://www.infor.com/company/customer-center/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
@@ -173,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-predictix-price-reporting-test-user"></a>Créer un utilisateur de test Predictix Price Reporting
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Predictix Price Reporting. Pour ajouter des utilisateurs dans la plateforme Predictix Price Reporting, contactez [l’équipe du support Predictix Price Reporting](http://www.infor.com/company/customer-center/).
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Predictix Price Reporting. Pour ajouter des utilisateurs dans la plateforme Predictix Price Reporting, contactez [l’équipe du support Predictix Price Reporting](https://www.infor.com/company/customer-center/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

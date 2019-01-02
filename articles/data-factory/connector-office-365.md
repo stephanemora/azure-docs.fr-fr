@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f76c1676e21e1abdc3f23e2e2c4a7f6f721fefdb
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955374"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386568"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copier des données depuis Office 365 avec Azure Data Factory (préversion) 
 
@@ -34,7 +34,7 @@ Pour l’instant, au sein d’une seule activité de copie, vous pouvez seulemen
 >- L’abonnement Azure contenant la fabrique de données et la banque de données réceptrice doit être sous le même locataire Azure Active Directory (Azure AD) que le locataire Office 365.
 >- Vérifiez que la région Azure Integration Runtime utilisée pour l’activité de copie et la destination se trouvent dans la même région que celle où se trouve la boîte aux lettres des utilisateurs du locataire Office 365. Pour comprendre comment l’emplacement d’Azure Integration Runtime est déterminé, suivez [ce lien](concepts-integration-runtime.md#integration-runtime-location). Consultez [ce tableau](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) pour obtenir la liste des régions Office et des régions Azure correspondantes prises en charge.
 >-  Si vous chargez des données Office 365 dans **Stockage Blob Azure** comme destination, veillez à utiliser **[l’authentification de principal du service](connector-azure-blob-storage.md#service-principal-authentication)** quand vous définissez le service lié à Stockage Blob Azure, et non pas des authentifications de [clé de compte](connector-azure-blob-storage.md#account-key-authentication), de [signature d’accès partagé](connector-azure-blob-storage.md#shared-access-signature-authentication) ou d’[identités managées pour les ressources Azure](connector-azure-blob-storage.md#managed-identity).
->-  Si vous chargez des données Office 365 dans **Azure Data Lake Storage Gen1**, veillez à utiliser [**l’authentification de principal du service**](connector-azure-data-lake-store.md#using-service-principal-authentication) quand vous définissez le service lié à Azure Data Lake Storage Gen1, et non pas une authentification d’[identités managées pour les ressources Azure](connector-azure-data-lake-store.md#managed-identity).
+>-  Si vous chargez des données Office 365 dans **Azure Data Lake Storage Gen1**, veillez à utiliser [**l’authentification de principal du service**](connector-azure-data-lake-store.md#use-service-principal-authentication) quand vous définissez le service lié à Azure Data Lake Storage Gen1, et non pas une authentification d’[identités managées pour les ressources Azure](connector-azure-data-lake-store.md#managed-identity).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -79,7 +79,7 @@ Les propriétés prises en charge pour le service lié Office 365 sont les suiva
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Office365** | Oui |
+| Type | La propriété type doit être définie sur : **Office365** | Oui |
 | office365TenantId | ID de locataire Azure auquel le compte Office 365 appartient. | Oui |
 | servicePrincipalTenantId | Spécifiez les informations du locataire où se trouve votre application web Azure AD. | Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | OUI |
@@ -119,7 +119,7 @@ Pour copier des données depuis Office 365, les propriétés suivantes sont pris
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **Office365Table** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur : **Office365Table** | Oui |
 | TableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | Oui |
 | predicate | Expression de prédicat qui peut être utilisée pour filtrer les lignes spécifiques à extraire d’Office 365.  Cliquez [ici](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) pour découvrir comment déterminer les colonnes qui peuvent être utilisées pour le filtrage de prédicat de chaque table et le format d’expression du filtre. | Non <br>(Si aucun prédicat n’est fourni, le comportement par défaut est l’extraction des données pour les 30 derniers jours) |
 

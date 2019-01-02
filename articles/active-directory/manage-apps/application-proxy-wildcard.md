@@ -15,12 +15,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 638ae4c779af3bebb68622ccee6932618d42e4f0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8c876f220cde99bbeb3b5d9f8f8878acb5584802
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056806"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140045"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applications génériques dans le proxy d’application Azure Active Directory 
 
@@ -49,7 +49,7 @@ Par exemple : `http(s)://*.adventure-works.com`. Alors que les URL internes et e
 
 Si vous avez d’autres applications avec différents paramètres de configuration, vous devez publier ces exceptions en tant qu’applications distinctes pour remplacer les valeurs par défaut définies pour le caractère générique. Les applications sans caractère générique ont toujours priorité sur les applications génériques. Du point de vue de la configuration, ce sont « juste » des applications normales.
 
-La création d’une application générique repose sur le même [flux de publication d’application](application-proxy-publish-azure-portal.md) que celui de toutes les autres applications. La seule différence est que vous ajoutez un caractère générique dans les URL et éventuellement la configuration de l’authentification unique.
+La création d’une application générique repose sur le même [flux de publication d’application](application-proxy-add-on-premises-application.md) que celui de toutes les autres applications. La seule différence est que vous ajoutez un caractère générique dans les URL et éventuellement la configuration de l’authentification unique.
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -122,7 +122,7 @@ Pour les applications qui utilisent [la délégation Kerberos contrainte (KCD) c
 
 
 
-## <a name="scenario-1-general-wildcard-application"></a>Scénario 1 : Application générique générale
+## <a name="scenario-1-general-wildcard-application"></a>Scénario 1 : Application générique générale
 
 Dans ce scénario, vous avez trois applications différentes à publier :
 
@@ -137,7 +137,7 @@ Les trois applications :
 - Ont les mêmes propriétés
 
 
-Vous pouvez publier l’application générique en suivant les étapes décrites dans [Publier des applications à l’aide du proxy d’application Azure AD](application-proxy-publish-azure-portal.md). Ce scénario part du principe que :
+Vous pouvez publier l’application générique en suivant les étapes décrites dans [Publier des applications à l’aide du proxy d’application Azure AD](application-proxy-add-on-premises-application.md). Ce scénario part du principe que :
 
 - Un locataire a l’ID suivant : `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -145,7 +145,7 @@ Vous pouvez publier l’application générique en suivant les étapes décrites
 
 - Une entrée **CNAME** qui fait pointer `*.adventure-works.com` vers `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` a été créée.
 
-En suivant les [étapes documentées](application-proxy-publish-azure-portal.md), vous créez une application de proxy d’application dans votre locataire. Dans cet exemple, le caractère générique est dans les champs suivants :
+En suivant les [étapes documentées](application-proxy-add-on-premises-application.md), vous créez une application de proxy d’application dans votre locataire. Dans cet exemple, le caractère générique est dans les champs suivants :
 
 - URL interne :
 
@@ -176,7 +176,7 @@ La configuration implémente la structure suivante :
 
 
 
-## <a name="scenario-2-general-wildcard-application-with-exception"></a>Scénario 2 : Application générique générale avec exception
+## <a name="scenario-2-general-wildcard-application-with-exception"></a>Scénario 2 : Application générique générale avec exception
 
 Dans ce scénario, en plus des trois applications générales, vous avez une autre application, `finance.adventure-works.com`, qui doit être accessible uniquement par le service Finance. Avec la structure d’application actuelle, votre application Finance est accessible via l’application générique par tous les employés. Pour changer ce paramètre, vous excluez votre application de l’application générique en configurant Finance en tant qu’application distincte avec des autorisations plus restrictives.
 
@@ -184,7 +184,7 @@ Dans ce scénario, en plus des trois applications générales, vous avez une aut
 
 Vous devez vérifier qu’un enregistrement CNAME fait pointer `finance.adventure-works.com` vers le point de terminaison propre à l’application, spécifié dans la page Proxy d’application de l’application. Pour ce scénario, `finance.adventure-works.com` pointe vers `https://finance-awcycles.msappproxy.net/`. 
 
-D’après les [étapes documentées](application-proxy-publish-azure-portal.md), ce scénario nécessite les paramètres suivants :
+D’après les [étapes documentées](application-proxy-add-on-premises-application.md), ce scénario nécessite les paramètres suivants :
 
 
 - Dans **l’URL interne**, vous définissez **finance** au lieu d’un caractère générique. 
@@ -215,6 +215,6 @@ Le cas échéant, consultez les références suivantes :
 
 - **Domaines personnalisés**, consultez [Utilisation des domaines personnalisés dans le proxy d’application Azure AD](application-proxy-configure-custom-domain.md).
 
-- **Publication d’applications**, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](application-proxy-publish-azure-portal.md)
+- **Publication d’applications**, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](application-proxy-add-on-premises-application.md)
 
 

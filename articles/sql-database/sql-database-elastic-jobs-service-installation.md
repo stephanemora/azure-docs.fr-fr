@@ -3,7 +3,7 @@ title: Installation de Tâches de bases de données élastiques | Microsoft Docs
 description: Passez en revue l'installation de la fonctionnalité de tâche élastique.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: c2fb3ae20ea2b6ba71408a734c1e0c82cbeb699c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc322f44760ddf0a7cd28751c895a7c4938dbbc0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233573"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867238"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Vue d’ensemble de l’installation de Tâches de bases de données élastiques
 
@@ -51,7 +51,7 @@ Si vous avez déjà installé **Tâche de base de données élastique** via le p
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>Installez les composants de Tâches de bases de données élastiques à l'aide de PowerShell
-1. Lancez une fenêtre de commande Microsoft Azure PowerShell et accédez au sous-répertoire \tools sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x : tapez cd \tools
+1. Lancez une fenêtre de commande Microsoft Azure PowerShell et accédez au sous-répertoire des outils, sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x : tapez cd \tools
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -156,7 +156,7 @@ Pour mettre à jour la taille de la machine virtuelle d’une installation, exé
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Installez les composants de Tâches de bases de données élastiques à l'aide du portail
 Une fois que vous avez [créé un pool élastique](sql-database-elastic-pool-manage-portal.md), vous pouvez installer les composants de **Tâches de bases de données élastiques** pour activer l'exécution des tâches d'administration dans chaque base de données du pool élastique. Contrairement aux API PowerShell de **Tâches de bases de données élastiques** , l'interface du portail ne peut être exécuté que sur un pool existant.
 
-**Durée estimée :** 10 minutes.
+**Durée estimée :** 10 minutes.
 
 1. Dans la vue du tableau de bord du pool élastique via le [portail Azure](https://portal.azure.com/#), cliquez sur **Créer une tâche**.
 2. Si vous créez une tâche pour la première fois, vous devez installer **Tâche de base de données élastique** en cliquant sur **CONDITIONS D’UTILISATION DE LA VERSION PREVIEW**.

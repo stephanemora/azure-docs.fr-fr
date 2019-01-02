@@ -2,8 +2,8 @@
 title: Installation et configuration de la gestion des modèles Azure Machine Learning | Microsoft Docs
 description: Ce document décrit les procédures et les concepts relatifs à l’installation et à la configuration de la gestion des modèles dans Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d10f61e6276b1ce0a0237e3cf2e35a68edf4a0cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968711"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257572"
 ---
 # <a name="model-management-setup"></a>Installation de la gestion des modèles
 
@@ -91,7 +91,7 @@ Dans un premier temps, vous devez configurer votre environnement de déploiement
 
 Pendant la configuration de l’environnement :
 - Vous êtes invité à vous connecter à Azure. Pour vous connecter, utilisez un navigateur web pour ouvrir la page https://aka.ms/devicelogin et entrez le code fourni pour vous authentifier.
-- Pendant le processus d’authentification, vous êtes invité à spécifier le compte avec lequel vous authentifier. Important : choisissez un compte qui est associé à un abonnement Azure valide et qui dispose d’autorisations suffisantes pour créer des ressources dans le compte. Une fois la connexion établie, vos informations d’abonnement sont présentées et vous êtes invité à confirmer si vous souhaitez continuer avec le compte sélectionné.
+- Pendant le processus d’authentification, vous êtes invité à spécifier le compte avec lequel vous authentifier. Important : choisissez un compte qui est associé à un abonnement Azure valide et qui dispose d’autorisations suffisantes pour créer des ressources dans le compte. Une fois la connexion établie, vos informations d’abonnement sont présentées et vous êtes invité à confirmer si vous souhaitez continuer avec le compte sélectionné.
 
 ### <a name="environment-setup"></a>Configuration de l’environnement
 Pour lancer le processus de configuration, vous devez inscrire le fournisseur d’environnement en entrant la commande suivante :

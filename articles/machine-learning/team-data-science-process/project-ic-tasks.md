@@ -1,5 +1,5 @@
 ---
-title: Tâches TDSP (Team Data Science Process) pour un contributeur individuel - Azure | Microsoft Docs
+title: Tâches pour un contributeur individuel dans TDSP (Team Data Science Process)
 description: Vue d’ensemble des tâches d’un contributeur individuel sur un projet de science des données en équipe.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: d8e51dcf8434508664801f53391592aab34d7e4a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447059"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136759"
 ---
-# <a name="individual-contributor-tasks"></a>Tâches du contributeur individuel
+# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tâches pour un contributeur individuel dans TDSP (Team Data Science Process)
 
 Cette rubrique dresse la liste des tâches dont un contributeur individuel doit s’acquitter pour son équipe de science des données. L’objectif est d’établir un environnement d’équipe collaborative standard conforme à [TDSP](overview.md) (Team Data Science Process). Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
@@ -37,15 +37,15 @@ Pour obtenir des instructions sur la façon d’exécuter un projet de science d
 
 Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. Cela facilite le suivi des opérations entre les dépôts et les répertoires. Cette notation (**R** pour les dépôts Git et **D** pour les répertoires locaux sur votre instance DSVM) est employée dans les sections suivantes :
 
-- **R2** : le dépôt GroupUtilities sur Git que votre responsable de groupe a configuré sur votre serveur de groupe Azure DevOps.
-- **R4** : le dépôt TeamUtilities sur Git que votre responsable d’équipe a configuré.
+- **R2** : le dépôt GroupUtilities sur Git que votre responsable de groupe a configuré sur votre serveur de groupe Azure DevOps.
+- **R4** : le dépôt TeamUtilities sur Git que votre responsable d’équipe a configuré.
 - **R5** : le dépôt du projet sur Git qui a été configuré par votre coordinateur de projet.
-- **D2** : le répertoire local cloné à partir de R2.
-- **D4** : le répertoire local cloné à partir de R4.
-- **D5** : le répertoire local cloné à partir de R5.
+- **D2** : répertoire local cloné à partir de R2.
+- **D4** : répertoire local cloné à partir de R4.
+- **D5** : répertoire local cloné à partir de R5.
 
 
-## <a name="step-0-prerequisites"></a>Étape 0 : Prérequis
+## <a name="step-0-prerequisites"></a>Étape 0 : Prérequis
 
 Pour satisfaire aux prérequis, les tâches attribuées à votre responsable de groupe et décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md) doivent être effectuées. En résumé, avant de commencer les tâches du responsable d’équipe, les conditions suivantes doivent être remplies : 
 - Votre responsable de groupe a configuré le dépôt **GroupUtilities** (le cas échéant). 
@@ -60,7 +60,7 @@ Le deuxième prérequis, le dépôt **TeamUtilities**, est facultatif selon que 
 - Si vous utilisez **Linux DSVM**, créez une clé publique SSH sur votre DSVM, et ajoutez-la aux Azure DevOps Services de votre groupe. Pour plus d’informations sur SSH, consultez la section **Créer une clé publique SSH** de l’[annexe Plateformes et outils](platforms-and-tools.md#appendix). 
 - Si le responsable d’équipe ou le coordinateur de projet a créé un stockage de fichiers Azure à monter sur votre image DSVM, vous devez vous procurer des informations sur ce stockage auprès de cette personne. 
 
-## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Étapes 1-3 : Cloner des dépôts de groupe, d’équipe et de projet sur une machine locale
+## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Étapes 1-3 : Cloner des dépôts de groupe, d’équipe et de projet sur une machine locale
 
 Cette section fournit des instructions sur l’exécution des trois premières tâches asignées aux contributeurs individuels de projet : 
 
@@ -96,7 +96,7 @@ Vérifiez la présence des trois dossiers sous votre répertoire de projet.
 
 ![5.](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
-## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Étapes 4-5 : Monter un stockage de fichiers Azure sur votre instance DSVM (facultatif)
+## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Étapes 4-5 : Monter un stockage de fichiers Azure sur votre instance DSVM (facultatif)
 
 Pour monter un stockage de fichiers Azure sur votre image DSVM, consultez les instructions détaillées à la section 4 de [Tâches du responsable d’une équipe de science des données](team-lead-tasks.md).
 

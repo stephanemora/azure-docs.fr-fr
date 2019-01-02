@@ -1,6 +1,6 @@
 ---
 title: Chiffrement - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
-description: mesures de correction des menaces exposées dans l’outil de modélisation des menaces
+description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
 services: security
 documentationcenter: na
 author: jegeib
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306143"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844649"
 ---
-# <a name="security-frame-cryptography--mitigations"></a>Infrastructure de sécurité : Chiffrement | Mesures de correction 
+# <a name="security-frame-cryptography--mitigations"></a>Infrastructure de sécurité : chiffrement | Atténuation des risques 
 | Produit/Service | Article |
 | --------------- | ------- |
 | **Application Web** | <ul><li>[Utiliser uniquement les longueurs de clé et les chiffrements par bloc symétriques approuvés](#cipher-length)</li><li>[Utiliser les modes de chiffrement par bloc et les vecteurs d’initialisation pour les chiffrements symétriques approuvés](#vector-ciphers)</li><li>[Utiliser les algorithmes asymétriques, les longueurs de clé et le remplissage approuvés](#padding)</li><li>[Utiliser les générateurs de nombres aléatoires approuvés](#numgen)</li><li>[Ne pas utiliser les chiffrements de flux symétriques](#stream-ciphers)</li><li>[Utiliser les algorithmes de hachage MAC/HMAC/indexé approuvés](#mac-hash)</li><li>[Utiliser uniquement les fonctions de hachage de chiffrement approuvées](#hash-functions)</li></ul> |
@@ -140,7 +140,7 @@ ms.locfileid: "43306143"
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [ADD SIGNATURE (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
-| **Étapes** | Dans les cas où l’intégrité d’un élément sécurisable de base de données critique doit être vérifiée, les signatures numériques doivent être utilisées. Les éléments sécurisables de base de données tels qu’une procédure stockée, une fonction, un assembly ou un déclencheur sont signés numériquement. Vous trouverez ci-dessous un exemple pour lequel cela peut être utile : supposons qu’un éditeur de logiciels indépendant a fourni la prise en charge pour un logiciel fourni à l’un de ses clients. Avant de fournir la prise en charge, l’éditeur de logiciels indépendant souhaitera garantir qu’un élément sécurisable de base de données inclus dans le logiciel n’a pas été falsifié par inadvertance ou par une tentative malveillante. Si l’élément sécurisable est signé numériquement, l’éditeur de logiciels indépendant peut vérifier sa signature numérique et valider son intégrité.| 
+| **Étapes** | Dans les cas où l’intégrité d’un élément sécurisable de base de données critique doit être vérifiée, les signatures numériques doivent être utilisées. Les éléments sécurisables de base de données tels qu’une procédure stockée, une fonction, un assembly ou un déclencheur sont signés numériquement. Vous trouverez ci-dessous un exemple pour lequel cela peut être utile : supposons qu’un éditeur de logiciels indépendant a fourni la prise en charge pour un logiciel fourni à l’un de ses clients. Avant de fournir la prise en charge, l’éditeur de logiciels indépendant souhaitera garantir qu’un élément sécurisable de base de données inclus dans le logiciel n’a pas été falsifié par inadvertance ou par une tentative malveillante. Si l’élément sécurisable est signé numériquement, l’éditeur de logiciels indépendant peut vérifier sa signature numérique et valider son intégrité.| 
 
 ## <a id="ekm-keys"></a>Utiliser EKM SQL Server pour protéger les clés de chiffrement
 
@@ -172,8 +172,8 @@ ms.locfileid: "43306143"
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Système d’exploitation d’appareil - Windows IoT Standard, connectivité des appareils - Azure IoT device SDK |
-| **Informations de référence**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm) (Module de plateforme sécurisée sur Windows IoT Standard), [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm) (Module de plateforme sécurisée sur Windows IoT Standard), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) (Module de plateforme sécurisée Azure IoT Device SDK) |
-| **Étapes** | Clés privées de certificat ou symétriques dans un stockage matériel protégé tel qu’un module de plateforme sécurisée ou des cartes à puce. Windows 10 IoT Standard prend en charge l’utilisateur d’un module de plateforme sécurisée, dont plusieurs types compatibles peuvent être utilisés : https://developer.microsoft.com/windows/iot/win10/tpm. Il est recommandé d’utiliser un module de plateforme sécurisée de type discret ou micrologiciel. Un module de plateforme sécurisée de type logiciel doit uniquement être utilisé à des fins de développement et de test. Une fois qu’un module de plateforme sécurisée est disponible et que les clés sont approvisionnées dans celui-ci, le code qui génère le jeton doit être écrit sans coder en dur les informations sensibles qu’il contient. | 
+| **Informations de référence**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm) (Module de plateforme sécurisée sur Windows IoT Standard), [TPM on Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm) (Module de plateforme sécurisée sur Windows IoT Standard), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) (Module de plateforme sécurisée Azure IoT Device SDK) |
+| **Étapes** | Clés privées de certificat ou symétriques dans un stockage matériel protégé tel qu’un module de plateforme sécurisée ou des cartes à puce. Windows 10 IoT Standard prend en charge l’utilisateur d’un module de plateforme sécurisée, dont plusieurs types compatibles peuvent être utilisés : https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. Il est recommandé d’utiliser un module de plateforme sécurisée de type discret ou micrologiciel. Un module de plateforme sécurisée de type logiciel doit uniquement être utilisé à des fins de développement et de test. Une fois qu’un module de plateforme sécurisée est disponible et que les clés sont approvisionnées dans celui-ci, le code qui génère le jeton doit être écrit sans coder en dur les informations sensibles qu’il contient. | 
 
 ### <a name="example"></a>Exemples
 ```

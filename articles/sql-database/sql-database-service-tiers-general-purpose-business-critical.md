@@ -11,15 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 11/30/2018
+ms.openlocfilehash: 7de4415dd332254c595b6687dfb9d8db01c42362
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351740"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871708"
 ---
-# <a name="general-purpose-and-business-critical-service-tiers"></a>Niveaux de service Usage général et Critique pour l’entreprise
+# <a name="azure-sql-database-service-tiers"></a>Niveaux de service Azure SQL Database
+
+Azure SQL Database est basé sur une architecture de moteur de base de données SQL Server. Celle-ci est ajustée pour l’environnement cloud afin de garantir une disponibilité de 99,99 % même en cas de panne d’infrastructure. Trois modèles d’architecture sont utilisés dans Azure SQL Database :
+- [Usage général](sql-database-service-tier-general-purpose.md), conçu pour la plupart des charges de travail génériques.
+- [Critique pour l’entreprise](sql-database-service-tier-business-critical.md), conçu pour les charges de travail à faible latence avec un seul réplica lisible.
+- [Hyperscale](sql-database-service-tier-hyperscale.md), conçu pour les bases de données très volumineuses (jusqu’à 100 To) avec plusieurs réplicas lisibles.
 
 Cet article décrit les considérations relatives au stockage et à la sauvegarde pour les niveaux de service Usage général et Critique pour l’entreprise dans le modèle d’achat basé sur le nombre de cœurs virtuels.
 
@@ -37,8 +42,8 @@ Tenez compte des éléments suivants :
 - Vous pouvez choisir n’importe quelle taille de base de données unique située entre 10 Go et la taille maximale prise en charge.
   - Pour le stockage Standard, augmentez ou diminuez la taille par incréments de 10 Go
   - Pour le stockage Premium, augmentez ou diminuez la taille par incréments de 250 Go
-- Dans le niveau de service Usage général, `tempdb` utilise un disque SSD attaché et le coût de ce stockage est inclus dans le prix du cœur virtuel.
-- Dans le niveau de service Critique pour l’entreprise, `tempdb` partage le disque SSD attaché avec les fichiers MDF et LDF, et le coût du stockage tempDB est inclus dans le prix du cœur virtuel.
+- Dans le niveau de service Usage général, `tempdb` utilise un disque SSD attaché et le coût de ce stockage est inclus dans le prix du modèle vCore.
+- Dans le niveau de service Critique pour l’entreprise, `tempdb` partage le disque SSD attaché avec les fichiers MDF et LDF, et le coût du stockage tempDB est inclus dans le prix du modèle vCore.
 
 > [!IMPORTANT]
 > Le stockage total alloué aux fichiers MDF et LDF vous est facturé.

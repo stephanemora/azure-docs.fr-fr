@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services : Dépannage de la configuration du groupe de sécurité réseau | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Résolution des problèmes de configuration du groupe de sécurité réseau | Microsoft Docs'
 description: Dépannage de la configuration du groupe de sécurité réseau pour les services de domaine Azure AD
 services: active-directory-ds
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: bca92e933b1f75c330999f0d55723eb9f26a7382
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6e7d025e9e83f5511fce25d0c24e4da3b04d7e54
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426080"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957536"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Résoudre les problèmes de configuration de mise en réseau non valide pour votre domaine géré
 Cet article vous aide à dépanner et résoudre les erreurs liées à la configuration réseau qui produisent le message d’alerte suivant :
 
-## <a name="alert-aadds104-network-error"></a>Alerte AADDS104 : Erreur réseau
-**Message d’alerte :** *Microsoft ne peut pas atteindre les contrôleurs de domaine pour ce domaine géré. Cela peut se produire si un groupe de sécurité réseau (NSG) configuré sur votre réseau virtuel bloque l’accès à un domaine géré. Une autre raison possible est s’il existe un itinéraire défini par l’utilisateur qui bloque le trafic entrant à partir d’Internet.*
+## <a name="alert-aadds104-network-error"></a>Alerte AADDS104 : Erreur réseau
+**Message d'alerte :** *Microsoft ne peut pas atteindre les contrôleurs de domaine pour ce domaine géré. Cela peut se produire si un groupe de sécurité réseau (NSG) configuré sur votre réseau virtuel bloque l’accès à un domaine géré. Une autre raison possible est s’il existe un itinéraire défini par l’utilisateur qui bloque le trafic entrant à partir d’Internet.*
 
 Les configurations de groupe de sécurité réseau non valides sont la cause la plus courante d’erreurs réseau pour Azure AD Domain Services. Le groupe de sécurité réseau (NSG) configuré pour votre réseau virtuel doit autoriser l’accès à des [ports spécifiques](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Si ces ports sont bloqués, Microsoft ne peut pas analyser ou mettre à jour votre domaine géré. En outre, la synchronisation entre votre répertoire Azure AD et votre domaine géré est interrompue. Lors de la création de votre groupe de sécurité réseau, gardez ces ports ouverts pour éviter les interruptions de service.
 
@@ -41,7 +41,7 @@ Les configurations de groupe de sécurité réseau non valides sont la cause la 
 ## <a name="sample-nsg"></a>Exemple de groupe de sécurité réseau
 Le tableau suivant illustre un exemple de groupe de sécurité réseau qui sécuriserait votre domaine géré tout en permettant à Microsoft de surveiller, gérer et mettre à jour ses informations.
 
-![exemple de groupe de sécurité réseau](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![exemple de groupe de sécurité réseau](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 >[!NOTE]
 > Les services de domaine Azure AD nécessitent un accès sortant non restreint depuis le réseau virtuel. Nous recommandons de ne pas créer de règle de groupe de sécurité réseau supplémentaire pouvant restreindre l’accès sortant pour le réseau virtuel.

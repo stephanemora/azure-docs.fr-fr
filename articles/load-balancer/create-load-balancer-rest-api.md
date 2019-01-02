@@ -1,5 +1,6 @@
 ---
-title: Créer un équilibreur de charge Azure à l’aide de l’API REST | Microsoft Docs
+title: Créer un équilibreur de charge Azure Load Balancer à l’aide de l’API REST
+titlesuffix: Azure Load Balancer
 description: Découvrez comment créer un équilibreur de charge Azure à l’aide de l’API REST.
 services: load-balancer
 documentationcenter: na
@@ -7,20 +8,21 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
-ms.openlocfilehash: 2f5d3584a429ce35e6905b14bb412c3782fb0185
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416917"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079719"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Créer un équilibreur de charge Azure de base à l’aide de l’API REST
 
-Un équilibreur de charge Azure distribue les nouveaux flux entrants qui arrivent sur son frontend vers des instances de pool backend en fonction de règles et de sondes d’intégrité. L’équilibreur de charge se décline en deux références SKU : De base et Standard. Pour comprendre la différence entre les deux versions (SKU), voir [Comparaisons des SKU d’équilibreur de charge](load-balancer-overview.md#skus).
+Un équilibreur de charge Azure distribue les nouveaux flux entrants qui arrivent sur son frontend vers des instances de pool backend en fonction de règles et de sondes d’intégrité. L’équilibreur de charge se décline en deux références SKU : De base et Standard. Pour comprendre la différence entre les deux versions (SKU), voir [Comparaisons des SKU d’équilibreur de charge](load-balancer-overview.md#skus).
  
 Cette procédure montre comment créer un équilibreur de charge Azure de base à l’aide l’[API REST Azure](/rest/api/azure/) pour contribuer à équilibrer la charge d’une requête entrante sur plusieurs machines virtuelles d’un réseau virtuel Azure. Une documentation de référence complète et d’autres exemples sont disponibles dans la [Référence REST des équilibreurs de charge Azure](/rest/api/load-balancer/).
  

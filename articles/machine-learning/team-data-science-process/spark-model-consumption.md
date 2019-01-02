@@ -1,5 +1,5 @@
 ---
-title: Faire fonctionner les modèles Machine Learning créés avec Spark | Microsoft Docs
+title: Opérationnaliser les modèles Machine Learning créés avec Spark– Processus TDSP (Team Data Science Process)
 description: Comment charger et noter les modèles d’apprentissage stockés dans Azure Blob Storage (WASB) avec Python.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 6ffe1dd960b6fd09539d093d8a632efc99452c00
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 543ae7cecf9edcb5997a0bae66e0722d258a4523
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442487"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135303"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Faire fonctionner les modèles Machine Learning créés avec Spark
 
@@ -120,7 +120,7 @@ Pour plus d’informations sur les noyaux pour blocs-notes Jupyter et sur les «
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Recevoir les données et créer une trame de données nettoyée
 Cette section contient le code d’une série de tâches nécessaires à la réception de l’échantillon de données à modéliser. Lire un échantillon de 0,1 % du fichier contenant les trajets et prix de taxi (stocké dans un fichier TSV), formater les données et créer une trame de données propre.
 
-Les fichiers de trajet et de prix de taxi ont été joints dans la procédure décrite dans la rubrique [Processus TDSP (Team Data Science Process) en action : Utilisation de clusters HDInsight Hadoop](hive-walkthrough.md) .
+Les fichiers relatifs aux courses en taxi et aux tarifs ont été joints conformément à la procédure décrite à la rubrique : [Processus TDSP (Team Data Science Process) en action : utilisation de clusters Hadoop HDInsight](hive-walkthrough.md).
 
     # INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -524,7 +524,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Utiliser les modèles Spark via une interface web
-Spark fournit un mécanisme permettant de soumettre à distance des travaux par lots ou des requêtes interactives via une interface REST dotée d’un composant appelé Livy. Par défaut, Livy est activé sur votre cluster HDInsight Spark. Pour plus d’informations sur Livy, consultez [Envoi de travaux Spark à distance en utilisant Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
+Spark fournit un mécanisme permettant de soumettre à distance des travaux par lots ou des requêtes interactives via une interface REST dotée d’un composant appelé Livy. Par défaut, Livy est activé sur votre cluster HDInsight Spark. Pour plus d'informations sur Livy, consultez la page [Envoi de travaux Spark à distance à l’aide de Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Vous pouvez utiliser Livy pour envoyer à distance un travail qui note un fichier stocké dans un objet blob Azure, puis consigne les résultats dans un autre objet blob. Pour ce faire, téléchargez le script Python à partir de   
 [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) dans l’objet blob du cluster Spark. Vous pouvez utiliser un outil tel que l’**Explorateur de stockage Microsoft Azure** ou **AzCopy** pour copier le script dans l’objet blob de cluster. Dans le cas présent, nous avons chargé le script ***wasb:///example/python/ConsumeGBNYCReg.py***.   
@@ -587,5 +587,5 @@ Si vous préférez vous passer de code, utilisez [Azure Logic Apps](https://azur
 ![Concepteur Logic Apps](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>Et ensuite ?
-**Validation croisée et balayage hyperparamétrique**: consultez [Exploration et modélisation avancées des données avec Spark](spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique.
+**Validation croisée et balayage hyperparamétrique** : consultez la page [Exploration et modélisation avancées des données avec Spark](spark-advanced-data-exploration-modeling.md) pour savoir comment entraîner les modèles à l’aide de la validation croisée et du balayage hyperparamétrique.
 

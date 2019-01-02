@@ -3,7 +3,7 @@ title: Effectuer une mise à niveau vers la dernière version de la bibliothèqu
 description: Utilisez NuGet pour mettre à niveau la bibliothèque cliente de bases de données élastiques.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 9fb29b18397be83f5dc56464b3366d91c47f43b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e54a2cf40bb03ef573348f276b4c24e20965009f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160789"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866135"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Mettre à niveau une application pour utiliser la dernière version de la bibliothèque cliente de bases de données élastiques
 Les nouvelles versions de la [bibliothèque cliente de bases de données élastiques](sql-database-elastic-database-client-library.md) sont disponibles via NuGet et l’interface du Gestionnaire de package NuGet dans Visual Studio. Les mises à niveau contiennent des résolutions de bogues et offrent une prise en charge des nouvelles fonctionnalités de la bibliothèque cliente.
 
-**Pour la version la plus récente :** accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+**Pour vous procurer la version la plus récente :** accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 Regénérez votre application avec la nouvelle bibliothèque et modifiez les métadonnées du gestionnaire de cartes de partitions qui sont stockées dans vos bases de données SQL Azure pour qu’elles prennent en charge les nouvelles fonctionnalités.
 
@@ -43,7 +43,7 @@ Effectuez ces étapes afin de garantir que plus aucune version antérieure de la
 
 **4. Mettez à niveau vos bases de données du Gestionnaire de cartes de partitions**. Mettez à niveau les métadonnées de prise en charge de vos cartes de partitions dans Azure SQL Database.  Vous pouvez effectuer cette opération avec PowerShell ou C#. Ces deux options sont expliquées ci-dessous.
 
-***Option 1 : mise à niveau des métadonnées à l’aide de PowerShell***
+***Option 1 : mise à niveau des métadonnées en utilisant PowerShell***
 
 1. Téléchargez [ici](http://nuget.org/nuget.exe) la dernière version de l’utilitaire de ligne de commande de NuGet et enregistrez-la dans un dossier. 
 2. Ouvrez une invite de commandes, accédez au dossier choisi et exécutez cette commande : `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
@@ -51,7 +51,7 @@ Effectuez ces étapes afin de garantir que plus aucune version antérieure de la
 4. Téléchargez le scriptlet de la mise à niveau du client de la base de données élastique à partir du [centre de scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)et enregistrez-le dans le dossier contenant la DLL.
 5. Dans ce dossier, exécutez « PowerShell .\upgrade.ps1 » à partir de l’invite de commandes et suivez les invites.
 
-***Option 2 : mise à niveau des métadonnées à l’aide de C#***
+***Option 2 : mise à niveau des métadonnées en utilisant C#***
 
 Une autre solution consiste à créer une application Visual Studio qui ouvre votre gestionnaire de mappages de partitions, effectue une itération sur toutes les partitions, et met à niveau les métadonnées en appelant les méthodes [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) et [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx). Voici un exemple : 
 
@@ -68,7 +68,7 @@ Une autre solution consiste à créer une application Visual Studio qui ouvre vo
 
 Ces méthodes de mise à niveau des métadonnées peuvent être appliquées plusieurs fois sans risque. Par exemple, si une version antérieure du client crée une partition à tort après la mise à jour, vous pouvez effectuer une nouvelle mise à niveau des métadonnées de toutes les partitions pour vous assurer que votre infrastructure contient bien la dernière version des métadonnées. 
 
-**Remarque :** les nouvelles versions de la bibliothèque cliente publiées à ce jour continuent de fonctionner avec les versions antérieures des métadonnées du Gestionnaire de mappages de partitions sur Azure SQL DB et inversement.   Toutefois, pour tirer parti de certaines nouvelles fonctionnalités de la dernière version client, les métadonnées doivent être mises à niveau.   Notez que les mises à niveau des métadonnées n’affectent pas les données utilisateur ou les données spécifiques à l’application, mais uniquement les objets créés et utilisés par le Gestionnaire de mappages de partitions.  Et les applications continuent de fonctionner à travers la séquence de mise à niveau décrite ci-dessus. 
+**Remarque :**  les nouvelles versions de la bibliothèque cliente publiées à ce jour continuent de fonctionner avec les versions antérieures des métadonnées du Gestionnaire de cartes de partitions sur Azure SQL DB et inversement.   Toutefois, pour tirer parti de certaines nouvelles fonctionnalités de la dernière version client, les métadonnées doivent être mises à niveau.   Notez que les mises à niveau des métadonnées n’affectent pas les données utilisateur ou les données spécifiques à l’application, mais uniquement les objets créés et utilisés par le Gestionnaire de mappages de partitions.  Et les applications continuent de fonctionner à travers la séquence de mise à niveau décrite ci-dessus. 
 
 ## <a name="elastic-database-client-version-history"></a>Historique des versions du client des bases de données élastiques
 Pour l’historique des versions, accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)

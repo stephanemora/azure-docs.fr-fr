@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec Azure Active Directory Domain Services | Microsoft Docs
+title: 'Azure Active Directory Domain Services : Prise en main | Microsoft Docs'
 description: Activer Azure Active Directory Domain Services à l’aide du portail Azure
 services: active-directory-ds
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ec51ba28c81e2aa2dbfe2a3dc55d9940c74ff673
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446856"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959850"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 
-
 ## <a name="task-3-configure-administrative-group"></a>Tâche 3 : configurer le groupe d’administration
+
 Dans cette tâche de configuration, vous allez créer un groupe d’administration dans votre répertoire Azure AD. Ce groupe d’administration spécial est appelé *AAD DC Administrators*. Les membres de ce groupe bénéficient d’autorisations d’administration sur les machines jointes au domaine managé. Sur les ordinateurs joints au domaine, ce groupe est ajouté au groupe « Administrateurs ». En outre, les membres de ce groupe sont également autorisés à utiliser le Bureau à distance pour se connecter à distance aux ordinateurs joints au domaine.
 
 > [!NOTE]
@@ -49,14 +49,14 @@ Azure AD Domain Services permet une synchronisation complète de tous les utilis
 ### <a name="full-synchronization"></a>Synchronisation complète
 
 1. Pour une synchronisation complète, cliquez sur « OK » en bas de l’écran, car cette option est déjà sélectionnée.
-    ![Synchronisation complète](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+    ![Synchronisation complète](./media/active-directory-domain-services-admin-guide/create-sync-all.PNG)
 
 ### <a name="scoped-synchronization"></a>Synchronisation étendue
 
 1. Activez/désactivez le bouton de synchronisation sur « Étendue » et une page Sélectionner les groupes s’affiche. À partir de là, vous pouvez voir quels groupes sont déjà sélectionnés pour être synchronisés avec votre domaine managé.
-    ![Synchronisation étendue](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+    ![Synchronisation étendue](media/active-directory-domain-services-admin-guide/create-sync-scoped.PNG)
 2. Cliquez sur **Sélectionner les groupes** dans la barre de navigation supérieure. À ce stade, un sélecteur de groupe s’affiche sur le côté. Utilisez-le pour sélectionner les groupes supplémentaires à synchroniser avec Azure AD Domain Services. Lorsque vous avez terminé, cliquez sur **Sélectionner** pour fermer le sélecteur de groupe et ajouter ces groupes à la liste sélectionnée.
-    ![Synchronisation étendue - Sélectionner les groupes](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+    ![Synchronisation étendue - Sélectionner les groupes](media/active-directory-domain-services-admin-guide/create-sync-scoped-groupselect.PNG)
 3. Cliquez sur **OK** pour accéder à la page de résumé.
 
 ## <a name="deploy-your-managed-domain"></a>Déployer votre domaine managé
@@ -69,8 +69,8 @@ Azure AD Domain Services permet une synchronisation complète de tous les utilis
 
     ![Notification - Déploiement en cours](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
-
 ## <a name="check-the-deployment-status-of-your-managed-domain"></a>Vérifier l’état du déploiement de votre domaine géré
+
 Le processus d’approvisionnement de votre domaine managé peut prendre jusqu’à une heure.
 
 1. Pendant que votre déploiement est en cours, vous pouvez rechercher « Domain Services » dans la zone de recherche **Rechercher des ressources**. Sélectionnez **Azure AD Domain Services** dans les résultats de la recherche. Le panneau **Azure AD Domain Services** affiche le domaine managé en cours d’approvisionnement.
@@ -96,10 +96,10 @@ Le processus d’approvisionnement de votre domaine managé peut prendre jusqu�
 
     ![Domain Services - Onglet Propriétés après un approvisionnement complet](./media/getting-started/domain-services-provisioned-properties.png)
 
-
 ## <a name="need-help"></a>Vous avez besoin d’aide ?
+
 L’approvisionnement de votre domaine géré peut prendre une ou deux heures pour chaque contrôleur de domaine. Si votre déploiement a échoué ou est bloqué à l’état « En attente » pendant plusieurs heures, n’hésitez pas à [contactez l’équipe de produit pour obtenir de l’aide](active-directory-ds-contact-us.md).
 
-
 ## <a name="next-step"></a>Étape suivante
+
 [Tâche 4 : Mettre à jour les paramètres DNS pour le réseau virtuel Azure](active-directory-ds-getting-started-dns.md)

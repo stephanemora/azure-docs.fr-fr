@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/06/2018
+ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bed053f812cc5c14e6cfe76b8a08b1ffe0cadcb3
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 05e0ae8f19e9609bd1ddd05082ead025058f92c1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289119"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966005"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -58,14 +58,14 @@ Ce document aborde l’exécution des systèmes SGBD de type SAP sur les machine
 ## <a name="definitions-upfront"></a>Préambule : définitions
 Les termes suivants sont utilisés dans le document :
 
-* IaaS : Infrastructure as a Service.
-* PaaS : Platform as a Service.
-* SaaS : Software as a Service.
-* Composant SAP : application SAP individuelle telle que ECC, BW, Solution Manager ou EP.  Les composants SAP peuvent être basés sur des technologies ABAP ou Java traditionnelles ou une application non basée sur NetWeaver telle que Business Objects.
+* IaaS : Infrastructure as a Service.
+* PaaS : Platform as a Service.
+* SaaS : Software as a Service.
+* Composant SAP : application SAP individuelle telle que ECC, BW, Solution Manager ou EP.  Les composants SAP peuvent être basés sur des technologies ABAP ou Java traditionnelles ou une application non basée sur NetWeaver telle que Business Objects.
 * Environnement SAP : un ou plusieurs composants SAP regroupés de manière logique pour exécuter une fonction métier telle que le développement, l’assurance qualité, la formation, la récupération d’urgence ou la production.
-* Paysage SAP : ce terme fait référence à l’ensemble des ressources SAP dans le paysage informatique d’un client. Le paysage SAP comprend tous les environnements de production et les autres types d’environnements.
-* Système SAP : ensemble couche SGBD/couche Application, tel que celui d’un système de développement SAP ERP, d’un système de test SAP BW, d’un système de production SAP CRM, etc. Dans les déploiements Azure, il n’est pas possible de répartir ces deux couches entre des sites locaux et Azure. Par conséquent, un système SAP est déployé localement ou dans Azure. Vous pouvez toutefois déployer les différents systèmes d’un paysage SAP dans Azure ou en local. Par exemple, vous pouvez déployer les systèmes de test et de développement SAP CRM dans Azure et le système de production SAP CRM en local.
-* Déploiement entre différents locaux : décrit un scénario dans lequel les machines virtuelles sont déployées dans un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les différents centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites. La connexion a pour but d’étendre les domaines locaux, les instances locales d’Active Directory et le serveur DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services (SGBD, par exemple) sur ces machines virtuelles. La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure est possible. Ce scénario est le plus souvent utilisé pour le déploiement de ressources SAP sur Azure. Pour plus d’informations, consultez [Planification et conception de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
+* Paysage SAP : ce terme fait référence à l’ensemble des ressources SAP dans le paysage informatique d’un client. Le paysage SAP comprend tous les environnements de production et les autres types d’environnements.
+* Système SAP : ensemble couche SGBD/couche Application, tel que celui d’un système de développement SAP ERP, d’un système de test SAP BW, d’un système de production SAP CRM, etc. Dans les déploiements Azure, il n’est pas possible de répartir ces deux couches entre des sites locaux et Azure. Par conséquent, un système SAP est déployé localement ou dans Azure. Vous pouvez toutefois déployer les différents systèmes d’un paysage SAP dans Azure ou en local. Par exemple, vous pouvez déployer les systèmes de test et de développement SAP CRM dans Azure et le système de production SAP CRM en local.
+* Intersite : décrit un scénario dans lequel les machines virtuelles sont déployées sur un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites. La connexion a pour but d’étendre les domaines locaux, les instances locales d’Active Directory et le serveur DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services (SGBD, par exemple) sur ces machines virtuelles. La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure est possible. Ce scénario est le plus souvent utilisé pour le déploiement de ressources SAP sur Azure. Pour plus d’informations, consultez [Planification et conception de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 > [!NOTE]
 > Les déploiements intersites de systèmes SAP dans lesquels des machines virtuelles Azure exécutant des systèmes SAP font partie d’un domaine local sont pris en charge pour les systèmes SAP de production. Les configurations entre différents locaux sont prises en charge pour le déploiement d’éléments ou de l’intégralité des paysages SAP dans Azure. Ces machines virtuelles doivent faire partie du domaine et des services Active Directory/LDAP locaux même lorsque l’intégralité du paysage SAP est exécutée dans Azure. Dans les versions précédentes de la documentation, nous avons parlé des scénarios hybrides, où le terme *hybride* tient au fait qu’il existe une connectivité intersite entre les sites locaux et Azure. Dans ce cas, *hybride* signifie également que les machines virtuelles dans Azure font partie du répertoire Active Directory local.
@@ -81,17 +81,17 @@ Les notes SAP suivantes sont en lien avec SAP sur Azure quant au domaine traité
 
 | Numéro de la note | Intitulé |
 | --- | --- |
-| [1928533] |Applications SAP sur Azure : produits et types de machines virtuelles pris en charge |
-| [2015553] |SAP sur Microsoft Azure : configuration requise |
+| [1928533] |Applications SAP sur Azure : produits et types de machines virtuelles Azure pris en charge |
+| [2015553] |SAP sur Microsoft Azure : prérequis pour le support |
 | [1999351] |Résolution des problèmes de surveillance Azure améliorée pour SAP |
 | [2178632] |Métriques de surveillance clés pour SAP sur Microsoft Azure |
-| [1409604] |Virtualisation sur Windows : surveillance améliorée |
-| [2191498] |SAP sur Linux avec Azure : surveillance améliorée |
-| [2039619] |Exécution d’applications SAP sur Microsoft Azure à l’aide d’Oracle Database : produits et versions pris en charge |
-| [2233094] |DB6 : Exécution d’applications SAP sur Azure à l’aide d’IBM DB2 pour Linux, UNIX et Windows - Informations supplémentaires |
-| [2243692] |Linux sur Microsoft Azure Virtual Machines (IaaS) : problèmes de licence SAP |
-| [1984787] |SUSE LINUX Enterprise Server 12 : Notes d’installation |
-| [2002167] |Red Hat Enterprise Linux 7.x : Installation et mise à niveau |
+| [1409604] |Virtualisation sur Windows : supervision améliorée |
+| [2191498] |SAP sur Linux avec Azure : supervision améliorée |
+| [2039619] |Applications SAP sur Microsoft Azure à l’aide d’Oracle Database produits et versions pris en charge |
+| [2233094] |DB6 : exécution d’applications SAP sur Azure à l’aide d’IBM DB2 pour Linux, UNIX et Windows - Informations supplémentaires |
+| [2243692] |Linux sur machine virtuelle Microsoft Azure (IaaS) : problèmes de licence SAP |
+| [1984787] |SUSE LINUX Enterprise Server 12 Notes d'installation |
+| [2002167] |Red Hat Enterprise Linux 7.x : installation et mise à niveau |
 | [2069760] |Installation et mise à niveau SAP pour Oracle Linux 7.x |
 | [1597355] |Recommandations relatives à l’espace d’échange pour Linux |
 | [2171857] |Oracle Database 12C - Prise en charge du système de fichiers dans Linux |
@@ -279,7 +279,11 @@ Voici plusieurs pratiques recommandées issues de centaines de déploiements cli
 
 
 > [!IMPORTANT]
-> Par manque de fonctionnalités, mais surtout pour des raisons de performances, il n’est pas prévu de configurer [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) dans le chemin d’accès de communication entre l’application SAP et la couche SGBD d’un système SAP NetWeaver, Hybris ou S/4HANA basé sur SAP. D’autres scénarios qui ne prennent pas en charge les appliances virtuelles réseau résident dans les chemins de communication entre les machines virtuelles Azure qui représentent les nœuds de cluster Linux Pacemaker et les appareils SBD comme décrit dans [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou bien, dans les chemins de communication entre les machines virtuelles Azure et les systèmes SOFS Windows Server configurés comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). Les appliances virtuelles réseau dans les chemins de communication peuvent facilement doubler la latence du réseau entre deux partenaires de communication et limiter le débit dans les chemins d’accès critiques entre la couche application SAP et la couche SGBD. Dans certains scénarios observés avec les clients, les machines virtuelles Azure peuvent provoquer des défaillances de clusters Pacemaker Linux dans les cas où les communications entre les nœuds du cluster Linux Pacemaker doivent communiquer avec leur appareil SBD via un machine virtuelle Azure.   
+> Par manque de fonctionnalités, mais surtout pour des raisons de performances, il n’est pas prévu de configurer [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) dans le chemin d’accès de communication entre l’application SAP et la couche SGBD d’un système SAP NetWeaver, Hybris ou S/4HANA basé sur SAP. La communication entre la couche application SAP et la couche SGBD doit être directe. La restriction n’inclut pas les [règles Azure ASG et NSG](https://docs.microsoft.com/azure/virtual-network/security-overview) tant que ces règles ASG et NSG permettent une communication directe. D’autres scénarios qui ne prennent pas en charge les appliances virtuelles réseau résident dans les chemins de communication entre les machines virtuelles Azure qui représentent les nœuds de cluster Linux Pacemaker et les appareils SBD comme décrit dans [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou bien, dans les chemins de communication entre les machines virtuelles Azure et les systèmes SOFS Windows Server configurés comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). Les appliances virtuelles réseau dans les chemins de communication peuvent facilement doubler la latence du réseau entre deux partenaires de communication et limiter le débit dans les chemins d’accès critiques entre la couche application SAP et la couche SGBD. Dans certains scénarios observés avec les clients, les machines virtuelles Azure peuvent provoquer des défaillances de clusters Pacemaker Linux dans les cas où les communications entre les nœuds du cluster Linux Pacemaker doivent communiquer avec leur appareil SBD via un machine virtuelle Azure.  
+> 
+
+> [!IMPORTANT]
+> Une autre conception qui n’est **pas** prise en charge est la séparation de la couche application SAP et de la couche SGBD sur des réseaux virtuels Azure distincts qui ne sont pas [appairés](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) l’un avec l’autre. Nous vous recommandons de séparer la couche application SAP et la couche SGBD à l’aide de sous-réseaux au sein d’un réseau virtuel Azure, plutôt que d’utiliser différents réseaux virtuels Azure. Si vous décidez de ne pas suivre cette recommandation et de séparer les deux couches sur des réseaux virtuels distincts, les deux réseaux virtuels doivent être [appairés](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). N’oubliez pas que le trafic réseau entre deux réseaux virtuels Azure [appairés](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) est sujet à des coûts de transfert. Le volume de données échangé entre la couche application SAP et la couche SGBD étant énorme (plusieurs téraoctets), des coûts substantiels peuvent s’accumuler si la couche application SAP et la couche SGBD sont isolées sur deux réseaux virtuels Azure appairés.  
 
 En utilisant deux machines virtuelles pour le déploiement SGBD de production au sein d’un groupe à haute disponibilité Azure et un routage distinct pour la couche Application SAP ainsi que le trafic des opérations et de gestion vers les deux machines virtuelles SGBD, le diagramme ressemblerait à ce qui suit :
 

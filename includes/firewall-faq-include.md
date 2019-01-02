@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/20/2018
+ms.date: 12/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e33871f35613fbd5cdc5bf3162855b942056807f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7e547f49ec14bdb69a85dd916ef435c3f30f6ef2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254713"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413725"
 ---
 ### <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -37,7 +37,7 @@ Vous pouvez déployer Pare-feu Azure sur n’importe quel réseau virtuel, mais 
 
 ### <a name="how-can-i-install-the-azure-firewall"></a>Comment installer Pare-feu Azure ?
 
-Vous pouvez installer Pare-feu Azure via le Portail Microsoft Azure, PowerShell, les API REST ou à l’aide de modèles. Pour obtenir des instructions pas à pas, consultez [Tutoriel : Déployer et configurer Pare-feu Azure avec le portail Azure](../articles/firewall/tutorial-firewall-deploy-portal.md).
+Vous pouvez installer Pare-feu Azure via le Portail Microsoft Azure, PowerShell, les API REST ou à l’aide de modèles. Consultez le [tutoriel : Déployer et configurer Pare-feu Azure avec le portail Azure](../articles/firewall/tutorial-firewall-deploy-portal.md) pour obtenir des instructions pas à pas.
 
 ### <a name="what-are-some-azure-firewall-concepts"></a>Quels sont les concepts de Pare-feu Azure ?
 
@@ -45,8 +45,8 @@ Pare-feu Azure prend en charge les règles et les regroupements de règles. Un r
 
 Il existe deux types de regroupement de règles :
 
-* *Règles d’application* : permettent de configurer des noms de domaine complets (FQDN) accessibles depuis un sous-réseau.
-* *Règles réseau* : permettent de configurer des règles contenant les adresses sources, les protocoles, les ports de destination et les adresses de destination.
+* *Règles d’application* : permettent de configurer des noms de domaine pleinement qualifiés (FQDN) qui sont accessibles depuis un sous-réseau.
+* *Règles de réseau* : permettent de configurer des règles contenant les adresses sources, les protocoles, les ports de destination et les adresses de destination.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Pare-feu Azure prend-il en charge le filtrage du trafic entrant ?
 
@@ -54,7 +54,7 @@ Pare-feu Azure prend en charge le filtrage du trafic entrant et sortant. La prot
 
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Quels sont les services de journalisation et d’analyse pris en charge par Pare-feu d’Azure ?
 
-Pare-feu Azure est intégré à Azure Monitor pour la consultation et l’analyse des journaux de Pare-feu. Les journaux peuvent être envoyés à Log Analytics, Stockage Azure ou Event Hubs. Ils peuvent être analysés dans Log Analytics ou par d’autres outils comme Excel et Power BI. Pour plus d’informations, consultez [Tutoriel : surveiller les journaux de Pare-feu Azure](../articles/firewall/tutorial-diagnostics.md).
+Pare-feu Azure est intégré à Azure Monitor pour la consultation et l’analyse des journaux de Pare-feu. Les journaux peuvent être envoyés à Log Analytics, Stockage Azure ou Event Hubs. Ils peuvent être analysés dans Log Analytics ou par d’autres outils comme Excel et Power BI. Pour plus d'informations, consultez le [tutoriel : Surveiller les journaux de pare-feu Azure](../articles/firewall/tutorial-diagnostics.md).
 
 ### <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>En quoi Pare-feu Azure fonctionne-t-il différemment des services existants comme les appliances virtuelles réseau sur la Place de marché ?
 
@@ -117,10 +117,14 @@ Pour connaître les limites du service Pare-feu Azure, voir [Limites, quotas et
 
 Oui, vous pouvez utiliser Pare-feu Azure dans un réseau virtuel de hub pour acheminer et filtrer le trafic entre deux réseaux virtuels spoke. Afin de fonctionner, les sous-réseaux dans chaque réseau virtuel spoke doivent disposer de routes définies par l’utilisateur pointant vers le Pare-feu Azure en tant que passerelle par défaut pour ce scénario.
 
-### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Pare-feu Azure peut-il envoyer et filtrer le trafic réseau entre des sous-réseaux dans le même réseau virtuel ?
+### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Pare-feu Azure peut-il envoyer et filtrer le trafic réseau entre des sous-réseaux d’un même réseau virtuel ou réseau virtuel appairé ?
 
 Le trafic entre sous-réseaux dans le même réseau virtuel ou dans un réseau virtuel appairé est acheminé directement, même si la route définie par l’utilisateur pointe vers le Pare-feu Azure en tant que passerelle par défaut. La méthode recommandée pour la segmentation interne d’un réseau est d’utiliser des groupes de sécurité réseau. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, la route définie par l’utilisateur doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Les groupes de ressources de pare-feu font-ils l’objet de restrictions ?
 
 Oui. Le pare-feu, le sous-réseau, le réseau virtuel et l’adresse IP publique doivent tous être dans le même groupe de ressources.
+
+### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Lorsque je configure DNAT pour le trafic réseau entrant, dois-je également configurer une règle de réseau correspondante pour autoriser ce trafic ?
+
+ Non. Les règles NAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](../articles/firewall/rule-processing.md).

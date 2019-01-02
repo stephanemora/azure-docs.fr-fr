@@ -3,7 +3,7 @@ title: Modes Transactions et Verrouillage dans les Collections fiables Azure Ser
 description: Verrouillage et transactions des collections fiables et gestionnaire d’état fiable Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,30 +13,30 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: mcoskun
-ms.openlocfilehash: 79be861a70abb0331d971b00e753691e77642637
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: a7e2bfba736e3b6cee738d5a2b5283f51f60d7c5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207364"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185391"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Modes Transactions et Verrouillage dans les Collections fiables Azure Service Fabric
 
 ## <a name="transaction"></a>Transaction
 Une transaction est une séquence d’opérations effectuées en tant qu’unité logique de travail unique.
 Une transaction doit présenter les propriétés ACID suivantes. Consultez https://technet.microsoft.com/library/ms190612).
-* **Atomicité** : une transaction doit correspondre à une unité de travail atomique. En d’autres termes, soit toutes les modifications de données sont effectuées, soit aucune n’est effectuée.
-* **Cohérence** : une fois terminée, une transaction doit laisser toutes les données dans un état cohérent. Toutes les structures de données internes doivent être correctes à la fin de la transaction.
-* **Isolation** : les modifications apportées par des transactions concurrentes doivent être isolées des modifications apportées par d’autres transactions simultanées. Le niveau d’isolation utilisé pour une opération dans une ITransaction est déterminé par le IReliableState effectuant l’opération.
-* **Durabilité** : lorsqu’une transaction est terminée, ses effets sont définitivement en place dans le système. Les modifications persistent même en cas de défaillance du système.
+* **Atomicité** : une transaction doit correspondre à une unité de travail atomique. En d’autres termes, soit toutes les modifications de données sont effectuées, soit aucune n’est effectuée.
+* **Cohérence** : une fois terminée, une transaction doit laisser toutes les données dans un état cohérent. Toutes les structures de données internes doivent être correctes à la fin de la transaction.
+* **Isolation** : les modifications apportées par des transactions concurrentes doivent être isolées des modifications apportées par d’autres transactions simultanées. Le niveau d’isolation utilisé pour une opération dans une ITransaction est déterminé par le IReliableState effectuant l’opération.
+* **Durabilité** : lorsqu’une transaction est terminée, ses effets sont définitivement en place dans le système. Les modifications persistent même en cas de défaillance du système.
 
 ### <a name="isolation-levels"></a>Niveaux d'isolement
 Le niveau d’isolement définit le degré auquel la transaction doit être isolée des modifications apportées par d’autres transactions.
 Il existe deux niveaux d'isolement pris en charge dans les Collections fiables :
 
-* **Lecture renouvelée**: spécifie que les instructions ne peuvent pas lire les données qui ont été modifiées, mais pas encore validées par d’autres transactions et qu’aucune autre transaction ne peut modifier des données qui ont été lues par la transaction actuelle avant la fin de celle-ci. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-* **Capture instantanée** : spécifie que les données lues par une instruction dans une transaction sont la version transactionnellement cohérente des données qui existaient au début de la transaction.
+* **Lecture renouvelée** : spécifie que les instructions ne peuvent pas lire les données qui ont été modifiées, mais pas encore validées par d’autres transactions et qu’aucune autre transaction ne peut modifier des données qui ont été lues par la transaction actuelle avant la fin de celle-ci. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Capture instantanée** : spécifie que les données lues par une instruction dans une transaction sont la version transactionnellement cohérente des données qui existaient au début de la transaction.
   La transaction ne peut reconnaître que les modifications de données qui ont été validées avant son démarrage.
   Les modifications de données effectuées par d'autres transactions après le début de la transaction actuelle ne sont pas visibles pour les instructions qui s’exécutent dans la transaction actuelle.
   C’est comme si les instructions d’une transaction obtenaient un instantané des données validées telles qu’elles existaient au début de la transaction.

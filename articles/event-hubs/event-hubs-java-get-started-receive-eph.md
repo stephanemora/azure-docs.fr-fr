@@ -1,20 +1,21 @@
 ---
-title: Recevoir des événements d’Azure Event Hubs avec Java | Microsoft Docs
-description: Prise en main de la réception d’événements des Event Hubs avec Java
+title: Recevoir des événements à l’aide de Java - Azure Event Hubs | Microsoft Docs
+description: Cet article décrit la procédure à suivre pour créer une application Java qui reçoit des événements d’Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e29cf43f490bf5e8bac5e5c36b16476f93d80bfa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128164"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081957"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Recevoir des événements d’Azure Event Hubs avec Java
 
@@ -44,13 +45,13 @@ Pour utiliser EventProcessorHost, vous devez disposer d’un [compte Azure Stora
 1. Connectez-vous au [Portail Azure][Azure portal], puis cliquez sur **+ Créer une ressource** à gauche de l’écran.
 2. Cliquez sur **Stockage**, puis sur **Compte de stockage**. Dans la fenêtre **Créer un compte de stockage**, saisissez un nom pour votre compte de stockage. Renseignez les autres champs, sélectionnez la région souhaitée, puis cliquez sur **Créer**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Créer un compte de stockage](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. Cliquez sur le compte de stockage que vous venez de créer, puis cliquez sur **Clés d'accès** :
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Obtenir les clés d’accès](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Copiez la valeur clé1 dans un emplacement temporaire afin de pouvoir l’utiliser ultérieurement au cours de ce didacticiel.
+    Copiez la valeur key1 dans un emplacement temporaire. Vous l’utiliserez ultérieurement dans ce tutoriel.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Créer un projet Java à l’aide de l’hôte EventProcessor
 
@@ -241,13 +242,13 @@ Pour différents types d’environnements build, vous pouvez obtenir expliciteme
     }
     ```
 
-Ce didacticiel utilise une seule instance de EventProcessorHost. Pour augmenter le débit, il est recommandé d’exécuter plusieurs instances d’EventProcessorHost, de préférence sur des machines séparées.  Cela offre également davantage de redondance. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup** . Lors de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances de EventProcessorHost basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés.
+Ce didacticiel utilise une seule instance de EventProcessorHost. Pour augmenter le débit, nous recommandons d’exécuter plusieurs instances d’EventProcessorHost, de préférence sur des machines séparées.  Cela offre également davantage de redondance. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup** . Lors de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances de EventProcessorHost basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés.
 
 ## <a name="publishing-messages-to-eventhub"></a>Publication de messages sur EventHub
 
 Avant que les messages ne soient récupérés par les consommateurs, ils doivent d’abord être publiés sur les partitions par les éditeurs. Il est important de noter que lorsque les messages sont publiés sur Event Hub de façon synchrone à l’aide de la méthode sendSync() sur l’objet com.microsoft.azure.eventhubs.EventHubClient, le message peut être envoyé à une partition spécifique ou distribué à toutes les partitions disponibles par tourniquet (round robin) selon que la clé de partition est spécifiée ou non.
 
-Lorsqu’une chaîne représentant la clé de partition est spécifiée, la clé sera hachée pour déterminer à quelle partition envoyer l’événement.
+Lorsqu’une chaîne représentant la clé de partition est spécifiée, la clé est hachée pour déterminer à quelle partition envoyer l’événement.
 
 Lorsque la clé de partition n’est pas définie, les messages sont distribués par tourniquet (round robin) à toutes les partitions disponibles
 
@@ -273,23 +274,18 @@ L’API fournit un mécanisme pour implémenter votre gestionnaire de point de c
 
 Le gestionnaire de point de contrôle par défaut utilise le stockage blob, mais si vous remplacez le gestionnaire de point de contrôle utilisé par EPH par votre propre mise en œuvre, vous pouvez utiliser n’importe quel magasin souhaité pour sauvegarder votre mise en œuvre du gestionnaire de point de contrôle.
 
-Vous devez créer une classe qui met en œuvre l’interface com.microsoft.azure.eventprocessorhost.ICheckpointManager
+Créer une classe qui met en œuvre l’interface com.microsoft.azure.eventprocessorhost.ICheckpointManager
 
 Utiliser votre mise en œuvre personnalisée du gestionnaire de point de contrôle (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-Dans votre mise en œuvre, vous pouvez remplacer le mécanisme de points de contrôle par défaut et implémenter nos propres points de contrôle en fonction de votre propre magasin de données (SQL Server, CosmosDB, Cache Redis, etc.). Il est recommandé que le magasin utilisé pour sauvegarder votre mise en œuvre du gestionnaire de point de contrôle soit accessible à toutes les instances EPH qui traitent des événements pour le groupe de consommateurs.
+Dans votre implémentation, vous pouvez remplacer le mécanisme de points de contrôle par défaut et implémenter nos propres points de contrôle en fonction de votre propre magasin de données (SQL Server, CosmosDB, Cache Azure pour Redis, etc.). Nous recommandons que le magasin utilisé pour sauvegarder votre mise en œuvre du gestionnaire de point de contrôle soit accessible à toutes les instances EPH qui traitent des événements pour le groupe de consommateurs.
 
 Vous pouvez utiliser n’importe quel magasin de données disponible dans votre environnement.
 
-La classe com.microsoft.azure.eventprocessorhost.EventProcessorHost vous fournit 2 constructeurs qui vous permettent de remplacer le gestionnaire de point de contrôle pour votre EventProcessorHost.
+La classe com.microsoft.azure.eventprocessorhost.EventProcessorHost vous fournit deux constructeurs qui vous permettent de remplacer le gestionnaire de point de contrôle pour votre EventProcessorHost.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
-
-* [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
-* [FAQ sur les hubs d’événements](event-hubs-faq.md)
+Dans ce guide de démarrage rapide, vous avez créé une application Java qui a reçu des messages d’un hub d’événements. Pour découvrir comment envoyer des événements à un hub d’événements à l’aide de Java, consultez [Envoyer des événements à un hub d’événements - Java](event-hubs-java-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

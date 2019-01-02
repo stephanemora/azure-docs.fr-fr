@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
-ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091809"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309266"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Présentation de la facturation du CDN Azure
 
@@ -34,13 +34,13 @@ Une région de facturation est une zone géographique utilisée pour déterminer
 
 - Zone 3 : Amérique du Sud
 
-- Zone 4 : Australie et Nouvelle-Zélande
+- Zone 4 : Australie et Nouvelle Zélande
 
 - Zone 5 : Inde
 
 Pour plus d’informations sur les régions POP, consultez [Emplacements POP du CDN Azure par région](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Par exemple, un point POP situé au Mexique se trouve dans la région Amérique du Nord et est donc inclus dans la zone 1. 
 
-Pour plus d’informations sur les tarifs d’Azure CDN, consultez [Tarifs Content Delivery Network](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+Pour plus d’informations sur les tarifs d’Azure CDN, consultez [Tarifs Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>Comment les frais de livraison sont-ils calculés par région ?
 La région de facturation d’Azure CDN est fonction de l’emplacement du serveur source qui fournit le contenu à l’utilisateur final. La destination (emplacement physique) du client n’est pas considérée comme la région de facturation.

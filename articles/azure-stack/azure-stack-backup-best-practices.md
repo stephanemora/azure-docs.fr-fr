@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: cca5fe492032c74a9922780f197065e9c2b40ad3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035099"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966116"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Meilleures pratiques concernant le service de sauvegarde de l’infrastructure
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez suivre les meilleures pratiques lorsque vous déployez et gérez Azure Stack dans votre centre de données afin de limiter la perte de données dans le cas d’une défaillance catastrophique.
 
@@ -46,7 +46,7 @@ La clé de chiffrement est utilisée pour chiffrer les données de sauvegarde ex
 
 La clé doit être stockée dans un emplacement sécurisé (par exemple, un secret Azure Key Vault public). Cette clé doit être utilisée au cours du redéploiement d’Azure Stack. 
 
-![Stockez la clé dans un emplacement sécurisé.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![Stockez la clé dans un emplacement sécurisé.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
 ## <a name="operational-best-practices"></a>Bonnes pratiques opérationnelles
 

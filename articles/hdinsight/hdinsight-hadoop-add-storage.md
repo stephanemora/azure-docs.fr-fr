@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496309"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015753"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
@@ -31,7 +31,7 @@ Le script utilise les paramètres suivants :
 
 * __Clé du compte de stockage Azure__ : clé qui donne accès au compte de stockage.
 
-* __p -__ (facultatif) : si ce paramètre est spécifié, la clé n’est pas chiffrée et est stockée en texte brut dans le fichier core-site.xml.
+* __-p__ (facultatif) : si ce paramètre est spécifié, la clé n’est pas chiffrée et est stockée en texte brut dans le fichier core-site.xml.
 
 Pendant le traitement, le script effectue les opérations suivantes :
 
@@ -95,7 +95,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Définissez `$PASSWORD` sur l’ID de connexion (admin) et le mot de passe du cluster. Définissez `$CLUSTERNAME` sur le nom du cluster HDInsight. Définissez `$STORAGEACCOUNTNAME` sur le nom du compte de stockage.
 >
-> Cet exemple utilise [curl (http://curl.haxx.se/)](http://curl.haxx.se/) et [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) pour récupérer et analyser les données JSON.
+> Cet exemple utilise [curl (https://curl.haxx.se/)](https://curl.haxx.se/) et [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) pour récupérer et analyser les données JSON.
 
 Lorsque vous utilisez cette commande, remplacez __CLUSTERNAME__ par le nom du cluster HDInsight. Remplacez __PASSWORD__ par le mot de passe de connexion HTTP du cluster. Remplacez __STORAGEACCOUNT__ par le nom du compte de stockage ajouté à l’aide de l’action de script. Les informations renvoyées par cette commande sont semblables au texte suivant :
 

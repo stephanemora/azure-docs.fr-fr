@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 11452dfb94a5a1c8cf4734b1ef21a44cccafbea1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bccc7abed9a86bcba74a5d994664a20313f3282a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430506"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Didacticiel : Intégration d’Azure Active Directory à RedBrick Health
 
@@ -110,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Informations d’authentification unique dans RedBrick Health Domain and URLs (Domaine et URL RedBrick Health)](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `http://www.redbrickhealth.com`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://www.redbrickhealth.com`
     
     b. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
@@ -169,7 +169,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique côté **RedBrick Health**, vous devez envoyer le **Certificat (Base64)** téléchargé et **l’ID d’entité SAML** à [l’équipe de support technique de RedBrick Health](https://home.redbrickhealth.com/contact/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -205,7 +205,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 ### <a name="create-a-redbrick-health-test-user"></a>Créer un utilisateur de test RedBrick Health
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans RedBrick Health. Collaborez avec [l’équipe de support technique de RedBrick Health](https://home.redbrickhealth.com/contact/) pour ajouter des utilisateurs sur la plateforme RedBrick Health. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans RedBrick Health. Collaborez avec  [l’équipe de support technique de RedBrick Health](https://home.redbrickhealth.com/contact/) pour ajouter des utilisateurs sur la plateforme RedBrick Health. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim88
-ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031082"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166589"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Utiliser des métadonnées et l’API GenerateAnswer
 
@@ -51,19 +51,19 @@ Vous pouvez également obtenir les détails de votre point de terminaison à par
 
 Vous appelez GenerateAnswer à l’aide d’une requête HTTP POST. Pour obtenir un exemple de code qui montre comment appeler GenerateAnswer, consultez les [guides de démarrage rapide](../quickstarts/csharp.md).
 
-- **URL de la requête** : https://{point de terminaison QnA Maker}/knowledgebases/{ID de la base de connaissances}/generateAnswer
+- **URL de la requête** : https://{QnA Maker endpoint}/knowledgebases/{knowledge base ID}/generateAnswer
 
 - **Paramètres de la requête** : 
-    - **Knowledge base ID** (chaîne) : GUID de votre base de connaissances.
-    - **QnAMaker endpoint** (chaîne) : nom d’hôte du point de terminaison déployé dans votre abonnement Azure.
-- **En-têtes de requête**
-    - **Content-Type** (chaîne) : type de média du corps envoyé à l’API.
-    - **Autorisation** (chaîne) : votre clé de point de terminaison (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
+    - **Knowledge base ID** (chaîne) : GUID de votre base de connaissances.
+    - **QnAMaker endpoint** (chaîne) : nom d’hôte du point de terminaison déployé dans votre abonnement Azure.
+- **En-têtes de la requête**
+    - **Content-Type** (chaîne) : type de média du corps envoyé à l’API.
+    - **Authorization** (chaîne) : clé de votre point de terminaison (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Corps de la demande**
-    - **question** (chaîne) : question de l’utilisateur qui fait l’objet d’une recherche dans votre base de connaissances.
-    - **top** (entier facultatif) : nombre de résultats classés à inclure dans la sortie. La valeur par défaut est 1.
-    - **userId** (chaîne facultative) : identificateur unique de l’utilisateur. Cet ID est enregistré dans les journaux de conversations.
-    - **strictFilters** (chaîne facultative) : cette chaîne, le cas échéant, indique à QnA Maker de retourner uniquement les réponses qui contiennent les métadonnées spécifiées. Pour plus d’informations, voir plus bas.
+    - **question** (chaîne) : question de l’utilisateur qui fait l’objet d’une recherche dans votre base de connaissances.
+    - **top** (facultatif, entier) : nombre de résultats classés à inclure dans la sortie. La valeur par défaut est 1.
+    - **userId** (facultatif, chaîne) : ID unique d’identification de l’utilisateur. Cet ID est enregistré dans les journaux de conversations.
+    - **strictFilters** (facultatif, chaîne) : si elle est spécifiée, cette chaîne indique à QnA Maker de retourner uniquement les réponses qui contiennent les métadonnées spécifiées. Pour plus d’informations, voir plus bas.
     ```json
     {
         "question": "qna maker and luis",
@@ -81,14 +81,14 @@ Vous appelez GenerateAnswer à l’aide d’une requête HTTP POST. Pour obtenir
 
 - **Réponse 200** : appel réussi qui retourne le résultat de la question. La réponse contient les champs suivants :
     - **answers** : liste de réponses à la requête utilisateur, triées par ordre décroissant du score de classement.
-        - **score** : score de classement compris entre 0 et 100.
-        - **questions** : questions posées par l’utilisateur.
-        - **réponse** : réponse à la question.
-        - **source** : nom de la source à partir de laquelle la réponse a été extraite ou enregistrée dans la base de connaissances.
-        - **metadata** : métadonnées associées à la réponse.
-            - name : nom des métadonnées. (chaîne obligatoire, longueur maximale : 100)
-            - value : valeur des métadonnées. (chaîne obligatoire, longueur maximale : 100)
-        - **Id** : ID unique assigné à la réponse.
+        - **score** : score de classement compris entre 0 et 100.
+        - **questions** : questions fournies par l’utilisateur.
+        - **answer** : réponse à la question.
+        - **source** : nom de la source à partir de laquelle la réponse a été extraite ou enregistrée dans la base de connaissances.
+        - **metadata** : métadonnées associées à la réponse.
+            - name : nom des métadonnées. (chaîne, longueur maximale : 100, obligatoire)
+            - value : valeur des métadonnées. (chaîne, longueur maximale : 100, obligatoire)
+        - **Id** : ID unique assigné à la réponse.
     ```json
     {
         "answers": [
@@ -167,6 +167,8 @@ La réponse à GenerateAnswer contient les informations de métadonnées corresp
 Ces informations peuvent être utilisées pour enregistrer le contexte de la conversation précédente en vue d’une utilisation dans les conversations ultérieures. 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+La page de publication fournit aussi des informations pour générer une réponse avec [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) et [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
 > [Créer une base de connaissances](./create-knowledge-base.md)

@@ -9,16 +9,15 @@ ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 46939e15100468eab0d5575546eb6bd58df4aacd
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 937cbc1346ce41670270b911e474e900f406a93b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961073"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993618"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 Apprenez-en plus sur les performances et l’utilisation de votre page web ou de votre application. Ajoutez [Application Insights](app-insights-overview.md) à votre script de page pour obtenir le minutage des chargements de page et des appels AJAX, le nombre d’exceptions du navigateur et d’échecs d’AJAX et leurs détails, ainsi que le nombre d’utilisateurs et de sessions. Toutes ces données peuvent être segmentées par page, par version de système d’exploitation ou de navigateur client, par emplacement géographique et en fonction d’autres aspects. Vous pouvez définir des alertes en cas de dépassement d’un certain nombre d’échecs ou de ralentissement du chargement des pages. Et en insérant des suivis d’appel dans votre code JavaScript, vous pouvez suivre l’utilisation des différentes fonctionnalités de votre application de page web.
@@ -75,9 +74,7 @@ Insérez-le juste avant la balise `</head>` de chaque page que vous voulez suivr
 
 Le script contient la clé d’instrumentation qui dirige les données vers votre ressource Application Insights. 
 
-([Explication approfondie du script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
-
-*(Si vous utilisez une infrastructure de page web connue, cherchez des adaptateurs Application Insights. Par exemple, il existe [un module AngularJS](http://ngmodules.org/modules/angular-appinsights).)*
+([Explication approfondie du script.](https://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 ## <a name="detailed-configuration"></a>Configuration détaillée
 Bien que vous puissiez définir plusieurs [paramètres](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) , vous ne devriez pas avoir besoin de le faire dans la plupart des cas. Par exemple, vous pouvez désactiver ou limiter le nombre d’appels Ajax signalés par page vue (afin de réduire le trafic). Sinon, vous pouvez définir le mode de débogage pour que les données de télémétrie transitent rapidement à travers le pipeline sans être traitées par lot.
@@ -128,7 +125,7 @@ Le panneau navigateur est un [Panneau Metrics Explorer](app-insights-metrics-exp
 ## <a name="page-load-performance"></a>Performances de chargement des pages
 Dans la partie supérieure se trouve un graphique segmenté illustrant le temps de chargement des pages. La hauteur totale du graphique représente la durée moyenne nécessaire pour charger et afficher les pages de votre application dans les navigateurs de vos utilisateurs. La durée est mesurée entre le moment où le navigateur envoie la requête HTTP initiale et le moment où tous les événements de chargement synchrones ont été traités, y compris la mise en page et l’exécution des scripts. Elle n’inclut pas les tâches asynchrones telles que le chargement des composants web à partir des appels AJAX.
 
-Le graphique segmente le temps de chargement total des pages suivant les [durées standard définies par le consortium W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
+Le graphique segmente le temps de chargement total des pages suivant les [durées standard définies par le consortium W3C](https://www.w3.org/TR/navigation-timing/#processing-model). 
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
@@ -143,17 +140,17 @@ Le graphique illustre la moyenne de tous les chargements de page dans votre appl
 
 Observez le nombre d’affichages de page et l’écart type. Si le nombre de pages est très faible, alors le problème n’a pas un impact important sur les utilisateurs. Un écart type élevé (comparable à la moyenne elle-même) indique une variation considérable entre les mesures individuelles.
 
-**Zoomez sur une URL et un affichage de page.** Cliquez sur n’importe quel nom de page pour afficher un panneau de graphiques de navigateur filtrés en fonction de cette URL, puis sur une instance d’un affichage de page.
+**Zoomez sur une URL et un affichage de page.**  Cliquez sur n’importe quel nom de page pour afficher un panneau de graphiques de navigateur filtrés en fonction de cette URL, puis sur une instance d’un affichage de page.
 
 ![](./media/app-insights-javascript/35.png)
 
 Cliquez sur `...` pour obtenir une liste complète des propriétés de cet événement ou examinez les appels Ajax et les événements associés. S’ils sont synchrones, les appels Ajax lents ont un impact sur le temps de chargement de l’ensemble de la page. Les événements associés incluent les requêtes de serveur pour la même URL (si vous avez configuré Application Insights sur votre serveur web).
 
-**Historique des performances de la page.** Dans le panneau Navigateurs, convertissez la grille Temps de chargement de la page consultée en graphique en courbes pour voir s’il y a des pics à des moments spécifiques :
+**Historique des performances de la page.**  Dans le panneau Navigateurs, convertissez la grille Temps de chargement de la page consultée en graphique en courbes pour voir s’il y a des pics à des moments spécifiques :
 
 ![Cliquez sur l’en-tête de la grille et sélectionnez un nouveau type de graphique.](./media/app-insights-javascript/10-page-perf-area.png)
 
-**Segmentation en fonction d’autres aspects.** Vos pages mettent peut-être plus de temps à se charger sur un navigateur ou un système d’exploitation spécifiques, ou encore selon l’emplacement géographique de l’utilisateur ? Ajoutez un nouveau graphique et faites des essais avec l’option **Grouper par** .
+**Segmentation en fonction d’autres aspects.**  Vos pages mettent peut-être plus de temps à se charger sur un navigateur ou un système d’exploitation spécifiques, ou encore selon l’emplacement géographique de l’utilisateur ? Ajoutez un nouveau graphique et faites des essais avec l’option **Grouper par** .
 
 ![](./media/app-insights-javascript/21.png)
 
@@ -205,7 +202,7 @@ Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page
 Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la page des détails, cliquez sur «... » pour voir davantage de détails.
 
 > [!NOTE]
-> Si vous utilisez [Rechercher](app-insights-diagnostic-search.md), notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos ».
+> Si vous utilisez [Rechercher](app-insights-diagnostic-search.md), notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos ».
 > 
 > 
 

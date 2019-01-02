@@ -1,20 +1,20 @@
 ---
-title: Planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure| Microsoft Docs
-description: Cet article explique comment exécuter le planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure.
+title: Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de Hyper-V sur Azure | Microsoft Docs
+description: Cet article décrit comment exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de Hyper-V sur Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9da79884973c620bbf8b6a191f3dd6db5bd19064
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4aec31acf5a279f5ac887788d7e1554c31dfe342
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094188"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846621"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de Hyper-V sur Azure
 
 Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) du planificateur de déploiement Site Recovery dans l’un des quatre modes suivants : 
 -   [Accéder à la liste de machines virtuelles](#get-vm-list-for-profiling-hyper-v-vms)
@@ -38,15 +38,15 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | Le nom d’utilisateur pour se connecter à l’hôte Hyper-V ou au cluster Hyper-V. L’utilisateur doit avoir un accès administratif.|
-| -ServerListFile | Fichier avec la liste des serveurs contenant les machines virtuelles à profiler. Le chemin d’accès du fichier peut être absolu ou relatif. Ce fichier doit contenir une des valeurs suivantes dans chaque ligne :<ul><li>Nom ou adresse IP d’hôte Hyper-V</li><li>Nom ou adresse IP de cluster Hyper-V</li></ul><br>**Exemple :** le fichier ServerList.txt contient les serveurs suivants :<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | Fichier avec la liste des serveurs contenant les machines virtuelles à profiler. Le chemin d’accès du fichier peut être absolu ou relatif. Ce fichier doit contenir une des valeurs suivantes dans chaque ligne :<ul><li>Nom ou adresse IP d’hôte Hyper-V</li><li>Nom ou adresse IP de cluster Hyper-V</li></ul><br>**Exemple :** le fichier ServerList.txt contient les serveurs suivants :<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Répertoire|(Facultatif) La convention d’affectation de noms universelle (UNC) ou le chemin d’accès du répertoire local pour stocker les données générées pendant cette opération. Si aucun nom n’est spécifié, le répertoire ProfiledData figurant dans le chemin d’accès actuel est utilisé comme répertoire par défaut.|
 |-OutputFile| (Facultatif) Le fichier avec la liste des machines virtuelles extraites à partir des serveurs Hyper-V donnés est enregistré. Si un nom n’est pas indiqué, les détails sont alors stockés dans VMList.txt.  Utilisez le fichier pour démarrer le profilage après avoir supprimé les machines virtuelles que vous n’avez pas besoin de profiler.|
 |-Mot de passe|(Facultatif) Le mot de passe pour se connecter à l’hôte Hyper-V. Si vous ne le spécifiez pas comme paramètre, il vous sera demandé lors de l’exécution de la commande.|
 
 ### <a name="getvmlist-discovery"></a>Découverte de GetVMList
 
-- **Cluster Hyper-V** : lorsque le nom de cluster Hyper-V est indiqué dans le fichier de la liste des serveurs, l’outil recherche tous les nœuds Hyper-V du cluster et obtient les machines virtuelles présentes sur chacun des hôtes Hyper-V.
-**Hôte Hyper-V** : lorsque le nom d’hôte Hyper-V est indiqué, l’outil vérifie d’abord s’il fait partie d’un cluster. Si oui, l’outil extrait les nœuds appartenant au cluster. Il obtient ensuite les machines virtuelles de chaque hôte Hyper-V. 
+- **Cluster Hyper-V** : quand le nom de cluster Hyper-V est indiqué dans le fichier de la liste des serveurs, l’outil recherche tous les nœuds Hyper-V du cluster et obtient les machines virtuelles présentes sur chacun des hôtes Hyper-V.
+**Hôte Hyper-V** : quand le nom d’hôte Hyper-V est indiqué, l’outil vérifie d’abord s’il fait partie d’un cluster. Si oui, l’outil extrait les nœuds appartenant au cluster. Il obtient ensuite les machines virtuelles de chaque hôte Hyper-V. 
 
 Vous pouvez également choisir de répertorier dans un fichier les noms conviviaux ou adresses IP des machines virtuelles que vous souhaitez profiler manuellement.
 
@@ -87,7 +87,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |---|---|
 | -Operation | StartProfiling |
 | -User | Le nom d’utilisateur pour se connecter à l’hôte Hyper-V ou au cluster Hyper-V. L’utilisateur doit avoir un accès administratif.|
-| -VMListFile | Fichier contenant la liste des machines virtuelles à profiler. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle (séparé par un \ par ligne). Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<br><br>**Exemple :** le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -VMListFile | Fichier contenant la liste des machines virtuelles à profiler. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle (séparé par un \ par ligne). Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<br><br>**Exemple :** le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-NoOfMinutesToProfile|Le nombre de minutes pendant lesquelles le profilage doit être exécuté. La valeur minimale est de 30 minutes.|
 |-NoOfHoursToProfile|Le nombre d’heures pendant lesquelles le profilage doit être exécuté.|
 |-NoOfDaysToProfile |Le nombre de jours pendant lesquels le profilage doit être exécuté. Nous vous recommandons d’exécuter le profilage pendant plus de 7 jours. Cette durée assure que le modèle de charge de travail de votre environnement sur la période spécifiée est observé et utilisé pour fournir une recommandation précise.|
@@ -96,7 +96,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Mot de passe|(Facultatif) Le mot de passe pour se connecter à l’hôte Hyper-V. Si vous ne le spécifiez pas comme paramètre, il vous sera demandé lors de l’exécution de la commande.|
 |-StorageAccountName|(Facultatif) Le nom du compte de stockage utilisé pour rechercher le débit réalisable pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour calculer le débit. Le compte de stockage doit être de type v1 à usage général (GPv1).|
 |-StorageAccountKey|(Facultatif) La clé utilisée pour accéder au compte de stockage. Accédez au portail Azure > **Comptes de stockage** > *Nom du compte de stockage* > **Paramètres** > **Clés d’accès** > **Key1** (ou clé d’accès principale pour un compte de stockage classique).|
-|-Environment|(Facultatif) Votre environnement cible pour le compte de stockage Azure. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment ou AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région cible correspond à Azure - Gouvernement des États-Unis ou Azure - Chine.|
+|-Environment|(Facultatif) Votre environnement cible pour le compte de stockage Azure. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment ou AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région cible correspond à Azure - Gouvernement des États-Unis ou Azure - Chine.|
 
 Nous vous recommandons de profiler vos machines virtuelles pendant plus de 7 jours. Si le modèle d’activité varie durant un mois, nous vous recommandons d’effectuer le profilage au cours de la semaine lors de l’activité maximale. La meilleure solution est d’effectuer le profilage pendant 31 jours pour obtenir de meilleures recommandations. 
 
@@ -167,7 +167,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | Nom du paramètre | Description |
 |---|---|
 | -Operation | GenerateReport |
-|-VMListFile | Le fichier qui contient la liste des machines virtuelles profilées pour lesquelles le rapport va être généré. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle (séparé par un \ par ligne). Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<br><br>**Exemple :** le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+|-VMListFile | Le fichier qui contient la liste des machines virtuelles profilées pour lesquelles le rapport va être généré. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle (séparé par un \ par ligne). Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<br><br>**Exemple :** le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Virtualization|Le type de virtualisation (VMware ou Hyper-V).|
 |-Répertoire|(Facultatif) UNC ou chemin d’accès du répertoire local où les données profilées (fichiers générés lors du profilage) sont stockées. Ces données sont requises pour générer le rapport. Si aucun nom n’est spécifié, le répertoire « ProfiledData » figurant dans le chemin d’accès actuel est utilisé comme répertoire par défaut.|
 | -User | (Facultatif) Le nom d’utilisateur pour se connecter à l’hôte Hyper-V ou au cluster Hyper-V. L’utilisateur doit avoir un accès administratif. Le nom d’utilisateur et le mot de passe sont utilisés pour extraire les dernières informations de configuration des machines virtuelles (comme le nombre de disques, le nombre de cœurs et le nombre de cartes réseau) à utiliser dans le rapport. Si cette valeur n’est pas fournie, les informations de configuration collectées pendant le profilage sont utilisées.|
@@ -177,7 +177,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -StartDate | (Facultatif) La date et l’heure de début au format MM-JJ-AAAA:HH:MM (24 heures). Le paramètre StartDate doit être spécifié avec le paramètre EndDate. Si le paramètre StartDate est spécifié, le rapport est généré pour les données profilées collectées entre les dates StartDate et EndDate. |
 | -EndDate | (Facultatif) La date et l’heure de fin au format MM-JJ-AAAA:HH:MM (24 heures). Le paramètre EndDate doit être spécifié avec le paramètre StartDate. Si le paramètre EndDate est spécifié, le rapport est généré pour les données profilées collectées entre les dates StartDate et EndDate. |
 | -GrowthFactor | (Facultatif) Le facteur de croissance, exprimé en pourcentage. La valeur par défaut est 30 pour cent. |
-| -UseManagedDisks | (Facultatif) UseManagedDisks : Oui/Non. La valeur par défaut de ce paramètre est Oui. Le nombre de machines virtuelles qu’il est possible de placer dans un compte de stockage unique est calculé à partir de l’exécution du basculement/test de basculement des machines virtuelles sur un disque managé au lieu d’un disque non managé. |
+| -UseManagedDisks | (Facultatif) UseManagedDisks : Oui/Non. La valeur par défaut de ce paramètre est Oui. Le nombre de machines virtuelles qu’il est possible de placer dans un compte de stockage unique est calculé à partir de l’exécution du basculement/test de basculement des machines virtuelles sur un disque managé au lieu d’un disque non managé. |
 |-SubscriptionId |(Facultatif) GUID de l’abonnement. Utilisez ce paramètre pour générer le rapport d’estimation des coûts avec le prix le plus récent selon votre abonnement, l’offre associée à votre abonnement et votre région cible Azure dans la devise indiquée.|
 |-TargetRegion|(Facultatif) La région Azure cible de la réplication. Étant donné qu’Azure possède différents coûts par région, utilisez ce paramètre pour générer des rapports avec une région cible Azure spécifique. La valeur par défaut est WestUS2 (Ouest des États-Unis) ou la dernière région cible. Reportez-vous à la liste des [régions cibles prises en charge](hyper-v-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Facultatif) L’offre associée à l’abonnement. La valeur par défaut est MS-AZR-0003P (paiement à l’utilisation).|
@@ -278,8 +278,8 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Répertoire|(Facultatif) UNC ou chemin d’accès du répertoire local où les données profilées (fichiers générés lors du profilage) sont stockées. Ces données sont requises pour générer le rapport. Si aucun nom n’est spécifié, le répertoire « ProfiledData » figurant dans le chemin d’accès actuel est utilisé comme répertoire par défaut.|
 | -StorageAccountName | Le nom du compte de stockage Azure permettant de déterminer la bande passante utilisée pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour trouver la bande passante consommée. Le compte de stockage doit être de type v1 à usage général (GPv1).|
 | -StorageAccountKey | La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > **Comptes de stockage** > *Nom du compte de stockage* > **Paramètres** > **Clés d’accès** > **Key1**.|
-| -VMListFile | Le fichier qui contient la liste des machines virtuelles à profiler pour calculer la bande passante consommée. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle (séparé par un \ par ligne). Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<br><br>**Exemple :** le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(Facultatif) Votre environnement cible pour le compte de stockage Azure. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment ou AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à Azure - Gouvernement des États-Unis ou Azure - Chine.|
+| -VMListFile | Le fichier qui contient la liste des machines virtuelles à profiler pour calculer la bande passante consommée. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle (séparé par un \ par ligne). Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<br><br>**Exemple :** le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+|-Environment|(Facultatif) Votre environnement cible pour le compte de stockage Azure. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment ou AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à Azure - Gouvernement des États-Unis ou Azure - Chine.|
 
 ### <a name="example"></a>Exemples
 ```

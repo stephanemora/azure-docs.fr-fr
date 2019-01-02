@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016691"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164636"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -39,7 +39,7 @@ Oui.
 
 La technologie de clustering Service Fabric permet de combiner des machines qui s’exécutent partout dans le monde, tant qu’elles sont connectées entre elles par un réseau. Toutefois, la création et l’exécution d’un tel cluster peuvent être compliquées.
 
-Si vous êtes intéressé par ce scénario, nous vous encourageons à nous contacter via la [Liste de problèmes Service Fabric sur Github](https://github.com/azure/service-fabric-issues) ou via votre technicien de support, afin d’obtenir une aide supplémentaire. L’équipe Service Fabric travaille à fournir des instructions et des recommandations claires pour ce scénario. 
+Si vous êtes intéressé par ce scénario, nous vous encourageons à nous contacter via la [Liste de problèmes Service Fabric sur GitHub](https://github.com/azure/service-fabric-issues) ou via votre technicien de support pour obtenir des indications supplémentaires. L’équipe Service Fabric travaille à fournir des instructions et des recommandations claires pour ce scénario. 
 
 Voici quelques points importants à prendre en compte : 
 
@@ -93,7 +93,7 @@ Alors que nous travaillons sur une expérience améliorée, vous êtes aujourd�
 Oui.  Pour plus d’informations, consultez [Créer un cluster avec des disques de données associés](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Chiffrer des disques (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) et [Chiffrer des disques (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Puis-je utiliser des machines virtuelles de faible priorité dans un type de nœud de cluster (groupe de machines virtuelles identiques) ?
-Non. Les machines virtuelles de faible priorité ne sont pas prises en charge. 
+ Non. Les machines virtuelles de faible priorité ne sont pas prises en charge. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quels sont les répertoires et processus à exclure lors de l’exécution d’un programme antivirus dans le cluster ?
 

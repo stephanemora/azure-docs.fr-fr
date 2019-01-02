@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a4be229e1c491c3062b14e631cfec5b14185bb82
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427248"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957655"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK  
-Cet article fournit des informations sur des améliorations, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](.\.\azure-stack-updates.md#determine-the-current-version).
+Cet article fournit des informations sur des améliorations, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](../azure-stack-updates.md#determine-the-current-version).
 
 > Restez informé des nouveautés concernant l’ASDK en vous abonnant au [![flux](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
@@ -46,32 +46,11 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
 <!-- TBD - IS ASDK --> 
 - Le problème a été résolu, dans lequel le portail affichait un nombre incorrect de disques de données que vous pouvez attacher à une machine virtuelle de la série DS lorsque vous créez des machines virtuelles sur le portail utilisateur Azure Stack. Les machines virtuelles de série DS peuvent prendre en charge autant de disques de données que la configuration Azure.
 
-- Les problèmes de disque managé suivants ont été corrigés dans la mise à jour 1809 ainsi que dans la mise à jour 1808 [Correctif Azure Stack 1.1808.7.113](https://support.microsoft.com/help/4471992/) : 
-
-   <!--  2966665 – IS, ASDK --> 
-   - Le problème a été résolu, dans lequel l’attachement de disques de données SSD à des machines virtuelles avec des disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échouait avec une erreur : *Échec de la mise à jour des disques pour la machine virtuelle ’vmname’ Erreur : l’opération demandée ne peut pas être effectuée, car le type de compte de stockage ’Premium_LRS’ n’est pas pris en charge pour la taille de machine virtuelle ’Standard_DS/Ds_V2/FS/Fs_v2)’*. 
-   
-   - La création d’une machine virtuelle avec disque managé à l’aide de **createOption** : **Attacher** échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état 'Failed'. Informations supplémentaires : 'Une erreur d'exécution interne s'est produite.'*
-   ErrorCode: InternalExecutionError ErrorMessage : une erreur d’exécution interne s’est produite.
-   
-   Ce problème est à présent résolu.
-
 - <!-- 2702741 -  IS, ASDK --> Problème résolu de la conservation des adresses IP publiques déployées à l’aide de la méthode d’allocation dynamique qui n’était pas garantie après l’émission d’une commande d’arrêt/libération. Elles sont désormais conservées.
 
 - <!-- 3078022 - IS, ASDK --> Si une machine virtuelle était arrêtée/libérée avant la mise à jour 1808, il n’était pas possible de la réallouer après cette mise à jour.  Ce problème a été résolu dans la mise à jour 1809. Grâce à ce correctif introduit dans la mise à jour 1809, les instances qui se trouvaient dans cet état empêchant leur démarrage peuvent désormais être démarrées. Le correctif empêche également que ce problème se reproduise.
 
-<!-- 3090289 – IS, ASDK --> 
-- Après avoir appliqué la mise à jour 1808 qui corrige une erreur, vous rencontrerez peut-être les problèmes suivants lors du déploiement de machines virtuelles avec le service Managed Disks :
-
-   1. Si l’abonnement a été créé avant la mise à jour 1808, le déploiement de machines virtuelles avec Managed Disks peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes pour chaque abonnement :
-      1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
-      2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack – Managed Disks** est répertorié.
-   2. Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes :
-      1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4471992).
-      2. Effectuez les étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) pour reconfigurer chacun de vos annuaires invités.
-
 - **Divers correctifs** pour les performances, la stabilité, la sécurité et le système d’exploitation utilisé par Azure Stack
-
 
 ### <a name="changes"></a>Changements
 
@@ -91,16 +70,16 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
 - Vous risquez de recevoir des alertes pour le composant *Contrôleur d’intégrité* contenant les informations suivantes :  
 
    Alerte 1 :
-   - NOM : Rôle d’infrastructure défectueux
-   - GRAVITÉ : Avertissement
-   - COMPOSANT : Contrôleur d’intégrité
-   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
+   - NOM :  Rôle d’infrastructure défectueux
+   - Niveau de gravité : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
 
   Alerte 2 :
-   - NOM : Rôle d’infrastructure défectueux
-   - GRAVITÉ : Avertissement
-   - COMPOSANT : Contrôleur d’intégrité
-   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
+   - NOM :  Rôle d’infrastructure défectueux
+   - Niveau de gravité : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
 
   Les deux alertes peuvent être ignorées en toute sécurité. Elles se fermeront automatiquement au bout d’un moment.  
 
@@ -120,17 +99,17 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
 - Quand vous créez une machine virtuelle à l’aide du portail Azure Stack et sélectionnez la taille de machine virtuelle, la colonne EUR/mois s’affiche avec le message **Indisponible**. Cette colonne ne devrait pas s’afficher, car l’affichage de la colonne des prix des machines virtuelles n’est pas pris en charge dans Azure Stack.
 
 <!-- 2869209 – IS, ASDK --> 
-- Quand vous utilisez [l’applet de commande **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, la cmdlet échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état 'Failed'*. 
+- Quand vous utilisez [l’applet de commande **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, l’applet de commande échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état « Failed »*. 
 
 <!--  2966665 – IS, ASDK --> 
-- L’attachement de disques de données SSD à des machines virtuelles avec des disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échoue avec une erreur : *Échec de la mise à jour des disques pour la machine virtuelle ’vmname’ Erreur : l’opération demandée ne peut pas être effectuée, car le type de compte de stockage ’Premium_LRS’ n’est pas pris en charge pour la taille de machine virtuelle ’Standard_DS/Ds_V2/FS/Fs_v2)’*
+- L’attachement de disques de données SSD à des machines virtuelles de disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échoue avec une erreur :  *Échec de mise à jour de la machine virtuelle « nom_machine_virtuelle ». Erreur : Impossible d’effectuer l’opération demandée car le type de compte de stockage « Premium_LRS » n’est pas pris en charge pour la taille de machine virtuelle « Standard_DS/Ds_V2/FS/Fs_v2) »*
 
    Pour contourner ce problème, utilisez des disques de données *Standard_LRS* à la place de *disques Premium_LRS*. L’utilisation de disques de données *Standard_LRS* n’a pas d’impact sur l’IOP ou le coût de facturation.  
 
 <!--  2795678 – IS, ASDK --> 
 - Quand vous utilisez le portail pour créer des machines virtuelles de taille Premium (DS, Ds_v2, FS, FSv2), celles-ci sont créées dans un compte de stockage standard. La création dans un compte de stockage standard n’a pas d’impact sur les fonctionnalités, l’IOP ou la facturation. 
 
-   Vous pouvez ignorer sans problème cet avertissement : *Vous avez choisi d’utiliser un disque standard sur une taille qui prend en charge les disques Premium. Cela n’est pas recommandé, car cela peut impacter les performances du système d’exploitation. Utilisez le stockage Premium (SSD) à la place.*
+   Vous pouvez sans risque ignorer l’avertissement qui indique : *Vous avez choisi d’utiliser un disque standard sur une taille qui prend en charge les disques Premium. Cela n’est pas recommandé, car cela peut impacter les performances du système d’exploitation. Utilisez le stockage Premium (SSD) à la place.*
 
 <!-- 2967447 - IS, ASDK --> 
 - Quand vous créez un groupe de machines virtuelles identiques, l’option CentOS 7.2 est proposée pour le déploiement. Étant donné que cette image n’est pas disponible sur Azure Stack, sélectionnez un autre système d’exploitation pour votre déploiement, ou choisissez un modèle Azure Resource Manager spécifiant une autre image CentOS qui a été téléchargée par l’opérateur avant le déploiement à partir de la Place de marché.
@@ -201,13 +180,13 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
 Cette build inclut les améliorations et les correctifs suivants pour Azure Stack.  
 
 <!-- 1658937 | ASDK, IS --> 
-- **Démarrer les sauvegardes selon un calendrier prédéfini** : En tant qu’appliance, Azure Stack peut maintenant lancer automatiquement des sauvegardes périodiques de l’infrastructure afin d’éviter toute intervention humaine. Azure Stack nettoie également automatiquement le partage externe des sauvegardes antérieures à la période de rétention définie. Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Démarrer les sauvegardes selon un calendrier prédéfini** : En tant qu’appliance, Azure Stack peut maintenant lancer automatiquement des sauvegardes périodiques de l’infrastructure afin d’éviter toute intervention humaine. Azure Stack nettoie également automatiquement le partage externe des sauvegardes antérieures à la période de rétention définie. Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 2496385 | ASDK, IS -->  
-- **Ajout du temps de transfert des données au temps total de sauvegarde.** Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Ajout du temps de transfert des données au temps total de sauvegarde.** Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 1702130 | ASDK, IS --> 
-- **La capacité externe de sauvegarde affiche maintenant la capacité correcte du partage externe.** (la valeur était codée en dur à 10 Go) Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **La capacité externe de sauvegarde affiche maintenant la capacité correcte du partage externe.** (la valeur était codée en dur à 10 Go) Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](../azure-stack-backup-enable-backup-powershell.md).
  
 <!-- 2753130 |  IS, ASDK   -->  
 - **Les modèles Azure Resource Manager prennent désormais en charge l’élément de condition** : Vous pouvez désormais déployer une ressource dans un modèle Azure Resource Manager à l’aide d’une condition. Vous pouvez concevoir votre modèle afin de déployer une ressource en fonction d’une condition, par exemple évaluer si une valeur de paramètre est présente. Pour plus d’informations sur l’utilisation d’un modèle en tant que condition, consultez [Déployer une ressource de manière conditionnelle](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) et [Section Variables des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) dans la documentation Azure. 
@@ -215,7 +194,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
    Vous pouvez également utiliser des modèles pour [déployer des ressources Azure sur plusieurs groupes de ressources ou abonnements](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
 <!--2753073 | IS, ASDK -->  
-- **La prise en charge de la version de ressource d’API Microsoft.Network a été mise à jour** pour inclure la prise en charge de la version d’API 2017-10-01 à partir de la version 2015-06-15 pour les ressources réseau Azure Stack. La prise en charge des versions de ressources entre 2017-10-01 et 2015-06-15 n’est pas incluse dans cette version. Pour connaître les différences de fonctionnalités, consultez [Considérations relatives à la mise en réseau Azure Stack](.\.\user\azure-stack-network-differences.md).
+- **La prise en charge de la version de ressource d’API Microsoft.Network a été mise à jour** pour inclure la prise en charge de la version d’API 2017-10-01 à partir de la version 2015-06-15 pour les ressources réseau Azure Stack. La prise en charge des versions de ressources entre 2017-10-01 et 2015-06-15 n’est pas incluse dans cette version. Pour connaître les différences de fonctionnalités, consultez [Considérations relatives à la mise en réseau Azure Stack](../user/azure-stack-network-differences.md).
 
 <!-- 2272116 | IS, ASDK   -->  
 - **Azure Stack a ajouté la prise en charge des recherches DNS inversées pour les points de terminaison d’infrastructure Azure Stack externes** (autrement dit pour portal, adminportal, management et adminmanagement). Cela permet de résoudre les noms des points de terminaison externes Azure Stack à partir d’une adresse IP.
@@ -243,7 +222,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - **Azure Resource Manager inclut le nom de la région.** Avec cette version, les objets récupérés à partir d’Azure Resource Manager incluront désormais l’attribut de nom de région. Si un script PowerShell existant passe directement l’objet à une autre applet de commande, le script peut générer une erreur et échouer. Ce comportement est conforme à Azure Resource Manager et oblige le client appelant à soustraire l’attribut de région. Pour plus d’informations sur Azure Resource Manager, consultez la [documentation Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 <!-- TBD | IS, ASDK -->  
-- **Déplacer des abonnements entre des fournisseurs délégués.** Vous pouvez maintenant déplacer des abonnements entre des abonnements de fournisseurs délégués nouveaux ou existants appartenant au même locataire d’annuaire. Les abonnements appartenant à l’abonnement Fournisseur par défaut peuvent également être déplacés vers les abonnements Fournisseur délégué dans le même locataire d’annuaire. Pour plus d’informations, consultez [Déléguer des offres dans Azure Stack](.\.\azure-stack-delegated-provider.md).
+- **Déplacer des abonnements entre des fournisseurs délégués.** Vous pouvez maintenant déplacer des abonnements entre des abonnements de fournisseurs délégués nouveaux ou existants appartenant au même locataire d’annuaire. Les abonnements appartenant à l’abonnement Fournisseur par défaut peuvent également être déplacés vers les abonnements Fournisseur délégué dans le même locataire d’annuaire. Pour plus d’informations, consultez [Déléguer des offres dans Azure Stack](../azure-stack-delegated-provider.md).
  
 <!-- 2536808 IS ASDK --> 
 - **Amélioration du temps de création de machine virtuelle** pour les machines virtuelles qui sont créées avec des images que vous téléchargez à partir de la Place de marché Azure.
@@ -267,7 +246,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - La liste de sauvegarde s’actualise désormais quand vous supprimez manuellement la sauvegarde du partage externe.
 
 <!-- 2360715 |  ASDK, IS -->  
-- Lorsque vous configurez l’intégration du centre de données, vous n’accédez plus au fichier de métadonnées AD FS à partir d’un partage. Pour plus d’informations, consultez la rubrique [Configuration de l’intégration AD FS en fournissant un fichier de métadonnées de fédération](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- Lorsque vous configurez l’intégration du centre de données, vous n’accédez plus au fichier de métadonnées AD FS à partir d’un partage. Pour plus d’informations, consultez la rubrique [Configuration de l’intégration AD FS en fournissant un fichier de métadonnées de fédération](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 <!-- 2388980 | ASDK, IS --> 
 - Nous avons corrigé un problème qui empêchait les utilisateurs d’attribuer une adresse IP publique existante ayant déjà été attribuée à une interface réseau ou à un équilibreur de charge à une nouvelle interface réseau ou à un nouvel équilibreur de charge.  
@@ -290,7 +269,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 <!--  TBD ASDK --> 
 - La capacité de la machine virtuelle qui héberge le point de terminaison privilégié (PEP) a été portée à 4 Go. Dans le Kit ASDK, cette machine virtuelle est nommée AzS-ERCS01.
 
-- <!--  TBD – IS, ASDK --> Les tailles de machine virtuelle *De base A* ne sont plus disponibles pour la [création de groupes de machines virtuelles identiques](.\.\azure-stack-compute-add-scalesets.md) dans le portail. Pour créer un groupe de machines virtuelles identiques avec cette taille, utilisez PowerShell ou un modèle. 
+- <!--  TBD – IS, ASDK --> Les tailles de machine virtuelle *De base A* ne sont plus disponibles pour la [création de groupes de machines virtuelles identiques](../azure-stack-compute-add-scalesets.md) dans le portail. Pour créer un groupe de machines virtuelles identiques avec cette taille, utilisez PowerShell ou un modèle. 
 
 ### <a name="known-issues"></a>Problèmes connus
 
@@ -304,7 +283,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - Les plans ajoutés à un abonnement utilisateur comme plan d’extension ne peuvent pas être supprimés, même quand vous supprimez le plan de l’abonnement utilisateur. Le plan est conservé jusqu’à ce que les abonnements qui référencent le plan d’extension soient aussi supprimés. 
 
 <!--2760466 – IS  ASDK --> 
-- Quand vous installez un nouvel environnement Azure Stack qui exécute cette version, l’alerte *Activation requise* peut ne pas s’afficher. L’[activation](.\.\azure-stack-registration.md) est nécessaire avant que vous puissiez utiliser la syndication de Place de marché. 
+- Quand vous installez un nouvel environnement Azure Stack qui exécute cette version, l’alerte *Activation requise* peut ne pas s’afficher. L’[activation](../azure-stack-registration.md) est nécessaire avant que vous puissiez utiliser la syndication de Place de marché. 
 
 <!-- TBD - IS ASDK --> 
 - Les deux types d’abonnements d’administration qui ont été introduits avec la version 1804 ne doivent pas être utilisés. Les types d’abonnements sont **Abonnement de contrôle** et **Abonnement de consommation**. Ces types d’abonnements sont **Abonnement de contrôle** et **Abonnement de consommation**. Ces types d’abonnements sont visibles dans les nouveaux environnements Azure Stack depuis la version 1804, mais ils ne sont pas encore prêts à être utilisés. Vous devez continuer à utiliser le type d’abonnement **Fournisseur par défaut**.
@@ -327,16 +306,16 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - Vous risquez de recevoir des alertes pour le composant *Contrôleur d’intégrité* contenant les informations suivantes :  
 
    Alerte 1 :
-   - NOM : Rôle d’infrastructure défectueux
-   - GRAVITÉ : Avertissement
-   - COMPOSANT : Contrôleur d’intégrité
-   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
+   - NOM :  Rôle d’infrastructure défectueux
+   - Niveau de gravité : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
 
   Alerte 2 :
-   - NOM : Rôle d’infrastructure défectueux
-   - GRAVITÉ : Avertissement
-   - COMPOSANT : Contrôleur d’intégrité
-   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
+   - NOM :  Rôle d’infrastructure défectueux
+   - Niveau de gravité : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
 
   Les deux alertes peuvent être ignorées en toute sécurité. Elles se fermeront automatiquement au bout d’un moment.  
 
@@ -348,20 +327,20 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 
 #### <a name="compute"></a>Calcul
 <!-- 2494144 - IS, ASDK --> 
-- Quand vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machine virtuelle suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
+- Quand vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machines virtuelles suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
   Pour résoudre ce problème, utilisez l’une des méthodes suivantes pour déployer une machine virtuelle. Dans chaque méthode, vous devez spécifier la taille de machine virtuelle que vous voulez utiliser.
 
 - <!-- 3099544 – IS, ASDK --> Quand vous créez une machine virtuelle à l’aide du portail Azure Stack et sélectionnez la taille de machine virtuelle, la colonne EUR/mois s’affiche avec le message **Indisponible**. Cette colonne ne devrait pas s’afficher, car l’affichage de la colonne des prix des machines virtuelles n’est pas pris en charge dans Azure Stack.
 
-- <!-- 2869209 – IS, ASDK --> Quand vous utilisez la [cmdlet **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, la cmdlet échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état 'Failed'*. 
+- <!-- 2869209 – IS, ASDK --> Quand vous utilisez la [cmdlet **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, l’applet de commande échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état « Failed »*. 
 
-- <!--  2966665 – IS, ASDK --> L’attachement de disques de données SSD à des machines virtuelles avec des disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échoue avec une erreur : *Échec de la mise à jour des disques pour la machine virtuelle 'vmname' Erreur : l’opération demandée ne peut pas être effectuée, car le type de compte de stockage 'Premium_LRS' n’est pas pris en charge pour la taille de machine virtuelle 'Standard_DS/Ds_V2/FS/Fs_v2)'*
+- <!--  2966665 – IS, ASDK --> L’attachement de disques de données SSD à des machines virtuelles de disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échoue avec une erreur :  *Échec de mise à jour de la machine virtuelle « nom_machine_virtuelle ». Erreur : Impossible d’effectuer l’opération demandée car le type de compte de stockage « Premium_LRS » n’est pas pris en charge pour la taille de machine virtuelle « Standard_DS/Ds_V2/FS/Fs_v2) »*
 
    Pour contourner ce problème, utilisez des disques de données *Standard_LRS* à la place de *disques Premium_LRS*. L’utilisation de disques de données *Standard_LRS* n’a pas d’impact sur l’IOP ou le coût de facturation.  
 
 - <!--  2795678 – IS, ASDK --> Quand vous utilisez le portail pour créer des machines virtuelles dans une taille de machine virtuelle Premium (DS, Ds_v2, FS, FSv2), la machine virtuelle est créée dans un compte de stockage standard. La création dans un compte de stockage standard n’a pas d’impact sur les fonctionnalités, l’IOP ou la facturation. 
 
-   Vous pouvez ignorer sans problème cet avertissement : *Vous avez choisi d’utiliser un disque standard sur une taille qui prend en charge les disques Premium. Cela n’est pas recommandé, car cela peut impacter les performances du système d’exploitation. Utilisez le stockage Premium (SSD) à la place.*
+   Vous pouvez sans risque ignorer l’avertissement qui indique : *Vous avez choisi d’utiliser un disque standard sur une taille qui prend en charge les disques Premium. Cela n’est pas recommandé, car cela peut impacter les performances du système d’exploitation. Utilisez le stockage Premium (SSD) à la place.*
 
 - <!-- 2967447 - IS, ASDK --> Quand vous créez un groupe de machines virtuelles identiques, l’option CentOS 7.2 est proposée pour le déploiement. Étant donné que cette image n’est pas disponible sur Azure Stack, sélectionnez un autre système d’exploitation pour votre déploiement ou choisissez un modèle ARM spécifiant une autre image CentOS qui a été téléchargée par l’opérateur avant le déploiement à partir de la Place de marché.
 
@@ -438,17 +417,17 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 Cette build inclut les améliorations et les correctifs suivants pour Azure Stack.  
 
-- <!-- 1658937 | ASDK, IS --> **Démarrer les sauvegardes selon un calendrier prédéfini** : En tant qu’appliance, Azure Stack peut maintenant lancer automatiquement des sauvegardes périodiques de l’infrastructure afin d’éviter toute intervention humaine. Azure Stack nettoie également automatiquement le partage externe des sauvegardes antérieures à la période de rétention définie. Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- <!-- 1658937 | ASDK, IS --> **Démarrer les sauvegardes selon un calendrier prédéfini** : En tant qu’appliance, Azure Stack peut maintenant lancer automatiquement des sauvegardes périodiques de l’infrastructure afin d’éviter toute intervention humaine. Azure Stack nettoie également automatiquement le partage externe des sauvegardes antérieures à la période de rétention définie. Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
-- <!-- 2496385 | ASDK, IS -->  **Ajout du temps de transfert des données dans le temps total de sauvegarde.** Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- <!-- 2496385 | ASDK, IS -->  **Ajout du temps de transfert des données dans le temps total de sauvegarde.** Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
--   <!-- 1702130 | ASDK, IS -->  **La capacité externe de sauvegarde affiche maintenant la capacité correcte du partage externe.** (la valeur était codée en dur à 10 Go) Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+-   <!-- 1702130 | ASDK, IS -->  **La capacité externe de sauvegarde affiche maintenant la capacité correcte du partage externe.** (la valeur était codée en dur à 10 Go) Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](../azure-stack-backup-enable-backup-powershell.md).
  
 - <!-- 2753130 |  IS, ASDK   -->  **Les modèles Azure Resource Manager prennent désormais en charge l’élément de condition** - Vous pouvez désormais déployer une ressource dans un modèle Azure Resource Manager à l’aide d’une condition. Vous pouvez concevoir votre modèle afin de déployer une ressource en fonction d’une condition, par exemple évaluer si une valeur de paramètre est présente. Pour plus d’informations sur l’utilisation d’un modèle en tant que condition, consultez [Déployer une ressource de manière conditionnelle](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) et [Section Variables des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) dans la documentation Azure. 
 
    Vous pouvez également utiliser des modèles pour [déployer des ressources Azure sur plusieurs groupes de ressources ou abonnements](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
-- <!--2753073 | IS, ASDK -->  **La prise en charge de la version de ressource d’API Microsoft.Network a été mise à jour** pour inclure la prise en charge de l’API version 2017-10-01 à partir de la version 2015-06-15 pour les ressources réseau Azure Stack.  La prise en charge des versions de ressources entre 2017-10-01 et 2015-06-15 n’est pas incluse dans cette version, mais sera incluse dans une version ultérieure.  Pour connaître les différences de fonctionnalités, consultez [Considérations relatives à la mise en réseau Azure Stack](.\.\user\azure-stack-network-differences.md).
+- <!--2753073 | IS, ASDK -->  **La prise en charge de la version de ressource d’API Microsoft.Network a été mise à jour** pour inclure la prise en charge de l’API version 2017-10-01 à partir de la version 2015-06-15 pour les ressources réseau Azure Stack.  La prise en charge des versions de ressources entre 2017-10-01 et 2015-06-15 n’est pas incluse dans cette version, mais sera incluse dans une version ultérieure.  Pour connaître les différences de fonctionnalités, consultez [Considérations relatives à la mise en réseau Azure Stack](../user/azure-stack-network-differences.md).
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack a ajouté la prise en charge des recherches DNS inversées pour les points de terminaison d’infrastructure Azure Stack exposés à l’extérieur**  (autrement dit pour portal, adminportal, management et adminmanagement). Cela permet de résoudre les noms des points de terminaison externes Azure Stack à partir d’une adresse IP.
 
@@ -465,11 +444,11 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 
   Cette fonctionnalité étant toujours en préversion, ne vous reposez pas sur elle dans les environnements de production.
 
-  Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](.\.\azure-stack-integrate-security.md).
+  Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../azure-stack-integrate-security.md).
 
 - <!-- ####### | IS, ASDK -->  **Azure Resource Manager inclut le nom de la région.** Avec cette version, les objets récupérés à partir d’Azure Resource Manager incluront désormais l’attribut de nom de région. Si un script PowerShell existant passe directement l’objet à une autre applet de commande, le script peut générer une erreur et échouer. Ce comportement est conforme à Azure Resource Manager et oblige le client appelant à soustraire l’attribut de région. Pour plus d’informations sur Azure Resource Manager, consultez la [documentation Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/).
 
-- <!-- TBD | IS, ASDK -->  **Déplacer des abonnements entre des fournisseurs délégués.** Vous pouvez maintenant déplacer des abonnements entre des abonnements de fournisseurs délégués nouveaux ou existants appartenant au même locataire d’annuaire. Les abonnements appartenant à l’abonnement Fournisseur par défaut peuvent également être déplacés vers les abonnements Fournisseur délégué dans le même locataire d’annuaire. Pour plus d’informations, consultez [Déléguer des offres dans Azure Stack](.\.\azure-stack-delegated-provider.md).
+- <!-- TBD | IS, ASDK -->  **Déplacer des abonnements entre des fournisseurs délégués.** Vous pouvez maintenant déplacer des abonnements entre des abonnements de fournisseurs délégués nouveaux ou existants appartenant au même locataire d’annuaire. Les abonnements appartenant à l’abonnement Fournisseur par défaut peuvent également être déplacés vers les abonnements Fournisseur délégué dans le même locataire d’annuaire. Pour plus d’informations, consultez [Déléguer des offres dans Azure Stack](../azure-stack-delegated-provider.md).
  
 - <!-- 2536808 IS ASDK --> **Amélioration du temps de création de machine virtuelle** pour les machines virtuelles qui sont créées avec des images que vous téléchargez à partir de la Place de marché Azure.
 
@@ -485,7 +464,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 
 - <!-- 2215948 |  ASDK, IS --> La liste de sauvegarde s’actualise désormais lorsque l’on supprime manuellement la sauvegarde du partage externe.
 
-- <!-- 2360715 |  ASDK, IS -->  Lorsque vous configurez l’intégration du centre de données, vous n’accédez plus au fichier de métadonnées AD FS à partir d’un partage. Pour plus d’informations, consultez la rubrique [Configuration de l’intégration AD FS en fournissant un fichier de métadonnées de fédération](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- <!-- 2360715 |  ASDK, IS -->  Lorsque vous configurez l’intégration du centre de données, vous n’accédez plus au fichier de métadonnées AD FS à partir d’un partage. Pour plus d’informations, consultez la rubrique [Configuration de l’intégration AD FS en fournissant un fichier de métadonnées de fédération](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 - <!-- 2388980 | ASDK, IS --> Nous avons corrigé un problème qui empêchait les utilisateurs d’attribuer une adresse IP publique existante ayant déjà été attribuée à une interface réseau ou à un équilibreur de charge à une nouvelle interface réseau ou à un nouvel équilibreur de charge.  
 
@@ -532,7 +511,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - Vous ne pouvez pas appliquer les mises à jour de pilote à l’aide d’un package d’extension OEM avec cette version d’Azure Stack.  Il n’existe aucune solution de contournement pour ce problème.
  
 <!-- TBD - IS ASDK --> 
-- La possibilité [d’ouvrir une nouvelle demande de support dans la liste déroulante](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) à partir du portail administrateur n’est pas disponible. À la place, utilisez le lien suivant :     
+- La possibilité [d’ouvrir une nouvelle demande de support dans la liste déroulante](../azure-stack-manage-portals.md#quick-access-to-help-and-support) à partir du portail administrateur n’est pas disponible. À la place, utilisez le lien suivant :     
     - Pour le Kit de développement Azure Stack, utilisez https://aka.ms/azurestackforum.    
 
 <!-- 2403291 - IS ASDK --> 
@@ -552,16 +531,16 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - Vous risquez de recevoir des alertes pour le composant *Contrôleur d’intégrité* contenant les informations suivantes :  
 
    Alerte 1 :
-   - NOM : Rôle d’infrastructure défectueux
-   - GRAVITÉ : Avertissement
-   - COMPOSANT : Contrôleur d’intégrité
-   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
+   - NOM :  Rôle d’infrastructure défectueux
+   - Niveau de gravité : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
 
   Alerte 2 :
-   - NOM : Rôle d’infrastructure défectueux
-   - GRAVITÉ : Avertissement
-   - COMPOSANT : Contrôleur d’intégrité
-   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
+   - NOM :  Rôle d’infrastructure défectueux
+   - Niveau de gravité : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
 
   Les deux alertes peuvent être ignorées en toute sécurité. Elles se fermeront automatiquement au bout d’un moment.  
 
@@ -574,10 +553,10 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 
 #### <a name="compute"></a>Calcul
 <!-- TBD - IS, ASDK --> 
-- Quand vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machine virtuelle suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
+- Quand vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machines virtuelles suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
   Pour résoudre ce problème, utilisez l’une des méthodes suivantes pour déployer une machine virtuelle. Dans chaque méthode, vous devez spécifier la taille de machine virtuelle que vous voulez utiliser.
 
-  - **Modèle Azure Resource Manager :** lorsque vous utilisez un modèle, définissez la valeur *vmSize* dans le modèle pour qu’elle soit égale à la taille de machine virtuelle que vous voulez utiliser. Par exemple, l’entrée suivante permet de déployer une machine virtuelle qui utilise la taille *F32s_v2* :  
+  - **Modèle Azure Resource Manager :** quand vous utilisez un modèle, définissez la valeur *vmSize* dans le modèle pour qu’elle soit égale à la taille de machine virtuelle que vous voulez utiliser. Par exemple, l’entrée suivante permet de déployer une machine virtuelle qui utilise la taille *F32s_v2* :  
 
     ```
         "properties": {
@@ -585,7 +564,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI :** Vous pouvez utiliser la commande [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) et spécifiez la taille de machine virtuelle comme paramètre, identique à `--size "Standard_F32s_v2"`.
+  - **Azure CLI :** vous pouvez utiliser la commande [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) et spécifier la taille de machine virtuelle comme paramètre, identique à `--size "Standard_F32s_v2"`.
 
   - **PowerShell :** avec PowerShell, vous pouvez utiliser [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) avec le paramètre qui spécifie la taille de machine virtuelle, identique à `-VMSize "Standard_F32s_v2"`.
 
@@ -626,7 +605,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 <!-- 2292271 - IS ASDK --> 
 - Si vous définissez une limite de quota pour une ressource réseau qui fait partie d’une offre et d’un plan associés à un abonnement de locataire, la nouvelle limite n’est pas appliquée à cet abonnement. Toutefois, la nouvelle limite s’applique aux nouveaux abonnements créés après l’augmentation du quota.
 
-  Pour contourner ce problème, utilisez un plan d’extension pour augmenter un quota réseau quand le plan est déjà associé à un abonnement. Pour plus d’informations, découvrez comment [rendre un plan d’extension disponible](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+  Pour contourner ce problème, utilisez un plan d’extension pour augmenter un quota réseau quand le plan est déjà associé à un abonnement. Pour plus d’informations, découvrez comment [rendre un plan d’extension disponible](../azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
 <!-- 2304134 IS ASDK --> 
 - Vous ne pouvez pas supprimer un abonnement auquel sont associées des ressources de la zone DNS ou de la table de routage. Pour supprimer l’abonnement, vous devez d’abord supprimer les ressources de la zone DNS ou de la table de routage de l’abonnement de locataire.

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 77a5b455e3ef86484119983af24b6461a2fba229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273797"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074484"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Guide pratique pour optimiser votre investissement dans le cloud avec Azure Cost Management
 
@@ -64,7 +64,7 @@ Agissez pour réduire vos dépenses. Optimisez-les à partir des résultats coll
 
 Tous les membres de votre organisation doivent s’engager dans le cycle de vie de la gestion des coûts. Ils doivent participer de manière continue à l’optimisation des coûts. Faites preuve de rigueur vis-à-vis de ce processus itératif et faites-en un principe clé de gouvernance cloud responsable dans votre organisation.
 
-![Principes clés](./media/cost-mgt-best-practices/principles.png)
+![Schéma des principes clés montrant la visibilité, la responsabilité et l’optimisation](./media/cost-mgt-best-practices/principles.png)
 
 ## <a name="plan-with-cost-in-mind"></a>Planifier avec le coût à l’esprit
 
@@ -78,10 +78,10 @@ Azure fournit des outils pour vous aider dans ce processus d’évaluation. Ces 
 
 ### <a name="azure-onboarding-options"></a>Options d’intégration Azure
 
-La première étape afin d’optimiser votre expérience au sein de Cost Management consiste à déterminer et à choisir l’offre Azure qui vous convient le mieux. Pensez à la façon dont vous prévoyez d’utiliser Azure. Penchez-vous également sur la configuration que vous souhaitez pour votre modèle de facturation. Posez-vous les questions suivantes quand vous prenez votre décision :
+Pour optimiser votre expérience au sein de Cost Management, la première étape consiste à déterminer et à choisir l’offre Azure qui vous convient le mieux. Pensez à la façon dont vous prévoyez d’utiliser Azure. Penchez-vous également sur la configuration que vous souhaitez pour votre modèle de facturation. Posez-vous les questions suivantes quand vous prenez votre décision :
 
 - Combien de temps est-ce que j’envisage d’utiliser Azure ? Mon souhait est-il d’effectuer des tests ou de créer une infrastructure à plus long terme ?
-- Comment est-ce que je souhaite payer pour l’utilisation d’Azure ? Dois-je opter pour le prépaiement afin d’obtenir un prix réduit ou être facturé à la fin du mois ?
+- Comment est-ce que je souhaite payer l’utilisation d’Azure ? Dois-je opter pour le prépaiement afin d’obtenir un prix réduit ou être facturé à la fin du mois ?
 
 Pour en savoir plus sur les différentes options, consultez la page [Acheter Azure](https://azure.microsoft.com/pricing/purchase-options/). Plusieurs des modèles de facturation les plus courants sont présentés ci-après.
 
@@ -115,7 +115,7 @@ Pour plus d’informations, consultez la [calculatrice de prix Azure](https://az
 
 ### <a name="azure-migrate"></a>Azure Migrate
 
-Azure Migrate est un service qui évalue les charges de travail actuelles de votre organisation dans les centres de données locaux. Il vous donne un insight de ce que vous pourriez attendre d’une solution de remplacement Azure. Tout d’abord, Migrate analyse vos machines locales pour déterminer si la migration est possible. Ensuite, il recommande un redimensionnement des machines virtuelles dans Azure pour optimiser les performances. Enfin, il crée également une estimation de coût pour une solution basée sur Azure.
+Azure Migrate est un service qui évalue les charges de travail actuelles de votre organisation dans les centres de données locaux. Il vous donne un insight de ce que vous pourriez attendre d’une solution de remplacement Azure. Tout d’abord, Migrate analyse vos machines locales pour déterminer si la migration est possible. Ensuite, il recommande un dimensionnement des machines virtuelles dans Azure pour optimiser les performances. Enfin, il crée également une estimation de coût pour une solution basée sur Azure.
 
 Pour plus d’informations, consultez [Azure Migrate](../migrate/migrate-overview.md).
 
@@ -140,7 +140,7 @@ Pour plus d’informations, consultez [Analyse des coûts](quick-acm-cost-analys
 
 ### <a name="export-billing-data-on-a-schedule"></a>Exporter les données de facturation selon une planification
 
-Devez-vous importer vos données de facturation dans un système externe, tel qu’un tableau de bord ou un système financier ? Vous pouvez planifier des rapports automatisés tous les jours pour éviter de télécharger manuellement les fichiers chaque mois. En outre, vous pouvez exporter les données de facturation vers un compte de stockage Azure et recevoir une notification à l’aide de [groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md). Ensuite, vous pouvez utiliser vos données Azure pour les combiner avec des données personnalisées que vous pouvez exploiter dans vos propres systèmes.
+Devez-vous importer vos données de facturation dans un système externe, tel qu’un tableau de bord ou un système financier ? Configurez des exportations automatisées dans le stockage Azure et évitez de télécharger manuellement les fichiers chaque mois. Vous pouvez ensuite facilement configurer les intégrations automatique avec d’autres systèmes pour préserver la synchronisation de vos données de facturation.
 
 Pour plus d’informations sur l’exportation des données de facturation, consultez [Créer et gérer des données exportées](tutorial-export-acm-data.md).
 
@@ -165,9 +165,9 @@ Azure Advisor est un service qui, entre autres choses, identifie les machines vi
 
 Pour plus d’informations, consultez [Azure Advisor](../advisor/advisor-overview.md).
 
-### <a name="size-your-vms-properly"></a>Redimensionner vos machines virtuelles correctement
+### <a name="size-your-vms-properly"></a>Dimensionner vos machines virtuelles correctement
 
-Le redimensionnement des machines virtuelles a un impact significatif sur votre coût Azure global. Le nombre de machines virtuelles nécessaires dans Azure peut ne pas correspondre à la configuration que vous avez déployée dans un centre de données local. Veillez à choisir la bonne taille pour les charges de travail que vous projetez d’exécuter.
+Le dimensionnement des machines virtuelles a un impact significatif sur votre coût Azure global. Le nombre de machines virtuelles nécessaires dans Azure peut ne pas correspondre à la configuration que vous avez déployée dans un centre de données local. Veillez à choisir la bonne taille pour les charges de travail que vous projetez d’exécuter.
 
 Pour plus d’informations, consultez [Azure IaaS : dimensionnement approprié et coût](https://azure.microsoft.com/resources/videos/azurecon-2015-azure-iaas-proper-sizing-and-cost/).
 

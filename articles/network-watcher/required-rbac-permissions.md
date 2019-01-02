@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jdial
-ms.openlocfilehash: 7d0f0367a4126e7cecd34b39e6e5065e7d4fd90a
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 429f7862901814fbd2017c395706fbfa2c345f72
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287105"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434577"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Autorisations de contrôle d’accès en fonction du rôle obligatoires pour utiliser les fonctionnalités de Network Watcher
 
 Le contrôle d’accès en fonction du rôle (RBAC) Azure vous permet d’affecter aux membres de votre organisation uniquement les actions dont ils ont besoin pour remplir leur fonction. Pour utiliser les fonctionnalités de Network Watcher, le compte avec lequel vous vous connectez à Azure doit être affecté aux rôles intégrés [Propriétaire](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [Contributeur](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor) ou [Contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor), ou à un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) auquel sont affectées les actions listées pour chaque fonctionnalité de Network Watcher dans les sections qui suivent. Pour en savoir plus sur les fonctionnalités de Network Watcher, consultez [Qu’est-ce que Network Watcher](network-watcher-monitoring-overview.md).
 
-## <a name="network-watcher"></a>Network Watcher
+## <a name="network-watcher"></a>Network Watcher
 
 | Action                                                              | NOM                                                           |
 | ---------                                                           | -------------                                                  |
@@ -44,6 +44,7 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure vous permet d’affect
 
 | Action                                                              | NOM                                                           |
 | ---------                                                           | -------------                                                  |
+| Microsoft.Network/networkWatchers/connectivityCheck/action          | Lancer un test de résolution de problèmes de connexion
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Interroger les résultats d’un test de résolution de problèmes de connexion                |
 | Microsoft.Network/networkWatchers/troubleshoot/action               | Exécuter un test de résolution de problèmes de connexion                             |
 
@@ -102,15 +103,19 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure vous permet d’affect
 
 Les fonctionnalités de Network Watcher nécessitent également les actions suivantes :
 
-- Microsoft.Storage/Read
-- Microsoft.Authorization/Read
+- Microsoft.Authorization/\*/Read
 - Microsoft.Resources/subscriptions/resourceGroups/Read
+- Microsoft.Storage/storageAccounts/Read
 - Microsoft.Storage/storageAccounts/listServiceSas/Action
 - Microsoft.Storage/storageAccounts/listAccountSas/Action
 - Microsoft.Storage/storageAccounts/listKeys/Action
 - Microsoft.Compute/virtualMachines/Read
 - Microsoft.Compute/virtualMachines/Write
+- Microsoft.Compute/virtualMachines/extensions/Read
+- Microsoft.Compute/virtualMachines/extensions/Write
 - Microsoft.Compute/virtualMachineScaleSets/Read
 - Microsoft.Compute/virtualMachineScaleSets/Write
+- Microsoft.Compute/virtualMachineScaleSets/extensions/Read
+- Microsoft.Compute/virtualMachineScaleSets/extensions/Write
 - Microsoft.Insights/alertRules/*
 - Microsoft.Support/*

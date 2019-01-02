@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495296"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012570"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utiliser l’API REST Spark Apache pour envoyer des travaux à distance à un cluster Spark HDInsight
 
@@ -26,7 +26,7 @@ Vous pouvez utiliser Livy pour exécuter des interpréteurs de commandes Spark i
 
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* [cURL](http://curl.haxx.se/). Cet article utilise cURL pour montrer comment effectuer des appels d’API REST sur un cluster HDInsight Spark.
+* [cURL](https://curl.haxx.se/). Cet article utilise cURL pour montrer comment effectuer des appels d’API REST sur un cluster HDInsight Spark.
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Envoyer un traitement par lots Apache Livy Spark
 Avant de soumettre un traitement par lots, vous devez télécharger le fichier .jar d’application sur le stockage associé au cluster. Pour ce faire, vous pouvez utiliser l’utilitaire en ligne de commande [**AzCopy**](../../storage/common/storage-use-azcopy.md). D’autres clients permettent également de charger des données. Pour en savoir plus à leur sujet, consultez [Chargement de données pour les tâches Apache Hadoop dans HDInsight](../hdinsight-upload-data.md).
@@ -172,9 +172,9 @@ Voici quelques problèmes que vous pouvez rencontrer lors de l’utilisation de 
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>L’utilisation d’un fichier JAR externe à partir du stockage supplémentaire n’est pas prise en charge.
 
-**Problème :** Si votre travail Livy Spark référence un fichier jar externe à partir du compte de stockage supplémentaire associé au cluster, le travail échoue.
+**Problème :** Si votre travail Livy Spark référence un fichier jar externe à partir du compte de stockage supplémentaire associé au cluster, le travail échoue.
 
-**Résolution :** vérifiez que le fichier JAR que vous voulez utiliser est présent dans le stockage par défaut associé au cluster HDInsight.
+**Résolution :** Vérifiez que le fichier JAR que vous voulez utiliser est présent dans le stockage par défaut associé au cluster HDInsight.
 
 
 

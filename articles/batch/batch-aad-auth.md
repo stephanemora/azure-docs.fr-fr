@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 964ef3bd988d71bfb90dbaa473b4b259769064b3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955794"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722053"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -139,9 +139,10 @@ Pour s’authentifier avec un principal de service, vous devez attribuer un rôl
 
 1. Dans le portail Azure, accédez au compte Batch utilisé par votre application.
 2. Dans le panneau **Paramètres** du compte Batch, sélectionnez **Contrôle d’accès (IAM)**.
-3. Cliquez sur le bouton **Add** . 
-4. Dans la liste déroulante **Rôle**, choisissez le rôle _Collaborateur_ ou _Lecteur_ pour votre application. Pour plus d’informations sur ces rôles, consultez [Prise en main du contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).  
-5. Dans le champ **Sélectionner**, entrez le nom de votre application. Sélectionnez votre application dans la liste, puis cliquez sur **Enregistrer**.
+3. Cliquez sur l’onglet **Attributions de rôles**.
+4. Cliquez sur le bouton **Ajouter une attribution de rôle**. 
+5. Dans la liste déroulante **Rôle**, choisissez le rôle _Collaborateur_ ou _Lecteur_ pour votre application. Pour plus d’informations sur ces rôles, consultez [Prise en main du contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).  
+6. Dans le champ **Sélectionner**, entrez le nom de votre application. Sélectionnez votre application dans la liste, puis cliquez sur **Enregistrer**.
 
 Votre application doit maintenant apparaître dans vos paramètres de contrôle d’accès avec un rôle RBAC qui lui est attribué. 
 
@@ -170,7 +171,7 @@ Les exemples de code de cette section montrent comment s’authentifier avec Azu
 >
 >
 
-### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Exemple de code : utilisation de l’authentification intégrée Azure AD avec Batch .NET
+### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Exemple de code : utilisation de l’authentification intégrée Azure AD avec Batch .NET
 
 Pour s’authentifier avec l’authentification intégrée à partir de Batch .NET, vous devez référencer les packages [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) et [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
@@ -243,7 +244,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Exemple de code : utilisation d’un principal de service Azure AD avec Batch .NET
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Exemple de code : utilisation d’un principal de service Azure AD avec Batch .NET
 
 Pour s’authentifier avec un principal de service à partir de Batch .NET, vous devez référencer les packages [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) et [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
@@ -310,7 +311,7 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Exemple de code : utilisation d’un principal de service Azure AD avec Batch Python
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Exemple de code : utilisation d’un principal de service Azure AD avec Batch Python
 
 Pour s’authentifier avec un principal de service à partir de Batch Python, installez et référencez les modules [azure-batch](https://pypi.org/project/azure-batch/) et [azure-common](https://pypi.org/project/azure-common/).
 
