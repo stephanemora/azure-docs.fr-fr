@@ -4,17 +4,17 @@ description: Cet article décrit comment analyser les journaux de diagnostic dan
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: 9001a2962806ee3e691fa448dde162d12c6ecdd2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: db3c9874676e3240f6896c1e1ff8f873360c20d5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905859"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090820"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic
 
@@ -36,15 +36,15 @@ Les journaux de diagnostic sont **désactivés** par défaut. Pour activer les j
 
 1.  Connectez-vous au portail Azure et accédez au panneau du travail de streaming. Sous **Surveillance**, sélectionnez **Journaux de diagnostic**.
 
-    ![Navigation dans le panneau jusqu’aux journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/image1.png)  
+    ![Navigation dans le panneau jusqu’aux journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
 2.  Sélectionnez **Activer les diagnostics**.
 
-    ![Activer les journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/image2.png)
+    ![Activer les journaux de diagnostic Stream Analytics](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
 
 3.  Sur la page **Paramètres de diagnostic**, définissez le paramètre **État** sur **Activé**.
 
-    ![Modifier l’état pour les journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/image3.png)
+    ![Modifier l’état pour les journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
 
 4.  Configurez la cible d’archivage (compte de stockage, concentrateur d’événements, Log Analytics) de votre choix. Sélectionnez ensuite les catégories de journaux à collecter (Exécution, Création). 
 
@@ -52,7 +52,7 @@ Les journaux de diagnostic sont **désactivés** par défaut. Pour activer les j
 
 Celle-ci prend effet dans un délai de 10 minutes environ. Après cela, les journaux commencent à apparaître dans la cible d’archivage configurée (vous les retrouvez sur la page **Journaux de diagnostics**) :
 
-![Navigation dans le panneau jusqu’aux journaux de diagnostic - cibles d’archivage](./media/stream-analytics-job-diagnostic-logs/image4.png)
+![Navigation dans le panneau jusqu’aux journaux de diagnostic - cibles d’archivage](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
 
 Pour en savoir plus sur la configuration de diagnostic, consultez l’article [Collecte et utilisation des données de diagnostic à partir de vos ressources Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
@@ -77,7 +77,7 @@ NOM | Description
 time | L’horodatage (heure UTC) du journal.
 ResourceId | L’ID de la ressource sur laquelle l’opération a eu lieu, en majuscules. Comprend l’ID d’abonnement, le groupe de ressources et le nom du travail. Par exemple, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | La catégorie de journal, **Exécution** ou **Création**.
-operationName | Le nom de l’opération qui est journalisée. Par exemple, **Événements d’envoi : Échec d’écriture de la sortie SQL sur mysqloutput**.
+operationName | Le nom de l’opération qui est journalisée. Par exemple, **Événements d’envoi : Échec d’écriture de la sortie SQL sur mysqloutput**.
 status | État de l’opération. Par exemple, **Échec** ou **Réussite**.
 level | Le niveau du journal. Par exemple, **Erreur**, **Avertissement** ou **Informations**.
 properties | Détail spécifique de l’entrée du journal, sérialisé comme chaîne JSON. Pour plus d’informations, consultez les sections suivantes.
@@ -99,8 +99,8 @@ Données | Contient des données utiles pour localiser avec précision la source
 
 En fonction de la valeur **operationName**, les erreurs de données ont le schéma suivant :
 * **Événements de sérialisation** : les événements de sérialisation se produisent pendant les opérations de lecture d’événements, lorsque les données en entrée ne répondent pas aux conditions du schéma de requête pour l’une des raisons suivantes :
-    * *Incompatibilité de type pendant la (dé)sérialisation de l’événement* : identifie le champ à l’origine de l’erreur.
-    * *Impossible de lire un événement, sérialisation non valide* : fournit des informations sur l’emplacement où l’erreur s’est produite dans les données d’entrée (nom d’objet blob pour une entrée d’objet blob, décalage et exemple de données).
+    * *Incompatibilité de type pendant la (dé)sérialisation de l’événement :* identifie le champ à l’origine de l’erreur.
+    * *Impossible de lire un événement, sérialisation non valide* : fournit des informations sur l’emplacement où l’erreur s’est produite dans les données d’entrée. (nom d’objet blob pour une entrée d’objet blob, décalage et exemple de données).
 * **Événements d’envoi** : les événements d’envoi se produisent pendant les opérations d’écriture. Ils identifient l’événement de streaming à l’origine de l’erreur.
 
 ### <a name="generic-events"></a>Événements génériques

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 72d324e0b5fe0c50dadc076306c9167c0492290a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 27523a3746e3afe649df3fcf78975b501a922ff8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625587"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957297"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
 
@@ -156,7 +156,7 @@ L’exemple suivant montre comment répertorier les définition de mesures au ni
         var accessKey = "{AccessKey}";
 
         // Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
-        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
 
         foreach (var metricDefinition in metricDefinitions)
@@ -196,15 +196,15 @@ L’exemple suivant montre comment lire des données `UsedCapacity` au niveau du
 
         Microsoft.Azure.Management.Monitor.Models.Response Response;
 
-        string startDate = DateTime.Now.AddHours(-3).ToString("o");
-        string endDate = DateTime.Now.ToString("o");
+        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
+        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
         string timeSpan = startDate + "/" + endDate;
 
         Response = await readOnlyClient.Metrics.ListAsync(
             resourceUri: resourceId,
             timespan: timeSpan,
             interval: System.TimeSpan.FromHours(1),
-            metric: "UsedCapacity",
+            metricnames: "UsedCapacity",
 
             aggregation: "Average",
             resultType: ResultType.Data,
@@ -244,12 +244,12 @@ L’exemple suivant montre comment lire les données de mesures sur la métrique
         var applicationId = "{ApplicationID}";
         var accessKey = "{AccessKey}";
 
-        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
 
         Microsoft.Azure.Management.Monitor.Models.Response Response;
 
-        string startDate = DateTime.Now.AddHours(-3).ToString("o");
-        string endDate = DateTime.Now.ToString("o");
+        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
+        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
         string timeSpan = startDate + "/" + endDate;
         // It's applicable to define meta data filter when a metric support dimension
         // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
@@ -260,7 +260,7 @@ L’exemple suivant montre comment lire les données de mesures sur la métrique
                         resourceUri: resourceId,
                         timespan: timeSpan,
                         interval: System.TimeSpan.FromHours(1),
-                        metric: "BlobCapacity",
+                        metricnames: "BlobCapacity",
                         odataQuery: odataFilterMetrics,
                         aggregation: "Average",
                         resultType: ResultType.Data);
@@ -332,39 +332,39 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| UsedCapacity | Quantité de stockage utilisée par le compte de stockage. Pour les comptes de stockage standard, il s’agit de la somme de la capacité utilisée par les objets blob, tables, fichiers et files d’attente. Pour les comptes de stockage Premium et les comptes de stockage Blob, elle équivaut à BlobCapacity. <br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Exemple de valeur : 1024 |
+| UsedCapacity | Quantité de stockage utilisée par le compte de stockage. Pour les comptes de stockage standard, il s’agit de la somme de la capacité utilisée par les objets blob, tables, fichiers et files d’attente. Pour les comptes de stockage Premium et les comptes de stockage Blob, elle équivaut à BlobCapacity. <br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Exemple de valeur : 1 024 |
 
 ### <a name="blob-storage"></a>Stockage d'objets blob
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Exemple de valeur : 1024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
-| BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Exemple de valeur : 1024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
-| ContainerCount    | Nombre de conteneurs dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
+| BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Exemple de valeur : 1 024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
+| BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Exemple de valeur : 1 024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
+| ContainerCount    | Nombre de conteneurs dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="table-storage"></a>Stockage de tables
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| TableCapacity | Quantité de stockage de tables utilisée par le compte de stockage. <br/><br/> Unité : octets <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
-| TableCount   | Nombre de tables dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
-| TableEntityCount | Nombre d’entités de table dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
+| TableCapacity | Quantité de stockage de tables utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| TableCount   | Nombre de tables dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| TableEntityCount | Nombre d’entités de table dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="queue-storage"></a>Stockage de files d'attente
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| QueueCapacity | Quantité de stockage de files d’attente utilisée par le compte de stockage. <br/><br/> Unité : octets <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
-| QueueCount   | Nombre de files d’attente dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
-| QueueMessageCount | Nombre de messages de file d’attente non expirés dans le compte de stockage. <br/><br/>Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
+| QueueCapacity | Quantité de stockage de files d’attente utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| QueueCount   | Nombre de files d’attente dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| QueueMessageCount | Nombre de messages de file d’attente non expirés dans le compte de stockage. <br/><br/>Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="file-storage"></a>Stockage Fichier
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| FileCapacity | Quantité de stockage de fichiers utilisée par le compte de stockage. <br/><br/> Unité : octets <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
-| FileCount   | Nombre de fichiers dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
-| FileShareCount | Nombre de partages de fichiers dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
+| FileCapacity | Quantité de stockage de fichiers utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| FileCount   | Nombre de fichiers dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| FileShareCount | Nombre de partages de fichiers dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ## <a name="transaction-metrics"></a>Métriques de transaction
 
@@ -374,12 +374,12 @@ Stockage Azure fournit les mesures de transaction suivantes dans Azure Monitor.
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| Transactions | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimensions applicables : ResponseType, GeoType, ApiName et Authentication ([Définition](#metrics-dimensions))<br/> Exemple de valeur : 1024 |
-| Entrée | Quantité de données d’entrée. Ce nombre inclut les entrées d’un client externe dans Stockage Azure ainsi que les entrées dans Azure. <br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1024 |
-| Sortie | Quantité de données de sortie. Ce nombre inclut les sorties d’un client externe dans Stockage Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables. <br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1024 |
-| SuccessServerLatency | Durée moyenne utilisée pour traiter une requête réussie par Stockage Azure. Cette valeur n’inclut pas la latence réseau spécifiée dans SuccessE2ELatency. <br/><br/> Unité : millisecondes <br/> Type d’agrégation : moyenne <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1024 |
-| SuccessE2ELatency | Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée. Cette valeur inclut le temps de traitement requis au sein de Stockage Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse. <br/><br/> Unité : millisecondes <br/> Type d’agrégation : moyenne <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1024 |
-| Disponibilité | Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris les requêtes qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée. <br/><br/> Unité : pourcentage <br/> Type d’agrégation : moyenne <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 99.99 |
+| Transactions | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimensions applicables : ResponseType, GeoType, ApiName et Authentication ([Définition](#metrics-dimensions))<br/> Exemple de valeur : 1 024 |
+| Entrée | Quantité de données d’entrée. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure. <br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1 024 |
+| Sortie | Quantité de données de sortie. Ce nombre inclut les sorties d’un client externe dans Stockage Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables. <br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1 024 |
+| SuccessServerLatency | Durée moyenne utilisée pour traiter une requête réussie par Stockage Azure. Cette valeur n’inclut pas la latence réseau spécifiée dans SuccessE2ELatency. <br/><br/> Unité : Millisecondes <br/> Type d’agrégation : Moyenne <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1 024 |
+| SuccessE2ELatency | Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse. <br/><br/> Unité : Millisecondes <br/> Type d’agrégation : Moyenne <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1 024 |
+| Disponibilité | Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris les requêtes qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée. <br/><br/> Unité : Pourcentage <br/> Type d’agrégation : Moyenne <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 99,99 |
 
 ## <a name="metrics-dimensions"></a>Dimensions de mesures
 
@@ -388,10 +388,10 @@ Stockage Azure prend en charge les dimensions suivantes pour les mesures dans Az
 | Nom de la dimension | Description |
 | ------------------- | ----------------- |
 | /BlobType | Type d’objet blob pour les mesures d’objet Blob uniquement. Les valeurs prises en charge sont **BlockBlob** et **PageBlob**. Append Blob est inclus dans BlockBlob. |
-| ResponseType | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>ServerOtherError : toutes les autres erreurs côté serveur sauf celles décrites </li> <li> ServerBusyError : requête authentifiée qui a renvoyé un code d’état HTTP 503. </li> <li> ServerTimeoutError : requête authentifiée arrivée à expiration qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li> AuthorizationError : requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li> NetworkError : requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li> <li>    ClientThrottlingError : erreur de limitation côté client. </li> <li> ClientTimeoutError : requête authentifiée arrivée à expiration qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li> ClientOtherError : toutes les autres erreurs côté client sauf celles décrites. </li> <li> Réussite : requête réussie|
+| ResponseType | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>ServerOtherError : toutes les autres erreurs côté serveur sauf celles décrites </li> <li> ServerBusyError : requête authentifiée qui a renvoyé un code d’état HTTP 503. </li> <li> ServerTimeoutError : requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li> AuthorizationError : requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li> NetworkError : requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li> <li>    ClientThrottlingError : erreur de limitation côté client. </li> <li> ClientTimeoutError : requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li> ClientOtherError : toutes les autres erreurs côté client sauf celles décrites. </li> <li> Success : requête réussie|
 | GeoType | Transaction du cluster principal ou secondaire. Les valeurs disponibles incluent Principal et Secondaire. S’applique au stockage Géo-redondant avec accès en lecture (RA-GRS) lors de la lecture d’objets à partir du locataire secondaire. |
 | ApiName | Nom de l’opération. Par exemple :  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Pour tous les noms d’opérations, voir [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
-| Authentification | Type d’authentification utilisé dans les transactions. Les valeurs disponibles incluent : <br/> <li>AccountKey : la transaction est authentifiée avec la clé du compte de stockage.</li> <li>SAS : la transaction est authentifiée avec des signatures d’accès partagé.</li> <li>OAuth : la transaction est authentifiée avec des jetons d’accès OAuth.</li> <li>Anonymous : la transaction est demandée anonymement. Elle n’inclut pas les demandes préalables.</li> <li>AnonymousPreflight : la transaction est une demande préalable.</li> |
+| Authentification | Type d’authentification utilisé dans les transactions. Les valeurs disponibles incluent : <br/> <li>AccountKey : la transaction est authentifiée avec la clé du compte de stockage.</li> <li>SAS : la transaction est authentifiée avec des signatures d’accès partagé.</li> <li>OAuth : la transaction est authentifiée avec des jetons d’accès OAuth.</li> <li>Anonymous : la transaction est demandée anonymement. Elle n’inclut pas les demandes préalables.</li> <li>AnonymousPreflight : la transaction est une requête préalable.</li> |
 
 Pour les mesures prenant en charge des dimensions, vous devez spécifier la valeur de la dimension pour afficher les valeurs de mesures correspondantes. Par exemple, si vous examinez la valeur **Transactions** pour des réponses réussies, vous devez filtrer la dimension **ResponseType** avec **Success**. Si vous examinez la valeur **BlobCount** pour BlockBlob, vous devez filtrer la dimension **BlobType** avec **BlockBlob**.
 

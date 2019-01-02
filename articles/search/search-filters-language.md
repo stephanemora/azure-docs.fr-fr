@@ -1,6 +1,6 @@
 ---
-title: Filtres de langue dans Recherche Azure | Microsoft Docs
-description: Filtrez selon des critères par identité de sécurité d’utilisateur, langue, emplacement géographique ou valeurs numériques pour réduire les résultats de recherche des requêtes effectuées dans Recherche Azure, service de recherche dans le cloud hébergé sur Microsoft Azure.
+title: Filtres de langage pour contenu multilingue dans un index de recherche - Recherche Azure
+description: Critères de filtre pour prendre en charge la recherche multilingue et l’exécution de requêtes selon des champs spécifiques à une langue.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,12 +9,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 2bacffe64fed3e2ee0cc2eb983776b4ab7086e51
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec2018
+ms.openlocfilehash: aae081232d3633d3f7d8094979764606bf99430d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466579"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311182"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Comment filtrer par langue dans Recherche Azure 
 

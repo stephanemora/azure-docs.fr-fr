@@ -1,5 +1,5 @@
 ---
-title: Comment mettre à l'échelle une application dans un environnement App Service
+title: Comment mettre à l’échelle une application dans un environnement App Service Environment - Azure
 description: Mise à l'échelle d'une application dans un environnement App Service
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: d04a5fce920dae25507cdf2f64832574e24c51dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: c94e7f761dcbc7e05965e359d7f9a864335c9c6b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986314"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269343"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Mise à l'échelle des applications dans un environnement App Service
 Dans Azure App Service, il existe normalement trois éléments que vous pouvez mettre à l'échelle :
@@ -39,7 +40,7 @@ La modification de l'un ou l'autre élément s'effectue via l'interface utilisat
 
 ![][1]
 
-Vous ne pouvez pas mettre à l'échelle votre ASP au-delà du nombre de ressources de calcul disponibles du pool de travaux où se trouve votre ASP.  Si vous avez besoin de ressources de calcul dans ce pool de travaux, vous devez demander à l'administrateur de votre environnement App Service de les ajouter.  Pour plus d’informations sur la reconfiguration de votre environnement App Service, consultez [Comment configurer un environnement App Service][HowtoConfigureASE].  Vous pouvez également tirer parti des fonctionnalités de mise à l'échelle automatique d'ASE pour ajouter de la capacité en fonction de la planification ou des mesures.  Pour obtenir des informations sur la configuration de mise à l’échelle automatique de l’environnement ASE lui-même, consultez [Configuration de la mise à l’échelle automatique pour un environnement App Service][ASEAutoscale].
+Vous ne pouvez pas mettre à l'échelle votre ASP au-delà du nombre de ressources de calcul disponibles du pool de travaux où se trouve votre ASP.  Si vous avez besoin de ressources de calcul dans ce pool de travaux, vous devez demander à l'administrateur de votre environnement App Service de les ajouter.  Pour plus d’informations sur la reconfiguration de votre environnement App Service Environment, consultez [Comment configurer un environnement App Service][HowtoConfigureASE].  Vous pouvez également tirer parti des fonctionnalités de mise à l'échelle automatique d'ASE pour ajouter de la capacité en fonction de la planification ou des mesures.  Pour obtenir des informations sur la configuration de mise à l’échelle automatique de l’environnement ASE lui-même, consultez [Configuration de la mise à l’échelle automatique pour un environnement App Service][ASEAutoscale].
 
 Vous pouvez créer plusieurs plans App Service à l’aide de ressources de calcul provenant de pools de travaux différents ou vous pouvez utiliser le même pool de travail.  Par exemple, si vous disposez de (10) ressources de calcul disponibles dans le pool de travaux 1, vous pouvez choisir de créer un plan App Service à l’aide de (6) ressources de calcul et planifier un deuxième service d’application qui utilise (4) ressources de calcul.
 
@@ -79,7 +80,7 @@ Pour prendre en main les environnements App Service, consultez [Comment créer u
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
 [Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [AppScale]: ../web-sites-scale.md
-[AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
+[AppWarmup]: https://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/

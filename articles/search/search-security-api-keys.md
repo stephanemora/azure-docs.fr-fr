@@ -1,5 +1,5 @@
 ---
-title: Créer, gérer et sécuriser des clés API d’administration et de requête pour la Recherche Azure | Microsoft Docs
+title: Créer, gérer et sécuriser des clés API d’administration et de requête - Recherche Azure
 description: Les clés API contrôlent l’accès au point de terminaison de service. Les clés d’administration accordent un accès en écriture. Les clés de requête peuvent être créées pour l’accès en lecture seule.
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.custom: seodec2018
+ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284979"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316914"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Créer et gérer des clés API pour un service Recherche Azure
 
@@ -65,9 +66,9 @@ Si vous régénérez les clés principale et secondaire en même temps, les appl
 ## <a name="secure-api-keys"></a>Sécuriser les clés API
 La sécurité des clés est assurée en limitant l’accès via le portail ou des interfaces Resource Manager (PowerShell ou interface de ligne de commande). Comme indiqué, les administrateurs des abonnements peuvent afficher et régénérer toutes les clés API. Par précaution, passez en revue les affectations de rôle pour comprendre qui a accès aux clés Admin.
 
-+ Dans le tableau de bord de service, cliquez sur **Contrôle d’accès (IAM)** pour afficher les affectations de rôle pour votre service.
++ Dans le tableau de bord de service, cliquez sur **Contrôle d’accès (IAM)**, puis sur l’onglet **Attributions de rôles** pour afficher les affectations de rôle pour votre service.
 
-Les membres des rôles suivants peuvent afficher et régénérer les clés : Propriétaire, Collaborateur, [Collaborateurs Search Service](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
+Les membres ayant les rôles suivants peuvent afficher et régénérer les clés : Propriétaire, collaborateur, [contributeur de Search Service](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 
 > [!Note]
 > Pour un accès en fonction de l’identité sur les résultats de recherche, vous pouvez créer des filtres de sécurité pour ajuster les résultats par identité, en supprimant les documents auxquels le demandeur ne doit pas avoir accès. Pour plus d’informations, consultez [Filtres de sécurité](search-security-trimming-for-azure-search.md) et [Sécuriser avec Active Directory](search-security-trimming-for-azure-search-with-aad.md).

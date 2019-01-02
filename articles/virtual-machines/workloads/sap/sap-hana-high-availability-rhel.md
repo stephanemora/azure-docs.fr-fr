@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167407"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338520"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure dans le système Red Hat Enterprise Linux
 
@@ -87,10 +87,10 @@ Pour atteindre la haute disponibilité, SAP HANA est installé sur deux machines
 
 La configuration de la réplication du système SAP HANA utilise un nom d’hôte virtuel dédié et des adresses IP virtuelles. Sur Azure, un équilibreur de charge est nécessaire pour utiliser une adresse IP virtuelle. La liste suivante illustre la configuration de l’équilibreur de charge :
 
-* Configuration frontale : adresse IP 10.0.0.0.13 pour hn1-db
-* Configuration backend : Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie de la réplication de système HANA
-* Port de sondage : port 62503
-* Règles d’équilibrage de charge : 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
+* Configuration front-end : Adresse IP 10.0.0.13 pour hn1-db
+* Configuration back-end : Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie de la réplication de système HANA
+* Port de la sonde : Port 62503
+* Règles d’équilibrage de charge : 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
 
 ## <a name="deploy-for-linux"></a>Déploiement pour Linux
 
@@ -103,13 +103,13 @@ Suivez ces étapes pour déployer le modèle :
 
 1. Ouvrez le [modèle de base de données][template-multisid-db] dans le portail Microsoft Azure.
 1. Entrez les paramètres suivants :
-    * **ID du système SAP** : Entrez l’ID du système SAP que vous souhaitez installer. Cet ID est utilisé comme préfixe pour les ressources déployées.
-    * **Type de système d’exploitation** : Sélectionnez l’une des distributions Linux. Dans cet exemple, sélectionnez **RHEL 7**.
-    * **Type de base de données**: sélectionnez **HANA**.
-    * **Taille du système SAP**: Saisissez le nombre de SAP que le nouveau système va fournir. Si vous ne savez pas combien de SAP sont exigés par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-    * **Disponibilité du système** : Sélectionnez **HA** (haute disponibilité).
-    * **Nom d’utilisateur, mot de passe d’administrateur ou clé SSH** : un nouvel utilisateur est créé et vous pouvez l’utiliser pour ouvrir une session sur la machine.
-    * **ID de sous-réseau** : si vous voulez déployer la machine virtuelle dans un réseau virtuel existant dans lequel vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, donnez un nom à l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : **/subscriptions/\<ID_abonnement/\<resourceGroups/nom_groupe_ressources>/providers/Microsoft.Network/virtualNetworks/\<nom_réseau_virtuel>/subnets/\<nom_sous_réseau>**. Laissez-le vide si vous souhaitez créer un réseau virtuel.
+    * **ID du système SAP** : Entrez l’ID du système SAP que vous souhaitez installer. Cet ID est utilisé comme préfixe pour les ressources déployées.
+    * **Type de système d’exploitation** : Sélectionnez l’une des distributions Linux. Dans cet exemple, sélectionnez **RHEL 7**.
+    * **Type de base de données** : sélectionnez **HANA**.
+    * **Taille du système SAP** : entrez le nombre de SAP que le nouveau système va fournir. Si vous ne savez pas combien de SAP sont exigés par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
+    * **Disponibilité du système** : Sélectionnez la haute disponibilité **(HA)**.
+    * **Nom d’utilisateur administrateur, mot de passe d’administrateur ou clé SSH** : Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
+    * **ID de sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : **/subscriptions/\<ID_abonnement/\<resourceGroups/nom_groupe_ressources>/providers/Microsoft.Network/virtualNetworks/\<nom_réseau_virtuel>/subnets/\<nom_sous_réseau>**. Laissez-le vide si vous souhaitez créer un réseau virtuel.
 
 ### <a name="manual-deployment"></a>Déploiement manuel
 
@@ -120,9 +120,9 @@ Suivez ces étapes pour déployer le modèle :
 1. Créer un équilibrage de charge (interne).
    * Sélectionnez le réseau virtuel créé à l’étape 2.
 1. Créez la machine virtuelle 1.  
-   À utiliser pour Red Hat Enterprise Linux for SAP HANA, version 7.4 au moins. Cet exemple utilise l’image Red Hat Enterprise Linux 7.4 for SAP HANA <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> Sélectionnez le groupe à haute disponibilité créé à l’étape 3.
+   À utiliser pour Red Hat Enterprise Linux for SAP HANA, version 7.4 au moins. Cet exemple utilise l’image Red Hat Enterprise Linux 7.4 for SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Sélectionnez le groupe à haute disponibilité créé à l’étape 3.
 1. Créez la machine virtuelle 2.  
-   À utiliser pour Red Hat Enterprise Linux for SAP HANA, version 7.4 au moins. Cet exemple utilise l’image Red Hat Enterprise Linux 7.4 for SAP HANA <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> Sélectionnez le groupe à haute disponibilité créé à l’étape 3.
+   À utiliser pour Red Hat Enterprise Linux for SAP HANA, version 7.4 au moins. Cet exemple utilise l’image Red Hat Enterprise Linux 7.4 for SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Sélectionnez le groupe à haute disponibilité créé à l’étape 3.
 1. Ajoutez des disques de données.
 1. Configurez l’équilibrage de charge. Commencez par créer un pool d’adresses IP frontales :
 
@@ -187,11 +187,11 @@ Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chap
 
 Les étapes de cette section utilisent les préfixes suivants :
 
-* **[A]** : L’étape s’applique à tous les nœuds.
-* **[1]** : L’étape ne s’applique qu’au nœud 1.
-* **[2]** : L’étape s’applique uniquement au nœud 2 du cluster Pacemaker.
+* **[A]**  : l’étape s’applique à tous les nœuds.
+* **[1]**  : l’étape ne s’applique qu’au nœud 1.
+* **[2]**  : l’étape s’applique uniquement au nœud 2 du cluster Pacemaker.
 
-1. **[A]** Configurez la disposition du disque : **Logical Volume Manager (LVM)**.
+1. **[A]** Configurez la disposition du disque : **Logical Volume Manager (LVM)**.
 
    Nous recommandons d’utiliser LVM pour les volumes qui stockent des données et des fichiers journaux. L’exemple suivant part du principe que les machines virtuelles disposent de quatre disques de données joints qui sont utilisés pour créer deux volumes.
 
@@ -257,7 +257,7 @@ Les étapes de cette section utilisent les préfixes suivants :
    <pre><code>sudo mount -a
    </code></pre>
 
-1. **[A]** Configurez la disposition du disque : **Disques simples**.
+1. **[A]** Configurez la disposition du disque : **Disques simples**.
 
    Pour les systèmes de démonstration, vous pouvez placer vos données et fichiers journaux HANA sur un disque. Créez une partition sur /dev/disk/azure/scsi1/lun0 au format xfs :
 
@@ -303,31 +303,31 @@ Les étapes de cette section utilisent les préfixes suivants :
    Pour installer la réplication de système SAP HANA, suivez les étapes de <https://access.redhat.com/articles/3004101>.
 
    * Exécutez le programme **hdblcm** depuis le DVD HANA. Entrez les valeurs suivantes à l’invite :
-   * Choose installation : entrez **1**.
-   * Select additional components for installation : entrez **1**.
-   * Enter Installation Path [/hana/shared] : sélectionnez Entrée.
-   * Enter Local Host Name [..] : sélectionnez Entrée.
-   * Do you want to add additional hosts to the system? (y/n)[n] : sélectionnez Entrée.
-   * Enter SAP HANA System ID : entrez le SID du HANA, par exemple : **HN1**.
-   * Enter Instance Number [00] : Entrez le numéro d’instance HANA. Entrez **03** si vous avez utilisé le modèle Azure ou si vous avez suivi la section de cet article sur le déploiement manuel.
-   * Select Database Mode / Enter Index [1] : sélectionnez Entrée.
-   * Select System Usage / Enter Index [4] : sélectionnez la valeur d’utilisation du système.
-   * Enter Location of Data Volumes [/hana/data/HN1] : sélectionnez Entrée.
-   * Enter Location of Log Volumes [/hana/log/HN1] : sélectionnez Entrée.
-   * Restrict maximum memory allocation? [n] : sélectionnez Entrée.
-   * Enter Certificate Host Name For Host ’...’ [...] : sélectionnez Entrée.
-   * Enter SAP Host Agent User (sapadm) Password : entrez le mot de passe utilisateur de l’agent hôte.
-   * Confirm SAP Host Agent User (sapadm) Password : entrez à nouveau le mot de passe utilisateur de l’agent hôte pour confirmer.
-   * Enter System Administrator (hdbadm) Password : entrez le mot de passe de l’administrateur système.
-   * Confirm System Administrator (hdbadm) Password : entrez à nouveau le mot de passe de l’administrateur système pour confirmer.
-   * Enter System Administrator Home Directory [/usr/sap/HN1/home] : sélectionnez Entrée.
-   * Enter System Administrator Login Shell [/bin/sh] : sélectionnez Entrée.
-   * Enter System Administrator User ID [1001] : sélectionnez Entrée.
-   * Enter ID of User Group (sapsys) [79] : sélectionnez Entrée.
-   * Enter Database User (SYSTEM) Password : Entrez le mot de passe utilisateur de la base de données.
-   * Confirm Database User (SYSTEM) Password : Entrez à nouveau le mot de passe utilisateur de la base de données pour confirmer.
-   * Restart system after machine reboot? [n] : sélectionnez Entrée.
-   * Do you want to continue? (y/n) : Validez le récapitulatif. Tapez **Y** pour continuer.
+   * Choose installation : tapez **1**.
+   * Select additional components for installation : tapez **1**.
+   * Enter Installation Path [/hana/shared] : Sélectionnez Entrée.
+   * Enter Local Host Name [..] : Sélectionnez Entrée.
+   * Do you want to add additional hosts to the system? (y/n) [n] : Sélectionnez Entrée.
+   * Enter SAP HANA System ID : entrez le SID HANA, par exemple : **HN1**.
+   * Enter Instance Number [00] : entrez le numéro d’instance HANA. Entrez **03** si vous avez utilisé le modèle Azure ou si vous avez suivi la section de cet article sur le déploiement manuel.
+   * Select Database Mode / Enter Index [1] : Sélectionnez Entrée.
+   * Select System Usage / Enter Index [4] : sélectionnez la valeur de l’utilisation du système.
+   * Enter Location of Data Volumes [/hana/data/HN1] : Sélectionnez Entrée.
+   * Enter Location of Log Volumes [/hana/log/HN1] : Sélectionnez Entrée.
+   * Restrict maximum memory allocation? [n] : Sélectionnez Entrée.
+   * Enter Certificate Host Name For Host '...' [...] : Sélectionnez Entrée.
+   * Enter SAP Host Agent User (sapadm) Password: tapez le mot de passe utilisateur de l’agent hôte.
+   * Confirm SAP Host Agent User (sapadm) Password: retapez le mot de passe utilisateur de l’agent hôte pour confirmer.
+   * Enter System Administrator (hdbadm) Password: tapez le mot de passe d’administrateur système.
+   * Confirm System Administrator (hdbadm) Password: retapez le mot de passe d’administrateur système pour confirmer.
+   * Enter System Administrator Home Directory [/usr/sap/HN1/home] : Sélectionnez Entrée.
+   * Enter System Administrator Login Shell [/bin/sh] : Sélectionnez Entrée.
+   * Enter System Administrator User ID [1001] : Sélectionnez Entrée.
+   * Enter ID of User Group (sapsys) [79] : Sélectionnez Entrée.
+   * Enter Database User (SYSTEM) Password: tapez le mot de passe d’utilisateur de base de données.
+   * Confirm Database User (SYSTEM) Password: retapez le mot de passe d’utilisateur de base de données pour confirmer.
+   * Restart system after machine reboot? [n] : Sélectionnez Entrée.
+   * Do you want to continue? (y/n) : validez le récapitulatif. Tapez **Y** pour continuer.
 
 1. **[A]** Mettre à niveau l’agent hôte SAP.
 
@@ -348,9 +348,9 @@ Les étapes de cette section utilisent les préfixes suivants :
 
 Les étapes de cette section utilisent les préfixes suivants :
 
-* **[A]** : L’étape s’applique à tous les nœuds.
-* **[1]** : L’étape ne s’applique qu’au nœud 1.
-* **[2]** : L’étape s’applique uniquement au nœud 2 du cluster Pacemaker.
+* **[A]**  : l’étape s’applique à tous les nœuds.
+* **[1]**  : l’étape ne s’applique qu’au nœud 1.
+* **[2]**  : l’étape s’applique uniquement au nœud 2 du cluster Pacemaker.
 
 1. **[A]** Configurer le pare-feu
 
@@ -439,9 +439,9 @@ sudo firewall-cmd --zone=public --add-port=30342/tcp
 
 Les étapes de cette section utilisent les préfixes suivants :
 
-* **[A]** : L’étape s’applique à tous les nœuds.
-* **[1]** : L’étape ne s’applique qu’au nœud 1.
-* **[2]** : L’étape s’applique uniquement au nœud 2 du cluster Pacemaker.
+* **[A]**  : l’étape s’applique à tous les nœuds.
+* **[1]**  : l’étape ne s’applique qu’au nœud 1.
+* **[2]**  : l’étape s’applique uniquement au nœud 2 du cluster Pacemaker.
 
 1. **[A]** Configurer le pare-feu
 

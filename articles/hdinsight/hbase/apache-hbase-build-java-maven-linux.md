@@ -1,20 +1,20 @@
 ---
-title: Client Java HBase - Azure HDInsight
+title: Générer le client Java HBase à l’aide d’Apache Maven - Azure HDInsight
 description: Découvrez comment utiliser Apache Maven pour créer une application Apache HBase basées sur Java, puis la déployer vers HBase sur Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445649"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164056"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Créer des applications Java pour Apache HBase
 
@@ -56,8 +56,8 @@ La procédure décrite dans ce document utilise [Apache Maven](https://maven.apa
 
     Cette commande permet de créer un répertoire avec le même nom que le paramètre **artifactID** (**hbaseapp** dans cet exemple.) Le répertoire contient les éléments suivants :
 
-   * **pom.xml** : le modèle d’objet du projet ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contient les informations et la configuration utilisées pour générer le projet.
-   * **src** : répertoire contenant le répertoire **main/java/com/microsoft/examples**, dans lequel vous créez l’application.
+   * **pom.xml** :  le modèle d’objet du projet ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contient les informations et la configuration utilisées pour générer le projet.
+   * **src** : répertoire contenant le répertoire **main/java/com/microsoft/examples**, dans lequel vous créez l’application.
 
 3. Supprimez le fichier `src/test/java/com/microsoft/examples/apptest.java`. Il n’est pas utilisé dans cet exemple.
 

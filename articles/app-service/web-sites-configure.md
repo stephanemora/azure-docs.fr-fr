@@ -1,5 +1,5 @@
 ---
-title: Configurer des applications web dans Azure App Service
+title: Configurer des applications web - Azure App Service
 description: Configuration d’une application web dans Azure App Service
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443506"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269428"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurer des applications web dans Azure App Service
 
@@ -38,10 +39,10 @@ Le panneau **Paramètres de l’application** regroupe différents paramètres s
 ### <a name="general-settings"></a>Paramètres généraux :
 **Versions d'infrastructure**. Définissez ces options si votre application utilise l'une de ces infrastructures : 
 
-* **.NET Framework**: définissez la version du .NET Framework. 
-* **PHP** : définissez la version du langage PHP ou choisissez **INACTIF** pour désactiver PHP. 
-* **Java** : sélectionnez la version du langage Java ou choisissez **INACTIF** pour désactiver Java. Utilisez l’option **Conteneur Web** pour choisir entre les versions Tomcat et Jetty.
-* **Python** : sélectionnez la version du langage Python ou choisissez **INACTIF** pour désactiver Python.
+* **.NET Framework** : définissez la version .NET Framework. 
+* **PHP** : définissez la version PHP ou choisissez **INACTIF** pour désactiver PHP. 
+* **Java** : sélectionnez la version Java ou choisissez **INACTIF** pour désactiver Java. Utilisez l’option **Conteneur Web** pour choisir entre les versions Tomcat et Jetty.
+* **Python** : sélectionnez la version Python ou choisissez **INACTIF** pour désactiver Python.
 
 Pour des raisons techniques, l’activation de Java pour votre application désactive les options .NET, PHP et Python.
 
@@ -164,7 +165,7 @@ Pour afficher vos emplacements de déploiement, cliquez sur **Tous les paramètr
 ### <a name="monitoring"></a>Surveillance
 En mode De base ou Standard, vous pouvez tester la disponibilité des points de terminaison HTTP ou HTTPS à partir de trois emplacements géo-distribués au maximum. Un test de surveillance échoue si le code de réponse HTTP est une erreur (4xx ou 5xx) ou si la réponse prend plus de 30 secondes. Un point de terminaison est considéré comme disponible s'il passe avec succès les différents tests de surveillance à partir de tous les emplacements spécifiés. 
 
-Pour plus d’informations, consultez [Surveillance de l’état d’un point de terminaison Web].
+Pour plus d’informations, consultez [Procédure : surveiller l’état d’un point de terminaison web].
 
 > [!NOTE]
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service], où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
@@ -179,14 +180,14 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Portail Azure]: https://portal.azure.com/
 [Configuration d’un nom de domaine personnalisé dans Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)]: ./web-sites-staged-publishing.md
 [Activer le protocole HTTPS pour une application dans Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[Surveillance de l’état d’un point de terminaison Web]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Procédure : surveiller l’état d’un point de terminaison web]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Surveiller les applications Web dans Azure App Service]: ./web-sites-monitor.md
-[mode pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[mode pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Faire évoluer une application Web dans Azure App Service]: ./web-sites-scale.md
 [Essayer App Service]: https://azure.microsoft.com/try/app-service/
 

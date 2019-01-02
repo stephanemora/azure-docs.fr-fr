@@ -1,5 +1,5 @@
 ---
-title: 'Sauvegarde Azure : Préparation à la sauvegarde de machines virtuelles'
+title: 'Sauvegarde Azure : préparer la sauvegarde de machines virtuelles'
 description: Assurez-vous que votre environnement est prêt pour la sauvegarde de machines virtuelles dans Azure.
 services: backup
 author: rayne-wiselman
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422794"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255072"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Préparer la sauvegarde de machines virtuelles Azure
 
@@ -34,12 +34,12 @@ Si ces conditions existent déjà dans votre environnement, passez à [l’artic
 
 ## <a name="supported-operating-systems-for-backup"></a>Systèmes d’exploitation pris en charge pour la sauvegarde
 
- * **Linux** : La Sauvegarde Azure prend en charge [une liste de distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), à l’exception de CoreOS Linux et le système d’exploitation 32 bits. Pour obtenir la liste des systèmes d’exploitation Linux qui prennent en charge la restauration de fichiers, consultez [Récupérer des fichiers à partir de sauvegardes de machines virtuelles](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux** : La Sauvegarde Azure prend en charge [la liste des distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), à l’exception de CoreOS Linux et du système d’exploitation 32 bits. Pour obtenir la liste des systèmes d’exploitation Linux qui prennent en charge la restauration de fichiers, consultez [Récupérer des fichiers à partir de sauvegardes de machines virtuelles](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > D’autres distributions « Bring-Your-Own-Linux » peuvent fonctionner, tant que l’agent de machine virtuelle est disponible sur la machine virtuelle et que Python est pris en charge. Les distributions ne sont toutefois pas prises en charge.
     >
- * **Windows Server**, **client Windows** : les versions antérieures à Windows Server 2008 R2 ou Windows 7 ne sont pas prises en charge.
+ * **Windows Server**, **Client Windows** :  les versions antérieures à Windows Server 2008 R2 ou à Windows 7 ne sont pas prises en charge.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limites lors de la sauvegarde et la restauration d’une machine virtuelle
@@ -177,14 +177,14 @@ Pour que l’extension de sauvegarde fonctionne, [l’agent de machine virtuelle
 
 Ces informations sont fournies pour les situations dans lesquelles vous n’utilisez *pas* de machine virtuelle créée à partir de Place de Marché Azure, **par exemple, si vous avez migré une machine virtuelle à partir d’un centre de données local. Dans ce cas, l’agent de machine virtuelle doit être installé afin de protéger la machine virtuelle.**
 
-**Remarque** : Après avoir installé l’agent de machine virtuelle, vous devez également utiliser Azure PowerShell pour mettre à jour la propriété ProvisionGuestAgent de sorte qu’Azure connaisse la machine virtuelle où l’agent est installé.
+**Remarque**: Après avoir installé l’agent de machine virtuelle, vous devez également utiliser Azure PowerShell pour mettre à jour la propriété ProvisionGuestAgent de sorte qu’Azure sache sur quelle machine virtuelle l’agent est installé.
 
 Si vous rencontrez des problèmes de sauvegarde de la machine virtuelle Azure, utilisez le tableau ci-dessous pour vérifier que l’agent de machine virtuelle Azure est correctement installé sur celle-ci. Le tableau fournit des informations supplémentaires sur l’agent de machine virtuelle pour les machines virtuelles Windows et Linux.
 
 | **opération** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installation de l’agent de machine virtuelle |Téléchargez et installez le fichier [MSI de l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. |<li> Installez l’[agent Linux](../virtual-machines/extensions/agent-linux.md) le plus récent. Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. Nous vous recommandons d’installer l’agent à partir de votre référentiel de distribution. Nous **déconseillons** d’installer l’agent de machine virtuelle Linux directement à partir de github.  |
-| Mise à jour de l’agent de machine virtuelle |La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |Suivez les instructions fournies dans l’article [Mise à jour d’un agent de machine virtuelle Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nous vous recommandons de mettre à jour l’agent à partir de votre référentiel de distribution. Nous **déconseillons** de mettre à jour l’agent de machine virtuelle Linux à partir de github.<br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |
+| Installation de l’agent de machine virtuelle |Téléchargez et installez le fichier [MSI de l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. |<li> Installez l’[agent Linux](../virtual-machines/extensions/agent-linux.md) le plus récent. Vous aurez besoin de privilèges d’administrateur pour terminer l’installation. Nous vous recommandons d’installer l’agent à partir de votre référentiel de distribution. Nous **déconseillons** d’installer directement l’agent de machine virtuelle Linux à partir de GitHub.  |
+| Mise à jour de l’agent de machine virtuelle |La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |Suivez les instructions fournies dans l’article [Mise à jour d’un agent de machine virtuelle Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nous vous recommandons de mettre à jour l’agent à partir de votre référentiel de distribution. Nous **déconseillons** de mettre à jour l’agent de machine virtuelle Linux à partir de GitHub.<br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |
 | Validation de l’installation de l’agent de machine virtuelle |<li>Accédez au dossier *C:\WindowsAzure\Packages* sur la machine virtuelle Azure. <li>Le fichier WaAppAgent.exe doit être présent.<li> Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**. Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure. |N/A |
 
 ### <a name="backup-extension"></a>Extension de sauvegarde
@@ -238,7 +238,7 @@ Pour utiliser un proxy HTTP pour communiquer avec le réseau Internet public, ef
 > [!NOTE]
 > Ces étapes utilisent des noms et des valeurs spécifiques dans cet exemple. Quand vous entrez (ou collez) des détails dans votre code, utilisez les noms et les valeurs de votre déploiement.
 
-#### <a name="step-1-configure-outgoing-network-connections"></a>Étape 1 : Configurer les connexions réseau sortantes
+#### <a name="step-1-configure-outgoing-network-connections"></a>Étape 1 : Configurer les connexions réseau sortantes
 ###### <a name="for-windows-machines"></a>Pour les machines Windows
 Cette procédure définit la configuration du serveur proxy pour le compte système local.
 
@@ -283,7 +283,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Étape 2 : Autoriser les connexions entrantes sur le serveur proxy
+#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Étape 2 : Autoriser les connexions entrantes sur le serveur proxy
 1. Ouvrez le Pare-feu Windows sur le serveur proxy. Pour accéder au pare-feu, le plus simple consiste à rechercher **Pare-feu Windows avec fonctions avancées de sécurité**.
 1. Dans la boîte de dialogue **Pare-feu Windows avec fonctions avancées de sécurité**, cliquez avec le bouton droit sur **Règles de trafic entrant** et sélectionnez **Nouvelle règle**.
 1. Dans l’Assistant Nouvelle règle de trafic entrant, sélectionnez l’option **personnalisée** dans la page **Type de règle**, puis **Suivant**.
@@ -295,7 +295,7 @@ HttpProxy.Port=<proxy port>
 
 Pour le reste de l’Assistant, acceptez les paramètres par défaut jusqu’à ce que vous arriviez à la fin. Donnez ensuite un nom à cette règle.
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Étape 3 : Ajouter une règle d’exception au groupe de sécurité réseau
+#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Étape 3 : Ajouter une règle d’exception au groupe de sécurité réseau
 La commande suivante ajoute une exception pour le groupe de sécurité réseau. Cette exception autorise le trafic TCP à partir d’un port 10.0.0.5 vers n’importe quelle adresse Internet sur le port 80 (HTTP) ou 443 (HTTPS). Si vous avez besoin d’un port spécifique de l’Internet public, n’oubliez pas d’ajouter ce port à ```-DestinationPortRange```.
 
 Dans une invite de commandes Azure PowerShell, saisissez la commande suivante :

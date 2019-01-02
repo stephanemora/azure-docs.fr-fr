@@ -1,12 +1,11 @@
 ---
 title: 'Étape 2 : charger des données dans une expérience Machine Learning Studio - Azure | Microsoft Docs'
-description: "Étape 2 du guide pas à pas du développement d'une solution prédictive : téléchargement de données publiques stockées dans Azure Machine Learning Studio."
+description: 'Étape 2 de la procédure pas à pas Développer une solution prédictive : chargement des données publiques stockées dans Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 90a73de4177cec74187da852709137d77d60b4d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311974"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261447"
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Étape de tutoriel pas à pas 2 : chargement de données existantes dans une expérience Azure Machine Learning Studio
 Voici la deuxième étape de la procédure pas à pas [Développement d'une solution d'analyse prédictive dans Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -29,12 +28,12 @@ Voici la deuxième étape de la procédure pas à pas [Développement d'une solu
 1. [Créer un espace de travail Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. **Télécharger des données existantes**
 3. [Créer une expérience](walkthrough-3-create-new-experiment.md)
-4. [Entraîner et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
+4. [Former et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
 5. [Déployer le service web](walkthrough-5-publish-web-service.md)
 6. [Accéder au service web](walkthrough-6-access-web-service.md)
 
 - - -
-Pour développer un modèle prédictif pour un risque de crédit, nous avons besoin de données que nous pouvons utiliser pour entraîner et ensuite tester le modèle. Pour cette procédure pas à pas, nous allons utiliser le modèle « UCI Statlog (German Credit Data) Data Set » qui se trouve dans le référentiel de UC Irvine Machine Learning. Vous pouvez le trouver ici :   
+Pour développer un modèle prédictif pour un risque de crédit, nous avons besoin de données que nous pouvons utiliser pour former et ensuite tester le modèle. Pour cette procédure pas à pas, nous allons utiliser le modèle « UCI Statlog (German Credit Data) Data Set » qui se trouve dans le référentiel de UC Irvine Machine Learning. Vous pouvez le trouver ici :   
 <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Nous allons utiliser le fichier nommé **german.data**. Téléchargez ce fichier sur votre disque dur.  
@@ -43,14 +42,14 @@ Le jeu de données **german.data** contient des lignes de 20 variables pour 100
 
 Le site Web UCI fournit une description des attributs du vecteur de fonctionnalité pour ces données. Cela inclut des informations financières, l’historique de crédit, le statut professionnel et des informations personnelles. Une évaluation binaire a été appliquée à chaque candidat, afin d'indiquer s'il constitue un risque de crédit faible ou élevé. 
 
-Nous allons utiliser ces données pour entraîner un modèle d'analytique prédictive. Lorsque nous aurons terminé, notre modèle pourra accepter un vecteur de fonctionnalité pour un nouvel individu et prévoir si celui-ci constitue un risque de crédit faible ou élevé.  
+Nous allons utiliser ces données pour former un modèle d'analyse prédictive. Lorsque nous aurons terminé, notre modèle pourra accepter un vecteur de fonctionnalité pour un nouvel individu et prévoir si celui-ci constitue un risque de crédit faible ou élevé.  
 
 Voici une évolution intéressante. Sur le site web UCI, la description du jeu de données détermine les coûts générés par une erreur de classification des risques associés à un crédit accordé.
 Si le modèle prévoit un crédit à haut risque pour une personne qui présente un risque réduit, cela signifie que la classification est erronée.
 Cependant, le fait de prévoir un risque faible pour une personne présentant un risque élevé est cinq fois plus coûteux pour l’institution financière.
 
 Nous voulons donc configurer notre modèle de sorte qu’il considère l’erreur de classification ci-dessus comme étant cinq fois plus coûteuse que l’erreur inverse.
-Il existe une manière assez simple d’y parvenir lorsque nous configurons le modèle de notre exemple, à savoir multiplier par cinq la valeur des entrées représentant une personne qui présente un risque de crédit élevé. Ensuite, si le modèle considère une personne présentant un risque élevé comme ne représentant qu’un faible risque, il reproduit cette erreur cinq fois, une fois par doublon. Cela augmentera le coût de cette erreur dans les résultats d’entraînement.
+Il existe une manière assez simple d’y parvenir lorsque nous configurons le modèle de notre exemple, à savoir multiplier par cinq la valeur des entrées représentant une personne qui présente un risque de crédit élevé. Ensuite, si le modèle considère une personne présentant un risque élevé comme ne représentant qu’un faible risque, il reproduit cette erreur cinq fois, une fois par doublon. Cela augmentera le coût de cette erreur dans les résultats de formation.
 
 
 ## <a name="convert-the-dataset-format"></a>Conversion du format du jeu de données

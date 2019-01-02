@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343643"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960649"
 ---
 # <a name="azure-stack-firewall-integration"></a>Intégration d’Azure Stack à un pare-feu
 Nous vous recommandons d’utiliser un dispositif de pare-feu pour sécuriser Azure Stack. Bien que les pare-feu puissent être utiles en cas d’attaques par déni de service distribué (DDOS), de détection des intrusions et d’inspection du contenu, ils peuvent également constituer un goulot d’étranglement au niveau du débit des services de stockage Azure comme les objets blob, les tables et les files d’attente.
@@ -34,7 +34,7 @@ Pour les entreprises, le réseau externe peut être le réseau d’entreprise ex
 ### <a name="network-address-translation"></a>Traduction d’adresses réseau
 La traduction d’adresses réseau (NAT, Network Address Translation) est la méthode recommandée pour autoriser la machine virtuelle de déploiement (DVM, Deployment Virtual Machine) à accéder, d’une part, aux ressources externes et à Internet durant le déploiement et, d’autre part, aux machines virtuelles ERCS (Emergency Recovery Console) ou au PEP (Privileged End Point) durant l’inscription et le dépannage.
 
-Vous pouvez également utiliser NAT à la place des adresses IP publiques sur le réseau externe ou des adresses IP virtuelles publiques. Toutefois, ceci n’est pas recommandé car NAT limite l’expérience utilisateur du locataire et accroît la complexité. Les deux options sont les suivantes : NAT 1:1, qui nécessite toujours une adresse IP publique par adresse IP d’utilisateur sur le pool ; ou NAT many:1, qui nécessite une règle NAT pour chaque adresse IP virtuelle d’utilisateur contenant les associations à tous les ports qu’un utilisateur peut utiliser.
+Vous pouvez également utiliser NAT à la place des adresses IP publiques sur le réseau externe ou des adresses IP virtuelles publiques. Toutefois, ceci n’est pas recommandé car NAT limite l’expérience utilisateur du locataire et accroît la complexité. Les deux options serait NAT 1:1, qui nécessite toujours une adresse IP publique par adresse IP d’utilisateur sur le pool, ou NAT plusieurs:1, qui nécessite une règle NAT par adresse IP virtuelle d’utilisateur qui contient des associations à tous les ports qu’un utilisateur pourrait utiliser.
 
 L’utilisation de NAT pour une adresse IP virtuelle publique présente des inconvénients. En voici quelques-uns :
 - NAT ajoute une surcharge lors de la gestion des règles de pare-feu car les utilisateurs contrôlent leurs propres points de terminaison et leurs propres règles de publication dans la pile de mise en réseau logicielle (SDN). Les utilisateurs doivent contacter l’opérateur Azure Stack pour que leurs adresses IP virtuelles soient publiées et pour mettre à jour la liste des ports.
@@ -49,16 +49,16 @@ Dans un déploiement de périphérie, Azure Stack est déployé directement derr
 
 En règle générale, les adresses IP routables publiques sont spécifiées pour le pool d’adresses IP virtuelles publiques à partir du réseau externe au moment du déploiement. Dans un scénario de périphérie, il n’est pas recommandé d’utiliser des adresses IP routables publiques sur un autre réseau pour des raisons de sécurité. Ce scénario permet à un utilisateur de bénéficier d’une expérience cloud auto-contrôlée complète, comme dans un cloud public tel qu’Azure.  
 
-![Exemple de pare-feu de périphérie Azure Stack](.\media\azure-stack-firewall\firewallScenarios.png)
+![Exemple de pare-feu de périphérie Azure Stack](./media/azure-stack-firewall/firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Scénario de pare-feu réseau de périmètre ou intranet d’entreprise
 Dans un déploiement sur un réseau de périmètre ou intranet d’entreprise, Azure Stack est déployé sur un pare-feu multizone ou entre le pare-feu de périphérie et le pare-feu de réseau d’entreprise interne. Le trafic est ensuite distribué entre le réseau de périmètre sécurisé (ou DMZ) et les zones non sécurisées, comme décrit ci-dessous :
 
-- **Zone sécurisée** : Il s’agit du réseau interne qui utilise des adresses IP routables de l’entreprise ou internes. Le réseau sécurisé peut être divisé et avoir un accès sortant à internet par le biais de NAT sur le pare-feu. Vous pouvez généralement y accéder à partir de n’importe quel emplacement à l’intérieur de votre centre de données par le biais du réseau interne. Tous les réseaux Azure Stack doivent résider dans la zone sécurisée, à l’exception du pool d’adresses IP virtuelles publiques du réseau externe.
+- **Zone sécurisée** : il s’agit du réseau interne qui utilise des adresses IP routables de l’entreprise ou internes. Le réseau sécurisé peut être divisé et avoir un accès sortant à internet par le biais de NAT sur le pare-feu. Vous pouvez généralement y accéder à partir de n’importe quel emplacement à l’intérieur de votre centre de données par le biais du réseau interne. Tous les réseaux Azure Stack doivent résider dans la zone sécurisée, à l’exception du pool d’adresses IP virtuelles publiques du réseau externe.
 - **Zone du périmètre**. Les applications externes ou accessibles sur Internet comme les serveurs web sont généralement déployées sur le réseau de périmètre. Celui-ci est habituellement monitoré par un pare-feu pour éviter les attaques de type DDoS et les intrusions (piratage), mais il autorise également le trafic entrant spécifié à partir d’internet. Seul le pool d’adresses IP virtuelles publiques de réseau externe d’Azure Stack doit résider dans la zone DMZ.
 - **Zone non sécurisée**. Il s’agit du réseau externe (Internet). Il **n’est pas** recommandé de déployer Azure Stack dans la zone non sécurisée.
 
-![Exemple de réseau de périmètre Azure Stack](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Exemple de réseau de périmètre Azure Stack](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>En savoir plus
 Découvrez plus en détail [les ports et les protocoles utilisés par les points de terminaison Azure Stack](azure-stack-integrate-endpoints.md).

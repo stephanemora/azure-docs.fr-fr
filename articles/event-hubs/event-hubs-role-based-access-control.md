@@ -1,21 +1,22 @@
 ---
-title: Contrôle d’accès en fonction du rôle Azure Event Hubs (version préliminaire) | Microsoft Docs
-description: Contrôle d’accès en fonction du rôle Azure Event Hubs
+title: Contrôle d’accès en fonction du rôle (préversion) - Azure Event Hubs | Microsoft Docs
+description: Cet article fournit des informations sur le contrôle d’accès en fonction du rôle pour Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
-ms.author: sethm
-ms.openlocfilehash: 76c929f482659bb81e0cabb7fb6bffa5331082bf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.author: shvija
+ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502134"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384256"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Contrôle d’accès en fonction du rôle Azure Active Directory (version préliminaire)
 
@@ -33,7 +34,7 @@ Pour la version préliminaire publique initiale, vous pouvez uniquement ajouter 
 
 La section suivante décrit les étapes requises pour créer et exécuter un exemple d’application qui invite un utilisateur Azure AD interactif à se connecter, comment accorder à ce compte d’utilisateur l’accès à Event Hubs et comment utiliser cette identité pour accéder aux Event Hubs. 
 
-Cette présentation décrit une application console simple, le [code duquel se trouve sur Github](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/).
+Cette présentation décrit une application console simple, le [code de laquelle se trouve sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
 
 ### <a name="create-an-active-directory-user-account"></a>Création d’un compte d’utilisateur Active Directory
 
@@ -45,11 +46,7 @@ Si vous souhaitez toujours créer un compte spécifique pour ce scénario, [proc
 
 Ensuite, [créez un espace de noms Event Hubs](event-hubs-create.md) dans l’une des régions Azure qui prend en charge la version préliminaire d’Event Hubs en fonction du rôle : **USA Est**, **USA Est 2**, ou **Europe Ouest**. 
 
-Une fois l’espace de noms créé, accédez à la page **Contrôle d’accès (IAM)** correspondante sur le portail, puis cliquez sur **Ajouter** pour ajouter le compte d’utilisateur Azure AD au rôle de propriétaire. Si vous utilisez votre propre compte d’utilisateur et que vous avez créé l’espace de noms, vous êtes déjà dans le rôle de propriétaire. Pour ajouter un autre compte au rôle, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
- 
-![](./media/event-hubs-role-based-access-control/rbac1.PNG)
-
-Le compte d’utilisateur a désormais accès à l’espace de noms Event Hubs et au concentrateur d’événements que vous avez précédemment créé.
+Une fois l’espace de noms créé, accédez à la page **Contrôle d’accès (IAM)** correspondante sur le portail, puis cliquez sur **Ajouter une attribution de rôle** pour ajouter le compte d’utilisateur Azure AD au rôle de propriétaire. Si vous utilisez votre propre compte d’utilisateur et que vous avez créé l’espace de noms, vous êtes déjà dans le rôle de propriétaire. Pour ajouter un autre compte au rôle, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**. Le compte d’utilisateur a désormais accès à l’espace de noms Event Hubs et au concentrateur d’événements que vous avez précédemment créé.
  
 ### <a name="register-the-application"></a>Enregistrement de l’application
 
@@ -63,14 +60,16 @@ Les étapes d’enregistrement détaillées sont expliquées dans [ce didacticie
 
 Avant de pouvoir exécuter l’exemple, modifiez le fichier App.config et, selon votre scénario, définissez les valeurs suivantes :
 
-- `tenantId` : défini sur la valeur **TenantId**.
-- `clientId` : défini sur la valeur **ApplicationId**. 
-- `clientSecret` : si vous souhaitez vous connecter à l’aide du secret client, créez-le dans Azure AD. En outre, utilisez une application web ou une API au lieu d’une application native. Ajoutez également l’application sous **Contrôle d’accès (IAM)** dans l’espace de noms que vous avez créé précédemment.
-- `eventHubNamespaceFQDN` : défini sur le nom DNS complet de l’espace de noms Event Hubs que vous venez de créer, par exemple, `example.servicebus.windows.net`.
-- `eventHubName` : défini sur le nom du concentrateur d’événements que vous avez créé.
+- `tenantId`: défini avec la valeur **TenantId**.
+- `clientId`: défini avec la valeur **ApplicationId**. 
+- `clientSecret`: si vous souhaitez vous connecter à l’aide du secret client, créez-le dans Azure AD. En outre, utilisez une application web ou une API au lieu d’une application native. Ajoutez également l’application sous **Contrôle d’accès (IAM)** dans l’espace de noms que vous avez créé précédemment.
+- `eventHubNamespaceFQDN`: défini sur le nom DNS complet de l’espace de noms Event Hubs que vous venez de créer, par exemple, `example.servicebus.windows.net`.
+- `eventHubName`: défini sur le nom du concentrateur d’événements que vous avez créé.
 - URI de redirection que vous avez spécifié dans votre application lors des étapes précédentes.
  
 Lorsque vous exécutez l’application console, vous êtes invité à sélectionner un scénario. Cliquez sur **Connexion interactive de l’utilisateur** en saisissant son numéro et en appuyant sur ENTRÉE. L’application affiche une fenêtre de connexion, vous demande l’autorisation d’accéder à Event Hubs et utilise ensuite le service à exécuter via le scénario d’envoi/réception à l’aide de l’identité de connexion.
+
+L’application utilise `ServiceAudience.EventHubsAudience` comme audience du jeton. Lorsque vous utilisez d’autres langages ou SDK où l’audience n’est pas disponible en tant que constante, la valeur appropriée à utiliser est `https://eventhubs.azure.net/`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,23 +1,24 @@
 ---
-title: Documentation de référence sur l’entité prédéfinie phonenumber de LUIS - Azure | Microsoft Docs
+title: Entités prédéfinies de numéro de téléphone
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie phonenumber dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8fcbaf946f936d7a6d6d883a0416fce9d0c158
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3a538886b0137e1069af1fa680374b749a9b3f92
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441708"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165405"
 ---
-# <a name="phonenumber-entity"></a>Entité phonenumber
+# <a name="phonenumber-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie phonenumber pour une application LUIS
 L’entité `phonenumber` extrait une série de numéros de téléphone, avec le code pays. Étant donné que cette entité est déjà formée, il est inutile d’ajouter des exemples d’énoncés à l’application. L’entité `en-us` est prise en charge uniquement dans la culture `phonenumber`. 
 
 ## <a name="types-of-phonenumber"></a>Types d’entités phonenumber
@@ -26,7 +27,7 @@ L’entité phonenumber est gérée à partir du dépôt GitHub [Recognizers-tex
 ## <a name="resolution-for-prebuilt-phonenumber-entity"></a>Résolution pour l’entité prédéfinie phonenumber
 L’exemple suivant montre la résolution de l’entité **builtin.phonenumber**.
 
-```JSON
+```json
 {
   "query": "my mobile is 00 44 161 1234567",
   "topScoringIntent": {

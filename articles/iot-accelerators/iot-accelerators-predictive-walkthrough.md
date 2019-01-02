@@ -8,16 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 61a4e3700e88efba1ea9cea876b19e2f7ed4168b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b76bea6207cd6ac5d2ed570cf54dde7c52d5ff97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137068"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309618"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Présentation de l’accélérateur de solution de maintenance prédictive
 
 L’accélérateur de solution Maintenance prédictive est une solution de bout en bout pour un scénario d’entreprise qui prévoit le moment auquel une défaillance est susceptible de se produire. Vous pouvez utiliser cet accélérateur de solution de manière proactive pour des activités telles que l’optimisation de la maintenance. La solution combine des services d’accélérateur de solution Azure IoT clés, tels qu’IoT Hub et un espace de travail [Azure Machine Learning][lnk-machine-learning]. Cet espace de travail contient un modèle basé sur un échantillon de données publiques, permettant de prédire la durée de vie utile restante (VUR) d’un moteur d’avion. La solution implémente complètement le scénario professionnel IoT comme point de départ, pour vous permettre de planifier et de mettre en œuvre une solution qui réponde à vos besoins professionnels.
+
+Le code de l’accélérateur de solution de maintenance prédictive est [disponible sur GitHub](https://github.com/Azure/azure-iot-predictive-maintenance).
 
 ## <a name="logical-architecture"></a>Architecture logique
 
@@ -43,7 +45,7 @@ Lorsque vous approvisionnez l’accélérateur de solution, vous recevez un e-ma
 
 ## <a name="simulated-devices"></a>Simulations d’appareils
 
-Dans l’accélérateur de solution, un appareil simulé est un moteur d’avion. La solution est configurée avec deux moteurs correspondant à un même avion. Chaque moteur émet quatre types de télémétrie (Capteur 9, Capteur 11, Capteur 14 et Capteur 15) qui fournissent les données requises par le modèle Machine Learning pour calculer la durée de vie utile restante du moteur. Chaque appareil simulé envoie les messages de télémétrie suivants à l’IoT Hub :
+Dans l’accélérateur de solution, un appareil simulé est un moteur d’avion. La solution est configurée avec deux moteurs correspondant à un même avion. Chaque moteur émet quatre types de données de télémétrie : Capteur 9, Capteur 11, Capteur 14 et Capteur 15 fournissent les données nécessaires au modèle Machine Learning pour calculer la durée de vie utile restante du moteur. Chaque appareil simulé envoie les messages de télémétrie suivants à l’IoT Hub :
 
 *Nombre de cycles*. Un cycle est un vol d’une durée comprise entre deux et dix heures. Pendant le vol, les données de télémétrie sont collectées toutes les demi-heures.
 
@@ -60,7 +62,7 @@ IoT Hub fournit un accusé de réception de la commande de l’appareil.
 
 ## <a name="azure-stream-analytics-job"></a>Tâche Azure Stream Analytics
 
-**Tâche : Télémétrie** agit sur le flux de télémétrie de l’appareil entrant à l’aide de deux instructions :
+**Tâche : Télémétrie** agit sur le flux entrant de télémétrie de l’appareil avec deux instructions :
 
 * La première sélectionne toutes les données de télémétrie à partir des appareils et envoie ces données au Blob Storage. D’ici, elles sont visualisées dans l’application web.
 * La seconde calcule les valeurs de capteurs moyennes sur une fenêtre glissante de deux minutes et les envoie via l’Event Hub à un **processeur d’événements**.

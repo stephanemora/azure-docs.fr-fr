@@ -1,22 +1,24 @@
 ---
-title: Connexions sortantes dans Azure | Microsoft Docs
+title: Connexions sortantes dans Azure
+titlesuffix: Azure Load Balancer
 description: Cet article explique comment Azure permet aux machines virtuelles de communiquer avec les services Internet publics.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: fdcc039eb71eaeea03aaae856a6d031d4c528669
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687569"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190966"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -46,7 +48,7 @@ Azure Load Balancer et les ressources associées sont définis explicitement qua
 
 Si vous voulez empêcher une machine virtuelle de communiquer avec des points de terminaison en dehors d’Azure dans l’espace d’adressage IP public, vous pouvez utiliser des groupes de sécurité réseau (NSG) pour bloquer l’accès comme il se doit. La section [Empêchement des connexions sortantes](#preventoutbound) traite de façon plus détaillée des groupes de sécurité réseau. Les conseils sur la conception, l’implémentation et la gestion d’un réseau virtuel sans accès sortant n’entrent pas dans le cadre de cet article.
 
-### <a name="ilpip"></a>Scénario 1 : machine virtuelle avec adresse IP publique de niveau d’instance
+### <a name="ilpip"></a>Scénario 1 : Machine virtuelle avec adresse IP publique de niveau d’instance
 
 Dans ce scénario, une adresse IP publique de niveau d’instance (ILPIP) est affectée à la machine virtuelle. En ce qui concerne les connexions sortantes, il importe peu que la machine virtuelle soit à charge équilibrée ou non. Ce scénario prend le pas sur les autres. En cas d’utilisation d’une adresse IP publique de niveau d’instance, la machine virtuelle utilise celle-ci pour tous les flux sortants.  
 
@@ -54,7 +56,7 @@ Une adresse IP publique affectée à une machine virtuelle constitue une relatio
 
 Si votre application lance de nombreux flux sortants et que vous subissez un épuisement des ports de traduction d’adresses réseau sources, envisagez d’affecter une [adresse IP publique de niveau d’instance pour atténuer les contraintes de traduction d’adresses réseau sources](#assignilpip). Lisez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust) dans son intégralité.
 
-### <a name="lb"></a>Scénario 2 : machine virtuelle à charge équilibrée sans adresse IP publique de niveau d’instance
+### <a name="lb"></a>Scénario 2 : Machine virtuelle à charge équilibrée sans adresse IP publique de niveau d’instance
 
 Dans ce scénario, la machine virtuelle fait partie d’un pool principal d’équilibreurs de charge public. La machine virtuelle n’a pas d’adresse IP publique affectée. La ressource d’équilibreur de charge doit être configurée avec une règle d’équilibreur de charge pour créer un lien entre le serveur frontal d’adresse IP publique et le pool backend.
 
@@ -70,7 +72,7 @@ Si [plusieurs adresses IP (publiques) sont associées à un équilibreur de char
 
 Pour surveiller l’intégrité des connexions sortantes avec l’équilibreur de charge de base, vous pouvez utiliser [Log Analytics pour Load Balancer](load-balancer-monitor-log.md) et les [journaux des événements d’alerte](load-balancer-monitor-log.md#alert-event-log) pour surveiller les messages signalant l’épuisement des ports SNAT.
 
-### <a name="defaultsnat"></a>Scénario 3 : machine virtuelle autonome sans adresse IP publique de niveau d’instance
+### <a name="defaultsnat"></a>Scénario 3 : Machine virtuelle autonome sans adresse IP publique de niveau d’instance
 
 Dans ce scénario, la machine virtuelle ne fait pas partie d’un pool d’équilibreurs de charge public (et non plus d’un pool d’équilibreurs de charge standard interne) et aucune adresse IP publique de niveau d’instance (ILPIP) n’y est assignée. Lorsque la machine virtuelle crée un flux sortant, Azure convertit l’adresse IP source privée du flux sortant en une adresse IP source publique. L’adresse IP publique utilisée pour ce flux sortant n’est pas configurable et n’entre pas en compte dans la limite de ressource IP publique de l’abonnement. Cette adresse IP publique ne vous appartient pas, et ne peut pas être réservée. Si vous redéployez la machine virtuelle, le groupe à haute disponibilité ou le groupe de machines virtuelles identiques, cette adresse IP publique est libérée et une nouvelle adresse IP publique est demandée. N’utilisez pas ce scénario pour mettre en liste verte des adresses IP. Utilisez plutôt l’un des deux autres scénarios dans lequel vous déclarez explicitement le scénario sortant et l’adresse IP publique à utiliser pour la connectivité sortante.
 

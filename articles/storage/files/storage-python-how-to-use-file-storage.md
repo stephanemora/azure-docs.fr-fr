@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: a376e4f5d8d74731f30da47a696656e79ae55ac7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4082352c8c9814b8e6533d3f64b18450a6cf416d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245679"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165570"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Développement pour Azure Files avec Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -49,7 +49,7 @@ pip install azure-storage-file
 > 
 > 
 
-Pour connaître les autres méthodes d’installation, visitez la page consacrée au [SDK Stockage Azure pour Python sur Github](https://github.com/Azure/azure-storage-python/).
+Pour connaître les autres méthodes d’installation, rendez-vous sur la page consacrée au [SDK Stockage Azure pour Python sur GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Configurer votre application pour utiliser Azure Files
 Ajoutez ce qui suit vers le début de chaque fichier source Python dans lequel vous souhaitez accéder au stockage Azure Storage par programme.

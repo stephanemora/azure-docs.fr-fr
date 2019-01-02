@@ -1,5 +1,5 @@
 ---
-title: 'Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Hadoop Azure HDInsight sur un jeu de données de 1 To | Microsoft Docs'
+title: Utiliser des clusters Azure HDInsight Hadoop sur un jeu de données de 1 To - Team Data Science Process
 description: Utilisation du processus TDSP (Team Data Science Process) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un groupe de données volumineux (1 To), disponible publiquement
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3aef1b85a462eea74fbe977e9a48054f11acf47a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447025"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135812"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Hadoop Azure HDInsight sur un jeu de données de 1 To
 
@@ -33,7 +33,7 @@ Chaque enregistrement de ce groupe de données est constitué de 40 colonnes :
 * Les 13 colonnes suivantes sont numériques, et
 * les 26 dernières sont des colonnes catégorielles
 
-Les colonnes sont anonymes et utilisent une série de noms énumérés : « Col1 » (pour la colonne étiquette) à « Col40 » (pour la dernière colonne catégorielle).            
+Les colonnes sont anonymes et utilisent une série de noms énumérés : « Col1 » (pour la colonne d’étiquette) à « Col40 » (pour la dernière colonne de catégorie).            
 
 Voici un extrait des 20 premières colonnes de deux observations (lignes) provenant de ce groupe de données :
 
@@ -44,28 +44,28 @@ Voici un extrait des 20 premières colonnes de deux observations (lignes) prove
 
 Des valeurs sont manquantes dans les colonnes numériques et catégorielles de ce groupe de données. Une méthode simple pour gérer les valeurs manquantes est détaillée. Des informations supplémentaires relatives aux données sont disponibles lors de leur stockage dans les tables Hive.
 
-**Définition  :***Taux de clic :* pourcentage de clics effectués dans les données. Dans ce groupe de données Criteo, le taux de clic est d’environ 3,3 %, soit de 0,033.
+**Définition :** *Taux de clic (CTR) :* il s’agit du pourcentage de clics effectués dans les données. Dans ce groupe de données Criteo, le taux de clic est d’environ 3,3 %, soit de 0,033.
 
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
 Cette procédure pas à pas aborde deux exemples de problèmes de prédiction :
 
-1. **Classification binaire**: prédit si un utilisateur a cliqué ou non sur un ajout :
+1. **Classification binaire** : prédit si un utilisateur a cliqué ou non sur une annonce :
    
-   * Classe 0 : aucun clic
-   * Classe 1 : clic
-2. **Régression**: prédit la probabilité d'un clic effectué sur une annonce à partir de fonctionnalités utilisateur.
+   * Classe 0 : Aucun clic
+   * Classe 1 : Cliquez sur 
+2. **Régression** : prédit la probabilité d’un clic effectué sur une annonce à partir de fonctionnalités utilisateur.
 
 ## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour la science des données
-**Remarque** : il s’agit généralement d’une tâche d’**administration**.
+**Remarque :** Il s'agit généralement d’une tâche d’ **administration** .
 
 Configurez votre environnement de science des données Azure pour créer des solutions d'analyse prédictives avec les clusters HDInsight en trois étapes :
 
-1. [Création d’un compte de stockage](../../storage/common/storage-quickstart-create-account.md): ce compte de stockage est utilisé pour stocker des données dans Azure Blob Storage. Les données utilisées dans les clusters HDInsight sont stockées ici.
-2. [Personnalisation des clusters Hadoop Azure HDInsight pour la science des données](customize-hadoop-cluster.md): cette étape crée un cluster Hadoop Azure HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Deux étapes importantes (décrites dans cette rubrique) doivent être suivies lors de la personnalisation du cluster HDInsight.
+1. [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) : ce compte de stockage est utilisé pour stocker des données dans un stockage Blob Azure. Les données utilisées dans les clusters HDInsight sont stockées ici.
+2. [Personnaliser les clusters Azure HDInsight Hadoop pour la science des données](customize-hadoop-cluster.md) : Cette étape crée un cluster Hadoop Azure HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Deux étapes importantes (décrites dans cette rubrique) doivent être suivies lors de la personnalisation du cluster HDInsight.
    
    * Vous devez lier le compte de stockage créé à l'étape 1 à votre cluster HDInsight, une fois sa création terminée. Ce compte de stockage est utilisé pour accéder aux données qui peuvent être traitées au sein du cluster.
    * Vous devez activer l'accès à distance au nœud principal du cluster après que celui-ci soit créée. N’oubliez pas les informations d’identification de l’accès à distance que vous spécifiez ici (différentes de celles qui sont spécifiées pour le cluster lors de sa création) : elles sont nécessaires pour effectuer les procédures suivantes.
-3. [Création d’un espace de travail Azure ML](../studio/create-workspace.md): espace de travail Azure Machine Learning utilisé pour créer des modèles d’apprentissage automatique après avoir exploré des données initiales et réduit l’échantillon sur le cluster HDInsight.
+3. [Création d’un espace de travail Azure ML](../studio/create-workspace.md) : espace de travail Azure Machine Learning utilisé pour créer des modèles d’apprentissage automatique après avoir exploré des données initiales et réduit l’échantillon sur le cluster HDInsight.
 
 ## <a name="getdata"></a>Récupération et utilisation des données provenant d’une source publique
 Pour accéder au groupe de données [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) , cliquez sur le lien, acceptez les conditions d'utilisation et saisissez un nom. Voici une capture de l’écran correspondant :
@@ -157,13 +157,13 @@ Toutes ces tables étant externes, vous pouvez simplement pointer vers leurs emp
 
 **Il existe deux manières d’exécuter une requête Hive :**
 
-1. **Utilisation de la ligne de commande Hive REPL**: la première consiste à émettre une commande « Hive » et à copier-coller une requête dans la ligne de commande Hive REPL. Pour ce faire, procédez comme suit :
+1. **Utilisation de la ligne de commande Hive REPL** : la première consiste à émettre une commande « Hive » et à copier-coller une requête dans la ligne de commande Hive REPL. Pour ce faire, procédez comme suit :
    
         cd %hive_home%\bin
         hive
    
      Dans la ligne de commande REPL, coupez-collez la requête qu’elle exécute.
-2. **Enregistrement des requêtes dans un fichier et exécution de la commande** : la seconde consiste à enregistrer les requêtes dans un fichier .hql ([sample&amp;#95;hive&amp;#95;create&amp;#95;criteo&amp;#95;database&amp;#95;and&amp;#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
+2. **Enregistrement des requêtes dans un fichier et Exécution de la commande** : la seconde consiste à enregistrer les requêtes dans un fichier .hql ([sample&amp;#95;hive&amp;#95;create&amp;#95;criteo&amp;#95;database&amp;#95;and&amp;#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
    
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -435,13 +435,13 @@ Pour le module **Importer des données** , les valeurs des paramètres qui sont 
 
 1. Choisissez « Requête Hive » pour la **source de données**
 2. Dans la zone de **requête de base de données** Hive, une simple opération SELECT * FROM <votre\_base\_de\_données.votre\_table> - suffit.
-3. **URI du serveur Hcatalog** : si votre cluster se nomme « abc », vous avez donc : https://abc.azurehdinsight.net
-4. **Nom du compte utilisateur Hadoop**: nom d'utilisateur choisi lors de la mise en service du cluster. PAS le nom d'utilisateur à distance.
-5. **Nom du compte utilisateur Hadoop**: mot de passe associé au nom d’utilisateur choisi lors de la mise en service du cluster. PAS le mot de passe de l'accès à distance.
-6. **Emplacement des données de sortie**: choisissez « Azure »
-7. **Nom du compte de stockage Azure**: le compte de stockage associé au cluster.
-8. **Clé du compte de stockage Azure**: la clé du compte de stockage associé au cluster.
-9. **Nom du conteneur Azure**: si le nom du cluster est « abc », il se nommera tout simplement « abc ».
+3. **URI du serveur Hcatalog** : si votre cluster se nomme « abc », vous avez donc : https://abc.azurehdinsight.net
+4. **Nom du compte utilisateur Hadoop** : nom d’utilisateur choisi lors de la mise en service du cluster. PAS le nom d'utilisateur à distance.
+5. **Mot de passe du compte utilisateur Hadoop** : mot de passe pour le nom d’utilisateur choisi lors de la mise en service du cluster. PAS le mot de passe de l'accès à distance.
+6. **Emplacement des données de sortie** : Choisir « Azure »
+7. **Nom du compte de Stockage Azure** : le compte de stockage associé au cluster
+8. **Clé du compte de Stockage Azure** : la clé du compte de stockage associé au cluster.
+9. **Nom de conteneur Azure** : si le nom du cluster est « abc », il se nommera tout simplement « abc ».
 
 Dès lors que le module **Importer des données** a récupéré les données (une coche verte est affichée sur le module), enregistrez-les en tant que jeu de données (avec le nom de votre choix). Cela ressemble à :
 
@@ -454,11 +454,11 @@ Pour sélectionner le groupe de données enregistré et l’utiliser dans une ex
 ![Faites glisser l’ensemble de données sur le panneau principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
-> Réalisez cette opération pour les groupes de données de formation et de test. En outre, n'oubliez pas d'utiliser le nom de la base de données et les noms de tables attribués à cet effet. Les valeurs de la capture d’écran sont utilisées à simple titre d’illustration.**
+> Réalisez cette opération pour les groupes de données de formation et de test. En outre, n'oubliez pas d'utiliser le nom de la base de données et les noms de tables attribués à cet effet. Les valeurs de la capture d’écran sont utilisées à simple titre d’illustration.\**
 > 
 > 
 
-### <a name="step2"></a> Étape 2 : Créer une expérience simple dans Azure Machine Learning pour prédire les clics effectués/non effectués
+### <a name="step2"></a> Étape 2 : Créer une expérience simple dans Azure Machine Learning pour prédire les clics effectués/non effectués
 Notre expérience Azure ML ressemble à ceci :
 
 ![Expérience Machine Learning](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -478,7 +478,7 @@ Certaines fonctionnalités catégorielles de jeux de données volumineux peuvent
 ##### <a name="building-counting-transforms"></a>Création de transformations de comptage
 Pour créer des fonctionnalités de comptage, utilisez le module **Créer une transformation de comptage** qui est disponible dans Azure Machine Learning. Le module se présente ainsi :
 
-![Créer un module de transformation de comptage](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![Créer des propriétés de module de transformation de comptage](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![Créer un module de transformation de comptage](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 
@@ -535,7 +535,7 @@ Cet exemple montre que pour les colonnes sur lesquelles nous avons exécuté le 
 
 Vous êtes maintenant prêt à créer un modèle Azure Machine Learning à l’aide de ces jeux de données transformés. La section suivante explique comment procéder.
 
-### <a name="step3"></a> Étape 3 : Créer, former et noter le modèle
+### <a name="step3"></a> Étape 3 : Création, formation et notation du modèle
 
 #### <a name="choice-of-learner"></a>Choix de l'apprenant
 Vous devez tout d’abord choisir un apprenant. Utilisez un arbre de décision optimisé à deux classes comme apprenant. Voici les options par défaut pour cet apprenant :
@@ -554,7 +554,7 @@ Une fois que vous avez formé un modèle, vous êtes prêt à noter le jeu de do
 
 ![Score Model module](./media/hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step4"></a> Étape 4 : Évaluer le modèle
+### <a name="step4"></a> Étape 4 : Évaluer le modèle
 Enfin, vous devez analyser les performances du modèle. Pour les deux problèmes de classification (binaire) à deux classes, l’ASC est généralement une très bonne mesure. Pour visualiser ceci, raccordez le module **Noter le modèle** à un module **Évaluer le modèle**. Cliquer sur **Visualiser** sur le module **Évaluer le modèle** génère un graphique semblable à celui-ci :
 
 ![Évaluation du modèle du module BDT](./media/hive-criteo-walkthrough/0Tl0cdg.png)
@@ -563,7 +563,7 @@ Pour des problèmes de classification binaire (à deux classes), l'aire sous la 
 
 ![Visualisation du module Évaluer le modèle](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step5"></a> Étape 5 : Publier le modèle comme service web
+### <a name="step5"></a> Étape 5 : Publication du modèle comme service web
 La possibilité de publier un modèle Azure Machine Learning en tant que services Web avec un minimum de complications est une fonctionnalité utile qui se doit d'être largement accessible. Une fois cela fait, tout utilisateur peut effectuer des appels vers le service Web avec des données d'entrée pour lesquelles il a besoin de prédictions et le service Web utilise le modèle pour renvoyer ces prédictions.
 
 Pour ce faire, enregistrez tout d’abord notre modèle formé en tant qu’objet de modèle formé. Cette opération s’effectue en cliquant avec le bouton droit sur le module **Former le modèle** et en utilisant l’option **Enregistrer en tant que modèle formé**.

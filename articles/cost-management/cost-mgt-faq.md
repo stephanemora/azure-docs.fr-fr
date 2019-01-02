@@ -1,21 +1,21 @@
 ---
 title: Forum aux questions sur Cloudyn dans Azure | Microsoft Docs
-description: Fournit des réponses à certaines des questions fréquemment posées sur Cloudyn.
+description: Cet article fournit des réponses à certaines questions fréquemment posées sur Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/14/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 3b137a170edf2be13fa4999947994ee12a374aa9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276276"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098081"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Forum aux questions (FAQ) sur Cloudyn
 
@@ -126,9 +126,9 @@ Cloudyn détecte automatiquement la devise de votre abonnement Contrat Entrepris
 
 Cloudyn dispose des chronologies d’actualisation des données suivantes :
 
-- **Initial (Initiale)** : l’affichage des données de coût dans Cloudyn après la configuration peut prendre jusqu’à 24 heures. Cloudyn peut également nécessiter jusqu’à 10 jours afin de collecter les données nécessaires pour afficher les recommandations de dimensionnement.
-- **Daily (Quotidienne)** : à partir du dixième jour jusqu’à la fin de chaque mois, Cloudyn doit afficher vos données à jour depuis la veille jusqu’à environ UTC+3 le jour suivant.
-- **Monthly (Mensuelle)** : du premier jour au dixième jour de chaque mois, Cloudyn peut n’afficher vos données que jusqu’à la fin du mois précédent.
+- **Initial** (Initiale) : après la configuration, l’affichage des données de coût dans Cloudyn peut prendre jusqu’à 24 heures. Cloudyn peut également nécessiter jusqu’à 10 jours afin de collecter les données nécessaires pour afficher les recommandations de dimensionnement.
+- **Daily (Quotidienne)** : du dixième jour jusqu’à la fin de chaque mois, Cloudyn doit afficher vos données à jour depuis la veille jusqu’à environ UTC+3 le jour suivant.
+- **Monthly (Mensuelle)** : du premier au dixième jour de chaque mois, Cloudyn peut n’afficher vos données que jusqu’à la fin du mois précédent.
 
 Cloudyn traite les données du jour précédent lorsque des données complètes pour le jour précédent sont disponibles. Les données du jour précédent sont généralement disponibles dans Cloudyn avec un décalage UTC+3 chaque jour. Le traitement de certaines données, telles que les balises, peut prendre 24 heures supplémentaires.
 

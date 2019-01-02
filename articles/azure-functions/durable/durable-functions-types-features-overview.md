@@ -8,18 +8,18 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/04/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 265314ebf2568bd586934d371e1e6c1d74e0b9bb
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637014"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336524"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Vue d’ensemble des types de fonctions et fonctionnalités pour les fonctions durables (Azure Functions)
 
-Les fonctions durables Azure fournissent une orchestration avec état d’exécution des fonctions. Une fonction durable est une solution composée de différentes fonctions Azure Functions. Chacune de ces fonctions peut jouer différents rôles dans le cadre d’une orchestration. Le document suivant fournit une vue d’ensemble des types de fonctions impliqués dans une orchestration de fonction durable. Il inclut également quelques modèles courants dans l’interconnexion de fonctions.  Pour commencer dès maintenant, créez votre première fonction durable en [ C# ](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md).
+Durable Functions fournit une orchestration avec état d’exécution des fonctions. Une fonction durable est une solution composée de différentes fonctions Azure Functions. Chacune de ces fonctions peut jouer différents rôles dans le cadre d’une orchestration. Le document suivant fournit une vue d’ensemble des types de fonctions impliqués dans une orchestration de fonction durable. Il inclut également quelques modèles courants dans l’interconnexion de fonctions.  Pour commencer dès maintenant, créez votre première fonction durable en [C#](durable-functions-create-first-csharp.md) ou en [JavaScript](quickstart-js-vscode.md).
 
 ![Types de fonctions durables][1]  
 
@@ -27,9 +27,11 @@ Les fonctions durables Azure fournissent une orchestration avec état d’exécu
 
 ### <a name="activity-functions"></a>Fonctions d’activité
 
-Les fonctions d’activité sont l’unité élémentaire dans une orchestration durable.  Les fonctions d’activité sont les fonctions et les tâches orchestrées dans le processus.  Par exemple, vous pouvez créer une fonction durable pour traiter une commande : vérifier le stock, facturer au client et créer un envoi.  Chacune de ces tâches correspond à une fonction d’activité.  Les fonctions d’activité n’ont aucune restriction concernant le type de travail que vous pouvez y effectuer.  Elles peuvent être écrites dans les langages qu’Azure Functions prend en charge.  L’infrastructure des tâches durables garantit que chaque fonction d’activité appelée est exécutée au moins une fois au cours d’une orchestration.
+Les fonctions d’activité sont l’unité élémentaire dans une orchestration durable.  Les fonctions d’activité sont les fonctions et les tâches orchestrées dans le processus.  Par exemple, vous pouvez créer une fonction durable pour traiter une commande : vérifier le stock, facturer au client et créer un envoi.  Chacune de ces tâches correspond à une fonction d’activité.  Les fonctions d’activité n’ont aucune restriction concernant le type de travail que vous pouvez y effectuer.  Elles peuvent être écrites dans les [langages pris en charge par Durable Functions](durable-functions-overview.md#language-support). L’infrastructure des tâches durables garantit que chaque fonction d’activité appelée est exécutée au moins une fois au cours d’une orchestration.
 
-Une fonction d’activité doit être déclenchée par un [déclencheur d’activité](durable-functions-bindings.md#activity-triggers).  Cette fonction reçoit un [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) en tant que paramètre. Vous pouvez également lier le déclencheur à UN autre objet à passer dans les entrées de la fonction.  Votre fonction d’activité peut également retourner des valeurs à l’orchestrateur.  Si vous envoyez ou retournez de nombreuses valeurs à partir d’une fonction d’activité, vous pouvez [tirer parti de tuples ou tableaux](durable-functions-bindings.md#passing-multiple-parameters).  Les fonctions d’activité ne peuvent être déclenchées qu’à partir d’une instance d’orchestration.  Bien que du code puisse être partagé entre une fonction d’activité et une autre fonction (par exemple, une fonction déclenchée via HTTP), chaque fonction ne peut avoir qu’un seul déclencheur.
+Une fonction d’activité doit être déclenchée par un [déclencheur d’activité](durable-functions-bindings.md#activity-triggers).  Les fonctions .NET reçoivent un [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) en tant que paramètre. Vous pouvez également lier le déclencheur à UN autre objet à passer dans les entrées de la fonction. Dans JavaScript, l’entrée est accessible via la propriété `<activity trigger binding name>` sur l’[objet `context.bindings`](../functions-reference-node.md#bindings).
+
+Votre fonction d’activité peut également retourner des valeurs à l’orchestrateur.  Si vous envoyez ou retournez de nombreuses valeurs à partir d’une fonction d’activité, vous pouvez [tirer parti de tuples ou tableaux](durable-functions-bindings.md#passing-multiple-parameters).  Les fonctions d’activité ne peuvent être déclenchées qu’à partir d’une instance d’orchestration.  Bien que du code puisse être partagé entre une fonction d’activité et une autre fonction (par exemple, une fonction déclenchée via HTTP), chaque fonction ne peut avoir qu’un seul déclencheur.
 
 Pour plus d’informations et des exemples, consultez l’[article sur la liaison de fonctions durables](durable-functions-bindings.md#activity-triggers).
 
@@ -79,7 +81,9 @@ Pour plus d’informations et des exemples, consultez l’[article sur la gestio
 
 Alors qu’une orchestration durable réside généralement dans le contexte d’une application de fonction unique, il existe des modèles qui vous permettent de coordonner les orchestrations entre de nombreuses applications de fonction.  Bien que les communications entre applications puissent se produire sur HTTP, utiliser l’infrastructure durable pour chaque activité signifie que vous pouvez conserver un processus durable entre deux applications.
 
-Ci-dessous figure un exemple d’orchestration entre plusieurs applications de fonction en C#.  Une des activités démarre l’orchestration externe. Une autre activité récupère et retourne ensuite l’état.  L’orchestrateur attend que l’état soit Terminé avant de continuer.
+Ci-dessous figurent des exemples d’orchestration entre plusieurs applications de fonction en C# et JavaScript.  Une des activités démarre l’orchestration externe. Une autre activité récupère et retourne ensuite l’état.  L’orchestrateur attend que l’état soit Terminé avant de continuer.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("OrchestratorA")]
@@ -128,6 +132,64 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
         return response.StatusCode == HttpStatusCode.OK;
     }
 }
+```
+
+#### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    // Do some work...
+
+    // Call a remote orchestration
+    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
+
+    // Wait for the remote orchestration to complete
+    while (true) {
+        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
+        if (isComplete) {
+            break;
+        }
+
+        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
+        yield context.df.createTimer(waitTime);
+    }
+
+    // B is done. Now go do more work...
+});
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, orchestratorName) {
+    const options = {
+        method: "POST",
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
+        body: ""
+    };
+
+    const statusUrl = await request(options);
+    return statusUrl;
+};
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, statusUrl) {
+    const options = {
+        method: "GET",
+        uri: statusUrl,
+        resolveWithFullResponse: true,
+    };
+
+    const response = await request(options);
+    // 200 = Complete, 202 = Running
+    return response.statusCode === 200;
+};
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

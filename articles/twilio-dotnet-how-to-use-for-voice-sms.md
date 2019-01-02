@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 087dcfd10b191dcd80ec4a70be8eb2e373e1d56b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 254128d212dec3e6f51a98dc4435894e08377eb0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427538"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955222"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure
 Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes](#NextSteps) .
@@ -44,16 +44,16 @@ L'API utilise les verbes Twilio ; par exemple, le verbe **&lt;Say&gt;** (Dire) 
 
 La liste suivante présente les verbes Twilio.  Découvrez les autres verbes et fonctionnalités dans la page [Documentation de Twilio Markup Language](https://www.twilio.com/docs/api/twiml).
 
-* `<Dial>` : connecte l’appelant à un autre téléphone.
-* `<Gather>` : collecte les chiffres numériques entrés sur le clavier du téléphone.
-* `<Hangup>` : met fin à un appel.
-* `<Play>` : lit un fichier audio.
-* `<Pause>` : patiente silencieusement pendant un nombre déterminé de secondes.
-* `<Record>` : enregistre la voix de l’appelant et retourne l’URL d’un fichier contenant l’enregistrement.
-* `<Redirect>` : transfère le contrôle d’un appel ou d’un SMS au TwiML à une autre URL.
-* `<Reject>` : refuse un appel entrant sur votre numéro Twilio sans vous facturer.
-* `<Say>` : convertit le texte d’un appel par synthèse vocale.
-* `<Sms>` : envoie un SMS.
+* `<Dial>`: connecte l’appelant à un autre téléphone.
+* `<Gather>`: collecte les chiffres numériques entrés sur le clavier du téléphone.
+* `<Hangup>`: met fin à un appel.
+* `<Play>`: lit un fichier audio.
+* `<Pause>`: patiente silencieusement pendant un nombre déterminé de secondes.
+* `<Record>`: enregistre la voix de l’appelant et retourne l’URL d’un fichier contenant l’enregistrement.
+* `<Redirect>`: transfère le contrôle d’un appel ou d’un SMS au TwiML à une autre URL.
+* `<Reject>`: refuse un appel entrant sur votre numéro Twilio sans vous facturer
+* `<Say>`: convertit le texte d’un appel par synthèse vocale.
+* `<Sms>`: envoie un SMS.
 
 ### <a name="twiml"></a>TwiML
 TwiML est un jeu d'instructions XML reposant sur les verbes Twilio qui informent Twilio sur la façon de traiter un appel ou un SMS.
@@ -115,7 +115,7 @@ Par défaut, Microsoft Visual Studio 2010 installe la version 1.2 de NuGet. L'
 5. Dans la zone de recherche en ligne, tapez *twilio*.
 6. Cliquez sur le bouton **Installer** du package Twilio.
 
-## <a id="howto_make_call"></a>Procédure : passer un appel sortant
+## <a id="howto_make_call"></a>Procédure : passer un appel sortant
 Le code suivant montre comment passer un appel téléphonique à l’aide de la classe **CallResource**. Il utilise également un site Twilio afin de renvoyer la réponse TwiML (Twilio Markup Language). Remplacez les numéros de téléphone **de destination** et **d’origine** par vos valeurs, puis vérifiez le numéro de téléphone **d’origine** de votre compte Twilio avant d’exécuter le code.
 
 ```csharp
@@ -143,9 +143,9 @@ var call = CallResource.Create(
 
 Pour plus d’informations sur les paramètres passés dans la méthode **CallResource.Create**, consultez [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
-Comme indiqué, ce code utilise un site Twilio afin de renvoyer la réponse TwiML, À la place, vous pouvez utiliser votre propre site pour fournir la réponse TwiML. mais vous pouvez utiliser votre propre site. Pour plus d’informations, consultez [Envoi de réponses TwiML à partir de votre propre site web](#howto_provide_twiml_responses).
+Comme indiqué, ce code utilise un site Twilio afin de renvoyer la réponse TwiML, À la place, vous pouvez utiliser votre propre site pour fournir la réponse TwiML. mais vous pouvez utiliser votre propre site. Pour plus d’informations, consultez [Procédure : envoi de réponses TwiML depuis votre propre site web](#howto_provide_twiml_responses).
 
-## <a id="howto_send_sms"></a>Procédure : envoi d'un message SMS
+## <a id="howto_send_sms"></a>Procédure : Envoi d’un SMS
 La capture d’écran suivante montre comment envoyer un SMS à l’aide de la classe **MessageResource**. Le numéro **From** est fourni par Twilio pour permettre aux comptes d’évaluation d’envoyer des SMS. Le numéro **To** doit être vérifié pour votre compte Twilio avant d’exécuter le code.
 
 ```csharp
@@ -172,7 +172,7 @@ catch (TwilioException ex)
 }
 ```
 
-## <a id="howto_provide_twiml_responses"></a>Procédure : envoi de réponses TwiML depuis votre propre site Web
+## <a id="howto_provide_twiml_responses"></a>Procédure : envoi de réponses TwiML depuis votre propre site web
 Quand votre application démarre un appel vers l’API Twilio, par exemple via la méthode **CallResource.create**, Twilio envoie votre demande à une URL qui est censée renvoyer une réponse TwiML. L’exemple dans [Comment passer un appel sortant](#howto_make_call) utilise l’URL fournie par Twilio [https://twimlets.com/message][twimlet_message_url] pour retourner la réponse.
 
 > [!NOTE]
@@ -277,7 +277,7 @@ Pour plus d’informations sur l’utilisation de Twilio sur Azure avec ASP.NET,
 
 [twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:https://msdn.microsoft.com/library/windowsazure/ee405487.aspx
+[vs_project]:https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-azure-project-create
 [nuget]:https://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 

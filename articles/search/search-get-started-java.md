@@ -1,5 +1,5 @@
 ---
-title: Prise en main d’Azure Search dans Java | Microsoft Docs
+title: Prise en main de Recherche Azure dans Java - Recherche Azure
 description: Comment créer une application de recherche hébergée dans le cloud sur Azure en utilisant le langage de programmation Java.
 services: search
 author: jj09
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec2018
+ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419297"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316962"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Prise en main d'Azure Search dans Java
 > [!div class="op_single_selector"]
@@ -45,13 +46,13 @@ Dans cette application, le programme **SearchServlet.java** crée et charge l'in
 ## <a name="about-the-program-files"></a>À propos des fichiers de programme
 La liste suivante décrit les fichiers qui sont pertinents pour cet exemple.
 
-* Search.jsp : fournit l'interface utilisateur.
-* SearchServlet.java : fournit des méthodes (semblables à un contrôleur dans MVC).
-* SearchServiceClient.java : gère les descripteurs HTTP.
-* SearchServiceHelper.java : classe d’utilitaire qui fournit des méthodes statiques.
-* Document.Java : fournit le modèle de données.
-* config.properties : définit la clé API et l'URL du service de recherche.
-* pom.xml : dépendance Maven
+* Search.jsp : fournit l’interface utilisateur
+* SearchServlet.java : fournit des méthodes (semblables à un contrôleur dans MVC)
+* SearchServiceClient.java : gère les requêtes HTTP
+* SearchServiceHelper.java : classe d’assistance qui fournit des méthodes statiques
+* Document.java : fournit le modèle de données
+* config.properties : définit l’URL et la clé API du service Recherche
+* pom.xml : dépendance Maven
 
 <a id="sub-2"></a>
 

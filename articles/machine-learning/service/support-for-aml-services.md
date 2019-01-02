@@ -1,5 +1,6 @@
 ---
-title: Bénéficier d’un support et d’une formation pour le service Azure Machine Learning
+title: Support et formations disponibles
+titleSuffix: Azure Machine Learning service
 description: Cet article vous indique comment vous pouvez bénéficier d’un support et d’une formation pour le service Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: a857b813cee86079b96cd2bca297c1cf098819f5
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec18
+ms.openlocfilehash: cbf245b27bc6df9933a4786def42d85f848e09d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113901"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192088"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Bénéficier d’un support et d’une formation pour le service Azure Machine Learning
 
@@ -37,7 +39,7 @@ Pour le support, consultez les ressources suivantes :
 
 + **Support technique** : accédez au [support technique Azure](https://azure.microsoft.com/support/options/), puis sélectionnez Machine Learning. 
 
-+ **Forum utilisateurs** : posez des questions, répondez à des questions et soyez en contact avec d’autres utilisateurs dans le [forum de support du service Azure Machine Learning sur le site MSDN](https://aka.ms/aml-forum-service).
++ **Forum utilisateurs** : posez des questions, répondez à des questions et soyez en contact avec d’autres utilisateurs dans le [forum de support du Azure Machine Learning service sur le site MSDN](https://aka.ms/aml-forum-service).
 
 + **Stack Overflow** : consultez la page de la communauté Azure Machine Learning sur [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning), balisée avec « Azure-Machine-Learning ».
 

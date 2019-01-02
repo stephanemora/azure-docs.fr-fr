@@ -1,5 +1,5 @@
 ---
-title: Guides de la science des données Azure Data Lake avec U-SQL | Microsoft Docs
+title: Effectuer des analyses à l’aide d’U-SQL sur Azure Data Lake - Processus TDSP (Team Data Science Process)
 description: Exemples qui montrent comment utiliser U-SQL sur Azure Data Lake pour effectuer des analyses prédictives.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2f01ec6dc97dccbca15c61d4f1a087f6f1a9abe2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ecf19ec484e03f4cbc9e396ff80818c192da4d17
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444220"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132787"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Guides de la science des données Azure Data Lake avec U-SQL
 

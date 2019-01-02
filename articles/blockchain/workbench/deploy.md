@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 12/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 33fce88e7108ee45236e20b1f20dde56bb7446b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616382"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876147"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Déployer Azure Blockchain Workbench
 
@@ -43,6 +43,9 @@ Voici un exemple de déploiement créé dans le groupe de ressources **myblockch
 ![Exemple de déploiement](media/deploy/example-deployment.png)
 
 Le coût associé à Blockchain Workbench est un agrégat du coût des services Azure sous-jacents. Les informations de tarification pour les services Azure peuvent être calculées à l’aide de la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/).
+
+> [!IMPORTANT]
+> Si vous utilisez un abonnement doté de limites de service faibles, comme un abonnement Azure gratuit, le déploiement peut échouer en raison d’un quota insuffisant de cœurs de machine virtuelle. Avant le déploiement, vérifiez votre quota en suivant les instructions de l’article [Quotas de processeurs virtuels pour les machines virtuelles](../../virtual-machines/windows/quotas.md). La sélection de la machine virtuelle par défaut nécessite 6 cœurs de machine virtuelle. Le fait de diminuer la taille de la machine virtuelle, par exemple à *Standard DS1 v2*, réduit le nombre de cœurs à 4.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -98,8 +101,8 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
     | Paramètre | Description  |
     |---------|--------------|
     | Surveillance | Indiquer si vous souhaitez autoriser Azure Monitor à surveiller votre réseau blockchain |
-    | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, choisissez *Ajouter maintenant*. |
-    | Sélection de machine virtuelle | Choisissez la taille de machine virtuelle préférée pour votre réseau blockchain. |
+    | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration), ou si vous redéployez, optez pour *Ajouter maintenant*. |
+    | Sélection de machine virtuelle | Choisissez la taille de machine virtuelle préférée pour votre réseau blockchain. Choisissez une plus petite taille de machine virtuelle, comme *Standard DS1 v2*, si vous êtes sur un abonnement doté de limites de service faibles, tel que l’abonnement gratuit d’Azure. |
 
     Pour **Utiliser l’existant** :
 
@@ -117,7 +120,7 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
     | Paramètre | Description  |
     |---------|--------------|
     | Point de terminaison Ethereum RPC | Indiquez le point de terminaison RPC d’un réseau blockchain PoA existant. Le point de terminaison commence par https:// ou http:// et se termine par un numéro de port. Par exemple, `https://network.westus.cloudapp.com:8540` |
-    | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, choisissez *Ajouter maintenant*. |
+    | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, optez pour *Ajouter maintenant*. |
     | Sélection de machine virtuelle | Choisissez la taille de machine virtuelle préférée pour votre réseau blockchain. |
 
 9. Sélectionnez **OK** pour terminer les Paramètres avancés.
@@ -213,7 +216,7 @@ Le déploiement de Blockchain Workbench nécessite l’inscription d’une appli
 Ensuite, vous devez modifier le manifeste pour utiliser des rôles d’application dans Azure AD afin de spécifier les administrateurs Blockchain Workbench.  Pour plus d’informations sur les manifestes de l’application, consultez [Manifeste de l’application Azure Active Directory](../../active-directory/develop/reference-app-manifest.md).
 
 1. Pour l’application que vous avez inscrite, sélectionnez **Manifeste** dans le volet de détails de l’application inscrite.
-2. Générez un GUID. Vous pouvez générer un GUID à l’aide de la commande PowerShell [guid] :: NewGuid () ou de la cmdlet New-GUID. Une autre option consiste à utiliser un site web générateur de GUID.
+2. Générez un GUID. Vous pouvez générer un GUID à l’aide de la commande PowerShell [guid] :: NewGuid () ou de l’applet de commande New-GUID. Une autre option consiste à utiliser un site web générateur de GUID.
 3. Vous vous apprêtez à mettre à jour la section **appRoles** du manifeste. Dans le volet d’édition du manifeste, sélectionnez **Modifier** et remplacer `"appRoles": []` par le JSON fourni. Remplacez la valeur du champ **id** par le GUID que vous avez généré. 
 
     ![Modifier le manifeste](media/deploy/edit-manifest.png)

@@ -3,21 +3,21 @@ title: Création et gestion de tâches élastiques à l’aide de PowerShell | M
 description: Gérer la base de données SQL Azure avec PowerShell
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9ed5026211bec11b510d095decac25f8d4b8a52a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243195"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278455"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Création et gestion de tâches de bases de données SQL élastiques à l’aide de PowerShell (version préliminaire)
 
@@ -31,10 +31,10 @@ Les API PowerShell pour les **tâches de bases de données élastiques** (en ver
 * Un abonnement Azure. Pour obtenir un essai gratuit, voir [Version d'évaluation d'un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Un ensemble de bases de données créé avec les outils de bases de données élastiques. Voir [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
-* **tâches de bases de données élastiques** : voir [Installing tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md)
+* Package **Tâches de base de données élastique** PowerShell : Voir [Installation de Tâches de base de données élastique](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Sélectionner votre abonnement Azure
-Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement (**-SubscriptionId**) ou de votre nom d’abonnement (**-SubscriptionName**). Si vous avez plusieurs abonnements, vous pouvez exécuter l’applet de commande **Get-AzureRmSubscription** et copier les informations d’abonnement souhaitées affichées dans les résultats. Une fois que vous disposez de vos informations d’abonnement, exécutez l’applet de commande pour définir l’abonnement en tant qu’abonnement par défaut, à savoir, la cible pour créer et gérer des tâches :
+Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement (**-SubscriptionId**) ou de votre nom d’abonnement (**-SubscriptionName**). Si vous avez plusieurs abonnements, vous pouvez exécuter l’applet de commande **Get-AzureRmSubscription** et copier les informations d’abonnement souhaitées affichées dans les résultats. Une fois que vous disposez de vos informations d’abonnement, exécutez l’applet de commande pour définir l’abonnement en tant qu’abonnement par défaut, à savoir, la cible pour créer et gérer des tâches :
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
@@ -193,8 +193,8 @@ La tâche exécute les scripts Transact-SQL (T-SQL) ou l’application de DACPAC
 
 Vous pouvez créer deux types de groupes : 
 
-* [Carte de partitions](sql-database-elastic-scale-shard-map-management.md) : lorsqu’une tâche est soumise pour cibler une carte de partitions, la tâche interroge d’abord la carte de partitions afin de déterminer l’ensemble de ses partitions actuelles, puis crée les tâches enfants pour chaque partition de la carte de partitions.
-* Groupe Collection personnalisée : un ensemble défini de bases de données personnalisées. Lorsqu’une tâche cible une collection personnalisée, elle crée des tâches enfants pour chaque base de données actuellement présente dans la collection personnalisée.
+* Groupe [Carte de partitions](sql-database-elastic-scale-shard-map-management.md) : lorsqu’une tâche est soumise pour cibler une carte de partitions, la tâche interroge d’abord la carte de partitions afin de déterminer l’ensemble de ses partitions actuelles, puis crée les tâches enfants pour chaque partition de la carte de partitions.
+* Groupe Collection personnalisée : un ensemble défini de bases de données personnalisées. Lorsqu’une tâche cible une collection personnalisée, elle crée des tâches enfants pour chaque base de données actuellement présente dans la collection personnalisée.
 
 ## <a name="to-set-the-elastic-database-jobs-connection"></a>Définir la connexion des tâches de bases de données élastiques
 Une connexion doit être définie pour la *base de données de contrôle* des tâches avant d’utiliser les API des tâches. L’exécution de cet applet de commande affiche une fenêtre d’informations d’identification demandant le nom d’utilisateur et le mot de passe créés lors de l’installation des tâches de bases de données élastiques. Tous les exemples fournis dans cette rubrique partent du principe que cette première étape a déjà été effectuée.
@@ -414,21 +414,21 @@ Tâches de bases de données prend en charge la création de stratégies d'exéc
 
 Les stratégies d'exécution permettent de définir :
 
-* Le nom : l'identificateur de la stratégie d'exécution.
-* Délai d’attente de la tâche : délai avant l’annulation d’une tâche par Tâches de bases de données élastiques.
-* Intervalle avant nouvelle tentative initiale : l'intervalle d'attente avant la première nouvelle tentative.
-* Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
-* Coefficient d'interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives.  La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow (coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2). 
-* Nombre maximal de tentatives : le nombre maximal de nouvelles tentatives effectuées dans une tâche.
+* Nom : identificateur de la stratégie d’exécution.
+* Délai d’attente de la tâche : délai avant l’annulation d’une tâche par Tâches de base de données élastique.
+* Intervalle avant nouvelle tentative initiale : intervalle d’attente avant la première nouvelle tentative.
+* Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
+* Coefficient d’interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives.  La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow ((coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2). 
+* Nombre maximal de tentatives : le nombre maximal de nouvelles tentatives effectuées dans une tâche.
 
 La stratégie d'exécution par défaut utilise les valeurs suivantes :
 
-* Le nom : la stratégie d'exécution par défaut
-* Délai d’attente de la tâche : 1 semaine
-* Intervalle avant nouvelle tentative initiale : 100 millisecondes
-* Intervalle maximal avant nouvelle tentative : 30 minutes
-* Coefficient de l'intervalle avant nouvelle tentative : 2
-* Nombre maximal de tentatives : 2 147 483 647
+* Nom : la stratégie d’exécution par défaut
+* Délai d’attente de la tâche : 1 semaine
+* Intervalle avant nouvelle tentative initiale :  100 millisecondes
+* Intervalle maximal avant nouvelle tentative : 30 minutes
+* Coefficient de l’intervalle avant nouvelle tentative : 2
+* Nombre maximal de tentatives : 2 147 483 647
 
 Créez la stratégie d'exécution souhaitée :
 
@@ -459,8 +459,8 @@ La fonctionnalité Tâches de bases de données élastiques prend en charge les 
 
 La fonctionnalité Tâches de bases de données élastiques peut effectuer une annulation de deux manières différentes :
 
-1. Annuler des tâches en cours d’exécution : si une annulation est détectée pendant qu’une tâche est en cours d’exécution, l’annulation sera tentée au sein de l’aspect de la tâche en cours d’exécution.  Par exemple : si une requête de longue durée s’exécute lorsqu'une annulation est tentée, une tentative d'annulation de la requête sera effectuée.
-2. Annuler des tentatives de tâches : si une annulation est détectée par le thread de contrôle avant de lancer l’exécution d’une tâche, le thread de contrôle permettra d’éviter le lancement de la tâche et de déclarer la requête comme étant annulée.
+1. Annuler des tâches en cours d’exécution : si une annulation est détectée pendant qu’une tâche est en cours d’exécution, l’annulation sera tentée au sein de l’aspect de la tâche en cours d’exécution.  Par exemple :  si une requête de longue durée s’exécute lorsqu’une annulation est tentée, une tentative d’annulation de la requête sera effectuée.
+2. Annuler des tentatives de tâches : si une annulation est détectée par le thread de contrôle avant de lancer l’exécution d’une tâche, le thread de contrôle permettra d’éviter le lancement de la tâche et de déclarer la requête comme étant annulée.
 
 Si une annulation de tâche est demandée pour une tâche parente, la demande d'annulation sera respectée pour la tâche parente et toutes ses tâches enfants.
 

@@ -5,16 +5,15 @@ services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 22ea3d955fe2910dc99ab4015165008da899d48e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312848"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842337"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure en cours
 
@@ -23,13 +22,13 @@ Cet article décrit les problèmes courants dans Azure Site Recovery lors de la 
 
 ## <a name="recovery-points-not-getting-generated"></a>Les points de récupération ne sont pas générés
 
-MESSAGE D’ERREUR : Aucun point de récupération d’incident cohérent disponible pour la machine virtuelle pendant les 60 dernières minutes.</br>
-ID D’ERREUR : 153007 </br>
+MESSAGE D’ERREUR : Aucun point de récupération d’incident cohérent disponible pour la machine virtuelle pendant les 60 dernières minutes.</br>
+ID D’ERREUR : 153007 </br>
 
 Azure Site Recovery réplique des données de manière cohérente de la région source vers la région de récupération d’urgence et crée un point d’incident cohérent toutes les 5 minutes. Si Site Recovery ne peut pas créer de points de récupération pendant 60 minutes, il avertit l’utilisateur. Voici des causes possibles de cette erreur :
 
-**Cause 1 : [taux élevé de changement de données sur la machine virtuelle source](#high-data-change-rate-on-the-source-virtal-machine)**    
-**Cause 2 : [Problème de connectivité réseau](#Network-connectivity-issue)**
+**Cause 1 : [Taux élevé de changement de données sur la machine virtuelle source](#high-data-change-rate-on-the-source-virtal-machine)**    
+**Cause 2 : [Problème de connectivité réseau](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>Causes et solutions
 
@@ -69,10 +68,10 @@ Pour trouver le taux de changement de données de la machine virtuelle concerné
 
 Dans de tels cas, s’il s’agit d’une rafale de données occasionnelle, que le taux de changement de données est supérieur à 10 Mbits/s (pour Premium) et à 2 Mbits/s (pour Standard) pendant un certain laps de temps et qu’il redescend par la suite, la réplication rattrape le retard. Toutefois si le taux d’activité de données est bien au-delà de la limite prise en charge la plupart du temps, vous devez, si possible, envisager l’une des options ci-dessous :
 
-**Option 1 :** exclure le disque, ce qui provoque un taux de changement de données élevé : </br>
+**Option 1 :** exclure le disque, ce qui provoque un taux de changement de données élevé : </br>
 Vous pouvez actuellement exclure le disque avec [Site Recovery Powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)
 
-**Option 2 :** modifier le niveau du disque de stockage après sinistre : </br>
+**Option 2 :** modifier le niveau du disque de stockage après sinistre : </br>
 Cette option n’est possible que si l’activité des données de disque est inférieure à 10 Mo/s. Supposons qu’une machine virtuelle avec un disque P10 disque a un taux d’activité des données supérieur à 8 Mo/s, mais inférieur à 10 Mo/s. Si le client peut utiliser le disque P30 pour le stockage cible pendant la protection, le problème peut être résolu.
 
 ### <a name="Network-connectivity-issue"></a>Problème de connectivité réseau

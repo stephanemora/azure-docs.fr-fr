@@ -1,20 +1,19 @@
 ---
-title: Utilisation de la bibliothèque .NET de l’exécuteur en bloc pour effectuer des importations et mises à jour en bloc dans Azure Cosmos DB | Microsoft Docs
+title: Utilisation de la bibliothèque .NET de l’exécuteur en bloc pour effectuer des importations et mises à jour en bloc dans Azure Cosmos DB
 description: Découvrez comment importer et mettre à jour en bloc des documents dans Azure Cosmos DB à l’aide de la bibliothèque .NET de l’exécuteur en bloc.
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 04894fdd0ffff38ad129097ce839259f2993332c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: adde24faa4bd0f15eb3a2700021e9ace14fcc6b4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363396"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840968"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 

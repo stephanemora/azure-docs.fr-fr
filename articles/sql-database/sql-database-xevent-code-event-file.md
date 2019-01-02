@@ -3,7 +3,7 @@ title: Code du fichier d’événements XEvent pour SQL Database | Microsoft Doc
 description: Fournit PowerShell et Transact-SQL pour un exemple de code en deux phases qui montre l’utilisation de la cible du fichier d’événements dans un événement étendu sur Azure SQL Database. Le service Azure Storage est nécessaire pour ce scénario.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8577b6a1d0f57820cbdd4096b0e8412096ff3af3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 33bd4e39018f9789464d213ccf7921993e2da142
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232074"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864713"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Code cible du fichier d’événements pour les événements étendus dans SQL Database
 
@@ -50,7 +50,7 @@ Cette rubrique présente un exemple de code en deux phases :
   
   * Ces modules fournissent des commandes, telles que **New-AzureStorageAccount**.
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Phase 1 : code PowerShell pour le conteneur Azure Storage
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Phase 1 : code PowerShell pour conteneur Stockage Azure
 
 Il s’agit de la première phase de l’exemple de code en deux phases.
 
@@ -58,7 +58,7 @@ Le script commence par des commandes à supprimer s’il a déjà été exécut�
 
 1. Collez le script PowerShell dans un éditeur de texte simple, tel que Notepad.exe, puis enregistrez-le dans un fichier avec l’extension **.ps1**.
 2. Démarrez PowerShell ISE en tant qu’administrateur.
-3. À l’invite, tapez <br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>et appuyez sur Entrée.
+3. À l’invite, tapez <br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/> et appuyez sur Entrée.
 4. Dans PowerShell ISE, ouvrez votre fichier **.ps1** . Exécutez le script.
 5. Tout d’abord, le script ouvre une nouvelle fenêtre pour vous permettre de vous connecter à Azure.
    
@@ -230,7 +230,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 
 Prenez note des quelques valeurs nommées que le script PowerShell affiche à la fin de son exécution. Vous devrez modifier ces valeurs dans le script Transact-SQL lors de la phase 2 ci-après.
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Phase 2 : code Transact-SQL utilisant le conteneur Azure Storage
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Phase 2 : code Transact-SQL utilisant un conteneur Stockage Azure
 
 * Lors de la phase 1 de cet exemple de code, vous avez exécuté un script PowerShell pour créer un conteneur Azure Storage.
 * Dans la phase 2, le script Transact-SQL suivant doit utiliser ce conteneur.
@@ -530,8 +530,8 @@ Pour plus d’informations sur les comptes et les conteneurs du service Azure St
 * [Utilisation du stockage d’objets blob à partir de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Désignation et référencement des conteneurs, des objets BLOB et des métadonnées](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Utilisation du conteneur racine](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Leçon 1 : Créer une stratégie d’accès stockée et une signature d’accès partagé sur un conteneur Azure](https://msdn.microsoft.com/library/dn466430.aspx)
-  * [Leçon 2 : Créer des informations d’identification SQL Server à l’aide d’une signature d’accès partagé](https://msdn.microsoft.com/library/dn466435.aspx)
+* [Leçon 1 : Créer une stratégie d’accès stockée et une signature d’accès partagé sur un conteneur Azure](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [Leçon 2 : Créer des informations d’identification SQL Server utilisant une signature d’accès partagé](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Événements étendus pour Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

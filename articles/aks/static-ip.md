@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: c6097c96c0211c1efac2c2652eb0ef7d668d6877
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5ac64f61d1c7879c578a1b6994a6918a7aa28a2e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427044"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017046"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Vous devez également avoir installé et configuré Azure CLI version 2.0.46 ou 
 
 Quand vous créez une adresse IP publique statique pour l’utiliser avec AKS, la ressource d’adresse IP doit de préférence être créée dans le groupe de ressources du **nœud**. Si vous souhaitez séparer les ressources, consultez [Utiliser une adresse IP statique en dehors du groupe de ressources du nœud](#use-a-static-ip-address-outside-of-the-node-resource-group).
 
-Récupérez le nom du groupe de ressources du nœud avec la commande [az aks show][az-aks-show] et ajoutez le paramètre de requête `--query nodeResourceGroup`. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
+Récupérez le nom du groupe de ressources du nœud avec la commande [az aks show][az-aks-show] et ajoutez le paramètre de requête `--query nodeResourceGroup`. L’exemple suivant obtient le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -38,7 +38,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Créez maintenant une adresse IP publique statique avec la commande [az network public ip create][az-network-public-ip-create]. Spécifiez le nom de groupe de ressources du nœud obtenue dans la commande précédente, puis un nom pour la ressource d’adresse IP, par exemple *myAKSPublicIP* :
+Créez maintenant une adresse IP publique statique avec la commande [az network public ip create][az-network-public-ip-create]. Spécifiez le nom de groupe de ressources du nœud obtenu dans la commande précédente, puis un nom pour la ressource d’adresse IP, par exemple *myAKSPublicIP* :
 
 ```azurecli
 az network public-ip create \
@@ -95,7 +95,7 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Utiliser une adresse IP statique en dehors du groupe de ressources de nœud
 
-Avec Kubernetes 1.10 ou version ultérieure, vous pouvez pour utiliser une adresse IP statique créée en dehors du groupe de ressources de nœud. Le principal de service utilisé par le cluster AKS doit disposer d’autorisations déléguées sur l’autre groupe de ressources, comme indiqué dans l’exemple suivant :
+Avec Kubernetes 1.10 ou version ultérieure, vous pouvez utiliser une adresse IP statique créée en dehors du groupe de ressources du nœud. Le principal de service utilisé par le cluster AKS doit disposer d’autorisations déléguées sur l’autre groupe de ressources, comme indiqué dans l’exemple suivant :
 
 ```azurecli
 az role assignment create\

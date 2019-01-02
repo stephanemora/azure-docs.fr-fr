@@ -8,20 +8,20 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230034"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273933"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights
 
-Cette page fournit des informations sur les problèmes de performances liés à Azure SQL Database et Managed Instance et détectés via le journal de diagnostic des performances de base de données [Intelligent Insights](sql-database-intelligent-insights.md). Les données de télémétrie du journal de diagnostic peuvent être transmises en continu à [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), à [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), au [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
+Cette page fournit des informations sur les problèmes de performances liés à Azure SQL Database et Managed Instance et détectés via le journal de diagnostic des performances de base de données [Intelligent Insights](sql-database-intelligent-insights.md). Les données de télémétrie du journal de diagnostic peuvent être transmises en continu à [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), au [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 > [!NOTE]
 > Pour appréhender rapidement la résolution des problèmes de performances liés à SQL Database à l’aide d’Intelligent Insights, consultez l’organigramme [Flux de résolution des problèmes recommandé](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) dans le présent document.
@@ -109,7 +109,7 @@ Vous pouvez optimiser ou supprimer les requêtes liées aux régisseurs dont l�
 
 Vous pouvez également réduire la charge de travail en l’optimisant ou en la distribuant entre plusieurs bases de données. De même, rien ne vous empêche de distribuer simplement votre charge de travail entre plusieurs bases de données. Si ces solutions ne sont pas viables, augmentez éventuellement le niveau tarifaire de votre abonnement SQL Database pour accroître la quantité de ressources mémoire disponibles pour la base de données.
 
-Pour obtenir d’autres suggestions liées à la résolution des problèmes, consultez [Réflexion sur les allocations de mémoire : le mystérieux consommateur de mémoire SQL Server qui porte plusieurs noms](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Pour des suggestions de dépannage supplémentaires, consultez le billet de blog [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Verrouillage
 
@@ -227,7 +227,7 @@ Ce modèle de performances détectables indique un problème au niveau des perfo
 
 ### <a name="troubleshooting"></a>Résolution de problèmes
 
-Le journal de diagnostic génère des détails sur la contention de tempDB. Vous pouvez utiliser ces informations comme point de départ pour la résolution des problèmes. Il existe deux choses que vous pouvez faire pour limiter ce genre de contention et augmenter le débit de la charge de travail globale. Tout d’abord, vous pouvez arrêter d’utiliser les tables temporaires. Ensuite, vous pouvez utiliser des tables à mémoire optimisée. 
+Le journal de diagnostic génère des détails sur la contention de tempDB. Vous pouvez utiliser ces informations comme point de départ pour la résolution des problèmes. Il existe deux choses que vous pouvez faire pour limiter ce genre de contention et augmenter le débit de la charge de travail globale : Tout d’abord, vous pouvez arrêter d’utiliser les tables temporaires. Ensuite, vous pouvez utiliser des tables à mémoire optimisée. 
 
 Pour plus d’informations, consultez [Introduction aux tables à mémoire optimisée](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
@@ -281,7 +281,7 @@ Pour plus d’informations sur les régressions de plans, consultez [Découvrir 
 
 Ce modèle de performances détectables indique une situation dans laquelle un changement de configuration à l’échelle de la base de données entraîne une régression des performances par rapport au comportement de la charge de travail de la base de données pendant les sept jours précédents. Ce modèle indique qu’un changement de configuration récent à l’échelle de la base de données ne semble pas être bénéfique pour les performances de votre base de données.
 
-Vous pouvez apporter un changement de configuration à l’échelle de la base de données pour chaque base de données. Cette configuration est utilisée au cas par cas pour optimiser les performances individuelles de votre base de données. Vous pouvez configurer les options suivantes pour chaque base de données : MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES et CLEAR PROCEDURE_CACHE.
+Vous pouvez apporter un changement de configuration à l’échelle de la base de données pour chaque base de données. Cette configuration est utilisée au cas par cas pour optimiser les performances individuelles de votre base de données. Vous pouvez configurer les options suivantes pour chaque base de données : MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES et CLEAR PROCEDURE_CACHE.
 
 ### <a name="troubleshooting"></a>Résolution de problèmes
 

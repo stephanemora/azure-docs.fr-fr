@@ -1,6 +1,6 @@
 ---
-title: Phase de présentation de l’entreprise du cycle de vie du processus TDSP (Team Data Science Process) - Azure | Microsoft Docs
-description: Objectifs, tâches et livrables associés à la phase de présentation de l’entreprise de vos projets de science des données
+title: Présentation de l’entreprise du processus TDSP (Team Data Science Process)
+description: Objectifs, tâches et livrables associés à la phase de présentation de l’entreprise de vos projets de science des données dans Team Data Science Process.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3d2a6bf5a7e4766ca6205c413dd27fa9a69c16b7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446719"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141660"
 ---
-# <a name="business-understanding"></a>Présentation de l’entreprise
+# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Phase de présentation de l’entreprise du cycle de vie Team Data Science Process
 
 Cet article présente les objectifs, tâches et livrables associés à la phase de présentation de l’entreprise du processus TDSP. Ce processus indique un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données. Le cycle de vie expose les principales phases que les projets exécutent généralement, souvent de manière itérative :
 
@@ -41,7 +41,7 @@ Voici une représentation visuelle du cycle de vie TDSP :
 Deux tâches principales sont traitées dans cette phase : 
 
    * **Définir les objectifs** : collaborez avec votre client et d’autres parties prenantes pour comprendre et identifier les problèmes métier. Formulez des questions qui définissent les objectifs commerciaux que les techniques de science des données peuvent cibler.
-   * **Identifier les sources de données** : recherchez les données pertinentes qui vous aident à répondre aux questions qui définissent les objectifs du projet.
+   * **Identifier les sources de données** : recherchez les données pertinentes qui vous aident à répondre aux questions définissant les objectifs du projet.
 
 ### <a name="define-objectives"></a>Définir les objectifs
 1. Un objectif central de cette étape consiste à identifier les variables d’activité clés que l’analyse doit prédire. Nous appelons ces variables *cibles du modèle*, et utilisons les mesures qui leur sont associées pour déterminer la réussite du projet. Deux exemples de telles cibles sont les prévisions de ventes ou la probabilité qu’une commande soit frauduleuse.
@@ -78,7 +78,7 @@ Par exemple, vous trouverez peut-être que les systèmes existants doivent colle
 Voici les livrables de cette phase :
 
    * [Charte](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md) : un modèle standard est fourni dans la définition de la structure de projet TDSP. La charte est un document interactif. Vous mettez à jour le modèle dans le projet à mesure que vous effectuez de nouvelles détections et lorsque les besoins métier changent. Il est important que vous vous référiez à ce document, en ajoutant des détails, à mesure que vous progressez dans le processus de découverte. Veillez à ce que les clients et autres parties prenantes demeurent impliqués dans la réalisation des modifications et communiquez-leur clairement les raisons des modifications.  
-   * [Sources de données](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources) : la section **Raw data sources (Sources de données brutes)** du rapport **Data definitions (Définitions des données)** qui figure dans le dossier **Data report (Rapport de données)** du projet TDSP contient les sources de données. Cette section spécifie les emplacements d’origine et de destination des données brutes. Au cours des phases ultérieures, vous renseignez des détails supplémentaires, tels que les scripts permettant de déplacer les données vers votre environnement d’analyse.  
+   * [Sources de données](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources) : la section **Raw data sources** (Sources de données brutes) du rapport **Data definitions** (Définitions des données) qui figure dans le dossier **Data report** (Rapport de données) du projet TDSP contient les sources de données. Cette section spécifie les emplacements d’origine et de destination des données brutes. Au cours des phases ultérieures, vous renseignez des détails supplémentaires, tels que les scripts permettant de déplacer les données vers votre environnement d’analyse.  
    * [Dictionnaires de données](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries) : ce document fournit les descriptions des données fournies par le client. Ces descriptions incluent des informations sur le schéma (types de données et informations sur les règles de validation, le cas échéant) et les diagrammes entité-relation s’ils sont disponibles.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -92,5 +92,3 @@ Voici les liens vers chaque étape du cycle de vie TDSP :
    5. [Acceptation du client](lifecycle-acceptance.md)
 
 Nous indiquons des procédures pas à pas complètes qui illustrent toutes les étapes du processus correspondant à des scénarios spécifiques. L’article [Example walkthroughs](walkthroughs.md) (Exemples de procédures pas à pas) contient une liste des scénarios ainsi que des liens et des descriptions de miniatures. Les procédures pas à pas montrent comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente. 
-
-Pour obtenir des exemples sur l’exécution de procédures dans les processus TDSP utilisant Azure Machine Learning Studio, consultez [Utilisation du processus de science des données avec Azure Machine Learning](https://aka.ms/datascienceprocess).

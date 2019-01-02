@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eeb12500a5ddfb95317b3d20b41acf12e3978bad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 80818a7264b35b703be217f07127ab7883da339a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626520"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271587"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qu’est-ce que la condition d’emplacement dans l’accès conditionnel Azure Active Directory ? 
 
@@ -58,7 +58,7 @@ Un emplacement nommé se compose des éléments suivants :
 
 - **Nom** : nom complet d’un emplacement nommé.
 
-- **Plages d’adresses IP** : une ou plusieurs plages d’adresses IP au format CIDR.
+- **Plages d’adresses IP** : une ou plusieurs plages d’adresses IPv4 au format CIDR. Les adresses Ipv6 ne sont pas prises en charge.
 
 - **Marquer comme emplacement approuvé** : indicateur que vous pouvez définir pour un emplacement nommé afin d’indiquer un emplacement approuvé. Les emplacements approuvés sont généralement des zones de réseau qui sont contrôlées par votre service informatique. En plus de l’accès conditionnel, les emplacements nommés approuvés sont également utilisés par les rapports de sécurité Azure Identity Protection et Azure AD afin de réduire les [faux positifs](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 

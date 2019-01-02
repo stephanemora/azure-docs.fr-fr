@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB : API SQL .NET Core, Kit SDK et ressources | Microsoft Docs'
+title: 'Azure Cosmos DB : Ressources, kit SDK et API .NET Core SQL'
 description: Tout savoir sur l’API SQL .NET Core et le kit de développement logiciel (SDK), notamment les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,14 +10,14 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5216a4a21fbbded4a10429c658f4842db225657
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161716"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413504"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour API SQL : notes de publication et ressources
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +28,7 @@ ms.locfileid: "52161716"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -52,6 +50,23 @@ ms.locfileid: "52161716"
 ## <a name="release-notes"></a>Notes de publication
 
 Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la parité des fonctions avec la dernière version du [kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-sdk-dotnet.md).
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
+* Préversion 1 de la [version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) du kit SDK .NET pour la préversion publique.
+* .NET Standard cible, prenant en charge .NET framework 4.6.1+ et .NET Core 2.0+
+* Nouveau modèle d’objet, avec le CosmosClient de niveau supérieur et les méthodes réparties entre les classes CosmosDatabases, CosmosContainers et CosmosItems appropriées.
+* Prise en charge des flux.
+* Mise à jour de CosmosResponseMessage à partir du serveur pour renvoyer le code d’état, et levée d’une seule exception si aucune réponse n’est retournée.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* Pour les diagnostics de transport direct/TCP, ajout de TransportException, un type d’exception interne du SDK. Lorsqu’il est présent dans les messages d’exception, ce type affiche des informations supplémentaires pour la résolution des problèmes de connectivité client.
+
+* Ajout d’une nouvelle surcharge de constructeur acceptant un HttpMessageHandler, une pile de gestionnaire HTTP à utiliser pour envoyer des demandes HttpClient (par exemple, HttpClientHandler).
+
+* Correction de bogue où un en-tête avec des valeurs null n’est pas traité correctement.
+
+* Validation améliorée du cache de collection.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -104,7 +119,7 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* Correction du bogue qui apparaît dans certaines conditions de concurrence et qui génère des erreurs « Microsoft.Azure.Documents.NotFoundException : la session de lecture n’est pas disponible pour le jeton de session d’entrée » par intermittence lors de l’utilisation du niveau de cohérence Session.
+* Correction du bogue qui survient dans certaines conditions de concurrence, en générant des erreurs intermittentes « Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token » (Microsoft.Azure.Documents.NotFoundException: la session de lecture n’est pas disponible pour le jeton de session d’entrée) lors de l’utilisation du niveau de cohérence Session.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
@@ -121,7 +136,7 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
  
- * Remplacement du nom Azure DocumentDB par le nom Azure Cosmos DB dans la documentation de référence des API, les informations de métadonnées des assemblys et le package NuGet. 
+ * Remplacement du nom Azure DocumentDB par le nom Azure Cosmos DB dans la documentation de référence des API, les informations de métadonnées des assemblys et le package NuGet.
  * Exposition des informations de diagnostic et de la latence à partir de la réponse aux requêtes envoyées en mode de connexion directe. Les noms des propriétés sont RequestDiagnosticsString et RequestLatency dans la classe ResourceResponse.
  * Cette version du kit de développement logiciel (SDK) nécessite la dernière version de l’émulateur Azure Cosmos DB, que vous pouvez télécharger à l’adresse https://aka.ms/cosmosdb-emulator.
  
@@ -135,8 +150,8 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
-* Ajout de la prise en charge du paramètre PartitionKeyRangeId en tant qu’option FeedOption pour la définition de l’étendue des résultats des requêtes sur une valeur de plage de clés de partition spécifique. 
-* Ajout de la prise en charge du paramètre StartTime en tant qu’option ChangeFeedOption pour le démarrage de la recherche de modifications après cette heure. 
+* Ajout de la prise en charge du paramètre PartitionKeyRangeId en tant qu’option FeedOption pour la définition de l’étendue des résultats des requêtes sur une valeur de plage de clés de partition spécifique.
+* Ajout de la prise en charge du paramètre StartTime en tant qu’option ChangeFeedOption pour le démarrage de la recherche de modifications après cette heure.
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
@@ -177,7 +192,7 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* Résolution du problème qui provoque parfois une exception WebException : Le nom distant n’a pas pu être résolu.
+* Correction d’un bogue entraînant parfois une erreur WebException : Impossible de résoudre le nom distant.
 * Ajout de la prise en charge permettant de lire directement un document tapé en ajoutant de nouvelles surcharges à l’API ReadDocumentAsync.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -201,17 +216,18 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB permet de gén
 La version préliminaire du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB permet de générer des applications [ASP.NET Core](https://www.asp.net/core) et [.NET Core](https://www.microsoft.com/net/core#windows) rapides et multiplateformes à exécuter sous Windows, Mac et Linux.
 
 La version préliminaire du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la parité des fonctions avec la dernière version du [kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-sdk-dotnet.md) et prend en charge les éléments suivants :
-* Tous les [modes de connexion](performance-tips.md#networking) : mode passerelle, TCP Direct et HTTPs Direct. 
-* Tous les [niveaux de cohérence](consistency-levels.md): Forte, Session, Obsolescence limitée et Éventuelle.
-* [Collections partitionnées](partition-data.md). 
+* Tous les [modes de connexion](performance-tips.md#networking) : mode passerelle, TCP Direct et HTTPs Direct.
+* Tous les [niveaux de cohérence](consistency-levels.md) : Forte, Session, Obsolescence limitée et Éventuelle.
+* [Collections partitionnées](partition-data.md).
 * [Comptes de base de données multirégions et géoréplication](distribute-data-globally.md).
 
-Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) ou envoyez une demande sur le [référentiel GitHub](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Si vous avez des questions liées à ce kit SDK, postez sur [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb) ou signalez un problème sur le dépôt [GitHub](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |7 décembre 2018 |--- |
 | [2.1.3](#2.1.3) |15 octobre 2018 |--- |
 | [2.1.2](#2.1.2) |4 octobre 2018 |--- |
 | [2.1.1](#2.1.1) |27 septembre 2018 |--- |
@@ -240,5 +256,5 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 | [0.1.0-preview](#0.1.0-preview) |15 novembre 2016 |31 décembre 2016 |
 
 ## <a name="see-also"></a>Voir aussi
-Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
+Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

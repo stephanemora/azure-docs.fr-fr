@@ -1,6 +1,6 @@
 ---
-title: Réalisation de projets de science des données - Azure Machine Learning | Microsoft Docs
-description: Comment un scientifique des données peut suivre la progression d’un projet de science des données.
+title: Suivi de la progression des projets de science des données - Team Data Science Process
+description: Méthode de suivi de la progression d’un projet de science des données pour les responsables de groupe, les responsables d’équipe et les coordinateurs de projet spécialisés dans la science des données.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 202ac89b8a281012dbcf5f4c4df11e97ba2c8c65
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441466"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134299"
 ---
-# <a name="track-progress-of-data-science-projects"></a>Suivre la progression des projets de science des données
+# <a name="tracking-the-progress-of-data-science-projects"></a>Suivi de la progression des projets de science des données
 
 Les responsables de groupe, d’équipe et de projet de science des données doivent suivre l’avancement de leurs projets, les tâches qui ont été effectuées et par qui, et les tâches qu’il reste à accomplir. 
 
@@ -39,7 +39,7 @@ Voici un exemple simple de tableau de bord, conçu pour effectuer le suivi des a
 
 Les autres panneaux affichent le diagramme de flux cumulé, le burndown et le burnup d’un projet :
 
-- **En bas à gauche** : diagramme de flux cumulé indiquant la quantité de travail dans un état donné : approuvé (gris), validé (bleu) et effectué (vert).
+- **En bas à gauche** :  diagramme de flux cumulé indiquant la quantité de travail dans un état donné : approuvé (gris), validé (bleu) et effectué (vert).
 - **En haut à droite** : burndown chart indiquant le travail restant à effectuer par rapport au temps restant.
 - **En bas à droite**: burnup chart indiquant le travail qui a été effectué par rapport à la quantité de travail totale.
 

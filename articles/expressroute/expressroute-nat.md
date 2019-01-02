@@ -1,25 +1,19 @@
 ---
-title: Configuration NAT nécessaire pour les circuits ExpressRoute | Microsoft Docs
+title: 'Configuration NAT requise pour les circuits - ExpressRoute : Azure | Microsoft Docs'
 description: Cette page détaille les conditions nécessaires à la configuration et à la gestion des NAT pour les circuits ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: 867bf936-c851-485f-84c8-d8d6e33fee9f
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 12/08/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2a9903b0e3c04a7098f7a8e529801483b10af142
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.custom: seodec18
+ms.openlocfilehash: 4aa1b170b0c0c515faa67118772ad14d34c7276b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23409263"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278251"
 ---
 # <a name="expressroute-nat-requirements"></a>Configuration NAT requise pour ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l'aide d'ExpressRoute, vous devez configurer et gérer les NAT. Certains fournisseurs de connectivité proposent la configuration et la gestion NAT comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre un tel service. Si ce n'est pas le cas, vous devez respecter les conditions décrites ci-dessous. 
@@ -50,7 +44,7 @@ Le chemin d’homologation Microsoft vous permet de vous connecter aux services 
 Le chemin d'homologation publique Azure vous permet de vous connecter à tous les services hébergés dans Azure en utilisant leurs adresses IP publiques. Cela inclut les services répertoriés dans le [FAQ sur ExpressRoute](expressroute-faqs.md) et tous les services hébergés par les éditeurs de logiciels sur Microsoft Azure. 
 
 > [!IMPORTANT]
-> La connectivité aux services Microsoft Azure sur l’homologation publique est toujours lancée de votre réseau vers le réseau Microsoft. Par conséquent, les sessions ne peut pas être lancées à partir des services Microsoft Azure vers votre réseau via ExpressRoute. En cas de tentative, les paquets envoyés à ces adresses IP publiées utiliseront Internet au lieu d’ExpressRoute.
+> La connectivité aux services Microsoft Azure sur l’homologation publique est toujours lancée de votre réseau vers le réseau Microsoft. Par conséquent, les sessions ne peuvent pas être lancées à partir des services Microsoft Azure vers votre réseau via ExpressRoute. En cas de tentative, les paquets envoyés à ces adresses IP publiées utiliseront Internet au lieu d’ExpressRoute.
 > 
 
 Le trafic destiné à Microsoft Azure sur l'homologation publique doit être configuré en SNAT avec des adresses IPv4 publiques valides avant leur entrée sur le réseau Microsoft. L'illustration suivante indique de façon sommaire comment configurer un NAT pour répondre à cette exigence.

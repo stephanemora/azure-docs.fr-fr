@@ -1,22 +1,23 @@
 ---
-title: Mise en réseau du module HSM dédié | Microsoft Docs
-description: Azure HSM dédié fournit des fonctionnalités de stockage de clés dans Azure qui répondent à la norme FIPS 140-2 de niveau 3
+title: Considérations relatives à la mise en réseau - HSM Azure dédié| Microsoft Docs
+description: Vue d’ensemble des considérations relatives à la mise en réseau applicables aux déploiements de HSM Azure dédié
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: ca72d33b52bdda2ebce432dffd46a84963a7bce5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 46a4cc5e48a9fe239a3c62bd72cf6a99e9bf76d8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319148"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092879"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Mise en réseau du module Azure HSM dédié
 
@@ -38,7 +39,7 @@ Avant de configurer un appareil HSM dédié, les clients devront d’abord crée
 
 ### <a name="subnets"></a>Sous-réseaux
 
-Les sous-réseaux segmentent le réseau virtuel en espaces d’adressage distincts utilisables par les ressources Azure que vous placez dedans. Les modules HSM dédiés sont déployés dans un sous-réseau du réseau virtuel. Chaque appareil HSM dédié déployé dans le sous-réseau du client reçoit une adresse IP privée provenant de ce sous-réseau. Le sous-réseau dans lequel l’appareil HSM est déployé doit être explicitement délégué au service : Microsoft.HardwareSecurityModules/dedicatedHSMs. Cette opération octroie au service HSM certaines autorisations pour le déploiement dans le sous-réseau. La délégation à des modules HSM dédiés impose certaines restrictions de stratégie sur le sous-réseau. Les groupes de sécurité réseau (NSG) et les itinéraires définis par l’utilisateur (UDR) ne sont actuellement pas pris en charge sur les sous-réseaux délégués. Par conséquent, lorsqu’un sous-réseau est délégué à des modules HSM dédiés, il peut uniquement servir à déployer des ressources HSM. Le déploiement de toute autre ressource client dans le sous-réseau échouera.
+Les sous-réseaux segmentent le réseau virtuel en espaces d’adressage distincts utilisables par les ressources Azure que vous placez dedans. Les modules HSM dédiés sont déployés dans un sous-réseau du réseau virtuel. Chaque appareil HSM dédié déployé dans le sous-réseau du client reçoit une adresse IP privée provenant de ce sous-réseau. Le sous-réseau dans lequel l’appareil HSM est déployé doit être explicitement délégué au service : Microsoft.HardwareSecurityModules/dedicatedHSMs. Cette opération octroie au service HSM certaines autorisations pour le déploiement dans le sous-réseau. La délégation à des modules HSM dédiés impose certaines restrictions de stratégie sur le sous-réseau. Les groupes de sécurité réseau (NSG) et les itinéraires définis par l’utilisateur (UDR) ne sont actuellement pas pris en charge sur les sous-réseaux délégués. Par conséquent, lorsqu’un sous-réseau est délégué à des modules HSM dédiés, il peut uniquement servir à déployer des ressources HSM. Le déploiement de toute autre ressource client dans le sous-réseau échouera.
 
 
 ### <a name="expressroute-gateway"></a>Passerelle ExpressRoute

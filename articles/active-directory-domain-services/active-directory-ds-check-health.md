@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502175"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969002"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Vérifier l’intégrité d’un domaine managé Azure AD Domain Services
 
@@ -32,7 +32,7 @@ ms.locfileid: "39502175"
 2. Cliquez sur le domaine dont vous souhaitez afficher l’intégrité.
 3. Dans le volet de navigation de gauche, cliquez sur **Intégrité**.
 
-L’image suivante illustre un exemple de page d’intégrité : ![exemple de page d’intégrité](.\media\active-directory-domain-services-alerts\health-page.png)
+L’image suivante illustre un exemple de page d’intégrité : ![Exemple de page d’intégrité](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > L’intégrité de votre domaine managé est évaluée toutes les heures. Après avoir apporté des modifications à votre domaine managé, attendez le prochain cycle d’évaluation pour afficher l’intégrité mise à jour de votre domaine managé. L’horodateur de « Dernière évaluation » dans l’angle supérieur droit indique à quel moment l’intégrité de votre domaine managé a été évaluée pour la dernière fois.
@@ -43,10 +43,10 @@ L’état affiché dans le coin supérieur droit de votre page d’intégrité i
 
 | Statut | Icône | Explication |
 | --- | :----: | --- |
-| Exécution | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | Votre domaine managé fonctionne normalement et n’a pas d’alertes critiques ou d’avertissement. Ce domaine peut avoir des alertes d’information. |
-| Doit être surveillé (avertissement) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | Il n’existe aucune alerte critique sur votre domaine managé, mais il existe une ou plusieurs alertes d’avertissement qui doivent être traitées. |
-| Doit être surveillé (critique) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | Il existe une ou plusieurs alertes critiques sur votre domaine managé. Vous avez peut-être également des alertes d’avertissement et/ou d’information. |
-| Déploiement en cours | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Votre domaine est en cours de déploiement. |
+| Exécution | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Votre domaine managé fonctionne normalement et n’a pas d’alertes critiques ou d’avertissement. Ce domaine peut avoir des alertes d’information. |
+| Doit être surveillé (avertissement) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Il n’existe aucune alerte critique sur votre domaine managé, mais il existe une ou plusieurs alertes d’avertissement qui doivent être traitées. |
+| Doit être surveillé (critique) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Il existe une ou plusieurs alertes critiques sur votre domaine managé. Vous avez peut-être également des alertes d’avertissement et/ou d’information. |
+| Déploiement en cours | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | Votre domaine est en cours de déploiement. |
 
 ## <a name="monitors"></a>Analyses
 Les analyses sont les aspects de votre domaine managé qu’Azure AD Domain Services surveille régulièrement. La meilleure façon de conserver vos analyses dans un état sain consiste à résoudre toutes les alertes actives pour votre domaine managé.

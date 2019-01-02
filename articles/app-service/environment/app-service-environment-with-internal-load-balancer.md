@@ -1,5 +1,5 @@
 ---
-title: Création et utilisation d’un équilibreur de charge interne avec un environnement App Service | Microsoft Docs
+title: Créer et utiliser un équilibreur de charge interne avec un environnement App Service - Azure | Microsoft Docs
 description: Création et utilisation d’un ASE avec un ILB
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: f7c94b790c6aa7c75c62fd05671f016b7185b2a2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388813"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310468"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilisation d’un équilibreur de charge interne avec un environnement App Service
 
@@ -29,7 +30,7 @@ ms.locfileid: "29388813"
 
 La fonctionnalité ASE (App Service Environment) est une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés. La fonctionnalité ASE déploie essentiellement Azure App Service sur votre réseau virtuel (VNet) Azure. Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Qu'est-ce qu'un environnement App Service ?][WhatisASE]. Si vous ne connaissez pas les avantages de l’utilisation d’un réseau virtuel, consultez la [FAQ sur le réseau virtuel Azure][virtualnetwork]. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Un environnement App Service peut être déployé avec un point de terminaison accessible via Internet ou avec une adresse IP sur votre réseau virtuel. Pour définir l’adresse IP sur une adresse de réseau virtuel, vous devez déployer votre ASE avec un équilibreur de charge interne (ILB). Lorsque votre environnement App Service est configuré avec un équilibreur de charge interne, vous fournissez :
 
 * votre propre domaine ou sous-domaine. Pour simplifier, ce document suppose que vous utilisez un sous-domaine, mais vous pouvez choisir le scénario qui vous convient. 
@@ -39,7 +40,7 @@ Un environnement App Service peut être déployé avec un point de terminaison a
 En retour, vous pouvez effectuer des tâches telles que :
 
 * Héberger des applications intranet (comme des applications métier) en toute sécurité dans le cloud, auquel vous accédez via un VPN Site à Site ou ExpressRoute
-* Héberger des applications dans le cloud qui ne figurent pas dans les serveurs DNS publics
+* héberger des applications dans le cloud qui ne figurent pas dans les serveurs DNS publics
 * Créer des applications backend isolées d’Internet, auxquelles vos applications frontend peuvent s’intégrer en toute sécurité
 
 #### <a name="disabled-functionality"></a>Fonctionnalités désactivées
@@ -100,8 +101,8 @@ Si vous souhaitez essayer le flux avec vos propres certificats et tester l’acc
 4. Créez une application web dans l’environnement App Service après sa création. 
 5. Créez une machine virtuelle si vous n’avez pas de réseau virtuel (ne la placez pas dans le même sous-réseau que l’environnement App Service pour éviter tout dysfonctionnement).
 6. Configurez le DNS de votre sous-domaine. Vous pouvez utiliser un caractère générique avec votre sous-domaine dans votre DNS ou, si vous voulez faire de simples tests, modifier le fichier hosts sur votre machine virtuelle pour définir le nom de l’application web sur l’adresse IP virtuelle. Si votre environnement App Service comprend le sous-domaine .ilbase.com et si vous avez utilisé mytestapp pour votre application web afin de l’adresser vers mytestapp.ilbase.com, définissez cette valeur dans votre fichier hosts. (Sur Windows, le fichier hosts se situe sous C:\Windows\System32\drivers\etc\)
-7. Utilisez un navigateur sur cette machine virtuelle et accédez à http://mytestapp.ilbase.com (le nom de votre application web avec votre sous-domaine).
-8. Utilisez un navigateur sur cette machine virtuelle, puis accédez à https://mytestapp.ilbase.com. Si vous utilisez un certificat auto-signé, vous devez accepter le manque de sécurité. 
+7. Utilisez un navigateur sur cette machine virtuelle et accédez à https://mytestapp.ilbase.com (ou le nom de votre application web avec votre sous-domaine).
+8. Utilisez un navigateur sur cette machine virtuelle et accédez à https://mytestapp.ilbase.com. Si vous utilisez un certificat auto-signé, vous devez accepter le manque de sécurité. 
 
 L’adresse IP de votre ILB est répertoriée dans vos propriétés en tant qu’adresse IP virtuelle.
 
@@ -147,8 +148,8 @@ Pour prendre en main les environnements App Service, consultez [la présentation
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
-[vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[vnetnsgs]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md

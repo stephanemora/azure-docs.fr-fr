@@ -9,16 +9,15 @@ ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 461b1f4e72f0a47da4ccb560bfb4cfb7d0f3ccd2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096433"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001724"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurer manuellement Application Insights pour des applications .NET
 
@@ -30,14 +29,14 @@ Vous pouvez configurer [Application Insights](app-insights-overview.md) pour ana
 
 Ce dont vous avez besoin :
 
-* Un abonnement à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre [compte Microsoft](http://live.com).
+* Un abonnement à [Microsoft Azure](https://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre [compte Microsoft](https://live.com).
 * Visual Studio 2013 ou une version ultérieure.
 
 ## <a name="add"></a>1. Choix d’une ressource Application Insights
 
 La « ressource » est l’emplacement où vos données sont collectées et affichées dans le portail Azure. Vous devez choisir d’en créer une nouvelle ou d’en partager une existante.
 
-### <a name="part-of-a-larger-app-use-existing-resource"></a>Partie d’une application plus volumineuse : utiliser des ressources existantes
+### <a name="part-of-a-larger-app-use-existing-resource"></a>Partie d’une application plus grande : utiliser des ressources existantes
 
 Si votre application web comporte plusieurs composants (par exemple, une application web frontale et au moins un service principal), envoyez les données de télémétrie de l’ensemble des composants vers la même ressource. Il est ainsi possible de les afficher sur une seule mise en correspondance d’application et de suivre une demande d’un composant à l’autre.
 
@@ -45,7 +44,7 @@ Par conséquent, si vous analysez déjà d’autres composants de cette applicat
 
 Ouvrez la ressource dans le [portail Azure](https://portal.azure.com/). 
 
-### <a name="self-contained-app-create-a-new-resource"></a>Application autonome : créer une nouvelle ressource
+### <a name="self-contained-app-create-a-new-resource"></a>Application autonome : Créer une nouvelle ressource
 
 Si la nouvelle application n’est pas associée à d’autres applications, elle doit avoir sa propre ressource.
 

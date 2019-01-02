@@ -1,5 +1,5 @@
 ---
-title: Adresses de gestion Azure App Service Environment
+title: Adresses de gestion App Service Environment - Azure
 description: Répertorie les adresses de gestion utilisées pour la commande d’un environnement App Service
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 590679daff20f9c469fb8fcfcc0fbbad77f91b5b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 7fb39886b19a2229188821eb39d4fb8a5928bb43
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162848"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276677"
 ---
 # <a name="app-service-environment-management-addresses"></a>Adresses de gestion App Service Environment
 
@@ -46,7 +47,7 @@ Vous pouvez lister les adresses de gestion qui correspondent à votre environnem
 
 L’API retourne un document JSON qui contient toutes les adresses de trafic entrant de votre environnement ASE. La liste des adresses inclut les adresses de gestion, l’adresse IP virtuelle utilisée par votre environnement ASE et la plage d’adresses de sous-réseau ASE elle-même.  
 
-Pour appeler l’API avec [armclient](http://github.com/projectkudu/ARMClient), utilisez les commandes suivantes en indiquant votre ID d’abonnement, votre groupe de ressources et le nom de l’environnement ASE.  
+Pour appeler l’API avec [armclient](https://github.com/projectkudu/ARMClient), utilisez les commandes suivantes en indiquant votre ID d’abonnement, votre groupe de ressources et le nom de l’environnement ASE.  
 
     armclient login
     armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01

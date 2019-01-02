@@ -1,5 +1,5 @@
 ---
-title: Explorer les données dans un cluster Hadoop et créer des modèles dans Azure Machine Learning | Microsoft Docs
+title: Exploration des données dans un cluster Hadoop (Team Data Science Process)
 description: Utilisation du processus TDSP (Team Data Science Process) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444203"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139620"
 ---
-# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processus TDSP (Team Data Science Process) en action : utiliser des clusters Hadoop Azure HDInsight
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process en action : Utilisation des clusters Azure HDInsight Hadoop
 Dans cette procédure pas à pas, nous utilisons le [processus TDSP (Team Data Science Process)](overview.md) dans un scénario de bout en bout. Nous utilisons un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Pour gérer les tâches prédictives de classification et de régression binaires et multiclasses, nous créons des modèles de données avec Azure Machine Learning. 
 
 Pour une procédure pas à pas montrant comment gérer un plus grand jeu de données, consultez [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](hive-criteo-walkthrough.md) (TDSP (Team Data Science Process) : utiliser des clusters Azure HDInsight Hadoop sur un jeu de données de 1 To).
@@ -50,18 +50,18 @@ La clé unique permettant de joindre trip\_data et trip\_fare se compose des cha
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
 Déterminer le type de prédictions que vous souhaitez baser sur l’analyse de données. Cela permet de préciser les tâches que vous devez inclure dans votre processus. Voici trois exemples de problèmes de prédiction que nous allons traiter dans cette procédure pas à pas. Ils sont basés sur *tip\_amount* :
 
-- **Classification binaire** : prédire si un pourboire a ou non été versé pour une course. Autrement dit, un *tip\_amount* qui est supérieur à 0 $ USD est un exemple positif, tandis qu’un *tip\_amount* égal à 0 $ USD est un exemple négatif.
+- **Classification binaire** : Prédire si un pourboire a ou non été versé pour une course. Autrement dit, un *tip\_amount* qui est supérieur à 0 $ USD est un exemple positif, tandis qu’un *tip\_amount* égal à 0 $ USD est un exemple négatif.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **Classification multiclasse** : prédire la fourchette du montant des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq classes :
+- **Classification multiclasse** : Prédire la fourchette de montants des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq classes :
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **Tâche de régression** : prédire le montant du pourboire versé pour une course.  
+- **Tâche de régression** : Prédire le montant du pourboire versé pour une course.  
 
 ## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour une analyse avancée
 > [!NOTE]
@@ -71,12 +71,12 @@ Déterminer le type de prédictions que vous souhaitez baser sur l’analyse de 
 
 Vous pouvez configurer un environnement Azure pour une analyse avancée qui utilise un cluster HDInsight en trois étapes :
 
-1. [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) : ce compte de stockage est utilisé pour stocker des données dans un stockage Blob Azure. Les données utilisées dans les clusters HDInsight résident également ici.
+1. [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) : Ce compte de stockage est utilisé pour stocker des données dans un stockage Blob Azure. Les données utilisées dans les clusters HDInsight résident également ici.
 2. [Personnaliser des clusters Hadoop Azure HDInsight pour le processus et la technologie d'analyse avancée](customize-hadoop-cluster.md). Cette étape crée un cluster Hadoop HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Il existe deux étapes importantes à retenir lors de la personnalisation de votre cluster HDInsight.
    
    * Rappelez-vous de lier le compte de stockage créé à l’étape 1 à votre cluster HDInsight, lorsque vous le créez. Ce compte de stockage accède aux données qui peuvent être traitées au sein du cluster.
    * Après avoir créé le cluster, activez l’accès à distance au nœud principal du cluster. Accédez à l’onglet **Configuration**, puis sélectionnez **Activation à distance**. Cette étape fournit les informations d'identification d'utilisateur utilisées pour la connexion à distance.
-3. [Créer un espace de travail Azure Machine Learning](../studio/create-workspace.md) : vous utilisez cet espace de travail pour créer des modèles d’apprentissage automatique. Cette tâche est entamée après avoir effectué une exploration de données initiales et une réduction de l’échantillon à l’aide du cluster HDInsight.
+3. [Créer un espace de travail Microsoft Azure Machine Learning](../studio/create-workspace.md) : Cet espace de travail vous permet de générer des modèles Machine Learning. Cette tâche est entamée après avoir effectué une exploration de données initiales et une réduction de l’échantillon à l’aide du cluster HDInsight.
 
 ## <a name="getdata"></a>Obtenir les données auprès d’une source publique
 > [!NOTE]
@@ -286,7 +286,7 @@ Vous pouvez utiliser des requêtes Hive pour les tâches d’exploration des don
 * Générer des étiquettes de classification binaire et multiclasse reposant sur la valeur « tip amount ».
 * Générez des fonctionnalités en calculant les distances des trajets directs.
 
-### <a name="exploration-view-the-top-10-records-in-table-trip"></a>Exploration : afficher les 10 premiers enregistrements de la table trip
+### <a name="exploration-view-the-top-10-records-in-table-trip"></a>Exploration : Afficher les 10 premiers enregistrements de la table trip
 > [!NOTE]
 > Il s’agit généralement d’une tâche de scientifique des données.
 > 
@@ -306,7 +306,7 @@ Vous pouvez sauvegarder les enregistrements dans un fichier pour un affichage pr
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
-### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>Exploration : afficher le nombre d’enregistrements dans chacune des 12 partitions
+### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>Exploration : Afficher le nombre d’enregistrements dans chacune des 12 partitions
 > [!NOTE]
 > Il s’agit généralement d’une tâche de scientifique des données.
 > 
@@ -376,7 +376,7 @@ Cela donne :
 
 Le nombre total d'enregistrements dans les deux tables est également le même. C’est le deuxième élément garantissant que les données ont été chargées correctement.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>Exploration : distribution des courses par médaillon
+### <a name="exploration-trip-distribution-by-medallion"></a>Exploration : Distribution des courses par médaillon
 > [!NOTE]
 > Il s’agit généralement d’une tâche de scientifique des données.
 > 
@@ -410,13 +410,13 @@ Voici le contenu du fichier **sample\_hive\_trip\_count\_by\_medallion.hql** pou
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
+### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
 > [!NOTE]
 > Il s’agit généralement d’une tâche de scientifique des données.
 > 
 > 
 
-Lors de l'exploration d'un jeu de données, nous devons examiner fréquemment le nombre de co-occurrences des groupes de valeurs. Cette section fournit un exemple de procédure à suivre pour les chauffeurs et les taxis.
+Lors de l’exploration d’un jeu de données, nous devons examiner fréquemment le nombre de co-occurrences des groupes de valeurs. Cette section fournit un exemple de procédure à suivre pour les chauffeurs et les taxis.
 
 Le fichier **sample\_hive\_trip\_count\_by\_medallion\_license.hql** regroupe le jeu de données fare sur **medallion** et **hack_license**, et renvoie le nombre de chaque combinaison. Son contenu est présenté ci-dessous :
 
@@ -435,7 +435,7 @@ Cette requête renvoie les combinaisons de taxi et de chauffeur classées par or
 
 Les résultats de la requête sont écrits dans un fichier local, **C:\temp\queryoutput.tsv**.
 
-### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Exploration : évaluation de la qualité des données en recherchant les enregistrements de longitude ou de latitude non valides
+### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Exploration : Évaluation de la qualité des données en recherchant les enregistrements de longitude ou de latitude non valides
 > [!NOTE]
 > Il s’agit généralement d’une tâche de scientifique des données.
 > 
@@ -459,7 +459,7 @@ Voici le contenu du fichier **sample\_hive\_quality\_assessment.hql** pour l’i
 
 L’argument *-S* inclus dans la commande supprime l’affichage de l’état des travaux Map/Reduce Hive. Son utilité réside dans le fait qu’il rend l’affichage de la sortie de la requête Hive plus lisible.
 
-### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Exploration : distributions de classe binaire des pourboires de course
+### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Exploration : Distributions de classe binaire des pourboires de course
 > [!NOTE]
 > Il s’agit généralement d’une tâche de scientifique des données.
 > 
@@ -485,7 +485,7 @@ Le fichier **sample\_hive\_tipped\_frequencies.hql** suivant effectue cette opé
     hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 
 
-### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Exploration : distributions de classe dans le paramètre multiclasse
+### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Exploration : Distributions de classe dans le paramètre multiclasse
 > [!NOTE]
 > Il s’agit généralement d’une tâche de scientifique des données.
 > 
@@ -508,7 +508,7 @@ Exécutez la commande suivante à partir de la console de ligne de commande Hado
 
     hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 
-### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Exploration : calcul de la distance directe entre deux emplacements de latitude-longitude
+### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Exploration : Calcul de la distance directe entre deux emplacements de latitude-longitude
 > [!NOTE]
 > Il s’agit généralement d’une tâche de scientifique des données.
 > 
@@ -721,17 +721,17 @@ Pour générer des requêtes Hive dans le module [Importer des données][import-
 
 Voici certains détails sur le module [Importer des données][import-data] et les paramètres à entrer :
 
-**URI du serveur HCatalog** : si le nom du cluster est **abc123**, il s’agit simplement de : https://abc123.azurehdinsight.net.
+**URI du serveur HCatalog** : Si le nom du cluster est **abc123**, il s’agit simplement de : https://abc123.azurehdinsight.net.
 
-**Nom du compte d’utilisateur Hadoop** : nom d’utilisateur choisi pour le cluster (et non le nom d’utilisateur de l’accès à distance).
+**Nom du compte utilisateur Hadoop** : Nom d’utilisateur choisi pour le cluster (et non le nom d’utilisateur de l’accès à distance).
 
-**Mot de passe du compte d’utilisateur Hadoop** : mot de passe choisi pour le cluster (et non le mot de passe d’accès à distance).
+**Mot de passe du compte utilisateur Hadoop** : Mot de passe choisi pour le cluster (et non le mot de passe d’accès à distance).
 
-**Emplacement des données de sortie** : il doit s’agir d’Azure.
+**Emplacement des données de sortie** : Il s’agit d’un emplacement Azure.
 
-**Nom du compte de stockage Azure** : nom du compte de stockage par défaut associé au cluster.
+**Nom du compte de Stockage Azure** : Nom du compte de stockage par défaut associé au cluster.
 
-**Nom de conteneur Azure** : il s’agit du nom de conteneur par défaut du cluster. Il correspond généralement au nom du cluster. Pour un cluster appelé **abc123**, il s’agit de abc123.
+**Nom de conteneur Azure** : Il s’agit du nom de conteneur par défaut du cluster. Il correspond généralement au nom du cluster. Pour un cluster appelé **abc123**, il s’agit de abc123.
 
 > [!IMPORTANT]
 > Toute table que nous souhaitons interroger à l’aide du module [Importer des données][import-data] dans Machine Learning doit être une table interne.
@@ -757,15 +757,15 @@ Le jeu de données peut maintenant être utilisé comme point de départ pour cr
 ### <a name="mlmodel"></a>Créer des modèles dans Machine Learning
 Vous pouvez maintenant passer aux phases de création et de déploiement de modèles dans [Machine Learning](https://studio.azureml.net). Les données sont exploitables pour répondre aux problèmes de prédiction identifiés précédemment :
 
-- **Classification binaire**: prédire si un pourboire a ou non été versé pour une course.
+- **Classification binaire** : Prédire si un pourboire a ou non été versé pour une course.
 
-  **Apprenant utilisé :** régression logistique à deux classes
+  **Apprenant utilisé :** Régression logistique à deux classes
 
   a. Pour ce problème, l’étiquette (ou classe) cible est **avec pourboire**. Le jeu de données original à l’échantillon réduit dispose de quelques colonnes qui sont des fuites cibles pour cette expérience de classification. En particulier : **tip\_class**, **tip\_amount** et **total\_amount** révèlent des informations sur l’étiquette cible qui ne sont pas disponibles au moment du test. Nous supprimons ces colonnes du compte à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
   Le diagramme suivant illustre notre expérience pour prédire si un pourboire a été versé pour une course donnée :
 
-  ![Diagramme d’expérience](./media/hive-walkthrough/QGxRz5A.png)
+  ![Diagramme illustrant l’expérience pour prédire si le pourboire a été payé](./media/hive-walkthrough/QGxRz5A.png)
 
   b. Pour cette expérience, nos distributions d'étiquette cible ont été d’environ 1:1.
 
@@ -777,15 +777,15 @@ Vous pouvez maintenant passer aux phases de création et de déploiement de mod�
 
   ![Graphique de valeur AUC](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Classification multiclasse** : pour prédire le montant des pourboires réglés pour la course, à l’aide des classes précédemment définies.
+- **Classification multiclasse** : Prédire le montant des pourboires réglés pour la course, à l’aide des classes précédemment définies.
 
-  **Apprenant utilisé :** régression logistique multiclasse
+  **Apprenant utilisé :** Régression logistique multiclasse
 
   a. Pour ce problème, notre cible (ou classe) est **tip\_class**, ce qui peut prendre une des cinq valeurs suivantes (0,1,2,3,4). Comme dans le cas de classification binaire, nous avons quelques colonnes qui sont des fuites cibles pour cette expérience. En particulier : **avec pourboire**, **tip\_amount** et **total\_amount** révèlent des informations sur l’étiquette cible qui ne sont pas disponibles au moment du test. Nous supprimons ces colonnes à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
-  Le diagramme suivant illustre l’expérience pour prédire dans quel emplacement un pourboire est susceptible de se trouver. Les emplacements sont : classe 0 : pourboire = 0 $, classe 1 : pourboire > 0 $ et pourboire <= 5 $, classe 2 : pourboire > 5 $ et pourboire <= 10 $, classe 3 : pourboire > 10 $ et pourboire <= 20 $, et classe 4 : pourboire > 20 $.
+  Le diagramme suivant illustre l’expérience pour prédire dans quel emplacement un pourboire est susceptible de se trouver. Les emplacements sont : classe 0 : pourboire = 0 $, classe 1 : pourboire > 0 $ et pourboire <= 5 $, classe 2 : pourboire > 5 $ et pourboire <= 10 $, classe 3 : pourboire > 10 $ et pourboire <= 20 $, et classe 4 : pourboire > 20 $.
 
-  ![Diagramme d’expérience](./media/hive-walkthrough/5ztv0n0.png)
+  ![Diagramme illustrant l’expérience pour prédire l’emplacement du pourboire](./media/hive-walkthrough/5ztv0n0.png)
 
   Nous montrons maintenant à quoi ressemble la distribution de classe test réelle. La classe 0 et la classe 1 prévalent, et les autres classes sont rares.
 
@@ -797,15 +797,15 @@ Vous pouvez maintenant passer aux phases de création et de déploiement de mod�
 
   Notez que les précisions des classes sur les classes les plus courantes sont assez bonnes, mais que le modèle n’effectue pas un bon travail « d’apprentissage » sur les classes plus rares.
 
-- **Tâche de régression**: prédire le montant du pourboire versé pour une course.
+- **Tâche de régression** : Prédire le montant du pourboire versé pour une course.
 
-  **Apprenant utilisé :** arbre de décision optimisé
+  **Apprenant utilisé :** Arbre de décision optimisé
 
   a. Pour ce problème, l’étiquette (ou classe) cible est **tip\_amount**. Les fuites cibles dans ce cas sont : **avec pourboire**, **tip\_class** et **total\_amount**. Toutes ces variables révèlent des informations sur le montant du pourboire, qui sont en général indisponibles au moment du test. Nous supprimons ces colonnes à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
   Le diagramme suivant illustre l’expérience pour prédire la quantité de pourboire donné :
 
-  ![Diagramme d’expérience](./media/hive-walkthrough/11TZWgV.png)
+  ![Diagramme illustrant l’expérience pour prédire le montant du pourboire](./media/hive-walkthrough/11TZWgV.png)
 
   b. Pour les problèmes de régression, nous évaluons la précision des prédictions en examinant l’erreur au carré dans les prédictions et le coefficient de détermination :
 

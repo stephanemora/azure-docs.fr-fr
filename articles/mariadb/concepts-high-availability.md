@@ -7,16 +7,16 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 2f06c9515c6ee79ea7475452b7000d1babdbecfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 043988066cae672225b850b57864bddb3155689c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956521"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833837"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Concepts de haute disponibilité dans Azure Database for MariaDB
-Le service Azure Database for MariaDB fournit un haut niveau de disponibilité garanti. Le contrat de niveau de service (SLA) est de 99,99 % en disponibilité générale. Le contrat SLA n’est pas applicable à la préversion publique. Il n’existe pratiquement aucun temps d’arrêt d’application lors de l’utilisation de ce service.
+Le service Azure Database for MariaDB fournit un haut niveau de disponibilité garanti. Le contrat de niveau de service (SLA) est de 99,99 % en disponibilité générale. Il n’existe pratiquement aucun temps d’arrêt d’application lors de l’utilisation de ce service.
 
 ## <a name="high-availability"></a>Haute disponibilité
 Le modèle de haute disponibilité (HA) est basé sur des mécanismes de basculement intégrés quand une interruption au niveau du nœud se produit. Une interruption au niveau du nœud peut se produire en raison d’une défaillance matérielle ou en réponse à un déploiement de service.
@@ -34,4 +34,4 @@ Comme pour le modèle de haute disponibilité, quand un serveur Azure Database f
 Pendant l’opération de mise à l’échelle, une interruption se produit pour les connexions de base de données. Les applications clientes sont déconnectées, et les transactions non validées en cours sont annulées. Une fois que l’application cliente réessaie d’établir la connexion ou établit une nouvelle connexion, la passerelle dirige la connexion vers l’instance qui vient d’être dimensionnée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Vous trouverez une vue d’ensemble du service dans la page [Vue d’ensemble d’Azure Database for MariaDB](overview.md).
+- Vous trouverez une vue d’ensemble du service dans la page  [Vue d’ensemble d’Azure Database for MariaDB](overview.md)

@@ -1,51 +1,56 @@
 ---
-title: Comprendre les effets d’Azure Policy
+title: Comprendre le fonctionnement des effets
 description: Les effets différents de la définition Azure Policy déterminent la manière dont la conformité est gérée et rapportée.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 54562401c830232d0a4bf90405cc5a2dbedcd8bc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.custom: seodec18
+ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055966"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310842"
 ---
 # <a name="understand-policy-effects"></a>Comprendre les effets de Policy
 
-Chaque définition de stratégie dans Azure Policy possède un seul effet qui détermine ce qui se passe pendant l’analyse lorsque le segment **if** de la règle de stratégie est évalué pour la ressource analysée. Les effets peuvent aussi se comporter différemment selon qu’ils concernent une nouvelle ressource, une ressource mise à jour ou une ressource existante.
+Chaque définition de stratégie dans Azure Policy a un effet unique. Cet effet détermine ce qu’il se passe lorsque la règle de stratégie est évaluée pour une mise en correspondance. Les effets se comportent différemment selon qu’ils concernent une nouvelle ressource, une ressource mise à jour ou une ressource existante.
 
-Une définition de stratégie prend en charge les cinq effets suivants :
+Une définition de stratégie prend en charge les six effets suivants :
 
 - Append
 - Audit
 - AuditIfNotExists
 - Deny
 - DeployIfNotExists
+- Désactivé
 
 ## <a name="order-of-evaluation"></a>Ordre d’évaluation
 
-Lorsqu’une requête de création ou de mise à jour d’une ressource est effectuée via Azure Resource Manager, la stratégie traite plusieurs effets avant de transmettre la requête au fournisseur de ressources approprié.
-Cela empêche un fournisseur de ressources d’effectuer un traitement inutile de la ressource lorsque celle-ci ne satisfait pas aux contrôles de gouvernance d’Azure Policy. Azure Policy crée la liste de toutes les définitions de stratégie affectées par le biais d’une affectation de stratégie ou d’initiative, lesquelles s’appliquent par portée (moins les exclusions) à la ressource ; la stratégie se prépare à évaluer la ressource en fonction de chaque définition.
+Les requêtes pour créer ou mettre à jour une ressource via Azure Resource Manager sont évaluées en premier par Azure Policy. Policy crée une liste de toutes les affectations qui s’appliquent à la ressource, puis évalue la ressource en fonction de chaque définition. Policy traite plusieurs effets avant de transmettre la requête au fournisseur de ressources approprié. Cela empêche un fournisseur de ressources d’effectuer un traitement inutile de la ressource lorsque celle-ci ne satisfait pas aux contrôles de gouvernance d’Azure Policy.
 
-- **Append** est évalué en premier. Comme Append risque de modifier la requête, une modification apportée par Append peut empêcher le déclenchement d’un effet Audit ou Deny.
+- **Désactivé** est vérifié en premier pour déterminer si la règle de stratégie doit être évaluée.
+- **Append** est ensuite évalué. Comme Append risque de modifier la requête, une modification apportée par Append peut empêcher le déclenchement d’un effet Audit ou Deny.
 - **Deny** est ensuite évalué. L’évaluation de Deny avant Audit empêche la double journalisation d’une ressource indésirable.
 - **Audit** est alors évalué avant que la requête ne soit envoyée au fournisseur de ressources.
 
-Une fois que la requête parvient au fournisseur de ressources et que celui-ci envoie en retour un code d’état de réussite, **AuditIfNotExists** et **DeployIfNotExists** sont évalués pour déterminer si la journalisation ou une action de conformité du suivi est nécessaire.
+Une fois que le fournisseur de ressources a retourné un code de réussite, **AuditIfNotExists** et **DeployIfNotExists** déterminent si une journalisation de conformité ou une action supplémentaire est requise.
+
+## <a name="disabled"></a>Désactivé
+
+Cet effet peut s’avérer utile pour tester certaines situations ou lorsque la définition de stratégie a paramétré l’effet. Cette flexibilité permet de désactiver une seule affectation plutôt que de désactiver toutes les affectations de cette stratégie.
 
 ## <a name="append"></a>Append
 
-Append permet d’ajouter des champs supplémentaires à la ressource demandée lors de la création ou de la mise à jour. Cela peut être utile pour ajouter des balises sur des ressources, telles que costCenter, ou pour spécifier des adresses IP autorisées pour une ressource de stockage.
+Append permet d’ajouter des champs supplémentaires à la ressource demandée lors de la création ou de la mise à jour. Un exemple fréquent est d’ajouter des balises sur des ressources, telles que costCenter, ou de spécifier des adresses IP autorisées pour une ressource de stockage.
 
 ### <a name="append-evaluation"></a>Évaluation Append
 
-Comme mentionné, l’évaluation Append se produit avant que la requête ne soit traitée par un fournisseur de ressources lors de la création ou de la mise à jour d’une ressource. Append ajout un ou des champs à la ressource lorsque la condition **if** de la règle de stratégie est remplie. Si l’effet Append remplace une valeur dans la requête d’origine avec une valeur différente, il agit comme un effet Deny et rejette la demande.
+L’évaluation Append se produit avant que la requête ne soit traitée par un fournisseur de ressources lors de la création ou de la mise à jour d’une ressource. Append ajoute des champs à la ressource lorsque la condition **if** de la règle de stratégie est remplie. Si l’effet Append remplace une valeur dans la requête d’origine avec une valeur différente, il agit comme un effet Deny et rejette la demande.
 
 Lorsqu’une définition de stratégie utilisant l’effet Append est exécutée dans le cadre d’un cycle d’évaluation, elle n’apporte pas de modifications aux ressources qui existent déjà. Au lieu de cela, elle marque comme non conforme toute ressource qui répond à la condition **if**.
 
@@ -55,7 +60,7 @@ Un effet Append prend en charge la propriété obligatoire **details** uniquemen
 
 ### <a name="append-examples"></a>Exemples Append
 
-Exemple 1 : paire **champ/valeur** unique à ajouter à une balise.
+Exemple 1 : paire **champ/valeur** unique à ajouter à une balise.
 
 ```json
 "then": {
@@ -67,7 +72,7 @@ Exemple 1 : paire **champ/valeur** unique à ajouter à une balise.
 }
 ```
 
-Exemple 2 : paires **champ/valeur** multiples à ajouter à une balise.
+Exemple 2 : deux paires **champ/valeur** à ajouter à une balise.
 
 ```json
 "then": {
@@ -84,7 +89,7 @@ Exemple 2 : paires **champ/valeur** multiples à ajouter à une balise.
 }
 ```
 
-Exemple 3 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) avec un tableau **value** afin de définir des règles IP sur un compte de stockage.
+Exemple 3 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) avec un tableau **value** afin de définir des règles IP sur un compte de stockage.
 
 ```json
 "then": {
@@ -101,17 +106,17 @@ Exemple 3 : paire **champ/valeur** unique utilisant un [alias](definition-struc
 
 ## <a name="deny"></a>Deny
 
-Deny empêche l’exécution d’une requête de ressource qui ne correspond pas aux normes souhaitées via une définition de stratégie et qui fait échouer la requête.
+Deny empêche l’exécution d’une requête de ressource qui ne correspond pas aux normes définies via une définition de stratégie et qui fait échouer la requête.
 
 ### <a name="deny-evaluation"></a>Évaluation Deny
 
-Lors de la création ou de la mise à jour d’une ressource, Deny empêche l’envoi de la requête au fournisseur de ressources. La requête renvoie une erreur 403 (Interdit). Dans le portail, l’erreur 403 (Interdit) peut être considérée comme l’état du déploiement qui a été empêché en raison de l’affectation de stratégie.
+Lors de la création ou de la mise à jour d’une ressource correspondante, Deny empêche l’envoi de la requête au fournisseur de ressources. La requête renvoie une erreur `403 (Forbidden)`. Dans le portail, l’erreur 403 (Interdit) peut être considérée comme l’état du déploiement qui a été empêché par l’affectation de stratégie.
 
-Au cours d’un cycle d’évaluation, les définitions de stratégie ayant un effet Deny pour les ressources sont marquées comme non conformes, mais aucune action n’est effectuée sur ces ressources.
+Lors de l’évaluation des ressources existantes, les ressources qui correspondent à une définition de stratégie Deny sont marquées comme non conformes.
 
 ### <a name="deny-properties"></a>Propriétés de Deny
 
-L’effet Deny n’a pas d’autres propriétés utilisables dans la condition **if** de la définition de stratégie.
+L’effet Deny n’a pas d’autres propriétés utilisables dans la condition **then** de la définition de stratégie.
 
 ### <a name="deny-example"></a>Exemple Deny
 
@@ -125,15 +130,15 @@ Exemple : utilisation de l’effet Deny.
 
 ## <a name="audit"></a>Audit
 
-L’effet Audit permet de créer un événement d’avertissement dans le journal d’activité lorsqu’une ressource non conforme est évaluée, mais il n’arrête pas la requête.
+Audit permet de créer un événement d’avertissement dans le journal d’activité lors de l’évaluation d’une ressource non conforme, mais il n’arrête pas la requête.
 
 ### <a name="audit-evaluation"></a>Évaluation Audit
 
-L’effet Audit est le dernier à être exécuté lors de la création ou de la mise à jour d’une ressource avant l’envoi de celle-ci au fournisseur de ressources. Audit fonctionne de la même façon pour une demande de ressource que pour un cycle d’évaluation, et exécute une opération `Microsoft.Authorization/policies/audit/action` dans le journal d’activité. Dans les deux cas, la ressource est marquée comme non conforme.
+Audit est le dernier effet vérifié par Policy pendant la création ou la mise à jour d’une ressource. Policy envoie ensuite la ressource au fournisseur de ressources. Audit fonctionne de la même façon pour une requête de ressource et un cycle d’évaluation. Policy ajoute une opération `Microsoft.Authorization/policies/audit/action` dans le journal d’activité et marque la ressource comme non conforme.
 
 ### <a name="audit-properties"></a>Propriétés d’Audit
 
-L’effet Audit n’a pas d’autres propriétés utilisables dans la condition **if** de la définition de stratégie.
+L’effet Audit n’a pas d’autres propriétés utilisables dans la condition **then** de la définition de stratégie.
 
 ### <a name="audit-example"></a>Exemple Audit
 
@@ -147,11 +152,11 @@ Exemple : utilisation de l’effet Audit.
 
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists active l’audit sur une ressource qui satisfait à la condition **if**, mais dont les composants ne sont pas spécifiés dans la propriété **details** de la condition **then**.
+AuditIfNotExists active l’audit sur des ressources qui satisfont à la condition **if**, mais dont les composants ne sont pas spécifiés dans la propriété **details** de la condition **then**.
 
 ### <a name="auditifnotexists-evaluation"></a>Évaluation AuditIfNotExists
 
-AuditIfNotExists s’exécute après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour vers une ressource et a renvoyé un code d’état de réussite. L’effet est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. Lorsque l’effet est déclenché, une opération `Microsoft.Authorization/policies/audit/action` sur le journal d’activité est exécutée de la même manière que l’effet Audit. Dans ce cas, la ressource qui a rempli la condition **if** est en fait la ressource qui est marquée comme non conforme.
+AuditIfNotExists s’exécute après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour de ressource et a renvoyé un code d’état de réussite. L’effet Audit est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. Policy ajoute une opération `Microsoft.Authorization/policies/audit/action` au journal d’activité de la même façon que l’effet Audit. Dans ce cas, la ressource qui a rempli la condition **if** est en fait la ressource qui est marquée comme non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Propriétés d’AuditIfNotExists
 
@@ -219,7 +224,7 @@ Comme pour AuditIfNotExists, DeployIfNotExists exécute un déploiement de modè
 
 ### <a name="deployifnotexists-evaluation"></a>Évaluation DeployIfNotExists
 
-DeployIfNotExists est également exécuté après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour vers une ressource et a renvoyé un code d’état de réussite. L’effet est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. Le déclenchement de l’effet entraîne l’exécution d’un déploiement de modèle.
+AuditIfNotExists s’exécute après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour de ressource et a renvoyé un code d’état de réussite. Un déploiement de modèle est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true.
 
 Au cours d’un cycle d’évaluation, les définitions de stratégie ayant un effet DeployIfNotExists sur les ressources sont marquées comme non conformes, mais aucune action n’est effectuée sur ces ressources.
 
@@ -251,9 +256,9 @@ La propriété **details** des effets DeployIfNotExists possède toutes les sous
   - Peut utiliser [field()] pour vérifier l’équivalence des valeurs dans la condition **if**.
   - Par exemple, permet de vérifier que la ressource parent (dans la condition **if**) réside dans le même emplacement de la ressource en tant que ressource connexe correspondante.
 - **roleDefinitionIds** [obligatoire]
-  - Cette propriété doit contenir un tableau de chaînes qui correspondent aux ID de rôle de contrôle de l’accès en fonction du rôle accessibles par l’abonnement. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
+  - Cette propriété doit inclure un tableau de chaînes qui correspondent aux ID de rôle de contrôle de l’accès en fonction du rôle accessibles par l’abonnement. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
 - **Deployment** [obligatoire]
-  - Cette propriété doit contenir le déploiement de modèle complet car elle est transmise à l’API PUT `Microsoft.Resources/deployments`. Pour plus d’informations, consultez [l’API REST Deployments](/rest/api/resources/deployments).
+  - Cette propriété doit inclure le déploiement de modèle complet, car elle est transmise à l’API PUT `Microsoft.Resources/deployments`. Pour plus d’informations, consultez [l’API REST Deployments](/rest/api/resources/deployments).
 
   > [!NOTE]
   > Toutes les fonctions à l’intérieur de la propriété **Deployment** sont évaluées en tant que composants du modèle, et non pas de la stratégie. La propriété **parameters** y fait exception car elle transmet les valeurs de la stratégie au modèle. Dans cette section, la propriété **value** sous le nom de paramètre du modèle permet d’effectuer la transmission de valeurs (voir _fullDbName_ dans l’exemple DeployIfNotExists).
@@ -313,21 +318,32 @@ Exemple : évalue les bases de données SQL Server pour déterminer si transpar
 
 ## <a name="layering-policies"></a>Superposition de stratégies
 
-Une ressource peut subir les effets de plusieurs affectations. Celles-ci peuvent se situer dans la même portée (ressource spécifique, groupe de ressources, abonnement ou groupe de gestion) ou dans des portées différentes. Chaque affectation est également susceptible d’avoir un effet différent. Quoi qu’il en soit, la condition et l’effet de chaque stratégie (assignés directement ou dans le cadre d’une initiative) sont évalués indépendamment. Par exemple, si la stratégie 1 comporte une condition limitant à « westus » la création de l’emplacement des ressources de l’abonnement A avec effet Deny et que la stratégie 2 en comporte une autre limitant à « eastus » la création de l’emplacement des ressources du groupe de ressources B (dans l’abonnement A) avec effet Audit, le résultat obtenu est le suivant :
+Une ressource peut subir les effets de plusieurs affectations. Ces affectations peuvent se situer dans la même portée ou dans des portées différentes. Chaque affectation est également susceptible d’avoir un effet différent. La condition et l’effet de chaque stratégie sont évalués indépendamment. Par exemple : 
 
-- Toute ressource figurant déjà dans le groupe de ressources B dans « eastus » est marquée comme conforme à la stratégie 2 mais comme non conforme à la stratégie 1.
-- Toute ressource figurant déjà dans le groupe de ressources B et non dans « eastus » est marquée comme non conforme à la stratégie 2 et mais aussi comme non conforme à la stratégie 1 si elle est différente de « westus ».
-- Toute nouvelle ressource figurant dans l’abonnement A mais pas dans « westus » est refusée par la stratégie 1.
-- Toute nouvelle ressource figurant dans l’abonnement A / groupe de ressources B d’abonnement dans « westus » est marquée comme non conforme dans la stratégie 2 mais créée (conforme à la stratégie 1 et la stratégie 2 avec Audit et non pas Deny).
+- Stratégie 1
+  - Restreint l’emplacement de la ressource à 'westus'
+  - Affectée à l’abonnement A
+  - Effet Deny
+- Stratégie 2
+  - Restreint l’emplacement de la ressource à 'eastus'
+  - Affectée au groupe de ressources B de l’abonnement A
+  - Effet Audit
+  
+Cette configuration génère le résultat suivant :
 
-Si, dans cet exemple, la stratégie 1 et la stratégie 2 a pour effet Deny, le scénario est le suivant :
+- Toute ressource figurant déjà dans le groupe de ressources B dans 'eastus' est marquée comme conforme à la stratégie 2 et comme non conforme à la stratégie 1
+- Toute ressource figurant déjà dans le groupe de ressources B mais pas dans 'eastus' est marquée comme non conforme à la stratégie 2 et comme non conforme à la stratégie 1 si elle ne figure pas dans 'westus'
+- Toute nouvelle ressource figurant dans l’abonnement A mais pas dans 'westus' est refusée par la stratégie 1
+- Toute nouvelle ressource de l’abonnement A et du groupe de ressources B dans 'westus' est créée et non conforme à la stratégie 2
 
-- Toute ressource figurant déjà dans le groupe de ressources B mais pas dans « eastus » est marquée comme non conforme à la stratégie 2.
-- Toute ressource figurant déjà dans le groupe de ressources B mais pas dans « westus » est marquée comme non conforme à la stratégie 1.
-- Toute nouvelle ressource figurant dans l’abonnement A mais pas dans « westus » est refusée par la stratégie 1.
-- Toute nouvelle ressource figurant dans l’abonnement A / le groupe de ressources B est refusée (car son emplacement ne peut jamais satisfaire à la fois à la stratégie 1 et à la stratégie 2).
+Si la stratégie 1 et la stratégie 2 avaient pour effet Deny, le scénario serait le suivant :
 
-Comme chaque affectation est évaluée individuellement, une ressource ne peut pas contourner un écart en raison de différences de portée. Par conséquent, la superposition de stratégies ou le chevauchement de stratégies est considéré comme **cumulatif et le plus restrictif**. En d’autres termes, une ressource que vous voulez créer peut être bloquée en raison de chevauchements et de conflits de règles, comme dans l’exemple ci-dessus, si les stratégies 1 et 2 engendrent un refus. Si vous avez toujours besoin de la ressource à créer dans l’étendue cible, révisez les exclusions de chaque affectation pour vous assurer que les bonnes stratégies affectent les bonnes étendues.
+- Toute ressource figurant déjà dans le groupe de ressources B mais pas dans 'eastus' est non conforme à la stratégie 2
+- Toute ressource figurant déjà dans le groupe de ressources B mais pas dans 'westus' est non conforme à la stratégie 1
+- Toute nouvelle ressource figurant dans l’abonnement A mais pas dans 'westus' est refusée par la stratégie 1
+- Toute nouvelle ressource du groupe de ressources B de l’abonnement A est refusée
+
+Chaque affectation est évaluée individuellement. Par conséquent, une ressource ne peut pas passer en cas d’écart en raison de différences dans la portée. La superposition de stratégies ou le chevauchement de stratégies est considéré comme **cumulatif et le plus restrictif**. Par exemple, si les stratégies 1 et 2 ont un effet Deny, une ressource est bloquée par les stratégies qui se chevauchent et qui sont en conflit. Si vous avez toujours besoin que la ressource soit créée dans la portée cible, révisez les exclusions de chaque affectation pour vérifier que les bonnes stratégies affectent les bonnes portées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -335,5 +351,5 @@ Comme chaque affectation est évaluée individuellement, une ressource ne peut p
 - Consulter la page [Structure de définition Azure Policy](definition-structure.md)
 - Savoir comment [créer des stratégies par programmation](../how-to/programmatically-create.md)
 - Découvrir comment [obtenir des données de conformité](../how-to/getting-compliance-data.md)
-- Découvrir comment [remédier à la non conformité des ressources](../how-to/remediate-resources.md)
+- Découvrir comment [remédier à la non-conformité des ressources](../how-to/remediate-resources.md)
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

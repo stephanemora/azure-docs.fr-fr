@@ -2,8 +2,8 @@
 title: Utilisation d’un service web de gestion des modèles Azure Machine Learning | Microsoft Docs
 description: Ce document décrit la procédure et les concepts relatifs à l’utilisation de services web déployés à l’aide de la gestion des modèles dans Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbd36e5389208b21704f1749beee016e30cc4ec5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950620"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253848"
 ---
 # <a name="consuming-web-services"></a>Utilisation de services web
 
@@ -60,7 +60,7 @@ Pour obtenir la clé du service web, utilisez la commande suivante :
 ```
 az ml service keys realtime -i <web service id>
 ```
-Au moment de créer la requête HTTP, utilisez la clé figurant dans l’en-tête d’autorisation : « Authorization » : « Bearer<key> »
+Au moment de créer la requête HTTP, utilisez la clé figurant dans l’en-tête d’autorisation : "Authorization": "Bearer <key>"
 
 ## <a name="get-the-service-swagger-description"></a>Obtenir la description Swagger du service
 Si le schéma d’API du service a été fourni, le point de terminaison du service expose un document Swagger à l’adresse ```http://<ip>/api/v1/service/<service name>/swagger.json```. Le document Swagger peut servir à générer automatiquement le client du service et à explorer les données d’entrée attendues et d’autres détails sur le service.

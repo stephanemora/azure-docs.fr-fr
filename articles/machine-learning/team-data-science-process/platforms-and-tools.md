@@ -1,5 +1,5 @@
 ---
-title: Plateformes et outils pour les projets d’équipe de science des données - Azure | Microsoft Docs
+title: Plateformes et outils pour les projets de science des données - Team Data Science Process
 description: Détaille et décrit les données et les ressources analytiques à la disposition des entreprises souhaitant standardiser le processus de science des données pour leurs équipes.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8a37c200e52e1d2786690a8a0e669af57312294d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446447"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139168"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plateformes et outils pour les projets de science des données
 
@@ -25,7 +25,7 @@ Les équipes de science des données qui utilisent le processus TDSP ont accès 
 
 - Instances Data Science Virtual Machine (Windows et CentOS Linux)
 - Clusters HDInsight Spark
-- SQL Data Warehouse
+- SQL Data Warehouse
 - Azure Data Lake
 - Clusters HDInsight Hive
 - Stockage Fichier Azure
@@ -59,7 +59,7 @@ Apache Spark est une infrastructure de traitement parallèle open source qui pr
 
 Quand vous créez un cluster Spark dans HDInsight, vous créez des ressources de calcul Azure avec Spark installé et configuré. La création d’un cluster Spark dans HDInsight prend 10 minutes environ. Stockez les données à traiter dans le Stockage Blob Azure. Pour obtenir des informations sur l’utilisation du Stockage Blob Azure avec un cluster, consultez [Utiliser le Stockage Blob Azure compatible HDFS avec Hadoop dans HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-L’équipe TDSP de Microsoft a publié deux procédures pas à pas qui expliquent comment utiliser des clusters Azure HDInsight Spark pour créer deux solutions de science des données (l’une avec Python, l’autre avec Scala). Pour plus d’informations sur les **clusters Azure HDInsight Spark**, consultez [Présentation d’Apache Spark sur HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Pour découvrir comment créer une solution de science des données à l’aide de **Python** sur un cluster Azure HDInsight Spark, consultez [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md). Pour découvrir comment créer une solution de science des données à l’aide de **Scala** sur un cluster Azure HDInsight Spark, consultez [Science des données à l’aide de Scala et Spark sur Azure](scala-walkthrough.md). 
+L’équipe TDSP de Microsoft a publié deux procédures pas à pas qui expliquent comment utiliser des clusters Azure HDInsight Spark pour créer deux solutions de science des données (l’une avec Python, l’autre avec Scala). Pour plus d’informations sur les **clusters Azure HDInsight Spark**, consultez [Présentation : Apache Spark sur HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Pour découvrir comment créer une solution de science des données à l’aide de **Python** sur un cluster Azure HDInsight Spark, consultez [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md). Pour découvrir comment créer une solution de science des données à l’aide de **Scala** sur un cluster Azure HDInsight Spark, consultez [Science des données à l’aide de Scala et Spark sur Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
@@ -73,7 +73,7 @@ Pour plus d’informations sur Azure SQL Data Warehouse, consultez le site web [
 
 Azure Data Lake est un référentiel d’entreprise pour tous les types de données collectées dans un emplacement unique, avant l’application imposée de spécifications ou schémas formels. Grâce à cette flexibilité, toutes les données peuvent être conservées dans un lac de données (data lake), indépendamment de leur taille, de leur structure ou de leur vitesse d’ingestion. Les organisations utilisent ensuite Hadoop ou une analytique avancée pour identifier des modèles dans ces lacs de données. Les lacs de données peuvent également servir de référentiel où les données sont préparées à moindre coût avant d’être traitées et déplacées vers un entrepôt de données.
 
-Pour plus d’informations sur Azure Data Lake, consultez [Présentation d’Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Pour découvrir comment créer une solution de science des données complète et évolutive avec Azure Data Lake, consultez [Science des données scalable avec Azure Data Lake : procédure complète](data-lake-walkthrough.md)
+Pour plus d’informations sur Azure Data Lake, consultez [Présentation d’Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Pour découvrir comment créer une solution de science des données complète et évolutive avec Azure Data Lake, consultez [Science des données scalable avec Azure Data Lake : procédure complète](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Clusters Azure HDInsight Hive (Hadoop)
@@ -103,7 +103,7 @@ R Services (en base de données) prend en charge le langage R open source avec
 L’équipe TDSP de Microsoft a publié deux procédures pas à pas qui expliquent comment créer deux solutions de science des données dans SQL Server 2016 R Services (l’une pour les programmeurs R et l’autre pour les développeurs SQL). Pour les **programmeurs R**, consultez [Procédure pas à pas complète de science des données](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Pour les **développeurs SQL**, consultez [Analytique avancée en base de données pour les développeurs SQL (didacticiel)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
-## <a name="appendix"></a>Annexe : Outils pour configurer des projets de science des données
+## <a name="appendix"></a>Annexe : Outils pour configurer des projets de science des données
 
 ### <a name="install-git-credential-manager-on-windows"></a>Installer Git Credential Manager sur Windows
 
@@ -129,17 +129,17 @@ Si vous exécutez les commandes Git sur une machine Linux (CentOS), vous devez a
         ssh-keygen
         cat .ssh/id_rsa.pub
 
-![](./media/platforms-and-tools/resources-1-generate_ssh.png)
+![Commandes pour générer la clé SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copiez l’intégralité de la clé ssh, y compris *ssh-rsa*. 
 - Connectez-vous à vos Azure DevOps Services. 
 - Cliquez sur **<Votre nom\>** en haut à droite de la page et cliquez sur **Sécurité**. 
     
-    ![](./media/platforms-and-tools/resources-2-user-setting.png)
+    ![Cliquez sur votre nom, puis sur Sécurité](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - Cliquez sur **Clés publiques SSH**, puis cliquez sur **+ Ajouter**. 
 
-    ![](./media/platforms-and-tools/resources-3-add-ssh.png)
+    ![Cliquer sur Clés publiques SSH, puis cliquer sur + Ajouter](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - Collez la clé ssh que vous venez de copier dans la zone de texte et enregistrez-la.
 

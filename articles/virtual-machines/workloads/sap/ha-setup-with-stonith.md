@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982c6112a19654e268c9c50fec35d65fbc1766c2
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c6d4ec767b4c566e6a390f37b97266916819a40c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062018"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015158"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuration de la haute disponibilité dans SUSE à l’aide de STONITH
 Ce document fournit les instructions détaillées étape par étape pour configurer la haute disponibilité sur le système d’exploitation SUSE à l’aide de l’appareil STONITH.
 
-**Clause d’exclusion de responsabilité :** *Ce guide provient de tests de configuration dans l’environnement des grandes instances Microsoft HANA, dont les résultats ont été satisfaisants. Comme l’équipe de gestion des services Microsoft pour les grandes instances HANA ne prend pas en charge le système d’exploitation, vous devrez peut-être contacter SUSE pour toute résolution de problème ou clarification sur la couche système d’exploitation. L’équipe de gestion des services Microsoft configure bel et bien le périphérique STONITH et prend complètement en charge pour vous aider à résoudre les problèmes liés à ce dernier.*
-## <a name="overview"></a>Vue d'ensemble
+**Clause d’exclusion de responsabilité :** *Ce guide provient de tests de configuration dans l’environnement des grandes instances Microsoft HANA, dont les résultats ont été satisfaisants. Comme l’équipe de gestion des services Microsoft pour les grandes instances HANA ne prend pas en charge le système d’exploitation, vous devrez peut-être contacter SUSE pour toute résolution de problème ou clarification sur la couche système d’exploitation. L’équipe de gestion des services Microsoft configure bel et bien le périphérique STONITH et prend complètement en charge pour vous aider à résoudre les problèmes liés à ce dernier.*
+## <a name="overview"></a>Vue d’ensemble
 Pour configurer la haute disponibilité à l’aide du clustering SUSE, les prérequis suivants doivent être respectés.
 ### <a name="pre-requisites"></a>Conditions préalables
 - Les grandes instances HANA sont approvisionnées.
@@ -38,8 +38,8 @@ Pour configurer la haute disponibilité à l’aide du clustering SUSE, les pré
 ### <a name="setup-details"></a>Détails de la configuration
 Ce guide utilise la configuration suivante :
 - Système d’exploitation : SLES 12 SP1 pour SAP
-- Grandes instances HANA : 2xS192 (quatre sockets, 2 To)
-- Version HANA : HANA 2.0 SP1
+- HANA - Grandes instances : 2xS192 (quatre sockets, 2 To)
+- Version HANA : HANA 2.0 SP1
 - Noms de serveur : sapprdhdb95 (node1) et sapprdhdb96 (node2)
 - Appareil STONITH : appareil STONITH iSCSI
 - Configuration NTP sur l’un des nœuds de grande instance HANA
@@ -47,7 +47,7 @@ Ce guide utilise la configuration suivante :
 Quand vous configurez des grandes instances HANA avec HSR, vous pouvez demander à l’équipe de gestion des services Microsoft de configurer STONITH. Si vous êtes déjà un client existant qui dispose de grandes instances HANA approvisionnées et que vous avez besoin d’installer un appareil STONITH pour vos panneaux existants, vous devez fournir les informations suivantes à l’équipe de gestion des services Microsoft dans le formulaire de demande de service (SRF). Vous pouvez demander le formulaire SRF en passant par le responsable technique de compte ou votre contact Microsoft pour l’intégration d’une grande instance HANA. Les nouveaux clients peuvent demander un appareil STONITH au moment de l’approvisionnement. Les entrées sont disponibles dans le formulaire de demande d’approvisionnement.
 
 - Nom du serveur et adresse IP du serveur (par exemple, myhanaserver1, 10.35.0.1)
-- Emplacement (par exemple, Est des États-Unis)
+- Emplacement (par exemple, USA Est)
 - Nom du client (par exemple, Microsoft)
 - SID - Identificateur du système HANA (par exemple, H11)
 
@@ -76,7 +76,7 @@ L’équipe de gestion des services Microsoft fournit cette chaîne. Modifiez le
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 Modifiez */etc/iscsi/iscsid.conf* : définissez *node.session.timeo.replacement_timeout=5* et *node.startup = automatic*. Modifier le fichier sur **les deux** nœuds.
+1.2 Modifiez */etc/iscsi/iscsid.conf* : définissez *node.session.timeo.replacement_timeout=5* et *node.startup = automatic*. Modifier le fichier sur **les deux** nœuds.
 
 1.3 Exécutez la commande de découverte. Vous voyez quatre sessions. Exécutez-la sur les deux nœuds.
 
@@ -93,7 +93,7 @@ iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 Exécutez le script de relance d’analyse : *rescan-scsi-bus.sh*.  Ce script affiche les nouveaux disques créés pour vous.  Exécutez-la sur les deux nœuds. Vous devez voir un numéro d’unité logique supérieur à zéro (par exemple : 1, 2, etc.)
+1.5 Exécutez le script de relance d’analyse : *rescan-scsi-bus.sh*.  Ce script affiche les nouveaux disques créés pour vous.  Exécutez-la sur les deux nœuds. Vous devez voir un numéro d’unité logique supérieur à zéro (par exemple : 1, 2 etc.)
 
 ```
 rescan-scsi-bus.sh
@@ -232,7 +232,7 @@ systemctl start pacemaker
 ```
 ![start-pacemaker.png](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
 
-Si le service Pacemaker *échoue*, reportez-vous au *scénario 5 : échec du service Pacemaker*.
+Si le service Pacemaker *échoue*, reportez-vous au *scénario 5 : échec du service Pacemaker*
 
 ## <a name="5---joining-the-cluster"></a>5.   Joindre le cluster
 Cette section explique comment joindre le nœud au cluster.
@@ -242,7 +242,7 @@ Exécutez la commande suivante sur **node2** pour permettre à node2 de joindre 
 ```
 ha-cluster-join
 ```
-Si vous recevez une *erreur* au cours de la jonction du cluster, reportez-vous au *scénario 6 : node2 ne parvient pas à joindre le cluster*.
+Si vous recevez une *erreur* au cours de la jonction du cluster, reportez-vous au *scénario 6 : node2 ne parvient pas à joindre le cluster*.
 
 ## <a name="6---validating-the-cluster"></a>6.   Validation du cluster
 
@@ -297,8 +297,7 @@ Ajoutez une ressource STONITH. Créez le fichier et ajoutez le texte comme indiq
 # vi crm-sbd.txt
 # enter the following to crm-sbd.txt
 primitive stonith-sbd stonith:external/sbd \
-params pcmk_delay_max="15" \
-op monitor interval="15" timeout="15"
+params pcmk_delay_max="15"
 ```
 Ajoutez la configuration au cluster.
 ```
@@ -345,7 +344,7 @@ Maintenant, arrêtez le service Pacemaker sur **node2** et le basculement des re
 ## <a name="9-troubleshooting"></a>9. Résolution de problèmes
 Cette section décrit les peu nombreux scénarios d’échec, que vous pouvez rencontrer pendant l’installation. Vous n’êtes pas nécessairement confronté à ces problèmes.
 
-### <a name="scenario-1-cluster-node-not-online"></a>Scénario 1 : le nœud de cluster n’est pas en ligne
+### <a name="scenario-1-cluster-node-not-online"></a>Scénario 1 : le nœud de cluster n’est pas en ligne
 Si l’un des nœuds n’apparaît pas en ligne dans le gestionnaire du cluster, vous pouvez essayer ce qui suit pour le mettre en ligne.
 
 Démarrez le service iSCSI.
@@ -449,7 +448,7 @@ Cliquez sur **Suivant** lorsque l’installation est terminée
 
 ![yast2-installation-report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 
-### <a name="scenario-4-hana-installation-fails-with-gcc-assemblies-error"></a>Scénario 4 : échec de l’installation de HANA avec une erreur des assemblys gcc
+### <a name="scenario-4-hana-installation-fails-with-gcc-assemblies-error"></a>Scénario 4 : échec de l’installation de HANA avec une erreur des assemblys gcc
 L’installation de HANA échoue avec l’erreur suivante.
 
 ![Hana-installation-error.png](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
@@ -458,7 +457,7 @@ Pour résoudre le problème, vous devez installer des bibliothèques (libgcc_sl 
 
 ![zypper-install-lib.png](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
 
-### <a name="scenario-5-pacemaker-service-fails"></a>Scénario 5 : échec du service Pacemaker
+### <a name="scenario-5-pacemaker-service-fails"></a>Scénario 5 : échec du service Pacemaker
 
 Le problème suivant s’est produit au démarrage du service Pacemaker.
 
@@ -509,7 +508,7 @@ Persistent=true
 
 ![Persistent.png](media/HowToHLI/HASetupWithStonith/Persistent.png)
 
-### <a name="scenario-6-node-2-unable-to-join-the-cluster"></a>Scénario 6 : node2 ne parvient pas à joindre le cluster
+### <a name="scenario-6-node-2-unable-to-join-the-cluster"></a>Scénario 6 : node2 ne parvient pas à joindre le cluster
 
 Lors de la jonction de node2 au cluster à l’aide de la commande *ha-cluster-join*, l’erreur suivante s’est produite.
 

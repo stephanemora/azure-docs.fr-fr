@@ -2,18 +2,18 @@
 title: Surveiller des alertes de sauvegarde pour les machines virtuelles Azure
 description: Surveillez les événements et les alertes des travaux de sauvegarde de machine virtuelle Azure. Envoyer un e-mail en fonction des alertes.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: markgal
-ms.openlocfilehash: 3783014738ec4e8f185531773b1259dc63e7f49f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: raynew
+ms.openlocfilehash: 0cfbb258364ed684ff38b2be9f998d8ff0656251
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606305"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864534"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Suivez les alertes des sauvegardes de machines virtuelles Azure
 Les alertes sont des indications du service indiquant qu’un seuil d’événement a été atteint ou dépassé. Le fait de prendre connaissance d’un problème dès qu’il se produit peut être indispensable pour limiter les dépenses. Les alertes ne sont généralement pas planifiées. Il est donc utile de savoir aussi tôt possible lorsque des alertes sont générées. Par exemple, lorsqu’un travail de sauvegarde ou de restauration échoue, une alerte se produit dans les cinq minutes suivant l’échec. Dans le tableau de bord du coffre, la vignette Alertes de sauvegarde affiche des événements de niveaux Critique et Avertissement. Dans les paramètres des alertes de sauvegarde, vous pouvez afficher tous les événements. Mais que faire si une alerte se produit lorsque vous travaillez sur un autre problème ? Si vous ne savez pas quand l’alerte se produit, il peut s’agir d’un désagrément mineur, ou d’un problème entraînant des pertes de données. Pour vous assurer que les bonnes personnes sont prévenues en cas d’alerte, configurez le service de manière à envoyer des notifications d’alerte par e-mail. Pour plus d’informations sur la configuration des notifications par e-mail, consultez [Configurer les notifications](backup-azure-monitor-vms.md#configure-notifications).
@@ -124,6 +124,6 @@ Les alertes basées sur des événements sont soumises aux limitations suivantes
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles Azure](backup-azure-arm-restore-vms.md).
 
-Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md). 
+Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : Sauvegarder les machines virtuelles dans un coffre Recovery Services](backup-azure-vms-first-look-arm.md). 
 
 Pour plus d’informations sur les tâches de gestion relatives aux sauvegardes de machines virtuelles, consultez [Gérer les sauvegardes des machines virtuelles Azure](backup-azure-manage-vms.md).

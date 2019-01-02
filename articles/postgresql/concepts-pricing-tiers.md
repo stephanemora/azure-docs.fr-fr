@@ -9,21 +9,21 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a57e481093bca12a1726a4cc16fa090aa158c1d8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093439"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320884"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
-Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois différents niveaux tarifaires : De base, Usage général et À mémoire optimisée. Les niveaux tarifaires diffèrent par la quantité de calcul dans vCores qui peut être configurée, la mémoire par vCore et la technologie de stockage utilisée pour stocker les données. Toutes les ressources sont approvisionnées au niveau du serveur PostgreSQL. Un serveur peut avoir une ou plusieurs bases de données.
+Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois différents niveaux tarifaires : De base, Usage général et À mémoire optimisée. Les niveaux tarifaires diffèrent par la quantité de calcul dans vCores qui peut être configurée, la mémoire par vCore et la technologie de stockage utilisée pour stocker les données. Toutes les ressources sont approvisionnées au niveau du serveur PostgreSQL. Un serveur peut avoir une ou plusieurs bases de données.
 
 |    | **De base** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|
 | Génération de calcul | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Mémoire par vCore | 2 Go | 5 GO | 10 Go |
 | Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
@@ -43,6 +43,9 @@ Après avoir créé un serveur, le nombre de vCores, la génération du matérie
 ## <a name="compute-generations-and-vcores"></a>Générations de calcul et vCores
 
 Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Actuellement, vous pouvez choisir entre deux générations de calcul, Gen 4 et Gen 5. Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2.4 GHz. Les processeurs logiques Gen 5 sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2.3 GHz. Les processeurs Gen 4 et Gen 5 sont disponibles dans les régions suivantes (« X » indique la disponibilité). 
+
+> [!IMPORTANT]
+> À compter du 12 décembre 2018, les nouveaux clients ne seront pas en mesure de provisionner les serveurs de calcul de génération 4 dans les zones Brésil Sud, Canada Centre, Canada Est, Asie Est, USA Est 2, Inde Centre, Inde Ouest, Japon Ouest, USA Centre Nord, USA Ouest. Les serveurs de calcul de génération 4 précédemment créés seront migrés vers la génération 5 à compter du 1er février 2019 dans ces régions.
 
 | **Région Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|

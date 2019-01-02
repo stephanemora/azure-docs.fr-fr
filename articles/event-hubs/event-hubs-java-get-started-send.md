@@ -1,20 +1,21 @@
 ---
-title: Envoyer des événements vers Azure Event Hubs avec Java | Microsoft Docs
-description: Prise en main de l’envoi vers Event Hubs avec Java
+title: Envoyer des événements à l’aide de Java - Azure Event Hubs | Microsoft Docs
+description: Cet article décrit la procédure de création d’une application Java qui envoie des événements à Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 11/12/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 510f1a2bc23d14e1bb9e8e561b52936ae9d53685
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 80c413c874ca3e1bf46bfa4e5becb184223c5eeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624537"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091279"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Envoyer des événements vers Azure Event Hubs avec Java
 
@@ -32,7 +33,11 @@ Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 * Un environnement de développement Java. Ce tutoriel utilise [Fiddler](https://www.eclipse.org/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Création d’un espace de noms Event Hubs et d’un concentrateur d’événements
-La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md), puis passez aux étapes suivantes de ce tutoriel.
+La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md).
+
+Obtenez la valeur de la clé d’accès du hub d’événements en suivant les instructions de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utilisez la clé d’accès dans le code que vous écrivez plus loin dans ce tutoriel. Le nom de clé par défaut est : **RootManageSharedAccessKey**.
+
+Maintenant, continuez avec les étapes suivantes du tutoriel.
 
 ## <a name="add-reference-to-azure-event-hubs-library"></a>Ajouter une référence à la bibliothèque Azure Event Hubs
 

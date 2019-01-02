@@ -1,6 +1,6 @@
 ---
-title: Ajout de Recherche Azure à Stockage Blob | Microsoft Docs
-description: Créer un index dans le code à l’aide de l’API REST HTTP d’Azure Search.
+title: Ajouter la recherche en texte intégral au Stockage Blob Azure - Recherche Azure
+description: Analyser le contenu textuel dans le Stockage Blob Azure pour l’indexation de Recherche Azure dans du code à l’aide de l’API REST de HTTP.
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -8,12 +8,13 @@ ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
 ms.author: magottei
-ms.openlocfilehash: 4f8099bbd5af250e58441eb0e202d4674f0671fe
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 7bd7bcf66f0d91a87519a5d5bff7df7c73e2603f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403219"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310872"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Recherche dans le Stockage Blob avec la Recherche Azure
 

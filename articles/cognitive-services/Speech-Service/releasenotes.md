@@ -1,21 +1,22 @@
 ---
-title: Documentation du SDK du service Speech
+title: Notes de publication - Services Speech
 titlesuffix: Azure Cognitive Services
-description: Notes de publication - ce qui a changé dans les versions les plus récentes
+description: Consultez un journal constamment mis à jour des futures versions, des améliorations, des correctifs de bogues et des problèmes connus pour les services Azure Speech.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: ff09926d61d64294a4f12ccf959f6685910539f1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317889"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088297"
 ---
 # <a name="release-notes"></a>Notes de publication
 
@@ -24,7 +25,7 @@ ms.locfileid: "52317889"
 **Nouvelles fonctionnalités**
 
 * Prise en charge d'Android x86/x64.
-* Prise en charge du proxy : dans l’objet SpeechConfig, vous pouvez maintenant appeler une fonction pour définir les informations du proxy (nom d’hôte, port, nom d’utilisateur et mot de passe). Cette fonctionnalité n'est pas encore disponible sous iOS.
+* Prise en charge de proxy : dans l’objet SpeechConfig, vous pouvez maintenant appeler une fonction pour définir les informations de proxy (nom d’hôte, port, nom d’utilisateur et mot de passe). Cette fonctionnalité n'est pas encore disponible sous iOS.
 * Amélioration du code d’erreur et des messages. Si une reconnaissance a renvoyé une erreur, celle-ci a déjà défini `Reason` (dans l’événement annulé) ou `CancellationDetails` (dans le résultat de la reconnaissance) sur `Error`. L’événement annulé contient maintenant deux membres supplémentaires, `ErrorCode` et `ErrorDetails`. Si le serveur a renvoyé des informations d’erreur supplémentaires avec l’erreur signalée, elles sont désormais disponibles dans les nouveaux membres.
 
 **Améliorations**
@@ -57,14 +58,14 @@ Améliorations de la fiabilité et résolution des bogues :
 * Correction d’une erreur irrécupérable potentielle due à une condition de concurrence lors de la suppression du module de reconnaissance
 * Correction d’une erreur irrécupérable potentielle en cas de propriétés non définies.
 * Vérification supplémentaire des erreurs et des paramètres.
-* Objective-C : correction d’une erreur irrécupérable possible provoquée par le remplacement d’un nom dans une chaîne NSString.
-* Objective-C : réglage de la visibilité de l’API.
-* JavaScript : correction des événements et de leurs charges utiles.
+* Objective-C : correction d’une erreur irrécupérable possible provoquée par le remplacement d’un nom dans une chaîne NSString.
+* Objective-C : réglage de la visibilité de l’API.
+* JavaScript : correction des événements et de leurs charges utiles.
 * Améliorations de la documentation.
 
 Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouvel échantillon pour JavaScript a été ajouté.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK Speech de Cognitive Services version 1.0.0 : septembre 2018
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK Cognitive Services Speech 1.0.0 : version de septembre 2018
 
 **Nouvelles fonctionnalités**
 
@@ -76,14 +77,14 @@ Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouve
 * Cette version contient plusieurs changements cassants.
   Pour plus d’informations, consultez [cette page](https://aka.ms/csspeech/breakingchanges_1_0_0).
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Kit de développement logiciel (SDK) Speech de Cognitive Services version 0.6.0 : août 2018
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0 : version d’août 2018
 
 **Nouvelles fonctionnalités**
 
 * Les applications UWP créées à partir du SDK Speech peuvent désormais passer le Kit de certification des applications Windows (WACK).
   Consultez le [guide de démarrage rapide UWP](quickstart-csharp-uwp.md).
 * Prise en charge de .NET Standard 2.0 sur Linux (Ubuntu 16.04 x64).
-* Expérimental : Prise en charge de Java 8 sur Windows (64 bits) et Linux (Ubuntu 16.04 x64).
+* Expérimental : prise en charge de Java 8 sur Windows (64 bits) et Linux (Ubuntu 16.04 x64).
   Consultez le [guide de démarrage rapide Java Runtime Environment](quickstart-java-jre.md).
 
 **Changement fonctionnel**
@@ -102,15 +103,15 @@ Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouve
 * Correction d’un problème qui provoquait l’arrêt d’une reconnaissance de longue durée au milieu d’une transmission
 * Correction d’une condition de concurrence lors de l’arrêt du module de reconnaissance.
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Kit de développement logiciel (SDK) Speech de Cognitive Services version 0.5.0 : juillet 2018
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>SDK Cognitive Services Speech 0.5.0 : version de juillet 2018
 
 **Nouvelles fonctionnalités**
 
-* Prise en charge de la plateforme Android (API 23 : Android Marshmallow 6.0 ou version ultérieure). Consultez le [Démarrage rapide Android](quickstart-java-android.md).
+* Prise en charge de la plateforme Android (API 23 : Android 6.0 Marshmallow ou supérieur). Consultez le [Démarrage rapide Android](quickstart-java-android.md).
 * Prise en charge de .NET Standard 2.0 sous Windows. Consultez le [Démarrage rapide .NET Core](quickstart-csharp-dotnetcore-windows.md).
-* Expérimental : Prise en charge d’UWP sur Windows (version 1709 ou ultérieure)
+* Expérimental : Prise en charge d’UWP sur Windows (version 1709 ou ultérieure).
   * Consultez le [guide de démarrage rapide UWP](quickstart-csharp-uwp.md).
-  * Remarque : Les applications UWP générées avec le Kit de développement logiciel (SDK) Speech ne passent pas encore le Kit de certification des applications Windows (WACK).
+  * Remarque : les applications UWP générées avec le kit SDK Speech ne réussissent pas encore le test du Kit de certification des applications Windows (WACK).
 * Prise en charge des reconnaissances de longue durée avec la reconnexion automatique
 
 **Modifications fonctionnelles**
@@ -121,25 +122,25 @@ Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouve
 
 **Dernières modifications**
 
-* Événements de reconnaissance : le type d’événement NoMatch a été fusionné avec l’événement Error.
+* Événements de reconnaissance : le type d’événement NoMatch a été fusionné avec l’événement Error.
 * Le SpeechOutputFormat du langage C# a été renommé OutputFormat pour s’aligner sur le C++.
 * Le type de retour de certaines méthodes de l’interface `AudioInputStream` a été légèrement modifié :
    * Dans Java, la méthode `read` retourne désormais `long` au lieu de `int`.
    * Dans C#, la méthode `Read` retourne désormais `uint` au lieu de `int`.
    * Dans C++, les méthodes `Read` et `GetFormat` retournent désormais `size_t` au lieu de `int`.
-* C++ : les instances de flux d’entrée audio peuvent maintenant être passées comme `shared_ptr`.
+* C++ : les instances de flux d’entrée audio peuvent maintenant être passées comme `shared_ptr`.
 
 **Résolution des bogues**
 
 * Correction des valeurs de retour incorrectes dans les résultats lorsque `RecognizeAsync()` expire.
 * La dépendance aux bibliothèques Media Foundation Windows a été supprimée. Le SDK utilise désormais les API Core Audio.
-* Correction de la documentation : ajout de la page [Régions](regions.md) pour répertorier les régions prises en charge.
+* Correction de la documentation : ajout de la page [régions](regions.md) pour répertorier les régions prises en charge.
 
 **Problème connu**
 
 * Le SDK Speech pour Android ne signale pas les résultats de la synthèse vocale pour la traduction. Ce problème sera corrigé dans la prochaine version.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Kit de développement logiciel (SDK) Speech de Cognitive Services version 0.4.0 : juin 2018
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK Cognitive Services Speech 0.4.0 : version de juin 2018
 
 **Modifications fonctionnelles**
 
@@ -175,6 +176,6 @@ Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouve
 
 D’autres exemples ont été ajoutés et sont constamment mis à jour. Pour obtenir la dernière série d’exemples, accédez au [dépôt GitHub d’exemples pour le SDK Speech](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Kit de développement logiciel (SDK) Speech de Cognitive Services version 0.2.12733 : mai 2018
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK Cognitive Services Speech 0.2.12733 : version de mai 2018
 
 Cette version est la première préversion publique du SDK Speech de Cognitive Services.

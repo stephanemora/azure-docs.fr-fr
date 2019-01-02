@@ -1,5 +1,5 @@
 ---
-title: Comprendre la conservation des données dans votre environnement Azure Time Series Insights | Microsoft Docs
+title: Conservation des données Azure Time Series Insights - Comprendre la conservation des données dans votre environnement Azure Time Series Insights | Microsoft Docs
 description: Cet article décrit deux paramètres qui contrôlent la conservation des données dans votre environnement Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: c46e385caaa343fe9ba64e1aa4516f1335039cd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364107"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272148"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Comprendre la conservation des données dans Time Series Insights
 
@@ -23,7 +24,7 @@ Cet article décrit deux paramètres ayant un impact sur la conservation des don
 
 ## <a name="video"></a>Vidéo : 
 
-### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Dans cette vidéo, nous traitons de la rétention de données Time Series Insights et comment la planifier.</br>
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Dans cette vidéo, nous traitons de la conservation des données Time Series Insights et de leur planification.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -47,7 +48,7 @@ Comparez le comportement de conservation des données :
 - Les données ingérées les plus anciennes sont vidées en premier (approche FIFO).
 
 ### <a name="example-1"></a>Exemple 1 :
-Prenons un exemple d’environnement avec le comportement de conservation **Poursuivre l’entrée et vider les données anciennes** : Dans cet exemple, la **Durée de conservation des données** est définie sur 400 jours. La **Capacité** est définie sur l’unité S1, avec une capacité totale de 30 Go.   Supposons que les données entrantes atteignent en moyenne 500 Mo par jour. Cet environnement ne peut conserver que 60 jours de données étant donné le taux de données entrantes, la capacité maximale étant atteinte après 60 jours. Les données entrantes s’accumulent comme suit : 500 Mo chaque jour x 60 jours = 30 Go. 
+Prenons l’exemple d’un environnement configuré avec le comportement de conservation **Poursuivre l’entrée et vider les données anciennes** : Dans cet exemple, la **Durée de conservation des données** est définie sur 400 jours. La **Capacité** est définie sur l’unité S1, avec une capacité totale de 30 Go.   Supposons que les données entrantes atteignent en moyenne 500 Mo par jour. Cet environnement ne peut conserver que 60 jours de données étant donné le taux de données entrantes, la capacité maximale étant atteinte après 60 jours. Les données entrantes s’accumulent comme suit : 500 Mo chaque jour x 60 jours = 30 Go. 
 
 Dans cet exemple, le 61ème jour, l’environnement affiche les données les plus récentes, mais vide les données les plus anciennes, datant de plus de 60 jours. Le vidage fait de la place pour les nouvelles données entrantes, afin qu’elles puissent toujours être explorées. 
 

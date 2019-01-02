@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB : API .NET, Kit de développement logiciel (SDK) et ressources de l’exécuteur en bloc | Microsoft Docs'
+title: 'Azure Cosmos DB : API .NET Bulk Executor, SDK et ressources'
 description: Tout savoir sur l’API .NET et le Kit de développement logiciel (SDK) de l’exécuteur en bloc, notamment les dates de publication, les dates de déclassement et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) .NET de l’exécuteur en bloc Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: ae9560296e37ff5492c07e69e6ba0eb5539915c8
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c239464a37637b21504227951d917977cfea6726
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308493"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343953"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>Bibliothèque de l’exécuteur en bloc .NET : informations sur le téléchargement 
+# <a name="net-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc .NET : Télécharger des informations 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -27,7 +27,7 @@ ms.locfileid: "52308493"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [Exécuteur en bloc - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Exécuteur en bloc - Java](sql-api-sdk-bulk-executor-java.md)
 

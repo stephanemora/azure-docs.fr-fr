@@ -1,7 +1,7 @@
 ---
-title: Obtenir des images .gif – API Recherche d’images Bing
+title: Rechercher des images GIF à l’aide de l’API Recherche d’images Bing
 titleSuffix: Azure Cognitive Services
-description: Comment utiliser l’API Recherche d’images Bing pour obtenir plus d’informations sur les images .gif.
+description: Utilisez l’API Recherche d’images Bing pour rechercher des images .gif sur le web.
 services: cognitive-services
 author: MikeDodaro
 manager: cgronlun
@@ -10,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 82a096ccc1ead9bfb542663ae193539fc227c1fb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.custom: seodec2018
+ms.openlocfilehash: 7536452d3ed0030b34e4f30deba56d6d8ae1957c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870245"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249309"
 ---
-# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>Rechercher des images .gif à l’aide de l’API Recherche d’images Bing
+# <a name="search-for-gif-images"></a>Rechercher des images GIF 
 
-L’API Recherche d’images Bing vous permet également de rechercher les images .gif les plus pertinentes sur tout le web.  Les développeurs peuvent intégrer des fichiers gif attrayants dans divers scénarios de conversation. 
+L’API Recherche d’images Bing vous permet également de rechercher les images .gif les plus pertinentes sur tout le web.  Les développeurs peuvent intégrer des fichiers gif attrayants dans divers scénarios de conversation. 
 
 L’URL suivante est une requête pour des images .gif animées.
 ````

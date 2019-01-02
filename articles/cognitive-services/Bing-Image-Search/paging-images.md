@@ -1,7 +1,7 @@
 ---
-title: Pagination des images disponibles - API Recherche d’images Bing
+title: Parcourir les images retournées par l’API Recherche d’images Bing
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment paginer toutes les images renvoyées par Bing.
+description: Parcourez les différentes pages d’images retournées par l’API Recherche d’images Bing.
 services: cognitive-services
 author: swhite-msft
 manager: cgonlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec2018
+ms.openlocfilehash: 69829066e543e5ab3badc4d1d3f77ff3c1d16ffd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739364"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259747"
 ---
-# <a name="paging-results"></a>Résultats de pagination
+# <a name="page-through-the-images-results"></a>Parcourir les images retournées dans les résultats
 
 Quand vous appelez l’API Recherche d’images, Bing retourne une liste de résultats. La liste est un sous-ensemble du nombre total de résultats en rapport avec la requête. Pour obtenir une estimation du nombre total de résultats disponibles, accédez au champ [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) de l’objet de la réponse.  
 

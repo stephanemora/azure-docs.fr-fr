@@ -1,6 +1,6 @@
 ---
-title: Identifier des scénarios et planifier votre processus analytique - Azure | Microsoft Docs
-description: Planifiez une analyse avancée en imaginant une série de questions clés.
+title: Identifier les scénarios et planifier le processus d’analyse – Processus TDSP (Team Data Science Process)
+description: Identifier les scénarios et planifier le traitement des données d’analyse avancée en répondant à une série de questions pertinentes.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446416"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138039"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Comment identifier les scénarios et planifier le traitement des données d’analyse avancée
 Quelles ressources devez-vous inclure lors de la configuration d’un environnement à des fins de traitement des analyses avancées sur un jeu de données ? Cet article propose une série de questions qui permettent d’identifier les tâches et les ressources pertinentes pour votre scénario. L’ordre des étapes principales pour l’analyse prédictive est défini dans [Qu’est-ce que le processus TDSP (Team Data Science Process) ?](overview.md). Chacune de ces étapes nécessite des ressources spécifiques pour les tâches correspondant à votre scénario. Les principales questions pour identifier votre scénario concernent la logistique de données, leurs caractéristiques, la qualité des jeux de données, ainsi que les outils et les langues à utiliser pour effectuer l’analyse.
@@ -65,9 +65,9 @@ Ces questions sont essentielles pour la planification de vos environnements de s
    * Tables SQL Server
 3. **Quel volume vos données représentent-elles ?**
    
-   * Petit : moins de 2 Go
-   * Moyen : plus de 2 Go et moins de 10 Go
-   * Grand : plus de 10 Go
+   * Faible : moins de 2 Go
+   * Intermédiaire : plus de 2 Go et moins de 10 Go
+   * Grand : supérieur à 10 Go
 
 Prenons par exemple l’environnement Azure Machine Learning Studio :
 

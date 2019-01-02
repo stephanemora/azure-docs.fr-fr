@@ -1,5 +1,5 @@
 ---
-title: Découvrir la gestion des accès des applications et ressources à l’aide de groupes Azure Active Directory | Microsoft Docs
+title: Gérer l’accès aux applications et aux ressources à l’aide de groupes - Azure Active Directory | Microsoft Docs
 description: Découvrez comment gérer l’accès aux ressources, applications locales et applications informatiques de votre organisation à l’aide de groupes Azure Active Directory.
 services: active-directory
 author: eross-msft
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 69be2cb8b57b34502d5a5688ac163d7451abe48e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 5a706a2a879ae3b4c4adb2690faa77846474ce49
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223970"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087284"
 ---
-# <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Découvrir la gestion des accès à l’aide de groupes Azure Active Directory
+# <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gérer l’accès aux applications et aux ressources à l’aide de groupes Azure Active Directory
 Azure Active Directory (Azure AD) vous permet de gérer vos ressources, applications locales et applications informatiques à l’aide de groupes de votre organisation. Vos ressources peuvent faire partie du répertoire, telles que les autorisations de gestion des objets via des rôles dans le répertoire, ou être externes au répertoire, comme les applications Software as a Service (SaaS), les services Azure, les sites SharePoint et les ressources locales.
 
 >[!NOTE]
@@ -34,7 +35,7 @@ Quatre méthodes vous permettent d’assigner des droits d’accès aux ressourc
 
 - **Assignation directe.** Le propriétaire de la ressource assigne directement l’utilisateur à la ressource.
 
-- **Assignation de groupe.** Le propriétaire de la ressource assigne un groupe Azure AD à la ressource, ce qui accorde automatiquement l’accès à la ressource à tous les membres du groupe. L’appartenance au groupe est gérée par le propriétaire du groupe et le propriétaire de la ressource, ce qui leur permet d’ajouter ou de supprimer des membres du groupe. Pour plus d’informations sur l’ajout ou la suppression de l’appartenance au groupe, consultez [How to: Add or remove a group from another group using Azure Active Directory](active-directory-groups-membership-azure-portal.md) (Procédure : Ajouter ou supprimer un groupe d’un autre groupe à l’aide d’Azure Active Directory). 
+- **Assignation de groupe.** Le propriétaire de la ressource assigne un groupe Azure AD à la ressource, ce qui accorde automatiquement l’accès à la ressource à tous les membres du groupe. L’appartenance au groupe est gérée par le propriétaire du groupe et le propriétaire de la ressource, ce qui leur permet d’ajouter ou de supprimer des membres du groupe. Pour plus d’informations sur l’ajout ou la suppression de membres du groupe, consultez [Comment : ajouter ou supprimer un groupe d’un autre groupe à l’aide du portail Azure Active Directory](active-directory-groups-membership-azure-portal.md). 
 
 - **Assignation basée sur des règles.** Le propriétaire de la ressource crée un groupe et utilise une règle pour définir quels sont les utilisateurs assignés à une ressource spécifique. La règle est basée sur des attributs qui sont assignés à des utilisateurs individuels. Le propriétaire de la ressource gère la règle, en déterminant les attributs et les valeurs nécessaires pour autoriser l’accès à la ressource. Pour plus d’informations, consultez [Créer un groupe dynamique et vérifier l’état](../users-groups-roles/groups-create-rule.md).
 

@@ -1,24 +1,25 @@
 ---
-title: Guide de migration d’API de v1 vers v2
+title: Migration de l’API v1 vers v2
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment migrer vers l’ensemble d’API le plus récent.
+description: Les API de point de terminaison et de création de version 1 sont dépréciées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de point de terminaison et de création.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646573"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138821"
 ---
-# <a name="api-v2-migration-guide"></a>Guide de migration vers API v2
-Les API de [point de terminaison](https://aka.ms/v1-endpoint-api-docs) et de [création](https://aka.ms/v1-authoring-api-docs) de la version 1 seront déconseillées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de [point de terminaison](https://aka.ms/luis-endpoint-apis) et de [création](https://aka.ms/luis-authoring-apis). 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guide de migration d’API v1 vers v2 pour les applications LUIS
+Les API de [point de terminaison](https://aka.ms/v1-endpoint-api-docs) et de [création](https://aka.ms/v1-authoring-api-docs) de version 1 sont dépréciées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de [point de terminaison](https://aka.ms/luis-endpoint-apis) et de [création](https://aka.ms/luis-authoring-apis). 
 
 ## <a name="new-azure-regions"></a>Nouvelles régions Azure
 LUIS fournit de nouvelles [régions](https://aka.ms/LUIS-regions) pour les API LUIS. LUIS fournit un autre site Web pour les groupes de régions. L’application doit être créée dans la région que vous vous attendez à interroger. Les applications ne migrent pas automatiquement vers d’autres régions. Vous exportez l’application à partir d’une région, puis vous l’importez dans une autre pour qu’elle soit disponible dans une nouvelle région.
@@ -43,7 +44,7 @@ L’API du point de terminaison a de nouveaux paramètres de chaîne de requête
 
 
 Réponse de réussite du point de terminaison v1 :
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -54,7 +55,7 @@ Réponse de réussite du point de terminaison v1 :
 ```
 
 Réponse de réussite du point de terminaison v2 :
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {
