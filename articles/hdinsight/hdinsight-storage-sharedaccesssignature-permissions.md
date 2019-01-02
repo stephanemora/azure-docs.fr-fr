@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016171"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409919"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilisation des signatures d’accès partagé du stockage Azure pour restreindre l’accès aux données dans HDInsight
 
 HDInsight dispose d’un accès total aux données dans les comptes de stockage Azure associés au cluster. Vous pouvez utiliser des signatures d’accès partagé sur le conteneur d’objets blob pour restreindre l’accès aux données. Les signatures d’accès partagé (SAP) sont une fonctionnalité des comptes de stockage Azure qui vous permet de limiter l’accès aux données. Par exemple, en fournissant un accès en lecture seule aux données.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Pour une solution utilisant Apache Ranger, envisagez d’utiliser les clusters HDInsight joints à un domaine. Pour plus d’informations, consultez le document [Configurer des clusters HDInsight joints à un domaine (préversion)](./domain-joined/apache-domain-joined-configure.md).
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight doit disposer d’un accès total au stockage par défaut pour le cluster.
 
 ## <a name="requirements"></a>Configuration requise
@@ -34,9 +34,9 @@ HDInsight dispose d’un accès total aux données dans les comptes de stockage 
   * La version de Visual Studio doit être 2013, 2015 ou 2017
   * La version de Python doit être 2.7 ou une version ultérieure.
 
-* Cluster HDInsight basé sur Linux OU [Azure PowerShell][powershell] : si vous avez un cluster existant basé sur Linux, vous pouvez utiliser Ambari pour ajouter une signature d’accès partagé au cluster. Si ce n’est pas le cas, vous pouvez utiliser Azure PowerShell pour créer un cluster et ajouter une signature d’accès partagé lors de la création du cluster.
+* Cluster HDInsight basé sur Linux OU [Azure PowerShell][powershell] : si vous avez un cluster existant basé sur Linux, vous pouvez utiliser Apache Ambari pour ajouter une signature d’accès partagé au cluster. Si ce n’est pas le cas, vous pouvez utiliser Azure PowerShell pour créer un cluster et ajouter une signature d’accès partagé lors de la création du cluster.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Les fichiers d’exemple à partir de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Ce dépôt contient les éléments suivants :
@@ -49,9 +49,9 @@ HDInsight dispose d’un accès total aux données dans les comptes de stockage 
 
 Il existe deux types de signatures d’accès partagé :
 
-* Ad hoc : l’heure de début, l’heure d’expiration et les autorisations associées à cette SAP sont spécifiées sur l’URI de SAP.
+* Ad hoc : l’heure de début, l’heure d’expiration et les autorisations associées à cette SAP sont spécifiées sur l’URI de SAP.
 
-* Stratégie d’accès stockée : une stratégie d’accès stockée est définie sur un conteneur de ressources, tel qu’un conteneur d’objets blob. et permet de gérer les contraintes d’une ou de plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie.
+* Stratégie d’accès stockée : une stratégie d’accès stockée est définie sur un conteneur de ressources, tel qu’un conteneur d’objets blob. et permet de gérer les contraintes d’une ou de plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie.
 
 La différence entre les deux formes est importante pour un scénario clé : la révocation. Une signature d'accès partagé est une URL. Par conséquent, toute personne qui obtient la signature peut s'en servir, quel que soit celui qui l'a demandée initialement. Si une SAP est publiée publiquement, elle peut être utilisée par n’importe qui. Une clé d'accès partagé qui est distribuée est valide jusqu'à ce que l'un des quatre événements suivants ait lieu :
 
@@ -66,7 +66,7 @@ La différence entre les deux formes est importante pour un scénario clé : la
 
 4. La clé de compte qui a été utilisée pour créer la signature d'accès partagé est régénérée. Cette régénération provoque l’échec de l’authentification de toutes les applications qui utilisent la clé précédente. Mettez à jour tous les composants vers la nouvelle clé.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > L’URI d’une signature d’accès partagé est associé à la clé du compte utilisée pour créer la signature et à la stratégie d’accès stockée correspondante (le cas échéant). Si aucune stratégie d’accès stockée n’est spécifiée, la seule façon de révoquer une signature d’accès partagé consiste à modifier la clé du compte.
 
 Nous vous recommandons de toujours utiliser des stratégies d’accès stockées. Lorsque vous utilisez des stratégies stockées, vous pouvez révoquer des signatures ou étendre la date d’expiration, selon vos besoins. Les étapes décrites dans ce document utilisent les stratégies d’accès stockées pour générer des SAP.
@@ -81,13 +81,13 @@ Pour plus d’informations sur les SAP, voir [Présentation du modèle SAP](../s
 
 3. Sélectionnez **Paramètres** et ajoutez des valeurs pour les entrées suivantes :
 
-   * StorageConnectionString : chaîne de connexion pour le compte de stockage pour lequel vous souhaitez créer une stratégie stockée et une SAP. Le format doit être `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`, où `myaccount` est le nom de votre compte de stockage et `mykey` est la clé pour le compte de stockage.
+   * StorageConnectionString : chaîne de connexion pour le compte de stockage pour lequel vous souhaitez créer une stratégie stockée et une SAP. Le format doit être `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`, où `myaccount` est le nom de votre compte de stockage et `mykey` est la clé pour le compte de stockage.
 
-   * ContainerName : conteneur du compte de stockage auquel vous souhaitez restreindre l’accès.
+   * ContainerName : conteneur du compte de stockage auquel vous souhaitez restreindre l’accès.
 
    * SASPolicyName : nom à utiliser pour la stratégie stockée à créer.
 
-   * FileToUpload : chemin d’accès à un fichier qui est chargé sur le conteneur.
+   * FileToUpload : chemin d’un fichier qui est chargé dans le conteneur.
 
 4. Exécutez le projet. Des informations semblables au texte suivant s’affichent une fois la signature d’accès partagé générée :
 
@@ -99,15 +99,15 @@ Pour plus d’informations sur les SAP, voir [Présentation du modèle SAP](../s
 
 1. Ouvrez le fichier SASToken.py et modifiez les valeurs suivantes :
 
-   * nom\_stratégie : nom à utiliser pour la stratégie stockée à créer.
+   * policy\_name : nom à utiliser pour la stratégie stockée à créer.
 
-   * storage\_account\_name : le nom de votre compte de stockage.
+   * storage\_account\_name : nom de votre compte de stockage.
 
-   * storage\_account\_key : la clé du compte de stockage.
+   * storage\_account\_key : Clé du compte de stockage.
 
    * storage\_container\_name : conteneur du compte de stockage auquel vous souhaitez restreindre l’accès.
 
-   * exemple\_chemin\_fichier : chemin d’accès à un fichier qui est chargé sur le conteneur.
+   * example\_file\_path : chemin d’un fichier qui est chargé dans le conteneur.
 
 2. Exécutez le script. Il affiche le jeton SAP semblable au texte suivant quand il est terminé :
 
@@ -177,7 +177,7 @@ Un exemple de création de cluster HDInsight utilisant les SAP est inclus dans l
 
     Si vous créez un cluster basé sur Linux, vous êtes invité à saisir un nom et un mot de passe de compte d’utilisateur SSH. Ce compte est utilisé pour la connexion à distance au cluster.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Lorsque vous êtes invité à saisir le nom d’utilisateur et le mot de passe HTTP/s ou SSH, vous devez fournir un mot de passe qui répond aux critères suivants :
    >
    > * Il doit contenir au moins 10 caractères.
@@ -200,7 +200,7 @@ Si vous disposez d’un cluster existant basé sur Linux, vous pouvez ajouter la
 4. Développez la section **Configuration core-site personnalisée**, puis faites défiler jusqu’à la fin et sélectionnez le lien **Ajouter une propriété...**. Utilisez les valeurs suivantes pour les champs **Clé** et **Valeur** :
 
    * **Clé**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **Valeur**: la SAP retournée par l’application C# ou Python exécutée précédemment.
+   * **Valeur** : SAP retournée par l’application C# ou Python exécutée précédemment
 
      Remplacez **CONTAINERNAME** avec le nom du conteneur que vous avez utilisé avec l’application C# ou SAP. Remplacez **STORAGEACCOUNTNAME** avec le nom du compte de stockage que vous avez utilisé.
 
@@ -208,7 +208,7 @@ Si vous disposez d’un cluster existant basé sur Linux, vous pouvez ajouter la
 
     Cliquez sur **OK** lorsque les modifications ont été effectuées.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Vous devez redémarrer plusieurs services pour que la modification prenne effet.
 
 6. Dans l’interface utilisateur web Ambari, sélectionnez **HDFS** dans la liste sur la gauche, puis sélectionnez **Restart All Affected** (Redémarrer tous les éléments affectés) dans la liste déroulante **Actions de service** située à droite. Lorsque vous y êtes invité, sélectionnez __Confirm Restart All__ (Confirmer le redémarrage).
@@ -277,7 +277,7 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
 
 ### <a name="a-task-was-canceled"></a>Une tâche a été annulée
 
-**Symptômes**: lorsque vous créez un cluster à l’aide du script PowerShell, le message d’erreur suivant peut s’afficher :
+**Symptômes** : lorsque vous créez un cluster à l’aide du script PowerShell, le message d’erreur suivant peut s’afficher :
 
     New-AzureRmHDInsightCluster : A task was canceled.
     At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
@@ -288,7 +288,7 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
 
 **Cause** : cette erreur peut se produire si vous utilisez un mot de passe pour l’utilisateur admin/HTTP pour le cluster ou pour l’utilisateur SSH (pour les clusters basés sur Linux).
 
-**Résolution**: utilisez un mot de passe qui répond aux critères suivants :
+**Résolution** : utilisez un mot de passe qui répond aux critères suivants :
 
 * Il doit contenir au moins 10 caractères.
 * Il doit contenir au moins un chiffre.
@@ -299,8 +299,8 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
 
 Maintenant que vous avez appris comment ajouter un stockage à accès limité à votre cluster HDInsight, découvrez d’autres façons de travailler avec des données sur votre cluster :
 
-* [Utilisation de Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilisation de Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
+* [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
+* [Utilisation d’Apache Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
 * [Utilisation de MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 93d4886d5c266555a5c61a121622943f218caa48
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 59078ae86adce861f9e4ad3d02e35b12fd345e60
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045463"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077679"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copier des données de MariaDB avec Azure Data Factory 
 
@@ -30,7 +30,7 @@ Vous pouvez copier des données de MariaDB vers n’importe quel magasin de donn
 
 Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
 
-Ce connecteur prend actuellement en charge les versions de MariaDB antérieures à 10.2.
+Ce connecteur prend actuellement en charge les versions de MariaDB allant de 10.0 à 10.2.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -44,7 +44,7 @@ Les propriétés suivantes sont prises en charge pour le service lié MariaDB :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **MariaDB**. | OUI |
+| Type | La propriété type doit être définie sur : **MariaDB** | Oui |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à MariaDB. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
@@ -85,7 +85,8 @@ Pour copier des données de MariaDB, affectez la valeur **MariaDBTable** à la p
         "linkedServiceName": {
             "referenceName": "<MariaDB linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -94,14 +95,14 @@ Pour copier des données de MariaDB, affectez la valeur **MariaDBTable** à la p
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section donne la liste des propriétés prises en charge par la source MariaDB.
 
-### <a name="mariadbsource-as-source"></a>MariaDBSource comme source
+### <a name="mariadb-as-source"></a>MariaDB en tant que source
 
 Pour copier des données de MariaDB, affectez la valeur **MariaDBSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **MariaDBSource**. | OUI |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **MariaDBSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 47614abb8a2adc99b9803ebc20cccb9e59b45e4a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286442"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434856"
 ---
 # <a name="read-nsg-flow-logs"></a>Lire des journaux de flux NSG
 
@@ -32,14 +32,14 @@ Dans le scénario suivant, vous disposez d’un exemple de journal de flux stock
 
 ## <a name="setup"></a>Paramétrage
 
-Avant de commencer, la journalisation des flux de groupe de sécurité réseau doit être activée sur un ou plusieurs groupes de sécurité réseau de votre compte. Pour obtenir des instructions sur l’activation des journaux de flux de sécurité réseau, consultez l’article suivant [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md) (Introduction à la journalisation des flux pour les groupes de sécurité réseau).
+Avant de commencer, la journalisation des flux de groupe de sécurité réseau doit être activée sur un ou plusieurs groupes de sécurité réseau de votre compte. Pour obtenir des instructions sur l’activation des journaux de flux de sécurité réseau, consultez l’article suivant : [Introduction à la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
 
 ## <a name="retrieve-the-block-list"></a>Récupérer la liste de blocs
 
 La commande PowerShell suivante définit les variables nécessaires pour interroger l’objet blob des journaux de flux de groupe de sécurité réseau et répertorier les blocs dans l’objet blob de blocs [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3). Mettez à jour le script pour contenir des valeurs valides pour votre environnement.
 
 ```powershell
-function Get-NSGFlowLogBlockList {
+function Get-NSGFlowLogCloudBlockBlob {
     [CmdletBinding()]
     param (
         [string] [Parameter(Mandatory=$true)] $subscriptionId,
@@ -70,6 +70,17 @@ function Get-NSGFlowLogBlockList {
         # Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
         $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
+        #Return the Cloud Block Blob
+        $CloudBlockBlob
+    }
+}
+
+function Get-NSGFlowLogBlockList  {
+    [CmdletBinding()]
+    param (
+        [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
+    )
+    process {
         # Stores the block list in a variable from the block blob.
         $blockList = $CloudBlockBlob.DownloadBlockList()
 
@@ -77,10 +88,14 @@ function Get-NSGFlowLogBlockList {
         $blockList
     }
 }
-$blockList = Get-NSGFlowLogBlockList -subscriptionId "00000000-0000-0000-0000-000000000000" -NSGResourceGroupName "resourcegroupname" -storageAccountName "storageaccountname" -storageAccountResourceGroup "sa-rg" -macAddress "000D3AF8196E" -logTime "03/07/2018 22:00"
+
+
+$CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubcriptionId" -NSGResourceGroupName "FLOWLOGSVALIDATIONWESTCENTRALUS" -NSGName "V2VALIDATIONVM-NSG" -storageAccountName "yourStorageAccountName" -storageAccountResourceGroup "ml-rg" -macAddress "000D3AF87856" -logTime "11/11/2018 03:00" 
+
+$blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-La variable `$blockList` renvoie une liste des blocs dans l’objet blob. Chaque objet blob de blocs contient au moins deux blocs.  Le premier bloc a une longueur de `21` octets, ce bloc contient les crochets d’ouverture du journal json. L’autre bloc contient les crochets fermant avec une longueur de `9` octets.  Comme vous pouvez le constater, le journal d’exemple suivant comporte sept entrées, chacune étant une entrée individuelle. Toutes les nouvelles entrées dans le journal sont ajoutées à la fin, juste avant le dernier bloc.
+La variable `$blockList` renvoie une liste des blocs dans l’objet blob. Chaque objet blob de blocs contient au moins deux blocs.  Le premier bloc a une longueur de `12` octets, ce bloc contient les crochets d’ouverture du journal json. L’autre bloc contient les crochets fermant avec une longueur de `2` octets.  Comme vous pouvez le constater, le journal d’exemple suivant comporte sept entrées, chacune étant une entrée individuelle. Toutes les nouvelles entrées dans le journal sont ajoutées à la fin, juste avant le dernier bloc.
 
 ```
 Name                                         Length Committed
@@ -101,35 +116,45 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 Ensuite, vous avez besoin de lire la variable `$blocklist` pour récupérer les données. Dans cet exemple que nous itérons dans la liste de blocs, lisez les octets de chaque bloc et estimez-les dans un tableau. Utilisez la méthode [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) pour récupérer les données.
 
 ```powershell
-# Set the size of the byte array to the largest block
-$maxvalue = ($blocklist | measure Length -Maximum).Maximum
+function Get-NSGFlowLogReadBlock  {
+    [CmdletBinding()]
+    param (
+        [System.Array] [Parameter(Mandatory=$true)] $blockList,
+        [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
 
-# Create an array to store values in
-$valuearray = @()
+    )
+    # Set the size of the byte array to the largest block
+    $maxvalue = ($blocklist | measure Length -Maximum).Maximum
 
-# Define the starting index to track the current block being read
-$index = 0
+    # Create an array to store values in
+    $valuearray = @()
 
-# Loop through each block in the block list
-for($i=0; $i -lt $blocklist.count; $i++)
-{
+    # Define the starting index to track the current block being read
+    $index = 0
 
-# Create a byte array object to story the bytes from the block
-$downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
+    # Loop through each block in the block list
+    for($i=0; $i -lt $blocklist.count; $i++)
+    {
+        # Create a byte array object to story the bytes from the block
+        $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
-# Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
-$CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index+3,$($blockList[$i].Length-1)) | Out-Null
+        # Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
+        $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index, $($blockList[$i].Length-1)) | Out-Null
 
-# Increment the index by adding the current block length to the previous index
-$index = $index + $blockList[$i].Length
+        # Increment the index by adding the current block length to the previous index
+        $index = $index + $blockList[$i].Length
 
-# Retrieve the string from the byte array
+        # Retrieve the string from the byte array
 
-$value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
+        $value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
 
-# Add the log entry to the value array
-$valuearray += $value
+        # Add the log entry to the value array
+        $valuearray += $value
+    }
+    #Return the Array
+    $valuearray
 }
+$valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
 Maintenant le tableau `$valuearray` contient la valeur de chaîne de chaque bloc. Pour vérifier l’entrée, enregistrez le deuxième à la dernière valeur du tableau en exécutant `$valuearray[$valuearray.Length-2]`. Vous n’avez pas besoin de la dernière valeur car il s’agit du crochet fermant.
@@ -162,4 +187,4 @@ Ce scénario est un exemple montrant comment lire les entrées dans les journaux
 
 Visiter [visualiser les journaux de flux de NSG de l’Observateur réseau Azure à l’aide d’outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) pour en savoir plus sur d’autres moyens pour afficher les journaux de flux NSG.
 
-Pour en savoir plus sur les objets blob de stockage, visitez : [liaisons de stockage d’objets blob de fonction Azure](../azure-functions/functions-bindings-storage-blob.md)
+Pour en savoir plus sur les objets blob de stockage, visitez : [Liaisons de stockage Blob Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

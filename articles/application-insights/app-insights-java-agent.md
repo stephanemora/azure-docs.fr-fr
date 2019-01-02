@@ -9,16 +9,15 @@ ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 30983e283f47761d103829f02b02bc281bd785ee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a62c6cbb6594aaf7c2c57d7efee1832d7b1430b7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091930"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000726"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions interceptées et les temps d’exécution des méthodes dans les applications web Java
 
@@ -28,9 +27,9 @@ Si vous avez [instrumenté votre application web Java avec Application Insights]
 * **Dépendances :** données sur les appels passés par votre application à destination d’autres composants, dont :
   * Les **appels REST** passés via HttpClient, OkHttp et RestTemplate (Spring) sont capturés.
   * Les appels **Redis** passés via le client Jedis sont capturés.
-  * Les **[ppels JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** – commandes MySQL, SQL Server et base de données Oracle sont automatiquement capturés. Pour MySQL, si l’appel prend plus de 10 s, l’agent signale le plan de requête.
-* **Exceptions interceptées** : informations concernant les exceptions gérées par votre code.
-* **Temps d’exécution de la méthode** : données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
+  * Les **[ppels JDBC](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** – commandes MySQL, SQL Server et base de données Oracle sont automatiquement capturés. Pour MySQL, si l’appel prend plus de 10 s, l’agent signale le plan de requête.
+* **Exceptions interceptées :** informations concernant les exceptions gérées par votre code.
+* **Temps d’exécution de la méthode :** données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
 
 Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK) Java Application Insights][java]. 
 

@@ -1,5 +1,6 @@
 ---
-title: Déployer un équilibrage de charge accessible sur Internet avec IPv6 - Modèle Azure | Microsoft Docs
+title: Déployer un équilibreur de charge accessible sur Internet avec IPv6 - modèle Azure
+titlesuffix: Azure Load Balancer
 description: Comment déployer la prise en charge du protocole IPv6 pour l’équilibrage de charge et les machines virtuelles à charge équilibrée.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 14a28fb341692c309ff4f965628b38a767c56633
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2374df3a457e0f4730dcaa6d69ea3f2e0fa6e9cc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740740"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163206"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Déployer une solution d’équilibrage de charge sur Internet avec IPv6, à l’aide d’un modèle
 
@@ -122,10 +124,10 @@ L’exemple de modèle utilisé dans cet article comprend les variables et les p
 | subnetPrefix |Le préfixe d’adresse utilisé pour définir la plage d’adresses du sous-réseau. |
 | vnetName |Spécifiez le nom du réseau virtuel utilisé par les machines virtuelles. |
 | ipv4PrivateIPAddressType |La méthode d’allocation utilisé pour l’adresse IP privée (statique ou dynamique) |
-| ipv6PrivateIPAddressType |La méthode d’allocation utilisée pour l’adresse IP privée (dynamique). IPv6 prend uniquement en charge l’allocation dynamique. |
+| ipv6PrivateIPAddressType |La méthode d’allocation utilisé pour l’adresse IP privée (dynamique). IPv6 prend uniquement en charge l’allocation dynamique. |
 | numberOfInstances |Le nombre d’instances à charge équilibrée déployées par le modèle. |
 | ipv4PublicIPAddressName |Spécifiez le nom DNS que vous souhaitez utiliser pour communiquer avec l’adresse IPv4 publique de l’équilibrage de charge. |
-| ipv4PublicIPAddressType |La méthode d’allocation utilisée pour l’adresse IP publique (statique ou dynamique) |
+| ipv4PublicIPAddressType |La méthode d’allocation utilisé pour l’adresse IP publique (statique ou dynamique) |
 | Ipv6PublicIPAddressName |Spécifiez le nom DNS que vous souhaitez utiliser pour communiquer avec l’adresse IPv6 publique de l’équilibrage de charge. |
 | ipv6PublicIPAddressType |La méthode d’allocation utilisé pour l’adresse IP publique (dynamique). IPv6 prend uniquement en charge l’allocation dynamique. |
 | lbName |Spécifiez le nom de l’équilibrage de charge. Le nom est affiché dans le portail ou utilisé lors d’une référence à l’aide d’une commande CLI ou PowerShell. |

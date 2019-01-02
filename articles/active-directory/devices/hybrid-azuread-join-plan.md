@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959985"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274562"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Guide pratique pour planifier l’implémentation de la jointure Azure Active Directory hybride
 
@@ -112,7 +112,6 @@ Si votre organisation a besoin d’accéder à Internet via un proxy sortant aut
 
 La jointure Azure AD hybride est un processus qui consiste à inscrire automatiquement auprès d’Azure AD des appareils joints au domaine local. Si vous ne souhaitez pas que tous vos appareils s’inscrivent automatiquement, voir [Guide pratique pour contrôler la jointure Azure AD hybride de vos appareils](hybrid-azuread-join-control.md).
 
-
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Guide pratique pour contrôler la jointure Azure AD hybride de vos appareils
 
 La jointure Azure AD hybride est un processus qui consiste à inscrire automatiquement auprès d’Azure AD des appareils joints au domaine local. Il existe des cas où vous ne souhaitez pas que tous vos appareils s’inscrivent automatiquement. Cela est vrai, par exemple, lors du déploiement initial pour vérifier que tout fonctionne conformément à ce qui est attendu.
@@ -130,9 +129,9 @@ La jointure Azure AD hybride peut être configurée pour les scénarios suivants
 
 Si votre environnement comporte des domaines managés, la jointure Azure AD hybride prend en charge :
 
-- la synchronisation directe avec authentification unique transparente (SSO) ; 
+- Authentification directe (PTA)
 
-- La synchronisation du hachage de mot de passe avec authentification unique transparente (SSO) 
+- Synchronisation de hachage de mot de passe (PHS)
 
 Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant de configurer la jointure Azure AD hybride. Il simplifie considérablement le processus de configuration. Pour plus d'informations, consultez les pages suivantes :
 
@@ -145,7 +144,22 @@ Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant d
  Si vous n’avez pas la possibilité d’installer la version requise d’Azure AD Connect, consultez le [Guide pratique pour configurer manuellement l’inscription des appareils](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Prise en charge des ID de connexion de substitution dans une jointure hybride Azure AD
 
+Une jointure hybride Azure AD Windows 10 offre une prise en charge limitée pour les [ID de connexion de substitution](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) en fonction du type d’ID de connexion de substitution, de la [méthode d’authentification](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), du type de domaine et de la version de Windows 10. Deux types d’ID de connexion de substitution peuvent exister au sein de votre environnement.
+
+ - ID de connexion de substitution routable : Un ID de connexion de substitution routable possède un domaine valide vérifié, inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal, contoso.org et contoso.co.uk sont des domaines valides appartenant à Contoso et [vérifiés dans Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ 
+ - ID de connexion de substitution non routable : Un ID de connexion de substitution non routable ne possède pas un domaine vérifié. Il est applicable uniquement au sein du réseau privé de votre organisation. Par exemple, si contoso.com est le domaine primaire, contoso.local n’est pas un domaine vérifiable sur internet mais il est utilisé au sein du réseau de Contoso.
+ 
+Le tableau ci-dessous fournit des détails sur la prise en charge de ces ID de connexion de substitution au sein d’une jointure hybride Azure AD Windows 10
+
+|Type d’ID de connexion de substitution|Type de domaine|version Windows 10|Description|
+|-----|-----|-----|-----|
+|Routable|Adresses IP fédérées |À partir de la version 1703|Mise à la disposition générale|
+|Routable|Adresses IP gérées|À partir de la version 1709|Actuellement en préversion privée. Le SSPR Azure AD n’est pas pris en charge |
+|Non routable|Adresses IP fédérées|À partir de la version 1803|Mise à la disposition générale|
+|Non routable|Adresses IP gérées|Non pris en charge||
 
 
 

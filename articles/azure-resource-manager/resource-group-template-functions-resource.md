@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6da2f7792df564ea3a41df37ab9b00574a205e5b
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 72b0aba4d2bf9cb666d1cb7ae30d0cbdefe3045b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219543"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438405"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -290,7 +290,9 @@ Chaque type de ressource retourne des propriétés différentes pour la fonction
 
 ### <a name="remarks"></a>Remarques
 
-La fonction reference dérive sa valeur d’un état d’exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d’un modèle ou d’un [modèle lié](resource-group-linked-templates.md#link-or-nest-a-template). Elle ne peut pas être utilisée dans la section outputs d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié. 
+La fonction de référence récupère l’état d’exécution d’une ressource déployée précédemment ou déployée dans le modèle actuel. Cet article montre des exemples pour les deux scénarios. Lorsque vous référencez une ressource dans le modèle actuel, indiquez uniquement le nom de la ressource en tant que paramètre. Lorsque vous référencez une ressource précédemment déployée, fournissez l’ID de ressource et une version d’API pour cette ressource. Vous pouvez déterminer les versions d’API valides pour votre ressource dans la [référence de modèle](/azure/templates/).
+
+La fonction de référence ne peut être utilisée que dans les propriétés d’une définition de ressource et dans la section de sortie d’un modèle ou d’un déploiement.
 
 En utilisant la fonction reference, vous déclarez de manière implicite qu’une ressource dépend d’une autre ressource si la ressource référencée est configurée dans le même modèle et vous désignez cette ressource par son nom (pas par son ID). Vous n’avez pas besoin d’utiliser également la propriété dependsOn. La fonction n’est pas évaluée tant que le déploiement de la ressource référencée n’est pas terminé.
 
@@ -445,13 +447,16 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
 ```
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) suivant référence un compte de stockage qui n’est pas déployé dans ce modèle. Le compte de stockage existe déjà dans le même groupe de ressources.
+[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) suivant référence un compte de stockage qui n’est pas déployé dans ce modèle. Le compte de stockage existe déjà dans le même abonnement.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "storageResourceGroup": {
+            "type": "string"
+        },
         "storageAccountName": {
             "type": "string"
         }
@@ -459,8 +464,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
     "resources": [],
     "outputs": {
         "ExistingStorage": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
-            "type" : "object"
+            "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]",
+            "type": "object"
         }
     }
 }
@@ -469,13 +474,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageResourceGroup=<rg-for-storage> storageAccountName=<your-storage-account>
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageResourceGroup <rg-for-storage> -storageAccountName <your-storage-account>
 ```
 
 <a id="resourcegroup" />
@@ -503,6 +508,8 @@ L’objet renvoyé présente le format suivant :
 ```
 
 ### <a name="remarks"></a>Remarques
+
+La fonction `resourceGroup()` ne peut pas être utilisée dans un modèle qui est [déployé au niveau abonnement](deploy-to-subscription.md). Elle n’est utilisable que dans les modèles déployés sur un groupe de ressources.
 
 Une utilisation courante de la fonction resourceGroup consiste à créer des ressources dans le même emplacement que le groupe de ressources. L'exemple suivant utilise l'emplacement du groupe de ressources pour affecter l'emplacement d'un site web.
 
@@ -588,9 +595,9 @@ L'identificateur est retourné au format suivant :
 
 ### <a name="remarks"></a>Remarques
 
-Les valeurs de paramètre spécifiées varient selon que la ressource se trouve ou non dans le même abonnement et le même groupe de ressources que le déploiement actuel.
+Lorsqu’elle est utilisée avec un [déploiement au niveau abonnement](deploy-to-subscription.md), la fonction `resourceId()` ne peut récupérer que l’ID des ressources déployées à ce niveau. Ainsi, vous pouvez obtenir l’ID d’une définition de stratégie ou d’une définition de rôle, mais pas l’ID d’un compte de stockage. Pour les déploiements sur un groupe de ressources, l’inverse est vrai. Vous ne pouvez pas obtenir l’ID de ressource des ressources déployées au niveau abonnement.
 
-Pour obtenir l’ID de ressource d’un compte de stockage se trouvant dans le même abonnement et le même groupe de ressources, utilisez :
+Les valeurs de paramètre spécifiées varient selon que la ressource se trouve ou non dans le même abonnement et le même groupe de ressources que le déploiement actuel. Pour obtenir l’ID de ressource d’un compte de stockage se trouvant dans le même abonnement et le même groupe de ressources, utilisez :
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
@@ -612,6 +619,12 @@ Pour obtenir l’ID de ressource d’une base de données se trouvant dans un gr
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
+```
+
+Pour obtenir l’ID de ressource d’une ressource de niveau abonnement lors du déploiement dans l’étendue de l’abonnement, utilisez :
+
+```json
+"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
 ```
 
 Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de stockage ou un réseau virtuel se trouvant dans un autre groupe de ressources. L'exemple suivant montre comment une ressource d'un groupe de ressources externe peut être facilement utilisée :

@@ -5,14 +5,14 @@ author: bsiva
 manager: abhemra
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 07/19/2018
+ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: dc089e29889b12a5a6d3fcb17328cfc13fe8d0c9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e34409490f9e120cb39daf99b280cc52c59f54e2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211806"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845637"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Surveiller et résoudre les problèmes liés à Site Recovery
 
@@ -155,7 +155,7 @@ Parallèlement au tableau de bord, vous pouvez surveiller les machines à partir
 6. Cliquez sur une machine pour en afficher les détails. Les détails sont les suivants :
       - **Informations de réplication** : état et intégrité actuels de la machine.
       - **RPO** (objectif de point de récupération) : RPO actuel de la machine virtuelle et heure du dernier calcul du RPO.
-      - **Points de récupération**: derniers points de récupération disponibles pour la machine.
+      - **Point de récupération** : derniers points de récupération disponibles pour la machine.
       - **Disponibilité du basculement** : indique si un test de basculement a été exécuté pour la machine, la version de l’agent en cours d’exécution sur la machine (pour les machines exécutant le service Mobilité) et les éventuels problèmes de configuration.
       - **Erreurs** : liste des symptômes d’erreur de réplication actuellement observés sur la machine, ainsi que les causes/actions possibles.
       - **Événements** : liste chronologique des événements récents ayant un impact sur la machine. La colonne Détails de l’erreur indique les erreurs actuellement observables sur la machine, tandis que la colonne Événements est un enregistrement historique des problèmes qui ont eu un impact sur la machine.

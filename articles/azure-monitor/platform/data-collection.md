@@ -1,26 +1,25 @@
 ---
 title: Supervision des données collectées par Azure Monitor | Microsoft Docs
-description: La supervision des données collectées par Azure Monitor est divisée en plusieurs métriques légères et capables de prendre en charge des scénarios en temps quasi-réel ainsi que les journaux stockés dans Log Analytics pour une analyse avancée.
+description: La supervision des données collectées par Azure Monitor est divisée en plusieurs métriques légères et capables de prendre en charge des scénarios en temps quasi-réel ainsi que les journaux utilisés pour une analyse avancée.
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 756e1426d417c47210e3b766d9d67ef1a70d2516
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: fdf8d8977651c868c9f534dc61e3d1a77a43e672
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334141"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435944"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Supervision des données collectées par Azure Monitor
-[Azure Monitor](../../azure-monitor/overview.md) est un service qui vous permet de surveiller vos applications et les ressources dont elles dépendent. Au cœur de cette fonction se trouve le stockage de données de télémétrie et d’autres données tirées des ressources supervisées. Cet article décrit de manière exhaustive la façon dont ces données sont stockées et utilisées par Azure Monitor.
+[Azure Monitor](../overview.md) est un service qui vous permet de surveiller vos applications et les ressources dont elles dépendent. Au cœur de cette fonction se trouve le stockage de données de télémétrie et d’autres données tirées des ressources supervisées. Cet article décrit de manière exhaustive la façon dont ces données sont stockées et utilisées par Azure Monitor.
 
 Toutes les données collectées par Azure Monitor font partie d’un des deux types fondamentaux : les [métriques](#metrics) et les [journaux](#logs). Les métriques sont des valeurs numériques décrivant un aspect d’un système à un moment précis dans le temps. Elles sont légères et capables de prendre en charge des scénarios en quasi-temps réel. Les journaux contiennent différents types de données organisées en enregistrements, avec différents jeux de propriétés pour chaque type. Les données de télémétrie, comme les événements et les traces, sont stockées sous forme de journaux en plus des données de performances, afin qu’elles puissent être combinées pour analyse.
 
@@ -35,7 +34,7 @@ Les attributs spécifiques des métriques dans Azure sont les suivants :
 
 * Collectées toutes les minutes, sauf indication contraire dans la définition de la métrique.
 * Identifiées par un nom de métrique et un espace de noms qui sert de catégorie.
-* Stockées pendant 93 jours. Vous pouvez copier des métriques vers Log Analytics pour les tendances à long terme.
+* Stockées pendant 93 jours. Vous pouvez copier des métriques vers les journaux pour les tendances à long terme.
 
 Chaque valeur de métrique présente les propriétés suivantes :
 * Heure à laquelle la valeur a été collectée.
@@ -82,13 +81,13 @@ Par exemple, le nombre d’utilisateurs de votre application à un moment donné
 ### <a name="sources-of-metric-data"></a>Sources des données métriques
 Il existe trois sources fondamentales pour les métriques collectées par Azure Monitor. Toutes ces métriques sont disponibles dans le magasin de métriques où elles peuvent être évaluées ensemble, quelle que soit leur source.
 
-Les **métriques de plateforme** sont créées par des ressources Azure et vous donnent une visibilité sur leur intégrité et leurs performances. Chaque type de ressource crée un [ensemble distinct de métriques](../../monitoring-and-diagnostics/monitoring-supported-metrics.md) sans aucune configuration requise. 
+Les **métriques de plateforme** sont créées par des ressources Azure et vous donnent une visibilité sur leur intégrité et leurs performances. Chaque type de ressource crée un [ensemble distinct de métriques](../../azure-monitor/platform/metrics-supported.md) sans aucune configuration requise. 
 
 Les **métriques d’application** sont créées par Application Insights pour vos applications supervisées et vous aident à détecter les problèmes de performances et à suivre les tendances dans l’utilisation de votre application. Cela inclut des valeurs comme _Temps de réponse du serveur_ et _Exceptions du navigateur_.
 
 Les **métriques personnalisées** sont des métriques que vous définissez en plus de la métrique standard, et qui sont automatiquement disponibles. Les métriques personnalisées doivent être créées pour une ressource unique dans la même région que cette ressource. Vous pouvez créer des métriques personnalisées à l’aide des méthodes suivantes :
     - [Définition de métriques personnalisées dans votre application](../../application-insights/app-insights-api-custom-events-metrics.md) sous la supervision d’Application Insights. Ces métriques complètent l’ensemble standard de métriques d’application.
-    - Publication de métriques personnalisées à partir de vos machines virtuelles Windows à l’aide de l’[extension de diagnostics Windows](../../monitoring-and-diagnostics/azure-diagnostics.md).
+    - Publication de métriques personnalisées à partir de vos machines virtuelles Windows à l’aide de l’[extension de diagnostics Windows](../../azure-monitor/platform/diagnostics-extension-overview.md).
     - Publication de métriques personnalisées à partir de vos machines virtuelles Linux à l’aide de l’[agent InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/).
     - Écriture de métriques personnalisées à partir d’un service Azure à l’aide de l’API de métriques personnalisées.
     
@@ -97,20 +96,20 @@ Les **métriques personnalisées** sont des métriques que vous définissez en p
 ### <a name="what-can-you-do-with-metrics"></a>Que pouvez-vous faire avec les mesures ?
 Les tâches que vous pouvez effectuer avec les métriques sont les suivantes :
 
-- Utiliser [Metrics Explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) pour analyser les métriques collectées et les représenter sur un graphique. Suivre les performances d’une ressource (par exemple, machine virtuelle, site web ou application logique) en épinglant des graphiques sur un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).
-- Configurer une [règle d’alerte sur les métriques](../../monitoring-and-diagnostics/alert-metric.md) qui envoie une notification ou prend [une action de façon automatique](../../monitoring-and-diagnostics/monitoring-action-groups.md) lorsque la métrique dépasse le seuil défini.
-- Utiliser la [mise à l’échelle automatique](../../monitoring-and-diagnostics/monitoring-overview-autoscale.md) pour augmenter ou diminuer les ressources si une métrique dépasse le seuil défini.
+- Utiliser [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) pour analyser les métriques collectées et les représenter sur un graphique. Suivre les performances d’une ressource (par exemple, machine virtuelle, site web ou application logique) en épinglant des graphiques sur un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).
+- Configurer une [règle d’alerte sur les métriques](alerts-metric.md) qui envoie une notification ou prend [une action de façon automatique](action-groups.md) lorsque la métrique dépasse le seuil défini.
+- Utiliser la [mise à l’échelle automatique](../../azure-monitor/platform/autoscale-overview.md) pour augmenter ou diminuer les ressources si une métrique dépasse le seuil défini.
 - Acheminer les métriques vers Log Analytics pour analyser les données métriques avec les données de journal et pour stocker les valeurs métriques pendant plus de 93 jours. 
 - Transmettre en continu les métriques vers un [Event Hub](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) pour les acheminer vers [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) ou vers des systèmes externes.
 - [Archivez](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion.
-- Accéder à des valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) ou l’[API REST](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+- Accéder à des valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) ou l’[API REST](../../azure-monitor/platform/rest-api-walkthrough.md).
 
 
 
 ### <a name="viewing-metrics"></a>Affichage des métriques
-Les métriques dans Azure sont collectées au sein de la base de données de métriques Azure Monitor. Il s’agit d’une base de données de séries chronologiques optimisée pour une récupération rapide et stockant les valeurs métriques pendant 93 jours. Copiez les métriques vers Log Analytics pour une analyse et des tendances à long terme.
+Les métriques Azure Monitor sont stockées dans une base de données de séries chronologiques optimisée pour une récupération rapide et stockant les valeurs métriques pendant 93 jours. Copiez les métriques vers les journaux pour une analyse et des tendances à long terme.
 
-Les données métriques sont utilisées de différentes façons, comme décrit ci-dessus. Utilisez [Metrics Explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) pour analyser directement les données dans votre magasin de métriques et représenter les valeurs de plusieurs métriques au fil du temps dans un graphique. Vous pouvez afficher les graphiques de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations. Vous pouvez également extraire des métriques à l’aide de l’[API REST Azure Monitoring](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Les données métriques sont utilisées de différentes façons, comme décrit ci-dessus. Utilisez [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) pour analyser directement les données dans votre magasin de métriques et représenter les valeurs de plusieurs métriques au fil du temps dans un graphique. Vous pouvez afficher les graphiques de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations. Vous pouvez également extraire des métriques à l’aide de l’[API REST Azure Monitoring](../../azure-monitor/platform/rest-api-walkthrough.md).
 
 ![Metrics Explorer](media/data-collection/metrics-explorer.png)
 
@@ -127,26 +126,19 @@ Les journaux sont particulièrement utiles pour combiner des données provenant 
 
 
 
-### <a name="log-analytics"></a>Log Analytics
-Les journaux collectés par Azure Monitor sont stockés dans Log Analytics qui collecte les données de télémétrie et d’autres données à partir de diverses sources. Le langage de requête est riche et le moteur analytique vous donne des informations sur le fonctionnement de vos applications et de vos ressources. D’autres services Azure tels que [Azure Security Center](../../security-center/security-center-intro.md) stockent leurs données dans Log Analytics afin de fournir une plateforme de données commune pour la gestion Azure.
-
-> [!IMPORTANT]
-> Les données provenant d’Application Insights sont stockées dans Log Analytics, comme d’autres données de journal, à ceci près qu’elles sont stockées dans une partition distincte. Les mêmes fonctionnalités que les autres données Log Analytics sont prises en charge, mais vous devez utiliser la [console Application Insights](../../application-insights/app-insights-analytics.md) ou l’[API Application Insights](https://dev.applicationinsights.io/) pour accéder à ces données. Vous pouvez utiliser une [requête interressources](../../log-analytics/log-analytics-cross-workspace-search.md) pour analyser les données d’application ainsi que d’autres données de journal.
-
-
 ### <a name="sources-of-log-data"></a>Sources de données de journal
-Log Analytics peut collecter des données à partir de diverses sources au sein d’Azure et de ressources locales. Les sources de données écrites dans Log Analytics sont les suivantes :
+Azure Monitor peut collecter des données de journal à partir de diverses sources au sein d’Azure et de ressources locales. Les sources des données de journal sont les suivantes :
 
-- [Journaux d’activité](../../log-analytics/log-analytics-activity.md) provenant de ressources Azure qui incluent des informations sur leur configuration et leur intégrité et [journaux de diagnostic](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) qui fournissent des informations sur leur fonctionnement.
-- Agents sur les machines virtuelles [Windows](../../log-analytics/log-analytics-windows-agent.md) et [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) qui envoient les données de télémétrie du système d’exploitation invité et des applications à Log Analytics en fonction des [sources de données](../../azure-monitor/platform/agent-data-sources.md) que vous configurez.
+- [Journaux d’activité](collect-activity-logs.md) provenant de ressources Azure qui incluent des informations sur leur configuration et leur intégrité et [journaux de diagnostic](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) qui fournissent des informations sur leur fonctionnement.
+- Agents sur les machines virtuelles [Windows](agent-windows.md) et [Linux](../learn/quick-collect-linux-computer.md) qui envoient les données de télémétrie du système d’exploitation invité et des applications à Azure Monitor en fonction des [sources de données](data-sources.md) que vous configurez.
 - Données d’application collectées par [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Données fournissant des informations sur une application ou un service spécifique à partir de [solutions de supervision](../insights/solutions.md) ou de fonctionnalités telles que Container Insights, VM Insights ou Resource Group Insights.
 - Données de sécurité collectées par [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
 - [Métriques](#metrics) provenant de ressources Azure. Cela vous permet de stocker des métriques pendant plus de 93 jours et de les analyser avec d’autres données de journal.
-- Données de télémétrie écrites dans [Stockage Azure](../../log-analytics/log-analytics-azure-storage-iis-table.md).
-- Données personnalisées provenant de n’importe quel client API REST à l’aide du client d’[API Collecte de données HTTP](../../log-analytics/log-analytics-data-collector-api.md) ou d’un flux de travail d’[application logique Azure](https://docs.microsoft.com/azure/logic-apps/).
+- Données de télémétrie écrites dans [Stockage Azure](azure-storage-iis-table.md).
+- Données personnalisées provenant de n’importe quel client API REST à l’aide du client d’[API Collecte de données HTTP](data-collector-api.md) ou d’un flux de travail d’[application logique Azure](https://docs.microsoft.com/azure/logic-apps/).
 
-![Composants de Log Analytics](media/data-collection/logs-overview.png)
+![Vue d’ensemble des journaux](media/data-collection/logs-overview.png)
 
 
 
@@ -154,28 +146,32 @@ Log Analytics peut collecter des données à partir de diverses sources au sein 
 ### <a name="what-can-you-do-with-logs"></a>Que pouvez-vous faire avec les journaux ?
 Les tâches réalisables avec les journaux sont les suivantes :
 
-- Utiliser la [page Log Analytics](../../log-analytics/query-language/get-started-analytics-portal.md) du portail Azure pour écrire des requêtes d’analyse des données de journal.  Épingler les résultats affichés sous forme de tableaux ou de graphiques dans un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).
-- Configurer une [règle d’alerte de journal](../../monitoring-and-diagnostics/alert-log.md) qui envoie une notification ou prend une [action de façon automatique](../../monitoring-and-diagnostics/monitoring-action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique.
-- Générer un flux de travail en fonction des données dans Log Analytics à l’aide de [Logic Apps](~/articles/logic-apps/index.yml).
-- Exporter les résultats d’une requête vers [Power BI](../../log-analytics/log-analytics-powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs extérieurs à Azure.
+- Utiliser [Log Analytics](../log-query/get-started-portal.md) dans le Portail Azure pour écrire des requêtes d’analyse des données de journal.  Épingler les résultats affichés sous forme de tableaux ou de graphiques dans un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).
+- Configurer une [règle d’alerte de journal](alerts-log.md) qui envoie une notification ou prend une [action de façon automatique](action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique.
+- Générer un flux de travail en fonction des données de journal à l’aide de [Logic Apps](~/articles/logic-apps/index.yml).
+- Exporter les résultats d’une requête vers [Power BI](powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs extérieurs à Azure.
 - Accéder à des valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) ou l’[API REST](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Affichage des données de journal
-Toutes les données provenant de Log Analytics sont récupérées au moyen d’une [requête de journal](../../log-analytics/log-analytics-queries.md) qui spécifie un jeu de données particulier. Les requêtes sont écrites à l’aide du [langage de requête Log Analytics](../../log-analytics/query-language/get-started-queries.md) qui est un langage riche permettant de récupérer, consolider et analyser rapidement les données collectées. Utilisez la [page Log Analytics](../../log-analytics/log-analytics-log-search-portals.md) du portail Azure pour analyser directement les données dans votre magasin de métriques et représenter les valeurs de plusieurs métriques au fil du temps dans un graphique. Vous pouvez afficher les graphiques de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations. Vous pouvez également extraire des métriques à l’aide de l’[API REST Azure Monitoring](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Toutes les données de journal dans Azure Monitor sont récupérées en utilisant une [requête de journal](../log-query/log-query-overview.md) écrite dans le [langage de requête Data Explorer](../log-query/get-started-queries.md), qui vous permet de rapidement récupérer, consolider et analyser les données collectées. Utilisez [Log Analytics](../log-query/portals.md) pour écrire et tester des requêtes dans le Portail Azure. Vous pouvez afficher les résultats de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations. Vous pouvez également récupérer les journaux à l’aide de l’[API REST Azure Monitoring](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+
+> [!IMPORTANT]
+> Les données Application Insights sont stockées dans une partition autre que les données de journal dans Azure Monitor. Les mêmes fonctionnalités que les autres données de journal sont prises en charge, mais vous devez utiliser la [console Application Insights](/application-insights/app-insights-analytics.md) ou l’[API Application Insights](https://dev.applicationinsights.io/) pour accéder à ces données. Vous pouvez utiliser une [requête interressources](../log-query/cross-workspace-query.md) pour analyser les données d’application ainsi que d’autres données de journal.
 
 ![Journaux](media/data-collection/logs.png)
+
 
 ## <a name="convert-monitoring-data"></a>Convertir les données de supervision
 
 ### <a name="metrics-to-logs"></a>Des métriques aux journaux
-Vous pouvez copier les métriques dans Log Analytics pour effectuer une analyse complexe avec d’autres types de données au moyen d’un langage de requête riche. Vous pouvez également conserver des données de journal sur des périodes plus longues que pour les métriques, ce qui vous permet d’analyser une tendance au fil du temps. Lorsque des métriques ou d’autres données de performances sont stockées dans Log Analytics, elles font office de journal. Utilisez des métriques pour prendre en charge l’analyse et la génération d’alertes en quasi temps réel lorsque vous utilisez des journaux à des fins d’analyse et de suivi de tendances avec d’autres données.
+Vous pouvez copier les métriques dans les journaux pour effectuer une analyse complexe avec d’autres types de données au moyen du langage de requête riche d’Azure Monitor. Vous pouvez également conserver des données de journal sur des périodes plus longues que pour les métriques, ce qui vous permet d’analyser une tendance au fil du temps. Utilisez des métriques pour prendre en charge l’analyse et la génération d’alertes en quasi temps réel lorsque vous utilisez des journaux à des fins d’analyse et de suivi de tendances avec d’autres données.
 
-Pour trouver des conseils concernant la collecte de métriques à partir de ressources Azure, voir [Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics](../../log-analytics/log-analytics-azure-storage.md). Pour obtenir des conseils concernant la collecte de métriques de ressources Azure PaaS, voir [Configurer la collecte de métriques de ressources Azure PaaS avec Log Analytics](../../log-analytics/log-analytics-collect-azurepass-posh.md).
+Pour trouver des conseils concernant la collecte de métriques à partir de ressources Azure, voir [Collecte des journaux et des métriques des services Azure à utiliser dans Azure Monitor](collect-azure-metrics-logs.md). Pour obtenir des conseils concernant la collecte de métriques de ressources Azure PaaS, voir [Configurer la collecte de métriques de ressources Azure PaaS avec Azure Monitor](collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Des journaux aux métriques
-Comme décrit précédemment, les métriques sont plus réactives que les journaux, ce qui vous permet de créer des alertes avec une latence faible et à moindre coût. Log Analytics collecte une quantité significative de données numériques qui seraient appropriées pour des métriques, mais qui ne sont pas stockées dans la base de données de métriques Azure.  Un exemple courant est celui des données de performances collectées auprès d’agents et de solutions de gestion. Certaines de ces valeurs peuvent être copiées dans la base de données de métriques où elles sont disponibles pour la génération d’alertes et pour l’analyse avec Metrics Explorer.
+Comme décrit précédemment, les métriques sont plus réactives que les journaux, ce qui vous permet de créer des alertes avec une latence faible et à moindre coût. Une quantité significative de données numériques est stockée sous forme de journaux qui seraient appropriés pour des métriques, mais ces données ne sont pas stockées dans Azure Monitor sous forme de métriques.  Un exemple courant est celui des données de performances collectées auprès d’agents et de solutions de gestion. Certaines de ces valeurs peuvent être copiées dans les métriques où elles sont disponibles pour la génération d’alertes et pour l’analyse avec Metrics Explorer.
 
-Pour une explication de cette fonctionnalité, voir [Créer des alertes de métrique de journaux dans Azure Monitor](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). La liste des valeurs prises en charge est disponible dans le document [Métriques prises en charge avec Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
+Pour une explication de cette fonctionnalité, voir [Créer des alertes de métrique de journaux dans Azure Monitor](../../azure-monitor/platform/alerts-metric-logs.md). La liste des valeurs prises en charge est disponible dans le document [Métriques prises en charge avec Azure Monitor](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Transmettre des données en continu vers les systèmes externes
 En plus d’utiliser les outils dans Azure pour analyser les données de supervision, vous aurez peut-être besoin de transférer ces données vers un outil externe, comme un produit SIEM (Security Information and Event Management). Ce transfert est le plus souvent effectué directement à partir des ressources supervisées au travers d’[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

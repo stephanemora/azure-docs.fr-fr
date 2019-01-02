@@ -1,5 +1,5 @@
 ---
-title: Maintenance prédictive dans l’industrie aérospatiale avec Azure - Guide technique de la solution Cortana Intelligence | Microsoft Docs
+title: Guide de maintenance prédictive pour l’industrie aérospatiale - Team Data Science Process
 description: Guide technique d’utilisation du modèle de solution avec Microsoft Cortana Intelligence pour la maintenance prédictive dans les secteurs de l’aérospatial, des services publics et du transport.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443744"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140181"
 ---
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
+# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale
 
 >[!Important]
 Cet article est obsolète. La présentation sur la maintenance prédictive dans l’industrie aérospatiale est toujours appropriée mais, pour plus d’informations, reportez-vous à [Vue d’ensemble de la solution destinée aux entreprises](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
@@ -143,7 +143,7 @@ Ce [pipeline](../../data-factory/concepts-pipelines-activities.md) contient une 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 L’expérience [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) utilisée pour ce modèle de solution permet de prédire la durée de vie restante (RUL) d’un moteur d’avion. L’expérimentation est spécifique au jeu de données consommé et doit être modifiée ou remplacée compte tenu des données importées.
 
-Pour plus d’informations sur la création de l’expérience Azure Machine Learning, consultez la page [Maintenance prédictive : étape 1 sur 3, préparation des données et ingénierie des caractéristiques](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)(en anglais).
+Pour plus d’informations sur la création de l’expérience Azure Machine Learning, consultez [Predictive Maintenance: Step 1 of 3, data preparation and feature engineering](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>Surveiller la progression
 Une fois le Générateur de données lancé, le pipeline commence à manquer de ressources et les différents composants de votre solution entrent en action selon les commandes émises par la fabrique de données. Il existe deux méthodes de surveillance du pipeline.
@@ -162,7 +162,7 @@ Configurez un tableau de bord Power BI afin de visualiser vos données Azure Str
 ### <a name="set-up-the-cold-path-dashboard"></a>Configurer le tableau de bord de séquence à froid
 Dans le pipeline des données de séquence à froid, l’objectif consiste à obtenir la durée de vie restante prévisionnelle de chaque moteur d’avion au terme d’un vol (cycle). Le résultat de la prédiction est mis à jour toutes les 3 heures pour prédire la durée de vie restante des moteurs d’avion qui ont terminé un vol au cours des 3 dernières heures.
 
-Power BI se connecte à une base de données SQL Azure en tant que source de données où sont stockés les résultats de la prédiction. Remarque : 1) Au moment de déployer votre solution, une prédiction apparaît dans la base de données dans un délai de 3 heures.
+Power BI se connecte à une base de données SQL Azure en tant que source de données où sont stockés les résultats de la prédiction. Remarque : 1) Après le déploiement de votre solution, une prédiction apparaît dans la base de données dans un délai de 3 heures.
 Le fichier pbix fourni avec le téléchargement de Generator contient certaines données d’amorçage afin que vous puissiez créer immédiatement le tableau de bord Power BI. 2) Dans cette étape, la condition préalable consiste à télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
 Au cours des étapes suivantes, nous allons vous expliquer comment connecter le fichier pbix à la base de données SQL qui a été lancée au moment du déploiement de la solution et qui contient des données (par exemple, des résultats de prédiction) pour la visualisation.
@@ -197,7 +197,7 @@ Au cours des étapes suivantes, nous allons vous expliquer comment connecter le 
      <br/>
    * Pour planifier l’actualisation des données, pointez votre souris sur le jeu de données **PredictiveMaintenanceAerospace**, cliquez sur ![l’icône de points de suspension](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png), puis sur **Planifier l’actualisation**.
      <br/>
-     **Remarque :** si vous voyez un message d’avertissement, cliquez sur **Modifier les informations d’identification** et assurez-vous que vos informations d’identification de base de données sont les mêmes que celles décrites à l’étape 1.
+     **Remarque :** Si vous voyez un message d’avertissement, cliquez sur **Modifier les informations d’identification** et vérifiez que vos informations d’identification de base de données sont les mêmes que celles décrites à l’étape 1.
      <br/>
      ![Planifier l’actualisation](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
@@ -210,7 +210,7 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 
 1. Ajouter une sortie Power BI dans Azure Stream Analytics (ASA).
    
-   * Pour configurer la sortie de votre travail Azure Stream Analytics en tant que tableau de bord Power BI, vous devez suivre les instructions contenues dans [Azure Stream Analytics et Power BI : tableau de bord d’analyse permettant de visualiser en temps réel les données de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md).
+   * Vous devez suivre les instructions qui sont dans [Azure Stream Analytics et Power BI : tableau de bord d’analytique permettant de visualiser en temps réel les données de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) pour configurer la sortie de votre travail Azure Stream Analytics en tant que tableau de bord Power BI.
    * La requête ASA possède trois sorties, à savoir **aircraftmonitor**, **aircraftalert** et **flightsbyhour**. Vous pouvez afficher la requête en cliquant sur l’onglet Requête. Pour chacune de ces tables, vous devez ajouter une sortie vers ASA. Quand vous ajoutez la première sortie (**aircraftmonitor**) vérifiez que les paramètres **Alias de sortie**, **Nom du jeu de données** et **Nom de la table** sont identiques (**aircraftmonitor**). Répétez les étapes pour ajouter des sorties pour **aircraftalert** et **flightsbyhour**. Une fois que vous avez ajouté les trois tables de sortie et démarré le travail ASA, vous devriez obtenir un message de confirmation (« La tâche Stream Analytics maintenancesa02asapbi a bien démarré »).
 2. Se connecter à [Power BI en ligne](http://www.powerbi.com)
    
@@ -218,7 +218,7 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
    * Assurez-vous que le volet ***Visualisations*** est ouvert et qu’il s’affiche à droite de l’écran.
 3. Une fois que les données affluent dans Power BI, vous pouvez commencer à visualiser les données de diffusion. Le tableau ci-dessous est un exemple de tableau de bord sur lequel sont épinglées des visualisations de chemin à chaud. Vous pouvez créer d’autres vignettes de tableau de bord en fonction des jeux de données appropriés. Selon la durée pendant laquelle vous exécutez votre générateur de données, les numéros des visualisations peuvent être différents.
 
-    ![Vue du tableau de bord](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Vue du tableau de bord](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Voici comment vous pouvez créer l’une des vignettes ci-dessus : - « Fleet View of Sensor 11 vs. Threshold 48.26 » :
    

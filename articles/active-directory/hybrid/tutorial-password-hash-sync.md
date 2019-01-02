@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégrer une forêt AD unique avec la synchronisation de hachage de mot de passe (PHS, password hash sync) | Microsoft Docs'
+title: 'Tutoriel :  Intégrer une forêt AD unique à Azure avec la synchronisation de hachage de mot de passe (PHS) | Microsoft Docs'
 description: Montre comment configurer un environnement d’identité hybride à l’aide de la synchronisation de hachage de mot de passe.
 services: active-directory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e8a39e16bd67169aac8dd7328338197b604e93f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426908"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164692"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Intégrer une forêt AD unique avec la synchronisation de hachage de mot de passe (PHS, password hash sync)
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutoriel :  Intégrer une forêt AD unique avec la synchronisation du hachage de mot de passe (PHS)
 
 ![Créer](media/tutorial-password-hash-sync/diagram.png)
 
@@ -38,7 +38,7 @@ Voici les conditions préalables requises pour suivre ce didacticiel.
 >
 >Les scripts utilisés créent un environnement Active Directory général avant d’installer Azure AD Connect.  Elles sont pertinentes pour l’ensemble des didacticiels.
 >
-> Des copies des scripts PowerShell utilisés dans ce didacticiel sont disponibles sur Github, [ici](https://github.com/billmath/tutorial-phs).
+> Des copies des scripts PowerShell utilisés dans ce tutoriel sont disponibles sur GitHub, [ici](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 Tout d’abord, pour obtenir un environnement d’identité hybride fonctionnel, il faut créer une machine virtuelle qui sera utilisée en tant que serveur Active Directory local.  Effectuez les actions suivantes :
@@ -81,7 +81,7 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 5. Cliquez sur **Installer maintenant**.
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
 7. Acceptez les termes du contrat de licence et cliquez sur **Suivant**.
-8. Sélectionnez **Personnalisé : installer Windows uniquement (avancé)**.
+8. Sélectionnez **Personnalisé :  installer Windows uniquement (avancé)**.
 9. Cliquez sur **Suivant**
 10. Une fois l’installation terminée, redémarrez la machine virtuelle, connectez-vous et exécutez les mises à jour Windows pour vous assurer que la machine virtuelle est à jour.  Installez les dernières mises à jour.
 

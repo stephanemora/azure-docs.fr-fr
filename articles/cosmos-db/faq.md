@@ -1,25 +1,22 @@
 ---
-title: Forum Aux Questions Azure Cosmos DB | Microsoft Docs
-description: Obtenez des réponses aux questions fréquemment posées sur Azure Cosmos DB, un service de base de données multimodèle distribué à l’échelle mondiale. Découvrez la capacité, les niveaux de performances et la mise à l’échelle.
+title: Questions fréquentes sur les différentes API dans Azure Cosmos DB
+description: Obtenez des réponses aux questions fréquemment posées sur Azure Cosmos DB, un service de base de données multimodèle distribué globalement. Découvrez la capacité, les niveaux de performances et la mise à l’échelle.
 keywords: Questions sur la base de données, Forum aux questions, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 50d606486a6d80f00424685494eae28a95fe361a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 70feaae718bc6ff8e3f956f0fbc6aa395ba27061
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164708"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410395"
 ---
-# <a name="azure-cosmos-db-faq"></a>FAQ Azure Cosmos DB
-
-## <a name="azure-cosmos-db-fundamentals"></a>Notions fondamentales concernant Cosmos DB Azure
+# <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 
 ### <a name="what-happened-to-the-documentdb-api"></a>Qu’est devenue l’API DocumentDB ?
 
@@ -80,7 +77,7 @@ Vous pouvez également utiliser l’[émulateur Azure Cosmos DB](local-emulator.
 Pour poser une question technique, connectez-vous à l’un de ces forums de questions-réponses :
 
 * [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Consultez Stack Overflow pour les questions sur la programmation. Par souci de clarté et afin d’obtenir une réponse, vérifiez que votre question est [appropriée](https://stackoverflow.com/help/on-topic) et [ fournit un maximum de détails](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Consultez Stack Overflow pour les questions sur la programmation. Par souci de clarté et afin d’obtenir une réponse, vérifiez que votre question est [appropriée](https://stackoverflow.com/help/on-topic) et [ fournit un maximum de détails](https://stackoverflow.com/help/how-to-ask).
 
 Pour demander de nouvelles fonctionnalités, faites une nouvelle demande sur [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
@@ -99,7 +96,7 @@ Les souscriptions à l’offre Essayez gratuitement Azure Cosmos DB obéissent 
 * Un seul conteneur par abonnement pour les comptes SQL, API Gremlin et Table.
 * Jusqu’à trois collections par abonnement pour les comptes MongoDB.
 * 10 Go de capacité de stockage.
-* La réplication globale est disponible dans les [régions Azure](https://azure.microsoft.com/regions/) suivantes : USA Centre, Europe Nord et Asie Sud-Est.
+* La réplication globale est disponible dans les [régions Azure](https://azure.microsoft.com/regions/) suivantes : USA Centre, Europe Nord et Asie Sud-Est
 * Débit maximal de 5 000 RU/s.
 * Les souscriptions expirent dans un délai de 24 heures et peuvent être prolongées pour une durée totale maximale de 48 heures.
 * Il n’est pas possible de créer des tickets de support Azure pour les comptes d’évaluation d’Azure Cosmos DB ; cependant, les abonnés titulaires de plans de support actifs peuvent bénéficier du support.
@@ -128,10 +125,6 @@ Lorsque vous définissez une région, n’oubliez pas qu’Azure Cosmos DB respe
 
 Le provisionnement de débit au niveau du conteneur et de la base de données constituent des offres distinctes, et tout changement de l’un vers l’autre nécessite la migration de données de la source vers la destination. Cela signifie donc que vous devez créer une base de données ou une collection, puis migrer les données avec la [bibliothèque de l’exécuteur en bloc](bulk-executor-overview.md) ou [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
-### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>Comment créer une collection fixe avec une clé de partition
-
-Actuellement, vous pouvez créer une collection avec un débit de clé de partition à l’aide de la méthode [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) du kit SDK .Net ou avec [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). La création d’une collection fixe à l’aide du portail Azure n’est pas prise en charge pour l’instant.
-
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB prend-il en charge l’analyse des séries chronologiques ?
 
 Oui, Azure CosmosDB prend en charge l’analyse des séries chronologiques. Voici un exemple de [modèle de série chronologique](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). Cet exemple montre comment utiliser des flux de modification pour créer des affichages agrégés sur les données de série chronologique. Vous pouvez étendre cette approche à l’aide de Spark Streaming ou d’un autre processeur de données de flux.
@@ -154,7 +147,7 @@ Oui, l’API SQL permet aux applications de stocker des documents JSON arbitrair
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>L’API SQL prend-elle en charge les transactions ACID ?
 
-Oui, l’API SQL prend en charge les transactions entre documents exprimées sous forme de procédures stockées et de déclencheurs JavaScript. Les transactions sont étendues à une seule partition au sein de chaque conteneur, et exécutées en mode « Tout ou rien » avec des sémantiques ACID, isolément d’autres codes et requêtes utilisateur s’exécutant simultanément. Si des exceptions surviennent lors de l’exécution du code d’application JavaScript côté serveur, la transaction entière est annulée. Pour plus d’informations sur les transactions, consultez [Transactions de programme de base de données](programming.md#database-program-transactions).
+Oui, l’API SQL prend en charge les transactions entre documents exprimées sous forme de procédures stockées et de déclencheurs JavaScript. Les transactions sont étendues à une seule partition au sein de chaque conteneur, et exécutées en mode « Tout ou rien » avec des sémantiques ACID, isolément d’autres codes et requêtes utilisateur s’exécutant simultanément. Si des exceptions surviennent lors de l’exécution du code d’application JavaScript côté serveur, la transaction entière est annulée. 
 
 ### <a name="what-is-a-container"></a>Qu’est-ce qu’un conteneur ?
 
@@ -241,7 +234,7 @@ En plus des codes d’erreur MongoDB habituels, l’API MongoDB a ses propres co
 | Error               | Code  | Description  | Solution  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Le nombre total d’unités de requête consommées est supérieur au taux d’unités de requête provisionné pour la collection et a été limité. | Adaptez le débit assigné à un conteneur ou à un ensemble de conteneurs à partir du portail Azure ou renouvelez l’opération. |
-| ExceededMemoryLimit | 16501 | En tant que service multi-locataire, l’opération a dépassé l’allocation de mémoire du client. | Réduisez l’étendue de l’opération en fixant un critère de requête plus restrictif, ou contactez le support technique via le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Exemple : &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection(’users’).aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | En tant que service multi-locataire, l’opération a dépassé l’allocation de mémoire du client. | Réduisez l’étendue de l’opération en fixant un critère de requête plus restrictif, ou contactez le support technique via le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exemple : *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>Est-ce que le pilote Simba pour MongoDB est pris en charge pour une utilisation avec l’API MongoDB d’Azure CosmosDB ?
 
@@ -265,7 +258,7 @@ Si vous avez déjà créé des tables dans le stockage Table Azure et que vous s
 
 * L’API Table d’Azure Cosmos DB utilise un modèle de capacité réservée pour garantir les performances. Que vous l’utilisez ou non, la capacité vous est donc facturée dès que la table est créée. Dans le cadre du stockage Table Azure, vous payez uniquement la capacité utilisée. Cela explique pourquoi l’API Table peut offrir un contrat de niveau de service (SLA) de 10 ms en lecture et de 15 ms en écriture au 99e centile, alors que le stockage Table Azure offre un SLA de 10 s. Même les tables vides sans requêtes de l’API Table engendrent donc des coûts pour assurer la disponibilité de la capacité et le traitement de toutes les requêtes selon les termes du SLA offert par Azure Cosmos DB.
 * Les résultats des requêtes retournés par l’API Table ne sont pas triés dans l’ordre des clés de ligne/partition, alors qu’ils le sont dans le stockage Table Azure.
-* Les clés de ligne ne peuvent pas dépasser 255 octets
+* Les clés de ligne ne peuvent pas dépasser 255 octets.
 * Les lots ne peuvent contenir que jusqu’à 2 Mo
 * CORS n’est pas pris en charge actuellement
 * Les noms des tables ne respectent pas la casse dans le stockage Table Azure, alors qu’ils la respectent dans l’API Table d’Azure Cosmos DB
@@ -306,7 +299,7 @@ Vous pouvez partager vos commentaires par les biais suivants :
 
 * [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Consultez Stack Overflow pour les questions sur la programmation. Par souci de clarté et afin d’obtenir une réponse, vérifiez que votre question est [appropriée](https://stackoverflow.com/help/on-topic) et [ fournit un maximum de détails](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Consultez Stack Overflow pour les questions sur la programmation. Par souci de clarté et afin d’obtenir une réponse, vérifiez que votre question est [appropriée](https://stackoverflow.com/help/on-topic) et [ fournit un maximum de détails](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Quelle chaîne de connexion faut-il utiliser pour se connecter à l’API Table ?
 
@@ -402,11 +395,11 @@ Oui, pour plus d’informations sur la façon de tirer parti de la nature distri
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>Une fois la distribution globale activée, combien de temps faut-il pour répliquer les données ?
 
-Azure Cosmos DB valide les données durablement dans la région locale, et envoie les données vers les autres régions immédiatement, en quelques millisecondes. Cette réplication dépend uniquement de la durée des boucles (RTT) du centre de données. Pour en savoir plus sur la fonctionnalité de distribution globale d’Azure Cosmos DB, voir [Azure Cosmos DB : un service de base de données distribué globalement sur Azure](distribute-data-globally.md).
+Azure Cosmos DB valide les données durablement dans la région locale, et envoie les données vers les autres régions immédiatement, en quelques millisecondes. Cette réplication dépend uniquement de la durée des boucles (RTT) du centre de données. Pour en savoir plus sur la fonctionnalité de distribution globale d’Azure Cosmos DB, voir [Azure Cosmos DB : Un service de base de données mondialement distribué sur Azure](distribute-data-globally.md).
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>Est-il possible de modifier le niveau cohérence des demandes de lecture ?
 
-Azure Cosmos DB permet de définir le niveau de cohérence au niveau du conteneur (sur la table). Le kit SDK .NET vous permet de changer le niveau en fournissant la valeur de la clé TableConsistencyLevel dans le fichier app.config. Les valeurs possibles sont : Forte, Obsolescence limitée, Session, Préfixe cohérent et Éventuelle. Pour plus d’informations, voir [Niveaux de cohérence ajustables dans Azure Cosmos DB](consistency-levels.md). L’idée clé est que vous ne pouvez pas définir un niveau de cohérence de requête HTTP supérieur à celui défini pour la table. Par exemple, vous ne pouvez pas définir le niveau de cohérence pour la table sur Éventuelle et le niveau de cohérence de requête sur Forte.
+Azure Cosmos DB permet de définir le niveau de cohérence au niveau du conteneur (sur la table). Le kit SDK .NET vous permet de changer le niveau en fournissant la valeur de la clé TableConsistencyLevel dans le fichier app.config. Les valeurs possibles sont les suivantes : Forte, Obsolescence limitée, Session, Préfixe cohérent et Éventuelle. Pour plus d’informations, voir [Niveaux de cohérence ajustables dans Azure Cosmos DB](consistency-levels.md). L’idée clé est que vous ne pouvez pas définir un niveau de cohérence de requête HTTP supérieur à celui défini pour la table. Par exemple, vous ne pouvez pas définir le niveau de cohérence pour la table sur Éventuelle et le niveau de cohérence de requête sur Forte.
 
 ### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>Comment l’API Table gère-t-elle le basculement en cas de défaillance d’une région ?
 
@@ -420,11 +413,11 @@ Oui, l’API Table tire parti de la plateforme d’Azure Cosmos DB pour les sauv
 
 ### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>L’API Table indexe-t-elle par défaut tous les attributs d’une entité ?
 
-Oui, tous les attributs d’une entité sont indexés par défaut. Pour plus d’informations, voir [Comment Azure Cosmos DB indexe-t-il les données ?](index-policy.md).
+Oui, tous les attributs d’une entité sont indexés par défaut. Pour plus d’informations, voir [Azure Cosmos DB : Stratégies d’indexation](index-policy.md).
 
 ### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>Cela signifie-t-il que je n’ai pas besoin de créer plusieurs index pour satisfaire les requêtes ?
 
-Oui, l’API Table d’Azure Cosmos DB assure l’indexation automatique de tous les attributs sans aucune définition de schéma. Cette automatisation permet aux développeurs de se concentrer sur l’application plutôt que sur la création et la gestion d’index. Pour plus d’informations, voir [Comment Azure Cosmos DB indexe-t-il les données ?](index-policy.md).
+Oui, l’API Table d’Azure Cosmos DB assure l’indexation automatique de tous les attributs sans aucune définition de schéma. Cette automatisation permet aux développeurs de se concentrer sur l’application plutôt que sur la création et la gestion d’index. Pour plus d’informations, voir [Azure Cosmos DB : Stratégies d’indexation](index-policy.md).
 
 ### <a name="can-i-change-the-indexing-policy"></a>Puis-je modifier la stratégie d’indexation ?
 
@@ -527,7 +520,7 @@ Azure Cosmos DB est un système basé sur un contrat de niveau de service (SLA) 
 
 ### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>Pour le développement en C#/.NET, dois-je utiliser le package Microsoft.Azure.Graphs ou Gremlin.NET ?
 
-L’API Gremlin d’Azure Cosmos DB se sert des pilotes open source comme connecteurs principaux pour le service. Nous recommandons alors d’utiliser les [pilotes qui sont pris en charge par Apache Tinkerpop](http://tinkerpop.apache.org/).
+L’API Gremlin d’Azure Cosmos DB se sert des pilotes open source comme connecteurs principaux pour le service. Nous recommandons alors d’utiliser les [pilotes qui sont pris en charge par Apache Tinkerpop](https://tinkerpop.apache.org/).
 
 ### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Comment les RU/s sont-elles facturées lors de l’exécution des requêtes sur une base de données de graphique ?
 
@@ -541,15 +534,15 @@ Azure Cosmos DB utilise le [partitionnement horizontal](partition-data.md) pour 
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Comment puis-je me protéger contre les attaques par injection à l’aide de pilotes Gremlin ?
 
-La majorité des pilotes Tinkerpop Gremlin natifs offrent la possibilité de fournir un dictionnaire de paramètres pour l’exécution des requêtes. Voici un exemple montrant comment le faire sous [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) et [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+La majorité des pilotes Tinkerpop Gremlin natifs offrent la possibilité de fournir un dictionnaire de paramètres pour l’exécution des requêtes. Voici un exemple montrant comment le faire sous [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) et [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
-### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Pourquoi reçois-je le message d’erreur « Erreur de compilation de requête Gremlin : Impossible de trouver une méthode » ?
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Pourquoi est-ce que je reçois le message d’erreur « Erreur de compilation de la requête Gremlin : Impossible de trouver une méthode » ?
 
 L’API Gremlin d’Azure Cosmos DB implémente un sous-ensemble des fonctionnalités définies dans la surface d’exposition de Gremlin. Pour voir les étapes prises en charge ou pour plus d’informations, consultez l’article [Prise en charge de Gremlin](gremlin-support.md).
 
 La meilleure solution de contournement consiste à récrire les étapes Gremlin nécessaires avec la fonctionnalité prise en charge puisque toutes les étapes Gremlin essentielles sont prises en charge par Azure Cosmos DB.
 
-### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Pourquoi reçois-je le message d’erreur «WebSocketException : Le serveur renvoie le code d’état "200" à la place du code d’état "101" attendu » ?
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Pourquoi est-ce que je reçois le message d’erreur « WebSocketException : Le serveur a retourné le code d’état "200" alors que le code d’état attendu était "101" » ?
 
 Cette erreur survient probablement lorsqu’un point de terminaison incorrect est utilisé. Le point de terminaison qui génère cette erreur a le modèle suivant :
 
@@ -784,11 +777,11 @@ Vous pouvez ajouter autant de régions que vous le souhaitez pour le compte, et 
 
 ### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>L’API Apache Cassandra indexe-t-elle par défaut tous les attributs d’une entité ?
 
-Oui, tous les attributs d’une entité sont indexés par défaut par Azure Cosmos DB. Pour plus d’informations, voir [Comment Azure Cosmos DB indexe-t-il les données ?](index-policy.md). Vous bénéficiez de performances garanties avec une indexation cohérente et des écritures durables toujours validées dans un quorum.
+Oui, tous les attributs d’une entité sont indexés par défaut par Azure Cosmos DB. Pour plus d’informations, voir [Azure Cosmos DB : Stratégies d’indexation](index-policy.md). Vous bénéficiez de performances garanties avec une indexation cohérente et des écritures durables toujours validées dans un quorum.
 
 ### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>Cela signifie-t-il que je n’ai pas besoin de créer plusieurs index pour satisfaire les requêtes ?
 
-Oui, Azure Cosmos DB assure l’indexation automatique de tous les attributs sans aucune définition de schéma. Cette automatisation permet aux développeurs de se concentrer sur l’application plutôt que sur la création et la gestion d’index. Pour plus d’informations, voir [Comment Azure Cosmos DB indexe-t-il les données ?](index-policy.md).
+Oui, Azure Cosmos DB assure l’indexation automatique de tous les attributs sans aucune définition de schéma. Cette automatisation permet aux développeurs de se concentrer sur l’application plutôt que sur la création et la gestion d’index. Pour plus d’informations, voir [Azure Cosmos DB : Stratégies d’indexation](index-policy.md).
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Puis-je utiliser le nouveau kit SDK de l’API Cassandra localement avec l’émulateur ?
 

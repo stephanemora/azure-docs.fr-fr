@@ -12,18 +12,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615872"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275667"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Avant de commencer avec App Service sur Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Avant de déployer Azure App Service sur Azure Stack, vous devez effectuer les étapes de prérequis décrites dans cet article.
 
@@ -152,6 +152,12 @@ Le certificat d’identité doit contenir un objet qui correspond au format suiv
 | Format | Exemples |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
+
+
+### <a name="validate-certificates"></a>Valider les certificats
+Avant de déployer le fournisseur de ressources App Service, vous devez [valider les certificats à utiliser](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) à l’aide de l’outil Azure Stack Readiness Checker disponible dans la [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). L’outil Azure Stack Readiness Checker confirme que les certificats d’infrastructure à clé publique générés conviennent pour le déploiement de services d’application. 
+
+En guise de bonne pratique, quand vous travaillez avec un ou plusieurs des [certificats PKI Azure Stack](azure-stack-pki-certs.md) nécessaires, pensez à garder suffisamment de temps pour tester et réémettre les certificats si nécessaire. 
 
 ## <a name="virtual-network"></a>Réseau virtuel
 
@@ -347,7 +353,7 @@ Procédez comme suit :
 | AzureStackAdminCredential | Obligatoire | Null | Informations d’identification de l’administrateur du service Azure AD. |
 | CertificateFilePath | Obligatoire | Null | **Chemin complet** du fichier de certificat d’application d’identité généré précédemment. |
 | CertificatePassword | Obligatoire | Null | Mot de passe pour aider à protéger la clé privée du certificat. |
-| Environnement | Facultatif | AzureCloud | Le nom de l’environnement de Cloud pris en charge dans lequel le service Graph Azure Active Directory cible est disponible.  Valeurs autorisées : 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
+| Environnement | Facultatif | AzureCloud | Le nom de l’environnement de Cloud pris en charge dans lequel le service Graph Azure Active Directory cible est disponible.  Valeurs autorisées : 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Créer une application de services de fédération Active Directory (AD FS)
 

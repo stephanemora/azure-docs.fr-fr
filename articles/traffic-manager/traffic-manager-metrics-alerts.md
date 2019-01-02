@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 2be5718dd95eff837c5a016b5254be0992eb8f9a
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: bb7817b082da11de3071925d01a3402902410a6f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138376"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437961"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métriques et alertes Traffic Manager
 
@@ -27,23 +27,23 @@ Traffic Manager vous offre un équilibrage de charge basé sur DNS qui inclut pl
 Traffic Manager fournit les métriques suivantes, selon le profil, qui peuvent servir aux clients à comprendre leur utilisation de Traffic Manager et à connaître l’état de leurs points de terminaison sous ce profil.  
 
 ### <a name="queries-by-endpoint-returned"></a>Requêtes par point de terminaison renvoyé
-Utilisez [cette métrique](../monitoring-and-diagnostics/monitoring-supported-metrics.md) pour afficher le nombre de requêtes traitées par un profil Traffic Manager sur une période spécifiée. Vous pouvez également afficher les mêmes informations au niveau d’un point de terminaison et déterminer ainsi le nombre de fois où un point de terminaison a été retourné dans les réponses à une requête à partir de Traffic Manager.
+Utilisez [cette métrique](../azure-monitor/platform/metrics-supported.md) pour afficher le nombre de requêtes traitées par un profil Traffic Manager sur une période spécifiée. Vous pouvez également afficher les mêmes informations au niveau d’un point de terminaison et déterminer ainsi le nombre de fois où un point de terminaison a été retourné dans les réponses à une requête à partir de Traffic Manager.
 
 Dans l’exemple ci-dessous, la figure 1 affiche toutes les réponses à une requête qui ont été retournées par le profil Traffic Manager. 
 
   
 ![Métriques Traffic Manager - vue agrégée de toutes les requêtes](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Figure 1 : Vue agrégée de toutes les requêtes*
+*Figure 1 : Vue agrégée de toutes les requêtes*
   
 La figure 2 affiche les mêmes informations, mais réparties cette fois par point de terminaison. Par conséquent, vous pouvez voir le volume des réponses aux requêtes dans lequel un point de terminaison spécifique a été retourné.
 
 ![Métriques Traffic Manager - mode fractionné du volume de requêtes par point de terminaison](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Figure 2 : me mode fractionné avec volume de requêtes indiqué par point de terminaison retourné*
+*Figure 2 : Mode fractionné avec volume de requêtes indiqué par point de terminaison retourné*
 
 ## <a name="endpoint-status-by-endpoint"></a>État du point de terminaison par point de terminaison
-Utilisez [cette métrique](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) pour évaluer l’état d’intégrité des points de terminaison dans le profil. Elle accepte deux valeurs :
+Utilisez [cette métrique](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) pour évaluer l’état d’intégrité des points de terminaison dans le profil. Elle accepte deux valeurs :
  - utilisez **1** , si le point de terminaison est activé.
  - utilisez **0** si le point de terminaison est arrêté.
 
@@ -52,18 +52,18 @@ Cette métrique peut être affichée comme une valeur d’agrégation représent
 
 ![Métriques Traffic Manager - mode composite de l’état du point de terminaison](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*Figure 3 : mode composite de la métrique d’état du point de terminaison – agrégation « Avg » sélectionnée*
+*Figure 3 : Mode composite de la métrique d’état du point de terminaison – agrégation « Avg » sélectionnée*
 
 
 ![Métriques Traffic Manager - mode fractionné de l’état du point de terminaison](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Figure 4 : mode fractionné des métriques d’état du point de terminaison*
+*Figure 4 : Mode fractionné des métriques d’état du point de terminaison*
 
-Vous pouvez utiliser ces métriques via [le service Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) du portail, l’[API REST](https://docs.microsoft.com/rest/api/monitor/), l’[interface de ligne de commande Azure CLI](https://docs.microsoft.com/cli/azure/monitor) et [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), ou dans la section des métriques du portail Traffic Manager.
+Vous pouvez utiliser ces métriques via [le service Azure Monitor](../azure-monitor/platform/metrics-supported.md) du portail, l’[API REST](https://docs.microsoft.com/rest/api/monitor/), l’[interface de ligne de commande Azure CLI](https://docs.microsoft.com/cli/azure/monitor) et [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), ou dans la section des métriques du portail Traffic Manager.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Alertes sur les métriques Traffic Manager
 En plus du traitement et de l’affichage des métriques à partir de Traffic Manager, Azure Monitor permet aux clients de configurer et de recevoir des alertes associées à ces métriques. Vous pouvez choisir les conditions à remplir dans ces métriques pour qu’une alerte se produise, la fréquence à laquelle ces conditions doivent être surveillées et comment les alertes doivent vous être envoyées. Pour plus d’informations, consultez la [documentation sur les alertes Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur le [service Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-- Découvrez comment [créer un graphique à l’aide d’Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-charts.md#how-do-i-create-a-new-chart)
+- En savoir plus sur le [service Azure Monitor](../azure-monitor/platform/metrics-supported.md)
+- Découvrez comment [créer un graphique à l’aide d’Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)

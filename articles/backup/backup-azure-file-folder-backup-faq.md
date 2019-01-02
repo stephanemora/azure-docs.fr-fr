@@ -8,13 +8,13 @@ keywords: sauvegarde et récupération d’urgence ; service de sauvegarde
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.author: saurse;trinadhk
-ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: trinadhk
+ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239834"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726540"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Questions sur le service de sauvegarde Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de l’agent de sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,9 +29,9 @@ Oui, les informations d’identification de coffre expirent au bout de 48 heure
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>À partir de quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ? <br/>
 Vous ne pouvez pas sauvegarder les lecteurs/volumes suivants :
 
-* Média amovible : toutes les sources d’éléments de sauvegarde l’élément doivent être déclarées fixes.
+* Médias amovibles : toutes les sources d’éléments de sauvegarde doivent être déclarées fixes.
 * Volumes en lecture seule : le volume doit être accessible en écriture pour que le service VSS puisse fonctionner.
-* Volumes déconnectés : le volume doit être en ligne pour que le service VSS puisse fonctionner.
+* Volumes hors connexion : le volume doit être en ligne pour que le service VSS puisse fonctionner.
 * Partage réseau : le volume doit être local sur le serveur à sauvegarder à l’aide de la sauvegarde en ligne.
 * Volumes protégés par BitLocker : le volume doit être déverrouillé pour que la sauvegarde soit possible.
 * Identification du système de fichiers : NTFS est le seul système de fichiers pris en charge.
@@ -95,7 +95,7 @@ Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de 
 Les emplacements suivants pour le dossier du cache ne sont pas recommandés :
 
 * Partage réseau ou un média amovible : le dossier du cache doit être local sur le serveur nécessitant une sauvegarde à l’aide de la sauvegarde en ligne. Les emplacements réseau ou les médias amovibles comme les lecteurs USB ne sont pas pris en charge.
-* Volumes hors connexion : le dossier du cache doit être en ligne pour la sauvegarde attendue avec l’agent Azure Backup
+* Volumes hors connexion : le dossier du cache doit être en ligne pour la sauvegarde attendue avec l’agent de sauvegarde Azure
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Existe-t-il des attributs du dossier du cache qui ne sont pas pris en charge ?<br/>
 Les attributs suivants ou leurs combinaisons ne sont pas pris en charge pour le dossier du cache :

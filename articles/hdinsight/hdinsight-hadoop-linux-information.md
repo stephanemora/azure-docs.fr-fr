@@ -3,22 +3,22 @@ title: Conseils sur l’utilisation de Hadoop sur un cluster HDInsight basé sur
 description: Obtenez des conseils d’implémentation concernant l’utilisation de clusters HDInsight (Hadoop) basés sur Linux dans un environnement Linux familier, exécuté dans le cloud Azure.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: d725bbe31de0f93d1b741ffd008bf39086904b61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: abaf69136fbed577095b3efba2ec6d4383907255
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997503"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385208"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
-Les clusters Azure HDInsight fournissent Hadoop dans un environnement Linux familier, exécuté dans le cloud Azure. En principe, il fonctionne comme tout autre Hadoop sur une installation Linux. Ce document présente des différences spécifiques que vous devriez connaître.
+Les clusters Azure HDInsight fournissent Apache Hadoop dans un environnement Linux familier, exécuté dans le cloud Azure. En principe, il fonctionne comme tout autre Hadoop sur une installation Linux. Ce document présente des différences spécifiques que vous devriez connaître.
 
 > [!IMPORTANT]
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -27,9 +27,9 @@ Les clusters Azure HDInsight fournissent Hadoop dans un environnement Linux fami
 
 La plupart des étapes décrites dans ce document utilisent les utilitaires ci-après, que vous pouvez avoir besoin d’installer sur votre système.
 
-* [cURL](https://curl.haxx.se/) : permet de communiquer avec les services Web.
-* [jq](https://stedolan.github.io/jq/) : permet d’analyser des documents JSON.
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) - permet de gérer à distance les services Azure
+* [cURL](https://curl.haxx.se/) : permet de communiquer avec des services web.
+* [jq](https://stedolan.github.io/jq/) : permet d’analyser des documents JSON.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) : permet de gérer à distance des services Azure.
 
 ## <a name="users"></a>Utilisateurs
 
@@ -64,7 +64,7 @@ Cette commande renvoie un document JSON qui décrit le service. Ensuite, jq extr
     > [!IMPORTANT]
     > Certaines interfaces utilisateur web disponibles via Ambari accèdent aux nœuds à l’aide d’un nom de domaine interne. Les noms de domaine internes ne sont pas accessibles publiquement sur internet. Des erreurs vous indiquant que le serveur est introuvable sont susceptibles d’apparaître lorsque vous essayerez d’accéder à certaines fonctionnalités sur Internet.
     >
-    > Pour bénéficier de toutes les fonctionnalités de l’interface utilisateur Web Ambari, vous devez utiliser un tunnel SSH pour assurer l’acheminement proxy vers le nœud principal cluster. Consultez [Utilisation de SSH Tunneling pour accéder à l’interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md).
+    > Pour bénéficier de toutes les fonctionnalités de l’interface utilisateur Web Ambari, vous devez utiliser un tunnel SSH pour assurer l’acheminement proxy vers le nœud principal cluster. Consultez [Utiliser le tunneling SSH pour accéder à l’interface web d’Apache Ambari, à ResourceManager, à JobHistory, à NameNode, à Oozie et à d’autres interfaces utilisateur web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 * **Ambari (REST)**  : https://&lt;clustername&gt;.azurehdinsight.net/ambari
 
@@ -80,12 +80,12 @@ Cette commande renvoie un document JSON qui décrit le service. Ensuite, jq extr
     >
     > L’authentification est en clair. Utilisez toujours HTTPS pour vous assurer que la connexion est sécurisée.
 
-* **SSH** - &lt;clustername&gt;-ssh.azurehdinsight.net sur le port 22 ou 23. Le port 22 est utilisé pour se connecter au nœud principal primaire tandis que le port 23 est utilisé pour se connecter au nœud principal secondaire. Pour plus d’informations sur les nœuds principaux, consultez [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;clustername&gt;-ssh.azurehdinsight.net sur le port 22 ou 23. Le port 22 est utilisé pour se connecter au nœud principal primaire tandis que le port 23 est utilisé pour se connecter au nœud principal secondaire. Pour plus d’informations sur les nœuds principaux, consultez [Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight](hdinsight-high-availability-linux.md).
 
     > [!NOTE]
     > Vous pouvez accéder aux nœuds principaux du cluster uniquement via SSH depuis une machine cliente. Une fois connecté, vous pouvez ensuite accéder aux nœuds Worker à l’aide de SSH depuis un nœud principal.
 
-Pour plus d’informations, consultez le document [Ports utilisés par les services Hadoop sur HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+Pour plus d’informations, consultez le document [Ports utilisés par les services Apache Hadoop sur HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 ## <a name="file-locations"></a>Emplacements des fichiers
 
@@ -102,9 +102,9 @@ Dans la plupart des distributions Hadoop, les données sont stockées dans HDFS,
 
 Lorsque vous utilisez HDInsight, les fichiers de données sont stockés de manière évolutive et résiliente dans le cloud, à l’aide du Stockage Blob Azure et, éventuellement, d’Azure Data Lake Store. Ces services offrent les avantages suivants :
 
-* Un stockage à long terme peu coûteux
-* Un accès à partir de services externes tels que les sites Web, les utilitaires de téléchargement de fichier, les kits de développement logiciel (SDK) en différentes langues et les navigateurs Web
-* Capacité de fichiers volumineux et stockage évolutif volumineux
+* Un stockage à long terme peu coûteux.
+* Un accès à partir de services externes comme des sites web, des utilitaires de chargement/téléchargement de fichier, des SDK en différentes langues et des navigateurs web.
+* Capacité de prise en charge des grands fichiers et grand stockage évolutif.
 
 Pour plus d’informations, voir [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Présentation des objets blob) et [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -120,17 +120,17 @@ Certaines commandes peuvent vous imposer de spécifier le schéma dans l’URI l
 
 Lorsque vous utilisez __Stockage Azure__, utilisez l’un des schémas d’URI suivants :
 
-* `wasb:///` : accès au stockage par défaut via une communication non chiffrée.
+* `wasb:///`: accès au stockage par défaut avec une communication non chiffrée.
 
-* `wasbs:///` : accès au stockage par défaut via une communication chiffrée.  Le schéma wasbs est pris en charge uniquement à partir de HDInsight version 3.6 et versions ultérieures.
+* `wasbs:///`: accès au stockage par défaut avec une communication chiffrée.  Le schéma wasbs est pris en charge uniquement à partir de HDInsight version 3.6 et versions ultérieures.
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net/` : utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
 
 Lorsque vous utilisez __Data Lake Store__, utilisez l’un des schémas d’URI suivants :
 
-* `adl:///` : accès au Data Lake Store par défaut pour le cluster.
+* `adl:///`: accès au Data Lake Store par défaut pour le cluster.
 
-* `adl://<storage-name>.azuredatalakestore.net/` : utilisé pour communiquer avec un Data Lake Store autre que celui par défaut. Également utilisé pour accéder aux données en dehors du répertoire racine de votre cluster HDInsight.
+* `adl://<storage-name>.azuredatalakestore.net/`: utilisé pour communiquer avec un Data Lake Store autre que celui par défaut. Également utilisé pour accéder aux données en dehors du répertoire racine de votre cluster HDInsight.
 
 > [!IMPORTANT]
 > Lorsque vous utilisez Data Lake Store en tant que magasin par défaut pour HDInsight, vous devez spécifier un chemin d’accès dans le magasin à utiliser comme racine de stockage HDInsight. Le chemin d’accès par défaut est : `/clusters/<cluster-name>/`.
@@ -143,7 +143,7 @@ Vous pouvez utiliser Ambari pour récupérer la configuration de stockage par d�
 
 ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
-> [!NOTE]
+> [!NOTE]  
 > Cette commande renvoie la première configuration appliquée au serveur (`service_config_version=1`), qui contient ces informations. Vous devrez peut-être répertorier toutes les versions de configuration pour rechercher la version la plus récente.
 
 Cette commande retourne une valeur semblable aux URI suivants :
@@ -177,7 +177,7 @@ Il existe plusieurs façons d’accéder à des données à l’extérieur du cl
 Si vous utilisez le __stockage Azure__, consultez les liens suivants pour découvrir les méthodes permettant d’accéder à vos données :
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) : commandes de l’interface de ligne de commande fonctionnant avec Azure. Après l’installation, utilisez la commande `az storage` pour obtenir de l’aide sur l’utilisation du stockage ou la commande `az storage blob` pour obtenir les commandes spécifiques aux objets blob.
-* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): script python pour travailler avec des objets blob dans Azure Storage.
+* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage) : script python pour travailler avec des objets blob dans Stockage Azure.
 * Divers Kits de développement logiciel (SDK) :
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -192,7 +192,7 @@ Si vous utilisez __Azure Data Lake Store__, consultez les liens suivants pour d�
 
 * [Navigateur Web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [interface de ligne de commande Azure](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
+* [Interface de ligne de commande Azure](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [API REST WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools pour Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
@@ -205,8 +205,8 @@ La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifie
 
 Les différents types de cluster sont affectés par la mise à l’échelle comme suit :
 
-* **Hadoop** : quand vous réduisez le nombre de nœuds dans un cluster, les services du cluster sont redémarrés. Les opérations de mise à l’échelle peuvent provoquer l’échec des tâches en cours d’exécution ou en attente à la fin de l’opération de mise à l’échelle. Toutefois, vous pouvez soumettre à nouveau les tâches une fois l’opération terminée.
-* **HBase** : les serveurs régionaux sont automatiquement équilibrés en l’espace de quelques minutes, une fois l’opération de mise à l’échelle terminée. Pour équilibrer manuellement les serveurs régionaux, procédez comme suit :
+* **Hadoop** : quand vous réduisez le nombre de nœuds dans un cluster, certains services du cluster sont redémarrés. Les opérations de mise à l’échelle peuvent provoquer l’échec des tâches en cours d’exécution ou en attente à la fin de l’opération de mise à l’échelle. Toutefois, vous pouvez soumettre à nouveau les tâches une fois l’opération terminée.
+* **HBase** : les serveurs régionaux sont automatiquement équilibrés en l’espace de quelques minutes, une fois l’opération de mise à l’échelle terminée. Pour équilibrer manuellement les serveurs régionaux, procédez comme suit :
 
     1. Connectez-vous au cluster HDInsight à l’aide de SSH : Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -218,25 +218,25 @@ Les différents types de cluster sont affectés par la mise à l’échelle comm
 
             balancer
 
-* **Storm** : vous devez rééquilibrer les topologies Storm en cours d’exécution après l’exécution d’une opération de mise à l’échelle. Le rééquilibrage permet à la topologie de réajuster les paramètres de parallélisme basés sur le nouveau nombre de nœuds du cluster. Pour rééquilibrer les topologies en cours d’exécution, utilisez l’une des options suivantes :
+* **Storm** : vous devez rééquilibrer les topologies Storm en cours d’exécution après l’exécution d’une opération de mise à l’échelle. Le rééquilibrage permet à la topologie de réajuster les paramètres de parallélisme basés sur le nouveau nombre de nœuds du cluster. Pour rééquilibrer les topologies en cours d’exécution, utilisez l’une des options suivantes :
 
-    * **SSH** : connectez-vous au serveur et utilisez la commande suivante pour rééquilibrer une topologie :
+    * **SSH** : connectez-vous au serveur et utilisez la commande suivante pour rééquilibrer une topologie :
 
             storm rebalance TOPOLOGYNAME
 
         Vous pouvez également spécifier des paramètres pour remplacer les indicateurs de parallélisme initialement fournis par la topologie. Par exemple, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` permet de reconfigurer la topologie sur 5 processus Worker, 3 exécuteurs pour le composant blue-spout et 10 exécuteurs pour le composant yellow-bolt.
 
-    * **Interface storm** : utilisez les étapes suivantes pour rééquilibrer une topologie avec l’interface utilisateur Storm.
+    * **Interface utilisateur de Storm** : utilisez les étapes suivantes pour rééquilibrer une topologie avec l’interface utilisateur de Storm.
 
         1. Ouvrez **https://CLUSTERNAME.azurehdinsight.net/stormui** dans votre navigateur web, où CLUSTERNAME est le nom de votre cluster Storm. Si vous y êtes invité, entrez le nom et le mot de passe de l’administrateur (admin) du cluster HDInsight spécifiés lors de la création du cluster.
         2. Sélectionnez la topologie que vous souhaitez rééquilibrer, puis le bouton **Rééquilibrer** . Saisissez le délai avant l’opération de rééquilibrage.
 
-* **Kafka** : vous devez rééquilibrer les réplicas de partition après les opérations de mise à l’échelle. Pour plus d’informations, consultez le document [Haute disponibilité des données avec Kafka dans HDInsight](./kafka/apache-kafka-high-availability.md).
+* **Kafka** : vous devez rééquilibrer les réplicas de partition après les opérations de mise à l’échelle. Pour plus d’informations, consultez le document [Haute disponibilité des données avec Apache Kafka sur HDInsight](./kafka/apache-kafka-high-availability.md).
 
 Pour obtenir des informations spécifiques sur la mise à l’échelle de votre cluster HDInsight, consultez :
 
-* [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Gestion des clusters Apache Hadoop dans HDInsight avec Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Comment installer Hue (ou un autre composant Hadoop) ?
 
@@ -247,8 +247,8 @@ HDInsight est un service géré. Si Azure détecte un problème avec le cluster,
 
 Les actions de script sont des scripts Bash. Les scripts s’exécutent pendant la création du cluster et sont utilisés pour installer et configurer des composants supplémentaires. Des exemples de scripts sont fournis pour l’installation des composants suivants :
 
-* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Pour plus d’informations sur le développement de vos propres actions de script, consultez [Développement d’actions de Script avec HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
@@ -270,11 +270,11 @@ Pour utiliser une version différente d’un composant, chargez la version dont 
 > [!WARNING]
 > Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aide à identifier et à résoudre les problèmes liés à ces composants.
 >
-> Les composants personnalisés bénéficient d’un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org). Par exemple: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Les composants personnalisés bénéficient d’un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Par exemple, vous pouvez utiliser de nombreux sites de communauté, comme : [Forum MSDN pour HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org), par exemple : [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Effectuer la migration de HDInsight Windows vers HDInsight Linux](hdinsight-migrate-from-windows-to-linux.md)
-* [Utilisation de Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilisation de Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
+* [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
+* [Utilisation d’Apache Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)

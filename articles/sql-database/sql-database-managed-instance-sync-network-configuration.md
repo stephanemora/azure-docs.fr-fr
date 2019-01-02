@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 03/07/2018
-ms.openlocfilehash: d5de908166e8de1d45a36f97aee8934653e59623
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e488fc7e568fc94f9a0744c12122b605f37f8152
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163159"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339669"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Synchroniser la configuration de mise en réseau pour le plan d’hébergement Azure App Service
 
@@ -47,4 +47,4 @@ Vous êtes maintenant prêt à tenter de rétablir votre connexion vers votre In
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la configuration de votre réseau virtuel pour une Instance gérée, consultez [Configuration du réseau virtuel de l’Instance gérée](sql-database-managed-instance-vnet-configuration.md).
+- Pour plus d’informations sur la configuration de votre réseau virtuel pour Managed Instance, consultez [Architecture de réseau virtuel Managed Instance](sql-database-managed-instance-connectivity-architecture.md) et [Guide pratique pour configurer un réseau virtuel existant](sql-database-managed-instance-configure-vnet-subnet.md).

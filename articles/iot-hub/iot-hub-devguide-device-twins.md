@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 558bf0eb6ab4abb4ad16910ebe36fdb7c1e19374
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7f66c87322aadafaa7167dff4190de6d08e5d18d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310927"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338411"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 
@@ -382,4 +382,4 @@ Pour tenter de mettre en pratique certains des concepts décrits dans cet articl
 
 * [Guide pratique pour utiliser un jumeau d’appareil](iot-hub-node-node-twin-getstarted.md)
 * [Guide pratique pour utiliser des propriétés de jumeau d’appareil](tutorial-device-twins.md)
-* [Gestion des appareils avec le kit de ressources Azure IoT pour VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Gestion des appareils avec Azure IoT Hub Toolkit pour VS Code](iot-hub-device-management-iot-toolkit.md)

@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 841982a4ecbfa5241d826beaaae81921b2859596
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018619"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967331"
 ---
-# <a name="translator-text-api-30-transliterate"></a>API de traduction de texte Translator Text 3.0 : Transliterate
+# <a name="translator-text-api-30-transliterate"></a>API de traduction de texte Translator Text 3.0 : Transliterate
 
 Convertit du texte dans une langue d’un script vers un autre script.
 
@@ -42,15 +42,15 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
   </tr>
   <tr>
     <td>Langage</td>
-    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte à convertir d’un script à un autre. Les langues possibles sont répertoriées dans l’étendue `transliteration` obtenue en interrogeant le service pour connaître les [langues prises en charge](.\v3-0-languages.md).</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte à convertir d’un script à un autre. Les langues possibles sont répertoriées dans l’étendue `transliteration` obtenue en interrogeant le service pour connaître les [langues prises en charge](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Paramètre obligatoire*.<br/>Spécifie le script utilisé par le texte d’entrée. Recherchez les [langues prises en charge](.\v3-0-languages.md) à l’aide de l’étendue `transliteration`, afin de trouver des scripts d’entrée disponibles pour la langue sélectionnée.</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie le script utilisé par le texte d’entrée. Recherchez les [langues prises en charge](./v3-0-languages.md) à l’aide de l’étendue `transliteration`, afin de trouver des scripts d’entrée disponibles pour la langue sélectionnée.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Paramètre obligatoire*.<br/>Spécifie le script de sortie. Recherchez les [langues prises en charge](.\v3-0-languages.md) à l’aide de l’étendue `transliteration`, afin de trouver des scripts de sortie disponibles pour l’association de langue et de script d’entrée sélectionnée.</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie le script de sortie. Recherchez les [langues prises en charge](./v3-0-languages.md) à l’aide de l’étendue `transliteration`, afin de trouver des scripts de sortie disponibles pour l’association de langue et de script d’entrée sélectionnée.</td>
   </tr>
 </table> 
 
@@ -98,9 +98,9 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque élément dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `text` : chaîne qui est le résultat de la conversion de la chaîne d’entrée en script de sortie.
+  * `text`: chaîne qui est le résultat de la conversion de la chaîne d’entrée en script de sortie.
   
-  * `script` : chaîne spécifiant le script utilisé dans la sortie.
+  * `script`: chaîne spécifiant le script utilisé dans la sortie.
 
 Exemple de réponse JSON :
 

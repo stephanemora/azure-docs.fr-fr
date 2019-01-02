@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 48cb88b9815ba723d93c18caf63f33b50eea850c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011977"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412930"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
 Vous pouvez utiliser Azure NetApp Files pour créer un instantané à la demande pour un volume ou pour restaurer à partir d’un instantané sur un nouveau volume.
@@ -45,7 +45,7 @@ Actuellement, vous pouvez restaurer un instantané seulement sur un nouveau volu
     * **Nom**   
         Spécifiez le nom du volume que vous créez.  
         
-        Le nom doit être unique au sein d’un groupe de ressources. Il doit comprendre au moins 3 caractères.  Vous pouvez utiliser tous les caractères alphanumériques.
+        Le nom doit être unique au sein d’un groupe de ressources. Il doit comprendre au moins trois caractères.  Vous pouvez utiliser tous les caractères alphanumériques.
 
     * **Chemin du fichier**     
         Spécifiez le chemin du fichier à utiliser pour créer le chemin d’exportation pour le nouveau volume. Le chemin d’exportation est utilisé pour monter le volume et y accéder.   
@@ -60,12 +60,16 @@ Actuellement, vous pouvez restaurer un instantané seulement sur un nouveau volu
         Le champ **Quota disponible** indique la quantité d’espace inutilisé dans le pool de capacités choisi, que vous pouvez utiliser pour créer un volume. La taille du nouveau volume ne doit pas dépasser le quota disponible.
 
     *   **Réseau virtuel**  
-        Spécifiez le réseau virtuel Azure à partir duquel vous voulez accéder au volume. 
-        
-        Azure NetApp Files doit être configuré sur le réseau virtuel que vous spécifiez. Le service Azure NetApp Files est accessible seulement à partir d’un réseau virtuel qui se trouve au même emplacement que le volume.  
+        Spécifiez le réseau virtuel Azure à partir duquel vous voulez accéder au volume.  
+        Le réseau virtuel que vous spécifiez doit avoir un sous-réseau délégué à Azure NetApp Files. Le service Azure NetApp Files est accessible seulement à partir du même réseau virtuel ou d’un sous-réseau qui se trouve dans la même région que le volume via le peering de réseau virtuel. Vous pouvez également accéder au volume à partir de votre réseau local via Express Route. 
 
-    ![Nouveau volume restauré](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-    
+    * **Sous-réseau**  
+        Spécifiez le sous-réseau que vous souhaitez utiliser pour le volume.  
+        Le sous-réseau que vous spécifiez doit être délégué au service Azure NetApp Files. Vous pouvez créer un sous-réseau en sélectionnant **Créer** sous le champ Sous-réseau.  
+<!--
+    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
+-->
+
 5. Cliquez sur **OK**.   
     Le nouveau volume sur lequel l’instantané est restauré apparaît dans le panneau Volumes.
 

@@ -1,25 +1,24 @@
 ---
-title: Utilisation de l’infrastructure Mongoose avec Azure Cosmos DB | Microsoft Docs
-description: Apprenez à connecter une application Mongoose Node.js à Azure Cosmos DB
-services: cosmos-db
-author: slyons
-manager: kfile
+title: Connecter une application Mongoose Node.js à Azure Cosmos DB
+description: Découvrez comment utiliser l’infrastructure Mongoose pour stocker et gérer des données dans Azure Cosmos DB.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: sclyon
-ms.openlocfilehash: 8cfa53a1792d8e01c05aad8e4a1a0b5239a092c1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: ec47c265c3d6f826bc1b7e7d8038e284c6981b7a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857385"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134928"
 ---
-# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB : Utilisation de l’infrastructure Mongoose avec Azure Cosmos DB
+# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connecter une application Mongoose Node.js à Azure Cosmos DB
 
-Ce didacticiel montre comment utiliser l’[infrastructure Mongoose](http://mongoosejs.com/) lors du stockage de données dans Azure Cosmos DB. Dans cette procédure pas à pas, nous utilisons l’API MongoDB pour Azure Cosmos DB. Pour ceux d’entre vous qui ne connaissent pas Mongoose, il s’agit d’une infrastructure de modélisation d’objet pour MongoDB dans Node.js qui offre une solution simple basée sur un schéma pour modéliser vos données d’application.
+Ce didacticiel montre comment utiliser l’[infrastructure Mongoose](https://mongoosejs.com/) lors du stockage de données dans Azure Cosmos DB. Dans cette procédure pas à pas, nous utilisons l’API MongoDB pour Azure Cosmos DB. Pour ceux d’entre vous qui ne connaissent pas Mongoose, il s’agit d’une infrastructure de modélisation d’objet pour MongoDB dans Node.js qui offre une solution simple basée sur un schéma pour modéliser vos données d’application.
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
 
@@ -96,7 +95,7 @@ Pour chaque modèle que vous créez, Mongoose crée une collection MongoDB en ar
 
 Cette procédure pas à pas traite des deux modèles. Nous aborderons tout d’abord la procédure relative au stockage d’un type de données par collection. Il s’agit du comportement de facto pour Mongoose.
 
-Mongoose propose également un concept appelé [Discriminateurs](http://mongoosejs.com/docs/discriminators.html). Il s’agit d’un mécanisme d’héritage de schéma. Les discriminateurs vous permettent d’avoir plusieurs modèles avec des schémas superposés sur la même collection MongoDB sous-jacente.
+Mongoose propose également un concept appelé [Discriminateurs](https://mongoosejs.com/docs/discriminators.html). Il s’agit d’un mécanisme d’héritage de schéma. Les discriminateurs vous permettent d’avoir plusieurs modèles avec des schémas superposés sur la même collection MongoDB sous-jacente.
 
 Vous pouvez stocker les différents modèles de données dans la même collection, puis utiliser une clause de filtre au moment de la requête pour extraire uniquement les données nécessaires.
 
@@ -196,7 +195,7 @@ Le comportement par défaut de Mongoose consiste à créer une collection MongoD
 
 ### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Utiliser les discriminateurs Mongoose pour stocker des données dans une seule collection
 
-Dans cette méthode, nous utilisons les [discriminateurs Mongoose](http://mongoosejs.com/docs/discriminators.html) pour optimiser les coûts de chaque collection Azure Cosmos DB. Les discriminateurs vous permettent de définir une « clé » de différenciation destinée à stocker, à différencier et à filtrer les différents modèles d’objet.
+Dans cette méthode, nous utilisons les [discriminateurs Mongoose](https://mongoosejs.com/docs/discriminators.html) pour optimiser les coûts de chaque collection Azure Cosmos DB. Les discriminateurs vous permettent de définir une « clé » de différenciation destinée à stocker, à différencier et à filtrer les différents modèles d’objet.
 
 Nous créons ici un modèle d’objet de base, définissons une clé de différenciation et ajoutons « Family » et « VacationDestinations » comme extension au modèle de base.
 

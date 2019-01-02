@@ -1,23 +1,24 @@
 ---
-title: Types d’entités dans les applications LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Types d’entités
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Ajouter des entités (données clés dans le domaine de votre application) dans les applications Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f0e543263c7a9890abc485d0f0cd6bec88f16dd4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085831"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135190"
 ---
-# <a name="entities-in-luis"></a>Entités dans LUIS
+# <a name="entity-types-and-their-purposes-in-luis"></a>Types d’entités et leurs objectifs dans LUIS
 
 Les entités sont des mots ou des phrases dans les énoncés qui sont des données clés dans le domaine de votre application.
 
@@ -71,7 +72,7 @@ LUIS offre de nombreux types d’entités : entités prédéfinies, entités pe
 | NOM | Étiquette Can (Peut) | Description |
 | -- |--|--|
 | **Prédéfinie** <br/>[Personnalisée](#prebuilt)| |  **Définition**<br>Types intégrés qui représentent des concepts courants. <br><br>**Liste**<br/>nombre de phrases clés, ordinal, température, dimension, argent, âge, pourcentage, e-mail, URL, numéro de téléphone et phrase clé. <br><br>Les noms des entités prédéfinies sont réservés. <br><br>Toutes les entités prédéfinies qui sont ajoutées à l’application sont retournées dans la requête du [point de terminaison](luis-glossary.md#endpoint). Pour plus d’informations, consultez [Entités prédéfinies](./luis-prebuilt-entities.md). <br/><br/>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Expression régulière**<br/>[RegEx](#regex)||**Définition**<br>Expression régulière personnalisée pour le texte d’énoncé brut mis en forme. Elle ignore la casse et la variante culturelle.  <br><br>Cette entité est adaptée aux mots ou phrases mis en forme de manière cohérente avec toute variation également cohérente.<br><br>La correspondance d’expression régulière est appliquée après les modifications de la vérification orthographique. <br><br>Si l’expression régulière est trop complexe (par ex. elle utilise trop de crochets), vous ne pouvez pas ajouter l’expression au modèle. <br><br>**Exemple**<br>`kb[0-9]{6,}` correspond à kb123456.<br/><br/>[Démarrage rapide](luis-quickstart-intents-regex-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Expression régulière**<br/>[RegEx](#regex)||**Définition**<br>Expression régulière personnalisée pour le texte d’énoncé brut mis en forme. Elle ignore la casse et la variante culturelle.  <br><br>Cette entité est adaptée aux mots ou phrases mis en forme de manière cohérente avec toute variation également cohérente.<br><br>La correspondance d’expression régulière est appliquée après les modifications de la vérification orthographique au niveau du caractère, et non au niveau du jeton. Utilisez une partie de la bibliothèque [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions), mais toute la bibliothèque.<br><br>Si l’expression régulière est trop complexe (par ex. elle utilise trop de crochets), vous ne pouvez pas ajouter l’expression au modèle. <br><br>**Exemple**<br>`kb[0-9]{6,}` correspond à kb123456.<br/><br/>[Démarrage rapide](luis-quickstart-intents-regex-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md)|
 | **Simple** <br/>[Issue de l’apprentissage automatique](#machine-learned) | ✔ | **Définition**<br>Une entité simple est une entité générique qui décrit un concept unique et est apprise à partir d’un contexte issu de l’apprentissage automatique. Le contexte inclue le choix des mots, l’emplacement des mots et la longueur de l’énoncé.<br/><br/>Il s’agit d’une bonne entité pour les mots ou les phrases qui ne sont pas mis en forme de manière cohérente, mais qui ont la même signification. <br/><br/>[Démarrage rapide](luis-quickstart-primary-and-secondary-data.md)<br/>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Liste** <br/>[Correspondance exacte](#exact-match)|| **Définition**<br>Les entités de liste représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes, dans votre système. <br><br>Chaque entité de liste peut avoir une ou plusieurs formes. Les entités de liste sont adaptées à un ensemble connu de variations sur les manières de représenter le même concept.<br/><br/>LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité **Recommander** pour trouver des suggestions de nouveaux mots à partir de la liste actuelle.<br/><br>S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison. <br/><br/>[Démarrage rapide](luis-quickstart-intent-and-list-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Mixte](#mixed) | ✔|**Définition**<br>Patterns.any est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine.  <br><br>**Exemple**<br>Si un énoncé recherche des livres en fonction du titre, pattern.any extrait le titre complet. Un gabarit d’énoncé utilisant pattern.any est `Who wrote {BookTitle}[?]`.<br/><br/>[Didacticiel](luis-tutorial-pattern.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#composite-entity-data)|  
@@ -205,7 +206,7 @@ LUIS fournit également le type d’entité de liste qui n’est pas issu de l�
 
 Si vous avez envisagé les entités hiérarchiques, composites et liste, mais avez besoin d’aller au-delà de la limite, contactez le support technique. Pour cela, rassemblez des informations détaillées sur votre système, accédez au site web [LUIS](luis-reference-regions.md#luis-website), puis sélectionnez **Support**. Si votre abonnement Azure comprend des services de support, contactez le [support technique Azure](https://azure.microsoft.com/support/options/). 
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 Créez une [entité](luis-concept-entity-types.md) lorsque l’application appelante ou le bot a besoin de paramètres ou de données à partir de l’énoncé requis pour exécuter une action. Une entité est un mot ou une phrase dans l’énoncé que vous avez besoin d’extraire, peut-être en tant que paramètre d’une fonction. 
 

@@ -1,21 +1,19 @@
 ---
-title: Niveaux de performances Azure Cosmos DB supprimés | Microsoft Docs
+title: Niveaux de performances Azure Cosmos DB retirés
 description: Découvrez les niveaux de performances S1, S2 et S3 qui étaient disponibles dans Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d1bb7551e6dfb6c42853ab95096f17f5285c69c1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 27e9e8c2cb3201ea4d4522662cd49609a2163997
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796646"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865554"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Mise hors service des niveaux de performances S1, S2 et S3
 
@@ -45,7 +43,7 @@ Les niveaux de performances S1, S2 et S3 n’offrent pas la même flexibilité q
 
 ## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-to-the-s1-s2-s3-performance-levels"></a>En quoi les collections à partition unique et les collections partitionnées se différencient-elles des niveaux de performances S1, S2 et S3 ?
 
-Le tableau suivant compare les options de débit et de stockage disponibles dans les collections à partition unique, les collections partitionnées et les niveaux de performances S1, S2 et S3. Voici un exemple pour la région Est des États-Unis 2 :
+Le tableau suivant compare les options de débit et de stockage disponibles dans les collections à partition unique, les collections partitionnées et les niveaux de performances S1, S2 et S3. Voici un exemple pour la région USA Est 2 :
 
 |   |Collection partitionnée|Collection à partition unique|S1|S2|S3|
 |---|---|---|---|---|---|
@@ -78,7 +76,7 @@ Dans chacun de ces cas, après avoir migré la collection, vous serez en mesure 
 
 ## <a name="how-will-my-billing-change-after-i-migrated-to-the-single-partition-collections"></a>Qu’est-ce qui va changer au niveau de ma facturation suite à la migration vers des collections à partition unique ?
 
-Supposons que vous avez 10 collections S1, d’une capacité de stockage de 1 Go chacune, dans la région Est des États-Unis et que vous migrez ces 10 collections S1 vers 10 collections à partition unique dotées d’un débit de 400 RU/s (niveau minimal). Votre facture se présentera comme suit si vous conservez les 10 collections à partition unique pendant un mois complet :
+Supposons que vous avez 10 collections S1, d’une capacité de stockage de 1 Go chacune, dans la région USA Est et que vous migrez ces 10 collections S1 vers 10 collections à partition unique dotées d’un débit de 400 RU/s (niveau minimal). Votre facture se présentera comme suit si vous conservez les 10 collections à partition unique pendant un mois complet :
 
 ![Comparaison entre la tarification de 10 collections S1 et de 10 collections utilisant la tarification d’une collection à partition unique](./media/performance-levels/s1-vs-standard-pricing.png)
 

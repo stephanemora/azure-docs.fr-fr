@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3612e10df12e2b18f32caae55bdd83b12a4e24a6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c9d6a66a9d54c75fbb20775f0ae4de4d22a7d599
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449031"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840861"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configurer la réinitialisation de mot de passe en libre-service pour vos clients
 La fonctionnalité de réinitialisation de mot de passe en libre-service permet à vos clients qui se sont inscrits pour obtenir des comptes locaux de réinitialiser eux-mêmes leurs mots de passe. Cela réduit considérablement la charge pesant sur votre personnel de support, surtout si votre application est utilisée régulièrement par des millions de clients. Pour l’instant, l’utilisation d’une adresse e-mail vérifiée est la seule méthode de récupération prise en charge.
 
 > [!NOTE]
-> Cet article s’applique à un mot de passe libre-service utilisé dans le contexte d’une stratégie de connexion. Si vous avez besoin de stratégies de réinitialisation de mot de passe entièrement personnalisables appelées à partir de votre application, consultez [cet article](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
+> Cet article s’applique à la réinitialisation de mot de passe libre-service utilisée dans le contexte d’un flux d’utilisateur de **connexion** V1, qui utilise **Local Account SignIn** comme fournisseur d’identité. Si vous avez besoin de flux d’utilisateur de réinitialisation de mot de passe entièrement personnalisables appelés à partir de votre application, consultez [cet article](active-directory-b2c-reference-policies.md#create-a-password-reset-user-flow).
 > 
 > 
 
@@ -32,7 +32,7 @@ Par défaut, la réinitialisation de mot de passe en libre-service n’est pas a
 4. Définissez l’option **Réinitialisation du mot de passe en libre-service activée** sur **Tout**. 
 5. Cliquez sur **Enregistrer** dans la partie supérieure de la page. Vous avez terminé !
 
-Pour tester, utilisez la fonctionnalité « Exécuter maintenant » sur une stratégie de connexion (qui comporte des comptes locaux en tant que fournisseur d’identité). Dans la page de connexion au compte local (où vous entrez une adresse e-mail et un mot de passe, ou un nom d’utilisateur et un mot de passe), cliquez sur **Votre compte n’est pas accessible ?** pour vérifier l’expérience client.
+Pour tester, utilisez la fonctionnalité « Exécuter maintenant » sur un flux d’utilisateur de connexion (qui comporte des comptes locaux en tant que fournisseur d’identité). Dans la page de connexion au compte local (où vous entrez une adresse e-mail et un mot de passe, ou un nom d’utilisateur et un mot de passe), cliquez sur **Votre compte n’est pas accessible ?** pour vérifier l’expérience client.
 
 > [!NOTE]
 > Les pages de réinitialisation de mot de passe libre-service sont personnalisables à l’aide de la [fonctionnalité de personnalisation de la société](../active-directory/fundamentals/customize-branding.md).

@@ -2,18 +2,18 @@
 title: Approvisionner un pool Azure Batch à partir d’une image personnalisée | Microsoft Docs
 description: Créez un pool Batch à partir d’une image personnalisée pour approvisionner les nœuds qui contiennent les logiciels et les données dont vous avez besoin pour votre application. Les images personnalisées sont un moyen efficace de configurer les nœuds de calcul pour exécuter vos charges de travail Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
-ms.author: danlep
-ms.openlocfilehash: 7d0526dd233afd3976b22d257300681db0bfcead
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: lahugh
+ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885205"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840365"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utiliser une image personnalisée pour créer un pool de machines virtuelles 
 
@@ -50,7 +50,13 @@ Dans Azure, vous pouvez préparer une image managée à partir de captures insta
 
 ### <a name="prepare-a-vm"></a>Préparer une machine virtuelle 
 
-Si vous créez une machine virtuelle pour l’image, utilisez une image de la Place de Marché Azure prise en charge par Batch comme image de base pour votre image managée et la personnaliser.  Pour obtenir une liste des références d’image de la Place de marché Azure prises en charge par Azure Batch, consultez l’opération [Lister les références SKU d’agent de nœud](/rest/api/batchservice/account/listnodeagentskus). Vous ne pouvez pas utiliser l’image d’un tiers comme votre image de base.
+Si vous créez une machine virtuelle pour l’image, utilisez une image de la Place de Marché Azure prise en charge par Batch comme image de base pour votre image managée et la personnaliser.  Pour obtenir une liste des références d’image de la Place de marché Azure prises en charge par Azure Batch, consultez l’opération [Lister les références SKU d’agent de nœud](/rest/api/batchservice/account/listnodeagentskus). 
+
+> [!NOTE]
+> Vous ne pouvez pas, comme image de base, utiliser une image de fournisseurs tiers qui comporte des conditions de licence et d’achat supplémentaires. Pour plus d’informations sur ces images de la Place de marché, consultez les recommandations émises pour les machines virtuelles [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) ou [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+).
+
 
 * Assurez-vous que la machine virtuelle est créée avec un disque managé. Il s’agit du paramètre de stockage par défaut quand vous créez une machine virtuelle.
 * N’installez pas d’extensions Azure, comme l’extension de script personnalisé, sur la machine virtuelle. Si l’image contient une extension préinstallée, Azure peut rencontrer des problèmes lors du déploiement du pool Batch.

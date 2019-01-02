@@ -1,25 +1,23 @@
 ---
-title: 'Azure Cosmos DB : API, Kit SDK et ressources Python SQL | Microsoft Docs'
+title: 'Azure Cosmos DB : API, SDK et ressources SQL Python'
 description: Découvrez l’API et le Kit SDK Python SQL, y compris les dates de publication, les dates de suppression et les modifications apportées entre chaque version du Kit SDK Python Azure Cosmos DB.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 9/24/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75b5fd2f586a9122aa1248ba88d7ceab59b13215
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: cf796466d8d4156eb442e6b0d1b51cb70d0d30f3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269290"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337085"
 ---
-# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Python Azure Cosmos DB pour API SQL : notes de publication et ressources
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +28,7 @@ ms.locfileid: "48269290"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -51,10 +49,28 @@ ms.locfileid: "48269290"
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name302302"></a><a name="3.0.2"/>3.0.2
+* Ajout de la prise en charge du type de données multipolygones
+* Correctif de bogue dans la stratégie de nouvelle tentative de lecture de session
+* Correctif de bogue pour les problèmes de remplissage incorrect lors du décodage de chaînes base 64
+
+### <a name="a-name301301"></a><a name="3.0.1"/>3.0.1
+* Correction de bogue dans LocationCache
+* Correction de bogue au niveau de la logique de nouvelle tentative de point de terminaison
+* Documentation mise à jour
+
 ### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0
 * Prise en charge des écritures multirégions.
 * Espace de noms remplacé par azure.cosmos.
 * Concepts Collection et Document renommés en Conteneur et Élément ; « document_client » renommé en « cosmos_client ». 
+
+### <a name="a-name233233"></a><a name="2.3.3"/>2.3.3
+* Ajout de la prise en charge de proxy
+* Ajout de la prise en charge de la lecture du flux de modification
+* Ajout de la prise en charge des en-têtes de quota de collection
+* Correction du problème de jetons de session volumineuse
+* Correction de bogue au niveau de l’API ReadMedia
+* Correction de bogue dans le cache de plage de clés de partition
 
 ### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
 * Support supplémentaire pour les nouvelles tentatives par défaut concernant les problèmes de connexion.
@@ -145,6 +161,9 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit S
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [3.0.2](#3.0.2) |15 novembre 2018 |--- |
+| [3.0.1](#3.0.1) |04 octobre 2018 |--- |
+| [2.3.3](#2.3.3) |8 septembre 2018 |--- |
 | [2.3.2](#2.3.2) |8 mai 2018 |--- |
 | [2.3.1](#2.3.1) |21 décembre 2017 |--- |
 | [2.3.0](#2.3.0) |10 novembre 2017 |--- |

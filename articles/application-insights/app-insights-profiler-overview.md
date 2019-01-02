@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7e0734790a0b33a52ace01ad961b1bc3127fa3d4
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976517"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726897"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiler des applications de production dans Azure avec Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Activer Profiler pour votre application
@@ -53,7 +52,7 @@ L’Explorateur de trace affiche les informations suivantes :
 * **Afficher le chemin réactif** : ouvre le plus grand nœud feuille, ou du moins un élément qui s’en rapproche. Dans la plupart des cas, ce nœud est proche d’un goulot d’étranglement des performances.
 * **Étiquette** : nom de la fonction ou de l’événement. L’arborescence affiche une combinaison des codes et des événements qui se sont produits (par exemple, des événements SQL et HTTP). L’événement supérieur représente la durée globale de la requête.
 * **Écoulé** : intervalle de temps entre le début de l’opération et la fin.
-* **Quand** : moment auquel la fonction ou l’événement était en cours d’exécution par rapport à d’autres fonctions.
+* **Quand** : moment auquel la fonction ou l’événement était en cours d’exécution par rapport à d’autres fonctions.
 
 ## <a name="how-to-read-performance-data"></a>Comment lire les données de performances
 

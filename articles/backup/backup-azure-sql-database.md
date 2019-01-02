@@ -3,7 +3,7 @@ title: Sauvegarder des bases de données SQL Server dans Azure | Microsoft Docs
 description: Ce tutoriel explique comment sauvegarder SQL Server avec Azure, ainsi que la récupération de SQL Server.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: ''
@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
-ms.author: markgal;anuragm
+ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 6091a3b3506adf87418b529c3cca6b96e9bb2af9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317685"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410361"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Sauvegarder des bases de données SQL Server sur Azure
 
@@ -47,6 +46,8 @@ Les éléments suivants constituent des limitations connues de la préversion pu
 - [La sauvegarde des groupes de disponibilité distribués](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) présente des limitations.
 - Les instances de cluster de basculement (FCI) Always On de SQL Server ne sont pas prises en charge.
 - Utilisez le portail Azure pour configurer Sauvegarde Azure afin de protéger des bases de données SQL Server. Azure PowerShell, l’interface de ligne de commande Azure et les API REST ne sont pas pris en charge actuellement.
+- Les opérations de sauvegarde/restauration pour les bases de données miroirs, les instantanés de base de données et les bases de données sous ICF ne sont pas prises en charge.
+- Les bases de données comprenant un grand nombre de fichiers ne peuvent pas être protégées. Le nombre maximal de fichiers pris en charge n’est pas un nombre très déterministe, car il varie selon le nombre de fichiers mais aussi la longueur du chemin d’accès des fichiers. Ces cas sont toutefois moins répandus. Nous concevons une solution pour gérer cette situation.
 
 Reportez-vous à la [section FAQ](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) pour plus d’informations sur les scénarios pris en charge et non pris en charge.
 
@@ -106,6 +107,7 @@ Pour pouvoir sauvegarder votre base de données SQL Server, vérifiez les condit
 - Identifiez ou [créez un coffre Recovery Services](backup-azure-sql-database.md#create-a-recovery-services-vault) dans la même région ou avec les mêmes paramètres régionaux que la machine virtuelle qui héberge votre instance SQL Server.
 - [Vérifiez les autorisations existant sur la machine virtuelle](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) nécessaires à la sauvegarde des bases de données SQL.
 - Vérifiez que [la machine virtuelle SQL dispose d’une connectivité réseau](backup-azure-sql-database.md#establish-network-connectivity).
+- Vérifiez si les bases de données SQL sont nommées conformément aux [instructions de dénomination](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) pour que Sauvegarde Azure effectue des sauvegardes réussies.
 
 > [!NOTE]
 > Vous ne pouvez disposer que d’une solution de sauvegarde à la fois pour sauvegarder les bases de données SQL Server. Désactivez toutes les autres sauvegardes SQL avant d’utiliser cette fonctionnalité ; sinon, les sauvegardes causeront des interférences et des échecs. Vous pouvez activer Sauvegarde Azure pour la machine virtuelle IaaS ainsi que la sauvegarde SQL sans aucun conflit.
@@ -118,7 +120,7 @@ Si ces conditions existent dans votre environnement, passez à [configurer la sa
 
 Pour toutes les opérations, la machine virtuelle SQL requiert une connectivité pour accéder aux adresses IP publiques Azure. Les opérations des machines virtuelles SQL (par exemple, la détection de bases de données, la configuration de sauvegardes, les sauvegardes planifiées, la restauration des points de récupération, etc.) échouent en cas d’absence de connectivité aux adresses IP publiques. Pour fournir un chemin d’accès clair pour le trafic de sauvegarde, utilisez l’une des options suivantes :
 
-- Placez les plages d’adresses IP des centres de données Azure dans une liste verte : pour ce faire, consultez le [page du Centre de téléchargement concernant les plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653).
+- Placez les plages d’adresses IP des centres de données Azure dans une liste verte : pour ce faire, consultez la [page du Centre de téléchargement concernant les plages d’adresses IP et les instructions associées](https://www.microsoft.com/download/details.aspx?id=41653).
 - Déployez un serveur proxy HTTP pour le routage du trafic : lorsque vous sauvegardez une base de données SQL sur une machine virtuelle, l’extension de sauvegarde sur la machine virtuelle utilise les API HTTPS pour envoyer des commandes de gestion à Sauvegarde Azure et des données à Stockage Azure. L’extension de sauvegarde utilise également Azure Active Directory (Azure AD) pour l’authentification. Acheminez le trafic de l’extension de sauvegarde pour ces trois services via le proxy HTTP. L’extension est le seul composant qui est configuré pour l’accès à l’internet public.
 
 Les compromis entre les options sont les suivants : facilité de gestion, contrôle granulaire et coût.
@@ -134,7 +136,7 @@ Les compromis entre les options sont les suivants : facilité de gestion, contr�
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Définir des autorisations pour les machines virtuelles SQL autres que celles de la Place de marché
 
-Pour sauvegarder une machine virtuelle, Sauvegarde Azure nécessite l’installation de l’extension **AzureBackupWindowsWorkload**. Si vous utilisez des machines virtuelles de la Place de marché Azure, continuez avec [Détecter les bases de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Si la machine virtuelle hébergeant vos bases de données SQL n’a pas été créée à partir de la Place de marché Azure, complétez la section suivante pour installer l’extension et définir les autorisations appropriées. Outre l’extension **AzureBackupWindowsWorkload**, Sauvegarde Azure nécessite des privilèges d’administrateur système SQL pour protéger les bases de données SQL. Lors de la détection des bases de données sur la machine virtuelle, Sauvegarde Azure crée un compte **NT Service\AzureWLBackupPluginSvc**. Pour que la Sauvegarde Azure découvre les bases de données SQL, le compte **NT Service\AzureWLBackupPluginSvc** doit disposer des autorisations SQL et des autorisations d’administrateur système SQL. La procédure suivante explique comment fournir ces autorisations.
+Pour sauvegarder une machine virtuelle, Sauvegarde Azure nécessite l’installation de l’extension **AzureBackupWindowsWorkload**. Si vous utilisez des machines virtuelles de la Place de marché Azure, continuez avec [Détecter les bases de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Si la machine virtuelle hébergeant vos bases de données SQL n’a pas été créée à partir de la Place de marché Azure, complétez la section suivante pour installer l’extension et définir les autorisations appropriées. Outre l’extension **AzureBackupWindowsWorkload**, Sauvegarde Azure nécessite des privilèges d’administrateur système SQL pour protéger les bases de données SQL. Lors de la détection des bases de données sur la machine virtuelle, Sauvegarde Azure crée un compte **NT Service\AzureWLBackupPluginSvc**. Ce compte est utilisé pour la sauvegarde et la restauration, et il doit disposer de l’autorisation sysadmin SQL. En outre, Sauvegarde Azure utilise le compte **NT AUTHORITY\SYSTEM** pour la détection/l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL.
 
 Pour configurer des autorisations :
 
@@ -144,13 +146,13 @@ Pour configurer des autorisations :
 
    ![Cliquer sur Sauvegarder pour ouvrir le menu Objectif de sauvegarde](./media/backup-azure-sql-database/open-backup-menu.png)
 
-3. Dans le menu **Objectif de sauvegarde**, définissez **Où s’exécute votre charge de travail ?** sur la valeur par défaut **Azure**.
+3. Dans le menu **Objectif de sauvegarde**, définissez **Où s’exécute votre charge de travail ?** sur la valeur par défaut : **Azure**.
 
 4. Développez le menu déroulant **What do you want to backup** (Que voulez-vous sauvegarder ?), et sélectionnez **SQL Server in Azure VM** (SQL Server dans une machine virtuelle Azure).
 
     ![Sélectionnez SQL Server dans une machine virtuelle Azure pour la sauvegarde](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Le menu **Objectif de sauvegarde** affiche deux étapes : **Discover DBs in VMs** (Détecter les bases de données dans les machines virtuelles) et **Configurer la sauvegarde**. L’étape **Détecter les bases de données dans les machines virtuelles** lance une recherche pour les machines virtuelles Azure.
+    Le menu **Objectif de sauvegarde** affiche deux étapes : **Détecter les bases de données dans les machines virtuelles** et **Configurer la sauvegarde**. L’étape **Détecter les bases de données dans les machines virtuelles** lance une recherche pour les machines virtuelles Azure.
 
     ![Passez en revue les deux étapes de l’objectif de sauvegarde](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -202,6 +204,14 @@ Pendant l’installation, si vous rencontrez l’erreur `UserErrorSQLNoSysadminM
 
 Dès que vous avez associé la base de données au coffre Recovery Services, l’étape suivante consiste à [configurer la tâche de sauvegarde](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
+## <a name="sql-database-naming-guidelines-for-azure-backup"></a>Instructions de dénomination des bases de données SQL pour Sauvegarde Azure
+Pour garantir des sauvegardes sans heurt à l’aide de Sauvegarde Azure pour SQL Server dans une machine virtuelle IaaS, évitez les éléments suivants lorsque vous nommez les bases de données :
+
+  * Espaces au début ou à la fin
+  * « ! » à la fin
+
+Nous avons des alias pour les caractères non pris en charge dans la table Azure, mais nous vous recommandons de les éviter également. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-sql-server-databases"></a>Détecter les bases de données SQL Server
@@ -216,7 +226,7 @@ Sauvegarde Azure permet de découvrir toutes les bases de données sur une insta
 
 3. Dans la boîte de dialogue **Tous les services**, entrez **Recovery Services**. Au fur et à mesure des caractères saisis, la liste des ressources est filtrée. Sélectionnez **Coffres Recovery Services** dans la liste.
 
-    ![Entrée et choisir Coffres Recovery Services](./media/backup-azure-sql-database/all-services.png) <br/>
+  ![Entrée et choisir Coffres Recovery Services](./media/backup-azure-sql-database/all-services.png) <br/>
 
     La liste des coffres Recovery Services de l’abonnement s’affiche.
 
@@ -226,13 +236,13 @@ Sauvegarde Azure permet de découvrir toutes les bases de données sur une insta
 
    ![Cliquer sur Sauvegarder pour ouvrir le menu Objectif de sauvegarde](./media/backup-azure-sql-database/open-backup-menu.png)
 
-6. Dans le menu **Objectif de sauvegarde**, définissez **Où s’exécute votre charge de travail ?** sur la valeur par défaut **Azure**.
+6. Dans le menu **Objectif de sauvegarde**, définissez **Où s’exécute votre charge de travail ?** sur la valeur par défaut : **Azure**.
 
 7. Développez le menu déroulant **What do you want to backup** (Que voulez-vous sauvegarder ?), et sélectionnez **SQL Server in Azure VM** (SQL Server dans une machine virtuelle Azure).
 
     ![Sélectionnez SQL Server dans une machine virtuelle Azure pour la sauvegarde](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Le menu **Objectif de sauvegarde** affiche deux étapes : **Discover DBs in VMs** (Détecter les bases de données dans les machines virtuelles) et **Configurer la sauvegarde**.
+    Le menu **Objectif de sauvegarde** affiche deux étapes : **Détecter les bases de données dans les machines virtuelles** et **Configurer la sauvegarde**.
 
     ![Passez en revue les deux étapes de l’objectif de sauvegarde](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -274,13 +284,13 @@ Pour configurer la protection d’une base de données SQL :
 
    ![Cliquer sur Sauvegarder pour ouvrir le menu Objectif de sauvegarde](./media/backup-azure-sql-database/open-backup-menu.png)
 
-3. Dans le menu **Objectif de sauvegarde**, définissez **Où s’exécute votre charge de travail ?** sur la valeur par défaut **Azure**.
+3. Dans le menu **Objectif de sauvegarde**, définissez **Où s’exécute votre charge de travail ?** sur la valeur par défaut : **Azure**.
 
 4. Développez le menu déroulant **What do you want to backup** (Que voulez-vous sauvegarder ?), et sélectionnez **SQL Server in Azure VM** (SQL Server dans une machine virtuelle Azure).
 
     ![Sélectionnez SQL Server dans une machine virtuelle Azure pour la sauvegarde](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Le menu **Objectif de sauvegarde** affiche deux étapes : **Discover DBs in VMs** (Détecter les bases de données dans les machines virtuelles) et **Configurer la sauvegarde**.
+    Le menu **Objectif de sauvegarde** affiche deux étapes : **Détecter les bases de données dans les machines virtuelles** et **Configurer la sauvegarde**.
 
     Si vous avez parcouru cet article dans l’ordre, vous avez déjà détecté les machines virtuelles non protégées, et ce coffre est inscrit auprès d’une machine virtuelle. Vous êtes maintenant prêt à configurer la protection des bases de données SQL.
 
@@ -302,16 +312,9 @@ Pour configurer la protection d’une base de données SQL :
     > Pour optimiser les charges des sauvegardes, Sauvegarde Azure fractionne les travaux de sauvegarde volumineux en plusieurs lots. Le nombre maximal de bases de données contenues dans un travail de sauvegarde est égal à 50.
     >
 
-    Vous pouvez aussi activer la protection automatique sur l’ensemble de l’instance ou du groupe de disponibilité Always On en sélectionnant l’option **ACTIVÉ** dans la liste déroulante correspondant à la colonne **PROTECTION AUTOMATIQUE**. La fonctionnalité de protection automatique permet non seulement de protéger toutes les bases de données existantes en une seule étape, mais aussi de protéger automatiquement toutes les nouvelles bases de données qui seront ajoutées à cette instance ou ce groupe de disponibilité par la suite.  
+      Vous pouvez aussi activer la [protection automatique](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) sur l’ensemble de l’instance ou du groupe de disponibilité Always On en sélectionnant l’option **ACTIVÉ** dans la liste déroulante correspondant à la colonne **PROTECTION AUTOMATIQUE**. La fonctionnalité de [protection automatique](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) permet non seulement de protéger toutes les bases de données existantes en une seule étape, mais aussi de protéger automatiquement toutes les nouvelles bases de données qui seront ajoutées à cette instance ou ce groupe de disponibilité par la suite.  
 
       ![Activer la protection automatique sur le groupe de disponibilité Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
-
-      Si une instance ou un groupe de disponibilité a déjà certaines de ses bases de données protégées, vous pouvez toujours **activer** l’option de protection automatique. Dans ce cas, la stratégie de sauvegarde définie à l’étape suivante est uniquement applicable aux bases de données non protégées, tandis que les bases de données déjà protégées restent protégées par leurs stratégies respectives.
-
-      Le nombre de bases de données pouvant être sélectionnées en une seule étape à l’aide de la fonctionnalité de protection automatique n’est pas limité (vous pouvez sélectionner autant de bases de données qu’en contient le coffre).  
-
-      Nous vous recommandons d’activer la protection automatique pour toutes les instances et tous les groupes de disponibilité Always On si vous voulez que les bases de données ajoutées par la suite soient automatiquement configurées pour la protection.
-
 
 7. Pour créer ou choisir une stratégie de sauvegarde, dans le menu **Sauvegarde**, sélectionnez **Stratégie de sauvegarde**. Le menu **Stratégie de sauvegarde** s’ouvre.
 
@@ -325,7 +328,7 @@ Pour configurer la protection d’une base de données SQL :
     ![Choisir une stratégie de sauvegarde dans la liste](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     Dans le menu déroulant **Choisir une stratégie de sauvegarde** du menu **Stratégie de sauvegarde**, vous pouvez :
-    - Sélectionner la stratégie par défaut : **HourlyLogBackup**.
+    - Sélectionner la stratégie par défaut : **HourlyLogBackup**.
     - Choisir une stratégie de sauvegarde existante créée précédemment pour SQL.
     - [Définir une nouvelle stratégie](backup-azure-sql-database.md#define-a-backup-policy) selon votre RPO et la durée de rétention.
 
@@ -341,6 +344,20 @@ Pour configurer la protection d’une base de données SQL :
 
     ![Zone Notifications](./media/backup-azure-sql-database/notifications-area.png)
 
+
+## <a name="auto-protect-sql-server-in-azure-vm"></a>Protéger automatiquement SQL Server sur les machines virtuelles Azure  
+
+La protection automatique vous permet de protéger automatiquement toutes les bases de données existantes et les bases de données que vous ajouterez dans un avenir proche à une instance SQL Server autonome ou un groupe de disponibilité SQL Server Always On. L’**activation** de la protection automatique et le choix d’une stratégie de sauvegarde seront appliqués pour les bases de données nouvellement protégées, tandis que les bases de données déjà protégées continueront d’utiliser la stratégie précédente.
+
+![Activer la protection automatique sur le groupe de disponibilité Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
+
+Le nombre de bases de données pouvant être sélectionnées en une seule étape à l’aide de la fonctionnalité de protection automatique n’est pas limité. La configuration de la sauvegarde est déclenchée pour toutes les bases de données et peut être suivie dans les **Travaux de sauvegarde**.
+
+Si pour une raison quelconque, vous devez désactiver la protection automatique sur une instance, cliquez sur le nom d’instance sous **Configurer la sauvegarde** pour ouvrir le panneau d’informations de droite qui présente l’option **Désactiver la protection automatique** en haut. Cliquez sur **Désactiver la protection automatique** pour désactiver la protection automatique sur cette instance.
+
+![Désactiver la protection automatique sur cette instance](./media/backup-azure-sql-database/disable-auto-protection.png)
+
+Toutes les bases de données dans cette instance restent protégées. Toutefois, cette action désactive la protection automatique sur les bases de données ajoutées par la suite.
 
 ### <a name="define-a-backup-policy"></a>Créer une stratégie de sauvegarde
 
@@ -456,7 +473,7 @@ Vous pouvez également sélectionner une sauvegarde complète ou différentielle
     ![Sélectionner Restore DB](./media/backup-azure-sql-database/restore-db-button.png)
 
     Le menu **Configuration de la restauration** s’ouvre en même temps que le menu **Restauration**. Le menu **Configuration de la restauration** est la première étape de la configuration de la restauration. Ce menu vous sert à indiquer où vous voulez restaurer les données. Les options sont :
-    - **Autre emplacement** : restaure la base de données vers un autre emplacement et conserver la base de données source d’origine.
+    - **Autre emplacement** : restaure la base de données vers un autre emplacement et conserve la base de données source d’origine.
     - **Remplacer la base de données** : restaure les données dans la même instance SQL Server que la source d’origine. Cette option permet de remplacer la base de données d’origine.
 
     > [!Important]
@@ -737,15 +754,9 @@ Pour arrêter la protection de la base de données :
 
 7. Cliquez sur **Arrêter la sauvegarde** pour arrêter la protection de la base de données.
 
-  Notez que l’option **Arrêter la sauvegarde** ne fonctionne pas pour une base de données dans une instance protégée automatiquement. La seule façon d’arrêter la protection de cette base de données est de désactiver momentanément la protection automatique sur l’instance et de choisir l’option **Arrêter la sauvegarde** sous **Éléments de sauvegarde** pour cette base de données.  
+  L’option **Arrêter la sauvegarde** ne fonctionne pas pour les bases de données dans une instance de [protection automatique](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm). La seule façon d’arrêter la protection de ces bases de données consiste à désactiver momentanément la [protection automatique](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) sur l’instance et de choisir l’option **Arrêter la sauvegarde** sous **Éléments de sauvegarde** pour la base de données concernée.<br>
+  Une fois que vous avez désactivé la protection automatique, vous pouvez **Arrêter la sauvegarde** pour la base de données sous **Éléments de sauvegarde**. L’instance peut maintenant être réactivée pour la protection automatique.
 
-  Vous pouvez désactiver la protection automatique sur une instance ou un groupe de disponibilité Always On sous **Configurer la sauvegarde**. Cliquez sur le nom d’instance pour ouvrir le panneau d’informations à droite, en haut duquel se trouve l’option **Désactiver la protection automatique**. Cliquez sur **Désactiver la protection automatique** pour désactiver la protection automatique sur cette instance.
-
-    ![Désactiver la protection automatique sur cette instance](./media/backup-azure-sql-database/disable-auto-protection.png)
-
-Toutes les bases de données dans cette instance restent protégées. Toutefois, cette action désactive la protection automatique sur les bases de données ajoutées par la suite.
-
-Une fois que vous avez désactivé la protection automatique, vous pouvez **Arrêter la sauvegarde** pour la base de données sous **Éléments de sauvegarde**. L’instance peut maintenant être réactivée pour la protection automatique.
 
 ### <a name="resume-protection-for-a-sql-database"></a>Rétablir la protection d’une base de données SQL
 
@@ -799,19 +810,15 @@ La section suivante fournit des informations supplémentaires sur la sauvegarde 
 ### <a name="can-i-throttle-the-speed-of-the-sql-server-backup-policy"></a>Puis-je limiter la vitesse de la stratégie de sauvegarde de SQL Server ?
 
 Oui. Vous pouvez limiter la fréquence à laquelle la stratégie de sauvegarde s’exécute pour minimiser l’impact sur une instance SQL Server.
-
 Pour modifier ce paramètre :
-
-1. Sur l’instance SQL Server, dans le dossier C:\Program Files\Azure Workload Backup\bin, ouvrez le fichier **TaskThrottlerSettings.json**.
-
-2. Dans le fichier TaskThrottlerSettings.json, remplacez la valeur du paramètre **DefaultBackupTasksThreshold** par une valeur inférieure (par exemple, 5).
+1. Sur l’instance SQL Server, dans le dossier *C:\Program Files\Azure Workload Backup\bin*, créez le fichier **ExtensionSettingsOverrides.json**.
+2. Dans le fichier **ExtensionSettingsOverrides.json**, remplacez la valeur du paramètre **DefaultBackupTasksThreshold** par une valeur inférieure (par exemple, 5) <br>
+  ` {"DefaultBackupTasksThreshold": 5}`
 
 3. Enregistrez vos modifications. Fermer le fichier.
-
-4. Sur l’instance SQL Server, ouvrez le **Gestionnaire des tâches**. Redémarrez le **Service de coordinateur des charges de travail de sauvegarde Azure**.
+4. Sur l’instance SQL Server, ouvrez le **Gestionnaire des tâches**. Redémarrez le service **AzureWLBackupCoordinatorSvc**.
 
 ### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Puis-je effectuer la sauvegarde complète d’un réplica secondaire ?
-
  Non. Cette fonctionnalité n'est pas prise en charge.
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>La réussite des travaux de sauvegarde génère-t-elle des alertes ?
@@ -840,22 +847,22 @@ Le coffre Recovery Services de Sauvegarde Azure peut détecter et protéger tous
 
 ### <a name="while-i-want-to-protect-most-of-the-databases-in-an-instance-i-would-like-to-exclude-a-few-is-it-possible-to-still-use-the-auto-protection-feature"></a>Je veux protéger la plupart des bases de données d’une instance à l’exception de quelques-unes. Puis-je encore utiliser la fonctionnalité de protection automatique ?
 
-Non, la protection automatique s’applique à l’ensemble de l’instance. Vous ne pouvez pas protéger de manière sélective les bases de données d’une instance à l’aide de la protection automatique.
+Non, la [protection automatique](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) s’applique à l’ensemble de l’instance. Vous ne pouvez pas protéger de manière sélective les bases de données d’une instance à l’aide de la protection automatique.
 
 ### <a name="can-i-have-different-policies-for-different-databases-in-an-auto-protected-instance"></a>Puis-je avoir des stratégies différentes pour différentes bases de données dans une instance protégée automatiquement ?
 
-Si vous avez déjà des bases de données protégées dans une instance, elles restent protégées par leurs stratégies respectives même après avoir **activé** l’option de protection automatique. Toutefois, toutes les bases de données non protégées ainsi que celles que vous ajoutez par la suite ont une seule stratégie que vous définissez sous **Configurer la sauvegarde** après avoir sélectionné les bases de données. En réalité, contrairement aux autres bases de données protégées, vous ne pouvez même pas changer la stratégie d’une base de données sous une instance protégée automatiquement.
+Si vous avez déjà des bases de données protégées dans une instance, elles restent protégées par leurs stratégies respectives même après l’**activation** de l’option de [protection automatique](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm). Toutefois, toutes les bases de données non protégées ainsi que celles que vous ajoutez par la suite ont une seule stratégie que vous définissez sous **Configurer la sauvegarde** après avoir sélectionné les bases de données. En réalité, contrairement aux autres bases de données protégées, vous ne pouvez même pas changer la stratégie d’une base de données sous une instance protégée automatiquement.
 Le seul moyen de le faire est de désactiver momentanément la protection automatique sur l’instance et de changer la stratégie pour cette base de données. Vous pouvez ensuite réactiver la protection automatique sur cette instance.
 
 ### <a name="if-i-delete-a-database-from-an-auto-protected-instance-will-the-backups-for-that-database-also-stop"></a>Si je supprime une base de données d’une instance protégée automatiquement, les sauvegardes de cette base de données s’arrêtent-elles également ?
 
 Non, si une base de données est supprimée d’une instance protégée automatiquement, les sauvegardes de cette base de données sont toujours essayées. Cela implique que la base de données supprimée devient défectueuse sous **Éléments de sauvegarde** et reste traitée comme si elle était protégée.
 
-La seule façon d’arrêter la protection de cette base de données est de désactiver momentanément la protection automatique sur l’instance et de choisir l’option **Arrêter la sauvegarde** sous **Éléments de sauvegarde** pour cette base de données. Vous pouvez ensuite réactiver la protection automatique sur cette instance.
+La seule façon d’arrêter la protection de ces bases de données consiste à désactiver momentanément la [protection automatique](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) sur l’instance et de choisir l’option **Arrêter la sauvegarde** sous **Éléments de sauvegarde** pour la base de données concernée. Vous pouvez ensuite réactiver la protection automatique sur cette instance.
 
 ###  <a name="why-cant-i-see-the-newly-added-database-to-an-auto-protected-instance-under-the-protected-items"></a>Pourquoi ne puis-je pas voir la base de données qui vient d’être ajoutée à une instance protégée automatiquement sous les éléments protégés ?
 
-Vous pouvez ne pas voir une base de données qui vient d’être ajoutée à une instance protégée automatiquement. C’est parce que la découverte s’exécute généralement toutes les 8 heures. Toutefois, l’utilisateur peut exécuter une découverte manuelle à l’aide de l’option **Récupérer les bases de données** pour découvrir et protéger les nouvelles bases de données immédiatement, comme illustré dans l’image ci-dessous :
+Vous pouvez ne pas voir une base de données qui vient d’être ajoutée à une instance [protégée automatiquement](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) de manière instantanée. C’est parce que la découverte s’exécute généralement toutes les 8 heures. Toutefois, l’utilisateur peut exécuter une découverte manuelle à l’aide de l’option **Récupérer les bases de données** pour découvrir et protéger les nouvelles bases de données immédiatement, comme illustré dans l’image ci-dessous :
 
   ![Voir la base de données qui vient d’être ajoutée](./media/backup-azure-sql-database/view-newly-added-database.png)
 

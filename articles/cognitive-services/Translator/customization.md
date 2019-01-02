@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: d01a5a8a9a60bef315327721b9f55345bc3d1361
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645026"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877970"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 
-La préversion de Microsoft Custom Translator est une fonctionnalité du service Microsoft Translator, qui permet aux utilisateurs de personnaliser la traduction automatique neuronale avancée de Microsoft Translator lors de la traduction de texte à l’aide de l’API de traduction de texte Translator Text (version 3 uniquement).
+Microsoft Custom Translator est une fonctionnalité du service Microsoft Translator, qui permet aux utilisateurs de personnaliser la traduction automatique neurale avancée de Microsoft Translator lors de la traduction de texte à l’aide de l’API de traduction de texte Translator Text (version 3 uniquement).
 
-Cette fonctionnalité peut également être utilisée pour personnaliser la traduction vocale lorsqu’elle est utilisée avec la [préversion Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Cette fonctionnalité peut également être utilisée pour personnaliser la traduction vocale quand elle est utilisée avec [Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
 ## <a name="custom-translator"></a>Custom Translator
 
@@ -37,7 +37,7 @@ Le système personnalisé est alors disponible via un appel normal à l’API de
 
 Étant donné le type approprié et la quantité de données d’apprentissage, il n’est pas rare d’attendre des gains compris entre 5 et 10, ou encore plus de points BLEU sur la qualité de la traduction grâce à Custom Translator.
 
-Vous trouverez plus de détails sur les différents niveaux de personnalisation en fonction des données disponibles dans le [guide de l’utilisateur de Custom Translator](http://aka.ms/CustomTranslatorDocs).
+Vous trouverez plus de détails sur les différents niveaux de personnalisation en fonction des données disponibles dans le [guide de l’utilisateur de Custom Translator](https://aka.ms/CustomTranslatorDocs).
 
 
 ## <a name="microsoft-translator-hub"></a>Hub Microsoft Translator
@@ -48,12 +48,12 @@ L’ancien hub Microsoft Translator peut être utilisé pour obtenir une traduct
 
 |   | **Concentrateur** | **Custom Translator**|
 |:-----|:----:|:----:|
-|État de la fonctionnalité de personnalisation   | Disponibilité générale  | VERSION PRÉLIMINAIRE |
+|État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2 uniquement   | V3 uniquement |
 | Personnalisation TA statistique | Oui   | Non  |
 | Personnalisation TA neuronale | Non     | Oui |
 | Nouvelle personnalisation unifiée des services vocaux | Non     | Oui |
-| [Sans trace](http://www.aka.ms/notrace) | Oui   | Oui |
+| [Sans trace](https://www.aka.ms/notrace) | Oui  | Oui |
 
 ## <a name="collaborative-translations-framework"></a>Infrastructure de traductions collaboratives
 
@@ -65,4 +65,4 @@ L’ancien hub Microsoft Translator peut être utilisé pour obtenir une traduct
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Configurer un système de langue personnalisé à l’aide de Custom Translator](http://aka.ms/CustomTranslatorDocs)
+> [Configurer un système de langue personnalisé à l’aide de Custom Translator](https://aka.ms/CustomTranslatorDocs)

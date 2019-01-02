@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e2dabc66a906d35525f51bf9a1c09b62430ded55
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434005"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874563"
 ---
 # <a name="azure-logging-and-auditing"></a>Journalisation et audit Azure
 
@@ -147,7 +147,7 @@ Si vous souhaitez conserver vos événements d’audit plus longtemps, utilisez 
 
 ![Journaux de machines virtuelles utilisant Azure Diagnostics](./media/azure-log-audit/azure-log-audit-fig3.png)
 
-### <a name="azure-virtual-machineshttpsazuremicrosoftcomdocumentationlearning-pathsvirtual-machines-that-are-running-microsoft-windows-and-service-fabrichttpsdocsmicrosoftcomazureservice-fabricservice-fabric-overview"></a>[Machines virtuelles Azure](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/) exécutant Microsoft Windows et [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
+### <a name="azure-virtual-machineslearnpathsdeploy-a-website-with-azure-virtual-machines-that-are-running-microsoft-windows-and-service-fabrichttpsdocsmicrosoftcomazureservice-fabricservice-fabric-overview"></a>[Machines virtuelles Azure](/learn/paths/deploy-a-website-with-azure-virtual-machines/) exécutant Microsoft Windows et [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 Vous pouvez activer Azure Diagnostics sur une machine virtuelle en effectuant l’une des actions suivantes :
 
@@ -187,9 +187,9 @@ Storage Analytics journalise les types suivants de demandes authentifiées et an
 ### <a name="azure-networking-logs"></a>Journaux réseaux Azure
 La journalisation et la surveillance réseau dans Azure sont complètes et couvrent deux grandes catégories :
 
-* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) : La surveillance réseau basée sur des scénarios est fournie avec les fonctionnalités de Network Watcher. Ce service inclut la capture de paquets, le tronçon saut suivant, la vérification des flux IP, l’affichage de groupe de sécurité, les journaux de flux de groupe de sécurité réseau. La surveillance basée sur des scénarios fournit une vue de bout en bout des ressources réseau, à l’inverse de la surveillance des ressources réseau qui s’intéresse à chaque ressource spécifique.
+* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) : la surveillance réseau basée sur des scénarios est fournie avec les fonctionnalités de Network Watcher. Ce service inclut la capture de paquets, le tronçon saut suivant, la vérification des flux IP, l’affichage de groupe de sécurité, les journaux de flux de groupe de sécurité réseau. La surveillance basée sur des scénarios fournit une vue de bout en bout des ressources réseau, à l’inverse de la surveillance des ressources réseau qui s’intéresse à chaque ressource spécifique.
 
-* [Surveillance des ressources](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring) : La surveillance au niveau des ressources se compose de quatre fonctionnalités : journaux de diagnostic, métriques, résolution des problèmes et intégrité des ressources. Toutes ces fonctionnalités sont conçues au niveau des ressources réseau.
+* [Surveillance des ressources](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring) : la surveillance au niveau des ressources se compose de quatre fonctionnalités : journaux de diagnostic, métriques, résolution des problèmes et intégrité des ressources. Toutes ces fonctionnalités sont conçues au niveau des ressources réseau.
 
 ![Journaux réseaux Azure](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -219,19 +219,19 @@ Network Watcher fournit une vue des journaux de diagnostic. Cette vue contient t
 
 
 En plus des fonctionnalités de journalisation mentionnées ci-dessus, Network Watcher propose actuellement les fonctionnalités suivantes :
-- [Topologie](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) : Fournit une vue au niveau du réseau qui montre les différentes interconnexions et associations entre les ressources réseau dans un groupe de ressources.
+- [Topologie](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) : fournit une vue au niveau du réseau qui montre les différentes interconnexions et associations entre les ressources réseau dans un groupe de ressources.
 
-- [Capture de paquets variables](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) : capture les données des paquets qui entrent et sortent d’une machine virtuelle. Des options avancées de filtrage et des commandes d’affinage, comme les paramètres de limites de taille et de durée, offrent une grande souplesse. Les données de paquet peuvent être stockées dans un magasin d’objets blob ou sur le disque local au format de fichier *.cap*.
+- [Capture de paquets variables](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) : capture les données des paquets qui entrent et sortent d’une machine virtuelle. Des options avancées de filtrage et des commandes d’affinage, comme les paramètres de limites de taille et de durée, offrent une grande souplesse. Les données de paquet peuvent être stockées dans un magasin d’objets blob ou sur le disque local au format de fichier *.cap*.
 
-* [Vérification des flux IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) : Vérifie si un paquet est autorisé ou refusé en fonction des paramètres de paquet des 5 informations de flux (adresse IP de destination, adresse IP source, port de destination, port source et protocole). Si le paquet est refusé par un groupe de sécurité, la règle et le groupe qui ont refusé le paquet sont renvoyés.
+* [Vérification du flux IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) : vérifie si un paquet est autorisé ou refusé en fonction des paramètres de paquet des 5-tuple de flux (adresse IP de destination, adresse IP source, port de destination, port source et protocole). Si le paquet est refusé par un groupe de sécurité, la règle et le groupe qui ont refusé le paquet sont renvoyés.
 
-* [Tronçon suivant](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): détermine le tronçon suivant des paquets routés dans la structure fabric du réseau Azure, pour diagnostiquer les itinéraires définis par l’utilisateur qui ont été mal configurés.
+* [Tronçon suivant](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) : détermine le tronçon suivant des paquets routés dans la structure fabric du réseau Azure, pour identifier les routes définies par l’utilisateur qui ont été mal configurées.
 
-* [Affichage des groupes de sécurité](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) : affiche les règles de sécurité en vigueur et appliquées sur une machine virtuelle.
+* [Affichage des groupes de sécurité](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) : Obtient les règles de sécurité effectives et appliquées à une machine virtuelle.
 
-* [Résolution des problèmes de connexion et de passerelle de réseau virtuel](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) : vous aide à résoudre les problèmes de connexion et des passerelles de réseau virtuel.
+* [Résolution des problèmes de passerelle de réseau virtuel et de connexion](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) : vous aide à résoudre les problèmes liés aux connexions ou aux passerelles de réseau virtuel.
 
-* [Limites d’abonnement réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits) : permet de visualiser l’utilisation des ressources du réseau par rapport aux limites.
+* [Limites d’abonnement réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits) : vous permet d’afficher l’utilisation des ressources réseau par rapport aux limites.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -245,25 +245,25 @@ Il fonctionne avec des applications sur un large éventail de plateformes, notam
 
 Application Insights est destiné à l’équipe de développement et permet de comprendre les performances et l’utilisation de votre application. Il analyse les éléments suivants :
 
-* **Taux de demandes, temps de réponse et taux d’échec** : identifiez les pages les plus consultées et à quel moment de la journée, et déterminez où se trouvent vos utilisateurs. Identifiez les pages qui offrent les meilleures performances. Si vos temps de réponse et votre taux d’échec augmentent quand les demandes augmentent, vous avez peut-être un problème de ressources.
+* **Taux de demandes, temps de réponse et taux d’échec** : déterminez quelles sont les pages les plus consultées, à quel moment de la journée et où se trouvent vos utilisateurs. Identifiez les pages qui offrent les meilleures performances. Si vos temps de réponse et votre taux d’échec augmentent quand les demandes augmentent, vous avez peut-être un problème de ressources.
 
-* **Taux de dépendance, temps de réponse et taux d’échec** : déterminez si des services externes vous ralentissent.
+* **Taux de dépendance, temps de réponse et taux d’échec** : déterminez si des services externes vous ralentissent.
 
-* **Exceptions** : analysez les statistiques agrégées, ou choisissez des instances en particulier et explorez l’arborescence des appels de procédure et les demandes connexes. Les exceptions de serveur et de navigateur sont signalées.
+* **Exceptions** : analysez les statistiques agrégées, ou choisissez des instances précises et explorez dans le détail les appels de procédure et les requêtes connexes. Les exceptions de serveur et de navigateur sont signalées.
 
-* **Consultations de pages et performances de chargement** : obtenez des rapports des navigateurs de vos utilisateurs.
+* **Vues de pages et performances de chargement** : examinez les rapports générés par les navigateurs de vos utilisateurs.
 
-* **Appels AJAX** : obtenez les taux de pages web, les temps de réponse et les taux d’échec.
+* **Appels AJAX** : obtenez les taux de pages web, les temps de réponse et les taux d’échec.
 
 * **Nombre de sessions et d’utilisateurs**.
 
-* **Compteurs de performances** : obtenez des données de vos ordinateurs serveurs Windows ou Linux, par exemple sur le processeur, la mémoire et l’utilisation du réseau.
+* **Compteurs de performances** : obtenez des données de vos serveurs Windows ou Linux, par exemple sur le processeur, la mémoire et l’utilisation du réseau.
 
-* **Diagnostics d’hébergement** : obtenez des données de Docker ou Azure.
+* **Diagnostics d’hébergement** : obtenez des données de Docker ou d’Azure.
 
-* **Journaux de suivi des diagnostics** : obtenez des données de votre application pour pouvoir mettre en corrélation les événements de suivi avec les demandes.
+* **Journaux de suivi des diagnostics** : obtenez des données de votre application pour pouvoir mettre en corrélation les événements de suivi avec les requêtes.
 
-* **Métriques et événements personnalisés** : obtenez des données que vous écrivez vous-même dans le code client ou serveur, pour suivre des événements commerciaux tels que les articles vendus ou les jeux gagnés.
+* **Métriques et événements personnalisés** : obtenez des données que vous écrivez vous-même dans le code client ou serveur, pour suivre des événements métier tels que les articles vendus ou les jeux gagnés.
 
 Le tableau suivant liste et décrit des scénarios d’intégration :
 
@@ -288,11 +288,11 @@ La détection des menaces d’Azure Security Center fonctionne en collectant aut
 
 Azure Security Center fait appel à une analytique de sécurité avancée qui va bien au-delà des approches basées sur la signature. Il applique les avancées des technologies de big data et d’[apprentissage automatique](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) pour évaluer les événements de toute la structure fabric cloud. De cette façon, il détecte les menaces qui seraient impossibles à identifier avec des approches manuelles et peut prévoir l’évolution des attaques. Ces analyses de sécurité comprennent les éléments suivants :
 
-* **Threat Intelligence intégré** : recherche des acteurs malveillants connus en utilisant la Threat Intelligence au niveau mondial des produits et services Microsoft, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) et des sources externes.
+* **Threat Intelligence intégrée** : recherche les éléments malveillants connus en exploitant les informations globales de Threat Intelligence provenant des produits et services Microsoft, de Microsoft Digital Crimes Unit (DCU), de Microsoft Security Response Center (MSRC) et de sources externes.
 
-* **Analytique comportementale** : applique des modèles connus pour détecter les comportements malveillants.
+* **Analytique comportementale** : applique des modèles connus pour détecter les comportements malveillants.
 
-* **Détection des anomalies** : utilise le profilage statistique pour créer une base de référence de l’historique. Il avertit sur les écarts par rapport aux lignes de base établies qui se conforment à un vecteur d’attaque potentielle.
+* **Détection des anomalies** : utilise le profilage statistique pour créer une base de référence. Il avertit sur les écarts par rapport aux lignes de base établies qui se conforment à un vecteur d’attaque potentielle.
 
 De nombreuses équipes de sécurité et d’intervention utilisent une solution SIEM comme point de départ pour le triage et l’examen des alertes de sécurité. Avec Azure Log Integration, vous pouvez synchroniser quasi en temps réel les alertes Azure Security Center et les événements de sécurité des machines virtuelles, collectés par les journaux de diagnostic et d’audit Azure, avec votre solution SIEM ou Log Analytics.
 
@@ -371,20 +371,20 @@ Log Integration prend actuellement en charge l’intégration des journaux d’a
 
 Scénarios d’intégration pour SIEM :
 
-* [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : ce billet de blog vous montre comment configurer l’intégration des journaux Azure pour travailler avec des solutions de partenaires Splunk, HP ArcSight et IBM QRadar.
+* [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : Ce billet de blog vous montre comment configurer Azure Log Integration pour fonctionner avec les solutions de partenaire Splunk, HP ArcSight et IBM QRadar.
 
-* [Forum aux questions sur l’intégration des journaux Azure](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq) : cet article répond à des questions sur l’intégration des journaux Azure.
+* [Forum aux questions sur Azure Log Integration](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq) : Cet article répond à des questions sur Azure Log Integration.
 
-* [Intégration des alertes Security Center avec Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) : Cet article décrit comment synchroniser les alertes Security Center, les événements de sécurité des machines virtuelles collectés par les journaux de diagnostic Azure et les journaux d’audit Azure avec votre solution SIEM ou Log Analytics.
+* [Intégration des alertes Security Center avec Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) : Cet article décrit comment synchroniser les alertes Security Center, les événements de sécurité des machines virtuelles collectés par les journaux de diagnostic Azure et les journaux d’audit Azure avec votre solution SIEM ou Log Analytics.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Audit et journalisation](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview) : Protégez les données en conservant le niveau de visibilité et en répondant rapidement aux alertes de sécurité reçues.
+- [Audit et journalisation](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview) : protégez les données en conservant le niveau de visibilité et en répondant rapidement aux alertes de sécurité reçues.
 
-- [Journalisation de la sécurité et collecte du journal d’audit dans Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/) : Appliquez ces paramètres pour vous assurer que vos instances Azure collectent les journaux d’audit et de sécurité appropriés.
+- [Collecte des journaux de sécurité et d’audit dans Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/) : appliquez ces paramètres pour vous assurer que vos instances Azure collectent les journaux d’audit et de sécurité appropriés.
 
-- [Configurer les paramètres d’audit pour une collection de sites](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US) : Si vous êtes administrateur de collection de sites, récupérez l’historique des actions de chaque utilisateur et l’historique des actions réalisées pendant une période donnée. 
+- [Configurer les paramètres d’audit pour une collection de sites](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US) : si vous administrez une collection de sites, récupérez l’historique des actions de chaque utilisateur et l’historique des actions réalisées pendant une période donnée. 
 
-- [Rechercher le journal d’audit dans le Centre de sécurité et conformité Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US) : Utilisez le Centre de sécurité et conformité Office 365 pour effectuer des recherches dans le journal d’audit unifié et voir les activités des utilisateurs et administrateurs de votre organisation Office 365.
+- [Effectuer des recherches dans le journal d’audit dans le Centre de sécurité et de conformité Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US) : utilisez le Centre de sécurité et de conformité Office 365 pour effectuer des recherches dans le journal d’audit unifié et afficher les activités utilisateur et administrateur effectuées dans votre organisation Office 365.
 
 

@@ -1,21 +1,22 @@
 ---
-title: Créer un mot déclencheur personnalisé
+title: Créer un mot déclencheur personnalisé - Services Speech
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment créer un mot déclencheur personnalisé pour le SDK Speech Devices.
+description: Votre appareil est toujours à l’écoute d’un mot déclencheur (ou d’une phrase). Quand l’utilisateur prononce le mot déclencheur, l’appareil envoie tous les sons suivants vers le cloud, jusqu’à ce que l’utilisateur arrête de parler. Pour différencier votre appareil et renforcer votre marque, vous pouvez personnaliser votre mot déclencheur.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: a9a316eccc0b5e237d5a48c833f53ea3d80aae1e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469076"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082932"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Créer un mot déclencheur personnalisé à l’aide du service Speech
 
@@ -50,18 +51,18 @@ Avant de pouvoir utiliser un mot déclencheur personnalisé avec votre appareil,
 
 1. Accédez au [portail du service Custom Speech](https://cris.ai/).
 
-1. Créez un compte en utilisant l’adresse e-mail à laquelle vous avez reçu l’invitation d’Azure Active Directory. 
+1. Créez un compte en utilisant l’adresse e-mail à laquelle vous avez reçu l’invitation d’Azure Active Directory.
 
     ![Créer un nouveau compte](media/speech-devices-sdk/wake-word-1.png)
- 
+
 1. La page **Custom Wake Word** (Mot déclencheur personnalisé) n’est pas accessible au public ; il n’existe donc aucun lien direct pour y accéder. La fonctionnalité Custom Speech nécessite un abonnement Azure, mais pas la fonctionnalité Custom Wake Word. Si vous recevez le message d’erreur **Aucun abonnement trouvé**, remplacez simplement **"Subscriptions?errorMessage=No%20Subscriptions%20found"** par "**customkws**" dans l’URL et appuyez sur Entrée. L’URL doit être l’une de celles-ci : https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, en fonction de votre région.
 
     ![La page Custom Wake Word (Mot déclencheur personnalisé) est masquée](media/speech-devices-sdk/wake-word-4.png)
- 
+
 1. Tapez le mot déclencheur de votre choix, puis sélectionnez **Submit the word** (Soumettre le mot).
 
     ![Entrez votre mot déclencheur](media/speech-devices-sdk/wake-word-5.png)
- 
+
 1. La création des fichiers peut nécessiter quelques minutes. Vous devez voir un cercle en rotation dans la fenêtre de votre navigateur. Après quelques instants, une barre d’informations s’affiche et vous invite à télécharger un fichier .zip.
 
     ![Réception du fichier .zip](media/speech-devices-sdk/wake-word-6.png)
@@ -76,4 +77,3 @@ Pour commencer, créez un [compte Azure gratuit](https://azure.microsoft.com/fre
 
 > [!div class="nextstepaction"]
 > [S’inscrire pour le kit de développement logiciel (SDK) Speech Devices](get-speech-devices-sdk.md)
-

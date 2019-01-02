@@ -1,6 +1,6 @@
 ---
-title: Comment ajouter votre domaine personnalisé à Azure Active Directory | Microsoft Docs
-description: Découvrez comment ajouter un domaine personnalisé à l’aide du Portail Azure Active Directory.
+title: Ajouter votre domaine personnalisé – Azure Active Directory | Microsoft Docs
+description: Ces instructions expliquent comment ajouter un domaine personnalisé avec Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
-ms.custom: it-pro
-ms.openlocfilehash: 77c2247281fde4aa2b67388464b386b276fe6437
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233335"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098292"
 ---
-# <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Procédure : ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory
+# <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory
 Chaque nouveau locataire Azure AD est fourni avec un nom de domaine initial au format *nom_de_domaine*.onmicrosoft.com. Vous ne pouvez pas modifier ni supprimer le nom de domaine initial, mais vous pouvez ajouter des noms de votre organisation à la liste. L’ajout de noms de domaine personnalisés vous permet de créer des noms d’utilisateur qui sont familiers à vos utilisateurs, par exemple *alain@contoso.com*.
 
 ## <a name="before-you-begin"></a>Avant de commencer

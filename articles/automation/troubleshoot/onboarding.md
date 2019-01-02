@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c11013c926e77447a69ce0dfe697fdda1ecc2b8c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284844"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879636"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Résolution des erreurs d’intégration des solutions
 
@@ -21,7 +21,7 @@ Vous pouvez rencontrer des erreurs lors de l’intégration d’une solution tel
 
 ## <a name="general-errors"></a>Erreurs générales
 
-### <a name="computer-grou-query-format-error"></a>Scénario : ComputerGroupQueryFormatError
+### <a name="computer-group-query-format-error"></a>Scénario : ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problème
 
@@ -55,7 +55,7 @@ Pour déployer correctement la solution, vous devez envisager de modifier la str
   * En reciblant la stratégie vers une ressource spécifique (par exemple, vers un compte Automation)
   * en révisant l’ensemble de ressources que cette stratégie a été configurée pour refuser.
 
-Consultez les notifications dans le coin supérieur droit du portail Azure ou accédez au groupe de ressources comportant votre compte Automation, puis sélectionnez **Déploiements** sous **Paramètres** pour afficher le déploiement mis en échec. Pour en savoir plus sur Azure Policy, consultez : [Présentation d’Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Consultez les notifications dans le coin supérieur droit du portail Azure ou accédez au groupe de ressources comportant votre compte Automation, puis sélectionnez **Déploiements** sous **Paramètres** pour afficher le déploiement mis en échec. Pour en apprendre davantage sur Azure Policy, consultez : [Présentation d’Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>Échecs d’extension MMA
 
@@ -126,7 +126,7 @@ Voici les causes possibles de cette erreur :
 
 Cette erreur est de nature temporaire. Recommencez le déploiement pour installer l’extension.
 
-### <a name="installation-timeout"></a>Scénario: Expiration du délai d’installation
+### <a name="installation-timeout"></a>Scénario : Expiration du délai d’installation
 
 L’installation de l’extension MMA n’a pas pu se terminer, car le délai d’attente a expiré.
 

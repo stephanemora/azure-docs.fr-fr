@@ -9,27 +9,26 @@ ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4407322dd415a7c8b2ef8b7ff470a247b8d68f69
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 8a0acbfa18053b6b50bd872d109b02d556a6f5f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319453"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436057"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gérer la tarification et le volume de données dans Application Insights
 
 > [!NOTE]
 > Cet article explique comment analyser l’utilisation des données dans Application Insights.  Pour plus d’informations, consultez les articles suivants.
-> - L’article [Monitoring usage and estimated costs](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) (Surveillance de l’utilisation et estimation des coûts) explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctionnalités de surveillance Azure en fonction des différents modèles de tarification. Il explique également comment modifier votre modèle de tarification.
+> - L’article [Monitoring usage and estimated costs](../azure-monitor/platform/usage-estimated-costs.md) (Surveillance de l’utilisation et estimation des coûts) explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctionnalités de surveillance Azure en fonction des différents modèles de tarification. Il explique également comment modifier votre modèle de tarification.
 
 La tarification pour [Azure Application Insights][start] est basée sur le volume de données par application. Chaque ressource d’Application Insights est facturée comme un service distinct et s’ajoute à votre facture d’abonnement Azure.
 
-Application Insights a deux plans tarifaires : De base et Entreprise. Le plan tarifaire De base est le plan par défaut. Il inclut toutes les fonctionnalités du plan Entreprise, sans frais supplémentaires. La facturation du plan De base repose essentiellement sur le volume de données ingéré. 
+Application Insights a deux plans de tarification : De base et Entreprise. Le plan tarifaire De base est le plan par défaut. Il inclut toutes les fonctionnalités du plan Entreprise, sans frais supplémentaires. La facturation du plan De base repose essentiellement sur le volume de données ingéré. 
 
 Le plan Entreprise donne lieu à une facturation par nœud, chaque nœud recevant une allocation de données quotidienne. Dans le plan tarifaire Entreprise, vous êtes facturé pour les données consommées au-delà de l’allocation incluse. Si vous utilisez Operations Management Suite, vous devez choisir le plan Entreprise. 
 
@@ -87,14 +86,14 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 ## <a name="data-rate"></a>Débit de données
 Le volume de données que vous envoyez est limité de trois façons :
 
-* **Échantillonnage :** vous pouvez effectuer un échantillonnage pour réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques. L’échantillonnage est le principal outil dont vous disposez pour ajuster la quantité de données que vous envoyez. Découvrez plus en détail les [fonctionnalités d’échantillonnage](app-insights-sampling.md). 
-* **Limite quotidienne :** au moment où vous créez une ressource Application Insights dans le portail Azure, la limite quotidienne est définie à 100 Go/jour. Quand vous créez une ressource Application Insights dans Visual Studio, la valeur par défaut est faible (seulement 32,3 Mo/jour). La valeur par défaut de la limite quotidienne est définie pour faciliter les tests. L’idée est que l’utilisateur augmente la limite quotidienne avant de déployer l’application en production. 
+* **Échantillonnage** : vous pouvez effectuer un échantillonnage pour réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques. L’échantillonnage est le principal outil dont vous disposez pour ajuster la quantité de données que vous envoyez. Découvrez plus en détail les [fonctionnalités d’échantillonnage](app-insights-sampling.md). 
+* **Limite quotidienne** : au moment où vous créez une ressource Application Insights dans le Portail Azure, la limite quotidienne est définie à 100 Go/jour. Quand vous créez une ressource Application Insights dans Visual Studio, la valeur par défaut est faible (seulement 32,3 Mo/jour). La valeur par défaut de la limite quotidienne est définie pour faciliter les tests. L’idée est que l’utilisateur augmente la limite quotidienne avant de déployer l’application en production. 
 
     La limite maximale est de 1 000 Go/jour, à moins que vous en demandiez une plus élevée pour les besoins d’une application à fort trafic. 
 
     Soyez prudent quand vous définissez la limite quotidienne. Votre objectif doit être de *ne jamais atteindre la limite quotidienne*. Si vous atteignez la limite quotidienne, vous perdez des données pour le reste de la journée, ce qui vous empêche de surveiller votre application. Pour changer la limite quotidienne, utilisez l’option **Limite quotidienne de volume**. Vous pouvez accéder à cette option dans le volet **Utilisation et estimation des coûts** (comme décrit plus loin dans l’article).
     Nous avons supprimé la restriction sur certains types d’abonnements qui disposent d’un crédit qui n’a pas pu être utilisé pour Application Insights. Si l’abonnement impose une limite de dépense, la boîte de dialogue Limite quotidienne indique comment la supprimer et permet d’augmenter la limite quotidienne au-delà de 32,3 Mo/jour.
-* **Limitation :** ce paramètre limite le débit de données à 32 000 événements par seconde, en moyenne sur 1 minute et par clé d'instrumentation.
+* **Limitation** : ce paramètre limite le débit de données à 32 000 événements par seconde, en moyenne sur 1 minute et par clé d’instrumentation.
 
 *Que se passe-t-il si mon application dépasse le taux limite ?*
 
@@ -171,4 +170,4 @@ Pour désactiver les e-mails de limite de volume quotidienne, accédez à la sec
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/

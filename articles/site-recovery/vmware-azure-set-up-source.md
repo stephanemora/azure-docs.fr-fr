@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 5f7d3bb51b2d1c05083645ccc5bca4f668d4a661
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7d81b7f0d84eb8751e4e95a31be58ed49a96bb2d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160518"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834993"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurer l’environnement source pour la réplication VMware vers Azure
 
@@ -69,7 +69,7 @@ Excluez les dossiers suivants du logiciel antivirus pour une réplication sans h
  - C:\ProgramData\ASRSetupLogs
  - C:\ProgramData\LogUploadServiceLogs
  - C:\inetpub
- - Répertoire d'installation du serveur ASR. Par exemple : E:\Program Files (x86)\Microsoft Azure Site Recovery
+ - Répertoire d'installation du serveur ASR. Par exemple :  E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Si un logiciel antivirus est actif sur le serveur de processus/la cible maître scale-out
 
@@ -81,7 +81,7 @@ Excluez les dossiers suivants du logiciel antivirus
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
-7. Répertoire d’installation du serveur de processus à équilibrage de charge ASR, par exemple : C:\Program Files (x86)\Microsoft Azure Site Recovery
+7. Répertoire d’installation du serveur de processus à charge équilibrée ASR, par exemple : C:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ## <a name="common-issues"></a>Problèmes courants
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]

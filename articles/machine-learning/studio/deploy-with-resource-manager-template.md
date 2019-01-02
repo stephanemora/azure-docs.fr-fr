@@ -1,12 +1,11 @@
 ---
-title: Déployer un espace de travail Machine Learning avec Azure Resource Manager - Azure Machine Learning Studio | Microsoft Docs
+title: Déployer un espace de travail Studio avec Azure Resource Manager - Azure Machine Learning Studio | Microsoft Docs
 description: Comment déployer un espace de travail pour Azure Machine Learning à l’aide du modèle Azure Resource Manager
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
 ms.service: machine-learning
@@ -15,15 +14,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/05/2018
-ms.openlocfilehash: 82a9cfec0efe60e3a0cdf16efa373e68efebee59
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 02/05/2018
+ms.openlocfilehash: ac9cecd07d600189f0fb08771b0992d49236aea9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307978"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268918"
 ---
-# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Déployer un espace de travail Machine Learning à l’aide d’Azure Resource Manager
+# <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Déployer un espace de travail Azure Machine Learning Studio à l’aide d’Azure Resource Manager
 
 Les modèles de déploiement Azure Resource Manager vous font gagner du temps en vous offrant une méthode évolutive pour déployer des composants interconnectés avec un mécanisme de validation et de nouvelle tentative. Pour configurer des espaces de travail Azure Machine Learning, par exemple, vous devez d’abord configurer un compte de stockage Azure et ensuite déployer votre espace de travail. Imaginez effectuer cette opération manuellement pour des centaines d’espaces de travail. Une alternative plus simple consiste à utiliser un modèle Azure Resource Manager pour déployer un espace de travail Azure Machine Learning et toutes ses dépendances. Cet article vous accompagne tout au long de cette procédure pas à pas. Pour une intéressante présentation d’Azure Resource Manager, consultez [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 

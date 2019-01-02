@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078713"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971893"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 1
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Ces notes de publication décrivent les améliorations et les correctifs apportés à Azure App Service sur Azure Stack Update 1, ainsi que les problèmes connus. Les problèmes connus ont été répartis selon qu’ils concernent le déploiement, le processus de mise à jour ou la build (après l’installation).
 
@@ -145,7 +145,7 @@ L’emplacement d’échange des sites est rompu dans cette mise en production. 
 
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
+    ```
 
 2. Accédez à la **CN0-VM** sous Machines virtuelles dans le portail d’administrateur Azure Stack et **cliquez sur Se connecter** pour ouvrir une session Bureau à distance avec l’instance de contrôleur. Utilisez les informations d’identification spécifiées pendant le déploiement d’App Service.
 3. Démarrez **PowerShell en tant qu'administrateur** et exécutez le script suivant
@@ -197,18 +197,20 @@ L’emplacement d’échange des sites est rompu dans cette mise en production. 
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé.
- 
+
+6. Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé.
+
 Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
- * Source : Toutes
- * Plage de ports source : : *
- * Destination : adresses IP
- * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
- * Plage de ports de destination : 445
- * Protocole : TCP
- * Action : Autoriser
- * Priorité : 700
- * Nom : Outbound_Allow_SMB445
+
+- Source : Quelconque
+- Plage de ports source : : *
+- Destination : Adresses IP
+- Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+- Plage de ports de destination : 445
+- Protocole : TCP
+- Action : AUTORISER
+- Priorité : 700
+- Nom : Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack
 

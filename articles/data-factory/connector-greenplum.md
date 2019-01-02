@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 12a8fb714d398db50258e2cf256379c9a3fccc55
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 463e358816d665bd0ecc0ca8853b7feb5a18f3e6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051023"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077781"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copier des données de Greenplum avec Azure Data Factory 
 
@@ -42,7 +42,7 @@ Les propriétés prises en charge pour le service lié Greenplum sont les suivan
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Greenplum** | OUI |
+| Type | La propriété type doit être définie sur : **Greenplum** | Oui |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à Greenplum. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
@@ -71,7 +71,12 @@ Les propriétés prises en charge pour le service lié Greenplum sont les suivan
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Greenplum.
 
-Pour copier des données depuis Greenplum, affectez la valeur **GreenplumTable** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données depuis Greenplum, affectez la valeur **GreenplumTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **GreenplumTable** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -83,7 +88,8 @@ Pour copier des données depuis Greenplum, affectez la valeur **GreenplumTable**
         "linkedServiceName": {
             "referenceName": "<Greenplum linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -98,8 +104,8 @@ Pour copier des données depuis Greenplum, définissez **GreenplumSource** comme
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **GreenplumSource** | OUI |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur : **GreenplumSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457056"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082644"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -55,7 +55,7 @@ Pour copier des données d’une source vers un récepteur, l’activité de cop
 
 Vous pouvez utiliser l’activité de copie pour **copier des fichiers en l'état** entre deux banques de données de fichiers, auquel cas les données sont copiées efficacement sans aucune sérialisation/désérialisation.
 
-L’activité de copie peut également lire et écrire dans des fichiers de formats **Texte, JSON, Avro, ORC et Parquet**, et les codecs de compression **GZip, Deflate, BZip2 et ZipDeflate** sont pris en charge. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](supported-file-formats-and-compression-codecs.md).
+L’activité de copie prend également en charge la lecture et l’écriture de fichiers dans des formats spécifiés : Les formats **texte, JSON, Avro, ORC et Parquet**, ainsi que les codecs de compression **GZip, Deflate, BZip2 et ZipDeflate** sont pris en charge. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
 Par exemple, vous pouvez effectuer les activités de copie suivantes :
 
@@ -130,7 +130,7 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type d’une activité de copie doit être définie sur **Copy** | Oui |
+| Type | La propriété type d’une activité de copie doit être définie sur : **Copy** | Oui |
 | inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | Oui |
 | outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | Oui |
 | typeProperties | Groupe de propriétés pour configurer l’activité de copie. | Oui |
@@ -173,6 +173,7 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | dataRead | Taille des données lues à partir de la source | Valeur Int64 en **octets** |
 | dataWritten | Taille des données écrites dans le récepteur | Valeur Int64 en **octets** |
 | filesRead | Nombre de fichiers copiés lors de la copie de données à partir du stockage de fichier. | Valeur Int64 (aucune unité) |
+| fileScanned | Nombre de fichiers analysés à partir du stockage de fichier source. | Valeur Int64 (aucune unité) |
 | filesWritten | Nombre de fichiers copiés lors de la copie de données vers le stockage de fichier. | Valeur Int64 (aucune unité) |
 | rowsCopied | Nombre de lignes copiées (non applicable pour une copie binaire). | Valeur Int64 (aucune unité) |
 | rowsSkipped | Nombre de lignes incompatibles ignorées. Vous pouvez activer la fonctionnalité en définissant « enableSkipIncompatibleRow » sur true. | Valeur Int64 (aucune unité) |

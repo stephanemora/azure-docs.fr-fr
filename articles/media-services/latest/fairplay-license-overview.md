@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services et prise en charge de la licence Apple FairPlay | Microsoft Docs
+title: Media Services et prise en charge de la licence Apple FairPlay - Azure | Microsoft Docs
 description: Cette rubrique présente une vue d’ensemble de la configuration et des conditions de licence Apple FairPlay.
 author: juliako
 manager: femila
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 19f382de3ffe11253005f5fa2874ee817abaeed3
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 66d816795ec06891aafce73036d7aea9bb52b2c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376752"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140527"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Configuration et conditions de licence Apple FairPlay 
 
@@ -34,7 +35,7 @@ Les éléments suivants sont nécessaires lors de l’utilisation de Media Servi
 * Apple exige que le propriétaire du contenu se procure le [package de déploiement](https://developer.apple.com/contact/fps/). Indiquez que vous avez déjà implémenté le module de sécurité des clés (KSM) avec Media Services et que vous avez besoin du package FPS final. Voici les instructions figurant dans le package FPS final pour générer la certification et obtenir la clé secrète d’application (ASK). Utilisez la clé ASK pour configurer FairPlay.
 * Les éléments suivants doivent être définis du côté de la remise de clé/licence Media Services :
 
-    * **App Cert (AC) (Certificat d’application)**  : fichier .pfx qui contient la clé privée. Vous devez créer ce fichier et le chiffrer avec un mot de passe. Le fichier .pfx doit être au format Base64.
+    * **Certificat d’application** : fichier .pfx qui contient la clé privée. Vous devez créer ce fichier et le chiffrer avec un mot de passe. Le fichier .pfx doit être au format Base64.
 
         Les étapes suivantes décrivent la génération d’un fichier de certificat .pfx pour FairPlay :
 
@@ -48,12 +49,12 @@ Les éléments suivants sont nécessaires lors de l’utilisation de Media Servi
 
             « C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
             
-    * **App Cert password (Mot de passe du certificat d’application)**  : mot de passe pour créer le fichier .pfx.
-    * **ASK** : cette clé est reçue lorsque vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement reçoit une ASK unique. Enregistrez une copie de la clé ASK et stockez-la dans un endroit sûr. Vous devez configurer la clé ASK comme FairPlayAsk avec Media Services.
+    * **Mot de passe du certificat d’application** : mot de passe pour créer le fichier .pfx.
+    * **ASK** : cette clé est reçue quand vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement reçoit une ASK unique. Enregistrez une copie de la clé ASK et stockez-la dans un endroit sûr. Vous devez configurer la clé ASK comme FairPlayAsk avec Media Services.
     
 * Les éléments suivants doivent être définis par FPS côté client :
 
-  * **App Cert (AC) (Certificat d’application)**  : fichier .cer/.der qui contient la clé publique utilisée par le système d’exploitation pour chiffrer une charge utile. Media Services doit le connaître, car il est requis par le lecteur. Le service de remise de clé le déchiffre à l'aide de la clé privée correspondante.
+  * **Certificat d’application** : fichier .cer/.der qui contient la clé publique utilisée par le système d’exploitation pour chiffrer une charge utile. Media Services doit le connaître, car il est requis par le lecteur. Le service de remise de clé le déchiffre à l'aide de la clé privée correspondante.
 
 * Pour lire un flux chiffré FairPlay, vous devez obtenir une clé ASK réelle en premier lieu, puis générer un certificat réel. Ce processus crée les trois composants suivants :
 

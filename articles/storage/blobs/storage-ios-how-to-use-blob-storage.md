@@ -6,23 +6,21 @@ author: michaelhauss
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 35cfa36aba8042bcc753c1005c8fd8dbcdb70e79
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397670"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961924"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Utilisation du stockage d’objets blob à partir d’iOS
 
 Cet article décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Microsoft Azure. Les exemples ont été écrits en Objective-C et utilisent la [bibliothèque du client de stockage Azure pour iOS](https://github.com/Azure/azure-storage-ios). Les scénarios traités incluent le chargement, l'énumération, le téléchargement et la suppression d'objets blob. Pour plus d’informations sur les objets blob, voir la section [Étapes suivantes](#next-steps) . Vous pouvez également télécharger l’ [exemple d’application](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) pour voir rapidement l’utilisation d’Azure Storage dans une application iOS.
 
-## <a name="what-is-blob-storage"></a>Présentation du stockage d'objets blob
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
+Pour en savoir plus sur le Stockage Blob, consultez [Présentation du Stockage Blob Azure](storage-blobs-introduction.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -131,9 +129,9 @@ Vous pouvez vérifier que cela fonctionne en examinant [l’Explorateur de stock
 ## <a name="set-container-permissions"></a>Définir les autorisations du conteneur
 Les autorisations d’un conteneur sont configurées pour l’accès **Privé** par défaut. Toutefois, les conteneurs fournissent d’autres options pour l’accès aux conteneurs :
 
-* **Privé**: seul le propriétaire du compte peut lire les données de conteneur et d’objet blob.
-* **BLOB**: les données blob à l’intérieur de ce conteneur sont lisibles au moyen d’une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l'intérieur du conteneur via une demande anonyme.
-* **Conteneur**: les données de conteneur et blob sont lisibles au moyen d’une demande anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
+* **Privé** : seul le propriétaire du compte peut lire les données de conteneur et d’objet blob.
+* **Objet blob** : Les données d'objets blob à l'intérieur de ce conteneur peuvent être lues via une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l'intérieur du conteneur via une demande anonyme.
+* **Conteneur** : les données de conteneur et d’objets blob sont lisibles au moyen d’une requête anonyme. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
 
 L’exemple suivant montre comment créer un conteneur avec des autorisations d’accès de type **Conteneur** , qui autorisent un accès public en lecture seule à tous les utilisateurs sur Internet :
 
@@ -218,12 +216,12 @@ L’exemple suivant montre comment répertorier tous les objets blob dans un con
 * **prefix** : vous pouvez spécifier le préfixe à utiliser pour la liste d’objets blob. Seuls les objets blob qui commencent par ce préfixe sont répertoriés.
 * **useFlatBlobListing** : comme indiqué dans la section [Désignation et référencement des conteneurs et des objets blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) , bien que le service BLOB soit un schéma de stockage plat, vous pouvez créer une hiérarchie virtuelle en nommant les objets blob avec des informations de chemin d’accès. Toutefois, les listes de stockage non plat ne sont actuellement pas prises en charge. Cette fonctionnalité sera bientôt disponible. Pour le moment, cette valeur doit être **YES**.
 * **blobListingDetails** : vous pouvez spécifier les éléments à inclure lors de la création de la liste d’objets blob.
-  * _AZSBlobListingDetailsNone_ : répertorie uniquement les objets blob validés et ne renvoie pas de métadonnées d’objet blob.
-  * _AZSBlobListingDetailsSnapshots_ : répertorie les objets blob validés et les instantanés d’objets blob.
-  * _AZSBlobListingDetailsMetadata_ : récupère les métadonnées d’objet blob pour chaque objet blob renvoyé dans la liste.
-  * _AZSBlobListingDetailsUncommittedBlobs_ : répertorie les objets blob validés et non validés.
-  * _AZSBlobListingDetailsCopy_ : inclut des propriétés de copie dans la liste.
-  * _AZSBlobListingDetailsAll_ : répertorie tous les objets blob validés, objets blob non validés et instantanés disponibles, et renvoie l’état de toutes les métadonnées et de la copie pour ces objets blob.
+  * _AZSBlobListingDetailsNone_ : liste uniquement les objets blob validés et ne retourne pas de métadonnées d’objets blob.
+  * _AZSBlobListingDetailsSnapshots_ : liste les objets blob validés et les instantanés d’objets blob.
+  * _AZSBlobListingDetailsMetadata_ : récupère les métadonnées d’objets blob pour chaque objet blob retourné dans la liste.
+  * _AZSBlobListingDetailsUncommittedBlobs_ : liste les objets blob validés et non validés.
+  * _AZSBlobListingDetailsCopy_ : inclut des propriétés de copie dans la liste.
+  * _AZSBlobListingDetailsAll_ : liste tous les objets blob validés, les objets blob non validés et les instantanés disponibles, et retourne l’état de toutes les métadonnées et de la copie pour ces objets blob.
 * **maxResults** : nombre maximal de résultats à renvoyer pour cette opération. Utilisez -1 pour ne pas définir une limite.
 * **completionHandler** : bloc de code à exécuter avec les résultats de l’opération de génération de liste.
 
@@ -382,8 +380,8 @@ Maintenant que vous avez appris à utiliser le stockage d’objets blob d’iOS,
 * [Bibliothèque cliente d’Azure Storage pour iOS](https://github.com/azure/azure-storage-ios)
 * [Documentation de référence d’Azure Storage pour iOS](http://azure.github.io/azure-storage-ios/)
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage)
+* [Blog de l'équipe Azure Storage](https://blogs.msdn.com/b/windowsazurestorage)
 
-Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Si vous avez des suggestions de fonctionnalités pour le stockage Azure, envoyez un message sur [Commentaires sur le stockage Azure](https://feedback.azure.com/forums/217298-storage/).
 

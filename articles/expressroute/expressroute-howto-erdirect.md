@@ -1,18 +1,19 @@
 ---
-title: Comment configurer Azure ExpressRoute Direct | Microsoft Docs
-description: Cette page vous permet de configurer ExpressRoute Direct (préversion)
+title: Configurer ExpressRoute Direct | Microsoft Docs
+description: Cette page vous permet de configurer ExpressRoute Direct (préversion).
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
-ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 9dadd61c8c4c2d1cd2305aa852e4528bfb9a1421
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959665"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076608"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Comment configurer ExpressRoute Direct (préversion)
 
@@ -228,7 +229,7 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
 
 Par défaut, vous pouvez créer 10 circuits dans l’abonnement où se trouve la ressource ExpressRoute Direct. Ce nombre peut être augmenté par le support. Vous êtes responsable du suivi de la bande passante approvisionnée et utilisée. La bande passante approvisionnée équivaut à la somme de la bande passante de tous les circuits sur la ressource ExpressRoute Direct et la bande passante utilisée équivaut à l’utilisation physique des interfaces physiques sous-jacentes.
 
-D’autres bandes passantes de circuit peuvent être utilisées sur ExpressRoute Direct, uniquement pour prendre en charge les scénarios décrits ci-dessus. Les voici : 40 Gbps et 100 Gbps.
+D’autres bandes passantes de circuit peuvent être utilisées sur ExpressRoute Direct, uniquement pour prendre en charge les scénarios décrits ci-dessus. Ces règles sont les suivantes : 40 Gbps et 100 Gbps.
 
 Des circuits Standard ou Premium peuvent être créés. Les circuits Standard sont inclus dans le coût, tandis que les circuits Premium ont un coût basé sur la bande passante sélectionnée. Les circuits peuvent uniquement être créés comme limités, car illimité n’est pas pris en charge sur ExpressRoute Direct.
 
@@ -238,7 +239,7 @@ Créez un circuit sur la ressource ExpressRoute Direct.
   New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
-  D’autres bandes passantes incluent : 5.0, 10.0 et 40.0
+  Voici des exemples d’autres bandes passantes : 5.0, 10.0 et 40.0
 
   **Exemple de sortie :**
 

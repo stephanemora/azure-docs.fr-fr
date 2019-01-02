@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 8d737c9fbf149051a8142f5ff546ea88e648541b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976364"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890549"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
@@ -121,8 +121,8 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
 
 2. Ajoutez le compte Azure que vous utilisez pour inscrire Azure Stack. Pour ajouter le compte, exécutez la cmdlet **Add-AzureRmAccount**. Vous êtes invité à entrer vos informations d’identification de compte Azure et vous devrez peut-être utiliser l’authentification à 2 facteurs en fonction de la configuration de votre compte.
 
-   ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+   ```PowerShell
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Paramètre | Description |  
@@ -150,8 +150,12 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
 6. Ensuite, dans la même session PowerShell, vérifiez que vous êtes connecté au contexte Azure PowerShell approprié. Il s’agit du compte Azure qui a été utilisé pour inscrire le fournisseur de ressources Azure Stack ci-dessus. PowerShell pour :
 
    ```PowerShell  
-   Add-AzureRmAccount -Environment "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
+
+   | Paramètre | Description |  
+   |-----|-----|
+   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un abonnement Azure en Chine, **AzureChinaCloud**.  |
 
 7. Dans la même session PowerShell, exécutez l’applet de commande **Set-AzsRegistration**. PowerShell pour :  
 
@@ -182,7 +186,7 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
 2. Ajoutez le compte Azure que vous utilisez pour inscrire Azure Stack. Pour ajouter le compte, exécutez la cmdlet **Add-AzureRmAccount**. Vous êtes invité à entrer vos informations d’identification de compte Azure et vous devrez peut-être utiliser l’authentification à 2 facteurs en fonction de la configuration de votre compte.
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Paramètre | Description |  
@@ -298,7 +302,7 @@ Si vous le souhaitez, vous pouvez utiliser l’applet de commande Get-Content po
 
 Utilisez ces étapes pour vérifier qu’Azure Stack est bien inscrit auprès d’Azure.
 
-1. Connectez-vous au [portail d’administration](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal) Azure Stack : https&#58;//adminportal.*&lt;region>.&lt;fqdn>*.
+1. Connectez-vous au [portail d’administration](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal) Azure Stack : https&#58;//adminportal.*&lt;région>.&lt;fqdn>*.
 2. Sélectionnez **Tous les services** et, sous la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché** > **Ajouter à partir d’Azure**.
 
 Si une liste d’éléments disponibles dans Azure (tels que WordPress) s’affiche, l’activation a réussi. Toutefois, dans les environnements déconnectés, vous ne verrez pas les éléments de la Place de marché Azure dans Azure Stack Marketplace.
@@ -430,9 +434,9 @@ Pour exécuter l’applet de commande, vous avez besoin des éléments suivants�
 | AzureContext | PSObject |  |
 | ResourceGroupName | Chaîne |  |
 | ResourceGroupLocation | Chaîne |  |
-| BillingModel | Chaîne | Le modèle de facturation utilisé par votre abonnement. Les valeurs autorisées pour ce paramètre sont : Capacity, PayAsYouUse et Development. |
+| BillingModel | Chaîne | Le modèle de facturation utilisé par votre abonnement. Les valeurs valides pour ce paramètre sont : Capacity, PayAsYouUse et Development. |
 | MarketplaceSyndicationEnabled | True/False | Détermine si la fonctionnalité de gestion de la Place de Marché est, ou non, disponible dans le portail. Définissez la valeur true en cas d’inscription avec une connectivité Internet. Définissez la valeur false en cas d’inscription dans des environnements déconnectés. Pour les inscriptions déconnectées, l’[outil de syndication hors connexion](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) peut être utilisé pour le téléchargement d’éléments de la Place de Marché. |
-| UsageReportingEnabled | True/False | Azure Stack crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté devront désactiver la création de rapports d’utilisation. Les valeurs autorisées pour ce paramètre sont : True, False. |
+| UsageReportingEnabled | True/False | Azure Stack crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté devront désactiver la création de rapports d’utilisation. Les valeurs valides pour ce paramètre sont : True, False. |
 | AgreementNumber | Chaîne |  |
 | RegistrationName | Chaîne | Définissez un nom unique pour l’inscription si vous exécutez le script d’inscription dans plusieurs instances Azure Stack en utilisant le même ID d’abonnement Azure. Par défaut, le paramètre a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom dans plusieurs instances Azure Stack, le script échoue. |
 
@@ -452,9 +456,9 @@ Get-AzsRegistrationToken générera un jeton d’inscription à partir des param
 | AzureContext | PSObject |  |
 | ResourceGroupName | Chaîne |  |
 | ResourceGroupLocation | Chaîne |  |
-| BillingModel | Chaîne | Le modèle de facturation utilisé par votre abonnement. Les valeurs autorisées pour ce paramètre sont : Capacity, PayAsYouUse et Development. |
+| BillingModel | Chaîne | Le modèle de facturation utilisé par votre abonnement. Les valeurs valides pour ce paramètre sont : Capacity, PayAsYouUse et Development. |
 | MarketplaceSyndicationEnabled | True/False |  |
-| UsageReportingEnabled | True/False | Azure Stack crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté devront désactiver la création de rapports d’utilisation. Les valeurs autorisées pour ce paramètre sont : True, False. |
+| UsageReportingEnabled | True/False | Azure Stack crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté devront désactiver la création de rapports d’utilisation. Les valeurs valides pour ce paramètre sont : True, False. |
 | AgreementNumber | Chaîne |  |
 
 

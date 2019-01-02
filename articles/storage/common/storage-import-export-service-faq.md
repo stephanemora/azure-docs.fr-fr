@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: edaff86531a9c40064d25a046bbbb70f48b75c84
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8111d80d0888455fbdf3ccf37e723fe348a62bee
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027127"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435002"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Service Azure Import/Export : Questions fréquentes (FAQ) 
 Vous trouverez ci-dessous des questions et réponses relatives à l’utilisation du service Azure Import/Export pour le transfert de données vers le Stockage Azure. Les questions/réponses sont classées dans les catégories suivantes :
@@ -44,18 +44,18 @@ Oui. Pour plus d’informations, accédez à [Flux de travail de la sauvegarde h
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>Puis-je acheter des disques auprès de Microsoft pour les tâches d’importation/exportation ?
 
-Non. Vous devez expédier vos propres disques pour les tâches d’importation et d’exportation.
+ Non. Vous devez expédier vos propres disques pour les tâches d’importation et d’exportation.
 
 
 ## <a name="preparing-disks-for-importexport"></a>Préparation des disques pour l’importation/exportation
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>Puis-je ignorer l’étape de préparation de disque pour une tâche d’importation ? Puis-je préparer un disque sans effectuer de copie ?
 
-Non. Tout disque utilisé pour importer des données doit être préparé à l’aide de l’outil Azure WAImportExport. Utilisez l’outil pour copier également les données sur le disque.
+ Non. Tout disque utilisé pour importer des données doit être préparé à l’aide de l’outil Azure WAImportExport. Utilisez l’outil pour copier également les données sur le disque.
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>Dois-je effectuer une préparation du disque durant la création d’une tâche d’exportation ?
 
-Non. Certaines vérifications préalables sont recommandées. Pour vérifier le nombre de disques nécessaires, utilisez la commande PreviewExport de l’outil WAImportExport. Pour plus d’informations, consultez [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). La commande vous permet d’afficher un aperçu de l’utilisation des disques pour les objets blob sélectionnés, en fonction de la taille des disques à utiliser. Vérifiez également que vous pouvez accéder en lecture/écriture au disque dur expédié pour la tâche d’exportation.
+ Non. Certaines vérifications préalables sont recommandées. Pour vérifier le nombre de disques nécessaires, utilisez la commande PreviewExport de l’outil WAImportExport. Pour plus d’informations, consultez [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). La commande vous permet d’afficher un aperçu de l’utilisation des disques pour les objets blob sélectionnés, en fonction de la taille des disques à utiliser. Vérifiez également que vous pouvez accéder en lecture/écriture au disque dur expédié pour la tâche d’exportation.
 
 ## <a name="importexport-jobs"></a>Tâches d’importation/exportation
 
@@ -66,7 +66,10 @@ Oui. Vous pouvez annuler une tâche dont l’état est **Création** ou **Expéd
 L’état des travaux terminés est visible pendant 90 jours. Les tâches effectuées sont supprimées après 90 jours.
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>Si je souhaite importer ou exporter plus de 10 disques, que dois-je faire ?
-Une tâche d’importation ou d’exportation peut référencer uniquement 10 disques dans une seule tâche. Pour expédier plus de 10 disques, vous devez créer plusieurs tâches. Les disques associés à la même tâche doivent être expédiés ensemble dans le même colis. Pour plus d’informations et pour obtenir de l’aide quand la capacité de données s’étend sur plusieurs tâches d’importation de disques, contactez Microsoft à l’adresse bulkimport@microsoft.com.                                                              
+Une tâche d’importation ou d’exportation peut référencer uniquement 10 disques dans une seule tâche. Pour expédier plus de 10 disques, vous devez créer plusieurs tâches. Les disques associés à la même tâche doivent être expédiés ensemble dans le même colis. Pour plus d’informations et pour obtenir de l’aide quand la capacité de données s’étend sur plusieurs tâches d’importation de disques, contactez Microsoft à l’adresse bulkimport@microsoft.com. 
+
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>L’objet blob chargé affiche l’état « Bail expiré ». Que dois-je faire ?
+Vous pouvez ignorer le champ « Bail expiré ». Import/Export prend le bail sur l’objet blob lors du chargement afin de s’assurer qu’aucun autre processus ne peut mettre à jour l’objet blob en parallèle. Bail expiré signifie qu’Import/export ne charge plus sur cet objet et que vous pouvez l’utiliser. 
 
 ## <a name="shipping-disks"></a>Expédition des disques
 
@@ -104,7 +107,7 @@ Le centre de données Azure vous renvoie le lecteur non conforme au type pris en
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>Est-ce que le service formate les disques avant de les retourner ?
 
-Non. Tous les disques sont chiffrés avec BitLocker.
+ Non. Tous les disques sont chiffrés avec BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Comment accéder aux données importées par ce service ?
 
@@ -119,7 +122,7 @@ Quand vous préparez un disque dur pour une tâche d’importation, la destinati
 Cela dépend. Lors de la préparation du disque, vous pouvez indiquer si les fichiers cibles doivent être remplacés ou ignorés à l’aide du champ Disposition:< rename|no-overwrite|overwrite> du fichier CSV du jeu de données. Par défaut, le service renomme les nouveaux fichiers au lieu de remplacer les objets blob ou les fichiers existants.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>L’outil WAImportExport est-il compatible avec les systèmes d’exploitation 32 bits ?
-Non. L’outil WAImportExport est compatible uniquement avec les systèmes d’exploitation Windows 64 bits. Pour obtenir une liste complète des systèmes d’exploitation pris en charge, accédez à [Systèmes d’exploitation pris en charge](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
+ Non. L’outil WAImportExport est compatible uniquement avec les systèmes d’exploitation Windows 64 bits. Pour obtenir une liste complète des systèmes d’exploitation pris en charge, accédez à [Systèmes d’exploitation pris en charge](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Quelle est la taille maximale des objets blob de blocs et des objets blob de pages prise en charge par Azure Import/Export ?
@@ -131,7 +134,7 @@ La taille maximale des objets blob de pages est de 1 To.
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure Import/Export prend-il en charge le chiffrement AES-256 ?
 Le service Azure Import/Export utilise le chiffrement BitLocker AES-128 par défaut. Vous pouvez le changer en AES-256 en effectuant un chiffrement manuel avec BitLocker avant que les données ne soient copiées. 
 
-- Si vous utilisez [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), voici un exemple de commande
+- Si vous utilisez [WAImportExport V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), voici un exemple de commande
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```

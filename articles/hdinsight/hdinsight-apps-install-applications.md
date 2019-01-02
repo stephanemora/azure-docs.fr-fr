@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e1a6b453bb92ca57a1c9be9bff958ac0780ea12e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 47a634ca1c4e904cc1054db3a834483489ade0ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498041"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093554"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop tierces sur Azure HDInsight
 
@@ -29,7 +29,7 @@ La liste suivante affiche les applications publiées :
 * **DATAIKU DDS on HDInsight** permet aux professionnels des données de concevoir des prototypes, de créer et de déployer des services très spécifiques qui transforment des données brutes en prévisions métiers pertinentes.
 * **Datameer** est une plateforme évolutive en libre-service pour la préparation, l’exploration et la gouvernance des données pour l’analytique qui accélère la transformation des données complexes venant de plusieurs sources en informations prêtes à l’emploi, pour des décisions plus rapides et plus réfléchies à l’échelle de l’entreprise.
 * **H2O Artificial Intelligence for HDInsight (Beta)** H2O Sparkling Water prend en charge les algorithmes distribués suivants : GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection et Autoencoders.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) est un entrepôt de données d’entreprise s’appuyant sur Apache Kylin et Apache Hadoop. Il permet d’obtenir une latence de requête inférieure à une seconde sur des jeux de données extrêmement volumineux, et il simplifie l’analyse des données pour les utilisateurs professionnels et les analystes. 
+* **Kyligence Enterprise**, qui exploite la technologie Apache Kylin, dégage des informations instantanées sur les jeux de données volumineux pour les analystes de données et les utilisateurs professionnels. Avec la technologie avancée de machine learning et des fonctionnalités intelligentes de modélisation des données, l’entreprise améliore considérablement la productivité de l’analytique Big Data. 
 * **Paxata Self-service Data Preparation**
 * **Spark Job Server for KNIME Spark Executor** Spark Job Server for KNIME Spark Executor permet de connecter la plateforme d’analyse KNIME aux clusters HDInsight.
 * **Starburst Presto** Presto est un moteur de requête SQL rapide et évolutif. Conçu pour séparer le calcul du stockage, Presto est parfait pour interroger des données dans les bases de données Azure Data Lake Storage, Stockage Blob Azure, SQL et NoSQL et autres sources de données.
@@ -81,9 +81,9 @@ Le portail affiche une liste des applications HDInsight installées pour un clus
    
    * Nom de l’application : nom de l’application.
    * État : état de l’application. 
-   * Page web : l’URL de l’application web que vous avez déployée sur le nœud de périmètre. Les informations d’identification sont les mêmes que celles de l’utilisateur HTTP configurées pour le cluster.
-   * Point de terminaison HTTP : les informations d’identification sont les mêmes que celles de l’utilisateur HTTP configuré pour le cluster. 
-   * Point de terminaison SSH : vous pouvez utiliser SSH pour la connexion au nœud de périmètre. Les informations d’identification sont les mêmes que celles de l’utilisateur SSH configurées pour le cluster. Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+   * Page web : L’URL de l’application web que vous avez déployée sur le nœud de périphérie. Les informations d’identification sont les mêmes que celles de l’utilisateur HTTP configurées pour le cluster.
+   * Point de terminaison HTTP : Les informations d’identification sont les mêmes que celles de l’utilisateur HTTP configurées pour le cluster. 
+   * Point de terminaison SSH : Vous pouvez utiliser SSH pour vous connecter au nœud de périphérie. Les informations d’identification sont les mêmes que celles de l’utilisateur SSH configurées pour le cluster. Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 6. Pour supprimer une application, cliquez avec le bouton droit sur l’application, puis sur **Supprimer** dans le menu contextuel.
 
 ## <a name="connect-to-the-edge-node"></a>Connexion au nœud de périmètre
@@ -96,8 +96,8 @@ Consultez [Dépanner l’installation](hdinsight-apps-install-custom-application
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md): découvrez comment déployer des applications HDInsight inédites vers HDInsight.
-* [Publier des applications HDInsight dans la Place de marché Azure](hdinsight-apps-publish-applications.md): découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
-* [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN : installer une application HDInsight) : découvrez comment définir des applications HDInsight.
+* [Publier des applications HDInsight](hdinsight-apps-publish-applications.md) : découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
+* [MSDN : Installer une application HDInsight](https://msdn.microsoft.com/library/mt706515.aspx) : découvrez comment définir les applications HDInsight.
 * [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md): apprenez à utiliser l’action de script pour installer des applications supplémentaires.
 * [Créer des clusters Apache Hadoop sous Linux dans HDInsight à l’aide de modèles Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) : apprenez à appeler des modèles Resource Manager pour la création de clusters HDInsight.
 * [Utiliser des nœuds de périmètre vides dans HDInsight](hdinsight-apps-use-edge-node.md): apprenez à utiliser un nœud de périmètre vide pour accéder au cluster HDInsight, tester des applications HDInsight et héberger des applications HDInsight.

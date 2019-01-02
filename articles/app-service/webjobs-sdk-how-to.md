@@ -1,5 +1,5 @@
 ---
-title: Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs ?
+title: Comment utiliser le Kit de développement logiciel (SDK) WebJobs - Azure
 description: Découvrez comment écrire du code pour le Kit de développement logiciel (SDK) WebJobs. Créez des travaux de traitement en arrière-plan basé sur les événements qui accèdent aux données des services Azure et des services tiers.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f6d343d42bf9d918bf23c9f5f442d977a5caca96
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335212"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343715"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -450,7 +450,7 @@ Les déclencheurs queue et blob empêchent automatiquement une fonction de trait
 
 Le déclencheur timer garantit automatiquement l’exécution d’une seule instance du minuteur de sorte qu’une instance unique de la fonction soit exécutée à une heure planifiée donnée.
 
-Si vous souhaitez vous assurer qu’une seule instance d’une fonction s’exécute même lorsqu’il existe plusieurs instances de l’application web hôte, vous pouvez utiliser l’attribut [Singleton](#singleton).
+Si vous souhaitez vous assurer qu’une seule instance d’une fonction s’exécute même lorsqu’il existe plusieurs instances de l’application web hôte, vous pouvez utiliser [l’attribut Singleton](#singleton-attribute).
     
 ## <a name="filters"></a>Filtres 
 
@@ -498,7 +498,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### <a name="custom-telemetry-for-application-insights"></a>Télémétrie personnalisée pour Application Insights​
 
-Le client `TelemetryClient` créé par le fournisseur Application Insights pour le Kit de développement logiciel (SDK) WebJobs utilise le canal [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs) de façon interne. Quand le point de terminaison d’Application Insights est non disponible ou limite les requêtes entrantes, ce canal [enregistre les requêtes dans le système de fichiers de l’application web et les soumet à nouveau ultérieurement](http://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+Le client `TelemetryClient` créé par le fournisseur Application Insights pour le Kit de développement logiciel (SDK) WebJobs utilise le canal [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs) de façon interne. Quand le point de terminaison d’Application Insights est non disponible ou limite les requêtes entrantes, ce canal [enregistre les requêtes dans le système de fichiers de l’application web et les soumet à nouveau ultérieurement](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
 Le client `TelemetryClient` est créé par une classe qui implémente `ITelemetryClientFactory`. Par défaut, il s’agit de la classe [DefaultTelemetryClientFactory](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
 

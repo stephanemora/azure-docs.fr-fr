@@ -1,28 +1,23 @@
 ---
-title: Exemples de configuration des routeurs clients ExpressRoute | Microsoft Docs
+title: Exemples de configuration de routeur - NAT - Azure ExpressRoute | Microsoft Docs
 description: Cette page fournit des exemples de configuration pour les routeurs Cisco et Juniper.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 9764a03b0f3a3f70e59097359d5a714da821d3b1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23012974"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105986"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemples de configuration de routeur pour configurer et gérer des NAT
-Cette page fournit des exemples de configuration NAT pour les routeurs des séries Cisco ASA et Juniper SRX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau. 
+
+Cette page fournit des exemples de configuration NAT pour les routeurs des séries Cisco ASA et Juniper SRX lors de l’utilisation d’ExpressRoute. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau.
 
 > [!IMPORTANT]
 > Les exemples de cette page sont fournis à titre purement indicatif. Vous devez vous adresser à l’équipe commerciale/technique de votre fournisseur et à votre équipe de mise en réseau pour rechercher les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.

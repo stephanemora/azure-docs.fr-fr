@@ -1,23 +1,24 @@
 ---
-title: 'Tutoriel 6 : Extraire des données composites avec une entité composite LUIS'
+title: Entité composite
 titleSuffix: Azure Cognitive Services
 description: Ajoutez une entité composite pour regrouper les données extraites de différents types dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423499"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079209"
 ---
-# <a name="tutorial-6-group-and-extract-related-data"></a>Tutoriel 6 : Regrouper et extraire des données associées
+# <a name="tutorial-6-group-and-extract-related-data"></a>Tutoriel 6 : Regrouper et extraire les données associées
 Dans ce tutoriel, vous allez ajouter une entité composite pour regrouper les données extraites dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
 
 L’objectif de l’entité composite est de regrouper des entités connexes dans une entité de catégorie parente. Les informations existent en tant qu’entités distinctes avant la création d’un composite. L’entité composite est similaire à une entité hiérarchique, mais elle peut contenir différents types d’entités. 
@@ -57,7 +58,7 @@ Créer une entité composite lorsque des entités distinctes peuvent être regro
 
 Dans cette application, le nom de l’employé est défini dans la liste d’entités **Employé** et inclut des synonymes du nom, l’adresse de messagerie, le numéro de poste téléphonique professionnel, le numéro de téléphone mobile et États-Unis. ID taxe fédérale. 
 
-L’intention **MoveEmployee** a des exemples d’énoncés pour demander le déménagement d’un employé d’un bâtiment et d’un bureau à un autre. Les noms des bâtiments sont des lettres : « A », « B », etc., tandis que ceux des bureaux sont des nombres : « 1234 », « 13245 ». 
+L’intention **MoveEmployee** a des exemples d’énoncés pour demander le déménagement d’un employé d’un bâtiment et d’un bureau à un autre. Les noms des bâtiments sont alphabétiques : « A », « B », etc., tandis que les bureaux sont numériques : « 1234 », « 13245 » 
 
 Les exemples d’énoncés dans l’intention **MoveEmployee** incluent :
 
@@ -70,7 +71,7 @@ La demande de déplacement doit inclure l’employé (n’importe quel synonyme)
 
 Les données extraites du point de terminaison doivent contenir ces informations et les retourner dans l’entité composite `RequestEmployeeMove` :
 
-```JSON
+```json
 "compositeEntities": [
   {
     "parentType": "RequestEmployeeMove",
@@ -103,22 +104,22 @@ Les données extraites du point de terminaison doivent contenir ces informations
 
 3. Sélectionnez l’icône de loupe sur la barre d’outils pour filtrer la liste des énoncés. 
 
-    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Capture d’écran de LUIS sur l’intention « MoveEmployee » avec le bouton de loupe mis en surbrillance")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    [![Capture d’écran de LUIS sur l’intention « MoveEmployee » avec bouton en forme de loupe mis en surbrillance](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Capture d’écran de LUIS sur l’intention « MoveEmployee » avec bouton en forme de loupe mis en surbrillance")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. Entrez `tomorrow` dans la zone de texte de filtre pour rechercher l’énoncé `shift x12345 to h-1234 tomorrow`.
 
-    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Capture d’écran de LUIS sur l’intention « MoveEmployee » avec le filtre de « demain » mis en surbrillance")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    [![Capture d’écran de LUIS sur l’intention « MoveEmployee » avec filtre « demain » mis en surbrillance](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Capture d’écran de LUIS sur l’intention « MoveEmployee » avec filtre « demain » mis en surbrillance")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
     Une autre méthode consiste à filtrer l’entité par datetimeV2, en sélectionnant **Filtres de l’entité** puis à sélectionner **datetimeV2** dans la liste. 
 
 5. Sélectionnez la première entité, `Employee`, puis sélectionnez **Inclure dans un wrapper d’entité composite** dans la liste du menu contextuel. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Capture d’écran de LUIS sur intention « MoveEmployee » en sélectionnant la première entité composite mise en surbrillance")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![Capture d’écran de LUIS sur l’intention « MoveEmployee » avec sélection de la première entité du composite mise en surbrillance](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Capture d’écran de LUIS sur l’intention « MoveEmployee » avec sélection de la première entité du composite mise en surbrillance")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. Puis sélectionnez immédiatement la dernière entité, `datetimeV2`, dans l’énoncé. Une barre verte sous les termes sélectionnés indique une entité composite. Dans le menu contextuel, entrez le nom composite `RequestEmployeeMove`, puis appuyez sur Entrée. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Capture d’écran de LUIS sur intention « MoveEmployee » en sélectionnant la dernière entité dans le composite et en créant une entité mise en surbrillance")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+    [![Capture d’écran de LUIS sur l’intention « MoveEmployee » avec sélection de la dernière entité du composite et création d’entité mise en surbrillance](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Capture d’écran de LUIS sur l’intention « MoveEmployee » avec sélection de la dernière entité du composite et création d’entité mise en surbrillance")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. Dans **Quel type d’entité souhaitez-vous créer ?**, presque tous les champs obligatoires sont dans la liste. Seul l’emplacement d’origine est manquant. Sélectionnez **Ajouter une entité enfant**, puis **Locations::Origin** dans la liste des entités existantes et, pour terminer **fait**. 
 
@@ -135,15 +136,15 @@ Les données extraites du point de terminaison doivent contenir ces informations
 
 1. Dans chaque exemple d’énoncé, sélectionnez l’entité la plus à gauche, qui devrait se trouver dans le composite. Ensuite, sélectionnez **Inclure dans un wrapper d’entité composite**.
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Capture d’écran de LUIS sur intention « MoveEmployee » en sélectionnant la première entité composite mise en surbrillance")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+    [![Capture d’écran de LUIS sur l’intention « MoveEmployee » avec sélection de la première entité du composite mise en surbrillance](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Capture d’écran de LUIS sur l’intention « MoveEmployee » avec sélection de la première entité du composite mise en surbrillance")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
 2. Sélectionnez le dernier mot dans l’entité composite, puis **RequestEmployeeMove** dans le menu contextuel. 
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Capture d’écran de LUIS sur intention « MoveEmployee » en sélectionnant la dernière entité composite mise en surbrillance")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+    [![Capture d’écran de LUIS sur l’intention « MoveEmployee » avec sélection de la dernière entité du composite mise en surbrillance](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Capture d’écran de LUIS sur l’intention « MoveEmployee » avec sélection de la dernière entité du composite mise en surbrillance")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
 3. Vérifiez que tous les énoncés de l’intention sont étiquetés avec l’entité composite. 
 
-    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Capture d’écran de LUIS sur « MoveEmployee » avec tous les énoncés étiquetés")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+    [![Capture d’écran de LUIS sur « MoveEmployee » avec tous les énoncés étiquetés](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Capture d’écran de LUIS sur « MoveEmployee » avec tous les énoncés étiquetés")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train"></a>Former
 
@@ -161,7 +162,7 @@ Les données extraites du point de terminaison doivent contenir ces informations
 
     Étant donné que ce test consiste à vérifier que le composite est extrait correctement, un test peut inclure soit un exemple d’énoncé existant, soit un nouvel énoncé. Un bon test consiste à inclure toutes les entités enfants dans l’entité composite.
 
-    ```JSON
+    ```json
     {
       "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
       "topScoringIntent": {

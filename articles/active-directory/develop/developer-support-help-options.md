@@ -17,14 +17,14 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422437"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337136"
 ---
-# <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs 
+# <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs
 
 Que vous implémentiez une nouvelle fonctionnalité dans votre application ou que vous commenciez à vous familiariser avec Azure Active Directory, Microsoft identities ou l’API Microsoft Graph, vous pouvez être amené à rechercher de l’aide auprès de la Communauté ou à connaître les options de support qui sont à votre disposition en tant que développeur. Cet article vous aide à comprendre ces options, celles-ci sont résumées ici :
 
@@ -38,7 +38,7 @@ Que vous implémentiez une nouvelle fonctionnalité dans votre application ou qu
 
 ## <a name="search"></a>Recherche
 
-Si votre question concerne le développement, la réponse peut se trouver dans notre documentation, nos [exemples github](https://github.com/azure-samples) ou dans les réponses aux questions posées sur [Stack Overflow](https://www.stackoverflow.com).
+Si votre question concerne le développement, la réponse peut se trouver dans notre documentation, nos [exemples GitHub](https://github.com/azure-samples) ou dans les réponses aux questions posées sur [Stack Overflow](https://www.stackoverflow.com).
 
 ### <a name="scoped-search"></a>Recherche élargie
 Pour obtenir des résultats plus rapidement, élargissez votre recherche à Stack Overflow, à notre documentation et à nos exemples de code en utilisant le texte suivant dans votre [moteur de recherche habituel](https://bing.com) :
@@ -76,7 +76,7 @@ Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soume
 |Toute autre zone liée à des sujets sur l’authentification ou les autorisations |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
-> Les publications suivantes de Stack Overflow renferment des conseils sur la façon de formuler des questions, mais aussi des indications sur l’ajout de code source ; en suivant ces recommandations, vous augmentez vos chances que des membres de la Communauté comprennent et répondent rapidement à votre question :  
+> Les publications suivantes de Stack Overflow renferment des conseils sur la façon de formuler des questions, mais aussi des indications sur l’ajout de code source ; en suivant ces recommandations, vous augmentez vos chances que des membres de la Communauté comprennent et répondent rapidement à votre question :
 > - [Comment poser une bonne question](https://stackoverflow.com/help/how-to-ask)
 > - [Comment créer un exemple minimal, complet et vérifiable](https://stackoverflow.com/help/mcve)
 

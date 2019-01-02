@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données à destination et à partir de Stockage Blob avec l’explorateur de stockage Azure | Microsoft Docs
+title: Déplacer des données de stockage d’objets blob avec l’Explorateur Stockage Azure - Team Data Science Process
 description: Déplacer des données vers et depuis le stockage d’objets blob Azure à l’aide de l’explorateur de stockage Azure
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7d4fc17c466f9f7187ca28c847631254d6600ead
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 99c9a86d130989e8c62a948e440b35c928b42299
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446994"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134093"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Déplacer des données vers et depuis le Stockage Blob Azure à l’aide de l’Explorateur de stockage Azure
 Azure Storage Explorer est un outil Microsoft gratuit qui vous permet d’exploiter les données Azure Storage sous Windows, macOS et Linux. Cette rubrique décrit comment l’utiliser pour charger et télécharger des données depuis le stockage d’objets blob Azure. Vous pouvez télécharger l’outil sur le site [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
@@ -45,8 +45,8 @@ Les étapes suivantes expliquent comment charger ou télécharger des données �
 
 1. Lancez Microsoft Azure Storage Explorer.
 2. Pour ouvrir l’Assistant **Connectez-vous à votre compte...**, sélectionnez l’icône **Paramètres de compte Azure**, puis **Ajouter un compte** et tapez vos informations d’identification. ![Ajouter un compte de stockage Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
-3. Pour ouvrir l’Assistant **Connectez-vous à Azure Storage**, sélectionnez l’icône **Se connecter à Azure Storage**. ![Se connecter au Stockage Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
-4. Entrez la clé d’accès de votre compte de stockage Azure dans l’Assistant **Connectez-vous à Azure Storage**, puis cliquez sur **Suivant**. ![Se connecter au Stockage Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
+3. Pour ouvrir l’Assistant **Connectez-vous à Azure Storage**, sélectionnez l’icône **Se connecter à Azure Storage**. ![Cliquer sur « Se connecter au Stockage Azure »](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
+4. Entrez la clé d’accès de votre compte de stockage Azure dans l’Assistant **Connectez-vous à Azure Storage**, puis cliquez sur **Suivant**. ![Saisir une clé d’accès au compte de stockage Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
 5. Entrez le nom du compte de stockage dans la zone **Nom du compte**, puis sélectionnez **Suivant**. ![Attacher un stockage externe](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. Le compte de stockage ajouté doit maintenant apparaître dans la liste. Pour créer un conteneur d’objets blob dans un compte de stockage, cliquez avec le bouton droit de la souris sur le nœud **Conteneurs d’objets blob** de ce compte, sélectionnez **Créer un conteneur d’objets blob**, puis entrez un nom.
 7. Pour charger des données dans un conteneur, sélectionnez le conteneur cible, puis cliquez sur le bouton **Charger**.![Comptes de stockage](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)

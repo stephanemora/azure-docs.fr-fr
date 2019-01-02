@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS | Microsoft Docs
+title: Déplacer des données de stockage d’objets blob avec des connecteurs SSIS - Team Data Science Process
 description: Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2eda0490392e26d386faa4c1e379b50738a56cbb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8cd7fc5b69fd3ef124a96f00466a0d9a8c4e2240
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443353"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134350"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Déplacer des données vers ou depuis Stockage Blob Azure à l’aide de connecteurs SSIS
 Le [Feature Pack SQL Server Integration Services pour Azure](https://msdn.microsoft.com/library/mt146770.aspx) fournit des composants permettant de se connecter à Azure, de transférer des données entre des sources de données Azure et des sources de données sur site et de traiter les données stockées dans Azure.
@@ -42,8 +42,8 @@ Pour exécuter les tâches décrites dans cet article, vous devez disposer d’u
 
 Pour utiliser les **connecteurs SSIS**vous devez télécharger :
 
-* **SQL Server 2014 ou 2016 Standard (ou version ultérieure)**: l’installation inclut SQL Server Integration Services.
-* **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack for Azure** peuvent être téléchargés respectivement depuis les pages [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) et [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
+* **SQL Server 2014 ou 2016 Standard (ou version ultérieure)** : L’installation inclut SQL Server Integration Services.
+* **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack pour Azure** : Les deux versions peuvent être téléchargées respectivement depuis les pages [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) et [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
 
 > [!NOTE]
 > SSIS est installé avec SQL Server, mais n’est pas inclus dans la version Express. Pour plus d'informations sur les applications incluses dans les différentes éditions de SQL Server, consultez [Éditions de SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
@@ -52,7 +52,7 @@ Pour utiliser les **connecteurs SSIS**vous devez télécharger :
 
 Pour les supports de formation sur SSIS, consultez la [formation pratique SSIS](https://www.microsoft.com/sql-server/training-certification)
 
-Pour plus d'informations sur la mise en service à l'aide de SISS pour la création des packages d'extraction, de transformation et de chargement (ETL), consultez [Didacticiel SSIS : création d'un Package ETL Simple](https://msdn.microsoft.com/library/ms169917.aspx).
+Pour plus d’informations sur la mise en service à l'aide de SISS pour la création des packages d'extraction, de transformation et de chargement (ETL), consultez [Didacticiel SSIS : création d’un Package ETL Simple](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>Télécharger l’ensemble de données Taxi NYC
 L'exemple décrit ici utilise un groupe de données disponible au public (l'ensemble de données [Courses taxi NYC](http://www.andresmh.com/nyctaxitrips/) ). Le groupe de données se compose d’environ 173 millions de courses en taxi à New York dans l’année 2013. Il existe deux types de données : les données détaillées relatives aux voyages et celles relatives aux tarifs des courses. Comme il existe un fichier par élément pour chaque mois, nous avons 24 fichiers, chacun d’eux d’un volume de 2 Go avant compression.

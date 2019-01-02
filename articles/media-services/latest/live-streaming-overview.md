@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 634563a2010562e20691abae132dc7540ef8faf2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632698"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000257"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -34,7 +34,7 @@ Cet article présente les principaux composants utilisés pour le streaming en d
 
 Pour transmettre des flux en direct ou à la demande avec Media Services, vous devez avoir au moins un point de terminaison de streaming ([StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)). Quand votre compte Media Services est créé, un StreamingEndpoint **par défaut**, avec l’état **Arrêté**, est ajouté à ce compte. Vous devez démarrer le StreamingEndpoint à partir duquel vous souhaitez transmettre votre contenu à vos clients. Vous pouvez utiliser le **StreamingEndpoint** par défaut, ou créer un autre **StreamingEndpoint** personnalisé avec les paramètres de CDN et de configuration souhaités. Vous pouvez choisir d’activer plusieurs StreamingEndpoint, chacun d’eux ciblant un CDN différent et spécifiant un nom d’hôte unique pour la distribution du contenu. 
 
-Dans Media Services, ce sont les objets [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) qui gèrent l’ingestion et le traitement des flux vidéo en direct. Quand vous créez un objet LiveEvent, un point de terminaison d’entrée est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. L’encodeur live à distance envoie le flux de contribution à ce point de terminaison d’entrée par le biais du protocole [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) ou [Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming) (MP4 fragmenté).  
+Dans Media Services, ce sont les objets [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) qui gèrent l’ingestion et le traitement des flux vidéo en direct. Quand vous créez un objet LiveEvent, un point de terminaison d’entrée est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. L’encodeur live à distance envoie le flux de contribution à ce point de terminaison d’entrée par le biais du protocole [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmenté).  
 
 Une fois que le **LiveEvent** commence à recevoir le flux de contribution, vous pouvez utiliser son point de terminaison d’aperçu (URL d’aperçu) pour prévisualiser et valider le flux en direct que vous recevez avant de continuer la publication. Après avoir vérifié que le flux d’aperçu est correct, vous pouvez utiliser le LiveEvent pour rendre le flux en direct diffusable via un ou plusieurs **StreamingEndpoints** (créés au préalable). Pour cela, vous créez un objet [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) sur le **LiveEvent**. 
 
@@ -42,7 +42,7 @@ L’objet **LiveOutput** fonctionne comme un magnétoscope qui va capturer et en
 
 Avec Media Services, vous pouvez utiliser l’**empaquetage dynamique**. Cette fonctionnalité vous permet de prévisualiser et diffuser vos flux en direct dans divers formats ([MPEG DASH, HLS et Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) à partir du flux de contribution envoyé au service. Vos clients peuvent alors lire le flux en direct au moyen de n’importe quel lecteur compatible avec HLS, DASH ou Smooth Streaming. Vous pouvez utiliser le lecteur multimédia [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) dans vos applications web ou mobiles afin de transmettre votre flux dans un de ces protocoles.
 
-Media Services vous permet de transmettre votre contenu chiffré dynamiquement (**Chiffrement dynamique**) avec la norme Advanced Encryption Standard (AES-128) ou un des principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et de licences DRM aux clients autorisés. Pour plus d’informations sur le chiffrement de votre contenu avec Media Services, consultez [Présentation de la protection du contenu](content-protection-overview.md).
+Media Services vous permet de transmettre votre contenu chiffré dynamiquement (**Chiffrement dynamique**) avec la norme Advanced Encryption Standard (AES-128) ou un des trois principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et de licences DRM aux clients autorisés. Pour plus d’informations sur le chiffrement de votre contenu avec Media Services, consultez [Présentation de la protection du contenu](content-protection-overview.md).
 
 Si vous le souhaitez, vous pouvez également appliquer un filtrage dynamique pour contrôler le nombre de pistes, les formats, les vitesses de transmission et les fenêtres de temps de présentation qui sont envoyés aux lecteurs. 
 
@@ -59,9 +59,9 @@ Les API v3 de Media Services comportent les nouvelles fonctionnalités suivante
 
 Un objet [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) peut être de deux types : pass-through et encodage direct. 
 
-### <a name="pass-through"></a>Pass-through
+### <a name="pass-through"></a>Requête directe
 
-![pass-through](./media/live-streaming/pass-through.png)
+![transmission directe](./media/live-streaming/pass-through.png)
 
 Quand vous utilisez l’objet LiveEvent de type pass-through, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et d’envoyer ce flux comme flux de contribution au LiveEvent (à l’aide du protocole RTMP ou MP4 fragmenté). Le LiveEvent est ensuite transmis dans les flux vidéo entrants sans traitement supplémentaire. Les objets LiveEvent pass-through sont optimisés pour les événements en direct de longue durée ou le streaming en direct linéaire sans interruption (24 h/24, 365 jours/an). Si vous créez ce type d’objet LiveEvent, spécifiez le paramètre None (LiveEventEncodingType.None).
 
@@ -75,19 +75,19 @@ Vous pouvez voir un exemple concret dans [MediaV3LiveApp](https://github.com/Azu
 
 ### <a name="live-encoding"></a>Encodage en direct  
 
-![encodage en direct](./media/live-streaming/live-encoding.png)
+![encodage en temps réel](./media/live-streaming/live-encoding.png)
 
 Quand vous utilisez l’encodage en direct avec Media Services, vous configurez votre encodeur live local pour qu’il génère un flux vidéo à une seule vitesse de transmission et qu’il l’envoie comme flux de contribution au LiveEvent (à l’aide du protocole RTMP ou MP4 fragmenté). Le LiveEvent encode ce flux vidéo à une seule vitesse de transmission en [flux vidéo à plusieurs vitesses de transmission](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), pour rendre sa transmission et sa lecture possibles sur les appareils compatibles avec des protocoles comme MPEG-DASH, HLS et Smooth Streaming. Si vous créez ce type d’objet LiveEvent, spécifiez le type d’encodage **Basic** (LiveEventEncodingType.Basic).
 
 Vous pouvez envoyer le flux de contribution à une résolution jusqu’à 1080p et à une fréquence de 30 images/seconde, avec un codec vidéo H.264/AVC et un codec audio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Pour plus d’informations, consultez l’article [Comparaison et limitations des types LiveEvent](live-event-types-comparison.md).
 
-## <a name="liveevent-types-comparison"></a>Comparaison des types LiveEvent
+## <a name="liveevent-types-comparison"></a>Comparaison des types d’événements en temps réel
 
 L’article suivant fournit un tableau qui compare les fonctionnalités des deux types LiveEvent : [Comparaison](live-event-types-comparison.md).
 
-## <a name="liveoutput"></a>LiveOutput
+## <a name="liveoutput"></a>Sortie en temps réel
 
-Avec un [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs), vous pouvez contrôler les propriétés du flux live sortant, telles que la quantité du flux à enregistrer (par exemple, la capacité du DVR cloud), et si les destinataires sont ou non autorisés à démarrer la lecture du flux en direct. La relation entre un **LiveEvent** et son **LiveOutput** associé est comparable à la diffusion télévisuelle traditionnelle, où un canal (**LiveEvent**) représente un flux vidéo constant et où un enregistrement (**LiveOutput**) est limité à une plage horaire spécifique (par exemple, un journal télévisé de 18h30 à 19h00). Vous pouvez enregistrer une émission de télévision à l’aide d’un magnétoscope numérique (DVR). La fonctionnalité équivalente dans les LiveEvents est gérée par la propriété ArchiveWindowLength. Il s’agit d’une durée d’intervalle ISO-8601 (par exemple, PTHH:MM:SS), qui spécifie la capacité du magnétoscope numérique. Sa valeur peut être comprise entre 3 minutes au minimum et 25 heures au maximum.
+Avec une sortie [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs), vous pouvez contrôler les propriétés du flux temps réel sortant, notamment la quantité à enregistrer (par exemple, la capacité du magnétoscope numérique cloud) et le fait que les destinataires sont ou non autorisés à démarrer la lecture du flux. La relation entre un événement **LiveEvent** et sa sortie **LiveOutput** est comparable à la diffusion télévisuelle traditionnelle, où un canal (**LiveEvent**) représente un flux vidéo constant et un enregistrement (**LiveOutput**) est limité à une plage horaire spécifique (par exemple, un journal télévisé de 18 h 30 à 19 h). Vous pouvez enregistrer une émission de télévision à l’aide d’un magnétoscope numérique (DVR). La fonctionnalité LiveEvent équivalente est gérée par la propriété ArchiveWindowLength. Il s’agit d’une durée d’intervalle ISO-8601 (par exemple, PTHH:MM:SS), qui spécifie la capacité du magnétoscope numérique. Sa valeur peut être comprise entre 3 minutes au minimum et 25 heures au maximum.
 
 
 > [!NOTE]

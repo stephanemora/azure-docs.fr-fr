@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: 078f6bcd7aa48f2a63118e6dfb625d9b2c69fbb3
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248021"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879364"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT
 
@@ -20,7 +20,7 @@ Les [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md)
 
 Microsoft prend en charge une variété de systèmes d’exploitation/plateformes/infrastructures et peut être étendu à l’aide du Kit de développement logiciel (SDK) C d’Azure IoT. Certains sont officiellement pris en charge par l’équipe, regroupés en niveaux qui représentent le niveau de prise en charge que les utilisateurs peuvent espérer. Les *plateformes entièrement prises en charge* signifient que Microsoft :
 
-    * Génère et teste de bout en bout en permanence ses produits par rapport aux versions maître et LTS prises en charge.
+    * Génère et teste de bout en bout en permanence ses produits par rapport aux versions maître et LTS prises en charge.  Pour que les tests couvrent différentes versions, nous les effectuons généralement sur la version LTS la plus récente et la version la plus populaire.  Les autres versions de la même plateforme peuvent être prises en charge en fonction de la compatibilité des versions de plateforme.
     * Fournit des packages ou un guide d’installation, le cas échéant.
     * Prend entièrement en charge les plateformes sur GitHub.
 
@@ -31,7 +31,6 @@ En outre, une liste de partenaires a porté notre Kit de développement logiciel
 * Windows CE 2013 (déconseillé depuis octobre 2018)
 * .NET standard 1.3 avec .NET Core 2.1 et .NET Framework 4.7
 * Xamarin iOS, Android, UWP
-* Android avec Java
 
 ## <a name="supported-platforms"></a>Plateformes prises en charge
 
@@ -83,6 +82,7 @@ Il existe plusieurs plateformes prises en charge.
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| API Android 28 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>Plateformes prises en charge de partenaires
 

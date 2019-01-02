@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f24baaf07f86722bc461cbb79e262f63b46c8a1f
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: b3d6f30aa2a7858d673199e55090e96fb9aba915
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619943"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337627"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises prévoient d’utiliser le Centre de sécurité Azure.
@@ -161,7 +161,7 @@ Les données collectées à partir de Microsoft Monitoring Agent (pour le compte
 
 Dans le portail Azure, vous pouvez parcourir le contenu pour afficher la liste de vos espaces de travail Log Analytics, y compris ceux créés par Azure Security Center. Un groupe de ressources associées sera créé pour les nouveaux espaces de travail. Les deux respecteront la convention d’affectation de noms suivante :
 
-* Espace de travail : *DefaultWorkspace-[ID d’abonnement]-[zone géographique]*
+* Espace de travail : *DefaultWorkspace-[subscription-ID]-[geo]*
 * Groupe de ressources : *DefaultResourceGroup-[geo]*
 
 Pour les espaces de travail créés par Azure Security Center, les données sont conservées pendant 30 jours. Pour les espaces de travail existants, la rétention dépend du niveau tarifaire de l’espace de travail. Si vous le souhaitez, vous pouvez aussi utiliser un espace de travail existant.
@@ -195,7 +195,7 @@ Prévoyez de consulter l’option [Informations sur les menaces](https://docs.mi
 ### <a name="monitoring-for-new-or-changed-resources"></a>Surveillance des ressources nouvelles ou modifiées
 La plupart des environnements Azure sont dynamiques, avec des nouvelles ressources ajoutées ou retirées régulièrement, des configurations ou des modifications, etc. Le Centre de sécurité vous offre une visibilité sur l’état de la sécurité de ces nouvelles ressources.
 
-Lorsque vous ajoutez de nouvelles ressources (machines virtuelles, bases de données SQL) dans votre environnement Azure, le Centre de sécurité les détecte automatiquement et commence à surveiller leur sécurité. Cela inclut également les rôles Web et les rôles de travail PaaS. Si la collecte de données est activée dans la [stratégie de sécurité](security-center-azure-policy.md), des fonctionnalités de surveillance supplémentaires sont activées automatiquement pour vos machines virtuelles.
+Lorsque vous ajoutez de nouvelles ressources (machines virtuelles, bases de données SQL) dans votre environnement Azure, le Centre de sécurité les détecte automatiquement et commence à surveiller leur sécurité. Cela inclut également les rôles Web et les rôles de travail PaaS. Si la collecte de données est activée dans la [stratégie de sécurité](tutorial-security-policy.md), des fonctionnalités de surveillance supplémentaires sont activées automatiquement pour vos machines virtuelles.
 
 ![Principaux aspects](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 

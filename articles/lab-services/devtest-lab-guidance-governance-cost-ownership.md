@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 9b83d6ac908be1e62e3c6c2025ae31aa374bdeea
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 47f3e8ab14ecd50e958c57ba4c8f9f098fd5bb7b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975071"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868359"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Gouvernance de l’infrastructure Azure DevTest Labs – Gérer le coût et l’appartenance
 Le coût et l’appartenance sont les principaux éléments à prendre en compte lors de la création de vos environnements de développement et de test. Dans cette section, vous trouvez des informations qui vous aideront à optimiser les coûts et à aligner l’appartenance au sein de votre environnement.
@@ -40,7 +40,7 @@ Cette approche vous offre de nombreux avantages :
  
 Seuls les abonnés Visual Studio actifs (abonnements standard, abonnements cloud annuels et mensuels) peuvent utiliser les ressources Azure exécutées dans le cadre d’un abonnement Enterprise Dev/Test. Toutefois, les utilisateurs finaux peuvent également accéder à l’application pour fournir leurs commentaires ou effectuer des tests d’acceptation. L’utilisation des ressources au sein de cet abonnement est limitée au développement et au test d’applications. Aucune garantie n’est offerte concernant le temps d’activité.
 
-Si vous décidez d’utiliser l’offre DevTest, notez que cet avantage est exclusivement réservé au développement et au test de vos applications. L’utilisation dans le cadre de l’abonnement n’est pas associée à un contrat de niveau de service avec compensations financières, sauf au sein de Visual Studio Team Services et HockeyApp.
+Si vous décidez d’utiliser l’offre DevTest, notez que cet avantage est exclusivement réservé au développement et au test de vos applications. L’utilisation dans le cadre de l’abonnement n’est pas associée à un contrat de niveau de service avec compensations financières, sauf au sein d’Azure DevOps et de HockeyApp.
 
 ## <a name="define-a-role-based-access-across-your-organization"></a>Définir un accès en fonction du rôle au sein de votre organisation
 ### <a name="question"></a>Question

@@ -1,20 +1,22 @@
 ---
-title: Prérequis pour Azure Disk Encryption | Microsoft Docs
+title: Conditions requises - Azure Disk Encryption pour les machines virtuelles IaaS | Microsoft Docs
 description: Cet article décrit les prérequis pour l’utilisation de Microsoft Azure Disk Encryption pour les machines virtuelles IaaS.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/14/2018
-ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 12/13/2018
+ms.custom: seodec18
+ms.openlocfilehash: 116f1f0a93c09ed751f0720ae74a2c24df7541eb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498587"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342508"
 ---
-# <a name="azure-disk-encryption-prerequisites"></a>Prérequis pour Azure Disk Encryption 
+# <a name="azure-disk-encryption-prerequisites"></a>Prérequis pour Azure Disk Encryption
+
  Cet article décrit les éléments qui doivent être en place avant toute utilisation d’Azure Disk Encryption. Azure Disk Encryption est intégré à [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) pour la gestion des clés de chiffrement. Vous pouvez utiliser [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/) ou le [portail Azure](https://portal.azure.com) pour configurer Azure Disk Encryption.
 
 Avant d’activer Azure Disk Encryption sur les machines virtuelles IaaS Azure pour les scénarios pris en charge dans l’article de [présentation d’Azure Disk Encryption](azure-security-disk-encryption-overview.md), assurez-vous que tous les prérequis sont respectés. 
@@ -28,14 +30,14 @@ Azure Disk Encryption est pris en charge sur les systèmes d’exploitation suiv
 
 - Versions de Windows Server : Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016.
     - Pour Windows Server 2008 R2, .NET Framework 4.5 doit être installé avant l’activation du chiffrement dans Azure. Installez-le à partir de Windows Update avec la mise à jour facultative Microsoft .NET Framework 4.5.2 pour systèmes Windows Server 2008 R2 x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
-- Versions du client Windows : client Windows 8 et client Windows 10.
+- Versions des clients Windows : client Windows 8 et client Windows 10.
 - Azure Disk Encryption est pris en charge uniquement sur les versions et les distributions de serveur Linux basées sur Azure Gallery. Pour obtenir la liste des versions actuellement prises en charge, reportez-vous à l’article [Forum aux questions (FAQ) Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 - Azure Disk Encryption requiert que votre coffre de clés et vos machines virtuelles se trouvent dans la même région et le même abonnement Azure. La configuration des ressources dans des régions distinctes provoque l’échec de l’activation de la fonctionnalité Azure Disk Encryption.
 
 ## <a name="bkmk_LinuxPrereq"></a> Prérequis supplémentaires pour les machines virtuelles Iaas Linux 
 
 - Azure Disk Encryption pour Linux exige 7 Go de RAM sur la machine virtuelle pour activer le chiffrement du lecteur du système d’exploitation sur les [images prises en charge](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Une fois que le processus de chiffrement du disque du système d’exploitation est terminé, il est possible de configurer la machine virtuelle pour qu’elle s’exécute avec moins de mémoire.
-- Avant d’activer le chiffrement, vous devez répertorier correctement les disques de données à chiffrer dans /etc/fstab. Utilisez un nom d’appareil de traitement par blocs persistant pour cette entrée, car les noms d’appareil au format « /dev/sdX » ne restent pas nécessairement associés au même disque entre les redémarrages, en particulier après une opération de chiffrement. Pour plus d’informations sur ce comportement, consultez l’article [Résoudre les problèmes liés aux modifications des noms de périphérique de machine virtuelle Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md).
+- Avant d’activer le chiffrement, vous devez répertorier correctement les disques de données à chiffrer dans /etc/fstab. Utilisez un nom d’appareil de traitement par blocs persistant pour cette entrée, car les noms d’appareil au format « /dev/sdX » ne restent pas nécessairement associés au même disque entre les redémarrages, en particulier après une opération de chiffrement. Pour plus d’informations sur ce comportement, consultez : [Résoudre les problèmes liés aux modifications des noms de périphérique de machine virtuelle Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Vérifiez que les paramètres /etc/fstab sont correctement configurés pour le montage. Pour configurer ces paramètres, exécutez la commande mount -a, ou redémarrez la machine virtuelle et déclenchez le remontage de cette façon. Une fois cette opération effectuée, consultez la sortie de la commande lsblk pour vérifier que le lecteur est toujours monté. 
     - Si le fichier /etc/fstab ne monte pas correctement le lecteur avant l’activation du chiffrement, Azure Disk Encryption ne pourra pas procéder au montage du lecteur.
     - Le processus Azure Disk Encryption déplace les informations du fichier /etc/fstab vers son propre fichier de configuration dans le cadre de l’opération de chiffrement. Par conséquent, ne soyez pas surpris que l’entrée ne figure plus dans le fichier /etc/fstab après le chiffrement du lecteur de données.
@@ -56,7 +58,7 @@ Vous trouverez un exemple des commandes permettant de monter les disques de donn
 **Stratégie de groupe :**
  - La solution Azure Disk Encryption utilise le protecteur de clé externe BitLocker pour les machines virtuelles IaaS Windows. Pour les machines virtuelles jointes à un domaine, n’envoyez (push) pas de stratégies de groupe qui appliquent des protecteurs de Module de plateforme sécurisée (TPM). Pour en savoir plus sur la stratégie de groupe pour « Autoriser BitLocker sans module de plateforme sécurisée compatible », consultez la rubrique [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup) (Référence de stratégie de groupe BitLocker).
 
--  La stratégie Bitlocker sur les machines virtuelles jointes à un domaine avec une stratégie de groupe personnalisée doit inclure le paramètre suivant : [Configurer le stockage par les utilisateurs des informations de récupération BitLocker -> Autoriser une clé de récupération de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). En cas d’incompatibilité des paramètres de stratégie de groupe personnalisée pour Bitlocker, Azure Disk Encryption échoue. Sur les machines dont le paramètre de stratégie était incorrect, il peut être nécessaire d’appliquer la nouvelle stratégie, de forcer la mise à jour de cette dernière (gpupdate.exe /force), puis de procéder à un redémarrage.  
+-  La stratégie BitLocker sur les machines virtuelles jointes à un domaine avec stratégie de groupe personnalisée doit inclure le paramètre suivant : [Configurer le stockage par les utilisateurs des informations de récupération BitLocker -> Autoriser une clé de récupération de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). En cas d’incompatibilité des paramètres de stratégie de groupe personnalisée pour Bitlocker, Azure Disk Encryption échoue. Sur les machines dont le paramètre de stratégie était incorrect, il peut être nécessaire d’appliquer la nouvelle stratégie, de forcer la mise à jour de cette dernière (gpupdate.exe /force), puis de procéder à un redémarrage.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -67,7 +69,7 @@ Vous trouverez un exemple des commandes permettant de monter les disques de donn
     - [Installez et configurez Azure PowerShell pour Windows](/powershell/azure/install-azurerm-ps). 
         - Installez PowerShellGet, Azure PowerShell, puis chargez le module AzureRM. 
     - [Installez et configurez Azure PowerShell sur macOS et Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Installez PowerShell Core, Azure PowerShell pour .NET Core, puis chargez le module Az.
+        -  Installez PowerShell Core, Azure PowerShell pour .NET Core, puis chargez le module Az.
 
 2. Vérifiez les versions installées du module AzureRM. Si nécessaire, [mettez à jour du module Azure PowerShell](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
     -  La version du module AzureRM doit être 6.0.0 ou une version ultérieure.
@@ -208,7 +210,7 @@ La plateforme Azure doit avoir accès aux clés et aux clés secrètes de chiffr
   - **Activer Key Vault pour le déploiement d’un modèle, si nécessaire :** autorise Azure Resource Manager à obtenir des secrets à partir de ce coffre de clés lorsque ce dernier est référencé dans un déploiement de modèle.
 
      ```azurepowershell-interactive             
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment`
+     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> Définir les stratégies d’accès avancé au coffre de clés avec Azure CLI
@@ -226,7 +228,7 @@ Utilisez la commande [az keyvault update](/cli/azure/keyvault#az-keyvault-update
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-deployment "true"
      ``` 
 
- - **Activer Key Vault pour le déploiement d’un modèle, si nécessaire :** autorise Resource Manager à récupérer des secrets dans le coffre.
+ - **Activer Key Vault pour le déploiement d’un modèle, si nécessaire :** autoriser Resource Manager à récupérer des secrets dans le coffre.
      ```azurecli-interactive  
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-template-deployment "true"
      ```

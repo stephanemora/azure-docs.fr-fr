@@ -1,5 +1,5 @@
 ---
-title: Surveiller le cluster Azure Kubernetes avec Datadog
+title: (DÉPRÉCIÉ) Superviser un cluster Kubernetes Azure avec Datadog
 description: Surveillance du cluster Kubernetes dans Azure Container Service à l’aide de Datadog
 services: container-service
 author: bburns
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0a3f0baa4998dbc594023935575d659f7d45bbb9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38629067"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995352"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Surveiller un cluster Azure Container Service avec Datadog
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(DÉPRÉCIÉ) Superviser un cluster Azure Container Service avec DataDog
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).

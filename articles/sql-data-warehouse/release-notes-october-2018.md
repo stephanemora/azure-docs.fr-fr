@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705376"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966821"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Nouveautés dans Azure SQL Data Warehouse Octobre 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en octobre 2018.
@@ -41,7 +41,7 @@ Le réglage avancé pour Azure SQL Data Warehouse (SQL DW) a été simplifié av
 La Récupération de base de données accélérée (ADR) Azure SQL Data Warehouse est désormais disponible en préversion publique. ADR est un nouveau moteur SQL Server qui améliore considérablement la disponibilité des bases de données, en particulier en présence de transactions d’une durée d’exécution longue, grâce à une toute nouvelle conception du processus de récupération actuel. Les principaux avantages d’ADR sont la récupération rapide et cohérente de la base de données et la restauration des transactions instantanée.
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Journaux de diagnostics Azure Monitor
-SQL Data Warehouse (SQL DW) propose maintenant des aperçus améliorés des charges de travail d’analytique grâce à une intégration directe des journaux de diagnostic Azure Monitor. Grâce à cette nouvelle fonctionnalité, les développeurs peuvent analyser le comportement de la charge de travail pendant une période étendue et prendre des décisions informées sur l’optimisation des requêtes ou la gestion de la capacité. Nous avons maintenant introduit un processus externe de journalisation via [les journaux de diagnostic Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) qui fournissent des insights supplémentaires sur la charge de travail de votre entrepôt de données. Avec un seul clic sur un bouton, vous pouvez maintenant configurer les journaux de diagnostic pour obtenir les fonctionnalités de résolution des problèmes de performances des requêtes historiques à l’aide de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Les journaux de diagnostic Azure Monitor prennent en charge les périodes de rétention personnalisables en enregistrant les journaux dans un compte de stockage à des fins d’audit, la fonctionnalité de diffusion en continu de journaux dans les Event Hubs pour des aperçus de télémétrie en quasi temps réel et la possibilité d’analyser des journaux à l’aide de Log Analytics avec les [requêtes de journal](). Les journaux de diagnostic se composent de vues de télémétrie de votre entrepôt de données équivalentes aux vues de gestion dynamique (DMV) de résolution des problèmes de performance les plus fréquentes pour SQL Data Warehouse. Pour cette première version, nous avons activé les vues pour les vues de gestion dynamique du système suivantes :
+SQL Data Warehouse (SQL DW) propose maintenant des aperçus améliorés des charges de travail d’analytique grâce à une intégration directe des journaux de diagnostic Azure Monitor. Grâce à cette nouvelle fonctionnalité, les développeurs peuvent analyser le comportement de la charge de travail pendant une période étendue et prendre des décisions informées sur l’optimisation des requêtes ou la gestion de la capacité. Nous avons maintenant introduit un processus externe de journalisation via [les journaux de diagnostic Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) qui fournissent des insights supplémentaires sur la charge de travail de votre entrepôt de données. Avec un seul clic sur un bouton, vous pouvez maintenant configurer les journaux de diagnostic pour obtenir les fonctionnalités de résolution des problèmes de performances des requêtes historiques à l’aide de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Les journaux de diagnostic Azure Monitor prennent en charge les périodes de rétention personnalisables en enregistrant les journaux dans un compte de stockage à des fins d’audit, la fonctionnalité de diffusion en continu de journaux dans les Event Hubs pour des aperçus de télémétrie en quasi temps réel et la possibilité d’analyser des journaux à l’aide de Log Analytics avec les [requêtes de journal](). Les journaux de diagnostic se composent de vues de télémétrie de votre entrepôt de données équivalentes aux vues de gestion dynamique (DMV) de résolution des problèmes de performance les plus fréquents pour SQL Data Warehouse. Pour cette première version, nous avons activé les vues pour les vues de gestion dynamique du système suivantes :
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)
@@ -62,6 +62,7 @@ Azure SQL Data Warehouse (SQL DW) bénéficie maintenant de l’intégration nat
 | **Échecs CETAS à Parquet dans les petites classes de ressources sur les entrepôts de données de DW2000 et plus** | Ce correctif identifie correctement une référence null dans le chemin d’accès au code Create External Table As to Parquet. |
 |**La valeur de colonne d’identité peut se perdre dans une opération CTAS** | La valeur d’une colonne d’identité peut ne pas être conservée en cas d’opération CTAS vers une autre table. Signalé dans un blog : [https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |
 | **Erreur interne dans certains cas lorsqu’une session est interrompue alors qu’une requête est en cours d’exécution** | Cette correction déclenche InvalidOperationException si une session est interrompue lorsque la requête est en cours d’exécution. |
+| **(Déployée en novembre 2018) Les clients ont rencontré des performances réduites lors de la tentative de chargement de plusieurs petits fichiers depuis ADLS (Gen1) à l’aide de Polybase.** | Les performances du système se sont trouvées dans un goulot d’étranglement lors de la validation du jeton de sécurité AAD. Les problèmes de performances ont été réduits en activant la mise en cache des jetons de sécurité. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

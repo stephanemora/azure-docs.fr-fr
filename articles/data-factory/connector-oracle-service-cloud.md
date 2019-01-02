@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a576b94881e114a97e58bf93515e372221da3346
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b97b8e145e2a770a00c77eefc9ce6d323fd6222e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095969"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101831"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copier des données d’Oracle Service Cloud à l’aide d’Azure Data Factory (préversion)
 
@@ -45,7 +45,7 @@ Les propriétés prises en charge pour le service lié Oracle Service Cloud sont
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **OracleServiceCloud** | Oui |
+| Type | La propriété type doit être définie sur : **OracleServiceCloud** | Oui |
 | host | L’URL de l’instance Oracle Service Cloud.  | Oui |
 | username | Nom d’utilisateur utilisé pour accéder au server Oracle Service Cloud.  | Oui |
 | password | Mot de passe correspondant au nom d’utilisateur indiqué dans la clé username. Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie du fichier de définition d’application en tirer (pull) les données lors de la copie des données. Pour plus d’informations, consultez [Stocker les informations d’identification dans le coffre de clés](store-credentials-in-key-vault.md). | Oui |
@@ -80,7 +80,12 @@ Les propriétés prises en charge pour le service lié Oracle Service Cloud sont
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section donne la liste des propriétés prises en charge par le jeu de données Oracle Service Cloud.
 
-Pour copier des données depuis et vers Oracle Service Cloud, affectez la valeur **OracleServiceCloudObject** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données depuis et vers Oracle Service Cloud, affectez la valeur **OracleServiceCloudObject** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **OracleServiceCloudObject** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -92,7 +97,8 @@ Pour copier des données depuis et vers Oracle Service Cloud, affectez la valeur
         "linkedServiceName": {
             "referenceName": "<OracleServiceCloud linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -108,8 +114,8 @@ Pour copier des données d’Oracle Service Cloud, définissez le type de source
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **OracleServiceCloudSource** | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur : **OracleServiceCloudSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

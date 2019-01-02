@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 35329468ee01d5b70d654c1eb4a908db9d3fcb5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: cfebbdb9b88a1de6a05f06e6ed72ebc9cddddcf6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184400"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074449"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Utiliser des profils de version d’API avec .NET dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Le Kit de développement logiciel (SDK) .NET pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Le Kit de développement logiciel (SDK) comporte des fournisseurs de ressources de calcul, de réseau, de stockage, de services d’application et [KeyVault](../../key-vault/key-vault-whatis.md). Le Kit de développement logiciel (SDK) .NET inclut 14 packages NuGet qui doivent être téléchargés dans votre solution de projet chaque fois que les informations de profil sont incorporées. Toutefois, vous pouvez télécharger spécifiquement le fournisseur de ressources que vous utiliserez pour le profil 2018-03-01-hybrid ou 2017-03-09-profile afin d’optimiser la mémoire pour votre application. Chaque package se compose d’un fournisseur de ressources, de la version d’API correspondante et du profil d’API auquel il appartient. Les profils d’API dans le Kit de développement logiciel (SDK) .NET permettent le développement du cloud hybride en vous offrant la possibilité de basculer entre les ressources Azure globales et les ressources sur Azure Stack.
 
@@ -98,7 +98,7 @@ Export Azure_Tenant_ID=Your_Tenant_ID
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Point de terminaison Azure Stack Resource Manager
 
-Microsoft Azure Resource Manager est une infrastructure de gestion qui permet aux administrateurs de déployer, gérer et surveiller les ressources Azure. Azure Resource Manager peut gérer ces tâches en groupe, plutôt qu’individuellement, dans une seule opération.
+Microsoft Azure Resource Manager est une infrastructure de gestion qui permet aux administrateurs de déployer, gérer et superviser les ressources Azure. Azure Resource Manager peut gérer ces tâches en groupe, plutôt qu’individuellement, dans une seule opération.
 
 Vous pouvez obtenir les informations de métadonnées du point de terminaison Resource Manager. Le point de terminaison renvoie un fichier JSON avec les informations requises pour exécuter votre code.
 
@@ -106,7 +106,7 @@ Tenez compte des points suivants :
 
 - Le **ResourceManagerUrl** dans le Kit de développement Azure Stack (ASDK) est : https://management.local.azurestack.external/
 
-- L’URL **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` Pour extraire les métadonnées requises : `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+- Le **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` Pour récupérer les métadonnées requises : `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
 Exemple de fichier JSON :
 
@@ -125,11 +125,11 @@ Exemple de fichier JSON :
 
 ## <a name="existing-api-profiles"></a>Profils d’API existants
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg** : profil le plus récent généré pour Azure Stack. Utilisez ce profil pour que les services soient davantage compatibles avec Azure Stack, à condition que vous utilisiez le tampon 1808 ou un tampon ultérieur.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg** : Dernier profil créé pour Azure Stack. Utilisez ce profil pour que les services soient davantage compatibles avec Azure Stack, à condition que vous utilisiez le tampon 1808 ou un tampon ultérieur.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg** : si vous utilisez un tampon antérieur à la version 1808, utilisez ce profil.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg** : si vous êtes sur un tampon inférieur à la build 1808, utilisez ce profil.
 
-3.  **La plus récente** : profil constitué des dernières versions de l’ensemble des services. Utilisez les dernières versions de tous les services. Ce profil fait partie du package NuGet **Microsoft.Azure.Management**.
+3.  **La plus récente** : profil constitué des dernières versions de l’ensemble des services. Utilisez les dernières versions de tous les services. Ce profil fait partie du package NuGet **Microsoft.Azure.Management**.
 
 Pour plus d’informations sur les profils d’API et Azure Stack, consultez la section [Résumé des profils d’API][].
 
@@ -193,7 +193,9 @@ Vous pouvez utiliser les exemples suivants se trouvant dans les référentiels G
 
 1.  Clonez le référentiel à l’aide de la commande suivante :
 
-    `git clone <https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject>`
+    ```shell
+    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
+    ```
 
 2.  Créez un principal de service Azure et assignez un rôle pour accéder à l’abonnement. Pour obtenir des instructions sur la création d’un principal de service, consultez [Utiliser Azure PowerShell pour créer un principal de service avec un certificat][].
 

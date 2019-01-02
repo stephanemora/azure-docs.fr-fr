@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 06/21/2018
+ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 7d3361b44d47fd97c14f677e5e4bbc6c1ee5ad3f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607639"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385123"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 
@@ -39,7 +39,7 @@ Vous pouvez également facilement vous assurer que les utilisateurs invités dis
 
 Les révisions d’accès sont disponibles dans l’édition Premium P2 de Azure AD, incluse dans Microsoft Enterprise Mobility + Security, E5. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](../fundamentals/active-directory-whatis.md). Chaque utilisateur interagissant avec cette fonctionnalité, notamment pour créer une révision, la remplir ou vérifier son accès, doit disposer d’une licence. 
 
-Si vous envisagez de demander aux utilisateurs invités de revoir leur propre accès, apprenez-en davantage sur les licences d’utilisateur invité. Pour plus d’informations, consultez l’article [Affectation de licences Azure Active Directory B2B Collaboration](../b2b/licensing-guidance.md).
+Vous pouvez également demander aux utilisateurs invités de vérifier leur propre accès. Pour chaque licence Azure AD Premium P2 que vous attribuez à un utilisateur de votre organisation, vous pouvez utiliser B2B pour inviter jusqu’à cinq utilisateurs dans le cadre d’une allocation d’utilisateur externe. Ces utilisateurs invités peuvent également utiliser les fonctionnalités d’Azure AD Premium P2. Pour plus d’informations, consultez l’article [Affectation de licences Azure Active Directory B2B Collaboration](../b2b/licensing-guidance.md).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Créer et exécuter une révision d’accès pour des invités
 

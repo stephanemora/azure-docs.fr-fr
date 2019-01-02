@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388307"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017097"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Recommandations relatives à l’initiative Trusted Internet Connections
 
@@ -41,9 +41,9 @@ L’initiative inclut également des stratégies de sécurité, des instructions
 Il existe trois options principales pour la connexion aux services Azure :
 
 - Connexion Internet directe : accès aux services Azure directement via une connexion Internet ouverte. Le vecteur et la connexion sont publics. Le chiffrement au niveau du transport et de l’application est responsable de la confidentialité. La bande passante est limitée par la connectivité du site à Internet. Utilisez plusieurs fournisseurs actifs pour garantir la résilience.
-- Réseau privé virtuel (VPN, Virtual private network) : connexion confidentielle au réseau virtuel Azure via une passerelle VPN.
+- Réseau privé virtuel (VPN) : connexion privée au réseau virtuel Azure par le biais d’une passerelle VPN.
 Le vecteur est public parce qu’il transite par une connexion Internet standard d’un site, mais la connexion est chiffrée dans un tunnel afin de garantir la confidentialité. La bande passante est limitée en fonction des périphériques VPN et de la configuration choisie. Les connexions point à site Azure sont généralement limitées à 100 Mbits/s, tandis que les connexions site à site sont limitées à 1,25 Gbits/s.
-- Azure ExpressRoute : ExpressRoute est une connexion directe aux services Microsoft. Établie via un Fiber Channel isolé, la connexion peut être publique ou privée, selon la configuration utilisée. La bande passante est généralement limitée à un maximum de 10 Gbits/s.
+- Azure ExpressRoute : connexion directe aux services Microsoft. Établie via un Fiber Channel isolé, la connexion peut être publique ou privée, selon la configuration utilisée. La bande passante est généralement limitée à un maximum de 10 Gbits/s.
 
 Il existe plusieurs façons de remplir les exigences de l’Annexe H du programme TIC (considérations relatives au cloud), telles que spécifiées dans le document « Trusted Internet Connections (TIC) Reference Architecture Document, Version 2.0 » publié par le DHS. Dans cet article, les conseils du DHS en lien avec le TIC sont appelés **TIC 2.0**.
 
@@ -63,10 +63,10 @@ La principale exigence pour garantir la conformité avec l’architecture de ré
 
 La mise en conformité avec TIC Azure IaaS est divisée en deux grandes étapes :
 
-- Étape 1 : configuration.
-- Étape 2 : audit.
+- Étape 1 : Configuration.
+- Étape 2 : Audit.
 
-### <a name="azure-iaas-tic-compliance-configuration"></a>Conformité avec TIC Azure IaaS : configuration
+### <a name="azure-iaas-tic-compliance-configuration"></a>Conformité TIC à l’aide d’Azure IaaS : Configuration
 
 Pour configurer une architecture conforme à TIC avec Azure, vous devez commencer par empêcher tout accès Internet direct à votre réseau virtuel, puis forcer le trafic Internet à transiter par le réseau local.
 
@@ -85,7 +85,7 @@ Azure crée des itinéraires système automatiquement et assigne les itinéraire
 
 ![Tunneling forcé TIC](media/tic-diagram-c.png)
 
-Tout le trafic quittant le réseau virtuel doit être routé via la connexion locale pour s’assurer que tout le trafic traverse le TIC du D/A. Vous pouvez établir des itinéraires personnalisés en créant des itinéraires définis par l’utilisateur ou en échangeant des itinéraires utilisant le protocole de passerelle frontière (BGP, Border Gateway Protocol) entre votre passerelle réseau locale et une passerelle VPN Azure. Pour plus d’informations sur les itinéraires définis par l’utilisateur, voir [Routage du trafic réseau virtuel : itinéraires définis par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Pour plus d’informations sur le protocole BGP, voir [Routage du trafic réseau virtuel : protocole de passerelle frontière (BGP, Border Gateway Protocol)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
+Tout le trafic quittant le réseau virtuel doit être routé via la connexion locale pour s’assurer que tout le trafic traverse le TIC du D/A. Vous pouvez établir des itinéraires personnalisés en créant des itinéraires définis par l’utilisateur ou en échangeant des itinéraires utilisant le protocole de passerelle frontière (BGP, Border Gateway Protocol) entre votre passerelle réseau locale et une passerelle VPN Azure. Pour plus d’informations sur les routes définies par l’utilisateur, consultez [Routage du trafic de réseau virtuel : routes définies par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Pour plus d’informations sur le protocole BGP, consultez [Routage du trafic de réseau virtuel : protocole BGP](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
 
 #### <a name="add-user-defined-routes"></a>Ajouter des Itinéraires définis par l’utilisateur
 
@@ -97,7 +97,7 @@ Si vous utilisez une passerelle de réseau virtuel basée sur un itinéraire, vo
 
 Si vous utilisez ExpressRoute ou une passerelle de réseau virtuel compatible avec le protocole BGP, celui-ci est le mécanisme préconisé pour l’annonce des itinéraires. Avec un itinéraire BGP annoncé 0.0.0.0/0, ExpressRoute et les passerelles de réseau virtuel compatibles avec le protocole BGP veillent à que l’itinéraire par défaut s’applique à tous les sous-réseaux de vos réseaux virtuels.
 
-### <a name="azure-iaas-tic-compliance-auditing"></a>Conformité avec TIC Azure IaaS : audit
+### <a name="azure-iaas-tic-compliance-auditing"></a>Conformité TIC à l’aide d’Azure IaaS : Audit
 
 Azure offre plusieurs moyens d’auditer la conformité avec TIC.
 
@@ -124,8 +124,8 @@ Les services Azure PaaS tels que Stockage Azure sont accessibles via une URL acc
 
 Quand des services Azure PaaS sont intégrés avec un réseau virtuel, le service est accessible de façon confidentielle à partir de ce réseau virtuel. Vous pouvez appliquer un routage personnalisé pour 0.0.0.0/0 via des itinéraires définis par l’utilisateur ou le protocole BGP. Un routage personnalisé garantit que tous les itinéraires de trafic liés à Internet transitent pas le TIC. Intégrez les services Azure dans des réseaux virtuels à l’aide des modèles suivants :
 
-- **Déployer une instance dédiée d’un service** : un nombre croissant de services PaaS sont déployables en tant qu’instances dédiées avec des points de terminaison attachés au réseau virtuel. Vous pouvez déployer un environnement App Service pour PowerApps en mode « Isolé » pour permettre la limitation du point de terminaison réseau à un réseau virtuel. L’environnement App Service peut alors héberger de nombreux services Azure PaaS, tels qu’Azure Web Apps, Gestion des API Azure et Azure Functions.
-- **Utiliser des points de terminaison de service de réseau virtuel** : un nombre croissant de services PaaS autorisent le déplacement de leur point de terminaison vers une adresse IP privée de réseau virtuel au lieu d’une adresse publique.
+- **Déployer une instance dédiée d’un service** : de plus en plus de services PaaS peuvent être déployés en tant qu’instances dédiées avec des points de terminaison attachés au réseau virtuel. Vous pouvez déployer un environnement App Service pour PowerApps en mode « Isolé » pour permettre la limitation du point de terminaison réseau à un réseau virtuel. L’environnement App Service peut alors héberger de nombreux services Azure PaaS, tels qu’Azure Web Apps, Gestion des API Azure et Azure Functions.
+- **Utiliser des points de terminaison de service de réseau virtuel** : de plus en plus de services PaaS autorisent le déplacement de leur point de terminaison vers une adresse IP privée de réseau virtuel au lieu d’une adresse publique.
 
 Depuis mai 2018, les services qui prennent en charge le déploiement d’instances dédiées dans un réseau virtuel ou l’utilisation de points de terminaison de service sont répertoriés dans les tableaux suivants.
 
@@ -157,7 +157,7 @@ Depuis mai 2018, les services qui prennent en charge le déploiement d’instan
 |Azure Active Directory                | GA               |
 |Azure Batch                           | GA               |
 |Environnement App Service               | GA               |
-|Cache Redis Azure                     | GA               |
+|Cache Azure pour Redis                     | GA               |
 |Azure HDInsight                       | GA               |
 |Jeu de mise à l’échelle de machine virtuelle             | GA               |
 |Services cloud Azure                  | GA               |
@@ -165,7 +165,7 @@ Depuis mai 2018, les services qui prennent en charge le déploiement d’instan
 
 ### <a name="virtual-network-integration-details"></a>Détails d’intégration de réseau virtuel
 
-Le diagramme suivant illustre le flux réseau général pour l’accès aux services PaaS. L’accès est illustré à partir d’une injection de réseau virtuel et d’un tunneling de service de réseau virtuel. Pour plus d’informations sur les passerelles de service réseau, les réseaux virtuels et les balises de service, voir [Groupes de sécurité réseau et d’application : balises de service](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Le diagramme suivant illustre le flux réseau général pour l’accès aux services PaaS. L’accès est illustré à partir d’une injection de réseau virtuel et d’un tunneling de service de réseau virtuel. Pour plus d’informations sur les passerelles de service réseau, les réseaux virtuels et les balises de service, consultez [Groupes de sécurité réseau et d’application : balises de service](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ![Options de connectivité PaaS pour TIC](media/tic-diagram-e.png)
 
@@ -178,13 +178,13 @@ Le diagramme suivant illustre le flux réseau général pour l’accès aux serv
    - Déployés directement dans le réseau virtuel.
    - Autorisés de manière sélective conformément aux recommandations du service Azure concerné.
 
-#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Option A : déployer une instance dédiée d’un service (injection de réseau virtuel)
+#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Option A : déployer une instance dédiée d’un service (injection de réseau virtuel)
 
 Une injection de réseau virtuel permet aux clients de déployer de manière sélective des instances dédiées d’un service Azure donné, tel que HDInsight, dans leur propre réseau virtuel. Les instances de service sont déployées dans un sous-réseau dédié du réseau virtuel d’un client. L’injection de réseau virtuel permet d’accéder aux ressources de service via les adresses routables non-Internet. Les instances locales utilisent ExpressRoute ou un VPN de site à site pour accéder directement aux instances de service via l’espace d’adressage de réseau virtuel, au lieu d’ouvrir un pare-feu à l’espace d’adressage Internet public. Quand une instance dédiée est attachée à un point de terminaison, vous pouvez utiliser les mêmes stratégies que pour la conformité au TIC IaaS. Le routage par défaut garantit que le trafic Internet est redirigé vers une passerelle de réseau virtuel liée en local. Vous pouvez contrôler davantage l’accès entrant et sortant via des groupes de sécurité réseau pour le sous-réseau donné.
 
 ![Vue d’ensemble de l’injection de réseau virtuel](media/tic-diagram-f.png)
 
-#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Option B : utiliser des points de terminaison de service de réseau virtuel (tunnel de service)
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Option B : utiliser des points de terminaison de service de réseau virtuel (tunnel de service)
 
 Un nombre croissant de services mutualisés Azure offrent des « points de terminaison de service ». Les points de terminaison de service sont une méthode alternative pour l’intégration à des réseaux virtuels Azure. Des points de terminaison de service de réseau virtuel étendent votre espace d’adressage IP de réseau virtuel et l’identité de votre réseau virtuel au service via une connexion directe. Le trafic du réseau virtuel vers le service Azure reste toujours à l’intérieur du réseau principal Azure. 
 
@@ -263,7 +263,7 @@ Vous pouvez aisément configurer l’accès pour Microsoft Azure, Office 365 et
 | Base de données | Azure Database pour PostgreSQL | | | Oui |
 | Base de données | Azure SQL Data Warehouse | | | Oui |
 | Base de données | Azure Cosmos DB | | | Oui |
-| Base de données | Cache Redis Azure | | Oui | |
+| Base de données | Cache Azure pour Redis | | Oui | |
 | Stockage | Stockage d'objets blob Azure | Oui | | |
 | Stockage | Azure Files | Oui | | |
 | Stockage | Stockage File d’attente Azure | Oui | | |

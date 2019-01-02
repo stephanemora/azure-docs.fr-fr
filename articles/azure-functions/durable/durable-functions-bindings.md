@@ -1,6 +1,6 @@
 ---
 title: Liaisons pour Fonctions durables - Azure
-description: Guide pratique pour utiliser des déclencheurs et des liaisons pour l’extension Fonctions durables pour Azure Functions.
+description: Guide pratique pour utiliser des déclencheurs et des liaisons pour l’extension Durable Functions pour Azure Functions.
 services: functions
 author: kashimiz
 manager: jeconnoc
@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1a932e5548941a949120ab6c15c73c739a7dc8c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 889d26be12fef62d37a471fbe0640a2b8ecdd99c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637024"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337187"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Liaisons pour Fonctions durables (Azure Functions)
 
@@ -27,7 +27,7 @@ Le déclencheur d’orchestration vous permet de créer des fonctions d’orches
 
 Lorsque vous utilisez les outils Visual Studio pour Azure Functions, le déclencheur d’orchestration est configuré à l’aide de l’attribut .NET [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html).
 
-Lorsque vous écrivez des fonctions d’orchestrateur dans des langages de script (par exemple, dans le portail Azure), le déclencheur d’orchestration est défini par l’objet JSON suivant dans le tableau `bindings` du fichier *function.json* :
+Lorsque vous écrivez des fonctions d’orchestrateur dans des langages de script (par exemple, JavaScript ou C#), le déclencheur d’orchestration est défini par l’objet JSON suivant dans le tableau `bindings` du fichier *function.json* :
 
 ```json
 {
@@ -54,12 +54,15 @@ Voici quelques remarques concernant le déclencheur d’orchestration :
 > [!WARNING]
 > Les fonctions d’orchestrateur ne doivent jamais utiliser une liaison d’entrée ou de sortie autre que la liaison du déclencheur d’orchestration. Cela pourrait entraîner des problèmes avec l’extension Tâche durable car ces liaisons risquent de ne pas respecter les règles de thread unique et d’E/S.
 
-### <a name="trigger-usage"></a>Utilisation du déclencheur
+> [!WARNING]
+> Les fonctions d’orchestrateur JavaScript ne doivent jamais être déclarées avec la propriété `async`.
+
+### <a name="trigger-usage-net"></a>Utilisation du déclencheur (.NET)
 
 La liaison du déclencheur d’orchestration prend en charge à la fois les entrées et les sorties. Voici quelques éléments à connaître concernant la gestion des entrées et des sorties :
 
-* **entrées** : les fonctions d’orchestration prennent uniquement en charge le type de paramètre [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). Les entrées de désérialisation directement dans la signature de la fonction ne sont pas prises en charge. Le code doit utiliser la méthode [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) pour extraire des entrées de la fonction d’orchestrateur. Ces entrées doivent être de type JSON sérialisable.
-* **sorties** : les déclencheurs d’orchestration prennent en charge les valeurs de sortie ainsi que les entrées. La valeur de retour de la fonction sert à affecter la valeur de sortie et doit être de type JSON sérialisable. Si une fonction retourne `Task` ou `void`, une valeur `null` sera enregistrée comme sortie.
+* **entrées** : les fonctions d’orchestration .NET prennent uniquement en charge le type de paramètre [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). Les entrées de désérialisation directement dans la signature de la fonction ne sont pas prises en charge. Le code doit utiliser la méthode [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.NET) ou `getInput` (JavaScript) pour extraire des entrées de la fonction d’orchestrateur. Ces entrées doivent être de type JSON sérialisable.
+* **sorties** : les déclencheurs d’orchestration prennent en charge les valeurs de sortie ainsi que les entrées. La valeur de retour de la fonction sert à affecter la valeur de sortie et doit être de type JSON sérialisable. Si une fonction .NET retourne `Task` ou `void`, une valeur `null` est enregistrée en tant que sortie.
 
 ### <a name="trigger-sample"></a>Exemple de déclencheur
 
@@ -76,7 +79,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -86,6 +89,9 @@ module.exports = df.orchestrator(function*(context) {
     return `Hello ${name}!`;
 });
 ```
+
+> [!NOTE]
+> L’objet `context` dans JavaScript représente non pas le contexte d’orchestration durable mais le contexte de fonction [ dans son ensemble](../functions-reference-node.md#context-object). Vous pouvez accéder à des méthodes d’orchestration via la propriété `df` de l’objet `context`.
 
 > [!NOTE]
 > Les orchestrateurs JavaScript doivent utiliser `return`. La bibliothèque `durable-functions` prend en charge l’appel de la méthode `context.done`.
@@ -105,7 +111,7 @@ public static async Task<string> Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -121,7 +127,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Le déclencheur d’activité vous permet de créer des fonctions appelées par des fonctions d’orchestrateur.
 
-Si vous utilisez Visual Studio, le déclencheur d’activité est configuré à l’aide de l’attribut .NET [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html). 
+Si vous utilisez Visual Studio, le déclencheur d’activité est configuré à l’aide de l’attribut .NET [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html).
 
 Si vous utilisez VS Code ou le portail Azure pour le développement, le déclencheur d’activité est défini par l’objet JSON suivant dans le tableau `bindings` de *function.json* :
 
@@ -150,13 +156,13 @@ Voici quelques remarques concernant le déclencheur d’activité :
 > [!WARNING]
 > Le serveur principal de stockage pour les fonctions de l’activité est un détail d’implémentation, et le code utilisateur ne doit pas interagir directement avec ces entités de stockage.
 
-### <a name="trigger-usage"></a>Utilisation du déclencheur
+### <a name="trigger-usage-net"></a>Utilisation du déclencheur (.NET)
 
 La liaison du déclencheur d’activité prend en charge à la fois les entrées et les sorties, exactement comme le déclencheur d’orchestration. Voici quelques éléments à connaître concernant la gestion des entrées et des sorties :
 
-* **entrées** : les fonctions d’activité natives utilisent le type de paramètre [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html). Une fonction d’activité peut également être déclarée avec n’importe quel type de paramètre sérialisable au format JSON. Lorsque vous utilisez `DurableActivityContext`, vous pouvez appeler [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) pour extraire et désérialiser l’entrée de la fonction d’activité.
-* **sorties** : les fonctions d’activité prennent en charge les valeurs de sortie ainsi que les entrées. La valeur de retour de la fonction sert à affecter la valeur de sortie et doit être de type JSON sérialisable. Si une fonction retourne `Task` ou `void`, une valeur `null` sera enregistrée comme sortie.
-* **métadonnées** : les fonctions d’activité peuvent être liées à un paramètre `string instanceId` pour obtenir l’ID d’instance de l’orchestration parente.
+* **entrées** : les fonctions d’activité .NET natives utilisent le type de paramètre [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html). Une fonction d’activité peut également être déclarée avec n’importe quel type de paramètre sérialisable au format JSON. Lorsque vous utilisez `DurableActivityContext`, vous pouvez appeler [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) pour extraire et désérialiser l’entrée de la fonction d’activité.
+* **sorties** : les fonctions d’activité prennent en charge les valeurs de sortie ainsi que les entrées. La valeur de retour de la fonction sert à affecter la valeur de sortie et doit être de type JSON sérialisable. Si une fonction .NET retourne `Task` ou `void`, une valeur `null` est enregistrée en tant que sortie.
+* **métadonnées** : les fonctions d’activité .NET peuvent être liées à un paramètre `string instanceId` pour obtenir l’ID d’instance de l’orchestration parente.
 
 ### <a name="trigger-sample"></a>Exemple de déclencheur
 
@@ -173,17 +179,7 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
-
-```javascript
-module.exports = function(context) {
-    context.done(null, `Hello ${context.bindings.name}!`);
-};
-```
-
-Le type de paramètre par défaut pour la liaison `ActivityTriggerAttribute` est `DurableActivityContext`. Cependant, les déclencheurs d’activité prennent également en charge la liaison directe avec des types de paramètres sérialisables au format JSON (notamment les types primitifs). La même fonction peut donc être simplifiée comme suit :
-
-#### <a name="c"></a>C#
+Le type de paramètre par défaut pour la liaison `ActivityTriggerAttribute` .NET est `DurableActivityContext`. Cependant, les déclencheurs d’activité .NET prennent également en charge la liaison directe avec des types sérialisables au format JSON (notamment les types primitifs). La même fonction peut donc être simplifiée comme suit :
 
 ```csharp
 [FunctionName("SayHello")]
@@ -193,17 +189,25 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
-module.exports = function(context, name) {
-    context.done(null, `Hello ${name}!`);
+module.exports = async function(context) {
+    return `Hello ${context.bindings.name}!`;
 };
 ```
 
-### <a name="passing-multiple-parameters"></a>Transmission de plusieurs paramètres 
+Les liaisons JavaScript peuvent également être transmises en tant que paramètres supplémentaires. La même fonction peut donc être simplifiée comme suit :
 
-Il n’est pas possible de transmettre directement plusieurs paramètres à une fonction d’activité. Dans ce cas, il est recommandé de les transmettre dans un tableau d’objets ou d’utiliser des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples).
+```javascript
+module.exports = async function(context, name) {
+    return `Hello ${name}!`;
+};
+```
+
+### <a name="passing-multiple-parameters"></a>Transmission de plusieurs paramètres
+
+Il n’est pas possible de transmettre directement plusieurs paramètres à une fonction d’activité. Dans ce cas, il est recommandé de les transmettre dans un tableau d’objets ou d’utiliser des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) en .NET.
 
 Dans l’exemple suivant, de nouvelles fonctionnalités des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) sont ajoutées avec [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples) :
 
@@ -222,7 +226,7 @@ public static async Task<dynamic> RunOrchestrator(
 [FunctionName("CourseRecommendations")]
 public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
 {
-    // parse input for student's major and year in university 
+    // parse input for student's major and year in university
     (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
 
     // retrieve and return course recommendations by major and university year
@@ -242,6 +246,7 @@ public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContex
 ## <a name="orchestration-client"></a>Client d’orchestration
 
 La liaison du client d’orchestration vous permet d’écrire des fonctions qui interagissent avec les fonctions d’orchestrateur. Par exemple, vous pouvez agir sur les instances de l’orchestration de l’une des manières suivantes :
+
 * Les démarrer.
 * Interroger leur état.
 * Les arrêter.
@@ -270,17 +275,20 @@ Si vous utilisez des scripts de langage (par exemple, des fichiers *.csx* ou *.j
 
 ### <a name="client-usage"></a>Utilisation du client
 
-Dans les fonctions C#, vous établissez généralement une liaison avec `DurableOrchestrationClient`, ce qui vous donne un accès total à tous les clients API pris en charge par Fonctions durables. Les API sur l’objet client incluent :
+Dans les fonctions .NET, vous établissez généralement une liaison avec `DurableOrchestrationClient`, ce qui vous donne un accès total à toutes les API clientes prises en charge par Durable Functions. Dans JavaScript, les mêmes API sont exposées par l’objet `DurableOrchestrationClient` retourné à partir de `getClient`. Les API sur l’objet client incluent :
 
 * [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
 * [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
 * [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)
 * [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
-* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_)
+* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_) (actuellement .NET uniquement)
 
-Vous pouvez également établir une liaison avec `IAsyncCollector<T>`, où `T` est [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) ou `JObject`.
+Des liaisons .NET peuvent également être établies avec `IAsyncCollector<T>`, où `T` est [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) ou `JObject`.
 
 Consultez la documentation de l’API [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) pour plus d’informations sur ces opérations.
+
+> [!WARNING]
+> Lorsque vous développez localement dans JavaScript, vous devez définir la variable d’environnement `WEBSITE_HOSTNAME` sur `localhost:<port>`, par exemple `localhost:7071` pour utiliser les méthodes sur `DurableOrchestrationClient`. Pour plus d’informations sur cette configuration, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="client-sample-visual-studio-development"></a>Exemple de client (développement Visual Studio)
 
@@ -315,9 +323,8 @@ Si vous n’utilisez pas Visual Studio pour le développement, vous pouvez crée
       "type": "orchestrationClient",
       "direction": "in"
     }
-  ],
-  "disabled": false
-} 
+  ]
+}
 ```
 
 Voici des exemples spécifiques à un langage, qui démarrent de nouvelles instances de fonction d’orchestrateur.
@@ -339,22 +346,18 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 
 L’exemple suivant montre comment utiliser la liaison de client d’orchestration durable pour démarrer une nouvelle instance de fonction à partir d’une fonction JavaScript :
 
-```js
-module.exports = function (context, input) {
-    var id = generateSomeUniqueId();
-    context.bindings.starter = [{
-        FunctionName: "HelloWorld",
-        Input: input,
-        InstanceId: id
-    }];
+```javascript
+const df = require("durable-functions");
 
-    context.done(null, id);
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    return instanceId = await client.startNew("HelloWorld", undefined, context.bindings.input);
 };
 ```
 
 Vous trouverez plus d’informations sur le démarrage des instances dans la section [Gestion d’instance](durable-functions-instance-management.md).
 
-<a name="host-json"></a>  
+<a name="host-json"></a>
 
 ## <a name="hostjson-settings"></a>Paramètres host.json
 
@@ -364,4 +367,3 @@ Vous trouverez plus d’informations sur le démarrage des instances dans la sec
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur la création de points de contrôle et les comportements de réexécution](durable-functions-checkpointing-and-replay.md)
-

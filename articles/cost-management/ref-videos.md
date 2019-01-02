@@ -5,24 +5,29 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: fab9d8639a81a4d5e7fbcddb36b975109ba636a7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 13d1548e9b9c721d44c8d5af99bfdcc691c4866d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276633"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100614"
 ---
-# <a name="cloudyn-training-videos"></a>Vidéos de formation sur Cloudyn
+# <a name="cloudyn-walk-through-training-videos"></a>Vidéos de formation pas à pas sur Cloudyn
 
 Les vidéos suivantes offrent des démonstrations utiles qui vous guident à travers la prise en main de Cloudyn et l’utilisation de ses fonctionnalités. Cloudyn prend en charge le suivi et l’optimisation des coûts multicloud, y compris Microsoft Azure, Amazon Web Services et Google Cloud Platform.
+
+## <a name="overview-video"></a>Vidéo de présentation
 
 [Présentation de Cloudyn](https://youtu.be/NWIRny6Wpsk)
 
 >[!VIDEO https://www.youtube.com/embed/NWIRny6Wpsk]
+
+## <a name="walk-through-videos"></a>Vidéos de procédure pas à pas
 
 [Analyser les données de facturation cloud en fonction du temps avec Cloudyn](https://youtu.be/7LsVPHglM0g)
 

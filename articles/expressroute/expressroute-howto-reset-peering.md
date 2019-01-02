@@ -1,55 +1,57 @@
 ---
-title: Réinitialiser les peerings Azure ExpressRoute | Microsoft Docs
-description: Comment désactiver et activer les peeerings d’un circuit ExpressRoute.
+title: 'Réinitialiser le peering du circuit - ExpressRoute :  Azure | Microsoft Docs'
+description: Comment désactiver et activer les peerings d’un circuit ExpressRoute.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: b8c9bc1944e9ed0281616062a84958c953d08694
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.custom: seodec18
+ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180465"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132584"
 ---
-# <a name="reset-expressroute-peerings"></a>Réinitialiser les peerings ExpressRoute
+# <a name="reset-expressroute-circuit-peerings"></a>Réinitialiser les peerings d’un circuit ExpressRoute
 
-Cet article décrit comment désactiver et activer des peerings d’un circuit ExpressRoute à l’aide de PowerShell. Lorsque vous désactivez un peering, la session BGP sur la connexion principale et la connexion secondaire de votre circuit ExpressRoute s’arrête. Vous perdez la connectivité via ce peering Microsoft. Lorsque vous activez un peering, la session BGP sur la connexion principale et la connexion secondaire de votre circuit ExpressRoute s’affiche. Vous retrouvez la connectivité via ce peering Microsoft. Vous pouvez activer et désactiver le peering Microsoft et le peering privé Azure de manière indépendante sur un circuit ExpressRoute. Lorsque vous commencez par configurer les peerings sur votre circuit ExpressRoute, ils sont activés par défaut. 
+Cet article décrit comment désactiver et activer des peerings d’un circuit ExpressRoute à l’aide de PowerShell. Lorsque vous désactivez un peering, la session BGP sur la connexion principale et la connexion secondaire de votre circuit ExpressRoute s’arrête. Vous perdez la connectivité via ce peering Microsoft. Lorsque vous activez un peering, la session BGP sur la connexion principale et la connexion secondaire de votre circuit ExpressRoute s’affiche. Vous retrouvez la connectivité via ce peering Microsoft. Vous pouvez activer et désactiver le peering Microsoft et le peering privé Azure de manière indépendante sur un circuit ExpressRoute. Lorsque vous commencez par configurer les peerings sur votre circuit ExpressRoute, ils sont activés par défaut.
 
 Il existe quelques scénarios où il peut s’avérer utile de réinitialiser vos peerings ExpressRoute.
 * Testez votre conception et votre implémentation de récupération d’urgence. Par exemple, vous avez deux circuits ExpressRoute. Vous pouvez désactiver les peerings d’un circuit et forcer votre trafic réseau à basculer sur l’autre circuit.
 * Activez le protocole Bidirectional Forwarding Detection (BFD) sur le peering privé Azure de votre circuit ExpressRoute. Si votre circuit ExpressRoute a été créé après le 1er août 2018, BFD est activé par défaut. Si votre circuit a été créé avant, BFD n’a pas été activé. Vous pouvez activer BFD en désactivant le peering, puis en le réactivant. Il faut noter que BFD est pris en charge uniquement sur le peering privé Azure.
 
+### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
+
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="reset-a-peering"></a>Réinitialiser un peering
 
-1. Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Si vous exécutez PowerShell localement, ouvrez votre console PowerShell avec des privilèges élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
-2. Ouvrez la console PowerShell avec des privilèges élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
-
-  ```powershell
+  ```azurepowershell
   Connect-AzureRmAccount
   ```
-3. Si vous disposez de plusieurs abonnements Azure, vérifiez les abonnements associés au compte.
+2. Si vous disposez de plusieurs abonnements Azure, vérifiez les abonnements associés au compte.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmSubscription
   ```
-4. Spécifiez l’abonnement à utiliser.
+3. Spécifiez l’abonnement à utiliser.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
-5. Exécutez les commandes suivantes pour récupérer votre circuit ExpressRoute.
+4. Exécutez les commandes suivantes pour récupérer votre circuit ExpressRoute.
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
-6. Identifiez le peering que vous souhaitez activer ou désactiver. *Peerings* est un tableau. Dans l’exemple suivant, Peerings[0] est un peering privé Azure et Peerings[1] un peering Microsoft.
+5. Identifiez le peering que vous souhaitez activer ou désactiver. *Peerings* est un tableau. Dans l’exemple suivant, Peerings[0] est un peering privé Azure et Peerings[1] un peering Microsoft.
 
-  ```powershell
+  ```azurepowershell-interactive
 Name                             : ExpressRouteARMCircuit
 ResourceGroupName                : ExpressRouteResourceGroup
 Location                         : westus
@@ -130,9 +132,9 @@ Authorizations                   : []
 AllowClassicOperations           : False
 GatewayManagerEtag               :
   ```
-7. Exécutez les commandes suivantes pour modifier l’état du peering.
+6. Exécutez les commandes suivantes pour modifier l’état du peering.
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt.Peerings[0].State = "Disabled"
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```

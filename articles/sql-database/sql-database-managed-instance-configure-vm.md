@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 97362cb91c16f91d637283df7a583f685124a21b
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/13/2018
+ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913668"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410059"
 ---
-# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Démarrage rapide : configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance
 
-Ce guide de démarrage rapide montre comment configurer une machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance à l’aide de SQL Server Management Studio (SSMS). Pour un guide de démarrage rapide montrant comment se connecter à partir d’un ordinateur client local à l’aide d’une connexion point à site, consultez [Configurer une connexion point à site](sql-database-managed-instance-configure-p2s.md). 
+Ce guide de démarrage rapide vous montre comment configurer une machine virtuelle Azure pour qu’elle se connecte à une instance Azure SQL Database Managed Instance à l’aide de SQL Server Management Studio (SSMS). Pour un guide de démarrage rapide montrant comment se connecter à partir d’un ordinateur client local à l’aide d’une connexion point à site, consultez [Configurer une connexion point à site](sql-database-managed-instance-configure-p2s.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce guide de démarrage rapide utilise comme point de départ la ressource créée dans le guide de démarrage rapide suivant : [Créer une instance managée](sql-database-managed-instance-get-started.md).
+Ce guide de démarrage rapide utilise les ressources créées dans [Créer une instance managée](sql-database-managed-instance-get-started.md) comme point de départ.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -33,17 +33,17 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Créer un sous-réseau dans le réseau virtuel Managed Instance
 
-Les étapes suivantes créent un sous-réseau dans le réseau virtuel Managed Instance pour permettre à une machine virtuelle Azure de s’y connecter. Le sous-réseau Instance managée est dédié aux instances managées. Vous ne pouvez donc pas y créer de ressources autres que ces instances (telles que des machines virtuelles Azure). 
+Les étapes suivantes créent un sous-réseau dans le réseau virtuel Managed Instance pour permettre à une machine virtuelle Azure de se connecter à l’instance managée. Le sous-réseau Managed Instance est dédié à des instances managées. Vous ne pouvez pas créer d’autres ressources que sont notamment les machines virtuelles Azure dans ce sous-réseau. 
 
-1. Ouvrez le groupe de ressources associé à l’instance managée que vous avez créée dans le guide de démarrage rapide [Créer une instance managée](sql-database-managed-instance-get-started.md), cliquez sur le réseau virtuel de l’instance managée, puis cliquez sur **Sous-réseaux**.
+1. Ouvrez le groupe de ressources pour l’instance managée que vous avez créée dans le guide de démarrage rapide[Créer une instance managée](sql-database-managed-instance-get-started.md). Sélectionnez le réseau virtuel pour votre instance managée.
 
-   ![Ressources de l’instance managée](./media/sql-database-managed-instance-configure-vm/resources.png)
+   ![Ressources Managed Instance](./media/sql-database-managed-instance-configure-vm/resources.png)
 
-2. Cliquez sur le signe **+** situé à côté de **Sous-réseau** pour créer un sous-réseau.
+2. Sélectionnez **Sous-réseaux** et **+ Sous-réseau** pour créer un sous-réseau.
 
-   ![Sous-réseaux de l’instance managée](./media/sql-database-managed-instance-configure-vm/subnets.png)
+   ![Sous-réseaux Managed Instance](./media/sql-database-managed-instance-configure-vm/subnets.png)
 
-3. Remplissez le formulaire avec les informations demandées, en utilisant les données du tableau suivant :
+3. Remplissez le formulaire en utilisant les informations contenues dans ce tableau :
 
    | Paramètre| Valeur suggérée | Description |
    | ---------------- | ----------------- | ----------- | 
@@ -56,7 +56,7 @@ Les étapes suivantes créent un sous-réseau dans le réseau virtuel Managed In
  
    ![Nouveau sous-réseau Managed Instance pour la machine virtuelle cliente](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
-4. Cliquez sur **OK** pour créer ce sous-réseau supplémentaire dans le réseau virtuel Managed Instance.
+4. Sélectionnez **OK** pour créer ce sous-réseau supplémentaire dans le réseau virtuel Managed Instance.
 
 ## <a name="create-a-virtual-machine-in-the-new-subnet-in-the-vnet"></a>Créer une machine virtuelle dans le nouveau sous-réseau du réseau virtuel
 
@@ -64,40 +64,40 @@ Les étapes suivantes vous montrent comment créer une machine virtuelle dans le
 
 ## <a name="prepare-the-azure-virtual-machine"></a>Préparer la machine virtuelle Azure
 
-Dans la mesure où l’instance managée SQL est placée dans votre réseau virtuel privé, vous devez créer une machine virtuelle Azure et y installer un outil client SQL tel que SQL Server Management Studio ou Azure Data Studio pour vous connecter à l’instance managée et exécuter des requêtes. Ce guide de démarrage rapide utilise SQL Server Management Studio.
+Dans la mesure où l’instance managée SQL est placée dans votre réseau virtuel privé, vous devez créer une machine virtuelle Azure et y installer un outil client SQL comme SQL Server Management Studio ou Azure Data Studio. Cet outil vous permet de vous connecter à l’instance managée et d’exécuter des requêtes. Ce guide de démarrage rapide utilise SQL Server Management Studio.
 
 Pour créer une machine virtuelle cliente avec tous les outils nécessaires, le plus simple consiste à utiliser les modèles Azure Resource Manager.
 
-1. Cliquez sur le bouton suivant pour créer une machine virtuelle cliente et y installer SQL Server Management Studio (vérifiez que vous êtes connecté au portail Azure dans un autre onglet de navigateur) :
+1. Vérifiez que vous êtes connecté au portail Azure dans un autre onglet de navigateur. Cliquez ensuite sur le bouton suivant pour créer une machine virtuelle cliente et installer SQL Server Management Studio :
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-2. Remplissez le formulaire avec les informations demandées, en utilisant les données du tableau suivant :
+2. Remplissez le formulaire en utilisant les informations contenues dans le tableau suivant :
 
    | Paramètre| Valeur suggérée | Description |
    | ---------------- | ----------------- | ----------- |
-   | **Abonnement** | Un abonnement valide | Doit être un abonnement dans lequel vous êtes autorisé à créer des ressources. |
-   | **Groupe de ressources** |Groupe de ressources que vous avez spécifié dans le guide de démarrage rapide [Créer une instance managée](sql-database-managed-instance-get-started.md).|Il doit s’agir du groupe de ressources dans lequel se trouve le réseau virtuel.|
-   | **Lieu** | Emplacement du groupe de ressources | Cette valeur est renseignée selon le groupe de ressources sélectionné | 
-   | **Nom de la machine virtuelle**  | Nom valide | Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Nom de l’utilisateur administrateur**|Nom d’utilisateur non valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). N’utilisez pas « serveradmin », car il s’agit d’un rôle réservé au niveau du serveur.| 
-   |**Mot de passe**|Mot de passe valide|Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   | **Taille de la machine virtuelle** | Toute taille valide | La valeur par défaut **Standard_B2s de ce modèle est suffisante pour ce guide. |
-   | **Lieu**|[resourceGroup().location].| Ne modifiez pas cette valeur. |
-   | **Nom du réseau virtuel**|L’emplacement que vous avez précédemment sélectionné|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
-   | **Nom du sous-réseau**|Nom du sous-réseau que vous avez créé dans la procédure précédente| Ne choisissez pas le sous-réseau dans lequel vous avez créé l’instance managée|
-   | **Emplacement des artefacts** | [deployment().properties.templateLink.uri] Ne modifiez pas cette valeur. |
-   | **Jeton SAP de l’emplacement des artefacts** | laisser vide | Ne modifiez pas cette valeur. |
+   | **Abonnement** | Abonnement valide | Doit être un abonnement dans lequel vous êtes autorisé à créer des ressources. |
+   | **Groupe de ressources** |Groupe de ressources que vous avez spécifié dans le guide de démarrage rapide [Créer une instance managée](sql-database-managed-instance-get-started.md).|Ce groupe de ressources doit être celui dans lequel se trouve le réseau virtuel.|
+   | **Emplacement** | Emplacement du groupe de ressources | Cette valeur est renseignée en fonction du groupe de ressources sélectionné. | 
+   | **Nom de la machine virtuelle**  | Tout nom valide | Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Nom de l’utilisateur administrateur**|Tout nom d’utilisateur valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). N’utilisez pas « serveradmin », car il s’agit d’un rôle réservé au niveau du serveur.<br>Vous utilisez ce nom d’utilisateur chaque fois que vous vous [connectez à la machine virtuelle](#connect-to-virtual-machine).| 
+   |**Mot de passe**|Mot de passe valide|Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Vous utilisez ce mot de passe chaque fois que vous vous [connectez à la machine virtuelle](#connect-to-virtual-machine).|
+   | **Taille de la machine virtuelle** | Toute taille valide | La valeur par défaut **Standard_B2s** de ce modèle est suffisante pour ce guide de démarrage rapide. |
+   | **Emplacement**|[resourceGroup().location].| Ne changez pas cette valeur. |
+   | **Nom du réseau virtuel**|Réseau virtuel dans lequel vous avez créé l’instance managée.|
+   | **Nom du sous-réseau**|Nom du sous-réseau que vous avez créé dans la procédure précédente| Ne choisissez pas le sous-réseau dans lequel vous avez créé l’instance managée.|
+   | **Emplacement des artefacts** | [deployment().properties.templateLink.uri] | Ne changez pas cette valeur. |
+   | **Jeton SAP de l’emplacement des artefacts** | laisser vide | Ne changez pas cette valeur. |
 
    ![créer une machine virtuelle client](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 
    Si vous avez utilisé le nom de réseau virtuel suggéré et le sous-réseau par défaut dans [Créer une instance managée](sql-database-managed-instance-get-started.md), vous n’avez pas besoin de modifier les deux derniers paramètres. Sinon, vous devez remplacer ces valeurs par les valeurs que vous avez entrées lorsque vous avez configuré l’environnement réseau.
 
 3. Cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**.
-4. Cliquez sur **Acheter** pour déployer la machine virtuelle Azure sur votre réseau.
-5. Cliquez sur l’icône **Notifications** pour afficher l’état du déploiement.
-   
-   Patientez jusqu’à ce que la machine virtuelle Azure soit créée. 
+4. Sélectionnez **Acheter** pour déployer la machine virtuelle Azure dans votre réseau.
+5. Sélectionnez l’icône **Notifications** pour afficher l’état du déploiement.
+
+Patientez jusqu’à ce que la machine virtuelle Azure soit créée. 
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 
@@ -107,33 +107,33 @@ Les étapes suivantes vous montrent comment vous connecter à votre machine virt
 
     ![Machine virtuelle](./media/sql-database-managed-instance-configure-vm/vm.png)  
 
-2. Cliquez sur **Connecter**. 
+2. Sélectionnez **Connecter**. 
    
    Un formulaire de fichier .rdp (Remote Desktop Protocol) s’affiche avec l’adresse IP publique et le numéro de port de la machine virtuelle. 
 
    ![Formulaire RDP](./media/sql-database-managed-instance-configure-vm/rdp.png)  
 
-3. Cliquez sur **Télécharger le fichier RDP**.
+3. Sélectionnez **Télécharger le fichier RDP**.
  
    > [!NOTE]
    > Vous pouvez également utiliser le protocole SSH pour vous connecter à votre machine virtuelle.
 
 4. Fermez le formulaire **Se connecter à la machine virtuelle**.
 5. Pour vous connecter à votre machine virtuelle, ouvrez le fichier RDP téléchargé. 
-6. À l’invite, cliquez sur **Se connecter**. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponible sur le Mac App Store.
+6. Lorsque vous y êtes invité, sélectionnez **Connexion**. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponible sur le Mac App Store.
 
-6. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle, puis cliquez sur **OK**.
+6. Entrez le nom d’utilisateur et le mot de passe que vous avez spécifiés au moment de créer la machine virtuelle, puis choisissez **OK**.
 
-7. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Cliquez sur **Oui** ou **Continuer** pour continuer le processus de connexion.
+7. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Choisissez **Oui** ou **Continuer** pour établir la connexion.
 
-Vous êtes connecté à votre machine virtuelle dans le tableau de bord du Gestionnaire de serveur.
+Vous êtes connecté à votre machine virtuelle dans le tableau de bord Gestionnaire de serveur.
 
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>Utiliser SSMS pour se connecter à l’instance managée
 
 1. Dans la machine virtuelle, ouvrez SQL Server Management Studio (SSMS).
  
-   L’ouverture de SSMS est un peu plus longue lors de son premier démarrage, car il doit être configuré.
-2. Dans la boîte de dialogue **Connexion au serveur**, entrez le **nom d’hôte** complet de votre instance managée dans la zone **Nom du serveur**, sélectionnez **Authentification SQL Server**, indiquez votre identifiant et votre mot de passe, puis cliquez sur **Se connecter**.
+   L’ouverture de SSMS est un peu plus longue à l’occasion de son premier démarrage, car il doit être configuré.
+2. Dans la boîte de dialogue **Se connecter au serveur**, entrez le **nom d’hôte** complet de votre instance managée dans la zone **Nom du serveur**. Sélectionnez **Authentification SQL Server**, fournissez votre nom d’utilisateur et votre mot de passe, puis sélectionnez **Connecter**.
 
     ![connecter ssms](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
@@ -142,5 +142,5 @@ Après vous être connecté, vous pouvez voir votre système et vos bases de don
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour un guide de démarrage rapide montrant comment se connecter à partir d’un ordinateur client local à l’aide d’une connexion point à site, consultez [Configurer une connexion point à site](sql-database-managed-instance-configure-p2s.md).
-- Pour une vue d’ensemble des options de connexion pour les applications, consultez [Connecter vos applications à une instance managée](sql-database-managed-instance-connect-app.md).
-- Pour restaurer une base de données SQL Server locale vers une instance managée, vous pouvez utiliser [Azure Database Migration Service (DMS) pour la migration](../dms/tutorial-sql-server-to-managed-instance.md) ou la [commande T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) afin d’effectuer la restauration à partir d’un fichier de sauvegarde de base de données.
+- Pour obtenir une vue d’ensemble des options de connexion pour les applications, consultez [Connecter vos applications à Managed Instance](sql-database-managed-instance-connect-app.md).
+- Pour restaurer une base de données SQL Server locale existante dans une instance managée, vous pouvez utiliser [Azure Database Migration Service (DMS) pour la migration](../dms/tutorial-sql-server-to-managed-instance.md) ou la [commande T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) pour effectuer la restauration à partir d’un fichier de sauvegarde de base de données.

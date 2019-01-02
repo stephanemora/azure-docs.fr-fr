@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32692cbe7959650d5181c9e9dfcd7dd5ee55a46e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8bb95ae776c329e67e9f9936213a9f4c2a0c8f62
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024583"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842592"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Résoudre les problèmes liés aux stratégies personnalisées Azure AD B2C et à l’Infrastructure d’expérience d’identité.
 
@@ -56,11 +56,11 @@ Extrait de code de l’erreur :`Reason: User is currently logged as a user of '
 ## <a name="troubleshoot-the-runtime"></a>Résoudre les problèmes au moment de l’exécution
 
 * Utilisez `Run Now` et `https://jwt.io` pour tester vos stratégies indépendamment de votre application web ou mobile. Ce site web agit comme une application par partie de confiance. Il affiche le contenu du JSON Web Token (JWT) généré par votre stratégie Azure AD B2C. Pour créer une application de test dans l’Infrastructure d’expérience d’identité, utilisez les valeurs suivantes :
-    * Nom : TestApp
-    * Application/API web : Non
-    * Client natif : Non
+    * Nom : TestApp
+    * Application/API web : Non 
+    * Client natif : Non 
 
-* Pour suivre l’échange de messages entre votre navigateur client et Azure AD B2C, utilisez [Fiddler](http://www.telerik.com/fiddler). Il peut vous aider à obtenir une indication de l’endroit où vos étapes d’orchestration échouent dans le parcours utilisateur.
+* Pour suivre l’échange de messages entre votre navigateur client et Azure AD B2C, utilisez [Fiddler](https://www.telerik.com/fiddler). Il peut vous aider à obtenir une indication de l’endroit où vos étapes d’orchestration échouent dans le parcours utilisateur.
 
 * En **Mode de développement**, utilisez **Application Insights** pour suivre l’activité de votre parcours utilisateur d’Infrastructure d’expérience d’identité. En **Mode de développement**, vous pouvez observer l’échange de revendications entre l’Infrastructure d’expérience d’identité et les divers fournisseurs de revendications définis par les profils techniques, tels que les fournisseurs d’identité, les services basés sur les API, le répertoire utilisateur Azure AD B2C et d’autres services comme Azure Multi-Factor-Authentication.  
 

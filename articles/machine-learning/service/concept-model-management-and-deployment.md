@@ -1,26 +1,28 @@
 ---
-title: Gérer et déployer des modèles dans le service Azure Machine Learning
+title: Gérer, inscrire, déployer et surveiller des modèles ML
+titleSuffix: Azure Machine Learning service
 description: Découvrez comment utiliser le service Azure Machine Learning pour déployer, gérer et surveiller vos modèles afin de les améliorer en permanence. Vous pouvez déployer les modèles que vous avez entraînés avec le service Azure Machine Learning, sur votre ordinateur local ou depuis d’autres sources.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: hjerez
-ms.author: hjerez
+author: chris-lauren
+ms.author: clauren
 ms.date: 09/24/2018
-ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.custom: seodec18
+ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885065"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250199"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning
 
 Dans cet article, vous pouvez découvrir comment utiliser le service Azure Machine Learning pour déployer, gérer et surveiller vos modèles afin de les améliorer en permanence. Vous pouvez déployer les modèles que vous avez entraînés avec Azure Machine Learning, sur votre machine locale ou depuis d’autres sources. 
 
-Le diagramme suivant illustre le flux de travail de déploiement complet : [ ![Workflow de déploiement pour Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+Le diagramme suivant illustre le flux de travail de déploiement complet : [ ![Flux de travail de déploiement Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 Le workflow de déploiement comprend les étapes suivantes :
 1. **Inscrire le modèle** dans un registre hébergé dans votre espace de travail du service Azure Machine Learning

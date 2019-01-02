@@ -1,20 +1,19 @@
 ---
-title: Utiliser Key Vault pour stocker des clés Azure Cosmos DB et y accéder | Microsoft Docs
+title: Utiliser Key Vault pour stocker des clés Azure Cosmos DB et y accéder
 description: Utilisez Azure Key Vault pour stocker une chaîne de connexion, des clés et des URI Azure Cosmos DB et y accéder.
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f5d494006ebafab37bd10591ad02671e192d73e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053082"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837390"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Utiliser Key Vault pour stocker des clés Azure Cosmos DB et y accéder
 
@@ -33,8 +32,8 @@ Les étapes suivantes sont nécessaires pour stocker et lire les clés d’accè
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).  
 2. Sélectionnez **Créer une ressource > Sécurité > Coffre de clés**.  
 3. Dans la section **Créer un coffre de clés**, renseignez les informations suivantes :  
-   * **Nom** : fournissez un nom unique pour votre coffre de clés.  
-   * **Abonnement** : choisissez l’abonnement à utiliser.  
+   * **Nom :** fournissez un nom unique pour votre coffre de clés.  
+   * **Abonnement :** choisissez l’abonnement à utiliser.  
    * Sous **Groupe de ressources**, choisissez **Créer** et entrez le nom du groupe de ressources.  
    * Dans le menu déroulant Emplacement, choisissez un emplacement.  
    * Conservez les valeurs par défaut des autres options.  

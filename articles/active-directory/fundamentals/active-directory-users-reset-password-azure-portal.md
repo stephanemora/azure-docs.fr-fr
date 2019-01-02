@@ -1,6 +1,6 @@
 ---
-title: Comment réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory | Microsoft Docs
-description: Découvrez comment réinitialiser le mot de passe d’un utilisateur à l’aide d’Azure Active Directory.
+title: Réinitialiser le mot de passe d’un utilisateur - Azure Active Directory | Microsoft Docs
+description: Instructions de réinitialisation du mot de passe d’un utilisateur à l’aide d’Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,19 +12,22 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 3803808ab589c3d880111421f650141f0d829f0b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c8dd387104d52075425d881363dbcbaac700461a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736077"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103350"
 ---
-# <a name="how-to-reset-a-users-password-using-azure-active-directory"></a>Comment : réinitialiser le mot de passe d’un utilisateur à l’aide d’Azure Active Directory
-Vous pouvez réinitialiser le mot de passe d’un utilisateur en cas d’oubli, si l’utilisateur ne peut plus accéder à un appareil verrouillé, ou bien s’il n’a jamais reçu un mot de passe.
+# <a name="reset-a-users-password-using-azure-active-directory"></a>Réinitialiser le mot de passe d’un utilisateur à l’aide d’Azure Active Directory
+En tant qu’administrateur, vous pouvez réinitialiser le mot de passe d’un utilisateur en cas d’oubli, si l’utilisateur ne peut plus accéder à un appareil verrouillé, ou bien s’il n’a jamais reçu son mot de passe.
 
 >[!Note]
 >Vous ne serez pas en mesure de réinitialiser le mot de passe d’un utilisateur si votre locataire Azure AD n’est pas son répertoire de base. Cela signifie que si votre utilisateur se connecte à votre organisation à l’aide d’un compte venant d’une autre organisation, un compte Microsoft ou un compte Google, vous ne pourrez réinitialiser son mot de passe.<br><br>Si votre utilisateur a une source d’autorité comme Windows Server Active Directory, vous ne serez en mesure de réinitialiser le mot de passe que si vous avez activé la réécriture du mot de passe.<br><br>Si votre utilisateur a une source d’autorité comme Azure AD externe, il se peut que vous ne puissiez pas réinitialiser le mot de passe. Seuls l’utilisateur ou un administrateur dans Azure AD externe peuvent réinitialiser le mot de passe.
+
+>[!Note]
+>Si vous n’êtes pas administrateur et si vous recherchez des instructions de réinitialisation pour votre propre mot de passe professionnel ou scolaire, consultez [Réinitialiser votre mot de passe professionnel ou scolaire](../user-help/active-directory-passwords-update-your-own-password.md).
 
 ## <a name="to-reset-a-password"></a>Pour réinitialiser un mot de passe
 

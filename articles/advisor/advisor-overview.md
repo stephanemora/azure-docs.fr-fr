@@ -3,22 +3,21 @@ title: Présentation d’Azure Advisor | Microsoft Docs
 description: Le conseiller Azure permet d’optimiser vos déploiements Azure.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: e1d7edef304dc91829066f19b6974f0bcf0be0a5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.author: kasparks
+ms.openlocfilehash: 747ce8dc4a4e4c8ac1e26e5b051a431176096d71
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145303"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015974"
 ---
 # <a name="introduction-to-azure-advisor"></a>Présentation d’Azure Advisor
 
@@ -36,9 +35,9 @@ Accéder à Advisor via le [portail Azure](https://aka.ms/azureadvisordashboard)
 
 Le tableau de bord Advisor affiche des recommandations personnalisées pour l’ensemble de vos abonnements.  Vous pouvez appliquer des filtres pour afficher les recommandations pour des abonnements et des types de ressource spécifiques.  Les recommandations sont divisées en quatre catégories : 
 
-* **Haute disponibilité** : pour garantir et améliorer la continuité de vos applications stratégiques. Pour plus d’informations, consultez [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md).
-* **Sécurité** : permet de détecter les menaces et vulnérabilités pouvant conduire à des failles de sécurité. Pour plus d’informations, consultez [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md).
-* **Performances** : pour améliorer la vitesse de vos applications. Pour plus d’informations, consultez [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md).
+* **Haute disponibilité** : vous aide à garantir et à améliorer la continuité de vos applications stratégiques. Pour plus d’informations, consultez [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md).
+* **Sécurité** : permet de détecter les menaces et vulnérabilités pouvant conduire à des failles de sécurité. Pour plus d’informations, consultez [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md).
+* **Performances** : pour améliorer la vitesse de vos applications. Pour plus d’informations, consultez [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md).
 * **Coût** : pour optimiser et réduire vos dépenses Azure globales. Pour plus d’informations, consultez [Recommandations du conseiller en matière de coût](advisor-cost-recommendations.md).
 
   ![Types de recommandation du conseiller](./media/advisor-overview/advisor-dashboard.png)
@@ -64,7 +63,7 @@ Vous pouvez accéder aux recommandations d’Advisor en tant que *propriétaire*
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Pour quelles ressources le conseiller fournit-il des recommandations ?
 
-Advisor fournit des recommandations pour les machines virtuelles, les groupes à haute disponibilité, les passerelles d’application, App Services, les serveurs SQL et le Cache Redis.
+Advisor fournit des recommandations pour les machines virtuelles, les groupes à haute disponibilité, les passerelles d’application, App Services, les serveurs SQL et le Cache Azure pour Redis.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Puis-je reporter ou ignorer une recommandation ?
 

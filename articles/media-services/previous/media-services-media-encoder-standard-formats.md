@@ -1,27 +1,31 @@
 ---
-title: Codecs et formats standard de l’encodeur multimédia
+title: Codecs et formats Media Encoder Standard - Azure
 description: Cette rubrique fournit une vue d’ensemble des codecs et formats Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255708"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384732"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs et formats standard de l’encodeur multimédia
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 2](media-services-media-encoder-standard-formats.md)
+> * [Version 3](../latest/media-encoder-standard-formats.md)
+
 Ce document contient la liste des formats de fichier d’importation et d’exportation les plus courants que vous pouvez utiliser avec l’encodeur multimédia.
 
 ## <a name="input-containerfile-formats"></a>Formats de conteneurs/fichiers d’entrée
@@ -52,8 +56,6 @@ Media Encoder Standard prend en charge la transmission des formats audio suivant
 or
 
 * Fichiers MXF, GXF et QuickTime où l’audio est transmis sous forme de pistes PCM distinctes, mais où le mappage de canaux (vers la stéréo ou 5.1) peut être déduit des métadonnées du fichier
-
-Le mappage de canaux explicite/fourni par l’utilisateur sera pris en charge dans un avenir proche.
 
 ## <a name="input-video-codecs"></a>Codecs vidéo d’entrée
 | Codecs vidéo d’entrée | Pris en charge |
@@ -95,7 +97,7 @@ Le mappage de canaux explicite/fourni par l’utilisateur sera pris en charge da
 | Dolby® Digital (AC3) |Non  |
 | Dolby® Digital Plus (E-AC3) |Non  |
 
-## <a name="output-formats-and-codecs"></a>Formats de sortie et codecs
+## <a name="output-formats-and-codecs"></a>Codecs et formats de sortie
 Le tableau suivant répertorie les codecs et les formats de fichiers pris en charge pour l'exportation.
 
 | Format de fichier | Codec vidéo | Codec audio |

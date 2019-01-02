@@ -1,5 +1,6 @@
 ---
-title: Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique zonal à l’aide d’Azure PowerShell | Microsoft Docs
+title: Créer une instance publique de Standard Load Balancer avec une adresse IP frontend - Azure PowerShell
+titlesuffix: Azure Load Balancer
 description: Découvrez comment créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique zonal à l’aide d’Azure PowerShell
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: bf3abeaec402eaf42bee74c167812340b093161b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: da30bce34425d3537f9610c6e1f64ded4a836fd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413224"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100682"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>Créer une instance publique de Load Balancer Standard avec un frontend zonal à l’aide d’Azure PowerShell
 

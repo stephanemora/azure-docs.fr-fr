@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a5f6f09ee6c8504b64cad7ef5313501a65907a90
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632587"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435308"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Utiliser C# avec streaming MapReduce sur Apache Hadoop dans HDInsight
 
@@ -29,7 +29,7 @@ Diffusion en continu Apache Hadoop est un utilitaire qui vous permet d’exécut
 
 __Clusters HDInsight Linux__ utilisant [Mono (https://mono-project.com)](https://mono-project.com) pour exécuter les applications .NET. La version 4.2.1 de Mono est incluse dans la version 3.6 de HDInsight. Pour plus d’informations sur la version de Mono fournie avec HDInsight, consultez [Versions des composants HDInsight](../hdinsight-component-versioning.md). Pour utiliser une version particulière de Mono, consultez le document [Installation ou mise à jour de Mono](../hdinsight-hadoop-install-mono.md).
 
-Pour plus d’informations sur la compatibilité Mono avec les versions de .NET Framework, consultez [Compatibilité Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
+Pour plus d’informations sur la compatibilité Mono avec les versions de .NET Framework, consultez [Compatibilité Mono](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 ## <a name="how-hadoop-streaming-works"></a>Fonctionnement de la diffusion en continu Hadoop
 
@@ -157,7 +157,7 @@ Après avoir créé l’application, générez-la pour produire le fichier `/bin
 
     * Si cette entrée peut être développée, vous utilisez un __compte de stockage Azure__ en tant que stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, développez l’entrée et double-cliquez sur le __(conteneur par défaut)__.
 
-    * Si cette entrée ne peut pas être développée, vous utilisez __Azure Data Lake Store__ en tant que stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, double-cliquez sur l’entrée __(compte de stockage par défaut)__.
+    * Si cette entrée ne peut pas être développée, vous utilisez __Azure Data Lake Storage__ comme stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, double-cliquez sur l’entrée __(compte de stockage par défaut)__.
 
 5. Pour charger les fichiers .exe, appliquez l’une des méthodes suivantes :
 
@@ -165,17 +165,17 @@ Après avoir créé l’application, générez-la pour produire le fichier `/bin
 
         ![icône télécharger](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * Si vous utilisez __Azure Data Lake Store__, faites un clic droit sur une zone vide de la liste des fichiers, puis sélectionnez __Charger__. Enfin, sélectionnez le fichier **mapper.exe** et cliquez sur **Ouvrir**.
+    * Si vous utilisez __Azure Data Lake Storage__, cliquez avec le bouton droit sur une zone vide de la liste des fichiers, puis sélectionnez __Charger__. Enfin, sélectionnez le fichier **mapper.exe** et cliquez sur **Ouvrir**.
 
     Une fois que le chargement de __mapper.exe__ est terminé, répétez le processus de chargement pour le fichier __reducer.exe__.
 
-## <a name="run-a-job-using-an-ssh-session"></a>Exécution d’une tâche : avec une session SSH
+## <a name="run-a-job-using-an-ssh-session"></a>Exécuter un travail : Utilisation d’une session SSH
 
 1. Utilisez SSH pour vous connecter au cluster HDInsight. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Exécutez une des commandes suivantes pour démarrer la tâche MapReduce :
 
-    * Si vous utilisez __Data Lake Store__ en tant que stockage par défaut :
+    * Si vous utilisez __Data Lake Storage__ comme stockage par défaut :
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -189,12 +189,12 @@ Après avoir créé l’application, générez-la pour produire le fichier `/bin
 
     La liste suivante décrit la signification de chaque paramètre :
 
-    * `hadoop-streaming.jar` : le fichier jar contenant la fonctionnalité MapReduce de diffusion en continu.
-    * `-files` : ajoute les fichiers `mapper.exe` et `reducer.exe` à cette tâche. `adl:///` ou `wasb:///` devant chaque fichier est le chemin d’accès à la racine du stockage par défaut pour le cluster.
-    * `-mapper` : indique le fichier qui implémente le mappeur.
-    * `-reducer` : indique le fichier qui implémente le raccord de réduction.
-    * `-input` : les données d’entrée.
-    * `-output` : le répertoire de sortie.
+    * `hadoop-streaming.jar`: Fichier jar contenant la fonctionnalité MapReduce de streaming.
+    * `-files`: Ajoute les fichiers `mapper.exe` et `reducer.exe` à ce travail. `adl:///` ou `wasb:///` devant chaque fichier est le chemin d’accès à la racine du stockage par défaut pour le cluster.
+    * `-mapper`: Indique le fichier qui implémente le mappeur.
+    * `-reducer`: Indique le fichier qui implémente le raccord de réduction.
+    * `-input`: Données d’entrée.
+    * `-output`: Répertoire de sortie.
 
 3. Une fois la tâche MapReduce terminée, utilisez la commande suivante pour afficher les résultats :
 
@@ -214,7 +214,7 @@ Après avoir créé l’application, générez-la pour produire le fichier `/bin
         yourselves      3
         youth   17
 
-## <a name="run-a-job-using-powershell"></a>Exécution d’une tâche : avec PowerShell
+## <a name="run-a-job-using-powershell"></a>Exécuter un travail : Utiliser PowerShell
 
 Utilisez le script PowerShell suivant pour exécuter une tâche MapReduce et télécharger les résultats.
 
@@ -236,6 +236,6 @@ Ce script vous invite à entrer le nom et le mot de passe du compte de connexion
 
 Pour plus d’informations sur l’utilisation de MapReduce avec HDInsight, consultez [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md).
 
-Pour plus d’informations sur l’utilisation de C# avec Hive et Pig, consultez [Utilisation d’une fonction définie par l’utilisateur C# avec Hive et Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
+Pour plus d’informations sur l’utilisation de C# avec Hive et Pig, consultez [Utiliser une fonction définie par l’utilisateur C# avec Apache Hive et Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-Pour plus d’informations sur l’utilisation de C# avec Storm sur HDInsight, consultez [Développement de topologies C# pour Storm sur HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+Pour plus d’informations sur l’utilisation de C# avec Storm sur HDInsight, consultez [Développer des topologies C# pour Apache Storm sur HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).

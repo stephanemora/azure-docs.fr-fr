@@ -1,28 +1,26 @@
 ---
-title: Utilisation des dates dans Azure Cosmos DB | Microsoft Docs
+title: Utilisation des dates dans Azure Cosmos DB
 description: En savoir plus sur l’utilisation des dates dans Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: sngun
-ms.openlocfilehash: d85cada87a6934921bf2775f12c016a88d9fbe9e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 48879eb3ae4fc3a54d50a4e896b4a1eb94acabf9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164013"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073803"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Utilisation des dates dans Azure Cosmos DB
-Azure Cosmos DB offre une flexibilité des schémas et une indexation riche par le biais d’un modèle de données [JSON](http://www.json.org) natif. Toutes les ressources Azure Cosmos DB, y compris les bases de données, les conteneurs, les documents et les procédures stockées, sont modélisées et stockées en tant que documents JSON. Pour être portable, JSON (et Azure Cosmos DB) prend en charge uniquement un petit ensemble de types de base : chaîne, nombre, booléen, tableau, objet et null. Toutefois, JSON est flexible et permet aux développeurs et aux infrastructures de représenter des types plus complexes en utilisant ces primitives et en les composant en tant qu’objets ou tableaux. 
+Azure Cosmos DB offre une flexibilité des schémas et une indexation riche par le biais d’un modèle de données [JSON](https://www.json.org) natif. Toutes les ressources Azure Cosmos DB, y compris les bases de données, les conteneurs, les documents et les procédures stockées, sont modélisées et stockées en tant que documents JSON. Pour être portable, JSON (et Azure Cosmos DB) ne prend en charge qu’un petit ensemble de types de base : chaîne, nombre, booléen, tableau, objet et null. Toutefois, JSON est flexible et permet aux développeurs et aux infrastructures de représenter des types plus complexes en utilisant ces primitives et en les composant en tant qu’objets ou tableaux. 
 
 Outre les types de base, de nombreuses applications ont besoin du type [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) pour représenter des dates et horodatages. Cet article décrit comment des développeurs peuvent stocker, récupérer et interroger des dates dans Azure Cosmos DB à l’aide du kit SDK .NET.
 
 ## <a name="storing-datetimes"></a>Stockage de valeurs DateTime
-Par défaut, le [SDK Azure Cosmos DB](sql-api-sdk-dotnet.md) sérialise les valeurs DateTime en tant que chaînes [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874). La plupart des applications peuvent utiliser la représentation sous forme de chaîne par défaut pour DateTime pour les raisons suivantes :
+Par défaut, le [SDK Azure Cosmos DB](sql-api-sdk-dotnet.md) sérialise les valeurs DateTime en tant que chaînes [ISO 8601](https://www.iso.org/iso/catalogue_detail?csnumber=40874). La plupart des applications peuvent utiliser la représentation sous forme de chaîne par défaut pour DateTime pour les raisons suivantes :
 
 * Les chaînes peuvent être comparées et l’ordre relatif des valeurs DateTime est conservé lorsque celles-ci sont transformées en chaînes. 
 * Cette approche ne nécessite pas de code personnalisé ou d’attributs pour la conversion JSON.

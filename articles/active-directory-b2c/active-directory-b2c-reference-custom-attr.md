@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d5ef77ab0bbf00d4ddbb05b7a38516e3c3e7d800
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8b32a1eccfc90731d4c3458a0696a8e5900691aa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968772"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727815"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Définir des attributs personnalisés dans Azure Active Directory B2C
 
  Toutes les applications orientées client ont des exigences uniques concernant les informations qui doivent être recueillies. Votre locataire Azure Active Directory (Azure AD) B2C est fourni avec un ensemble intégré d’informations stockées dans des attributs : le prénom, le nom, la ville et le code postal. Avec Azure AD B2C, vous pouvez étendre l’ensemble d’attributs stockés sur chaque compte client. 
  
- Vous pouvez créer des attributs personnalisés dans le [portail Azure](https://portal.azure.com/) et les utiliser dans vos stratégies d’inscription, de connexion ou de modification de profil. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md). Les attributs personnalisés dans Azure AD B2C utilisent les [Extensions de schéma de répertoire de l’API Azure AD Graph](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+ Vous pouvez créer des attributs personnalisés dans le [portail Azure](https://portal.azure.com/) et les utiliser dans vos flux d’utilisateur d’inscription, de connexion ou de modification de profil. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md). Les attributs personnalisés dans Azure AD B2C utilisent les [Extensions de schéma de répertoire de l’API Azure AD Graph](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 ## <a name="create-a-custom-attribute"></a>Création d’un attribut personnalisé
 
@@ -41,16 +41,15 @@ ms.locfileid: "38968772"
 7. Si vous le souhaitez, entrez une **Description** à titre d’information. 
 8. Cliquez sur **Créer**.
 
-L’attribut personnalisé est actuellement disponible dans la liste des **attributs utilisateur**, et pour une utilisation dans vos stratégies. Un attribut personnalisé est créé lors de sa première utilisation dans une stratégie, et non pas lorsque vous l’ajoutez à la liste des **Attributs utilisateur**.
+L’attribut personnalisé est actuellement disponible dans la liste des **attributs utilisateur**, et pour une utilisation dans vos flux d’utilisateur. Un attribut personnalisé est créé lors de sa première utilisation dans un flux d’utilisateur, et non pas quand vous l’ajoutez à la liste des **Attributs utilisateur**.
 
-## <a name="use-a-custom-attribute-in-your-policy"></a>Utilisation d’un attribut personnalisé dans votre stratégie
+## <a name="use-a-custom-attribute-in-your-user-flow"></a>Utilisation d’un attribut personnalisé dans votre flux d’utilisateur
 
-1. Dans votre locataire Azure AD B2C, sélectionnez **Stratégies d’inscription ou de connexion**.
+1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
 2. Sélectionnez votre stratégie (par exemple, « B2C_1_SignupSignin ») pour l’ouvrir. 
-3. Cliquez sur **Modifier**.
-4. Sélectionnez **Attributs d’inscription**, puis sélectionnez l’attribut personnalisé (par exemple, « ShoeSize »). Cliquez sur **OK**.
-5. Sélectionnez **Revendications d’applications**, puis sélectionnez l’attribut personnalisé. Cliquez sur **OK**.
+4. Sélectionnez **Attributs d’utilisateur**, puis sélectionnez l’attribut personnalisé (par exemple, « ShoeSize »). Cliquez sur **Enregistrer**.
+5. Sélectionnez **Revendications d’applications**, puis sélectionnez l’attribut personnalisé. 
 6. Cliquez sur **Enregistrer**.
 
-La fonctionnalité **Exécuter maintenant** de la stratégie permet de vérifier l’expérience client. Vous devez maintenant voir **ShoeSize** dans la liste d’attributs collectés lors de l’inscription, et le voir dans le jeton retourné à votre application.
+La fonctionnalité **Exécuter le flux d’utilisateur** du flux d’utilisateur permet de vérifier l’expérience client. Vous devez maintenant voir **ShoeSize** dans la liste d’attributs collectés lors de l’inscription, et le voir dans le jeton retourné à votre application.
 

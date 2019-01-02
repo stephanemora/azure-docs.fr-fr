@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6d36733b63645fd86580ccdc5af756739f77338c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 686b602828856e75300152c41bfe4c35cd6a8219
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048143"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970159"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copier des données d’Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-amazon-redshift-connector.md)
+> * [Version 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Version actuelle](connector-amazon-redshift.md)
 
 
@@ -54,11 +54,11 @@ Les propriétés prises en charge pour le service lié Amazon Redshift sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **AmazonRedshift** | OUI |
-| serveur |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
+| Type | La propriété type doit être définie sur : **AmazonRedshift** | Oui |
+| serveur |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |Oui |
 | port |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Non, la valeur par défaut est 5439 |
-| database |Nom de la base de données Amazon Redshift. |OUI |
-| username |Nom d’utilisateur ayant accès à la base de données. |OUI |
+| database |Nom de la base de données Amazon Redshift. |Oui |
+| username |Nom d’utilisateur ayant accès à la base de données. |Oui |
 | password |Mot de passe du compte d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
@@ -96,7 +96,7 @@ Pour copier des données d’Amazon Redshift, affectez la valeur **RelationalTab
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **RelationalTable** | OUI |
+| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
 | TableName | Nom de la table dans Amazon Redshift. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -126,7 +126,7 @@ Pour copier des données d’Amazon Redshift, définissez **AmazonRedshiftSource
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **AmazonRedshiftSource** | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **AmazonRedshiftSource** | Oui |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |Non (si « tableName » est spécifié dans dataset) |
 | redshiftUnloadSettings | Groupe de propriétés lors de l’utilisation du mécanisme UNLOAD d’Amazon Redshift. | Non  |
 | s3LinkedServiceName | Fait référence à un service Amazon S3 à utiliser comme magasin temporaire en spécifiant un nom de service lié de type « AmazonS3 ». | Oui, en cas d’utilisation de UNLOAD |
@@ -158,7 +158,7 @@ Apprenez-en davantage sur l’utilisation de UNLOAD pour copier efficacement des
 
 Dans cet exemple de cas d’utilisation, l’activité de copie décharge les données d’Amazon Redshift sur Amazon S3, comme configuré dans « redshiftUnloadSettings », puis copie les données d’Amazon S3 dans un objet blob Azure, comme spécifié dans « stagingSettings », et enfin utilise PolyBase pour charger des données dans SQL Data Warehouse. Tous les formats intermédiaires sont gérés correctement par l’activité de copie.
 
-![Flux de travail de copie de Redshift vers SQL DW](media\copy-data-from-amazon-redshift\redshift-to-sql-dw-copy-workflow.png)
+![Flux de travail de copie de Redshift vers SQL DW](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[

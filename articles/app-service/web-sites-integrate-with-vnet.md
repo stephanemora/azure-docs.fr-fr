@@ -1,5 +1,5 @@
 ---
-title: Intégrer une application à un réseau Azure Virtual Network
+title: Intégrer une application à un réseau virtuel Azure – Azure App Service
 description: Explique comment connecter une application d’Azure App Service à un réseau virtuel Azure nouveau ou existant
 services: app-service
 documentationcenter: ''
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
-ms.openlocfilehash: 8a6d7fef902a3bd240b152cb15d6852a5fa0e7c6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687301"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273345"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
-Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux avec les technologies VPN. 
+Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux avec les technologies VPN. 
 
 Azure App Service se présente sous deux formes. 
 
@@ -30,7 +31,7 @@ Azure App Service se présente sous deux formes.
 
 Ce document décrit la fonctionnalité d’intégration au réseau virtuel, qui est destinée à être utilisée dans le service App Service multilocataire.  Si votre application se trouve dans l’[environnement App Service][ASEintro], elle est déjà dans un réseau virtuel et ne nécessite pas l’utilisation de la fonctionnalité d’intégration au réseau virtuel pour accéder aux ressources du même réseau virtuel.
 
-L’intégration au réseau virtuel permet à votre application web d’accéder aux ressources de votre réseau virtuel, mais n’accorde pas d’accès privé à votre application web à partir du réseau virtuel. L’accès au site privé fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. L’accès privé aux sites est disponible uniquement via un ASE configuré avec un équilibreur de charge interne (ILB). Pour obtenir des détails sur l’utilisation d’un ILB ASE, commencez par lire l’article suivant : [Création et utilisation d’un ASE avec un ILB][ILBASE]. 
+L’intégration au réseau virtuel permet à votre application web d’accéder aux ressources de votre réseau virtuel, mais n’accorde pas d’accès privé à votre application web à partir du réseau virtuel. L’accès au site privé fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. L’accès privé aux sites est disponible uniquement via un ASE configuré avec un équilibreur de charge interne (ILB). Pour en savoir plus sur l’utilisation d’un ILB ASE, commencez par lire l’article : [Création et utilisation d’un ASE ILB][ILBASE]. 
 
 L’intégration au réseau virtuel est souvent utilisée pour permettre l’accès depuis des applications à des bases de données et à des services web qui s’exécutent dans votre réseau virtuel. Avec l’intégration au réseau virtuel, vous n’avez pas besoin d’exposer un point de terminaison public pour les applications sur votre machine virtuelle, mais vous pouvez utiliser à la place des adresses privées routables non-Internet. 
 
@@ -161,7 +162,7 @@ Trois types de coûts sont associés à l’utilisation de la fonctionnalité d�
 * coût de transfert des données ;
 * coûts de la passerelle VPN.
 
-Vos applications doivent se trouver dans un plan App Service Standard, Premium ou PremiumV2. Pour plus d’informations sur les coûts, voir : [Tarification App Service][ASPricing]. 
+Vos applications doivent se trouver dans un plan App Service Standard, Premium ou PremiumV2. Pour en savoir plus sur les coûts, consultez l’article : [Tarification App Service][ASPricing]. 
 
 Les sorties de données engendrent des coûts, même si le réseau virtuel est dans le même centre de données. Ces coûts sont décrits dans [Détails de tarification des transferts de données][DataPricing]. 
 
@@ -307,17 +308,17 @@ La nouvelle fonctionnalité d’intégration au réseau virtuel vous permet d’
 [8]: ./media/web-sites-integrate-with-vnet/vnetint-selectvnet.png
 
 <!--Links-->
-[VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
-[AzurePortal]: http://portal.azure.com/
-[ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
-[VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
-[DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
-[V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[VNETOverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
+[AzurePortal]: https://portal.azure.com/
+[ASPricing]: https://azure.microsoft.com/pricing/details/app-service/
+[VNETPricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
+[DataPricing]: https://azure.microsoft.com/pricing/details/data-transfers/
+[V2VNETP2S]: https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 [ASEintro]: environment/intro.md
 [ILBASE]: environment/create-ilb-ase.md
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-[creategatewaysubnet]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
-[creategateway]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
-[setp2saddresses]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
+[creategatewaysubnet]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
+[setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

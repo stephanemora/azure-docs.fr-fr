@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 042d2ee0f615ce5216fc11152f0f65518ff9bd5c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5fe1739fa341a5e3bd2f4d26ef1e94d725b74a61
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376377"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001238"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS)
 
 Pour restreindre l’accès à vos applications dans Azure Kubernetes Service (AKS), vous pouvez créer et utiliser un équilibreur de charge interne. Un équilibreur de charge interne rend un service Kubernetes accessible uniquement aux applications qui s’exécutent dans le même réseau virtuel que le cluster Kubernetes. Cet article explique comment créer et utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer se décline en deux références SKU : *De base* et *Standard*. Pour plus d’informations, consultez [Comparaison des références SKU de Azure Load Balancer][azure-lb-comparison]. AKS prend en charge la référence SKU *De base*. Si vous souhaitez utiliser la référence SKU *Standard*, vous pouvez utiliser le moteur [acs-engine][acs-engine] en amont.
+> Azure Load Balancer se décline en deux références SKU : *De base* et *Standard*. Pour plus d’informations, consultez [Comparaison des références SKU de Azure Load Balancer][azure-lb-comparison]. AKS prend en charge la référence SKU *De base*. Si vous souhaitez utiliser la référence SKU *Standard*, vous pouvez utiliser le moteur [aks-engine][aks-engine] en amont.
 
 ## <a name="create-an-internal-load-balancer"></a>Créer un équilibrage de charge interne
 
@@ -128,7 +128,7 @@ En savoir plus sur les services Kubernetes dans la [documentation des services K
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-advanced-networking.md

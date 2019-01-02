@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427418"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344310"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analyser des fichiers vidéo et audio
 
 Azure Media Services v3 vous permet d’extraire les insights de vos fichiers vidéo et audio avec Video Indexer via les présélections de l’analyseur d’AMS v3 (décrites dans cet article). Si vous souhaitez des informations plus détaillées, utilisez directement Video Indexer. Pour comprendre à quel moment utiliser Video Indexer plutôt que les présélections de l’analyseur de Media Services, consultez le [document de comparaison](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-Pour analyser votre contenu à l’aide des présélections Media Services v3, vous créez une **transformation** et envoyez un **travail** qui utilise l’une de ces présélections : **AudioAnalyzerPreset** ou **VideoAnalyzerPreset** . L’article suivant montre comment utiliser **VideoAnalyzerPreset** : [Didacticiel : analyser des vidéos avec Azure Media Services](analyze-videos-tutorial-with-api.md).
+Pour analyser votre contenu à l’aide des préréglages Media Services v3, vous créez une **transformation** et envoyez un **travail** qui utilise l’un de ces préréglages : **AudioAnalyzerPreset** ou **VideoAnalyzerPreset** . L’article suivant montre comment utiliser **VideoAnalyzerPreset** : [Tutoriel : Analyser des vidéos avec Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > Lorsque vous utilisez des présélections pour l’analyseur vidéo ou audio, utilisez le Portail Azure pour paramétrer votre compte de sorte à ce qu’il dispose de 10 unités réservées Multimédia S3. Pour plus d’informations, consultez [Vue d’ensemble de la mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md).
@@ -33,7 +33,7 @@ Actuellement, Media Services prend en charge les préréglages d’analyseur int
 
 |**Nom du préréglage**|**Scénario**|**Détails**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analyse de contenu audio|Ce préréglage applique un ensemble prédéfini d’opérations d’analyse basée sur l’IA, notamment la transcription de la parole. Actuellement, le préréglage prend en charge le traitement du contenu avec une seule piste audio.<br/>Vous pouvez spécifier la langue de la charge utile audio de l’entrée en utilisant le format BCP-47 « étiquette langue-région » (par exemple « en-US »). Les langues prises en charge sont les suivantes : « en-US », « en-GB », « es-ES », « es-MX », « fr-FR », « it-IT », « ja-JP », « pt-BR » et « zh-CN ». Si la langue n’est pas spécifiée ou si elle est définie à la valeur Null, la fonctionnalité de détection automatique de la langue est utilisée. Cette fonctionnalité prend actuellement en charge les langues suivantes : allemand, anglais, chinois, espagnol, français, italien, japonais, portugais et russe.|
+|**AudioAnalyzerPreset**|Analyse de contenu audio|Ce préréglage applique un ensemble prédéfini d’opérations d’analyse basée sur l’IA, notamment la transcription de la parole. Actuellement, le préréglage prend en charge le traitement du contenu avec une seule piste audio. Vous pouvez spécifier la langue de la charge utile audio de l’entrée en utilisant le format BCP-47 « balise de langue-région ». Les langues prises en charge sont l’anglais (« en-US » et « en-GB »), l’espagnol (« es-ES » et « es-MX »), le français (« fr-FR »), l’italien (« it-IT »), le japonais (« ja-JP »), le portugais (« pt-BR »), le chinois (« zh-CN »), l’allemand (« de-DE »), l’arabe (« ar-EG »), le russe (« ru-RU »), l’hindi (« hi-IN ») et le coréen (« ko-KR »).<br/><br/> Si la langue n’est pas spécifiée ou a la valeur Null, la fonctionnalité de détection automatique de la langue est utilisée. Cette fonctionnalité prend actuellement en charge les langues suivantes : allemand, anglais, chinois, espagnol, français, italien, japonais, portugais et russe. La fonctionnalité de détection automatique de la langue fonctionne mieux sur des enregistrements audio avec des voix clairement identifiables. Si la détection automatique de la langue ne parvient pas à trouver la langue, la transcription utilise l’anglais.|
 |**VideoAnalyzerPreset**|Analyse de contenu audio et vidéo|Extrait des insights (métadonnées enrichies) des contenus audio et vidéo, et génère en sortie un fichier au format JSON. Vous pouvez spécifier si vous voulez extraire seulement des insights audio lors du traitement d’un fichier vidéo. Pour plus d’informations, consultez [Analyser un contenu vidéo](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
@@ -154,7 +154,7 @@ Exemple :
 |referenceType|Bing uniquement (pour le moment).|
 |title|Dans le cas d’une célébrité, il s’agit de son poste (par exemple « PDG de Microsoft »).|
 |imageUrl|Dans le cas d’une célébrité, il s’agit de l’URL de l’image associée.|
-|instances|Instances où le visage est apparu dans l’intervalle de temps donné. Chaque instance possède également un thumbnailsId. |
+|instances|Instances où la visage est apparu dans l’intervalle de temps donné. Chaque instance possède également un thumbnailsId. |
 
 ```json
 "faces": [{
@@ -437,4 +437,4 @@ Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants p
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Didacticiel : analyser des vidéos avec Azure Media Services](analyze-videos-tutorial-with-api.md)
+[Tutoriel : Analyser des vidéos avec Azure Media Services](analyze-videos-tutorial-with-api.md)

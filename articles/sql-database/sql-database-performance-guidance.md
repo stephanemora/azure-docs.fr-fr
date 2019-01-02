@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2fe78efc8d85da2a8cd38a217c25f89ca7aefd22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645522"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012995"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajustement manuel des performances de requêtes dans Azure SQL Database
 
@@ -258,7 +258,7 @@ Certaines applications sont gourmandes en écriture. Il est parfois possible de 
 
 ### <a name="application-tier-caching"></a>Mise en cache de la couche Application
 
-Certaines applications de base de données contiennent des charges de travail à lecture intensive. Les couches de mise en cache peuvent contribuer à réduire la charge sur la base de données et éventuellement la taille de calcul requise pour la prise en charge d’une base de données à l’aide d’Azure SQL Database. Le [Cache Redis Azure](https://azure.microsoft.com/services/cache/)permet à un client possédant une charge de travail à lecture intensive de lire les données une seule fois (ou peut-être une seule fois par ordinateur de la couche Application, selon la façon dont il est configuré) et de stocker ces données en dehors de la base de données SQL Azure. Cela permet de réduire la charge de la base de données (UC et E/S de lecture). Toutefois, cela a un impact sur la cohérence transactionnelle, puisque les données lues à partir du cache peuvent ne pas être synchronisées avec les données de la base de données. Si un certain niveau d’incohérence est acceptable dans de nombreuses applications, cela ne se vérifie pas pour l’ensemble des charges de travail. Assurez-vous de comprendre pleinement les exigences d’une application avant d’utiliser une stratégie de mise en cache de couche Application.
+Certaines applications de base de données contiennent des charges de travail à lecture intensive. Les couches de mise en cache peuvent contribuer à réduire la charge sur la base de données et éventuellement la taille de calcul requise pour la prise en charge d’une base de données à l’aide d’Azure SQL Database. Avec [Cache Azure pour Redis](https://azure.microsoft.com/services/cache/), si vous possédez une charge de travail à lecture intensive, vous pouvez lire les données une fois (ou peut-être une fois par machine de la couche Application, selon sa configuration) et stocker ces données en dehors de la base de données SQL. Cela permet de réduire la charge de la base de données (UC et E/S de lecture). Toutefois, cela a un impact sur la cohérence transactionnelle, puisque les données lues à partir du cache peuvent ne pas être synchronisées avec les données de la base de données. Si un certain niveau d’incohérence est acceptable dans de nombreuses applications, cela ne se vérifie pas pour l’ensemble des charges de travail. Assurez-vous de comprendre pleinement les exigences d’une application avant d’utiliser une stratégie de mise en cache de couche Application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

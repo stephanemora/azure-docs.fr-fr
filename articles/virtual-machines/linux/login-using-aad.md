@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334633"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850973"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -37,7 +37,7 @@ Les avantages liés à l’utilisation de l’authentification Azure AD pour se 
   - Pour sécuriser davantage la connexion aux machines virtuelles Azure, vous pouvez configurer l’authentification multifacteur.
   - La possibilité de se connecter à des machines virtuelles Linux avec Azure Active Directory fonctionne également pour les clients qui utilisent [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Une collaboration parfaite :** le contrôle d’accès en fonction du rôle (RBAC) vous permet de spécifier qui peut se connecter à une machine virtuelle donnée en tant qu’utilisateur standard ou avec des privilèges d’administrateur. Lorsque des utilisateurs rejoignent ou quittent votre équipe, vous pouvez mettre à jour la stratégie RBAC pour la machine virtuelle pour accorder les accès appropriés. Cette expérience est beaucoup plus simple que d’avoir à nettoyer les machines virtuelles pour supprimer les clés publiques SSH inutiles. Lorsque des employés quittent votre organisation et que leur compte d’utilisateur est désactivé ou supprimé d’Azure AD, ils n’ont plus accès à vos ressources.
+- **Une collaboration parfaite :** le contrôle d’accès en fonction du rôle (RBAC) vous permet de spécifier qui peut se connecter à une machine virtuelle donnée en tant qu’utilisateur standard ou avec des privilèges d’administrateur. Lorsque des utilisateurs rejoignent ou quittent votre équipe, vous pouvez mettre à jour la stratégie RBAC pour la machine virtuelle pour accorder les accès appropriés. Cette expérience est beaucoup plus simple que d’avoir à nettoyer les machines virtuelles pour supprimer les clés publiques SSH inutiles. Lorsque des employés quittent votre organisation et que leur compte d’utilisateur est désactivé ou supprimé d’Azure AD, ils n’ont plus accès à vos ressources.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Régions Azure et distributions Linux prises en charge
 
@@ -96,8 +96,8 @@ Le paramètre *provisioningState* défini sur *Succeeded* s’affiche une fois q
 
 La stratégie RBAC Azure détermine qui peut se connecter à la machine virtuelle. Deux rôles RBAC sont utilisés pour autoriser la connexion aux machines virtuelles :
 
-- **Connexion de l’administrateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges d’administrateur Windows ou d’utilisateur racine Linux.
-- **Connexion de l’utilisateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges d’utilisateur standard.
+- **Connexion de l’administrateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges d’administrateur Windows ou d’utilisateur racine Linux.
+- **Connexion de l’utilisateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges d’utilisateur standard.
 
 > [!NOTE]
 > Pour autoriser un utilisateur à se connecter à la machine virtuelle via le protocole SSH, vous devez attribuer le rôle *Connexion de l’administrateur aux machines virtuelles* ou *Connexion de l’utilisateur aux machines virtuelles*. Un utilisateur Azure auquel le rôle *Propriétaire* ou *Contributeur* est attribué pour une machine virtuelle ne possède pas automatiquement les privilèges pour se connecter à la machine virtuelle via le protocole SSH.
@@ -129,7 +129,7 @@ Commencez par afficher l’adresse IP publique de votre machine virtuelle à l�
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Connectez-vous à la machine virtuelle Azure Linux à l’aide de vos informations d’identification Azure AD. Le paramètre `-l` vous permet de spécifier votre propre adresse de compte Azure AD. Spécifiez l’adresse IP publique de votre machine virtuelle en tant que sortie de la commande précédente :
+Connectez-vous à la machine virtuelle Azure Linux à l’aide de vos informations d’identification Azure AD. Le paramètre `-l` vous permet de spécifier votre propre adresse de compte Azure AD. Les adresses de comptes doivent être entrées en minuscules. Utilisez l’adresse IP publique de votre machine virtuelle obtenue à partir de la commande précédente :
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps
@@ -166,7 +166,7 @@ Avec cette ligne :
 
 Certaines erreurs courantes se produisent lorsque vous essayez de vous connecter via le protocole SSH avec des informations d’identification Azure AD, notamment l’absence de l’attribution de rôles RBAC et des invites répétées à se connecter. Consultez les sections suivantes pour corriger ces problèmes.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Accès refusé : rôle RBAC non attribué
+### <a name="access-denied-rbac-role-not-assigned"></a>Accès refusé : rôle RBAC non attribué
 
 Si vous voyez l’erreur suivante à l’invite SSH, vérifiez que vous disposez de [stratégies RBAC configurées](#configure-rbac-policy-for-the-virtual-machine) pour la machine virtuelle qui accordent à l’utilisateur le rôle *Connexion de l’administrateur aux machines virtuelles* ou *Connexion de l’utilisateur aux machines virtuelles* :
 

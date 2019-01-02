@@ -1,5 +1,5 @@
 ---
-title: Considérations relatives à la mise en réseau avec un environnement Azure App Service Environment
+title: Considérations relatives à la mise en réseau avec un environnement App Service - Azure
 description: Cet article présente le trafic réseau d’un environnement App Service Environment (ASE) et explique comment définir des groupes de sécurité réseau et des itinéraires définis par l’utilisateur (UDR) avec votre ASE.
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.custom: seodec18
+ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288252"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271009"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 
@@ -74,9 +75,9 @@ Les dépendances d’accès entrantes d’un ASE sont les suivantes :
 | Utilisation | À partir | À |
 |-----|------|----|
 | gestion | Adresses de gestion App Service | Sous-réseau de l’ASE : 454, 455 |
-|  Communications internes de l’ASE | Sous-réseau de l’ASE : tous les ports | Sous-réseau de l’ASE : tous les ports
-|  Autoriser le trafic entrant provenant d’Azure Load Balancer | Équilibrage de charge Azure | Sous-réseau de l’ASE : tous les ports
-|  Adresses IP affectées par l’application | Adresses affectées par l’application | Sous-réseau de l’ASE : tous les ports
+|  Communications internes de l’ASE | Sous-réseau de l’ASE : Tous les ports | Sous-réseau de l’ASE : Tous les ports
+|  Autoriser le trafic entrant provenant d’Azure Load Balancer | Équilibrage de charge Azure | Sous-réseau de l’ASE : Tous les ports
+|  Adresses IP affectées par l’application | Adresses affectées par l’application | Sous-réseau de l’ASE : Tous les ports
 
 Le trafic de gestion entrant fournit la commande et le contrôle de l’ASE en plus de la surveillance du système. Les adresses sources pour ce trafic sont répertoriées dans le document [Adresses de gestion App Service Environment][ASEManagement]. Par conséquent, la configuration de la sécurité réseau doit autoriser l’accès sur les ports 454 et 455 à partir de toutes les adresses IP. Si vous bloquez l’accès à partir de ces adresses, vous mettez en péril l’intégrité de votre ASE qui sera suspendu.
 
@@ -138,7 +139,7 @@ Un ASE présente quelques adresses IP qu’il est important de connaître. Il s'
 
 - **Adresse IP entrante publique** : utilisée pour le trafic d’applications dans un ASE externe et pour le trafic de gestion aussi bien dans un ASE externe que dans un ASE ILB.
 - **Adresse IP publique sortante**  : utilisée en tant qu’adresse IP source pour les connexions sortantes de l’ASE quittant le réseau virtuel, qui ne sont pas acheminées via un VPN.
-- **Adresse IP ILB** : si vous utilisez un ASE ILB.
+- **Adresse IP de l’ILB** : si vous utilisez un environnement ASE.
 - **Adresse SSL basée sur IP attribuée par l’application** : uniquement possibles avec un ASE externe et lorsque le mode SSL basé sur IP est configuré.
 
 Toutes ces adresses IP sont facilement visibles pour un ASEv2 à partir de l’interface utilisateur de l’ASE dans le portail Azure. Si vous possédez un ASE ILB, l’adresse IP de l’ILB est répertoriée.
@@ -234,10 +235,10 @@ Lorsque les points de terminaison de service sont activés sur un sous-réseau a
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 8080cdf78333eed9541311ba67221c713341a21a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b961dadbe8743f1485ef0d13a44a1bb0f3ce32b5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741570"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321373"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Mise à l’échelle verticale avec des groupes de machines virtuelles identiques
 Cet article décrit comment mettre à l’échelle verticalement des [jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/) Azure avec ou sans réapprovisionnement. Pour mettre à l’échelle verticalement des machines virtuelles qui n’appartiennent pas à des groupes de machines virtuelles identiques, consultez [Mettre à l’échelle verticalement une machine virtuelle Azure avec Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -84,7 +84,7 @@ Une fois que vous avez importé les runbooks, ajoutez un webhook au runbook afin
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Ajouter une alerte à votre groupe de machines virtuelles identiques
-Voici un script PowerShell qui décrit comment ajouter une alerte dans un groupe de machines virtuelles identiques. Pour obtenir le nom de la métrique déclenchant l’alerte, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+Voici un script PowerShell qui décrit comment ajouter une alerte dans un groupe de machines virtuelles identiques. Pour obtenir le nom de la métrique déclenchant l’alerte, voir l’article [Métriques courantes de la mise à l’échelle automatique Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -120,7 +120,7 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 Pour plus d’informations sur la création d’alertes, consultez les articles suivants :
 
 * [Exemples de démarrage rapide Azure Monitor PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* [Exemples de démarrage rapide de l’interface de ligne de commande multiplateforme Azure Monitor](../monitoring-and-diagnostics/insights-cli-samples.md)
+* [Exemples de démarrage rapide de l’interface de ligne de commande multiplateforme Azure Monitor](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Résumé
 Cet article vous a montré des exemples simples de mise à l’échelle verticale. Grâce à ces éléments (compte Automation, runbooks, webhooks et alertes), vous pouvez connecter des événements très différents à un jeu d’actions personnalisé.

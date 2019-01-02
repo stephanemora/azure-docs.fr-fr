@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b51067b9e854566991d49aeb1ff2b1ad13999a51
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127838"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957740"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>API Translator Text 3.0 : recherche de dictionnaire
+# <a name="translator-text-api-30-dictionary-lookup"></a>API de traduction de texte Translator Text 3.0 : Recherche dans le dictionnaire
 
-Indique les autres traductions d’un mot et quelques expressions idiomatiques. Pour chaque terme, vous trouverez des informations sur la nature grammaticale ainsi qu’une liste de traductions inverses. Les traductions inverses sont utiles pour comprendre la traduction dans son contexte. L’opération [Exemple de dictionnaire](.\v3-0-dictionary-examples.md) permet d’avoir un aperçu plus détaillé en affichant des exemples d’utilisation de chaque paire de traduction.
+Indique les autres traductions d’un mot et quelques expressions idiomatiques. Pour chaque terme, vous trouverez des informations sur la nature grammaticale ainsi qu’une liste de traductions inverses. Les traductions inverses sont utiles pour comprendre la traduction dans son contexte. L’opération [Exemple de dictionnaire](./v3-0-dictionary-examples.md) permet d’avoir un aperçu plus détaillé en affichant des exemples d’utilisation de chaque paire de traduction.
 
 ## <a name="request-url"></a>URL de la demande
 
@@ -42,11 +42,11 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
   </tr>
   <tr>
     <td>from</td>
-    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte d’entrée. La langue source doit être l’une des [langues prises en charge](.\v3-0-languages.md) incluses dans l’étendue `dictionary`.</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte d’entrée. La langue source doit être l’une des [langues prises en charge](./v3-0-languages.md) incluses dans l’étendue `dictionary`.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des [langues prises en charge](.\v3-0-languages.md) incluses dans l’étendue `dictionary`.</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des [langues prises en charge](./v3-0-languages.md) incluses dans l’étendue `dictionary`.</td>
   </tr>
 </table>
 
@@ -92,17 +92,17 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `normalizedSource` : chaîne indiquant la forme normalisée du terme source. Par exemple, si la requête est « JOHN », la forme normalisée sera « john ». Le contenu de ce champ devient l’entrée des [exemples de recherche](.\v3-0-dictionary-examples.md).
+  * `normalizedSource`: chaîne indiquant la forme normalisée du terme source. Par exemple, si la requête est « JOHN », la forme normalisée sera « john ». Le contenu de ce champ devient l’entrée des [exemples de recherche](./v3-0-dictionary-examples.md).
     
-  * `displaySource` : chaîne affichant le terme source sous une forme mieux adaptée à l’affichage à l’utilisateur final. Par exemple, si l’entrée est « JOHN », la forme d’affichage reflète l’orthographe habituel du nom : « John ». 
+  * `displaySource`: chaîne affichant le terme source sous une forme mieux adaptée à l’affichage à l’utilisateur final. Par exemple, si l’entrée est « JOHN », la forme d’affichage reflète l’orthographe habituel du nom : « John ». 
 
-  * `translations` : liste des traductions du terme source. Chaque élément de la liste est un objet dont les propriétés sont les suivantes :
+  * `translations`: liste des traductions du terme source. Chaque élément de la liste est un objet dont les propriétés sont les suivantes :
 
-    * `normalizedTarget` : chaîne indiquant la forme normalisée de ce terme dans la langue cible. Cette valeur doit être utilisée comme entrée pour les [exemples de recherche](.\v3-0-dictionary-examples.md).
+    * `normalizedTarget`: chaîne indiquant la forme normalisée de ce terme dans la langue cible. Cette valeur doit être utilisée comme entrée pour les [exemples de recherche](./v3-0-dictionary-examples.md).
 
-    * `displayTarget` : chaîne affichant le terme dans la langue cible et sous une forme mieux adaptée à l’affichage à l’utilisateur final. En règle générale, la seule différence avec le `normalizedTarget` réside au niveau de la mise en majuscules. Par exemple, un nom propre tel que « Juan » aura `normalizedTarget = "juan"` et `displayTarget = "Juan"`.
+    * `displayTarget`: chaîne affichant le terme dans la langue cible et sous une forme mieux adaptée à l’affichage à l’utilisateur final. En règle générale, la seule différence avec le `normalizedTarget` réside au niveau de la mise en majuscules. Par exemple, un nom propre tel que « Juan » aura `normalizedTarget = "juan"` et `displayTarget = "Juan"`.
 
-    * `posTag` : chaîne associant ce terme à une balise morphosyntaxique.
+    * `posTag`: chaîne associant ce terme à une balise morphosyntaxique.
 
         | Nom de la balise | Description  |
         |----------|--------------|
@@ -119,19 +119,19 @@ Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne 
 
         En tant que note d’implémentation, ces balises ont été déterminées par le balisage morphosyntaxique de l’anglais, puis en prenant la balise la plus fréquente pour chaque paire source/cible. Par conséquent, si les gens traduisent fréquemment un mot espagnol par une autre balise morphosyntaxique en anglais, les balises risquent d’être erronées (par rapport au mot espagnol).
 
-    * `confidence` : valeur comprise entre 0,0 et 1,0 représentant la « confiance » (ou pour être plus précis la « probabilité dans les données d’apprentissage ») de cette paire de traduction. La somme des scores de confiance d’un mot source peut ou non totaliser 1,0. 
+    * `confidence`: valeur comprise entre 0,0 et 1,0 représentant la « confiance » (ou pour être plus précis la « probabilité dans les données d’entraînement ») de cette paire source-traduction. La somme des scores de confiance d’un mot source peut ou non totaliser 1,0. 
 
-    * `prefixWord` : chaîne indiquant le mot à afficher en préfixe de la traduction. Actuellement, il s’agit du déterminant genré des noms, dans les langues utilisant des déterminants genrés. Par exemple, le préfixe du mot espagnol « mosca » est « la », car « mosca » est un nom féminin en espagnol. Cela dépend uniquement de la traduction, et non pas de la source. En l’absence de préfixe, la chaîne sera vide.
+    * `prefixWord`: chaîne indiquant le mot à afficher en préfixe de la traduction. Actuellement, il s’agit du déterminant genré des noms, dans les langues utilisant des déterminants genrés. Par exemple, le préfixe du mot espagnol « mosca » est « la », car « mosca » est un nom féminin en espagnol. Cela dépend uniquement de la traduction, et non pas de la source. En l’absence de préfixe, la chaîne sera vide.
     
-    * `backTranslations` : liste des « traductions inverses » de la cible. Par exemple, les mots source pouvant être traduits dans la langue cible. La liste est assurée de contenir le mot source qui a été demandé (par exemple, si le mot source recherché est « fly », vous êtes sûr que « fly » figurera dans la liste `backTranslations`). Toutefois, il n’est pas garanti que le terme arrive en première position. Chaque élément de la liste `backTranslations` est un objet décrit par les propriétés suivantes :
+    * `backTranslations`: liste des « traductions inverses » de la cible. Par exemple, les mots source pouvant être traduits dans la langue cible. La liste est assurée de contenir le mot source qui a été demandé (par exemple, si le mot source recherché est « fly », vous êtes sûr que « fly » figurera dans la liste `backTranslations`). Toutefois, il n’est pas garanti que le terme arrive en première position. Chaque élément de la liste `backTranslations` est un objet décrit par les propriétés suivantes :
 
-        * `normalizedText` : chaîne indiquant la forme normalisée du terme source qui est une traduction inverse de la cible. Cette valeur doit être utilisée comme entrée pour les [exemples de recherche](.\v3-0-dictionary-examples.md).        
+        * `normalizedText`: chaîne indiquant la forme normalisée du terme source qui est une traduction inverse de la cible. Cette valeur doit être utilisée comme entrée pour les [exemples de recherche](./v3-0-dictionary-examples.md).        
 
-        * `displayText` : chaîne indiquant le terme source qui est une traduction inverse de la cible sous une forme mieux adaptée à l’affichage à l’utilisateur final.
+        * `displayText`: chaîne indiquant le terme source qui est une traduction inverse de la cible sous une forme mieux adaptée à l’affichage à l’utilisateur final.
 
-        * `numExamples` : nombre entier représentant le nombre d’exemples disponibles pour cette paire de traduction. Les exemples réels doivent être récupérés avec un appel séparé aux [exemples de recherche](.\v3-0-dictionary-examples.md). Le nombre est principalement destiné à faciliter l’affichage dans une expérience utilisateur. Par exemple, une interface utilisateur peut ajouter un lien hypertexte vers la traduction inverse si le nombre d’exemples est supérieur à zéro, et afficher la traduction inverse en tant que texte brut s’il n’y a aucun exemple. Notez que le nombre réel d’exemples retournés par un appel aux [exemples de recherche](.\v3-0-dictionary-examples.md) peut être inférieur à `numExamples`, car un filtrage supplémentaire peut être appliqué à la volée pour supprimer les exemples non pertinents.
+        * `numExamples`: nombre entier représentant le nombre d’exemples disponibles pour cette paire source-traduction. Les exemples réels doivent être récupérés avec un appel séparé aux [exemples de recherche](./v3-0-dictionary-examples.md). Le nombre est principalement destiné à faciliter l’affichage dans une expérience utilisateur. Par exemple, une interface utilisateur peut ajouter un lien hypertexte vers la traduction inverse si le nombre d’exemples est supérieur à zéro, et afficher la traduction inverse en tant que texte brut s’il n’y a aucun exemple. Notez que le nombre réel d’exemples retournés par un appel aux [exemples de recherche](./v3-0-dictionary-examples.md) peut être inférieur à `numExamples`, car un filtrage supplémentaire peut être appliqué à la volée pour supprimer les exemples non pertinents.
         
-        * `frequencyCount` : nombre entier représentant la fréquence de cette paire de traduction dans les données. L’objectif principal de ce champ est de fournir une interface utilisateur dans laquelle il est possible de trier les traductions inverses afin que les termes les plus fréquents apparaissent en premier.
+        * `frequencyCount`: nombre entier représentant la fréquence de cette paire source-traduction dans les données. L’objectif principal de ce champ est de fournir une interface utilisateur dans laquelle il est possible de trier les traductions inverses afin que les termes les plus fréquents apparaissent en premier.
 
     > [!NOTE]
     > Si le terme recherché ne figure pas dans le dictionnaire, la réponse est 200 (OK), mais la liste `translations` est vide.

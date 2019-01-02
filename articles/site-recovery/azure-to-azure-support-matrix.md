@@ -5,16 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: bc671a598d975fb732b668d579561a253f04ded3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317719"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342712"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
 
@@ -41,9 +40,9 @@ Cet article récapitule les composants et les configurations pris en charge lors
 **Migrer des machines virtuelles entre des régions dans les clusters géographiques pris en charge (dans un même abonnement et entre plusieurs abonnements)** | Pris en charge à l’intérieur du même locataire Azure Active Directory.
 **Migrer des machines virtuelles au sein de la même région** | Non pris en charge.
 
-# <a name="region-support"></a>Prise en charge de la région
+## <a name="region-support"></a>Prise en charge de la région
 
-Vous pouvez répliquer et restaurer des machines virtuelles entre deux régions appartenant au même cluster géographique.
+Vous pouvez répliquer et restaurer des machines virtuelles entre deux régions appartenant au même cluster géographique. Les clusters géographiques sont définis en gardant à l’esprit la en souveraineté et la latence des données.
 
 **Cluster géographique** | **Régions Azure**
 -- | --
@@ -53,21 +52,21 @@ Asie | Inde du Sud, Centre de l’Inde, Asie du Sud-Est, Asie de l’Est, Japon 
 Australie   | Australie Est, Australie Sud-Est, Australie Centre, Australie Centre 2
 Azure Government    | Gouvernement des États-Unis - Virginie, Gouvernement des États-Unis - Iowa, Gouvernement des États-Unis - Arizona, Gouvernement des États-Unis - Texas, US DoD Est, US DoD Centre
 Allemagne | Centre de l’Allemagne, Nord-Est de l’Allemagne
-Chine | Est de la Chine, Nord de la Chine
+Chine | Chine Est, Chine Nord, Chine Nord 2, Chine Est 2
 
 >[!NOTE]
 >
-> Pour la région Brésil Sud, vous pouvez effectuer une réplication et un basculement vers l’une des régions suivantes : USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2 et USA Centre Nord.
+> Pour la région Brésil Sud, vous pouvez répliquer et basculer vers l’une des opérations suivantes : USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2, USA Centre Nord.</br>
+> Il convient de noter que Site Recovery a permis à la région Brésil Sud d’être utilisée uniquement en tant que région source à partir de laquelle les machines virtuelles peuvent être protégées. Elle ne peut pas être utilisée comme région de récupération d’urgence cible pour une région Azure, comme USA Centre Sud. En raison d’une latence observée à cause de la distance géographique, il est recommandé de sélectionner une région d’Amérique autre que Brésil Sud.  
 
 ## <a name="cache-storage"></a>Stockage du cache
 
 Le tableau suivant récapitule la prise en charge du compte de stockage du cache utilisé par Site Recovery lors de la réplication.
 
-**Paramètre** | **Détails**
---- | ---
+**Paramètre** | **Support** | **Détails**
+--- | --- | ---
 Comptes de stockage V2 à usage général (niveaux chaud et froid) | Non pris en charge. | La limitation existe pour le stockage du cache, car les coûts de transaction pour V2 sont sensiblement plus élevés que pour les comptes de stockage V1.
-Pare-feux du Stockage Azure pour réseaux virtuels  | Non  | L’autorisation d’accès à des réseaux virtuels Azure spécifiques sur des comptes de stockage en cache utilisés pour stocker des données répliquées n’est pas prise en charge.
-
+Pare-feux du Stockage Azure pour réseaux virtuels  | Pris en charge | Si vous utilisez un compte de stockage de cache ou cible autorisé par le pare-feu, vérifiez que l’option « [Autoriser les services Microsoft approuvés](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) » est activée.
 
 
 ## <a name="replicated-machine-operating-systems"></a>Systèmes d’exploitation de machine répliquée
@@ -128,16 +127,16 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 à 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 à
 
 **Version release** | **Version du service Mobilité** | **Version du noyau** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default à 4.4.140-94.69-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default à 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default à 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default à 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default à 4.4.126-94.22-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Machines répliquées - Stockage invité/système de fichiers Linux
 
-* Systèmes de fichiers : ext3, ext4, ReiserFS (Suse Linux Enterprise Server uniquement), XFS
+* Systèmes de fichiers : ext3, ext4, ReiserFS (Suse Linux Enterprise Server uniquement), XFS, BTRFS
 * Gestionnaire de volume : LVM2
-* Logiciel multichemin : Device Mapper
+* Logiciel multichemin : Mappeur d’appareil
 
 
 ## <a name="replicated-machines---compute-settings"></a>Machines répliquées - Paramètres de calcul
@@ -146,7 +145,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default 
 --- | --- | ---
 Taille | N’importe quelle taille de machine virtuelle Azure avec au moins 2 cœurs d’UC et 1 Go de RAM | Consultez [Tailles de machine virtuelle Azure](../virtual-machines/windows/sizes.md).
 Groupes à haute disponibilité | Pris en charge | Si vous activez la réplication pour une machine virtuelle Azure avec les options par défaut, un groupe à haute disponibilité est créé automatiquement, selon les paramètres de la région source. Vous pouvez modifier ces paramètres.
-Zones de disponibilité | Non pris en charge | Actuellement, vous ne pouvez pas répliquer les machines virtuelles déployées dans des zones de disponibilité.
+Zones de disponibilité | Pris en charge |  
 HUB (Hybrid Use Benefit) | Pris en charge | Si la machine virtuelle source a une licence HUB activée, une machine virtuelle de basculement ou de test de basculement utilise également la licence HUB.
 Groupes de machines virtuelles identiques (VMSS) | Non pris en charge |
 Images de la galerie Azure - Publiées par Microsoft | Pris en charge | Prises en charge si la machine virtuelle s’exécute sur un système d’exploitation pris en charge.
@@ -180,6 +179,7 @@ Disque de données - Compte de stockage Standard | Pris en charge |
 Disque de données - Compte de stockage Premium | Pris en charge | Si une machine virtuelle a des disques répartis sur des comptes de stockage Standard et Premium, vous pouvez sélectionner un compte de stockage cible différent pour chaque disque afin d’être sûr d’avoir la même configuration de stockage dans la région cible.
 Disque managé - Standard | Pris en charge dans les régions Azure dans lesquelles Azure Site Recovery est pris en charge. |  
 Disque managé - Premium | Pris en charge dans les régions Azure dans lesquelles Azure Site Recovery est pris en charge. |
+SSD Standard | Non pris en charge |
 Redondance | LRS et GRS sont pris en charge.<br/><br/> ZRS n’est pas pris en charge.
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud
 Espaces de stockage | Pris en charge |         
@@ -195,12 +195,24 @@ GRS | Prise en charge |
 RA-GRS | Prise en charge |
 ZRS | Non pris en charge |  
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud.
-Pare-feu pour réseaux virtuels du Stockage Azure  | Oui | Si vous limitez l’accès au réseau virtuel aux comptes de stockage, assurez-vous que les services Microsoft de confiance sont autorisés à accéder au compte de stockage.
+Pare-feu pour réseaux virtuels du Stockage Azure  | Pris en charge | Si vous limitez l’accès au réseau virtuel aux comptes de stockage, assurez-vous d’activer l’option [Autoriser les services Microsoft de confiance](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Comptes de stockage V2 à usage général (niveaux chaud et froid) | Non  | Augmentation significative des coûts de transaction par rapport aux comptes de stockage V1 à usage général
 
 >[!IMPORTANT]
 > Vérifiez que vous respectez les valeurs d'évolutivité et de performances des disques VM pour les machines virtuelles [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) afin d'éviter tout problème de performances. Si vous suivez les paramètres par défaut, Site Recovery créera les disques et les comptes de stockage nécessaires en fonction de la configuration source. Si vous personnalisez et sélectionnez vos propres paramètres, veillez à suivre les cibles de scalabilité et de performances de disque de vos machines virtuelles sources.
 
+## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Limites d’Azure Site Recovery pour répliquer les données
+Le tableau suivant présente les limites d’Azure Site Recovery. Les limites sont basées sur nos tests, mais ne peuvent pas couvrir toutes les combinaisons d’E/S d’application possibles. Les résultats réels varient en fonction de la combinaison d’E/S de votre application. Il faut également noter qu'il y a deux limites à prendre en compte, le taux d’activité de données par disque et le taux d’activité de données par machine virtuelle.
+Par exemple, si nous examinons le disque Premium P20 dans le tableau ci-dessous, Site Recovery peut gérer un taux d’activité de données de 5 Mo/s et par disque pour cinq disques maximum par machine virtuelle en raison de la limite de taux d’activité total de données de 25 Mo/s par machine virtuelle.
+
+**Stockage de réplication cible** | **Taille d’E/S moyenne de disque source** |**Activité des données moyenne de disque source** | **Total de l’activité des données de disque source par jour**
+---|---|---|---
+Stockage Standard | 8 Ko | 2 Mo/s | 168 Go par disque
+Disque Premium P10 ou P15 | 8 Ko  | 2 Mo/s | 168 Go par disque
+Disque Premium P10 ou P15 | 16 Ko | 4 Mo/s |  336 Go par disque
+Disque Premium P10 ou P15 | 32 Ko ou plus | 8 Mo/s | 672 Go par disque
+Disque Premium P20 ou P30 ou P40 ou P50 | 8 Ko    | 5 Mo/s | 421 Go par disque
+Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |10 Mo/s | 842 Go par disque
 ## <a name="replicated-machines---networking"></a>Machines répliquées - Mise en réseau
 **Configuration** | **Support** | **Détails**
 --- | --- | ---
@@ -213,7 +225,7 @@ Groupe de sécurité réseau (NSG) sur le sous-réseau | Pris en charge | Associ
 Adresse IP (statique) réservée | Pris en charge | Si la carte réseau sur la machine virtuelle source a une adresse IP statique et que le sous-réseau cible a la même adresse IP disponible, celle-ci est affectée à la machine virtuelle de basculement.<br/><br/> Si le sous-réseau cible n’a pas la même adresse IP disponible, l’une des adresses IP disponibles sur le sous-réseau est réservée à la machine virtuelle.<br/><br/> Vous pouvez également spécifier une adresse IP fixe et un sous-réseau dans **Éléments répliqués** > **Paramètres** > **Calcul et réseau** > **Interfaces réseau**.
 Adresse IP dynamique | Pris en charge | Si la carte réseau sur la machine virtuelle source a l’adressage IP dynamique, la carte réseau sur la machine virtuelle de basculement est également dynamique par défaut.<br/><br/> Vous pouvez remplacer cela par une adresse IP fixe si nécessaire.
 Traffic Manager     | Pris en charge | Vous pouvez préconfigurer Traffic Manager pour que le trafic soit acheminé vers le point de terminaison dans la région source de manière régulière et vers le point de terminaison dans la région cible en cas de basculement.
-DNS Azure | Pris en charge |
+Azure DNS | Pris en charge |
 Système DNS personnalisé  | Prise en charge |    
 Proxy non authentifié | Prise en charge | Voir le [document d’aide à la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md).    
 Proxy authentifié | Non pris en charge | Si la machine virtuelle utilise un proxy authentifié pour la connectivité sortante, elle ne peut pas être répliquée à l’aide d’Azure Site Recovery.    

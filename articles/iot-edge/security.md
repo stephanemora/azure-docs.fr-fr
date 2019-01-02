@@ -1,6 +1,6 @@
 ---
-title: Sécurité dans Azure IoT Edge | Microsoft Docs
-description: Sécurité, authentification et autorisation des appareils IoT Edge
+title: Infrastructure de sécurité - Azure IoT Edge | Microsoft Docs
+description: Découvrez les normes de sécurité, d’authentification et d’autorisation qui ont été utilisées pour développer Azure IoT Edge et que vous devriez prendre en compte pour concevoir votre solution
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,15 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4292dc3abf775d48ee33cc7a48793d080156efb1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 1042f53147122a7370b464f6bfc892dcee70fe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568935"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100138"
 ---
-# <a name="securing-azure-iot-edge"></a>Sécurisation d’Azure IoT Edge
+# <a name="security-standards-for-azure-iot-edge"></a>Normes de sécurité pour Azure IoT Edge
 
 La sécurisation de la périphérie intelligente (Intelligent Edge) est nécessaire si vous voulez avoir une confiance totale dans le fonctionnement d’une solution IoT de bout en bout. Azure IoT Edge est conçu pour une sécurité extensible à différents profils de risque et scénarios de déploiement, et offre la même protection que tous les autres services Azure.
 

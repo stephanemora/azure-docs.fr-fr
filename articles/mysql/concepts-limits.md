@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 12/6/2018
+ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982876"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090990"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
@@ -31,13 +31,15 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 |Usage général| 8| 1250|
 |Usage général| 16| 2 500|
 |Usage général| 32| 5 000|
+|Usage général| 64| 10000|
 |Mémoire optimisée| 2| 600|
 |Mémoire optimisée| 4| 1250|
 |Mémoire optimisée| 8| 2 500|
 |Mémoire optimisée| 16| 5 000|
+|Mémoire optimisée| 32| 10000|
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
-> ERROR 1040 (08004): Too many connections
+> ERREUR 1040 (08004) : Trop de connexions
 
 ## <a name="storage-engine-support"></a>Prise en charge du moteur de stockage
 
@@ -54,8 +56,8 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 ## <a name="privilege-support"></a>Prise en charge des privilèges
 
 ### <a name="unsupported"></a>Non pris en charge
-- Rôle d’administrateur de bases de données : plusieurs paramètres de server peuvent dégrader les performances du serveur ou nier les propriétés ACID du système de gestion de base de données (SGBD). Par conséquent, pour préserver l’intégrité du service et le contrat SLA au niveau du produit, ce service n’expose pas le rôle d’administrateur de bases de données. Le compte d’utilisateur par défaut, qui est créé en même temps qu’une instance de base de données, permet à l’utilisateur d’exécuter la plupart des instructions DDL et DML dans l’instance de base de données gérée. 
-- Privilèges de super utilisateur : de la même façon, les [privilèges de super utilisateur](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) sont eux aussi limités.
+- Rôle d’administrateur de base de données : plusieurs paramètres de serveur peuvent dégrader de façon inattendue les performances du serveur ou nier les propriétés ACID du système de gestion de base de données. Par conséquent, pour préserver l’intégrité du service et le contrat SLA au niveau du produit, ce service n’expose pas le rôle d’administrateur de bases de données. Le compte d’utilisateur par défaut, qui est créé en même temps qu’une instance de base de données, permet à l’utilisateur d’exécuter la plupart des instructions DDL et DML dans l’instance de base de données gérée. 
+- Privilège de superutilisateur : de la même façon, les [privilèges de superutilisateur](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) sont eux aussi limités.
 
 ## <a name="data-manipulation-statement-support"></a>Prise en charge des instructions de manipulation des données
 

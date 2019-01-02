@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 5001704f47af0c7b07744f1dceb7aa58bdb6448c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158866"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961601"
 ---
 # <a name="article-top"></a>Migration de votre service mobile Azure existant vers Azure App Service
 Avec la [mise à la disposition générale d’Azure App Service], les sites Azure Mobile Services peuvent être facilement migrés sur place pour tirer parti de toutes les fonctionnalités d’Azure App Service.  Ce document explique ce qui se passe lors de la migration de votre site à partir d’Azure Mobile Services vers Azure App Service.
@@ -37,7 +37,7 @@ Microsoft vous recommande de migrer votre service mobile Azure pour tirer parti 
 * outils DevOps intégrés, dont [emplacements intermédiaires], restauration et tests en production ;
 * [mise à l’échelle automatique], équilibrage de charge et [analyse des performances].
 
-Pour plus d’informations sur les avantages d’Azure App Service, voir [Services mobiles et App Service].
+Pour plus d’informations sur les avantages d’Azure App Service, voir [Mobile Services vs. App Service].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Avant de commencer tout travail majeur sur votre site, vous devez sauvegarder les scripts et la base de données SQL de service mobile.
@@ -176,7 +176,7 @@ Tous les paramètres d’authentification sont disponibles en tant que Paramètr
 | Google |**MS\_GoogleClientID** |**MS\_GoogleClientSecret** | |
 | Azure AD |**MS\_AadClientID** | |**MS\_AadTenants** |
 
-Remarque : **MS\_AadTenants** est stocké sous forme de liste de domaines de client séparés par des virgules (champ « Client autorisés » du portail Mobile Services).
+Remarque : **MS\_AadTenants** est stocké sous forme de liste de domaines locataires séparés par des virgules (champs « Locataires autorisés » du portail Mobile Services).
 
 > [!WARNING]
 > **N’utilisez pas de mécanismes d’authentification dans le menu Paramètres**
@@ -248,7 +248,7 @@ Votre concentrateur de notification est géré via le [portail Azure].  Notez le
 3. Cliquez sur le nom de concentrateur de notification associé au service mobile.
 
 > [!NOTE]
-> Si votre concentrateur de notification est de type « Mixte », il n’est pas visible.  Les concentrateurs de notification de type « Mixte » utilisent Notification Hubs et des fonctionnalités de Service Bus héritées.  [Convertissez vos espaces de noms mixte] avant de continuer.  Une fois la conversion terminée, votre concentrateur de notification s’affiche dans le [portail Azure].
+> Si votre concentrateur de notification est de type « Mixte », il n’est pas visible.  Les concentrateurs de notification de type « Mixte » utilisent Notification Hubs et des fonctionnalités de Service Bus héritées.  [Convertir vos espaces de noms mixtes] avant de continuer.  Une fois la conversion terminée, votre concentrateur de notification s’affiche dans le [portail Azure].
 >
 >
 
@@ -310,7 +310,7 @@ Les journalisation des diagnostics est normalement désactivée dans un Azure Ap
 2. Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre service mobile migré.
 3. Le panneau Paramètres s’ouvre par défaut.
 4. Sélectionnez **journaux de Diagnostic** dans le menu FONCTIONNALITÉS.
-5. Cliquez sur **ON** pour les fichiers journaux suivants : **Journal des applications (Filesystem)**, **Messages d’erreur détaillés** et **Suivi des demandes ayant échoué**.
+5. Cliquez sur **ON** pour les fichiers journaux suivants : **Journal des applications (Filesystem)**, **Messages d’erreur détaillés** et **Suivi des demandes ayant échoué**
 6. Cliquez sur **Système de fichiers** pour la journalisation du serveur web.
 7. Cliquez sur **Enregistrer**.
 
@@ -327,7 +327,7 @@ Les journaux sont affichés dans la fenêtre à mesure de leur génération.  Vo
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>La suppression d’un clone d’application mobile migré entraîne un arrêt du site
 Si vous clonez votre service mobile migré à l’aide d’Azure PowerShell, puis que vous supprimez le clone, l’entrée DNS du service de production est supprimée.  Par conséquent, votre site n’est plus accessible sur Internet.  
 
-Résolution : si vous souhaitez cloner votre site, utilisez le portail.
+Résolution : Si vous souhaitez cloner votre site, utilisez le portail.
 
 ### <a name="changing-webconfig-does-not-work"></a>La modification du fichier web.config ne fonctionne pas
 Si vous avez un site ASP.NET, les changements apportés au fichier `Web.config` ne sont pas appliqués.  Azure App Service crée un fichier `Web.config` adapté lors du démarrage pour prendre en charge le runtime Mobile Services.  Vous pouvez remplacer certains paramètres (comme les en-têtes personnalisés) à l’aide d’un fichier de transformation XML.  Créez un fichier appelé `applicationHost.xdt` : ce fichier doit terminer dans le répertoire `D:\home\site` du Service Azure.  Chargez le fichier `applicationHost.xdt` via un script de déploiement personnalisé ou en utilisant directement Kudu.  Le code suivant vous fournit un exemple :
@@ -375,26 +375,26 @@ Maintenant que votre application a été migrée vers App Service, vous pouvez u
 <!-- Links -->
 [Tarification d’App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
-[mise à l’échelle automatique]: ../app-service/web-sites-scale.md
+[Mise à l’échelle automatique]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
-[portail Azure Classic]: https://manage.windowsazure.com
-[portail Azure]: https://portal.azure.com
+[Portail Azure Classic]: https://manage.windowsazure.com
+[Portail Azure]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [Plans d’Azure Scheduler]: ../scheduler/scheduler-plans-billing.md
 [déployer en continu]: ../app-service/app-service-continuous-deployment.md
-[Convertissez vos espaces de noms mixte]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
-[curl]: http://curl.haxx.se/
+[Convertir vos espaces de noms mixtes]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[curl]: https://curl.haxx.se/
 [noms de domaine personnalisés]: ../app-service/app-service-web-tutorial-custom-domain.md
-[Fiddler]: http://www.telerik.com/fiddler
-[mise à la disposition générale d’Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
+[Fiddler]: https://www.telerik.com/fiddler
+[Mise à la disposition générale d’Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [Journalisation]: ../app-service/web-sites-enable-diagnostic-log.md
 [Kit de développement logiciel (SDK) Mobile Apps Node.js]: https://github.com/azure/azure-mobile-apps-node
-[Services mobiles et App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
+[Mobile Services vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [analyse des performances]: ../app-service/web-sites-monitor.md
-[Postman]: http://www.getpostman.com/
+[Postman]: https://www.getpostman.com/
 [emplacements intermédiaires]: ../app-service/web-sites-staged-publishing.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
-[exemples de transformation XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
+[Exemples de transformation XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Fonctions]: ../azure-functions/functions-overview.md

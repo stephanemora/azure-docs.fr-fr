@@ -9,16 +9,15 @@ editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 54fda4852e986749499b7fc8717308edf81915b2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633195"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338486"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -30,7 +29,7 @@ La solution de gestion Office 365 vous permet d’effectuer le monitoring de vot
 - Analysez les activités d’administrateur pour effectuer le suivi des modifications de configuration ou d’opérations de privilèges élevés.
 - Détectez et analysez le comportement des utilisateurs indésirables, qui peut être personnalisé pour les besoins de votre organisation.
 - Présentation d’audit et de conformité. Par exemple, vous pouvez surveiller les opérations d’accès aux fichiers sur des fichiers confidentiels, ce qui peut vous aider dans le processus d’audit et de conformité.
-- Effectuez un dépannage opérationnel à l’aide des [Recherches dans les journaux](../../log-analytics/log-analytics-queries.md) en haut des données d’activité Office 365 de votre organisation.
+- Effectuez un dépannage opérationnel à l’aide des [Recherches dans les journaux](../../azure-monitor/log-query/log-query-overview.md) en haut des données d’activité Office 365 de votre organisation.
 
 ## <a name="prerequisites"></a>Prérequis
 Les conditions suivantes sont requises avant l’installation et la configuration de cette solution.
@@ -41,7 +40,7 @@ Les conditions suivantes sont requises avant l’installation et la configuratio
  
 
 ## <a name="management-packs"></a>Packs d’administration
-Cette solution n’installe aucun pack d’administration dans les [groupes d’administration connectés](../../log-analytics/log-analytics-om-agents.md).
+Cette solution n’installe aucun pack d’administration dans les [groupes d’administration connectés](../../azure-monitor/platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Installer et configurer
 Commencez par ajouter la [solution Office 365 à votre abonnement](solutions.md#install-a-management-solution). Ensuite, suivez les étapes de configuration de cette section pour lui donner accès à votre abonnement Office 365.
@@ -51,16 +50,16 @@ Avant de commencer cette procédure, rassemblez les informations suivantes.
 
 Dans votre espace de travail Log Analytics :
 
-- Nom de l’espace de travail : l’espace de travail dans lequel les données Office 365 seront collectées.
-- Nom du groupe de ressources : le groupe de ressources contenant l’espace de travail.
-- ID d’abonnement Azure : l’abonnement contenant l’espace de travail.
+- Nom de l’espace de travail : l’espace de travail dans lequel les données Office 365 seront collectées.
+- Nom du groupe de ressources : groupe de ressources qui contient l’espace de travail.
+- ID d’abonnement Azure : abonnement qui contient l’espace de travail.
 
 Dans votre abonnement Office 365 :
 
-- Nom d’utilisateur : adresse e-mail d’un compte Administrateur.
-- ID de locataire (tenant) : ID unique de l’abonnement à Office 365.
-- ID client : chaîne de 16 caractères qui représente le client Office 365.
-- Clé secrète client : chaîne chiffrée nécessaire à l’authentification.
+- Nom d’utilisateur : adresse e-mail d’un compte Administrateur.
+- ID de locataire : ID unique de l’abonnement à Office 365.
+- ID client : chaîne de 16 caractères qui représente le client Office 365.
+- Clé secrète client : chaîne chiffrée nécessaire à l’authentification.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Créer une application Office 365 dans Azure Active Directory
 La première étape consiste à créer une application dans Azure Active Directory qui sera utilisée par la solution de gestion pour accéder à votre solution Office 365.
@@ -709,6 +708,6 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez les recherches de journaux de [Log Analytics](../../log-analytics/log-analytics-queries.md) pour afficher des données détaillées sur les mises à jour.
+* Utilisez les recherches de journaux de [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) pour afficher des données détaillées sur les mises à jour.
 * [Créez vos propres tableaux de bord](../../azure-monitor/platform/dashboards.md) pour afficher vos requêtes de recherche favoris Office 365.
-* [Créez des alertes](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) pour être informé de façon proactive des activités importantes Office 365.  
+* [Créez des alertes](../../azure-monitor/platform/alerts-overview.md) pour être informé de façon proactive des activités importantes Office 365.  

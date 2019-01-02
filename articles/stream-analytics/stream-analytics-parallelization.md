@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 83fbebc07be3a61d7fd54953f842a320a537a7ac
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985010"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091041"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -51,7 +51,7 @@ Les sorties PowerBI, SQL et SQL Data Warehouse ne prennent pas en charge le part
 Pour plus d’informations sur les partitions, consultez les articles suivants :
 
 * [Vue d’ensemble des fonctionnalités des concentrateurs d’événements](../event-hubs/event-hubs-features.md#partitions)
-* [Partitionnement des données](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
+* [Partitionnement des données](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Travaux massivement parallèles
@@ -76,26 +76,30 @@ Les sections ci-après présentent quelques exemples de parallélisme massif.
 ### <a name="simple-query"></a>Requête simple
 
 * Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : concentrateur Event Hub avec 8 partitions
+* Sortie : concentrateur Event Hub avec 8 partitions
 
 Requête :
 
+```SQL
     SELECT TollBoothId
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
+```
 
 Cette requête est un filtre simple. Par conséquent, nous n’avons pas à nous préoccuper du partitionnement de l’entrée qui est envoyée au concentrateur Event Hub. Notez que la requête inclut **PARTITION BY PartitionId**. Elle répond donc à l’exigence n°2 indiquée précédemment. Pour la sortie, nous devons configurer la sortie du hub d’événements dans le travail afin que la clé de partition ait la valeur **PartitionId**. La dernière vérification consiste à s’assurer que le nombre de partitions d’entrée est égal au nombre de partitions de sortie.
 
 ### <a name="query-with-a-grouping-key"></a>Requête avec clé de regroupement
 
 * Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : stockage d’objets blob
+* Sortie : Stockage d'objets blob
 
 Requête :
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Cette requête comporte une clé de regroupement. Par conséquent, les événements regroupés doivent être envoyés à la même partition Event Hub. Étant donné que, dans cet exemple, le regroupement est effectué selon TollBoothID, nous devons vérifier que TollBoothID est utilisé comme clé de partition quand les événements sont envoyés à la partition Event Hub. Ensuite, dans ASA, nous pouvons utiliser **PARTITION BY PartitionId** pour hériter de ce schéma de partition et activer la parallélisation complète. Étant donné que la sortie est un stockage d’objets blob, nous n’avons pas à nous soucier de la configuration d’une valeur de clé de partition, conformément à l’exigence n°4.
 
@@ -105,22 +109,23 @@ Dans la section précédente, nous vous avons présenté certains scénarios imp
 
 ### <a name="mismatched-partition-count"></a>Nombre de partitions d’entrée et de sortie différent
 * Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : concentrateur Event Hub avec 32 partitions
+* Sortie : concentrateur Event Hub avec 32 partitions
 
 Dans ce cas, le type de requête importe peu. Si le nombre de partitions d’entrée ne correspond pas au nombre de partitions de sortie, la topologie n’est pas massivement parallèle. Toutefois, nous pouvons encore obtenir un certain niveau de parallélisation.
 
 ### <a name="query-using-non-partitioned-output"></a>Requête avec une sortie non partitionnée
 * Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : Power BI
+* Sortie : PowerBI
 
 Pour le moment, la sortie Power BI ne prend pas en charge le partitionnement. Par conséquent, ce scénario n’est pas de type massivement parallèle.
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Requête à plusieurs étapes avec différentes valeurs PARTITION BY
 * Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : concentrateur Event Hub avec 8 partitions
+* Sortie : concentrateur Event Hub avec 8 partitions
 
 Requête :
 
+```SQL
     WITH Step1 AS (
     SELECT COUNT(*) AS Count, TollBoothId, PartitionId
     FROM Input1 Partition By PartitionId
@@ -130,6 +135,7 @@ Requête :
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1 Partition By TollBoothId
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Comme vous pouvez le voir, la deuxième étape utilise **TollBoothId** comme clé de partitionnement. Cette étape n’est pas la même que la première. Nous devons donc apporter quelques modifications. 
 
@@ -143,6 +149,7 @@ Une requête peut avoir une ou plusieurs étapes. Chaque étape est une sous-req
 
 Requête :
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -151,6 +158,7 @@ Requête :
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute,3), TollBoothId
+```
 
 Cette requête compte deux étapes.
 
@@ -182,20 +190,25 @@ Vous pouvez voir quelques **exemples** dans le tableau ci-dessous.
 
 La requête suivante calcule le nombre de voitures, dans une fenêtre de trois minutes, qui traversent un poste de péage pourvu de trois cabines de péage. Cette requête peut être mise à l’échelle jusqu’à six unités SU.
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Pour utiliser plus d’unités SU pour la requête, le flux de données d’entrée et la requête doivent être partitionnés. Comme la partition de flux de données est définie sur 3, la requête modifiée suivante peut être mise à l’échelle jusqu’à compter 18 unités SU :
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Lorsqu'une requête est partitionnée, les événements d'entrée sont traités et agrégées dans des groupes de partition distincts. Les événements de sortie sont également générés pour chacun des groupes. Le partitionnement peut provoquer des résultats inattendus si le champ **GROUP BY** n’est pas la clé de partition dans le flux de données d’entrée. Par exemple, dans la requête précédente, le champ **TollBoothId** n’est pas la clé de partition **d’Input1**. Le résultat est le suivant : les données de la cabine de péage « TollBooth 1 » peuvent être réparties dans plusieurs partitions.
 
 Chaque partition **Input1** est traitée séparément par Stream Analytics. En conséquence, plusieurs enregistrements du nombre de voitures pour la même cabine de péage sont créés dans la même fenêtre bascule. Si la clé de partition d’entrée ne peut pas être modifiée, ce problème peut être résolu en ajoutant une étape non partitionnée pour agréger des valeurs sur plusieurs partitions, comme dans l’exemple suivant :
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -205,6 +218,7 @@ Chaque partition **Input1** est traitée séparément par Stream Analytics. En 
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Cette requête peut être mise à l’échelle jusqu’à comporter 24 unités SU.
 

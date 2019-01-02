@@ -1,5 +1,5 @@
 ---
-title: Distribuer du contenu issu du Stockage Azure dans App Service sur Linux
+title: Distribuer du contenu issu du Stockage Azure sur Linux - App Service
 description: Guide pratique pour configurer et distribuer du contenu issu du Stockage Azure dans Azure App Service sur Linux.
 author: msangapu
 manager: jeconnoc
@@ -8,12 +8,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: msangapu
-ms.openlocfilehash: 8d4444aac7f84753f55c434d0a3f5ef0edcfb1c4
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.custom: seodec18
+ms.openlocfilehash: 855df2820db6bba2b47d543ab671bee2193d7d9b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980161"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250913"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Distribuer du contenu issu du Stockage Azure dans App Service sur Linux
 
@@ -67,7 +68,7 @@ Répétez cette opération pour tous les autres annuaires que vous souhaitez lie
 Vous pouvez vérifier qu’un conteneur de stockage est lié à une application web en exécutant la commande suivante :
 
 ```azurecli
-az webapp conf storage-account list --resource-group <group_name> --name <app_name>
+az webapp config storage-account list --resource-group <group_name> --name <app_name>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

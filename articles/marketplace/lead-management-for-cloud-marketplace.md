@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258542"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840161"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Gestion des prospects pour la Place de marché cloud
 
@@ -39,15 +39,15 @@ Pour vous permettre de commencer à obtenir des prospects, le connecteur Gestion
 
 Voici les instructions pas à pas pour vous connecter à chacune des destinations de prospects possibles :
 
-**Dynamics CRM Online** - [Cliquez ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) pour obtenir des instructions sur la manière de configurer Dynamics CRM Online pour obtenir des prospects.
+**Dynamics CRM Online** - [Cliquez ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) pour obtenir des instructions sur la manière de configurer Dynamics CRM Online pour obtenir des prospects.
 
-**Marketo** - [Cliquez ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-marketo) pour obtenir des instructions sur la manière de définir la configuration de prospects Marketo pour obtenir des prospects.
+**Marketo** - [Cliquez ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) pour obtenir des instructions sur la manière de définir la configuration de prospects Marketo pour obtenir des prospects.
 
-**Salesforce** - [Cliquez ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-salesforce) pour obtenir des instructions sur la manière de configurer votre instance Salesforce pour obtenir des prospects.
+**Salesforce** - [Cliquez ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) pour obtenir des instructions sur la manière de configurer votre instance Salesforce pour obtenir des prospects.
 
-**Table Azure** – [Cliquez ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table) pour obtenir des instructions sur la manière de configurer votre compte Stockage Azure pour obtenir des prospects dans une table Azure.
+**Table Azure** – [Cliquez ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) pour obtenir des instructions sur la manière de configurer votre compte Stockage Azure pour obtenir des prospects dans une table Azure.
 
-**Point de terminaison HTTPS** – [Cliquez ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-https) pour obtenir des instructions sur la manière de configurer votre point de terminaison HTTPS pour obtenir des prospects.
+**Point de terminaison HTTPS** – [Cliquez ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) pour obtenir des instructions sur la manière de configurer votre point de terminaison HTTPS pour obtenir des prospects.
 
 Une fois que vous avez correctement configuré votre destination de prospect et que vous avez publié votre offre, nous validons la connexion et vous envoyons un prospect de test. Lorsque vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acquérir vous-même l’offre dans l’environnement en version préliminaire. Il est important de s’assurer que vos paramètres de prospects restent à jour afin d’éviter de perdre des prospects. Veillez donc à mettre à jour ces connexions chaque fois que quelque chose change de votre côté.
 
@@ -62,36 +62,36 @@ Une fois les paramètres techniques configurés, vous devez incorporer ces prosp
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM. Vérifiez les paramètres de compte Dynamics CRM. LastCRMError : Impossible de se connecter à Dynamics CRM, LastCRMException :** 
 
-> Si l’authentification O365 a été sélectionnée, vérifiez la validité du compte d’utilisateur et du mot de passe. Si AAD a été sélectionné, vérifiez que l’ID de locataire, l’ID d’application et la clé secrète de l’application correspondent à ce qui a été configuré dans AAD. Suivez les instructions fournies [ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics). Si le nom d’utilisateur/mot de passe du compte est valide, vérifiez que celui-ci a accès à Dynamics 365 et qu’une licence lui est attribuée (étapes 11 à 15 si vous utilisez Azure Active Directory ou les paramètres de sécurité si vous utilisez un utilisateur Office). 
+> Si l’authentification O365 a été sélectionnée, vérifiez la validité du compte d’utilisateur et du mot de passe. Si AAD a été sélectionné, vérifiez que l’ID de locataire, l’ID d’application et la clé secrète de l’application correspondent à ce qui a été configuré dans AAD. Suivez les instructions fournies [ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics). Si le nom d’utilisateur/mot de passe du compte est valide, vérifiez que celui-ci a accès à Dynamics 365 et qu’une licence lui est attribuée (étapes 11 à 15 si vous utilisez Azure Active Directory ou les paramètres de sécurité si vous utilisez un utilisateur Office). 
 
  
 **Impossible d’enregistrer le prospect dans Dynamics CRM. L’utilisateur ne dispose pas d’autorisations de création pour l’attribut leadsourcecode dans l’entité prospect** 
 
-> Il manque un ou plusieurs rôles de sécurité à l’application/utilisateur pour le rédacteur de prospects de la Place de marché Microsoft. Suivez les étapes 11 à 15 si vous utilisez Azure Active Directory ou Paramètres de sécurité si vous utilisez un utilisateur Office [ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).
+> Il manque un ou plusieurs rôles de sécurité à l’application/utilisateur pour le rédacteur de prospects de la Place de marché Microsoft. Suivez les étapes 11 à 15 si vous utilisez Azure Active Directory ou Paramètres de sécurité si vous utilisez un utilisateur Office [ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics).
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM en utilisant AAD. Exception:: Locataire introuvable. Cette instance peut se produire s’il n’existe aucun abonnement actif pour le locataire.**  
 
-> L’ID de répertoire fourni dans la section de gestion des prospects n’est pas un répertoire valide. Procurez-vous l’ID de répertoire en suivant les instructions fournies à l’étape 2 (sous Azure Active Directory, à partir d’[ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) 
+> L’ID de répertoire fourni dans la section de gestion des prospects n’est pas un répertoire valide. Procurez-vous l’ID de répertoire en suivant les instructions fournies à l’étape 2 (sous Azure Active Directory, à partir d’[ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) 
 
-**Impossible d’enregistrer le prospect dans Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser en échec - aucun rôle attribué à l’utilisateur.**  
+**Impossible d’enregistrer le prospect dans Dynamics CRM. LastCRMError : SecLib::RetrievePrivilegeForUser en échec - aucun rôle attribué à l’utilisateur.**  
 
-> Solution : attribuez un rôle de sécurité au rédacteur de prospects de la Place de marché Microsoft. Suivez les instructions fournies [ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) sous Paramètres de sécurité 
+> Résolution : attribuez un rôle de sécurité au rédacteur de prospects de la Place de marché Microsoft. Suivez les instructions fournies [ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) sous Paramètres de sécurité 
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM en utilisant AAD. Exception:: L’application associée à l’identificateur est introuvable dans le répertoire** 
 
-> L’ID d’application fourni dans la section de gestion des prospects n’est pas un répertoire valide. Procurez-vous l’ID de répertoire en suivant les instructions fournies à l’étape 8 (sous Azure Active Directory, à partir d’[ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> L’ID d’application fourni dans la section de gestion des prospects n’est pas un répertoire valide. Procurez-vous l’ID de répertoire en suivant les instructions fournies à l’étape 8 (sous Azure Active Directory, à partir d’[ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Impossible d’enregistrer le prospect dans Dynamics CRM en utilisant AAD. Exception :: L’identificateur de locataire demandé n’est pas valide et n’est pas un format de domaine externe valide** 
+**Impossible d’enregistrer le prospect dans Dynamics CRM en utilisant AAD. Exception:: L’identificateur de locataire demandé n’est pas valide et n’est pas un format de domaine externe valide** 
 
-> L’ID de répertoire fourni dans la section de gestion des prospects n’est pas un répertoire valide. Procurez-vous l’ID de répertoire en suivant les instructions fournies à l’étape 2 (sous Azure Active Directory, à partir d’[ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> L’ID de répertoire fourni dans la section de gestion des prospects n’est pas un répertoire valide. Procurez-vous l’ID de répertoire en suivant les instructions fournies à l’étape 2 (sous Azure Active Directory, à partir d’[ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Impossible d’enregistrer le prospect dans Dynamics CRM en utilisant AAD. Exception:: Erreur de validation des informations d’identification. La clé secrète client fournie n’est pas valide.** 
+**Impossible d’enregistrer le prospect dans Dynamics CRM en utilisant AAD. Exception:: Erreur de validation des informations d’identification. Le secret client fourni n’est pas valide.** 
 
-> Solution : connectez-vous au portail Azure, vérifiez si la clé d’application correspond à celle indiquée sur le portail Cloud Partner. Générez un mot de passe en suivant les instructions fournies à l’étape 10 (sous Azure Active Directory, à partir d’[ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> Résolution : connectez-vous au portail Azure, vérifiez si la clé d’application correspond à celle indiquée dans le portail Cloud Partner. Générez un mot de passe en suivant les instructions fournies à l’étape 10 (sous Azure Active Directory, à partir d’[ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM. LastCRMError : Le canal de demande a dépassé le délai de réponse après 00:02:00. Augmentez la valeur de délai d’attente passée à l’appel de Request ou augmentez la valeur de SendTimeout de la liaison. Le temps alloué à cette opération fait peut-être partie d’un délai d’attente plus long.**  
 
-> Solution : connectez-vous au portail Cloud Partner puis, dans Détails de la vitrine >> Destination des prospects >> URL, vérifiez s’il s’agit d’une instance Dynamics CRM valide
+> Résolution : connectez-vous au portail Cloud Partner puis, dans Détails de la vitrine >> Destination des prospects >> URL, vérifiez s’il s’agit d’une instance Dynamics CRM valide
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -102,7 +102,7 @@ Les prospects sont des clients qui déploient vos produits à partir de la Place
 
 **Où puis-je obtenir de l’aide pour configurer la destination des prospects ?** 
 
-Vous trouverez la documentation ici : https://cloudpartner.azure.com/#documentation/get-customer-leads. Vous pouvez aussi soumettre un ticket de support via aka.ms/marketplacepublishersupport en sélectionnant le type d’offre et gestion des prospects. 
+Vous trouverez la documentation ici : [Obtenir des prospects](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) Vous pouvez aussi soumettre un ticket de support via aka.ms/marketplacepublishersupport en sélectionnant le type d’offre et la gestion des prospects. 
 
 
 
@@ -199,7 +199,7 @@ Les données de chaque prospect passent dans les champs de la destination des pr
 
     } 
 
-Pour en savoir plus, consultez [Informations sur les prospects](https://cloudpartner.azure.com/#documentation/get-customer-leads). 
+Pour en savoir plus, consultez [Informations sur les prospects](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads). 
 
 
 **J’ai configuré Blob Azure comme destination des prospects. Pourquoi ne vois-je pas de prospects ?** 
@@ -219,7 +219,7 @@ Vous pouvez accéder à Blob ou à Table à partir du portail Azure, ou vous pou
 
 **J’ai configuré Table Azure comme destination des prospects. Puis-je recevoir une notification chaque fois qu’un nouveau prospect est envoyé par la Place de marché ?** 
 
-Oui, pour configurer Table Azure + Azure Function, suivez les instructions fournies dans la documentation [ici](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table). 
+Oui, pour configurer Table Azure + Azure Function, suivez les instructions fournies dans la documentation [ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table). 
 
 
 

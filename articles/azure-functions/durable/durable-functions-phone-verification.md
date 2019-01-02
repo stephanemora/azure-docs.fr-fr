@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7bc9341d7e078b0ae69cc9a734c02f257df6d96a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: beb6650125bdf7526b8167ba0f076b079e4e84a8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638504"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342865"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 
@@ -45,8 +45,8 @@ Cet article détaille les fonctions suivantes de l’exemple d’application :
 * **E4_SendSmsChallenge**
 
 Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C# et JavaScript. Le code de développement de Visual Studio est affiché à la fin de l’article.
- 
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestration de vérification SMS (Visual Studio Code et exemple de code du portail Azure) 
+
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestration de vérification SMS (Visual Studio Code et exemple de code du portail Azure)
 
 La fonction **E4_SmsPhoneVerification** utilise le fichier *function.json* standard pour les fonctions d’orchestrateur.
 
@@ -58,7 +58,7 @@ Voici le code qui implémente la fonction :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -72,7 +72,7 @@ Une fois démarrée, cette fonction d’orchestrateur effectue les opérations s
 L’utilisateur reçoit un SMS incluant le code à quatre chiffres. Il doit renvoyer ce code à l’instance de la fonction d’orchestrateur dans les 90 secondes, afin de terminer le processus de vérification. Si le code est incorrect, il peut effectuer trois nouvelles tentatives de saisie (dans les 90 secondes imparties).
 
 > [!NOTE]
-> Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. En effet, la propriété `CurrentUtcDateTime` est utilisée pour calculer le délai d’expiration du minuteur, et cette propriété renvoie la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Il est important de vérifier que le même paramètre `winner` provient de chaque appel répété à `Task.WhenAny`.
+> Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. En effet, les propriétés `CurrentUtcDateTime` (.NET) et `currentUtcDateTime` (JavaScript) sont utilisées pour calculer le délai d’expiration du minuteur, et ces propriétés retournent la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Il est important de vérifier que le même paramètre `winner` provient de chaque appel répété à `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript).
 
 > [!WARNING]
 > Il est important [d’annuler les minuteurs](durable-functions-timers.md) si vous n’avez plus besoin qu’ils arrivent à expiration, comme dans l’exemple ci-dessus, quand une réponse à une stimulation est acceptée.
@@ -89,7 +89,7 @@ Voici le code qui génère le code de demande d’accès à 4 chiffres, et envoi
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -106,6 +106,7 @@ Content-Type: application/json
 
 "+1425XXXXXXX"
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Length: 695
@@ -115,12 +116,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-   > [!NOTE]
-   > Actuellement, les fonctions de démarrage d’orchestration JavaScript ne peuvent pas retourner les URI de gestion d’instance. Cette fonctionnalité sera ajoutée dans une version ultérieure.
-
 La fonction d’orchestrateur reçoit le numéro de téléphone fourni, et lui envoie immédiatement un SMS incluant un code de vérification à 4 chiffres généré de manière aléatoire &mdash; par exemple, *2168*. Ensuite, la fonction attend une réponse pendant 90 secondes.
 
-Pour répondre avec le code, vous pouvez insérer la chaîne `RaiseEventAsync` à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **sendEventUrl** référencé dans la réponse 202 ci-dessus, en remplaçant `{eventName}` par le nom de l’événement, `SmsChallengeResponse` :
+Pour répondre avec le code, vous pouvez utiliser [`RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances) à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **sendEventUrl** référencé dans la réponse 202 ci-dessus, en remplaçant`{eventName}` par le nom de l’événement, `SmsChallengeResponse` :
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -135,6 +133,7 @@ Si vous envoyez ce code avant l’expiration du minuteur, l’orchestration se t
 ```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
+
 ```
 HTTP/1.1 200 OK
 Content-Length: 144

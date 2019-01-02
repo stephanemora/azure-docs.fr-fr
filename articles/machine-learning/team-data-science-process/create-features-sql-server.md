@@ -1,6 +1,6 @@
 ---
-title: Créer des fonctionnalités pour les données dans SQL Server à l’aide de SQL et Python | Microsoft Docs
-description: Traiter les données de SQL Azure
+title: Créer des fonctionnalités dans SQL Server à l’aide de SQL et Python – Team Data Science Process
+description: Générez des fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure à l’aide de SQL et Python (étape incluse dans le processus Team Data Science Process).
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7178f368f7ede8918f316caa46234f63db6414ee
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: bf6f27b7720cf4a30aa08ca02f9150aebe564244
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445444"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135931"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Créer des fonctionnalités pour les données dans SQL Server à l’aide de SQL et Python
 Ce document montre comment générer des fonctionnalités pour des données stockées dans une machine virtuelle SQL Server sur Azure qui aident les algorithmes à apprendre efficacement à partir des données. Vous pouvez utiliser SQL ou un langage de programmation comme Python pour accomplir cette tâche. Les deux approches sont décrites ici.

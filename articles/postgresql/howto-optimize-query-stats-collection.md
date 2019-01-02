@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 8b8d1a5a16a948953838f51edca091121dc14df1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 076442d85d7f628504cca95c36f3e99f4d0c5117
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628435"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966685"
 ---
 # <a name="optimize-query-statistics-collection-in-azure-database-for-postgresql-server"></a>Optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL 
 Cet article décrit l’optimisation d’une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL.
@@ -26,9 +26,9 @@ Sur certaines charges de travail de nos clients, nous avons constaté une améli
 
 Pour définir `pg_stat_statements.track = NONE` :
 
-- Dans le portail Azure, accédez à la [page de gestion des ressources PostgreSQL et sélectionnez le panneau des paramètres du serveur.
+- Dans le portail Azure, accédez à la [page de gestion des ressources PostgreSQL et sélectionnez le panneau Paramètres du serveur](howto-configure-server-parameters-using-portal.md).
 
-![Panneau des paramètres du serveur PostgreSQL](.\media\howto-optimize-query-stats-collection\pg_stats_statements_portal.png)
+![Panneau des paramètres du serveur PostgreSQL](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
 
 - À l’aide d’[Azure CLI](howto-configure-server-parameters-using-cli.md), az postgres server configuration set `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 

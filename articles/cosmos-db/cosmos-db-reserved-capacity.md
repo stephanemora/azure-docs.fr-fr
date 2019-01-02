@@ -1,22 +1,21 @@
 ---
-title: Prépayer des ressources Azure Cosmos DB pour réaliser des économies | Microsoft Docs
+title: Optimiser le coût des ressources Azure Cosmos DB avec une capacité réservée
 description: Découvrez comment acheter une capacité réservée Azure Cosmos DB pour réduire vos coûts de calcul.
 services: cosmos-db
 author: rimman
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d389b3b7e50c83246542fd6b446827055a5a002a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a1f5db6428a892e10a3591edb7542996ad1b3319
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583464"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386806"
 ---
-# <a name="prepay-for-azure-cosmos-db-resources-with-reserved-capacity"></a>Prépayer des ressources Azure Cosmos DB avec une capacité réservée
+# <a name="optimize-cost-of-azure-cosmos-db-resources-with-reserved-capacity"></a>Optimiser le coût des ressources Azure Cosmos DB avec une capacité réservée
 
 La capacité réservée Azure Cosmos DB vous permet de faire des économies grâce au prépaiement des ressources Azure Cosmos DB sur un an ou trois ans. Avec la capacité réservée Azure Cosmos DB, vous pouvez obtenir une remise sur le débit provisionné pour les ressources Cosmos DB. Les bases de données et les conteneurs (tables, collections et graphes) sont des exemples de ressources.
 
@@ -55,10 +54,10 @@ La taille de la réservation doit être basée sur la quantité totale de débit
    |Champ  |Description  |
    |---------|---------|
    |NOM   |    Nom de la réservation. Ce champ est automatiquement renseigné avec `CosmosDB_Reservation_<timeStamp>`. Vous pouvez entrer un autre nom au moment où vous créez la réservation. Sinon, vous pouvez aussi renommer la réservation après l’avoir créée.      |
-   |Abonnement  |   Abonnement utilisé pour payer la capacité réservée Azure Cosmos DB. Les coûts initiaux sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. Le type d’abonnement doit être un des types suivants : <br/><br/>  [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (numéro d’offre : MS-AZR-0017P) : pour un abonnement Entreprise, les frais sont déduits du solde de l’engagement financier de l’inscription, ou facturés comme un dépassement. <br/><br/> [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) (numéro d’offre : MS-AZR-0003P) : pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.    |
+   |Abonnement  |   Abonnement utilisé pour payer la capacité réservée Azure Cosmos DB. Les coûts initiaux sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. Le type d’abonnement doit être un des types suivants : <br/><br/>  [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (référence de l’offre : MS-AZR-0017P) : Pour un abonnement Entreprise, les frais sont déduits du solde de l’engagement financier de l’inscription, ou facturés comme un dépassement. <br/><br/> [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) (référence de l’offre : MS-AZR-0003P) : Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.    |
    |Étendue   |   Option qui contrôle le nombre d’abonnements pouvant bénéficier de la remise sur la facturation associé à la réservation. Elle contrôle également la manière dont la réservation est appliquée à des abonnements spécifiques.   <br/><br/>  Si vous sélectionnez **Abonnement unique**, la remise de réservation est appliquée aux instances Azure Cosmos DB incluses dans l’abonnement sélectionné. <br/><br/>  Si vous sélectionnez **Partagé**, la remise de réservation est appliquée aux instances Azure Cosmos DB qui sont exécutées dans tous les abonnements de votre contexte de facturation. Le contexte de facturation est basé sur la façon dont vous vous êtes inscrit dans Azure. Pour les clients Entreprise, l’étendue partagée correspond à l’inscription et inclut tous les abonnements (à l’exception des abonnements de développement/test) au sein de l’inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.  <br/><br/> Vous pouvez changer l’étendue de la réservation après l’achat de la capacité réservée.  |
    |Type de capacité réservée   |  Débit provisionné en unités de requête.|
-   |Unités de capacité réservée  |      Quantité de débit que vous souhaitez réserver. Pour calculer cette valeur, déterminez d’abord le débit nécessaire pour toutes vos ressources Cosmos DB (par exemple, les bases de données ou les conteneurs) par région. Ensuite, multipliez cette quantité par le nombre de régions à associer à votre base de données Cosmos DB.  <br/><br/> Par exemple, si vous avez cinq régions avec chacune 1 million d’unités de requête par seconde (RU/s), sélectionnez 5 millions de RU/s comme capacité réservée à acheter.    |
+   |Unités de capacité réservée  |      Quantité de débit que vous souhaitez réserver. Pour calculer cette valeur, déterminez d’abord le débit nécessaire pour toutes vos ressources Cosmos DB (par exemple, les bases de données ou les conteneurs) par région. Ensuite, multipliez cette quantité par le nombre de régions à associer à votre base de données Cosmos DB.  <br/><br/> Par exemple :  Si vous avez cinq régions avec chacune 1 million d’unités de requête par seconde (RU/s), sélectionnez 5 millions de RU/s comme capacité réservée à acheter.    |
    |Terme  |   Une année ou trois ans.   |
 
 5. Vérifiez la remise et le prix de la réservation dans la section **Coûts**. Ce prix de réservation s’applique aux ressources Azure Cosmos DB avec débit provisionné dans toutes les régions.  
@@ -85,7 +84,7 @@ La remise de réservation est appliquée automatiquement aux ressources Azure Co
    * [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)
    * [Réservations Azure dans le cadre du programme Fournisseur de solutions cloud de l’Espace Partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

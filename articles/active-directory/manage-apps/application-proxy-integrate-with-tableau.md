@@ -12,12 +12,12 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246468"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138668"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy d’application Azure Active Directory et Tableau 
 
@@ -29,7 +29,7 @@ Le scénario décrit dans cet article suppose ce qui suit :
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) est configuré. 
 
-- Vous avez installé un [connecteur Proxy d’application](application-proxy-enable.md). 
+- Vous avez installé un [connecteur Proxy d’application](application-proxy-add-on-premises-application.md). 
 
  
 ## <a name="enabling-application-proxy-for-tableau"></a>Activation de Proxy d’application pour Tableau 
@@ -43,7 +43,7 @@ Pour publier Tableau, vous devez publier une application dans le portail Azure.
 
 Pour :
 
-- des instructions détaillées des étapes 1 à 8, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](application-proxy-publish-azure-portal.md) ; 
+- des instructions détaillées des étapes 1 à 8, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](application-proxy-add-on-premises-application.md) ; 
 - des informations sur la façon de rechercher des valeurs Tableau pour des champs Proxy d’application, consultez la documentation de Tableau.  
 
 **Pour publier votre application** : 
@@ -59,7 +59,7 @@ Pour :
 
 5. Saisissez les informations concernant votre nouvelle application dans les champs requis. Suivez les conseils ci-dessous pour les paramètres : 
 
-    - **URL interne** : cette application doit avoir une URL interne qui est l’URL Tableau proprement dite. Par exemple : `https://adventure-works.tableau.com`. 
+    - **URL interne** : Cette application doit avoir une URL interne qui est l’URL Tableau proprement dite. Par exemple : `https://adventure-works.tableau.com`. 
 
     - **Méthode de pré-authentification** : Azure Active Directory (recommandée mais pas obligatoire). 
 

@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: d3326ef4bba5649f5420c1d92b6117d44edba47b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 41c8315bab1b716f79b47afb77c6d371a757691d
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281980"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386425"
 ---
-# <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Hadoop dans HDInsight
+# <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight
 
-Les clusters HDInsight fournissent deux nœuds principaux afin d’augmenter la disponibilité et la fiabilité des services et travaux Hadoop en cours d’exécution.
+Les clusters HDInsight fournissent deux nœuds principaux afin d’augmenter la disponibilité et la fiabilité des services et travaux Apache Hadoop en cours d’exécution.
 
 Hadoop garantit de hauts niveaux de disponibilité et de fiabilité en répliquant des services et données sur plusieurs nœuds d’un cluster. Toutefois, les distributions standard de Hadoop ne comportent généralement qu’un seul nœud principal. Toute défaillance du nœud principal unique peut entraîner un arrêt de fonctionnement du cluster. HDInsight fournit deux nœuds principaux pour améliorer la disponibilité et la fiabilité de Hadoop.
 
@@ -29,23 +29,23 @@ Hadoop garantit de hauts niveaux de disponibilité et de fiabilité en répliqua
 
 Les nœuds d’un cluster HDInsight sont implémentés à l’aide de machines virtuelles Azure. Les sections ci-après décrivent les différents types de nœuds utilisés avec HDInsight. 
 
-> [!NOTE]
+> [!NOTE]  
 > Les types de nœuds utilisables varient selon le type de cluster concerné. Par exemple, un type de cluster Hadoop ne comporte aucun nœud Nimbus. Pour plus d’informations sur les nœuds utilisés par les types de clusters HDInsight, consultez la section Types de cluster du document [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 ### <a name="head-nodes"></a>Nœuds principaux
 
-Pour garantir une haute disponibilité des services Hadoop, HDInsight fournit deux nœuds principaux. Les deux nœuds principaux sont actifs et s’exécutent simultanément sur le cluster HDInsight. Certains services, par exemple HDFS et YARN, ne sont « actifs » que sur un seul nœud principal à un instant t. D'autres services tels que HiveServer2 ou Hive MetaStore sont actifs sur les deux nœuds principaux simultanément.
+Pour garantir une haute disponibilité des services Hadoop, HDInsight fournit deux nœuds principaux. Les deux nœuds principaux sont actifs et s’exécutent simultanément sur le cluster HDInsight. Certains services, par exemple Apache HDFS et Apache Hadoop YARN, ne sont « actifs » que sur un seul nœud principal à un moment donné. D'autres services tels que HiveServer2 ou Hive MetaStore sont actifs sur les deux nœuds principaux simultanément.
 
 Les nœuds principaux (et les autres nœuds dans HDInsight) possèdent une valeur numérique comme partie du nom d’hôte du nœud. Par exemple, `hn0-CLUSTERNAME` ou `hn4-CLUSTERNAME`.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > N’associez pas la valeur numérique avec l’information selon laquelle un nœud est principal ou secondaire. La valeur numérique est uniquement présente afin de fournir un nom unique à chaque nœud.
 
 ### <a name="nimbus-nodes"></a>Nœuds Nimbus
 
-Des nœuds Nimbus sont disponibles avec les clusters Storm. Les nœuds Nimbus offrent des fonctionnalités comparables au service Hadoop JobTracker en distribuant et en surveillant le traitement sur l’ensemble des nœuds de travail. HDInsight fournit deux nœuds Nimbus pour les clusters Storm
+Les nœuds Nimbus sont disponibles avec les clusters Apache Storm. Les nœuds Nimbus offrent des fonctionnalités comparables au service Hadoop JobTracker en distribuant et en surveillant le traitement sur l’ensemble des nœuds de travail. HDInsight fournit deux nœuds Nimbus pour les clusters Storm
 
-### <a name="zookeeper-nodes"></a>Nœuds Zookeeper
+### <a name="apache-zookeeper-nodes"></a>Nœuds Apache ZooKeeper
 
 Des nœuds [ZooKeeper](http://zookeeper.apache.org/) sont utilisés pour l’élection de leader des services maîtres sur nœuds principaux. Ils sont également utilisés pour s’assurer que les services, les nœuds de données (worker) et les passerelles sachent sur quel nœud principal un service maître est actif. Par défaut, HDInsight fournit trois nœuds ZooKeeper.
 
@@ -63,7 +63,7 @@ Pour plus d’informations sur l’utilisation d’un nœud de périphérie avec
 
 ## <a name="accessing-the-nodes"></a>Accès aux nœuds
 
-L’accès au cluster par Internet est fourni par le biais d’une passerelle publique. L’accès est limité à la connexion aux nœuds principaux et (s’il en existe un) au nœud de périmètre. L’accès aux services qui s’exécutent sur les nœuds principaux n’est pas affecté par la présence de plusieurs nœuds principaux. La passerelle publique achemine les demandes vers le nœud principal qui héberge le service demandé. Par exemple, si Ambari est actuellement hébergé sur le nœud principal secondaire, la passerelle achemine les demandes entrantes pour Ambari vers ce nœud.
+L’accès au cluster par Internet est fourni par le biais d’une passerelle publique. L’accès est limité à la connexion aux nœuds principaux et (s’il en existe un) au nœud de périmètre. L’accès aux services qui s’exécutent sur les nœuds principaux n’est pas affecté par la présence de plusieurs nœuds principaux. La passerelle publique achemine les demandes vers le nœud principal qui héberge le service demandé. Par exemple, si Apache Ambari est hébergé sur le nœud principal secondaire, la passerelle route les demandes entrantes pour Ambari vers ce nœud.
 
 L’accès via la passerelle publique est limité aux ports 443 (HTTPS), 22 et 23.
 
@@ -79,7 +79,7 @@ Pour plus d’informations sur l’utilisation de SSH, consultez le document [Ut
 
 Les nœuds présents dans un cluster HDInsight sont dotés d’une adresse IP interne et d’un nom de domaine complet uniquement accessibles à partir du cluster. Lorsque vous accédez à des services sur le cluster à l'aide de l'adresse IP ou du nom de domaine complet interne, vous devez utiliser Ambari pour vérifier l'adresse IP ou le nom de domaine complet à utiliser.
 
-Par exemple, le service Oozie peut s'exécuter uniquement sur un nœud principal et l'utilisation de la commande `oozie` à partir d'une session SSH requiert l'URL du service. Cette URL peut être extraite d’Ambari avec la commande suivante :
+Par exemple, le service Apache Oozie peut s’exécuter uniquement sur un nœud principal, et l’utilisation de la commande `oozie` à partir d’une session SSH nécessite l’URL du service. Cette URL peut être extraite d’Ambari avec la commande suivante :
 
     curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
@@ -87,7 +87,7 @@ Cette commande renvoie une valeur qui se présente comme la commande suivante, q
 
     "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
-Pour plus d’informations sur l’API REST Ambari, consultez la page [Surveiller et gérer HDInsight avec l’API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+Pour plus d’informations sur l’API REST Ambari, consultez [Surveiller et gérer HDInsight avec l’API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ### <a name="accessing-other-node-types"></a>Accès à d’autres types de nœuds
 
@@ -95,9 +95,9 @@ Vous pouvez vous connecter aux nœuds qui ne sont pas directement accessibles su
 
 * **SSH** : une fois connecté à un nœud principal au moyen de SSH, vous pouvez utiliser SSH à partir de ce nœud principal pour vous connecter à d’autres nœuds du cluster. Pour plus d’informations, consultez le document [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Tunnel SSH** : si vous avez besoin d’accéder à un service web hébergé sur l’un des nœuds qui ne sont pas exposés à Internet, vous devez utiliser un tunnel SSH. Pour plus d’informations, consultez le document [Utiliser un tunnel SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
+* **Tunnel SSH** : si vous avez besoin d’accéder à un service web hébergé sur un des nœuds qui n’est pas exposé à Internet, vous devez utiliser un tunnel SSH. Pour plus d’informations, consultez le document [Utiliser un tunnel SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-* **Réseau virtuel Azure**: si votre cluster HDInsight fait partie intégrante d’un réseau virtuel Azure, toutes les ressources du même réseau virtuel peuvent accéder directement à tous les nœuds du cluster. Pour plus d’informations, consultez le document [Étendre HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
+* **Réseau virtuel Azure** : si votre cluster HDInsight fait partie intégrante d’un réseau virtuel Azure, toutes les ressources du même réseau virtuel peuvent accéder directement à tous les nœuds du cluster. Pour plus d’informations, consultez le document [Étendre HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="how-to-check-on-a-service-status"></a>Comment contrôler  l'état d'un service
 
@@ -121,7 +121,7 @@ Sélectionner le lien de l’un des nœuds principaux permet d’afficher les se
 
 ![État du composant](./media/hdinsight-high-availability-linux/nodeservices.png)
 
-Pour plus d’informations sur Ambari, consultez la page [Surveiller et gérer HDInsight avec l’interface utilisateur web d’Ambari](hdinsight-hadoop-manage-ambari.md).
+Pour plus d’informations sur l’utilisation d’Ambari, consultez [Surveiller et gérer HDInsight avec l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ### <a name="ambari-rest-api"></a>API Ambari REST
 
@@ -158,7 +158,7 @@ Si vous ne connaissez pas les services installés sur le cluster, vous pouvez ut
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 
-Pour plus d’informations sur l’API REST Ambari, consultez la page [Surveiller et gérer HDInsight avec l’API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+Pour plus d’informations sur l’API REST Ambari, consultez [Surveiller et gérer HDInsight avec l’API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 #### <a name="service-components"></a>Composants du service
 
@@ -191,12 +191,12 @@ Une fois connecté, vous voyez apparaître une invite `sftp>` . À partir de cet
 
 Pour obtenir la liste des commandes disponibles, entrez `help` au niveau de l’invite `sftp>`.
 
-> [!NOTE]
+> [!NOTE]  
 > Il existe également des interfaces graphiques qui vous permettent de visualiser le système de fichiers lorsque vous êtes connecté à l’aide du protocole SFTP. Par exemple, [MobaXTerm](http://mobaxterm.mobatek.net/) vous offre la possibilité de parcourir le système de fichiers au moyen d’une interface semblable à l’Explorateur Windows.
 
 ### <a name="ambari"></a>Ambari
 
-> [!NOTE]
+> [!NOTE]  
 > Pour accéder aux fichiers journaux avec Ambari, vous devez utiliser un tunnel SSH. Les interfaces web des différents services ne sont pas exposée publiquement sur Internet. Pour plus d’informations sur l’utilisation du tunnel SSH, voir le document [Utilisation d’un Tunneling SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
 Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vous souhaitez afficher les journaux (par exemple, YARN). Utilisez ensuite les **liens rapides** pour sélectionner le nœud principal pour lequel vous souhaitez afficher les journaux.
@@ -209,22 +209,22 @@ La taille d’un nœud n’est sélectionnable que lors de la création du clust
 
 Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Lisez les informations suivantes pour savoir comment définir la taille dans le [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et [Azure Classic CLI][azure-cli] :
 
-* **Portail Azure** : à la création d’un cluster, vous pouvez définir la taille des nœuds utilisés par le cluster :
+* **Portail Azure**: lors de la création d’un cluster, vous pouvez définir la taille des nœuds utilisés par le cluster :
 
     ![Image de l'Assistant de création de cluster avec sélection de taille de nœud](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure Classic CLI** : quand vous utilisez la commande `azure hdinsight cluster create`, vous pouvez définir la taille des nœuds principaux, de travail et ZooKeeper en utilisant les paramètres `--headNodeSize`, `--workerNodeSize` et `--zookeeperNodeSize`.
+* **Azure CLI Classic** : lorsque vous utilisez la commande `azure hdinsight cluster create`, vous pouvez définir la taille des nœuds principaux, worker et ZooKeeper en utilisant les paramètres `--headNodeSize`, `--workerNodeSize` et `--zookeeperNodeSize`.
 
-* **Azure PowerShell** : lorsque vous utilisez l’applet de commande `New-AzureRmHDInsightCluster`, vous pouvez définir la taille des nœuds principaux, de travail et ZooKeeper en utilisant les paramètres `-HeadNodeVMSize`, `-WorkerNodeSize` et `-ZookeeperNodeSize`.
+* **Azure PowerShell**: lorsque vous utilisez l’applet de commande `New-AzureRmHDInsightCluster`, vous pouvez définir la taille des nœuds principaux, worker et ZooKeeper en utilisant les paramètres `-HeadNodeVMSize`, `-WorkerNodeSize` et `-ZookeeperNodeSize`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Utilisez les liens suivants pour en savoir plus sur les éléments mentionnés dans ce document.
 
-* [Référence REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
+* [Informations de référence sur REST Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Installer et configurer Azure Classic CLI](../cli-install-nodejs.md)
 * [Installation et configuration d'Azure PowerShell](/powershell/azure/overview)
-* [Gestion de HDInsight à l'aide d'Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Gestion de HDInsight avec Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Approvisionnement de clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/

@@ -1,5 +1,5 @@
 ---
-title: Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service | Microsoft Docs
+title: Utilisation avancée de l’authentification et de l’autorisation - Azure App Service | Microsoft Docs
 description: Découvrez comment personnaliser les paramètres d’authentification et d’autorisation dans App Service, mais aussi obtenir des revendications d’utilisateur et des jetons distincts.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685325"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409749"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -26,13 +27,13 @@ Cet article vous explique comment personnaliser les [paramètres d’authentific
 
 Pour commencer rapidement, consultez l’un des didacticiels suivants :
 
-* [Didacticiel : authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Didacticiel : authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](containers/tutorial-auth-aad.md)
-* [Comment configurer votre application pour utiliser une connexion Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Comment configurer votre application pour utiliser une connexion Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Comment configurer votre application pour utiliser une connexion Google](app-service-mobile-how-to-configure-google-authentication.md)
-* [Comment configurer votre application pour utiliser une connexion par compte Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Comment configurer votre application pour utiliser une connexion Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](containers/tutorial-auth-aad.md)
+* [Comment configurer votre application pour utiliser une connexion Azure Active Directory](configure-authentication-provider-aad.md)
+* [Comment configurer votre application pour utiliser une connexion Facebook](configure-authentication-provider-facebook.md)
+* [Comment configurer votre application pour utiliser une connexion Google](configure-authentication-provider-google.md)
+* [Comment configurer votre application pour utiliser une connexion par compte Microsoft](configure-authentication-provider-microsoft.md)
+* [Comment configurer votre application pour utiliser une connexion Twitter](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Utiliser plusieurs fournisseurs de connexion
 
@@ -179,11 +180,11 @@ Votre application peut également obtenir des détails supplémentaires sur l’
 
 Lorsque le jeton d’accès de votre fournisseur a expiré, vous devez réauthentifier l’utilisateur. Vous pouvez éviter l’expiration du jeton en effectuant un appel `GET` au point de terminaison `/.auth/refresh` de votre application. Lorsqu’il est appelé, App Service actualise automatiquement les jetons d’accès dans le magasin de jetons pour l’utilisateur authentifié. Les demandes de jeton suivantes effectuées via le code de votre application permettent d’obtenir les jetons actualisés. Toutefois, pour que l’actualisation des jetons soit effective, le magasin de jetons doit contenir les [jetons d’actualisation](https://auth0.com/learn/refresh-tokens/) pour votre fournisseur. La procédure pour obtenir des jetons d’actualisation est fournie par chaque fournisseur. La liste suivante en fournit toutefois un bref résumé :
 
-- **Google** : ajouter un paramètre de chaîne de requête `access_type=offline` à votre appel d’API `/.auth/login/google`. Si vous utilisez le kit de développement logiciel Mobile Apps, vous pouvez ajouter le paramètre à l’une des surcharges `LogicAsync` (voir [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Jetons d’actualisation Google)).
-- **Facebook** : ne fournit pas de jetons d’actualisation. Les jetons de longue durée expirent au bout de 60 jours (voir [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiration et prolongation des jetons d’accès Facebook)).
-- **Twitter** : les jetons d’accès n’expirent pas (voir [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq) (FAQ sur l’authentification OAuth Twitter)).
-- **Compte Microsoft** : au moment de [configurer les paramètres d’authentification de compte Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), sélectionnez l’étendue `wl.offline_access`.
-- **Azure Active Directory** : dans [https://resources.azure.com](https://resources.azure.com), procédez comme suit :
+- **Google** : ajouter un paramètre de chaîne de requête `access_type=offline` à votre appel d’API `/.auth/login/google`. Si vous utilisez le kit de développement logiciel Mobile Apps, vous pouvez ajouter le paramètre à l’une des surcharges `LogicAsync` (voir [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Jetons d’actualisation Google)).
+- **Facebook** : ne fournit pas de jetons d’actualisation. Les jetons de longue durée expirent au bout de 60 jours (voir [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiration et prolongation des jetons d’accès Facebook)).
+- **Twitter** : les jetons d’accès n’expirent pas (voir les [questions fréquentes sur Twitter OAuth](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Compte Microsoft** : au moment de [configurer les paramètres d’authentification de compte Microsoft](configure-authentication-provider-microsoft.md), sélectionnez l’étendue `wl.offline_access`.
+- **Azure Active Directory** : Dans [https://resources.azure.com](https://resources.azure.com), effectuez les étapes suivantes :
     1. En haut de la page, sélectionnez **Lecture/écriture**.
     1. Dans le navigateur de gauche, accédez à **abonnements** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **fournisseurs** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
     1. Cliquez sur **Modifier**.
@@ -242,5 +243,5 @@ Cliquez sur **Modifier**, modifiez la propriété suivante, puis cliquez sur **P
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout (Linux)](containers/tutorial-auth-aad.md)
+> [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout (Linux)](containers/tutorial-auth-aad.md)

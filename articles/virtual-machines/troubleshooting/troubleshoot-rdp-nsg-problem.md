@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284725"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954610"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Impossible de se connecter à distance à une machine virtuelle car le port RDP n’est pas activé dans le NSG
 
@@ -26,7 +26,7 @@ Cet article explique comment résoudre un problème dans lequel il est impossibl
 
 
 > [!NOTE] 
-> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Resource Manager et Classique](../../azure-resource-manager/resource-manager-deployment-model.md). Nous vous recommandons d’utiliser le modèle de déploiement Resource Manager pour les nouveaux déploiements, plutôt que le modèle de déploiement classique. 
+> Azure comporte deux modèles de déploiement pour la création et l’utilisation de ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Nous vous recommandons d’utiliser le modèle de déploiement Resource Manager pour les nouveaux déploiements, plutôt que le modèle de déploiement classique. 
 
 ## <a name="symptom"></a>Symptôme
 
@@ -40,16 +40,16 @@ Pour activer le port RDP dans un NSG, procédez comme suit :
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans **Machines virtuelles**, sélectionnez la machine virtuelle qui pose problème. 
 3. Sous **Paramètres**, sélectionnez **Mise en réseau**. 
-4. Dans **Règles des port d’entrée**, vérifiez que le port du protocole RDP est correctement défini. Voici un exemple de configuration : 
+4. Dans **Règles des ports d’entrée**, vérifiez que le port du protocole RDP est correctement défini. Voici un exemple de configuration : 
 
-    **Priorité** : 300 </br>
-    **Port** : 3389 </br>
-    **Nom** : Port_3389 </br>
-    **Port** : 3389 </br>
-    **Protocole** : TCP </br>
-    **Source** : Toutes </br>
-    **Destinations** : Toutes </br>
-    **Action** : Autoriser </br>
+    **Priorité** : 300 </br>
+    **Port** : 3389 </br>
+    **Nom** : Port_3389 </br>
+    **Port** : 3389 </br>
+    **Protocole** : TCP </br>
+    **Source** : Quelconque </br>
+    **Destinations** : Quelconque </br>
+    **Action** : AUTORISER </br>
 
 Si vous spécifiez l’adresse IP source, ce paramètre autorise uniquement le trafic provenant d’une adresse IP ou plage d’adresses IP spécifique pour se connecter à la machine virtuelle. Vérifiez que l’ordinateur que vous utilisez pour démarrer la session RDP est dans la plage.
 

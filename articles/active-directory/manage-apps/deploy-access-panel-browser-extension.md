@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a21a21f40e731e8bc1d20e01d3671c372df65d84
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622038"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877474"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe
 Ce didacticiel montre comment utiliser la stratégie de groupe pour installer à distance l’extension Volet d’accès pour Internet Explorer sur les ordinateurs de vos utilisateurs. Cette extension est requise pour les utilisateurs d’Internet Explorer qui ont besoin de se connecter à des applications configurées à l’aide de l’ [authentification unique par mot de passe](what-is-single-sign-on.md#password-based-sso).
@@ -31,9 +31,9 @@ L’extension Volet d’accès est également disponible pour [Chrome](https://g
 
 ## <a name="prerequisites"></a>Prérequis
 * Vous avez configuré les [services de domaine Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)et vous avez joint les ordinateurs de vos utilisateurs à votre domaine.
-* Vous devez disposer de l’autorisation « Modifier les paramètres » pour modifier l’objet de stratégie de groupe (GPO). Par défaut, les membres des groupes de sécurité suivants jouissent de cette autorisation : administrateurs de domaine, administrateurs d’entreprise et propriétaires créateurs de la stratégie de groupe. [En savoir plus.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* Vous devez disposer de l’autorisation « Modifier les paramètres » pour modifier l’objet de stratégie de groupe (GPO). Par défaut, les membres des groupes de sécurité suivants ont cette autorisation : administrateurs de domaine, administrateurs d’entreprise et propriétaires de créateur de stratégie de groupe. [En savoir plus.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
-## <a name="step-1-create-the-distribution-point"></a>Étape 1 : Créer le point de distribution
+## <a name="step-1-create-the-distribution-point"></a>Étape 1 : Créer le point de distribution
 Tout d’abord, vous devez placer le package d’installation sur un emplacement réseau accessible à tous les ordinateurs sur lesquels vous souhaitez installer l’extension à distance. Pour ce faire, procédez comme suit :
 
 1. Connectez-vous au serveur en tant qu’administrateur.
@@ -44,13 +44,13 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
    
     ![Ouvrir Services de fichiers et de stockage](./media/deploy-access-panel-browser-extension/shares.png)
 4. Terminez l’ **Assistant Nouveau partage** et définissez des autorisations pour garantir l’accès à partir des ordinateurs de vos utilisateurs. [En savoir plus sur les partages.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Téléchargez le package Microsoft Windows Installer (fichier .msi) suivant : [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi) (Panel Extension.msi)
+5. Téléchargez le package Microsoft Windows Installer (fichier .msi) suivant : [Extension.msi de panneau d’accès](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Copiez le package d’installation vers l’emplacement souhaité sur le partage.
    
     ![Copiez le fichier .msi dans le partage.](./media/deploy-access-panel-browser-extension/copy-package.png)
 7. Vérifiez que vos ordinateurs client sont en mesure d’accéder au package d’installation à partir du partage. 
 
-## <a name="step-2-create-the-group-policy-object"></a>Étape 2 : Créer l’objet de stratégie de groupe
+## <a name="step-2-create-the-group-policy-object"></a>Étape 2 : Créer l’objet de stratégie de groupe
 1. Ouvrez une session sur le serveur qui héberge votre installation AD DS (services de domaine Active Directory).
 2. Dans le Gestionnaire de serveur, accédez à **Outils** > **Gestion des stratégies de groupe**.
    
@@ -71,7 +71,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
    
     ![Modifier le nouvel objet GPO](./media/deploy-access-panel-browser-extension/edit-gpo.png)
 
-## <a name="step-3-assign-the-installation-package"></a>Étape 3 : Assigner le package d’installation
+## <a name="step-3-assign-the-installation-package"></a>Étape 3 : Assigner le package d’installation
 1. Déterminez si vous souhaitez déployer l’extension selon la **Configuration ordinateur** ou la **Configuration utilisateur**. Lorsque vous utilisez la [Configuration ordinateur](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), l’extension est installée sur l’ordinateur, quels que soient les utilisateurs qui s’y connectent. Avec la [Configuration utilisateur](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), l’extension est installée pour les utilisateurs, quels que soient les ordinateurs auxquels ils se connectent.
 2. Dans le volet gauche de la fenêtre **Éditeur de gestion des stratégies de groupe** , accédez à l’un des chemins de dossier suivants, selon le type de configuration que vous avez choisi :
    
@@ -80,7 +80,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 3. Cliquez avec le bouton droit sur **Installation de logiciel**, puis sélectionnez **Nouveau** > **Package...**
    
     ![Créer un package d’installation de logiciel](./media/deploy-access-panel-browser-extension/new-package.png)
-4. Accédez au dossier partagé qui contient le package d’installation dans [Étape 1 : Créer le point de distribution](#step-1-create-the-distribution-point), sélectionnez le fichier .msi, puis cliquez sur **Ouvrir**.
+4. Accédez au dossier partagé qui contient le package d’installation de l’[Étape 1 : Créer le point de Distribution](#step-1-create-the-distribution-point), sélectionnez le fichier .msi, puis cliquez sur **Ouvrir**.
    
    > [!IMPORTANT]
    > Si le partage se trouve sur le même serveur, vérifiez que vous accédez au fichier .msi via le chemin d’accès du fichier réseau, et non via le chemin d’accès du fichier local.
@@ -94,10 +94,10 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 
 L’extension est désormais déployée sur l’UO que vous avez sélectionnée. [En savoir plus sur l’installation des logiciels de la stratégie de groupe.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 
-## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Étape 4 : Activer automatiquement l’extension pour Internet Explorer
+## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Étape 4 : Activer automatiquement l’extension pour Internet Explorer
 Outre l’exécution du programme d’installation, toutes les extensions pour Internet Explorer doivent être explicitement activées avant de pouvoir être utilisées. Suivez les étapes ci-dessous pour activer l’extension Volet d’accès à l’aide de la stratégie de groupe :
 
-1. Dans la fenêtre **Éditeur de gestion des stratégies de groupe** , accédez à l’un des chemins suivants, selon le type de configuration que vous avez choisi dans [Étape 3 : Assigner le package d’installation](#step-3-assign-the-installation-package):
+1. Dans la fenêtre **Éditeur de gestion des stratégies de groupe** , accédez à l’un des chemins suivants, selon le type de configuration que vous avez choisi à l’[Étape 3 : Assigner le package d’installation](#step-3-assign-the-installation-package) :
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
@@ -117,7 +117,7 @@ Outre l’exécution du programme d’installation, toutes les extensions pour I
 
 L’extension doit désormais être activée pour les ordinateurs dans l’UO sélectionnée. [En savoir plus sur l’utilisation de la stratégie de groupe pour activer ou désactiver les modules complémentaires d’Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
-## <a name="step-5-optional-disable-remember-password-prompt"></a>Étape 5 (Facultatif) : Désactiver l’invite « Mémoriser le mot de passe »
+## <a name="step-5-optional-disable-remember-password-prompt"></a>Étape 5 (facultatif) : Désactiver l’invite « Mémoriser le mot de passe »
 Lorsque les utilisateurs se connectent à des sites Web à l'aide de l'Extension Volet d'accès, Internet Explorer peut afficher le message suivant : « Souhaitez-vous enregistrer votre mot de passe ? »
 
 ![Invite de mot de passe](./media/deploy-access-panel-browser-extension/remember-password-prompt.png)
@@ -148,10 +148,10 @@ Les utilisateurs ne seront plus en mesure d’enregistrer leurs informations d'i
 > 
 > 
 
-## <a name="step-6-testing-the-deployment"></a>Étape 6 : tester le déploiement
+## <a name="step-6-testing-the-deployment"></a>Étape 6 : Test du déploiement
 Suivez les étapes ci-dessous pour vérifier si le déploiement de l’extension a réussi :
 
-1. Si vous avez effectué le déploiement à l’aide de la **Configuration ordinateur**, connectez-vous à un ordinateur client appartenant à l’UO que vous avez sélectionnée dans [Étape 2 : Créer l’objet de stratégie de groupe](#step-2-create-the-group-policy-object). Si vous avez effectué le déploiement à l’aide de la **Configuration utilisateur**, veillez à vous connecter en tant qu’utilisateur appartenant à cette UO.
+1. Si vous avez effectué le déploiement à l’aide de la **Configuration ordinateur**, connectez-vous à un ordinateur client appartenant à l’UO que vous avez sélectionnée dans [Étape 2 : Créer l’objet de stratégie de groupe](#step-2-create-the-group-policy-object). Si vous avez effectué le déploiement à l’aide de la **Configuration utilisateur**, veillez à vous connecter en tant qu’utilisateur appartenant à cette UO.
 2. Les modifications de la stratégie de groupe peuvent nécessiter plusieurs connexions pour s’appliquer sur cet ordinateur. Pour forcer la mise à jour, ouvrez une fenêtre **d’invite de commande** et exécutez la commande suivante : `gpupdate /force`
 3. Vous devez redémarrer l’ordinateur pour lancer l’installation. Le démarrage peut prendre beaucoup plus de temps que d’habitude lors de l’installation de l’extension.
 4. Après avoir redémarré, ouvrez **Internet Explorer**. Dans le coin supérieur droit de la fenêtre, cliquez sur **Outils** (l’icône d’engrenage), puis sélectionnez **Gérer les modules complémentaires**.

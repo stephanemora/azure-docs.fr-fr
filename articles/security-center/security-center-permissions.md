@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: de9186faa9c6228f1938a94016ef449ce8bb1899
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313437"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335929"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -30,7 +30,7 @@ Security Center évalue la configuration de vos ressources pour identifier les v
 Outre ces rôles, il existe deux rôles propres à Security Center :
 
 * **Lecteur Sécurité** : l’utilisateur ayant ce rôle dispose de droits d’affichage dans Security Center. Il peut afficher les recommandations, les alertes, la stratégie de sécurité actuelle et les états de sécurité, mais ne peut pas apporter de modifications.
-* **Administrateur de la sécurité** : l’utilisateur ayant ce rôle dispose des mêmes droits que le lecteur Sécurité. Il peut en outre modifier la stratégie de sécurité actuelle, ainsi qu’ignorer les alertes et les recommandations.
+* **Administrateur de la sécurité** : l’utilisateur ayant ce rôle dispose des mêmes droits que le Lecteur Sécurité. Il peut en outre modifier la stratégie de sécurité et ignorer les alertes et les recommandations.
 
 > [!NOTE]
 > Les rôles de sécurité que sont le lecteur Sécurité et l’administrateur de la sécurité ont uniquement accès à Security Center. Les rôles de sécurité n’ont pas accès aux autres services d’Azure (par exemple, Stockage, Web et mobile ou Internet des objets).
@@ -59,7 +59,7 @@ Le tableau suivant affiche les rôles et les actions autorisées dans Security C
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a expliqué comment Security Center utilise le contrôle d’accès en fonction du rôle pour affecter des autorisations aux utilisateurs et a identifié les actions autorisées pour chaque rôle. Maintenant que vous êtes familiarisé avec les affectations de rôles nécessaires pour surveiller l’état de sécurité de votre abonnement, modifier les stratégies de sécurité et appliquer les recommandations, découvrez comment :
 
-- [Définir des stratégies de sécurité dans Security Center](security-center-azure-policy.md)
+- [Définir des stratégies de sécurité dans Security Center](tutorial-security-policy.md)
 - [Gérer les recommandations de sécurité dans Security Center](security-center-recommendations.md)
 - [Surveiller l’intégrité de la sécurité de vos ressources Azure](security-center-monitoring.md)
 - [Gérer et répondre aux alertes de sécurité dans Security Center](security-center-managing-and-responding-alerts.md)

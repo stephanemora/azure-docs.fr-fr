@@ -1,21 +1,22 @@
 ---
-title: Énoncés dans les applications LUIS
-titleSuffix: Azure Cognitive Services
+title: Exemples de bons énoncés
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Les énoncés sont des entrées de l’utilisateur que votre application doit interpréter. Collectez des phrases dont vous pensez que les utilisateurs les entreront. Incluez des énoncés de sens identique, mais construits différemment sur le plan de la longueur et du positionnement des mots.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 4f6bb367e706771707b65445c91619d439257207
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638069"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014835"
 ---
 # <a name="utterances-in-luis"></a>Énoncés dans LUIS
 
@@ -44,7 +45,7 @@ Prenez ces exemples d’énoncés :
 |Je souhaite obtenir un ordinateur, comment faire ?|
 |Quand puis-je avoir un ordinateur ?| 
 
-Ici, le terme clé, « computer » (ordinateur), n’est pas varié. Il peut désigner un ordinateur de bureau, un ordinateur portable, une station de travail, voir une simple machine. LUIS déduit intelligemment des synonymes du contexte mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
+Ici, le terme clé, « ordinateur », n’est pas varié. Il peut désigner un ordinateur de bureau, un ordinateur portable, une station de travail ou même une simple machine. LUIS déduit intelligemment des synonymes du contexte mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
 
 ## <a name="example-utterances-in-each-intent"></a>Exemples d’énoncés dans chaque intention
 Chaque intention doit avoir des exemples d’énoncés, au minimum entre 10 et 15. Si vous avez une intention dépourvue d’exemple d’énoncé, vous ne pouvez pas former LUIS. Si vous avez une intention avec un seul exemple d’énoncé ou très peu d’exemples, LUIS ne prédira pas l’intention avec précision. 
@@ -55,6 +56,10 @@ Dans chaque itération du modèle, n’ajoutez pas une grande quantité d’éno
 LUIS génère des modèles efficaces avec des énoncés choisis avec soin. L’ajout d’un trop grand nombre d’énoncés n’est pas productif, car cela introduit de la confusion.  
 
 Il est préférable de commencer avec quelques énoncés, puis d’[examiner les énoncés de point de terminaison](luis-how-to-review-endoint-utt.md) pour vérifier le bon fonctionnement de la prédiction d’intention et de l’extraction entité.
+
+## <a name="punctuation-marks"></a>Signes de ponctuation
+
+Par défaut, LUIS n’ignore pas les marques de ponctuation, car certaines applications clientes peuvent leur accorder une importance. Veillez à ce que vos exemples d’énoncés soient à la fois avec et sans signe de ponctuation afin que les deux styles retournent les mêmes scores relatifs. Si la ponctuation n’a aucune signification spécifique dans votre application cliente, vous pouvez [ignorer les signes de ponctuation](#ignoring-words-and-punctuation) à l’aide de modèles. 
 
 ## <a name="ignoring-words-and-punctuation"></a>Ignorer les mots et les signes de ponctuation
 Si vous souhaitez ignorer des mots ou des signes de ponctuation spécifiques dans l’exemple d’énoncé, utilisez un [modèle](luis-concept-patterns.md#pattern-syntax) avec la syntaxe _ignore_. 
@@ -69,7 +74,7 @@ Les développeurs doivent commencer à tester leur application LUIS avec un traf
 ## <a name="review-utterances"></a>Examen des énoncés
 Une fois votre modèle formé et publié, et après réception des requêtes de [point de terminaison](luis-glossary.md#endpoint), [examinez les énoncés](luis-how-to-review-endoint-utt.md) suggérés par LUIS. LUIS sélectionne sur le point de terminaison les énoncés qui présentent des scores bas en lien avec l’intention ou l’entité. 
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 Pour en savoir plus, voir [Meilleures pratiques](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

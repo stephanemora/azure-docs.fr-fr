@@ -1,6 +1,6 @@
 ---
-title: Déployer des modules pour Azure IoT Edge | Microsoft Docs
-description: En savoir plus sur la façon dont les modules sont déployés sur les appareils périphériques
+title: Déploiement automatique pour les groupes d’appareils - Azure IoT Edge | Microsoft Docs
+description: Utiliser des déploiements automatiques dans Azure IoT Edge pour gérer des groupes d’appareils en fonction d’étiquettes partagées
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584840"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100104"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Comprendre les déploiements automatiques IoT Edge pour un seul ou de nombreux appareils
 

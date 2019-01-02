@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300453"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720131"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Créer, répertorier, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur à l’aide du Portail Azure
 
@@ -41,10 +41,10 @@ Pour créer une identité managée affectée par l’utilisateur, votre compte a
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en utilisant un compte associé à l’abonnement Azure pour créer l’identité managée affectée par l’utilisateur.
 2. Dans la zone de recherche, saisissez *Identités managées*, puis sous **Services**, cliquez sur **Identités managées**.
 3. Cliquez sur **Ajouter** et entrez des valeurs dans les champs suivants dans le volet d’identité **Créer une identité managée affectée par l’utilisateur** :
-   - **Nom de la ressource** : il s’agit du nom de votre identité managée affectée par l’utilisateur, par exemple UAI1.
-   - **Abonnement** : sélectionnez l’abonnement sous lequel créer l’identité managée affectée par l’utilisateur.
-   - **Groupe de ressources** : créez un groupe de ressources pour contenir votre identité managée affectée par l’utilisateur, ou choisissez **Utiliser l’existant** pour créer l’identité managée affectée par l’utilisateur dans un groupe de ressources existant.
-   - **Emplacement** : choisissez un emplacement où déployer l’identité managée affectée par l’utilisateur, par exemple **USA Ouest**.
+   - **Nom de la ressource** : Il s’agit du nom de votre identité managée affectée par l’utilisateur, par exemple UAI1.
+   - **Abonnement**: Sélectionnez l’abonnement sous lequel créer l’identité managée affectée par l’utilisateur.
+   - **Groupe de ressources** : Créez un groupe de ressources pour contenir votre identité managée affectée par l’utilisateur, ou choisissez **Utiliser l’existant** pour créer l’identité managée affectée par l’utilisateur dans un groupe de ressources existant.
+   - **Emplacement** : Choisissez un emplacement où déployer l’identité managée affectée par l’utilisateur, par exemple **USA Ouest**.
 4. Cliquez sur **Créer**.
 
 ![Créer une identité managée attribuée par l’utilisateur](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
@@ -69,18 +69,18 @@ Pour supprimer une identité managée affectée par l’utilisateur, votre compt
 
 ![Supprimer une identité managée affectée par l’utilisateur](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Affecter un rôle à une identité managée affectée par l’utilisateur
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Affecter un rôle à une identité managée affectée par l’utilisateur 
 
 Pour affecter un rôle à une identité managée affectée par l’utilisateur, votre compte a besoin de l’affectation de rôle [Administrateur de l’accès utilisateur](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en utilisant un compte associé à l’abonnement Azure afin de répertorier les identités managées affectées par l’utilisateur.
 2. Dans la zone de recherche, saisissez *Identités managées*, puis sous Services, cliquez sur **Identités managées**.
 3. Une liste d’identités managées affectées par l’utilisateur pour votre abonnement est retournée.  Sélectionnez l’identité managée affectée par l’utilisateur à laquelle vous souhaitez affecter un rôle.
-4. Sélectionnez **Contrôle d’accès (IAM)**, puis sélectionnez **Ajouter**.
+4. Sélectionnez **Contrôle d’accès (IAM)**, puis **Ajouter une attribution de rôle**.
 
    ![Début d’identité managée affectée par l’utilisateur](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. Dans le panneau Ajouter des autorisations, configurez les valeurs ci-après, puis cliquez sur **Enregistrer** :
+5. Dans le panneau Ajouter une attribution de rôle, configurez les valeurs suivantes, puis cliquez sur **Enregistrer** :
    - **Rôle** : rôle à affecter
    - **Attribuer l’accès à** : ressource à laquelle affecter l’identité managée affectée par l’utilisateur
    - **Sélectionner** : membre auquel affecter l’accès

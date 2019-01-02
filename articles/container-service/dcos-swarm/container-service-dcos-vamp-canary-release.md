@@ -1,5 +1,5 @@
 ---
-title: Contrôler la validité d’une mise en production avec Vamp sur un cluster DC/OS Azure
+title: (DÉPRÉCIÉ) Contrôler la validité d’une mise en production avec Vamp sur un cluster DC/OS Azure
 description: Comment utiliser Vamp pour contrôler la validité de services de mise en production et appliquer un filtrage de trafic intelligent sur un cluster de contrôleur de domaine/système d’exploitation Azure Container Service
 services: container-service
 author: gggina
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975854"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002069"
 ---
-# <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Contrôler la validité de microservices de mise en production avec Vamp sur un cluster de contrôleur de domaine/système d’exploitation Azure Container Service
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(DÉPRÉCIÉ) Contrôler la validité de microservices de mise en production avec Vamp sur un cluster DC/OS Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Dans cette procédure pas à pas, nous configurons Vamp sur Azure Container Service avec un cluster de contrôleur de domaine/système d’exploitation. Nous contrôlons la validité de la mise en production du service de démonstration Vamp « sava », puis résolvons une incompatibilité du service avec Firefox en appliquant un filtrage de trafic intelligent. 
 
@@ -198,7 +200,7 @@ Pour fusionner le nouveau service sava 1.1 avec le déploiement en cours d’ex�
 
 1. Dans l’interface utilisateur de Vamp, cliquez sur **Schémas**.
 
-2. Cliquez sur **Ajouter**, puis collez dans le fichier YAML de schéma suivant : ce schéma décrit une nouvelle variante de service (sava:1.1.0) à déployer dans le cluster existant (sava_cluster).
+2. Cliquez sur **Add** (Ajouter), puis collez l’extrait au format YAML du blueprint ci-dessous. Ce blueprint décrit une nouvelle variante de service (sava:1.1.0) à déployer dans le cluster existant (sava_cluster).
 
   ```YAML
   name: sava:1.1.0      # blueprint name

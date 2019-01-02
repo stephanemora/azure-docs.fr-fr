@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 6a070d9ebd46d117041276436107abcc958d58d4
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 670aafeb8eb107fc5970b70bfa85d7469c343483
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583735"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722851"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -54,7 +54,7 @@ Pour déléguer la gestion de l’accès à une réservation :
 2. Sélectionnez **Tous les services** > **Réservation** pour afficher la liste des réservations auxquelles vous avez accès.
 3. Sélectionnez la réservation pour laquelle vous souhaitez déléguer l’accès à d’autres utilisateurs.
 4. Sélectionnez **Contrôle d’accès (IAM)**.
-5. Sélectionnez **Ajouter** > **Rôle** > **Propriétaire**. Ou si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.
+5. Sélectionnez **Ajouter une attribution de rôle** > **Rôle** > **Propriétaire**. Ou si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.
 6. Tapez l’adresse e-mail de l’utilisateur à ajouter comme propriétaire.
 7. Sélectionnez l’utilisateur, puis **Enregistrer**.
 
@@ -133,4 +133,4 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (Support request).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

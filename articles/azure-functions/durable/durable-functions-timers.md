@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad6ddacad322e4c2f952591be786d46cbcb95a21
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7af204ad76cb04c3d71c5108948be4036be1d1e4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637554"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338836"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Minuteurs dans Fonctions durables (Azure Functions)
 
 [Fonctions durables](durable-functions-overview.md) fournit *des minuteurs durables* à utiliser dans les fonctions de l’orchestrateur pour implémenter des retards ou configurer des délais d’expiration sur des actions asynchrones. Les minuteurs durables doivent être utilisés dans les fonctions de l’orchestrateur à la place de `Thread.Sleep` et `Task.Delay` (C#) ou `setTimeout()` et `setInterval()` (JavaScript).
 
-Vous pouvez créer un minuteur durable en appelant la méthode [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) dans [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). La méthode retourne une tâche qui reprend à une date et une heure spécifiées.
+Vous pouvez créer un minuteur durable en appelant la méthode [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) de [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) en .NET, ou la méthode `createTimer` de `DurableOrchestrationContext` en JavaScript. La méthode retourne une tâche qui reprend à une date et une heure spécifiées.
 
 ## <a name="timer-limitations"></a>Limitations des minuteurs
 
@@ -29,13 +29,13 @@ Lorsque vous créez un minuteur qui expire à 16:30, l’infrastructure des tâc
 
 > [!NOTE]
 > * En raison des limitations du stockage Azure, les minuteurs durables ne peuvent pas dépasser 7 jours. Nous travaillons actuellement sur une [demande de fonctionnalité pour étendre les minuteurs à plus de 7 jours](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Utilisez toujours [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) au lieu de `DateTime.UtcNow` comme indiqué dans les exemples ci-dessous pour le calcul d’une échéance relative d’un minuteur durable.
+> * Utilisez toujours [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) au lieu de `DateTime.UtcNow` en .NET et `currentUtcDateTime` au lieu de `Date.now` ou `Date.UTC` en JavaScript comme indiqué dans les exemples ci-dessous pour le calcul d’une échéance relative d’un minuteur durable.
 
 ## <a name="usage-for-delay"></a>Utilisation des retards
 
 L’exemple suivant montre comment utiliser des minuteurs durables pour retarder une exécution. Dans cet exemple, une notification de facturation est émise tous les jours pendant dix jours.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
 
 ```js
 const df = require("durable-functions");
@@ -68,13 +68,13 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Evitez les boucles infinies dans les fonctions de l’orchestrateur. Pour plus d’informations sur la façon d’implémenter efficacement et en toute sécurité des scénarios de boucles infinies, consultez [Orchestrations externes](durable-functions-eternal-orchestrations.md). 
+> Evitez les boucles infinies dans les fonctions de l’orchestrateur. Pour plus d’informations sur la façon d’implémenter efficacement et en toute sécurité des scénarios de boucles infinies, consultez [Orchestrations externes](durable-functions-eternal-orchestrations.md).
 
 ## <a name="usage-for-timeout"></a>Utilisation des délais d’expiration
 
 Cet exemple montre comment utiliser des minuteurs durables pour implémenter des délais d’expiration.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -105,7 +105,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
 
 ```js
 const df = require("durable-functions");
@@ -142,4 +142,3 @@ Pour obtenir un exemple plus détaillé d’implémentation de délais d’expir
 
 > [!div class="nextstepaction"]
 > [Déclenchement et gestion d’événements externes](durable-functions-external-events.md)
-

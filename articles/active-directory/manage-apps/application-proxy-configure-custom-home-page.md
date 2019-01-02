@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d098d38c39788dee7f4a3852d07a762b36fd9a4f
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ee7f0b975dd2990281833726b4013c9726a2935
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333749"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134316"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Définir une page d’accueil personnalisée pour les applications publiées à l’aide du proxy d’application Azure AD
 
@@ -125,7 +125,7 @@ Créez l’URL de la page d’accueil et mettez à jour votre application avec c
     ```
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
-4. Procédez à la mise à jour à l’aide du GUID (ObjectID) que vous avez copié dans « Étape 1 : rechercher l’ObjectID de l’application ».
+4. Procédez à la mise à jour à l’aide du GUID (ObjectID) que vous avez copié lors de l’étape 1 : Rechercher l’ObjectID de l’application.
 
     ```
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
@@ -142,4 +142,4 @@ Créez l’URL de la page d’accueil et mettez à jour votre application avec c
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Activer l’accès distant pour SharePoint avec le proxy d’application Azure AD](application-proxy-integrate-with-sharepoint-server.md)
-- [Activer le proxy d’application dans le portail Azure](application-proxy-enable.md)
+- [Activer le proxy d’application dans le portail Azure](application-proxy-add-on-premises-application.md)

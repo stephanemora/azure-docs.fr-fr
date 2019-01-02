@@ -2,23 +2,23 @@
 title: Utiliser des magasins de métadonnées externes - Azure HDInsight
 description: Utilisez des magasins de métadonnées externes avec les clusters HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 7c58162048de341468b69a29c55edf346b376e9b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733812"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408321"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Utiliser des magasins de métadonnées externes dans Azure HDInsight
 
-Le metastore Hive dans HDInsight est une partie essentielle de l’architecture d’Hadoop. Un metastore est le référentiel central de schémas qui peut être utilisé par d’autres outils d’accès aux données volumineuses, comme Spark, requête interactif (LLAP), Presto ou Pig. HDInsight utilise une base de données Azure SQL Database en tant que metastore Hive.
+Le metastore Apache Hive dans HDInsight est une partie essentielle de l’architecture d’Apache Hadoop. Un metastore est le référentiel central de schémas qui peut être utilisé par d’autres outils d’accès aux données volumineuses, comme Apache Spark, Interactive Query (LLAP), Presto ou Apache Pig. HDInsight utilise une base de données Azure SQL Database en tant que metastore Hive.
 
 ![Architecture du metastore Hive dans HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
@@ -72,12 +72,12 @@ Voici certaines des meilleures pratiques pour les metastores Hive dans HDInsight
 - Lorsqu’une nouvelle version d’Azure HDInsight plus élevée est créée sur une base de données de metastore personnalisée existante, le système met à niveau le schéma du metastore, qui est irréversible sans restaurer la base de données à partir de la sauvegarde.
 - Si vous partagez un metastore sur plusieurs clusters, assurez-vous que tous les clusters utilisent la même version de HDInsight. Différentes versions d’Hive utilisent différents schémas de base de données de metastore. Par exemple, vous ne pouvez pas partager un metastore sur les clusters Hive versions 1.2 et 2.1. 
 
-## <a name="oozie-metastore"></a>Metastore Oozie
+##  <a name="apache-oozie-metastore"></a>Metastore Apache Oozie
 
 Apache Oozie est un système de coordination de flux de travail qui gère les tâches Hadoop.  Oozie prend en charge les tâches Hadoop pour Apache MapReduce, Pig, Hive et autres.  Oozie utilise un metastore pour stocker les détails sur les flux de travail en cours et terminés. Pour améliorer les performances avec Oozie, utilisez une base de données Azure SQL en tant que magasin de metastore personnalisé. Le metastore permet également d’accéder aux données de travail Oozie après la suppression de votre cluster.
 
-Pour obtenir des instructions sur la création d’un metastore Oozie avec Azure SQL Database, consultez [Utiliser Oozie pour les flux de travail](hdinsight-use-oozie-linux-mac.md).
+Pour obtenir des instructions sur la création d’un metastore Oozie avec Azure SQL Database, consultez [Utiliser Apache Oozie pour les flux de travail](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore](./hdinsight-hadoop-provision-linux-clusters.md)
+- [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.](./hdinsight-hadoop-provision-linux-clusters.md)

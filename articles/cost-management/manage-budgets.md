@@ -1,23 +1,23 @@
 ---
 title: Gérer des budgets Cloudyn dans Azure | Microsoft Docs
-description: Cet article vous aide à créer et à gérer des budgets dans Cloudyn.
+description: Cet article vous aide à créer des budgets rapidement et à commencer à les gérer dans Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 9/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 92236547e2100ab57f4ec6b4953f6c61ec87892d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 44062670283a15f678da45e13a831e73a7738c39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275502"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075486"
 ---
-# <a name="manage-budgets"></a>Gérer les budgets
+# <a name="manage-azure-budgets-with-cloudyn"></a>Gérer les budgets Azure avec Cloudyn
 
 La mise en place de budgets et d’alertes basées sur un budget permet d’améliorer la gouvernance et la transparence du cloud. Cet article vous aide à créer des budgets rapidement et à commencer à les gérer dans Cloudyn.
 
@@ -40,7 +40,7 @@ Pour créer un budget et l’attribuer à une entité :
 3. Pour l’année budgétaire, sélectionnez l’année où vous souhaitez créer le budget.
 4. Pour chaque mois, définissez une valeur de budget. Quand vous avez terminé, cliquez sur **Enregistrer**.
 Dans cet exemple, le budget mensuel pour juin 2018 est défini sur 135 000 $. Le budget total pour l’année s’élève à 1 615 000,00 $.
-![Créer un budget](./media/manage-budgets/set-budget.png)
+![Créer une page de budget pour définir un budget mensuel](./media/manage-budgets/set-budget.png)
 
 
 Pour importer un fichier pour le budget annuel :
@@ -64,11 +64,11 @@ Dans cet exemple, supposons que la date du jour est le 22 juin. Le coût pour ju
 
 Une autre façon d’afficher le rapport consiste à regarder le coût cumulé par rapport au budget. Pour voir les coûts cumulés, sous **Afficher/masquer les champs**, sélectionnez **Coût cumulé** et **Budget total**. Voici un exemple montrant le coût cumulé depuis le début de l’année.
 
-![Budget cumulé](./media/manage-budgets/accumulated-budget.png)
+![Exemple de coût cumulé et budget total indiqué dans le rapport relatif au coût et du budget dans le temps](./media/manage-budgets/accumulated-budget.png)
 
 Parfois, votre coût cumulé peut être appelé à dépasser votre budget. Vous pouvez plus facilement le voir si vous choisissez _graphique en courbes_ comme type d’affichage.
 
-![Budget affiché dans un graphique en courbes](./media/manage-budgets/budget-line.png)
+![Budget indiqué dans un graphique en courbes au sein du rapport relatif aux coûts mensuels](./media/manage-budgets/budget-line.png)
 
 ## <a name="create-budget-alerts-for-a-filter"></a>Créer des alertes de budget pour un filtre
 
@@ -81,7 +81,7 @@ Intéressons-nous à un exemple.
 
 Dans le rapport des coûts par rapport au budget dans le temps, cliquez sur **Actions**, puis sélectionnez **Planifier le rapport**. Sous l’onglet Seuil, sélectionnez une métrique de seuil. Par exemple, **Pourcentage du coût par rapport au budget**. Sélectionnez un type d’alerte, puis entrez une valeur du budget en pourcentage. Si vous souhaitez être averti une seule fois, sélectionnez **Nombre d’alertes consécutives**, puis tapez _1_. Cliquez sur **Enregistrer**.
 
-![Alerte de budget](./media/manage-budgets/budget-alert.png)
+![Création d’une alerte de budget dans la zone Enregistrer ou planifier ce rapport](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

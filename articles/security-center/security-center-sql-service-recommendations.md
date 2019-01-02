@@ -3,7 +3,7 @@ title: Protection des données et du service SQL Azure dans Azure Security Cente
 description: Ce document traite des recommandations d’Azure Security Center qui peuvent vous aider à protéger vos données et le service SQL Azure et à rester en conformité avec les stratégies de sécurité.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: terrylan
-ms.openlocfilehash: ea014aae49ec322e9a1f1222c881885b84e87584
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: rkarlin
+ms.openlocfilehash: 977c464e0c172a25d069fa7db55d8aefb78d89d9
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311770"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339091"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Protection des données et du service SQL Azure dans Azure Security Center
 Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires.  Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles, mise en réseau, SQL et données et applications.
@@ -54,7 +54,7 @@ Pour activer l’audit, sélectionnez **ACTIVÉ** sous **Audit**.
 |Type de ressource|Degré de sécurisation|Recommandation|Description|
 |----|----|----|----|
 |Compte de stockage|20|Exiger un transfert sécurisé au compte de stockage|L’option de sécurisation du transfert oblige votre compte de stockage à accepter uniquement des requêtes provenant de connexions sécurisées (HTTPS). L'utilisation de HTTPS garantit l'authentification entre le serveur et le service et protège les données en transit contre les attaques de la couche réseau (attaque de l'intercepteur ou « man-in-the-middle », écoute clandestine, détournement de session).|
-|Redis|20|Activer uniquement les connexions sécurisées à votre cache Redis|Activer uniquement les connexions via SSL vers le Cache Redis. L'utilisation de connexions sécurisées garantit l'authentification entre le serveur et le service et protège les données en transit contre les attaques de la couche réseau (attaque de l'intercepteur ou « man-in-the-middle », écoute clandestine, détournement de session).|
+|Redis|20|Activer uniquement les connexions sécurisées à votre cache Azure pour Redis|Activer les connexions établies uniquement par le biais de SSL au cache Azure pour Redis. L'utilisation de connexions sécurisées garantit l'authentification entre le serveur et le service et protège les données en transit contre les attaques de la couche réseau (attaque de l'intercepteur ou « man-in-the-middle », écoute clandestine, détournement de session).|
 |SQL|15|Activer Transparent Data Encryption sur des bases de données SQL|Activer le chiffrement transparent des données pour protéger les données au repos et respecter les exigences de conformité.|
 |SQL|15|Activer l’audit sur les serveurs SQL|Activer l’audit sur les serveurs Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.)|
 |SQL|15|Activer l’audit sur les bases de données SQL|Activer l’audit sur les bases de données Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.)|
@@ -79,6 +79,6 @@ Pour en savoir plus sur les recommandations qui s’appliquent à d’autres typ
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.

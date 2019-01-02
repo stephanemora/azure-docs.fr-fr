@@ -1,6 +1,6 @@
 ---
-title: Comment ajouter ou supprimer des utilisateurs dans Azure Active Directory | Microsoft Docs
-description: Découvrez comment ajouter de nouveaux utilisateurs ou supprimer des utilisateurs existants dans Azure Active Directory.
+title: Ajouter ou supprimer des utilisateurs - Azure Active Directory | Microsoft Docs
+description: Instructions pour ajouter de nouveaux utilisateurs ou supprimer des utilisateurs existants à l’aide d’Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: dd4a9132d5f04870239be3127f723afb60b3ecef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295102"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104677"
 ---
-# <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Procédure : Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
-Ajouter de nouveaux utilisateurs ou supprimer des utilisateurs existants dans votre client Azure Active Directory (Azure AD), à l’aide d’Azure AD.
+# <a name="add-or-delete-users-using-azure-active-directory"></a>Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
+Ajoutez de nouveaux utilisateurs ou supprimez des utilisateurs existants dans votre locataire Azure Active Directory (Azure AD).
 
 ## <a name="add-a-new-user"></a>Ajouter un nouvel utilisateur
-Vous pouvez créer un nouvel utilisateur à l’aide d’Azure Active Directory.
+Vous pouvez créer un utilisateur à l’aide du portail Azure Active Directory.
 
 ### <a name="to-add-a-new-user"></a>Ajouter un nouvel utilisateur
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général ou administrateur d’utilisateurs du répertoire.
@@ -38,7 +38,7 @@ Vous pouvez créer un nouvel utilisateur à l’aide d’Azure Active Directory.
 
     - **Nom (obligatoire).** Prénom et nom du nouvel utilisateur. Par exemple, Mary Parker.
 
-    - **Nom d’utilisateur (obligatoire).** Nom d’utilisateur du nouvel utilisateur. Par exemple : mary@contoso.com. 
+    - **Nom d’utilisateur (obligatoire).** Nom d’utilisateur du nouvel utilisateur. Par exemple : mary@contoso.com. 
     
         Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, <_votrenomdedomaine_>.onmicrosoft.com, ou à un nom de domaine personnalisé, comme contoso.com. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Ajouter un nom de domaine personnalisé dans Azure Active Directory](add-custom-domain.md).
 
@@ -58,10 +58,10 @@ Vous pouvez créer un nouvel utilisateur à l’aide d’Azure Active Directory.
 Si vous avez un environnement avec Azure Active Directory (cloud) et Windows Server Active Directory (local), vous pouvez ajouter de nouveaux utilisateurs en synchronisant les données du compte d’utilisateur existant. Pour obtenir plus d’informations sur les utilisateurs et environnements hybrides, consultez [Intégrer vos répertoires locaux avec Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Supprimer un utilisateur
-Vous pouvez supprimer un utilisateur existant à l’aide d’Azure Active Directory.
+Vous pouvez supprimer un utilisateur existant à l’aide du portail Azure Active Directory.
 
 ### <a name="to-delete-a-user"></a>Pour supprimer un utilisateur
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.
 
 2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis recherchez et sélectionnez l’utilisateur que vous souhaitez supprimer de votre client Azure AD. Par exemple, _Mary Parker_.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Tableau Server | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory dans Tableau Server | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Tableau Server.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 9986e7984f24e065886f6d0a8b2d06968f778702
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582715"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850361"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Didacticiel : Intégration d’Azure Active Directory à Tableau Server
+# <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Didacticiel : Intégration d’Azure Active Directory dans Tableau Server
 
 Dans ce didacticiel, vous allez apprendre à intégrer Tableau Server avec Azure Active Directory (Azure AD).
 
@@ -175,7 +175,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
    
     >[!NOTE] 
     >Le client doit charger l’ensemble des certificats dans la configuration SAML SSO de Tableau Server. Les certificats seront ignorés dans le flux SSO.
-    >Si vous avez besoin d’aide pour la configuration de SAML dans Tableau Server, consultez l’article [Configurer SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >Si vous avez besoin d’aide pour la configuration de SAML dans Tableau Server, consultez l’article [Configurer SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 

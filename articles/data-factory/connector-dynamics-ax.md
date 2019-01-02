@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 94358ffde697b8122e65aefcbe1dd97385ca5b3a
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 1dca3621b31d74d2ae40156672009b15ba30e3f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52621708"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339533"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Copier des données de Dynamics AX en utilisant Azure Data Factory (préversion)
 
@@ -62,7 +62,7 @@ Les propriétés prises en charge pour le service lié Dynamics AX sont les suiv
 | servicePrincipalId | Spécifiez l’ID client de l’application. | OUI |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
-| aadResourceId | Spécifiez la ressource pour laquelle vous demandez une autorisation. | Oui |
+| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation. Par exemple, si votre URL Dynamics est `https://sampledynamics.sandbox.operations.dynamics.com/data/`, la ressource AAD correspondante est généralement `https://sampledynamics.sandbox.operations.dynamics.com`. | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Vous pouvez choisir Azure Integration Runtime ou un runtime d’intégration auto-hébergé si votre magasin de données se trouve dans un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non  |
 
 **Exemple**
@@ -80,7 +80,7 @@ Les propriétés prises en charge pour le service lié Dynamics AX sont les suiv
                 "value": "<service principal key>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<Dynamics AX resource url>"
+            "aadResourceId": "<AAD resource, e.g. https://sampledynamics.sandbox.operations.dynamics.com>"
         }
     },
     "connectVia": {
@@ -102,7 +102,7 @@ Pour copier des données de Dynamics AX, définissez la propriété **type** du 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété **type** du jeu de données doit être définie sur **DynamicsAXResource**. | Oui |
-| path | Chemin de l’entité OData Dynamics AX. | Oui |
+| chemin d’accès | Chemin de l’entité OData Dynamics AX. | Oui |
 
 **Exemple**
 
@@ -135,7 +135,7 @@ Pour copier des données de Dynamics AX, définissez le type **source** de l’a
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété **type** de la source de l’activité de copie doit être définie sur **DynamicsAXSource**. | Oui |
-| query | Options de requête OData pour filtrer les données. Exemple : `"?$select=Name,Description&$top=5"`.<br/><br/>**Remarque** : le connecteur copie les données à partir de l’URL combinée `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Pour plus d’informations, consultez [OData URL components](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non  |
+| query | Options de requête OData pour filtrer les données. Exemple : `"?$select=Name,Description&$top=5"`.<br/><br/>**Remarque**: Le connecteur copie les données à partir de l’URL combinée : `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Pour plus d’informations, consultez [OData URL components](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non  |
 
 **Exemple**
 

@@ -1,20 +1,18 @@
 ---
-title: Traitement de base de données sans serveur - Azure Functions et Azure Cosmos DB | Microsoft Docs
+title: Traitement de base de données serverless - Azure Functions et Azure Cosmos DB
 description: Découvrez comment Azure Cosmos DB et Azure Functions peuvent être utilisés ensemble pour créer des applications informatiques sans serveur basées sur les événements.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f0f0308233334e2662704e818c765c625a80019d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582783"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878298"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -51,7 +49,7 @@ Les cas d’usage suivants montrent plusieurs manières de tirer le meilleur par
 
 Dans les implémentations IoT, vous pouvez appeler une fonction quand le voyant de vérification du moteur est allumé dans une voiture connectée.
 
-**Implémentation :** Utiliser un déclencheur Azure Cosmos DB et une liaison de sortie
+**Implémentation :** Utiliser un déclencheur Azure Cosmos DB et une liaison de sortie
 
 1. Un **déclencheur Azure Cosmos DB** est utilisé pour déclencher des événements liés à des alertes de voiture, tels que le voyant de vérification du moteur qui s’allume dans une voiture connectée.
 2. Quand le voyant de vérification du moteur s’allume, les données de capteur sont envoyées à Azure Cosmos DB.
@@ -69,7 +67,7 @@ L’illustration suivante montre le code écrit dans le portail Azure pour ce d�
 
 Dans les implémentations financières, vous pouvez appeler une fonction lorsqu’un solde de compte bancaire est inférieur à une certaine quantité.
 
-**Implémentation :** Déclencheur de minuteur avec une liaison d’entrée Azure Cosmos DB
+**Implémentation :** Déclencheur de minuteur avec une liaison d’entrée Azure Cosmos DB
 
 1. À l’aide d’un [déclencheur de minuteur](../azure-functions/functions-bindings-timer.md), vous pouvez récupérer les informations sur les soldes de comptes bancaires stockées dans un conteneur Azure Cosmos DB à intervalles réguliers à l’aide d’une **liaison d’entrée**.
 2. Si le solde est inférieur au seuil de solde faible défini par l’utilisateur, effectuez un suivi à l’aide d’une action à partir de la fonction Azure.
@@ -85,7 +83,7 @@ Les illustrations suivantes montrent le code dans le portail Azure pour ce scén
 
 En matière de gaming, quand un utilisateur est créé, vous pouvez rechercher d’autres utilisateurs que vous connaissez peut-être à l’aide de l’[API Gremlin Azure Cosmos DB](graph-introduction.md). Vous pouvez ensuite écrire les résultats dans une [base de données SQL Azure Cosmos DB] pour faciliter leur récupération.
 
-**Implémentation :** Utiliser un déclencheur Azure Cosmos DB et une liaison de sortie
+**Implémentation :** Utiliser un déclencheur Azure Cosmos DB et une liaison de sortie
 
 1. À l’aide d’une [base de données de graphes](graph-introduction.md) Azure Cosmos DB pour stocker tous les utilisateurs, vous pouvez créer une nouvelle fonction avec un déclencheur Azure Cosmos DB. 
 2. Chaque fois qu’un nouvel utilisateur est inséré, la fonction est appelée, puis le résultat est stocké à l’aide d’une **liaison de sortie**.
@@ -96,7 +94,7 @@ En matière de gaming, quand un utilisateur est créé, vous pouvez rechercher d
 
 Dans les implémentations de vente au détail, lorsqu’un utilisateur ajoute un élément à son panier, vous pouvez désormais créer et appeler des fonctions pour des composants de pipeline commercial facultatifs.
 
-**Implémentation :** Déclencheurs Azure Cosmos DB multiples écoutant un conteneur
+**Implémentation :** Déclencheurs Azure Cosmos DB multiples écoutant un conteneur
 
 1. Vous pouvez créer plusieurs fonctions Azure en ajoutant à chacune d’elles des déclencheurs Azure Cosmos DB, qui écoutent tous le même flux de modification des données des paniers. Notez que lorsque plusieurs fonctions écoutent le même flux de modification, une nouvelle collection de baux est requise pour chaque fonction. Pour plus d’informations sur les collections de baux, consultez [Présentation de la bibliothèque du processeur de flux de modification](change-feed-processor.md).
 2. Lorsqu’un utilisateur ajoute un nouvel élément à son panier, chaque fonction est appelée indépendamment par le flux de modification à partir du conteneur de panier.

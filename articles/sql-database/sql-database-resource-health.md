@@ -3,7 +3,7 @@ title: Utiliser Azure Resource Health pour surveiller l’intégrité de SQL Dat
 description: Utiliser Azure Resource Health pour surveiller l’intégrité de SQL Database vous aide à diagnostiquer les problèmes et à accéder au support quand un problème Azure a une incidence sur vos ressources SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 12/06/2018
+ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632626"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083884"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Utiliser Resource Health pour résoudre des problèmes de connectivité avec Azure SQL Database
 
@@ -41,7 +41,7 @@ Un état **Disponible** signifie que Resource Health n’a pas détecté d’éc
 
 ### <a name="degraded"></a>Détérioré
 
-État **Détérioré** signifie que Resource Health a détecté une majorité de connexions établies, mais également des échecs. Il s’agit probables erreurs de connexion temporaires. Pour réduire l’impact des problèmes de connexion dus à des erreurs de connexion temporaires, implémentez une [logique de nouvelle tentative](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) dans votre code.
+Un état **Détérioré** signifie que Resource Health a détecté une majorité de connexions établies, mais également des échecs. Il s’agit probables erreurs de connexion temporaires. Pour réduire l’impact des problèmes de connexion dus à des erreurs de connexion temporaires, implémentez une [logique de nouvelle tentative](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) dans votre code.
 
 ![Détérioré](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
@@ -67,11 +67,11 @@ Lorsque votre base de données SQL est arrêté, une analyse est effectuée pour
 
 #### <a name="planned-maintenance"></a>Maintenance planifiée
 
-L’infrastructure Azure effectue périodiquement une maintenance planifiée (mise à niveau des composants matériels ou logiciels dans le centre de données). Pendant la maintenance de la base de données, SQL peut mettre fin à des connexions existantes et en refuser de nouvelles. Les échecs de connexion rencontrés pendant une maintenance planifiée sont généralement temporaires. Une logique de nouvelle tentative permet d’en réduire l’impact. Si vous êtes toujours confronté à des erreurs de connexion, contactez le support technique.
+L’infrastructure Azure effectue périodiquement une maintenance planifiée (mise à niveau des composants matériels ou logiciels dans le centre de données). Pendant la maintenance de la base de données, SQL peut mettre fin à des connexions existantes et en refuser de nouvelles. Les échecs de connexion rencontrés pendant une maintenance planifiée sont généralement temporaires. Une [logique de nouvelle tentative](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) permet d’en réduire l’impact. Si vous êtes toujours confronté à des erreurs de connexion, contactez le support technique.
 
 #### <a name="reconfiguration"></a>Reconfiguration
 
-Les reconfigurations sont considérées comme des conditions transitoires et prévues de temps à autre. Ces événements peuvent être déclenchés par les échecs d’équilibrage de charge ou de logiciel/matériel. Toute application de production client qui se connecte à un service de base de données cloud doit implémenter une logique de nouvelle tentative robuste avec logique d’interruption, qui aide à remédier à ces situations et rend généralement les erreurs transparentes pour l'utilisateur final.
+Les reconfigurations sont considérées comme des conditions transitoires et prévues de temps à autre. Ces événements peuvent être déclenchés par les échecs d’équilibrage de charge ou de logiciel/matériel. Toute application de production client qui se connecte à une base de données cloud doit implémenter une [logique de nouvelle tentative](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) de connexion robuste, qui aide à remédier à ces situations et rend généralement les erreurs transparentes pour l’utilisateur final.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

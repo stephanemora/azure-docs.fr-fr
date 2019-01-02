@@ -5,9 +5,8 @@ metakeywords: ''
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311056"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276671"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Utilisation de la régression linéaire dans Azure Machine Learning Studio
 > *Kate Baroni* et *Ben Boatman* sont des architectes de solution du Data Insights Center of Excellence de Microsoft. Dans cet article, ils décrivent leur expérience de migration d’une suite d’analyse de régression existante vers une solution de cloud à l’aide d’Azure Machine Learning. 
@@ -31,7 +30,7 @@ ms.locfileid: "52311056"
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="goal"></a>Objectif
 Notre projet a commencé avec deux objectifs : 
@@ -73,8 +72,8 @@ Dans un premier temps, le modèle Excel a clairement surpassé le modèle Machin
 Lorsque nous avons présenté notre processus et les résultats obtenus aux chercheurs de données et développeurs de l’équipe Machine Learning, ils ont rapidement fourni des conseils utiles. 
 
 * Lorsque vous utilisez le module [Régression linéaire][linear-regression] dans Machine Learning Studio, deux méthodes sont fournies :
-  * descente dégradée en ligne : plus adapté aux problèmes de plus grande échelle ;
-  * moindres carrés ordinaires : il s’agit de la méthode qui vient à l’esprit de la plupart des personnes qui entendent « régression linéaire ». Pour les petits groupes de données, les moindres carrés ordinaires peuvent être un meilleur choix.
+  * Descente dégradée en ligne : plus adapté aux problèmes de plus grande échelle
+  * moindres carrés ordinaires : il s’agit de la méthode qui vient à l’esprit de la plupart des personnes qui entendent « régression linéaire ». Pour les petits groupes de données, les moindres carrés ordinaires peuvent être un meilleur choix.
 * Envisagez d’ajuster le paramètre de poids de régularisation L2 pour améliorer les performances. Il est défini à 0,001 par défaut, mais pour notre petit ensemble de données, nous l’avons défini à 0,005 pour améliorer les performances. 
 
 ### <a name="mystery-solved"></a>Mystère résolu !
@@ -86,15 +85,15 @@ Lorsque nous avons appliqué les recommandations, nous avons obtenu les mêmes p
 | Apprenant |Excel -> Analyse des données -> Régression |Régression linéaire. |régression linéaire |
 | Options de l’apprenant |N/A |Valeurs par défaut |moindres carrés ordinaires<br />L2 = 0,005 |
 | Jeu de données |26 lignes, 3 fonctionnalités, 1 étiquette. Tout au format numérique. |identique |identique |
-| Fractionnement : Formation |Excel a exécuté la formation sur les 18 premières lignes, et le test sur les 8 dernières lignes. |identique |identique |
-| Fractionnement : Test |Formule de régression Excel appliquée aux 8 dernières lignes |identique |identique |
+| Split : Former |Excel a exécuté la formation sur les 18 premières lignes, et le test sur les 8 dernières lignes. |identique |identique |
+| Split : Test |Formule de régression Excel appliquée aux 8 dernières lignes |identique |identique |
 | **Performances** | | | |
 | Carré R ajusté |0,96 |N/A | |
 | Coefficient de détermination |N/A |0,78 |0,952049 |
 | Erreur d'absolue moyenne |9,5 M $ |19,4 M $ |9,5 M $ |
 | Erreur d’absolue moyenne (%) |<span style="background-color: 00FF00;"> 6,03 %</span> |12,2 % |<span style="background-color: 00FF00;"> 6,03 %</span> |
 
-En outre, les coefficients Excel ont été efficaces par rapport aux pondérations de fonctionnalités du modèle entraîné Azure :
+En outre, les coefficients Excel ont été efficaces par rapport aux pondérations de fonctionnalités du modèle formé Azure :
 
 |  | Coefficients Excel | Poids des fonctionnalités Azure |
 | --- |:---:|:---:|
@@ -109,13 +108,13 @@ Nous avons voulu utiliser le service web Machine Learning dans Excel. Nos analys
 Nous souhaitions également optimiser notre modèle, à l’aide des options et des algorithmes disponibles dans Machine Learning Studio.
 
 ### <a name="integration-with-excel"></a>Intégration à Excel
-Notre solution était de faire fonctionner notre modèle de régression Machine Learning en créant un service web à partir du modèle entraîné. En quelques minutes, le service Web a été créé et nous avons pu l’appeler directement à partir d’Excel pour retourner une valeur de recettes prédites. 
+Notre solution était de faire fonctionner notre modèle de régression Machine Learning en créant un service web à partir du modèle formé. En quelques minutes, le service Web a été créé et nous avons pu l’appeler directement à partir d’Excel pour retourner une valeur de recettes prédites. 
 
 La section *tableau de bord des services Web* comprend un classeur Excel à télécharger. Le classeur est déjà mis en forme avec les informations de schéma et l’API de service Web. Lorsque vous cliquez sur *Télécharger un classeur Excel*, il s’ouvre et vous pouvez l’enregistrer sur votre ordinateur local. 
 
 ![][1]
 
-Avec le classeur ouvert, copiez vos paramètres prédéfinis dans la section de paramètres bleue comme illustré ci-dessous. Une fois les paramètres saisis, Excel appelle le service web Machine Learning et les étiquettes notées prédites s’affichent dans la section Valeurs prédites verte. Le classeur continue à créer des prédictions pour les paramètres en fonction de votre modèle entraîné pour tous les éléments de ligne saisis sous Paramètres. Pour plus d’informations sur l’utilisation de cette fonctionnalité, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning à partir de Microsoft Excel](consuming-from-excel.md). 
+Avec le classeur ouvert, copiez vos paramètres prédéfinis dans la section de paramètres bleue comme illustré ci-dessous. Une fois les paramètres saisis, Excel appelle le service web Machine Learning et les étiquettes notées prédites s’affichent dans la section Valeurs prédites verte. Le classeur continue à créer des prédictions pour les paramètres en fonction de votre modèle formé pour tous les éléments de ligne saisis sous Paramètres. Pour plus d’informations sur l’utilisation de cette fonctionnalité, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning à partir de Microsoft Excel](consuming-from-excel.md). 
 
 ![][2]
 
@@ -145,7 +144,7 @@ Voici des ressources pour vous aider à utiliser la régression :
 
 * Régression dans Excel. Si vous n’avez jamais tenté d’effectuer une régression dans Excel, ce didacticiel vous facilite la tâche : [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * Régression et prévisions. Tyler Chessman a écrit un article de blog expliquant comment effectuer des prévisions de série chronologique dans Excel, qui contient une excellente description de la régression linéaire pour les débutants. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Régression linéaire et moindres carrés ordinaires : défauts, problèmes et pièges. Pour une introduction et une description de la régression : [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Régression linéaire (moindres carrés ordinaires) : défauts, problèmes et pièges. Pour une introduction et une description de la régression : [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

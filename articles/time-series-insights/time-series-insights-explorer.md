@@ -1,5 +1,5 @@
 ---
-title: Explorer des données avec l’explorateur Azure Time Series Insights | Microsoft Docs
+title: Exploration de données Azure Time Series Insights – Explorer les données à l’aide de l’explorateur Azure Time Series Insights | Microsoft Docs
 description: Cet article décrit comment utiliser l’Explorateur Azure Time Series Insights dans votre navigateur web pour afficher rapidement une vue globale de vos données et valider votre environnement IoT.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364226"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273134"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 Cet article explore les différentes fonctionnalités et options disponibles dans l’application web de l’Explorateur Time Series Insights. Vous pouvez utiliser l’explorateur Time Series Insights dans votre navigateur web pour créer des visualisations de vos données.
@@ -55,15 +56,15 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
 5. Ensuite, vous voyez un graphique qui affiche le nombre total d’événements pendant la période sélectionnée.  Vous avez plusieurs commandes disponibles :
 
-    **Panneau d’éditeur de conditions** : L’espace de terme est là où vous interrogez votre environnement.  Vous trouverez cela sur le côté gauche de l’écran, active 
-      - **Mesure** : Cette liste déroulante affiche toutes les colonnes numériques (doubles)
+    **Panneau de l’éditeur de termes** :  L’espace de terme correspond à l’endroit où vous interrogez votre environnement.  Vous trouverez cela sur le côté gauche de l’écran, active 
+      - **Mesure** :  Cette liste déroulante affiche toutes les colonnes numériques (doubles)
       - **Fractionner par** : Cette liste déroulante affiche les colonnes catégorielles (chaînes)
       - Vous pouvez activer une interpolation par étape, afficher les valeurs minimale et maximale et ajuster l’axe des ordonnées à partir du panneau suivant pour mesurer.  En outre, vous pouvez choisir si les données indiquées sont un nombre, une moyenne ou une somme des données.
       - Vous pouvez ajouter jusqu'à cinq conditions à afficher sur l’axe des abscisses.  Utilisez le bouton **Copier** bouton pour ajouter un terme supplémentaire, ou cliquez sur le bouton **Ajouter** pour ajouter un nouveau terme.
      
         ![Panneau de l’éditeur de conditions](media/time-series-insights-explorer/explorer2.png)
 
-      - **Prédicat** : Le prédicat vous permet de filtrer rapidement les événements à l’aide de l’ensemble d’opérandes ci-dessous. Si vous effectuez une recherche en la sélectionnant ou en cliquant dessus, le prédicat est automatiquement mis à jour selon cette recherche.      Les types d’opérandes pris en charge comprennent les suivants :
+      - **Prédicat** :  Le prédicat vous permet de filtrer rapidement les événements à l’aide de l’ensemble d’opérandes ci-dessous. Si vous effectuez une recherche en la sélectionnant ou en cliquant dessus, le prédicat est automatiquement mis à jour selon cette recherche.      Les types d’opérandes pris en charge comprennent les suivants :
 
          |Opération  |Types pris en charge  |Notes  |
          |---------|---------|---------|
@@ -102,7 +103,7 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
    ![Carte thermique](media/time-series-insights-explorer/explorer6.png)
 
-12. **Événements** : Lorsque vous choisissez d’explorer les événements lors de la sélection ou cliquant dessus, le panneau d’événements est rendu disponible.  Ici, vous pouvez voir tous les événements bruts et exporter vos événements sous forme de fichiers JSON ou CSV. Notez que Time Series Insights stocke toutes les données brutes.
+12. **Événements** :  Lorsque vous choisissez d’explorer les événements en les sélectionnant ou en cliquant dessus, le panneau d’événements est affiché.  Ici, vous pouvez voir tous les événements bruts et exporter vos événements sous forme de fichiers JSON ou CSV. Notez que Time Series Insights stocke toutes les données brutes.
 
    ![Événements](media/time-series-insights-explorer/explorer7.png)
 
@@ -110,7 +111,7 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
    - **Modèles** : Cette fonctionnalité fait ressortir de façon proactive les modèles statistiquement les plus significatifs dans une région de données sélectionnée. Cela vous évite de devoir examiner plusieurs milliers d’événements pour comprendre les modèles qui justifient le plus de temps et d’énergie. En outre, Time Series Insights vous permet d’accéder directement à ces modèles statistiquement significatifs pour continuer la réalisation d’une analyse. Cette fonctionnalité est également utile pour les enquêtes post mortem des données historiques. 
 
-   - **Statistiques de colonne** : Les statistiques de colonne fournissent des graphiques et des tables qui décomposent les données de chaque colonne de la série de données sélectionnée sur l’intervalle de temps sélectionné.  
+   - **Statistiques de colonne** :  Les statistiques de colonne fournissent des graphiques et des tables qui décomposent les données de chaque colonne de la série de données sélectionnée sur l’intervalle de temps sélectionné.  
  
       ![STATS](media/time-series-insights-explorer/explorer8.png) 
 

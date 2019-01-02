@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: a4c4017d7fa798559817c281d159148ec675d158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281351"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386500"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Interroger Azure Log Analytics pour surveiller les clusters HDInsight
 
@@ -46,7 +46,7 @@ Découvrez comment rechercher des métriques spécifiques pour votre cluster HDI
 
 5. Dans le volet de gauche, sous **Type**, sélectionnez une mesure à approfondir, puis cliquez sur **Appliquer**. La capture d’écran qui suit présente le type `metrics_resourcemanager_queue_root_default_CL` sélectionné.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Vous devrez peut-être cliquer sur le bouton **[+]Plus** pour trouver la mesure que vous recherchez. En outre, comme le bouton **Appliquer** figure au bas de la liste, vous devez faire défiler la page vers le bas pour l’afficher.
 
     Notez que la requête dans la zone de texte apparaît dans la zone en surbrillance dans la capture d’écran suivante :

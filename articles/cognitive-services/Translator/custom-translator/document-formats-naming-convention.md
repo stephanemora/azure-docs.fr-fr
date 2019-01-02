@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fef4ecd207fd32b5a92a4c072832f3ab45b58300
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626797"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872762"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guide sur les formats de documents et les conventions d’affectation de noms
 
@@ -43,11 +43,13 @@ Custom Translator prend en charge tous les formats de fichier pris en charge pou
 
 Les documents peuvent être regroupées dans un seul fichier compressé et téléchargés. Custom Translator prend en charge les formats de fichiers compressés .ZIP, .GZ et .TGZ.
 
-Chaque document du fichier compresser doit respecter cette convention d’affectation de noms :
+Chaque document du fichier zip avec l’extension TXT, HTML, HTM, PDF, DOCX, ALIGN doit suivre cette convention de nommage :
 
 {nom du document} \_{code de langue} où {nom du document} correspond au nom de votre document, {code de langue} correspond au LanguageID ISO (deux caractères), indiquant que le document contient des phrases dans cette langue. Il doit y avoir le code de langue doit être précédé d’un trait de soulignement (_).
 
 Par exemple, pour télécharger deux documents parallèles au sein d’un fichier compressé pour un système traduisant de l’anglais en espagnol, les fichiers doivent être nommés « data_en » et « data_es ».
+
+Cette convention de nommage utilisée pour indiquer une langue spécifique ne s’applique pas aux fichiers de mémoire de traduction (TMX, XLF, XLIFF, LCL, XLSX) .  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

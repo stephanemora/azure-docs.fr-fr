@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a343b01b89bfbe9bc047c0b8b703b975b21b6290
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: cfc191830ddadbbe3258fc1b61fcd4bcc45fdd8c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901872"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186750"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Tâches de configuration après l’installation du kit ASDK
 
-Après avoir installé le [kit de développement Azure Stack (ASDK)](asdk-install.md), vous devez effectuer certains changements de configuration recommandés.
+Après avoir installé le [kit de développement Azure Stack (ASDK)](asdk-install.md), vous devez effectuer certains changements de configuration recommandés pendant que vous êtes connecté en tant que AzureStack\AzureStackAdmin sur l’ordinateur hôte ASDK. 
 
 ## <a name="install-azure-stack-powershell"></a>Installer Azure Stack PowerShell
 
@@ -41,7 +41,7 @@ Vous pouvez utiliser des profils de version d’API pour spécifier les modules 
 Vous pouvez installer la dernière version du module Azure Stack PowerShell sur l’ordinateur hôte ASDK avec ou sans connexion Internet :
 
 > [!IMPORTANT]
-> Avant d’installer la version requise, vérifiez que vous avez [désinstallé tous les modules Azure PowerShell existants](.\.\azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
+> Avant d’installer la version requise, vérifiez que vous avez [désinstallé tous les modules Azure PowerShell existants](../azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
 - **Avec une connexion Internet** sur l’ordinateur hôte du kit ASDK. Exécutez le script PowerShell suivant pour installer ces modules dans le kit de développement :
 
@@ -173,7 +173,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ## <a name="enable-multi-tenancy"></a>Activer l’architecture mutualisée
 
-Pour les déploiements à l’aide d’Azure AD, vous devez [activer la mutualisation](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) pour votre installation d’ASDK.
+Pour les déploiements à l’aide d’Azure AD, vous devez [activer la mutualisation](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) pour votre installation d’ASDK.
 
 > [!NOTE]  
 > Lorsque des comptes d’administrateur ou d’utilisateur de domaines autres que celui utilisé pour inscrire Azure Stack sont utilisés pour se connecter à un portail Azure Stack, le nom de domaine utilisé pour inscrire Azure Stack doit être ajouté à l’URL du portail. Par exemple, si Azure Stack a été inscrit avec fabrikam.onmicrosoft.com et que le compte utilisateur est admin@contoso.com, voici l’url à utiliser pour se connecter au portail utilisateur : https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.

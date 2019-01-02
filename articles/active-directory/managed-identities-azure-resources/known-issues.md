@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b535939e200b533c06c97686897e283fb6cf57bc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632787"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720182"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec les identités managées pour ressources Azure
 
@@ -94,8 +94,8 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 ```
 
 Où : 
-- Le type et le nom de l’extension pour Windows est : ManagedIdentityExtensionForWindows
-- Le type et le nom de l’extension pour Linux est : ManagedIdentityExtensionForLinux
+- Type et nom de l’extension pour Windows : ManagedIdentityExtensionForWindows
+- Type et nom de l’extension pour Linux : ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -113,9 +113,9 @@ Lorsque la fonctionnalité d’exportation de schéma sera disponible pour l’e
 
 Si le panneau Configuration de la machine virtuelle n’apparaît pas sur votre machine virtuelle, cela signifie que les identités managées pour ressources Azure n’ont pas encore été activées sur le portail de votre région.  Revérifiez ultérieurement.  Vous pouvez également activer des identités managées pour ressources Azure pour votre machine virtuelle en utilisant [PowerShell](qs-configure-powershell-windows-vm.md) ou [Azure CLI](qs-configure-cli-windows-vm.md).
 
-### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Impossible d’attribuer un accès aux machines virtuelles dans le panneau de contrôle d’accès (IAM)
+### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Impossible d’attribuer un accès aux machines virtuelles dans le panneau Contrôle d’accès (IAM)
 
-Si **Machine virtuelle** n’apparaît pas sur le portail Azure en tant que choix pour **Attribuer un accès** dans **Contrôle d’accès (IAM)** > **Ajouter autorisations**, cela signifie que les identités managées pour ressources Azure n’ont pas été activées sur le portail de votre région. Revérifiez ultérieurement.  Vous pouvez toujours sélectionner l’identité de la machine virtuelle pour l’attribution de rôle en recherchant le principal du service des identités managées pour ressources Azure.  Entrez le nom de la machine virtuelle dans le champ **Sélectionner**. Le principal de service s’affiche dans le résultat de la recherche.
+Si **Machine virtuelle** n’apparaît pas dans le portail Azure en tant que choix pour **Attribuer un accès** dans **Contrôle d’accès (IAM)** > **Ajouter une attribution de rôle**, cela signifie que les identités managées pour ressources Azure n’ont pas été activées dans le portail de votre région. Revérifiez ultérieurement.  Vous pouvez toujours sélectionner l’identité de la machine virtuelle pour l’attribution de rôle en recherchant le principal du service des identités managées pour ressources Azure.  Entrez le nom de la machine virtuelle dans le champ **Sélectionner**. Le principal de service s’affiche dans le résultat de la recherche.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>La machine virtuelle ne démarre pas après avoir été déplacée d’un groupe de ressources ou d’un abonnement
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: dobett
-ms.openlocfilehash: 1d9e5b46460f04ad491ac741a62ee6d644985e61
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 724f655229347aa73747476e6bb4837b30e0fc4f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283425"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839005"
 ---
 # <a name="upload-files-with-iot-hub"></a>Chargement de fichiers avec IoT Hub
 
@@ -54,7 +54,7 @@ IoT Hub renvoie les données suivantes. L’appareil l’utilise pour téléchar
 ```json
 {
     "correlationId": "somecorrelationid",
-    "hostName": "contoso.azure-devices.net",
+    "hostName": "yourstorageaccount.blob.core.windows.net",
     "containerName": "testcontainer",
     "blobName": "test-device1/image.jpg",
     "sasToken": "1234asdfSAStoken"
@@ -125,10 +125,10 @@ Chaque IoT Hub dispose des options de configuration suivantes pour les notificat
 
 | Propriété | Description | Plage et valeur par défaut |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Indique si les notifications de téléchargement de fichier sont écrites dans le point de terminaison de notification de fichier. |Valeur booléenne. Par défaut : True. |
-| **fileNotifications.ttlAsIso8601** |Durée de vie par défaut des notifications de téléchargement de fichier. |Intervalle ISO_8601 jusqu’à 48h (minimum 1 minute). Par défaut : 1 heure. |
-| **fileNotifications.lockDuration** |Durée de verrouillage de la file d’attente des notifications de téléchargement de fichiers. |5 à 300 secondes (5 secondes au minimum). Par défaut : 60 secondes. |
-| **fileNotifications.maxDeliveryCount** |Nombre maximal de diffusions pour la file d’attente de notification de téléchargement de fichier. |1 à 100. Par défaut : 100. |
+| **enableFileUploadNotifications** |Indique si les notifications de téléchargement de fichier sont écrites dans le point de terminaison de notification de fichier. |Valeur booléenne. Valeur par défaut : True. |
+| **fileNotifications.ttlAsIso8601** |Durée de vie par défaut des notifications de téléchargement de fichier. |Intervalle ISO_8601 jusqu’à 48h (minimum 1 minute). Valeur par défaut : 1 heure. |
+| **fileNotifications.lockDuration** |Durée de verrouillage de la file d’attente des notifications de téléchargement de fichiers. |5 à 300 secondes (5 secondes au minimum). Valeur par défaut : 60 secondes. |
+| **fileNotifications.maxDeliveryCount** |Nombre maximal de diffusions pour la file d’attente de notification de téléchargement de fichier. |1 à 100. Valeur par défaut : 100. |
 
 ## <a name="additional-reference-material"></a>Matériel de référence supplémentaire
 

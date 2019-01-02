@@ -1,37 +1,37 @@
 ---
-title: Stratégies d’indexation d’Azure Cosmos DB | Microsoft Docs
+title: Stratégies d’indexation d’Azure Cosmos DB
 description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB. Découvrez comment configurer et modifier la stratégie d’indexation pour bénéficier d’une indexation automatique et de meilleures performances.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: ffb70ce8c26b7774e90801271c55cd8a80906c90
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2153f0a16df9e79b3f5324ce19880e2708855196
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628650"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847998"
 ---
 # <a name="indexing-policy-in-azure-cosmos-db"></a>Stratégie d’indexation dans Azure Cosmos DB
 
 Vous pouvez remplacer la stratégie d’indexation par défaut sur un conteneur Azure Cosmos en configurant les paramètres suivants :
 
-* **Inclure ou exclure des éléments et des chemins dans l’index** : Vous pouvez exclure ou inclure des éléments spécifiques dans l’index quand vous insérez ou remplacez les éléments au sein d’un conteneur. Vous pouvez aussi inclure ou exclure des chemins/propriétés spécifiques à indexer sur tous les conteneurs. Les chemins peuvent être des modèles de caractère générique, par exemple, *.
+* **Inclure ou exclure des éléments et des chemins dans l’index** : vous pouvez exclure ou inclure des éléments spécifiques dans l’index quand vous insérez ou remplacez les éléments au sein d’un conteneur. Vous pouvez aussi inclure ou exclure des chemins/propriétés spécifiques à indexer sur tous les conteneurs. Les chemins peuvent être des modèles de caractère générique, par exemple, *.
 
-* **Configurer les types d’index** : En plus de limiter les chemins indexés, vous pouvez ajouter d’autres types d’index comme les index spatiaux.
+* **Configurer les types d’index** : en plus de limiter les chemins indexés, vous pouvez ajouter d’autres types d’index, comme les index spatiaux.
 
-* **Configurer les modes d’index** : En utilisant la stratégie d’indexation sur un conteneur, vous pouvez configurer différents modes d’indexation, comme *Cohérent* ou *Aucun*.
+* **Configurer les modes d’index** : en utilisant la stratégie d’indexation sur un conteneur, vous pouvez configurer différents modes d’indexation, comme *Cohérent* ou *Aucun*.
 
 ## <a name="indexing-modes"></a>Modes d’indexation 
 
 Azure Cosmos DB prend en charge deux modes d’indexation configurables sur un conteneur Azure Cosmos. Vous pouvez configurer les deux modes d’indexation suivants avec la stratégie d’indexation : 
 
-* **Cohérent** : Si la stratégie d’un conteneur Azure Cosmos DB est définie sur Cohérent, les requêtes sur un conteneur spécifique suivent le même niveau de cohérence que celui spécifié pour les lectures ponctuelles (par exemple, fort, session, obsolescence limitée ou éventuel). 
+* **Cohérent** : si la stratégie d’un conteneur Azure Cosmos DB est définie sur Cohérent, les requêtes sur un conteneur spécifique suivent le même niveau de cohérence que celui spécifié pour les lectures ponctuelles (par exemple, forte, session, obsolescence limitée ou éventuelle). 
 
   L’index est mis à jour de manière synchrone en même temps que les éléments. Par exemple, les opérations d’insertion, de remplacement, de mise à jour et de suppression sur un élément entraînent la mise à jour de l’index. L’indexation cohérente prend en charge les requêtes cohérentes au détriment du débit d’écriture. La réduction du débit d’écriture dépend des « chemins inclus dans l’indexation » et du « niveau de cohérence ». Le mode d’indexation Cohérent est conçu pour écrire rapidement et interroger immédiatement les charges de travail.
 
-* **Aucun** : Un conteneur en mode d’indexation Aucun n’est associé à aucun index. Ce mode est souvent employé si une base de données Azure Cosmos est utilisée comme stockage de clés-valeurs et si les éléments sont accessibles seulement par le biais de leur propriété ID.
+* **Aucun** : un conteneur en mode d’indexation Aucun n’est associé à aucun index. Ce mode est souvent employé si une base de données Azure Cosmos est utilisée comme stockage de clés-valeurs et si les éléments sont accessibles seulement par le biais de leur propriété ID.
 
   > [!NOTE]
   > La configuration du mode d’indexation Aucun a pour effet secondaire de supprimer tout index existant. Vous devez utiliser cette option si vos modèles d’accès nécessitent seulement un ID ou un lien vers lui-même.
@@ -74,5 +74,5 @@ Pour en savoir plus sur l’indexation, consultez les articles suivants :
 
 * [Vue d’ensemble de l’indexation](index-overview.md)
 * [Types d’index](index-types.md)
-* [Chemins d’index](index-paths.md)
-* [Comment gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)
+* [Chemins des index](index-paths.md)
+* [Guide pratique pour gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)

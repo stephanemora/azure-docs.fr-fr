@@ -7,34 +7,32 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: c93bc018aea92a63adac4889d9496356543c1e52
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636898"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842728"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configuration du jeton, de la session et de l’authentification unique dans Azure Active Directory B2C
 
-Cette fonctionnalité vous donne un contrôle précis, [par stratégie](active-directory-b2c-reference-policies.md), de ce qui suit :
+Cette fonctionnalité vous donne un contrôle précis, [par flux d’utilisateur](active-directory-b2c-reference-policies.md), de ce qui suit :
 
 - Durées de vie des jetons de sécurité émis par Azure Active Directory (Azure AD) B2C.
 - Durées de vie des sessions d’applications web gérées par Azure AD B2C.
 - Formats des revendications importantes dans les jetons de sécurité émis par Azure AD B2C.
-- Comportement de l’authentification unique (SSO) entre plusieurs applications et stratégies dans votre client Azure AD B2C.
+- Comportement de l’authentification unique (SSO) entre plusieurs applications et flux d’utilisateur dans votre locataire Azure AD B2C.
 
-Vous pouvez utiliser cette fonctionnalité sur n’importe quel type de stratégie, mais cet exemple montre comment utiliser la fonctionnalité avec une stratégie d’inscription ou de connexion. Pour les stratégies intégrées, vous pouvez utiliser cette fonctionnalité dans votre annuaire Azure AD B2C de la façon suivante :
+Vous pouvez utiliser cette fonctionnalité sur n’importe quel type de stratégie, mais cet exemple montre comment utiliser la fonctionnalité avec un flux d’utilisateur d’inscription ou de connexion. Pour les flux d’utilisateur, vous pouvez utiliser cette fonctionnalité dans votre annuaire Azure AD B2C de la façon suivante :
 
-1. Cliquez sur **Stratégies d’inscription ou de connexion**.
-2. Ouvrez une stratégie en cliquant dessus. Par exemple, cliquez sur **B2C_1_SiUpIn**.
-3. Cliquez sur **Modifier** en haut du menu.
-4. Cliquez sur **Configuration du jeton, de la session et de l’authentification unique**.
-5. Apportez les modifications voulues. Apprenez-en plus sur les propriétés disponibles dans les sections suivantes.
-6. Cliquez sur **OK**.
-7. Cliquez sur **Enregistrer** en haut du menu.
+1. Cliquez sur **flux d’utilisateur**.
+2. Ouvrez un flux d’utilisateur en cliquant dessus. Par exemple, cliquez sur **B2C_1_SiUpIn**.
+3. Cliquez sur **Propriétés**.
+4. Sous **Paramètres de compatibilité de jeton**, apportez les modifications voulues. Apprenez-en plus sur les propriétés disponibles dans les sections suivantes.
+5. Cliquez sur **Enregistrer** en haut du menu.
 
 ## <a name="token-lifetimes-configuration"></a>Configuration de la durée de vie des jetons
 
@@ -57,10 +55,10 @@ Les propriétés suivantes servent à gérer les durées de vie des jetons de s�
 
 Les cas d’usage suivants sont activés à l’aide de ces propriétés :
 
-- Autoriser un utilisateur à rester connecté à une application mobile indéfiniment, tant qu’il est actif en permanence sur l’application. Vous pouvez définir le paramètre **Durée de vie fenêtre glissante du jeton d’actualisation (jours)** sur **Non délimité** dans votre stratégie d’authentification.
+- Autoriser un utilisateur à rester connecté à une application mobile indéfiniment, tant qu’il est actif en permanence sur l’application. Vous pouvez définir le paramètre **Durée de vie fenêtre glissante du jeton d’actualisation (jours)** sur **Non délimité** dans votre flux d’utilisateur de connexion.
 - Respectez les exigences de conformité et de sécurité de votre secteur en définissant les durées de vie correctes du jeton d’accès.
 
-Ces paramètres ne sont pas disponibles pour les stratégies de réinitialisation de mot de passe. 
+Ces paramètres ne sont pas disponibles pour les flux d’utilisateur de réinitialisation de mot de passe. 
 
 ## <a name="token-compatibility-settings"></a>Paramètres de conformité de jeton
 
@@ -68,7 +66,7 @@ Les propriétés suivantes permettent aux clients de valider les options selon l
 
 - **Revendication de l’émetteur (iss)**  : cette propriété identifie le client Azure AD B2C qui a émis le jeton.
     - `https://<domain>/{B2C tenant GUID}/v2.0/` : il s’agit de la valeur par défaut.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` : cette valeur inclut l’ID pour le client B2C et la stratégie utilisée dans la demande de jeton. Si votre application ou bibliothèque a besoin qu’Azure AD B2C soit conforme à [la spécification OpenId Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), utilisez cette valeur.
+    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` : cette valeur inclut l’ID pour le locataire B2C et le flux d’utilisateur utilisé dans la demande de jeton. Si votre application ou bibliothèque a besoin qu’Azure AD B2C soit conforme à [la spécification OpenId Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html), utilisez cette valeur.
 - **Revendication d’objet (obj)**  : cette propriété identifie l’entité pour laquelle le jeton indique des informations.
     - **ObjectID** : cette propriété est la valeur par défaut. Elle renseigne l’ID d’objet de l’utilisateur du répertoire dans la revendication `sub` du jeton.
     - **Non pris en charge** : cette propriété est uniquement fournie pour la compatibilité descendante, nous vous recommandons de passer à **ObjectID** dès que vous le pouvez.
@@ -91,16 +89,16 @@ Les cas d’usage suivants sont activés à l’aide de ces propriétés :
 - Respectez les exigences de conformité et de sécurité de votre secteur en définissant les durées de vie correctes de la session d’application web.
 - Forcez l’authentification après une période donnée pendant une interaction utilisateur avec une partie haute sécurité de votre application web. 
 
-Ces paramètres ne sont pas disponibles pour les stratégies de réinitialisation de mot de passe.
+Ces paramètres ne sont pas disponibles pour les flux d’utilisateur de réinitialisation de mot de passe.
 
 ## <a name="single-sign-on-sso-configuration"></a>Configuration de l’authentification unique
 
-Si vous avez plusieurs applications et stratégies dans votre client B2C, vous pouvez gérer les interactions utilisateur à l’aide de la propriété **Configuration de l’authentification unique** . Vous pouvez définir la propriété sur l’un des paramètres suivants :
+Si vous avez plusieurs applications et flux d’utilisateur dans votre locataire B2C, vous pouvez gérer les interactions utilisateur à l’aide de la propriété **Configuration de l’authentification unique**. Vous pouvez définir la propriété sur l’un des paramètres suivants :
 
-- **Client** : il s’agit du paramètre par défaut. L’utilisation de ce paramètre permet à plusieurs applications et stratégies dans votre client B2C de partager la même session utilisateur. Par exemple, lorsqu’un utilisateur se connecte à une application, il peut également se connecter de façon transparente à une autre application, Contoso Pharmacy, lorsqu’il y accède.
+- **Client** : il s’agit du paramètre par défaut. L’utilisation de ce paramètre permet à plusieurs applications et flux d’utilisateur dans votre locataire B2C de partager la même session utilisateur. Par exemple, lorsqu’un utilisateur se connecte à une application, il peut également se connecter de façon transparente à une autre application, Contoso Pharmacy, lorsqu’il y accède.
 - **Application**: ce paramètre vous permet de maintenir une session utilisateur exclusivement pour une application, indépendamment des autres applications. Par exemple, si vous souhaitez que l’utilisateur se connecte à Contoso Pharmacy (avec les mêmes informations d’identification), même s’il est déjà connecté à Contoso Shopping, une autre application sur le même client B2C. 
-- **Stratégie**: ce paramètre vous permet de maintenir une session utilisateur exclusivement pour une stratégie, indépendamment des applications qui l’utilisent. Par exemple, si l’utilisateur s’est déjà connecté et a effectué une étape d’authentification multifacteur, il peut obtenir l’accès à des parties plus sécurisées de plusieurs applications tant que la session liée à la stratégie n’expire pas.
-- **Désactivé**: ce paramètre oblige l’utilisateur à réexécuter toute la procédure pour chaque exécution de la stratégie. Par exemple, cela permet à plusieurs utilisateurs de s’inscrire à votre application (dans un scénario de type bureau partagé), même si un seul utilisateur reste connecté pendant toute la durée.
+- **Stratégie** : ce paramètre vous permet de maintenir une session utilisateur exclusivement pour un flux d’utilisateur, indépendamment des applications qui l’utilisent. Par exemple, si l’utilisateur s’est déjà connecté et a effectué une étape d’authentification multifacteur, il peut obtenir l’accès à des parties plus sécurisées de plusieurs applications tant que la session liée au flux d’utilisateur n’expire pas.
+- **Désactivé** : ce paramètre oblige l’utilisateur à réexécuter toute la procédure pour chaque exécution du flux d’utilisateur. Par exemple, cela permet à plusieurs utilisateurs de s’inscrire à votre application (dans un scénario de type bureau partagé), même si un seul utilisateur reste connecté pendant toute la durée.
 
-Ces paramètres ne sont pas disponibles pour les stratégies de réinitialisation de mot de passe. 
+Ces paramètres ne sont pas disponibles pour les flux d’utilisateur de réinitialisation de mot de passe. 
 

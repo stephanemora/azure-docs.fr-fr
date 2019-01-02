@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: bd5082d9f66e65bb487c9216131b7e13f825340e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8b43ef81385f1d185fdd63d2a33453c75684fd21
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246648"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969922"
 ---
 # <a name="api-management-cross-domain-policies"></a>Gestion des API dans les stratégies de domaine
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -38,7 +38,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 ```xml  
 <cross-domain>  
    <!-Policy configuration is in the Adobe cross-domain policy file format,   
-      see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
+      see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
 </cross-domain>  
 ```  
   
@@ -56,7 +56,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
-|inter-domaines|Élément racine. Les éléments enfants doivent être conformes à la [spécification de fichier de stratégie inter-domaines Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Oui|  
+|inter-domaines|Élément racine. Les éléments enfants doivent être conformes à la [spécification de fichier de stratégie inter-domaines Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Oui|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -145,7 +145,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound  
--   **Étendues de la stratégie :** API, operation (API, opération)  
+-   **Étendues de la stratégie :** API, opération  
   
 ##  <a name="JSONP"></a> JSONP  
  La stratégie `jsonp` ajoute la prise en charge de JSON avec remplissage (JSONP) à une opération ou une API afin de permettre les appels inter-domaines à partir des navigateurs clients utilisant JavaScript. JSONP est une méthode utilisée par les programmes JavaScript pour demander des données à un serveur se trouvant dans un autre domaine. JSONP passe outre la limite appliquée par la plupart des navigateurs web, selon laquelle l'accès aux pages web doit se trouver dans le même domaine.  

@@ -1,5 +1,5 @@
 ---
-title: Contrat de licence du Kit de développement logiciel (SDK) Speech Devices
+title: Contrat de licence du kit SDK Speech Devices - Services Speech
 titleSuffix: Azure Cognitive Services
 description: Contrat de licence du Kit de développement logiciel (SDK) Speech Devices.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b1605337a810c635bfa40cd05e2f9b15d2e5a7e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466118"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078512"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrat de licence du Kit de développement logiciel (SDK) Speech Devices
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>TERMES DU CONTRAT DE LICENCE LOGICIEL MICROSOFT<br>KIT DE DÉVELOPPEMENT LOGICIEL (SDK) SPEECH DEVICES 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>TERMES DU CONTRAT DE LICENCE LOGICIEL MICROSOFT<br>KIT DE DÉVELOPPEMENT LOGICIEL (SDK) SPEECH DEVICES
 
 > SI VOUS VIVEZ (OU ÊTES UNE ENTREPRISE DONT LE PRINCIPAL ÉTABLISSEMENT SE TROUVE) AUX ÉTATS-UNIS, LISEZ LA SECTION « DISPENSE D’ARBITRAGE EXÉCUTOIRE ET D’ACTION COLLECTIVE » CI-DESSOUS. ELLE AFFECTE LE RÉGLEMENT DES CONFLITS.
 
@@ -57,7 +58,7 @@ f) Vous ne pouvez utiliser le logiciel qu’en association avec le service Speec
 
 **5\. COMMENTAIRES.** Si vous donnez votre avis sur le logiciel à Microsoft, vous accordez à Microsoft, sans contrepartie financière, le droit d'utiliser, de partager et de commercialiser vos commentaires, de quelque manière et pour quelque usage que ce soit. Vous n’enverrez pas de commentaires soumis à une licence obligeant Microsoft à accorder une licence sur son logiciel ou sa documentation à des tiers parce que Microsoft y inclut vos commentaires. Ces droits demeurent malgré ce contrat.
 
-**6\. PÉRIODE.** Ce contrat est effectif dès votre acceptation et peut être résilié à tout moment par vous ou par Microsoft. 
+**6\. PÉRIODE.** Ce contrat est effectif dès votre acceptation et peut être résilié à tout moment par vous ou par Microsoft.
 
 **7\. RÉSILIATION.** Sans préjudice des autres droits, Microsoft peut mettre fin à ce contrat si vous ne respectez pas ses conditions. Dans ce cas, vous devrez détruire toutes les installations du logiciel et toutes ses composantes.
 

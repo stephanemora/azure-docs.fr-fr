@@ -1,21 +1,19 @@
 ---
-title: Sécurité de la base de données - Azure Cosmos DB | Microsoft Docs
+title: Sécurité de la base de données – Azure Cosmos DB
 description: Découvrez comment Azure Cosmos DB garantit la protection de la base de données et la sécurité de vos données.
 keywords: sécurité de la base de données NoSQL, sécurité des informations, sécurité des données, chiffrement de base de données, protection de base de données, stratégies de sécurité, tests de sécurité
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 11e1a6d8c0a21c64c38ca1d9cb0583c75056dd08
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620504"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093418"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Sécurité de la base de données Azure Cosmos DB
 
@@ -49,7 +47,7 @@ Nous vous recommandons d’utiliser la liste de vérification suivante qui répe
 - Protection physique des serveurs dans les centres de données protégés
 - Certifications
 
-Bien que cela paraisse évident, de récents exemples de [violations de base de données à grande échelle](http://thehackernews.com/2017/01/mongodb-database-security.html) nous rappellent l’importance simple mais critique des exigences suivantes :
+Bien que cela paraisse évident, de récents exemples de [violations de base de données à grande échelle](https://thehackernews.com/2017/01/mongodb-database-security.html) nous rappellent l’importance simple mais critique des exigences suivantes :
 - Serveurs corrigés et régulièrement mis à jour
 - Chiffrement HTTPS par défaut/SSL
 - Comptes administratifs avec des mots de passe forts
@@ -77,14 +75,14 @@ Examinons à présent chacune d’entre elles en détail.
 |Délimitation géographique|Azure Cosmos DB garantit la gouvernance des données dans les régions souveraines (par exemple, Allemagne, Chine, US Gov).|
 |Installations protégées|Dans Azure Cosmos DB, les données sont stockées sur des disques SSD dans les centres de données protégées d’Azure.<br><br>Pour en savoir plus, consultez les [centres de données Microsoft globaux](https://www.microsoft.com/en-us/cloud-platform/global-datacenters).|
 |Chiffrement HTTPS/SSL/TLS|Toutes les interactions client-service d’Azure Cosmos DB sont compatibles SSL/TLS 1.2, tout comme les réplications au sein des centres de données ou entre différents centres de données.|
-|Chiffrement au repos|Toutes les données stockées dans Azure Cosmos DB sont chiffrées au repos. Pour en savoir plus, consultez [Chiffrement de base de données Azure Cosmos DB au repos](.\database-encryption-at-rest.md).|
+|Chiffrement au repos|Toutes les données stockées dans Azure Cosmos DB sont chiffrées au repos. Pour en savoir plus, consultez [Chiffrement de base de données Azure Cosmos DB au repos](./database-encryption-at-rest.md).|
 |Serveurs corrigés|En tant que base de données NoSQL gérée, Azure Cosmos DB ne nécessite aucune gestion ou correction des serveurs. Tout est fait automatiquement.|
 |Comptes administratifs avec des mots de passe forts|Il est difficile de croire que nous devions encore mentionner cette exigence, mais contrairement à certains de nos concurrents, il est impossible d’avoir un compte d’administrateur sans mot de passe dans Azure Cosmos DB.<br><br> La sécurité via SSL et l’authentification basée sur un secret HMAC sont intégrées par défaut.|
-|Certifications de sécurité et de protection des données|Pour obtenir la toute dernière liste de certifications, consultez le [site général de conformité Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) [], ainsi que le [document le plus récent dédié à la conformité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) contenant toutes les certifications (effectuez une recherche sur Cosmos). Pour une lecture plus ciblée, lisez le billet du 25 avril 2018 [Azure #CosmosDB: Secure, private, compliant](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) qui inclut SOCS 1/2 Type 2, HITRUST, PCI DSS niveau 1, ISO 27001, HIPAA, FedRAMP High et de nombreuses autres certifications.
+|Certifications de sécurité et de protection des données|Pour obtenir la toute dernière liste de certifications, consultez le [site général de conformité Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) [], ainsi que le [document le plus récent dédié à la conformité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) contenant toutes les certifications (effectuez une recherche sur Cosmos). Pour obtenir des informations plus ciblées, lisez l’article intitulé [Azure #CosmosDB: Secure, private, compliant](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) du 25 avril 2018 qui traite des normes SOCS 1/2 Type 2, HITRUST, PCI DSS niveau 1, ISO 27001, HIPAA, FedRAMP High et de nombreuses autres certifications.
 
-La capture d’écran suivante montre l’intégration Active Directory (RBAC) à l’aide du contrôle d’accès (IAM) dans le portail Azure : ![Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
+La capture d’écran suivante montre l’intégration Active Directory (RBAC) à l’aide du contrôle d’accès (IAM) dans le portail Azure : ![Contrôle d’accès (IAM) dans le portail Azure – Démonstration de la sécurité de la base de données](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 
-La capture d’écran suivante montre comment utiliser l’enregistrement d’audit et les journaux d’activité pour surveiller votre compte : ![Journaux d’activité pour Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
+La capture d’écran suivante montre comment utiliser l’enregistrement d’audit et les journaux d’activité pour surveiller votre compte : ![Journaux d’activité pour Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

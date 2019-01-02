@@ -1,5 +1,5 @@
 ---
-title: Analyseurs de la Recherche Azure | Microsoft Docs
+title: Analyseurs pour la linguistique et le traitement de texte - Recherche Azure
 description: Attribuez des analyseurs aux champs de texte d’un index pouvant faire l’objet d’une recherche, afin de remplacer l’instance de Lucene standard par défaut par des solutions alternatives personnalisées, prédéfinies ou spécifiques à une langue.
 services: search
 ms.service: search
@@ -8,14 +8,15 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec2018
+ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116368"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310536"
 ---
-# <a name="analyzers-in-azure-search"></a>Analyseurs dans Recherche Azure
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Analyseurs pour le traitement de texte dans Recherche Azure
 
 Un *analyseur* est un composant de [recherche en texte intégral](search-lucene-query-architecture.md) chargé de traiter le texte dans les chaînes de requête et les documents indexés. Les transformations suivantes se produisent généralement au cours d’une analyse :
 
@@ -82,7 +83,7 @@ La [démonstration de l’analyseur Recherche](http://alice.unearth.ai/) est une
 Les exemples ci-dessous montrent des définitions d’analyseur pour quelques scénarios clés.
 
 <a name="Example1"></a>
-### <a name="example-1-custom-options"></a>Exemple 1 : Options personnalisées
+### <a name="example-1-custom-options"></a>Exemple 1 : Options personnalisées
 
 Cet exemple montre une définition d’analyseur avec des options personnalisées. Les options personnalisées pour les filtres de caractères, les générateurs de jetons et les filtres de jetons sont spécifiées séparément comme des constructions nommées, puis elles sont référencées dans la définition de l’analyseur. Les éléments prédéfinis sont utilisés tels quels et sont référencés par leur nom.
 
@@ -149,7 +150,7 @@ Si nous suivons cet exemple :
 ~~~~
 
 <a name="Example2"></a>
-### <a name="example-2-override-the-default-analyzer"></a>Exemple 2 : Remplacer l’analyseur par défaut
+### <a name="example-2-override-the-default-analyzer"></a>Exemple 2 : Remplacer l’analyseur par défaut
 
 L’analyseur standard est celui qui est utilisé par défaut. Supposons que vous souhaitiez remplacer l’analyseur par défaut par un autre analyseur prédéfini, tel que l’analyseur de pattern. Si vous ne définissez pas d’options personnalisées, vous devez uniquement le spécifier par son nom dans la définition du champ.
 
@@ -181,7 +182,7 @@ L’élément « analyzer » remplace l’analyseur standard champ après champ.
 ~~~~
 
 <a name="Example3"></a>
-### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Exemple 3 : Des analyseurs différents pour les opérations d’indexation et de recherche
+### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Exemple 3 : Des analyseurs différents pour les opérations d’indexation et de recherche
 
 Les API comprennent des attributs d’index supplémentaires qui permettent de spécifier des analyseurs différents pour l’indexation et la recherche. Les attributs `searchAnalyzer` et `indexAnalyzer` doivent être spécifiés comme une paire, en remplacement de l’attribut `analyzer`.
 
@@ -208,7 +209,7 @@ Les API comprennent des attributs d’index supplémentaires qui permettent de s
 ~~~~
 
 <a name="Example4"></a>
-### <a name="example-4-language-analyzer"></a>Exemple 4 : Analyseur linguistique
+### <a name="example-4-language-analyzer"></a>Exemple 4 : Analyseur de langage
 
 Les champs qui contiennent des chaînes dans différentes langues peuvent utiliser un analyseur linguistique, tandis que les autres champs conservent l’analyseur par défaut (ou utilisent un autre analyseur prédéfini ou personnalisé). Si vous utilisez un analyseur linguistique, vous devez l’utiliser à la fois pour les opérations d’indexation et de recherche. Les champs qui utilisent un analyseur linguistique ne peuvent pas avoir des analyseurs différents pour l’indexation et la recherche.
 

@@ -2,18 +2,18 @@
 title: Gérer les serveurs et les coffres Azure Recovery Services
 description: Gérez les travaux et les alertes dans un coffre Azure Recovery Services.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
-ms.author: markgal
-ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250694"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871322"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
@@ -67,7 +67,7 @@ Cliquez sur les vignettes (à l’exception de Stockage de sauvegarde) pour ouvr
 
 ![Menu Alertes de sauvegarde filtré sur les alertes critiques](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-Dans l’image ci-dessus, les filtres suivants sont appliqués au menu Alertes de sauvegarde : État sur Actif, Gravité sur Critique et Période sur les dernières 24 heures.
+Le menu Alertes de sauvegarde, dans l’image ci-dessus, est filtré par : l’état est actif, la gravité est critique et la période est sur les dernières 24 heures.
 
 ## <a name="manage-backup-alerts"></a>Gérer les alertes de sauvegarde
 
@@ -85,8 +85,8 @@ La liste Alertes de sauvegarde affiche les informations sélectionnées pour les
 
 | Niveau d’alerte | Événements qui génèrent des alertes |
 | ----------- | ----------- |
-| Critique | Vous recevez des alertes critiques quand des travaux de sauvegarde échouent, quand des travaux de récupération échouent, et quand vous suspendez la protection sur un serveur, mais conservez les données.|
-| Avertissement | Vous recevez des alertes d’avertissement quand des travaux de sauvegarde se terminent avec des avertissements, par exemple, lorsque moins de 100 fichiers n’ont pas été sauvegardés en raison de problèmes d’altération, ou lorsque plus de 1 000 000 fichiers ont été correctement sauvegardés). |
+| Critique | Vous recevez des alertes critiques quand : Des travaux de sauvegarde échouent, des travaux de récupération échouent, et quand vous suspendez la protection sur un serveur mais conservez les données.|
+| Avertissement | Vous recevez des alertes d’avertissement quand : Des travaux de sauvegarde se terminent avec des avertissements, par exemple lorsque moins de 100 fichiers n’ont pas été sauvegardés en raison de problèmes d’altération, ou lorsque plus de 1 000 000 fichiers ont été correctement sauvegardés. |
 | Informations | Actuellement, les alertes d’information ne sont pas utilisées. |
 
 ### <a name="viewing-alert-details"></a>Affichage des détails de l’alerte
@@ -281,9 +281,9 @@ R3 Oui. Dans les cas suivants, les notifications ne sont pas envoyées :
 
 ## <a name="troubleshooting-monitoring-issues"></a>Résolution des problèmes de surveillance
 
-**Problème :** les travaux et/ou les alertes de l’agent de sauvegarde Azure n’apparaissent pas sur le portail.
+**Problème :** Les travaux et/ou les alertes de l’agent de sauvegarde Azure n’apparaissent pas dans le portail.
 
-**Étapes de dépannage :** le processus ```OBRecoveryServicesManagementAgent``` envoie les données relatives à l’alerte et au travail au service de sauvegarde Azure. Il peut arriver que ce processus se bloque ou s’arrête.
+**Procédure de résolution :** le processus ```OBRecoveryServicesManagementAgent``` envoie au service de sauvegarde Azure les données relatives à l’alerte et au travail. Il peut arriver que ce processus se bloque ou s’arrête.
 
 1. Pour vérifier que le processus n’est pas en cours d’exécution, ouvrez **Gestionnaire des tâches** et vérifiez si ```OBRecoveryServicesManagementAgent``` est actuellement exécuté.
 

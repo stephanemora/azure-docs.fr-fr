@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: a45e8c7bdb616eb389d95be8421bea7d31eafe29
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974167"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849230"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Préparer la cible (VMware vers Azure)
 
@@ -26,12 +26,12 @@ L’article suppose que :
 
 ## <a name="prepare-target"></a>Préparer la cible
 
-Après avoir réalisé **l’Étape 1 : Sélection de l’objectif de la protection** et **l’Étape 2 : Préparation de la source**, vous passez à **l’Étape 3 : Cible**.
+Après avoir effectué l’**Étape 1 : Sélectionner l’objectif de protection** et l’**Étape 2 : Préparer la source**, vous passez à l’**Étape 3 : Cible**
 
 ![Préparer la cible](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. **Abonnement :** dans le menu déroulant, sélectionnez l’abonnement vers lequel vous souhaitez répliquer vos serveurs physiques.
-2. **Modèle de déploiement :** sélectionnez le modèle de déploiement (Classique ou Gestionnaire de ressources).
+1. **Abonnement :** dans le menu déroulant, sélectionnez l’abonnement vers lequel vous souhaitez répliquer vos serveurs physiques.
+2. **Modèle de déploiement :** sélectionnez le modèle de déploiement (Classique ou Resource Manager).
 
 Selon le modèle de déploiement choisi, une validation est exécutée pour vérifier que vous disposez au moins d’un compte de stockage et d’un réseau virtuel compatibles dans l’abonnement cible pour la réplication et le basculement de vos serveurs physiques.
 

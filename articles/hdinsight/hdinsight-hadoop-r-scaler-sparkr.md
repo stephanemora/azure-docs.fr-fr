@@ -2,24 +2,24 @@
 title: Utiliser ScaleR et SparkR avec Azure HDInsight
 description: Utiliser ScaleR et SparkR avec ML Services sur HDInsight
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: c59ac5efab8b46463f97c375d999a131667d3cea
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699547"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386893"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combiner ScaleR et SparkR dans HDInsight
 
 Ce document montre comment prévoir des retards d’arrivée de vol à l’aide d’un modèle de régression logistique **ScaleR**. L’exemple utilise des données météorologiques et de retards de vol associées via **SparkR**.
 
-Bien que les deux packages s’exécutent sur le moteur d’exécution de Hadoop Spark, ils sont bloqués depuis le partage des données en mémoire, car ils requièrent chacun leur propre session Spark respective. En attendant que ce problème soit résolu dans une prochaine version de ML Server, la solution de contournement consiste à gérer des sessions Spark qui ne se recouvrent pas et à échanger les données via des fichiers intermédiaires. Les instructions fournies ici montrent que ces exigences sont faciles à obtenir.
+Bien que les deux packages s’exécutent sur le moteur d’exécution de Spark d’Apache Hadoop, le partage des données en mémoire est bloqué pour eux, car ils requièrent chacun leur propre session Spark respective. En attendant que ce problème soit résolu dans une prochaine version de ML Server, la solution de contournement consiste à gérer des sessions Spark qui ne se recouvrent pas et à échanger les données via des fichiers intermédiaires. Les instructions fournies ici montrent que ces exigences sont faciles à obtenir.
 
 Cet exemple a été initialement partagé lors d’une intervention de Mario Inchiosa et Roni Burd dans le cadre de la conférence Strata 2016. Vous pouvez retrouver cette intervention sur la page [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Création d’une plateforme de science de données évolutive avec R).
 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Notation depuis un autre emplacement
 
-Nous pouvons également utiliser le modèle pour évaluer les données sur une autre plateforme. En l’enregistrant dans un fichier RDS, puis en transférant et en important ce fichier RDS vers l’environnement de notation de destination, tel que les services SQL Server R. Lors de cette opération, il est important de vérifier que les niveaux de facteur des données à évaluer correspondent à ceux sur lesquels le modèle a été généré. Pour ce faire, il suffit d’extraire et d’enregistrer les informations des colonnes associées aux données de modélisation via la fonction `rxCreateColInfo()` de ScaleR, puis d’appliquer ces informations de colonnes à la source de données d’entrée pour émettre des prévisions. Dans l’exemple suivant, nous avons enregistré quelques lignes du jeu de données test, puis extrait et utilisé les informations de colonnes à partir de cet exemple dans le script de prévisions :
+Nous pouvons également utiliser le modèle pour évaluer les données sur une autre plateforme. En l’enregistrant dans un fichier RDS, puis en transférant et en important ce fichier RDS vers l’environnement de notation de destination, comme les services Microsoft SQL Server R. Lors de cette opération, il est important de vérifier que les niveaux de facteur des données à évaluer correspondent à ceux sur lesquels le modèle a été généré. Pour ce faire, il suffit d’extraire et d’enregistrer les informations des colonnes associées aux données de modélisation via la fonction `rxCreateColInfo()` de ScaleR, puis d’appliquer ces informations de colonnes à la source de données d’entrée pour émettre des prévisions. Dans l’exemple suivant, nous avons enregistré quelques lignes du jeu de données test, puis extrait et utilisé les informations de colonnes à partir de cet exemple dans le script de prévisions :
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ Dans cet article, nous avons indiqué comment il est possible de combiner l’ut
 
 ## <a name="next-steps-and-more-information"></a>Étapes suivantes et informations supplémentaires
 
-- Pour plus d’informations sur l’utilisation de ML Server sur Spark, consultez le [Guide de prise en main](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Pour plus d’informations sur l’utilisation de ML Server sur Apache Spark, consultez le [Guide de prise en main](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
 - Pour obtenir des informations générales sur ML Server, consultez l’article [Bien démarrer avec R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
 

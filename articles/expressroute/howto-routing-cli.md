@@ -1,30 +1,23 @@
 ---
-title: Configuration du routage d’un circuit Azure ExpressRoute avec l’interface CLI | Microsoft Docs
+title: 'Guide pratique pour configurer le peering d’un circuit - ExpressRoute : Azure CLI | Microsoft Docs'
 description: Cet article est conçu pour vous aider à créer et à approvisionner l’homologation privée, publique et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des homologations pour votre circuit.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3a4fecfdcfa13453959b442d801cfb578843505e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 683a05c39b73f51d6eb2c81b8afbb32c7daf6bfc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237710"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104575"
 ---
-# <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Créer et modifier le routage d’un circuit ExpressRoute à l’aide de l’interface CLI
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Créer et modifier le peering d’un circuit ExpressRoute à l’aide de l’interface CLI
 
-Cet article est conçu pour vous aider à créer et à gérer la configuration du routage d’un circuit ExpressRoute dans le modèle de déploiement Resource Manager à l’aide de l’interface CLI. Vous pouvez également vérifier l’état, mettre à jour ou supprimer et déprovisionner des homologations d’un circuit ExpressRoute. Si vous souhaitez utiliser une autre méthode pour votre circuit, sélectionnez un article dans la liste suivante :
+Cet article vous aide à créer et gérer la configuration de routage/le peering d’un circuit ExpressRoute dans le modèle de déploiement Resource Manager à l’aide de l’interface CLI. Vous pouvez également mettre à jour, supprimer et déprovisionner des homologations d’un circuit ExpressRoute, ainsi qu’en vérifier l’état. Si vous souhaitez utiliser une autre méthode pour votre circuit, sélectionnez un article dans la liste suivante :
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
@@ -59,20 +52,20 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 1. Installez la dernière version de l’interface Azure CLI. Utilisez la dernière version de l’interface de ligne de commande (CLI) Azure.* Prenez connaissance de la [configuration requise](expressroute-prerequisites.md) et des [workflows](expressroute-workflows.md) avant de commencer la configuration.
 
-  ```azurecli
+  ```azurecli-interactive
   az login
   ```
 
   Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
 
-  ```azurecli
+  ```azurecli-interactive
   az account set --subscription "<subscription ID>"
   ```
 2. Créez un circuit ExpressRoute. Suivez les instructions permettant de [créer un circuit ExpressRoute](howto-circuit-cli.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation Microsoft pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit. 
 
 3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route list
   ```
 
@@ -113,14 +106,14 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
   * Un sous-réseau /30 pour le lien secondaire. Il doit s’agir d’un préfixe IPv4 public valide vous appartenant et enregistré dans un registre RIR / IRR.
   * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
   * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
-  * Préfixes publiés : vous devez fournir une liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Si vous prévoyez d’envoyer un jeu de préfixes, vous pouvez envoyer une liste séparée par des virgules. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
-  * **(Facultatif)** ASN client : si vous publiez des préfixes non enregistrés dans le numéro de système autonome d’homologation, vous pouvez spécifier le numéro de système autonome avec lequel ils sont enregistrés.
-  * Nom du registre de routage : vous pouvez spécifier les registres RIR/IRR par rapport auxquels le numéro AS et les préfixes sont enregistrés.
+  * Préfixes publiés : Vous devez fournir la liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Si vous prévoyez d’envoyer un jeu de préfixes, vous pouvez envoyer une liste séparée par des virgules. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
+  * **Facultatif -** ASN du client : Si vous publiez des préfixes non inscrits au numéro AS de peering, vous pouvez spécifier le numéro AS auquel ils sont inscrits.
+  * Nom du registre de routage : Vous pouvez spécifier les registres RIR/IRR sur lesquels le numéro AS et les préfixes sont inscrits.
   * **Facultatif :** un hachage MD5 si vous choisissez d’en utiliser un.
 
    Exécutez l’exemple suivant afin de configurer l’homologation Microsoft pour votre circuit :
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 123.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 123.0.0.4/30 --vlan-id 300 --peering-type MicrosoftPeering --advertised-public-prefixes 123.1.0.0/24
   ```
 
@@ -128,7 +121,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
 
-```azurecli
+```azurecli-interactive
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
 
@@ -170,13 +163,13 @@ Le résultat ressemble à l’exemple suivant :
 
 Vous pouvez mettre à jour toute partie de la configuration. Les préfixes publiés du circuit sont mis à jour de 123.1.0.0/24 à 124.1.0.0/24 dans l’exemple suivant :
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroup --peering-type MicrosoftPeering --advertised-public-prefixes 124.1.0.0/24
 ```
 
 ### <a name="addIPv6msft"></a>Pour ajouter des paramètres d’homologation Microsoft IPv6 à une configuration IPv4 existante
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update -g ExpressRouteResourceGroup --circuit-name MyCircuit --peering-type MicrosoftPeering --ip-version ipv6 --primary-peer-subnet 2002:db00::/126 --secondary-peer-subnet 2003:db00::/126 --advertised-public-prefixes 2002:db00::/126
 ```
 
@@ -184,7 +177,7 @@ az network express-route peering update -g ExpressRouteResourceGroup --circuit-n
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’exemple suivant :
 
-```azurecli
+```azurecli-interactive
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name MicrosoftPeering
 ```
 
@@ -196,20 +189,20 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 1. Installez la dernière version de l’interface Azure CLI. Vous devez utiliser la dernière version de l’interface de ligne de commande (CLI) Azure.* Prenez connaissance de la [configuration requise](expressroute-prerequisites.md) et des [workflows](expressroute-workflows.md) avant de commencer la configuration.
 
-  ```azurecli
+  ```azurecli-interactive
   az login
   ```
 
   Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
 
-  ```azurecli
+  ```azurecli-interactive
   az account set --subscription "<subscription ID>"
   ```
 2. Créez un circuit ExpressRoute. Suivez les instructions permettant de [créer un circuit ExpressRoute](howto-circuit-cli.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
 
 3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
   ```
 
@@ -254,13 +247,13 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
   Utilisez l’exemple suivant pour configurer l’homologation privée Azure pour votre circuit :
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
   ```
 
   Si vous choisissez d’utiliser un hachage MD5, utilisez l’exemple suivant :
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
   ```
 
@@ -273,7 +266,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
 
-```azurecli
+```azurecli-interactive
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
@@ -309,7 +302,7 @@ Le résultat ressemble à l’exemple suivant :
 
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 100 à 500.
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
@@ -322,7 +315,7 @@ Vous pouvez supprimer votre configuration d’homologation en exécutant l’exe
 > 
 > 
 
-```azurecli
+```azurecli-interactive
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
@@ -334,20 +327,20 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 1. Installez la dernière version de l’interface Azure CLI. Vous devez utiliser la dernière version de l’interface de ligne de commande (CLI) Azure.* Prenez connaissance de la [configuration requise](expressroute-prerequisites.md) et des [workflows](expressroute-workflows.md) avant de commencer la configuration.
 
-  ```azurecli
+  ```azurecli-interactive
   az login
   ```
 
   Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
 
-  ```azurecli
+  ```azurecli-interactive
   az account set --subscription "<subscription ID>"
   ```
 2. Créez un circuit ExpressRoute.  Suivez les instructions permettant de [créer un circuit ExpressRoute](howto-circuit-cli.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation publique Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
 
 3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route list
   ```
 
@@ -392,13 +385,13 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
   Exécutez l’exemple suivant pour configurer l’homologation publique Azure pour votre circuit :
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
   ```
 
   Si vous choisissez d’utiliser un hachage MD5, exécutez l’exemple suivant :
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering --SharedKey "A1B2C3D4"
   ```
 
@@ -444,7 +437,7 @@ Le résultat ressemble à l’exemple suivant :
 
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 200 à 600.
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
@@ -452,7 +445,7 @@ az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGro
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’exemple suivant :
 
-```azurecli
+```azurecli-interactive
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 

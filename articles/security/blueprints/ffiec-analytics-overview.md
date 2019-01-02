@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: e5835454b4a0c0f1f2748f44037a162416b87549
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 14acffbaf56cd77cc7ed22875e72fe9f26f28c0a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405801"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998679"
 ---
-# <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Blueprint de sécurité et de conformité Azure - Analytique pour les services financiers FFIEC
+# <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Blueprint de sécurité et de conformité Azure : Analytique pour les services financiers FFIEC
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -68,19 +68,19 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
 
 La section ci-après décrit en détail les éléments nécessaires au déploiement et à l’implémentation.
 
-**Azure Event Grid** : [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) permet aux clients de créer facilement des applications avec les architectures basées sur des événements. Les utilisateurs sélectionnent la ressource Azure à laquelle ils veulent s’abonner et donnent au gestionnaire d’événements ou au webhook un point de terminaison auquel envoyer l’événement. Les clients peuvent sécuriser les points de terminaison Webhook en ajoutant des paramètres de requête à l’URL du Webhook lorsqu’ils créent un abonnement à un événement. Azure Event Grid ne prend en charge que les points de terminaison Webhook HTTPS. Azure Event Grid permet aux clients de contrôler le niveau d’accès offert aux différents utilisateurs pour l’exécution de diverses opérations de gestion, telles que l’énumération et la création des abonnements aux événements ou la génération de clés. Event Grid utilise le contrôle d’accès en fonction du rôle Azure.
+**Azure Event Grid** : [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) permet aux clients de créer facilement des applications avec les architectures basées sur des événements. Les utilisateurs sélectionnent la ressource Azure à laquelle ils veulent s’abonner et donnent au gestionnaire d’événements ou au webhook un point de terminaison auquel envoyer l’événement. Les clients peuvent sécuriser les points de terminaison Webhook en ajoutant des paramètres de requête à l’URL du Webhook lorsqu’ils créent un abonnement à un événement. Azure Event Grid ne prend en charge que les points de terminaison Webhook HTTPS. Azure Event Grid permet aux clients de contrôler le niveau d’accès offert aux différents utilisateurs pour l’exécution de diverses opérations de gestion, telles que l’énumération et la création des abonnements aux événements ou la génération de clés. Event Grid utilise le contrôle d’accès en fonction du rôle Azure.
 
-**Azure Functions** : [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) est un service de calcul serverless qui permet aux utilisateurs d’exécuter du code à la demande sans provisionner ni gérer explicitement l’infrastructure. Utilisez Azure Functions pour exécuter un script ou du code en réponse à un grand nombre d’événements.
+**Azure Functions** : [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) est un service de calcul serverless qui permet aux utilisateurs d’exécuter du code à la demande sans avoir à provisionner ou gérer explicitement l’infrastructure. Utilisez Azure Functions pour exécuter un script ou du code en réponse à un grand nombre d’événements.
 
-**Azure Machine Learning** : [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) est une technique de science des données qui permet aux ordinateurs d’utiliser des données existantes pour prévoir les tendances, les résultats et les comportements futurs.
+**Azure Machine Learning service** : [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) est une technique de science des données qui permet aux ordinateurs d’utiliser des données existantes afin de prévoir les tendances, les résultats et les comportements futurs.
 
-**Azure Data Catalog** : [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) rend les sources de données facilement détectables et compréhensibles par les utilisateurs qui gèrent les données. Les sources de données courantes peuvent être inscrites, étiquetées et explorées à la recherche de données financières. Les données restent à leur emplacement existant, mais une copie de leurs métadonnées, ainsi qu’une référence à l’emplacement de la source de données, sont ajoutées à Data Catalog. Les métadonnées sont également indexées de manière à ce que chaque source de données soit facilement détectable via la recherche, et compréhensible pour les utilisateurs qui la découvrent.
+**Azure Data Catalog** : [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) rend les sources de données facilement détectables et compréhensibles par les utilisateurs qui gèrent les données. Les sources de données courantes peuvent être inscrites, étiquetées et explorées à la recherche de données financières. Les données restent à leur emplacement existant, mais une copie de leurs métadonnées, ainsi qu’une référence à l’emplacement de la source de données, sont ajoutées à Data Catalog. Les métadonnées sont également indexées de manière à ce que chaque source de données soit facilement détectable via la recherche, et compréhensible pour les utilisateurs qui la découvrent.
 
 ### <a name="virtual-network"></a>Réseau virtuel
 
 L’architecture définit un réseau privé virtuel avec l’espace d’adressage 10.200.0.0/16.
 
-**Groupes de sécurité réseau** : les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contiennent des listes de contrôle d’accès qui autorisent ou refusent le trafic au sein d’un réseau virtuel. Les groupes de sécurité réseau peuvent être utilisés pour sécuriser le trafic au niveau d’un sous-réseau ou d’une machine virtuelle individuelle. Les groupes de sécurité réseau suivants existent :
+**Groupes de sécurité réseau** : les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contiennent des listes de contrôle d’accès qui autorisent ou interdisent le trafic au sein d’un réseau virtuel. Les groupes de sécurité réseau peuvent être utilisés pour sécuriser le trafic au niveau d’un sous-réseau ou d’une machine virtuelle individuelle. Les groupes de sécurité réseau suivants existent :
 
   - Un groupe de sécurité réseau pour Active Directory
   - Un groupe de sécurité réseau pour la charge de travail
@@ -90,7 +90,7 @@ Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouver
 - Les [événements et journaux de diagnostic](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sont activés et stockés dans un compte de stockage.
 - Log Analytics est connecté aux [journaux de diagnostic du groupe de sécurité réseau](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**Sous-réseaux** : chaque sous-réseau est associé au groupe de sécurité réseau qui lui correspond.
+**Sous-réseaux** : chaque sous-réseau est associé au groupe de sécurité réseau qui lui correspond.
 
 ### <a name="data-in-transit"></a>Données en transit
 
@@ -100,11 +100,11 @@ Par défaut, Azure chiffre toutes les communications avec les centres de donnée
 
 L’architecture protège les données au repos à l’aide d’un chiffrement, d’un audit de base de données et d’autres mesures.
 
-**Stockage Azure** : pour répondre aux exigences de chiffrement des données au repos, l’ensemble du service [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise la fonctionnalité de chiffrement [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Celle-ci permet de protéger et de sauvegarder les données dans le respect des engagements de l’organisation en matière de sécurité et des exigences de conformité définies par le FFIEC.
+**Stockage Azure** : pour satisfaire aux exigences du chiffrement des données au repos, l’ensemble du service [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise la fonctionnalité [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Celle-ci permet de protéger et de sauvegarder les données dans le respect des engagements de l’organisation en matière de sécurité et des exigences de conformité définies par le FFIEC.
 
-**Azure Disk Encryption** : [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) tire parti de la fonctionnalité BitLocker de Windows pour chiffrer les volumes des disques de données. La solution s’intègre à Azure Key Vault pour faciliter le contrôle et la gestion des clés de chiffrement de disque.
+**Azure Disk Encryption** : [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) exploite la fonctionnalité BitLocker de Windows pour chiffrer les volumes des disques de données. La solution s’intègre à Azure Key Vault pour faciliter le contrôle et la gestion des clés de chiffrement de disque.
 
-**Azure SQL Database** : l’instance Azure SQL Database utilise les mesures de sécurité de base de données suivantes :
+**Azure SQL Database** : L’instance Azure SQL Database utilise les mesures suivantes pour la sécurité des bases de données :
 
 - La solution [d’authentification et d’autorisation Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permet de gérer les identités des utilisateurs de bases de données et d’autres services Microsoft dans un emplacement central.
 - L’[audit Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) suit les événements de base de données et consigne ceux-ci dans un journal d’audit conservé dans un compte de stockage Azure.
@@ -128,7 +128,7 @@ Les technologies suivantes offrent des fonctionnalités de gestion de l’accès
 
 ### <a name="security"></a>Sécurité
 
-**Gestion des secrets** : la solution utilise [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour gérer les clés et les secrets. Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Les fonctionnalités Azure Key Vault ci-après aident les clients à protéger les données et à y accéder :
+**Gestion des secrets** : la solution utilise [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour gérer les clés et les secrets. Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Les fonctionnalités Azure Key Vault ci-après aident les clients à protéger les données et à y accéder :
 
 - Les stratégies d’accès avancées sont configurées en fonction des besoins.
 - Les stratégies d’accès Key Vault sont définies avec des autorisations minimales requises pour les clés et les secrets.
@@ -138,7 +138,7 @@ Les technologies suivantes offrent des fonctionnalités de gestion de l’accès
 - Les journaux de diagnostics pour Key Vault sont activés avec une période de rétention d’au moins 365 jours.
 - Les opérations de chiffrement autorisées pour les clés sont restreintes à celles qui sont nécessaires.
 
-**Azure Security Center** : Avec [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), les clients peuvent appliquer et gérer de façon centralisée des stratégies de sécurité entre charges de travail, limiter l’exposition aux menaces, ainsi que détecter les attaques et y répondre. Par ailleurs, Azure Security Center accède aux configurations existantes des services Azure pour fournir des recommandations en matière de configuration et de service. Cela contribue à l’amélioration du dispositif de sécurité et à la protection des données.
+**Azure Security Center** : avec [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), les clients peuvent appliquer et gérer de façon centralisée des stratégies de sécurité sur les charges de travail, limiter l’exposition aux menaces ainsi que détecter les attaques et y répondre. Par ailleurs, Azure Security Center accède aux configurations existantes des services Azure pour fournir des recommandations en matière de configuration et de service. Cela contribue à l’amélioration du dispositif de sécurité et à la protection des données.
 
 Azure Security Center utilise diverses fonctionnalités de détection pour avertir les clients des attaques potentielles qui ciblent leur environnement. Ces alertes fournissent de précieuses informations sur le déclencheur de l’alerte, les ressources ciblées et la source de l’attaque. Azure Security Center a un ensemble [d’alertes de sécurité prédéfinies](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), qui sont déclenchées en cas de menace ou d’activité suspecte. Les [règles d’alerte personnalisées](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) d’Azure Security Center permettent aux clients de définir de nouvelles alertes de sécurité basées sur les données déjà collectées dans leur environnement.
 
@@ -147,22 +147,22 @@ Azure Security Center fournit des incidents et des alertes de sécurité hiérar
 ### <a name="logging-and-auditing"></a>Journalisation et audit
 
 Les services Azure assurent une journalisation complète de l’activité du système et des utilisateurs, ainsi que de l’intégrité du système :
-- **Journaux d’activité :** les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des informations sur les opérations effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
-- **Journaux de diagnostic :** les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sont tous les journaux émis par toutes les ressources. Ils incluent les journaux des événements système de Windows, les journaux de Stockage Azure, les journaux d’audit du Key Vault, ainsi que les journaux de pare-feu et d’accès d’Application Gateway. Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise.
+- **Journaux d’activité** : les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
+- **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux générés par chaque ressource. Ils incluent les journaux des événements système de Windows, les journaux de Stockage Azure, les journaux d’audit du Key Vault, ainsi que les journaux de pare-feu et d’accès d’Application Gateway. Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise.
 
-**Log Analytics** : ces journaux sont consolidés dans [Log Analytics](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de tableaux de bord. Une fois collectées, les données sont organisées dans différentes tables en fonction du type de données dans des espaces de travail Log Analytics. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Log Analytics pour permettre aux clients d’utiliser des requêtes Log Analytics afin d’accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
+**Log Analytics** : ces journaux sont consolidés dans [Log Analytics](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports de tableau de bord. Une fois collectées, les données sont organisées dans différentes tables en fonction du type de données dans des espaces de travail Log Analytics. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Log Analytics pour permettre aux clients d’utiliser des requêtes Log Analytics afin d’accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
 
 Les [solutions de gestion](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Log Analytics suivantes sont également incluses dans cette architecture :
--   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques de l’infrastructure de serveur déployée.
-- [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de recommandations spécifiques pour l’infrastructure de serveur déployée.
-- [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : la solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas et qui envoient des données opérationnelles.
--   [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité Azure de tous les abonnements Azure d’un client.
+-   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
+- [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
+- [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : cette solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas ou qui envoient des données opérationnelles.
+-   [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité Azure de tous les abonnements Azure d’un client.
 
-**Azure Automation** : [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) stocke, exécute et gère les runbooks. Dans cette solution, les runbooks aident à collecter les journaux d’Azure SQL Database. La solution Automation [Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking) permet aux clients d’identifier facilement les changements dans l’environnement.
+**Azure Automation** : [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) stocke, exécute et gère les runbooks. Dans cette solution, les runbooks aident à collecter les journaux d’Azure SQL Database. La solution Automation [Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking) permet aux clients d’identifier facilement les changements dans l’environnement.
 
-**Azure Monitor** : [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) permet aux utilisateurs de suivre les performances, d’assurer la sécurité et d’identifier les tendances en permettant aux organisations d’auditer, de créer des alertes et d’archiver des données, y compris de suivre les appels d’API dans leurs ressources Azure.
+**Azure Monitor** : [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) aide les utilisateurs à suivre les performances, garantir la sécurité et identifier les tendances en permettant aux organisations d’auditer, de créer des alertes et d’archiver des données, y compris le suivi des appels d’API dans leurs ressources Azure.
 
-**Application Insights** : [Application Insights](https://docs.microsoft.com/azure/application-insights/) est un service extensible de gestion des performances d’application destiné aux développeurs web sur diverses plateformes. Il détecte les anomalies de performances et intègre de puissants outils d’analyse conçus pour aider à diagnostiquer les problèmes et à comprendre l’usage que les utilisateurs font d’une application. Ce service a été conçu pour permettre aux utilisateurs d’améliorer continuellement le niveau de performance et la convivialité.
+**Application Insights** : [Application Insights](https://docs.microsoft.com/azure/application-insights/) est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Il détecte les anomalies de performances et intègre de puissants outils d’analyse conçus pour aider à diagnostiquer les problèmes et à comprendre l’usage que les utilisateurs font d’une application. Ce service a été conçu pour permettre aux utilisateurs d’améliorer continuellement le niveau de performance et la convivialité.
 
 ## <a name="threat-model"></a>Modèle de menace
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f63dcc73532426b07f792f631f934587fca08605
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 80389be735d337f72426f0745fee5717b96fa78a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128993"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100869"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copier des données de Square avec Azure Data Factory (préversion)
 
@@ -45,8 +45,8 @@ Les propriétés suivantes sont prises en charge pour le service lié Square :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Square**. | Oui |
-| host | URL de l’instance Square (c’est-à-dire mystore.mysquare.com).  | Oui |
+| Type | La propriété type doit être définie sur : **Square** | Oui |
+| host | URL de l’instance Square. (c’est-à-dire mystore.mysquare.com).  | Oui |
 | clientId | ID client associé à l’application Square.  | Oui |
 | clientSecret | Clé secrète client associée à l’application Square. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | redirectUri | URL de redirection affectée dans le tableau de bord de l’application Square (c’est-à-dire http://localhost:2500)  | Oui |
@@ -78,7 +78,12 @@ Les propriétés suivantes sont prises en charge pour le service lié Square :
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section donne la liste des propriétés prises en charge par le jeu de données Square.
 
-Pour copier des données de Square, affectez la valeur **SquareObject** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données de Square, affectez la valeur **SquareObject** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **SquareObject** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -90,7 +95,8 @@ Pour copier des données de Square, affectez la valeur **SquareObject** à la pr
         "linkedServiceName": {
             "referenceName": "<Square linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -99,14 +105,14 @@ Pour copier des données de Square, affectez la valeur **SquareObject** à la pr
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section donne la liste des propriétés prises en charge par la source Square.
 
-### <a name="squaresource-as-source"></a>SquareSource comme source
+### <a name="square-as-source"></a>Square comme source
 
 Pour copier des données de Square, affectez la valeur **SquareSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **SquareSource**. | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Business"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **SquareSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Business"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155981"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998090"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -28,7 +28,7 @@ Vous pouvez générer et exécuter des applications modernes, portables et basé
 
 En tant que plateforme ouverte, Kubernetes vous permet de créer des applications avec vos langage de programmation, système d’exploitation, bibliothèques ou bus de messagerie préférés. Les outils d’intégration et de livraison continues (CI/CD) existants peuvent s’intégrer à Kubernetes dans le cadre de la planification et du déploiement de versions.
 
-AKS (Azure Kubernetes Service) fournit un service Kubernetes managé qui réduit la complexité des tâches de gestion principales et de déploiement, y compris la coordination des mises à niveau. Les maîtres de cluster AKS sont gérés par la plateforme Azure ; vous ne payez que pour les nœuds AKS qui exécutent vos applications. AKS est basé sur le moteur open source Azure Container Service (acs-engine).
+AKS (Azure Kubernetes Service) fournit un service Kubernetes managé qui réduit la complexité des tâches de gestion principales et de déploiement, y compris la coordination des mises à niveau. Les maîtres de cluster AKS sont gérés par la plateforme Azure ; vous ne payez que pour les nœuds AKS qui exécutent vos applications. AKS est basé sur le moteur open source Azure Kubernetes Service (aks-engine).
 
 ## <a name="kubernetes-cluster-architecture"></a>Architecture d’un cluster Kubernetes
 
@@ -54,7 +54,7 @@ AKS fournit un maître de cluster monolocataire doté de dispositifs dédiés (s
 
 Ce maître de cluster managé signifie que vous n’avez pas besoin de configurer de composants tels qu’un magasin *etcd* hautement disponible, mais aussi que vous ne pouvez pas accéder directement au maître de cluster. Les mises à niveau de Kubernetes sont orchestrées par l’intermédiaire de l’interface de ligne de commande Azure ou du portail Azure, qui met à niveau le maître de cluster, puis les nœuds. Pour résoudre les problèmes éventuels, vous pouvez consulter les journaux du maître de cluster par le biais d’Azure Log Analytics.
 
-Si vous devez configurer le maître de cluster d’une façon particulière ou avez besoin d’un accès direct à ce dernier, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[acs-engine][acs-engine].
+Si vous devez configurer le maître de cluster d’une façon particulière ou avez besoin d’un accès direct à ce dernier, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine].
 
 ## <a name="nodes-and-node-pools"></a>Nœuds et pools de nœuds
 
@@ -70,7 +70,7 @@ La taille des machines virtuelles Azure pour vos nœuds détermine le nombre d�
 
 Dans AKS, l’image de machine virtuelle pour les nœuds de votre cluster est basée sur Ubuntu Linux. Quand vous créez un cluster AKS ou augmentez le nombre de nœuds, la plateforme Azure crée le nombre demandé de machines virtuelles et les configure. Vous ne devez effectuer aucune configuration manuelle.
 
-Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou runtime de conteneur, ou bien d’inclure des packages personnalisés, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[acs-engine][acs-engine]. Les versions d’`acs-engine` en amont présentent et fournissent des options de configuration avant qu’elles ne soient officiellement prises en charge dans les clusters AKS. Par exemple, si vous souhaitez utiliser des conteneurs Windows ou un runtime de conteneur autre que Docker, vous pouvez utiliser `acs-engine` pour configurer et déployer un cluster Kubernetes qui répond à vos besoins actuels.
+Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou runtime de conteneur, ou bien d’inclure des packages personnalisés, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine]. Les versions d’`aks-engine` en amont présentent et fournissent des options de configuration avant qu’elles ne soient officiellement prises en charge dans les clusters AKS. Par exemple, si vous souhaitez utiliser des conteneurs Windows ou un runtime de conteneur autre que Docker, vous pouvez utiliser `aks-engine` pour configurer et déployer un cluster Kubernetes qui répond à vos besoins actuels.
 
 ### <a name="resource-reservations"></a>Réservations de ressources
 
@@ -218,7 +218,7 @@ Cet article décrit certains des principaux composants Kubernetes et leur applic
 - [Mise à l’échelle Kubernetes/AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
 [kubernetes-deployments]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/

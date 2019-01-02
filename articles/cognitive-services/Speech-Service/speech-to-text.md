@@ -1,7 +1,7 @@
 ---
-title: À propos de la reconnaissance vocale
+title: À propos de la reconnaissance vocale - Services Speech
 titleSuffix: Azure Cognitive Services
-description: Vue d’ensemble des fonctionnalités de l’API Reconnaissance vocale.
+description: L’API Reconnaissance vocale transcrit Les flux audio en texte que votre application peut afficher ou traiter comme entrée. Le service est disponible via le kit SDK et un point de terminaison RESTful.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 041ec1c095ec604fed7906368ff266c1586df570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 050d395614fa4a08e6d0d0967200029e8fc36010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471337"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094710"
 ---
 # <a name="about-the-speech-to-text-api"></a>À propos de l’API Reconnaissance vocale
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: a52dbdad3842760c447e22f4274ab944750840e7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b2ab2ad1c31337e006b613ad7f17b4ad22495893
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816784"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870417"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Authentification de solutions de gestion Batch avec Active Directory
 
@@ -28,7 +28,7 @@ Les applications qui appellent le service de gestion Azure Batch s’authentifie
 
 La bibliothèque .NET de gestion Batch expose des types pour l’utilisation des packages d’application, des applications, des clés de compte et des comptes Batch. La bibliothèque .NET de gestion Batch est un client de fournisseur de ressources Azure, qui est utilisée avec [Azure Resource Manager][resman_overview] pour gérer ces ressources par programme. Azure AD est requis pour authentifier les demandes effectuées par le biais des clients de fournisseur de ressources Azure, y compris la bibliothèque Batch Management .NET et d’[Azure Resource Manager][resman_overview].
 
-Dans cet article, nous découvrons comment utiliser Azure AD pour l’authentification à partir des applications qui utilisent la bibliothèque .NET de gestion Batch. Nous montrons comment utiliser Azure AD pour authentifier un administrateur ou un coadministrateur d’abonnement avec l’authentification intégrée. Nous utilisons l’exemple de projet [AccountManagment][acct_mgmt_sample], disponible sur GitHub, pour parcourir la bibliothèque .NET de gestion Batch avec Azure AD.
+Dans cet article, nous découvrons comment utiliser Azure AD pour l’authentification à partir des applications qui utilisent la bibliothèque .NET de gestion Batch. Nous montrons comment utiliser Azure AD pour authentifier un administrateur ou un coadministrateur d’abonnement avec l’authentification intégrée. Nous utilisons l’exemple de projet [AccountManagement][acct_mgmt_sample], disponible sur GitHub, pour parcourir la bibliothèque .NET de gestion Batch avec Azure AD.
 
 Pour en savoir plus sur l’utilisation de la bibliothèque .NET de gestion Batch et l’exemple AccountManagement, consultez [Gérer les quotas et comptes Batch avec la bibliothèque cliente Batch Management pour .NET](batch-management-dotnet.md).
 

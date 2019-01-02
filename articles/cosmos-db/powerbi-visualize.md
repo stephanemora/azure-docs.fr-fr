@@ -1,21 +1,19 @@
 ---
-title: Didacticiel Power BI pour le connecteur Azure Cosmos DB | Microsoft Docs
+title: Tutoriel Power BI pour le connecteur Azure Cosmos DB
 description: Utilisez ce didacticiel Power BI pour importer JSON, créer des rapports et visualiser les données à l’aide du connecteur Power BI et Azure Cosmos DB.
 keywords: didacticiel power BI, visualiser les données, connecteur Power BI
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4e6aa1274609ebf990a02d41f63541668d3b37
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622089"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438708"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualiser les données Azure Cosmos DB à l’aide du connecteur Power BI
 
@@ -36,7 +34,19 @@ Avant de suivre les instructions de ce didacticiel Power BI, assurez-vous de dis
 
 * Téléchargez les [exemples de données de volcan](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) à partir de GitHub.
 
-* [Créer un compte de base de données Azure Cosmos DB](https://azure.microsoft.com/documentation/articles/create-account/) et importer les données de volcan à l’aide de l’[outil de migration de données Azure Cosmos DB](import-data.md).
+* [Créer un compte de base de données Azure Cosmos DB](https://azure.microsoft.com/documentation/articles/create-account/) et importer les données de volcan à l’aide de l’[outil de migration de données Azure Cosmos DB](import-data.md). Lorsque vous importez des données, prenez en compte les paramètres suivants pour la source et les destinations dans l’outil de migration de données :
+
+   * **Paramètres de la source** 
+
+       * **Importer depuis :** Fichier(s) JSON
+
+   * **Paramètres de la cible** 
+
+      * **Chaîne de connexion :** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+
+      * **Clé de partition :** /Pays 
+
+      * **Débit de collecte :** 1 000 
 
 Pour partager vos rapports dans PowerBI.com, vous devez disposer d’un compte sous PowerBI.com.  Pour en savoir plus Power BI et Power BI Pro, visitez [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 

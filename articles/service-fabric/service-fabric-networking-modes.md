@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 1a0b7932d8dced086370027e1f8eecaf81841ab3
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300777"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866064"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
 
@@ -78,7 +78,7 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
             ],
     ```
 
-2. Configurer la section de profil réseau pour autoriser la configuration de plusieurs adresses IP sur chaque nœud du cluster. L’exemple suivant définit cinq adresses IP par nœud pour un cluster Windows/Linux Service Fabric. Vous pouvez avoir cinq instances de service à l’écoute sur le port de chaque nœud.
+2. Configurer la section de profil réseau pour autoriser la configuration de plusieurs adresses IP sur chaque nœud du cluster. L’exemple suivant définit cinq adresses IP par nœud pour un cluster Windows/Linux Service Fabric. Vous pouvez avoir cinq instances de service à l’écoute sur le port de chaque nœud. Pour rendre les cinq adresses IP accessibles depuis Azure Load Balancer, inscrivez-les dans le pool d’adresses back-end d’Azure Load Balancer, comme indiqué ci-dessous.
 
     ```json
     "variables": {
@@ -126,6 +126,11 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
                           "name": "[concat(parameters('nicName'),'-', 1)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -135,6 +140,11 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
                           "name": "[concat(parameters('nicName'),'-', 2)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -144,6 +154,11 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
                           "name": "[concat(parameters('nicName'),'-', 3)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -153,6 +168,11 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
                           "name": "[concat(parameters('nicName'),'-', 4)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -162,6 +182,11 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
                           "name": "[concat(parameters('nicName'),'-', 5)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }

@@ -1,5 +1,5 @@
 ---
-title: Développer des fonctions définies par l’utilisateur .NET Standard pour des travaux de périphérie Azure Stream Analytics (préversion)
+title: Développer des fonctions .NET Standard pour des travaux de périphérie Azure Stream Analytics (préversion)
 description: Découvrez comment écrire des fonctions C# définies par l’utilisateur pour des travaux de périphérie Stream Analytics.
 services: stream-analytics
 author: mamccrea
@@ -8,13 +8,14 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: f0da25410fe81a93501df940ffbb0e115456a9e8
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247805"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106598"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Développer des fonctions définies par l’utilisateur .NET Standard pour des travaux de périphérie Azure Stream Analytics (préversion)
 
@@ -82,15 +83,15 @@ Dans cet exemple, **UDFTest** est un projet de bibliothèque de classes C# et **
 
 4. Vous devez voir **UDFTest** listé sous **Références** dans **l’Explorateur de solutions**.
 
-   ![Voir la référence de la fonction définie par l’utilisateur dans votre Explorateur de solutions de périphérie Azure Stream Analytics](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
+   ![Afficher la référence de la fonction définie par l’utilisateur dans l’Explorateur de solutions](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
 
 5. Cliquez avec le bouton droit sur le dossier **Fonctions** et choisissez **Nouvel élément**.
 
-   ![Ajouter un nouvel élément au dossier Fonctions dans votre solution de périphérie Azure Stream Analytics dans Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
+   ![Ajouter un nouvel élément au dossier Fonctions dans la solution de périphérie Azure Stream Analytics](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
 
 6. Ajoutez une fonction C# **SquareFunction.json** à votre projet Azure Stream Analytics.
 
-   ![Sélectionnez la fonction C Sharp dans la liste des éléments de périphérie Stream Analytics dans Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
+   ![Sélectionner la fonction C Sharp parmi les éléments de périphérie Stream Analytics dans Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
 
 7. Double-cliquez sur la fonction dans **l’Explorateur de solutions** pour ouvrir la boîte de dialogue de configuration.
 
@@ -133,6 +134,6 @@ La préversion des fonctions définies par l’utilisateur a les limitations sui
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Écrire une fonction C# définie par l’utilisateur pour un travail de périphérie Azure Stream Analytics (préversion)](stream-analytics-edge-csharp-udf.md)
-* [Tutoriel : Fonctions JavaScript définies par l’utilisateur dans Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
+* [Tutoriel : Écrire une fonction C# définie par l’utilisateur pour un travail de périphérie Azure Stream Analytics (préversion)](stream-analytics-edge-csharp-udf.md)
+* [Tutoriel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
 * [Utiliser Visual Studio pour afficher les tâches Azure Stream Analytics](stream-analytics-vs-tools.md)

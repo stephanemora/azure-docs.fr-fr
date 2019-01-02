@@ -3,19 +3,18 @@ title: Utilisation de l’API Cassandra Azure Cosmos DB à partir de Spark
 description: Cet article est la page principale de l’intégration de l’API Cassandra Cosmos DB à partir de Spark.
 services: cosmos-db
 author: anagha-microsoft
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: cb58ad60501be43ff4da2db29ab3ad3dfee9aad1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094242"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847131"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connecter l’API Cassandra Azure Cosmos DB à partir de Spark
 
@@ -29,14 +28,14 @@ Cet article fait partie d’une série d’articles sur l’intégration de l’
 ## <a name="dependencies-for-connectivity"></a>Dépendances pour la connectivité
 * **Connecteur Spark pour Cassandra :** le connecteur Spark est utilisé pour se connecter à l’API Cassandra Azure Cosmos DB.  Identifiez et utilisez la version du connecteur située dans le [dépôt central Maven]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) qui est compatible avec les versions Spark et Scala de votre environnement Spark.
 
-* **Bibliothèque d’assistance Azure Cosmos DB pour l’API Cassandra :** en plus du connecteur Spark, vous avez besoin d’une autre bibliothèque appelée [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) à partir d’Azure Cosmos DB. Cette bibliothèque contient des classes personnalisées de fabrique de connexion et de stratégie de nouvelle tentative.
+* **Bibliothèque d’assistance Azure Cosmos DB pour l’API Cassandra :** en plus du connecteur Spark, vous avez besoin d’une autre bibliothèque appelée [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) à partir d’Azure Cosmos DB. Cette bibliothèque contient des classes personnalisées de fabrique de connexion et de stratégie de nouvelle tentative.
 
   La stratégie de nouvelles tentatives dans Azure Cosmos DB est configurée pour gérer les exceptions de code d’état HTTP 429 (« Requêtes trop nombreuses »). L’API Cassandra Azure Cosmos DB traduit ces exceptions en erreurs surchargées sur le protocole natif Cassandra, et vous pouvez réessayer avec des interruptions. Comme Azure Cosmos DB utilise le modèle de débit provisionné, des exceptions de limitation du taux de requêtes se produisent quand les taux d’entrée/de sortie augmentent. La stratégie de nouvelles tentatives protège vos travaux Spark contre les pics de données qui dépassent momentanément le débit alloué pour votre collection.
 
   > [!NOTE] 
   > La stratégie de nouvelles tentatives peut protéger vos travaux Spark contre les pics momentanés uniquement. Si vous n’avez pas configuré suffisamment d’unités de requête nécessaires pour exécuter votre charge de travail, la stratégie de nouvelles tentatives n’est pas applicable et la classe de stratégie de nouvelles tentatives lève à nouveau l’exception.
 
-* **Détails de connexion de compte Azure Cosmos DB :** nom de compte, point de terminaison de compte et clé de votre API Cassandra Azure.
+* **Informations de connexion du compte Azure Cosmos DB :** Nom du compte, point de terminaison du compte et clé de votre API Cassandra d’Azure.
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Paramètres de configuration du débit du connecteur Spark
 

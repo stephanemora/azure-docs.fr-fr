@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3ce0b63c579412d9d8d35b835803becab09f7ef4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: d71b0c020fb9ceb305b56216d466bacb42ad21e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494150"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278149"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Permet de créer, de supprimer et de gérer les applications Docker Compose.
@@ -33,6 +33,7 @@ Permet de créer, de supprimer et de gérer les applications Docker Compose.
 | remove | Permet de supprimer un déploiement compose Service Fabric existant du cluster. |
 | status | Permet d’obtenir des informations sur un déploiement compose Service Fabric. |
 | mettre à niveau | Permet de commencer la mise à niveau d’un déploiement compose dans le cluster Service Fabric. |
+| upgrade-rollback | Permet de commencer la restauration d’une mise à niveau de déploiement compose dans le cluster Service Fabric. |
 | upgrade-status | Permet d’obtenir des informations sur la dernière mise à niveau effectuée sur le déploiement Compose Service Fabric. |
 
 ## <a name="sfctl-compose-create"></a>sfctl compose create
@@ -56,7 +57,7 @@ Permet de créer un déploiement compose Service Fabric.
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-compose-list"></a>sfctl compose list
@@ -68,7 +69,7 @@ Permet d’obtenir l’état des déploiements compose créés ou qui sont en co
 
 |Argument|Description|
 | --- | --- |
-| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
+| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
 | --max-results | Nombre maximal de résultats à renvoyer dans le cadre des requêtes paginées. Ce paramètre définit la limite supérieure du nombre de résultats renvoyés. Le nombre de résultats renvoyés peut être inférieur au nombre maximal de résultats spécifié s’ils ne tiennent pas dans le message conformément aux restrictions de taille maximale définies dans la configuration. Si ce paramètre est défini sur zéro ou n’est pas spécifié, la requête paginée comprend le nombre maximal de résultats pouvant tenir dans le message renvoyé. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
@@ -79,7 +80,7 @@ Permet d’obtenir l’état des déploiements compose créés ou qui sont en co
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-compose-remove"></a>sfctl compose remove
@@ -101,7 +102,7 @@ Permet de supprimer un déploiement compose Service Fabric existant.
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-compose-status"></a>sfctl compose status
@@ -123,7 +124,7 @@ Renvoie l’état du déploiement compose créé ou en cours de création dans l
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-compose-upgrade"></a>sfctl compose upgrade
@@ -140,21 +141,21 @@ Permet de valider les paramètres de mise à niveau fournis et de commencer la m
 | --default-svc-type-health-map | Dictionnaire encodé JSON qui décrit la stratégie de contrôle d’intégrité utilisée pour évaluer l’intégrité des services. |
 | --encrypted-pass | Au lieu de demander un mot de passe de registre de conteneurs, utilisez une phrase secrète déjà chiffrée. |
 | --failure-action | Les valeurs possibles sont \: « Invalid », « Rollback », « Manual ». |
-| --force-restart | Force le redémarrage. |
+| --force-restart | Force le redémarrage des processus pendant la mise à jour, même si la version du code n’a pas changé. <br><br> La mise à niveau modifie uniquement la configuration ou les données. |
 | --has-pass | Demande un mot de passe pour accéder au registre de conteneurs. |
-| --health-check-retry | Délai d’expiration de la nouvelle tentative de contrôle d’intégrité, en millisecondes. |
-| --health-check-stable | Durée de la stabilité du contrôle d’intégrité mesurée en millisecondes. |
-| --health-check-wait | Durée d’attente du contrôle d’intégrité mesurée en millisecondes. |
-| --replica-set-check | Délai d’expiration de la vérification du jeu de réplicas de mise à niveau, en secondes. |
+| --health-check-retry | Délai séparant les tentatives d’exécution des contrôles d’intégrité si l’application ou le cluster n’est pas sain. |
+| --health-check-stable | Durée pendant laquelle l’application ou le cluster doivent rester sains avant que la mise à niveau ne passe au domaine de mise à niveau suivant. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
+| --health-check-wait | Délai d’attente entre l’achèvement d’un domaine de mise à niveau et le démarrage du processus des contrôles d’intégrité. |
+| --replica-set-check | Durée maximale pendant laquelle bloquer le traitement d’un domaine de mise à niveau et éviter la perte de disponibilité en cas de problèmes inattendus. <br><br> Lorsque ce délai d’attente expire, le traitement du domaine de mise à niveau se poursuit, indépendamment des problèmes de perte de disponibilité. Le délai d’expiration est réinitialisé au début de chaque domaine de mise à niveau. Les valeurs valides sont comprises entre 0 et 42949672925 inclus. |
 | --svc-type-health-map | Liste encodée JSON d’objets décrivant les stratégies de contrôle d’intégrité utilisées pour évaluer l’intégrité de différents types de services. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 | --unhealthy-app | Pourcentage maximal autorisé d’applications non saines avant signalement d’une erreur. <br><br> Par exemple, pour autoriser 10 % des applications pouvant être défectueuses, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré d’applications pouvant être défectueuses avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins une application pouvant être défectueuse, l’état d’intégrité est Warning. Ce pourcentage est calculé en divisant le nombre d’applications pouvant être défectueuses par le nombre total d’instances d’application du cluster. |
-| --upgrade-domain-timeout | Délai d’expiration du domaine de mise à niveau, en millisecondes. |
+| --upgrade-domain-timeout | Durée d’exécution de chaque domaine de mise à niveau avant l’exécution de FailureAction. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
 | --upgrade-kind | Valeur par défaut \: Rolling. |
 | --upgrade-mode | Les valeurs possibles sont \: « Invalid », « UnmonitoredAuto », « UnmonitoredManual », « Monitored ».  Valeur par défaut \: UnmonitoredAuto. |
-| --upgrade-timeout | Délai d’expiration de la mise à niveau, en millisecondes. |
+| --upgrade-timeout | Durée d’exécution de l’ensemble de la mise à niveau avant l’exécution de FailureAction. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
 | --user | Nom d’utilisateur pour se connecter au Registre du conteneur. |
-| --warning-as-error | Les avertissements sont traités avec le même niveau de gravité que les erreurs. |
+| --warning-as-error | Indique si les avertissements sont traités avec le même niveau de gravité que les erreurs. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -163,7 +164,29 @@ Permet de valider les paramètres de mise à niveau fournis et de commencer la m
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+
+## <a name="sfctl-compose-upgrade-rollback"></a>sfctl compose upgrade-rollback
+Permet de commencer la restauration d’une mise à niveau de déploiement compose dans le cluster Service Fabric.
+
+Permet de restaurer une mise à niveau de déploiement compose Service Fabric.
+
+### <a name="arguments"></a>Arguments
+
+|Argument|Description|
+| --- | --- |
+| --deployment-name [Requis] | Identité du déploiement. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+
+### <a name="global-arguments"></a>Arguments globaux
+
+|Argument|Description|
+| --- | --- |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-compose-upgrade-status"></a>sfctl compose upgrade-status
@@ -185,7 +208,7 @@ Renvoie les informations concernant l’état de la mise à niveau du déploieme
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a76486eaf2f9df8eb47b8bb73f1577324152a80f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 65747da92a3cad770cd9d474d27645782f7306b9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623296"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998730"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Résolution des problèmes liés aux erreurs du pack de contenu des journaux d’activité Azure Active Directory 
 
@@ -34,12 +34,13 @@ Lorsque vous utilisez le pack de contenu Power BI pour Azure Active Directory (
 
 - [Échec de l’actualisation](troubleshoot-content-pack.md#refresh-failed) 
 - [Échec de la mise à jour des informations d’identification de la source de données](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [L’importation de données prend trop de temps](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long)  
+- [L’importation de données prend trop de temps](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+
 Cet article traite des causes possibles de ces erreurs et explique comment les corriger.
  
 ## <a name="refresh-failed"></a>Échec de l’actualisation 
  
-**Circonstances de l’apparition de l’erreur** : message électronique en provenance de Power BI ou état d’échec dans l’historique d’actualisation. 
+**Circonstances de l’apparition de l’erreur** : E-mail en provenance de Power BI ou état d’échec dans l’historique d’actualisation. 
 
 
 | Cause : | Procédure de résolution |
@@ -50,7 +51,7 @@ Cet article traite des causes possibles de ces erreurs et explique comment les c
  
 ## <a name="failed-to-update-data-source-credentials"></a>Échec de la mise à jour des informations d’identification de la source de données 
  
-**Circonstances de l’apparition de cette erreur** : dans Power BI, pendant que vous vous connectez au pack de contenu des journaux d’activité Azure AD. 
+**Circonstances de l’apparition de l’erreur** : Dans Power BI, pendant que vous vous connectez au pack de contenu des journaux d’activité Azure AD. 
 
 | Cause : | Procédure de résolution |
 | ---   | ---        |
@@ -61,7 +62,7 @@ Cet article traite des causes possibles de ces erreurs et explique comment les c
 
 ## <a name="data-import-is-too-slow"></a>L’importation de données est trop lente 
  
-**Circonstances de l’apparition de cette erreur** : dans Power BI, lorsque vous avez connecté votre pack de contenu, le processus d’importation de données démarre pour préparer votre tableau de bord pour le journal d’activité Azure AD. Le message **Importation de données...**  s’affiche, mais le processus n’évolue pas.  
+**Circonstances de l’apparition de l’erreur** : Dans Power BI, quand vous avez connecté votre pack de contenu, le processus d’importation de données démarre pour préparer votre tableau de bord pour le journal d’activité Azure AD. Le message suivant s’affiche : **Importation de données...**, mais le processus n’évolue pas.  
 
 | Cause : | Procédure de résolution |
 | ---   | ---        |

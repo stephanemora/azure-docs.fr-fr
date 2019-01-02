@@ -1,5 +1,5 @@
 ---
-title: Configurer des pare-feux et des réseaux virtuels dans Stockage Azure | Microsoft Docs
+title: Configurer des pare-feu et des réseaux virtuels dans Stockage Azure | Microsoft Docs
 description: Configurez une sécurité réseau en couche pour votre compte de stockage.
 services: storage
 author: cbrooksmsft
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: cfa0a91e74dba7a17b03a76dd70fc09a264decf8
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 8801954ec5ff0277614f65217b9abab6bfb67035
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284589"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098605"
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feu et des réseaux virtuels dans Stockage Azure
 
 Stockage Azure fournit un modèle de sécurité en couche. Ce modèle vous permet de sécuriser vos comptes de stockage pour un ensemble spécifique de réseaux pris en charge. Quand des règles de réseau sont configurées, seules les applications demandant des données sur l’ensemble de réseaux spécifié peuvent accéder à un compte de stockage.
 
@@ -38,7 +38,7 @@ Une fois appliquées, les règles de réseau concernent toutes les demandes. Les
 
 Le trafic des disques de machine virtuelle (notamment les opérations de montage et démontage et les E/S de disque) n’est pas affecté par les règles de réseau. L’accès REST aux objets blob de pages est protégé par les règles de réseau.
 
-Les comptes de stockage Classic ne prennent pas en charge les pare-feux et les réseaux virtuels.
+Les comptes de stockage Classic ne prennent pas en charge les pare-feu et les réseaux virtuels.
 
 Vous pouvez utiliser des disques non managés dans les comptes de stockage avec des règles de réseau appliquées à la sauvegarde et la restauration de machines virtuelles en créant une exception. Ce processus est décrit dans la section [Exceptions](#exceptions) de cet article. Les exceptions de pare-feu ne sont pas applicables avec disques managés dans la mesure où ils sont déjà gérés par Azure.
 
@@ -350,11 +350,11 @@ Si vous activez l’exception **Services Microsoft approuvés**, les services su
 |Sauvegarde Azure|Microsoft.Backup|Effectuez des sauvegardes et des restaurations de disques non managés dans des machines virtuelles IAAS. (non requis pour les disques managés). [Plus d’informations](/azure/backup/backup-introduction-to-azure-backup)|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configurez la récupération d’urgence en activant la réplication pour les machines virtuelles Azure IaaS. Cela est nécessaire si vous utilisez un compte de stockage de cache avec pare-feu activé, un compte de stockage source ou un compte de stockage cible.  [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)|
 |Azure DevTest Labs|Microsoft.DevTestLab|Création d’une image personnalisée et installation de l’artefact. [Plus d’informations](/azure/devtest-lab/devtest-lab-overview)|
-|Azure Event Grid|Microsoft.EventGrid|Activation de la publication d’événements Stockage Blob. [Plus d’informations](/azure/event-grid/overview)|
+|Azure Event Grid|Microsoft.EventGrid|Permettez la publication d’événements Stockage Blob et autorisez Event Grid à effectuer des publications dans les files d’attente de stockage. En savoir plus sur les [événements Stockage Blob](/azure/event-grid/event-sources) et la [publication dans les files d’attente](/azure/event-grid/event-handlers).|
 |Hubs d'événements Azure|Microsoft.EventHub|Archivage des données avec Event Hubs Capture. [En savoir plus](/azure/event-hubs/event-hubs-capture-overview)|
 |Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview)|
 |Azure Monitor|Microsoft.Insights|Autorisation de l’écriture de données de supervision dans un compte de stockage sécurisé. [En savoir plus](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
-|
+|Azure SQL Data Warehouse|Microsoft.Sql|Permet d’importer et d’exporter des scénarios à l’aide de PolyBase. [Plus d’informations](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)|
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics
 

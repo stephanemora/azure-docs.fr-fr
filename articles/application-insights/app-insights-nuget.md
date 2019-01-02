@@ -7,16 +7,15 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: b6188bbf89d9aee842d7f8e232a820b59c4d9e31
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 76cdd4bd4d95c7c11906f9c02a0f5cfa2326390e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023251"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000776"
 ---
 # <a name="application-insights-nuget-packages"></a>Packages NuGet Application Insights
 
@@ -71,7 +70,7 @@ Voici la liste actuelle des versions stables des Packages NuGet pour Application
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Active la collecte des données de runtime pour les applications x64 | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Active la collecte des données de runtime pour les applications x86. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Ces packages font partie des fonctionnalités essentielles de la supervision du runtime dans [Status Monitor](app-insights-monitor-performance-live-website-now.md). Vous n’avez pas besoin de télécharger ces packages directement ; utilisez simplement le programme d’installation de Status Monitor. Si vous souhaitez en savoir plus sur le fonctionnement de ces packages, vous pouvez commencer par consulter ce [billet de blog](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) rédigé par un de nos développeurs.
+Ces packages font partie des fonctionnalités essentielles de la supervision du runtime dans [Status Monitor](app-insights-monitor-performance-live-website-now.md). Vous n’avez pas besoin de télécharger ces packages directement ; utilisez simplement le programme d’installation de Status Monitor. Si vous souhaitez en savoir plus sur le fonctionnement de ces packages, vous pouvez commencer par consulter ce [billet de blog](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) rédigé par un de nos développeurs.
 
 ## <a name="additional-packages"></a>Packages supplémentaires
 

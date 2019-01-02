@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 11/27/2018
-ms.openlocfilehash: 4d71e54beac6e4816d8bcc9097219b2e7b7cabb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441857"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437060"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveaux de service vCore, Azure Hybrid Benefit et migration
 
@@ -40,10 +40,10 @@ Le tableau suivant montre les différences entre ces deux niveaux :
 ||**Usage général**|**Critique pour l’entreprise**|**Hyperscale (préversion)**|
 |---|---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité|
-|Calcul|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|
-|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur |Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur|
-|Stockage|Utilise le [Stockage distant Premium](../virtual-machines/windows/premium-storage.md) :<br/>Base de données unique : 5 Go à 4 To<br/>Instance gérée : 32 Go à 8 To |Utilise le stockage SSD local :<br/>Base de données unique : 5 Go à 1 To<br/>Instance gérée : 32 Go à 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
-|Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec un maximum de 7 000 IOPS</br>Instance gérée : dépend de la [taille du fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|TBD|
+|Calcul|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|
+|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur |Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur|
+|Stockage|Utilise le [Stockage distant Premium](../virtual-machines/windows/premium-storage.md) :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 8 To |Utilise le stockage SSD local :<br/>Base de données unique : 5 Go - 1 To<br/>instance managée : 32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
+|Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec 7000 IOPS au maximum</br>instance managée : dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|TBD|
 |Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|?|
 |Sauvegardes|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|Sauvegarde basée sur des instantanés dans le stockage distant Azur. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S du calcul. Les restaurations sont très rapides (elles durent quelques minutes plutôt que quelques heures ou jours).|
 |En mémoire|Non pris en charge|Pris en charge|Non pris en charge|
@@ -75,7 +75,7 @@ La migration d’une base de données du modèle d’achat DTU vers le modèle d
 
 ### <a name="migration-of-databases-with-geo-replication-links"></a>Migration de bases de données avec des liens de géoréplication
 
-La migration du modèle DTU vers le modèle vCore (et inversement) est similaire à la mise à niveau (ou à la rétrogradation) des relations de géoréplication entre les bases de données Standard et Premium. Cela ne nécessite pas l’arrêt de la géoréplication, toutefois, l’utilisateur doit respecter les règles de séquencement. Lors d’une mise à niveau, vous devez mettre à niveau la base de données secondaire, avant de mettre à niveau la base de données primaire. Lors d’une rétrogradation, inversez l’ordre : rétrogradez d’abord la base de données primaire, puis la base de données secondaire.
+La migration du modèle DTU vers le modèle vCore est similaire à la mise à niveau (ou à la rétrogradation) des relations de géoréplication entre les bases de données Standard et Premium. Cela ne nécessite pas l’arrêt de la géoréplication, toutefois, l’utilisateur doit respecter les règles de séquencement. Lors d’une mise à niveau, vous devez mettre à niveau la base de données secondaire, avant de mettre à niveau la base de données primaire. Lors d’une rétrogradation, inversez l’ordre : rétrogradez d’abord la base de données primaire, puis la base de données secondaire.
 
 Lorsque vous utilisez la géoréplication entre deux pools élastiques, il est recommandé de désigner un pool comme le pool principal et l’autre comme le pool secondaire. Dans ce cas, utilisez les mêmes recommandations pour la migration des pools élastiques.  Toutefois, il est techniquement possible qu’un pool élastique contienne à la fois la base de données primaire et la base de données secondaire. Dans ce cas, pour effectuer correctement la migration, vous devez désigner le pool ayant l’utilisation la plus élevée comme étant le pool principal, et suivre les règles de séquencement.  
 

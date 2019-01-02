@@ -1,5 +1,5 @@
 ---
-title: Service Marathon lié à une application ou à un utilisateur donnés
+title: (DÉPRÉCIÉ) Service Marathon propre à une application ou à un utilisateur
 description: Créer un service Marathon lié à une application ou à un utilisateur donnés
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 4ff263fe0ca4f435199127ed64faadee1c2527f9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164538"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996116"
 ---
-# <a name="create-an-application-or-user-specific-marathon-service"></a>Créer un service Marathon lié à une application ou à un utilisateur donnés
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(DÉPRÉCIÉ) Créer un service Marathon propre à une application ou à un utilisateur
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Azure Container Service fournit un ensemble de serveurs maîtres sur lesquels nous préconfigurons Apache Mesos et Marathon. Ceux-ci peuvent être utilisés pour organiser vos applications sur le cluster, mais il est préférable de ne pas utiliser les serveurs maîtres à cet effet. Par exemple, l’ajustement de la configuration de Marathon nécessite la connexion aux serveurs maîtres et la manipulation au sein de ces derniers ; cela favorise les serveurs maîtres uniques qui diffèrent légèrement de la norme et doivent être traités et gérés indépendamment. En outre, la configuration requise par une équipe peut ne pas constituer la configuration optimale pour une autre équipe.
 
@@ -25,7 +27,6 @@ Dans cet article, nous expliquerons comment ajouter un service Marathon lié à 
 Étant donné que ce service appartiendra à un utilisateur ou à une équipe unique, ces derniers peuvent le configurer comme ils l’entendent. En outre, Azure Container Service garantit l’exécution continue du service. En cas d’échec de ce dernier, Azure Container Service le redémarre à votre place. La plupart du temps, vous ne remarquerez même pas la survenue d’un temps d’arrêt.
 
 ## <a name="prerequisites"></a>Prérequis
-
 [Déployez une instance d’Azure Container Service](container-service-deployment.md) avec un orchestrator de type DC/OS, et [vérifiez que votre client peut se connecter à votre cluster](../container-service-connect.md). Effectuez également les étapes suivantes.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]

@@ -1,6 +1,6 @@
 ---
-title: Exemples Azure Event Hubs | Microsoft Docs
-description: Exemples Azure Event Hubs
+title: Exemples - Azure Event Hubs | Microsoft Docs
+description: Cet article fournit une liste d’exemples pour Azure Event Hubs qui se trouvent sur GitHub.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,20 +8,21 @@ manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ed337689360428d66657e5391ee52bb0ae39dc14
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7231b6a33c94dfe029f41f034c7674b386090d7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365643"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104048"
 ---
-# <a name="event-hubs-samples"></a>Exemples de hubs d’événements 
+# <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Référentiels Git avec des exemples pour Azure Event Hubs 
 Vous trouverez des exemples Event Hubs sur [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Ces exemples présentent les fonctionnalités clés [d’Azure Event Hubs](/azure/event-hubs/). Cette article attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
 
 ## <a name="net-samples"></a>Exemples relatifs à .NET
@@ -60,7 +61,8 @@ Vous trouverez des exemples d’interface de ligne de commande Azure pour Azure 
 ## <a name="azure-powershell-samples"></a>Exemples Azure PowerShell
 Vous trouverez des exemples Azure PowerShell pour Azure Event Hubs dans le dépôt GitHub [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell).
  
-
+## <a name="apache-kafka-samples"></a>Exemples Apache Kafka
+Vous trouverez des exemples pour les Event Hubs de la fonctionnalité Apache Kafka dans le référentiel GitHub [azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les hubs d’événements, consultez les articles suivants :

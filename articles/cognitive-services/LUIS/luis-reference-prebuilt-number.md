@@ -1,23 +1,24 @@
 ---
-title: Documentation de référence sur l’entité prédéfinie number de LUIS - Azure | Microsoft Docs
+title: Entité prédéfinie number
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie number dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: b3ac42f5ecd1dc14055b0767e057a1da093042f9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: bd42fbb85468ab652741573731515e499fe453da
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334565"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165671"
 ---
-# <a name="number-entity"></a>Entité Number
+# <a name="number-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie number pour une application LUIS
 Des valeurs numériques sont utilisées de plusieurs façons pour quantifier, exprimer et décrire des éléments d’information. Cet article ne couvre que certains exemples possibles. LUIS interprète les variantes des énoncés des utilisateurs, et renvoie des valeurs numériques cohérentes. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant un nombre aux intentions de l’application. 
 
 ## <a name="types-of-number"></a>Types d’entités number
@@ -42,7 +43,7 @@ LUIS inclut la valeur reconnue d’une entité **`builtin.number`** dans le cham
 ## <a name="resolution-for-prebuilt-number"></a>Résolution pour une entité prédéfinie number
 L’exemple suivant montre une réponse JSON de LUIS, qui inclut la résolution de la valeur 24 pour l’énoncé "two dozen" (deux douzaines).
 
-```JSON
+```json
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {

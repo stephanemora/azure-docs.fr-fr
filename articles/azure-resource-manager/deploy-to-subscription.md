@@ -1,6 +1,6 @@
 ---
-title: Déployer des ressources sur un abonnement Azure | Microsoft Docs
-description: Décrit comment créer un modèle Azure Resource Manager qui déploie des ressources au niveau de l’abonnement.
+title: Créer un groupe de ressources et des ressources au niveau abonnement - Modèle Azure Resource Manager
+description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,22 +9,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d281ebe80c6089c559cfaa77f4875a856566092
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079376"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435291"
 ---
-# <a name="deploy-resources-to-an-azure-subscription"></a>Déployer des ressources sur un abonnement Azure
+# <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Créer des groupes de ressources et des ressources pour un abonnement Azure
 
-En règle générale, vous déployez des ressources sur un groupe de ressources dans votre abonnement Azure. Toutefois, certaines ressources peuvent être déployées au niveau de votre abonnement Azure. Ces ressources s’appliquent à votre abonnement. Les [stratégies](../azure-policy/azure-policy-introduction.md), le [contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) et [Azure Security Center](../security-center/security-center-intro.md) sont des services que vous souhaiterez peut-être appliquer au niveau de l’abonnement plutôt qu’au niveau du groupe de ressources.
+En règle générale, vous déployez des ressources sur un groupe de ressources dans votre abonnement Azure. Toutefois, vous pouvez utiliser les déploiements de niveau abonnement pour créer des groupes de ressources et des ressources qui s’appliquent au sein de votre abonnement.
 
-Cet article utilise Azure CLI et PowerShell pour déployer les modèles.
+Pour créer un groupe de ressources dans un modèle Azure Resource Manager, définissez une ressource **Microsoft.Resources/resourceGroups** avec un nom et un emplacement pour le groupe de ressources. Vous pouvez créer un groupe de ressources et déployer des ressources sur ce groupe de ressources dans le même modèle.
 
-## <a name="name-and-location-for-deployment"></a>Nom et emplacement du déploiement
+Les [stratégies](../azure-policy/azure-policy-introduction.md), le [contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) et [Azure Security Center](../security-center/security-center-intro.md) sont des services que vous souhaiterez peut-être appliquer au niveau de l’abonnement plutôt qu’au niveau du groupe de ressources.
+
+Cet article explique comment créer des groupes de ressources, et comment créer des ressources qui s’appliquent à un abonnement. Il utilise Azure CLI et PowerShell pour déployer les modèles. Vous ne pouvez pas utiliser le portail pour déployer les modèles, car l’interface du portail déploie dans le groupe de ressources, et non dans l’abonnement Azure.
+
+## <a name="schema-and-commands"></a>Schéma et commandes
+
+Le schéma et les commandes que vous utilisez pour les déploiements au niveau abonnement sont différents de ceux utilisés pour les déploiements de groupes de ressources. 
+
+Pour le schéma, utilisez `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`.
+
+Pour la commande de déploiement Azure CLI, utilisez [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create).
+
+Pour la commande de déploiement PowerShell, utilisez [New-AzureRmDeployment](/powershell/module/azurerm.resources/new-azurermdeployment).
+
+## <a name="name-and-location"></a>Nom et emplacement
 
 Quand vous effectuez un déploiement sur votre abonnement, vous devez fournir un emplacement pour ce déploiement. Vous pouvez également fournir un nom pour le déploiement. Si vous ne spécifiez pas de nom pour le déploiement, le nom du modèle est utilisé comme nom de déploiement. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
 
@@ -37,6 +51,207 @@ Pour les déploiements au niveau de l’abonnement, il existe quelques considér
 * La fonction [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) **n’est pas** prise en charge.
 * La fonction [resourceId()](resource-group-template-functions-resource.md#resourceid) est prise en charge. Elle permet d’obtenir l’ID des ressources qui sont utilisées dans les déploiements au niveau de l’abonnement. Par exemple, vous pouvez obtenir l’ID de ressource d’une définition de stratégie avec `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`.
 * Les fonctions [reference()](resource-group-template-functions-resource.md#reference) et [list()](resource-group-template-functions-resource.md#list) sont prises en charge.
+
+## <a name="create-resource-group"></a>Créer un groupe de ressources
+
+L’exemple suivant crée un groupe de ressources vide.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[parameters('rgName')]",
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez la commande suivante :
+
+```azurecli-interactive
+az deployment create \
+  -n demoEmptyRG \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+Pour déployer ce modèle avec PowerShell, utilisez :
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
+```
+
+## <a name="create-several-resource-groups"></a>Créer plusieurs groupes de ressources
+
+Pour créer plus d’un groupe de ressources, utilisez l’[élément copy](resource-group-create-multiple.md) avec des groupes de ressources. 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgNamePrefix": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        },
+        "instanceCount": {
+            "type": "int"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
+            "copy": {
+                "name": "rgCopy",
+                "count": "[parameters('instanceCount')]"
+            },
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Pour déployer ce modèle avec Azure CLI et créer trois groupes de ressources, utilisez la commande suivante :
+
+```azurecli-interactive
+az deployment create \
+  -n demoCopyRG \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
+  --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+Pour déployer ce modèle avec PowerShell, utilisez :
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgNamePrefix demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
+```
+
+## <a name="create-resource-group-and-deploy-resource"></a>Créer un groupe de ressources et déployer une ressource
+
+Pour créer le groupe de ressources et déployer des ressources sur celui-ci, utilisez un modèle imbriqué. Le modèle imbriqué définit les ressources à déployer sur le groupe de ressources. Définissez le modèle imbriqué comme dépendant du groupe de ressources pour vous assurer que le groupe de ressources existe avant de déployer les ressources.
+
+L’exemple suivant crée un groupe de ressources, et déploie un compte de stockage sur le groupe de ressources.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        },
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(subscription().id, parameters('rgName')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[parameters('rgName')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "storageDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2017-10-01",
+                            "name": "[variables('storageName')]",
+                            "location": "[parameters('rgLocation')]",
+                            "kind": "StorageV2",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez la commande suivante :
+
+```azurecli-interactive
+az deployment create \
+  -n demoRGStorage \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json \
+  --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
+```
+
+Pour déployer ce modèle avec PowerShell, utilisez :
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
 
 ## <a name="assign-policy"></a>Attribuer la stratégie
 
@@ -257,7 +472,5 @@ New-AzureRmDeployment `
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir un exemple de déploiement des paramètres d’espace de travail pour Azure Security Center, consultez [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Pour créer un groupe de ressources, consultez [Créer des groupes de ressources dans des modèles Azure Resource Manager](create-resource-group-in-template.md).
 * Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md). 
 * Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).
-

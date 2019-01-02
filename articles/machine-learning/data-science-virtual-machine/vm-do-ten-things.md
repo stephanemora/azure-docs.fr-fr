@@ -1,11 +1,13 @@
 ---
-title: Dix choses que vous pouvez effectuer sur la machine virtuelle Science des données dans Azure | Microsoft Docs
+title: Exploration et modélisation des données avec Data Science Virtual Machine
+titleSuffix: Azure
 description: Effectuez diverses tâches de modélisation et d'exploration des données sur la machine virtuelle pour la science des données.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52f0a298b1a9e9f3f209f51c1bc0362b8ddf2c4e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250915"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075679"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle Science des données de Windows
 
@@ -62,7 +64,7 @@ Pour Python, vous pouvez utiliser un IDE comme Visual Studio Community Edition, 
 
 Voici à quoi ressemble la configuration de l'environnement personnalisé dans Visual Studio.
 
-![Installation PTVS](./media/vm-do-ten-things/PTVSSetup.png)
+![Capture d’écran de Visual Studio avec Python Tools pour Visual Studio sélectionné](./media/vm-do-ten-things/PTVSSetup.png)
 
 Consultez la page [Documentation de PTVS](https://aka.ms/ptvsdocs) pour plus d’informations sur la création d’environnements Python.
 
@@ -249,7 +251,7 @@ Pour télécharger du code à partir d’un référentiel GitHub, utilisez la co
 
 Dans Visual Studio, vous pouvez effectuer la même opération de clonage. La capture d’écran suivante indique comment accéder aux outils Git et GitHub dans Visual Studio.
 
-![Git dans Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
+![Capture d’écran de Visual Studio avec la connexion GitHub affichée](./media/vm-do-ten-things/VSGit.PNG)
 
 Vous trouverez plus d’informations sur l’utilisation de Git pour travailler avec votre dépôt GitHub dans plusieurs ressources disponibles sur github.com. L’ [aide-mémoire](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) constitue une référence utile.
 
@@ -261,12 +263,12 @@ Les objets blob Azure constituent un stockage fiable et économique dans le clou
 
 * **Créez votre compte de stockage d’objets blob Azure sur le [Portail Azure](https://portal.azure.com).**
 
-![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Capture d’écran du processus de création d’un compte de stockage dans le portail Azure](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Vérifiez que l’outil de ligne de commande AzCopy préinstallé se trouve ici : ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Le répertoire contenant le fichier azcopy.exe se trouve déjà sur votre variable d’environnement PATH pour éviter d’avoir à saisir tout le chemin d’accès à la commande lors de l’exécution de cet outil. Pour plus d’informations sur l’outil AzCopy, consultez la [documentation AzCopy](../../storage/common/storage-use-azcopy.md)
 * Lancez l’outil Azure Storage Explorer. Vous pouvez le télécharger sur le site [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
-![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
+![Capture d’écran de l’Explorateur de stockage Azure accédant à un compte de stockage](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
 **Déplacer des données de la machine virtuelle vers Azure Blob : AzCopy**
 
@@ -276,7 +278,7 @@ Pour déplacer des données entre vos fichiers locaux et le stockage d’objets 
 
 Remplacez **C:\myfolder** par le chemin d’accès où se trouve votre fichier, **mystorageaccount** par le nom de votre compte de stockage blob, **mycontainer** par le nom du conteneur et **storage account key** par votre clé d’accès de stockage blob. Vous trouverez les informations d’identification de votre compte de stockage sur le [Portail Azure](https://portal.azure.com).
 
-![StorageAccountCredential_v2](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
+![Capture d’écran des clés de compte de stockage et des informations sur le conteneur dans le portail Azure](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 Exécutez la commande AzCopy dans PowerShell ou à partir d’une invite de commandes. Voici un exemple d'utilisation de la commande AzCopy :
 
@@ -291,22 +293,22 @@ Exécutez la commande AzCopy dans PowerShell ou à partir d’une invite de comm
 
 Une fois que vous avez exécuté la commande AzCopy pour copier vers un objet blob Azure, votre fichier s'affiche dans l’Explorateur Stockage Azure.
 
-![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
+![Capture d’écran du compte de stockage, affichant le fichier CSV chargé](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**Déplacer des données de la machine virtuelle vers Azure Blob : Azure Storage Explorer**
+**Déplacer des données de la machine virtuelle vers Azure Blob : Explorateur Stockage Azure**
 
 Vous pouvez également télécharger des données du fichier local vers votre machine virtuelle à l'aide d'Azure Storage Explorer :
 
-* Pour charger des données dans un conteneur, sélectionnez le conteneur cible, puis cliquez sur le bouton **Charger**.![Charger dans l'Explorateur de stockage](./media/vm-do-ten-things/storage-accounts.png)
-* Cliquez sur **...** à droite de la zone **Fichiers**, sélectionnez un ou plusieurs fichiers à charger à partir du système de fichiers, puis cliquez sur **Charger** pour lancer le chargement des fichiers.![Charger les fichiers dans le blob](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Pour charger des données dans un conteneur, sélectionnez le conteneur cible, puis cliquez sur le bouton **Charger**![Capture d’écran du bouton Charger dans l’Explorateur Stockage Azure](./media/vm-do-ten-things/storage-accounts.png)
+* Cliquez sur **...** à droite de la zone **Fichiers**, sélectionnez un ou plusieurs fichiers à charger à partir du système de fichiers, puis cliquez sur **Charger** pour lancer le chargement des fichiers.![Capture d’écran de la boîte de dialogue Charger des fichiers](./media/vm-do-ten-things/upload-files-to-blob.png)
 
-**Lire des données à partir d'Azure Blob : module lecteur Machine Learning**
+**Lire des données à partir de Stockage Blob Azure : Module Lecteur Machine Learning**
 
 Dans Azure Machine Learning Studio, vous pouvez utiliser un **module Importer les données** pour lire des données à partir de votre objet blob.
 
-![AML_ReaderBlob_Module_v3](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
+![Capture d’écran du module Importer des données dans Machine Learning Studio](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
-**Lire des données à partir d'Azure Blob : Python ODBC**
+**Lire des données à partir de Stockage Blob Azure : Python ODBC**
 
 Vous pouvez utiliser la bibliothèque **BlobService** pour lire les données directement à partir de l’objet blob dans un Notebook Jupyter ou un programme Python.
 
@@ -352,7 +354,7 @@ Puis entrez les informations d'identification de votre compte d'objets blob Azur
 
 Les données sont lues en tant que trame de données :
 
-![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
+![Capture d’écran des 10 premières lignes de données](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake Storage est un référentiel hyperscale pour les charges de travail d’analyse des Big Data, compatible avec le système de fichiers HDFS (Hadoop Distributed File System). Il fonctionne avec Hadoop et Azure Data Lake Analytics. Dans cette section, vous apprendrez à déplacer des données dans Azure Data Lake Store et à exécuter l’analyse à l’aide d’Azure Data Lake Analytics.
@@ -361,29 +363,29 @@ Azure Data Lake Storage est un référentiel hyperscale pour les charges de trav
 
 * Créez votre Azure Data Lake Analytics dans le [Portail Azure](https://portal.azure.com).
 
-![Azure_Data_Lake_Create_v2](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+![Capture d’écran de la création de Data Lake Analytics à partir du portail Azure](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 * Les **outils Azure Data Lake** dans **Visual Studio** disponibles sur ce [lien](https://www.microsoft.com/download/details.aspx?id=49504) sont déjà installés dans Visual Studio Community Edition sur la machine virtuelle. Après avoir lancé Visual Studio et vous être connecté à votre abonnement Azure, vous devriez voir votre compte et votre stockage Azure Data Analytics dans le volet gauche de Visual Studio.
 
-![Azure_Data_Lake_PlugIn_v2](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
+![Capture d’écran de Data Lake Tools dans Visual Studio](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
-**Déplacer des données de la machine virtuelle vers Data Lake : Azure Data Lake Explorer**
+**Déplacer des données de la machine virtuelle vers Data Lake : Explorateur Azure Data Lake**
 
 Vous pouvez utiliser **Azure Data Lake Explorer** pour charger des données à partir des fichiers locaux de votre machine virtuelle vers Data Lake Storage.
 
-![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+![Capture d’écran de Data Lake Explorer pour charger des fichiers](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
 Vous pouvez également créer un pipeline de données pour utiliser vos données vers ou à partir d’Azure Data Lake à l’aide [d’Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/). Consultez cet [article](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) pour vous guider à travers les étapes de création des pipelines de données.
 
-**Lire des données à partir d'Azure Blob vers Data Lake : U-SQL**
+**Lire des données depuis Stockage Blob Azure Blob vers Data Lake : U-SQL**
 
 Si vos données se trouvent dans Stockage Blob Azure, vous pouvez les lire directement à partir de l'objet blob de stockage Azure dans la requête SQL-U. Avant de composer votre requête SQL-U, assurez-vous que votre compte de stockage d'objets blob soit lié à votre Azure Data Lake. Accédez au **portail Azure**, recherchez votre tableau de bord Azure Data Lake Analytics, cliquez sur **Ajouter une source de données**, sélectionnez le type de stockage **Azure Storage** et entrez votre nom et votre clé de compte de stockage Azure. Vous pouvez ensuite référencer les données stockées dans le compte de stockage.
 
-![Saisie d'un compte de stockage et d'une clé](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![Capture d’écran de la boîte de dialogue Ajouter une source de données](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 Dans Visual Studio, vous pouvez lire les données à partir d’un stockage d’objets blob, effectuer certaines manipulations de données et extractions de paramètres et envoyer les données résultantes vers Azure Data Lake ou un stockage d’objets blob Azure. Lorsque vous référencez les données Stockage Blob, utilisez **wasb://**. Lorsque vous référencez les données d’Azure Data Lake, utilisez **swbhdfs://**.
 
-![Trame de données](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![Capture d’écran de la requête avec l’entrée WASB en surbrillance](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 Vous pouvez utiliser les requêtes U-SQL suivantes dans Visual Studio :
 
@@ -429,7 +431,7 @@ Vous pouvez utiliser les requêtes U-SQL suivantes dans Visual Studio :
 
 Une fois votre requête envoyée au serveur, un diagramme indiquant l'état de votre travail s'affiche.
 
-![Diagramme d’état du travail](./media/vm-do-ten-things/USQL_Job_Status.PNG)
+![Capture d’écran de la boîte de dialogue État de la tâche](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
 **Interroger des données dans Data Lake : U-SQL**
 
@@ -437,11 +439,11 @@ Une fois le jeu de données réceptionné dans Azure Data Lake, vous pouvez util
 
 Une fois la requête envoyée au serveur, tripdata_summary.CSV est créé dans **Azure Data Lake Explorer**. Vous pouvez prévisualiser les données en cliquant avec le bouton droit sur le fichier.
 
-![Fichier dans Azure Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
+![Capture d’écran du fichier csv dans Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
 
 Pour afficher les informations du fichier :
 
-![Résumé du fichier](./media/vm-do-ten-things/USQL_tripdata_summary.png)
+![Capture d’écran des informations de résumé du fichier](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### <a name="hdinsight-hadoop-clusters"></a>Clusters HDInsight Hadoop
 Azure HDInsight est un service Apache Hadoop, Spark, HBase et Storm géré dans le cloud. Vous pouvez travailler facilement avec les clusters Azure HDInsight à partir de la machine virtuelle pour la science des données.
@@ -450,7 +452,7 @@ Azure HDInsight est un service Apache Hadoop, Spark, HBase et Storm géré dans 
 
 * Créez votre compte de stockage d’objets blob Azure sur le [Portail Azure](https://portal.azure.com). Ce compte de stockage est utilisé pour stocker les données des clusters HDInsight.
 
-![Créer un compte de stockage d’objets blob Azure](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Capture d’écran de la création d’HDInsight à partir du portail Azure](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Personnalisez les clusters Hadoop Azure HDInsight sur le [Portail Azure](../team-data-science-process/customize-hadoop-cluster.md)
   
@@ -460,7 +462,7 @@ Azure HDInsight est un service Apache Hadoop, Spark, HBase et Storm géré dans 
 
 * Activez **Accès à distance** sur le nœud principal du cluster après sa création. Retenez les informations d’identification pour l’accès à distance que vous spécifiez ici, car vous en aurez besoin pour la procédure suivante.
 
-![Activer l'accès à distance](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![Activer l’accès à distance au cluster HDInsight](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
 * Créez un espace de travail Machine Learning. Vos expériences Machine Learning sont stockées dans cet espace de travail Machine Learning. Sélectionnez les options en surbrillance sur le portail, comme indiqué dans la capture d’écran suivante :
 
@@ -638,7 +640,7 @@ Vous pouvez également calculer la distance entre les emplacements de départ et
     results.head(5)
 
 
-![Table des départs et arrivées](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
+![Premières lignes de la table des départs et des arrivées](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
     results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
                        'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -782,7 +784,7 @@ Après un certain temps, vous pouvez voir que les données ont été chargées d
     pd.read_sql(queryString,connection)
 
 
-![Table de données](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![Premières lignes de données de la table](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 **Lire des données à partir de HDI en utilisant le module lecteur Machine Learning**
 

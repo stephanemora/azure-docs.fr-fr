@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Insignia SAML SSO | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Insignia SAML SSO | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Insignia SAML SSO.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 776ad8445c1968928a631ae1a401db4c65a6bb6d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: afc2d52044a294af0ead373dfce283d0ec994d1e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421231"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840620"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Insignia SAML SSO
+# <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutoriel : Intégration d’Azure Active Directory à Insignia SAML SSO
 
 Dans ce didacticiel, vous allez apprendre à intégrer Insignia SAML SSO à Azure Active Directory (Azure AD).
 
@@ -120,7 +120,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<customername>.insigniailsusa.com/<uniqueid>`
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx). 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx). 
  
 
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
@@ -135,10 +135,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configuration d’Insignia SAML SSO](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_configure.png) 
 
-1. Pour configurer l’authentification unique côté **Insignia SAML SSO**, vous devez envoyer le **certificat (Base64)** téléchargé, l’**URL de déconnexion et l’URL du service d’authentification unique SAML** à l’[équipe de support Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **Insignia SAML SSO**, vous devez envoyer le **certificat (Base64)** téléchargé, l’**URL de déconnexion et l’URL du service d’authentification unique SAML** à l’[équipe de support Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
@@ -175,7 +175,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-an-insignia-saml-sso-test-user"></a>Créer un utilisateur de test Insignia SAML SSO
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Insignia Library System. Travaillez avec l’[équipe de support Insignia Library System](http://www.insigniasoftware.com/insignia/Techsupport.aspx) pour ajouter des utilisateurs dans la plateforme Insignia Library System.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Insignia Library System. Travaillez avec l’[équipe de support Insignia Library System](https://www.insigniasoftware.com/insignia/Techsupport.aspx) pour ajouter des utilisateurs dans la plateforme Insignia Library System.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

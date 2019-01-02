@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: crdun
-ms.openlocfilehash: f88e6a4037bcca54982359742cdc6021f020882d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27594715"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001823"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Activer la synchronisation hors connexion pour votre application mobile Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel présente la fonctionnalité de synchronisation hors connexion d’Azure Mobile Apps pour Xamarin.Forms. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu’il n’existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le service distant.
 
 Ce didacticiel est basé sur la solution de démarrage rapide de Xamarin.Forms pour les applications mobiles créées en suivant le didacticiel [Création d’une application Xamarin iO]. La solution de démarrage rapide de Xamarin.Forms contient le code de prise en charge de la synchronisation hors connexion, qui doit simplement être activé. Dans ce didacticiel, vous mettez à jour la solution de démarrage rapide pour activer les fonctionnalités hors connexion d’Azure Mobile Apps. Vous en découvrez également plus sur le code hors connexion spécifique dans l’application. Si vous n’utilisez pas la solution de démarrage rapide téléchargée, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Utiliser le kit SDK du serveur backend .NET pour Azure Mobile Apps][1].
@@ -40,8 +40,8 @@ Le code de synchronisation hors connexion est inclus dans le projet à l’aide 
         #define OFFLINE_SYNC_ENABLED
 3. (Facultatif) Pour prendre en charge des appareils Windows, installez l’un des packages runtime SQLite suivants :
 
-   * **Windows 8.1 Runtime :** installez [SQLite pour Windows 8.1][3].
-   * **Windows Phone 8.1 :** installez [SQLite pour Windows Phone 8.1][4].
+   * **Runtime Windows 8.1 :** Installez [SQLite pour Windows 8.1][3].
+   * **Windows Phone 8.1 :** Installez [SQLite pour Windows Phone 8.1][4].
    * **Plateforme Windows universelle** : installez [SQLite pour plateforme Windows universelle][5].
 
      Bien que le démarrage rapide ne contienne pas un projet Windows universel, la plateforme Windows universelle est prise en charge par Xamarin.Forms.
@@ -157,9 +157,9 @@ Dans cette section, reconnectez l'application au backend mobile, ce qui simule l
 <!-- URLs. -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [2]: app-service-mobile-offline-data-sync.md
-[3]: http://go.microsoft.com/fwlink/p/?LinkID=716919
-[4]: http://go.microsoft.com/fwlink/p/?LinkID=716920
-[5]: http://sqlite.org/2016/sqlite-uwp-3120200.vsix
+[3]: https://go.microsoft.com/fwlink/p/?LinkID=716919
+[4]: https://go.microsoft.com/fwlink/p/?LinkID=716920
+[5]: https://sqlite.org/2016/sqlite-uwp-3120200.vsix
 [6]: https://www.getpostman.com/
-[7]: http://www.telerik.com/fiddler
+[7]: https://www.telerik.com/fiddler
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

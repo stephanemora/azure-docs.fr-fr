@@ -1,22 +1,23 @@
 ---
-title: Opérations de lecture sur l’API Cassandra Azure CosmosDB à partir de Spark
-description: Cet article explique comment lire à partir de tables dans l’API Cassandra Cosmos DB
-services: cosmos-db
-author: anagha-microsoft
+title: Lecture des données de tables de l’API Cassandra à l’aide de Spark
+titleSufix: Azure Cosmos DB
+description: Cet article explique comment lire les données stockées des tables de l’API Cassandra dans Azure Cosmos DB.
+author: kanshiG
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.devlang: spark-scala
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: ef5f1a3479080aaab665a449bbf946a29344f26c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 12/06/2018
+ms.author: govindk
+ms.custom: seodec18
+ms.openlocfilehash: 2fc5ac1af503eff2f9186266d977c4ee972fcc94
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224965"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133432"
 ---
-# <a name="read-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Lire des tables de l’API Cassandra Azure Cosmos DB à partir de Spark
+# <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Lire les données de tables de l’API Cassandra dans Azure Cosmos DB à l’aide de Spark
 
  Cet article explique comment lire les données stockées dans l’API Cassandra Azure Cosmos DB à partir de Spark.
 

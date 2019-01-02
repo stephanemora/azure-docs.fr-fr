@@ -2,25 +2,17 @@
 title: À propos des connexions VPN point à site Azure | Microsoft Docs
 description: Cet article vous aide à comprendre les connexions point à site et à choisir le type d’authentification à une passerelle VPN P2S que vous devez utiliser.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 12/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bf84ec16d5d13439796b386a8ab4f40840ca4eaa
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003357"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438409"
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
 
@@ -30,14 +22,15 @@ Une connexion par passerelle VPN point à site (P2S) vous permet de créer une c
 
 La connexion VPN point à site peut utiliser un des protocoles suivants :
 
+* OpenVPN, un protocole VPN basé sur SSL/TLS. Une solution VPN SSL peut pénétrer des pare-feux puisque la plupart des pare-feux ouvrent le port TCP 443 utilisé par le protocole SSL. Vous pouvez utiliser OpenVPN pour vous connecter à partir d’appareils Android, iOS, Linux et Mac (OSX 10.11 et versions ultérieures).
+
 * Le Protocole SSTP (Secure Socket Tunneling Protocol) est un protocole propriétaire VPN basé sur le protocole SSL. Une solution VPN SSL peut pénétrer des pare-feux puisque la plupart des pare-feux ouvrent le port TCP 443 utilisé par le protocole SSL. SSTP est pris en charge sur les appareils Windows uniquement. Azure prend en charge toutes les versions de Windows disposant de SSTP (Windows 7 et versions ultérieures).
 
 * Un VPN IKEv2 est une solution VPN IPsec basée sur des normes. Un VPN IKEv2 peut être utilisé pour se connecter à partir d’appareils Mac (OSX 10.11 et versions ultérieures).
 
-Si vous avez un environnement client mixte comportant des appareils Windows et Mac, configurez SSTP et IKEv2.
 
 >[!NOTE]
->IKEv2 pour P2S est uniquement disponible pour le modèle de déploiement Resource Manager. Il n’est pas disponible pour le modèle de déploiement classique.
+>IKEv2 et OpenVPN pour P2S sont uniquement disponibles pour le modèle de déploiement Resource Manager. Ils ne sont pas disponibles pour le modèle de déploiement classique.
 >
 
 ## <a name="authentication"></a>Comment les clients VPN P2S sont-ils authentifiés ?
@@ -52,11 +45,17 @@ La validation du certificat client est effectuée par la passerelle VPN et se pr
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>S’authentifier à l’aide du serveur de domaine Active Directory (AD)
 
-L’authentification de domaine AD permet aux utilisateurs de se connecter à Azure à l’aide des informations d’identification du domaine de l’organisation. Un serveur RADIUS qui s’intègre avec le serveur AD est requis. Les organisations peuvent aussi exploiter un déploiement RADIUS existant.   
-  Le serveur RADIUS peut être déployé en local ou dans votre réseau virtuel Azure. Lors de l’authentification, la passerelle VPN Azure permet le transfert direct et transfère les messages d’authentification entre le serveur RADIUS et l’appareil de connexion. Par conséquent, l’accessibilité de la passerelle au serveur RADIUS est importante. Si le serveur RADIUS est situé en local, une connexion VPN S2S au site local à partir d’Azure est requise pour établir l’accessibilité.  
-  Le serveur RADIUS permet également l’intégration de services de certificat AD. Cela vous permet d’utiliser le serveur RADIUS et le déploiement de certificat d’entreprise pour votre authentification par certificat P2S comme alternative à l’authentification par certificat Azure. L’avantage est que vous n’avez pas besoin de charger les certificats racine et les certificats révoqués sur Azure.
+L’authentification de domaine AD permet aux utilisateurs de se connecter à Azure à l’aide des informations d’identification du domaine de l’organisation. Un serveur RADIUS qui s’intègre avec le serveur AD est requis. Les organisations peuvent aussi exploiter un déploiement RADIUS existant.   
+  
+Le serveur RADIUS peut être déployé localement ou sur votre réseau virtuel Azure. Lors de l’authentification, la passerelle VPN Azure permet le transfert direct et transfère les messages d’authentification entre le serveur RADIUS et l’appareil de connexion. Par conséquent, l’accessibilité de la passerelle au serveur RADIUS est importante. Si le serveur RADIUS est situé en local, une connexion VPN S2S au site local à partir d’Azure est requise pour établir l’accessibilité.  
+  
+Le serveur RADIUS peut aussi être intégré aux services de certificat AD. Cela vous permet d’utiliser le serveur RADIUS et le déploiement de certificat d’entreprise pour votre authentification par certificat P2S comme alternative à l’authentification par certificat Azure. L’avantage est que vous n’avez pas besoin de charger les certificats racine et les certificats révoqués sur Azure.
 
 Un serveur RADIUS permet également l’intégration avec d’autres systèmes d’identité externe. Cette opération ouvre de nombreuses options d’authentification pour les VPN P2S, notamment les options de multifacteur.
+
+>[!NOTE]
+>Le protocole OpenVPN n’est pas pris en charge avec l’authentification RADIUS.
+>
 
 ![point à site](./media/point-to-site-about/p2s.png "Point à site")
 
@@ -77,13 +76,11 @@ Le fichier zip fournit également les valeurs de certains paramètres importants
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>Quelles références SKU de passerelle prennent en charge les VPN P2S ?
+## <a name="gwsku"></a>Quelles références SKU de passerelle prennent en charge les VPN P2S ?
 
-[!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
+[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* La référence de débit agrégée est basée sur les mesures de plusieurs tunnels agrégés via une passerelle unique. Le débit n’est pas garanti en raison des conditions de trafic internet et des comportements de votre application.
-* Pour des informations sur les prix, consultez la page Tarification. 
-* Vous trouverez des informations relatives au contrat de niveau de service (SLA) sur la page SLA.
+* Pour obtenir des recommandations sur les références SKU de passerelle, consultez [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 >[!NOTE]
 >La référence SKU de base ne prend pas en charge IKEv2 ou l’authentification RADIUS.
@@ -96,6 +93,8 @@ Une configuration P2S requiert quelques étapes spécifiques. Les articles suiva
 * [Configurer une connexion P2S - Authentification RADIUS](point-to-site-how-to-radius-ps.md)
 
 * [Configurer une connexion P2S - Authentification par certificat natif Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+* [Configurer OpenVPN](vpn-gateway-howto-openvpn.md)
 
 ## <a name="faqcert"></a>Forum Aux Questions (FAQ) sur l’authentification par certificat Azure native
 

@@ -16,17 +16,17 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65f8eb0752a181eda312515e557bb733c091e2e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fd511a8a9d17bf79f1237bbfe2dc2ddbc5ec1b2e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505381"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867424"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gérer les quotas et comptes Batch avec la bibliothèque cliente Batch Management pour .NET
 
 > [!div class="op_single_selector"]
-> * [portail Azure](batch-account-create-portal.md)
+> * [Portail Azure](batch-account-create-portal.md)
 > * [Gestion de lots .NET](batch-management-dotnet.md)
 > 
 > 
@@ -153,7 +153,7 @@ La bibliothèque Batch Management .NET est un client de fournisseur de ressource
 
 ## <a name="sample-project-on-github"></a>Exemple de projet sur GitHub
 
-Pour voir la bibliothèque Batch Management .NET en pratique, découvrez l’exemple de projet [AccountManagment][acct_mgmt_sample] sur GitHub. L’exemple d’application AccountManagement illustre les opérations suivantes :
+Pour voir la bibliothèque Batch Management .NET en pratique, découvrez l’exemple de projet [AccountManagment][acct_mgmt_sample] sur GitHub. L’exemple d’application AccountManagement illustre les opérations suivantes :
 
 1. Acquérir un jeton de sécurité d’Azure AD avec [ADAL][aad_adal]. Si l’utilisateur n’est pas encore connecté, il est invité à entrer ses informations d’identification Azure.
 2. Avec le jeton de sécurité obtenu à partir d’Azure AD, créez une classe [SubscriptionClient][resman_subclient] pour demander à Azure la liste des abonnements associés au compte. L’utilisateur peut sélectionner un abonnement à partir de la liste si celle-ci en contient plusieurs.

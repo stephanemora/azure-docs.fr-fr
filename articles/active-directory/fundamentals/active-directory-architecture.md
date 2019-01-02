@@ -1,6 +1,6 @@
 ---
-title: Qu’est-ce que l’architecture Azure Active Directory ? | Microsoft Docs
-description: Découvrez ce qu’est un locataire Azure Active Directory et comment gérer Azure par le biais d’Azure Active Directory.
+title: Vue d’ensemble de l’architecture - Azure Active Directory | Microsoft Docs
+description: Découvrez ce qu’est un locataire Azure Active Directory et comment gérer Azure à l’aide d’Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: 62ade1318b670b4eecf1be1a9255fe497d094a1a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733209"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076111"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Qu’est-ce que l’architecture Azure Active Directory ?
-Azure Active Directory (Azure AD) vous permet de gérer en toute sécurité l’accès aux ressources et aux services Azure pour vos utilisateurs. Azure AD comprend une suite complète de fonctionnalités de gestion des identités. Pour plus d’informations sur les fonctionnalités d’Azure AD, voir [Qu’est Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
+Azure Active Directory (Azure AD) vous permet de gérer en toute sécurité l’accès aux ressources et aux services Azure pour vos utilisateurs. Azure AD comprend une suite complète de fonctionnalités de gestion des identités. Pour plus d’informations sur les fonctionnalités d’Azure AD, voir [Qu’est Azure Active Directory ?](active-directory-whatis.md)
 
-Azure AD permet de créer et de gérer des utilisateurs et des groupes, et d’activer des autorisations pour octroyer et refuser l’accès aux ressources d’entreprise. Pour plus d’informations sur la gestion des identités, voir [Principes de base de la gestion des identités Azure](https://docs.microsoft.com/azure/active-directory/fundamentals-identity).
+Azure AD permet de créer et de gérer des utilisateurs et des groupes, et d’activer des autorisations pour octroyer et refuser l’accès aux ressources d’entreprise. Pour plus d’informations sur la gestion des identités, voir [Principes de base de la gestion des identités Azure](active-directory-whatis.md).
 
 ## <a name="azure-ad-architecture"></a>Architecture Azure AD
 L’architecture distribuée géographiquement d’Azure AD combine des fonctionnalités de surveillance complète, de redirection automatique, de basculement et de récupération qui apportent disponibilité et performances à l’échelle de l’entreprise.
@@ -66,7 +66,7 @@ La conception de partition Azure AD est simplifiée par rapport à la conception
 
 **Tolérance de panne**
 
-Un système est plus disponible s’il est tolérant aux pannes de matériel, de logiciel et de réseau. Pour chaque partition sur le répertoire, il existe un réplica maître hautement disponible : le réplica principal. Seules les écritures sur la partition sont effectuées sur ce réplica. Ce réplica est en cours de surveillance étroite et continue, et les écritures peuvent être basculées immédiatement vers un autre réplica (qui devient alors le nouveau réplica) si une défaillance est détectée. Pendant le basculement, une perte de disponibilité de l’écriture de 1 à 2 minutes est possible. La disponibilité de lecture n’est pas affectée pendant cette période.
+Un système est plus disponible s’il est tolérant aux pannes de matériel, de logiciel et de réseau. Pour chaque partition sur l’annuaire, il existe un réplica maître hautement disponible : le réplica principal. Seules les écritures sur la partition sont effectuées sur ce réplica. Ce réplica est en cours de surveillance étroite et continue, et les écritures peuvent être basculées immédiatement vers un autre réplica (qui devient alors le nouveau réplica) si une défaillance est détectée. Pendant le basculement, une perte de disponibilité de l’écriture de 1 à 2 minutes est possible. La disponibilité de lecture n’est pas affectée pendant cette période.
 
 Les opérations de lecture (largement supérieures aux opérations d’écriture) s’effectuent uniquement dans les réplicas secondaires. Étant donné que les réplicas secondaires sont idempotents, la perte d’un réplica dans une partition donnée est facilement compensée en dirigeant les lectures vers un autre réplica, généralement situé dans le même centre de données.
 

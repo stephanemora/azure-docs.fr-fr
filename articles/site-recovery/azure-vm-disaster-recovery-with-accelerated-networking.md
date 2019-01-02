@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: bb4a3f433f213984c4c351439760ddd3327cda73
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ff772d4f53b279d8d048720beaa62cfdeb6401eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353134"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850412"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Mise en réseau accélérée avec la récupération d’urgence de machines virtuelles Azure
 
@@ -41,9 +41,9 @@ Les distributions suivantes sont prises en charge sans configuration supplément
 * **Windows Server 2012 R2 Datacenter**
 
 ### <a name="supported-vm-instances"></a>Instances de machines virtuelles prises en charge
-La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (2 processeurs virtuels ou plus).  Ces séries prises en charge sont : D/DSv2 et F/Fs
+La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (2 processeurs virtuels ou plus).  Séries prises en charge : D/DSv2 et F/Fs
 
-Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 4 processeurs virtuels. Les séries acceptées sont : D/DSv3, D/ESv3, Fsv2 et Ms/Mms
+Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 4 processeurs virtuels. Séries prises en charge : D/DSv3, E/ESv3, Fsv2 et Ms/Mms
 
 Pour plus d’informations sur les instances de machine virtuelle, consultez la section [Tailles des machines virtuelles Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -62,9 +62,9 @@ Les distributions suivantes sont prises en charge sans configuration supplément
 * **Oracle Linux 7.4**
 
 ### <a name="supported-vm-instances"></a>Instances de machines virtuelles prises en charge
-La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (2 processeurs virtuels ou plus).  Ces séries prises en charge sont : D/DSv2 et F/Fs
+La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (2 processeurs virtuels ou plus).  Séries prises en charge : D/DSv2 et F/Fs
 
-Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 4 processeurs virtuels. Les séries acceptées sont : D/DSv3, D/ESv3, Fsv2 et Ms/Mms.
+Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 4 processeurs virtuels. Séries prises en charge : D/DSv3, E/ESv3, Fsv2 et Ms/Mms.
 
 Pour plus d’informations sur les instances de machine virtuelle, consultez la section [Tailles des machines virtuelles Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

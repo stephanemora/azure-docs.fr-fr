@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ForeSee CX Suite.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: b288bcbe14050c0f764f348d5e20186570e32866
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 34de89123e75f0c760fbcefa633b9aadf8d2b997
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442198"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878607"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite
+# <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite
 
 Dans ce tutoriel, vous allez apprendre à intégrer ForeSee CX Suite à Azure Active Directory (Azure AD).
 
@@ -115,7 +115,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
     b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
 
-    c. Une fois le chargement du **fichier de métadonnées du fournisseur de services** terminé, la valeur **Identificateur** est renseignée automatiquement dans la zone de texte de la section **Domaine et URL ForeSee CX Suite**, comme indiqué ci-dessous :
+    c. Une fois le chargement du **fichier de métadonnées du fournisseur de services** terminé, la valeur **Identificateur** est renseignée automatiquement dans la zone de texte de la section **Domaine et URL ForeSee CX Suite**, comme indiqué ci-dessous :
 
     ![Informations d’authentification unique dans Domaine et URL ForeSee CX Suite](./media/foreseecxsuite-tutorial/urlupload.png)
 

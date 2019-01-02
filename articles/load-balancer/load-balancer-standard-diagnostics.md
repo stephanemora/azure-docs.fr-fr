@@ -1,13 +1,11 @@
 ---
-title: Diagnostics Azure Load Balancer Standard | Microsoft Docs
+title: Diagnostics Azure Standard Load Balancer
+titlesuffix: Azure Load Balancer
 description: Utilisez les métriques et les informations d’intégrité disponibles pour les diagnostics d’Azure Load Balancer Standard.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426466"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189045"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Métriques et diagnostics d’intégrité du Load Balancer Standard
 
 Azure Standard Load Balancer expose vos ressources avec les fonctionnalités de diagnostic suivantes :
-* **Métriques multidimensionnelles** : de nouvelles fonctionnalités de diagnostic multidimensionnel sont proposées par le biais d’[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) pour les configurations d’équilibreur de charge public et interne. Vous pouvez surveiller, gérer et résoudre les problèmes de vos ressources d’équilibreur de charge.
+* **Métriques multidimensionnelles** : de nouvelles fonctionnalités de diagnostic multidimensionnel sont proposées par le biais d’[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) pour les configurations d’équilibreur de charge public et interne. Vous pouvez surveiller, gérer et résoudre les problèmes de vos ressources d’équilibreur de charge.
 
-* **Intégrité des ressources** : la page associée à l’équilibreur de charge dans le portail Azure et celle associée à l’intégrité des ressources (sous Monitor) affichent la section Intégrité des ressources pour la configuration de l’équilibreur de charge public de Load Balancer Standard.
+* **Intégrité des ressources** : la page associée à l’équilibreur de charge dans le portail Azure et celle associée à l’intégrité des ressources (sous Monitor) affichent la section Intégrité des ressources pour la configuration de l’équilibreur de charge public de Standard Load Balancer.
 
 Cet article propose une présentation rapide de ces fonctionnalités et des méthodes pour les utiliser dans Load Balancer Standard.
 
@@ -59,7 +57,7 @@ Pour afficher les métriques de vos ressources de Load Balancer Standard :
 
 ![Métriques (préversion) pour le niveau Standard de Load Balancer](./media/load-balancer-standard-diagnostics/LBMetrics1.png)
 
-*Figure : Disponibilité DIP et métrique d’état de la sonde d’intégrité pour Load Balancer Standard*
+*Figure : Disponibilité DIP et métrique d’état de la sonde d’intégrité pour Standard Load Balancer*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Récupérer les métriques multidimensionnelles par programme via des API
 

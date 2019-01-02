@@ -1,9 +1,9 @@
 ---
-title: Azure Media Services - Signalisation de métadonnées chronométrées dans une vidéo en flux continu | Documents Microsoft
+title: Azure Media Services - Signalisation de métadonnées chronométrées dans une vidéo en streaming en direct | Documents Microsoft
 description: Cette spécification présente deux modes pris en charge par Media Services pour la signalisation de métadonnées chronométrées à l’intérieur d’une vidéo en flux continu. Cela inclut la prise en charge de signaux génériques de métadonnées chronométrées, ainsi que la signalisation SCTE-35 pour l'insertion de jointures publicitaires.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: johndeu
 manager: cfowler
 editor: johndeu
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2018
+ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: 2e736872dc3e471af7c5b3f758516910a02067fe
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786078"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384681"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu
 
@@ -39,7 +39,7 @@ Cette spécification présente deux modes pris en charge par Media Services pour
 
 | Terme              | Définition                                                                                                                                                                                                                       |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Heure de présentation | Heure à laquelle un événement est présenté à un spectateur. Il s’agit de l’heure dans la chronologie du média à laquelle un spectateur voit l’événement. Par exemple, l’heure de présentation d’un message de commande splice_info() SCTE-35 est splice_time(). |
+| Heure de présentation | Heure à laquelle un événement est présenté à un utilisateur. Il s’agit de l’heure dans la chronologie du média à laquelle un utilisateur voit l’événement. Par exemple, l’heure de présentation d’un message de commande splice_info() SCTE-35 est splice_time(). |
 | Heure d’arrivée      | Heure à laquelle un message d’événement arrive. L’heure d’arrivée est généralement distincte de l’heure de présentation de l’événement, dans la mesure où les événements sont envoyés avant l’heure de leur présentation.                                     |
 | Piste partiellement allouée      | Piste de média qui n’est pas continue et qui est synchronisée avec une piste parente ou de contrôle.                                                                                                                                    |
 | Origine            | Service de diffusion en continu de média Azure.                                                                                                                                                                                                |
@@ -55,7 +55,7 @@ Cette spécification présente deux modes pris en charge par Media Services pour
 
 ## <a name="2-timed-metadata-ingest"></a>2 Réception de métadonnées chronométrées
 ## <a name="21-rtmp-ingest"></a>2.1 Réception RTMP
-RTMP prend en charge les signaux de métadonnées chronométrées envoyés sous forme de messages de signal AMF incorporés dans le flux RTMP. Les messages de signal peuvent être envoyés avant que l’événement réel ou la jointure publicitaire doivent se produire. Pour prendre en charge ce scénario, l’heure réelle de la jointure ou du segment sont envoyées dans le message de signal. Pour plus d'informations, voir [AMF0].
+RTMP prend en charge les signaux de métadonnées chronométrées envoyés sous forme de messages de signal AMF incorporés dans le flux RTMP. Les messages de signal peuvent être envoyés avant que l’événement réel ou la jointure publicitaire doivent se produire. Pour prendre en charge ce scénario, l’heure réelle de la jointure ou du segment est envoyée dans le message de signal. Pour plus d'informations, voir [AMF0].
 
 Le tableau suivant décrit le format de la charge utile du message AMF que Media Services ingère.
 
@@ -81,7 +81,7 @@ Pour le mode simple RTMP, Media Services prend en charge un message de signal AM
 | Nom du champ | Type de champ | Requis ? | Descriptions                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | cue        | Chaîne     | Obligatoire | Message de l'événement.  Pour les messages [SCTE-35], il DOIT s’agir du binaire codé en Base64 (norme IETF RFC 4648) splice_info_section() de façon à ce que les messages soient envoyés aux clients HLS, Smooth Streaming et Dash conformément à la norme [SCTE-67].                                              |
-| Type       | Chaîne     | Obligatoire | URN ou URL identifiant le schéma de message. Par exemple, « urn:example:signaling:1.0 ».  Pour les messages [SCTE-35], il DOIT s’agir de « urn : scte:scte35:2013a:bin » de façon à ce que les messages soient envoyés aux clients HLS, Smooth Streaming et Dash conformément à la norme [SCTE-67].  |
+| Type       | Chaîne     | Obligatoire | URN ou URL identifiant le schéma du message. Pour les messages [SCTE-35], il DOIT s’agir de « urn : scte:scte35:2013a:bin » de façon à ce que les messages soient envoyés aux clients HLS, Smooth Streaming et Dash conformément à la norme [SCTE-67].  |
 | id         | Chaîne     | Obligatoire | Identificateur unique décrivant la jointure ou le segment. Identifie cette instance du message.  Les messages dont la sémantique est identique auront la même valeur.|
 | duration   | Number     | Obligatoire | Durée de l’événement ou du segment de jointure publicitaire, si elle est connue. Si elle est inconnue, la valeur doit être 0.                                                                 |
 | elapsed    | Number     | Facultatif | Lorsque le signal publicitaire [SCTE-35] est répété pour le réglage, ce champ est la quantité de temps de présentation qui s’est écoulée depuis le début de la jointure. Les unités sont des fractions de seconde. En mode de [SCTE-35], cette valeur peut dépasser la durée originale spécifiée de la jointure ou du segment.                                                  |
@@ -105,7 +105,7 @@ La piste partiellement allouée DOIT être déclarée dans la zone de manifeste 
 | parentTrackName    | Chaîne         | Obligatoire      | DOIT être le nom de la piste parent sur laquelle les codes temporels de la piste partiellement allouée sont alignés à l’échelle de temps. La piste parent ne peut pas être une piste partiellement allouée.                                                                                                                    |
 | manifestOutput     | Booléen        | Obligatoire      | DOIT être « true » pour indiquer que la piste partiellement allouée sera incorporée dans le manifeste du client lisse.                                                                                                                                                               |
 | Subtype            | Chaîne         | Obligatoire      | DOIT être le code « DATA » de quatre caractères.                                                                                                                                                                                                                         |
-| Schéma             | Chaîne         | Obligatoire      | DOIT être un URN ou une URL identifiant le schéma de message ; par exemple, « urn:example:signaling:1.0 ». Pour les messages [SCTE-35], il DOIT s’agir de « urn : scte:scte35:2013a:bin » de façon à ce que les messages soient envoyés aux clients HLS, Smooth Streaming et Dash conformément à la norme [SCTE-67]. |
+| Schéma             | Chaîne         | Obligatoire      | DOIT être un URN ou une URL identifiant le schéma de message. Pour les messages [SCTE-35], il DOIT s’agir de « urn : scte:scte35:2013a:bin » de façon à ce que les messages soient envoyés aux clients HLS, Smooth Streaming et Dash conformément à la norme [SCTE-67]. |
 | trackName          | Chaîne         | Obligatoire      | DOIT être le nom de la piste partiellement allouée. Le trackName peut servir à différencier plusieurs flux d’événements dont le schéma est identique. Chaque flux d’événements doit avoir un nom de piste unique.                                                                           |
 | échelle de temps          | Number         | Facultatif      | DOIT être l’échelle de temps de la piste parent.                                                                                                                                                                                                                      |
 
@@ -226,7 +226,7 @@ Les métadonnées chronométrées pour la diffusion en continu HTTP Apple (HLS) 
 | **Nom de l’attribut** | **Type**                      | **Obligatoire ?**                             | **Description**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | CUE                | Chaîne entre guillemets.                 | Obligatoire                                  | Message encodé sous forme de chaîne en Base64, comme décrit dans la norme [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). Pour les messages [SCTE-35], il s’agit de la zone splice_info_section() codée en Base64.                                                                                                |
-| TYPE               | Chaîne entre guillemets.                 | Obligatoire                                  | URN ou URL identifiant le schéma de message. Par exemple, « urn:example:signaling:1.0 ». Pour les messages [SCTE-35], le type prend la valeur spéciale « scte35 ».                                                                                                                                |
+| TYPE               | Chaîne entre guillemets.                 | Obligatoire                                  | URN ou URL identifiant le schéma du message. Pour les messages [SCTE-35], le type prend la valeur spéciale « scte35 ».                                                                                                                                |
 | ID                 | Chaîne entre guillemets.                 | Obligatoire                                  | Identificateur unique de l’événement. Si l’ID n’est pas spécifié lors de la réception du message, Azure Media Services génère un id unique.                                                                                                                                          |
 | DURATION           | Nombre décimal à virgule flottante. | Obligatoire                                  | Durée de l’événement. Si elle est inconnue, la valeur doit être 0. Les unités sont des fractions de seconde.                                                                                                                                                                                           |
 | ELAPSED            | Nombre décimal à virgule flottante. | Facultatif, mais requis pour la fenêtre glissante. | Lorsque le signal est répété pour prendre en charge une fenêtre glissante de présentation, ce champ DOIT être le temps de présentation qui s’est écoulé depuis le début de l’événement. Les unités sont des fractions de seconde. Cette valeur peut dépasser la durée originale spécifiée de la jointure ou du segment. |
@@ -240,30 +240,17 @@ La couche d’application du lecteur HLS utilisera le TYPE pour identifier le fo
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-ALLOW-CACHE:NO
-#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-MEDIA-SEQUENCE:346
 #EXT-X-TARGETDURATION:6
-#EXT-X-PROGRAM-DATE-TIME:1970-01-01T00:00:00.000+00:00
+#EXT-X-I-FRAMES-ONLY
+#EXT-X-PROGRAM-DATE-TIME:2018-12-13T15:54:19.462Z
+#EXTINF:4.000000,no-desc
+KeyFrames(video_track=15447164594627600,format=m3u8-aapl)
 #EXTINF:6.000000,no-desc
-Fragments(video=0,format=m3u8-aapl)
+KeyFrames(video_track=15447164634627600,format=m3u8-aapl)
+#EXT-X-CUE:ID="1026",TYPE="scte35",DURATION=30.000000,TIME=1544716520.022760,CUE="/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w=="
 #EXTINF:6.000000,no-desc
-Fragments(video=60000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-#EXT-X-CUE: ID=”metadata-12.000000”,TYPE=”urn:example:signaling:1.0”,TIME=”12.000000”, DURATION=”18.000000”,CUE=”HrwOi8vYmWVkaWEvhhaWFRlRDa=”
-Fragments(video=120000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=180000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=240000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=300000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=360000000,format=m3u8-aapl)
-#EXT-X-CUE: ID=”metadata-42.000000”,TYPE=”urn:example:signaling:1.0”,TIME=”42.000000”, DURATION=”60.000000”,CUE=”PD94bWwgdm0iMS4wIiBlbmNvpD4=”
-#EXTINF:6.000000,no-desc
-Fragments(video=420000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=480000000,format=m3u8-aapl)
-…
+KeyFrames(video_track=15447165474627600,format=m3u8-aapl)
 ~~~
 
 #### <a name="hls-message-handling"></a>Gestion des messages HLS
@@ -293,7 +280,7 @@ L’élément EventStream a les attributs suivants :
 
 | **Nom de l’attribut** | **Type**                | **Obligatoire ?** | **Description**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri      | chaîne                  | Obligatoire      | Identifie le schéma du message. Le schéma est défini sur la valeur de l’attribut Scheme dans la zone de manifeste du serveur en direct. La valeur DOIT être un URN ou une URL identifiant le schéma de message ; par exemple, « urn:example:signaling:1.0 ».                                                                |
+| scheme_id_uri      | chaîne                  | Obligatoire      | Identifie le schéma du message. Le schéma est défini sur la valeur de l’attribut Scheme dans la zone de manifeste du serveur en direct. La valeur DOIT être un URN ou une URL identifiant le schéma de message, par exemple « urn:scte:scte35:2013a:bin ».                                                                |
 | value              | chaîne                  | Facultatif      | Valeur de chaîne supplémentaire utilisée par les propriétaires du schéma pour personnaliser la sémantique du message. Afin de différencier plusieurs flux d’événements dont le schéma est identique, la valeur DOIT être définie sur le nom du flux d’événements (trackName pour une réception lisse ou nom du message AMF pour une réception RTMP). |
 | Échelle de temps          | Entier non signé 32 bits | Obligatoire      | Échelle de temps, en battements par seconde, des champs d’heures et de durée dans la zone « emsg ».                                                                                                                                                                                                       |
 
@@ -335,11 +322,14 @@ Zéro ou plusieurs éléments d’événement sont contenus dans l’élément E
 
 
 <!-- Example Section in MPD -->
-
-<EventStream schemeIdUri=”urn:example:signaling:1.0” timescale=”1000” value=”player-statistics”>
-  <Event presentationTime=”0” duration=”10000” id=”0”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTUwMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
-  <Event presentationTime=”20000” duration=”10000” id=”1”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTYyMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
-</EventStream>
+  <EventStream schemeIdUri="urn:scte:scte35:2013a:bin" value="scte35_track_001_000" timescale="10000000">
+        <Event presentationTime="15447165200227600" duration="300000000" id="1026">/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w==</Event>
+        <Event presentationTime="15447166250227600" duration="300000000" id="1027">/DAlAAAAAAAAAP/wFAUAAAQDf+//KaeGwP4AKTLgAAAAAAAAn75a3g==</Event>
+        <Event presentationTime="15447167300227600" duration="600000000" id="1028">/DAlAAAAAAAAAP/wFAUAAAQEf+//KjkknP4AUmXAAAAAAAAAWcEldA==</Event>
+        <Event presentationTime="15447168350227600" duration="600000000" id="1029">/DAlAAAAAAAAAP/wFAUAAAQFf+//KslyqP4AUmXAAAAAAAAAvKNt0w==</Event>
+        <Event presentationTime="15447169400227600" duration="300000000" id="1030">/DAlAAAAAAAAAP/wFAUAAAQGf+//K1mIvP4AKTLgAAAAAAAAt2zEbw==</Event>
+        <Event presentationTime="15447170450227600" duration="600000000" id="1031">/DAlAAAAAAAAAP/wFAUAAAQHf+//K+hc/v4AUmXAAAAAAAAANNRzVw==</Event>
+    </EventStream>
 ~~~
 
 >[!NOTE]
@@ -375,7 +365,7 @@ Les champs de la zone DASHEventMessageBox sont définis ci-dessous :
 
 | **Nom du champ**          | **Type de champ**          | **Obligatoire ?** | **Description**                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri           | chaîne                  | Obligatoire      | Identifie le schéma du message. Le schéma est défini sur la valeur de l’attribut Scheme dans la zone de manifeste du serveur en direct. La valeur DOIT être un URN ou une URL identifiant le schéma de message ; par exemple, « urn:example:signaling:1.0 ». Pour les messages [SCTE-35], il s’agit de la valeur spéciale « urn:scte:scte35:2013a:bin », bien que [SCTE-67] recommande autre chose. |
+| scheme_id_uri           | chaîne                  | Obligatoire      | Identifie le schéma du message. Le schéma est défini sur la valeur de l’attribut Scheme dans la zone de manifeste du serveur en direct. La valeur DOIT être un URN ou une URL identifiant le schéma de message. Pour les messages [SCTE-35], il s’agit de la valeur spéciale « urn:scte:scte35:2013a:bin », bien que [SCTE-67] recommande autre chose. |
 | Valeur                   | chaîne                  | Obligatoire      | Valeur de chaîne supplémentaire utilisée par les propriétaires du schéma pour personnaliser la sémantique du message. Afin de différencier plusieurs flux d’événements dont le schéma est identique, la valeur sera définie sur le nom du flux d’événements (trackName pour une réception lisse ou nom du message AMF pour une réception RTMP).                                                                  |
 | Échelle de temps               | Entier non signé 32 bits | Obligatoire      | Échelle de temps, en battements par seconde, des champs d’heures et de durée dans la zone « emsg ».                                                                                                                                                                                                                                                                        |
 | Presentation_time_delta | Entier non signé 32 bits | Obligatoire      | Delta de temps de présentation multimédia entre l’heure de la présentation de l’événement et l’heure de présentation la plus précoce dans ce segment. L’heure et la durée de présentation DOIVENT être en phase avec les points d’accès de flux (SAP) de type 1 ou 2, comme définis dans [ISO-14496-12] l’annexe I.                                                                                            |
@@ -400,17 +390,17 @@ La réception de diffusion en continu lisse nécessite que la zone de données m
 
 **[SCTE-67]** ANSI/SCTE 67 2014 –Recommended Practice for SCTE 35: Digital Program Insertion Cueing Message for Cable
 
-**[DASH]** ISO/IEC 23009-1 2014 – Information technology – Dynamic adaptive streaming over HTTP (DASH) – Part 1: Media Presentation description and segment formats, 2° édition
+**[DASH]** ISO/IEC 23009-1 2014 – Information technology – Dynamic adaptive streaming over HTTP (DASH) – Part 1: Media Presentation description and segment formats, 2e édition
 
 **[HLS]** [« HTTP Live Streaming », draft-pantos-http-live-streaming-14, 14 octobre 2014,](http://tools.ietf.org/html/draft-pantos-http-live-streaming-14)
 
-**[MS-SSTR]** [« Microsoft Smooth Streaming Protocol », 15 mai 2014](http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+**[MS-SSTR]** [« Microsoft Smooth Streaming Protocol », 15 mai 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
 **[AMF0]** [« Action Message Format AMF0 »](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
 **[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest Specification](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
-**[ISO-14496-12]** ISO/IEC 14496-12: Part 12 ISO base media file format, quatrième édition 15/07/2012.
+**[ISO-14496-12]** ISO/IEC 14496-12: Part 12 ISO base media file format, quatrième édition 15/07/2012.
 
 **[RTMP]** [« Adobe’s Real-Time Messaging Protocol », 21 décembre 2012](https://www.adobe.com/devnet/rtmp.html) 
 

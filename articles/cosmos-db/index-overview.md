@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: c0525cfba16fb61f8388ae4d6a693be3bb71674c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0333bc5e95b74fc97cfff3d79adbe28aefff5d40
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628378"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834636"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Indexation dans Azure Cosmos DB
 
@@ -25,11 +25,11 @@ En projetant des éléments dans un conteneur en tant que documents JSON et en l
 
 Un nœud pseudo-racine est créé comme parent pour les nœuds réels correspondant aux étiquettes dans le document en dessous. Les structures de données imbriquées déterminent la hiérarchie dans l’arborescence. Des nœuds artificiels intermédiaires étiquetés avec des valeurs numériques (par exemple, 0, 1,...) sont utilisés pour représenter les énumérations et les index de tableau.
 
-## <a name="index-paths"></a>Chemins des index
+## <a name="index-paths"></a>Chemins d’accès de l’index
 
 Azure Cosmos DB projette les éléments en tant que documents JSON et les index en tant qu’arborescences. Vous pouvez ensuite paramétrer les stratégies pour les chemins dans l’arborescence. Vous pouvez choisir d’inclure ou d’exclure des chemins dans l’indexation. Il peut en résulter de meilleures performances d’écriture et un plus petit stockage des index pour les scénarios où les modèles de requête sont connus à l’avance. Pour plus d’informations, consultez [Chemins des index](index-paths.md).
 
-## <a name="indexing-under-the-hood"></a>Indexation vue de l’intérieur
+## <a name="indexing-under-the-hood"></a>Indexation : Sous le capot
 
 La base de données Azure Cosmos applique une indexation automatique aux données, où chaque chemin d’une arborescence est indexé, sauf si votre configuration en exclut certains.
 

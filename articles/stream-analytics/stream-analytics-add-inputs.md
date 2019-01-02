@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: b3b7b7374b02210f44fde408f28fd0378bf9bd12
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0475318ce983b98951fb9cd5d24a5bc4452b1f1e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310852"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970108"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Comprendre les entrées d’Azure Stream Analytics
 
@@ -42,8 +42,6 @@ Stream Analytics prend également en charge des entrées appelées *données de
 
 Pour plus d’informations sur les entrées de données de référence, consultez [Utiliser des données de référence pour effectuer des recherches dans Stream Analytics](stream-analytics-use-reference-data.md).
 
-Cet article est une étape dans le [parcours d'apprentissage de Stream Analytics](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/).
-
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Guide de démarrage rapide : Créer un travail Stream Analytics à l’aide du Portail Azure](stream-analytics-quick-create-portal.md)
+> [Démarrage rapide : Créer une tâche Stream Analytics à l’aide du Portail Azure](stream-analytics-quick-create-portal.md)

@@ -4,14 +4,14 @@ description: Offre une vue d’ensemble des calculs d’évaluation dans le serv
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165685"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849171"
 ---
 # <a name="assessment-calculations"></a>Calculs d’évaluation
 
@@ -21,7 +21,6 @@ ms.locfileid: "47165685"
 ## <a name="overview"></a>Vue d'ensemble
 
 Une évaluation Azure Migrate comporte trois étapes. Elle commence par une analyse de l’adéquation, suivie du dimensionnement et pour finir, d’une estimation du coût mensuel. Une machine ne passe au stade suivant que si elle réussit le précédent. Par exemple, si elle rate la vérification d’adéquation Azure, elle est marquée comme inadaptée à Azure, et le dimensionnement et l’évaluation des coûts ne seront pas effectués.
-
 
 ## <a name="azure-suitability-analysis"></a>Analyse d’adéquation Azure
 
@@ -90,7 +89,7 @@ Pour le dimensionnement basé sur les performances, Azure Migrate commence par l
     - Si plusieurs disques sont éligibles, il sélectionne celui dont le coût est le plus bas.
     - Si les données de performances des disques ne sont pas disponibles, tous les disques sont mappés à des disques standard dans Azure.
 
-- **Réseau** : Azure Migrate essaie de trouver une machine virtuelle Azure qui peut prendre en charge le nombre de cartes réseau raccordées à la machine locale et les performances requises par ces cartes réseau.
+- **Réseau** : Azure Migrate essaie de trouver une machine virtuelle Azure qui peut prendre en charge le nombre de cartes réseau raccordées à la machine locale et les performances requises par ces cartes réseau.
     - Pour obtenir les performances réseau effectives de la machine virtuelle locale, Azure Migrate regroupe les données transmises par seconde (Mbits/s) à partir de l’ordinateur (données sortantes), parmi toutes les cartes réseau, et applique le facteur de confort. Ce nombre est utilisé pour trouver une machine virtuelle Azure qui prend en charge les performances réseau nécessaires.
     - Outre les performances réseau, il évalue également si la machine virtuelle Azure peut prendre en charge le nombre de cartes réseau requises.
     - Si aucune donnée de performances réseau n’est disponible, seul le nombre de cartes réseau est pris en considération pour le dimensionnement de la machine virtuelle.
@@ -119,28 +118,20 @@ Pour le dimensionnement basé sur les performances, Azure Migrate a besoin des d
 
    Voici les raisons pour lesquelles une évaluation pourrait obtenir un niveau de confiance faible :
 
-   **Découverte unique**
-
-   - Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3. Comme le modèle de découverte unique dépend des paramètres de statistiques de vCenter Server, si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau n’est pas basée sur l’utilisation. Sans tenir compte des E/S par seconde/du débit du disque, Azure Migrate ne peut pas déterminer si le disque a besoin d’un disque premium dans Azure. Dans ce cas, Azure Migrate recommande donc des disques standard pour tous les disques.
-   - Le paramètre des statistiques dans vCenter Server a été défini sur le niveau 3 pour une durée plus courte, avant le lancement de la découverte. Par exemple, intéressons-nous au scénario dans lequel vous faites passer le paramètre de statistiques au niveau 3 aujourd’hui et lancez la découverte en utilisant l’appliance de collecteur demain (après 24 heures). Si vous créez une évaluation pour une journée, vous disposez de tous les points de données, et le niveau de confiance de l’évaluation est de 5 étoiles. Mais si vous modifiez la durée des performances dans les propriétés d’évaluation pour la définir à un mois, le niveau de confiance diminue, car les données de performances du disque et du réseau pour le mois dernier ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte.
-
-   **Découverte en continu**
-
    - Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez l’évaluation avec une durée des performances définie sur 1 jour, vous devez attendre au moins un jour après le démarrage de la découverte pour collecter tous les points de données.
 
-   **Raisons courantes**  
-
    - Plusieurs machines virtuelles ont été arrêtées pendant la période de calcul de l’évaluation. Si des machines virtuelles ont été mises hors tension pendant un certain temps, vous ne pourrez pas collecter les données de performances pour cette période.
+
    - Quelques machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, l’historique des performances des nouvelles machines virtuelles ne sera pas disponible pour toute la durée définie.
 
    > [!NOTE]
-   > Si le niveau de confiance d’une évaluation est inférieur à 4 étoiles, pour un modèle de découverte unique, nous vous recommandons de faire passer les paramètres de statistiques vCenter Server au niveau 3, de patienter pendant toute la période que vous souhaitez prendre en compte pour l’évaluation (1 jour/1 semaine/1 mois), puis de procéder à la découverte et à l’évaluation. Pour le modèle de découverte en continu, attendez au moins un jour que l’appliance profile l’environnement, puis *recalculez* l’évaluation. Si vous ne pouvez pas effectuer ce qui précède, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité ; nous vous recommandons alors de basculer vers le *dimensionnement local* en changeant les propriétés de l’évaluation.
+   > Si l’indice de confiance d’une évaluation est inférieur à 5 étoiles, nous vous recommandons d’attendre au moins un jour que l’appliance profile l’environnement, puis *recalculez* l’évaluation. Si vous ne pouvez pas effectuer ce qui précède, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité ; nous vous recommandons alors de basculer vers le *dimensionnement local* en changeant les propriétés de l’évaluation.
 
 ## <a name="monthly-cost-estimation"></a>Estimation des coûts mensuels
 
 Une fois les recommandations de dimensionnement terminées, Azure Migrate calcule les coûts de calcul et de stockage après la migration.
 
-- **Calcul du coût** : à partir de la taille de machine virtuelle Azure recommandée, Azure Migrate utilise l’API de facturation pour calculer le coût mensuel de la machine virtuelle. Le calcul tient compte du système d’exploitation, de Software Assurance, des instances réservées, de la durée de fonctionnement de la machine virtuelle, de l’emplacement et des paramètres de la devise. Il agrège le coût de toutes les machines pour calculer le coût de calcul mensuel total.
+- **Calcul de coût** : à partir de la taille de machine virtuelle Azure recommandée, Azure Migrate utilise l’API de facturation pour calculer le coût mensuel de la machine virtuelle. Le calcul tient compte du système d’exploitation, de Software Assurance, des instances réservées, de la durée de fonctionnement de la machine virtuelle, de l’emplacement et des paramètres de la devise. Il agrège le coût de toutes les machines pour calculer le coût de calcul mensuel total.
 - **Coût de stockage** : le coût de stockage mensuel d’une machine est calculé en additionnant le coût mensuel de tous les disques qui lui sont attachés. Azure Migrate calcule les coûts totaux de stockage mensuel en additionnant le coût de stockage de toutes les machines. Actuellement, le calcul ne prend pas en compte les offres spécifiées dans les paramètres d’évaluation.
 
 Les coûts sont affichés dans la devise spécifiée dans les paramètres d’évaluation.

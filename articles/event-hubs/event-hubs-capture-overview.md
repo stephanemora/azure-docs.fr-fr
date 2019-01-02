@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble d’Azure Event Hubs Capture | Microsoft Docs
-description: Capturer les données de télémétrie avec Event Hubs Capture
+title: Capturer des événements de streaming - Azure Event Hubs | Microsoft Docs
+description: Cet article fournit une vue d’ensemble de la fonctionnalité Capture qui vous permet de capturer un streaming d’événements avec Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -9,21 +9,21 @@ editor: ''
 ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
 ms.service: event-hubs
 ms.workload: na
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 91263d7f6e8c0c2774df560a45eeff9efc672343
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8e44db9c992a2c4905a392323994c67befea9a9a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408422"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096721"
 ---
-# <a name="azure-event-hubs-capture"></a>Azure Event Hubs Capture
-
-Azure Event Hubs Capture vous permet de fournir automatiquement les données de streaming dans Event Hubs vers un compte [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) de votre choix avec une souplesse accrue permettant de spécifier un intervalle personnalisé de temps ou de taille. La configuration de l’outil Capture est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement à vos [unités de débit](event-hubs-features.md#capacity) Event Hubs. Event Hubs Capture représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
+# <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturer des événements avec Azure Event Hubs dans le stockage Blob Azure ou Azure Data Lake Storage
+Azure Event Hubs vous permet de capturer automatiquement les données de streaming dans Event Hubs vers un compte de [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) de votre choix, tout en vous permettant de spécifier un intervalle de temps ou de taille. La configuration de l’outil Capture est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement à vos [unités de débit](event-hubs-features.md#capacity) Event Hubs. Event Hubs Capture représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
 
 Event Hubs Capture vous permet de traiter des pipelines basés sur des lots et en temps réel sur le même flux. Cela vous permet de créer des solutions capables d’évoluer avec vos besoins au fil du temps. Que vous créiez des systèmes basés sur des lots dès aujourd’hui en pensant au traitement en temps réel à l’avenir, ou que vous souhaitiez ajouter un chemin à froid efficace vers une solution existante en temps réel, Event Hubs Capture facilite la tâche avec les données diffusées en continu.
 
@@ -68,7 +68,7 @@ Event Hubs Capture crée des fichiers au format Avro, tel que spécifié dans la
 
 Les fichiers générés par Event Hubs Capture présentent le schéma Avro suivant :
 
-![][3]
+![Schéma Avro][3]
 
 Un moyen facile d’explorer les fichiers Avro consiste à utiliser la boîte à [outils Avro][Avro Tools] d’Apache. Après avoir téléchargé cette boîte, vous pouvez voir le schéma d’un fichier Avro spécifique en exécutant la commande suivante :
 
@@ -106,7 +106,7 @@ Apache Avro propose des guides de mise en route complets pour [Java][Java] et [P
 Event Hubs Capture est mesuré de la même façon que les unités de débit, au tarif horaire. La facturation est directement proportionnelle au nombre d’unités de débit achetées pour l’espace de noms. En même temps que les unités de débit augmentent et diminuent, Event Hubs Capture augmente et diminue pour fournir des performances adaptées. Les compteurs se produisent en même temps. Pour plus d’informations sur les prix appliqués, consultez [Tarification d’Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
 ## <a name="integration-with-event-grid"></a>Intégration à Event Grid 
-Vous pouvez créer un abonnement Azure Event Grid en utilisant un espace de noms Event Hubs comme source. Ce tutoriel vous montre comment créer un abonnement Event Grid avec un hub d’événements comme source et une application Azure Functions comme récepteur : [Traiter et migrer les données Event Hubs capturées vers un entrepôt de données SQL à l’aide d’Event Grid et d’Azure Functions](store-captured-data-data-warehouse.md).
+Vous pouvez créer un abonnement Azure Event Grid en utilisant un espace de noms Event Hubs comme source. Le tutoriel suivant vous montre comment créer un abonnement Event Grid avec un hub d’événements comme source et une application Azure Functions comme récepteur : [Traiter et migrer des données Event Hubs capturées vers un entrepôt de données SQL à l’aide d’Event Grid et d’Azure Functions](store-captured-data-data-warehouse.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

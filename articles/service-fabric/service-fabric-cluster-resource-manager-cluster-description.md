@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 13ee238580d645f3e727090bc0e0275b36bdb225
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208809"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834585"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Description d’un cluster Service Fabric
 Le Gestionnaire de ressources de cluster Service Fabric fournit plusieurs mécanismes permettant de décrire un cluster. Pendant l’exécution, Cluster Resource Manager utilise ces informations pour garantir une haute disponibilité des services en cours d’exécution dans le cluster. Tout en appliquant ces règles importantes, il essaie aussi d’optimiser la consommation de ressources au sein du cluster.
@@ -97,7 +97,7 @@ Le modèle le plus courant est la matrice Domaine d’erreur/Domaine de mise à 
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Contraintes des domaines d’erreur et de mise à niveau, et comportement résultant
 ### <a name="default-approach"></a>*Approche par défaut*
-Par défaut, Cluster Resource Manager assure la répartition des services entre les domaines d’erreur et de mise à niveau. Cette opération est modélisée comme une [contrainte](service-fabric-cluster-resource-manager-management-integration.md). La contrainte des domaines d’erreur et de mise à niveau indique : « Pour une partition de service donnée, il ne doit jamais y avoir une différence supérieure à un dans le nombre d’objets de service (instances de service sans état ou réplicas de service avec état) entre deux domaines à un même niveau de hiérarchie. ». Disons que cette contrainte représente une garantie de « différence maximale ». La contrainte des domaines d’erreur et de mise à niveau empêche certains déplacements ou organisations qui enfreignent la règle mentionnée ci-dessus. 
+Par défaut, Cluster Resource Manager assure la répartition des services entre les domaines d’erreur et de mise à niveau. Cette opération est modélisée comme une [contrainte](service-fabric-cluster-resource-manager-management-integration.md). La contrainte de domaine d’erreur et de mise à niveau indique : « Pour une partition de service donnée, il ne doit jamais y avoir une différence supérieure à un dans le nombre d’objets de service (instances de service sans état ou réplicas de service avec état) entre deux domaines à un même niveau de hiérarchie. » Disons que cette contrainte représente une garantie de « différence maximale ». La contrainte des domaines d’erreur et de mise à niveau empêche certains déplacements ou organisations qui enfreignent la règle mentionnée ci-dessus. 
 
 Examinons un exemple. Supposons que nous avons un cluster avec six nœuds, configuré avec cinq domaines d’erreur et cinq de mise à niveau.
 
@@ -176,7 +176,7 @@ En revanche, cette approche peut être trop stricte et ne pas autoriser le clust
 
 ### <a name="alternative-approach"></a>*Autre approche*
 
-Cluster Resource Manager prend en charge une autre version de la contrainte des domaines d’erreur et de mise à niveau qui permet le placement tout en garantissant toujours un niveau minimal de sécurité. L’autre contrainte des domaines d’erreur et de mise à niveau peut être énoncée comme suit : « Pour une partition de service donnée, la distribution des réplicas entre les domaines doit garantir que la partition ne subit pas une perte de quorum. ». Disons que cette contrainte représente une garantie de « sécurité de quorum ». 
+Cluster Resource Manager prend en charge une autre version de la contrainte des domaines d’erreur et de mise à niveau qui permet le placement tout en garantissant toujours un niveau minimal de sécurité. L’autre contrainte des domaines d’erreur et de mise à niveau peut être énoncée comme suit : « Pour une partition de service donnée, la distribution des réplicas entre les domaines doit garantir que la partition ne subit pas une perte de quorum. » Disons que cette contrainte représente une garantie de « sécurité de quorum ». 
 
 > [!NOTE]
 >Pour un service avec état, il est question de *perte de quorum* quand une majorité des réplicas de partition est arrêtée en même temps. Par exemple, si TargetReplicaSetSize a la valeur cinq, un ensemble de trois réplicas représente le quorum. De même, si TargetReplicaSetSize a la valeur 6, quatre réplicas sont nécessaires pour le quorum. Dans les deux cas, pas plus de deux réplicas ne peuvent être arrêtés en même temps si la partition doit continuer à fonctionner normalement. Pour un service sans état, il n’existe pas de *perte de quorum*, car ce service continue de fonctionner normalement même si une majorité des instances est arrêtée en même temps. Par conséquent, nous allons nous concentrer sur les services avec état dans le reste du texte.
@@ -192,7 +192,7 @@ Dans la mesure où les deux approches présentent des avantages et des inconvén
 > [!NOTE]
 >Il s’agit du comportement par défaut à compter de Service Fabric version 6.2. 
 >
-L’approche adaptative utilise la logique de « différence maximale » par défaut et ne bascule vers la logique de « sécurité de quorum » que si nécessaire. Cluster Resource Manager détermine automatiquement quelle stratégie est nécessaire en examinant la façon dont le cluster et les services sont configurés. Pour un service donné : *si TargetReplicaSetSize est divisible uniformément par le nombre de domaines d’erreur et le nombre de domaines de mise à niveau **et** le nombre de nœuds est inférieur ou égal au (nombre de domaines d’erreur) \* (nombre de domaines de mise à niveau), Cluster Resource Manager doit utiliser la logique « basée sur le quorum » pour ce service.* Gardez à l’esprit que Cluster Resource Manager utilise cette approche à la fois pour les services avec et sans état, même si la perte de quorum n’est pas pertinente pour les services sans état.
+L’approche adaptative utilise la logique de « différence maximale » par défaut et ne bascule vers la logique de « sécurité de quorum » que si nécessaire. Cluster Resource Manager détermine automatiquement quelle stratégie est nécessaire en examinant la façon dont le cluster et les services sont configurés. Pour un service donné : *si TargetReplicaSetSize est divisible uniformément par le nombre de domaines d’erreur et le nombre de domaines de mise à niveau **et** le nombre de nœuds est inférieur ou égal au (nombre de domaines d’erreur) \* (nombre de domaines de mise à niveau), Cluster Resource Manager doit utiliser la logique « basée sur le quorum » pour ce service.* Gardez à l’esprit que Cluster Resource Manager utilise cette approche à la fois pour les services avec et sans état, même si la perte de quorum n’est pas pertinente pour les services sans état.
 
 Revenons à l’exemple précédent et supposons qu’un cluster a maintenant 8 nœuds (le cluster est encore configuré avec cinq domaines d’erreur et cinq domaines de mise à niveau, et la valeur TargetReplicaSetSize d’un service hébergé sur ce cluster reste cinq). 
 
@@ -468,7 +468,7 @@ Les mesures sont différentes des contraintes de placement et des propriétés d
 
 Il est important de noter que, comme pour les contraintes de placement et les propriétés de nœud, Service Fabric Cluster Resource Manager ne comprend pas ce que signifient les noms des mesures. Les noms des mesures ne sont que des chaînes. Il est recommandé de déclarer les unités dans le cadre des noms des mesures que vous créez lorsque cela peut être ambigu.
 
-## <a name="capacity"></a>Capacity
+## <a name="capacity"></a>Capacité
 Si vous avez désactivé toutes les fonctions d’*équilibrage* des ressources, Cluster Resource Manager de Service Fabric est tout de même en mesure de garantir qu’aucun nœud ne dépasse sa capacité. Il est possible de gérer les dépassements de capacité, sauf si le cluster est saturé ou si la charge de travail dépasse la capacité d’un nœud. La capacité est une autre *contrainte* que Cluster Resource Manager utilise pour comprendre la quantité d’une ressource dont un nœud dispose. La capacité restante est également suivie pour le cluster dans son ensemble. La capacité et la consommation au niveau du service sont toutes deux exprimées en termes de métriques. Par exemple, pour une métrique appelée « ClientConnections », un nœud donné peut avoir une capacité de 32768. Les autres nœuds peuvent avoir d’autres limites. Un service s’exécutant sur ce nœud peut indiquer qu’il consomme actuellement 32256 de la métrique « ClientConnections ».
 
 Pendant l’exécution, Cluster Resource Manager assure le suivi de la capacité restante dans le cluster et sur les nœuds. Pour ce faire, Cluster Resource Manager soustrait la consommation de chaque service à la capacité du nœud sur lequel le service s’exécute. Grâce à ces informations, Cluster Resource Manager de Service Fabric peut déterminer où placer ou déplacer les réplicas afin que les nœuds ne dépassent pas la capacité.

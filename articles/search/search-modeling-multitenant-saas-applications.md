@@ -2,19 +2,20 @@
 title: Modélisation d’une architecture mutualisée dans la Recherche Azure | Microsoft Docs
 description: Découvrez les modèles de conception courants pour les applications SaaS mutualisées lors de l’utilisation de Recherche Azure.
 manager: jlembicz
-author: ashmaka
+author: LiamCavanagh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: liamca
+ms.custom: seodec2018
+ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232373"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313035"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modèles de conception pour les applications SaaS mutualisées et Recherche Azure
 Une application mutualisée est une application qui fournit les mêmes services et fonctionnalités à plusieurs clients qui ne peuvent pas voir ni partager les données d’un autre client. Ce document aborde les stratégies d’isolation de client pour les applications mutualisées conçues avec Recherche Azure.
@@ -57,20 +58,20 @@ Concrètement, un service S3 peut avoir entre 1 et 200 index qui, ensemble, peuv
 ## <a name="considerations-for-multitenant-applications"></a>Considérations relatives aux applications mutualisées
 Les applications mutualisées doivent distribuer efficacement les ressources entre les clients tout en conservant un certain niveau de confidentialité entre les différents clients. Il existe quelques considérations à prendre en compte lors de la conception de l’architecture pour ce type d’application :
 
-* *Isolation des clients :* les développeurs d’applications doivent prendre les mesures appropriées pour s’assurer qu’aucun client ne bénéficie d’un accès non autorisé ou non désiré aux données d’autres clients. Au-delà de la confidentialité des données, les stratégies d’isolation des clients nécessitent une gestion efficace des ressources partagées et la protection contre les voisins bruyants.
-* *Coût des ressources cloud :* comme pour toute autre application, les solutions logicielles doivent rester compétitives au niveau du coût en tant que composant d’une application mutualisée.
+* *Isolation des locataires :* les développeurs d’applications doivent prendre les mesures appropriées pour s’assurer qu’aucun locataire ne bénéficie d’un accès non autorisé ou non désiré aux données d’autres locataires. Au-delà de la confidentialité des données, les stratégies d’isolation des clients nécessitent une gestion efficace des ressources partagées et la protection contre les voisins bruyants.
+* *Coût des ressources cloud :* comme pour toute autre application, les solutions logicielles doivent rester compétitives au niveau du coût en tant que composant d’une application mutualisée.
 * *Facilité des opérations :* lors du développement d’une architecture mutualisée, l’impact sur les opérations et la complexité de l’application est un facteur important. La Recherche Azure bénéficie d’un [Contrat de niveau de service de 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* *Envergure internationale :* les applications mutualisées devront peut-être servir efficacement des clients qui sont répartis dans le monde entier.
-* *Évolutivité :* les développeurs d’applications doivent trouver l’équilibre entre le fait de maintenir un niveau de complexité des applications suffisamment faible et la conception de l’application de façon à ce qu’elle évolue avec le nombre de clients, ainsi que la taille des données et la charge de travail des clients.
+* *Envergure internationale :* les applications mutualisées devront peut-être servir efficacement des locataires qui sont répartis dans le monde entier.
+* *Scalabilité :* Les développeurs d’applications doivent trouver l’équilibre entre le fait de maintenir un niveau de complexité des applications suffisamment faible et la conception de l’application de façon à ce qu’elle évolue avec le nombre de locataires, ainsi que la taille des données et la charge de travail des locataires.
 
 Recherche Azure propose quelques limites qui peuvent être utilisées pour isoler les données et la charge de travail des clients.
 
 ## <a name="modeling-multitenancy-with-azure-search"></a>Modélisation d’une architecture mutualisée avec Recherche Azure
 Dans le cas d’un scénario mutualisé, le développeur de l’application consomme un ou plusieurs services de recherche et répartit les clients entre les services, les index ou les deux. Recherche Azure offre quelques modèles courants pour la modélisation d’un scénario mutualisé :
 
-1. *Index par client :* chaque client a son propre index dans un service de recherche qui est partagé avec d’autres clients.
-2. *Service par client :* chaque client possède son propre service Recherche Azure dédié, pour un niveau de séparation maximal entre les données et la charge de travail.
-3. *Combinaison des deux :* les clients les plus volumineux et actifs se voient attribuer des services dédiés, tandis que les clients plus petits se voient attribuer des index individuels au sein de services partagés.
+1. *Index par locataire :* chaque locataire a son propre index dans un service de recherche qui est partagé avec d’autres locataires.
+2. *Service par locataire :* chaque locataire possède son propre service Recherche Azure dédié, pour un niveau de séparation maximal entre les données et la charge de travail.
+3. *Combinaison des deux :* les locataires les plus volumineux et actifs se voient attribuer des services dédiés, tandis que les locataires plus petits se voient attribuer des index individuels au sein de services partagés.
 
 ## <a name="1-index-per-tenant"></a>1. Index par client
 ![Une image du modèle d’index par client](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)

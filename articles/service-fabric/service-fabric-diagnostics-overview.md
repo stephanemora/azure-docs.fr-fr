@@ -1,6 +1,6 @@
 ---
-title: Présentation de la supervision et des diagnostics Azure Service Fabric | Microsoft Docs
-description: Découvrez la supervision et les diagnostics pour les clusters, applications et services Azure Service Fabric.
+title: Présentation de la surveillance et des diagnostics Azure Service Fabric | Microsoft Docs
+description: Découvrez la surveillance et les diagnostics pour les clusters, applications et services Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 82c02c0212fd79d8847d374022b6ac8f862f042a
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 8d6865349f103278131a02c2385557fb53ee24f5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291111"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720590"
 ---
-# <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Supervision et diagnostics pour Azure Service Fabric
+# <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Surveillance et diagnostics pour Azure Service Fabric
 
-Cet article fournit une vue d’ensemble de la supervision et des diagnostics dans Azure Service Fabric. La supervision et les diagnostics sont essentiels au développement, au test et au déploiement de charges de travail dans tout environnement cloud. Par exemple, vous pouvez suivre la façon dont vos applications sont utilisées, les actions effectuées par la plateforme Service Fabric, votre utilisation des ressources avec des compteurs de performances et l’intégrité globale de votre cluster. Vous pouvez utiliser ces informations pour diagnostiquer et corriger les problèmes, et éviter qu’ils ne se reproduisent. Les sections suivantes décrivent brièvement chaque zone de la supervision de Service Fabric à prendre en compte pour les charges de travail de production. 
+Cet article fournit une vue d’ensemble du monitoring et des diagnostics dans Azure Service Fabric. Le monitoring et les diagnostics sont essentiels au développement, au test et au déploiement de charges de travail dans tout environnement cloud. Par exemple, vous pouvez suivre la façon dont vos applications sont utilisées, les actions effectuées par la plateforme Service Fabric, votre utilisation des ressources avec des compteurs de performances et l’intégrité globale de votre cluster. Vous pouvez utiliser ces informations pour diagnostiquer et corriger les problèmes, et éviter qu’ils ne se reproduisent. Les sections suivantes décrivent brièvement chaque zone de la supervision de Service Fabric à prendre en compte pour les charges de travail de production. 
 
-## <a name="application-monitoring"></a>Supervision des applications
-La supervision des applications permet de suivre l’utilisation des fonctionnalités et des composants de votre application. L’objectif est d’intercepter les problèmes qui impactent les utilisateurs. La responsabilité de la supervision des applications revient aux utilisateurs qui développent une application et ses services dans la mesure où il est unique à la logique métier de l’application. La supervision des applications peut être utile dans les scénarios suivants :
+## <a name="application-monitoring"></a>Monitoring des applications
+Le monitoring des applications permet de suivre l’utilisation des fonctionnalités et des composants de votre application. L’objectif est d’intercepter les problèmes qui impactent les utilisateurs. La responsabilité de la supervision des applications revient aux utilisateurs qui développent une application et ses services dans la mesure où il est unique à la logique métier de l’application. Le monitoring des applications peut être utile dans les scénarios suivants :
 * Quel est le trafic que rencontre mon application ? - Devez-vous mettre à l’échelle vos services pour répondre aux demandes des utilisateurs ou traiter un goulot d’étranglement potentiel dans votre application ?
 * Mes appels de service à service réussissent-ils et font-ils l’objet d’un suivi ?
 * Quelles actions sont prises par les utilisateurs de mon application ? - La collecte de données de télémétrie peut guider le développement de nouvelles fonctionnalités et améliorer les diagnostics des erreurs d’application
@@ -37,12 +37,13 @@ L’avantage de la supervision des applications est que les développeurs peuven
 Nous disposons également d’un tutoriel qui explique comment [configurer ceci pour les applications .NET](service-fabric-tutorial-monitoring-aspnet.md). Ce tutoriel aborde la façon d’installer les outils appropriés, un exemple pour écrire des données de télémétrie personnalisées dans votre application, et l’affichage des données de télémétrie et de diagnostic de l’application dans le portail Azure. 
 
 
-## <a name="platform-cluster-monitoring"></a>Supervision de la plateforme (cluster)
+## <a name="platform-cluster-monitoring"></a>Monitoring de la plateforme (cluster)
 Un utilisateur contrôle les données de télémétrie qui proviennent de l’application dans la mesure où un utilisateur écrit le code lui-même, mais qu’en est-il du diagnostic provenant de la plateforme Service Fabric ? L’un des objectifs de Service Fabric est d’assurer le bon fonctionnement des applications même en cas de défaillances matérielles. Cet objectif repose sur la capacité des services système de la plateforme à détecter les problèmes d’infrastructure et à basculer rapidement les charges de travail sur d’autres nœuds du cluster. Mais dans ce cas précis, que se passe-t-il si les services système subissent eux aussi des problèmes ? Que se passe-t-il si, durant une tentative de déploiement ou de déplacement d’une charge de travail, les règles de placement des services sont enfreintes ? Service Fabric fournit des diagnostics pour cela et pour vous garantir d’être informé de l’activité en cours dans votre cluster. Voici quelques exemples de scénarios pour la surveillance du cluster :
 
-* Service Fabric se comporte-t-il de la manière attendue, aussi bien au niveau du placement de vos applications que de l’équilibrage de la charge de travail autour du cluster ? 
-* Les actions utilisateur effectuées sur votre cluster sont-elles reconnues et exécutées comme prévu ? Par exemple, Mise à l’échelle, basculement, déploiements
-* Est-ce que Service Fabric suit les nœuds qui font partie du cluster et m’informe en cas de problème avec l’un d’eux ?
+Service Fabric fournit un ensemble complet d’événements prêts à l’emploi. Ces [événements Service Fabric](service-fabric-diagnostics-events.md) sont accessibles via EventStore ou le canal opérationnel (canal d’événements exposé par la plateforme). 
+* EventStore - EventStore est une fonctionnalité offerte par la plateforme qui fournit les événements de la plateforme Service Fabric disponibles dans Service Fabric Explorer et via l’API REST. Vous pouvez obtenir une vue de capture de ce qui se passe dans votre cluster pour chaque entité (nœud, service, application et requête) basée sur l’heure de l’événement. Vous pouvez en savoir plus sur EventStore dans [Vue d’ensemble d’EventStore](service-fabric-diagnostics-eventstore.md).    
+
+* Canaux d’événements Service Fabric : sur Windows, les événements Service Fabric sont disponibles à partir d’un seul fournisseur ETW avec un ensemble de filtres `logLevelKeywordFilters` pertinents permettant de choisir entre le canal opérationnel et le canal de données et de messagerie. Il s’agit de la méthode à l’aide de laquelle nous séparons des événements Service Fabric sortants à filtrer en fonction de vos besoins. Sur Linux, les événements Service Fabric transitent par LTTng et sont placés dans une table de stockage où ils peuvent être filtrés selon les besoins. Ces canaux contiennent des événements organisés et structurés que vous pouvez utiliser pour mieux comprendre l’état de votre cluster. Les diagnostics sont activés par défaut au moment de la création du cluster. Vous disposez ainsi d’une table Stockage Azure où sont envoyés les événements de ces canaux que vous pourrez interroger ultérieurement. 
 
 Les diagnostics fournis sont sous la forme d’un ensemble complet d’événements prêts à l’emploi. Ces [événements Service Fabric](service-fabric-diagnostics-events.md) illustrent les actions effectuées par la plateforme sur différentes entités telles que les nœuds, les applications, les services, les partitions, etc. Dans le dernier scénario ci-dessus, si un nœud venait à tomber en panne, la plateforme émettrait un événement `NodeDown` et vous pourriez être informé immédiatement par votre outil de supervision préféré. D’autres exemples courants incluent `ApplicationUpgradeRollbackStarted` ou `PartitionReconfigured` lors d’un basculement. **Les mêmes événements sont disponibles sur les clusters Windows et Linux.**
 
@@ -60,7 +61,7 @@ De plus, nous laissons même les utilisateurs remplacer l’intégrité des enti
 En général, un agent de surveillance est un service distinct capable de surveiller l’intégrité et la charge des services, d’effectuer des tests ping sur les points de terminaison et de créer des rapports d’intégrité pour n’importe quel élément du cluster. Cela permet d’éviter des erreurs qui ne seraient pas détectées à partir de l’affichage d’un service unique. Les agents de surveillance sont également un bon emplacement pour héberger du code qui exécute des actions correctives sans intervention de l’utilisateur (par exemple, le nettoyage de fichiers journaux dans le stockage à intervalles réguliers). Vous trouverez un exemple d’implémentation de service d’agent de surveillance [ici](https://github.com/Azure-Samples/service-fabric-watchdog-service).
 
 ## <a name="infrastructure-performance-monitoring"></a>Supervision de l’infrastructure (performances)
-Maintenant que nous avons couvert les diagnostics dans votre application et sur la plateforme, comment savons-nous que le matériel fonctionne comme prévu ? La supervision de l’infrastructure sous-jacente est essentielle pour comprendre l’état de votre cluster et l’utilisation de vos ressources. La mesure des performances système dépend de nombreux facteurs qui peuvent être subjectifs en fonction de vos charges de travail. Ces facteurs sont généralement mesurés via des compteurs de performances. Ces compteurs de performances peuvent provenir de diverses sources, y compris du système d’exploitation, du .NET Framework ou de la plateforme Service Fabric proprement dite. Voici quelques scénarios dans lesquels ils peuvent être utiles :
+Maintenant que nous avons couvert les diagnostics dans votre application et sur la plateforme, comment savons-nous que le matériel fonctionne comme prévu ? Le monitoring de l’infrastructure sous-jacente est essentiel pour comprendre l’état de votre cluster et l’utilisation de vos ressources. La mesure des performances système dépend de nombreux facteurs qui peuvent être subjectifs en fonction de vos charges de travail. Ces facteurs sont généralement mesurés via des compteurs de performances. Ces compteurs de performances peuvent provenir de diverses sources, y compris du système d’exploitation, du .NET Framework ou de la plateforme Service Fabric proprement dite. Voici quelques scénarios dans lesquels ils peuvent être utiles :
 
 * Est-ce que j’utilise efficacement mon matériel ? Voulez-vous utiliser votre matériel à 90 % ou 10 % du processeur ? Cela peut être pratique lors de la mise à l’échelle de votre cluster ou de l’optimisation des processus de votre application.
 * Puis-je prévoir des problèmes d’infrastructure de façon proactive ? - de nombreux problèmes sont précédés de baisses (chutes) soudaines des performances. Vous pouvez donc utiliser des compteurs de performances comme E/S réseau et Utilisation de l’UC pour prédire et diagnostiquer les problèmes de façon proactive.

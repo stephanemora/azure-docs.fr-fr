@@ -9,17 +9,16 @@ ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 9105b7f44a9677b2b843305c30fec30c74dd8be5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 097eae37f170a8036ee46652450788faf77c3960
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958489"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967127"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -84,7 +83,7 @@ En plus des données de télémétrie Application Insights, vous pouvez égaleme
 
 Les métriques temps réel sont agrégées à deux endroits : localement sur chaque serveur, puis sur tous les serveurs. Vous pouvez modifier la valeur par défaut en sélectionnant d’autres options dans les listes déroulantes respectives.
 
-## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Exemple de télémétrie : événements de diagnostic temps réel personnalisés
+## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Exemple de télémétrie : Événements de diagnostic Azure personnalisés et en temps réel
 Par défaut, le flux d’événements temps réel présente des exemples de demandes ayant échoué et d’appels de dépendance, d’exceptions, d’événements et de suivis. Cliquez sur l’icône de filtre pour afficher les critères appliqués. 
 
 ![Flux temps réel par défaut](./media/app-insights-live-stream/live-stream-eventsdefault.png)
@@ -175,7 +174,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 Ensuite, dans la méthode ConfigureServices, ajoutez :
 
 ``` C#
-services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
 
@@ -198,7 +197,7 @@ Si vous voulez observer l’effet d’une augmentation de la charge, utilisez le
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Pas de données ? Si votre application se trouve dans un réseau protégé : le Flux de métriques temps réel utilise des adresses IP différentes d’autres données de télémétrie Application Insights. Assurez-vous que [ces adresses IP](app-insights-ip-addresses.md) sont ouvertes dans votre pare-feu.
+Pas de données ? Si votre application est dans un réseau protégé : Le flux de métriques temps réel utilise des adresses IP différentes de celles des autres données de télémétrie Application Insights. Assurez-vous que [ces adresses IP](app-insights-ip-addresses.md) sont ouvertes dans votre pare-feu.
 
 
 

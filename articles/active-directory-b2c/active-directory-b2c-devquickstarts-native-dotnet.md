@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bd504beabbb126db2cd90ac010dbc2757e571185
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2e515ee61144dfe56d2b5a4fac97da81b0fa8c84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441897"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834840"
 ---
-# <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C : création d’une application de bureau Windows
+# <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C : Générer une application de bureau Windows
 Avec Azure Active Directory (Azure AD) B2C, vous pouvez ajouter de puissantes fonctionnalités de gestion des identités en libre-service à vos applications de bureau, en seulement quelques étapes. Cet article explique comment créer une application WPF (Windows Presentation Foundation) .NET de type « liste des tâches », qui inclut l’inscription d’utilisateur, la connexion et la gestion de profil. L’application prendra en charge l’inscription et la connexion à l’aide d’un nom d’utilisateur ou d’une adresse e-mail. Elle prendra également en charge l’inscription et la connexion à l’aide d’un compte de réseau social comme Facebook et Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obtention d'un répertoire Azure AD B2C
@@ -31,7 +31,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 * Copiez **l’ID d’application** affecté à votre application. Vous en aurez besoin ultérieurement.
 
 ## <a name="create-your-policies"></a>Création de vos stratégies
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cet exemple de code contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie pour chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Lors de la création des trois stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cet exemple de code contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie pour chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Lors de la création des trois stratégies, assurez-vous de :
 
 * Choisir **Inscription par le biais d’un ID utilisateur** ou **Inscription par le biais d’une adresse e-mail** dans le panneau des fournisseurs d’identité.
 * Choisir **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.

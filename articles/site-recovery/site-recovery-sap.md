@@ -6,16 +6,15 @@ manager: rochakm
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 1f38cd62a1394d45716e7224cc03a059fcaf9e13
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9399f9d47d89215080b1f633423843f501fefb7b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247741"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850429"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurer la reprise d’activité pour un déploiement d’application SAP NetWeaver multiniveau
 
@@ -167,5 +166,5 @@ Pour plus d’informations, consultez [Tester le basculement vers Azure dans Sit
 Pour plus d’informations, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur la création d’une solution de reprise d’activité après sinistre pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver : Création d’une solution de reprise d’activité après sinistre avec Azure Site Recovery](https://aka.ms/asr-sap). Ce livre blanc, qui présente les recommandations émises pour les diverses architectures SAP, répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de reprise d’activité après sinistre.
+* Pour en savoir plus sur la création d’une solution de reprise d’activité après sinistre pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver: Création d’une solution de reprise d’activité après sinistre avec Azure Site Recovery](https://aka.ms/asr-sap). Ce livre blanc, qui présente les recommandations émises pour les diverses architectures SAP, répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de reprise d’activité après sinistre.
 * Approfondissez vos connaissances sur la [réplication d’autres charges de travail](site-recovery-workload.md) à l’aide de Site Recovery.

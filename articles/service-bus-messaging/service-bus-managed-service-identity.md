@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857072"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842830"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identités managées pour les ressources Azure avec Service Bus 
 
@@ -51,12 +51,10 @@ Une fois la fonctionnalité activée, une identité de service est créée dans 
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Créer un espace de noms Service Bus Messaging
 
-Ensuite, [créez un espace de noms Service Bus Messaging](service-bus-create-namespace-portal.md) dans l’une des régions Azure qui prend en charge la préversion du contrôle d’accès en fonction du rôle : **USA Est**, **USA Est 2** ou **Europe Ouest**. 
+Ensuite, [créez un espace de noms de messagerie Service Bus](service-bus-create-namespace-portal.md) dans l’une des régions Azure prenant en charge la préversion du contrôle d’accès en fonction du rôle : **USA Est**, **USA Est 2** ou **Europe Ouest**. 
 
-Accédez à la page **Contrôle d’accès (IAM)** de l’espace de noms sur le portail, puis cliquez sur **Ajouter** pour ajouter l’identité managée au rôle **Propriétaire**. Pour ce faire, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
+Accédez à la page **Contrôle d’accès (IAM)** de l’espace de noms sur le portail, puis cliquez sur **Ajouter une attribution de rôle** pour ajouter l’identité managée au rôle **Propriétaire**. Pour ce faire, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
 
-![](./media/service-bus-managed-service-identity/msi2.png)
- 
 L’identité managée de l’application web a désormais accès à l’espace de noms Service Bus et à la file d’attente que vous avez créée. 
 
 ### <a name="run-the-app"></a>Exécution de l'application

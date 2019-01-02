@@ -1,26 +1,18 @@
 ---
-title: 'Créer et modifier un circuit Azure ExpressRoute : CLI | Microsoft Docs'
-description: Cet article explique comment créer, approvisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute à l’aide de l’interface de ligne de commande.
-documentationcenter: na
+title: 'Créer et modifier un circuit ExpressRoute : Azure CLI | Microsoft Docs'
+description: Cet article explique comment créer, provisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute à l’aide de l’interface CLI.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/19/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: a53fe43365100c6d71fcc2b9e0944a221adf188d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2013b3b96fddd32f01245655c1feb600bc426e2a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249232"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084139"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Créer et modifier un circuit ExpressRoute à l’aide de l’interface de ligne de commande
 
@@ -44,7 +36,7 @@ Cet article décrit comment créer un circuit Azure ExpressRoute à l’aide de 
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Vous connecter à votre compte Azure et sélectionner votre abonnement
 
-Pour commencer votre configuration, connectez-vous à votre compte Azure. Utilisez les exemples suivants pour faciliter votre connexion :
+Pour commencer votre configuration, connectez-vous à votre compte Azure. Si vous utilisez le CloudShell « Essayez-le », vous êtes connecté automatiquement. Utilisez les exemples suivants pour faciliter votre connexion :
 
 ```azurecli
 az login
@@ -52,13 +44,13 @@ az login
 
 Vérifiez les abonnements associés au compte.
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 Sélectionnez l’abonnement pour lequel vous souhaitez créer un circuit ExpressRoute.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
@@ -66,7 +58,7 @@ az account set --subscription "<subscription ID>"
 
 Avant de créer un circuit ExpressRoute, vous avez besoin d’une liste des fournisseurs de services, des emplacements et des options de bande passante pris en charge. La commande CLI « az network express-route list-service-providers » renvoie ces informations, que vous allez utiliser dans les étapes suivantes :
 
-```azurecli
+```azurecli-interactive
 az network express-route list-service-providers
 ```
 
@@ -140,7 +132,7 @@ Vous êtes maintenant prêt à créer un circuit ExpressRoute.
 
 Si vous n’avez pas déjà un groupe de ressources, vous devez en créer un avant de créer votre circuit ExpressRoute. Vous pouvez créer un groupe de ressources à l’aide de la commande suivante :
 
-```azurecli
+```azurecli-interactive
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
@@ -154,7 +146,7 @@ Assurez-vous que vous spécifiez le niveau de référence (SKU) et la famille de
 
 Votre circuit ExpressRoute est facturé à partir de l’émission d'une clé de service. Voici un exemple de demande pour une nouvelle clé de service :
 
-```azurecli
+```azurecli-interactive
 az network express-route create --bandwidth 200 -n MyCircuit --peering-location "Silicon Valley" -g ExpressRouteResourceGroup --provider "Equinix" -l "West US" --sku-family MeteredData --sku-tier Standard
 ```
 
@@ -164,7 +156,7 @@ La réponse contient la clé de service.
 
 Pour obtenir la liste de tous les circuits ExpressRoute que vous avez créés, exécutez la commande « az network express-route list ». Vous pouvez récupérer ces informations à tout moment à l’aide de cette commande. Pour répertorier tous les circuits, effectuez l’appel sans paramètres.
 
-```azurecli
+```azurecli-interactive
 az network express-route list
 ```
 
@@ -201,7 +193,7 @@ Votre clé de service apparaît dans le champ *ServiceKey* de la réponse.
 
 Vous pouvez obtenir une description détaillée de tous les paramètres en exécutant la commande avec le paramètre « -h ».
 
-```azurecli
+```azurecli-interactive
 az network express-route list -h
 ```
 
@@ -211,21 +203,21 @@ az network express-route list -h
 
 Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "NotProvisioned"
 "circuitProvisioningState": "Enabled"
 ```
 
 Le circuit passe à l’état suivant quand le fournisseur de connectivité est sur le point de l’activer pour vous :
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
 Pour pouvoir être utilisé, un circuit ExpressRoute doit être dans l’état suivant :
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
@@ -234,7 +226,7 @@ Pour pouvoir être utilisé, un circuit ExpressRoute doit être dans l’état s
 
 La vérification du statut et de l’état de la clé du circuit vous permet de savoir quand votre fournisseur a activé votre circuit. Une fois le circuit configuré, « ServiceProviderProvisioningState » a la valeur « Approvisionné », comme le montre l’exemple suivant :
 
-```azurecli
+```azurecli-interactive
 az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
 ```
 
@@ -297,7 +289,7 @@ Pour plus d’informations sur les limites et les limitations, reportez-vous au 
 
 Vous pouvez activer le module complémentaire ExpressRoute Premium pour votre circuit existant à l’aide de la commande suivante :
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Premium
 ```
 
@@ -318,7 +310,7 @@ Avant de désactiver le module complémentaire ExpressRoute Premium, comprenez l
 
 Vous pouvez désactiver le module complémentaire ExpressRoute Premium dans votre circuit existant à l’aide de l’exemple suivant :
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Standard
 ```
 
@@ -334,7 +326,7 @@ Pour connaître les options de bande passante prises en charge par votre fournis
 
 Une fois que vous avez décidé de la taille dont vous avez besoin, utilisez la commande suivante pour redimensionner votre circuit :
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --bandwidth 1000
 ```
 
@@ -344,7 +336,7 @@ Microsoft se charge de redimensionner votre circuit. Vous devrez ensuite contact
 
 Vous pouvez modifier la référence SKU d'un circuit ExpressRoute à l'aide de l'exemple suivant :
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-family UnlimitedData
 ```
 
@@ -362,7 +354,7 @@ Pour déprovisionner et supprimer un circuit ExpressRoute, veillez à bien compr
 
 Vous pouvez supprimer votre circuit ExpressRoute en exécutant la commande suivante :
 
-```azurecli
+```azurecli-interactive
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 ```
 

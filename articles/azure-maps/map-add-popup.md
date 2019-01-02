@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a6c8a8aa954379036ce566a205b8cb4e97952727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282530"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887834"
 ---
 # <a name="add-a-popup-to-the-map"></a>Ajouter une fenêtre contextuelle à la carte
 
@@ -37,20 +37,32 @@ Le quatrième bloc de code crée un [objet de fenêtre contextuelle](https://doc
 
 Le dernier bloc de code crée une fonction qui est déclenchée par l’écouteur d’événements `mouseover`. Il définit le contenu et les propriétés de la fenêtre contextuelle et ajoute l’objet de fenêtre contextuelle à la carte.
 
+## <a name="reusing-a-popup-with-multiple-points"></a>Réutilisation d’une fenêtre contextuelle avec plusieurs points
+
+Si vous disposez d’un grand nombre de points et si vous souhaitez n’afficher qu’une seule fenêtre contextuelle à la fois, la meilleure solution consiste à créer une fenêtre contextuelle et à la réutiliser plutôt que de créer une fenêtre pour chaque point. De cette façon, le nombre d’éléments DOM créés par l’application est considérablement réduit, ce qui peut améliorer les performances. Cet exemple crée trois points. Si vous cliquez sur l’un d’eux, une fenêtre contextuelle s’affiche avec le contenu de ce point.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Réutilisation d’une fenêtre contextuelle avec plusieurs épingles' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pin</a> (Réutilisation d’une fenêtre contextuelle avec plusieurs épingles) Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
 
 Pour voir des exemples de codes complets, consultez les articles suivants qui sont très intéressants :
 
 > [!div class="nextstepaction"]
-> [Ajouter une forme](./map-add-shape.md)
+> [Ajouter une couche de symboles](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter du code HTML personnalisé](./map-add-custom-html.md)
+> [Ajouter un marqueur HTML](./map-add-custom-html.md)
+
+> [!div class="nextstepaction"]
+> [Ajouter une forme](./map-add-shape.md)

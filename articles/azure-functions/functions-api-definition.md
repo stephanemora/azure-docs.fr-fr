@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 93e6b8c606c0a6d7abebeb515b938a45001757c1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950367"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999920"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Prise en charge des métadonnées OpenAPI 2.0 dans Azure Functions (préversion)
 La prise en charge des métadonnées OpenAPI 2.0 (anciennement Swagger) dans Azure Functions est une fonctionnalité en préversion que vous pouvez utiliser pour écrire une définition OpenAPI 2.0 dans une application de fonction. Vous pouvez ensuite héberger ce fichier à l’aide de l’application de fonction.
@@ -23,7 +23,7 @@ La prise en charge des métadonnées OpenAPI 2.0 (anciennement Swagger) dans Az
 > [!IMPORTANT]
 > La fonctionnalité en préversion OpenAPI est disponible aujourd’hui seulement dans le runtime 1.x. Vous pouvez trouver plus d’informations sur la création d’une application de fonction 1.x [ici](./functions-versions.md#creating-1x-apps).
 
-Les [métadonnées OpenAPI](http://swagger.io/) permettent à une grande variété d’autres logiciels de consommer une fonction hébergeant une API REST. Ces logiciels incluent les offres Microsoft comme PowerApps et la [fonctionnalité API Apps d’Azure App Service](../app-service/app-service-web-overview.md), des outils de développeurs tiers comme [Postman](https://www.getpostman.com/docs/importing_swagger) et [beaucoup d’autres packages](http://swagger.io/tools/).
+Les [métadonnées OpenAPI](https://swagger.io/) permettent à une grande variété d’autres logiciels de consommer une fonction hébergeant une API REST. Ces logiciels incluent les offres Microsoft comme PowerApps et la [fonctionnalité API Apps d’Azure App Service](../app-service/app-service-web-overview.md), des outils de développeurs tiers comme [Postman](https://www.getpostman.com/docs/importing_swagger) et [beaucoup d’autres packages](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -39,7 +39,7 @@ Vous pouvez configurer tous les paramètres OpenAPI dans la page **Définition d
 Pour activer la génération d’une définition OpenAPI hébergée et d’une définition de démarrage rapide, définissez **Source de définition d’API** sur **Fonction (préversion)**. **L’URL externe** permet à votre fonction d’utiliser une définition OpenAPI qui est hébergée ailleurs.
 
 ## <a name="generate-definition"></a>Générer une structure Swagger à partir des métadonnées de votre fonction
-Un modèle peut vous aider à commencer à écrire votre première définition OpenAPI. La fonctionnalité de modèle de définition crée une définition OpenAPI partielle à l’aide de toutes les métadonnées dans le fichier function.json, pour chacune de vos fonctions de déclencheur HTTP. Vous devrez renseigner plus d’informations sur votre API à partir de la [spécification OpenAPI](http://swagger.io/specification/), comme les modèles de requête et de réponse.
+Un modèle peut vous aider à commencer à écrire votre première définition OpenAPI. La fonctionnalité de modèle de définition crée une définition OpenAPI partielle à l’aide de toutes les métadonnées dans le fichier function.json, pour chacune de vos fonctions de déclencheur HTTP. Vous devrez renseigner plus d’informations sur votre API à partir de la [spécification OpenAPI](https://swagger.io/specification/), comme les modèles de requête et de réponse.
 
 Pour des instructions détaillées, consultez le [didacticiel de prise en main](./functions-api-definition-getting-started.md).
 
@@ -55,10 +55,10 @@ Le tableau suivant représente les paramètres du portail Azure et les données 
 
 |Swagger.json|Interface utilisateur du portail|Function.json|
 |:----|:-----|:-----|
-|[Hôte](http://swagger.io/specification/#fixed-fields-15)|**Paramètres de l’application de fonctions** > **Paramètres App Service** > **Vue d’ensemble** > **URL**|*Non présent*
-|[Chemins d’accès](http://swagger.io/specification/#paths-object-29)|**Intégrer** > **Méthodes HTTP sélectionnées**|Liaisons : itinéraire
-|[Élément du chemin d’accès](http://swagger.io/specification/#path-item-object-32)|**Intégrer** > **Modèle de routage**|Liaisons : méthodes
-|[Sécurité](http://swagger.io/specification/#security-scheme-object-112)|**Clés**|*Non présent*|
+|[Hôte](https://swagger.io/specification/#fixed-fields-15)|**Paramètres de l’application de fonctions** > **Paramètres App Service** > **Vue d’ensemble** > **URL**|*Non présent*
+|[Chemins d’accès](https://swagger.io/specification/#paths-object-29)|**Intégrer** > **Méthodes HTTP sélectionnées**|Liaisons : Routage
+|[Élément du chemin d’accès](https://swagger.io/specification/#path-item-object-32)|**Intégrer** > **Modèle de routage**|Liaisons : Méthodes
+|[Sécurité](https://swagger.io/specification/#security-scheme-object-112)|**Clés**|*Non présent*|
 |operationID*|**Itinéraire + verbes autorisés**|Itinéraire + verbes autorisés|
 
 \*L’ID de l’opération est nécessaire uniquement pour l’intégration avec PowerApps et Flow.

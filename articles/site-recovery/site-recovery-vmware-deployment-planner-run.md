@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: b890dce5d94c2177c8fc8cdb5477b92df15c8095
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9dec4314bb99b2cb32d62f40b76591ecb03e4d56
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211024"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838740"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de VMware sur Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -108,23 +108,23 @@ Les configurations de machines virtuelles sont capturées une fois au début de 
 
 La commande de profilage génère plusieurs fichiers dans le répertoire de profilage. Ne supprimez pas les fichiers, car cela affecterait la génération de rapports.
 
-#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Exemple 1 : profiler des machines virtuelles pendant 30 jours et déterminer le débit pour le scénario « local vers Azure »
+#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Exemple 1 : Profiler des machines virtuelles pendant 30 jours et déterminer le débit pour le scénario « local vers Azure »
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-#### <a name="example-2-profile-vms-for-15-days"></a>Exemple 2 : profiler des machines virtuelles pendant 15 jours
+#### <a name="example-2-profile-vms-for-15-days"></a>Exemple 2 : Profiler des machines virtuelles pendant 15 jours
 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exemple 3 : profiler des machines virtuelles pendant 60 minutes pour tester rapidement l’outil
+#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exemple 3 : Profiler des machines virtuelles pendant 60 minutes pour tester rapidement l’outil
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
 ```
 
-#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>Exemple 4 : profiler des machines virtuelles pendant 2 heures pour une preuve de concept
+#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>Exemple 4 : Profiler des machines virtuelles pendant 2 heures pour une preuve de concept
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfHoursToProfile 2 -User vCenterUser1
 ```
@@ -171,39 +171,39 @@ Par défaut, l’outil est configuré pour profiler et générer un rapport comp
 <add key="MaxVmsSupported" value="1000"/>
 ```
 
-#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemple 1 :générer un rapport contenant des valeurs par défaut lorsque les données profilées sont situées sur le lecteur local
+#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemple 1 : Générer un rapport contenant des valeurs par défaut lorsque les données profilées sont situées sur le lecteur local
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Exemple 2 : générer un rapport lorsque les données profilées sont situées sur un serveur distant
+#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Exemple 2 : Générer un rapport lorsque les données profilées sont situées sur un serveur distant
 Vous devez disposer d’un accès en lecture/écriture sur le répertoire distant.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exemple 3 : générer un rapport contenant la bande passante spécifique et les objectifs pour terminer le RI dans le temps indiqué
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exemple 3 : Générer un rapport contenant la bande passante spécifique et les objectifs pour terminer IR dans le temps indiqué
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Exemple 4 : générer un rapport avec un facteur de croissance de 5 pour cent au lieu des 30 pour cent par défaut
+#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Exemple 4 : Générer un rapport avec un facteur de croissance de 5 pour cent au lieu des 30 pour cent par défaut
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
-#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Exemple 5 : générer un rapport contenant un sous-ensemble de données profilées
+#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Exemple 5 : Générer un rapport contenant un sous-ensemble de données profilées
 Par exemple, vous disposez de 30 jours de données profilées et vous souhaitez générer un rapport pour une période de 20 jours seulement.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Exemple 6 : générer un rapport pour un RPO de 5 minutes
+#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Exemple 6 : Générer un rapport pour un RPO de 5 minutes
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exemple 7 : générer un rapport pour la région Azure Inde Sud avec la roupie indienne et l’ID d’offre spécifique
+#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exemple 7 : Générer un rapport pour la région Azure Inde Sud avec la roupie indienne et l’ID d’offre spécifique
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```

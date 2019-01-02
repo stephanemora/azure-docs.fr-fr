@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1c1d9f7a4b64ea1e952b3edd9011f5dc197543d6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0f9d0bb8b1a10182702e3d7dceb2812838326c2b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052679"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081045"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copier des données d’Azure Database pour PostgreSQL avec Azure Data Factory 
 
@@ -42,11 +42,11 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **AzurePostgreSql**. | OUI |
+| Type | La propriété type doit être définie sur : **AzurePostgreSql** | Oui |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à Azure Database pour PostgreSQL. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
-Voici un exemple de chaîne de connexion typique : `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Selon votre cas de figure, vous pouvez définir d’autres propriétés :
+Une chaîne de connexion par défaut typique est `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Plus de propriétés que vous pouvez définir pour votre cas :
 
 | Propriété | Description | Options | Obligatoire |
 |:--- |:--- |:--- |:--- |:--- |
@@ -74,7 +74,12 @@ Voici un exemple de chaîne de connexion typique : `Server=<server>.postgres.dat
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section donne la liste des propriétés prises en charge par le jeu de données Azure Database pour PostgreSQL.
 
-Pour copier des données d’Azure Database pour PostgreSQL, affectez la valeur **AzurePostgreSqlTable** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données d’Azure Database pour PostgreSQL, affectez la valeur **AzurePostgreSqlTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **AzurePostgreSqlTable** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -86,7 +91,8 @@ Pour copier des données d’Azure Database pour PostgreSQL, affectez la valeur 
         "linkedServiceName": {
             "referenceName": "<AzurePostgreSql linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -95,14 +101,14 @@ Pour copier des données d’Azure Database pour PostgreSQL, affectez la valeur 
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section donne la liste des propriétés prises en charge par la source Azure Database pour PostgreSQL.
 
-### <a name="azurepostgresqlsource-as-source"></a>AzurePostgreSqlSource comme source
+### <a name="azure-database-for-postgresql-as-source"></a>Azure Database pour PostgreSQL en tant que source
 
 Pour copier des données d’Azure Database pour PostgreSQL, affectez la valeur **AzurePostgreSqlSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **AzurePostgreSqlSource**. | OUI |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **AzurePostgreSqlSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 6345cf47d19f7990e776e0fe4ec2bafd005c9cf2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3e71c4e31c6d57cb54a654e0e1c28dcb0fa82cda
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212486"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875329"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Questions courantes sur la reprise d’activité d’Hyper-V sur Azure
 
@@ -55,11 +55,11 @@ Oui, le chiffrement en transit et le [chiffrement dans Azure](https://docs.micro
 
 ### <a name="what-can-i-do-with-hyper-v-to-azure-replication"></a>Que puis-je faire avec la réplication de Hyper-V vers Azure ?
 
-- **Récupération d’urgence** : vous pouvez configurer une récupération d’urgence complète. Dans ce scénario, vous répliquez des machines virtuelles Hyper-V en local vers le stockage Azure :
+- **Reprise d’activité** : vous pouvez configurer une reprise d’activité complète. Dans ce scénario, vous répliquez des machines virtuelles Hyper-V en local vers le stockage Azure :
     - Vous pouvez répliquer des machines virtuelles dans Azure. Si votre infrastructure locale n’est pas disponible, vous basculez vers Azure.
     - Quand vous exécutez un basculement, les machines virtuelles Azure sont créées à l’aide des données répliquées. Vous pouvez accéder aux applications et aux charges de travail sur les machines virtuelles Azure.
     - Lorsque votre centre de données local est à nouveau disponible, vous pouvez effectuer une restauration automatique d’Azure vers votre site local.
-- **Migration** : vous pouvez utiliser Site Recovery pour migrer les machines virtuelles Hyper-V en local vers le stockage Azure. Ensuite, vous effectuez un basculement du site local vers Azure. Après le basculement, vos applications et charges de travail sont disponibles et s’exécutent sur les machines virtuelles Azure.
+- **Migration** : vous pouvez utiliser Site Recovery pour migrer les machines virtuelles Hyper-V en local vers le stockage Azure. Ensuite, vous effectuez un basculement du site local vers Azure. Après le basculement, vos applications et charges de travail sont disponibles et s’exécutent sur les machines virtuelles Azure.
 
 
 ### <a name="what-do-i-need-on-premises"></a>De quoi ai-je besoin en local ?
@@ -124,7 +124,7 @@ Site Recovery réplique les données en local vers le stockage Azure via un poin
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Puis-je répliquer vers Azure avec ExpressRoute ?
 
-Oui, vous pouvez utiliser ExpressRoute pour répliquer des machines virtuelles vers Azure. Site Recovery réplique les données vers un compte de stockage Azure via un point de terminaison public, et vous devez configurer [l’homologation publique](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) pour cette réplication. Une fois que les machines virtuelles basculent vers un réseau virtuel Azure, vous pouvez y accéder à l’aide de [l’homologation privée](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Oui, vous pouvez utiliser ExpressRoute pour répliquer des machines virtuelles vers Azure. Site Recovery réplique les données vers un compte de stockage Azure via un point de terminaison public, et vous devez configurer [l’homologation publique](../expressroute/expressroute-circuit-peerings.md#publicpeering) pour cette réplication. Une fois que les machines virtuelles basculent vers un réseau virtuel Azure, vous pouvez y accéder à l’aide de [l’homologation privée](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Pourquoi ne puis-je pas répliquer via VPN ?
@@ -198,7 +198,7 @@ Une fois votre infrastructure locale à nouveau opérationnelle, vous pouvez eff
 1. Vous lancez un basculement planifié d’Azure vers le site local à l’aide de quelques options différentes :
 
     - Minimiser le temps d’arrêt : si vous utilisez cette option, Site Recovery synchronise les données avant le basculement. Il recherche les blocs de données changés et les télécharge sur le site local, sans que la machine virtuelle Azure soit arrêtée, ce qui réduit les interruptions de service. Quand vous spécifiez manuellement que le basculement doit avoir lieu, la machine virtuelle Azure est arrêtée, toutes les données différentielles finales sont copiées et le basculement démarre.
-    - Téléchargement complet : avec cette option, les données sont synchronisées pendant le basculement. Cette option télécharge la totalité du disque. L’opération est plus rapide, car aucune somme de contrôle n’est calculée, mais un temps d’arrêt a lieu. Utilisez cette option si vous avez exécuté les machines virtuelles Azure de réplication pendant un certain temps ou que la machine virtuelle locale a été supprimée.
+    - Téléchargement complet : avec cette option, les données sont synchronisées pendant le basculement. Cette option télécharge la totalité du disque. L’opération est plus rapide, car aucune somme de contrôle n’est calculée, mais un temps d’arrêt a lieu. Utilisez cette option si vous avez exécuté les machines virtuelles Azure de réplication pendant un certain temps ou que la machine virtuelle locale a été supprimée.
 
 2. Vous pouvez choisir d’effectuer une restauration automatique sur la même machine virtuelle ou sur une autre. Vous pouvez spécifier que Site Recovery doit créer la machine virtuelle si elle n’existe pas déjà.
 3. Une fois la synchronisation initiale terminée, vous procédez au basculement. Une fois celui-ci terminé, vous pouvez vous connecter à la machine virtuelle locale pour vérifier que tout fonctionne comme prévu. Dans le portail Azure, vous pouvez voir que les machines virtuelles Azure ont été arrêtées.

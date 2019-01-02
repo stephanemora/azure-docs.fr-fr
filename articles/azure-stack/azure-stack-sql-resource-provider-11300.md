@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: d2dda25c63a6e4a73205b9e4a830a211d025b3ed
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688274"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164718"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Ces notes de publication décrivent les améliorations et les problèmes connus liés à la version 1.1.30.0 du fournisseur de ressources SQL.
 
@@ -58,15 +58,29 @@ Cette version du fournisseur de ressources SQL Azure Stack inclut les améliorat
 
 - **Une heure entière peut être nécessaire avant que les références SKU SQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données SQL. 
 
-    **Solution de contournement** : aucune.
+    **Solution de contournement** : Aucune.
 
 - **Connexions SQL réutilisées**. Toute tentative de création d'une nouvelle connexion SQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant. 
 
-    **Solution de contournement** : utilisez des noms d'utilisateur différents lors de la création de nouvelles connexions associées au même abonnement, ou créez des connexions avec le même nom d'utilisateur mais sous des abonnements différents.
+    **Solution de contournement** : utilisez des noms d’utilisateur différents lors de la création de nouvelles connexions associées au même abonnement, ou créez des connexions avec le même nom d’utilisateur mais sous des abonnements différents.
 
 - **Les connexions SQL partagées provoquent une incohérence au niveau des données**. Si une connexion SQL est partagée avec plusieurs bases de données SQL associées au même abonnement, la modification du mot de passe de connexion entraînera une incohérence au niveau des données.
 
     **Solution de contournement** : utilisez toujours des connexions distinctes pour les différentes bases de données associées à un même abonnement.
+
+- **Configuration requise pour la prise en charge de TLS 1.2**. Si vous tentez de déployer ou de mettre à jour le fournisseur de ressources SQL à partir d’un ordinateur où TLS 1.2 n’est pas activé, l’opération peut échouer. Exécutez la commande PowerShell suivante sur l’ordinateur utilisé pour déployer ou mettre à jour le fournisseur de ressources afin de vérifier que TLS 1.2 est signalé comme étant pris en charge :
+
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  Si **Tls12** ne figure pas dans la sortie de la commande, TLS 1.2 n’est pas activé sur l’ordinateur.
+
+    **Solution de contournement** : exécutez la commande PowerShell suivante pour activer TLS 1.2, puis commencez le déploiement du fournisseur de ressources ou mettez à jour le script à partir de la même session PowerShell :
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure Stack
 Reportez-vous à la documentation des [notes de publication d’Azure Stack](azure-stack-servicing-policy.md).

@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 35db7bf87c7b72fc31d820c9058b1df8415bd553
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031303"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724500"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Créer et exécuter un travail dans votre application Azure IoT Central
 
@@ -56,8 +56,13 @@ Cette section vous montre comment créer et exécuter un travail. Chaque étape 
 
 Si vous souhaitez arrêter un travail en cours d’exécution, cliquez sur son nom. Choisissez le bouton **Arrêter** sur le panneau. L’état du travail change alors pour refléter l’arrêt de ce dernier.
 
-> [!NOTE]
-> Une fois qu’un travail a été arrêté, il ne peut pas être redémarré. Vous devez créer un autre travail avec les opérations et appareils souhaités.
+   ![Arrêter une tâche](./media/howto-run-a-job/stopjob.png)
+
+### <a name="run-a-stopped-job"></a>Exécuter une tâche arrêtée
+
+Si vous voulez arrêter une tâche actuellement arrêtée, cliquez sur son nom. Choisissez le bouton **Exécuter** sur le panneau. L’état de la tâche change alors pour refléter le fait que son exécution a repris.
+
+   ![Tâche reprise](./media/howto-run-a-job/resumejob.png)
 
 ## <a name="view-the-job-status"></a>Afficher l’état d’un travail
 
@@ -75,7 +80,7 @@ Le message d’état est suivi d’une vue d’ensemble des appareils au sein du
 
 | Message d’état       | Signification de l’état                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Réussi            | Nombre d’appareils sur lesquels le travail s’est exécuté correctement.  |
+| Succeeded            | Nombre d’appareils sur lesquels le travail s’est exécuté correctement.  |
 | Échec               | Nombre d’appareils sur lesquels le travail n’a pas pu être exécuté.      |
 
 ### <a name="view-the-device-status"></a>Afficher l’état des appareils
@@ -84,9 +89,9 @@ Pour afficher l’état de chaque appareil dans le travail, cliquez sur le nom d
 
 | Message d’état       | Signification de l’état                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
-| Terminé            | Le travail a été exécuté sur cet appareil.                                     |
+| Completed            | Le travail a été exécuté sur cet appareil.                                     |
 | Échec               | Le travail n’a pas pu être exécuté sur cet appareil. Le message d’erreur annexe affiche plus d’informations.  |
-| En attente              | Le travail n’a pas encore été exécuté sur cet appareil.                                  |
+| Pending              | Le travail n’a pas encore été exécuté sur cet appareil.                                  |
 
 > [!NOTE]
 > Si un appareil a été supprimé, vous ne pouvez pas le sélectionner et il apparaît comme étant supprimé avec mention de son ID.

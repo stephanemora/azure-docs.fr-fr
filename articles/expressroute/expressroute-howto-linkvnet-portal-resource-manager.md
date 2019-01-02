@@ -1,33 +1,26 @@
 ---
-title: Lier un réseau virtuel à un circuit ExpressRoute à l’aide du portail Azure | Microsoft Docs
+title: 'Lier un réseau virtuel à un circuit - ExpressRoute : Portail Azure | Microsoft Docs'
 description: Connexion d’un réseau virtuel à un circuit Azure ExpressRoute. Étapes de la procédure.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f5cb5441-2fba-46d9-99a5-d1d586e7bda4
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: c2bef1d79d3133ea6306928a8c917e1bc3000a58
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: seodec18
+ms.openlocfilehash: 16d85510efb055d7d564ffadb9fff2b200771bc6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874550"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438827"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Connecter un réseau virtuel à un circuit ExpressRoute à l’aide du portail
 > [!div class="op_single_selector"]
 > * [Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [interface de ligne de commande Azure](howto-linkvnet-cli.md)
-> * [Vidéo - portail Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Interface de ligne de commande Azure](howto-linkvnet-cli.md)
+> * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-linkvnet-classic.md)
 > 
 
@@ -49,7 +42,7 @@ Cet article vous aide à créer une connexion pour lier un réseau virtuel à un
 
 * Vous pouvez lier un réseau virtuel à l’extérieur de la zone géopolitique du circuit ExpressRoute ou lier un plus grand nombre de réseaux virtuels à votre circuit ExpressRoute si vous avez activé le module complémentaire Premium d’ExpressRoute. Pour plus d’informations sur le module complémentaire Premium, consultez le [FAQ](expressroute-faqs.md) .
 
-* Vous pouvez [visualiser une vidéo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) avant de commencer afin de mieux comprendre les étapes.
+* Vous pouvez [visualiser une vidéo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) avant de commencer afin de mieux comprendre les étapes.
 
 ## <a name="connect-a-vnet-to-a-circuit---same-subscription"></a>Connecter un réseau virtuel à un circuit - même abonnement
 
@@ -77,7 +70,7 @@ Vous pouvez partager un circuit ExpressRoute entre plusieurs abonnements. La fig
 
 - Chacun des petits clouds dans le cloud principal est utilisé pour représenter les abonnements appartenant à différents services au sein d’une organisation.
 - Chacun des services au sein de l’organisation peut utiliser son propre abonnement pour déployer ses services, mais ils peuvent partager un même circuit ExpressRoute pour se connecter à votre réseau local.
-- Un seul service (dans cet exemple, le service informatique) peut posséder le circuit ExpressRoute. D’autres abonnements au sein de l’organisation peuvent utiliser le circuit ExpressRoute et des autorisations associées au circuit, notamment des abonnements à d’autres clients Azure Active Directory et des inscriptions à un Contrat Entreprise.
+- Un seul service (dans cet exemple : le service informatique) peut détenir le circuit ExpressRoute. D’autres abonnements au sein de l’organisation peuvent utiliser le circuit ExpressRoute et des autorisations associées au circuit, notamment des abonnements à d’autres clients Azure Active Directory et des inscriptions à un Contrat Entreprise.
 
   > [!NOTE]
   > Les frais de connectivité et de bande passante pour le circuit dédié s’appliquent au propriétaire du circuit ExpressRoute. Tous les réseaux virtuels partagent la même bande passante.
@@ -95,6 +88,10 @@ Le propriétaire du circuit a le pouvoir de modifier et de révoquer les autoris
 **Création d’une autorisation de connexion**
 
 Le propriétaire du circuit crée une autorisation. Cela entraîne la création d'une clé d'autorisation qui peut être utilisée par un utilisateur du circuit pour se connecter à ses passerelles de réseau virtuel vers un circuit ExpressRoute. Une autorisation n’est valide que pour une seule connexion.
+
+> [!NOTE]
+> Chaque connexion nécessite une autorisation distincte.
+>
 
 1. Dans la page ExpressRoute, cliquez sur **Autorisations**, tapez un **nom** pour l’autorisation, puis cliquez sur **Enregistrer**.
 

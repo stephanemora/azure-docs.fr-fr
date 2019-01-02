@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 0d728d81a29c5520938c8553c026727c0f94cc43
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 12/10/2018
+ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957001"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272862"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Surveillance et optimisation des performances
 
@@ -41,7 +41,7 @@ Vous disposez des options suivantes pour la surveillance et la résolution des p
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
 
-Dans le [portail Azure](https://portal.azure.com/), vous pouvez superviser l’utilisation d’une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Surveillance**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+Dans le [Portail Azure](https://portal.azure.com/), vous pouvez superviser l’utilisation d’une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Surveillance**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
 - Pourcentage UC
 - Pourcentage DTU
@@ -85,15 +85,106 @@ Si vous avez identifié un problème de performances lié à l’exécution, vou
 > [!IMPORTANT]
 > Pour obtenir un ensemble de requêtes T-SQL utilisant ces vues de gestion dynamique pour résoudre les problèmes d’utilisation du processeur, consultez [Identifier les problèmes de performances d’UC](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
+### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>Résoudre les problèmes des requêtes relatifs aux plans d’exécution des requêtes sensible aux paramètres
+
+Le problème de plan sensible aux paramètres fait référence à un scénario dans lequel l’optimiseur de requête génère un plan d’exécution optimal pour une valeur de paramètre spécifique (ou un ensemble de valeurs) et le plan mis en cache est ensuite non optimal pour les valeurs de paramètre utilisées dans des exécutions consécutives. Les plans non optimaux peuvent conduire à des problèmes de performances de requête et à une dégradation du débit de charge de travail globale.
+
+Plusieurs solutions s’offrent à vous pour atténuer les problèmes, chacun présentant des inconvénients et des avantages :
+
+- Utilisez l’indicateur de requête [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) à chaque exécution de la requête. Cette solution compense la durée de compilation et augmente l’UC pour un plan de meilleure qualité. L’utilisation de l’option `RECOMPILE` n’est souvent pas possible pour les charges de travail exigeant un débit élevé.
+- Utilisez l’indicateur de requête [OPTION (OPTIMIZE FOR...) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour remplacer la valeur de paramètre réel par une valeur de paramètre classique qui produit un plan suffisamment adapté pour la plupart des possibilités de valeur de paramètre.   Cette option nécessite une bonne compréhension des valeurs de paramètre optimal et des caractéristiques du plan associé.
+- Utilisez l’indicateur de requête [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour remplacer la valeur de paramètre réel en échange de l’utilisation de la moyenne de vecteur de densité. Pour effectuer cette opération, vous pouvez également capturer les valeurs de paramètre entrant dans des variables locales, puis utiliser les variables locales dans des prédicats plutôt que les paramètres en eux-mêmes. La densité moyenne doit être *suffisante* avec ce correctif particulier.
+- Désactivez entièrement la détection de paramètres avec l’indicateur de requête [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query).
+- Utilisez l’indicateur de requête [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour empêcher les recompilations pendant la mise en cache. Cette solution suppose que le plan courant *suffisamment adapté* est celui se trouvant déjà dans le cache. Vous pouvez également désactiver les mises à jour automatiques des statistiques, afin de réduire le risque d’exclusion du plan adapté et de compilation d’un plan inadapté.
+- Forcez le plan en utilisant explicitement l’indicateur de requête [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) (en spécifiant explicitement, en définissant un plan spécifique à l’aide de Magasin de données des requêtes ou en activant le [réglage automatique](sql-database-automatic-tuning.md)).
+- Remplacez la procédure unique par un ensemble imbriqué de procédures, qui peuvent être utilisées en fonction d’une logique conditionnelle et des valeurs de paramètre associées.
+- Créez des alternatives d’exécution de chaîne dynamique sur une définition de procédure statique.
+
+Pour plus d’informations sur la résolution de ces types de problèmes, consultez :
+
+- Ce billet de blog sur [la détection d’un paramètre](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)
+- Ce billet de blog [Parameter Sniffing Problem and Possible Workarounds](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) (Problème de détection de paramètres et solutions possibles)
+- Ce billet de blog [The Elephant and the Mouse, or, Parameter Sniffing in SQL Server](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) (L’éléphant et la souris, ou le paramètre de détection dans SQL Server)
+- Ce billet de blog [Conor vs. Dynamic SQL vs. Procedures vs. Plan Quality for Parameterized Queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) (Conor vs SQL dynamique vs procédures vs requêtes paramétrables)
+
+### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Résolution des problèmes de l’activité de compilation en raison d’un paramétrage incorrect
+
+Lorsqu’une requête contient des littéraux, le moteur de base de données choisit de paramétrer automatiquement l’instruction, ou un utilisateur peut explicitement la paramétrer afin de réduire le nombre de compilations. Un nombre élevé de compilations d’une requête utilisant le même modèle mais différentes valeurs littérales peut entraîner une augmentation de l’utilisation d’UC. De même, si vous ne paramétrez que partiellement une requête qui continue à avoir des littéraux, le moteur de base de données ne la paramètre pas davantage.  Vous trouverez ci-dessous un exemple de requête partiellement paramétrable :
+
+```sql
+select * from t1 join t2 on t1.c1=t2.c1
+where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+```
+
+Dans l’exemple précédent, `t1.c1` prend `@p1` mais `t2.c2` continue de prendre GUID en tant que littéral. Dans ce cas, si vous modifiez la valeur de `c2`, la requête est traitée comme une requête différente et une nouvelle compilation se produit. Pour réduire les compilations dans l’exemple précédent, la solution consiste également à paramétrer le GUID.
+
+La requête suivante affiche le nombre de requêtes par hachage de requête pour déterminer si une requête est correctement paramétrable ou non :
+
+```sql
+   SELECT  TOP 10  
+      q.query_hash
+      , count (distinct p.query_id ) AS number_of_distinct_query_ids
+      , min(qt.query_sql_text) AS sampled_query_text
+   FROM sys.query_store_query_text AS qt
+      JOIN sys.query_store_query AS q
+         ON qt.query_text_id = q.query_text_id
+      JOIN sys.query_store_plan AS p 
+         ON q.query_id = p.query_id
+      JOIN sys.query_store_runtime_stats AS rs 
+         ON rs.plan_id = p.plan_id
+      JOIN sys.query_store_runtime_stats_interval AS rsi
+         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+   WHERE
+      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+      AND query_parameterization_type_desc IN ('User', 'None')
+   GROUP BY q.query_hash
+   ORDER BY count (distinct p.query_id) DESC
+```
+
+### <a name="resolve-problem-queries-or-provide-more-resources"></a>Résoudre les requêtes de problème ou fournir davantage de ressources
+
 Une fois que vous avez identifié le problème, vous pouvez soit optimiser les requêtes associées, ou bien mettre à niveau la taille de la capacité de calcul ou le niveau de service de façon à augmenter la capacité de votre base de données Azure SQL pour absorber les besoins en ressources d’UC. Pour plus d’informations sur la mise à l’échelle des ressources pour les bases de données uniques, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](sql-database-single-database-scale.md) et, pour la mise à l’échelle des ressources pour les pools élastiques, consultez [Mettre à l’échelle des ressources de pool élastique dans Azure SQL Database](sql-database-elastic-pool-scale.md). Pour plus d’informations sur la mise à l’échelle d’une instance gérée, consultez [Limites de ressources au niveau d’une instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+
+### <a name="determine-if-running-issues-due-to-increase-workload-volume"></a>Déterminer si les problèmes d’exécution sont dus à l’augmentation du volume de charge de travail
+
+Une augmentation de la charge de travail et du trafic d’application peut expliquer l’augmentation de l’utilisation de l’UC, mais vous devez veiller à diagnostiquer correctement ce problème. Dans un scénario avec une UC élevée, répondez aux questions suivantes pour déterminer si une augmentation de l’UC est effectivement due à des modifications du volume de charge de travail :
+
+1. Les requêtes de l’application sont-elles à l’origine du problème d’UC élevée ?
+2. Pour les principales requêtes de consommation d’UC (qui peuvent être identifiées) :
+
+   - Déterminez s’il y a plusieurs plans d’exécution associés à la même requête. Le cas échéant, déterminez pourquoi.
+   - Pour les requêtes avec le même plan d’exécution, déterminez si les durées d’exécution sont cohérentes et si le nombre d’exécutions a augmenté. Si oui, il existe probablement des problèmes de performances en raison d’une augmentation de charge de travail.
+
+Pour résumer, si le plan d’exécution de requête ne s’est pas exécuté de façon différente, mais que l’utilisation de l’UC a augmenté avec le nombre d’exécutions, il existe probablement un problème de performances en lien avec une augmentation de charge de travail.
+
+Il est souvent difficile d’arriver à la conclusion qu’une modification de charge de travail est à l’origine d’un problème d’UC.   Facteurs à prendre en considération : 
+
+- **Modification de l’utilisation des ressources**
+
+  Par exemple, imaginez un scénario où l’UC a enregistré une augmentation de 80 % pendant une période de temps prolongée.  L’utilisation de l’UC uniquement ne signifie pas que le volume de charge de travail a été modifié.  Des modifications de la distribution des données et des régressions du plan d’exécution de requête peuvent également contribuer à une utilisation plus élevée des ressources, même si l’application exécute la même charge de travail.
+
+- **Une nouvelle requête est apparue**
+
+   Une application peut exécuter un nouvel ensemble de requêtes à des moments différents.
+
+- **Le nombre de requêtes a augmenté ou diminué**
+
+   Ce scénario est la mesure la plus évidente de charge de travail. Le nombre de requêtes ne correspond pas toujours à une augmentation de l’utilisation des ressources. Toutefois, cette mesure est toujours un signal important, qui suppose que d’autres facteurs restent inchangés.
 
 ## <a name="waiting-related-performance-issues"></a>Problèmes de performances liés à l’attente
 
 Après vous être assuré qu’il ne s’agit pas d’un problème de performances lié à l’exécution, avec une utilisation intensive de l’UC, vous êtes confronté à un problème de performances lié à l’attente. Autrement dit, vos ressources de processeur ne sont pas utilisées efficacement car le processeur est en attente d’une autre ressource. Dans ce cas, l’étape suivante consiste à identifier ce qu’attendent vos ressources de processeur. Les méthodes les plus courantes pour visualiser les catégories des types d’attentes les plus longues sont les suivantes :
 
-- Le [magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) fournit des statistiques sur les attentes par requête au fil du temps. Dans le magasin des requêtes, les types d’attentes sont combinés en catégories d’attentes. Le mappage des catégories d’attentes au types d’attentes est disponible dans [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
+- Le [magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) fournit des statistiques sur les attentes par requête au fil du temps. Dans le magasin des requêtes, les types d’attentes sont combinés en catégories d’attentes. Le mappage des catégories d’attentes aux types d’attentes est disponible dans [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) retourne des informations sur toutes les attentes rencontrées par les threads exécutés pendant l’opération. Vous pouvez utiliser cette vue agrégée pour diagnostiquer les problèmes de performances avec Azure SQL Database, ainsi qu’avec des requêtes et des lots spécifiques.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) retourne des informations sur la file d’attente des tâches qui sont en attente de certaines ressources.
+
+Dans les scénarios avec une UC élevée, le Magasin de données des requêtes et les statistiques d’attente ne reflètent pas toujours l’utilisation de l’UC pour deux raisons :
+
+- Des requêtes de consommation élevée d’UC peuvent toujours être en cours d’exécution et les requêtes non terminées
+- Les requêtes consommant beaucoup d’UC étaient en cours d’exécution quand un basculement s’est produit
+
+Le Magasin de données des requêtes et les vues de gestion dynamique du suivi des statistiques d’attente affichent uniquement des résultats pour les requêtes ayant expiré ou ayant été complètement terminées, et n’affichent pas de données pour les instructions en cours d’exécution (tant qu’elles ne sont pas terminées).  La vue de gestion dynamique [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) vous permet de suivre les requêtes en cours d’exécution et la durée du rôle de travail associé.
 
 Comme illustré dans le graphique précédent, les attentes les plus courantes sont :
 

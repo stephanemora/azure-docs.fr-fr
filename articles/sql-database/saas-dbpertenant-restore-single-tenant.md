@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 12/04/2018
+ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056741"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274426"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurer un seul locataire avec une application SaaS de base de données par locataire
 
@@ -26,10 +26,8 @@ Le modèle de base de données par locataire facilite la restauration d’un seu
 Dans ce didacticiel, vous allez découvrir deux modèles de récupération des données :
 
 > [!div class="checklist"]
-
 > * Restaurer une base de données dans une base de données parallèle (côte à côte).
 > * Restaurer une base de données sur place en remplaçant la base de données existante.
-
 
 |||
 |:--|:--|
@@ -44,13 +42,13 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Présentation des modèles SaaS de restauration d’un locataire
 
-Il existe deux modèles simples pour restaurer les données d’un locataire individuel. Étant donné que les bases de données des clients sont isolées les unes des autres, la restauration d’un client n’a aucun impact sur les données des autres clients. La fonctionnalité de limite de restauration dans le temps (PITR) d’Azure SQL Database est utilisée dans les deux modèles. PITR crée toujours une nouvelle base de données.   
+Il existe deux modèles simples pour restaurer les données d’un locataire individuel. Étant donné que les bases de données des clients sont isolées les unes des autres, la restauration d’un client n’a aucun impact sur les données des autres clients. La fonctionnalité de limite de restauration dans le temps (PITR) d’Azure SQL Database est utilisée dans les deux modèles. PITR crée toujours une nouvelle base de données.
 
-* **Restaurer en parallèle** : dans le premier modèle, une nouvelle base de données parallèle est créée à côté de la base de données actuelle du locataire. Le locataire reçoit l’accès en lecture seule à la base de données restaurée. Les données restaurées peuvent être consultées et potentiellement utilisées pour remplacer les valeurs des données actuelles. Il revient au concepteur d’application de choisir comment le locataire accède à la base de données restaurée et les options de récupération fournies. Autoriser simplement le locataire à consulter ses données à un point antérieur dans le temps peut suffire dans certains scénarios. 
+* **Restaurer en parallèle** : dans le premier modèle, une nouvelle base de données parallèle est créée à côté de la base de données actuelle du locataire. Le locataire reçoit l’accès en lecture seule à la base de données restaurée. Les données restaurées peuvent être consultées et potentiellement utilisées pour remplacer les valeurs des données actuelles. Il revient au concepteur d’application de choisir comment le locataire accède à la base de données restaurée et les options de récupération fournies. Autoriser simplement le locataire à consulter ses données à un point antérieur dans le temps peut suffire dans certains scénarios.
 
 * **Restaurer sur place** : le second modèle est utile si des données ont été perdues ou corrompues et si le locataire souhaite restaurer à un point antérieur dans le temps. Le locataire est mis hors connexion pendant la restauration de la base de données. La base de données d’origine est supprimée et la base de données restaurée est renommée. La chaîne de sauvegarde de la base de données d’origine reste accessible après la suppression, vous pouvez ainsi restaurer la base de données à un point antérieur dans le temps, si nécessaire.
 
-Si la base de données utilise la [géoréplication](sql-database-geo-replication-overview.md) et la restauration en parallèle, nous vous recommandons de copier les données requises de la copie restaurée vers la base de données d’origine. Si vous remplacez la base de données d’origine par la base de données restaurée, vous devez reconfigurer et resynchroniser la géoréplication.
+Si la base de données utilise la [géoréplication active](sql-database-active-geo-replication.md) et la restauration en parallèle, nous vous recommandons de copier les données requises de la copie restaurée vers la base de données d’origine. Si vous remplacez la base de données d’origine par la base de données restaurée, vous devez reconfigurer et resynchroniser la géoréplication.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l’application de base de données par locataire SaaS Wingtip Tickets
 
@@ -74,7 +72,6 @@ Pour illustrer ces scénarios de récupération, commencez par supprimer « acci
 
    ![Le dernier événement s’affiche](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
-
 ### <a name="accidentally-delete-the-last-event"></a>Supprimer « accidentellement » le dernier événement
 
 1. Dans PowerShell ISE, ouvrez ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1*, puis définissez la valeur suivante :
@@ -88,15 +85,13 @@ Pour illustrer ces scénarios de récupération, commencez par supprimer « acci
    ```
 
 3. La page des événements de Contoso s’ouvre. Faites défiler vers le bas et vérifiez que l’événement a disparu. Si l’événement figure toujours dans la liste, sélectionnez **Actualiser** et vérifiez qu’il a disparu.
-
    ![Dernier événement supprimé](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
-
 
 ## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>Restaurer une base de données client en parallèle avec la base de données de production
 
 Cet exercice restaure la base de données Contoso Concert Hall à un point dans le temps, avant la suppression de l’événement. Ce scénario suppose que vous souhaitez consulter les données supprimées dans une base de données parallèle.
 
- Le script *Restore-TenantInParallel.ps1* crée une base de données de locataire parallèle nommée *ContosoConcertHall\_old*, avec une entrée de catalogue parallèle. Ce modèle de restauration convient davantage dans le cas d’une récupération après une perte de données mineure. Vous pouvez également utiliser ce modèle si vous devez vérifier des données à des fins de conformité et d’audit. Il est également recommandé lorsque vous utilisez la [géoréplication](sql-database-geo-replication-overview.md).
+ Le script *Restore-TenantInParallel.ps1* crée une base de données de locataire parallèle nommée *ContosoConcertHall\_old*, avec une entrée de catalogue parallèle. Ce modèle de restauration convient davantage dans le cas d’une récupération après une perte de données mineure. Vous pouvez également utiliser ce modèle si vous devez vérifier des données à des fins de conformité et d’audit. Il est également recommandé lorsque vous utilisez la [géoréplication active](sql-database-active-geo-replication.md).
 
 1. Terminez la section [Simuler la suppression accidentelle des données par le client](#simulate-a-tenant-accidentally-deleting-data).
 2. Dans PowerShell ISE, ouvrez ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
@@ -115,7 +110,6 @@ Le fait d’exposer le locataire restauré en tant que locataire supplémentaire
 2. Pour exécuter le script, appuyez sur la touche F5.
 3. L’entrée *ContosoConcertHall\_old* est maintenant supprimée du catalogue. Fermez la page des événements pour ce locataire dans votre navigateur.
 
-
 ## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>Restaurer un client sur place en remplaçant la base de données client existante
 
 Cet exercice restaure le locataire Contoso Concert Hall à un point dans le temps, avant la suppression de l’événement. Le script *Restore-TenantInPlace* restaure une base de données de locataire sur une nouvelle base de données et supprime l’original. Ce modèle de restauration convient davantage dans le cas d’une récupération après une grave corruption des données, et le locataire peut faire face à une perte importante de données.
@@ -128,14 +122,13 @@ Le script restaure la base de données de locataire sur un point dans le temps a
 
 Vous avez correctement restauré la base de données à un point dans le temps, avant la suppression de l’événement. La page **Événements** s’ouvre, vérifiez que le dernier événement a été restauré.
 
-Une fois que vous restaurez la base de données, 10 à 15 minutes supplémentaires sont nécessaires avant que la première sauvegarde complète soit à nouveau disponible pour la restauration. 
+Une fois que vous restaurez la base de données, 10 à 15 minutes supplémentaires sont nécessaires avant que la première sauvegarde complète soit à nouveau disponible pour la restauration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-
 > * Restaurer une base de données dans une base de données parallèle (côte à côte).
 > * Restaurer une base de données sur place.
 

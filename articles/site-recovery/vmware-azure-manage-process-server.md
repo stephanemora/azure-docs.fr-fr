@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 180d84f40f3d439419f9667b246b8c4b5c69814a
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 05e77821ffe913a8c6669d58a3145635d230ff2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974186"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846995"
 ---
 # <a name="manage-process-servers"></a>Gérer des serveurs de processus
 
@@ -125,5 +125,5 @@ Si un logiciel antivirus est actif sur un serveur de processus autonome ou un se
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- Répertoire d’installation du serveur de processus, par exemple : C:\Program Files (x86)\Microsoft Azure Site Recovery
+- Répertoire d’installation du serveur de traitement, par exemple : C:\Program Files (x86)\Microsoft Azure Site Recovery
 

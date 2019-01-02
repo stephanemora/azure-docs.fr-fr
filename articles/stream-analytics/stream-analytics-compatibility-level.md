@@ -2,18 +2,18 @@
 title: Comprendre le niveau de compatibilité pour les travaux Azure Stream Analytics
 description: Apprenez à définir un niveau de compatibilité pour un travail Azure Stream Analytics et découvrez les principales modifications apportées au dernier niveau de compatibilité
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/15/2018
-ms.openlocfilehash: 83bbb777f5af6d29736db3b53ca39c449402c78e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977711"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187311"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
  
@@ -27,7 +27,7 @@ Le niveau de compatibilité contrôle le comportement d’exécution d’un trav
 
 Veillez à interrompre le travail avant de mettre à jour le niveau de compatibilité. Si votre travail est en cours d’exécution, vous ne peut pas mettre à jour le niveau de compatibilité. 
 
-![Niveau de compatibilité dans le portail](media\stream-analytics-compatibility-level/image1.png)
+![Niveau de compatibilité Stream Analytics dans le portail Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
  
 Lorsque vous mettez à jour le niveau de compatibilité, le compilateur T-SQL valide le travail avec la syntaxe correspondant au niveau de compatibilité sélectionné. 
@@ -40,11 +40,11 @@ Voici les principales modifications introduites dans le niveau de compatibilité
 
   * **versions précédentes :** Azure Stream Analytics utilisait DataContractSerializer, c’est pourquoi le contenu des messages incluait des balises XML. Par exemple : 
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **version actuelle :** le contenu du message renferme directement le flux sans aucune balise supplémentaire. Par exemple : 
   
-   { "SensorId":"1", "Temperature":64} 
+    { "SensorId":"1", "Temperature":64} 
  
 * **Conservation de la casse pour les noms de champ**  
 
@@ -52,8 +52,8 @@ Voici les principales modifications introduites dans le niveau de compatibilité
 
   * **version actuelle :** la casse des noms de champ est préservée pour les noms de champs lorsqu’ils sont traités par le moteur Azure Stream Analytics. 
 
-  > [!NOTE] 
-  > La conservation de la casse n’est pas encore disponible pour les tâches Stream Analytics hébergés à l’aide de l’environnement Edge. Par conséquent, tous les noms de champs sont convertis en minuscules si votre tâche est hébergée sur Edge. 
+    > [!NOTE] 
+    > La conservation de la casse n’est pas encore disponible pour les tâches Stream Analytics hébergés à l’aide de l’environnement Edge. Par conséquent, tous les noms de champs sont convertis en minuscules si votre tâche est hébergée sur Edge. 
 
 * **FloatNaNDeserializationDisabled**  
 

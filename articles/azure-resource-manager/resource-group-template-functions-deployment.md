@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 12/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358232"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407352"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Fonctions de déploiement pour les modèles Azure Resource Manager 
 
@@ -86,6 +86,8 @@ Quand l’objet est passé comme lien, par exemple lors de l’utilisation du pa
 }
 ```
 
+Lors d’un [déploiement sur un abonnement Azure](deploy-to-subscription.md), l’objet retourné inclut une propriété `location` au lieu d’un groupe de ressources. La propriété d’emplacement est incluse lors du déploiement d’un modèle local ou d’un modèle externe.
+
 ### <a name="remarks"></a>Remarques
 
 Vous pouvez utiliser deployment() pour établir une liaison à un autre modèle en fonction de l’URI du modèle parent.
@@ -150,6 +152,8 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
+Pour un modèle de niveau d’abonnement qui utilise la fonction de déploiement, consultez [Fonction de déploiement d’abonnement](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Le déploiement s’effectue à l’aide des commandes `az deployment create` ou `New-AzureRmDeployment`.
+
 <a id="parameters" />
 
 ## <a name="parameters"></a>parameters
@@ -161,7 +165,7 @@ Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être d�
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| nom_paramètre |OUI |chaîne |Nom du paramètre à retourner. |
+| nom_paramètre |Oui |chaîne |Nom du paramètre à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -277,7 +281,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| variableName |OUI |Chaîne |Nom de la variable à retourner. |
+| variableName |Oui |Chaîne |Nom de la variable à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -372,5 +376,5 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 * Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
-* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 

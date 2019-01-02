@@ -12,16 +12,19 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/23/2018
-ms.openlocfilehash: f26ea763d48d03fe7e981b7abbbe64e573ec0b3a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7ad3b81b792b37d2c3667dd554d41319a5727045
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224271"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336407"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurer un DNS personnalisé pour Azure SQL Database Managed Instance
 
-Une instance gérée Azure SQL Database doit être déployée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure. Quelques scénarios, comme les serveurs liés à d’autres instances SQL dans votre cloud ou environnement hybride, nécessitent des noms d’hôte privés pour être résolus depuis l’instance gérée. Si tel est le cas, vous devez configurer un DNS personnalisé dans Azure. Comme Managed Instance utilise le même DNS pour ces tâches internes, la configuration du DNS du réseau virtuel doit être compatible avec Managed Instance. 
+Une instance gérée Azure SQL Database doit être déployée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure. Quelques scénarios (comme le courrier de base de données,des serveurs liés à d’autres instances SQL dans votre cloud ou environnement hybride) nécessitent des noms d’hôte privés pour être résolus depuis Managed Instance. Si tel est le cas, vous devez configurer un DNS personnalisé dans Azure. Comme Managed Instance utilise le même DNS pour ces tâches internes, la configuration du DNS du réseau virtuel doit être compatible avec Managed Instance. 
+
+   > [!IMPORTANT]
+   > Utilisez toujours des noms de domaine complets (FQDN) pour les serveurs de messagerie, les serveurs SQL et les autres services même s’ils se trouvent dans votre zone DNS privée. Par exemple, utilisez `smtp.contoso.com` pour le serveur de messagerie, car le simple nom `smtp` ne sera pas correctement résolu.
 
 Pour rendre une configuration d’un DNS personnalisé compatible avec Managed Instance, vous devez : 
 - Configurer un serveur DNS personnalisé afin qu’il puisse résoudre les noms de domaine publics 
@@ -38,10 +41,10 @@ Pour rendre une configuration d’un DNS personnalisé compatible avec Managed I
    ![option DNS personnalisé](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Si vous ne définissez pas le programme de résolution récursif d’Azure dans la liste DNS, l’instance managée peut connaître une défaillance si les serveurs DNS personnalisés ne sont pas disponibles pour une raison quelconque. Pour récupérer de ce statut, vous devez créer une nouvelle instance dans un réseau virtuel avec les stratégies réseau conformes, créer des données de niveau d’instance et restaurer vos bases de données. Si vous définissez le programme de résolution récursif d’Azure comme la dernière entrée de la liste DNS, les noms publics continueront d’être résolus, même en cas de défaillance des serveurs DNS personnalisés. Consultez l’article [Configuration de réseau virtuel](sql-database-managed-instance-vnet-configuration.md).
+   > Si vous ne définissez pas le programme de résolution récursif d’Azure dans la liste DNS, l’instance managée peut connaître une défaillance si les serveurs DNS personnalisés ne sont pas disponibles pour une raison quelconque. Pour récupérer de ce statut, vous devez créer une nouvelle instance dans un réseau virtuel avec les stratégies réseau conformes, créer des données de niveau d’instance et restaurer vos bases de données. Si vous définissez le programme de résolution récursif d’Azure comme la dernière entrée de la liste DNS, les noms publics continueront d’être résolus, même en cas de défaillance des serveurs DNS personnalisés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir une vue d’ensemble, consultez [Présentation de l’option Managed Instance](sql-database-managed-instance.md)
 - Pour suivre un didacticiel vous expliquant comment créer une option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-get-started.md).
-- Pour plus d’informations sur la configuration d’un réseau virtuel pour une option Managed Instance, consultez [Configurer un réseau virtuel pour Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md).
+- Pour plus d’informations sur la configuration d’un réseau virtuel pour une option Managed Instance, consultez [Configurer un réseau virtuel pour Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md).

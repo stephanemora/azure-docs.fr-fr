@@ -4,9 +4,8 @@ description: Apprenez à reformer un modèle par programme et à mettre à jour 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: e94fa4b6382a4672e5763b382a22fb812991cb03
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308463"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257605"
 ---
-# <a name="retrain-a-classic-web-service"></a>Reformer un service web Classic
+# <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Réentraîner un service web Azure Machine Learning Studio classique | Microsoft Docs
 Le service web prédictif que vous avez déployé est le point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, le modèle entraîné du point de terminaison par défaut ne peut pas être remplacé. Pour reformer le service web, vous devez ajouter un nouveau point de terminaison au service web. 
 
 ## <a name="prerequisites"></a>Prérequis

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284827"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969479"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
@@ -49,7 +49,7 @@ Lorsque vous déplacez les données entre des machines locales et cloud, l’act
 
 Voici un flux de données global résumant les étapes de copie avec un runtime d’intégration auto-hébergé :
 
-![Vue d’ensemble globale](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![Vue d’ensemble globale](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. Le développeur des données crée un runtime d’intégration auto-hébergé dans une fabrique de données Azure à l’aide d’une cmdlet PowerShell. Actuellement, le portail Azure ne prend pas en charge cette fonctionnalité.
 2. Le développeur des données crée un service lié pour un magasin de données local en spécifiant l’instance de runtime d’intégration auto-hébergé qu’il doit utiliser pour se connecter à des magasins de données. Dans le cadre de la configuration du service lié, le développeur des données utilise l’application Gestionnaire d’informations d’identification (non pris en charge actuellement) pour spécifier les types d’authentification et les informations d’identification. L’application Gestionnaire d’informations d’identification communique avec le magasin de données pour tester la connexion et le runtime d’intégration auto-hébergé pour enregistrer les informations d’identification.
@@ -131,7 +131,7 @@ Quand la mémoire disponible sur le runtime d’intégration auto-hébergé est 
 
 Quand la mémoire disponible et l’UC ne sont pas correctement utilisées, mais que l’exécution de travaux simultanés atteint la limite, vous devez procéder à une opération de scale up en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud. Vous pouvez également effectuer une opération de scale up quand les activités expirent parce que le runtime d’intégration auto-hébergé est surchargé. Comme le montre l’image suivante, vous pouvez augmenter la capacité maximale d’un nœud :  
 
-![Augmentation des travaux simultanés pouvant s’exécuter sur un nœud](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Augmentation des travaux simultanés pouvant s’exécuter sur un nœud](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>Configuration requise des certificats TLS/SSL
 
@@ -155,40 +155,40 @@ La vidéo suivante est une présentation et une démonstration de 12 minutes de 
 
 ### <a name="terminology"></a>Terminologie
 
-- **Runtime d’intégration partagé** : le runtime d’intégration auto-hébergé d’origine qui est exécuté sur une infrastructure physique.  
+- **Runtime d’intégration partagé** : le runtime d’intégration autohébergé d’origine qui est exécuté sur une infrastructure physique.  
 - **Runtime d’intégration lié** : le runtime d’intégration qui fait référence à un autre runtime d’intégration partagé. Il s’agit d’un runtime d’intégration logique qui utilise l’infrastructure d’un autre runtime d’intégration autohébergé (partagé).
 
 ### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Procédure générale pour créer un runtime d’intégration auto-hébergé lié
 
 1. Dans le runtime d’intégration auto-hébergé, accordez l’autorisation à la fabrique de données au sein de laquelle vous souhaitez créer le runtime d’intégration lié. 
 
-   ![Bouton pour accorder l’autorisation sur l’onglet Partage](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![Bouton pour accorder l’autorisation sur l’onglet Partage](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![Sélections des autorisations assignées](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![Sélections des autorisations assignées](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. Notez l’ID de ressource du runtime d’intégration auto-hébergé à partager.
 
-   ![Emplacement de l’ID de ressource](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![Emplacement de l’ID de ressource](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. Dans la fabrique de données à laquelle les autorisations ont été accordées, créez un runtime d’intégration auto-hébergé (lié) et entrez l’ID de ressource.
 
-   ![Bouton pour créer un runtime d’intégration auto-hébergé lié](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![Bouton pour créer un runtime d’intégration auto-hébergé lié](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![Champs de saisie du nom et de l’ID de ressource](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![Champs de saisie du nom et de l’ID de ressource](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### <a name="monitoring"></a>Surveillance 
 
 - **IR partagé**
 
-  ![Sélections pour la recherche d’un runtime d’intégration partagé](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Sélections pour la recherche d’un runtime d’intégration partagé](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![Onglet pour la supervision](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![Onglet pour la supervision](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **IR lié**
 
-  ![Sélections pour la recherche d’un runtime d’intégration lié](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Sélections pour la recherche d’un runtime d’intégration lié](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![Onglet pour la supervision](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![Onglet pour la supervision](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitations connues du partage de runtime d’intégration autohébergé
 
@@ -211,12 +211,12 @@ La vidéo suivante est une présentation et une démonstration de 12 minutes de 
 
 Si vous déplacez votre curseur sur les icônes ou les messages de la zone de notification, vous obtenez des informations supplémentaires sur l’état du runtime d’intégration auto-hébergé.
 
-![Notifications dans la zone de notification](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Notifications dans la zone de notification](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>Ports et pare-feu
 Deux pare-feu sont importants : le *pare-feu d’entreprise*, exécuté sur le routeur central de l’organisation et le *pare-feu Windows*, configuré en tant que démon sur la machine locale sur laquelle le runtime d’intégration auto-hébergé est installé.
 
-![Pare-feu](media\create-self-hosted-integration-runtime\firewall.png)
+![Pare-feu](media/create-self-hosted-integration-runtime/firewall.png)
 
 Au niveau du *pare-feu d’entreprise*, vous devez configurer les domaines et ports de sortie suivants :
 
@@ -249,16 +249,16 @@ Par exemple, pour effectuer une copie à partir d’un magasin de données local
 ## <a name="proxy-server-considerations"></a>Considérations relatives aux serveurs proxy
 Si votre environnement de réseau d’entreprise utilise un serveur proxy pour accéder à Internet, configurez le runtime d’intégration auto-hébergé pour utiliser les bons paramètres de proxy. Vous pouvez définir le proxy lors de la phase initiale de l’enregistrement.
 
-![Spécifier le proxy](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![Spécifier le proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
 Le runtime d’intégration auto-hébergé utilise le serveur proxy pour se connecter au service cloud. Sélectionnez le **lien Modifier** pendant la configuration initiale. La boîte de dialogue des paramètres de proxy s’affiche.
 
-![Définir le proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![Définir le proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 Il existe trois options de configuration :
 
-- **Ne pas utiliser de proxy** : le runtime d’intégration auto-hébergé n’utilise pas explicitement de proxy pour se connecter aux services cloud.
-- **Utiliser le proxy système** : le runtime d’intégration auto-hébergé utilise les paramètres de proxy configurés dans diahost.exe.config et diawp.exe.config. Si aucun proxy n’est configuré dans diahost.exe.config et diawp.exe.config, le runtime d’intégration auto-hébergé se connecte au service cloud directement sans passer par un proxy.
+- **Ne pas utiliser de proxy** : le runtime d’intégration autohébergé n’utilise pas explicitement de proxy pour se connecter aux services cloud.
+- **Utiliser le proxy système** : le runtime d’intégration autohébergé utilise le paramètre de proxy configuré dans diahost.exe.config et diawp.exe.config. Si aucun proxy n’est configuré dans diahost.exe.config et diawp.exe.config, le runtime d’intégration auto-hébergé se connecte au service cloud directement sans passer par un proxy.
 - **Utiliser un proxy personnalisé** : configurez les paramètres du proxy HTTP à utiliser pour le runtime d’intégration auto-hébergé au lieu d’utiliser les configurations dans diahost.exe.config et diawp.exe.config. Les champs **Adresse** et **Port** doivent être renseignés. Les champs **Nom d’utilisateur** et **Mot de passe** sont facultatifs, en fonction des paramètres d’authentification de votre proxy. Tous les paramètres sont chiffrés avec Windows DPAPI sur le runtime d’intégration autohébergé et stockés localement sur l’ordinateur.
 
 Le service hôte du runtime d’intégration autohébergé redémarre automatiquement après avoir enregistré les paramètres de proxy mis à jour.
@@ -272,7 +272,7 @@ Une fois le runtime d’intégration auto-hébergé inscrit, si vous souhaitez a
 
 Vous pouvez afficher et mettre à jour le proxy HTTP à l’aide de l’outil Gestionnaire de configuration.
 
-![Afficher le proxy](media\create-self-hosted-integration-runtime\view-proxy.png)
+![Afficher le proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > Si vous configurez un serveur proxy avec l’authentification NTLM, le service hôte du runtime d’intégration s’exécute sous le compte du domaine. Si vous modifiez le mot de passe du compte du domaine ultérieurement, veillez à mettre à jour les paramètres de configuration pour le service et à redémarrer ce dernier en conséquence. En raison de cette exigence, nous vous conseillons d’utiliser un compte de domaine dédié qui ne nécessite pas de mettre à jour le mot de passe fréquemment pour accéder au serveur proxy.
@@ -318,7 +318,7 @@ Vous devez également vérifier que Microsoft Azure figure dans la liste verte d
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Symptômes possibles des erreurs liées au pare-feu et au serveur proxy
 Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez probablement mal configuré le serveur proxy ou le pare-feu, ce qui empêche le runtime d’intégration auto-hébergé de se connecter à Data Factory pour s’authentifier. Pour vous assurer que votre pare-feu et votre serveur proxy sont correctement configurés, reportez-vous à la section précédente.
 
-* Lorsque vous tentez d’inscrire le runtime d’intégration autohébergé, vous recevez le message d’erreur suivant : Échec d'inscription de ce nœud Runtime d'intégration ! Vérifiez que la clé d’authentification est valide et que le service hôte d’intégration est en cours d’exécution sur cet ordinateur.
+* Lorsque vous tentez d’inscrire le runtime d’intégration autohébergé, vous recevez le message d’erreur suivant : Échec d’inscription de ce nœud Runtime d’intégration ! Vérifiez que la clé d’authentification est valide et que le service hôte d’intégration est en cours d’exécution sur cet ordinateur.
 * Lorsque vous ouvrez le Gestionnaire de configuration Integration Runtime, l’état indiqué est **Déconnecté** ou **En cours de connexion**. Lorsque vous affichez les journaux des événements Windows, sous **Observateur d’événements** > **Journaux des applications et services** > **Microsoft Integration Runtime**, des messages d’erreur tels que le suivant s’affichent :
 
     ```
@@ -345,4 +345,4 @@ Si vous préférez ne pas ouvrir le port 8060 sur la machine du runtime intégra
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez le didacticiel suivant pour obtenir des instructions pas à pas : [Didacticiel : Copier des données depuis une base de données SQL Server locale vers un compte de stockage d’objets blob Azure](tutorial-hybrid-copy-powershell.md).
+Pour des instructions pas à pas, consultez le didacticiel suivant : [Didacticiel : Copier des données locales dans le cloud](tutorial-hybrid-copy-powershell.md).

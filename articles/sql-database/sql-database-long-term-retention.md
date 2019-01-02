@@ -3,7 +3,7 @@ title: Stocker les sauvegardes Azure SQL Database pendant 10 ans | Microsoft Doc
 description: Découvrez comment Azure SQL Database prend en charge le stockage des sauvegardes complètes de bases de données pendant 10 ans.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,25 +12,25 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: 7fe34423e706054daf84eaa8baf45fe201a661c9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 7225c90d0d85b2a7fe53f9d2d3b13f68a45d0471
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026175"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868206"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database pendant 10 ans
 
-De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) Azure SQL Database. À l’aide de la fonctionnalité de rétention à long terme (LTR), vous pouvez stocker pendant 10 ans des sauvegardes complètes de bases de données SQL dans un stockage Blob [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). Vous pouvez ensuite restaurer la sauvegarde de votre choix en tant que nouvelle base de données.
+De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) Azure SQL Database. À l’aide de la fonctionnalité de conservation à long terme (LTR), vous pouvez stocker pendant 10 ans des sauvegardes complètes de bases de données SQL dans un stockage Blob [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). Vous pouvez ensuite restaurer la sauvegarde de votre choix en tant que nouvelle base de données.
 
 > [!NOTE]
-> La conservation à long terme peut être activée sur les bases de données hébergées sur des serveurs logiques Azure SQL Database. Elle n’est pas encore disponible pour les bases de données hébergées dans les instances Managed Instance.
+> La conservation à long terme peut être activée sur les bases de données hébergées sur des serveurs logiques Azure SQL Database. Elle n’est pas encore disponible pour les bases de données hébergées dans les instances Managed Instance. Vous pouvez utiliser des travaux SQL Agent pour planifier des [sauvegardes de base de données en copie seule](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) comme alternative à la conservation à long terme au-delà de 35 jours.
 > 
 
-## <a name="how-sql-database-long-term-retention-works"></a>Mode de fonctionnement de la rétention à long terme SQL Database
+## <a name="how-sql-database-long-term-retention-works"></a>Mode de fonctionnement de la conservation à long terme SQL Database
 
-La rétention des sauvegardes à long terme (LTR) s’appuie sur les sauvegardes intégrales des bases de données qui sont [créées automatiquement](sql-database-automated-backups.md) pour permettre la récupération jusqu’à une date et heure. Ces sauvegardes sont copiées vers différents objets blob de stockage si la stratégie de rétention à long terme a été configurée.
-Vous pouvez configurer une stratégie de rétention à long terme pour chaque base de données SQL et spécifier la fréquence de copie des sauvegardes pour les objets blob de stockage à long terme. Pour parvenir à une telle flexibilité, vous pouvez définir cette stratégie à l’aide d’une combinaison de quatre paramètres : rétention des sauvegardes hebdomadaire (W), rétention des sauvegardes mensuelle (M), rétention des sauvegardes annuelle (Y) et Semaine de l’année (WeekOfYear). Si vous indiquez W, une sauvegarde est copiée sur le dispositif de stockage à long terme toutes les semaines. Si vous indiquez M, une sauvegarde est copiée sur le dispositif de stockage à long terme la première semaine du mois. Si vous indiquez Y, une sauvegarde est copiée sur le dispositif de stockage à long terme pendant la semaine définie par WeekOfYear. Toutes les sauvegardes sont conservées sur le dispositif de stockage à long terme pendant la durée définie par ces paramètres. 
+La rétention des sauvegardes à long terme (LTR) s’appuie sur les sauvegardes intégrales des bases de données qui sont [créées automatiquement](sql-database-automated-backups.md) pour permettre la récupération jusqu’à une date et heure. Ces sauvegardes sont copiées vers différents objets blob de stockage si la stratégie de conservation à long terme a été configurée.
+Vous pouvez configurer une stratégie de conservation à long terme pour chaque base de données SQL et spécifier la fréquence de copie des sauvegardes pour les objets blob de stockage à long terme. Pour parvenir à une telle flexibilité, vous pouvez définir cette stratégie à l’aide d’une combinaison de quatre paramètres : rétention des sauvegardes hebdomadaire (W), rétention des sauvegardes mensuelle (M), rétention des sauvegardes annuelle (Y) et Semaine de l’année (WeekOfYear). Si vous indiquez W, une sauvegarde est copiée sur le dispositif de stockage à long terme toutes les semaines. Si vous indiquez M, une sauvegarde est copiée sur le dispositif de stockage à long terme la première semaine du mois. Si vous indiquez Y, une sauvegarde est copiée sur le dispositif de stockage à long terme pendant la semaine définie par WeekOfYear. Toutes les sauvegardes sont conservées sur le dispositif de stockage à long terme pendant la durée définie par ces paramètres. 
 
 Exemples :
 
@@ -75,7 +75,7 @@ Lors de la base de données primaire d’origine récupère après la panne qui 
 
 ## <a name="configure-long-term-backup-retention"></a>Configurer la rétention des sauvegardes à long terme
 
-Pour apprendre à configurer la rétention à long terme via le Portail Azure ou à l’aide de PowerShell, consultez [Configurer la rétention des sauvegardes à long terme](sql-database-long-term-backup-retention-configure.md).
+Pour apprendre à configurer la conservation à long terme via le portail Azure ou à l’aide de PowerShell, consultez [Configurer la rétention des sauvegardes à long terme](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

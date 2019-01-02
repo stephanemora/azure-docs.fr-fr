@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Présentation du module PowerShell ADConnectivityTool | Microsoft Docs'
+title: 'Azure AD Connect : Présentation du module PowerShell ADConnectivityTool | Microsoft Docs'
 description: Ce document présente le nouveau module PowerShell ADConnectivity.
 services: active-directory
 author: billmath
@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4020d754bd8c7728b43ef583aa7e7d8dbddcebec
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e6f85d327fff1ee32dca6dfb2231b28e6dc96c61
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669796"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965631"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>Présentation du module PowerShell ADConnectivityTool
 
@@ -40,7 +40,7 @@ Dans la page **Connexion de vos annuaires**, dans l’Assistant Azure AD Connect
 Chaque fois que l’un de ces problèmes est détecté, un message d’erreur associé s’affiche dans l’Assistant AADConnect :
 
 
-![Erreur](media\how-to-connect-adconnectivitytools\error1.png)
+![Error](media/how-to-connect-adconnectivitytools/error1.png)
 
 Par exemple, quand nous tentons d’ajouter un annuaire sur l’écran **Connexion de vos annuaires**, Azure AD Connect doit procéder à une vérification et s’attend à pouvoir communiquer avec un contrôleur de domaine sur le port 389.  S’il ne le peut pas, l’erreur indiquée dans la capture d’écran ci-dessus s’affiche.  
 
@@ -73,7 +73,7 @@ Si l’utilisateur exécute cette fonction après qu’un problème a été rés
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Autorisations et comptes Azure AD Connect](reference-connect-accounts-permissions.md)
+- [Azure AD Connect : comptes et autorisations](reference-connect-accounts-permissions.md)
 - [Installation Express](how-to-connect-install-express.md)
 - [Installation personnalisée](how-to-connect-install-custom.md)
 - [Référence d’ADConnectivityTools](reference-connect-adconnectivitytools.md)

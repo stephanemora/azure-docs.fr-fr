@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: cfb4dabea12f2988108d24b025e324cf05afb325
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: cd599a45ef4d3bfd38789a71647847f55cc0b966
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301717"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085890"
 ---
 # <a name="event-grid-subscription-schema"></a>Schéma d’abonnement à Event Grid
 
@@ -29,8 +29,8 @@ Par exemple, pour créer un abonnement aux événements pour un compte de stocka
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-L’article décrit les propriétés et le schéma pour le corps de la requête.
- 
+Le nom de l’abonnement aux événements doit contenir entre 3 et 64 caractères et ne peut contenir que les caractères a-z, A-Z, 0-9 et "-". L’article décrit les propriétés et le schéma pour le corps de la requête.
+ 
 ## <a name="event-subscription-properties"></a>Propriétés de l’abonnement aux événements
 
 | Propriété | type | Description |

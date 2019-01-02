@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214730"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846009"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
@@ -43,7 +43,7 @@ Sur le serveur de traitement, ouvrez le Gestionnaire des tâches (Ctrl-Maj-Écha
 
 Si ce n’est pas le cas, suivez les étapes détaillées ci-dessous :
 
-* **Vérifiez si le serveur de traitement est en mesure de se connecter à Azure Blob** : sélectionnez et vérifiez cbengine.exe pour afficher les connexions TCP et voir s’il existe une connectivité du serveur de traitement à l’URL d’objet blob Azure Storage.
+* **Vérifiez si le serveur de traitement peut se connecter à l’objet blob Azure** : sélectionnez et cochez cbengine.exe pour afficher les connexions TCP et voir s’il existe une connectivité du serveur de traitement à l’URL d’objet blob Stockage Azure.
 
 ![Activer la réplication](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
@@ -59,7 +59,7 @@ Si ce n’est pas le cas, accédez au Panneau de configuration > Services et v�
 
 * **Vérifiez si le serveur de traitement est en mesure de se connecter à l’adresse IP publique Azure via le port 443**
 
-Ouvrez le dernier fichier CBEngineCurr.errlog sous `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` et recherchez « 443 » et « connection attempt failed ».
+Ouvrez le dernier fichier CBEngineCurr.errlog sous `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` et recherchez « 443 » et « connection attempt failed ».
 
 ![Activer la réplication](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
@@ -69,9 +69,9 @@ Si vous rencontrez des problèmes, dans la ligne de commande du serveur de trait
 Si vous ne parvenez pas à vous connecter, vérifiez si le problème d’accès est dû au pare-feu ou au proxy, comme décrit dans l’étape suivante.
 
 
-* **Vérifiez si le pare-feu basé sur l’adresse IP du serveur de traitement ne bloque pas l’accès** : si vous utilisez des règles de pare-feu basées sur l’adresse IP sur le serveur, téléchargez la liste complète des plages d’IP du centre de données Microsoft Azure [ici](https://www.microsoft.com/download/details.aspx?id=41653) et ajoutez-les à la configuration de votre pare-feu pour vous assurer que la communication avec Azure (et le port HTTPS (443)) est autorisée.  Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région USA Ouest (utilisées pour la gestion du contrôle d’accès et des identités).
+* **Vérifiez si le pare-feu basé sur l’adresse IP du serveur de traitement ne bloque pas l’accès** : si vous utilisez des règles de pare-feu basées sur l’adresse IP sur le serveur, téléchargez la liste complète des plages d’adresses IP du centre de données Microsoft Azure [ici](https://www.microsoft.com/download/details.aspx?id=41653) et ajoutez-les à la configuration de votre pare-feu pour vérifier que la communication avec Azure (et le port HTTPS 443) est autorisée.  Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région USA Ouest (utilisées pour la gestion du contrôle d’accès et des identités).
 
-* **Vérifiez si le pare-feu basé sur l’URL du serveur de traitement ne bloque pas l’accès** : si vous utilisez des règles de pare-feu basées sur l’URL sur le serveur, vérifiez que les URL suivantes figurent dans la configuration du pare-feu.
+* **Vérifiez si le pare-feu basé sur l’URL du serveur de traitement ne bloque pas l’accès** :  si vous utilisez des règles de pare-feu basées sur l’URL sur le serveur, vérifiez que les URL suivantes figurent dans la configuration du pare-feu.
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -86,7 +86,7 @@ Rechercher dans la sauvegarde Microsoft Azure
 Ouvrez-la et cliquez sur Action > Modifier les propriétés. Sous l’onglet Configuration du proxy, vous devez voir l’adresse du proxy, qui doit être la même que celle figurant dans les paramètres du Registre. Si ce n’est pas le cas, remplacez-la par la même adresse.
 
 
-* **Vérifiez si la bande passante de limitation n’est pas limitée sur le serveur de traitement** : augmentez la bande passante et vérifiez si le problème persiste.
+* **Vérifiez si la bande passante de limitation n’est pas limitée sur le serveur de traitement** :  augmentez la bande passante et déterminez si le problème persiste.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous avez besoin d’aide, posez votre question sur le [forum Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Nous avons une communauté active et un de nos ingénieurs pourra vous aider.

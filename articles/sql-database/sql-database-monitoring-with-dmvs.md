@@ -1,5 +1,5 @@
 ---
-title: Analyse de base de données SQL Azure à l’aide de vues de gestion dynamique | Microsoft Docs
+title: Supervision des performances d’Azure SQL Database à l’aide de vues DMV | Microsoft Docs
 description: Apprenez à détecter et à diagnostiquer des problèmes de performances courants à l’aide de vues de gestion dynamique pour surveiller une base de données SQL Microsoft Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: c690e9b864d4b2b378814b478ea4918a9f75fbba
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88e0ad847d8d779bd769ed73d4f0393ddfb65588
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288525"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876311"
 ---
-# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique
+# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervision des performances d’Azure SQL Database à l’aide de vues de gestion dynamique
 
 La Base de données SQL Microsoft Azure active un sous-ensemble de vues de gestion dynamique permettant de diagnostiquer des problèmes de performances qui peuvent être causés par des requêtes bloquées ou longues, des goulots d’étranglement des ressources, des plans de requête médiocres, et ainsi de suite. Cette rubrique fournit des informations sur la façon de détecter des problèmes de performances courants à l’aide des vues de gestion dynamique.
 
@@ -131,8 +131,8 @@ ORDER BY end_time DESC;
 
 Si la limite d’E/S a été atteinte, vous avez deux options :
 
-- Option 1 : mettre à niveau de la taille de calcul ou le niveau de service
-- Option 2 : identifier et paramétrer les requêtes qui consomment la plupart des E/S.
+- Option 1 : mise à niveau de la taille de calcul ou du niveau de service
+- Option 2 : identification et optimisation des requêtes qui consomment le plus d’E/S
 
 #### <a name="view-buffer-related-io-using-the-query-store"></a>Afficher les E/S de la mémoire tampon à l’aide du Magasin de données
 
@@ -574,7 +574,7 @@ L’exemple suivant vous montre différentes manières d’utiliser la vue du ca
     ORDER BY start_time DESC;
     ```
 
-2. Afin d’évaluer l’adéquation entre votre charge de travail et la taille de calcul, vous devez étudier les différents aspects des métriques de ressources : UC, lectures, écritures, nombre de Workers et nombre de sessions. Voici une requête modifiée à l’aide de **sys.resource_stats** afin d’indiquer les valeurs moyennes et maximales de ces mesures de ressources :
+2. Pour évaluer l’adéquation entre votre charge de travail et la taille de calcul, vous devez étudier les différents aspects des métriques de ressources : UC, lectures, écritures, nombre de Workers et nombre de sessions. Voici une requête modifiée à l’aide de **sys.resource_stats** afin d’indiquer les valeurs moyennes et maximales de ces mesures de ressources :
 
     ```sql
     SELECT

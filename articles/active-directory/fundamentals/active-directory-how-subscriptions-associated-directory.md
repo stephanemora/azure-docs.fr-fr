@@ -1,6 +1,6 @@
 ---
-title: Comment ajouter un abonnement Azure existant à votre locataire Azure Active Directory | Microsoft Docs
-description: Découvrez comment ajouter un abonnement Azure existant à votre locataire Azure Active Directory.
+title: Ajouter un abonnement Azure existant à votre locataire - Azure Active Directory | Microsoft Docs
+description: Instructions pour l’ajout d’un abonnement Azure existant à votre locataire Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: dd62b22eca40a214c5b08a9bc48815e40fe90e47
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 4e4d4d9f34c8220ba70c64f073557f0293881c3e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984076"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083867"
 ---
-# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Guide pour associer ou ajouter un abonnement Azure à Azure Active Directory
+# <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 Votre abonnement Azure possède une relation d’approbation avec Azure Active Directory (Azure AD), ce qui signifie que l’abonnement fait confiance à Azure AD pour authentifier les utilisateurs, les services et les périphériques. Plusieurs abonnements peuvent approuver le même répertoire Azure AD, mais chaque abonnement n’approuve qu’un seul répertoire.
 
 En cas d’expiration d’un abonnement, vous perdez l’accès aux autres ressources associées à cet abonnement. Toutefois, le répertoire Azure AD demeure dans Azure, vous permettant d’associer et de gérer le répertoire avec un abonnement Azure différent.

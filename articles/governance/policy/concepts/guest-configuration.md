@@ -1,20 +1,20 @@
 ---
-title: Comprendre comment Azure Policy effectue des audits à l’intérieur d’une machine virtuelle
+title: Comprendre comment effectuer des audits à l’intérieur d’une machine virtuelle
 description: Découvrez comment Azure Policy utilise la configuration d’invité pour auditer les paramètres à l’intérieur d’une machine virtuelle Azure.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: ca96aea8f359f1df7da48f84a3317a2d8c7b52e4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 1ea87dc01048a2747a668db7a5b1f22b37ed9213
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167635"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310060"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -54,13 +54,13 @@ Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguratio
 
 ### <a name="validation-tools"></a>Outils de validation
 
-À l’intérieur de la machine virtuelle, le client de configuration d’invité utilise des outils locaux pour effectuer l’audit.
+À l’intérieur de la machine virtuelle, le client de configuration d’invité utilise des outils locaux pour exécuter l’audit.
 
 Le tableau suivant affiche une liste des outils locaux utilisés sur chaque système d’exploitation pris en charge :
 
 |Système d’exploitation|Outil de validation|Notes|
 |-|-|-|
-|Windows|[Configuration de l’état souhaité (DSC) Microsoft](/powershell/dsc) v2| |
+| Windows|[Configuration de l’état souhaité (DSC) Microsoft](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby et Python sont installés par l’extension de configuration d’invité. |
 
 ### <a name="supported-client-types"></a>Types de clients pris en charge
@@ -90,23 +90,23 @@ Le tableau suivant répertorie les systèmes d’exploitation qui ne sont pas pr
 
 ## <a name="guest-configuration-definition-requirements"></a>Exigences de définition de la configuration d’invité
 
-Chaque audit effectué par la configuration d’invité nécessite deux définitions de stratégies, **DeployIfNotExists** et **AuditIfNotExists**. **DeployIfNotExists** sert à préparer la machine virtuelle avec l’agent de configuration d’invité et d’autres composants pour prendre en charge les [outils de validation](#validation-tools).
+Chaque audit exécuté par la configuration d’invité nécessite deux définitions de stratégies : **DeployIfNotExists** et **AuditIfNotExists**. **DeployIfNotExists** sert à préparer la machine virtuelle avec l’agent de configuration d’invité et d’autres composants pour prendre en charge les [outils de validation](#validation-tools).
 
 La définition de stratégie **DeployIfNotExists** valide et corrige les éléments suivants :
 
-- Vérification qu’une configuration à évaluer a été attribuée à la machine virtuelle. Si aucune attribution n’est actuellement présente, procurez-vous cette attribution et préparez la machine virtuelle en effectuant les opérations suivantes :
+- Validez qu’une configuration à évaluer a été attribuée à la machine virtuelle. Si aucune attribution n’est actuellement présente, procurez-vous cette attribution et préparez la machine virtuelle en effectuant les opérations suivantes :
   - Authentification auprès de la machine virtuelle en utilisant une [identité managée](../../../active-directory/managed-identities-azure-resources/overview.md)
   - Installation de la dernière version de l’extension **Microsoft.GuestConfiguration**
   - Installation des [outils de validation](#validation-tools) et des dépendances, si nécessaire
 
-Une fois **DeployIfNotExists** conforme, la définition de stratégie **AuditIfNotExists** utilise les outils de validation locaux pour déterminer si l’attribution de configuration est conforme ou non conforme. L’outil de validation fournit les résultats au client de configuration d’invité, qui les transmet à l’extension de configuration d’invité pour les rendre disponibles via le fournisseur de ressources de configuration d’invité.
+Une fois **DeployIfNotExists** conforme, la définition de stratégie **AuditIfNotExists** utilise les outils de validation locaux pour déterminer si l’attribution de configuration est conforme ou non conforme. L’outil de validation fournit les résultats au client de configuration d’invité. Le client transmet à l’extension invité les résultats pour les rendre disponibles via le fournisseur de ressources de la configuration d’invité.
 
 Azure Policy utilise la propriété **complianceStatus** des fournisseurs de ressources de configuration d’invité pour signaler la conformité dans le nœud **Conformité**. Pour plus d’informations, consultez [Obtention de données de conformité](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
 > Pour chaque définition de la configuration d’invité, les définitions de stratégies **DeployIfNotExists** et **AuditIfNotExists** doivent toutes deux exister.
 
-Toutes les stratégies intégrées pour la configuration d’invité sont incluses dans une initiative pour regrouper les définitions à utiliser dans les attributions. L’initiative intégrée nommée *[Préversion] : Vérifier les paramètres de sécurité de mot de passe dans les machines virtuelles Linux et Windows* contient 18 stratégies. Il existe six paires **DeployIfNotExists** et **AuditIfNotExists** pour Windows et trois paires pour Linux. Dans chaque cas, la logique à l’intérieur de la définition permet de garantir que seul le système d’exploitation cible est évalué en fonction de la définition de [règle de stratégie](definition-structure.md#policy-rule).
+Toutes les stratégies intégrées pour la configuration d’invité sont incluses dans une initiative pour regrouper les définitions à utiliser dans les attributions. L’initiative intégré nommée *[Préversion] : Auditer les paramètres de sécurité de mot de passe dans les machines virtuelles Linux et Windows* contient 18 stratégies. Il existe six paires **DeployIfNotExists** et **AuditIfNotExists** pour Windows et trois paires pour Linux. Dans chaque cas, la logique à l’intérieur de la définition permet de garantir que seul le système d’exploitation cible est évalué en fonction de la définition de [règle de stratégie](definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -115,5 +115,5 @@ Toutes les stratégies intégrées pour la configuration d’invité sont inclus
 - Consulter la page [Compréhension des effets d’Azure Policy](effects.md)
 - Savoir comment [créer des stratégies par programmation](../how-to/programmatically-create.md)
 - Découvrir comment [obtenir des données de conformité](../how-to/getting-compliance-data.md)
-- Découvrir comment [remédier à la non conformité des ressources](../how-to/remediate-resources.md)
+- Découvrir comment [corriger les ressources non conformes](../how-to/remediate-resources.md)
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/index.md).

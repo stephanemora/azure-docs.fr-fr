@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4bfb7dc2b65dc479189ac7920509e1fd8a23ce4f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961345"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992201"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrer votre application IoT Central
 
@@ -35,7 +35,7 @@ Pour accéder à la section **Administration** et l’utiliser, vous devez avoir
 ### <a name="change-application-name-and-url"></a>Modifier le nom et l’URL de l’application
 À la page **Paramètres d’application**, vous pouvez modifier le nom et l’URL de votre application, puis sélectionner **enregistrer**.
 
-![Page Paramètres de l’application](media\howto-administer\image0-a.png)
+![Page Paramètres de l’application](media/howto-administer/image0-a.png)
 
 > [!Note]
 > Si vous changez votre URL, l’ancienne peut être prise par un autre client Azure IoT Central. Dans ce cas, vous ne pouvez plus l’utiliser. Quand vous changez votre URL, l’ancienne ne fonctionne plus et vous devez indiquer à vos utilisateurs la nouvelle URL à utiliser.
@@ -48,18 +48,21 @@ Vous pouvez créer une copie de n’importe quelle application, à l’exception
 
 Cliquez sur le bouton **Copier**. Dans la boîte de dialogue, entrez les détails de la nouvelle application avec paiement à l’utilisation. Ensuite, cliquez sur le bouton **Copier** pour confirmer que vous voulez poursuivre. En savoir plus sur les champs de ce formulaire dans le guide de démarrage rapide [Créer une application](quick-deploy-iot-central.md).
 
-![Page Paramètres de l’application](media\howto-administer\appCopy2.png)
+![Page Paramètres de l’application](media/howto-administer/appCopy2.png)
 
 Une fois que l’opération de copie a abouti, vous pouvez accéder à la nouvelle application créée en copiant votre application à l’aide du lien qui s’affiche.
 
-![Page Paramètres de l’application](media\howto-administer\appCopy3.png)
+![Page Paramètres de l’application](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > La copie d’une application copie également la définition des règles et des actions. Mais comme les utilisateurs ayant accès à votre application initiale ne sont pas transférés à l’application copiée, vous devrez ajouter manuellement des utilisateurs à aux actions nécessitant des utilisateurs, par exemple l’envoi d’un e-mail. En général, il est judicieux de vérifier les règles et les actions pour vous assurer qu’elles sont à jour dans la nouvelle application.
 
 ### <a name="delete-an-application"></a>Supprimer une application
 
-Utilisez le bouton **Supprimer** pour supprimer définitivement votre application IoT Central. Toutes les données associées à cette application seront alors définitivement supprimées. Pour pouvoir supprimer une application, vous devez aussi disposer des autorisations permettant de supprimer des ressources de l’abonnement Azure que vous avez choisi lors de la création de l’application. Pour en savoir plus, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources de votre abonnement Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> [!Note]
+> Pour pouvoir supprimer une application, vous devez aussi disposer des autorisations permettant de supprimer des ressources de l’abonnement Azure que vous avez choisi lors de la création de l’application. Pour en savoir plus, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources de votre abonnement Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+
+Utilisez le bouton **Supprimer** pour supprimer définitivement votre application IoT Central. Toutes les données associées à cette application seront alors définitivement supprimées.
 
 ## <a name="manage-users"></a>Gestion des utilisateurs
 
@@ -67,17 +70,17 @@ Utilisez le bouton **Supprimer** pour supprimer définitivement votre applicatio
 
 Chaque utilisateur doit avoir un compte d’utilisateur avant de pouvoir se connecter et accéder à une application Azure IoT Central. Les comptes Microsoft (MSA) et les comptes Azure Active Directory (Azure AD) sont pris en charge dans Azure IoT Central. Actuellement, les groupes Azure Active Directory ne sont pas pris en charge dans Azure IoT Central.
 
-Pour en savoir plus, consultez [Aide sur le compte Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) et [Démarrage rapide : Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Pour plus d’informations, consultez les sections [Aide sur le compte Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) et [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 1. Pour ajouter un utilisateur à une application IoT Central, accédez à la page **Utilisateurs** dans la section **Administration**.
 
-    ![Liste des utilisateurs](media\howto-administer\image1.png)
+    ![Liste des utilisateurs](media/howto-administer/image1.png)
 
 1. Pour ajouter un utilisateur, dans la page **Utilisateurs**, choisissez **+ Ajouter un utilisateur**.
 
 1. Choisissez un rôle pour l’utilisateur dans la liste déroulante **Rôle**. En savoir plus sur les rôles dans la section [Gérer les rôles](#manage-roles) de cet article.
 
-    ![Sélection de rôle](media\howto-administer\image3.png)
+    ![Sélection de rôle](media/howto-administer/image3.png)
 
     > [!NOTE]
     >  Pour ajouter des utilisateurs en nombre, entrez les ID de tous les utilisateurs à ajouter en les séparant par des points-virgules. Choisissez un rôle dans le menu déroulant **Rôle**. Ensuite, sélectionnez **Enregistrer**.

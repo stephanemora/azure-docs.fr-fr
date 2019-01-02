@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: yashar
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09/05/2018
-ms.openlocfilehash: 40551fa60aa17e9a46d24ffdf17bb61a884a48f2
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 11/30/2018
+ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585699"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742369"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Prépayer les machines virtuelles avec Azure Reserved VM Instances
 
@@ -32,12 +32,11 @@ Les instances de machines virtuelles réservées sont disponibles pour la plupar
 
 - La remise de réservation ne s’applique pas aux machines virtuelles suivantes :
   - Machines virtuelles et services cloud classiques
-  - Tailles de processeurs virtuels restreintes
-  - Machines virtuelles des séries A, Av2 ou G
-  - Machines virtuelles en préversion : toutes séries de machines virtuelles ou tailles en préversion
-- Clouds : les réservations ne sont pas disponibles à l’achat dans les régions situées en Allemagne et en Chine.
-- Quota insuffisant : une réservation qui est limitée à un seul abonnement doit avoir un quota de processeurs virtuels disponible dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a un quota limite de 10 processeurs virtuels pour la série D, vous ne pouvez pas acheter de réservation pour 11 instances Standard_D1. La vérification du quota pour les réservations inclut les machines virtuelles déjà déployées dans l’abonnement. Par exemple, si l’abonnement a un quota de 10 processeurs virtuels pour la série D et a deux instances Standard_D1 déployées, vous pouvez acheter une réservation pour 10 instances Standard_D1 dans cet abonnement. 
-- Restrictions de capacité : dans de rares cas, Azure limite l’achat de nouvelles réservations pour certaines tailles de machine virtuelle, en raison d’une faible capacité dans une région.
+  - Séries de machines virtuelles : Séries A, Av2 ou G
+  - Machines virtuelles en préversion : Toutes séries de machines virtuelles ou tailles en préversion
+- Clouds : Les réservations ne sont pas disponibles à l’achat dans les régions situées en Allemagne et en Chine.
+- Quota insuffisant : Une réservation qui est limitée à un seul abonnement doit avoir un quota de processeurs virtuels disponible dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a un quota limite de 10 processeurs virtuels pour la série D, vous ne pouvez pas acheter de réservation pour 11 instances Standard_D1. La vérification du quota pour les réservations inclut les machines virtuelles déjà déployées dans l’abonnement. Par exemple, si l’abonnement a un quota de 10 processeurs virtuels pour la série D et a deux instances Standard_D1 déployées, vous pouvez acheter une réservation pour 10 instances Standard_D1 dans cet abonnement. 
+- Restrictions de capacité : Dans de rares cas, Azure limite l’achat de nouvelles réservations pour certaines tailles de machine virtuelle, en raison d’une faible capacité dans une région.
 
 ## <a name="buy-a-reserved-vm-instance"></a>Acheter une instance de machine virtuelle réservée
 
@@ -49,7 +48,7 @@ Les instances de machines virtuelles réservées sont disponibles pour la plupar
     | Champ      | Description|
     |:------------|:--------------|
     |NOM        |Nom de cette réservation.| 
-    |Abonnement|Abonnement utilisé pour payer la réservation. Les coûts initiaux de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un contrat Entreprise (numéro de l’offre : MS-AZR-0017P) ou Paiement à l’utilisation (numéro de l’offre : MS-AZR-0003P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.|    
+    |Abonnement|Abonnement utilisé pour payer la réservation. Les coûts initiaux de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un Accord Entreprise (numéro de l’offre : MS-AZR-0017P) ou Paiement à l’utilisation (numéro de l’offre : MS-AZR-0003P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.|    
     |Étendue       |L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>Abonnement unique : la remise de réservation est appliquée aux machines virtuelles incluses dans cet abonnement. </li><li>Partagé : la remise de réservation est appliquée aux machines virtuelles en cours d’exécution dans tous les abonnements au sein de votre contexte de facturation. Pour les clients Entreprise, l’étendue partagée correspond à l’inscription et inclut tous les abonnements (à l’exception des abonnements de développement/test) au sein de l’inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</li></ul>|
     |Région    |Région Azure couverte par la réservation.|    
     |Taille de la machine virtuelle     |Taille des instances de machines virtuelles.|
@@ -87,6 +86,6 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 - [Coûts des logiciels Windows non inclus dans les réservations](../articles/billing/billing-reserved-instance-windows-software-costs.md)
 - [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

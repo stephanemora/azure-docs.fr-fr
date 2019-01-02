@@ -1,5 +1,5 @@
 ---
-title: Références SKU privées | Microsoft Docs
+title: Références SKU et plans privés | Microsoft Docs
 description: Comment utiliser des références SKU privées pour gérer la disponibilité des offres.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230238"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849205"
 ---
-<a name="private-skus"></a>Références SKU privées
+<a name="private-skus-and-plans"></a>Références SKU et plans privés
 ============
 
 Les références SKU privées vous permettent de restreindre la disponibilité des références SKU à des clients spécifiques. Lorsqu’une référence SKU est marquée comme privée, elle n’est pas disponible dans les catalogues publics, y compris sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et sur le [portail Azure](http://portal.azure.com). Sur le portail Azure, seuls les clients ayant accès à la référence SKU peuvent la voir. En outre, ils reçoivent également un message qui les informe qu'ils ont accès aux offres privées.
@@ -90,6 +90,11 @@ Exemple de contenu du fichier CSV :
             SubscriptionId,7738d703-3135-4e8d-8b81-1e70379abd9d,Private Customer
 
 Lorsque vous basculez du mode de saisie manuelle vers le mode de chargement du fichier CSV, ou inversement, l'ancienne liste d'ID d'abonnement avec accès à la référence SKU n'est pas conservée. Un avertissement s'affiche et la liste n'est remplacée que lors de l'enregistrement de l'offre.
+
+<a name="sync-private-subscriptions"></a>Synchroniser les abonnements privés
+-------------------------
+
+Lorsque vous ajoutez des abonnements à une offre publiée avec une référence SKU ou un plan privé, il est inutile de republier l’offre pour ajouter les informations relatives à l’audience. Pour ajouter l’audience, utilisez simplement un ID d’abonnement Azure (plans et références SKU) ou l’ID client (plans uniquement).
 
 <a name="previewing-private-offers"></a>Préversion des offres privées
 -------------------------

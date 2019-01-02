@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93c3bd3f902f08c8f019744b3f30745c1fd9fa01
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442421"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847658"
 ---
-# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C : sécuriser une API web à l’aide de Node.js
+# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C : Sécuriser une API web à l’aide de Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Avec Azure Active Directory (Azure AD) B2C, vous pouvez sécuriser une API web à l’aide de jetons d’accès OAuth 2.0, ce qui permet aux applications clientes qui utilisent Azure AD B2C de s’authentifier auprès de l’API. Cet article vous indique comment créer une API « liste de tâches » permettant aux utilisateurs d’ajouter des tâches et de les répertorier. L’API web est sécurisée à l’aide d’Azure AD B2C et autorise uniquement les utilisateurs authentifiés à gérer leur liste de tâches.
@@ -47,7 +47,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 * Copiez l’ **ID d’application** affecté à votre application. Vous aurez besoin de cette donnée ultérieurement.
 
 ## <a name="create-your-policies"></a>Création de vos stratégies
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient deux expériences d’identité : l’inscription et la connexion. Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Lors de la création de vos 3 stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient deux expériences d’identité : l’inscription et la connexion. Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  Lors de la création de vos 3 stratégies, assurez-vous de :
 
 * Choisir le **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
 * Choisissez le **nom d’affichage** et **l’ID objet** comme revendications d’application pour chaque stratégie.  Vous pouvez aussi choisir d'autres revendications.
@@ -71,12 +71,12 @@ L’application terminée est également [disponible en tant que fichier .zip](h
 ## <a name="download-nodejs-for-your-platform"></a>Télécharger Node.js pour votre plateforme
 Pour utiliser cet exemple avec succès, vous avez besoin d’une installation de travail de Node.js.
 
-Installez Node.js à partir de [nodejs.org](http://nodejs.org).
+Installez Node.js à partir de [nodejs.org](https://nodejs.org).
 
 ## <a name="install-mongodb-for-your-platform"></a>Installer MongoDB pour votre plateforme
 Pour utiliser cet exemple avec succès, vous avez besoin d’une installation de travail de MongoDB. Nous utilisons MongoDB afin que votre API REST soit persistante sur les instances de serveur.
 
-Installez MongoDB à partir de [mongodb.org](http://www.mongodb.org).
+Installez MongoDB à partir de [mongodb.org](https://www.mongodb.org).
 
 > [!NOTE]
 > Cette procédure pas à pas suppose que vous utilisez l’installation et les points de terminaison du serveur par défaut pour MongoDB, c’est-à-dire les suivants au moment de la rédaction : `mongodb://localhost`.
@@ -263,9 +263,9 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="required-values"></a>Valeurs requises
-`clientID` : ID client de votre application API web.
+`clientID`: ID client de votre application API web.
 
-`IdentityMetadata` : c’est ici que `passport-azure-ad` recherche vos données de configuration pour le fournisseur d’identité, ainsi que les clés pour valider les jetons web JSON.
+`IdentityMetadata`: c’est ici que `passport-azure-ad` recherche vos données de configuration pour le fournisseur d’identité. ainsi que les clés pour valider les jetons web JSON.
 
 `audience`: URI du portail qui identifie votre application appelante.
 
@@ -341,7 +341,7 @@ Ce modèle de schéma est simple. Vous pouvez le développer en fonction de vos 
 
 `Text`: tâche proprement dite. Cet objet est une **chaîne**.
 
-`date`: date d’échéance de la tâche. Cet objet est une **dateHeure**.
+`date`: Date d’échéance de la tâche. Cet objet est une **dateHeure**.
 
 `completed`: si la tâche est terminée. Cet objet est un **booléen**.
 

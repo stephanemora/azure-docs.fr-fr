@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f18f52fc409df769d164607a128caaf02ead5e4b
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 1c159e5c86f713f1f7dbce5cd96cd2ce5d3c22fb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143353"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437967"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour MySQL
 
@@ -31,13 +31,13 @@ Pour créer une règle de réseau virtuel, il doit d’abord exister un [réseau
 
 ## <a name="terminology-and-description"></a>Terminologie et description
 
-**Réseau virtuel :** vous pouvez avoir des réseaux virtuels associés à votre abonnement Azure.
+**Réseau virtuel :** vous pouvez associer des réseaux virtuels à votre abonnement Azure.
 
-**Sous-réseau :** un réseau virtuel contient des **sous-réseaux**. Toutes les machines virtuelles Azure que vous avez sont assignées à des sous-réseaux. Un sous-réseau peut contenir plusieurs machines virtuelles ou d’autres nœuds de calcul. Les nœuds de calcul qui se trouvent en dehors de votre réseau virtuel ne peuvent pas accéder à ce dernier, sauf si vous configurez votre sécurité pour leur en donner l’accès.
+**Sous-réseau :** un réseau virtuel contient des **sous-réseaux**. Toutes les machines virtuelles Azure que vous avez sont assignées à des sous-réseaux. Un sous-réseau peut contenir plusieurs machines virtuelles ou d’autres nœuds de calcul. Les nœuds de calcul qui se trouvent en dehors de votre réseau virtuel ne peuvent pas accéder à ce dernier, sauf si vous configurez votre sécurité pour leur en donner l’accès.
 
 **Point de terminaison de service de réseau virtuel :** un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql**, qui fait référence au service Azure nommé SQL Database. Ce nom de service s’applique également aux services Azure Database pour MySQL et PostgreSQL. Il est important de noter que lorsque le nom de service **Microsoft.Sql** est appliqué à un point de terminaison de service de réseau virtuel, il configure le trafic de point de terminaison de service pour l’ensemble des services Azure SQL Database, y compris les serveurs Azure Database pour MySQL et Azure Database pour PostgreSQL sur le sous-réseau. 
 
-**Règle de réseau virtuel :** une règle de réseau virtuel pour le serveur Azure Database pour MySQL est un sous-réseau répertorié dans la liste de contrôle d’accès (ACL) du serveur Azure Database pour MySQL. Pour figurer dans l’ACL pour votre serveur Azure Database pour MySQL, le sous-réseau doit contenir le nom de type **Microsoft.Sql**.
+**Règle de réseau virtuel :** une règle de réseau virtuel pour le serveur Azure Database pour MySQL est un sous-réseau répertorié dans la liste de contrôle d’accès (ACL) du serveur Azure Database pour MySQL. Pour figurer dans l’ACL pour votre serveur Azure Database pour MySQL, le sous-réseau doit contenir le nom de type **Microsoft.Sql**.
 
 Une règle de réseau virtuel donne l’instruction au serveur Azure Database pour MySQL d’accepter les communications provenant de tout nœud se trouvant sur le sous-réseau.
 
@@ -91,8 +91,8 @@ Chaque règle de réseau virtuel s’applique à tout le serveur Azure Database 
 
 Il existe une séparation des rôles de sécurité dans l’administration des points de terminaison de service de réseau virtuel. Chacun des rôles suivants doit réaliser une action :
 
-- **Administrateur de réseau :**&nbsp; Activez le point de terminaison.
-- **Administrateur de base de données :**&nbsp; Mettez à jour la liste de contrôle d’accès (ACL) pour ajouter un sous-réseau donné sur le serveur Azure Database pour MySQL.
+- **Administrateur réseau :** &nbsp; activez le point de terminaison.
+- **Administrateur de base de données :** &nbsp; mettez à jour la liste de contrôle d’accès (ACL) pour ajouter le sous-réseau donné au serveur Azure Database pour MySQL.
 
 *Alternative RBAC :*
 
@@ -115,7 +115,7 @@ Pour Azure Database pour MySQL, la fonctionnalité de règles de réseau virtuel
 
 - Les règles de réseau virtuel s’appliquent uniquement à des réseaux virtuels Azure Resource Manager, et non à des réseaux avec un [modèle de déploiement Classic][arm-deployment-model-568f].
 
-- Le fait d’activer les points de terminaison de service de réseau virtuel sur Azure Database pour MySQL l’aide du nom de service **Microsoft.Sql** a pour effet d’activer également les points de terminaison pour tous les services Azure Database : Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure SQL Database et Azure SQL Data Warehouse.
+- Le fait d’activer les points de terminaison de service de réseau virtuel sur Azure Database pour MySQL à l’aide du nom de service **Microsoft.Sql** a pour effet d’activer également les points de terminaison pour tous les services Azure Database : Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure SQL Database et Azure SQL Data Warehouse.
 
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.
 
@@ -131,9 +131,9 @@ Pour permettre la communication de votre circuit avec Azure Database pour MySQL,
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Ajout d’une règle de pare-feu de réseau virtuel à votre serveur sans activer les points de terminaison de service Vnet
 
-La simple définition d’une règle de pare-feu ne permet pas de sécuriser le serveur sur un réseau virtuel. Vous devez également **activer** les points de terminaison de service du réseau virtuel pour que la sécurité soit appliquée. Quand vous **activez** les points de terminaison de service, le sous-réseau de votre réseau virtuel est arrêté le temps de passer de l’état **désactivé** à l’état **activé**. Cela est particulièrement vrai dans le contexte de grands réseaux virtuels. Vous pouvez utiliser l’indicateur **IgnoreMissingServiceEndpoint** pour réduire ou éliminer le temps d’arrêt pendant la transition.
+La simple définition d’une règle de pare-feu ne permet pas de sécuriser le serveur sur le réseau virtuel. Vous devez également **activer** les points de terminaison de service du réseau virtuel pour que la sécurité soit appliquée. Quand vous **activez** les points de terminaison de service, le sous-réseau de votre réseau virtuel est arrêté le temps de passer de l’état **Désactivé** à l’état **Activé**. Cela est particulièrement vrai dans le contexte de grands réseaux virtuels. Vous pouvez utiliser l’indicateur **IgnoreMissingServiceEndpoint** pour réduire ou éliminer le temps d’arrêt pendant la transition.
 
-Vous pouvez définir l’indicateur **IgnoreMissingServiceEndpoint** à l’aide d’Azure CLI ou du portail.
+Vous pouvez définir l’indicateur **IgnoreMissingServiceEndpoint** à l’aide d’Azure CLI ou du Portail Azure.
 
 ## <a name="related-articles"></a>Articles connexes
 - [Réseaux virtuels Azure][vm-virtual-network-overview]
@@ -144,7 +144,7 @@ Pour des articles dédiés à la création de règles de réseau virtuel, consul
 - [Créer et gérer des règles de réseau virtuel Azure Database pour MySQL à l’aide du portail Azure](howto-manage-vnet-using-portal.md)
 - [Créer et gérer des règles de réseau virtuel Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure](howto-manage-vnet-using-cli.md)
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

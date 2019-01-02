@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720444"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962679"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considérations relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack
 Si vous êtes intéressé par un système intégré Azure Stack, vous devez comprendre certaines considérations principales sur la planification traitant du déploiement et la façon dont le système s’adapte à votre centre de données. Cet article fournit une vue d’ensemble de ces considérations pour vous aider à prendre des décisions d’infrastructure importantes pour votre système Azure Stack à plusieurs nœuds. Comprendre ces considérations est utile pour collaborer avec votre fournisseur de matériel OEM lorsqu’il déploie Azure Stack vers votre centre de données.  
@@ -57,7 +57,7 @@ Vous devez prendre en compte le fournisseur d’identité que vous souhaitez uti
 
 Votre choix de fournisseur d’identité n’a aucune incidence sur les machines virtuelles du client, le système d’identité et les comptes qu’ils utilisent, la possibilité de joindre un domaine Active Directory, etc. C’est différent.
 
-Pour en savoir plus sur le choix d’un fournisseur d’identité, voir l’[article relatif aux modèles de connexion des systèmes intégrés Azure Stack](.\azure-stack-connection-models.md).
+Pour en savoir plus sur le choix d’un fournisseur d’identité, voir l’[article relatif aux modèles de connexion des systèmes intégrés Azure Stack](./azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Intégration de AD FS et de Graph
 Si vous choisissez de déployer Azure Stack en utilisant AD FS comme fournisseur d’identité, vous devez intégrer l’instance AD FS à Azure Stack avec une instance AD FS existante via une approbation de fédération. Ainsi, les identités dans une forêt Active Directory existante peuvent s’authentifier auprès des ressources dans Azure Stack.
@@ -196,7 +196,7 @@ Pour répliquer des données vers un emplacement secondaire et orchestrer le bas
 ## <a name="learn-more"></a>En savoir plus
 
 - Pour plus d’informations sur les cas d’usage, l’achat, les partenaires et les fabricants de matériel OEM, consultez la page produit [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
-- Pour plus d’informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack, consultez le livre blanc : [Azure Stack : une extension de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Pour plus d’informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack, consultez le livre blanc : [Azure Stack : An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Modèles de connexion pour le déploiement d’Azure Stack](azure-stack-connection-models.md)

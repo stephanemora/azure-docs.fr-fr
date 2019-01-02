@@ -11,19 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239081"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164396"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modèles d’achat Azure SQL Database
 
 Azure SQL Database vous permet d’acheter facilement un moteur de base de données PaaS adapté à vos exigences en terme de performances et de coûts. Selon le modèle de déploiement Azure SQL Database, vous pouvez sélectionner le modèle d’achat adapté à vos besoins :
+- [Modèle d’achat vCore](sql-database-service-tiers-vcore.md) (recommandé), qui vous permet de choisir la capacité de stockage et de calcul exacte dont vous avez besoin pour votre charge de travail.
+- [Modèle d’achat DTU](sql-database-service-tiers-dtu.md), qui vous permet de choisir des packages de calcul et de stockage groupés et équilibrés pour des charges de travail courantes.
 
-- Les [serveurs logiques](sql-database-logical-servers.md) dans [Azure SQL Database](sql-database-technical-overview.md) proposent deux modèles d’achat pour les ressources de calcul, de stockage et d’E/S : un [modèle d’achat DTU](sql-database-service-tiers-dtu.md) et un [modèle d’achat vCore](sql-database-service-tiers-vcore.md). Dans ce modèle d’achat, vous pouvez choisir des [bases de données uniques](sql-database-single-databases-manage.md) ou des [pools élastiques](sql-database-elastic-pool.md).
+Différents modèles d’achat sont disponibles dans les modèles de déploiement Azure SQL Database :
+- Les [serveurs logiques](sql-database-logical-servers.md) dans [Azure SQL Database](sql-database-technical-overview.md) offrent à la fois le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) et le [modèle d’achat vCore ](sql-database-service-tiers-vcore.md). Dans ce modèle d’achat, vous pouvez choisir des [bases de données uniques](sql-database-single-databases-manage.md) ou des [pools élastiques](sql-database-elastic-pool.md).
 - Les [Instances managées](sql-database-managed-instance.md) dans Azure SQL Database offrent uniquement le [modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -51,7 +54,7 @@ Le modèle d’achat vCore vous permet de sélectionner les ressources de calcul
 
 > [!IMPORTANT]
 > Le calcul, les E/S, ainsi que le stockage des données et des journaux, sont facturés au niveau de chaque base de données ou au niveau du pool élastique. Le stockage des sauvegardes est facturé au niveau de chaque base de données. Pour plus d’informations sur les frais liés à Managed Instance, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-> **Limitations liées aux régions :** le modèle d’achat vCore n’est pas encore disponible dans les régions suivantes : Europe de l’Ouest, France Centre, Royaume-Uni Sud, Royaume-Uni Ouest et Sud-Est de l’Australie.
+> **Limitations concernant les régions :** le modèle d’achat vCore n’est pas encore disponible dans les régions suivantes : Europe Ouest, France Centre, Royaume-Uni Sud, Royaume-Uni Ouest et Australie Sud-Est.
 
 Si votre base de données ou pool élastique consomme plus de 300 DTU, le passage au modèle vCore peut vous permettre de réaliser des économies. Vous pouvez passer au modèle vCore à l’aide de l’API de votre choix ou du portail Azure, sans aucun temps d’arrêt. Le passage au modèle vCore n’est toutefois pas obligatoire. Si le modèle d’achat DTU répond à vos besoins métier et à vos besoins en performance, vous devez continuer de l’utiliser. Si vous décidez de passer du modèle DTU au modèle vCore, vous devez sélectionner la taille de calcul en suivant la règle de base suivante : chaque groupe de 100 DTU du niveau Standard nécessite au moins 1 vCore dans le niveau Usage général, et chaque groupe de 125 DTU du niveau Premium nécessite au moins 1 vCore Critique pour l’entreprise.
 

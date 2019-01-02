@@ -1,19 +1,19 @@
 ---
-title: Configuration de l’acheminement (homologation) d’un circuit ExpressRoute - Resource Manager, PowerShell et Azure | Microsoft Docs
+title: 'Configuration de l’homologation pour un circuit - ExpressRoute : PowerShell : Azure | Microsoft Docs'
 description: Cet article vous guide tout au long des étapes de création et d’approvisionnement de l’homologation privée, publique et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des homologations pour votre circuit.
-documentationcenter: na
 services: expressroute
 author: jaredr80
 ms.service: expressroute
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: jaredro
-ms.openlocfilehash: 63c88838d943be028aa655863b96b68f6b5b1321
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: b8e9aadc63af563c47d42ed52445afbc270d98ec
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261755"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141539"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Créer et modifier l’homologation d’un circuit ExpressRoute à l’aide de PowerShell
 
@@ -113,10 +113,10 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   * Un sous-réseau /30 ou /126 pour le lien secondaire. Il doit s’agir d’un préfixe IPv4 ou IPv6 public valide vous appartenant et enregistré dans un registre RIR / IRR.
   * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
   * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
-  * Préfixes publiés : vous devez fournir une liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Si vous prévoyez d’envoyer un jeu de préfixes, vous pouvez envoyer une liste séparée par des virgules. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR. Les sessions IPv4 BGP nécessitent des préfixes publiés IPv4 et les sessions IPv6 BGP nécessitent des préfixes publiés IPv6. 
-  * Nom du registre de routage : vous pouvez spécifier les registres RIR/IRR par rapport auxquels le numéro AS et les préfixes sont enregistrés.
+  * Préfixes publiés : vous devez fournir une liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Si vous prévoyez d’envoyer un jeu de préfixes, vous pouvez envoyer une liste séparée par des virgules. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR. Les sessions IPv4 BGP nécessitent des préfixes publiés IPv4 et les sessions IPv6 BGP nécessitent des préfixes publiés IPv6. 
+  * Nom du registre de routage : vous pouvez spécifier les registres RIR/IRR par rapport auquel le numéro AS et les préfixes sont enregistrés.
   * Facultatif :
-    * ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés.
+    * ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés.
     * Un hachage MD5 si vous choisissez d’en utiliser un.
 
   Utilisez l’exemple suivant afin de configurer l’homologation Microsoft pour votre circuit :

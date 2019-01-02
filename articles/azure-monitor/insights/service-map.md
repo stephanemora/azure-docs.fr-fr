@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c25bc5d577096078694e3af0de74debe0f906251
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827262"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186495"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, les processus, la latence des connexions entrantes et sortantes, ainsi que les ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
@@ -38,13 +37,13 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 2. Dans la barre de recherche, tapez **Service Map** et appuyez sur **Entrée**.
 3. Dans la page des résultats de la recherche dans la Place de marché, sélectionnez **Service Map** dans la liste.<br><br> ![Sélectionner la solution Service Map dans les résultats de la recherche de la Place de marché Azure](./media/service-map/marketplace-search-results.png)<br>
 4. Dans le volet de présentation de **Service Map**, passez en revue les détails de la solution, puis cliquez sur **Créer** pour commencer le processus d’intégration à votre espace de travail Log Analytics.<br><br> ![Intégrez la solution Service Map](./media/service-map/service-map-onboard.png).
-5. Dans le volet **Configurer une solution**, sélectionnez un espace de travail Log Analytics existant ou créez-en un.  Pour plus d’informations sur la façon de créer un espace de travail, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../log-analytics/log-analytics-quick-create-workspace.md). Entrez les informations requises, puis cliquez sur **Créer**.  
+5. Dans le volet **Configurer une solution**, sélectionnez un espace de travail Log Analytics existant ou créez-en un.  Pour plus d’informations sur la façon de créer un espace de travail, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/learn/quick-create-workspace.md). Entrez les informations requises, puis cliquez sur **Créer**.  
 
 Pendant que les informations sont vérifiées et la solution déployée, vous pouvez suivre la progression sous **Notifications** dans le menu. 
 
 Accédez à Service Map dans le portail Azure à partir de votre espace de travail Log Analytics, puis sélectionnez l’option **Solutions** dans le volet gauche.<br><br> ![Sélectionnez l’option Solutions dans l’espace de travail](./media/service-map/select-solution-from-workspace.png).<br> Dans la liste des solutions, sélectionnez **ServiceMap(workspaceName)** et dans la page de présentation de la solution Service Map, cliquez sur la vignette de résumé Service Map.<br><br> ![Vignette de résumé Service Map](./media/service-map/service-map-summary-tile.png).
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Cas d’utilisation : Intégrer la dépendance dans les processus informatiques
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Cas d’utilisation : Intégrer la dépendance dans vos processus informatiques
 
 ### <a name="discovery"></a>Découverte
 Service Map crée automatiquement une carte de référence commune des dépendances entre vos serveurs, les processus et les services tiers. La solution découvre et mappe toutes les dépendances TCP, en identifiant les connexions inattendues, les systèmes tiers distants dont vous dépendez et les dépendances envers les zones sombres traditionnelles de votre réseau comme Active Directory. Service Map détecte les échecs de connexion réseau que vos systèmes gérés tentent d’établir, vous aidant ainsi à identifier d’éventuels problèmes de réseau, interruptions de service et autres configurations de serveur inappropriées.
@@ -277,7 +276,7 @@ Le volet **Mises à jour de la machine** affiche les données de la solution Upd
 ![Volet Change Tracking d’une machine](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
-Les données d’inventaire des ordinateurs et processus de la solution Carte de service sont disponibles pour effectuer une [recherche](../../log-analytics/log-analytics-queries.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
+Les données d’inventaire des ordinateurs et processus de la solution Carte de service sont disponibles pour effectuer une [recherche](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 Un enregistrement par heure est généré pour chaque processus et ordinateur, en plus des enregistrements générés quand un processus ou ordinateur démarre ou est intégré à la solution Service Map. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
 
@@ -286,8 +285,8 @@ Un enregistrement par heure est généré pour chaque processus et ordinateur, e
 
 Il existe des propriétés générées en interne que vous pouvez utiliser pour identifier les ordinateurs et processus uniques :
 
-- Ordinateur : utilisez *ResourceId* ou *ResourceName_s* pour identifier de façon unique un ordinateur au sein d’un espace de travail Log Analytics.
-- Processus : utilisez *ResourceId* pour identifier de façon unique un processus au sein d’un espace de travail Log Analytics. *ResourceName_s* est unique dans le contexte de l’ordinateur sur lequel le processus est en cours d’exécution (MachineResourceName_s). 
+- Ordinateur : Utilisez *ResourceId* ou *ResourceName_s* pour identifier de façon unique un ordinateur au sein d’un espace de travail Log Analytics.
+- Processus : Utilisez *ResourceId* pour identifier de façon unique un processus au sein d’un espace de travail Log Analytics. *ResourceName_s* est unique dans le contexte de l’ordinateur sur lequel le processus est en cours d’exécution (MachineResourceName_s). 
 
 Étant donné que plusieurs enregistrements peuvent exister pour un processus et un ordinateur donnés au cours d’une période spécifique, les requêtes peuvent renvoyer plusieurs enregistrements pour un même ordinateur ou processus. Pour inclure uniquement l’enregistrement le plus récent, ajoutez "| dedup ResourceId" à la requête.
 
@@ -504,7 +503,7 @@ Pour plus d’informations sur l’utilisation et la collecte de données, voir 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur les [recherches dans les journaux](../../log-analytics/log-analytics-queries.md) dans Log Analytics pour récupérer les données collectées par la solution Carte de service.
+En savoir plus sur les [recherches dans les journaux](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics pour récupérer les données collectées par la solution Carte de service.
 
 
 ## <a name="troubleshooting"></a>Résolution de problèmes

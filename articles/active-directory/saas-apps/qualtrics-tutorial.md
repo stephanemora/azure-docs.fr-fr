@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Qualtrics | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Qualtrics | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Qualtrics.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 27f972ce789ae5bccf173138fe93de33de0d3932
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b7dedef2075ea9877a55a52a3f9a392f79c52300
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446456"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016757"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Didacticiel : Intégration d’Azure Active Directory avec Qualtrics
+# <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Tutoriel : Intégration d’Azure Active Directory à Qualtrics
 
 Ce didacticiel explique comment intégrer Qualtrics avec Azure Active Directory (Azure AD).
 
@@ -113,6 +113,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.qualtrics.com`
 
     b. Dans la zone de texte **Identificateur**, entrez une URL au format suivant :
+    
     | |
     |--|
     | `https://<companyname>.qualtrics.com/WRSAML/simplesaml/www/module.php/saml/sp/metadata.php/default-sp`|
@@ -132,7 +133,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 1. Pour configurer l’authentification unique côté **Qualtrics**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de Qualtrics](https://www.qualtrics.com/support/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD

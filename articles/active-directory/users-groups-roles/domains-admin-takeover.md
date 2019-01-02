@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250731"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837169"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 Cet article décrit deux façons de prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré dans Azure Active Directory. Quand un utilisateur en libre-service s’inscrit à un service cloud qui utilise Azure AD, il est ajouté à un annuaire Azure AD non géré en fonction de son domaine de messagerie. Pour plus d’informations sur l’inscription en libre-service ou « virale » pour un service, consultez [Présentation de l’inscription en libre-service pour Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
@@ -108,7 +108,11 @@ Pour [RMS pour les particuliers](/azure/information-protection/rms-for-individua
 
 La clé et les modèles ne sont pas déplacés lorsque le client non géré se trouve dans une région différente. Par exemple, le client non géré est en Europe et le client que vous détenez se trouve en Amérique du Nord. 
 
-Bien que RMS pour les particuliers soit conçu pour prendre en charge l’authentification Azure AD sur le contenu protégé ouvert, cette solution n’empêche pas les utilisateurs de protéger également le contenu. Si les utilisateurs protègent le contenu avec l’abonnement RMS pour les particuliers et que la clé et les modèles n’ont pas été déplacés, le contenu ne sera plus accessible une fois le domaine pris en charge.    
+Bien que RMS pour les particuliers soit conçu pour prendre en charge l’authentification Azure AD sur le contenu protégé ouvert, cette solution n’empêche pas les utilisateurs de protéger également le contenu. Si les utilisateurs protègent le contenu avec l’abonnement RMS pour les particuliers et que la clé et les modèles n’ont pas été déplacés, le contenu ne sera plus accessible une fois le domaine pris en charge.
+
+#### <a name="more-information-about-power-bi"></a>Informations supplémentaires sur Power BI
+
+Quand vous effectuez une prise de contrôle externe, le contenu Power BI créé avant la prise de contrôle est placé dans un [espace de travail Power BI archivé](/power-bi/service-admin-power-bi-archived-workspace). Vous devez migrer manuellement tout contenu que vous souhaitez utiliser dans le nouveau locataire.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Applets de commande Azure AD PowerShell pour l’option ForceTakeover
 Vous pouvez voir ces applets de commande utilisées dans un [exemple PowerShell](#powershell-example).

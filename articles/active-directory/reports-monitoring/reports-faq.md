@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cbf0895274672c053158cf07acb344908b37831
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 98a1dd3fb3fd733cc17ac9c6ccf9d0dfc77737e1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623466"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868019"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Forum aux questions (FAQ) sur les rapports Azure Active Directory
 
@@ -28,39 +28,39 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 ## <a name="getting-started"></a>Prise en main 
 
-**Q : J’utilise les API de point de terminaison https://graph.windows.net/&lt;nom-locataire&gt;/reports/ pour tirer (pull) par programmation les rapports d’audit Azure AD et les rapports d’utilisation des applications intégrées dans nos systèmes de création de rapports. Que dois-je utiliser à présent ?**
+**Q : J’utilise les API de point de terminaison https://graph.windows.net/&lt;nom-locataire&gt;/reports/ pour tirer (pull) programmatiquement les rapports d’audit Azure AD et les rapports d’utilisation des applications intégrées dans nos systèmes de création de rapports. Que dois-je utiliser à présent ?**
 
-**R :** Consultez la [référence sur les API](https://developer.microsoft.com/graph/) pour savoir comment utiliser les API dans le but d’accéder aux [rapports d’activité](concept-reporting-api.md). Ce point de terminaison comporte deux rapports (un d’**audit** et un autre sur les **connexions**) qui fournissent toutes les données dont vous disposiez dans l’ancien point de terminaison d’API. Ce nouveau point de terminaison comporte également un rapport sur les connexions, relatif à la licence Azure AD Premium, que vous pouvez utiliser pour obtenir des informations sur l’utilisation des applications, l’utilisation des appareils et les connexions utilisateur.
+**R :** Consultez les [Informations de référence sur les API](https://developer.microsoft.com/graph/) pour savoir comment [utiliser les API dans le but d’accéder aux rapports d’activité](concept-reporting-api.md). Ce point de terminaison comporte deux rapports (un d’**audit** et un autre sur les **connexions**) qui fournissent toutes les données dont vous disposiez dans l’ancien point de terminaison d’API. Ce nouveau point de terminaison comporte également un rapport sur les connexions, relatif à la licence Azure AD Premium, que vous pouvez utiliser pour obtenir des informations sur l’utilisation des applications, l’utilisation des appareils et les connexions utilisateur.
 
 --- 
 
-**Q : J’utilise les API de point de terminaison https://graph.windows.net/&lt;nom-locataire&gt;/reports/ pour tirer (pull) par programmation les rapports de sécurité Azure AD (concernant certains types de détections, telles que les fuites d’informations d’identification ou les connexions à partir d’adresses IP anonymes) dans notre système de création de rapports. Que dois-je utiliser à présent ?**
+**Q : J’utilise les API de point de terminaison https://graph.windows.net/&lt;nom-locataire&gt;/reports/ pour tirer (pull) programmatiquement les rapports de sécurité Azure AD (concernant certains types de détections, telles que les fuites d’informations d’identification ou les connexions à partir d’adresses IP anonymes) dans notre système de création de rapports. Que dois-je utiliser à présent ?**
 
-**R :** Vous pouvez utiliser  [l’API Identity Protection relative aux événements à risque](../identity-protection/graph-get-started.md)  pour accéder aux détections de sécurité via Microsoft Graph. Ce nouveau format offre davantage de flexibilité dans la façon dont vous pouvez interroger les données, c’est-à-dire avec un filtrage avancé, une sélection des champs, etc. De plus, il rassemble les événements à risque sous un même type pour faciliter l’intégration aux serveurs SIEM et autres outils de collecte de données. Étant donné que les données ont différents formats, vous ne pouvez pas remplacer vos anciennes requêtes par une nouvelle requête. Toutefois, [la nouvelle API utilise Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), qui est désormais la plateforme standard de Microsoft pour les API telles qu’Office 365 et Azure AD. Le travail nécessaire peut donc développer vos investissements MS Graph actuels ou vous aider à démarrer la transition vers cette nouvelle plateforme standard.
+**R :** Vous pouvez utiliser  [l’API Identity Protection relative aux événements à risque](../identity-protection/graph-get-started.md)  pour accéder aux détections de sécurité par le biais de Microsoft Graph. Ce nouveau format offre davantage de flexibilité dans la façon dont vous pouvez interroger les données, c’est-à-dire avec un filtrage avancé, une sélection des champs, etc. De plus, il rassemble les événements à risque sous un même type pour faciliter l’intégration aux serveurs SIEM et autres outils de collecte de données. Étant donné que les données ont différents formats, vous ne pouvez pas remplacer vos anciennes requêtes par une nouvelle requête. Toutefois, [la nouvelle API utilise Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), qui est désormais la plateforme standard de Microsoft pour les API telles qu’Office 365 et Azure AD. Le travail nécessaire peut donc développer vos investissements MS Graph actuels ou vous aider à démarrer la transition vers cette nouvelle plateforme standard.
 
 --- 
 
 **Q : Comment obtenir une licence Premium ?**
 
-**R :** Consultez la rubrique [Prise en main d’Azure Active Directory Premium (AD)](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory.
+**R :** Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory.
 
 ---
 
-**Q : Au bout de combien de temps peut-on consulter les données d’activité après avoir obtenu une licence Premium ?**
+**Q : Au bout de combien de temps puis-je consulter les données d’activité après avoir obtenu une licence Premium ?**
 
-**R :** Si vous avez déjà des données d’activité sous une licence gratuite, vous pouvez les voir immédiatement. Si vous n’avez pas de données, l’affichage des données dans les rapports prendra un ou deux jours.
+**R :** Si vous avez déjà des données d’activité sous une licence gratuite, vous pouvez les voir immédiatement. Si vous n’avez pas de données, l’affichage des données dans les rapports prendra un ou deux jours.
 
 ---
 
-**Q : Peut-on voir les données du mois dernier après avoir obtenu une licence Azure AD Premium ?**
+**Q : Puis-je voir les données du mois dernier après avoir obtenu une licence Azure AD Premium ?**
 
-**R :** Si vous êtes récemment passé à une version Premium (y compris une version d’évaluation), vous pouvez voir les données jusqu’à 7 jours dans un premier temps. Lorsque les données s’accumulent, vous pouvez voir les données au cours des 30 derniers jours.
+**R :** Si vous êtes récemment passé à une version Premium (y compris une version d’essai), vous pouvez voir les données jusqu’à 7 jours dans un premier temps. Lorsque les données s’accumulent, vous pouvez voir les données au cours des 30 derniers jours.
 
 ---
 
 **Q : Faut-il être administrateur général pour voir les activités de connexion sur le portail Azure ou pour obtenir des données par le biais de l’API ?**
 
-**R :** non, vous pouvez également accéder aux données des rapports via le portail ou via l’API si vous êtes un **Lecteur Sécurité** ou un **Administrateur de sécurité** pour le locataire. Bien sûr, les **administrateurs généraux** ont également accès à ces données.
+**R :** Non, vous pouvez également accéder aux données des rapports via le portail ou via l’API si vous êtes un **Lecteur Sécurité** ou un **Administrateur de sécurité** pour le locataire. Bien sûr, les **administrateurs généraux** ont également accès à ces données.
 
 ---
 
@@ -68,9 +68,9 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 ## <a name="activity-logs"></a>Journaux d’activité
 
 
-**Q : Quelle est la rétention des données des journaux d’activité (audit et connexions) sur le Portail Azure ?** 
+**Q : Quelle est la conservation des données pour les journaux d’activité (audit et connexions) dans le portail Azure ?** 
 
-**R :** le tableau suivant répertorie la période de rétention de données pour les journaux d’activité. Pour en savoir plus, consultez [Stratégies de rétention de données des rapports Azure AD](reference-reports-data-retention.md).
+**R :** Le tableau suivant liste les périodes de conservation des données pour les journaux d’activité. Pour en savoir plus, consultez [Stratégies de rétention de données des rapports Azure AD](reference-reports-data-retention.md).
 
 | Rapport                 | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
@@ -80,27 +80,27 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 --- 
 
-**Q : Au bout de combien de temps peut-on voir les données d’activité une fois la tâche terminée ?**
+**Q : Au bout de combien de temps puis-je voir les données d’activité une fois la tâche terminée ?**
 
 **R :** La latence des journaux d’audit est comprise entre 15 minutes et 1 heure. Pour certains enregistrements, la mise à jour des journaux d’activité de connexion peut prendre de 15 minutes à 2 heures.
 
 ---
 
-**Q : Peut-on obtenir des informations du journal d’activité d’Office 365 avec le Portail Azure ?**
+**Q : Puis-je obtenir des informations du journal d’activité d’Office 365 avec le Portail Azure ?**
 
-**R :** Bien que les journaux d’activité d’Office 365 et d’Azure AD partagent une grande partie des ressources de l’annuaire, vous devez accéder au Centre d’administration Office 365 pour obtenir une vue complète des journaux d’activité d’Office 365.
-
----
-
-**Q : Quelles API faut-il utiliser pour obtenir des informations sur les journaux d’activité d’Office 365 ?**
-
-**R :** Utilisez les [API Gestion d’Office 365](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview) pour accéder aux journaux d’activité d’Office 365 avec une API.
+**R :** Bien que les journaux d’activité d’Office 365 et d’Azure AD partagent une grande partie des ressources du répertoire, vous devez accéder au Centre d’administration Office 365 pour obtenir une vue complète des journaux d’activité d’Office 365.
 
 ---
 
-**Q : Combien d’enregistrements peut-on télécharger à partir du Portail Azure ?**
+**Q : Quelles API faut-il utiliser pour obtenir des informations sur les journaux d’activité d’Office 365 ?**
 
-**R :** Vous pouvez télécharger jusqu’à 5 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par *date* et, par défaut, vous obtenez les 5 000 enregistrements les plus récents.
+**R :** Utilisez les [API Gestion d’Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) pour accéder aux journaux d’activité d’Office 365 avec une API.
+
+---
+
+**Q : Combien d’enregistrements puis-je télécharger à partir du portail Azure ?**
+
+**R :** Vous pouvez télécharger jusqu’à 5 000 enregistrements à partir du portail Azure. Les enregistrements sont triés par *date* et, par défaut, vous obtenez les 5 000 enregistrements les plus récents.
 
 ---
 
@@ -112,56 +112,56 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 ---
 
-**Q : Comment puis-je savoir pourquoi une connexion ou un utilisateur ont été signalés comme étant « à risque » dans le portail Azure ?**
+**Q : Comment faire pour savoir pourquoi une connexion ou un utilisateur ont été signalés comme étant « à risque » dans le portail Azure ?**
 
-**R :** si vous avez un abonnement **Azure AD Premium**, vous pouvez en savoir plus sur les événements à risque sous-jacent en sélectionnant l’utilisateur dans **Utilisateurs associés à un indicateur de risque** ou en sélectionnant un enregistrement dans le rapport  **Connexions risquées**. Si vous avez un abonnement **Gratuit** ou **De base**, vous pouvez afficher les utilisateurs à risque et les rapports de connexions risquées, mais vous pouvez pas consulter les événements à risque sous-jacents.
-
----
-
-**Q : Comment les adresses IP sont-elles calculées dans le rapport des connexions et des connexions à risque ?**
-
-**R :** les adresses IP sont émises de manière à ce qu’il n’existe aucune connexion définitive entre une adresse IP et l’endroit où se trouve physiquement l’ordinateur avec cette adresse. Le mappage des adresses IP est compliqué par des facteurs tels que les fournisseurs mobiles et les VPN qui émettent des adresses IP à partir de pools centraux souvent très éloignés de l’endroit où l’appareil client est réellement utilisé. Pour le moment, la conversion de l’adresse IP en un emplacement physique constitue la meilleure solution pour les suivis, les données de registre, les recherches inversées et d’autres informations dans les rapports Azure AD. 
+**R :** Si vous avez un abonnement **Azure AD Premium**, vous pouvez en savoir plus sur les événements à risque sous-jacent en sélectionnant l’utilisateur dans **Utilisateurs associés à un indicateur de risque** ou en sélectionnant un enregistrement dans le rapport **Connexions risquées**. Si vous avez un abonnement **Gratuit** ou **De base**, vous pouvez afficher les utilisateurs à risque et les rapports de connexions risquées, mais vous pouvez pas consulter les événements à risque sous-jacents.
 
 ---
 
-**Q : Que signifie l’événement à risque « Connexion avec un risque supplémentaire détectée » ?**
+**Q : Comment les adresses IP sont-elles calculées dans le rapport des connexions et des connexions à risque ?**
 
-**R :** Pour vous donner une idée de toutes les connexions à risque dans votre environnement, « Connexion avec un risque supplémentaire détectée » fonctionne comme un conteneur de connexions pour les détections propres aux abonnés d’Azure Active Directory Identity Protection.
+**R :** Les adresses IP sont émises de manière à ce qu’il n’existe aucune connexion définitive entre une adresse IP et l’endroit où se trouve physiquement l’ordinateur avec cette adresse. Le mappage des adresses IP est compliqué par des facteurs tels que les fournisseurs mobiles et les VPN qui émettent des adresses IP à partir de pools centraux souvent très éloignés de l’endroit où l’appareil client est réellement utilisé. Pour le moment, la conversion de l’adresse IP en un emplacement physique constitue la meilleure solution pour les suivis, les données de registre, les recherches inversées et d’autres informations dans les rapports Azure AD. 
+
+---
+
+**Q : Que signifie l’événement à risque « Connexion avec un risque supplémentaire détectée » ?**
+
+**R :** Pour vous donner une idée de toutes les connexions à risque dans votre environnement, « Connexion avec un risque supplémentaire détectée » fonctionne comme un conteneur de connexions pour les détections propres aux abonnés d’Azure AD Identity Protection.
 
 ---
 
 ## <a name="conditional-access"></a>Accès conditionnel
 
-**Q : Quelles sont les nouveautés apportées par cette fonctionnalité ?**
+**Q : Quelles sont les nouveautés apportées par cette fonctionnalité ?**
 
-**R :** Les clients peuvent maintenant résoudre les problèmes de stratégies d’accès conditionnel grâce à tous les rapports de connexion. Les clients peuvent examiner l’état de l’accès conditionnel et consulter en détail les stratégies applicables à la connexion, ainsi que les résultats de chaque stratégie.
+**R :** Les clients peuvent maintenant résoudre les problèmes de stratégies d’accès conditionnel grâce à tous les rapports de connexion. Les clients peuvent examiner l’état de l’accès conditionnel et consulter en détail les stratégies applicables à la connexion, ainsi que les résultats de chaque stratégie.
 
-**Q : Comment faire pour démarrer ?**
+**Q : Comment faire pour démarrer ?**
 
 **R :** Pour commencer :
     * Accédez au rapport de connexion dans le [portail Azure](https://portal.azure.com). 
     * Cliquez sur la connexion que vous souhaitez dépanner.
     * Accédez à l’onglet **Accès conditionnel**. Cet onglet permet de consulter toutes les stratégies ayant eu une incidence sur des connexions, ainsi que le résultat de chaque stratégie. 
     
-**Q : Quelles sont toutes les valeurs pouvant être prises par l’état de l’accès conditionnel ?**
+**Q : Quelles sont toutes les valeurs acceptées par l’état de l’accès conditionnel ?**
 
-**R :** L’état de l’accès conditionnel peut prendre les valeurs suivantes :
-    * **Non applicable** : Aucune stratégie d’accès conditionnel ne s’appliquait à l’utilisateur et à l’application. 
-    * **Réussite** : Une stratégie d’accès conditionnel s’appliquait à l’utilisateur et à l’application, et les stratégies d’accès conditionnel ont été respectées. 
-    * **Échec** : Une stratégie d’accès conditionnel s’appliquait à l’utilisateur et à l’application, et les stratégies d’accès conditionnel n’ont pas été respectées. 
+**R :** L’état de l’accès conditionnel peut prendre les valeurs suivantes :
+    * **Non applicable** : Aucune stratégie d’accès conditionnel ne s’appliquait à l’utilisateur et à l’application. 
+    * **Réussite** : Une stratégie d’accès conditionnel s’appliquait à l’utilisateur et à l’application, et les stratégies d’accès conditionnel ont été respectées. 
+    * **Échec** : Une stratégie d’accès conditionnel s’appliquait à l’utilisateur et à l’application, et les stratégies d’accès conditionnel n’ont pas été respectées. 
     
-**Q : Quelles sont toutes les valeurs pouvant être prises par les résultats de la stratégie d’accès conditionnel ?**
+**Q : Quelles sont toutes les valeurs acceptées par les résultats de la stratégie d’accès conditionnel ?**
 
-**R :** Une stratégie d’accès conditionnel peut aboutir aux résultats suivants :
-    * **Réussite** : La stratégie a été respectée.
-    * **Échec** : La stratégie n’a pas été respectée.
-    * **Non applicable** : Ce résultat peut découler du non-respect des conditions de la stratégie.
-    * **Inactive** : La stratégie se trouve dans un état désactivé. 
+**R :** Une stratégie d’accès conditionnel peut aboutir aux résultats suivants :
+    * **Réussite** : La stratégie a été respectée.
+    * **Échec** : La stratégie n’a pas été respectée.
+    * **Non applicable** : Ce résultat peut découler du non-respect des conditions de la stratégie.
+    * **Inactive** : La stratégie se trouve dans un état désactivé. 
     
 **Q : Le nom de la stratégie dans le rapport de connexion ne correspond pas tout le temps au nom de la stratégie d’accès conditionnel. Pourquoi ?**
 
-**R :** Dans tout le rapport de connexion, le nom de la stratégie correspond au nom qu’elle avait au moment de la connexion. Il peut différer si vous l’avez mis à jour ultérieurement, c’est-à-dire après la connexion.
+**R :** Dans tout le rapport de connexion, le nom de la stratégie correspond au nom qu’elle avait au moment de la connexion. Il peut différer si vous l’avez mis à jour ultérieurement, c’est-à-dire après la connexion.
 
-**Q : Mon authentification a été bloquée en raison d’une stratégie d’accès conditionnel, mais le rapport d’activité de connexion indique que la connexion a été établie. Pourquoi ?**
+**Q : Mon authentification a été bloquée en raison d’une stratégie d’accès conditionnel, mais le rapport d’activité de connexion indique que la connexion a été établie. Pourquoi ?**
 
 **R :** Actuellement, le rapport de connexion est susceptible de ne pas afficher de résultats précis pour les scénarios Exchange ActiveSync lors de l’application d’un accès conditionnel. Cela peut arriver lorsque le résultat de connexion dans le rapport montre l’établissement d’une connexion, alors que la connexion a en réalité échoué à cause d’une stratégie d’accès conditionnel. 

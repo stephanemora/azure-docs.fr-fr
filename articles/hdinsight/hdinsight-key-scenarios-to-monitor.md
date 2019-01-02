@@ -7,24 +7,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.author: maxluk
-ms.openlocfilehash: 434b3ecf65aaa5ecea81f5a9773f1bc6e8f6f2be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: arindamc
+ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092325"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383933"
 ---
 # <a name="monitor-cluster-performance"></a>Surveiller les performances du cluster
 
-La surveillance de l’intégrité et des performances d’un cluster HDInsight est essentielle à l’optimisation continue des performances et de l’utilisation des ressources. Cette surveillance peut également vous aider à corriger les éventuelles erreurs de codage ou de configuration du cluster.
+La surveillance de l’intégrité et des performances d’un cluster HDInsight est essentielle à l’optimisation continue des performances et de l’utilisation des ressources. La surveillance peut également vous aider à détecter et résoudre les erreurs de configuration du cluster ainsi que les problèmes de code utilisateur.
 
-Les sections ci-après vous indiquent comment optimiser la charge du cluster, l’efficacité des files d’attente YARN et l’accessibilité du stockage.
+Les sections suivantes expliquent comment surveiller et optimiser la charge de vos clusters et les files d'attente Apache Hadoop YARN, et détecter les problèmes de limitation de stockage.
 
-## <a name="cluster-loading"></a>Charge du cluster
+## <a name="monitor-cluster-load"></a>Surveiller la charge du cluster
 
-Les clusters Hadoop doivent équilibrer la charge entre les différents nœuds du cluster. Cet équilibrage permet d’éviter que les tâches de traitement soient limitées par les ressources de RAM, de processeur ou de disque.
+Les clusters Hadoop peuvent offrir des performances optimales lorsque la charge est répartie de manière uniforme sur tous les nœuds. Cela permet aux tâches de traitement de s'exécuter sans être gênées par la RAM, l'UC ou les ressources disque sur les nœuds individuels.
 
 Pour obtenir une vue d’ensemble des nœuds de votre cluster et de leur charge, connectez-vous à [l’interface utilisateur web Ambari](hdinsight-hadoop-manage-ambari.md), puis sélectionnez l’onglet **Hosts** (Hôtes). Vos hôtes sont répertoriés par leur nom de domaine complet. L’état de fonctionnement de chaque hôte est spécifié par un indicateur d’intégrité en couleur :
 
@@ -43,15 +43,15 @@ Sélectionnez l’un des noms d’hôte pour obtenir une vue d’ensemble détai
 
 ![Détails d’un hôte](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-Pour plus d’informations sur la configuration d’alertes et sur la visualisation des métriques, consultez l’article [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md).
+Pour plus d’informations sur la configuration d’alertes et sur la visualisation des métriques, consultez l’article [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="yarn-queue-configuration"></a>Configuration des files d’attente YARN
 
-Hadoop exécute différents services sur sa plateforme distribuée. La plateforme YARN (Yet Another Resource Negotiator) coordonne ces services, alloue les ressources du cluster et gère l’accès à un jeu de données commun.
+Hadoop exécute différents services sur sa plateforme distribuée. YARN (Yet Another Resource Negotiator) coordonne ces services et alloue les ressources de cluster afin de veiller à ce que toute charge soit répartie de manière uniforme sur le cluster.
 
-YARN répartit les deux responsabilités du JobTracker, à savoir la gestion des ressources et la planification/surveillance des travaux, entre deux démons : un démon ResourceManager global, et un démon ApplicationMaster (AM) par application.
+YARN répartit les deux responsabilités du JobTracker, à savoir la gestion des ressources et la planification/surveillance des travaux, entre deux démons : un démon Resource Manager global, et un démon ApplicationMaster (AM) par application.
 
-Le démon ResourceManager est un *planificateur pur*, et arbitre uniquement la répartition des ressources disponibles entre toutes les applications en concurrence. Le ResourceManager garantit l’utilisation systématique de la totalité des ressources, optimisant ainsi différentes constantes telles que les Contrats de niveau de service (SLA), les garanties de capacité, et ainsi de suite. Le démon ApplicationMaster négocie les ressources auprès de ResourceManager et fonctionne avec les NodeManagers pour exécuter et surveiller les conteneurs et leur consommation des ressources.
+Le démon Resource Manager est un *pur planificateur* dont la seule fonction consiste à arbitrer la répartition des ressources disponibles entre toutes les applications concurrentes. Le démon Resource Manager garantit l’utilisation systématique de la totalité des ressources, optimisant ainsi différentes constantes telles que les Contrats de niveau de service (SLA), les garanties de capacité, et ainsi de suite. Le démon ApplicationMaster négocie les ressources auprès du démon Resource Manager et fonctionne avec les NodeManagers pour exécuter et surveiller les conteneurs et leur consommation des ressources.
 
 Lorsque plusieurs locataires partagent un cluster volumineux, ils entrent en concurrence pour les ressources du cluster. Le CapacityScheduler est un planificateur enfichable qui facilite le partage des ressources en plaçant les requêtes en file d’attente. Le CapacityScheduler prend également en charge les *files d’attente hiérarchiques* pour garantir le partage des ressources entre les files d’attente secondaires d’une organisation, avant que les files d’attente des autres applications soient autorisées à utiliser les ressources disponibles.
 
@@ -63,13 +63,13 @@ La page YARN Queue Manager (Gestionnaire de files d’attente YARN) répertorie 
 
 ![Page de détails du Gestionnaire de files d’attente](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Pour obtenir une vue d’ensemble plus détaillée de vos files d’attente, dans le tableau de bord Ambari, sélectionnez le service **YARN** (YARN) dans la liste de gauche. Ensuite, dans le menu déroulant **Quick Links** (Liens rapides), sélectionnez **ResourceManager UI** (Interface utilisateur ResourceManager) sous votre nœud actif.
+Pour obtenir une vue d’ensemble plus détaillée de vos files d’attente, dans le tableau de bord Ambari, sélectionnez le service **YARN** (YARN) dans la liste de gauche. Ensuite, dans le menu déroulant **Quick Links** (Liens rapides), sélectionnez **Resource Manager UI** (Interface utilisateur Resource Manager) sous votre nœud actif.
 
-![Lien du menu de l’interface utilisateur ResourceManager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Lien du menu de l’interface utilisateur Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-Dans l’interface utilisateur ResourceManager, sélectionnez **Scheduler** (Planificateur) dans le menu de gauche. La liste de vos files d’attente s’affiche sous *Application Queues* (Files d’attente d’application). Cette zone présente la capacité utilisée pour chacune de vos files d’attente, ainsi que l’efficacité de la répartition des travaux entre ces files d’attente, et indique si des travaux sont limités en ressources.
+Dans l’interface utilisateur Resource Manager, sélectionnez **Scheduler** (Planificateur) à partir du menu de gauche. La liste de vos files d’attente s’affiche sous *Application Queues* (Files d’attente d’application). Cette zone présente la capacité utilisée pour chacune de vos files d’attente, ainsi que l’efficacité de la répartition des travaux entre ces files d’attente, et indique si des travaux sont limités en ressources.
 
-![Lien du menu de l’interface utilisateur ResourceManager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Lien du menu de l’interface utilisateur Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Limitation du stockage
 
@@ -79,14 +79,14 @@ Si vous utilisez le service Stockage Azure et que vous souhaitez en savoir plus 
 
 Si le magasin de stockage de votre cluster est Azure Data Lake Store (ADLS), votre problème de limitation découle probablement des limites de bande passante. Dans ce cas, vous pouvez identifier la limitation en consultant les erreurs de limitation consignées dans les journaux des tâches. Pour ADLS, consultez la section sur la limitation relative au service approprié dans les articles suivants :
 
-* [Recommandations en matière d’optimisation des performances pour Hive sur HDInsight et Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Recommandations en matière d’optimisation des performances pour Apache Hive sur HDInsight et Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Recommandations en matière d’optimisation des performances pour MapReduce sur HDInsight et Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Recommandations en matière d’optimisation des performances pour Storm sur HDInsight et Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Recommandations en matière d’optimisation des performances pour Apache Storm sur HDInsight et Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la résolution des problèmes et la surveillance de vos clusters, cliquez sur les liens suivants :
 
 * [Analyse des journaux de HDInsight](hdinsight-debug-jobs.md)
-* [Déboguer des applications avec des journaux YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Déboguer des applications avec les journaux Apache Hadoop YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

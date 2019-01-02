@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987237"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963570"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -60,7 +60,7 @@ Comme expliqué dans la section [Fonctionnement de Traffic Manager](../traffic-m
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Puis-je utiliser Traffic Manager avec un nom de domaine « nu » ?
 
-Non. Les normes DNS n’autorisent pas la coexistence d’enregistrements CNAME avec d’autres enregistrements DNS du même nom. Le sommet (ou racine) d’une zone DNS contient toujours deux enregistrements DNS existants : la SOA et les enregistrements NS faisant autorité. Cela signifie qu’un enregistrement CNAME ne peut pas être créé au sommet de la zone sans violer les normes DNS.
+ Non. Les normes DNS n’autorisent pas la coexistence d’enregistrements CNAME avec d’autres enregistrements DNS du même nom. Le sommet (ou racine) d’une zone DNS contient toujours deux enregistrements DNS existants : la SOA et les enregistrements NS faisant autorité. Cela signifie qu’un enregistrement CNAME ne peut pas être créé au sommet de la zone sans violer les normes DNS.
 
 Traffic Manager nécessite un enregistrement CNAME DNS pour mapper le nom DNS personnel. Par exemple, vous mappez `www.contoso.com` au nom DNS du profil Traffic Manager `contoso.trafficmanager.net`. En outre, le profil Traffic Manager renvoie un deuxième CNAME DNS pour indiquer le point de terminaison auquel le client doit se connecter.
 
@@ -134,7 +134,7 @@ Oui, seules les versions de l’API 2017-03-01 et plus récentes prennent en cha
 ## <a name="traffic-manager-subnet-traffic-routing-method"></a>Méthode de routage du trafic en fonction du sous-réseau de Traffic Manager
 
 ### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Quels sont les cas d’utilisation dans lesquels le routage en fonction du sous-réseau est utile ?
-Le routage en fonction du sous-réseau permet de différencier l’expérience que vous offrez à des ensembles spécifiques d’utilisateurs identifiés par l’adresse IP source de l’adresse IP de leurs requêtes DNS. Par exemple, vous pouvez afficher un contenu différent si les utilisateurs se connectent à un site Web depuis votre siège social. Vous pouvez aussi limiter l’accès des utilisateurs de certains fournisseurs de services Internet aux seuls points de terminaison qui prennent uniquement en charge les connexions IPv4 si ces fournisseurs de services Internet offrent des performances moindres avec IPv6.
+Le routage en fonction du sous-réseau permet de différencier l’expérience que vous offrez à des ensembles spécifiques d’utilisateurs identifiés par l’adresse IP source de l’adresse IP de leurs requêtes DNS. Par exemple, vous pouvez afficher un contenu différent si les utilisateurs se connectent à un site web à partir de votre siège social. Vous pouvez aussi limiter l’accès des utilisateurs de certains fournisseurs de services Internet aux seuls points de terminaison qui prennent uniquement en charge les connexions IPv4 si ces fournisseurs de services Internet offrent des performances moindres avec IPv6.
 Il est possible d’utiliser la méthode de routage en fonction du sous-réseau conjointement à d’autres profils dans un ensemble de profils imbriqués. Par exemple, si vous souhaitez utiliser la méthode de routage géographique pour la délimitation géographique des utilisateurs, et que vous souhaitez appliquer une autre méthode de routage pour un fournisseur d’accès spécifique, vous pouvez avoir une profil avec la méthode de routage en fonction du sous-réseau comme profil parent et passer outre ce fournisseur de services Internet pour utiliser un profil enfant spécifique, et avoir le profil géographique standard pour tous les autres.
 
 ### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Comment Traffic Manager connaît-il l’adresse IP de l’utilisateur final ?
@@ -444,7 +444,7 @@ Pour plus d’informations, voir la [page de tarification de Traffic Manager](ht
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Y a-t-il un impact sur les performances en cas de profils imbriqués ?
 
-Non. Non, l’utilisation de profils imbriqués n’a aucune incidence sur les performances.
+ Non. Non, l’utilisation de profils imbriqués n’a aucune incidence sur les performances.
 
 Les serveurs de noms Traffic Manager parcourent la hiérarchie de profils en interne lors du traitement de chaque requête DNS. Une requête DNS adressée à un profil parent peut recevoir une réponse DNS avec un point de terminaison d’un profil enfant. Un seul enregistrement CNAME est utilisé, que vous utilisiez un profil unique ou des profils imbriqués. Il est inutile de créer un enregistrement CNAME pour chaque profil dans la hiérarchie.
 

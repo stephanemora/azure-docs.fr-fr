@@ -1,7 +1,7 @@
 ---
-title: Essayer le service Speech gratuitement
+title: Essayer les services Speech gratuitement
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment vous pouvez essayer gratuitement le service Speech.
+description: La prise en main du service Speech est simple et économique. Un essai gratuit de 30 jours vous permet de découvrir les fonctionnalités du service et de décider s’il est adapté aux besoins de votre application.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4e29f2e77ad2b4e993fbe6a39b90325a0738f538
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 69e2c094e1fca57d0dddc662cc1dae6453897c38
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471388"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079107"
 ---
 # <a name="try-the-speech-service-for-free"></a>Essayez le service Speech gratuitement
 
@@ -36,7 +37,7 @@ Pour vous inscrire pour un essai gratuit de 30 jours :
 1. Sélectionnez l’onglet **API Reconnaissance vocale**.
 
    ![Onglet Services vocaux](media/index/try-speech-api-free-trial1.png)
-   
+
 1. Sous **Services vocaux**, sélectionnez le bouton **Obtenir la clé API**.
 
    ![Clé API](media/index/try-speech-api-free-trial2.png)

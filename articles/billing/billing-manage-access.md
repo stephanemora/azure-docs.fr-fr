@@ -1,6 +1,6 @@
 ---
 title: Gérer l’accès à la facturation Azure | Microsoft Docs
-description: ''
+description: Découvrez comment donner accès à vos informations de facturation Azure aux membres de votre équipe.
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: a15d055505ca0f28ad28b477e90e6fe859cc9ac7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582613"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094285"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gérer l’accès aux informations de facturation pour Azure
 
@@ -72,9 +73,10 @@ La fonctionnalité Lecteur de facturation est en préversion et ne prend pas enc
 
 1. Sélectionnez **Contrôle d’accès (IAM)**.
 1. Sélectionnez **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cet abonnement.
-1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle**.
+1. Sélectionnez **Ajouter une attribution de rôle**.
 1. Dans la liste déroulante **Rôle**, choisissez **Lecteur de facturation**.
 1. Dans la zone de texte **Sélectionner**, tapez le nom ou l’e-mail de l’utilisateur que vous souhaitez ajouter.
+1. Sélectionnez l’utilisateur.
 1. Sélectionnez **Enregistrer**.
 1. Après quelques instants, le rôle Lecteur de facturation est attribué à l’utilisateur au niveau de l’abonnement.
 1. Le lecteur de facturation reçoit un e-mail contenant un lien pour se connecter.
@@ -102,6 +104,6 @@ L’administrateur de compte est le propriétaire légal de l’abonnement. Par 
 - Les utilisateurs d’autres rôles, tels que Propriétaire ou Collaborateur, peuvent non seulement accéder aux informations de facturation, mais également à des services Azure. Pour gérer ces rôles, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../role-based-access-control/role-assignments-portal.md).
 - Pour plus d’informations sur les rôles, consultez [Rôles intégrés pour les ressources Azure](../role-based-access-control/built-in-roles.md).
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

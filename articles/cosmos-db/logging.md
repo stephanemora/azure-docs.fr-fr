@@ -1,23 +1,20 @@
 ---
-title: Journalisation des diagnostics Azure Cosmos DB | Microsoft Docs
-description: Utilisez ce didacticiel pour vous familiariser avec la journalisation d’Azure Cosmos DB.
-services: cosmos-db
+title: Journalisation des diagnostics dans Azure Cosmos DB
+description: Découvrez les différentes façons de journaliser et de superviser les données stockées dans Azure Cosmos DB.
 author: SnehaGunda
-manager: kfile
-tags: azure-resource-manager
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.custom: seodec18
+ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423227"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438504"
 ---
-# <a name="azure-cosmos-db-diagnostic-logging"></a>Journalisation des diagnostics Azure Cosmos DB
+# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Journalisation des diagnostics dans Azure Cosmos DB 
 
 Après avoir commencé à utiliser une ou plusieurs bases de données Azure Cosmos DB, vous pouvez surveiller comment et quand vos bases de données font l’objet d’un accès. Cet article fournit une vue d’ensemble des journaux disponibles sur la plateforme Azure. Vous y apprendrez comment activer la journalisation des diagnostics à des fins de surveillance pour envoyer les journaux à [Azure Storage](https://azure.microsoft.com/services/storage/), comment diffuser des journaux sur [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)et comment exporter des journaux vers [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/).
 
@@ -80,12 +77,12 @@ Pour activer la journalisation des diagnostics dans le portail Azure, effectuez 
 
     * **Nom** : entrez un nom pour les journaux à créer.
 
-    * **Archive vers un compte de stockage**: pour utiliser cette option, vous avez besoin d’un compte de stockage existant auquel vous connecter. Pour créer un compte de stockage dans le portail, consultez [Créer un compte de stockage](../storage/common/storage-create-storage-account.md) et suivez les instructions pour créer un compte Azure Resource Manager à usage général. Revenez ensuite à cette page dans le portail pour sélectionner votre compte de stockage. L’affichage des comptes de stockage nouvellement créés dans le menu déroulant peut prendre quelques minutes.
-    * **Diffuser vers Event Hub** : pour utiliser cette option, vous avez besoin d’un espace de noms Event Hubs existant et d’un Event Hub auquel vous connecter. Pour créer un espace de noms Event Hubs, consultez [Créer un espace de noms Event Hubs et un Event Hub à l’aide du portail Azure](../event-hubs/event-hubs-create.md). Revenez ensuite à cette page dans le portail pour sélectionner l’espace de noms Event Hubs et le nom de la stratégie.
-    * **Envoyer à Log Analytics** : pour utiliser cette option, utilisez un espace de travail existant ou créez un espace de travail Log Analytics en suivant les étapes permettant de [créer un espace de travail](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) dans le portail. Pour plus d’informations sur l’affichage de vos journaux dans Log Analytics, consultez la section [Afficher les journaux dans Log Analytics](#view-in-loganalytics).
-    * **Journaliser DataPlaneRequests** : sélectionnez cette option pour enregistrer les requêtes de serveur principal de la plateforme distribuée Azure Cosmos DB sous-jacente pour les comptes SQL, Graph, MongoDB, Cassandra et d’API de table. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
-    * **Log MongoRequests** (Journal MongoRequests) : sélectionnez cette option pour enregistrer les requêtes initiées par l’utilisateur à partir du serveur frontal Azure Cosmos DB afin de servir des comptes d’API MongoDB. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
-    * **Metric Requests** (Demandes de métriques) : sélectionnez cette option pour stocker des données détaillées dans les [métriques Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
+    * **Archiver dans un compte de stockage** : pour utiliser cette option, vous avez besoin d’un compte de stockage existant auquel vous connecter. Pour créer un compte de stockage dans le portail, consultez [Créer un compte de stockage](../storage/common/storage-create-storage-account.md) et suivez les instructions pour créer un compte Azure Resource Manager à usage général. Revenez ensuite à cette page dans le portail pour sélectionner votre compte de stockage. L’affichage des comptes de stockage nouvellement créés dans le menu déroulant peut prendre quelques minutes.
+    * **Diffuser vers un hub d’événements** : pour utiliser cette option, vous avez besoin d’un espace de noms Event Hubs existant et d’un hub d’événements auquel vous connecter. Pour créer un espace de noms Event Hubs, consultez [Créer un espace de noms Event Hubs et un Event Hub à l’aide du portail Azure](../event-hubs/event-hubs-create.md). Revenez ensuite à cette page dans le portail pour sélectionner l’espace de noms Event Hubs et le nom de la stratégie.
+    * **Envoyer à Log Analytics** : pour utiliser cette option, utilisez un espace de travail existant ou créez un espace de travail Log Analytics en suivant les étapes permettant de [Créer un espace de travail dans le portail](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace). Pour plus d’informations sur l’affichage de vos journaux dans Log Analytics, consultez la section [Afficher les journaux dans Log Analytics](#view-in-loganalytics).
+    * **Journaliser DataPlaneRequests** : sélectionnez cette option pour enregistrer les requêtes de back-end depuis la plateforme distribuée Azure Cosmos DB sous-jacente pour les comptes d’API SQL, Graph, MongoDB, Cassandra et Table. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
+    * **Journaliser MongoRequests** : sélectionnez cette option pour enregistrer les requêtes initiées par l’utilisateur depuis le serveur front-end Azure Cosmos DB pour servir les comptes d’API MongoDB. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
+    * **Requêtes de métrique** : sélectionnez cette option pour stocker des données détaillées dans les [métriques Azure](../azure-monitor/platform/metrics-supported.md). Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
 
 3. Sélectionnez **Enregistrer**.
 
@@ -449,7 +446,7 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
 | **properties** | n/a | Le contenu de ce champ est décrit dans les lignes suivantes. |
 | **activityId** | **activityId_g** | GUID unique de l’opération journalisée. |
 | **userAgent** | **userAgent_s** | Chaîne qui spécifie l’agent utilisateur client effectuant la demande. Le format est {nom de l’agent utilisateur}/{version}.|
-| **resourceType** | **ResourceType** | Type de la ressource faisant l’objet de l’accès. Cette valeur peut être l’un des types de ressources suivants : Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
+| **resourceType** | **ResourceType** | Type de la ressource faisant l’objet de l’accès. Cette valeur peut être l’un des types de ressources suivants : Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
 | **statusCode** | **statusCode_s** | État de réponse de l’opération. |
 | **requestResourceId** | **ResourceId** | L’ID de ressource qui se rapporte à la demande. Cette valeur peut pointer vers databaseRid, collectionRid ou documentRid en fonction de l’opération exécutée.|
 | **clientIpAddress** | **clientIpAddress_s** | Adresse IP du client. |

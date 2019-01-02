@@ -1,6 +1,6 @@
 ---
-title: Liste de contrôle pour le déploiement Azure AD après 30 jours, 90 jours, et au-delà
-description: Liste de contrôle pour le déploiement de la fonctionnalité Azure Active Directory Premium P2
+title: Liste de contrôle pour la fonctionnalité de licence Premium P2 | Microsoft Docs
+description: Liste de contrôle pour le déploiement des fonctionnalités d’Azure Active Directory Premium P2 à 30 jours, 90 jours et au-delà.
 services: active-directory
 ms.service: active-directory
 ms.component: ''
@@ -9,13 +9,13 @@ ms.date: 09/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: ''
-ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705649"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078230"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Liste de contrôle pour la fonctionnalité de licence Azure Active Directory Premium P2
 
@@ -69,13 +69,13 @@ Ce guide suppose que vous avez des licences Azure AD Premium P2, Enterprise Mobi
 - [Planifier l’accès d’utilisateurs invités](../b2b/what-is-b2b.md)
    - [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure](../b2b/add-users-administrator.md)
    - [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](../b2b/allow-deny-list.md)
-   - [Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales](../b2b/hybrid-cloud-to-on-premises.md)
+   - [Grant B2B users in Azure AD access to your on-premises applications](../b2b/hybrid-cloud-to-on-premises.md) (Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales)
 - Prendre des décisions au sujet de la stratégie de gestion du cycle de vie utilisateur
 - [Décider de la stratégie de gestion des appareils](../devices/overview.md)
    - [Scénarios d’utilisation et considérations relatives au déploiement pour Azure AD Join](../devices/azureadjoin-plan.md)
 - [Gérer Windows Hello Entreprise dans votre organisation](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 
-## <a name="plan-and-deploy-day-90-and-beyond"></a>Planifier et déployer : Jour 90 et plus
+## <a name="plan-and-deploy-day-90-and-beyond"></a>Planifier et déployer : Jour 90 et au-delà
 
 - [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
    - [Configurer les paramètres des rôles d’annuaire Azure AD dans PIM](../privileged-identity-management/pim-how-to-change-default-settings.md)

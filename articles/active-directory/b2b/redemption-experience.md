@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7819ed3e18092e8b7bdf52225e7025b4b6d8146a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f580c78fa2114905a0ef28f51feee50361717a27
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981879"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435325"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -26,7 +26,7 @@ Pour collaborer avec des utilisateurs d’organisations partenaires via Azure Ac
 
 ## <a name="redemption-through-a-direct-link"></a>Échange via un lien direct
 
-Un inviteur peut inviter un utilisateur invité en lui envoyant un lien direct vers une application partagée. Pour l’utilisateur invité, l’expérience d’échange est aussi simple que de se connecter à l’application partagée avec lui. Ils peut cliquer sur un lien vers l’application, consulter et accepter les conditions de confidentialité, puis accéder sans encombre à l’application. Dans la plupart des cas, l’utilisateur invité n’a plus besoin de cliquer sur une URL d’échange dans un e-mail d’invitation.
+Un inviteur peut inviter un utilisateur en lui envoyant un [lien direct vers une application partagée](../manage-apps/end-user-experiences.md#direct-sign-on-links). Pour l’utilisateur invité, l’expérience d’échange est aussi simple que de se connecter à l’application partagée avec lui. Ils peut cliquer sur un lien vers l’application, consulter et accepter les conditions de confidentialité, puis accéder sans encombre à l’application. Dans la plupart des cas, l’utilisateur invité n’a plus besoin de cliquer sur une URL d’échange dans un e-mail d’invitation.
 
 Que vous ayez invité un utilisateur via l’interface utilisateur ou choisi d’envoyer un e-mail d’invitation dans le cadre de l’expérience d’invitation de PowerShell, l’utilisateur invité reçoit toujours un e-mail d’invitation. Cet e-mail est utile dans les cas particuliers suivants :
 
@@ -51,7 +51,13 @@ Après s’être connecté pour accéder aux ressources d’une organisation par
 
 ![Capture d’écran des paramètres utilisateur dans le Panneau d’accès](media/redemption-experience/ConsentScreen.png) 
 
-Pour plus d’informations sur la manière dont vous pouvez, en tant qu’administrateur de locataire, créer un lien vers la déclaration de confidentialité de votre organisation, consultez [Guide pratique pour ajouter les informations de confidentialité de votre organisation dans Azure Active Directory](https://aka.ms/adprivacystatement).
+Pour plus d’informations sur la manière dont vous pouvez, en tant qu’administrateur de locataire, créer un lien vers la déclaration de confidentialité de votre organisation, consultez le [Guide pratique pour ajouter les informations de confidentialité de votre organisation dans Azure Active Directory](https://aka.ms/adprivacystatement).
+
+## <a name="terms-of-use"></a>Conditions d’utilisation
+
+Vous pouvez présenter les conditions d’utilisation à l’utilisateur invité pendant le processus d’acceptation initial à l’aide de la fonctionnalité Conditions d’utilisation Azure AD. Dans Azure Active Directory, accédez à cette fonctionnalité sous **Gérer** > **Relations organisationnelles** > **Conditions d’utilisation** ou sous **Sécurité** > **Accès conditionnel** > **Conditions d’utilisation**. Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation Azure AD](../governance/active-directory-tou.md).
+
+![Capture d’écran montrant les nouvelles conditions d’utilisation](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: 5e529953d06c37f382bdd5e65c23fe16d9928008
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: b071bfe83ba9ef653db2d6d1debad4e3dfa02580
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250901"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845924"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -183,7 +183,7 @@ Cette section s’applique uniquement à Functions 2.x. Il n’est pas nécessai
 Dans **Visual Studio 2017**, vous pouvez installer des packages à partir de la console du Gestionnaire de package avec la commande [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), comme indiqué dans l’exemple suivant :
 
 ```powershell
-Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <target_version>
 ```
 
 Le nom du package à utiliser pour une liaison donnée est fourni dans l’article de référence pour cette liaison. Pour obtenir un exemple, consultez la [section Packages de l’article Informations de référence sur les liaisons Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
@@ -195,7 +195,7 @@ Remplacez `<target_version>` dans l’exemple par une version spécifique du pac
 Dans **Visual Studio Code**, vous pouvez installer des packages à partir de l’invite de commandes avec la commande [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) dans CLI .NET Core, comme indiqué dans l’exemple suivant :
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <target_version>
 ```
 
 CLI .NET Core peut être utilisé seulement pour le développement Azure Functions 2.x.
@@ -231,6 +231,7 @@ Consultez l’exemple spécifique à un langage montrant l’utilisation de la v
 * [Script C# (.csx)](#c-script-example)
 * [F#](#f-example)
 * [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>Exemple en code C#
 
@@ -334,6 +335,29 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
+```
+
+### <a name="python-example"></a>Exemple Python
+
+Voici la liaison de sortie dans le fichier *function.json* :
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+Voici le code Python :
+
+```python
+def main(input: azure.functions.InputStream) -> str:
+    return json.dumps({
+        'name': input.name,
+        'length': input.length,
+        'content': input.read().decode('utf-8')
+    })
 ```
 
 ## <a name="binding-datatype-property"></a>Liaison de propriété Datatype
