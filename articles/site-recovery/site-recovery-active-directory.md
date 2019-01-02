@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211891"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851012"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurer la reprise d’activité pour Active Directory et DNS
 
@@ -44,7 +44,7 @@ Vous pouvez utiliser le Site Recovery pour protéger la machine virtuelle qui h�
 Le contrôleur de domaine répliqué à l’aide Site de Recovery est utilisé pour [tester le basculement](#test-failover-considerations). Assurez-vous qu’il présente la configuration requise suivante :
 
 1. Le contrôleur de domaine est un serveur de catalogue global.
-2. Le contrôleur de domaine doit être le propriétaire du rôle FSMO pour les rôles qui sont nécessaires pendant un test de basculement. Autrement, ces rôles doivent être [saisis](http://aka.ms/ad_seize_fsmo) après le basculement.
+2. Le contrôleur de domaine doit être le propriétaire du rôle FSMO pour les rôles qui sont nécessaires pendant un test de basculement. Autrement, ces rôles doivent être [saisis](https://aka.ms/ad_seize_fsmo) après le basculement.
 
 ### <a name="configure-vm-network-settings"></a>Configurer les paramètres des réseaux de machines virtuelles
 Pour la machine virtuelle hébergeant le contrôleur de domaine ou le DNS, dans Site Recovery, configurez les paramètres réseau sous les paramètres **Calcul et réseau** de l’ordinateur virtuel répliqué. Cela garantit que la machine virtuelle est attachée au réseau approprié après le basculement.
@@ -93,7 +93,7 @@ La plupart des applications nécessitent la présence d’un contrôleur de doma
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>Supprimer les références à d’autres contrôleurs de domaine
-Lorsque vous lancez un test de basculement, n’incluez pas tous les contrôleurs de domaine dans le réseau de test. Pour supprimer les références à d’autres contrôleurs de domaine existant dans votre environnement de production, vous devez peut-être [saisir les rôles FSMO Active Directory](http://aka.ms/ad_seize_fsmo) et effectuer [un nettoyage des métadonnées](https://technet.microsoft.com/library/cc816907.aspx) pour les contrôleurs de domaine manquants.
+Lorsque vous lancez un test de basculement, n’incluez pas tous les contrôleurs de domaine dans le réseau de test. Pour supprimer les références à d’autres contrôleurs de domaine existant dans votre environnement de production, vous devez peut-être [saisir les rôles FSMO Active Directory](https://aka.ms/ad_seize_fsmo) et effectuer [un nettoyage des métadonnées](https://technet.microsoft.com/library/cc816907.aspx) pour les contrôleurs de domaine manquants.
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>Problèmes causés par les dispositifs de protection de la virtualisation
@@ -165,7 +165,7 @@ Si les conditions ci-dessus sont remplies, il est probable que le contrôleur de
 1. Effectuez une restauration faisant autorité du contrôleur de domaine. Gardez à l’esprit les informations suivantes :
     * Bien que nous ne recommandions pas une [réplication FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si vous utilisez une telle réplication, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [Utilisation de la clé de Registre BurFlags pour réinitialiser le service de réplication de fichiers](https://support.microsoft.com/kb/290762).
 
-        Pour plus d’informations sur BurFlags, voir le billet de blog concernant [D2 et D4](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+        Pour plus d’informations sur BurFlags, consultez le billet de blog concernant [D2 et D4](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
     * Si vous utilisez une réplication DFSR, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [Comment faire pour forcer une synchronisation faisant autorité et ne faisant pas autorité pour SYSVOL de réplication DFSR (comme « D4/D2 » pour FRS)](https://support.microsoft.com/kb/2218556).
 
         Vous pouvez également utiliser les fonctions PowerShell. Pour plus d’informations, voir [Fonctions PowerShell de restauration faisant autorité/ne faisant pas autorisé pour DFSR-SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
@@ -174,13 +174,13 @@ Si les conditions ci-dessus sont remplies, il est probable que le contrôleur de
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
-    Pour plus d’informations, voir [Résoudre les problèmes liés à l’ID d’événement DNS 4013 : le serveur DNS n’a pas pu charger les zones DNS intégrées d’Active Directory](https://support.microsoft.com/kb/2001093).
+    Pour plus d’informations, consultez [Résoudre les problèmes liés à l’ID d’événement DNS 4013 : le serveur DNS n’a pas pu charger les zones DNS intégrées d’Active Directory](https://support.microsoft.com/kb/2001093).
 
 3. Désactivez l’exigence qu’un serveur de catalogue global soit disponible pour valider la connexion de l’utilisateur. Pour ce faire, dans le contrôleur de domaine local, définissez la clé de Registre suivante sur **1**. Si la valeur DWORD n’existe pas, vous pouvez la créer sous le nœud **Lsa**.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    Pour plus d’informations, voir [Désactiver l’exigence qu’un serveur de catalogue global soit disponible pour valider les connexions de l’utilisateur](http://support.microsoft.com/kb/241789).
+    Pour plus d’informations, voir [Désactiver l’exigence qu’un serveur de catalogue global soit disponible pour valider les connexions de l’utilisateur](https://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS et contrôleur de domaine sur différentes machines
 

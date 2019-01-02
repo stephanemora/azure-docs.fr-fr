@@ -5,9 +5,8 @@ keywords: exemples d’apprentissage automatique, exemple d’expérience, exemp
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6b2a07b105252ca1fb5eb37c2571601c3eb74179
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306678"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276432"
 ---
-# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Créer des expériences d’apprentissage automatique à partir des exemples de travail dans la galerie AI Azure
+# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Créer des expériences Azure Machine Learning Studio à partir des exemples de travail dans la galerie AI Azure
 
 Découvrez comment démarrer avec des exemples d’expérience de la [galerie Azure AI](https://gallery.cortanaintelligence.com/) au lieu de créer des expériences d’apprentissage automatique de toutes pièces. Vous pouvez utiliser les exemples pour créer votre propre solution d’apprentissage automatique.
 
@@ -32,7 +31,7 @@ La galerie contient des exemples d’expérience de l’équipe Microsoft Azure 
 
 Pour savoir comment utiliser la galerie, regardez la vidéo de 3 minutes [Copier le travail d’autres personnes pour des projets de science des données](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) issue de la série [Science des données pour les débutants](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Rechercher une expérience à copier dans la galerie AI Azure
 Pour afficher les expériences disponibles dans la galerie, rendez-vous dans la [Galerie](https://gallery.cortanaintelligence.com/) , puis cliquez sur **Expériences** en haut de la page.

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 10867974c6f1c3fae6965b1888db3c4448b26a38
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f5fb62a04f1829726796b674a8e6e72951e6bb35
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364090"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083374"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copier des données de HBase avec Azure Data Factory 
 
@@ -42,11 +42,11 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **HBase**. | Oui |
+| Type | La propriété type doit être définie sur : **HBase** | Oui |
 | host | Adresse IP ou nom d’hôte du serveur HBase (par exemple, `[clustername].azurehdinsight.net`， `192.168.222.160)  | Oui |
 | port | Port TCP utilisé par l’instance HBase pour écouter les connexions clientes. Valeur par défaut : 9090. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | Non  |
 | httpPath | URL partielle correspondant au serveur HBase (par exemple, `/hbaserest0` lors de l’utilisation de cluster HDInsights). | Non  |
-| authenticationType | Mécanisme d’authentification à utiliser pour se connecter au serveur HBase. <br/>Valeurs autorisées : **Anonymous**, **Basic**. | Oui |
+| authenticationType | Mécanisme d’authentification à utiliser pour se connecter au serveur HBase. <br/>Les valeurs autorisées sont les suivantes : **Anonyme**, **De base** | Oui |
 | username | Nom d’utilisateur utilisé pour se connecter à l’instance HBase.  | Non  |
 | password | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
 | enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole SSL. La valeur par défaut est false.  | Non  |
@@ -119,7 +119,12 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section donne la liste des propriétés prises en charge par le jeu de données HBase.
 
-Pour copier des données de HBase, affectez la valeur **HBaseObject** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données de HBase, affectez la valeur **HBaseObject** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **HBaseObject** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -131,7 +136,8 @@ Pour copier des données de HBase, affectez la valeur **HBaseObject** à la prop
         "linkedServiceName": {
             "referenceName": "<HBase linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -146,8 +152,8 @@ Pour copier des données de HBase, affectez la valeur **HBaseSource** au type so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **HBaseSource**. | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur : **HBaseSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

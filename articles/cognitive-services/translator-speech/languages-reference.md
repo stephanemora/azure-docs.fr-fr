@@ -10,14 +10,14 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345201"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256388"
 ---
-# <a name="translator-speech-api-languages"></a>API de traduction de conversation Translator Speech : Languages
+# <a name="translator-speech-api-languages"></a>API de traduction de conversation Translator Speech : Langues
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -33,9 +33,9 @@ Un vaste éventail de langues sont disponibles pour la transcription la parole, 
 
 Un client utilise le paramètre de requête `scope` pour définir les ensembles de langues qui l’intéressent.
 
-* **Reconnaissance vocale :** utiliser le paramètre de requête `scope=speech` pour récupérer l’ensemble de langues disponibles pour la transcription de la parole en texte.
-* **Traduction de texte :** utiliser le paramètre de requête `scope=text` pour récupérer l’ensemble de langues disponibles pour traduire du texte transcrit.
-* **Synthèse vocale :** utiliser le paramètre de requête `scope=tts` pour récupérer l’ensemble de langues et de voix disponibles pour synthétiser le texte traduit en parole.
+* **Reconnaissance vocale :** utilisez le paramètre de requête `scope=speech` pour récupérer l’ensemble de langues disponibles pour la transcription de la parole en texte.
+* **Traduction de texte :** utilisez le paramètre de requête `scope=text` pour récupérer l’ensemble de langues disponibles pour traduire du texte transcrit.
+* **Synthèse vocale :**  utilisez le paramètre de requête `scope=tts` pour récupérer l’ensemble de langues et de voix disponibles pour synthétiser le texte traduit en parole.
 
 Un client peut récupérer simultanément plusieurs ensembles de langues en spécifiant une liste de choix séparés par des virgules. Par exemple : `scope=speech,text,tts`.
 
@@ -63,8 +63,8 @@ Les valeurs fournies avec chaque propriété sont les suivantes.
 
 La valeur associée à la propriété de reconnaissance vocale, `speech`, est un dictionnaire de paires clé-valeur. Chaque clé identifie une langue prise en charge pour la reconnaissance vocale. La clé est l’identificateur que le client transmet à l’API. La valeur associée à la clé est un objet dont les propriétés sont les suivantes :
 
-* `name` : nom d’affichage de la langue.
-* `language` : balise de la langue écrite associée. Voir « Traduction de texte » ci-dessous.
+* `name`: nom d’affichage de la langue.
+* `language`: balise de la langue écrite associée. Voir « Traduction de texte » ci-dessous.
 Voici un exemple :
 
 ```
@@ -79,10 +79,10 @@ Voici un exemple :
 
 La valeur associée à la propriété `text` est également un dictionnaire dans lequel chaque clé identifie une langue prise en charge pour la traduction de texte. La valeur associée à la clé décrit la langue :
 
-* `name` : nom d’affichage de la langue.
-* `dir` : sens de l’écriture, `rtl` pour les langues qui s’écrivent de droite à gauche, ou `ltr` pour les langues qui s’écrivent de gauche à droite.
+* `name`: nom d’affichage de la langue.
+* `dir`: sens de l’écriture, `rtl` pour les langues qui s’écrivent de droite à gauche, ou `ltr` pour les langues qui s’écrivent de gauche à droite.
 
-Voici un exemple :
+Voici un exemple :
 
 ```
 {
@@ -96,14 +96,14 @@ Voici un exemple :
 
 La valeur associée à la propriété de synthèse vocale, tts, est également un dictionnaire dans lequel chaque clé identifie une voix prise en charge. Les attributs d’un objet vocal sont les suivants :
 
-* `displayName` : nom d’affichage de la voix.
-* `gender` : genre de la voix (masculin ou féminin).
-* `locale` : balise de langue de la voix avec sous-balise de langue principale et sous-balise de région.
-* `language` : balise de la langue écrite associée.
-* `languageName` : nom d’affichage de la langue.
-* `regionName` : nom d’affichage de la région pour cette langue.
+* `displayName`: nom d’affichage de la voix.
+* `gender`: genre de la voix (masculin ou féminin).
+* `locale`: balise de langue de la voix avec sous-balise de langue principale et sous-balise de région.
+* `language`: balise de la langue écrite associée.
+* `languageName`: nom d’affichage de la langue.
+* `regionName`: nom d’affichage de la région pour cette langue.
 
-Voici un exemple :
+Voici un exemple :
 
 ```
 {
@@ -140,7 +140,7 @@ X-RequestId|Valeur générée par le serveur pour identifier la demande, et util
 |Paramètre|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|
 |api-version    |Version de l’API demandée par le client. Valeurs autorisées : `1.0`.|query|chaîne|
-|scope  |Ensemble des langues ou voix prises en charge pour renvoyer au client. Ce paramètre est spécifié sous forme de liste de mots clés séparés par des virgules. Les mots clés suivants sont disponibles :<ul><li>`speech` : fournit l’ensemble des langues prises en charge pour la transcription de la parole.</li><li>`tts` : fournit l’ensemble des voix prises en charge pour la conversion de texte en parole.</li><li>`text` : fournit l’ensemble des langues prises en charge pour la traduction de texte.</li></ul>Si une valeur n’est pas spécifiée, la valeur par défaut de `scope` est `text`.|query|chaîne|
+|scope  |Ensemble des langues ou voix prises en charge pour renvoyer au client. Ce paramètre est spécifié sous forme de liste de mots clés séparés par des virgules. Les mots clés suivants sont disponibles :<ul><li>`speech`: fournit l’ensemble des langues prises en charge pour la transcription de la parole.</li><li>`tts`: fournit l’ensemble des voix prises en charge pour la conversion de texte en parole.</li><li>`text`: fournit l’ensemble des langues prises en charge pour la traduction de texte.</li></ul>Si une valeur n’est pas spécifiée, la valeur par défaut de `scope` est `text`.|query|chaîne|
 |X-ClientTraceId    |GUID généré par le client utilisé pour suivre une requête. Pour faciliter la résolution des problèmes, les clients doivent fournir une nouvelle valeur avec chaque demande, et la journaliser.|en-tête|chaîne|
 |Accept-Language    |Certains des champs dans la réponse sont des noms de langue ou de région. Utilisez ce paramètre pour définir la langue dans laquelle les noms sont renvoyés. La langue est spécifiée en fournissant une balise de langue BCP 47 bien formée. Sélectionnez une balise dans la liste des identificateurs de langue renvoyée avec l’étendue `text`. Pour les langues non prises en charge, les noms sont fournis en anglais.<br/>Par exemple, utilisez la valeur `fr` pour demander des noms en français, ou la valeur `zh-Hant` pour demander des noms en chinois traditionnel.|en-tête|chaîne|
     

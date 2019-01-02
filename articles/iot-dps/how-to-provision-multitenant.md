@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457389"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344089"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Comment provisionner des appareils multilocataires 
 
 Les stratégies d’allocation définies par le service Device Provisioning permettent de gérer divers scénarios d’allocation. Voici deux scénarios courants :
 
-* **Géolocalisation et géolatence** : quand un appareil change souvent d’emplacement, il doit être provisionné dans le hub IoT le plus proche de son emplacement pour améliorer la latence du réseau. Dans ce scénario, un groupe de hubs IoT couvrant plusieurs régions sont sélectionnés pour les inscriptions. La stratégie d’allocation **Latence la plus faible** est sélectionnée pour ces inscriptions. Avec cette stratégie, le service Device Provisioning évalue la latence des appareils et détermine quel hub IoT dans le groupe de hubs IoT est le plus proche. 
+* **Géolocalisation / Géolatence** : quand un appareil change d’emplacement, il doit être provisionné dans le hub IoT le plus proche de son emplacement pour améliorer la latence du réseau. Dans ce scénario, un groupe de hubs IoT couvrant plusieurs régions sont sélectionnés pour les inscriptions. La stratégie d’allocation **Latence la plus faible** est sélectionnée pour ces inscriptions. Avec cette stratégie, le service Device Provisioning évalue la latence des appareils et détermine quel hub IoT dans le groupe de hubs IoT est le plus proche. 
 
-* **Multilocation** : les appareils utilisés dans une solution IoT doivent parfois être assignés à un hub IoT ou un groupe de hubs IoT spécifique. La solution peut nécessiter que tous les appareils d’un locataire particulier communiquent avec un groupe spécifique de hubs IoT. Dans certains cas, un locataire peut avoir ses propres hubs IoT et exiger que les appareils soient assignés à ses hubs IoT.
+* **Multilocation** : les appareils utilisés dans une solution IoT doivent parfois être affectés à un hub IoT ou à un groupe de hubs IoT spécifique. La solution peut nécessiter que tous les appareils d’un locataire particulier communiquent avec un groupe spécifique de hubs IoT. Dans certains cas, un locataire peut avoir ses propres hubs IoT et exiger que les appareils soient assignés à ses hubs IoT.
 
 Il est courant de combiner ces deux scénarios. Par exemple, une solution IoT multilocataire assigne généralement ses appareils locataires dans un groupe de hubs IoT répartis entre plusieurs régions. Ces appareils locataires peuvent être assignés au hub IoT qui, dans ce groupe, a la latence la plus faible par rapport à l’emplacement géographique.
 
@@ -92,24 +92,24 @@ Par souci de simplicité, cet article utilise [l’attestation de clé symétriq
 
 3. Dans **Ajouter un groupe d’inscriptions**, entrez les informations suivantes, puis cliquez sur le bouton **Enregistrer**.
 
-    **Nom du groupe** : entrez **contoso-us-devices**.
+    **Nom du groupe** : entrez **contoso-us-devices**.
 
-    **Type d’attestation** : sélectionnez **Clé symétrique**.
+    **Type d’attestation** : sélectionnez **Clé symétrique**.
 
-    **Générer automatiquement les clés** : cette case est normalement déjà cochée.
+    **Générer automatiquement les clés** : cette case est normalement déjà cochée.
 
-    **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Latence la plus faible**.
+    **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Latence la plus faible**.
 
     ![Ajouter un groupe d’inscription multilocataire pour l’attestation de clé symétrique](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
 4. Sous **Ajouter un groupe d’inscriptions**, cliquez sur **Lier un nouveau hub IoT** pour lier les deux hubs régionaux.
 
-    **Abonnement** : si vous avez plusieurs abonnements, sélectionnez celui où vous avez créé les hubs IoT régionaux.
+    **Abonnement**: si vous avez plusieurs abonnements, sélectionnez celui où vous avez créé les hubs IoT régionaux.
 
-    **Hub IoT** : sélectionnez un des hubs régionaux que vous avez créés.
+    **Hub IoT** : sélectionnez un des hubs régionaux que vous avez créés.
 
-    **Stratégie d’accès** : sélectionnez **iothubowner**.
+    **Stratégie d’accès** : choisissez **iothubowner**.
 
     ![Lier les hubs IoT régionaux au service de provisionnement](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
@@ -130,16 +130,16 @@ Pour faciliter la suppression des ressources à la fin de l’article, nous ajou
 
 1. Dans Azure Cloud Shell, exécutez la commande ci-dessous pour créer une machine virtuelle dans la région **East US**, après avoir modifié les paramètres de la commande de la façon suivante :
 
-    **--name** : entrez un nom unique pour la machine virtuelle de la région **East US**. 
+    **--name** : entrez un nom unique pour la machine virtuelle de la région **USA Est**. 
 
-    **--admin-username** : utilisez votre propre nom d’utilisateur administrateur.
+    **--admin-username** : utilisez votre propre nom d’utilisateur administrateur.
 
-    **--admin-password** : utilisez votre propre mot de passe d’administrateur.
+    **--admin-password** : utilisez votre propre mot de passe d’administrateur.
 
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceEest \
+    --name ContosoSimDeviceEast \
     --location eastus \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
@@ -151,11 +151,11 @@ Pour faciliter la suppression des ressources à la fin de l’article, nous ajou
 
 1. Dans Azure Cloud Shell, exécutez la commande ci-dessous pour créer une machine virtuelle dans la région **West US**, après avoir modifié les paramètres de la commande de la façon suivante :
 
-    **--name** : entrez un nom unique pour la machine virtuelle de la région **West US**. 
+    **--name** : entrez un nom unique pour la machine virtuelle de la région **USA Ouest**. 
 
-    **--admin-username** : utilisez votre propre nom d’utilisateur administrateur.
+    **--admin-username** : utilisez votre propre nom d’utilisateur administrateur.
 
-    **--admin-password** : utilisez votre propre mot de passe d’administrateur.
+    **--admin-password** : utilisez votre propre mot de passe d’administrateur.
 
     ```azurecli-interactive
     az vm create \
@@ -220,7 +220,7 @@ Dans cette section, vous allez cloner le SDK Azure IoT pour C sur chaque machine
 1. Sur les deux machines virtuelles, exécutez la commande suivante qui génère une version du SDK propre à votre plateforme cliente de développement. 
 
     ```bash
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
     Une fois la génération terminée, les dernières lignes de sortie doivent ressembler à la sortie suivante :
@@ -327,28 +327,28 @@ L’exemple de code simule une séquence de démarrage d’un appareil qui envoi
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-
-1. Ouvrez **~/azure-iot-sdk-c/provisioning\_client/adapters/hsm\_client\_key.c** sur les deux machines virtuelles. 
-
-    ```bash
-     vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
-    ```
-
-1. Recherchez la déclaration des constantes `REGISTRATION_NAME` et `SYMMETRIC_KEY_VALUE`. Effectuez les modifications suivantes dans les fichiers sur les deux machines virtuelles régionales, puis enregistrez les fichiers.
-
-    Remplacez la valeur de la constante `REGISTRATION_NAME` par **l’ID d’inscription unique de votre appareil**.
-    
-    Remplacez la valeur de la constante `SYMMETRIC_KEY_VALUE` par votre **clé d’appareil dérivée**.
+1. Sur les deux machines virtuelles, recherchez l’appel à `prov_dev_set_symmetric_key_info()` dans **prov\_dev\_client\_sample.c**, qui est placé en commentaire.
 
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
+    Décommentez l’appel de fonction et remplacez les valeurs des espaces réservés (y compris les crochets) par les ID d’inscription uniques et les clés d’appareil dérivées pour chaque appareil. Les clés montrées ci-dessous sont données seulement à des fins d’exemple. Utilisez les clés que vous avez générées précédemment.
+
+    USA Est :
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
-    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
     ```
+
+    USA Ouest :
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
+    ```
+
+    Enregistrez les fichiers.
 
 1. Sur les deux machines virtuelles, accédez au dossier d’exemple ci-dessous et générez l’exemple.
 
@@ -358,6 +358,13 @@ L’exemple de code simule une séquence de démarrage d’un appareil qui envoi
     ```
 
 1. Une fois l’exemple généré, exécutez **prov\_dev\_client\_sample.exe** sur les deux machines virtuelles pour simuler un appareil locataire de chaque région. Notez que chaque appareil est alloué à l’hub IoT locataire le plus proche des régions de l’appareil simulé.
+
+    Exécutez la simulation :
+    ```bash
+    ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
+    ```
+
+    Exemple de sortie de la machine virtuelle USA Est :
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -374,6 +381,7 @@ L’exemple de code simule une séquence de démarrage d’un appareil qui envoi
 
     ```
 
+    Exemple de sortie de la machine virtuelle USA Ouest :
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9

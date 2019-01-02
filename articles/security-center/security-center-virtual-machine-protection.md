@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316648"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340825"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protection de vos machines et de vos applications dans Azure Security Center
 Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires. Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles et ordinateurs, applications, mise en réseau, SQL et Identité et accès.
@@ -59,7 +59,7 @@ Cette section indique le nombre total de machines virtuelles et d’ordinateurs 
 ### Machines virtuelles et ordinateurs non surveillés <a name="unmonitored-vms-and-computers"></a>
 Une machine virtuelle ou un ordinateur n’est pas surveillé par Security Center si la machine n’exécute pas l’extension Microsoft Monitoring Agent. Un agent local peut être déjà installé sur une machine, par exemple l’agent direct OMS ou l’agent SCOM. Les machines sur lesquelles sont installés ces agents sont considérées comme non surveillées, car ces agents ne sont pas entièrement pris en charge par Security Center. Pour tirer pleinement parti de toutes les fonctionnalités de Security Center, vous devez utiliser l’extension Microsoft Monitoring Agent.
 
-Vous pouvez installer l’extension sur la machine virtuelle ou l’ordinateur non surveillé, en plus de l’agent local déjà installé. Configurez les deux agents de la même manière en les connectant au même espace de travail. Ainsi, Security Center pourra interagir avec l’extension Microsoft Monitoring Agent et collecter des données. Consultez la section [Activer l’extension de machine virtuelle](../log-analytics/log-analytics-quick-collect-azurevm.md) pour obtenir des instructions sur la façon d’installer l’extension Microsoft Monitoring Agent.
+Vous pouvez installer l’extension sur la machine virtuelle ou l’ordinateur non surveillé, en plus de l’agent local déjà installé. Configurez les deux agents de la même manière en les connectant au même espace de travail. Ainsi, Security Center pourra interagir avec l’extension Microsoft Monitoring Agent et collecter des données. Consultez la section [Activer l’extension de machine virtuelle](../azure-monitor/learn/quick-collect-azurevm.md) pour obtenir des instructions sur la façon d’installer l’extension Microsoft Monitoring Agent.
 
 Consultez la section [Problèmes d’intégrité de l’agent de surveillance](security-center-troubleshooting-guide.md#mon-agent) pour en savoir plus sur la raison pour laquelle Security Center ne peut pas surveiller correctement les machines virtuelles et ordinateurs initialisés pour l’approvisionnement automatique.
 
@@ -74,20 +74,20 @@ Chaque recommandation dispose d’un ensemble d’actions pouvant être effectu�
 
 **Appliquer les mises à jour système** contient un résumé des mises à jour critiques dans un format graphique, l’un pour Windows et l’autre pour Linux. La deuxième partie contient un tableau avec les informations suivantes :
 
-- **NOM** : nom de la mise à jour manquante.
-- **NO. DE MACHINES VIRTUELLES ET D’ORDINATEURS** : nombre total de machines virtuelles et d’ordinateurs sur lesquels cette mise à jour n’a pas été installée.
-- **GRAVITÉ DE LA MISE À JOUR** : donne le niveau de gravité de chaque recommandation :
+- **NOM** : nom de la mise à jour manquante.
+- **NO. DE MACHINES VIRTUELLES ET D’ORDINATEURS** : nombre total de machines virtuelles et d’ordinateurs sur lesquels cette mise à jour n’a pas été installée.
+- **GRAVITÉ DE LA MISE À JOUR** : Donne le niveau de gravité de chaque recommandation :
 
-    - **Critique** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
-    - **Importante** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
-    - **Modérée** : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+    - **Critique** : Existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
+    - **Important** : Certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
+    - **Modéré** : Existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 
-- **ÉTAT**: état actuel de la recommandation :
+- **STATE** : état actuel de la recommandation :
 
-    - **Ouverte** : la recommandation n’a pas encore été prise en compte.
-    - **En cours** : la recommandation est actuellement appliquée à ces ressources ; aucune action de votre part n’est nécessaire.
-    - **Résolue** : la recommandation a déjà été achevée. (Une fois problème résolu, l’entrée a été grisée).
+    - **Ouverte** : la recommandation n’a pas encore été prise en compte.
+    - **En cours** : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+    - **Résolue** : la recommandation a déjà été achevée. (Une fois problème résolu, l’entrée a été grisée).
 
 Pour afficher des informations détaillées sur les recommandations, cliquez sur le nom de la mise à jour manquante dans la liste.
 
@@ -249,7 +249,7 @@ Pour en savoir plus sur les recommandations qui s’appliquent à d’autres typ
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 

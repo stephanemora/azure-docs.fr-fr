@@ -1,22 +1,18 @@
 ---
-title: Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coûts | Microsoft Docs
-description: Découvrez le faible coût qu’implique l’utilisation d’Azure Cosmos DB comme magasin de valeurs de clés.
-keywords: magasin de valeurs de clés
-services: cosmos-db
+title: Frais associés aux unités de demande pour Azure Cosmos DB en tant que magasin de valeurs de clés
+description: Découvrez les frais des unités de demande pour Azure Cosmos DB pour de simples opérations de lecture et d’écriture lorsqu’il est utilisé comme magasin de valeurs de clés.
 author: SnehaGunda
-manager: kfile
-tags: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 09abc89c8e4cc8b0ee79200739722fc62d1ece4b
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163198"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134180"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coûts
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : configurer GitHub pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer GitHub pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes utilisateur sur GitHub.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: bc82f0b71c6963c4f5a356180a1eabbca1b166c4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cf66a257ef176ab6f8d58ab558d2582a811609a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156950"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166555"
 ---
-# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Didacticiel : configurer GitHub pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Didacticiel : Configurer GitHub pour l’approvisionnement automatique d’utilisateurs
 
 
 L’objectif de ce didacticiel est de vous indiquer les étapes à suivre dans GitHub et Azure AD pour approvisionner et déprovisionner automatiquement des comptes utilisateur d’Azure AD vers GitHub. 
@@ -80,7 +80,7 @@ Cette section explique comment connecter votre Azure AD à l’API d’approvisi
 
     ![Boîte de dialogue d’autorisation](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. Dans le portail Azure, entrez **URL cliente** et cliquez sur **Connexion test** pour vous assurer qu’Azure AD peut se connecter à votre application GitHub. Si la connexion échoue, vérifiez que votre compte GitHub dispose des autorisations administratives et que l’**URL de locataire** est correctement entrée. Ensuite, recommencez l’étape « Autoriser » (vous pouvez constituer l’**URL de locataire** par règle : `https://api.github.com/scim/v2/organizations/<Organization_name>`, et rechercher votre organisation sous votre compte GitHub : **Paramètres** > **Organisations**).
+7. Dans le portail Azure, entrez **URL cliente** et cliquez sur **Connexion test** pour vous assurer qu’Azure AD peut se connecter à votre application GitHub. En cas d’échec de connexion, vérifiez que votre compte GitHub dispose des autorisations Administrateur et que **l’URL de locataire** est correctement entrée. Ensuite, recommencez l’étape « Autoriser » (vous pouvez constituer **l’URL de locataire** par règle : `https://api.github.com/scim/v2/organizations/<Organization_name>`, et rechercher vos organisations sous votre compte GitHub : **Paramètres** > **Organisations**).
 
     ![Boîte de dialogue d’autorisation](./media/github-provisioning-tutorial/GitHub3.png)
 

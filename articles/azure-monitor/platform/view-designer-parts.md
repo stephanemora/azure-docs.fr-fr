@@ -10,17 +10,15 @@ ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: cdf3fda4228eadc2921c8fbc1bc72702461d04e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637734"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193873"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guide de référence des composants de visualisation du Concepteur de vues dans Log Analytics
 Grâce au Concepteur de vues d’Azure Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui présentent différentes visualisations de données de votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
@@ -28,7 +26,7 @@ Grâce au Concepteur de vues d’Azure Log Analytics, vous pouvez créer des vue
 Pour plus d’informations sur le Concepteur de vues, consultez :
 
 * [Concepteur de vues](view-designer.md) : fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
-* [Référence de la vignette](view-designer-tiles.md) : fournit une référence pour les paramètres de chaque vignette disponible dans vos vues personnalisées.
+* [Référence de vignette](view-designer-tiles.md) : fournit une référence pour les paramètres de chaque vignette disponible dans vos vues personnalisées.
 
 
 Les types de vignettes du Concepteur de vues disponibles sont décrites dans le tableau suivant :
@@ -143,7 +141,7 @@ L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une
 | Navigation par clic | Action effectuée lorsque vous cliquez sur l’en-tête.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Anneau** |**&gt; Centrer** |
 | Texte |Texte affiché sous la valeur à l’intérieur de l’anneau. |
-| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Sum : additionne les valeurs de tous les enregistrements.</li><li>Percentage : pourcentage des enregistrements retournés par les valeurs figurant dans **Valeurs de résultat utilisées dans l’opération relative au centre** par rapport au nombre total d’enregistrements dans la requête.</li></ul> |
+| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Somme : additionne les valeurs de tous les enregistrements.</li><li>Pourcentage : proportion des enregistrements retournés par les valeurs figurant dans **Valeurs de résultat utilisées dans l’opération relative au centre** par rapport au nombre total d’enregistrements dans la requête.</li></ul> |
 | Valeurs de résultat utilisées dans l’opération relative au centre |Vous pouvez sélectionner le signe plus (+) pour ajouter une ou plusieurs valeurs. Les résultats de la requête sont alors limités aux enregistrements dont vous avez spécifié les valeurs de propriété. Si aucune valeur n’est ajoutée, tous les enregistrements sont inclus dans la requête. |
 | **Options supplémentaires** |**&gt; Couleurs** |
 | Couleur 1<br>Couleur 2<br>Couleur 3 |Sélectionnez la couleur pour chacune des valeurs affichées dans l’anneau. |
@@ -182,7 +180,7 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 | Légende |Texte affiché sous la légende de la première série. |
 | Couleur |Couleur à utiliser pour les colonnes de la série. |
 | Requête |Requête à exécuter pour la première série. Le nombre d’enregistrements sur chaque intervalle de temps est représenté par les colonnes de graphique. |
-| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Sum : somme des valeurs de tous les enregistrements.</li><li>Average : moyenne des valeurs de tous les enregistrements.</li><li>Last Sample : valeur du dernier intervalle inclus dans le graphique.</li><li>First Sample : valeur du premier intervalle inclus dans le graphique.</li><li>Count : nombre d’enregistrements retournés par la requête.</li></ul> |
+| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Somme : somme des valeurs de tous les enregistrements.</li><li>Moyenne : moyenne des valeurs de tous les enregistrements.</li><li>Dernier exemple : valeur du dernier intervalle inclus dans le graphique.</li><li>Premier exemple : valeur du premier intervalle inclus dans le graphique.</li><li>Nombre : nombre d’enregistrements retournés par la requête.</li></ul> |
 | **Liste** | |
 | Requête |Requête à exécuter pour obtenir la liste. Le nombre d’enregistrements retournés par la requête est affiché. |
 | Masquer le graphique |Sélectionnez ce lien pour désactiver le graphique à droite de la colonne numérique. |
@@ -238,7 +236,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | **Graphique en courbes** |**&gt; Légende** |
 | Titre de la légende |Texte affiché au-dessus de la valeur de la légende. |
 | Nom de la série |Valeur de propriété pour la série à utiliser pour la valeur de la légende. Si aucune série n’est fournie, tous les enregistrements de la requête sont utilisés. |
-| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Average : moyenne des valeurs de tous les enregistrements.</li><li>Count : nombre d’enregistrements retournés par la requête.</li><li>Last Sample : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique.</li><li>Min : valeur minimale des intervalles inclus dans le graphique.</li><li>Sum : somme des valeurs de tous les enregistrements.</li></ul> |
+| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Moyenne : moyenne des valeurs de tous les enregistrements.</li><li>Nombre : nombre d’enregistrements retournés par la requête.</li><li>Dernier exemple : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique.</li><li>Min : valeur minimale des intervalles inclus dans le graphique.</li><li>Somme : somme des valeurs de tous les enregistrements.</li></ul> |
 | **Graphique en courbes** |**> Axe Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez ce lien pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête. Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir les valeurs. Le type d’*Unité* spécifie la catégorie de l’unité, et définit les valeurs de type *Unité actuelle* disponibles. Si vous sélectionnez une valeur pour l’option *Convertir en*, les valeurs numériques sont converties du type *Unité actuelle* au type *Convertir en*. |
@@ -324,7 +322,7 @@ Le séparateur de noms et de valeurs est le délimiteur à caractère unique à 
 Par exemple, imaginez une propriété nommée *Location* incluant des valeurs telles que *Redmond-Building 41* et *Bellevue-Building 12*. Vous pouvez spécifier un tiret (-) comme séparateur de noms et de valeurs, et *City-Building* comme nom. Chaque valeur est alors analysée en deux propriétés respectivement nommées *City* et *Building*.
 
 ### <a name="click-through-navigation"></a>Navigation par clic
-La navigation par clic définit l’action à effectuer quand vous cliquez sur un en-tête ou élément de liste dans une vue.  Soit une requête s’ouvre dans le [portail de recherche dans les journaux](../../log-analytics/log-analytics-log-search-portals.md), soit une autre vue apparaît.
+La navigation par clic définit l’action à effectuer quand vous cliquez sur un en-tête ou élément de liste dans une vue.  Soit une requête s’ouvre dans le [portail de recherche dans les journaux](../../azure-monitor/log-query/portals.md), soit une autre vue apparaît.
 
 Le tableau suivant décrit les paramètres de la navigation par clic.
 
@@ -344,7 +342,7 @@ Le tableau suivant décrit les paramètres pour les graphiques Sparkline :
 | Paramètre | Description |
 |:--- |:--- |
 | Activation des sparklines |Sélectionnez ce lien pour afficher un graphique Sparkline au lieu d’une barre horizontale. |
-| Opération |Si les sparklines sont activées, il s’agit de l’opération à effectuer sur chaque propriété dans la liste pour calculer les valeurs du graphique sparkline.<ul><li>Last Sample : dernière valeur de la série sur l’intervalle de temps.</li><li>Max : valeur maximale de la série sur l’intervalle de temps.</li><li>Min : valeur minimale de la série sur l’intervalle de temps.</li><li>Sum : somme des valeurs de la série sur l’intervalle de temps.</li><li>Summary : utilise la même commande `measure` que la requête dans l’en-tête.</li></ul> |
+| Opération |Si les sparklines sont activées, il s’agit de l’opération à effectuer sur chaque propriété dans la liste pour calculer les valeurs du graphique sparkline.<ul><li>Dernier exemple : dernière valeur de la série sur l’intervalle de temps.</li><li>Max : valeur maximale de la série sur l’intervalle de temps.</li><li>Min : valeur minimale de la série sur l’intervalle de temps.</li><li>Somme : somme des valeurs de la série sur l’intervalle de temps.</li><li>Résumé : utilise la même commande `measure` que la requête dans l’en-tête.</li></ul> |
 
 ### <a name="thresholds"></a>Seuils
 Les seuils vous permettent d’afficher une icône de couleur en regard de chaque élément dans une liste. Ils fournissent un indicateur visuel rapide des éléments qui dépassent une valeur particulière ou sont compris dans une plage particulière. Par exemple, vous pouvez afficher une icône verte pour les éléments avec une valeur acceptable, jaune si la valeur est dans une plage qui indique un avertissement, et rouge si elle dépasse une valeur d’erreur.
@@ -363,4 +361,4 @@ Le tableau suivant décrit les paramètres pour les seuils :
 | Couleur |Couleur qui indique la valeur de seuil. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur la [Recherche dans les journaux](../../log-analytics/log-analytics-queries.md) pour prendre en charge les requêtes dans des composants de visualisation.
+* En savoir plus sur la [Recherche dans les journaux](../../azure-monitor/log-query/log-query-overview.md) pour prendre en charge les requêtes dans des composants de visualisation.

@@ -1,5 +1,5 @@
 ---
-title: Exploration et modélisation de données avec Spark | Microsoft Docs
+title: Exploration et modélisation de données avec Spark – Team Data Science Process
 description: Présente les fonctionnalités de modélisation et d’exploration des données du kit d’outils Spark MLlib sur Azure.
 services: machine-learning
 author: marktab
@@ -10,17 +10,17 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: fd02501e0b616ef173faae8c9ea81c3956d69672
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ae498cc6aea573e1c610cb50d96552f30be4d75e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446753"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140878"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploration et modélisation des données avec Spark
 
-Cette procédure utilise HDInsight Spark pour effectuer l’exploration des données ainsi que les tâches de classification binaire et de modélisation de la régression sur un échantillon du jeu de données NYC Taxi Trip and Fare 2013.  Elle vous guide tout au long des étapes du [processus de science des données](https://aka.ms/datascienceprocess), à l’aide d’un cluster HDInsight Spark pour le traitement et d’objets blob Azure pour stocker les données et les modèles. Le processus explore et visualise les données importées à partir d’un objet blob Azure Storage, puis prépare les données pour créer des modèles prédictifs. Ces modèles sont créés à l’aide de la boîte à outils Spark MLlib pour effectuer des tâches de classification binaire et de modélisation de régression.
+Cette procédure utilise HDInsight Spark pour effectuer l’exploration des données ainsi que les tâches de classification binaire et de modélisation de la régression sur un échantillon du jeu de données NYC Taxi Trip and Fare 2013.  Elle vous guide tout au long des étapes du [processus de science des données](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), à l’aide d’un cluster HDInsight Spark pour le traitement et d’objets blob Azure pour stocker les données et les modèles. Le processus explore et visualise les données importées à partir d’un objet blob Azure Storage, puis prépare les données pour créer des modèles prédictifs. Ces modèles sont créés à l’aide de la boîte à outils Spark MLlib pour effectuer des tâches de classification binaire et de modélisation de régression.
 
 * La **classification binaire** consiste à prédire si le trajet va faire l’objet d’un pourboire. 
 * La tâche de **régression** consiste à prédire le montant du pourboire en fonction d’autres critères. 
@@ -47,14 +47,14 @@ Les étapes de configuration et le code fournis dans cette procédure pas à pas
 
 ### <a name="spark-16-notebooks"></a>Notebooks Spark 1.6
 
-[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb) : fournit des informations sur l’exploration des données, la modélisation et la notation avec plusieurs algorithmes différents.
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb) : ce fichier donne des informations sur l’exploration, la modélisation et le scoring de données suivant différents algorithmes.
 
 ### <a name="spark-20-notebooks"></a>Notebooks Spark 2.0
 Les tâches de régression et de classification qui sont implémentées à l’aide d’un cluster Spark 2.0 s’exécutent dans des notebooks distincts et le notebook de classification utilise un autre jeu de données :
 
-- [Spark2.0-pySpark3-machine-Learning-Data-science-Spark-Advanced-Data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) : ce fichier fournit des informations sur l’exploration des données, la modélisation et la notation dans les clusters Spark 2.0 utilisant le jeu de données des courses et tarifs de taxi à New York décrit [ici](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Ce bloc-notes peut être un bon point de départ pour explorer rapidement le code que nous avons fourni pour Spark 2.0. Pour un bloc-notes plus détaillé analysant les données sur les taxis de New York, consultez le bloc-notes suivant de cette liste. Consultez les notes comparatives de ces blocs-notes indiquées à la suite de cette liste. 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb) : ce fichier montre comment effectuer des opérations de retraitement, ou « wrangling », (Spark SQL et tableaux de données) et fournit des informations sur l’exploration, la modélisation et la notation à l’aide du jeu de données « NYC Taxi trip and fare » décrit [ici](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb) : ce fichier montre comment effectuer des opérations de retraitement, ou « wrangling », (Spark SQL et tableaux de données) et fournit des informations sur l’exploration, la modélisation et la notation à l’aide du jeu de données bien connu sur les départs à l’heure des compagnies aériennes pour les années 2011 et 2012. Nous avons intégré le jeu de données de compagnies aériennes avec les données météorologiques des aéroports (vitesse du vent, température, altitude, etc.) avant la modélisation. Ces fonctionnalités météo peuvent donc à présent être incluses dans le modèle.
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) : ce fichier donne des informations sur l’exploration, la modélisation et le scoring de données dans des clusters Spark 2.0 à l’aide du jeu de données des courses et tarifs de taxi à New York décrit [ici](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Ce bloc-notes peut être un bon point de départ pour explorer rapidement le code que nous avons fourni pour Spark 2.0. Pour un bloc-notes plus détaillé analysant les données sur les taxis de New York, consultez le bloc-notes suivant de cette liste. Consultez les notes comparatives de ces blocs-notes indiquées à la suite de cette liste. 
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb) : ce fichier montre comment effectuer des opérations de data wrangling (Spark SQL et trames de données), d’exploration, de modélisation et de scoring l’aide du jeu de données des courses et tarifs de taxi à New York décrit [ici](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb) : ce fichier montre comment effectuer des opérations de data wrangling (Spark SQL et trames de données), d’exploration, de modélisation et de scoring l’aide du célèbre jeu de données des départs à l’heure des compagnies aériennes de 2011 et 2012. Nous avons intégré le jeu de données de compagnies aériennes avec les données météorologiques des aéroports (vitesse du vent, température, altitude, etc.) avant la modélisation. Ces fonctionnalités météo peuvent donc à présent être incluses dans le modèle.
 
 <!-- -->
 
@@ -72,7 +72,7 @@ Les tâches de régression et de classification qui sont implémentées à l’a
 <!-- -->
 
 > [!NOTE]
-L’exécution des blocs-notes Spark 2.0 sur les jeux de données « NYC taxi and airline flight delay » peut prendre 10 minutes ou plus (selon la taille de votre cluster HDI). Le premier notebook dans la liste ci-dessus présente de nombreux aspects de l’exploration de données, de la visualisation et de l’apprentissage du modèle ML dans un notebook qui s’exécute plus rapidement avec un jeu de données échantillonné dans lequel ont été préalablement regroupés les fichiers sur les taxis et les tarifs à New York : [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) Ce notebook bien plus rapide (2 à 3 minutes) peut être un bon point de départ pour explorer rapidement le code que nous avons fourni pour Spark 2.0. 
+L’exécution des blocs-notes Spark 2.0 sur les jeux de données « NYC taxi and airline flight delay » peut prendre 10 minutes ou plus (selon la taille de votre cluster HDI). Le premier bloc-notes de la liste ci-dessus montre de nombreux aspects de l’exploration de données, de la visualisation et de l’apprentissage du modèle ML dans un bloc-notes dont l’exécution est moins longue avec un jeu de données New York sous-échantillonné, dans lequel les fichiers de courses et de taxi ont été rassemblés au préalable : [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Ce bloc-notes met beaucoup moins de temps à s’exécuter (deux ou trois minutes) et peut constituer un bon point de départ pour explorer rapidement le code fourni pour Spark 2.0. 
 
 <!-- -->
 
@@ -206,7 +206,7 @@ Voici le code pour l’ingestion de données.
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 51,72 seconde
+Time taken to execute above cell: 51.72 seconds
 
 ## <a name="data-exploration--visualization"></a>Exploration et visualisation de données
 Une fois les données intégrées dans Spark, l’étape suivante du processus de science des données consiste à mieux comprendre les données par l’exploration et la visualisation. Dans cette section, nous examinons les données des taxis à l’aide de requêtes SQL, et traçons les variables cibles et les caractéristiques prospectives à vérifier visuellement. Plus précisément, nous traçons la fréquence des nombres de passagers dans les trajets en taxi, la fréquence des montants des pourboires et la variation des pourboires par type et par montant.
@@ -410,7 +410,7 @@ Voici le code permettant d’indexer et d’encoder des caractéristiques catég
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 1,28 seconde
+Time taken to execute above cell: 1.28 seconds
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Créer des objets point étiquetés à intégrer dans les fonctions ML
 Cette section contient le code qui montre comment indexer des données textuelles catégorielles en type point étiqueté et les encoder afin qu’elles puissent former et tester la régression logistique de MLlib et d’autres modèles de classification. Les objets point étiquetés sont des jeux de données distribués résilients (RDD) mis en forme en tant que données d’entrée utilisables par la plupart des algorithmes ML dans MLlib. Un [point étiqueté](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) est un vecteur local, dense ou fragmenté, associé à un libellé/une réponse.  
@@ -505,7 +505,7 @@ Ce code crée un échantillonnage aléatoire des données (25 % utilisé ici). B
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 0,24 seconde
+Time taken to execute above cell: 0.24 seconds
 
 ### <a name="feature-scaling"></a>Mise à l’échelle des caractéristiques
 La mise à l’échelle des caractéristiques, également appelée normalisation des données, garantit que les caractéristiques aux valeurs très dispersées sont pondérées dans la fonction cible. Le code de mise à l’échelle des caractéristiques utilise [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) pour mettre à l’échelle les caractéristiques à la variance d’unité. MLlib le fournit en vue d’une utilisation dans une régression linéaire avec SGD (Stochastic Gradient Descent), un algorithme populaire permettant de former une large gamme d’autres modèles Machine Learning, tels que les régressions régularisées ou les machines à vecteurs de support (SVM).
@@ -548,7 +548,7 @@ Voici le code pour mettre à l’échelle des variables pour l’algorithme pour
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 13,17 secondes
+Time taken to execute above cell: 13.17 seconds
 
 ### <a name="cache-objects-in-memory"></a>Mettre en cache des objets en mémoire
 La durée d’apprentissage et de test des algorithmes ML peut être réduite par la mise en cache d’objets de trame de données utilisés pour la classification, la régression et les caractéristiques mises à l’échelle.
@@ -579,7 +579,7 @@ La durée d’apprentissage et de test des algorithmes ML peut être réduite pa
 
 **SORTIE :** 
 
-Durée d’exécution de la cellule ci-dessus : 0,15 seconde
+Time taken to execute above cell: 0.15 seconds
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>Prédire si un pourboire a été payé avec des modèles de classification binaires
 Cette section montre comment utiliser trois modèles de tâche de classification binaire pour prédire si un pourboire est payé pour une course en taxi. Les modèles présentés sont les suivants :
@@ -636,7 +636,7 @@ Coefficients : [0,0082065285375, -0,0223675576104, -0,0183812028036, -3.48124578
 
 Interception : -0,0111216486893
 
-Durée d’exécution de la cellule ci-dessus : 14,43 secondes
+Time taken to execute above cell: 14.43 seconds
 
 **Évaluer le modèle de classification binaire avec des mesures standard**
 
@@ -698,7 +698,7 @@ Rappel = 0,984304060189
 
 Score F1 = 0,984304060189
 
-Durée d’exécution de la cellule ci-dessus : 57,61 secondes
+Time taken to execute above cell: 57.61 seconds
 
 **Tracer la courbe ROC.**
 
@@ -791,7 +791,7 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 
 Zone sous ROC = 0,985297691373
 
-Durée d’exécution de la cellule ci-dessus : 31,09 secondes
+Time taken to execute above cell: 31.09 seconds
 
 ### <a name="gradient-boosting-trees-classification"></a>Classification par arbres GBT (Gradient Boosting Tree)
 Le code de cette section montre comment former, évaluer et enregistrer un modèle d’arbres GBT qui prédit si un pourboire est payé pour un trajet dans le jeu de données des courses et tarifs de taxi à New York.
@@ -837,7 +837,7 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 
 Zone sous ROC = 0,985297691373
 
-Durée d’exécution de la cellule ci-dessus : 19,76 secondes
+Time taken to execute above cell: 19.76 seconds
 
 ## <a name="predict-tip-amounts-for-taxi-trips-with-regression-models"></a>Prédire le montant des pourboires de courses de taxi avec les modèles de régression
 Cette section montre comment utiliser trois modèles pour la tâche de régression qui consiste à prédire le montant du pourboire versé pour une course de taxi en fonction d’autres caractéristiques de pourboire. Les modèles présentés sont les suivants :
@@ -903,13 +903,13 @@ Le code de cette section montre comment utiliser des caractéristiques mises à 
 
 Coefficients : [0,00457675809917, -0,0226314167349, -0,0191910355236, 0,246793409578, 0,312047890459, 0,359634405999, 0,00928692253981, -0,000987181489428, -0,0888306617845, 0,0569376211553, 0,115519551711, 0,149250164995, -0,00990211159703, -0,00637410344522, 0,545083566179, -0,536756072402, 0,0105762393099, -0,0130117577055, 0,0129304737772, -0,00171065945959]
 
-Interception : -0,853872718283
+Intercept: 0.853872718283
 
 RMSE = 1,24190115863
 
 Racine carrée = 0,608017146081
 
-Durée d’exécution de la cellule ci-dessus : 58,42 secondes
+Time taken to execute above cell: 58.42 seconds
 
 ### <a name="random-forest-regression"></a>Régression par forêts aléatoires
 Le code de cette section montre comment former, évaluer et enregistrer une régression de forêts aléatoires qui prédit le montant d’un pourboire pour les données sur les courses de taxi à New York.
@@ -961,7 +961,7 @@ RMSE = 0,891209218139
 
 Racine carrée = 0,759661334921
 
-Durée d’exécution de la cellule ci-dessus : 49,21 secondes
+Time taken to execute above cell: 49.21 seconds
 
 ### <a name="gradient-boosting-trees-regression"></a>Régression par arbres GBT (Gradient Boosting Tree)
 Le code de cette section montre comment former, évaluer et enregistrer un modèle d’arbres GBT, qui prédit le montant d’un pourboire pour les données sur les courses de taxi à New York.
@@ -1012,7 +1012,7 @@ RMSE = 0,908473148639
 
 Racine carrée = 0,753835096681
 
-Durée d’exécution de la cellule ci-dessus : 34,52 secondes
+Time taken to execute above cell: 34.52 seconds
 
 **Tracer**
 
@@ -1099,7 +1099,7 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 ## <a name="whats-next"></a>Et ensuite ?
 Maintenant que vous avez créé des modèles de régression et de classification avec la bibliothèque MlLib Spark, vous êtes prêt à apprendre à noter et évaluer ces modèles. Le bloc-notes avancé d’exploration et de modélisation des données approfondit la validation croisée, le balayage hyperparamétrique et l’évaluation du modèle. 
 
-**Consommation de modèles :** pour apprendre à noter et évaluer les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning intégrés Spark](spark-model-consumption.md).
+**Utilisation des modèles** : pour savoir comment noter et évaluer les modèles de classification et de régression créés dans cette rubrique, voir [Noter et évaluer des modèles Machine Learning créés avec Spark](spark-model-consumption.md).
 
-**Validation croisée et balayage hyperparamétrique**: consultez [Exploration et modélisation avancées des données avec Spark](spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique
+**Validation croisée et balayage hyperparamétrique** : pour savoir comment entraîner des modèles avec la validation croisée et le balayage hyperparamétrique, voir [Exploration et modélisation avancées des données avec Spark](spark-advanced-data-exploration-modeling.md).
 

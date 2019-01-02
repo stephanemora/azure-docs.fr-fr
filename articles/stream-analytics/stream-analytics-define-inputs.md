@@ -4,17 +4,17 @@ description: Apprenez en davantage sur la configuration d’une connexion de don
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248742"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099730"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Diffuser en continu des données en tant qu’entrées dans Stream Analytics
 
@@ -26,10 +26,10 @@ Stream Analytics possède une intégration de première classe avec des flux de 
 Ces ressources d’entrée peuvent résider dans le même abonnement Azure que votre travail Stream Analytics ou un autre abonnement.
 
 ### <a name="compression"></a>Compression
-Stream Analytics prend en charge la compression pour toutes les sources d’entrée de flux de données. Les types de référence actuellement pris en charge pour la compression sont : Aucune, GZip et Deflate. La prise en charge de la compression n’est pas disponible pour les données de référence. Si le format d’entrée est des données Avro compressées, celles-ci sont gérées de façon transparente. Vous n’avez pas besoin de spécifier le type de compression avec la sérialisation Avro. 
+Stream Analytics prend en charge la compression pour toutes les sources d’entrée de flux de données. Les types de référence actuellement pris en charge sont : Aucun, GZip et Compression Deflate. La prise en charge de la compression n’est pas disponible pour les données de référence. Si le format d’entrée est des données Avro compressées, celles-ci sont gérées de façon transparente. Vous n’avez pas besoin de spécifier le type de compression avec la sérialisation Avro. 
 
 ## <a name="create-edit-or-test-inputs"></a>Créer, modifier ou tester les entrées
-Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour [créer des entrées](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) et afficher ou modifier des entrées existantes de votre travail de diffusion en continu. Vous pouvez également tester les connexions d’entrée et [tester les requêtes](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) à partir d’exemples de données. Lorsque vous écrivez une requête, vous répertoriez l’entrée dans la clause FROM. Vous pouvez obtenir la liste des entrées disponibles à partir de la page **Requête** du portail. Si vous souhaitez utiliser plusieurs entrées, vous pouvez les `JOIN` ou écrire plusieurs requêtes `SELECT`.
+Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour [créer des entrées](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) et afficher ou modifier des entrées existantes de votre travail de diffusion en continu. Vous pouvez également tester les connexions d’entrée et [tester les requêtes](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) à partir d’exemples de données. Lorsque vous écrivez une requête, vous répertoriez l’entrée dans la clause FROM. Vous pouvez obtenir la liste des entrées disponibles à partir de la page **Requête** du portail. Si vous souhaitez utiliser plusieurs entrées, vous pouvez les `JOIN` ou écrire plusieurs requêtes `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Diffuser en continu des données depuis Event Hubs
@@ -171,7 +171,7 @@ FROM Input
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Guide de démarrage rapide : Créer un travail Stream Analytics à l’aide du Portail Azure](stream-analytics-quick-create-portal.md)
+> [Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

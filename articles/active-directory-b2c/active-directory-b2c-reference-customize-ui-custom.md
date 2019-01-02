@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139507"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841623"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées
 
@@ -31,7 +31,7 @@ Une expérience utilisateur transparente est essentielle à toute solution B2C. 
 
 Azure AD B2C permet de personnaliser l’apparence de l’expérience utilisateur sur les différentes pages traitées et affichées par Azure AD B2C à l’aide de stratégies personnalisées.
 
-Pour ce faire, Azure AD B2C exécute du code dans le navigateur de votre client et utilise l’approche moderne et standard [Partage des ressources cross-origin (CORS)](http://www.w3.org/TR/cors/) pour charger du contenu personnalisé à partir d’une URL spécifique que vous spécifiez dans une stratégie personnalisée pour qu’elle pointe vers vos modèles HTML5/CSS. CORS est un mécanisme qui permet à des ressources limitées (p. ex des polices) sur une page web d’être demandées à partir d’un autre domaine en dehors du domaine d’origine de la ressource.
+Pour ce faire, Azure AD B2C exécute du code dans le navigateur de votre client et utilise l’approche moderne et standard [Partage des ressources cross-origin (CORS)](https://www.w3.org/TR/cors/) pour charger du contenu personnalisé à partir d’une URL spécifique que vous spécifiez dans une stratégie personnalisée pour qu’elle pointe vers vos modèles HTML5/CSS. CORS est un mécanisme qui permet à des ressources limitées (p. ex des polices) sur une page web d’être demandées à partir d’un autre domaine en dehors du domaine d’origine de la ressource.
 
 Par rapport à l’ancienne méthode traditionnelle, où des pages de modèle sont détenues par la solution dans laquelle vous avez fourni des images et du texte limités et dans laquelle un contrôle restreint de la disposition et de l’apparence a été appliqué, ce qui compromettait la transparence de l’expérience, la méthode CORS prend en charge les modèles HTML5 et CSS, ce qui vous permet d’effectuer les opérations suivantes :
 
@@ -69,10 +69,10 @@ Pour vous assurer que tout fonctionne comme prévu, vous devez effectuer les op�
 - Utiliser des URL absolues comme https://yourdomain/content pour tous les liens et le contenu CSS
 
 > [!TIP]
-> Pour vérifier que CORS est activé sur le site sur lequel votre contenu est hébergé et pour tester vos requêtes CORS, vous pouvez utiliser le site http://test-cors.org/. Grâce à ce site, vous pouvez soit envoyer la demande CORS à un serveur distant (pour déterminer si CORS est pris en charge), soit envoyer la demande CORS à un serveur de test (pour découvrir certaines fonctionnalités de CORS).
+> Pour vérifier que CORS est activé sur le site sur lequel votre contenu est hébergé et pour tester vos requêtes CORS, vous pouvez utiliser le site https://test-cors.org/. Grâce à ce site, vous pouvez soit envoyer la demande CORS à un serveur distant (pour déterminer si CORS est pris en charge), soit envoyer la demande CORS à un serveur de test (pour découvrir certaines fonctionnalités de CORS).
 
 > [!TIP]
-> Le site http://enable-cors.org/ est également une ressource précieuse pour en savoir plus sur CORS.
+> Le site https://enable-cors.org/ est également une ressource précieuse pour en savoir plus sur CORS.
 
 Cette approche basée sur CORS permet aux utilisateurs finaux de bénéficier d’expériences cohérentes entre votre application et les pages traitées par Azure AD B2C.
 
@@ -120,13 +120,13 @@ CORS (Cross-Origin Resource Sharing) doit être activé sur votre point de termi
 Pour vérifier que CORS est activé sur le compte de stockage sur lequel vous hébergez votre contenu, procédez comme suit :
 
 1. Ouvrez une session de navigation et accédez à la page *unified.html* à l’aide de l’URL complète de son emplacement dans votre compte de stockage, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Par exemple : https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Accédez à http://test-cors.org. Ce site vous permet de vérifier que CORS est activé pour la page que vous utilisez.  
+2. Accédez à https://test-cors.org. Ce site vous permet de vérifier que CORS est activé pour la page que vous utilisez.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->
 
 3. Dans **URL distante**, entrez l’URL complète de votre contenu unified.html et cliquez sur **Envoyer une requête**.
-4. Vérifiez que la sortie dans la section **Résultats** contient la mention *XHR status: 200* (État XHR : 200), ce qui indique que le mécanisme CORS est activé.
+4. Vérifiez que la sortie dans la section **Résultats** contient *XHR status: 200* (État XHR : 200), qui indique que CORS est activé.
 <!--
 ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
 -->
@@ -168,4 +168,4 @@ Le tableau ci-après décrit l’ensemble d’ID de définition de contenu recon
 | *api.signuporsignin* | **Page de connexion ou d’inscription unifiée**.  Cette page gère l’inscription et la connexion des utilisateurs, qui peuvent utiliser les fournisseurs d’identité d’entreprise ou de réseaux sociaux (p. ex., Facebook ou Google+), ou des comptes locaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Understanding the custom policies of the Azure AD B2C Custom Policy starter pack](active-directory-b2c-reference-custom-policies-understanding-contents.md) (Comprendre les stratégies personnalisées du pack de démarrage AD B2C Custom Policy)
+[Reference : Understanding the custom policies of the Azure AD B2C Custom Policy starter pack](active-directory-b2c-reference-custom-policies-understanding-contents.md) (Comprendre les stratégies personnalisées du pack de démarrage AD B2C Custom Policy)

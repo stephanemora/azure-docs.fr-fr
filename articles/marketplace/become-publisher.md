@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394831"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846468"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Devenir un éditeur sur la Place de marché dans le cloud
 
@@ -78,9 +78,9 @@ Il vous sera demandé de fournir les informations suivantes :
 Notre équipe d’intégration de la Place de marché validera les détails de l’inscription à la Place de marché fournis à l’étape 3. Une fois ces détails approuvés, vous recevrez un e-mail de bienvenue avec des informations d’identification de compte et des conseils de connexion au [portail Cloud Partner](https://cloudpartner.azure.com).
 
 Vous utiliserez le [portail Cloud Partner](https://cloudpartner.azure.com) pour créer, publier et gérer des offres sur la place de marché. Une fois que vous aurez reçu l’e-mail de bienvenue et d’approbation, vous pouvez vous connecter immédiatement au [portail Cloud Partner](https://cloudpartner.azure.com) avec votre compte Microsoft pour accéder à des informations techniques supplémentaires sur la publication sur la place de marché et la création de votre offre. 
-*   Pour plus d’informations sur l’utilisation du portail Cloud Partner, [consultez l’article Prise en main de la section En savoir plus à l’adresse](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Vous devez être connecté au portail Cloud Partner pour accéder à ces détails.
+*   Pour plus d’informations sur l’utilisation du portail Cloud Partner, [consultez l’article Prise en main de la section En savoir plus à l’adresse](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Vous devez être connecté au portail Cloud Partner pour accéder à ces détails.
 *   Si vous avez des questions ou souhaitez planifier un appel de présentation de l’intégration, passez en revue d’autres articles de ce Guide de l’éditeur ou ouvrez une demande de support sous Type de problème > Intégration sur la place de marché à partir du portail Cloud Partner.
-*   Si vous n’avez pas reçu l’e-mail de bienvenue, vérifiez votre dossier Courrier indésirable pour rechercher un e-mail avec la ligne d’objet « Bienvenue dans Microsoft Marketplace ». Si votre dossier Courrier indésirable est vide, [contactez le support Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Dans la page de support, sélectionnez : Type de problème > Intégration sur la place de marché.  Notre équipe d’intégration des éditeurs sur la place de marché sera heureuse de vous aider dans vos recherches. 
+*   Si vous n’avez pas reçu l’e-mail de bienvenue, vérifiez votre dossier Courrier indésirable pour rechercher un e-mail avec la ligne d’objet « Bienvenue dans Microsoft Marketplace ». Si votre dossier Courrier indésirable est vide, [contactez le support Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Sur la page de support, veuillez sélectionner : Type de problème > Intégration sur la place de marché.  Notre équipe d’intégration des éditeurs sur la place de marché sera heureuse de vous aider dans vos recherches. 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. S’inscrire dans le Centre de développement (uniquement pour l’option de publication Transaction) 
@@ -104,7 +104,7 @@ Une fois l’inscription au [Centre de développement](https://developer.microso
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez les vitrines de la place de marché : [Comparaison entre AppSource et la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+* En savoir plus sur les vitrines de place de marché : [Comparaison entre AppSource et la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
 *   [Déterminer le type de référencement pour votre solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633510"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322702"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory
 Découvrez comment choisir la méthode d’authentification unique la plus appropriée lors de la configuration d’applications dans Azure Active Directory (Azure AD). 
@@ -61,14 +61,13 @@ L’authentification unique SAML est prise en charge pour les applications qui u
 
 - SAML 2.0
 - Un certificat de fournisseur d'identité WS-Federation
-- OpenID Connect
 
 Pour configurer une application pour l’authentification unique SAML, consultez [Configurer l’authentification unique SAML](configure-single-sign-on-portal.md). En outre, de nombreuses applications ont des [tutoriels spécifiques](../saas-apps/tutorial-list.md) qui vous guident pas à pas dans la configuration de l’authentification unique SAML pour des applications spécifiques. 
 
 Pour plus d’informations sur le fonctionnement du protocole SAML, consultez [Protocole SAML d’authentification unique](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="password-based-sso"></a>Authentification unique par mot de passe
-Avec l’authentification unique par mot de passe, l’application s’authentifie auprès de l’application avec un nom d’utilisateur et un mot de passe. Les utilisateurs finaux se connectent à l’application la première fois qu’ils y accèdent. Après la première connexion, Azure Active Directory fournit le nom d’utilisateur et le mot de passe à l’application. 
+Avec l’authentification par mot de passe, les utilisateurs finaux se connectent à l’application à l’aide d’un nom d’utilisateur et d’un mot de passe la première fois qu’ils y accèdent. Après la première connexion, Azure Active Directory fournit le nom d’utilisateur et le mot de passe à l’application. 
 
 L’authentification unique par mot de passe utilise le processus d’authentification existant fourni par l’application. Quand vous activez l’authentification unique par mot de passe pour une application, Azure AD collecte et stocke de façon sécurisée les noms d’utilisateur et les mots de passe pour l’application. Les informations d’identification de l’utilisateur sont stockées à l’état chiffré dans l’annuaire. 
 
@@ -178,6 +177,6 @@ Pour plus d’informations, consultez la page [Éditions d’Azure Active Direct
 * [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Tutoriel pour la configuration de l’authentification unique](configure-single-sign-on-portal.md)
 * [Introduction à la gestion de l’accès aux applications](what-is-access-management.md)
-* Lien de téléchargement : [Plan de déploiement de l’authentification unique](http://aka.ms/SSODeploymentPlan).
+* Lien de téléchargement : [Plan de déploiement de l’authentification unique](https://aka.ms/SSODeploymentPlan).
 
 

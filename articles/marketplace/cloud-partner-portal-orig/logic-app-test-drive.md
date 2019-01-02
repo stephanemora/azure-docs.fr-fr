@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0fd4efe7fc6f8f217d889b5f87c133b5e250b54
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806489"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258200"
 ---
 <a name="logic-app-test-drive"></a>Version d’évaluation d’une application logique
 ====================
@@ -40,7 +40,7 @@ Maintenant que vous avez créé votre version d’évaluation, cette section dé
 
 Dans le premier champ qui est aussi le plus important, vous devez indiquer si vous souhaitez ou non procéder au test du formulaire avec l’ensemble des champs obligatoires présentés pour vous à remplir. Lorsque vous sélectionnez **Non**, le formulaire est désactivé, et si vous procédez à une republication avec la version d’évaluation désactivée, votre version d’évaluation est supprimée de la production.
 
-*Remarque* : si des versions d’évaluation sont activement utilisées, elles continuent à être exécutées jusqu’à ce que leur session expire.
+*Remarque*: si des versions d’évaluation sont activement utilisées, elles continuent à être exécutées jusqu’à ce que leur session expire.
 
 ### <a name="details"></a>Détails
 
@@ -48,11 +48,11 @@ La prochaine section à remplir concerne les détails de votre version d’éval
 
 ![Détails d’une version d’évaluation](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Description :** *[champ obligatoire]* c’est ici que vous rédigez la description principale du contenu de votre version d’évaluation. Le client consulte ici les scénarios qui sont couverts par la version d’évaluation de votre produit. 
+**Description :** *[champ obligatoire]* c’est ici que vous rédigez la description principale du contenu de votre version d’évaluation. Le client consulte ici les scénarios qui sont couverts par la version d’évaluation de votre produit. 
 
 **Manuel de l’utilisateur :** *[champ obligatoire]* il s’agit de la présentation approfondie de l’expérience de votre version d’évaluation. Le client l’ouvre et peut savoir exactement ce que vous voulez qu’il fasse dans sa version d’évaluation. Il est important que ce contenu soit facile à comprendre et à suivre ! (fichier PDF uniquement)
 
-**Vidéo de démonstration de la version d’évaluation :** \[recommandée\] comme le manuel de l’utilisateur, il est préférable d’inclure un didacticiel vidéo sur l’expérience de votre version d’évaluation. Le client la visionne avant ou pendant la version d’évaluation et peut savoir exactement ce que vous voulez qu’il fasse dans sa version d’évaluation. Il est important que ce contenu soit facile à comprendre et à suivre !
+**Vidéo de démonstration de la version d’évaluation :** \[recommandée\] Comme le manuel de l’utilisateur, il est préférable d’inclure un didacticiel vidéo sur l’expérience de votre version d’évaluation. Le client la visionne avant et pendant la version d’évaluation et peut savoir exactement ce que vous voulez qu’il fasse dans sa version d’évaluation. Il est important que ce contenu soit facile à comprendre et à suivre !
 
 - **Nom** : titre de votre vidéo.
 - **Lien** : il doit s’agir d’une URL incorporée à partir de YouTube ou Vimeo. Un exemple illustrant l’obtention de l’URL incorporée figure ci-dessous :
@@ -70,11 +70,11 @@ La section suivante à remplir correspond à l’emplacement où vous configurez
 
 - **Région** - *[champ obligatoire]* La région que vous sélectionnez correspond à la région dans laquelle vous souhaitez déployer la version d’évaluation de l’application logique.
 
-    *Remarque :* si votre application logique compte des ressources personnalisées qui sont stockées dans une région, assurez-vous que celle-ci est sélectionnée ici. La meilleure façon de procéder consiste à **déployer entièrement votre application logique localement vers votre abonnement Azure dans le portail et à vérifier qu’elle fonctionne** avant de l’écrire ici.
+    *Remarque :* si votre application logique compte des ressources personnalisées qui sont stockées dans une région, assurez-vous que celle-ci est sélectionnée ici. La meilleure façon de procéder consiste à **déployer entièrement votre application logique localement vers votre abonnement Azure dans le portail et à vérifier qu’elle fonctionne** avant de l’écrire ici.
 
 - **Maximum Concurrent Test Drives (Nombre maximal de versions d’évaluation simultanées)** - *[champ obligatoire]* Nombre d’instances de version d’évaluation déjà déployées et en attente d’accès par région sélectionnée. Les clients peuvent accéder instantanément à ces versions d’évaluation au lieu d’attendre un déploiement.
 
-    *Remarque :* si vous exécutez un webinaire/une classe où vous voulez que l’ensemble de vos étudiants (nombre N) prennent une version d’évaluation, il est recommandé de publier avec le nombre N d’instances à chaud, puis une fois la classe terminée, de republier vers le nombre normal d’instances à chaud.
+    *Remarque :* si vous exécutez un webinaire/une classe où vous voulez que l’ensemble de vos étudiants (nombre N) prennent une version d’évaluation, il est recommandé de publier avec le nombre N d’instances à chaud, puis une fois la classe terminée, de republier vers le nombre normal d’instances à chaud.
 
 - **Durée de la version d’évaluation (heures) :** *[champ obligatoire]* durée pendant laquelle la version d’évaluation reste active, exprimée en nombre d’heures. La version d’évaluation se termine automatiquement à la fin de cette période.
 
@@ -112,7 +112,7 @@ Dans le cas contraire, créez un locataire dans Azure Active Directory.
 **ID d’application Azure AD :** *[champ obligatoire]* l’étape suivante consiste à créer et inscrire une nouvelle application. Nous allons utiliser cette application pour effectuer des opérations sur l’instance de votre version d’évaluation.
 
 1. Accédez au répertoire que vous venez de créer ou au répertoire déjà existant et sélectionnez le répertoire Azure Active Directory dans le volet de filtre.
-2. Recherchez Inscriptions d’applications, puis cliquez sur Ajouter.
+2. Recherchez « Inscriptions d’applications » et cliquez sur « Ajouter »
 3. Entrez un nom d’application.
 4. Sélectionnez le type « Application/API web ».
 5. Indiquez une valeur quelconque dans le champ URL de connexion ; nous n’utiliserons pas ce champ.
@@ -123,20 +123,18 @@ Cliquez sur Enregistrer. La dernière étape consiste à récupérer l’ID de c
 
 ![ID d’application Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails7.png)
 
-Étant donné que nous utilisons l’application à déployer vers l’abonnement, nous devons ajouter cette application en tant que contributeur dans l’abonnement. Voici les instructions à suivre pour ce faire :
+Étant donné que nous utilisons l’application à déployer vers l’abonnement, nous devons ajouter cette application en tant que contributeur dans l’abonnement. Voici les instructions pour le faire :
 
 1. Accédez au panneau Abonnements et sélectionnez l’abonnement approprié que vous utilisez uniquement pour la version d’évaluation.
-2. Cliquez sur Contrôle d’accès (IAM).
-3. Appuyez sur + Ajouter dans le nouveau panneau.
-4. Définissez le rôle Contributeur.
-5. Tapez le nom de l’application AAD et sélectionnez celle-ci pour affecter le rôle.
-6. Cliquez sur Enregistrer.
+1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur l’onglet **Attributions de rôles**.  ![Azure Active Directory, ajout d’un nouveau principal de contrôle d’accès](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Cliquez sur **Ajouter une attribution de rôle**.
+1. Définissez le rôle **Contributeur**.
+1. Tapez le nom de l’application Azure AD et sélectionnez celle-ci pour affecter le rôle.
+    ![Autorisations Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Cliquez sur **Enregistrer**.
 
-![Azure Active Directory, ajout d’un nouveau principal de contrôle d’accès](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Autorisations Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
-
-**Clé d’application Azure AD :** *[champ obligatoire]* le champ final consiste à générer une clé d’authentification. Sous Clés, ajoutez une description de la clé, définissez la durée afin qu’elle n’expire jamais, puis sélectionnez Enregistrer. Il est **important** de ne pas avoir une clé expirée, faute de quoi votre version d’évaluation en production est arrêtée. Copiez cette valeur et collez-la dans le champ obligatoire de votre version d’évaluation.
+**Clé d’application Azure AD :** *[champ obligatoire]* le champ final consiste à générer une clé d’authentification. Sous Clés, ajoutez une description de la clé, définissez la durée afin qu’elle n’expire jamais, puis sélectionnez Enregistrer. Il est **important** d’éviter d’avoir une clé expirée, car cela arrête votre version d’évaluation en production. Copiez cette valeur et collez-la dans le champ obligatoire de votre version d’évaluation.
 
 ![Section Clés d’Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails8.png)
 

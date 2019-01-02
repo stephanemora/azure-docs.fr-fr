@@ -1,12 +1,11 @@
 ---
-title: 'Guide pratique : préparer un modèle au déploiement dans Azure Machine Learning Studio | Microsoft Docs'
+title: Préparer un modèle au déploiement - Azure Machine Learning Studio | Microsoft Docs
 description: Comment préparer votre modèle entraîné au déploiement sous forme de service web en convertissant votre expérience de formation Machine Learning Studio en une expérience prédictive.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7849a21e2d005584030375e2193f74a99b3977bd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ef54281b91147060e9c00bcc6e45e0db0fb8933a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265234"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273100"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Guide pratique : préparer un modèle au déploiement dans Azure Machine Learning Studio
 
@@ -29,11 +28,11 @@ Azure Machine Learning Studio vous donne les outils nécessaires pour développe
 
 Pour cela, vous utiliserez Studio afin de créer une expérience, appelée *expérience de formation*, dans laquelle vous entraînerez, évaluerez et modifierez votre modèle. Une fois satisfait, vous préparerez votre modèle au déploiement en convertissant votre expérience de formation en une *expérience prédictive* configurée pour évaluer les données utilisateur.
 
-Vous trouverez un exemple de ce processus à la page [Procédure pas à pas : développer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Vous pouvez voir un exemple de ce processus dans [Procédure pas à pas : Développer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
 Cet article étudie en détail la façon dont une expérience de formation est convertie en une expérience prédictive et dont cette expérimentation prédictive est déployée. Ces informations vous permettront d’apprendre à configurer votre modèle déployé de façon à le rendre plus efficace.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Vue d’ensemble 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 5f6f3f61b5f7a06ac4056499edfb811780838cdc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bd3bcd575e8e0f60d5d8f9640aa7b0ed4935249e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441875"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273219"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Configurer des alertes sur l’intégrité de service avec PagerDuty
 
@@ -50,15 +50,15 @@ Cet article vous explique comment configurer les notifications sur l’intégrit
 
 ## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Créer une alerte à l’aide de PagerDuty dans le portail Azure
 ### <a name="for-a-new-action-group"></a>Pour un nouveau groupe d’action :
-1. Suivez les étapes 1 à 8 de [Créer une alerte sur une notification sur l’intégrité du service pour un nouveau groupe d’actions à l’aide du portail Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+1. Suivez les étapes 1 à 8 de [Créer une alerte sur une notification sur l’intégrité du service pour un nouveau groupe d’actions à l’aide du portail Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 1. À définir dans la liste des **Actions** :
 
     a. **Type d’action :** *Webhook*
 
-    b. **Détails :** **URL d’intégration** PagerDuty précédemment enregistrée.
+    b. **Détails :** l’**URL d’intégration** PagerDuty précédemment enregistrée.
 
-    c. **Nom** : nom, alias ou identificateur du Webhook.
+    c. **Nom :** nom, alias ou identificateur du Webhook.
 
 1. Quand vous avez terminé, sélectionnez **Enregistrer** pour créer l’alerte.
 
@@ -73,14 +73,14 @@ Cet article vous explique comment configurer les notifications sur l’intégrit
 
     a. **Type d’action :** *Webhook*
 
-    b. **Détails :** **URL d’intégration** PagerDuty précédemment enregistrée.
+    b. **Détails :** l’**URL d’intégration** PagerDuty précédemment enregistrée.
 
-    c. **Nom** : nom, alias ou identificateur du Webhook.
+    c. **Nom :** nom, alias ou identificateur du Webhook.
 
 1. Quand vous avez terminé, sélectionnez **Enregistrer** pour mettre à jour le groupe d’actions.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Tester l’intégration à Webhook via une demande HTTP POST
-1. Créez la charge utile d’intégrité du service que vous souhaitez envoyer. Vous trouverez un exemple de charge utile du Webhook d’intégrité du service dans la page [Webhook pour des alertes du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Créez la charge utile d’intégrité du service que vous souhaitez envoyer. Vous trouverez un exemple de charge utile du Webhook d’intégrité du service dans la page [Webhook pour des alertes du journal d’activité Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Créez une requête HTTP POST comme suit :
 
@@ -97,6 +97,6 @@ Cet article vous explique comment configurer les notifications sur l’intégrit
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [configurer des notifications de Webhook pour les systèmes de gestion de problème existants](service-health-alert-webhook-guide.md).
-- Consultez le [schéma webhook des alertes de journal d’activité](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Consultez le [schéma webhook des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - En savoir plus sur les [notifications sur l’intégrité du service](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- En savoir plus sur les [groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- En savoir plus sur les [groupes d’actions](../azure-monitor/platform/action-groups.md).

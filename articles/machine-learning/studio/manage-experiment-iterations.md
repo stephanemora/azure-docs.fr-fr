@@ -1,12 +1,11 @@
 ---
 title: Gérer les itérations d’expériences dans Machine Learning Studio - Azure | Microsoft Docs
-description: Gestion des itérations d'expériences dans Azure Machine Learning Studio
+description: Gestion des itérations d’expériences dans Azure Machine Learning Studio. Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
@@ -16,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: b96ab59db8c4586304a864ee432dbd1c74b25fd6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ebcae3e8e8f13904936dbe122f285a01a2a71459
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313535"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270448"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gestion des itérations d'expériences dans Azure Machine Learning Studio
 Le développement d'un modèle d'analyse prédictive est un processus itératif : lorsque vous modifiez les diverses fonctions et les paramètres de votre expérience, vos résultats convergent jusqu'à ce que l'efficacité du modèle formé vous donne satisfaction. L'élément clé de ce processus est le suivi des différentes itérations de vos paramètres d'expérience et de vos configurations.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes. Quand vous exécutez une expérience, Machine Learning Studio conserve un historique de l’exécution, y compris l’ensemble de données, le module, les connexions de port et les paramètres. Cet historique capture également les résultats, les informations d'exécution telles que les heures de démarrage et d'arrêt, les messages de journal et l'état d'exécution. Vous pouvez réexaminer, à tout moment, l'une de ces exécutions pour consulter la chronologie de votre expérience et les résultats intermédiaires. Vous pouvez même utiliser une exécution précédente de votre expérience pour entamer une nouvelle phase de recherche et de découverte sur votre chemin d'accès pour la création de solutions de modélisation simples, complexes ou même d'ensemble.
 

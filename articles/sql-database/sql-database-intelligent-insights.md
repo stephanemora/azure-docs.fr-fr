@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976183"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278132"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Utilisation de l’intelligence artificielle pour superviser et résoudre les problèmes de performances de la base de données par Intelligent Insights
 
@@ -84,10 +84,10 @@ Pour plus d'informations sur l'activation de la journalisation Intelligent Insig
 La solution Azure SQL Analytics fournit une interface utilisateur graphique, des fonctionnalités de création de rapports et d’alertes sur les performances des bases de données, ainsi que les données du journal de diagnostic Intelligent Insights.
 
 > [!TIP]
-> Démarrage rapide : pour tirer le meilleur parti d’Intelligent Insights, le plus simple est de l’utiliser avec Azure SQL Analytics. De cette façon, vous disposerez d’une interface utilisateur graphique pour les problèmes de performances des bases de données. Ajoutez la solution Azure SQL Analytics à partir de la Place de marché, créez un espace de travail dans cette solution, puis, pour chaque base de données dans laquelle vous souhaitez activer Intelligent Insights, configurez le streaming du journal « SQLInsights » dans le panneau des paramètres de diagnostic d’une base de données vers l’espace de travail Azure SQL Analytics.
+> Démarrage rapide : pour tirer le meilleur parti d’Intelligent Insights, le plus simple est de l’utiliser avec Azure SQL Analytics. De cette façon, vous disposez d’une interface utilisateur graphique pour les problèmes de performances des bases de données. Ajoutez la solution Azure SQL Analytics à partir de la Place de marché, créez un espace de travail dans cette solution, puis, pour chaque base de données dans laquelle vous souhaitez activer Intelligent Insights, configurez le streaming du journal « SQLInsights » dans le panneau des paramètres de diagnostic d’une base de données vers l’espace de travail Azure SQL Analytics.
 >
 
-Les deux conditions préalables sont les suivantes : ajouter Azure SQL Analytics au tableau de bord du portail Azure à partir de la Place de marché et créer un espace de travail. Pour plus d’informations, consultez [Configurer Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md#configuration).
+Les deux conditions préalables sont les suivantes : ajouter Azure SQL Analytics au tableau de bord du portail Azure à partir de la Place de marché et créer un espace de travail. Pour plus d’informations, consultez [Configurer Azure SQL Analytics](../azure-monitor/insights/azure-sql.md#configuration).
 
 Pour utiliser Intelligent Insights avec Azure SQL Analytics, configurez les données du journal Intelligent Insights afin de les diffuser en continu vers l’espace de travail Azure SQL Analytics que vous avez créé à l’étape précédente. Pour plus d’informations, consultez [Journalisation des métriques et diagnostics d’Azure SQL Database](sql-database-metrics-diag-logging.md).
 
@@ -179,5 +179,5 @@ Si l’une des exceptions critiques surveillées franchit les seuil absolus gér
 
 - Apprendre à [résoudre les problèmes de performances liés à SQL Database avec Intelligence Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Utiliser le [journal de diagnostic des performances d’Intelligent Insights dans SQL Database](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Apprendre à [surveiller SQL Database à l’aide de SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+- Apprendre à [surveiller SQL Database à l’aide de SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - Apprendre à [collecter et utiliser les données de journaux de vos ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

@@ -1,28 +1,21 @@
 ---
-title: 'Déplacer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager : PowerShell : Azure | Microsoft Docs'
+title: 'Migrer les circuits d’un déploiement classique vers Resource Manager - ExpressRoute : PowerShell : Azure | Microsoft Docs'
 description: Cette page décrit comment déplacer un circuit classique vers le modèle de déploiement Resource Manager à l’aide de PowerShell.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/28/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 0c3a1a57a89d716245dc075e47b7970cb228ff50
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.custom: seodec18
+ms.openlocfilehash: fae5ad4a9045115c0e7a68b0164593f639824073
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100417"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141491"
 ---
-# <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Déplacer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager à l’aide de PowerShell
+# <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Déplacer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager à l’aide de PowerShell
 
 Pour utiliser un circuit ExpressRoute pour les modèles de déploiement classique et Resource Manager, vous devez déplacer ce circuit vers le modèle de déploiement Resource Manager. Les sections suivantes vous aident à déplacer votre circuit à l’aide de PowerShell.
 
@@ -46,7 +39,7 @@ Connectez-vous à l’environnement classique Azure et collectez la clé de serv
   Add-AzureAccount
   ```
 
-2. Sélectionnez l’abonnement Azure approprié.
+2.  Sélectionnez l’abonnement Azure approprié.
 
   ```powershell
   Select-AzureSubscription "<Enter Subscription Name here>"
@@ -65,7 +58,7 @@ Connectez-vous à l’environnement classique Azure et collectez la clé de serv
   Get-AzureDedicatedCircuit
   ```
 
-### <a name="step-2-sign-in-and-create-a-resource-group"></a>Étape 2 : connexion et création d’un groupe de ressources
+### <a name="step-2-sign-in-and-create-a-resource-group"></a>Étape 2 : Se connecter et créer un groupe de ressources
 
 Connectez-vous à l’environnement Resource Manager et créez un groupe de ressources.
 
@@ -75,7 +68,7 @@ Connectez-vous à l’environnement Resource Manager et créez un groupe de ress
   Connect-AzureRmAccount
   ```
 
-2. Sélectionnez l’abonnement Azure approprié.
+2.  Sélectionnez l’abonnement Azure approprié.
 
   ```powershell
   Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription
@@ -162,5 +155,5 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer et modifier le routage pour votre circuit ExpressRoute](expressroute-howto-routing-arm.md)
+* [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-arm.md)
 * [Lier votre réseau virtuel à votre circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)

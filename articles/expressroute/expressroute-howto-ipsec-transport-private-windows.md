@@ -1,5 +1,5 @@
 ---
-title: Configurer le mode de transport IPsec pour les ordinateurs hôtes Windows - Appairage privé Azure ExpressRoute | Microsoft Docs
+title: 'Configurer le mode de transport IPsec pour les hôtes Windows - apparairage privé : ExpressRoute : Azure | Microsoft Docs'
 description: Découvrez comment activer le mode de transport IPsec entre des machines virtuelles Azure exécutant Windows et des hôtes Windows locaux via l’appairage privé ExpressRoute, à l’aide d’objets de stratégie de groupe ou d’unités d’organisation.
 services: expressroute
 author: fabferri
@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
-ms.openlocfilehash: 1b228f0238c678c0cea4a6be2a6c3e0b929ed4d6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 39bbe8a0ec11b90d506ce0d1c0bad37ddba46a5d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394324"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139112"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurer le mode de transport IPsec pour l’appairage privé ExpressRoute
 
@@ -42,17 +43,17 @@ Ce diagramme montre les tunnels IPsec en transit dans l’appairage privé Expre
 ### <a name="working-with-ipsec-policy"></a>Utilisation de la stratégie IPsec
 
 Dans Windows, le chiffrement est associé à la stratégie IPsec. Une stratégie IPsec détermine quel trafic IP est sécurisé, et quel mécanisme de sécurité est appliqué aux paquets IP.
-Les **stratégies IPSec** sont composées des éléments suivants : **listes de filtres**, **actions de filtrage** et **règles de sécurité**.
+**Les stratégies IPSec** sont composées des éléments suivants : **Listes de filtres**, **Actions de filtrage** et **Règles de sécurité**.
 
 Lorsque vous configurez une stratégie IPsec, il est important de comprendre sa terminologie :
 
-* **Stratégie IPsec** : ensemble de règles. Vous ne pouvez activer (« attribuer ») qu’une seule stratégie à la fois. Cependant, chaque stratégie peut avoir une ou plusieurs règles, qui peuvent être actives simultanément. Vous ne pouvez attribuer qu’une seule stratégie IPsec à la fois à un ordinateur. Toutefois, dans cette stratégie IPsec, vous pouvez définir plusieurs actions à exécuter selon la situation. Chaque ensemble de règles IPsec est associé à une liste de filtres qui affecte le type de trafic réseau auquel la règle s’applique.
+* **Stratégie IPsec :** collection de règles. Vous ne pouvez activer (« attribuer ») qu’une seule stratégie à la fois. Cependant, chaque stratégie peut avoir une ou plusieurs règles, qui peuvent être actives simultanément. Vous ne pouvez attribuer qu’une seule stratégie IPsec à la fois à un ordinateur. Toutefois, dans cette stratégie IPsec, vous pouvez définir plusieurs actions à exécuter selon la situation. Chaque ensemble de règles IPsec est associé à une liste de filtres qui affecte le type de trafic réseau auquel la règle s’applique.
 
-* **Listes de filtres** : les listes de filtres comprennent un ou plusieurs filtres. Une même liste peut contenir plusieurs filtres. Un filtre définit si la communication est autorisée, sécurisée ou bloquée, selon les plages d’adresses IP, les protocoles ou même certains ports de protocole. Chaque filtre correspond à un ensemble de conditions, par exemple, des paquets envoyés à partir d’un sous-réseau donné vers un ordinateur donné via un port de destination donné. Lorsque les conditions réseau correspondent à un ou plusieurs de ces filtres, la liste de filtres est activée. Chaque filtre est défini au sein d’une liste de filtres. Les filtres ne peuvent pas être partagés par plusieurs listes. Cependant, une liste de filtres donnée peut être intégrée à plusieurs stratégies IPsec. 
+* **Listes de filtres :** les listes de filtres comprennent un ou plusieurs filtres. Une même liste peut contenir plusieurs filtres. Un filtre définit si la communication est autorisée, sécurisée ou bloquée, selon les plages d’adresses IP, les protocoles ou même certains ports de protocole. Chaque filtre correspond à un ensemble de conditions, par exemple, des paquets envoyés à partir d’un sous-réseau donné vers un ordinateur donné via un port de destination donné. Lorsque les conditions réseau correspondent à un ou plusieurs de ces filtres, la liste de filtres est activée. Chaque filtre est défini au sein d’une liste de filtres. Les filtres ne peuvent pas être partagés par plusieurs listes. Cependant, une liste de filtres donnée peut être intégrée à plusieurs stratégies IPsec. 
 
-* **Actions de filtrage** : une méthode de sécurité définit un ensemble regroupant des algorithmes de sécurité, des protocoles et une clé que l’ordinateur propose pendant les négociations IKE. Les actions de filtrage sont des listes de méthodes de sécurité, classées par ordre de préférence.  Lorsqu’un ordinateur négocie une session IPsec, il accepte ou envoie des propositions en fonction du paramètre de sécurité qui est stocké dans la liste des actions de filtrage.
+* **Actions de filtrage :** une méthode de sécurité définit un ensemble regroupant des algorithmes de sécurité, des protocoles et une clé que l’ordinateur propose pendant les négociations IKE. Les actions de filtrage sont des listes de méthodes de sécurité, classées par ordre de préférence.  Lorsqu’un ordinateur négocie une session IPsec, il accepte ou envoie des propositions en fonction du paramètre de sécurité qui est stocké dans la liste des actions de filtrage.
 
-* **Règles de sécurité** : les règles déterminent quand et comment une stratégie IPsec doit protéger les communications. Les **listes de filtres** et les **actions de filtrage** sont utilisées pour créer une règle IPsec dans le but d’établir la connexion IPsec. Cependant, chaque stratégie peut avoir une ou plusieurs règles, qui peuvent être actives simultanément. Chaque règle contient une liste de filtres IP et un groupe d’actions de sécurité qui sont exécutées lorsqu’une correspondance est établie avec la liste de filtres :
+* **Règles de sécurité :** les règles déterminent quand et comment une stratégie IPsec doit protéger les communications. Les **listes de filtres** et les **actions de filtrage** sont utilisées pour créer une règle IPsec dans le but d’établir la connexion IPsec. Cependant, chaque stratégie peut avoir une ou plusieurs règles, qui peuvent être actives simultanément. Chaque règle contient une liste de filtres IP et un groupe d’actions de sécurité qui sont exécutées lorsqu’une correspondance est établie avec la liste de filtres :
   * Actions de filtrage IP
   * Méthodes d’authentification
   * Paramètres de tunnel IP
@@ -92,7 +93,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 
 * **Nom de domaine** : ipsectest.com
 
-* **Unité d’organisation** : IPSecOU
+* **Unité d’organisation :** IPSecOU
 
 * **Ordinateur Windows local** : host1
 
@@ -169,7 +170,7 @@ Créez une liste de filtres qui spécifie le trafic HTTP chiffré avec le port d
 5. Spécifiez l’adresse source du trafic IP dans **Adresse IP ou sous-réseau**, puis cliquez sur **Suivant**.
 
   [![28]][28]
-6. Spécifiez l’adresse IP ou le sous-réseau dans **Adresse de destination**. Cliquez ensuite sur **Suivant**.
+6. Spécifiez l’**adresse de destination :** adresse IP ou sous-réseau. Cliquez ensuite sur **Suivant**.
 
   [![29]][29]
 7. Dans la page **Type de protocole IP**, sélectionnez **TCP**. Cliquez ensuite sur **Suivant**.
@@ -251,7 +252,7 @@ Ajoutez à la stratégie IPsec la **liste de filtres IP** et **l’action de fil
 6. Sélectionnez l’action de filtrage que vous avez créée précédemment (**myEncryption**).
 
   [![46]][46]
-7. Windows prend en charge quatre types d’authentification : Kerberos, par certificat, NTLMv2 et par clé prépartagée. Étant donné que nous utilisons des ordinateurs hôtes joints à un domaine, sélectionnez **Authentification Active Directory par défaut (protocole Kerberos v.5)**, puis cliquez sur **Suivant**.
+7. Windows prend en charge quatre types d’authentification distincts : Kerberos, certificats, NTLMv2 et clé prépartagée. Étant donné que nous utilisons des ordinateurs hôtes joints à un domaine, sélectionnez **Authentification Active Directory par défaut (protocole Kerberos v.5)**, puis cliquez sur **Suivant**.
 
   [![47]][47]
 8. La nouvelle stratégie crée la règle de sécurité **azure-onpremises-HTTP8080**. Cliquez sur **OK**.

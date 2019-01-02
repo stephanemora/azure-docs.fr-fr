@@ -3,7 +3,7 @@ title: Gestion des bases de données cloud avec montée en charge | Microsoft Do
 description: Utilisez le service des tâches de base de données élastique pour exécuter un script dans un groupe de bases de données.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: f5878c510e048bea2ce1aedaf4e0e5dbb4611caf
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9647522f4b3990d065f292f05934b8d19c691454
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242515"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865520"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gestion des bases de données cloud avec montée en charge
 
@@ -81,8 +81,8 @@ Définir des groupes personnalisés de bases de données SQL Azure, ainsi que de
 2. Utilisez les APIs PowerShell pour accéder à davantage de fonctionnalités, par exemple la création de collections de bases de données personnalisées, l’ajout de planifications et/ou la collecte des ensembles de résultats. Utilisez le portail pour une installation simple et la création/la surveillance de travaux limités à l’exécution par rapport à un **pool élastique**.
 3. Créez des informations d’identification chiffrées pour l’exécution d’une tâche et [ajoutez l’utilisateur (ou le rôle) à chaque base de données du groupe](sql-database-security-overview.md).
 4. Créez un script T-SQL idempotent qui peut être exécuté sur chacune des bases de données du pool.
-5. Procédez comme suit pour créer des travaux à l’aide du portail Azure : [Création et gestion des travaux de base de données élastiques](sql-database-elastic-jobs-create-and-manage.md)
-6. Ou utilisez des scripts PowerShell : [Création et gestion des travaux de base de données SQL élastiques à l’aide de PowerShell (version préliminaire)](sql-database-elastic-jobs-powershell.md).
+5. Suivez ces étapes pour créer des travaux à partir du portail Azure : [Création et gestion de tâches de base de données élastique](sql-database-elastic-jobs-create-and-manage.md).
+6. Ou utilisez des scripts PowerShell : [Créer et gérer des tâches de base de données élastique SQL Database en utilisant PowerShell (préversion)](sql-database-elastic-jobs-powershell.md).
 
 ## <a name="idempotent-scripts"></a>Scripts idempotents
 
@@ -137,8 +137,8 @@ Les composants suivants fonctionnent en synergie pour créer un service Cloud Az
 1. Une base de données SQL Azure est conçue comme une **base de données de contrôle** qui stocke toutes les métadonnées et les données d’état.
 2. Pour accéder à la base de données de contrôle, accédez au **service des tâches** pour lancer les tâches à exécuter et en assurer le suivi.
 3. Deux rôles communiquent avec la base de données de contrôle :
-   - Contrôleur : détermine les tâches qui nécessitent d’autres tâches pour effectuer la tâche demandée, ainsi que les tâches des nouvelles tentatives ayant échoué en créant de nouvelles tâches.
-   - Exécution de tâches de travail : exécute les tâches de travail.
+   - Contrôleur : détermine les travaux qui nécessitent des tâches pour être menées à bien et tente à nouveau les tâches ayant échoué en créant de nouvelles tâches de travail.
+   - Exécution de tâches de travail : mène à bien les tâches de travail.
 
 ### <a name="job-task-types"></a>Types de tâches de travail
 

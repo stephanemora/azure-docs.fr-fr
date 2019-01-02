@@ -1,11 +1,12 @@
 ---
 title: Plateformes de données pour la machine virtuelle DSVM - Azure | Microsoft Docs
-description: Plateformes de données pour la machine virtuelle DSVM.
+description: Apprenez-en davantage sur les outils et plateformes de données pris en charge par la Data Science Virtual Machine.
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,14 +16,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b3f340006801287383c2afb2924706affbd77a51
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f73f90b76900a3a5213297f8a28ff13204852039
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411027"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105545"
 ---
-# <a name="data-platforms"></a>Plateformes de données
+# <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plateformes de données prises en charge sur la machine virtuelle DSVM
 
 La machine virtuelle DSVM (Data Science Virtual Machine) vous permet de générer votre analytique sur un large éventail de plateformes de données. En plus des interfaces sur les plateformes de données distantes, la machine virtuelle DSVM fournit une instance locale pour le développement et le prototypage rapides. 
 
@@ -33,7 +34,7 @@ Les outils de plateforme de données pris en charge sur la machine virtuelle DSV
 | | |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Une instance de base de données relationnelle locale      |
-| Éditions DSVM prises en charge      | Windows      |
+| Éditions DSVM prises en charge      |  Windows      |
 | Utilisations classiques      | Développement rapide localement avec le plus petit jeu de données <br/> Exécution de R en base de données   |
 | Liens vers des exemples      |    Un petit échantillon du jeu de données New York City est chargé dans la base de données SQL `nyctaxi`. <br/> Vous trouverez un exemple Jupyter illustrant l’analytique Microsoft R et en base de données à l’emplacement suivant :<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Outils connexes sur la machine virtuelle DSVM       | SQL Server Management Studio <br/> Pilotes ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Drill      |
@@ -100,7 +101,7 @@ Vous pouvez arrêter les services liés à Hadoop quand vous n’en avez pas bes
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Comment est-il configuré / installé sur la machine virtuelle DSVM ? 
 |Plateforme|Emplacement d’installation ($SPARK_HOME)|
 |:--------|:--------|
-|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
+| Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 

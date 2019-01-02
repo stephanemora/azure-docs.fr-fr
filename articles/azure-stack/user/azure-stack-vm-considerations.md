@@ -6,24 +6,24 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: cb02ecb06728f5f36a0d51a3ec22cc8ba5cb44e7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.reviewer: kivenkat
+ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094753"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847522"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considérations relatives à l’utilisation des machines virtuelles dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Les machines virtuelles Azure Stack fournissent des ressources de calcul scalables et à la demande. Avant de déployer des machines virtuelles, il est important de comprendre les différences entre les fonctionnalités de machine virtuelle disponibles dans Azure Stack et Microsoft Azure. Cet article explique ces différences et identifie les points clés à prendre en compte lors de la planification des déploiements de machines virtuelles. Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
 
@@ -40,7 +40,7 @@ Les machines virtuelles Azure Stack fournissent des ressources de calcul scalabl
 | Performances des disques de machines virtuelles | Dépendent de la taille et du type de disque. | Dépendent de la taille de la machine virtuelle à laquelle sont attachés les disques. Pour en savoir plus, consultez l’article [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md).
 | Versions d’API | Azure utilise toujours les dernières versions d’API pour toutes les fonctionnalités de machine virtuelle. | Azure Stack prend en charge certains services Azure et des versions d’API spécifiques pour ces services. Pour obtenir la liste des versions d’API prises en charge, consultez la section [Versions d’API](#api-versions) dans cet article. |
 |Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour<br>Prise en charge des disques managés|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour (20 max.)<br>Pas de prise en charge des disques managés|
-|Groupes identiques de machines virtuelles |Prise en charge du dimensionnement automatique des instances|Pas de prise en charge du dimensionnement automatique des instances.<br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell.
+|Groupes identiques de machines virtuelles |Mise à l’échelle automatique prise en charge|Mise à l’échelle automatique non prise en charge.<br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Tailles de machines virtuelles
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239047"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310995"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 ##  <a name="introduction"></a>Introduction
 ### <a name="overview"></a>Vue d'ensemble
-Pour aider les clients actuel et futurs d’Azure à comprendre et à utiliser les différentes fonctionnalités liées à la sécurité disponibles dans la plateforme Azure et autour de celle-ci, Microsoft a développé une série de livres blancs, de présentations de sécurité, de meilleures pratiques et de listes de vérification.
+Pour aider les clients actuels et futurs d’Azure à comprendre et à utiliser les différentes fonctionnalités liées à la sécurité disponibles dans la plateforme Azure et autour de celle-ci, Microsoft a développé une série de livres blancs, de présentations de sécurité, de meilleures pratiques et de listes de vérification.
 Les rubriques sont aussi précises que variées et sont mises à jour régulièrement. Ce document fait partie de cette série, comme décrit dans la section Résumé ci-après.
 
 ### <a name="azure-platform"></a>Plateforme Azure
@@ -70,7 +70,7 @@ Les utilisateurs, groupes et applications de ce répertoire peuvent gérer les r
 
 - Les utilisateurs d’Azure AD n’ont pas accès aux emplacements ou aux ressources physiques, et il leur est donc impossible de contourner les vérifications de stratégie RBAC logique stipulées ci-après.
 
-Pour les diagnostics et les besoins de maintenance, un modèle opérationnel qui fait appel à un système d’élévation des privilèges immédiat est nécessaire et utilisé. Azure AD Privileged Identity Management (PIM) introduit le concept d’administrateur éligible. Les [administrateurs](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) éligibles doivent être des utilisateurs qui nécessitent un accès privilégié de temps à autres, mais pas tous les jours. Ce rôle reste inactif jusqu’à ce l’utilisateur ait besoin d’un tel accès ; dans ce cas, il complète un processus d’activation et devient administrateur actif pour une durée prédéterminée.
+Pour les diagnostics et les besoins de maintenance, un modèle opérationnel qui fait appel à un système d’élévation des privilèges immédiat est nécessaire et utilisé. Azure AD Privileged Identity Management (PIM) introduit le concept d’administrateur éligible. Les [administrateurs](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) éligibles doivent être des utilisateurs qui nécessitent un accès privilégié de temps à autre, mais pas tous les jours. Ce rôle reste inactif jusqu’à ce que l’utilisateur ait besoin d’un tel accès ; dans ce cas, il complète un processus d’activation et devient administrateur actif pour une durée prédéterminée.
 
 ![Azure AD Privileged Identity Management](./media/azure-isolation/azure-isolation-fig2.png)
 
@@ -121,7 +121,7 @@ Les services professionnels avec des certifications vérifiées telles que ISO/I
 
 Si vous supprimez des données, Microsoft Azure supprime les données, y compris les copies mises en cache ou de sauvegarde. Pour les services dans l’étendue, cette suppression aura lieu dans les 90 jours suivant la fin de la période de rétention. (Les services dans l’étendue sont définis dans la section Data Processing Terms (Conditions relatives au traitement des données) de nos [conditions Microsoft Online Services](https://aka.ms/Online-Services-Terms).)
 
-Si un lecteur de disque utilisé pour le stockage rencontre une défaillance matérielle, il est [effacé ou détruit](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) de façon sûre avant que Microsoft ne le renvoie au fabricant pour effectuer un remplacement ou une réparation. Les données sur le lecteur sont remplacées pour vous assurer qu’elles ne puissent pas être récupérées par quelque moyen que ce soit.
+Si un lecteur de disque utilisé pour le stockage rencontre une défaillance matérielle, il est [effacé ou détruit](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) de façon sûre avant que Microsoft ne le renvoie au fabricant pour effectuer un remplacement ou une réparation. Les données sur le lecteur sont remplacées pour vous assurer qu’elles ne peuvent pas être récupérées par quelque moyen que ce soit.
 
 ## <a name="compute-isolation"></a>Isolation du calcul
 Microsoft Azure propose divers services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise. Ces services et instances de calcul offrent une isolation à plusieurs niveaux pour sécuriser les données sans compromettre la flexibilité de la configuration exigée par les clients.
@@ -149,9 +149,7 @@ La plateforme de calcul Azure repose sur la virtualisation des machines, ce qui 
 
 Chaque nœud a également une machine virtuelle racine spéciale qui exécute le système d’exploitation hôte. Une limite critique correspond à l’isolation de la machine virtuelle racine des machines virtuelles invitées et entre les machines virtuelles invitées, gérée par l’hyperviseur et le système d’exploitation racine. La paire hyperviseur/système d’exploitation racine tire parti des dizaines d’années d’expérience de Microsoft en matière de sécurité des systèmes d’exploitation et des enseignements plus récents sur Hyper-V de Microsoft pour fournir une isolation renforcée des machines virtuelles invitées.
 
-La plateforme Azure utilise un environnement virtualisé. Les instances utilisateur fonctionnent comme des machines virtuelles autonomes qui n’ont pas accès à un serveur hôte physique, et cette isolation est appliquée à l’aide des niveaux de privilège (Anneau 0/Anneau 3) de processeur physique.
-
-L’anneau 0 est le plus privilégié, et l’anneau 3 le moins privilégié. Le système d’exploitation invité s’exécute dans un anneau 1 moins privilégié, tandis que les applications s’exécutent dans l’anneau 3, le moins privilégié. Cette virtualisation des ressources physiques entraîne une séparation claire entre le système d’exploitation invité et l’hyperviseur, ce qui donne lieu à une séparation de sécurité supplémentaire entre les deux.
+La plateforme Azure utilise un environnement virtualisé. Les instances utilisateur fonctionnent comme des machines virtuelles autonomes qui n’ont pas accès au serveur hôte physique.
 
 L’hyperviseur d’Azure agit comme un micronoyau et transfère toutes les demandes d’accès matériel des machines virtuelles invitées vers l’hôte à des fins de traitement au moyen d’une interface de mémoire partagée appelée VMBus. Cela empêche les utilisateurs d’obtenir un accès brut en lecture/écriture/exécution au système, et réduit le risque de partage des ressources système.
 
@@ -187,9 +185,9 @@ Par défaut, tout le trafic est bloqué lorsqu’une machine virtuelle est cré�
 
 Il existe deux catégories de règles qui sont programmées :
 
--   **Règles de configuration des machines ou d’infrastructure** : par défaut, toutes les communications sont bloquées. Il existe des exceptions qui permettent d’autoriser une machine virtuelle à envoyer et recevoir le trafic DHCP et DNS. Les machines virtuelles peuvent également envoyer le trafic vers l’Internet « public » et vers d’autres machines virtuelles dans le même réseau virtuel Azure et le serveur d’activation du système d’exploitation. La liste de destinations sortantes autorisées des machines virtuelles n’inclut pas les sous-réseaux de routeur Azure, la gestion Azure, ni d’autres propriétés Microsoft.
+-   **Règles de configuration de la machine ou de l’infrastructure :** Par défaut, toutes les communications sont bloquées. Il existe des exceptions qui permettent d’autoriser une machine virtuelle à envoyer et recevoir le trafic DHCP et DNS. Les machines virtuelles peuvent également envoyer le trafic vers l’Internet « public » et vers d’autres machines virtuelles dans le même réseau virtuel Azure et le serveur d’activation du système d’exploitation. La liste de destinations sortantes autorisées des machines virtuelles n’inclut pas les sous-réseaux de routeur Azure, la gestion Azure, ni d’autres propriétés Microsoft.
 
--   **Fichier de configuration de rôle** : celui-ci définit les listes de contrôle d’accès entrant en fonction du modèle de service du client.
+-   **Fichier de configuration de rôle :** Celui-ci définit les listes de contrôle d’accès (ACL) entrant en fonction du modèle de service du client.
 
 ### <a name="vlan-isolation"></a>Isolation du VLAN
 Chaque cluster comporte trois VLAN :
@@ -256,7 +254,7 @@ La solution Disk Encryption pour Windows est basée sur le [chiffrement de lecte
 La solution prend en charge les scénarios de machines virtuelles IaaS suivants lorsqu’ils sont activés dans Microsoft Azure :
 -   Prise en main d’Azure Key Vault
 
--   Machines virtuelles de niveau Standard : machines virtuelles IaaS des séries A, D, DS, G, GS, etc.
+-   Machines virtuelles de niveau Standard : Machines virtuelles IaaS des séries A, D, DS, G, GS, etc.
 
 -   Activation du chiffrement sur les machines virtuelles IaaS Windows et Linux
 
@@ -295,7 +293,7 @@ SQL Database est un service de base de données relationnelle dans le cloud Micr
 
 La base de données [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) est un service de bases de données relationnelles sur le cloud, basé sur les technologies SQL Server. Elle propose un service de bases de données mutualisé, évolutif et hautement disponible, hébergé par Microsoft dans le cloud.
 
-Du point de vue des applications, SQL Azure fournit la hiérarchie suivante : chaque niveau dispose d’une imbrication un-à-plusieurs pour les niveaux en dessous.
+En termes d’applications, SQL Azure fournit la hiérarchie suivante : Chaque niveau ci-dessous possède une autonomie un-à-plusieurs.
 
 ![Modèle d’application SQL Azure](./media/azure-isolation/azure-isolation-fig10.png)
 
@@ -337,14 +335,14 @@ La couche derrière les passerelles est appelée « back-end ». C’est ici q
 En règle générale, le système back-end ne communique pas en sortie avec d’autres systèmes pour des raisons de sécurité. Cela est réservé aux systèmes de la couche front-end (passerelle). Les machines au niveau de la passerelle ont des privilèges limités sur les machines du back-end pour réduire la surface d’attaque comme un mécanisme de défense en profondeur.
 
 ### <a name="isolation-by-machine-function-and-access"></a>Isolation par accès et fonction de machines
-SQL Azure se compose de services s’exécutant sur différentes fonctions de machines. SQL Azure est divisé entre des environnement « front-end » (passerelle/gestion) et une base de données cloud « back-end », en partant du principe que le trafic entre uniquement dans le back-end, mais n’en sort pas. L’environnement front-end peut communiquer avec d’autres services du monde extérieur, et en général a uniquement des autorisations limitées dans le back-end (suffisamment pour appeler les points d’entrée qu’il doit appeler).
+SQL Azure se compose de services s’exécutant sur différentes fonctions de machines. SQL Azure est divisé entre des environnements « front-end » (passerelle/gestion) et une base de données cloud « back-end », en partant du principe que le trafic entre uniquement dans le back-end, mais n’en sort pas. L’environnement front-end peut communiquer avec d’autres services du monde extérieur, et en général a uniquement des autorisations limitées dans le back-end (suffisamment pour appeler les points d’entrée qu’il doit appeler).
 
 ## <a name="networking-isolation"></a>Isolation du réseau
 Le déploiement Azure comporte plusieurs couches d’isolation réseau. Le schéma suivant montre les différentes couches d’isolation réseau fournies aux clients par Azure. Ces couches sont natives à la fois sur la plateforme Azure elle-même et dans les fonctionnalités définies par le client. Issue d’Internet, la protection DDoS Azure offre une isolation contre les attaques à grande échelle menées contre Azure. Les adresses IP publiques (points de terminaison) définies par les clients constituent la couche d’isolation suivante et servent à déterminer quel trafic peut traverser le service cloud pour atteindre le réseau virtuel. L’isolement du réseau virtuel Azure natif garantit l’isolement complet de tous les autres réseaux et la circulation du trafic uniquement au moyen des méthodes et des chemins d’accès configurés par l’utilisateur. Ces chemins d’accès et méthodes constituent la couche suivante, où les groupes de sécurité réseau, le routage défini par l’utilisateur et les appliances virtuelles réseau peuvent servir à créer des limites d’isolation afin de protéger les déploiements d’applications dans le réseau protégé.
 
 ![Isolation du réseau](./media/azure-isolation/azure-isolation-fig13.png)
 
-**Isolation du trafic** : un [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) est la limite d’isolation du trafic sur la plateforme Azure. Les machines virtuelles dans un réseau virtuel ne peuvent pas communiquer directement avec les machines virtuelles dans un autre réseau virtuel, même si les deux réseaux virtuels sont créés par le même client. Cet isolement est une propriété critique qui garantit que les machines virtuelles et les communications du client restent privées dans un réseau virtuel.
+**Isolation du trafic :** Un [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) est la limite d’isolation du trafic sur la plateforme Azure. Les machines virtuelles dans un réseau virtuel ne peuvent pas communiquer directement avec les machines virtuelles dans un autre réseau virtuel, même si les deux réseaux virtuels sont créés par le même client. Cet isolement est une propriété critique qui garantit que les machines virtuelles et les communications du client restent privées dans un réseau virtuel.
 
 Le [sous-réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) offre une couche d’isolation supplémentaire dans le réseau virtuel en fonction de la plage d’adresses IP. Avec la plage d’adresses IP appartenant au réseau virtuel, vous pouvez diviser un réseau virtuel en plusieurs sous-réseaux pour l’organisation et la sécurité. Les machines virtuelles et les instances de rôle PaaS déployées sur des sous-réseaux (identiques ou différents) au sein d’un réseau virtuel peuvent communiquer entre elles sans qu’il y ait besoin de configuration supplémentaire. Vous pouvez également configurer un [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) pour autoriser ou refuser le trafic réseau vers une instance de machine virtuelle en fonction des règles configurées dans la liste de contrôle d’accès du groupe de sécurité réseau. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau.
 

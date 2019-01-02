@@ -3,7 +3,7 @@ title: Transactions distribuées entre bases de données cloud
 description: Vue d’ensemble des transactions de bases de données élastiques avec la base de données SQL Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3147061f527621ba98dee84f4d347a6e883d61c0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166467"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877182"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transactions distribuées entre bases de données cloud
 Les transactions de bases de données élastiques pour la base de données SQL Azure (SQL DB) vous permettent d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans SQL DB. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Pour obtenir la bibliothèque, consultez [.NET Framework 4.6.1 (programme d’installation web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
-En local, un tel scénario nécessitait généralement d’exécuter Microsoft Distributed Transaction Coordinator (MSDTC). Étant donné que MSDTC n’est pas disponible pour une application de plateforme en tant que service (PaaS) dans Azure, la fonctionnalité permettant de coordonner les transactions distribuées a maintenant été intégrée directement dans la base de données SQL. Les applications peuvent se connecter à n’importe quelle base de données SQL pour lancer des transactions distribuées, après quoi l’une des base de données coordonnera en toute transparence les transactions distribuées, comme illustré sur la figure suivante. 
+En local, un tel scénario nécessitait généralement d’exécuter Microsoft Distributed Transaction Coordinator (MSDTC). Étant donné que MSDTC n’est pas disponible pour une application de plateforme en tant que service (PaaS) dans Azure, la fonctionnalité permettant de coordonner les transactions distribuées a maintenant été intégrée directement dans la base de données SQL. Les applications peuvent se connecter à n’importe quelle base de données SQL pour lancer des transactions distribuées, après quoi l’une des bases de données coordonnera en toute transparence les transactions distribuées, comme illustré sur la figure suivante. 
 
   ![Transactions distribuées avec la base de données SQL Azure utilisant les transactions de bases de données élastiques ][1]
 
@@ -30,8 +30,8 @@ En local, un tel scénario nécessitait généralement d’exécuter Microsoft D
 Les transactions de base de données élastiques pour la base de données SQL permettent aux applications d’apporter des modifications atomiques aux données stockées dans plusieurs bases de données SQL différentes. La version d’évaluation se concentre sur les expériences de développement côté client en C# et .NET. Une expérience côté serveur utilisant T-SQL est prévue pour une date ultérieure.  
 Les transactions de bases de données élastiques ciblent les scénarios suivants :
 
-* Applications de bases de données multiples dans Azure : avec ce scénario, les données sont partitionnées verticalement sur plusieurs bases de données dans SQL DB, de telle sorte que différents types de données résident sur différentes bases de données. Certaines opérations requièrent des modifications aux données qui sont conservées dans au moins deux bases de données. L’application utilise des transactions de bases de données élastiques pour coordonner les modifications entre les bases de données et en garantir l’atomicité.
-* Applications de base de données partitionnées dans Azure : avec ce scénario, la couche de données utilise la [bibliothèque cliente de bases de données élastiques](sql-database-elastic-database-client-library.md) ou l’auto-partitionnement pour partitionner horizontalement les données entre plusieurs bases de données dans SQL DB. L’un des scénarios d’utilisation les plus importants concerne la nécessité d’effectuer des modifications atomiques pour une application mutualisée et partitionnée lorsque les modifications s’étendent à plusieurs locataires. Imaginez par exemple un transfert d’un locataire à un autre, tous deux résidant sur des bases de données différentes. Deuxième cas de figure : un partitionnement affiné pour tenir compte des besoins de capacité pour un locataire important qui, à son tour, implique généralement que certaines opérations atomiques doivent s’étendre à plusieurs bases de données utilisées pour le même locataire. Citons un troisième cas, celui des mises à jour atomiques aux données de référence répliquées sur différentes bases de données. La version préliminaire permet maintenant de coordonner les modifications atomiques, les transactions et les opérations le long de ces lignes entre plusieurs bases de données.
+* Applications de bases de données multiples dans Azure : Avec ce scénario, les données sont partitionnées verticalement sur plusieurs bases de données dans SQL DB, de telle sorte que différents types de données résident sur différentes bases de données. Certaines opérations requièrent des modifications aux données qui sont conservées dans au moins deux bases de données. L’application utilise des transactions de bases de données élastiques pour coordonner les modifications entre les bases de données et en garantir l’atomicité.
+* Applications de bases de données partitionnées dans Azure : Avec ce scénario, la couche de données utilise la [bibliothèque de client de bases de données élastiques](sql-database-elastic-database-client-library.md) ou l’auto-partitionnement pour partitionner horizontalement les données entre plusieurs bases de données dans SQL DB. L’un des scénarios d’utilisation les plus importants concerne la nécessité d’effectuer des modifications atomiques pour une application mutualisée et partitionnée lorsque les modifications s’étendent à plusieurs locataires. Imaginez par exemple un transfert d’un locataire à un autre, tous deux résidant sur des bases de données différentes. Deuxième cas de figure : un partitionnement affiné pour tenir compte des besoins de capacité pour un locataire important qui, à son tour, implique généralement que certaines opérations atomiques doivent s’étendre à plusieurs bases de données utilisées pour le même locataire. Citons un troisième cas, celui des mises à jour atomiques aux données de référence répliquées sur différentes bases de données. La version préliminaire permet maintenant de coordonner les modifications atomiques, les transactions et les opérations le long de ces lignes entre plusieurs bases de données.
   Les transactions de bases de données élastiques utilisent une validation en deux phases pour garantir l’atomicité des transactions entre les différentes bases de données. Il est adapté aux transactions qui impliquent moins de 100 bases de données à la fois dans une même transaction. Ces limites ne sont pas appliquées, mais il faut s’attendre, pour les transactions de bases de données élastiques, à des performances et des taux de réussite inférieurs au-delà de ces limites.
 
 ## <a name="installation-and-migration"></a>Installation et migration
@@ -122,18 +122,18 @@ Les transactions de bases de données élastiques sont prises en charge sur plus
 
 Pour gérer les relations de communication entre serveurs pour les transactions de bases de données élastiques, utilisez les applets de commande PowerShell suivants :
 
-* **New-AzureRmSqlServerCommunicationLink**: utilisez cet applet de commande pour créer une nouvelle relation de communication entre deux serveurs logiques dans la base de données SQL Azure. La relation est symétrique, ce qui signifie que chacun des deux serveurs peut initier des transactions avec l'autre serveur.
-* **Get-AzureRmSqlServerCommunicationLink**: utilisez cet applet de commande pour extraire les relations de communication existantes et leurs propriétés.
-* **Remove-AzureRmSqlServerCommunicationLink**: utilisez cet applet de commande pour supprimer une relation de communication existante. 
+* **New-AzureRmSqlServerCommunicationLink** : Utilisez ce cmdlet pour créer une nouvelle relation de communication entre deux serveurs logiques dans la base de données SQL Azure. La relation est symétrique, ce qui signifie que chacun des deux serveurs peut initier des transactions avec l'autre serveur.
+* **Get-AzureRmSqlServerCommunicationLink** : Utilisez ce cmdlet pour extraire les relations de communication existantes et leurs propriétés.
+* **Remove-AzureRmSqlServerCommunicationLink** : Utilisez ce cmdlet pour supprimer une relation de communication existante. 
 
 ## <a name="monitoring-transaction-status"></a>Surveillance de l’état de transaction
-Utilisez les vues de gestion dynamique (DMV) dans la base de données SQL pour surveiller l’état et la progression de vos transactions de bases de données élastiques en cours. Toutes les DMV relatives aux transactions s’appliquent aux transactions distribuées dans la base de données SQL. Vous trouverez ici la liste correspondante des vues de gestion dynamique : [Fonctions et vues de gestion dynamique relatives aux transactions (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Utilisez les vues de gestion dynamique (DMV) dans la base de données SQL pour surveiller l’état et la progression de vos transactions de bases de données élastiques en cours. Toutes les DMV relatives aux transactions s’appliquent aux transactions distribuées dans la base de données SQL. La liste des vues de gestion dynamique est disponible ici : [Vues de gestion dynamique liées à la transaction et fonctions (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
 
 Les vues de gestion dynamique ci-dessous sont particulièrement utiles :
 
-* **sys.dm\_tran\_active\_transactions** : répertorie les transactions actives et leur état. La colonne UOW (Unit Of Work) peut identifier les différentes transactions enfants qui appartiennent à la même transaction distribuée. Toutes les transactions associées à la même transaction distribuée ont la même valeur UOW. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms174302.aspx).
-* **sys.dm\_tran\_database\_transactions** : fournit des informations supplémentaires sur les transactions, telles que le placement de la transaction dans le journal. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms186957.aspx).
-* **sys.dm\_tran\_locks** : fournit des informations sur les verrous maintenus par les transactions en cours. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms190345.aspx).
+* **sys.dm\_tran\_active\_transactions** : Répertorie les transactions actives et leur état. La colonne UOW (Unit Of Work) peut identifier les différentes transactions enfants qui appartiennent à la même transaction distribuée. Toutes les transactions associées à la même transaction distribuée ont la même valeur UOW. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms174302.aspx).
+* **sys.dm\_tran\_database\_transactions** : Fournit des informations supplémentaires sur les transactions, telles que le placement de la transaction dans le journal. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms186957.aspx).
+* **sys.dm\_tran\_locks** : Fournit des informations sur les verrous maintenus par les transactions en cours. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ## <a name="limitations"></a>Limites
 Les limites suivantes s’appliquent actuellement aux transactions de bases de données élastiques dans la base de données SQL :
@@ -143,7 +143,7 @@ Les limites suivantes s’appliquent actuellement aux transactions de bases de d
 * Les transactions entre les services WCF ne sont pas prises en charge. Par exemple, vous disposez d’une méthode de service WCF qui exécute une transaction. L’inclusion de l’appel dans une étendue de transaction échouera en levant l’exception [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour toute question, contactez-nous sur le [forum SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Pour toute question, contactez-nous sur le [forum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

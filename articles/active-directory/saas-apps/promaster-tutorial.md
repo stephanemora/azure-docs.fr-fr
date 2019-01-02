@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory avec ProMaster (d’Inlogik) | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec ProMaster (d’Inlogik) | Microsoft Docs'
 description: Découvrez comment configurer une authentification unique entre Azure Active Directory et ProMaster (d’Inlogik).
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 13bb128836590fb43e0c6a2f7131f83a99a23eaf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507800"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017652"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Didacticiel : intégration d’Azure Active Directory avec ProMaster (d’Inlogik)
+# <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Didacticiel : Intégration d’Azure Active Directory avec ProMaster (d’Inlogik)
 
 Ce didacticiel montre comment intégrer ProMaster (d’Inlogik) avec Azure Active Directory (Azure AD).
 
@@ -33,7 +33,7 @@ L’intégration de ProMaster (d’Inlogik) avec Azure AD offre les avantages su
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec ProMaster (d’Inlogik), vous avez besoin des éléments suivants :
 
@@ -111,6 +111,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     ![Informations d’authentification unique de domaine et d’URL de ProMaster (d’Inlogik)](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
     a. Dans la zone de texte **Identificateur**, utilisez l’un des modèles d’URL suivants :
+
     | |
     | - |-|
     |  `https://secure.inlogik.com/<COMPANYNAME>`|
@@ -118,6 +119,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     | |
 
     b. Dans la zone de texte **URL de réponse**, utilisez l’un des modèles d’URL suivants :
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
@@ -129,6 +131,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     ![Informations d’authentification unique de domaine et d’URL de ProMaster (d’Inlogik)](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
     Dans la zone de texte **URL d’authentification**, utilisez l’un des modèles d’URL suivants :
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
@@ -182,7 +185,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="create-a-promaster-by-inlogik-test-user"></a>Créer un utilisateur de test de ProMaster (d’Inlogik)
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ProMaster (d’Inlogik). Collaborez avec l’[équipe de support de ProMaster (d’Inlogik)](mailto:michael.boldiston@inlogik.com) pour ajouter les utilisateurs dans la plateforme ProMaster (d’Inlogik). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ProMaster (d’Inlogik). Collaborez avec l’ [équipe de support de ProMaster (par Inlogik)](mailto:michael.boldiston@inlogik.com)  pour ajouter les utilisateurs à la plateforme ProMaster (par Inlogik). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

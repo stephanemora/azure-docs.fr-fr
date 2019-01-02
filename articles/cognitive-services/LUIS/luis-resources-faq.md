@@ -1,21 +1,22 @@
 ---
-title: FAQ - Questions fréquentes - Language Understanding (LUIS)
+title: Forum Aux Questions (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Cet article contient des réponses aux questions fréquemment posées sur Language Understanding (LUIS).
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284368"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163631"
 ---
 # <a name="language-understanding-faq"></a>FAQ sur Language Understanding
 
@@ -196,9 +197,9 @@ La [préparation vocale](https://docs.microsoft.com/bot-framework/bot-service-ma
 
 ## <a name="luis-service"></a>Service LUIS
 
-### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS est-il disponible en local ou dans un cloud privé ?
- Non.
+### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>Language Understanding (LUIS) est-il disponible localement ou dans un cloud privé ?
 
+Oui, vous pouvez utiliser le [conteneur](luis-container-howto.md) LUIS pour ces scénarios si vous disposez de la connectivité nécessaire pour limiter l’utilisation. 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Lors de la conférence Build 2018, j’ai entendu parler d’une fonctionnalité ou d’une démonstration de Language Understanding, mais je ne me rappelle pas son nom
 

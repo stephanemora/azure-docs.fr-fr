@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 11/19/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: fe51419106f1164f9a9b5993261c61bad63333b5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ecaceea42d64ab15676a9cb5a42ee8659e40d517
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262956"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847284"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
 
@@ -41,13 +41,13 @@ Azure AD vous permet de collaborer en interne au sein de votre organisation et a
 
 ## <a name="when-to-use-access-reviews"></a>Quand utiliser les révisions d’accès ?
 
-- **Trop d’utilisateurs dans des rôles privilégiés :** il est judicieux de vérifier combien d’utilisateurs ont un accès d’administration, combien d’entre eux ont le rôle d’administrateur général, et s’il existe des invités ou des partenaires qui n’ont pas été supprimés après qu’une tâche d’administration leur a été attribuée. Vous pouvez recertifier les utilisateurs ayant fait l’objet d’une attribution de rôle dans les [rôles d’annuaire Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), comme les administrateurs généraux, ou [les rôles de ressources Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), comme les administrateur de l’accès utilisateur dans l’expérience [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
-- **Quand l’automatisation est irréalisable :** vous pouvez créer des règles pour l’appartenance dynamique sur les groupes de sécurité ou les groupes Office 365, mais que se passe-t-il si les données des ressources humaines ne se trouvent pas dans Azure AD, ou si des utilisateurs ont toujours besoin d’un accès après avoir quitté le groupe pour former les personnes qui les remplacent ? Vous pouvez alors créer une révision sur ce groupe pour que ceux qui ont encore besoin d’un accès puissent encore en bénéficier.
-- **Quand un groupe est utilisé pour un nouvel objectif :** si vous avez un groupe qui va être synchronisé avec Azure AD, ou si vous prévoyez d’activer l’application Salesforce pour tout le monde dans le groupe de l’équipe commerciale, il est utile de demander au propriétaire du groupe de passer en revue l’appartenance au groupe avant d’utiliser le groupe dans un autre contenu à risques.
+- **Trop d’utilisateurs dans des rôles privilégiés :** Il est judicieux de vérifier combien d’utilisateurs ont un accès d’administration, combien d’entre eux ont le rôle d’administrateur général, et s’il existe des invités ou des partenaires qui n’ont pas été supprimés après qu’une tâche d’administration leur a été attribuée. Vous pouvez recertifier les utilisateurs ayant fait l’objet d’une attribution de rôle dans les [rôles d’annuaire Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), comme les administrateurs généraux, ou [les rôles de ressources Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), comme les administrateur de l’accès utilisateur dans l’expérience [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
+- **Quand l’automatisation est irréalisable :** Vous pouvez créer des règles pour l’appartenance dynamique sur les groupes de sécurité ou les groupes Office 365, mais que se passe-t-il si les données des ressources humaines ne se trouvent pas dans Azure AD, ou si des utilisateurs ont toujours besoin d’un accès après avoir quitté le groupe pour former les personnes qui les remplacent ? Vous pouvez alors créer une révision sur ce groupe pour que ceux qui ont encore besoin d’un accès puissent encore en bénéficier.
+- **Quand un groupe est utilisé pour un nouvel objectif :** Si vous avez un groupe qui va être synchronisé avec Azure AD, ou si vous prévoyez d’activer l’application Salesforce pour tout le monde dans le groupe de l’équipe commerciale, il est utile de demander au propriétaire du groupe de passer en revue l’appartenance au groupe avant d’utiliser le groupe dans un autre contenu à risques.
 - **Accès aux données critiques de l’entreprise :** pour certaines ressources, il peut être nécessaire à des fins d’audit de demander aux personnes en dehors du département informatique de se déconnecter régulièrement et de justifier la raison pour laquelle ils ont besoin d’un accès.
-- **Pour gérer une liste d’exception à la stratégie :** dans l’idéal, tous les utilisateurs doivent respecter les stratégies d’accès pour sécuriser l’accès aux ressources de votre organisation. Toutefois, certains scénarios métiers nécessitent que vous fassiez des exceptions. En tant qu’administrateur informatique, vous pouvez gérer cette tâche, éviter d’oublier les exceptions à la stratégie et fournir aux auditeurs la preuve que ces exceptions sont révisées régulièrement.
-- **Demander aux propriétaires de groupe de confirmer qu’ils ont encore besoin d’invités dans leurs groupes :** l’accès des employés peut être automatisé avec certains systèmes IAM locaux, mais pas l’accès des invités. Si un groupe donne à des invités l’accès à du contenu sensible de l’entreprise, il est de la responsabilité du propriétaire du groupe de confirmer que les invités ont encore un besoin métier légitime de cet accès.
-- **Procédez régulièrement à des révisions d’accès :** vous pouvez configurer des révisions d’accès des utilisateurs récurrentes à des fréquences définies, hebdomadaires, mensuelles, trimestrielles ou annuelles, les réviseurs étant alors informés au début de chaque révision. Les réviseurs peuvent approuver ou refuser l’accès avec une interface conviviale et avec l’aide de recommandations intelligentes.
+- **Pour gérer la liste d’exceptions d’une stratégie :** Dans l’idéal, tous les utilisateurs doivent respecter les stratégies d’accès pour sécuriser l’accès aux ressources de votre organisation. Toutefois, certains scénarios métiers nécessitent que vous fassiez des exceptions. En tant qu’administrateur informatique, vous pouvez gérer cette tâche, éviter d’oublier les exceptions à la stratégie et fournir aux auditeurs la preuve que ces exceptions sont révisées régulièrement.
+- **Demander aux propriétaires de groupe de confirmer qu’ils ont encore besoin d’invités dans leurs groupes :** L’accès des employés peut être automatisé avec certains systèmes IAM locaux, mais pas l’accès des invités. Si un groupe donne à des invités l’accès à du contenu sensible de l’entreprise, il est de la responsabilité du propriétaire du groupe de confirmer que les invités ont encore un besoin métier légitime de cet accès.
+- **Procédez régulièrement à des révisions d’accès :** Vous pouvez configurer des révisions d’accès des utilisateurs récurrentes à des fréquences définies, hebdomadaires, mensuelles, trimestrielles ou annuelles, les réviseurs étant alors informés au début de chaque révision. Les réviseurs peuvent approuver ou refuser l’accès avec une interface conviviale et avec l’aide de recommandations intelligentes.
 
 ## <a name="where-do-you-create-reviews"></a>Où créer des révisions ?
 
@@ -67,7 +67,7 @@ Pour utiliser les révisions d’accès, vous devez disposer d’une des licence
 - Azure AD Premium P2
 - Licence Enterprise Mobility + Security (EMS) E5
 
-Pour plus d’informations, consultez [Guide pratique pour s’inscrire à Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) ou [Essai d’Enterprise Mobility + Security E5](http://aka.ms/emse5trial).
+Pour plus d’informations, consultez [Guide pratique pour s’inscrire à Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) ou [Essai d’Enterprise Mobility + Security E5](https://aka.ms/emse5trial).
 
 ## <a name="get-started-with-access-reviews"></a>Bien démarrer avec les révisions d’accès
 
@@ -103,7 +103,7 @@ Pour activer les révisions d’accès, effectuez ces étapes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une révision de l’accès des membres d’un groupe ou de l’accès à une application](create-access-review.md)
+- [Create an access review for members of a group or access to an application](create-access-review.md) (Créer une révision de l’accès des membres d’un groupe ou de l’accès à une application)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)
 - [Effectuer une révision d’accès avec les révisions d’accès Azure AD](perform-access-review.md)
 - [Effectuer une révision d’accès des membres d’un groupe ou des accès des utilisateurs à une application dans Azure AD](complete-access-review.md)

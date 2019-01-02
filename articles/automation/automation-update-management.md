@@ -6,21 +6,21 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/28/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06006456a08c5eb499eff504fea5dcffdc11d662
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635813"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342389"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
 Vous pouvez utiliser la solution Update Management dans Azure Automation pour gérer les mises à jour du système d’exploitation de vos ordinateurs Windows et Linux déployés dans Azure, des environnements locaux ou d’autres fournisseurs cloud. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur tous les ordinateurs d’agent et gérer le processus d’installation des mises à jour requises pour les serveurs.
 
-Vous pouvez activer Update Management pour les machines virtuelles directement depuis votre compte Azure Automation. Pour découvrir comment activer Update Management pour les machines virtuelles depuis votre compte Automation, consultez l’article [Gérer les mises à jour pour plusieurs machines virtuelles](manage-update-multi.md). Vous pouvez également activer Update Management pour une seule machine virtuelle à partir de son volet dans le portail Azure. Ce scénario est disponible pour les machines virtuelles [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) et [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
+Vous pouvez activer Update Management pour les machines virtuelles directement depuis votre compte Azure Automation. Pour découvrir comment activer Update Management pour les machines virtuelles depuis votre compte Automation, consultez l’article [Gérer les mises à jour pour plusieurs machines virtuelles](manage-update-multi.md). Vous pouvez également activer Update Management pour une machine virtuelle à partir de sa page dans le Portail Azure. Ce scénario est disponible pour les machines virtuelles [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) et [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
 
 ## <a name="solution-overview"></a>Vue d’ensemble de la solution
 
@@ -41,7 +41,7 @@ Après la publication d’un CVE, comptez un délai de deux à trois heures avan
 
 Après qu’une machine a terminé l’analyse de conformité de la mise à jour, l’agent transfère les informations en bloc à Azure Log Analytics. Sur une machine Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut.
 
-En plus de l’analyse planifiée, l’analyse de conformité de mise à jour est lancée dans les 15 minutes si MMA est redémarré, avant et après l’installation de la mise à jour.
+En plus de l’analyse planifiée, l’analyse de conformité de mise à jour est lancée dans les 15 minutes si MMA est redémarré, avant et après l’installation de la mise à jour.
 
 Sur un ordinateur Linux, l’analyse de conformité est effectuée toutes les 3 heures par défaut. Si l’agent MMA est redémarré, une analyse de conformité est lancée dans les 15 minutes.
 
@@ -52,7 +52,7 @@ La solution rapporte l’état de mise à jour de l’ordinateur en fonction de 
 
 Vous pouvez déployer et installer des mises à jour logicielles sur des ordinateurs qui nécessitent les mises à jour en créant un déploiement planifié. Les mises à jour considérées comme *facultatives* ne sont pas incluses dans le déploiement des ordinateurs Windows. Seules les mises à jour nécessaires sont incluses dans le déploiement. 
 
-Le déploiement planifié définit les ordinateurs cibles qui reçoivent les mises à jour applicables, soit en spécifiant explicitement les ordinateurs ou en sélectionnant un [groupe d’ordinateurs](../log-analytics/log-analytics-computer-groups.md) d’après des recherches dans les journaux d’un ensemble spécifique d’ordinateurs. Vous spécifiez également une planification pour approuver et définir la période pendant laquelle les mises à jour peuvent être installées.
+Le déploiement planifié définit les ordinateurs cibles qui reçoivent les mises à jour applicables, soit en spécifiant explicitement les ordinateurs ou en sélectionnant un [groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md) d’après des recherches dans les journaux d’un ensemble spécifique d’ordinateurs. Vous spécifiez également une planification pour approuver et définir la période pendant laquelle les mises à jour peuvent être installées.
 
 Les mises à jour sont installées par des Runbooks dans Azure Automation. Vous ne pouvez pas visualiser ces Runbooks, qui ne nécessitent aucune configuration. Lorsqu’un déploiement de mises à jour est créé, il génère une planification qui démarre un Runbook de mises à jour principal au moment indiqué pour les ordinateurs inclus. Ce runbook principal lance un runbook enfant sur chaque agent pour installer les mises à jour obligatoires.
 
@@ -120,7 +120,7 @@ Si votre groupe d’administration System Center Operations Manager est connect�
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Pack d’administration du déploiement des mises à jour
 
-Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager à Log Analytics](../log-analytics/log-analytics-om-agents.md).
+Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager à Log Analytics](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
 > Pour les systèmes dotés de l’agent Operations Manager, pour pouvoir être entièrement gérés par Update Management, l’agent doit être mis à jour vers Microsoft Monitoring Agent. Pour savoir comment mettre à jour l’agent, consultez [Guide pratique pour mettre à niveau un agent Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
@@ -145,10 +145,10 @@ Heartbeat
 
 Sur un ordinateur Windows, vous pouvez vérifier les informations suivantes pour tester la connectivité de l’agent avec Log Analytics :
 
-1. Dans le Panneau de configuration, ouvrez **Microsoft Monitoring Agent**. Ouvrez l’onglet **Azure Log Analytics**. L’agent affiche un message indiquant : **Microsoft Monitoring Agent est bien connecté à Log Analytics**.
+1. Dans le Panneau de configuration, ouvrez **Microsoft Monitoring Agent**. Sous l’onglet **Azure Log Analytics**, l’agent affiche le message suivant : **Microsoft Monitoring Agent s’est correctement connecté à Log Analytics.**
 2. Ouvrez le journal des événements Windows. Accédez à **Application and Services Logs\Operations Manager**, puis recherchez l’ID d’événement 3000 et 5002 à partir du **connecteur de service** source. Ces événements indiquent que l’ordinateur est enregistré sur l’espace de travail Log Analytics et qu’il reçoit la configuration.
 
-Si l’agent ne parvient pas à communiquer avec Log Analytics et qu’il est configuré pour communiquer avec Internet via un pare-feu ou un serveur proxy, vérifiez que le pare-feu ou le serveur proxy est correctement configuré. Pour savoir comment vérifier que le pare-feu ou le serveur proxy est correctement configuré, consultez [Configuration réseau de l’agent Windows](../azure-monitor/platform/agent-windows.md) ou [Configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md).
+Si l’agent ne parvient pas à communiquer avec Log Analytics et s’il est configuré pour communiquer avec Internet par le biais d’un pare-feu ou d’un serveur proxy, vérifiez que le pare-feu ou le serveur proxy est correctement configuré. Pour savoir comment vérifier la configuration du pare-feu ou du serveur proxy, consultez [Configuration réseau de l’agent Windows](../azure-monitor/platform/agent-windows.md) ou [Configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Si vos systèmes Linux sont configurés pour communiquer avec un proxy ou Log Analytics Gateway et que vous intégrez cette solution, vous devez mettre à jour les autorisations *proxy.conf* pour accorder au groupe omiuser une autorisation d’accès en lecture sur le fichier. Pour cela, exécutez les commandes suivantes :
@@ -158,7 +158,7 @@ Si l’agent ne parvient pas à communiquer avec Log Analytics et qu’il est co
 
 Les nouveaux agents Linux ajoutés affichent l’état **Mis à jour** après l’exécution d’une évaluation. Ce processus peut prendre jusqu’à 6 heures.
 
-Pour vérifier qu’un groupe d’administration Operations Manager communique avec Log Analytics, consultez la rubrique [Validation de l’intégration entre Operations Manager et Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
+Pour vérifier qu’un groupe d’administration Operations Manager communique avec Log Analytics, consultez la rubrique [Validation de l’intégration entre Operations Manager et Log Analytics](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Collecte des données
 
@@ -192,7 +192,7 @@ Pour exécuter une recherche dans les journaux qui permet de retourner des infor
 
 ## <a name="install-updates"></a>Installer les mises à jour
 
-Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows dans votre espace de travail, vous pouvez installer les mises à jour obligatoires en créant une opération de *déploiement de mises à jour*. Un déploiement de mises à jour est une installation planifiée de mises à jour obligatoires pour un ou plusieurs ordinateurs. Vous pouvez spécifier la date et l’heure du déploiement ainsi qu’un ordinateur ou groupe d’ordinateurs à inclure dans un déploiement. Pour en savoir plus sur les groupes d’ordinateurs, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md).
+Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows dans votre espace de travail, vous pouvez installer les mises à jour obligatoires en créant une opération de *déploiement de mises à jour*. Un déploiement de mises à jour est une installation planifiée de mises à jour obligatoires pour un ou plusieurs ordinateurs. Vous pouvez spécifier la date et l’heure du déploiement ainsi qu’un ordinateur ou groupe d’ordinateurs à inclure dans un déploiement. Pour en savoir plus sur les groupes d’ordinateurs, consultez [Groupes d’ordinateurs dans Log Analytics](../azure-monitor/platform/computer-groups.md).
 
  Lorsque vous incluez des groupes d’ordinateurs dans votre déploiement de mises à jour, l’appartenance au groupe n’est évaluée qu’une seule fois au moment de la création de la planification. Les modifications ultérieures apportées à un groupe ne sont pas répercutées. Pour contourner ce problème, utilisez des [groupes dynamiques](#using-dynamic-groups), qui sont résolus au moment du déploiement et sont définis par une requête.
 
@@ -210,7 +210,7 @@ Pour créer un déploiement de mises à jour, sélectionnez **Planifier le dépl
 | NOM |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Linux ou Windows|
 | Groupes à mettre à jour (préversion)|Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)|
-| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../azure-monitor/platform/computer-groups.md) |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
 |Inclure/exclure des mises à jour|La page **Inclure/Exclure** s’ouvre. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](automation-update-management.md#inclusion-behavior) |
 |Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité.|
@@ -219,6 +219,21 @@ Pour créer un déploiement de mises à jour, sélectionnez **Planifier le dépl
 | Contrôle du redémarrage| Détermine la façon dont doivent être gérés les redémarrages. Options disponibles :</br>Redémarrer si nécessaire (par défaut)</br>Toujours redémarrer</br>Ne jamais redémarrer</br>Redémarrer uniquement : les mises à jour ne sont pas installées|
 
 Vous pouvez également créer des déploiements de mises à jour par programmation. Pour savoir comment créer un déploiement de mises à jour avec l’API REST, consultez [Configurations des mises à jour logicielles - Créer](/rest/api/automation/softwareupdateconfigurations/create). Vous pouvez également utiliser un exemple de runbook fourni pour créer un déploiement de mises à jour hebdomadaires. Pour en savoir plus sur ce runbook, consultez [Créer un déploiement de mises à jour hebdomadaires pour une ou plusieurs machines virtuelles dans un groupe de ressources](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+
+### <a name="multi-tenant"></a>Déploiements de mise à jour inter-tenants
+
+Si des machines se trouvent dans un autre rapport de tenant Azure pour Update Management que vous devez corriger, vous devez utiliser la solution de contournement suivante pour planifier l’opération. Vous pouvez utiliser la cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) avec le commutateur `-ForUpdate` pour créer une planification, et utiliser la cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) et faire passer les machines de l’autre tenant au paramètre `-NonAzureComputer`. L’exemple suivant vous montre comment procéder :
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
 
 ## <a name="view-missing-updates"></a>Afficher les mises à jour manquantes
 
@@ -270,7 +285,7 @@ Update Management s’appuie sur Windows Update pour télécharger et installer 
 
 ### <a name="pre-download-updates"></a>Prétélécharger les mises à jour
 
-Pour configurer automatiquement le téléchargement des mises à jour dans la stratégie de groupe, vous pouvez définir le paramètre [Configurer les mises à jour automatiques](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) sur **3**. Ceci télécharge les mises à jour nécessaires en arrière-plan, mais ne les installe pas. Cela permet à Update Management de garder le contrôle de la planification, mais aussi d’autoriser les mises à jour à être téléchargées en dehors de la fenêtre de maintenance d’Update Management. Ceci peut empêcher les erreurs de **fenêtre de maintenance dépassée** dans la Update Management.
+Pour configurer automatiquement le téléchargement des mises à jour dans la stratégie de groupe, vous pouvez définir le paramètre [Configurer les mises à jour automatiques](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) sur **3**. Cela télécharge les mises à jour nécessaires en arrière-plan, mais ne les installe pas. Cela permet à Update Management de garder le contrôle de la planification, mais aussi d’autoriser les mises à jour à être téléchargées en dehors de la fenêtre de maintenance d’Update Management. Ceci peut empêcher les erreurs de **fenêtre de maintenance dépassée** dans la Update Management.
 
 Vous pouvez également définir ce paramètre avec PowerShell. Exécutez la commande PowerShell suivante sur le système sur lequel vous souhaitez activer le téléchargement automatique des mises à jour.
 
@@ -282,7 +297,7 @@ $WUSettings.Save()
 
 ### <a name="enable-updates-for-other-microsoft-products"></a>Activer les mises à jour pour d’autres produits Microsoft
 
-Par défaut, Windows Update fournit uniquement des mises à jour pour Windows. Si vous activez l’option **Me communiquer les mises à jour d’autres produits Microsoft lorsque je mets à jour Windows**, les mises à jour des autres produits vous sont fournies, y compris les correctifs de sécurité pour SQL Server ou autres logiciels. Cette option ne peut pas être configurée par la stratégie de groupe. Exécutez la commande PowerShell suivante sur les systèmes sur lesquels vous souhaitez activer d’autres correctifs tiers. Update Management appliquera ce paramètre.
+Par défaut, Windows Update fournit uniquement des mises à jour pour Windows. Si vous activez l’option **Me communiquer les mises à jour d’autres produits Microsoft lorsque je mets à jour Windows**, les mises à jour des autres produits vous sont fournies, y compris les correctifs de sécurité pour SQL Server ou d’autres logiciels. Cette option ne peut pas être configurée par la stratégie de groupe. Exécutez la commande PowerShell suivante sur les systèmes sur lesquels vous souhaitez activer d’autres correctifs tiers. Update Management appliquera ce paramètre.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -290,6 +305,11 @@ $ServiceManager.Services
 $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
+
+## <a name="third-party"></a> Correctifs tiers sur Windows
+
+Update Management s’appuie sur WSUS ou Windows Update pour corriger les systèmes Windows pris en charge. Des outils tels que l’[éditeur de mise à jour System Center ](/sccm/sum/tools/updates-publisher
+) (Éditeur de mise à jour) vous permettent de publier des mises à jour personnalisées dans WSUS. Ce scénario permet à Update Management de corriger les machines qui utilisent WSUS comme référentiel de mise à jour avec des logiciels tiers. Pour savoir comment configurer l’éditeur de mise à jour, consultez [Installer l’éditeur de mise à jour](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Planification réseau
 
@@ -310,7 +330,7 @@ Il est recommandé d’utiliser les adresses répertoriées lors de la définiti
 
 En plus des détails fournis dans le portail Azure, vous pouvez effectuer des recherches dans les journaux. Dans les pages de solutions, sélectionnez **Log Analytics**. Le volet **Recherche dans les journaux** s’ouvre.
 
-Vous pouvez également apprendre à personnaliser les requêtes ou les utiliser à partir de différents clients et plus en consultant [Documentation de l’API de recherche Log Analytics](
+Vous pouvez également apprendre à personnaliser les requêtes ou les utiliser à partir de différents clients et plus en consultant :  [Documentation de l’API de recherche Log Analytics](
 https://dev.loganalytics.io/).
 
 ### <a name="sample-queries"></a>Exemples de requêtes
@@ -569,7 +589,7 @@ Comme Update Management enrichit les mises à jour dans le cloud, certaines mise
 
 Toutefois, Update Management peut quand même signaler que cet ordinateur n’est pas conforme car il contient des informations supplémentaires sur la mise à jour concernée.
 
-Le déploiement de mises à jour par classification ne fonctionne pas directement sur CentOS. Pour SUSE, sélectionner *uniquement* « Autres mises à jour » en tant que classification peut entraîner l’installation de certaines mises à jour de sécurité si les mises à jour de sécurité associées à zypper (gestionnaire de package) ou ses dépendances sont requises en premier. IL s’agit d’une limitation de zypper. Dans certains cas, vous aurez peut-être à réexécuter le déploiement des mises à jour. Pour savoir si cela est nécessaire, consultez le journal des mises à jour.
+Le déploiement de mises à jour par classification ne fonctionne pas directement sur CentOS. Pour SUSE, sélectionner *uniquement* « Autres mises à jour » en tant que classification peut entraîner l’installation de certaines mises à jour de sécurité si les mises à jour de sécurité associées à zypper (gestionnaire de package) ou ses dépendances sont requises en premier. Il s’agit d’une limitation de zypper. Dans certains cas, vous devrez peut-être réexécuter le déploiement des mises à jour. Pour savoir si cela est nécessaire, consultez le journal des mises à jour.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
@@ -583,6 +603,6 @@ Poursuivez avec le didacticiel pour apprendre à gérer les mises à jour de vos
 > [Gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure](automation-tutorial-update-management.md)
 
 * Utilisez les recherches de journaux de [Log Analytics](../log-analytics/log-analytics-log-searches.md) pour afficher des données détaillées sur les mises à jour.
-* [Créez des alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md) lorsque des mises à jour critiques sont détectées comme manquantes sur des ordinateurs ou lorsque les mises à jour automatiques sont désactivées sur un ordinateur.
+* [Créez des alertes](automation-tutorial-update-management.md#configure-alerts) pour connaître l’état de déploiement des mises à jour.
 
 * Pour savoir comment utiliser Update Management avec l’API REST, consultez [Configurations des mises à jour logicielles](/rest/api/automation/softwareupdateconfigurations)

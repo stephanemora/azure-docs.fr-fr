@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820305"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384766"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utiliser le service Azure Import/Export pour importer des données dans Azure Files
 
@@ -29,7 +29,7 @@ Avant de créer une tâche d’importation pour transférer des données dans Az
 - Avoir au moins un compte de Stockage Azure. Consultez la liste des [Comptes de stockage et types de stockage pris en charge pour le service Import/Export](storage-import-export-requirements.md). Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-quickstart-create-account.md).
 - Avoir un nombre suffisant de disques correspondant aux [types pris en charge](storage-import-export-requirements.md#supported-disks). 
 - Avoir un système Windows exécutant une [Version de système d’exploitation prise en charge](storage-import-export-requirements.md#supported-operating-systems).
-- [Téléchargez la version 2 de WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexport`. Par exemple : `C:\WaImportExport`.
+- [Téléchargez la version 2 de WAImportExport](https://aka.ms/waiev2) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexport`. Par exemple : `C:\WaImportExport`.
 - Dotez-vous d’un compte FedEx/DHL. 
     - Le compte doit être valide, doit avoir un solde et doit offrir des fonctionnalités de réexpédition.
     - Générez un numéro de suivi pour le travail d’exportation.
@@ -40,7 +40,7 @@ Avant de créer une tâche d’importation pour transférer des données dans Az
  
 
 
-## <a name="step-1-prepare-the-drives"></a>Étape 1 : Préparer les lecteurs
+## <a name="step-1-prepare-the-drives"></a>Étape 1 : Préparer les lecteurs
 
 Cette étape génère un fichier journal. Le fichier journal stocke les informations de base comme le numéro de série du lecteur, la clé de chiffrement et les détails du compte de stockage.
 
@@ -50,14 +50,14 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 2. Créez un seul volume NTFS sur chaque lecteur. Attribuez une lettre de lecteur au volume. N’utilisez pas de points de montage.
 3. Modifiez le fichier *dataset.csv* dans le dossier racine où réside l’outil. Selon que vous importez un fichier ou un dossier, ou les deux, ajoutez des entrées dans le fichier *dataset.csv* comme dans les exemples suivants.  
 
-    - **Pour importer un fichier** : Dans l’exemple suivant, les données à copier résident sur le lecteur C:. Votre fichier *MyFile1.txt* est copié à la racine de *MyAzureFileshare1*. Si *MyAzureFileshare1* n’existe pas, il est créé dans le compte de stockage Azure. La structure de dossiers est conservée.
+    - **Pour importer un fichier** : Dans l’exemple suivant, les données à copier résident sur le lecteur C:. Votre fichier *MyFile1.txt* est copié à la racine de *MyAzureFileshare1*. Si *MyAzureFileshare1* n’existe pas, il est créé dans le compte de stockage Azure. La structure de dossiers est conservée.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
-    - **Pour importer un dossier** : Tous les fichiers et dossiers sous *MyFolder2* sont copiés de manière récursive dans le partage de fichiers. La structure de dossiers est conservée.
+    - **Pour importer un dossier** : Tous les fichiers et dossiers sous *MyFolder2* sont copiés de manière récursive dans le partage de fichiers. La structure de dossiers est conservée.
 
         ```
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
@@ -77,14 +77,14 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 
     Cet exemple suppose que deux disques sont attachés et que les volumes NTFS de base G:\ et H:\ sont créés. H:\ n’est pas chiffré, contrairement à G: qui est déjà chiffré. L’outil formate et chiffre le disque qui héberge H:\ uniquement (et non G:\).
 
-    - **Pour un disque qui n’est pas chiffré** : Spécifiez *Chiffrer* pour activer le chiffrement BitLocker sur le disque.
+    - **Pour un disque qui n’est pas chiffré** : Spécifiez *Encrypt* pour activer le chiffrement BitLocker sur le disque.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
         H,Format,SilentMode,Encrypt,
         ```
     
-    - **Pour un disque qui est déjà chiffré** : Spécifiez *AlreadyEncrypted* et fournissez la clé BitLocker.
+    - **Pour un disque qui est déjà chiffré** : Spécifiez *AlreadyEncrypted* et fournissez la clé BitLocker.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -112,7 +112,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 
 Pour plus d’exemples, accédez à [Exemples de fichiers journaux](#samples-for-journal-files).
 
-## <a name="step-2-create-an-import-job"></a>Étape 2 : Créer une tâche d’importation 
+## <a name="step-2-create-an-import-job"></a>Étape 2 : Créer une tâche d’importation 
 
 Effectuez les étapes suivantes pour créer une tâche d’importation dans le portail Azure.
 1. Connectez-vous sur https://portal.azure.com/.
@@ -135,9 +135,9 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
         ![Créer une tâche d’importation - Étape 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-3. Dans **Détails de la tâche** :
+3. Dans **Détails de la tâche** :
     
-    - Chargez les fichiers journaux que vous avez créés précédemment dans [Étape 1 : Préparer les lecteurs](#step-1-prepare-the-drives). 
+    - Chargez les fichiers journaux que vous avez créés précédemment à l’[Étape 1 : Préparer les lecteurs](#step-1-prepare-the-drives). 
     - Sélectionnez le compte de stockage dans lequel les données doivent être importées. 
     - L’emplacement de remise est automatiquement rempli en fonction de la région du compte de stockage sélectionné.
    
@@ -162,15 +162,15 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
         ![Créer une tâche d’importation - Étape 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Étape 3 : Expédier les lecteurs au centre de données Azure 
+## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Étape 3 : Expédier les lecteurs au centre de données Azure 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-4-update-the-job-with-tracking-information"></a>Étape 4 : Mettre à jour la tâche avec les informations de suivi
+## <a name="step-4-update-the-job-with-tracking-information"></a>Étape 4 : Mettre à jour la tâche avec les informations de suivi
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Étape 5 : vérifier le chargement des données sur Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Étape 5 : Vérifier le chargement des données dans Azure
 
 Surveillez le travail jusqu’à son achèvement. Une fois le travail terminé, vérifiez que vos données ont été chargées sur Azure. Ne supprimez les données locales qu’après avoir vérifié que le chargement a réussi.
 

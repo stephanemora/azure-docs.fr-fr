@@ -1,21 +1,22 @@
 ---
 title: Configurer des conteneurs
-titlesuffix: Computer Vision - Cognitive Services - Azure
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: Paramètres de configuration des conteneurs dans Vision par ordinateur.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 8df293878486a9cd4ded6e899871c30498c4b68f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634924"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077016"
 ---
 # <a name="configure-containers"></a>Configurer des conteneurs
 
@@ -40,9 +41,9 @@ Les valeurs de variable d’environnement remplacent les valeurs d’argument de
 
 ### <a name="configuration-settings-as-environment-variables"></a>Paramètres de configuration comme variables d’environnement
 
-Vous pouvez utiliser la [syntaxe de variable d’environnement ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) pour spécifier des paramètres de configuration.
+Vous pouvez utiliser la [syntaxe des variables d’environnement ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) pour spécifier des paramètres de configuration.
 
-Le conteneur lit les variables d’environnement utilisateur quand le conteneur est instancié. S’il existe une variable d’environnement, sa valeur remplace la valeur par défaut du paramètre de configuration spécifié. L’avantage d’utiliser des variables d’environnement est que cela permet de définir plusieurs paramètres de configuration avant d’instancier des conteneurs, et le même ensemble de paramètres de configuration peut être utilisé automatiquement par plusieurs conteneurs.
+Le conteneur lit les variables d’environnement utilisateur au moment où le conteneur est instancié. S’il existe une variable d’environnement, sa valeur remplace la valeur par défaut du paramètre de configuration spécifié. L’avantage d’utiliser des variables d’environnement est que cela permet de définir plusieurs paramètres de configuration avant d’instancier des conteneurs, et le même ensemble de paramètres de configuration peut être utilisé automatiquement par plusieurs conteneurs.
 
 Par exemple, les commandes suivantes utilisent une variable d’environnement pour configurer le niveau de journalisation de console avec [LogLevel.Information](https://msdn.microsoft.com), puis instancient un conteneur à partir de l’image conteneur Reconnaître le texte. La valeur de la variable d’environnement remplace le paramètre de configuration par défaut.
 
@@ -53,7 +54,7 @@ Par exemple, les commandes suivantes utilisent une variable d’environnement po
 
 ### <a name="configuration-settings-as-command-line-arguments"></a>Paramètres de configuration comme arguments de ligne de commande
 
-Vous pouvez utiliser la [syntaxe d’argument de ligne de commande ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) pour spécifier des paramètres de configuration.
+Vous pouvez utiliser la [syntaxe des arguments de ligne de commande ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) pour spécifier des paramètres de configuration.
 
 Vous pouvez spécifier des paramètres de configuration dans le paramètre facultatif `ARGS` de la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) utilisée pour instancier un conteneur à partir d’une image conteneur téléchargée. L’avantage d’utiliser des arguments de ligne de commande est que chaque conteneur peut utiliser un ensemble de paramètres de configuration différent et personnalisé.
 
@@ -68,11 +69,11 @@ Par exemple, la commande suivante instancie un conteneur à partir de l’image 
 Le paramètre de configuration `ApiKey` permet de spécifier la clé de configuration de la ressource Vision par ordinateur sur Azure servant à faire le suivi des informations de facturation du conteneur. Vous devez affecter à ce paramètre de configuration une valeur qui doit être une clé de configuration valide pour la ressource Vision par ordinateur spécifiée pour le paramètre de configuration [`Billing`](#billing-configuration-setting).
 
 > [!IMPORTANT]
-> Les paramètres de configuration [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-configuration-setting) sont utilisés ensemble, et vous devez fournir des valeurs valides pour les trois ; sinon, votre conteneur ne démarrera pas. Pour plus d’informations sur l’utilisation de ces paramètres de configuration pour instancier un conteneur, consultez [Billing](computer-vision-how-to-install-containers.md#billing).
+> Les paramètres de configuration [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-configuration-setting) sont utilisés ensemble, et vous devez fournir des valeurs valides pour les trois ; sinon, votre conteneur ne démarrera pas. Pour plus d’informations sur l’instanciation d’un conteneur à l’aide de ces paramètres de configuration, consultez [Facturation](computer-vision-how-to-install-containers.md#billing).
 
-## <a name="applicationinsights-configuration-settings"></a>Paramètres de configuration Application Insights
+## <a name="applicationinsights-configuration-settings"></a>Paramètres de configuration ApplicationInsights
 
-Les paramètres de configuration de la section `ApplicationInsights` vous permettent d’ajouter la prise en charge de la télémétrie [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) à votre conteneur. Application Insights fournit une supervision approfondie de votre conteneur jusqu’au niveau du code. Vous pouvez facilement superviser la disponibilité, les performances et l’utilisation de votre conteneur. De plus, vous pouvez identifier et diagnostiquer rapidement les erreurs dans votre conteneur sans attendre qu’un utilisateur les signale.
+Les paramètres de configuration de la section `ApplicationInsights` vous permettent d’ajouter la prise en charge de la télémétrie [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) à votre conteneur. Application Insights assure une supervision approfondie de votre conteneur jusqu’au niveau du code. Vous pouvez facilement superviser la disponibilité, les performances et l’utilisation de votre conteneur. De plus, vous pouvez identifier et diagnostiquer rapidement les erreurs dans votre conteneur sans attendre qu’un utilisateur les signale.
 
 Le tableau suivant décrit les paramètres de configuration pris en charge sous la section `ApplicationInsights`.
 
@@ -86,17 +87,19 @@ Les paramètres de configuration `Authentication` fournissent des options de sé
 
 ## <a name="billing-configuration-setting"></a>Paramètre de configuration Billing
 
-Le paramètre de configuration `Billing` permet de spécifier l’URI de point de terminaison de la ressource Vision par ordinateur sur Azure servant à faire le suivi des informations de facturation du conteneur. Vous devez affecter à ce paramètre de configuration une valeur qui doit être un URI de point de terminaison valide pour une ressource Vision par ordinateur sur Azure.
+Le paramètre de configuration `Billing` permet de spécifier l’URI de point de terminaison de la ressource Vision par ordinateur sur Azure servant à mesurer les informations de facturation du conteneur. Vous devez affecter à ce paramètre de configuration une valeur qui doit être un URI de point de terminaison valide pour une ressource Vision par ordinateur sur Azure.
 
 > [!IMPORTANT]
-> Les paramètres de configuration [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-configuration-setting) sont utilisés ensemble, et vous devez fournir des valeurs valides pour les trois ; sinon, votre conteneur ne démarrera pas. Pour plus d’informations sur l’utilisation de ces paramètres de configuration pour instancier un conteneur, consultez [Billing](computer-vision-how-to-install-containers.md#billing).
+> Les paramètres de configuration [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-configuration-setting) sont utilisés ensemble, et vous devez fournir des valeurs valides pour les trois ; sinon, votre conteneur ne démarrera pas. Pour plus d’informations sur l’instanciation d’un conteneur à l’aide de ces paramètres de configuration, consultez [Facturation](computer-vision-how-to-install-containers.md#billing).
 
 ## <a name="eula-configuration-setting"></a>Paramètre de configuration Eula
 
-Le paramètre de configuration `Eula` indique que vous avez accepté la licence pour le conteneur. Vous devez affecter à ce paramètre de configuration une valeur qui doit être `accept`.
+Le paramètre de configuration `Eula` indique que vous avez accepté la licence pour le conteneur. Vous devez attribuer à ce paramètre de configuration une valeur qui doit être définie sur `accept`.
 
 > [!IMPORTANT]
-> Les paramètres de configuration [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-configuration-setting) sont utilisés ensemble, et vous devez fournir des valeurs valides pour les trois ; sinon, votre conteneur ne démarrera pas. Pour plus d’informations sur l’utilisation de ces paramètres de configuration pour instancier un conteneur, consultez [Billing](computer-vision-how-to-install-containers.md#billing).
+> Les paramètres de configuration [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-configuration-setting) sont utilisés conjointement, et vous devez fournir des valeurs valides pour les trois ; à défaut, votre conteneur ne démarrera pas. Pour plus d’informations sur l’instanciation d’un conteneur à l’aide de ces paramètres de configuration, consultez [Facturation](computer-vision-how-to-install-containers.md#billing).
+
+Les conteneurs Services cognitifs sont accordés sous licence selon les termes d’[un contrat](https://go.microsoft.com/fwlink/?linkid=2018657) régissant votre utilisation d’Azure. Si vous ne disposez pas d’un contrat existant régissant votre utilisation d’Azure, vous acceptez que votre utilisation d’Azure soit régie par le [Contrat d’abonnement à Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755), qui intègre les [conditions des services en ligne](https://go.microsoft.com/fwlink/?linkid=2018760). Pour les préversions, vous acceptez également les [conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). En utilisant le conteneur, vous acceptez les termes du contrat.
 
 ## <a name="fluentd-configuration-settings"></a>Paramètres de configuration Fluentd
 
@@ -106,11 +109,11 @@ Le tableau suivant décrit les paramètres de configuration pris en charge sous 
 
 | NOM | Type de données | Description |
 |------|-----------|-------------|
-| `Host` | Chaîne | Adresse IP ou nom d’hôte DNS du serveur Fluentd. |
+| `Host` | Chaîne | Adresse IP ou nom d’hôte DNS du serveur Fluentd. |
 | `Port` | Entier  | Port du serveur Fluentd.<br/> La valeur par défaut est 24224. |
-| `HeartbeatMs` | Entier  | Intervalle de pulsation, en millisecondes. Si aucun trafic d’événement n’a été envoyé avant l’expiration de cet intervalle, une pulsation est envoyée au serveur Fluentd. La valeur par défaut est de 60 000 millisecondes (1 minute). |
+| `HeartbeatMs` | Entier  | Intervalle de pulsation, en millisecondes. Si aucun trafic d’événement n’est envoyé avant l’expiration de cet intervalle, une pulsation est envoyée au serveur Fluentd. La valeur par défaut est de 60 000 millisecondes (1 minute). |
 | `SendBufferSize` | Entier  | Espace de mémoire tampon réseau, en octets, alloué pour les opérations d’envoi. La valeur par défaut est de 32 768 octets (32 kilo-octets). |
-| `TlsConnectionEstablishmentTimeoutMs` | Entier  | Délai d’attente, en millisecondes, pour établir une connexion SSL/TLS avec le serveur Fluentd. La valeur par défaut est de 10 000 millisecondes (10 secondes).<br/> Si `UseTLS` est false, cette valeur est ignorée. |
+| `TlsConnectionEstablishmentTimeoutMs` | Entier  | Délai d’attente, en millisecondes, pour établir une connexion SSL/TLS avec le serveur Fluentd. La valeur par défaut est de 10 000 millisecondes (10 secondes).<br/> Si `UseTLS` est défini sur false, cette valeur est ignorée. |
 | `UseTLS` | Booléen | Indique si le conteneur doit utiliser SSL/TLS pour communiquer avec le serveur Fluentd. La valeur par défaut est false. |
 
 ## <a name="logging-configuration-settings"></a>Paramètres de configuration Logging
@@ -127,8 +130,8 @@ Les paramètres de configuration `Logging` gèrent la prise en charge de la jour
 
   | NOM | Type de données | Description |
   |------|-----------|-------------|
-  | `Format` | Chaîne | Format de sortie des fichiers journaux.<br/> **Remarque :** Cette valeur doit être `json` pour activer le fournisseur de journalisation. Si cette valeur est spécifiée mais que le montage de sortie ne l’est pas durant l’instanciation d’un conteneur, une erreur se produit. |
-  | `MaxFileSize` | Entier  | Taille maximale, en mégaoctets (Mo), d’un fichier journal. Quand la taille du fichier journal actif atteint ou dépasse cette valeur, un nouveau fichier journal est démarré par le fournisseur de journalisation. Si la valeur -1 est spécifiée, la taille du fichier journal est limitée uniquement par la taille de fichier maximale, le cas échéant, pour le montage de sortie. La valeur par défaut est 1. |
+  | `Format` | Chaîne | Format de sortie des fichiers journaux.<br/> **Remarque :** Cette valeur doit être `json` pour activer le fournisseur de journalisation. Si cette valeur est spécifiée sans que le montage de sortie soit aussi spécifié pendant l’instanciation d’un conteneur, une erreur se produit. |
+  | `MaxFileSize` | Entier  | Taille maximale, en mégaoctets (Mo), d’un fichier journal. Dès que la taille du fichier journal actif atteint ou dépasse cette valeur, un nouveau fichier journal est commencé par le fournisseur de journalisation. Si la valeur -1 est spécifiée, la taille du fichier journal est limitée uniquement par la taille de fichier maximale, le cas échéant, pour le montage de sortie. La valeur par défaut est 1. |
 
 Pour plus d’informations sur la configuration de la prise en charge de la journalisation ASP.NET Core, consultez [Configuration d’un fichier de paramètres](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
 
@@ -136,10 +139,10 @@ Pour plus d’informations sur la configuration de la prise en charge de la jour
 
 Les conteneurs Docker fournis par Vision par ordinateur sont conçus pour être sans état et immuables. En d’autres termes, les fichiers créés à l’intérieur d’un conteneur sont stockés dans une couche conteneur accessible en écriture, qui persiste uniquement le temps de l’exécution du conteneur et qui n’est pas facilement accessible. Si ce conteneur est arrêté ou supprimé, les fichiers créés à l’intérieur de ce conteneur sont détruits avec lui.
 
-Cependant, comme il s’agit de conteneurs Docker, vous pouvez utiliser des options de stockage Docker, comme des volumes et des montages de liaison, pour lire et écrire des données persistantes en dehors du conteneur, si le conteneur le permet. Pour plus d’informations sur la définition et la gestion des options de stockage Docker, consultez [Manage data in Docker](https://docs.docker.com/storage/).
+Cependant, s’agissant de conteneurs Docker, vous pouvez utiliser les options de stockage Docker, comme les volumes et les montages de liaison, pour lire et écrire des données persistantes en dehors du conteneur, si le conteneur le permet. Pour plus d’informations sur la définition et la gestion des options de stockage Docker, consultez [Gérer les données dans Docker](https://docs.docker.com/storage/).
 
 > [!NOTE]
-> En principe, vous n’aurez pas besoin de modifier les valeurs de ces paramètres de configuration. En revanche, vous utiliserez les valeurs spécifiées dans ces paramètres de configuration en tant que destinations au moment de spécifier les montages d’entrée et de sortie pour votre conteneur. Pour plus d’informations sur la spécification des montages d’entrée et de sortie, consultez [Montages d’entrée et de sortie](#input-and-output-mounts).
+> En principe, vous n’aurez pas besoin de modifier les valeurs de ces paramètres de configuration. En revanche, vous utiliserez des valeurs spécifiées dans ces paramètres de configuration comme destinations au moment de spécifier les montages d’entrée et de sortie de votre conteneur. Pour plus d’informations sur la spécification des montages d’entrée et de sortie, consultez [Montages d’entrée et de sortie](#input-and-output-mounts).
 
 Le tableau suivant décrit les paramètres de configuration pris en charge sous la section `Mounts`.
 

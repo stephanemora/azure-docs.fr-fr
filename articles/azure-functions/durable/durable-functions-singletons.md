@@ -8,22 +8,24 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 58e5b06d613ee3e3311b58af64abd2411c637449
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4832a48489a043493639bdedd6c6adf3c828de11
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637444"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434696"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orchestrateurs de singleton dans l’extension Fonctions durables (Azure Functions)
 
-Pour les orchestrations de style acteur ou les travaux en arrière-plan, vous avez souvent besoin de vous assurer qu’une seule instance d’un orchestrateur spécifique soit exécutée. Vous pouvez le vérifier grâce à l’extension [Fonctions durables](durable-functions-overview.md), en affectant un ID d’instance spécifique à un orchestrateur lors de sa création.
+Pour les travaux en arrière-plan, vous avez souvent besoin de vérifier qu’une seule instance d’un orchestrateur spécifique est exécutée à la fois. Vous pouvez le vérifier grâce à l’extension [Fonctions durables](durable-functions-overview.md), en affectant un ID d’instance spécifique à un orchestrateur lors de sa création.
 
 ## <a name="singleton-example"></a>Exemple de singleton
 
-L’exemple C# suivant illustre une fonction de déclencheur HTTP, qui crée une orchestration singleton de travail en arrière-plan. Le code garantit que seule une instance existe pour un ID d’instance spécifié.
+Les exemples C# et JavaScript suivants illustrent une fonction de déclencheur HTTP qui crée une orchestration singleton de travail en arrière-plan. Le code garantit que seule une instance existe pour un ID d’instance spécifié.
+
+### <a name="c"></a>C#
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -54,7 +56,39 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-Par défaut, les ID d’instance sont des identificateurs globaux uniques générés de manière aléatoire. Dans ce cas, cependant, l’ID d’instance est passé dans les données d’itinéraire à partir de l’URL. Le code appelle [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) pour vérifier si une instance ayant l’ID spécifié est déjà en cours d’exécution. Si ce n’est pas le cas, une instance est créée avec cet ID.
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+
+```javascript
+const df = require("durable-functions");
+
+modules.exports = async function(context, req) {
+    const client = df.getClient(context);
+
+    const instanceId = req.params.instanceId;
+    const functionName = req.params.functionsName;
+
+    // Check if an instance with the specified ID already exists.
+    const existingInstance = await client.getStatus(instanceId);
+    if (!existingInstance) {
+        // An instance with the specified ID doesn't exist, create one.
+        const eventData = req.body;
+        await client.startNew(functionName, instanceId, eventData);
+        context.log(`Started orchestration with ID = '${instanceId}'.`);
+        return client.createCheckStatusResponse(req, instanceId);
+    } else {
+        // An instance with the specified ID exists, don't create one.
+        return {
+            status: 409,
+            body: `An instance with ID '${instanceId}' already exists.`,
+        };
+    }
+};
+```
+
+Par défaut, les ID d’instance sont des identificateurs globaux uniques générés de manière aléatoire. Dans ce cas, cependant, l’ID d’instance est passé dans les données d’itinéraire à partir de l’URL. Le code appelle [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) ou `getStatus` (JavaScript) pour vérifier si une instance ayant l’ID spécifié est déjà en cours d’exécution. Si ce n’est pas le cas, une instance est créée avec cet ID.
+
+> [!WARNING]
+> Quand vous développez localement dans JavaScript, vous devez définir la variable d’environnement `WEBSITE_HOSTNAME` sur `localhost:<port>`, par exemple `localhost:7071`, pour utiliser des méthodes sur `DurableOrchestrationClient`. Pour plus d’informations sur cette configuration, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 > [!NOTE]
 > Il existe une condition de concurrence potentielle dans cet exemple. L’exécution simultanée de deux instances de **HttpStartSingle** peut entraîner la création de deux instances de singleton distinctes, l’une remplaçant l’autre. Selon vos besoins, cela peut avoir des effets secondaires indésirables. Pour cette raison, il est important de s’assurer l’impossibilité que deux demandes puissent exécuter cette fonction de déclencheur simultanément.

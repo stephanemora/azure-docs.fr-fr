@@ -1,6 +1,6 @@
 ---
-title: Échantillonner des données dans SQL Server sur Azure | Microsoft Docs
-description: Échantillonner des données dans SQL Server sur Azure
+title: Échantillonner des données dans SQL Server sur Azure - Team Data Science Process
+description: Échantillonnez des données stockées dans SQL Server sur Azure à l’aide de SQL ou du langage de programmation Python, puis déplacez-les vers Azure Machine Learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 6483ba9f070252f58e0e3706472939dbfab12b59
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: fec649706be1b3db01a5c6cbc8f395e8c7e1a4d2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445036"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134333"
 ---
 # <a name="heading"></a>Échantillonner des données dans SQL Server sur Azure
 
@@ -30,9 +30,9 @@ L’échantillonnage Python utilise la bibliothèque ODBC [pyodbc](https://code.
 > 
 
 **Pourquoi échantillonner vos données ?**
-Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
+Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
 
-Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="SQL"></a>Utilisation de SQL
 Cette section décrit différentes méthodes permettant d’effectuer un échantillonnage aléatoire simple des données de la base de données via SQL. Choisissez une méthode en fonction de la taille de vos données et de leur distribution.

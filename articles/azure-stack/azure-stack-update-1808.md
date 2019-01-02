@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 37fb4c330004ce87afd900d9cafebb337261ec06
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568231"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098089"
 ---
 # <a name="azure-stack-1808-update"></a>Mise à jour 1808 d’Azure Stack
 
@@ -43,7 +43,7 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
 - **Tous les environnements Azure Stack utilisent maintenant le format du fuseau horaire UTC (Temps Universel Coordonné).**  Toutes les données de journal et informations connexes sont maintenant affichées au format UTC. Si vous effectuez une mise à jour d’une version antérieure qui n’avait pas été installée avec le format UTC, votre environnement est mis à jour pour utiliser ce format. 
 
 <!-- 2437250  | IS  ASDK --> 
-- **Les disques managés sont pris en charge.** Vous pouvez maintenant utiliser des disques managés dans les machines virtuelles et les groupes de machines virtuelles identiques Azure Stack. Pour plus d’informations, consultez [Disques managés Azure Stack : différences et considérations](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
+- **Les disques managés sont pris en charge.** Vous pouvez maintenant utiliser des disques managés dans les machines virtuelles et les groupes de machines virtuelles identiques Azure Stack. Pour plus d’informations, consultez [Azure Stack Managed Disks : différences et considérations](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
 
 <!-- 2563799  | IS  ASDK --> 
 - **Azure Monitor**. Tout comme Azure Monitor sur Azure, Azure Monitor sur Azure Stack fournit des métriques et journaux de base à propos de l’infrastructure pour une majorité de services. Pour plus d’informations, consultez [Azure Monitor sur Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
@@ -163,7 +163,7 @@ Cette mise à jour contient également l’atténuation de la vulnérabilité du
 > Préparez votre déploiement Azure Stack pour l'hôte d’extension. Préparez votre système en utilisant les instructions suivantes, [Préparer l’hôte d’extension pour Azure Stack](azure-stack-extension-host-prepare.md).
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md). 
-- [KB 4468920 – Correctif logiciel Azure Stack 1.1808.7.113](https://support.microsoft.com/help/4471992/)
+- [KB 4481066 - Correctif Azure Stack 1.1808.9.117](https://support.microsoft.com/help/4481066/)
 
 
 ## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
@@ -220,22 +220,22 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
    
   Exécutez l’applet de commande [Test-AzureStack](azure-stack-diagnostic-test.md) pour vérifier l’intégrité des instances de rôle d’infrastructure et des nœuds d’unité d’échelle. Si aucun problème n’est détecté par [Test-AzureStack](azure-stack-diagnostic-test.md), vous pouvez ignorer ces alertes. Si un problème est détecté, vous pouvez tenter de démarrer l’instance de rôle d’infrastructure ou le nœud à l’aide du portail d’administration ou de PowerShell.
 
-  Ce problème est résolu dans la dernière [version de correctif logiciel 1808](https://support.microsoft.com/help/4471992/), par conséquent, veillez à installer ce correctif logiciel si vous rencontrez le problème.
+  Ce problème est résolu dans la dernière [version de correctif logiciel 1808](https://support.microsoft.com/help/4481066/), par conséquent, veillez à installer ce correctif logiciel si vous rencontrez le problème.
 
 <!-- 1264761 - IS ASDK --> 
 - Vous risquez de recevoir des alertes pour le composant **Contrôleur d’intégrité** contenant les informations suivantes :  
 
    Alerte 1 :
-   - NOM : Rôle d’infrastructure défectueux
-   - GRAVITÉ : Avertissement
-   - COMPOSANT : Contrôleur d’intégrité
-   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
+   - NOM :  Rôle d’infrastructure défectueux
+   - Niveau de gravité : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
 
   Alerte 2 :
-   - NOM : Rôle d’infrastructure défectueux
-   - GRAVITÉ : Avertissement
-   - COMPOSANT : Contrôleur d’intégrité
-   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
+   - NOM :  Rôle d’infrastructure défectueux
+   - Niveau de gravité : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
 
   Les deux alertes peuvent être ignorées en toute sécurité. Elles se ferment automatiquement au bout d’un moment.  
 
@@ -244,7 +244,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - Vous pouvez voir une alerte pour le composant **Stockage** qui contient les informations suivantes :
 
    - NOM : Erreur de communication interne du service de stockage  
-   - GRAVITÉ : Critique  
+   - Niveau de gravité : Critique  
    - COMPOSANT : Stockage  
    - DESCRIPTION : Une erreur de communication interne du service de stockage s’est produite lors de l’envoi des requêtes aux nœuds suivants.  
 
@@ -269,25 +269,31 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
       1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
       2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack – Managed Disks** est répertorié.
    2. Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes :
-      1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4471992/).
+      1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4481066/).
       2. Effectuez les étapes décrites dans [cet article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) pour reconfigurer chacun de vos annuaires invités.
       
 <!-- 3179561 - IS --> 
 - L’utilisation du service Managed Disks est signalée en heures, comme décrit dans les [Questions fréquentes (FAQ) sur l’utilisation d’Azure Stack](azure-stack-usage-related-faq.md#managed-disks). Toutefois, la facturation Azure Stack utilise à la place le prix mensuel et votre facture peut être incorrecte pour l’utilisation du service Managed Disks le 27 septembre ou avant. Nous avons temporairement interrompu les frais pour le service Managed Disks après le 27 septembre jusqu’à ce que le problème de facturation soit résolu. Si la facture ne correspond pas à votre utilisation du service Managed Disks, contactez le support de facturation Microsoft.
 Les rapports d’utilisation générés à partir des API d’utilisation d’Azure Stack affichent des quantités correctes et peuvent être utilisés.
 
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks crée deux nouveaux [types de quotas de calcul](azure-stack-quota-types.md#compute-quota-types) pour limiter la capacité maximale des disques managés qui peuvent être provisionnés. Par défaut, 2048 Gio sont alloués pour chaque type de quota de disques managés. Toutefois, vous pouvez rencontrer les problèmes suivants :
+
+   - Pour les quotas créés avant la mise à jour 1808, le quota Managed Disks affichera des valeurs 0 dans le portail de l’administrateur, bien que 2048 Gio soient alloués. Vous pouvez augmenter ou diminuer la valeur en fonction de vos besoins réels, et la nouvelle valeur de quota remplace la valeur par défaut de 2048 Gio.
+   - Si vous mettez à jour la valeur de quota à 0, cela équivalut à la valeur par défaut de 2048 Gio. En guise de solution de contournement, définissez la valeur de quota sur 1.
+
 <!-- 2869209 – IS, ASDK --> 
-- Quand vous utilisez [l’applet de commande **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, la cmdlet échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état 'Failed'*. 
+- Quand vous utilisez [l’applet de commande **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, l’applet de commande échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état « Failed »*. 
 
 <!--  2966665 – IS, ASDK --> 
-- L’attachement de disques de données SSD à des machines virtuelles avec des disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échoue avec une erreur : *Échec de la mise à jour des disques pour la machine virtuelle ’vmname’ Erreur : l’opération demandée ne peut pas être effectuée, car le type de compte de stockage ’Premium_LRS’ n’est pas pris en charge pour la taille de machine virtuelle ’Standard_DS/Ds_V2/FS/Fs_v2)’*
+- L’attachement de disques de données SSD à des machines virtuelles de disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échoue avec une erreur :  *Échec de mise à jour de la machine virtuelle « nom_machine_virtuelle ». Erreur : Impossible d’effectuer l’opération demandée car le type de compte de stockage « Premium_LRS » n’est pas pris en charge pour la taille de machine virtuelle « Standard_DS/Ds_V2/FS/Fs_v2) »*
 
    Pour contourner ce problème, utilisez des disques de données *Standard_LRS* à la place de *disques Premium_LRS*. L’utilisation de disques de données *Standard_LRS* n’a pas d’impact sur l’IOP ou le coût de facturation. 
 
 <!--  2795678 – IS, ASDK --> 
 - Quand vous utilisez le portail pour créer des machines virtuelles de taille Premium (DS, Ds_v2, FS, FSv2), celles-ci sont créées dans un compte de stockage standard. La création dans un compte de stockage standard n’a pas d’impact sur les fonctionnalités, l’IOP ou la facturation. 
 
-   Vous pouvez ignorer sans problème cet avertissement : *Vous avez choisi d’utiliser un disque standard sur une taille qui prend en charge les disques Premium. Cela n’est pas recommandé, car cela peut impacter les performances du système d’exploitation. Utilisez le stockage Premium (SSD) à la place.*
+   Vous pouvez sans risque ignorer l’avertissement qui indique : *Vous avez choisi d’utiliser un disque standard sur une taille qui prend en charge les disques Premium. Cela n’est pas recommandé, car cela peut impacter les performances du système d’exploitation. Utilisez le stockage Premium (SSD) à la place.*
 
 <!-- 2967447 - IS, ASDK --> 
 - Quand vous créez un groupe de machines virtuelles identiques, l’option CentOS 7.2 est proposée pour le déploiement. Étant donné que cette image n’est pas disponible sur Azure Stack, sélectionnez un autre système d’exploitation pour votre déploiement ou choisissez un modèle Azure Resource Manager spécifiant une autre image CentOS qui a été téléchargée par l’opérateur avant le déploiement à partir de la Place de marché.  

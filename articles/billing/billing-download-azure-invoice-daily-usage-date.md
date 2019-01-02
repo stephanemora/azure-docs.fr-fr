@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: cwatson
-ms.openlocfilehash: 80721fc82a54c62c982298cb8eabb999caaf1dfb
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: fe3cb2d15602407b54ff47763d409c2e77614f0a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583106"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311131"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne
 
@@ -72,7 +72,7 @@ Si vous ne voulez pas recevoir votre facture par e-mail, cliquez sur **Désactiv
 
 4. Vous pouvez également afficher votre utilisation quotidienne en cliquant sur la période de facturation. 
 
-Pour plus d’informations sur votre facture, consultez la page [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md). Pour obtenir de l’aide sur la gestion des coûts, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](billing-getting-started.md).
+Pour plus d’informations sur votre facture, consultez la page [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md). Pour obtenir de l’aide sur la gestion des coûts, voir [Éviter les coûts inattendus avec la gestion de la facturation et des coûts Azure](billing-getting-started.md).
 
 ### <a name="noinvoice"></a> Pourquoi ne puis-je pas voir de facture pour la dernière période de facturation ?
 
@@ -116,13 +116,13 @@ Si vous ne voyez pas de facture, cela peut être pour plusieurs raisons :
 
 Seul l’administrateur de compte peut accéder au centre des comptes Azure. Les autres administrateurs de facturation (notamment les propriétaires) peuvent obtenir des informations d’utilisation à l’aide des [API de facturation](billing-usage-rate-card-overview.md).
 
-Pour plus d’informations sur votre utilisation quotidienne, consultez la page [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md). Pour obtenir de l’aide sur la gestion des coûts, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](billing-getting-started.md).
+Pour plus d’informations sur votre utilisation quotidienne, consultez la page [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md). Pour obtenir de l’aide sur la gestion des coûts, voir [Éviter les coûts inattendus avec la gestion de la facturation et des coûts Azure](billing-getting-started.md).
 
 ### <a name="download-usage-for-ea-customers"></a>Télécharger l’utilisation pour les clients EA
 
 Pour afficher et télécharger les données d’utilisation en tant que client EA, vous devez être un administrateur d’entreprise, un propriétaire de compte ou un administrateur de service, et la stratégie d’affichage des frais doit être activée.
 
-1. Connectez-vous au [Portail Azure]( http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Effectuez une recherche sur **Gestion des coûts + facturation**.
 
     ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
@@ -130,6 +130,6 @@ Pour afficher et télécharger les données d’utilisation en tant que client E
 1. Sélectionnez **Utilisation + frais**.
 1. Pour le mois que vous souhaitez télécharger, sélectionnez **Télécharger**.
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

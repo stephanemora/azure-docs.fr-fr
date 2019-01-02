@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 743fedd35bc45618f728ba71056f5dabc2fc1ed9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e4eb26ab91261d1888d3c756d611db1b31801e8f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300640"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720225"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Prise en charge du déploiement Docker Compose dans Azure Service Fabric (préversion)
 
@@ -64,6 +64,12 @@ Pour démarrer une mise à niveau du déploiement Compose, utilisez la commande 
 Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
 ```
 
+Pour restaurer la mise à niveau du déploiement Compose, utilisez la commande suivante dans PowerShell :
+
+```powershell
+Start-ServiceFabricComposeDeploymentRollback -DeploymentName TestContainerApp
+```
+
 Une fois la mise à niveau acceptée, vous pouvez suivre sa progression à l’aide de la commande suivante :
 
 ```powershell
@@ -84,7 +90,7 @@ Une fois que vous avez créé le déploiement, vous pouvez en vérifier l’éta
 sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
-Pour supprimer le déploiement Compose, utilisez la commande ci-après :
+Pour supprimer le déploiement Compose, utilisez la commande ci-après :
 
 ```azurecli
 sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
@@ -94,6 +100,12 @@ Pour démarrer une mise à niveau du déploiement Compose, utilisez la commande 
 
 ```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
+```
+
+Pour restaurer la mise à niveau du déploiement Compose, utilisez la commande suivante :
+
+```azurecli
+sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
 Une fois la mise à niveau acceptée, vous pouvez suivre sa progression à l’aide de la commande suivante :

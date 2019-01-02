@@ -4,9 +4,8 @@ description: Descriptions des jeux de données utilisés dans les exemples de mo
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308832"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270482"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -34,7 +33,7 @@ Les autres exemples de jeux de données sont disponibles dans votre espace de tr
 Vous pouvez utiliser un de ces jeux de données dans votre propre expérience en le faisant glisser sur le canevas de l'expérience.
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <table>
 
@@ -48,9 +47,9 @@ Vous pouvez utiliser un de ces jeux de données dans votre propre expérience en
   <td>
 Sous-ensemble de la base de données Census de 1994, qui recense les adultes de plus de 16 ans en activité avec un index des revenus ajustés supérieur à 100.
 <p></p>
-<b>Utilisation :</b> effectuer un classement des personnes en utilisant des données démographiques pour prédire si une personne gagne plus de 50 000 $ par an.
+<b>Utilisation :</b> classifier des personnes en utilisant des données démographiques pour prédire si une personne gagne plus de 50 000 $ par an.
 <p></p>
-<b>Recherche associée :</b> Kohavi, R., Becker, B., (1996). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Kohavi, R., Becker, B., (1996). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -69,9 +68,9 @@ Informations sur les véhicules automobiles par marque et modèle, incluant le p
 <p></p>
 La note de risque est initialement associée au prix de l’automobile. Elle est ensuite ajustée en fonction du risque réel selon un processus que les actuaires connaissent sous le nom de symbolisation. La valeur +3 indique que le véhicule est à risque et la valeur -3 qu’il est plutôt sûr.
 <p></p>
-<b>Utilisation :</b> prédire la note de risque en fonction des caractéristiques, en utilisant une classification de régression ou multivariable. 
+<b>Utilisation :</b> prédire le score de risque en fonction des caractéristiques, en utilisant une classification de régression ou multivariée. 
 <p></p>
-<b>Recherche associée :</b> Schlimmer, J.C. (1987). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Schlimmer, J.C. (1987). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -102,7 +101,7 @@ Les données associées aux donneurs incluent le nombre de mois depuis le dernie
 <p></p>
 <b>Utilisation :</b> l’objectif est de prédire par la classification si le donneur a donné du sang en mars 2007, 1 indiquant un donneur pendant la période ciblée et 0 une personne n’ayant pas fait de don. 
 <p></p>
-<b>Recherche associée :</b> Yeh, I.C., (2008). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
+<b>Recherche associée :</b> Yeh, I.C., (2008). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang et Ting, Tao-Ming, « Détection des connaissances sur le modèle RFM à l’aide de la séquence Bernoulli, » Expert Systems avec Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -113,9 +112,9 @@ Yeh, I-Cheng, Yang, King-Jang et Ting, Tao-Ming, « Détection des connaissance
   <td>
 Un des trois jeux de données sur le cancer fournis par l’Oncology Institute, fréquemment cité dans la littérature sur l’apprentissage automatique. Combine des informations de diagnostic et des caractéristiques d'analyse de laboratoire sur environ 300 échantillons de tissu.
 <p></p>
-<b>Utilisation :</b> classifier le type de cancer en se basant sur 9 attributs, certains étant linéaires, d’autres de catégorie. 
+<b>Utilisation :</b> classifier le type de cancer en se basant sur 9 attributs, certains étant linéaires et d’autres catégoriels. 
 <p></p>
-<b>Recherche associée :</b> Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -168,7 +167,7 @@ Collection de profils d'énergie simulés, basée sur 12 formes différentes de
 <p></p>
 <b>Utilisation :</b> utiliser la régression ou la classification pour prédire la notation de l’efficacité énergétique sous la forme de l’une des deux réponses en valeur réelle. Pour la classification multiclasse, arrondit la variable de la réponse à l’entier le plus proche. 
 <p></p>
-<b>Recherche associée :</b> Xifara, A. &amp; Tsanas, A. (2012). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Xifara, A. & Tsanas, A. (2012). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -181,7 +180,7 @@ Le jeu de données couvre la période d’avril à octobre 2013. Avant son tél
   <li>Le jeu de données a été filtré afin de prendre uniquement en compte les 70 aéroports les plus fréquentés aux États-Unis.</li>
   <li>Les vols annulés ont été considérés comme ayant été retardés de plus de 15 minutes</li>
   <li>Les vols déviés ont été supprimés.</li>
-  <li>Les colonnes suivantes avaient été sélectionnées : Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li>
+  <li>Les colonnes suivantes ont été sélectionnées : Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li>
 </ul>
 </td>
 </tr>
@@ -193,7 +192,7 @@ Enregistrements des arrivées et départs de vols aux États-Unis à compter d�
 <p></p>
 <b>Utilisation :</b> prédire les retards des vols. 
 <p></p>
-<b>Recherches connexes :</b> à partir de département du transport des États-Unis <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>Recherche associée :</b> Provenant du département des transports des États-Unis <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
@@ -202,9 +201,9 @@ Enregistrements des arrivées et départs de vols aux États-Unis à compter d�
   <td>
 Contient des données météorologiques, par exemple, les indices de température et d’humidité et la vitesse du vent. Les données proviennent d’une région du Nord-Est du Portugal et d’archives d’incendies de forêt.
 <p></p>
-<b>Utilisation :</b> il s’agit d’une tâche difficile de régression dont l’objectif est de prédire la zone brûlée par des feux de forêt. 
+<b>Utilisation :</b> il s’agit d’une tâche difficile de régression, dont l’objectif est de prédire la zone brûlée par des feux de forêt. 
 <p></p>
-<b>Recherche associée :</b> Cortez, P., &amp; Morais, A. (2008). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
+<b>Recherche associée :</b> Cortez, P., & Morais, A. (2008). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 [Cortez et Morais, 2007] P. Cortez et A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. Aux éditions J. Neves, M. F. Santos et J. Machado, New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Conférence portugaise sur l’intelligence artificielle, décembre, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponibles sur : <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
@@ -222,7 +221,7 @@ Le jeu de données classe les gens, décrits par un ensemble d’attributs, par 
 <tr>
   <td>Titres de films IMDB</td>
   <td>
-Ce jeu de données contient des informations sur les films évalués dans des tweets sur Twitter : ID film IMDB, titre du film, genre et année de production. Ce jeu de données contient 17 000 films. Le jeu de données provient du document « S. Dooms, T. De Pessemier et L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013. »
+Ce jeu de données contient des informations sur les films évalués dans des tweets sur Twitter : ID de film IMDB, titre du film, genre et année de production. Ce jeu de données contient 17 000 films. Le jeu de données provient du document « S. Dooms, T. De Pessemier et L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013. »
   </td>
 </tr>
 
@@ -233,7 +232,7 @@ Il s’agit sans doute de l’une des bases de données les plus réputées dans
 <p></p>
 <b>Utilisation :</b> prédire le type d’iris à partir des mesures.  
 <p></p>
-<b>Recherche associée :</b> Fisher, R.A. (1988). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Fisher, R.A. (1988). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -252,7 +251,7 @@ Les données répertorient la consommation de carburant de différentes automobi
 <p></p>
 <b>Utilisation :</b> prédire l’économie de carburant à partir de trois attributs discrets multivalués et de cinq attributs continus. 
 <p></p>
-<b>Recherches connexes :</b> StatLib, Carnegie Mellon University, (1993). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> StatLib, Carnegie Mellon University, (1993). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -262,7 +261,7 @@ Sous-ensemble de la base de données du National Institute of Diabetes and Diges
 <p></p>
 <b>Utilisation :</b> prédire si le sujet a du diabète (classification binaire). 
 <p></p>
-<b>Recherche associée :</b> Sigillito, V. (1990). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml »</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Sigillito, V. (1990). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml »</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -270,9 +269,9 @@ Sous-ensemble de la base de données du National Institute of Diabetes and Diges
   <td>
 Jeu de données sur les clients, comprenant des données démographiques et des préférences.
 <p></p>
-<b>Utilisation :</b> utilisez ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
+<b>Utilisation :</b> utiliser ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
 <p></p>
-<b>Recherche associée :</b> Bache, K et Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
+<b>Recherche associée :</b> Bache, K. and Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -281,9 +280,9 @@ Jeu de données sur les clients, comprenant des données démographiques et des 
   <td>
 Jeu de métadonnées sur des restaurants et leurs caractéristiques, comme le type de gastronomie, le style de lieu et l'emplacement.
 <p></p>
-<b>Utilisation :</b> utilisez ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
+<b>Utilisation :</b> utiliser ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
 <p></p>
-<b>Recherche associée :</b> Bache, K et Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
+<b>Recherche associée :</b> Bache, K. and Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -292,9 +291,9 @@ Jeu de métadonnées sur des restaurants et leurs caractéristiques, comme le ty
   <td>
 Contient les notes attribuées par les consommateurs à des restaurants sur une échelle de 0 à 2.
 <p></p>
-<b>Utilisation :</b> utilisez ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
+<b>Utilisation :</b> utiliser ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
 <p></p>
-<b>Recherche associée :</b> Bache, K et Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
+<b>Recherche associée :</b> Bache, K. and Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -307,7 +306,7 @@ Ce jeu de données contient une série d’enregistrements d’essais de recuit 
 <p></p>
 Les qualités d'acier répondent à un standard défini par la SAE et d'autres organisations. Vous recherchez une qualité d’acier spécifique (variable de classe) et vous cherchez à comprendre les valeurs nécessaires. 
 <p></p>
-<b>Recherche associée :</b> Sterling, D. &amp; Buntine, W. (NA). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
+<b>Recherche associée :</b> Sterling, D. & Buntine, W. (NA). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 Vous trouverez ici un guide utile sur les qualités d’acier : <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -322,13 +321,13 @@ L’objectif de la simulation était d’améliorer la précision de télescopes
 <p></p>
 Les données ont été prétraitées pour créer un cluster allongé avec l'axe long orienté vers le centre de la caméra. Les caractéristiques de cette ellipse (souvent appelées paramètres de Hillas) font partie des paramètres d’image qui peuvent servir pour la discrimination.
 <p></p>
-<b>Utilisation :</b> prédire si l’image d’une douche représente le signal ou le bruit de fond.
+<b>Utilisation :</b> prédire si l’image d’une douche représente un signal ou un bruit de fond.
 <p></p>
-<b>Remarque :</b> la simple précision de la classification n’est pas significative pour ces données, car classifier un événement de bruit de fond comme événement de signal est pire que classifier un événement de signal comme événement de bruit de fond. Pour comparer différents classificateurs, il faut utiliser la courbe ROC. La probabilité d’accepter un événement de bruit de fond comme signal doit être inférieure à l’un des seuils suivants : 0,01, 0,02, 0,05, 0,1 ou 0,2.
+<b>Remarques :</b> La simple précision de la classification n’est pas significative pour ces données, car classifier un événement de bruit de fond comme événement de signal est pire que classifier un événement de signal comme événement de bruit de fond. Pour comparer différents classificateurs, il faut utiliser la courbe ROC. La probabilité d’accepter un événement de bruit de fond comme signal doit être inférieure à un des seuils suivants : 0,01, 0,02, 0,05, 0,1 ou 0,2.
 <p></p>
 Notez également que le nombre d’événements de bruit de fond (h, pour douches hadroniques) est sous-estimé. Dans les mesures réelles, la classe h ou classe bruitée représente la majorité des événements. 
 <p></p>
-<b>Recherche associée :</b> Bock, R.K. (1995). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : University of California, School of Information </td>
+<b>Recherche associée :</b> Bock, R.K. (1995). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
 </tr>
 
 <tr>
@@ -341,7 +340,7 @@ Les données météorologiques couvrent les observations effectuées depuis les 
   <li>Les identifiants des stations météo ont été alignés sur les identifiants des aéroports correspondants.</li>
   <li>Les stations météo non associées à un des 70 aéroports sélectionnés ont été supprimées.</li>
   <li>La colonne Date a été fractionnée en plusieurs colonnes distinctes indiquant l'année, le mois et le jour.</li>
-  <li>Les colonnes suivantes avaient été sélectionnées : AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
+  <li>Les colonnes suivantes ont été sélectionnées : AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
 </ul>
   </td>
 </tr>

@@ -1,5 +1,6 @@
 ---
-title: Vue d’ensemble des ports haute disponibilité dans Azure | Microsoft Docs
+title: Présentation des ports haute disponibilité dans Azure
+titlesuffix: Azure Load Balancer
 description: Découvrez plus d’informations sur l’équilibrage de charge des ports haute disponibilité sur un équilibreur de charge interne.
 services: load-balancer
 documentationcenter: na
@@ -7,26 +8,27 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/07/2018
+ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: 744cd933e901b930aa0394b36e9770bab6de38df
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740329"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317190"
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
 Azure Standard Load Balancer vous permet d’équilibrer la charge des flux TCP et UDP sur tous les ports simultanément quand vous utilisez un équilibreur de charge interne. 
 
-Une règle de ports haute disponibilité est une variante d’une règle d’équilibrage de charge configurée sur un équilibreur de charge standard interne. Vous pouvez simplifier l’utilisation d’un équilibreur de charge en fournissant une seule règle pour équilibrer la charge de tous les flux TCP et UDP qui arrivent sur tous les ports d’un équilibreur de charge standard interne. La décision d’équilibrage de charge est prise par flux. Cette action est basée sur la connexion à 5 tuples suivante : adresse IP source, port source, adresse IP de destination, port de destination et protocole.
+Une règle d’équilibrage de charge des ports haute disponibilité (HA) est une variante de règle d’équilibrage de charge configurée sur un équilibreur Standard Load Balancer interne. Vous pouvez simplifier l’utilisation d’un équilibreur de charge en fournissant une seule règle pour équilibrer la charge de tous les flux TCP et UDP qui arrivent sur tous les ports d’un équilibreur de charge standard interne. La décision d’équilibrage de charge est prise par flux. Cette action est basée sur la connexion à 5 tuples suivante : adresse IP source, port source, adresse IP de destination, port de destination et protocole
 
-La fonctionnalité des ports haute disponibilité est utile dans les scénarios critiques, comme pour la haute disponibilité et la mise à l’échelle d’appliances virtuelles réseau dans des réseaux virtuels. La fonctionnalité peut également servir quand un grand nombre de ports doit avoir une charge équilibrée. 
+Les règles d’équilibrage de charge des ports haute disponibilité sont utiles dans les scénarios critiques, comme pour la haute disponibilité et la mise à l’échelle d’appliances virtuelles réseau dans des réseaux virtuels. La fonctionnalité peut également servir quand un grand nombre de ports doit avoir une charge équilibrée. 
 
-La fonctionnalité des ports haute disponibilité est configurée quand vous affectez la valeur **0** aux ports frontend et backend, et la valeur **Tous** au protocole. La ressource d’équilibreur de charge interne équilibre alors tous les flux TCP et UDP, quel que soit le nombre de ports.
+Les règles d’équilibrage de charge des ports haute disponibilité sont configurées quand vous affectez la valeur **0** aux ports frontaux et principaux, et la valeur **Tous** au protocole. La ressource d’équilibreur de charge interne équilibre alors tous les flux TCP et UDP, quel que soit le nombre de ports
 
 ## <a name="why-use-ha-ports"></a>Pourquoi utiliser des ports haute disponibilité ?
 
@@ -42,8 +44,9 @@ Les ports haute disponibilité présentent les avantages suivants pour les scén
 - Scénarios en mode *n*-actif et actif-passif
 - Plus besoin d’utiliser des solutions complexes comme les nœuds Apache Zookeeper pour la surveillance des appliances
 
-Le diagramme suivant présente un déploiement de réseau virtuel hub-and-spoke. Les spokes forcent le tunneling de leur trafic vers le réseau virtuel du hub et via l’appliance virtuelle réseau avant de quitter l’espace de confiance. Les appliances virtuelles réseau se trouvent derrière un équilibreur de charge standard interne avec une configuration de ports haute disponibilité. Tout le trafic peut être traité et transféré en conséquence.
+Le diagramme suivant présente un déploiement de réseau virtuel hub-and-spoke. Les spokes forcent le tunneling de leur trafic vers le réseau virtuel du hub et via l’appliance virtuelle réseau avant de quitter l’espace de confiance. Les appliances virtuelles réseau se trouvent derrière un équilibreur de charge standard interne avec une configuration de ports haute disponibilité. Tout le trafic peut être traité et transféré en conséquence. En cas de configuration tel qu’indiqué dans le diagramme suivant, une règle d’équilibrage de charge des ports HA fournit également une symétrie des flux pour le trafic d’entrée et de sortie.
 
+<a node="diagram"></a>
 ![Diagramme d’un réseau virtuel hub-and-spoke avec des appliances virtuelles réseau déployées en mode de haute disponibilité](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
@@ -97,7 +100,7 @@ Vous pouvez configurer *une* ressource d’équilibreur de charge standard publi
 
 - La fonctionnalité des ports haute disponibilité n’est pas disponible pour IPv6.
 
-- La symétrie des flux dans les scénarios d’appliances virtuelles réseau est uniquement prise en charge avec une seule carte réseau. Consultez la description et le diagramme des [appliances virtuelles réseau](#nva). Toutefois, si une NAT de destination peut fonctionner dans votre scénario, vous pouvez l’utiliser pour vous assurer que l’équilibreur de charge interne envoie le trafic de retour à la même appliance virtuelle réseau.
+- La symétrie des flux (principalement pour les scénarios d’appliance virtuelle réseau) est prise en charge avec l’instance de serveur principal et une seule carte réseau (et une seule configuration IP) uniquement en cas d’utilisation tel qu’indiqué dans le [diagramme](#diagram) ci-dessus et avec des règles d’équilibrage de charge des ports HA. Elle n’est pas fournie dans les autres scénarios. Autrement dit, plusieurs ressources Load Balancer et leurs règles respectives prennent des décisions indépendantes et ne sont jamais coordonnées. Consultez la description et le diagramme des [appliances virtuelles réseau](#nva). Lorsque vous utilisez plusieurs cartes réseau ou insérez l’appliance virtuelle réseau entre un équilibreur de charge public et un équilibreur de charge interne, la symétrie des flux n’est pas disponible.  Vous serez peut-être en mesure de contourner ce problème en approvisionnant la traduction d’adresses réseau du flux d’entrée vers l’adresse IP de l’appliance pour autoriser la réception de réponses sur la même appliance virtuelle réseau.  Toutefois, nous vous recommandons vivement d’utiliser une seule carte réseau et l’architecture de référence présentée dans le [diagramme](#diagram) ci-dessus.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

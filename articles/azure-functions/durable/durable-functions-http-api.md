@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a5e3bd655e0780861f4bf70c247df72e6acedd09
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637084"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340774"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP dans Fonctions durables (Azure Functions)
 
@@ -24,7 +24,6 @@ L’extension Tâche durable expose un ensemble d’API HTTP qui peut être util
 * Récupérer l'état d'une instance d’orchestration.
 * Envoyer un événement à une instance d’orchestration en attente.
 * Mettre fin à une instance d’orchestration en cours d’exécution.
-
 
 Chacune de ces API HTTP est une opération webhook gérée directement par l’extension Tâche durable. Elles ne sont pas spécifiques à une fonction dans l’application de fonction.
 
@@ -35,9 +34,15 @@ Chacune de ces API HTTP est une opération webhook gérée directement par l’e
 
 La classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) expose une API [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) qui peut être utilisée pour générer une charge utile de réponse HTTP contenant des liens vers toutes les opérations prises en charge. Voici un exemple de fonction de déclencheur HTTP qui montre comment utiliser cette API :
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-Cet exemple de fonction produit les données de réponse JSON suivantes. Le type de données de tous les champs est `string`.
+### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+
+Ces exemples de fonctions produisent les données de réponse JSON suivantes. Le type de données de tous les champs est `string`.
 
 | Champ             |Description                           |
 |-------------------|--------------------------------------|
@@ -63,8 +68,9 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
+
 > [!NOTE]
-> Le format des URL « webhook » peut différer selon la version de l’hôte Azure Functions que vous exécutez. L’exemple ci-dessus utilise l’hôte Azure Functions 2.0.
+> Le format des URL « webhook » peut différer selon la version de l’hôte Azure Functions que vous exécutez. L’exemple ci-dessus correspond à l’hôte Azure Functions 2.x.
 
 ## <a name="async-operation-tracking"></a>Suivi de l’opération asynchrone
 
@@ -91,8 +97,8 @@ Toutes les API HTTP implémentées par l’extension utilisent les paramètres s
 | connection | Chaîne de requête    | Le **nom** de la chaîne de connexion du compte de stockage. Si elle n’est pas spécifiée, la chaîne de connexion par défaut pour l’application de la fonction est supposée. |
 | systemKey  | Chaîne de requête    | La clé d’autorisation requise pour appeler l’API. |
 | showInput  | Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `false`, l’entrée d’exécution n’est pas incluse dans la charge utile de réponse.|
-| showHistory| Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, l’historique d’exécution de l’orchestration est inclus dans la charge utile de réponse.| 
-| showHistoryOutput| Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, les sorties de l’activité sont incluses dans l’historique d’exécution de l’orchestration.| 
+| showHistory| Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, l’historique d’exécution de l’orchestration est inclus dans la charge utile de réponse.|
+| showHistoryOutput| Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, les sorties de l’activité sont incluses dans l’historique d’exécution de l’orchestration.|
 | createdTimeFrom  | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées qui ont été créées pendant ou après l’horodatage ISO8601 donné.|
 | createdTimeTo    | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées qui ont été créées pendant ou avant l’horodatage ISO8601 donné.|
 | runtimeStatus    | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées selon leur état d’exécution. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez la rubrique [Interrogation des instances](durable-functions-instance-management.md). |
@@ -124,11 +130,11 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&conne
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
-* **HTTP 200 (OK)** : l’instance spécifiée est dans un état terminé.
-* **HTTP 202 (acceptée)** : l’instance spécifiée est en cours d’exécution.
-* **HTTP 400 (Bad Request)** : l’instance spécifiée a échoué ou a été arrêtée.
-* **HTTP 404 (Not Found)** : l’instance spécifiée n’existe pas ou n’a pas démarré.
-* **HTTP 500 (Erreur interne du serveur)**: l’instance spécifiée a échoué avec une exception non prise en charge.
+* **HTTP 200 (OK)** : L’instance spécifiée indique un état terminé.
+* **HTTP 202 (acceptée)** : L’instance spécifiée est en cours d’exécution.
+* **HTTP 400 (requête incorrecte)** : L’instance spécifiée a échoué ou a été arrêtée.
+* **HTTP 404 (introuvable)** : L’instance spécifiée n’existe pas ou n’a pas démarré.
+* **HTTP 500 (erreur interne du serveur)** : L’instance spécifiée a échoué avec une exception non prise en charge.
 
 La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un objet JSON avec les champs suivants :
 
@@ -140,7 +146,7 @@ La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un o
 | sortie          | JSON      | La sortie JSON de l’instance. Ce champ est `null` si l’instance n’est pas dans un état terminé. |
 | createdTime     | chaîne    | Heure à laquelle l’instance a été créée. Utilise la notation étendue ISO 8601. |
 | lastUpdatedTime | chaîne    | Heure du dernier état persistant de l’instance. Utilise la notation étendue ISO 8601. |
-| historyEvents   | JSON      | Tableau JSON contenant l’historique d’exécution de l’orchestration. Ce champ est `null`, sauf si le paramètre de chaîne de requête `showHistory` a la valeur `true`.  | 
+| historyEvents   | JSON      | Tableau JSON contenant l’historique d’exécution de l’orchestration. Ce champ est `null`, sauf si le paramètre de chaîne de requête `showHistory` a la valeur `true`.  |
 
 Voici un exemple de charge utile de réponse incluant l’historique et les sorties de l’activité d’exécution d’orchestration (mis en forme pour une meilleure lisibilité) :
 
@@ -199,10 +205,9 @@ Voici un exemple de charge utile de réponse incluant l’historique et les sort
 
 La réponse **HTTP 202** inclut également un en-tête de réponse **Location** qui fait référence à la même URL que le champ `statusQueryGetUri` mentionné précédemment.
 
-
 ### <a name="get-all-instances-status"></a>Obtenir l’état de toutes les instances
 
-Vous pouvez également demander l’état de toutes les instances. Supprimez `instanceId` de la requête « Obtenir l’état de l’instance ». Les paramètres sont les mêmes que ceux de « Obtenir l’état de l’instance ». 
+Vous pouvez également demander l’état de toutes les instances. Supprimez `instanceId` de la requête « Obtenir l’état de l’instance ». Les paramètres sont les mêmes que ceux de « Obtenir l’état de l’instance ».
 
 Une chose à retenir est que `connection` et `code` sont facultatifs. Si vous disposez de l’authentification anonyme sur la fonction, le paramètre code n’est nécessaire.
 Si vous ne souhaitez pas utiliser une autre chaîne de connexion de stockage d’objets blob que celle définie dans le paramètre d’application AzureWebJobsStorage, vous pouvez ignorer en toute sécurité le paramètre de chaîne de requête de connexion.
@@ -215,7 +220,7 @@ Pour Functions 1.0, le format de la demande est le suivant :
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent : 
+Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent :
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
@@ -231,7 +236,7 @@ Pour Functions 1.0, le format de la demande est le suivant :
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent : 
+Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent :
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
@@ -291,8 +296,8 @@ Voici un exemple de charges utiles de réponse incluant l’état de l’orchest
 ```
 
 > [!NOTE]
-> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans la table d’instances. Vous trouverez plus d’informations sur la table d’instances dans la documentation [Performances et mise à l’échelle dans Fonctions durables (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table).
-> 
+> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans la table d’instances. Vous trouverez plus d’informations sur la table d’instances dans la documentation [Performances et mise à l’échelle dans Fonctions durables (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
+>
 
 #### <a name="request-with-paging"></a>Demande avec pagination
 
@@ -304,7 +309,7 @@ Pour Functions 1.0, le format de la demande est le suivant :
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
 ```
 
-Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent : 
+Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent :
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
@@ -313,7 +318,6 @@ GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={conne
 Si la page suivante existe, un jeton de continuation est retourné dans l’en-tête de réponse.  Le nom de l’en-tête est `x-ms-continuation-token`.
 
 Si vous définissez la valeur du jeton de continuation dans l’en-tête de la demande suivante, vous pouvez obtenir la page suivante.  Cette clé dans l’en-tête de demande est `x-ms-continuation-token`.
-
 
 ### <a name="raise-event"></a>Raise event
 
@@ -344,10 +348,10 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
-* **HTTP 202 (Accepted)** : l’événement déclenché a été accepté pour traitement.
-* **HTTP 400 (Bad request)** : le contenu de la demande n’était pas de type `application/json` ou n’était pas un objet JSON valide.
-* **HTTP 404 (Not Found)** : l’instance spécifiée est introuvable.
-* **HTTP 410 (Gone)** : l’instance spécifiée est terminée ou a échoué et ne peut traiter aucun événement déclenché.
+* **HTTP 202 (acceptée)** : L’événement déclenché a été accepté pour traitement.
+* **HTTP 400 (requête incorrecte)** : Le contenu de la requête n’était pas de type `application/json` ou n’était pas un objet JSON valide.
+* **HTTP 404 (introuvable)** : L’instance spécifiée est introuvable.
+* **HTTP 410 (absente)** : L’instance spécifiée est terminée ou a échoué et ne peut traiter aucun événement déclenché.
 
 Voici un exemple de requête qui envoie la chaîne JSON `"incr"` à une instance en attente d’un événement nommé **operation** :
 
@@ -389,9 +393,9 @@ Les paramètres de la demande pour cette API incluent l’ensemble par défaut m
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
-* **HTTP 202 (Accepted)** : la demande d’arrêt a été acceptée pour traitement.
-* **HTTP 404 (Not Found)** : l’instance spécifiée est introuvable.
-* **HTTP 410 (Gone)** : l’instance spécifiée est terminée ou a échoué.
+* **HTTP 202 (acceptée)** : La demande d’arrêt a été acceptée pour traitement.
+* **HTTP 404 (introuvable)** : L’instance spécifiée est introuvable.
+* **HTTP 410 (absente)** : L’instance spécifiée est terminée ou a échoué.
 
 Voici un exemple de demande qui met fin à une instance en cours d’exécution et affiche la raison **buggy** (bogué) :
 
@@ -405,7 +409,7 @@ Les réponses pour cette API sont vides.
 
 Restaure une instance d’orchestration ayant échoué dans un état en cours d’exécution au travers de la relecture des dernières opérations ayant échoué.
 
-#### <a name="request"></a>Requête
+### <a name="request"></a>Requête
 
 Pour Functions 1.0, le format de la demande est le suivant :
 
@@ -425,13 +429,13 @@ Les paramètres de la demande pour cette API incluent l’ensemble par défaut m
 |-------------|-----------------|-----------|-------------|
 | motif      | Chaîne de requête    | chaîne    | facultatif. Motif de rembobinage de l’instance d’orchestration. |
 
-#### <a name="response"></a>response
+### <a name="response"></a>response
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
-* **HTTP 202 (Accepté)** : la requête de rembobinage a été acceptée pour traitement.
-* **HTTP 404 (Not Found)** : l’instance spécifiée est introuvable.
-* **HTTP 410 (Supprimé)** : l’instance spécifiée est terminée.
+* **HTTP 202 (acceptée)** : La demande de rembobinage a été acceptée pour traitement.
+* **HTTP 404 (introuvable)** : L’instance spécifiée est introuvable.
+* **HTTP 410 (absente)** : L’instance spécifiée est terminée.
 
 Voici un exemple de requête qui rembobine une instance ayant échoué et affiche la raison **corrigé** :
 

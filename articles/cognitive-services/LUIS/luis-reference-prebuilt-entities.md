@@ -1,23 +1,24 @@
 ---
-title: Entités prédéfinies - LUIS
+title: Toutes les entités prédéfinies
 titleSuffix: Azure Cognitive Services
 description: Cet article contient des listes des entités prédéfinies qui sont incluses dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: ff529e7b828c195be89c9d11fc5f50e04104642e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 858d094dfa949a46fbffcdfd4b386c40b124bbd8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567347"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135647"
 ---
-# <a name="entities-per-culture"></a>Entités par culture
+# <a name="entities-per-culture-in-your-luis-model"></a>Entités par culture dans votre modèle LUIS
 
 Language Understanding (LUIS) fournit des entités prédéfinies. Quand une entité prédéfinie est incluse dans votre application, LUIS inclut la prédiction d’entité correspondante dans la réponse du point de terminaison. Tous les exemples d’énoncés sont également étiquetés avec l’entité. Le comportement des entités prédéfinies **ne peut pas** être modifié. Sauf indication contraire, les entités prédéfinies sont disponibles dans tous les paramètres régionaux de l’application LUIS (cultures). Le tableau suivant montre les entités prédéfinies qui sont pris en charge pour chaque culture.
 
@@ -25,8 +26,8 @@ Language Understanding (LUIS) fournit des entités prédéfinies. Quand une enti
 |--|--|
 |Chinois|[zh-CN](#chinese-entity-support)|
 |Néerlandais|[nl-NL](#dutch-entity-support)|
-|Français|[en-US (États-Unis)](#english-american-entity-support)|
-|Français|[fr-CA (Canada)](#french-canadian-entity-support), [fr-FR (France)](#french-france-entity-support), |
+|Anglais|[en-US (États-Unis)](#english-american-entity-support)|
+|Anglais|[fr-CA (Canada)](#french-canadian-entity-support), [fr-FR (France)](#french-france-entity-support), |
 |Allemand|[de-DE](#german-entity-support)|
 |Italien|[it-IT](#italian-entity-support)|
 |Japonais|[ja-JP](#japanese-entity-support)|

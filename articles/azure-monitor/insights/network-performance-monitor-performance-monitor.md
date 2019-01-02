@@ -10,19 +10,17 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 8b4ed19ede70c3c9b768cfd368e22b0df3e71212
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: de9e6d5c8c6b4dc9652ae64c9a4fd0e38d7a7b87
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430534"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184761"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : Analyseur de performances
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : Analyse des performances
 
 La fonctionnalité Analyseur de performances de [Network Performance Monitor](network-performance-monitor.md) vous permet de surveiller la connectivité réseau entre les différents points de votre réseau. Vous pouvez surveiller les déploiements cloud et les emplacements locaux, plusieurs centres de données ainsi que les filiales et les applications/microservices multiniveaux stratégiques. Avec l’Analyseur de performances, vous pouvez détecter les problèmes réseau avant que vos utilisateurs ne se plaignent. Ses principaux avantages vous permettent de : 
 
@@ -137,4 +135,4 @@ Dans l’image suivante, la cause racine des zones à problème dans la section 
 ![Carte topologique avec les propriétés du nœud sélectionnées](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Rechercher dans les journaux](../../log-analytics/log-analytics-queries.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
+[Rechercher dans les journaux](../../azure-monitor/log-query/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.

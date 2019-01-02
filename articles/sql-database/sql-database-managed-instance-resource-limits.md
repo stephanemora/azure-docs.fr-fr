@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 97c141b6e0c071a8cea27f9a873f28a6c5113a18
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.date: 12/12/2018
+ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394861"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315636"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
-Cet article offre une vue d’ensemble des limites de ressources Azure SQL Database Managed Instance et fournit des informations sur la façon de créer une requête pour augmenter les limites d’abonnement régional par défaut. 
+Cet article offre une vue d’ensemble des limites de ressources Azure SQL Database Managed Instance et fournit des informations sur la façon de créer une requête pour augmenter les limites d’abonnement régional par défaut.
 
 > [!NOTE]
 > Pour connaître les autres limitations Managed Instance, consultez [modèle d’achat basé sur le nombre de vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) et [Niveaux de service de Managed Instance](sql-database-managed-instance.md#managed-instance-service-tiers). Pour connaître les différences entre les fonctionnalités prises en charge et les instructions T-SQL, consultez [Différences de fonctionnalités](sql-database-features.md) et [Prise en charge des instructions T-SQL](sql-database-managed-instance-transact-sql-information.md).
@@ -43,17 +43,21 @@ Azure SQL Database Managed Instance peut être déployé sur deux générations 
 
 ### <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
 
-Managed Instance dispose de deux niveaux de service : Usage général et Critique pour l’entreprise (préversion publique). Ces niveaux offre des fonctionnalités différentes, comme décrit dans le tableau ci-dessous :
+Managed Instance propose deux niveaux de service : Usage général et Critique pour l’entreprise. Ces niveaux offre des fonctionnalités différentes, comme décrit dans le tableau ci-dessous :
 
-| **Fonctionnalité** | **Usage général** | **Critique pour l’entreprise (préversion)** |
+| **Fonctionnalité** | **Usage général** | **Critique pour l’entreprise** |
 | --- | --- | --- |
 | Nombre de vCores\* | Gen4 : 8, 16, 24<br/>Gen5 : 8, 16, 24, 32, 40, 64, 80 | Gen4 : 8, 16, 24, 32 <br/> Gen5 : 8, 16, 24, 32, 40, 64, 80 |
-| Mémoire | Gen4 : 56 Go - 156 Go<br/>Gen5 : 44 Go -440 Go<br/>\*Proportionnel au nombre de vCores | Gen4 : 56 Go - 156 Go <br/> Gen5 : 44 Go -440 Go<br/>\*Proportionnel au nombre de vCores |
-| Taille de stockage maximale | 8 To | Gen4 : 1 To <br/> Gen 5 : <br/>- 1 To pour 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
+| Mémoire | Gen4 : 56 Go - 156 Go<br/>Gen5 : 44 Go - 440 Go<br/>\*Proportionnel au nombre de vCores | Gen4 : 56 Go - 156 Go <br/> Gen5 : 44 Go - 440 Go<br/>\*Proportionnel au nombre de vCores |
+| Taille de stockage maximale | 8 To | Gen 4 : 1 To <br/> Gen 5 : <br/>- 1 To pour 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
 | Espace de stockage maximal par base de données | Déterminé par la taille de stockage maximale par instance | Déterminé par la taille de stockage maximale par instance |
 | Nombre maximal de bases de données par instance | 100 | 100 |
-| Nombre maximal de fichiers de base de données par instance | Jusqu’à 280 | Illimité |
-| Nombre maximal d’IOPS attendues | 500 - 5 000 ([dépend de la taille du fichier de données](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Dépend de la vitesse du disque SSD sous-jacent. |
+| Nombre maximal de fichiers de base de données par instance | Jusqu’à 280 | 32 767 fichiers par base de données |
+| Nombre (approximatif) d’E/S par seconde | 500 - 7 500 par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11 K - 110 K (1 375 par vCore) |
+| Latence (approximative) des E/S | 5 - 10 ms | 1 - 2 ms |
+| Taille maximale de tempDB | 192 - 1 920 Go (24 Go par vCore) | Déterminé par la taille de stockage maximale par instance |
+
+- Les bases de données utilisateur et système sont comprises dans la taille de stockage d’instance qui est comparée à la limite de taille de stockage maximale. Utilisez la vue système <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> pour déterminer l’espace total utilisé par les bases de données. Les journaux d’erreurs ne sont ni conservés ni compris dans la taille. Les sauvegardes ne sont pas comprises dans la taille de stockage.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
@@ -66,6 +70,8 @@ Managed Instance prend actuellement en charge le déploiement uniquement sur les
 - [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Fournisseur de services cloud (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
 > [!NOTE]
 > Cette limitation est temporaire. De nouveaux types d’abonnements seront activés par la suite.
@@ -74,8 +80,8 @@ Managed Instance prend actuellement en charge le déploiement uniquement sur les
 
 Les types d’abonnements pris en charge peuvent contenir un nombre limité de ressources par région. Managed Instance a deux limites par défaut par région Azure en fonction d’un type d’abonnement :
 
-- **Limite de sous-réseau** : nombre maximal de sous-réseaux dans lesquels des instances gérées sont déployées dans une seule et même région.
-- **Limite du nombre d’instances** : nombre maximal d’instances qui peuvent être déployées dans une seule et même région.
+- **Limite de sous-réseaux** : nombre maximal de sous-réseaux dans lesquels des instances gérées sont déployées dans une seule et même région.
+- **Limite du nombre d’instances** : nombre maximal d’instances pouvant être déployées dans une seule et même région.
 
 Le tableau suivant présente les limites régionales par défaut pour les abonnements pris en charge :
 
@@ -83,6 +89,8 @@ Le tableau suivant présente les limites régionales par défaut pour les abonne
 | :---| :--- | :--- |:--- |:--- |
 |Paiement à l’utilisation|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
+|Pay-As-You-Go Dev/Test|1*|4*|4*|1*|
+|Enterprise Dev/Test|1*|4*|4*|1*|
 |EA|3**|12**|12**|3**|
 
 \* Vous pouvez déployer 1 instance Critique pour l’entreprise ou 4 instances Usage général dans un sous-réseau, afin que le nombre total d’« unités d’instance » dans le sous-réseau ne dépasse jamais 4.
@@ -98,7 +106,7 @@ Ces limites peuvent être augmentées en créant une [demande de support spécia
 
 Les abonnements [Contrat entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) peuvent avoir des combinaisons d’instances Usage général et Critique pour l’entreprise. Toutefois, il existe certaines contraintes quant au positionnement des instances dans les sous-réseaux.
 
-> [!Note] 
+> [!Note]
 > Les types d’abonnement [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) et [Fournisseur de services cloud (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) peuvent avoir soit une instance Critique pour l’entreprise, soit jusqu’à 4 instances Usage général.
 
 Les exemples suivants couvrent des cas de déploiement avec les sous-réseaux non vides et une combinaison de niveaux de service Usage général et Critique pour l’entreprise.
@@ -114,9 +122,10 @@ Les exemples suivants couvrent des cas de déploiement avec les sous-réseaux no
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtention d’un quota plus élevé pour SQL Managed Instance
 
-Si vous avez besoin de davantage d’instances gérées dans vos régions actuelles, vous pouvez envoyer la demande de support pour étendre le quota à l’aide du portail Azure. Pour lancer le processus d’obtention d’un quota plus élevé :
+Si vous avez besoin de davantage d’instances gérées dans vos régions actuelles, vous pouvez envoyer la demande de support pour étendre le quota à l’aide du portail Azure.
+Pour lancer le processus d’obtention d’un quota plus élevé :
 
-1. Ouvrez **Aide + Support**, puis cliquez sur **Nouvelle demande de support**. 
+1. Ouvrez **Aide + Support**, puis cliquez sur **Nouvelle demande de support**.
 
    ![Aide et support](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. Sous l’onglet De base de la nouvelle demande de support :
@@ -140,13 +149,13 @@ Si vous avez besoin de davantage d’instances gérées dans vos régions actuel
      > - Région dans laquelle la limite d’abonnement doit être augmentée
      > - Nombre nécessaire d’instances, par niveau de service dans les sous-réseaux existants après l’augmentation du quota (si l’un des sous-réseaux existants doit être développé)
      > - Nombre nécessaire de nouveaux sous-réseaux et nombre total d’instances par niveau de service dans les nouveaux sous-réseaux (si vous devez déployer des instances gérées dans les nouveaux sous-réseaux).
-     
+
 5. Cliquez sur **Suivant**.
 6. Sous l’onglet Informations de contact pour la nouvelle demande de support, entrez la méthode de communication préférée (e-mail ou téléphone) et les détails du contact.
 7. Cliquez sur **Créer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur Managed Instance, consultez [Présentation de Managed Instance](sql-database-managed-instance.md). 
+- Pour plus d’informations sur Managed Instance, consultez [Présentation de Managed Instance](sql-database-managed-instance.md).
 - Pour plus d’informations sur la tarification, voir [Tarification de SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 - Pour savoir comment créer votre première Managed Instance, consultez [Guide de démarrage rapide](sql-database-managed-instance-get-started.md).

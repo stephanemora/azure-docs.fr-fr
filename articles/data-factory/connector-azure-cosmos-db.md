@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis ou vers Azure Cosmos DB à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données depuis ou vers Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory | Microsoft Docs
 description: Découvrez comment utiliser Azure Data Factory pour copier des données de banques de données sources prises en charge vers Azure Cosmos DB ou d’Azure Cosmos DB vers des banques de données réceptrices prises en charge.
 services: data-factory, cosmosdb
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c10a933f371bfc84b863413134f2fdf5ff9c0e34
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 16c02f1f47f556f550519feec78e7dd26b302e18
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161835"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103793"
 ---
-# <a name="copy-data-to-or-from-azure-cosmos-db-by-using-azure-data-factory"></a>Copier des données depuis ou vers Azure Cosmos DB à l’aide d’Azure Data Factory
+# <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier des données depuis ou vers Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
@@ -40,6 +40,9 @@ Vous pouvez utiliser le connecteur Azure Cosmos DB pour :
 
 Data Factory s’intègre à la [bibliothèque d’exécuteur en bloc Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) pour offrir les meilleures performances quand vous écrivez dans Azure Cosmos DB.
 
+>[!NOTE]
+>Ce connecteur prend uniquement en charge la copie des données vers/depuis l’API SQL Cosmos DB.
+
 > [!TIP]
 > La [vidéo de la migration des données](https://youtu.be/5-SRNiC_qOU) vous guide tout au long des étapes de la copie des données depuis le stockage Blob Azure vers Azure Cosmos DB. La vidéo décrit également les considérations de réglage des performances pour l’ingestion des données dans Azure Cosmos DB en général.
 
@@ -56,7 +59,7 @@ Les propriétés prises en charge pour le service lié Azure Cosmos DB sont les 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété **type** doit être définie sur **CosmosDb**. | Oui |
-| connectionString |Spécifiez les informations requises pour se connecter à la base de données Azure Cosmos DB.<br /><br />**Remarque** : Vous devez spécifier les informations de base de données dans la chaîne de connexion comme indiqué dans les exemples ci-dessous. Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| connectionString |Spécifiez les informations requises pour se connecter à la base de données Azure Cosmos DB.<br /><br />**Remarque**: Vous devez spécifier les informations de base de données dans la chaîne de connexion, comme indiqué dans les exemples ci-dessous. Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Vous pouvez utiliser Azure Integration Runtime ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. Si cette propriété n’est pas spécifiée, Azure Integration Runtime par défaut est utilisé. |Non  |
 
 **Exemple**
@@ -181,7 +184,7 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété **type** du récepteur de l’activité de copie doit être définie sur **DocumentDbCollectionSink**. |Oui |
-| writeBehavior |Décrit comment écrire des données dans Azure Cosmos DB. Les valeurs autorisées sont **insert** et **upsert**.<br/><br/>Le comportement de la valeur **upsert** consiste à remplacer le document si un document portant le même identificateur existe déjà ; sinon, le document est inséré.<br /><br />**Remarque** : Azure Data Factory génère automatiquement un ID pour un document s’il n’est pas spécifié dans le document d’origine ni par le mappage de colonnes. Cela signifie que vous devez vérifier que votre document comporte un ID afin qu’**upsert** fonctionne comme prévu. |Non <br />(la valeur par défaut est **insert**) |
+| writeBehavior |Décrit comment écrire des données dans Azure Cosmos DB. Les valeurs autorisées sont **insert** et **upsert**.<br/><br/>Le comportement de la valeur **upsert** consiste à remplacer le document si un document portant le même identificateur existe déjà ; sinon, le document est inséré.<br /><br />**Remarque**: Azure Data Factory génère automatiquement un ID pour un document s’il n’est pas spécifié dans le document d’origine ni par le mappage de colonnes. Cela signifie que vous devez vérifier que votre document comporte un ID afin qu’**upsert** fonctionne comme prévu. |Non <br />(la valeur par défaut est **insert**) |
 | writeBatchSize | Data Factory utilise la [bibliothèque d’exécuteur en bloc Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) pour écrire les données dans Azure Cosmos DB. La propriété **writeBatchSize** contrôle la taille des documents que nous fournissons à la bibliothèque. Vous pouvez essayer d’augmenter la valeur de **writeBatchSize** pour améliorer les performances et diminuer la valeur si la taille de votre document est grande (voir les conseils ci-dessous). |Non <br />(la valeur par défaut est **10 000**) |
 | nestingSeparator |Caractère spécial dans le nom de colonne **source** qui indique qu’un document imbriqué est nécessaire. <br/><br/>Par exemple, `Name.First` dans la structure du jeu de données de sortie génère la structure JSON suivante dans le document Azure Cosmos DB quand **nestedSeparator** a la valeur **.** (point) : `"Name": {"First": "[value maps to this column from source]"}`  |Non <br />(la valeur par défaut est **.** (point)) |
 

@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e9b05751166ac200f4a9cdab4c7fe3ed797f2a10
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d1381ff16d0de382634b06fd081f1827588f8ee9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465246"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435104"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Guide d’activation de la virtualisation imbriquée dans une machine virtuelle Azure
 
@@ -98,9 +98,9 @@ Créez une nouvelle carte réseau virtuelle pour la machine virtuelle invitée e
 4. Créez une adresse IP pour la passerelle NAT.
     
 Pour configurer la passerelle, vous avez besoin d’informations sur votre réseau :    
-  * Adresse IP : L’adresse IP de la passerelle NAT spécifie l’adresse IPv4 ou IPv6 à utiliser en tant qu’adresse de passerelle par défaut pour le sous-réseau du réseau virtuel. La forme générique est a.b.c.1 (par exemple, « 192.168.0.1 »). Si la dernière position n’a pas à être.1, c’est généralement le cas (sur la base de la longueur de préfixe). En général, vous devez utiliser un espace d’adressage de réseau privé RFC 1918. 
-  * PrefixLength : La longueur de préfixe de sous-réseau définit la taille du sous-réseau local (masque de sous-réseau). La longueur de préfixe de sous-réseau sera une valeur entière comprise entre 0 et 32. 0 mappe la totalité d’Internet, 32 n’autorise qu’une adresse IP mappée. Les valeurs courantes sont comprises entre 24 et 12 en fonction du nombre d’adresses IP devant être attachées à NAT. Une valeur PrefixLength courante est 24 : il s’agit d’un masque de sous-réseau 255.255.255.0.
-  * InterfaceIndex - **ifIndex** est l’index d’interface du commutateur virtuel créé à l’étape précédente. 
+  * Adresse IP : l’adresse IP de la passerelle NAT spécifie l’adresse IPv4 ou IPv6 à utiliser comme adresse de passerelle par défaut pour le sous-réseau du réseau virtuel. La forme générique est a.b.c.1 (par exemple, « 192.168.0.1 »). Si la dernière position n’a pas à être.1, c’est généralement le cas (sur la base de la longueur de préfixe). En général, vous devez utiliser un espace d’adressage de réseau privé RFC 1918. 
+  * PrefixLength : la longueur de préfixe de sous-réseau définit la taille du sous-réseau local (masque de sous-réseau). La longueur de préfixe de sous-réseau sera une valeur entière comprise entre 0 et 32. 0 mappe la totalité d’Internet, 32 n’autorise qu’une adresse IP mappée. Les valeurs courantes sont comprises entre 24 et 12 en fonction du nombre d’adresses IP devant être attachées à NAT. Une valeur PrefixLength courante est 24 : il s’agit d’un masque de sous-réseau 255.255.255.0.
+  * InterfaceIndex : **ifIndex** est l’index d’interface du commutateur virtuel créé à l’étape précédente. 
 
     ```powershell
     New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 13
@@ -157,7 +157,7 @@ Suivez les étapes ci-dessous pour configurer DHCP sur la machine virtuelle hôt
   
 4. Définissez une plage IP pour votre serveur DHCP (par exemple, 192.168.0.100 à 192.168.0.200).
   
-5. Cliquez sur **Suivant** jusqu'à la page de la passerelle par défaut. Entrez l’adresse IP que vous avez créée précédemment (par exemple, 192.168.0.1) en tant que passerelle par défaut.
+5. Cliquez sur **Suivant** jusqu'à la page de la passerelle par défaut. Entrez l’adresse IP que vous avez créée précédemment (par exemple, 192.168.0.1) en tant que passerelle par défaut, puis cliquez sur **Ajouter**.
   
 6. Cliquez sur **Suivant** jusqu'à la fin de l’assistant, en laissant toutes les valeurs par défaut, puis cliquez sur **Terminer**.
     

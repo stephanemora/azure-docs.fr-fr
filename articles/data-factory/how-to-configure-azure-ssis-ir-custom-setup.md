@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/21/2018
+ms.date: 12/3/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ad3ec09f039b38290929289c7bca77664b0fb554
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fab03f12f4099fe2df2525cb3a6fa093170d1c79
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441783"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850174"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personnalisation l’installation du runtime d’intégration Azure-SSIS
 
@@ -98,7 +98,11 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
        ![Copiez et enregistrez la signature d’accès partagé.](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-    1.  Lorsque vous approvisionnez ou reconfigurez votre IR Azure-SSIS avec PowerShell, avant de commencer votre IR Azure-SSIS, exécutez l’applet de commande `Set-AzureRmDataFactoryV2IntegrationRuntime` avec l’URI de SAP de votre conteneur comme valeur pour le nouveau paramètre `SetupScriptContainerSasUri`. Par exemple : 
+    1.  Lorsque vous provisionnez ou reconfigurez votre instance Azure-SSIS IR avec l’interface utilisateur de Data Factory, entrez l’URI SAS de votre conteneur dans le champ approprié du panneau **Paramètres avancés** avant de démarrer votre instance Azure-SSIS IR :
+
+       ![Entrez la signature d’accès partagé.](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
+
+       Lorsque vous approvisionnez ou reconfigurez votre IR Azure-SSIS avec PowerShell, avant de commencer votre IR Azure-SSIS, exécutez l’applet de commande `Set-AzureRmDataFactoryV2IntegrationRuntime` avec l’URI de SAP de votre conteneur comme valeur pour le nouveau paramètre `SetupScriptContainerSasUri`. Par exemple : 
 
        ```powershell
        Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -127,7 +131,7 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
     c. Sélectionnez le conteneur de version préliminaire publique connecté et double-cliquez sur le dossier `CustomSetupScript`. Ce dossier contient les éléments suivants :
 
-       1. Un dossier `Sample`, qui contient une installation personnalisée pour une tâche de base sur chaque nœud de votre IR Azure-SSIS. La tâche est juste mise en veille pendant quelques secondes. Le dossier contient également un dossier `gacutil` dans lequel se trouve `gacutil.exe`. De plus, `main.cmd` comporte des commentaires visant à conserver les informations d’identification d'accès pour les partages de fichiers.
+       1. Un dossier `Sample`, qui contient une installation personnalisée pour une tâche de base sur chaque nœud de votre IR Azure-SSIS. La tâche est juste mise en veille pendant quelques secondes. Le dossier comporte aussi un dossier `gacutil` dont le contenu entier (`gacutil.exe`, `gacutil.exe.config` et `1033\gacutlrc.dll`) peut être copié tel quel dans votre conteneur. De plus, `main.cmd` comporte des commentaires visant à conserver les informations d’identification d'accès pour les partages de fichiers.
 
        1. Un dossier `UserScenarios`, qui contient plusieurs installations personnalisées pour des scénarios utilisateur réels.
 
@@ -137,13 +141,13 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
        1. Un dossier `.NET FRAMEWORK 3.5`, qui contient une installation personnalisée permettant d’installer une version précédente de .NET Framework, potentiellement nécessaire pour les composants personnalisés sur chaque nœud de votre runtime d’intégration Azure-SSIS.
 
+       1. Un dossier `AAS`, qui contient une installation personnalisée permettant d’installer les bibliothèques clientes sur chaque nœud de votre instance Azure-SSIS IR, ce qui permet à vos tâches Analysis Services de se connecter à une instance Azure Analysis Services (AAS) avec l’authentification du principal de service. Tout d’abord, téléchargez les derniers programmes d’installation Windows et bibliothèques clientes **MSOLAP (amd64)** et **AMO** (par exemple `x64_15.0.900.108_SQL_AS_OLEDB.msi` et `x64_15.0.900.108_SQL_AS_AMO.msi`) à partir d’[ici](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), puis chargez-les ensemble avec `main.cmd` dans votre conteneur.  
+
        1. Un dossier `BCP` qui contient une installation personnalisée pour les utilitaires de ligne de commande SQL Server (`MsSqlCmdLnUtils.msi`), y compris le programme de copie en bloc (`bcp`), sur chaque nœud de votre IR Azure-SSIS.
 
        1. Un dossier `EXCEL`, qui contient une installation personnalisée pour des assemblys open source (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll` et `ExcelDataReader.dll`) sur chaque nœud de votre IR Azure-SSIS.
 
-       1. Un dossier `MSDTC`, qui contient une installation personnalisée permettant de modifier les configurations du réseau et de la sécurité pour le service Microsoft Distributed Transaction Coordinator (MSDTC) sur chaque nœud de l’IR Azure-SSIS. Pour vérifier que MSDTC est lancé, ajoutez la tâche Exécuter le processus au début du flux de contrôle dans vos packages pour exécuter la commande suivante : `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"`. 
-
-       1. Un dossier `ORACLE ENTERPRISE`, qui contient un script d’installation personnalisée (`main.cmd`) et le fichier de configuration de l’installation sans assistance (`client.rsp`) pour installer le pilote Oracle OCI sur chaque nœud de votre IR Azure-SSIS, Enterprise Edition. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination Oracle. Vous devez d’abord télécharger le dernier client Oracle, par exemple `winx64_12102_client.zip`, depuis [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), puis le charger dans votre conteneur avec `main.cmd` et `client.rsp`. Si vous utilisez TNS pour vous connecter à Oracle, vous devez également télécharger `tnsnames.ora`, le modifier, puis le charger dans votre conteneur de manière à ce qu’il puisse être copié dans le dossier d’installation Oracle pendant l’installation.
+       1. Un dossier `ORACLE ENTERPRISE`, qui contient un script d’installation personnalisée (`main.cmd`) et le fichier de configuration de l’installation sans assistance (`client.rsp`) pour installer les connecteurs Oracle et le pilote OCI sur chaque nœud de votre instance Azure-SSIS IR, Enterprise Edition. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination Oracle. Commencez par télécharger Microsoft Connectors v5.0 pour Oracle (`AttunitySSISOraAdaptersSetup.msi` et `AttunitySSISOraAdaptersSetup64.msi`) à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179), et le dernier client Oracle (par exemple, `winx64_12102_client.zip`) depuis [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), puis chargez-les tous ensemble avec `main.cmd` et `client.rsp` dans votre conteneur. Si vous utilisez TNS pour vous connecter à Oracle, vous devez également télécharger `tnsnames.ora`, le modifier, puis le charger dans votre conteneur de manière à ce qu’il puisse être copié dans le dossier d’installation Oracle pendant l’installation.
 
        1. Un dossier `ORACLE STANDARD`, qui contient un script d’installation personnalisée (`main.cmd`) pour installer le pilote Oracle ODP.NET sur chaque nœud de votre IR Azure-SSIS. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination ADO.NET. Vous devez d’abord télécharger le dernier pilote ODP.NET Oracle, par exemple `ODP.NET_Managed_ODAC122cR1.zip`, depuis [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), puis le charger dans votre conteneur avec `main.cmd`.
 
@@ -151,7 +155,7 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
        1. Un dossier `STORAGE`, qui contient une installation personnalisée pour Azure PowerShell sur chaque nœud de votre IR Azure-SSIS. Ce programme d’installation vous permet de déployer et d’exécuter des packages SSIS qui exécutent des scripts PowerShell [ pour manipuler votre compte Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copiez `main.cmd`, un échantillon `AzurePowerShell.msi` (ou installez la dernière version) et `storage.ps1` dans votre conteneur. Utilisez PowerShell.dtsx comme modèle pour vos packages. Le modèle de package combine une [tâche de téléchargement Azure Blob](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), qui télécharge `storage.ps1` sous forme de script PowerShell modifiable, et une [tâche d’exécution du processus](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) qui exécute le script sur chaque nœud.
 
-       1. Un dossier `TERADATA`, qui contient un script d’installation personnalisée (`main.cmd)`), son fichier associé (`install.cmd`) et les packages du programme d’installation (`.msi`). Ces fichiers installent des connecteurs Teradata, l’API TPT et le pilote ODBC sur chaque nœud de votre IR Azure-SSIS, Enterprise Edition. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination Teradata. Commencez par télécharger le fichier Teradata Outils et utilitaires (TTU) 15.x zip (par exemple, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) depuis [Teradata](http://partnerintelligence.teradata.com), puis chargez-le dans votre conteneur avec les fichiers `.cmd` et `.msi` ci-dessus.
+       1. Un dossier `TERADATA`, qui contient un script d’installation personnalisée (`main.cmd`), son fichier associé (`install.cmd`) et les packages du programme d’installation (`.msi`). Ces fichiers installent des connecteurs Teradata, l’API TPT et le pilote ODBC sur chaque nœud de votre IR Azure-SSIS, Enterprise Edition. Cette installation vous permet d’utiliser le gestionnaire de connexions, la source et la destination Teradata. Commencez par télécharger le fichier Teradata Outils et utilitaires (TTU) 15.x zip (par exemple, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) depuis [Teradata](http://partnerintelligence.teradata.com), puis chargez-le dans votre conteneur avec les fichiers `.cmd` et `.msi` ci-dessus.
 
     ![Dossiers dans le dossier de scénarios utilisateur](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

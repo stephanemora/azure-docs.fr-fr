@@ -1,5 +1,5 @@
 ---
-title: Importer des données dans Azure Search dans le portail | Documents Microsoft
+title: Importer des données dans l’index de recherche à l’aide du portail Azure - Recherche Azure
 description: Découvrez comment utiliser l’Assistant Importer des données dans le portail Azure pour explorer des données Azure à partir de Cosmos DB, de Stockage Blob, de Stockage Table, de SQL Database et de SQL Server sur des machines virtuelles Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: ceca9b8e89a963cd9a9226be143d24ed5429747b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004939"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316470"
 ---
 # <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Comment importer des données dans l’index de Recherche Azure à l’aide du portail Azure
 
@@ -55,7 +56,7 @@ Un jeu de données aplati est requis. Vous pouvez uniquement effectuer vos impor
 | **SQL Server dans les machines virtuelles Azure** |Spécifiez un nom de service complet, un ID d’utilisateur et un mot de passe, ainsi qu’une base de données pour la chaîne de connexion. Afin d’utiliser cette source de données, vous devez avoir préalablement installé un certificat dans le magasin local pour chiffrer la connexion. Pour obtenir des instructions, reportez-vous à [Connexion de machines virtuelles SQL à Recherche Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante. |
 | **Azure Cosmos DB** |La configuration requise inclut le compte, la base de données et la collection. Tous les documents de la collection seront inclus dans l’index. Vous pouvez définir une requête pour aplatir ou filtrer l’ensemble de lignes, ou pour détecter les documents modifiés dans l’optique de l’actualisation ultérieure des données. |
 | **Stockage Blob Azure** |La configuration requise inclut le compte de stockage et un conteneur. Si les noms d’objets blob suivent une convention d’affectation de noms virtuelle à des fins de regroupement, vous pouvez indiquer la partie de répertoire virtuel du nom comme dossier sous le conteneur. Consultez la page [Indexation de Stockage Blob](search-howto-indexing-azure-blob-storage.md) pour plus d’informations. |
-| **Stockage Table Azure** |La configuration requise inclut le compte de stockage et un nom de table. Vous pouvez également spécifier une requête pour extraire un sous-ensemble des tables. Consultez la page [Indexation de Stockage Table](search-howto-indexing-azure-tables.md) pour plus d’informations. |
+| **Stockage de tables Azure** |La configuration requise inclut le compte de stockage et un nom de table. Vous pouvez également spécifier une requête pour extraire un sous-ensemble des tables. Consultez la page [Indexation de Stockage Table](search-howto-indexing-azure-tables.md) pour plus d’informations. |
 
 ## <a name="customize-target-index"></a>Personnaliser l’index cible
 Un index préliminaire est habituellement déduit du jeu de données. Ajoutez, modifiez ou supprimer des champs pour finaliser le schéma. En outre, définissez des attributs au niveau des champs pour déterminer le comportement des recherches ultérieures.

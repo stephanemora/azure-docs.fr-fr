@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les problèmes avec les runbooks Azure
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094862"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015464"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -123,7 +123,7 @@ Si l’authentification multifacteur est configurée sur votre compte Azure, vou
 
 #### <a name="resolution"></a>Résolution :
 
-Pour utiliser un certificat avec les applets de commande de modèle de déploiement Azure Classic, reportez-vous à [Création et ajout d’un certificat pour gérer des services Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Pour utiliser un principal du service avec des applets de commande Azure Resource Manager, voir la rubrique sur la [création du principal du service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md) et l’[authentification d’un principal du service à l’aide d’Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Pour utiliser un certificat avec les applets de commande de modèle de déploiement Azure Classic, reportez-vous à [Création et ajout d’un certificat pour gérer des services Azure.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Pour utiliser un principal du service avec des applets de commande Azure Resource Manager, voir la rubrique sur la [création du principal du service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md) et l’[authentification d’un principal du service à l’aide d’Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erreurs courantes avec des runbooks
 
@@ -147,7 +147,7 @@ Cette erreur peut être résolue en mettant à jour vos modules Azure vers la de
 
 Dans votre compte Automation, cliquez sur **Modules**, puis sur **Mettre à jour les modules Azure**. La mise à jour prend environ 15 minutes, après la réexécution du runbook qui a échoué. Pour en savoir plus sur la mise à jour de vos modules, consultez [Mettre à jour des modules Azure dans Azure Automation](../automation-update-azure-modules.md).
 
-### <a name="child-runbook-auth-failure"></a>Scénario : le runbook enfant échoue lors du traitement de plusieurs abonnements
+### <a name="child-runbook-auth-failure"></a>Scénario : Le runbook enfant échoue lors du traitement de plusieurs abonnements
 
 #### <a name="issue"></a>Problème
 
@@ -183,7 +183,7 @@ Start-AzureRmAutomationRunbook `
     –Parameters $params –wait
 ```
 
-### <a name="not-recognized-as-cmdlet"></a>Scénario : Le runbook échoue en raison d’une applet de commande manquante
+### <a name="not-recognized-as-cmdlet"></a>Scénario : Le runbook échoue en raison d’une cmdlet manquante
 
 #### <a name="issue"></a>Problème
 
@@ -285,7 +285,7 @@ Si vous voulez utiliser plus de 500 minutes de traitement par mois, vous devez c
 3. Cliquez sur **Paramètres** > **Tarifs**.
 4. Cliquez sur **Activer** en bas de page pour actualiser votre compte au niveau **De base**.
 
-### <a name="cmdlet-not-recognized"></a>Scénario : L’applet de commande n’est pas reconnue lors de l’exécution d’un runbook
+### <a name="cmdlet-not-recognized"></a>Scénario : La cmdlet n’est pas reconnue lors de l’exécution d’un runbook
 
 #### <a name="issue"></a>Problème
 
@@ -338,9 +338,48 @@ Applets de commande PowerShell prenant en charge le scénario avec des runbooks 
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) : cette applet de commande vous permet de vérifier l’état du travail de chaque enfant et déterminer si des opérations doivent être effectuées à la fin de l’exécution du runbook enfant.
 
+### <a name="expired webhook"></a>Scénario : État de la version : 400 Demande incorrecte lors de l’appel d’un webhook
+
+#### <a name="issue"></a>Problème
+
+Lorsque vous essayez d’appeler un webhook pour un runbook Azure Automation, vous recevez l’erreur suivante.
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>Cause :
+
+Le webhook que vous tentez d’appeler est désactivé ou a expiré.
+
+#### <a name="resolution"></a>Résolution :
+
+Si le webhook est désactivé, vous pouvez réactiver le webhook via le Portail Azure. Si le webhook a expiré, il doit être supprimé et recréé. Vous pouvez uniquement [renouveler un webhook](../automation-webhooks.md#renew-webhook) s’il n’a pas déjà expiré.
+
+### <a name="429"></a>Scénario : 429 : Le taux de requêtes est actuellement trop grand. Réessayez
+
+#### <a name="issue"></a>Problème
+
+Vous recevez le message d’erreur suivant lors de l’exécution de la cmdlet `Get-AzureRmAutomationJobOutput` :
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur peut se produire lors de la récupération d’une sortie de tâche à partir d’un runbook comportant de nombreux [flux détaillés](../automation-runbook-output-and-messages.md#verbose-stream).
+
+#### <a name="resolution"></a>Résolution :
+
+Il existe deux façons de résoudre cette erreur :
+
+* Modifiez le runbook et réduisez le nombre de flux de tâches émis.
+* Réduisez le nombre de flux à récupérer lors de l’exécution de la cmdlet. Pour cela, vous pouvez spécifier le paramètre `-Stream Output` de la cmdlet `Get-AzureRmAutomationJobOutput` de sorte qu’il récupère uniquement les flux de sortie. 
+
 ## <a name="common-errors-when-importing-modules"></a>Erreurs courantes survenant lors de l’importation de modules
 
-### <a name="module-fails-to-import"></a>Scénario : Le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des applets de commande après l’importation
+### <a name="module-fails-to-import"></a>Scénario : Le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des cmdlets après l’importation
 
 #### <a name="issue"></a>Problème
 

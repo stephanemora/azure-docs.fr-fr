@@ -10,12 +10,12 @@ ms.service: azure-portal
 ms.custom: ''
 manager: dougeby
 ms.author: cwatson
-ms.openlocfilehash: b2bf674dbb253c7ec698b18776d8752ed6a4c1c8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 8bbba504f95233db7cf65556b57148771962f507
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394078"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308581"
 ---
 # <a name="export-or-delete-settings-in-the-azure-portal"></a>Exporter ou supprimer des paramètres dans le portail Azure
 Vous pouvez exporter et supprimer les paramètres suivants dans le menu Paramètres du portail Azure :
@@ -29,7 +29,7 @@ Nous vous recommandons vivement d’exporter et de passer en revue vos paramètr
 
 **Exporter ou supprimer vos paramètres du portail**
 
-1. Connectez-vous au [Portail Azure](http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. En haut à droite du portail, sélectionnez **Paramètres**.
 
     ![Capture d’écran qui affiche que l’icône d’engrenage du portail Azure](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)

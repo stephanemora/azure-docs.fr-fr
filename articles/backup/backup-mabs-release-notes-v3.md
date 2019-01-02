@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: v-jysur
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 1d077fc8a853f145d271fa69d453ea2ea70ab696
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ff66b386a6293c11ad67ec90e165b927ad6669b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319078"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870552"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notes de publication du serveur de sauvegarde Microsoft Azure
 Cet article décrit les problèmes connus et les solutions de contournement pour le serveur de sauvegarde Microsoft Azure (MABS) V3.
 
 ##  <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Échecs de sauvegarde et de récupération pour les charges de travail en cluster
 
-**Description :** Échecs de la sauvegarde/restauration pour les sources de données en cluster comme le cluster Hyper-V ou le cluster SQL (SQL Always On), ou Exchange dans le groupe de disponibilité de base de données après la mise à niveau de MABS V2 vers V3.
+**Description :** échecs de la sauvegarde/restauration pour les sources de données en cluster, comme le cluster Hyper-V ou le cluster SQL (SQL Always On), ou Exchange dans le groupe de disponibilité de base de données après la mise à niveau de MABS V2 vers V3.
 
-**Solution de contournement :** Pour éviter ce problème, ouvrez SQL Server Management Studio (SSMS) et exécutez le script SQL suivant sur la base de données DPM :
+**Solution de contournement :** pour éviter ce problème, ouvrez SQL Server Management Studio (SSMS) et exécutez le script SQL suivant sur la base de données DPM :
 
 
     IF EXISTS (SELECT * FROM dbo.sysobjects
@@ -54,9 +54,9 @@ Cet article décrit les problèmes connus et les solutions de contournement pour
 
 ##  <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>La mise à niveau vers MABS V3 échoue dans les paramètres régionaux russes
 
-**Description :** La mise à niveau de MABS V2 vers V3 dans les paramètres régionaux russes échoue avec le code d’erreur **4387**.
+**Description :** la mise à niveau de MABS V2 vers V3 dans les paramètres régionaux russes échoue avec le code d’erreur **4387**.
 
-**Solution de contournement :** Effectuez les étapes suivantes pour mettre à niveau vers MABS V3 à l’aide du package d’installation russe :
+**Solution de contournement :** effectuez les étapes suivantes pour mettre à niveau vers MABS V3 avec le package d’installation russe :
 
 1.  [Sauvegardez](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) votre base de données SQL et désinstallez MABS V2 (choisissez de conserver les données protégées pendant la désinstallation).
 2.  Mettez à niveau vers SQL 2017 (Entreprise) et désinstallez Reporting dans le cadre de la mise à niveau.
@@ -77,4 +77,4 @@ Cet article décrit les problèmes connus et les solutions de contournement pour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Nouveautés de MABS v3](backup-mabs-whats-new-mabs.md)
+[Nouveautés de MABS V3](backup-mabs-whats-new-mabs.md)

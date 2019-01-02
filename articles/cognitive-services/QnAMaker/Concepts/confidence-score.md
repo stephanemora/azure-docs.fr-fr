@@ -1,7 +1,7 @@
 ---
 title: Score de confiance - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Explication du score de confiance
+description: Le score de confiance indique la probabilité que la réponse corresponde à la requête de l’utilisateur.
 services: cognitive-services
 author: tulasim88
 manager: pchoudh
@@ -10,14 +10,15 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: b1126b2cdb7a5cd7451a916558bc928653bc0027
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577921"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081317"
 ---
-# <a name="confidence-score"></a>Score de confiance
+# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Score de confiance d’une base de connaissances QnA Maker
 Quand une requête d’utilisateur trouve une correspondance dans une base de connaissances, QnA Maker renvoie des réponses pertinentes, ainsi qu’un score de confiance. Ce score indique la probabilité que la réponse corresponde à la requête de l’utilisateur. 
 
 Un score de confiance est une valeur comprise de 0 à 100. Un score de 100 est probablement une correspondance exacte, tandis qu’un score de 0 signifie qu’aucune réponse correspondante n’a été trouvée. Plus le score et élevé,  plus la réponse est fiable. Plusieurs réponses peuvent correspondre à une requête donnée. Dans ce cas, les réponses sont retournées dans l’ordre décroissant du score de confiance.
@@ -78,15 +79,15 @@ Si aucune bonne correspondance n’est trouvée par la fonction de classement, l
 
 2. Cliquez pour ouvrir **App Service**.
 
-    ![Accéder à App Service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+    ![Sur le portail Azure, accéder à App Service pour QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
 3. Cliquez sur **Paramètres de l’application** et modifiez le champ **DefaultAnswer** pour entrer la réponse par défaut souhaitée. Cliquez sur **Enregistrer**.
 
-    ![Modifier la réponse par défaut](../media/qnamaker-concepts-confidencescore/change-response.png)
+    ![Sélectionner Paramètres de l’application, puis modifier DefaultAnswer pour QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
 
-4. Redémarrer votre App Service
+4. Redémarrer votre App service
 
-    ![Le service d’application QnA Maker redémarre](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+    ![Après avoir modifié DefaultAnswer, redémarrer l’App Service QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

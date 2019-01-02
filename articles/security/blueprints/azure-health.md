@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407552"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315772"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
@@ -59,9 +59,9 @@ L’architecture de base est constituée des éléments suivants :
 
 -   **[Matrice d’implémentation client](https://aka.ms/healthcrmblueprint)** Un classeur Microsoft Excel répertorie les exigences HITRUST pertinentes, et explique de quelle manière Microsoft et le client doivent satisfaire chacune d’entre elles.
 
--   **[Contrôle d’intégrité.](https://aka.ms/healthreviewpaper)** La solution a été contrôlée par Coalfire systems, Inc. Le document relatif au contrôle et aux instructions Health Compliance (HIPAA, and HITRUST) fournit l’évaluation de la solution réalisée par l’auditeur\', ainsi que des suggestions pour transformer le plan en déploiement prêt pour la production.
+-   **[Contrôle d’intégrité.](https://aka.ms/healthreviewpaper)** La solution a été contrôlée par Coalfire systems, Inc. Le document relatif au contrôle et aux instructions Health Compliance (HIPAA et HITRUST) fournit l’évaluation de la solution réalisée par l’auditeur\', ainsi que des suggestions pour transformer le plan en déploiement prêt pour la production.
 
-# <a name="architectural-diagram"></a>Diagramme architectural
+## <a name="architectural-diagram"></a>Diagramme architectural
 
 
 ![](images/ra2.png)
@@ -76,40 +76,40 @@ Le plan définit deux rôles pour les utilisateurs administratifs (opérateurs) 
 
 L’administrateur du site est responsable de l’abonnement Azure du client. Il contrôle le déploiement global, mais n’a pas accès aux dossiers des patients.
 
--   Attributions de rôles par défaut : [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+-   Attributions de rôles par défaut : [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
--   Attributions de rôles personnalisées : N/A
+-   Attributions de rôles personnalisées : N/A
 
--   Étendue : Abonnement
+-   Étendue : Abonnement
 
 ### <a name="database-analyst"></a>Analyste de base de données
 
 L’analyste de base de données gère la base de données et l’instance de SQL Server.
 Il n’a pas accès aux dossiers des patients.
 
--   Attributions de rôles intégrées : [Contributeur de SQL DB](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Contributeur de SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+-   Attributions de rôles intégrées : [Contributeur de SQL DB](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Contributeur de SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
--   Attributions de rôles personnalisées : N/A
+-   Attributions de rôles personnalisées : N/A
 
--   Étendue : Groupe de ressources
+-   Étendue : ResourceGroup
 
  ### <a name="data-scientist"></a>Scientifique des données
 
 
 Le scientifique des données assure le fonctionnement du service Azure Machine Learning Studio. Il peut importer, exporter et gérer les données, et exécuter des rapports. Il a accès aux données des patients, mais ne dispose pas des privilèges d’administrateur.
 
--   Attributions de rôles intégrées : [Contributeur de comptes de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
+-   Attributions de rôles intégrées : [Contributeur de compte de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
--   Attributions de rôles personnalisées : N/A
+-   Attributions de rôles personnalisées : N/A
 
--   Étendue : Groupe de ressources
+-   Étendue : ResourceGroup
 
 ### <a name="chief-medical-information-officer-cmio"></a>Agent principal des renseignements médicaux
 
 
 L’agent principal des renseignements médicaux rapproche les services informatiques/technologiques et les professionnels de santé d’un établissement de santé. Son travail implique généralement l’utilisation d’analytiques pour déterminer si les ressources sont allouées de façon appropriée au sein d’une organisation.
 
--   Attributions de rôles intégrées : Aucune
+-   Attributions de rôles intégrées : Aucun
 
 ### <a name="care-line-manager"></a>Responsable hiérarchique des soins
 
@@ -117,22 +117,22 @@ L’agent principal des renseignements médicaux rapproche les services informat
 Le responsable hiérarchique des soins est directement impliqué dans les soins fournis aux patients.
 Ce rôle nécessite de surveiller l’état de santé de chaque patient, et de s’assurer que le personnel est disponible pour répondre aux besoins spécifiques des patients. Le responsable hiérarchique des soins est responsable de l’ajout et de la mise à jour des dossiers des patients.
 
--   Attributions de rôles intégrées : Aucune
+-   Attributions de rôles intégrées : Aucun
 
--   Attributions de rôles personnalisées : dispose des privilèges nécessaires pour exécuter HealthcareDemo.ps1 afin de procéder aux admissions et aux sorties des patients.
+-   Attributions de rôles personnalisées : dispose des privilèges nécessaires pour exécuter HealthcareDemo.ps1 afin de procéder aux admissions et aux sorties des patients.
 
--   Étendue : Groupe de ressources
+-   Étendue : ResourceGroup
 
 ### <a name="auditor"></a>Auditeur
 
 
 L’auditeur évalue la conformité de la solution. Ils n’ont aucun accès direct au réseau.
 
--   Attributions de rôles intégrées : [Lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
+-   Attributions de rôles intégrées : [Lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
--   Attributions de rôles personnalisées : N/A
+-   Attributions de rôles personnalisées : N/A
 
--   Étendue : Abonnement
+-   Étendue : Abonnement
 
 ## <a name="example-use-case"></a>Exemple de cas d’usage
 
@@ -150,19 +150,19 @@ Le plan comprend un jeu étendu de dossiers médicaux anonymes afin d’illustre
 
 **Administrateur de site -- Alex**
 
-*Adresse e-mail : Alex\_AdminSite*
+*Adresse e-mail : Alex\_AdminSite*
 
 Le travail d’Alex est d’évaluer les technologies susceptibles de réduire la charge de gestion d’un réseau local et de réduire les coûts de gestion. Alex évalue Azure depuis quelque temps, mais il a des difficultés à configurer les services dont il a besoin pour répondre aux exigences de conformité HiTrust relatives au stockage des données des patients dans le cloud. Alex a sélectionné l’AI Azure Health pour déployer une solution de santé conforme et répondant aux exigences des clients pour HiTrust.
 
 **Scientifique des données -- Marie**
 
-*Adresse e-mail : Marie\_ScientifiqueDonnées*
+*Adresse e-mail : Marie\_ScientifiqueDonnées*
 
 Marie est responsable de l’utilisation et de la création de modèles qui analysent les dossiers médicaux afin d’obtenir des informations détaillées sur les soins médicaux. Elle utilise SQL et le langage de programmation statistique R pour créer ses modèles.
 
 **Analyste de base de données -- Delphine**
 
-*Adresse e-mail : Delphine\_AnalysteBD*
+*Adresse e-mail : Delphine\_AnalysteBD*
 
 Delphine est le contact principal pour tout ce qui concerne le serveur Microsoft SQL Server qui stocke toutes les données relatives aux patients pour Contosoclinic. Delphine est une administratrice SQL Server expérimentée qui s’est récemment familiarisée avec Azure SQL Database.
 
@@ -173,18 +173,18 @@ Caroline utilise les prédictions fournies par la solution de durée de séjour 
 
 **Responsable hiérarchique des soins -- Chris**
 
-*Adresse e-mail : Chris\_ResponsableHiérarchiqueSoins*
+*Adresse e-mail : Chris\_ResponsableHiérarchiqueSoins*
 
 En tant que personne responsable de la gestion de l’admission et de la sortie des patients à Contosoclinic, Chris utilise les prédictions générées par la solution DDS pour s’assurer que le personnel adéquat est disponible pour fournir des soins aux patients pendant qu’ils sont à l’hôpital.
 
 **Auditeur -- Henri**
 
-*Adresse e-mail : Henri\_Auditeur*
+*Adresse e-mail : Henri\_Auditeur*
 
 Henri est un auditeur certifié ayant une expérience de l’audit pour ISO, SOC et HiTrust. Il a été embauché pour contrôler le réseau de Contosoclinc. Il peut vérifier la matrice de responsabilités client fournie avec la solution, afin de s’assurer que le plan et la solution DDS peuvent être utilisés pour stocker, traiter et afficher des données personnelles sensibles.
 
 
-# <a name="design-configuration"></a>Configuration de la conception
+## <a name="design-configuration"></a>Configuration de la conception
 
 
 Cette section détaille les mesures de sécurité et les configurations par défaut intégrées au plan pour les éléments suivants :
@@ -267,7 +267,7 @@ En outre, la fonction Azure a été conçue pour lire et protéger les données 
 
 **2. Admission des nouveaux patients**
 
-Quand vous utilisez le script de démonstration .\\HealthcareDemo.ps1 avec le commutateur **BulkPatientadmission** comme indiqué dans **Déploiement et exécution de la démo**, il exécute le pipeline de traitement suivant : ![](images/securetransact.png)
+Quand vous utilisez le script de démonstration .\\HealthcareDemo.ps1 avec le commutateur **BulkPatientadmission** comme indiqué dans **Déploiement et exécution de la démo**, il exécute le pipeline de traitement suivant : ![](images/securetransact.png)
 **1. Fonction Azure** déclenchée, et la fonction demande un [jeton du porteur](/rest/api/) à Azure Active directory.
 
 **2. Key Vault** est sollicité afin d’obtenir un secret qui est associé au jeton demandé.
@@ -345,8 +345,8 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [La journalisation est activée](/azure/machine-learning/studio/web-services-logging) pour les services web de Machine Learning Studio.
-- L’utilisation de [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench nécessite le développement d’expériences, ce qui permet de réaliser des prédictions d’après un jeu de solutions. L’[intégration de Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) peut aider à simplifier la gestion des expériences.
+- [La journalisation est activée](/azure/machine-learning/studio/web-services-logging) pour les services web de Machine Learning Studio.
+- L’utilisation de [Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio) nécessite le développement d’expériences, ce qui permet de réaliser des prédictions d’après un jeu de solutions.
 
 ## <a name="security"></a>SÉCURITÉ
 

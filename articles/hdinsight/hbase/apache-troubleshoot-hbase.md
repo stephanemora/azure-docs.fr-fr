@@ -3,17 +3,17 @@ title: Résolution de problèmes HBase à l’aide d’Azure HDInsight
 description: Obtenez les réponses aux questions courantes sur l’utilisation de HBase et d’Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: nitinver
-ms.author: nitinver
-ms.custom: hdinsightactive
+author: hrasheed-msft
+ms.author: hrasheed
+ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
-ms.date: 7/7/2017
-ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.openlocfilehash: b39c01e76ba3ec21f0cd2d16b86da5664e1d5002
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317226"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014666"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Résolution de problèmes Apache HBase à l’aide d’Azure HDInsight
 
@@ -288,7 +288,7 @@ Aucune adresse de serveur n’est répertoriée dans la table *hbase: meta* au n
 
 ### <a name="detailed-description"></a>Description détaillée
 
-Un message indiquant que la table *hbase: meta* n’est pas en ligne peut s’afficher sur votre cluster Linux. L’exécution de la commande `hbck` peut renvoyer l’erreur suivante : « hbase: meta table replicaId 0 is not found on any region » (replicaId 0 introuvable dans toutes les régions de la table hbase: meta). Le problème peut provenir de l’échec de l’initialisation de HMaster après le redémarrage de HBase. Dans les journaux HMaster, le message « No server address listed in hbase: meta for region hbase: backup \<region name\> » (Aucune adresse de serveur n’est répertoriée dans la table hbase: meta au niveau de la région hbase: backup xxx) s’affiche parfois.  
+Un message indiquant que la table *hbase: meta* n’est pas en ligne peut s’afficher sur votre cluster Linux. L’exécution de la commande `hbck` peut renvoyer l’erreur suivante : « hbase: meta table replicaId 0 is not found on any region » (replicaId 0 introuvable dans toutes les régions de la table hbase: meta). Le problème peut provenir de l’échec de l’initialisation de HMaster après le redémarrage de HBase. Dans les journaux HMaster, vous pouvez voir le message : « Aucune adresse de serveur n’est listée dans hbase : meta pour la région hbase : \<nom de région\> de sauvegarde ».  
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
@@ -319,7 +319,7 @@ Un message indiquant que la table *hbase: meta* n’est pas en ligne peut s’af
 
 ### <a name="error"></a>Error
 
-HMaster arrive à expiration avec une exception irrécupérable du type « java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned » (Expiration du délai de 300000ms en attente de l’affectation de la table namespace).
+HMaster arrive à expiration avec une exception irrécupérable du type « java.io.IOException : Expiration du délai après 300000 ms d’attente de l’attribution de la table d’espace de noms. »
 
 ### <a name="detailed-description"></a>Description détaillée
 
@@ -344,7 +344,7 @@ Il s’agit d’un problème connu avec le service HMaster. Les tâches généra
 
 ### <a name="issue"></a>Problème
 
-L’échec du redémarrage d’un serveur régional peut être évité en respectant ces meilleures pratiques. Il est recommandé d’interrompre les activités impliquant de lourdes charges de travail lorsque vous prévoyez de redémarrer les serveurs régionaux HBase. Si une application continue de se connecter aux serveurs régionaux pendant l’arrêt, cela ralentit le redémarrage de ces derniers de plusieurs minutes. En outre, il est judicieux de commencer par vider toutes les tables. Pour plus d’informations sur le vidage des tables, consultez [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+L’échec du redémarrage d’un serveur régional peut être évité en respectant ces meilleures pratiques. Il est recommandé d’interrompre les activités impliquant de lourdes charges de travail lorsque vous prévoyez de redémarrer les serveurs régionaux HBase. Si une application continue de se connecter aux serveurs régionaux pendant l’arrêt, cela ralentit le redémarrage de ces derniers de plusieurs minutes. En outre, il est judicieux de commencer par vider toutes les tables. Pour des informations de référence sur le vidage des tables, consultez [HDInsight HBase : Comment améliorer le délai de redémarrage de cluster Apache HBase en vidant les tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 Si vous lancez l’opération de redémarrage sur des serveurs régionaux HBase à partir de l’interface utilisateur d’Apache Ambari, vous voyez immédiatement que les serveurs régionaux s’arrêtent, mais qu’ils ne redémarrent pas immédiatement. 
 

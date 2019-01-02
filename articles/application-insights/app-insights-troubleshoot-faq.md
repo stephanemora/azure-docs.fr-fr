@@ -9,25 +9,24 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959305"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323352"
 ---
-# <a name="application-insights-frequently-asked-questions"></a>Application Insights : questions fréquentes
+# <a name="application-insights-frequently-asked-questions"></a>Application Insights : Forum Aux Questions (FAQ)
 
 ## <a name="configuration-problems"></a>Problèmes de configuration
 *J’ai des difficultés à configurer :*
 
 * [Application .NET](app-insights-asp-net-troubleshoot-no-data.md)
 * [Analyse d’une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Diagnostics Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Diagnostics Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Applications web Java](app-insights-java-troubleshoot.md)
 
 *Je ne reçois aucune donnée de mon serveur*
@@ -119,7 +118,7 @@ Une application de bureau que vous pouvez utiliser dans votre serveur web IIS po
 
 À partir d’autres sources, si vous les configurez :
 
-* [Diagnostics Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Diagnostics Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Conteneurs Docker](app-insights-docker.md)
 * [Importer des tables vers Analytics](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
@@ -141,7 +140,7 @@ Nous recherchons l’adresse IP (IPv4 ou IPv6) du client web à l’aide de [Geo
 * Télémétrie de navigateur : nous collectons l’adresse IP de l’expéditeur.
 * Télémétrie de serveur : le module Application Insights collecte l’adresse IP du client. Elle n’est pas collectée si `X-Forwarded-For` est défini.
 
-Vous pouvez configurer le `ClientIpHeaderTelemetryInitializer` pour récupérer l’adresse IP à partir d’un autre en-tête. Dans certains systèmes, par exemple, elle est déplacée vers `X-Originating-IP` par un proxy, un équilibreur de charge ou un CDN. [Plus d’informations](http://apmtips.com/blog/2016/07/05/client-ip-address/)
+Vous pouvez configurer le `ClientIpHeaderTelemetryInitializer` pour récupérer l’adresse IP à partir d’un autre en-tête. Dans certains systèmes, par exemple, elle est déplacée vers `X-Originating-IP` par un proxy, un équilibreur de charge ou un CDN. [Plus d’informations](https://apmtips.com/blog/2016/07/05/client-ip-address/)
 
 Vous pouvez [utiliser Power BI](app-insights-export-power-bi.md) pour afficher les données de télémétrie de votre requête sur une carte.
 
@@ -185,7 +184,7 @@ Utilisez une ressource unique pour tous les composants ou rôles dans un systèm
 ## <a name="what-are-the-user-and-session-counts"></a>Que désignent les nombres d’utilisateurs et de sessions ?
 
 * Le SDK JavaScript définit un cookie utilisateur sur le client web pour identifier les utilisateurs récurrents, ainsi qu’un cookie de session pour regrouper des activités.
-* S’il n’existe aucun script côté client, vous pouvez [définir des cookies sur le serveur](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* S’il n’existe aucun script côté client, vous pouvez [définir des cookies sur le serveur](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Si un utilisateur réel utilise votre site dans différents navigateurs, ou s’il utilise une navigation privée ou encore des ordinateurs différents, il sera comptabilisé plusieurs fois.
 * Pour identifier un utilisateur connecté sur différents ordinateurs et navigateurs, ajoutez un appel à [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 

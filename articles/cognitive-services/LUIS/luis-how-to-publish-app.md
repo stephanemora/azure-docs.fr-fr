@@ -1,21 +1,22 @@
 ---
-title: Publier votre application LUIS sur le point de terminaison de prédiction
+title: Publier une application
 titleSuffix: Azure Cognitive Services
 description: Quand vous avez terminé la création et les tests de votre application LUIS active, mettez-la à disposition de votre application cliente en la publiant sur le point de terminaison.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6eb48fd0f3290fbc3a249bc3880c809ace9f9ddb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 73788b05cad3abac19b1ef509f1250542d10dba2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886473"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136645"
 ---
 # <a name="publish-your-trained-app"></a>Publier votre application formée
 
@@ -37,7 +38,7 @@ L’application est publiée dans toutes les régions associées aux ressources 
 
 Une fois votre application correctement publiée, une notification de réussite de couleur verte s’affiche en haut du navigateur. La barre de notification verte comprend également un lien vers les points de terminaison. 
 
-![Fenêtre contextuelle de publication](./media/luis-how-to-publish-app/publish-success.png)
+![Fenêtre contextuelle de publication avec un lien au point de terminaison](./media/luis-how-to-publish-app/publish-success.png)
 
 Si vous avez besoin de l’URL de point de terminaison, sélectionnez le lien. Vous pouvez également accéder aux URL de point de terminaison en sélectionnant **Manage** (Gérer) dans le menu supérieur, puis **Keys and Endpoints** (Clés et points de terminaison) dans le menu gauche. 
 

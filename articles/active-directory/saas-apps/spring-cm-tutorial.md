@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SpringCM | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à SpringCM | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SpringCM.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 034d7b61d4a02ac899c7215a042d47bc7938176d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 777586bc24c0962ec1f0ba3913397bfe26d0d0d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438145"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841062"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Didacticiel : Intégration d’Azure Active Directory à SpringCM
+# <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutoriel : Intégration d’Azure Active Directory à SpringCM
 
 Dans ce didacticiel, vous allez apprendre à intégrer SpringCM à Azure Active Directory (Azure AD).
 
@@ -150,7 +150,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     e. Cliquez sur **Enregistrer**.
  
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -189,7 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 Pour se connecter à SpringCM, les utilisateurs d’Azure AD doivent être approvisionnés dans SpringCM. Dans le cas de SpringCM, l’approvisionnement est une tâche manuelle.
 
 >[!NOTE]
->Pour plus d’informations, consultez [Créer et modifier un utilisateur SpringCM](http://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+>Pour plus d’informations, consultez [Créer et modifier un utilisateur SpringCM](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
 
 **Pour approvisionner un compte d’utilisateur dans SpringCM, procédez comme suit :**
 
@@ -248,7 +248,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
- 
+ 
 Quand vous cliquez sur la vignette SpringCM dans le volet d’accès, vous devez être connecté automatiquement à votre application SpringCM.
 
 Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 

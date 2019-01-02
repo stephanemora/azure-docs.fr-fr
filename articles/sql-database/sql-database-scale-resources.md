@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: ede96607e14a43e85c3605e2d710c15ef0495c1f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 5e3c282c198b6a1290e724549a4af30119f9cb04
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868173"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251213"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 
@@ -35,8 +35,8 @@ Vous n’avez pas à vous inquiéter de l’achat de matériel et du changement 
 
 Azure SQL Database propose le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) ou le [modèle d’achat vCore (préversion)](sql-database-service-tiers-vcore.md).
 
-- Le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) offre un mélange de ressources de calcul, de mémoire et d’E/S dans trois niveaux de service pour prendre en charge les charges de travail de base de données, aussi bien légères qu’importantes : De base, Standard et Premium. Les niveaux de performance de chaque niveau fournissent une combinaison différente de ces ressources, à laquelle vous pouvez ajouter d’autres ressources de stockage.
-- Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage. Ce modèle d’achat propose trois niveaux de service : Usage général, Critique pour l’entreprise et Hyperscale (préversion).
+- Le [modèle d'achat DTU](sql-database-service-tiers-dtu.md) offre une combinaison de ressources de calcul, de mémoire et d'E/S réparties sur trois niveaux de service pour prendre en charge les charges de travail de base de données, aussi bien légères qu'importantes : De base, Standard et Premium. Les niveaux de performance de chaque niveau fournissent une combinaison différente de ces ressources, à laquelle vous pouvez ajouter d’autres ressources de stockage.
+- Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage. Ce modèle d’achat propose trois niveaux de service : usage général, critique pour l’entreprise et hyperscale (version préliminaire).
 
 Vous pouvez créer votre première application dans une petite base de données unique pour un coût mensuel modique avec le niveau de service De base, Standard ou Usage général, puis remplacer ce niveau de service manuellement ou par programme à tout moment par le niveau de service Premium ou Critique pour l’entreprise, afin de répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
 
@@ -50,7 +50,7 @@ Toutefois, il existe des scripts qui peuvent aider à automatiser l’extensibil
 
 Vous pouvez changer les [niveaux de service des DTU](sql-database-service-tiers-dtu.md) ou les [caractéristiques vCore](sql-database-vcore-resource-limits-single-databases.md) à tout moment, avec un temps d’arrêt minimal de votre application (généralement inférieur à quatre secondes). Pour de nombreuses entreprises et applications, la possibilité de créer des bases de données et d’augmenter ou ralentir les performances à la demande se révèle suffisante, surtout si les modèles d’utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial. Pour ce scénario, vous utilisez un pool élastique avec un certain nombre d’eDTU qui sont partagées entre plusieurs bases de données dans le pool.
 
-![Introduction à la base de données SQL : DTU de base de données unique par couche et niveau](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+![Présentation de SQL Database : DTU de base de données unique par couche et niveau](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Ces trois possibilités d’Azure SQL Database offrent des capacités à mettre à l'échelle vos bases de données de façon dynamique :
 
@@ -62,7 +62,7 @@ Ces trois possibilités d’Azure SQL Database offrent des capacités à mettre 
 
 La mise à l'échelle des ressources reste la façon la plus facile et efficace pour améliorer les performances de votre base de données sans changer le code de la base de données ou de l’application. Dans certains cas, même les niveaux de service, les tailles de calcul et les optimisations de performances les plus élevés peuvent ne pas suffire à gérer votre charge de travail correctement et de façon économique. Dans ce cas, vous disposez d’autres options pour mettre à l’échelle votre base de données :
 
-- L’[échelle lecture](sql-database-read-scale-out.md) est une fonctionnalité disponible qui vous offre un réplica en lecture seule de vos données, sur lequel vous pouvez exécutez des requêtes en lecture seule exigeantes telles que les rapports. Le réplica en lecture seule gère votre charge de travail en lecture seule sans affecter l’utilisation des ressources sur votre base de données primaire.
+- L’[échelle lecture](sql-database-read-scale-out.md) est une fonctionnalité disponible qui vous offre un réplica en lecture seule de vos données, sur lequel vous pouvez exécuter des requêtes en lecture seule exigeantes telles que les rapports. Le réplica en lecture seule gère votre charge de travail en lecture seule sans affecter l’utilisation des ressources sur votre base de données primaire.
 - Le [partitionnement de base de données](sql-database-elastic-scale-introduction.md) est un ensemble de techniques qui vous permet de diviser vos données en plusieurs bases de données pour les mettre à l'échelle indépendamment.
 
 ## <a name="next-steps"></a>Étapes suivantes

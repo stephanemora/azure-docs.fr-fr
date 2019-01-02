@@ -4,28 +4,27 @@ description: Cet article décrit comment utiliser des fonctions Machine Learning
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 024d7094a9baa90eebd57b4c76db367f81bd0400
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/07/2018
+ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700865"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104919"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Intégration de Machine Learning dans Stream Analytics
 Stream Analytics prend en charge les fonctions définies par l’utilisateur qui appellent des points de terminaison Azure Machine Learning. Prise en charge de l’API REST de cette fonctionnalité est détaillée dans la [bibliothèque de l’API REST Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Cet article fournit les informations supplémentaires nécessaires à la mise en œuvre réussie de cette fonctionnalité dans Stream Analytics. Un didacticiel a également été validé et est disponible [ici](stream-analytics-machine-learning-integration-tutorial.md).
 
-## <a name="overview-azure-machine-learning-terminology"></a>Vue d’ensemble de la terminologie Azure Machine Learning
+## <a name="overview-azure-machine-learning-terminology"></a>Vue d’ensemble : terminologie Azure Machine Learning
 Microsoft Azure Machine Learning offre un outil collaboratif fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d’analyse prédictive à partir de vos données. Cet outil est appelé *Azure Machine Learning Studio*. Studio permet d’interagir avec les ressources d’apprentissage et de facilement générer, tester et affiner votre conception. Ces ressources et leurs définitions se trouvent ci-dessous.
 
-* **Espace de travail**: l’ *espace de travail* est un conteneur qui contient toutes les autres ressources Machine Learning avec un conteneur pour la gestion et le contrôle.
-* **Expérience**: les *expériences* sont créées par des scientifiques de données qui utilisent des jeux de données et créent un modèle Machine Learning.
-* **Point de terminaison**: les *points de terminaison* sont un objet Azure Machine Learning servant à saisir des fonctionnalités en entrée, appliquer un modèle machine learning spécifié et renvoyer le résultat évalué.
-* **Service Web d’évaluation**: un *service web d’évaluation* est une collection de points de terminaison, comme indiqué ci-dessus.
+* **Espace de travail** : L’*espace de travail* représente un conteneur regroupant toutes les autres ressources Machine Learning au sein d’un conteneur pour la gestion et le contrôle.
+* **Expérience** : Les *expériences* sont créées par des scientifiques des données qui utilisent des jeux de données et effectuent l’apprentissage d’un modèle Machine Learning.
+* **Point de terminaison** : Les *points de terminaison* représentent un objet Azure Machine Learning servant à saisir des fonctionnalités en entrée, appliquer un modèle Machine Learning spécifié et renvoyer le résultat évalué.
+* **Service Web d’évaluation** : Un *service web d’évaluation* représente une collection de points de terminaison, comme indiqué ci-dessus.
 
 Chaque point de terminaison dispose d’API servant à l’exécution de lots et l’exécution synchronisée. Stream Analytics utilise l’exécution synchronisée. Le service spécifique s’appelle [Service requête/réponse](../machine-learning/studio/consume-web-services.md) dans AzureML studio.
 
@@ -51,7 +50,7 @@ Par exemple, l’exemple de code suivant crée un fichier UDF scalaire nommé *n
 
 Exemple de corps de requête :  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -67,10 +66,10 @@ Exemple de corps de requête :
             }
         }
     }
-````
+```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Appeler le point de terminaison RetrieveDefaultDefinition pour la fonction définie par l’utilisateur par défaut
-Une fois la structure de la fonction définie par l’utilisateur créée, une définition complète de la fonction définie par l’utilisateur est nécessaire. Le point de terminaison RetreiveDefaultDefinition vous permet d’obtenir une définition par défaut d’une fonction scalaire liée à un point de terminaison Azure Machine Learning. La charge de travail ci-dessous exige que vous obteniez la définition de fonction définie par l’utilisateur par défaut pour une fonction scalaire lié à un point de terminaison Azure Machine Learning. Il ne spécifie pas le point de terminaison réel tel qu’il a déjà été fourni pendant la requête PUT. Stream Analytics appelle le point de terminaison fourni dans la demande s’il est indiqué de façon explicite. Dans le cas contraire, il utilise celui qui a été référencé à l’origine. Ici, la fonction définie par l’utilisateur prend un paramètre à chaîne unique (une phrase) et retourne un seul résultat de type chaîne qui mentionne le libellé « sentiment » de cette phrase.
+Une fois la structure de la fonction définie par l’utilisateur créée, une définition complète de la fonction définie par l’utilisateur est nécessaire. Le point de terminaison RetreiveDefaultDefinition vous permet d’obtenir une définition par défaut d’une fonction scalaire liée à un point de terminaison Azure Machine Learning. La charge de travail ci-dessous exige que vous obteniez la définition de fonction définie par l’utilisateur par défaut pour une fonction scalaire liée à un point de terminaison Azure Machine Learning. Il ne spécifie pas le point de terminaison réel tel qu’il a déjà été fourni pendant la requête PUT. Stream Analytics appelle le point de terminaison fourni dans la demande s’il est indiqué de façon explicite. Dans le cas contraire, il utilise celui qui a été référencé à l’origine. Ici, la fonction définie par l’utilisateur prend un paramètre à chaîne unique (une phrase) et retourne un seul résultat de type chaîne qui mentionne le libellé « sentiment » de cette phrase.
 
 ````
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
@@ -78,7 +77,7 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 
 Exemple de corps de requête :  
 
-````
+```json
     {
         "bindingType": "Microsoft.MachineLearning/WebService",
         "bindingRetrievalProperties": {
@@ -86,11 +85,11 @@ Exemple de corps de requête :
             "udfType": "Scalar"
         }
     }
-````
+```
 
 Un exemple de sortie ressemble à ce qui suit.  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -126,7 +125,7 @@ Un exemple de sortie ressemble à ce qui suit.
             }
         }
     }
-````
+```
 
 ## <a name="patch-udf-with-the-response"></a>Fonction définie par l’utilisateur correctif avec la réponse
 Maintenant la fonction définie par l’utilisateur peut être corrigée à l’aide de la réponse précédente, comme indiqué ci-dessous.
@@ -137,7 +136,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 Corps de la demande (sortie de RetrieveDefaultDefinition) :
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -173,12 +172,12 @@ Corps de la demande (sortie de RetrieveDefaultDefinition) :
             }
         }
     }
-````
+```
 
 ## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Implémentation de la transformation Stream Analytics pour appeler la fonction définie par l’utilisateur
 Maintenant, interrogez la fonction définie par l’utilisateur (nommée ici scoreTweet) pour chaque événement en entrée et rédiger une réponse pour cette sortie.  
 
-````
+```json
     {
         "name": "transformation",
         "properties": {
@@ -186,7 +185,7 @@ Maintenant, interrogez la fonction définie par l’utilisateur (nommée ici sco
             "query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
         }
     }
-````
+```
 
 
 ## <a name="get-help"></a>Obtenir de l’aide

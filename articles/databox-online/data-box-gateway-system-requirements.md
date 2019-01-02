@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157358"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256670"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Configuration système Azure Data Box Gateway (préversion)
 
@@ -27,6 +27,19 @@ La configuration système requise pour l’appareil virtuel Data Box Gateway inc
 > [!IMPORTANT]
 > Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution. 
 
+## <a name="specifications-for-the-virtual-device"></a>Spécifications pour l’appareil virtuel
+
+Le système hôte sous-jacent pour le Data Box Gateway est en mesure de dédier les ressources suivantes pour approvisionner votre appareil virtuel :
+
+| Spécifications                                          | Description              |
+|---------------------------------------------------------|--------------------------|
+| Processeurs virtuels (cœurs)   | 4 minimum |            
+| Mémoire  | 8 Go minimum|
+| Disponibilité|Nœud unique|
+| Disques| Disque de système d’exploitation : 250 Go <br> Disque de données : 2 To minimum, allocation dynamique et sauvegarde sur SSD|
+| Interfaces réseau|1 ou plusieurs interfaces réseau virtuelles|
+
+
 ## <a name="supported-os-for-clients-connected-to-device"></a>Systèmes d’exploitation pris en charge pour les clients connectés à l’appareil
 
 Voici la liste des systèmes d’exploitation pris en charge pour les clients ou hôtes connectés à Data Box Gateway.
@@ -34,7 +47,7 @@ Voici la liste des systèmes d’exploitation pris en charge pour les clients ou
 | **Système d’exploitation/plateforme** | **Versions** |
 | --- | --- |
 | Windows Server |2012 R2 <br> 2016 |
-| Windows |8, 10 |
+|  Windows |8, 10 |
 | SUSE Linux |Enterprise Server 12 (x86_64)|
 | Ubuntu |16.04.3 LTS|
 | CentOS | 7.0 |

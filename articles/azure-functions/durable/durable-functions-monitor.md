@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7af8015e424b4a9169a9b80ed5e7070a8fa6de1c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638454"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342570"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo
 
@@ -32,7 +32,7 @@ Cet exemple surveille les conditions météorologiques actuelles d’un lieu et 
 * Les moniteurs peuvent s’arrêter quand une condition donnée est respectée ou être interrompus par un autre processus.
 * Les moniteurs peuvent prendre des paramètres. L’exemple montre comment le même processus de surveillance météorologique peut être appliqué à n’importe quels emplacement et numéro de téléphone demandés.
 * Les moniteurs sont évolutifs. Étant donné que chaque moniteur est une instance d’orchestration, il est possible de créer plusieurs moniteurs sans avoir à créer de nouvelles fonctions ou à définir davantage de code.
-* Les moniteurs s’intègrent facilement à de plus grands flux de travail. Un moniteur peut être une section d’une fonction d’orchestration plus complexe, ou une [sous-orchestration](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
+* Les moniteurs s’intègrent facilement à de plus grands flux de travail. Un moniteur peut être une section d’une fonction d’orchestration plus complexe, ou une [sous-orchestration](durable-functions-sub-orchestrations.md).
 
 ## <a name="configuring-twilio-integration"></a>Configuration de l’intégration de Twilio
 
@@ -54,12 +54,12 @@ Une fois que vous disposez d’une clé API, ajoutez le **paramètre d’applica
 
 Cet article explique les fonctions suivantes dans l’exemple d’application :
 
-* `E3_Monitor` : fonction d’orchestrateur qui appelle régulièrement `E3_GetIsClear`. Elle appelle `E3_SendGoodWeatherAlert` si `E3_GetIsClear` retourne la valeur true.
-* `E3_GetIsClear` : fonction d’activité qui vérifie les conditions météorologiques actuelles pour un lieu.
-* `E3_SendGoodWeatherAlert` : fonction d’activité qui envoie un SMS via Twilio.
+* `E3_Monitor`: fonction d’orchestrateur qui appelle régulièrement `E3_GetIsClear`. Elle appelle `E3_SendGoodWeatherAlert` si `E3_GetIsClear` retourne la valeur true.
+* `E3_GetIsClear`: fonction d’activité qui vérifie les conditions météorologiques actuelles pour un lieu.
+* `E3_SendGoodWeatherAlert`: fonction d’activité qui envoie un SMS par le biais de Twilio.
 
 Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C# et JavaScript. Le code de développement de Visual Studio est affiché à la fin de l’article.
- 
+
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L’orchestration de la surveillance des conditions météorologiques (Visual Studio Code et exemple de code du portail Azure)
 
 La fonction **E3_Monitor** utilise le fichier *function.json* standard pour les fonctions d’orchestrateur.
@@ -72,7 +72,7 @@ Voici le code qui implémente la fonction :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -83,7 +83,7 @@ Cette fonction d’orchestrateur effectue les actions suivantes :
 3. Appelle **E3_GetIsClear** pour déterminer si le ciel est dégagé au lieu demandé.
 4. Si le temps est clair, appelle **E3_SendGoodWeatherAlert** pour envoyer une notification par SMS au numéro de téléphone demandé.
 5. Crée un minuteur durable pour reprendre l’orchestration à l’intervalle d’interrogation suivant. Par souci de concision, l’exemple utilise une valeur codée en dur.
-6. Continue à s’exécuter jusqu’à ce que le paramètre [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) passe l’heure d’expiration du moniteur, ou une alerte SMS est envoyée.
+6. Continue à s’exécuter jusqu’à ce que le paramètre [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (C#) ou `currentUtcDateTime` (JavaScript) passe l’heure d’expiration du moniteur, ou jusqu’à ce qu’une alerte SMS soit envoyée.
 
 Il est possible d’exécuter simultanément plusieurs instances d’orchestrateur en envoyant plusieurs **MonitorRequests**. Le lieu à surveiller et le numéro de téléphone auquel envoyer une alerte SMS peuvent être spécifiés.
 
@@ -107,7 +107,7 @@ Et voici l’implémentation. Comme les objets OCT utilisés pour le transfert d
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +121,7 @@ Et voici le code qui envoie le SMS :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -134,8 +134,9 @@ POST https://{host}/orchestrators/E3_Monitor
 Content-Length: 77
 Content-Type: application/json
 
-{ "Location": { "City": "Redmond", "State": "WA" }, "Phone": "+1425XXXXXXX" }
+{ "location": { "city": "Redmond", "state": "WA" }, "phone": "+1425XXXXXXX" }
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
@@ -144,9 +145,6 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
-
-   > [!NOTE]
-   > Actuellement, les fonctions de démarrage d’orchestration JavaScript ne peuvent pas retourner les URI de gestion d’instance. Cette fonctionnalité sera ajoutée dans une version ultérieure.
 
 L’instance d’**E3_Monitor** démarre et interroge les conditions météorologiques actuelles pour le lieu demandé. Si le temps est clair, elle appelle une fonction d’activité pour envoyer une alerte ; dans le cas contraire, elle définit un minuteur. Quand le minuteur expire, l’orchestration reprend.
 
@@ -168,7 +166,7 @@ Vous pouvez voir l’activité de l’orchestration en examinant les journaux de
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-L’orchestration [s’arrête](durable-functions-instance-management.md#terminating-instances) une fois que son délai d’attente est atteint ou qu’un ciel clair est détecté. Vous pouvez également utiliser `TerminateAsync` à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **terminatePostUri** référencé dans la réponse 202 ci-dessus, en remplaçant `{text}` par le motif de l’arrêt :
+L’orchestration [s’arrête](durable-functions-instance-management.md#terminating-instances) une fois que son délai d’attente est atteint ou qu’un ciel clair est détecté. Vous pouvez également utiliser `TerminateAsync` (.NET) ou `terminate` (JavaScript) à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **terminatePostUri** référencé dans la réponse 202 ci-dessus, en remplaçant `{text}` par le motif de l’arrêt :
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

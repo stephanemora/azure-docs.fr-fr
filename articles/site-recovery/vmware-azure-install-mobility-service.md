@@ -4,14 +4,14 @@ description: Découvrez comment installer l’agent du service Mobilité pour la
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 14be544c53bf3393466cfa33b2ad815f07d0005d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007414"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846910"
 ---
 # <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Installer le service Mobilité pour la reprise d’activité de machines virtuelles VMware et serveurs physiques
 
@@ -24,7 +24,7 @@ Sur chaque ordinateur Windows que vous souhaitez protéger, procédez ainsi :
 1. Vérifiez qu’une connectivité réseau est établie entre l’ordinateur et le serveur de traitement. Si vous n’avez pas configuré de serveur de traitement distinct, il s’exécute par défaut sur le serveur de configuration.
 1. Créez un compte pouvant être utilisé par le serveur de traitement pour accéder à l’ordinateur. Le compte doit disposer des droits d’administrateur (local ou de domaine). Utilisez ce compte uniquement pour l’installation Push et pour les mises à jour de l’agent.
 2. Si vous n’utilisez pas de compte de domaine, désactivez le contrôle d’accès utilisateur distant sur l’ordinateur local de la façon suivante :
-    - Sous la clé de Registre HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, ajoutez un nouveau DWORD : **LocalAccountTokenFilterPolicy**. Définissez la valeur sur **1**.
+    - Sous la clé de Registre HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, ajoutez un nouveau DWORD : **LocalAccountTokenFilterPolicy**. Définissez la valeur sur **1**.
     -  Pour exécuter cette action à l’invite de commandes, exécutez la commande suivante :  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
 3. Sur le Pare-feu Windows de l’ordinateur à protéger, sélectionnez **Autoriser une application ou une fonctionnalité à franchir le pare-feu**. Activez **Partage de fichiers et d’imprimantes** et **Windows Management Instrumentation (WMI)**. Pour les ordinateurs qui appartiennent à un domaine, vous pouvez configurer les paramètres de pare-feu avec un objet de stratégie de groupe.

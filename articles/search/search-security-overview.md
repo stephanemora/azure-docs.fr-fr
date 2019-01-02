@@ -1,5 +1,5 @@
 ---
-title: Sécurité et confidentialité dans Recherche Azure | Microsoft Docs
+title: Sécurité et confidentialité - Recherche Azure
 description: Recherche Azure est compatible avec SOC 2, HIPAA et les autres certifications. La connexion et le chiffrement des données, l’authentification ainsi que l’identité et l’accès à travers des ID de sécurité utilisateur et de groupe dans les filtres de Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.custom: seodec2018
+ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092629"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311709"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Sécurité et confidentialité dans Recherche Azure
 

@@ -1,22 +1,24 @@
 ---
-title: Serveurs frontaux multiples pour Azure Load Balancer | Microsoft Docs
+title: Serveurs frontaux multiples dans Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Vue d’ensemble des serveurs frontaux multiples dans Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: d435d2c491cf17356e96f7bbb05b1e22c8e04aca
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219356"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163427"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Serveurs frontaux multiples dans Azure Load Balancer
 
@@ -46,7 +48,7 @@ Azure Load Balancer vous permet d’associer les deux types de règle sur la mê
 
 Nous examinons ces scénarios plus en détail en commençant par le comportement par défaut.
 
-## <a name="rule-type-1-no-backend-port-reuse"></a>Type de règle nº 1 : pas de réutilisation des ports principaux
+## <a name="rule-type-1-no-backend-port-reuse"></a>Type de règle n°1 : pas de réutilisation des ports principaux
 
 ![Illustration de serveurs frontaux multiples avec serveur frontal vert et violet](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
@@ -63,8 +65,8 @@ Nous définissons deux règles :
 
 | Règle | Mapper le serveur frontal | Au pool principal |
 | --- | --- | --- |
-| 1 |![serveur frontal vert](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![serveur frontal vert](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 |![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 Le mappage complet dans Azure Load Balancer se présente désormais comme suit :
 

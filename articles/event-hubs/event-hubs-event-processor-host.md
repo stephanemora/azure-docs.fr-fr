@@ -1,6 +1,6 @@
 ---
-title: Présentation de l’hôte de processeur d’événements Azure Event Hubs et de ses avantages | Microsoft Docs
-description: Vue d’ensemble et présentation de l’hôte de processeur d’événements Azure Event Hubs
+title: Recevoir des événements à l’aide de l’hôte de processeur d’événements - Azure Event Hubs | Microsoft Docs
+description: Cet article décrit l’hôte de processeur d’événements d’Azure Event Hubs, qui simplifie la gestion des points de contrôle, de la location et des lecteurs d’événements parallèles.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258950"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089621"
 ---
-# <a name="azure-event-hubs-event-processor-host-overview"></a>Présentation de l’hôte de processeur d’événements Azure Event Hubs
+# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Recevoir des événements d’Azure Event Hubs avec l’hôte de processeur d’événements
 
 Azure Event Hubs est un puissant service d’ingestion de télémétrie qui permet de diffuser des millions d’événements à moindre coût. Cet article décrit comment consommer les événements ingérés à l’aide de l’*hôte de processeur d’événements* (EPH) ; un agent consommateur intelligent qui simplifie la gestion des points de contrôle, de la location et des lecteurs d’événements parallèles.  
 
@@ -36,10 +37,10 @@ Chaque capteur envoie des données à un hub d’événements. Le hub d’évén
 
 Lorsque vous concevez le consommateur dans un environnement distribué, le scénario doit gérer les exigences suivantes :
 
-1. **Mise à l’échelle :** créez plusieurs consommateurs, chacun d’entre eux assurant la lecture à partir de quelques partitions Event Hubs.
-2. **Équilibrage de charge :** augmentez ou réduisez le nombre de consommateurs dynamiquement. Par exemple, lorsqu’un nouveau type de capteur (comme un détecteur de monoxyde de carbone) est ajouté à chaque maison, le nombre d’événements augmente. Dans ce cas, l’opérateur (un humain) augmente le nombre d’instances de consommateur. Ensuite, le pool de consommateurs peut rééquilibrer le nombre de partitions pour partager la charge avec les consommateurs qui viennent d’être ajoutés.
-3. **Reprise transparente en cas d’échec :** si un consommateur (**consommateur A**) échoue (par exemple, la machine virtuelle qui héberge le consommateur tombe soudainement en panne), les autres consommateurs doivent être en mesure de récupérer les partitions appartenant au **consommateur A** et continuer. En outre, le point de continuation, appelé *point de contrôle* ou *décalage*, doit se trouver exactement là où le **consommateur A** a échoué ou légèrement avant.
-4. **Consommer des événements :** alors que les trois points précédents concernent la gestion du consommateur, il doit y avoir du code pour consommer les événements et faire quelque chose d’utile avec eux ; par exemple, les agréger et les télécharger vers le stockage blob.
+1. **Mise à l’échelle :** créez plusieurs consommateurs, chacun d’entre eux assurant la lecture à partir de quelques partitions Event Hubs.
+2. **Équilibrage de charge :** augmentez ou réduisez le nombre de consommateurs dynamiquement. Par exemple, lorsqu’un nouveau type de capteur (comme un détecteur de monoxyde de carbone) est ajouté à chaque maison, le nombre d’événements augmente. Dans ce cas, l’opérateur (un humain) augmente le nombre d’instances de consommateur. Ensuite, le pool de consommateurs peut rééquilibrer le nombre de partitions pour partager la charge avec les consommateurs qui viennent d’être ajoutés.
+3. **Reprise transparente en cas d’échec :** si un consommateur (**consommateur A**) échoue (par exemple, la machine virtuelle qui héberge le consommateur tombe soudainement en panne), les autres consommateurs doivent être en mesure de récupérer les partitions appartenant au **consommateur A** et continuer. En outre, le point de continuation, appelé *point de contrôle* ou *décalage*, doit se trouver exactement là où le **consommateur A** a échoué ou légèrement avant.
+4. **Consommer des événements :** alors que les trois points précédents concernent la gestion du consommateur, il doit y avoir du code pour consommer les événements et faire quelque chose d’utile avec eux ; par exemple, les agréger et les télécharger vers le stockage blob.
 
 Au lieu de générer votre propre solution, Event Hubs fournit cette fonctionnalité via l’interface [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) et la classe [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost).
 
@@ -83,10 +84,10 @@ public class SimpleEventProcessor : IEventProcessor
 Ensuite, créez une instance [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Selon la surcharge, lorsque vous créez l’instance [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) dans le constructeur, les paramètres suivants sont utilisés :
 
 - **hostName :** nom de chaque instance de consommateur. Chaque instance de **EventProcessorHost** doit avoir une valeur unique pour cette variable dans un groupe de consommateurs ; il est donc préférable de ne pas coder cette valeur en dur.
-- **eventHubPath :** nom du hub d’événements.
-- **consumerGroupName :** Event Hubs utilise **$Default** comme nom du groupe de consommateurs par défaut, mais il est conseillé de créer un groupe de consommateurs pour votre aspect spécifique du traitement.
-- **eventHubConnectionString :** chaîne de connexion au hub d’événements, qui peut être récupérée à partir du portail Azure. Cette chaîne de connexion doit disposer d’autorisations d’**écoute** sur le hub d’événements.
-- **storageConnectionString :** compte de stockage utilisé pour la gestion des ressources internes.
+- **eventHubPath :** Nom du hub d’événements.
+- **consumerGroupName :** Event Hubs utilise **$Default** comme nom du groupe de consommateurs par défaut, mais il est conseillé de créer un groupe de consommateurs pour votre aspect spécifique du traitement.
+- **eventHubConnectionString :** chaîne de connexion au hub d’événements, qui peut être récupérée à partir du Portail Azure. Cette chaîne de connexion doit disposer d’autorisations d’**écoute** sur le hub d’événements.
+- **storageConnectionString :** compte de stockage utilisé pour la gestion des ressources internes.
 
 Enfin, les consommateurs inscrivent l’instance [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) auprès du service Event Hubs. L’inscription d’une classe de processeur d’événements avec une instance EventProcessorHost entraîne le démarrage du traitement des événements. L’inscription ordonne au service Event Hubs d’attendre que l’application consommateur consomme les événements provenant de certaines de ses partitions, puis d’appeler le code d’implémentation [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) chaque fois qu’il envoie (push) des événements à consommer. 
 
@@ -151,11 +152,11 @@ Comme expliqué précédemment, le tableau de suivi simplifie considérablement 
 
 En outre, une surcharge de [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) prend un objet [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) comme paramètre. Utilisez ce paramètre pour contrôler le comportement de [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) lui-même. [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) définit quatre propriétés et un événement :
 
-- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize) : taille maximale de la collection que vous souhaitez recevoir dans un appel de [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Cette taille n’est pas la valeur minimale, mais seulement la taille maximale. Si moins de messages sont reçus, **ProcessEventsAsync** s’exécute avec tous les messages disponibles.
-- [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount) : valeur utilisée par le canal AMQP sous-jacent pour déterminer la limite supérieure du nombre de messages que le client doit recevoir. Cette valeur doit être supérieure ou égale à [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
-- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout) : si ce paramètre a la valeur **true**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) est appelé lorsque l’appel sous-jacent servant à recevoir des événements sur une partition arrive à expiration. Cette méthode est utile pour réaliser les actions liées au temps pendant les périodes d’inactivité sur la partition.
-- [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider) : permet de définir un pointeur de fonction ou une expression lambda, qui est appelé pour fournir le décalage initial lorsqu’un lecteur commence à lire une partition. Sans spécifier ce décalage, le lecteur commence par l’événement le plus ancien, sauf si un fichier JSON avec un décalage a déjà été enregistré dans le compte de stockage fourni au constructeur [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Cette méthode est utile lorsque vous souhaitez modifier le comportement du démarrage du lecteur. Lorsque cette méthode est appelée, le paramètre d’objet contient l’ID de partition pour lequel le lecteur est démarré.
-- [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs) : permet de recevoir une notification pour les exceptions sous-jacentes qui se produisent dans [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Si les choses ne fonctionnent pas comme prévu, cet événement est un bon point pour commencer la recherche.
+- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize) : taille maximale de la collection que vous souhaitez recevoir dans un appel de [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Cette taille n’est pas la valeur minimale, mais seulement la taille maximale. Si moins de messages sont reçus, **ProcessEventsAsync** s’exécute avec tous les messages disponibles.
+- [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount) : valeur utilisée par le canal AMQP sous-jacent pour déterminer la limite supérieure du nombre de messages que le client doit recevoir. Cette valeur doit être supérieure ou égale à [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
+- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout) : si ce paramètre a la valeur **true**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) est appelé lorsque l’appel sous-jacent servant à recevoir des événements sur une partition arrive à expiration. Cette méthode est utile pour réaliser les actions liées au temps pendant les périodes d’inactivité sur la partition.
+- [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider) : permet de définir un pointeur de fonction ou une expression lambda, qui est appelé pour fournir le décalage initial lorsqu’un lecteur commence à lire une partition. Sans spécifier ce décalage, le lecteur commence par l’événement le plus ancien, sauf si un fichier JSON avec un décalage a déjà été enregistré dans le compte de stockage fourni au constructeur [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Cette méthode est utile lorsque vous souhaitez modifier le comportement du démarrage du lecteur. Lorsque cette méthode est appelée, le paramètre d’objet contient l’ID de partition pour lequel le lecteur est démarré.
+- [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs) : permet de recevoir une notification pour les exceptions sous-jacentes qui se produisent dans [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Si les choses ne fonctionnent pas comme prévu, cet événement est un bon point pour commencer la recherche.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

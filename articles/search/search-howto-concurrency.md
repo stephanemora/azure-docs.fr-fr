@@ -1,5 +1,5 @@
 ---
-title: Gestion des écritures simultanées dans les ressources Recherche Azure
+title: Guide pratique pour gérer les écritures simultanées dans les ressources - Recherche Azure
 description: Utilisez l’accès concurrentiel optimiste pour éviter les collisions entre des mises à jour ou des suppressions d’index, d’indexeurs et de sources de données Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-ms.openlocfilehash: f5fa495c1266c847cabc0eb4e35b85132550bc3c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 017f665f3d0d19746854e2cf566034f801b32a04
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796378"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310215"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Gestion de l’accès concurrentiel dans Recherche Azure
 
@@ -24,9 +25,9 @@ Lors de la gestion de ressources Recherche Azure telles que des index et des sou
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-L’accès concurrentiel optimiste est implémenté via des contrôles de conditions d’accès dans les appels d’API écrivant dans des index, des indexeurs, des sources de données et des ressources synonymMap. 
+L’accès concurrentiel optimiste est implémenté via des contrôles de conditions d’accès dans les appels d’API écrivant dans des index, des indexeurs, des sources de données et des ressources synonymMap.
 
-Toutes les ressources présentent une [ *étiquette d’entité (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) qui fournit des informations sur la version de l’objet. En vérifiant d’abord l’ETag, vous pouvez éviter les mises à jour simultanées dans un flux de travail classique (obtention, modification locale, mise à jour) en vous assurant que l’ETag de la ressource correspond à celui de votre copie locale. 
+Toutes les ressources présentent une [ *étiquette d’entité (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) qui fournit des informations sur la version de l’objet. En vérifiant d’abord l’ETag, vous pouvez éviter les mises à jour simultanées dans un flux de travail classique (obtention, modification locale, mise à jour) en vous assurant que l’ETag de la ressource correspond à celui de votre copie locale.
 
 + L’API REST utilise un [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) sur l’en-tête de demande.
 + Le Kit de développement logiciel (SDK) .NET spécifie l’ETag via un objet accessCondition en définissant l’en-tête [If-Match | If-Match-None](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) sur la ressource. Tout objet héritant de l’interface [IResourceWithETag](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) (Kit de développement logiciel [SDK] .NET) présente un objet accessCondition.
@@ -34,7 +35,7 @@ Toutes les ressources présentent une [ *étiquette d’entité (ETag)*](https:/
 À chaque fois que vous mettez à jour une ressource, son ETag change automatiquement. Lorsque vous implémentez la gestion de l’accès concurrentiel, vous placez simplement sur la requête de mise à jour une condition préalable qui exige que la ressource distante présente le même ETag que la copie de la ressource que vous avez modifiée sur le client. Si un processus simultané a déjà modifié la ressource distante, l’ETag ne correspondra pas à la condition préalable et la requête échouera avec l’erreur HTTP 412. Si vous utilisez le Kit de développement logiciel (SDK) .NET, cela se manifeste sous la forme d’une exception `CloudException`, où la méthode d’extension `IsAccessConditionFailed()` renvoie la valeur true.
 
 > [!Note]
-> Il n’existe qu’un seul mécanisme pour l’accès concurrentiel. Celui-ci est systématiquement utilisé, peu importe l’API employée pour les mises à jour de ressources. 
+> Il n’existe qu’un seul mécanisme pour l’accès concurrentiel. Celui-ci est systématiquement utilisé, peu importe l’API employée pour les mises à jour de ressources.
 
 <a name="samplecode"></a>
 ## <a name="use-cases-and-sample-code"></a>Cas d’usage et exemple de code
@@ -111,7 +112,7 @@ Le code suivant illustre les contrôles accessCondition pour les opérations de 
             {
                 indexForClient2.Fields.Add(new Field("b", DataType.Boolean));
                 serviceClient.Indexes.CreateOrUpdate(
-                    indexForClient2, 
+                    indexForClient2,
                     accessCondition: AccessCondition.IfNotChanged(indexForClient2));
 
                 Console.WriteLine("Whoops; This shouldn't happen");
@@ -167,9 +168,9 @@ Le code suivant illustre les contrôles accessCondition pour les opérations de 
 
 ## <a name="design-pattern"></a>Modèle de conception
 
-Un modèle de conception pour l’implémentation de l’accès concurrentiel optimiste doit inclure une boucle qui effectue une nouvelle tentative de contrôle de la condition d’accès, un test de la condition d’accès et récupère éventuellement une ressource mise à jour avant d’essayer de réappliquer les modifications. 
+Un modèle de conception pour l’implémentation de l’accès concurrentiel optimiste doit inclure une boucle qui effectue une nouvelle tentative de contrôle de la condition d’accès, un test de la condition d’accès et récupère éventuellement une ressource mise à jour avant d’essayer de réappliquer les modifications.
 
-Cet extrait de code illustre l’ajout d’une ressource synonymMap à un index existant. Ce code est tiré du [didacticiel C# des synonymes (version préliminaire) pour la Recherche Azure](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk). 
+Cet extrait de code illustre l’ajout d’une ressource synonymMap à un index existant. Ce code est tiré du [didacticiel C# des synonymes (version préliminaire) pour la Recherche Azure](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk).
 
 L’extrait de code obtient l’index « hotel », vérifie la version de l’objet pour une opération de mise à jour, lève une exception si la condition échoue, puis retente l’opération (jusqu’à trois fois), en commençant par extraire l’index du serveur pour obtenir sa dernière version.
 
@@ -211,10 +212,11 @@ Examinez l’[exemple C# de synonymes](https://github.com/Azure-Samples/search-d
 
 Essayez de modifier l’un des exemples suivants pour inclure des ETags ou des objets AccessCondition.
 
-+ [Exemple d’API REST sur GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started) 
-+ [Exemple de Kit de développement logiciel (SDK) sur GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started) Cette solution inclut le projet « DotNetEtagsExplainer », qui contient le code présenté dans cet article.
++ [Exemple d’API REST sur GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
++ [Exemple de SDK .NET sur GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Cette solution inclut le projet « DotNetEtagsExplainer », qui contient le code présenté dans cet article.
 
 ## <a name="see-also"></a>Voir aussi
 
-  [En-têtes de requête et de réponse HTTP courants](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
-  [Codes d’état HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)[Opérations d’index (API REST)](https://docs.microsoft.com/\rest/api/searchservice/index-operations)
+[En-têtes de demande et de réponse HTTP communément utilisés](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+[Codes d’état HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+[Opérations d’index (API REST)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

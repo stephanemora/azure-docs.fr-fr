@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c8edaba8de597e3e76e760e1f5109006338a663c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238818"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888458"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Styles de cartes pris en charge dans Azure Maps
-Azure Maps prend en charge quatre styles de cartes intégrées. Les styles sont répertoriés ci-dessous, avec leur description.
+Azure Maps prend en charge plusieurs styles de mappage intégrés, qui sont décrits ci-dessous.
 
 ## <a name="road"></a>Route
 Une carte **routière** est une carte standard qui affiche les routes, les éléments cartographiques naturels et créés par l’homme, ainsi que le nom de ces éléments cartographiques.
@@ -49,6 +49,14 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 **Nuances de gris foncé** est une version plus sombre du style carte routière.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+
+**API applicables :**
+* Commandes de la carte JS 
+
+## <a name="night"></a>nuit
+**Nuit** est la version foncée du style de carte routière avec des routes et des symboles en couleur.
+
+![nuit](./media/supported-map-styles/night.PNG)
 
 **API applicables :**
 * Commandes de la carte JS 

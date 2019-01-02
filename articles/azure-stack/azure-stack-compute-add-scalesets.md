@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: accd36c9e0d09da0073570301600b362fff85f6e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647338"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971825"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendre les groupes de machines virtuelles identiques disponibles dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
   
 Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure Stack. Vous pouvez les utiliser pour déployer et gérer un groupe de machines virtuelles identiques. Dans la mesure où toutes les machines virtuelles sont configurées de la même façon, les groupes identiques ne requièrent pas d’approvisionnement préalable des machines virtuelles. Il est plus simple de créer des services à grande échelle qui ciblent le Big Compute, le Big Data et les charges de travail en conteneurs.
 
@@ -33,8 +33,8 @@ Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compa
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **La Place de marché :** Inscrivez Azure Stack auprès d’Azure pour un déploiement à l’échelle mondiale afin d’activer la disponibilité des éléments dans la Place de marché. Suivez les instructions fournies dans [Inscrire Azure Stack avec Azure](azure-stack-registration.md).
-- **Image du système d’exploitation :** Avant de pouvoir créer un groupe de machines virtuelles identiques (VMSS), vous devez télécharger les images de machine virtuelle à utiliser dans celui-ci à partir de la [Place de marché Azure Stack](azure-stack-download-azure-marketplace-item.md). Pour qu’un utilisateur puisse créer un VMSS, les images doivent déjà être présentes. 
+- **Place de marché :** Inscrivez Azure Stack auprès d’Azure pour un déploiement à l’échelle mondiale afin d’activer la disponibilité des éléments dans la Place de marché. Suivez les instructions fournies dans [Inscrire Azure Stack avec Azure](azure-stack-registration.md).
+- **Image du système d’exploitation :** Avant de pouvoir créer un groupe de machines virtuelles identiques (VMSS), vous devez télécharger les images de machine virtuelle à utiliser dans celui-ci à partir de la [Place de marché Azure Stack](azure-stack-download-azure-marketplace-item.md). Pour qu’un utilisateur puisse créer un VMSS, les images doivent déjà être présentes. 
 
 ## <a name="use-the-azure-stack-portal"></a>Utiliser le portail Azure Stack 
 
@@ -97,7 +97,7 @@ Après avoir créé un groupe de machines virtuelles identiques, les utilisateur
 
     Si vous téléchargez une image avec une version plus récente (ce qui modifie la version disponible), le groupe identique ne peut pas monter en puissance. Ceci est normal, car la version de l’image spécifiée dans le modèle du groupe identique doit être disponible.  
 
-Pour plus d’informations, consultez [disques et images du système d’exploitation](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+Pour plus d’informations, consultez [disques et images du système d’exploitation](./user/azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>Mettre à l’échelle un groupe de machines virtuelles identiques
 

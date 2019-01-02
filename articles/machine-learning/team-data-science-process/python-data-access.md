@@ -1,5 +1,5 @@
 ---
-title: Accès à des jeux de données grâce à la bibliothèque cliente Python Machine Learning | Microsoft Docs
+title: Accéder à des jeux de données avec la bibliothèque cliente de Python - Team Data Science Process
 description: Installez et utilisez la bibliothèque cliente Python pour accéder et gérer les données d'apprentissage automatique d'Azure en toute sécurité à partir d'un environnement Python local.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 43812b68b10f9e4f8510d24cb08c8bb368b3b8f8
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445759"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140028"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accédez aux jeux de données avec Python grâce à la bibliothèque cliente Python d'Azure Machine Learning
 L’aperçu de la bibliothèque cliente Python de Microsoft Azure Machine Learning offre un accès sécurisé à vos jeux de données Azure Machine Learning à partir d’un environnement Python local et permet la création et la gestion de jeux de données dans un espace de travail.
@@ -92,10 +92,10 @@ Les jetons d’autorisation sont gérés sur la page **JETONS D’AUTORISATION**
     ![Groupes de données][datasets]
 4. Sélectionnez l'extrait de code dans la fenêtre qui s'affiche et copiez-le dans votre presse-papiers.
    
-    ![Code d'accès][dataset-access-code]
+    ![Bouton Générer le fichier de code d’accès aux données][dataset-access-code]
 5. Collez le code dans le bloc-notes de votre application Python locale.
    
-    ![Bloc-notes][ipython-dataset]
+    ![Collez le code dans le notebook][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Accès aux jeux de données intermédiaires à partir d'expériences de Machine Learning
 Après l'exécution d'une expérience dans Machine Learning Studio, il est possible d'accéder aux jeux de données intermédiaires depuis les nœuds de modules de sortie. Les jeux de données intermédiaires sont des données qui ont été créées et utilisées pour les étapes intermédiaires lorsqu'un outil de modèle a été exécuté.
@@ -133,10 +133,10 @@ Les étapes suivantes proposent un exemple qui créé une expérience, l'exécut
     ![Menu contextuel][experiment]
 8. Sélectionnez l’extrait de code dans la fenêtre qui s’affiche et copiez-le dans votre presse-papiers.
    
-    ![Code d'accès][intermediate-dataset-access-code]
+    ![Générer le code d’accès à partir du menu contextuel][intermediate-dataset-access-code]
 9. Collez le code dans votre bloc-notes.
    
-    ![Bloc-notes][ipython-intermediate-dataset]
+    ![Collez le code dans le notebook][ipython-intermediate-dataset]
 10. Vous pouvez visualiser les données à l'aide de matplotlib. Cela les affiche dans un histogramme pour la colonne âge :
     
     ![Histogramme][ipython-histogram]

@@ -1,6 +1,6 @@
 ---
-title: Mise à niveau vers la version la plus récente de l’API REST du service Recherche Azure | Microsoft Docs
-description: Mise à niveau vers la version la plus récente de l’API REST du service Recherche Azure
+title: Mettre à niveau vers la version la plus récente de l’API REST du service Recherche Azure – Recherche Azure
+description: Passez en revue les différences entre les versions des API et découvrez ce que vous devez faire pour migrer le code existant vers la dernière version de l’API REST du service Recherche Azure.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,14 +9,15 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 2efe7769f68988f3c0d52c8806b78c1b96d8c639
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.custom: seodec2018
+ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620227"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312185"
 ---
-# <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>Mise à niveau vers la version la plus récente de l’API REST du service Recherche Azure
+# <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Mettre à niveau vers la version la plus récente de l’API REST du service Recherche Azure
 Si vous utilisez une version antérieure de [l’API REST du service Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/), cet article vous aidera à mettre à niveau votre application pour utiliser la nouvelle version de l’API (2017-11-11).
 
 La version 2017-11-11 de l’API REST contient des modifications des versions antérieures. Ces modifications sont, pour la plupart, à compatibilité descendante. La modification de votre code est donc facilitée, selon la version que vous utilisiez précédemment. Consultez la page [Procédure de mise à niveau](#UpgradeSteps) pour obtenir des instructions sur la façon de modifier votre code pour qu’il utilise la nouvelle version de l’API.

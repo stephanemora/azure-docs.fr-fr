@@ -1,5 +1,5 @@
 ---
-title: 'DevOps pour applications d’intelligence artificielle (IA) : création d’un pipeline d’intégration continue sur Azure à l’aide de l’application Docker, Kubernetes et Python Flask'
+title: Créer un pipeline Azure d’intégration continue - Team Data Science Process
 description: 'DevOps pour applications d’intelligence artificielle (IA) : création d’un pipeline d’intégration continue sur Azure à l’aide de Docker et Kubernetes'
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: (previous author=jainr, ms.author=jainr)
-ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
+ms.openlocfilehash: a3c570d3d22742afcbba86f35a9dd1f6a85c0b8f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496745"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134282"
 ---
-# <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps pour applications d’intelligence artificielle (IA) : création d’un pipeline d’intégration continue sur Azure à l’aide de Docker et Kubernetes
+# <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Création d’un pipeline d’intégration continue sur Azure à l’aide de l’application Docker, Kubernetes et Python Flask
 Pour une application IA, il existe souvent deux flux de travail : des chercheurs de données générant des modèles de Machine Learning et des développeurs d’applications générant l’application et la présentant aux utilisateurs finaux pour qu’ils l’utilise. Dans cet article, nous allons montrer comment implémenter un pipeline d’intégration continue (CI)/de livraison continue (CD) pour une application IA. Une application IA est une combinaison de code d’application intégré avec un modèle de Machine Learning (ML) préformé. Pour cet article, nous extrayons un modèle préformé d’un compte de stockage d’objets blob Azure privé. Il peut également s’agir d’un compte AWS S3. Dans cet article, nous allons utiliser une application web Python Flask simple.
 
 > [!NOTE]

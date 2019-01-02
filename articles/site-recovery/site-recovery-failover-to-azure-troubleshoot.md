@@ -8,18 +8,17 @@ manager: abhemraj
 editor: ''
 ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447144"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255089"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle vers Azure
 
@@ -29,7 +28,7 @@ Vous pouvez recevoir les erreurs suivantes lorsque vous procédez au basculement
 
 Site Recovery n’a pas pu créer de machine virtuelle basculée dans Azure. L’une des raisons suivantes peut en être la cause :
 
-* Le quota disponible n’est pas suffisant pour créer la machine virtuelle : vous pouvez vérifier le quota disponible en accédant à Abonnement -> Utilisation + quotas. Vous pouvez ouvrir une [nouvelle demande de support](http://aka.ms/getazuresupport) pour augmenter le quota.
+* Le quota est suffisant pour créer la machine virtuelle : Vous pouvez vérifier le quota disponible en accédant à Abonnement -> Utilisation + quotas. Vous pouvez ouvrir une [nouvelle demande de support](http://aka.ms/getazuresupport) pour augmenter le quota.
 
 * Vous tentez de basculer des machines virtuelles de familles de taille différentes dans le même groupe à haute disponibilité. Veillez à choisir le même ordre de grandeur de taille pour toutes les machines virtuelles d’un même groupe à haute disponibilité. Changez la taille en accédant aux paramètres Calcul et réseau de la machine virtuelle, puis réessayez le basculement.
 
@@ -114,9 +113,6 @@ Si le bouton **Se connecter** de la machine virtuelle basculée dans Azure est d
 Lors du démarrage d’un machine virtuelle Windows après le basculement, si un message d’arrêt inattendu s’affiche sur la machine virtuelle récupérée, cela indique qu’un état d’arrêt de la machine virtuelle n’a pas été capturé dans le point de récupération utilisé pour le basculement. Cela se produit lorsque vous récupérez à un point où la machine virtuelle n'avait pas été complètement arrêtée.
 
 Il ne s’agit normalement pas d’une source de préoccupation et cela peut généralement être ignoré pour les basculements non planifiés. Dans le cas d’un basculement planifié, assurez-vous que la machine virtuelle a été correctement arrêtée avant le basculement et patientez suffisamment pour que les données de réplication locales en attente soient envoyées à Azure. Utilisez ensuite l’option **Plus récent** sur l’[écran de basculement](site-recovery-failover.md#run-a-failover) pour que toutes les données en attente sur Azure soient traitées en un point de récupération, qui est ensuite utilisé pour le basculement de la machine virtuelle.
-
-## <a name="retaining-drive-letter-after-failover"></a>Conserver la lettre de lecteur après le basculement
-Pour conserver la lettre de lecteur sur les machines virtuelles après basculement, vous pouvez définir la **stratégie SAN** de la machine virtuelle locale sur **Activé**. [En savoir plus](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Résoudre les problèmes de [connexion à la machine virtuelle Windows via RDP](../virtual-machines/windows/troubleshoot-rdp-connection.md)

@@ -1,20 +1,18 @@
 ---
-title: Utilisation de données géospatiales dans un compte d'API SQL Azure Cosmos DB | Microsoft Docs
+title: Utilisation de données géospatiales dans un compte d’API SQL Azure Cosmos DB
 description: Découvrez comment créer, indexer et interroger des objets spatiaux avec Azure Cosmos DB et l’API SQL.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 1de97ef34ab2db79ef7eaeca66cb8d0598ae9262
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 29bb495bbbd56ab39964b34db35fb4d222a60179
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284487"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074693"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Utiliser des données d’emplacement géospatiales et GeoJSON avec un compte d’API SQL Azure Cosmos DB
 
@@ -307,7 +305,7 @@ De même, voici une requête pour rechercher tous les documents dont la « loca
 Maintenant que nous avons expliqué l’interrogation de documents à l’aide de LINQ et SQL, voyons comment configurer Azure Cosmos DB pour l’indexation spatiale.
 
 ## <a name="indexing"></a>Indexation
-Comme décrit dans le livre [Schema Agnostic Indexing with Azure Cosmos DB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), nous avons conçu le moteur de base de données Azure Cosmos DB pour être véritablement indépendant du schéma et fournir une assistance exceptionnelle pour JSON. Le moteur de base de données optimisé en écriture d’Azure Cosmos DB comprend les données spatiales (points, polygones et lignes) représentées dans la norme GeoJSON en mode natif.
+Comme décrit dans le livre [Schema Agnostic Indexing with Azure Cosmos DB](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), nous avons conçu le moteur de base de données Azure Cosmos DB pour être véritablement indépendant du schéma et fournir une assistance exceptionnelle pour JSON. Le moteur de base de données optimisé en écriture d’Azure Cosmos DB comprend les données spatiales (points, polygones et lignes) représentées dans la norme GeoJSON en mode natif.
 
 En bref, la géométrie est projetée à partir des coordonnées géodésiques sur un plan 2D, puis divisée progressivement en cellules à l'aide un **quadtree**. Ces cellules sont mappées en 1D selon l'emplacement de la cellule dans une **courbe de remplissage d'espace de Hilbert**qui permet de préserver la localité des points. En outre, quand les données d’emplacement sont indexées, elles passent par un processus connu sous le nom de **pavage**, c’est-à-dire que toutes les cellules qui se croisent à un emplacement sont identifiées et stockées en tant que clés dans l’index Azure Cosmos DB. Au moment de la requête, des arguments comme les points et les polygones sont également fractionnés pour extraire les plages d’ID de cellule appropriées, puis utilisés pour récupérer des données à partir de l’index.
 
@@ -391,7 +389,7 @@ Voici comment vous pouvez modifier un regroupement existant pour tirer parti de 
 Maintenant que vous avez découvert comment démarrer avec la prise en charge géospatiale dans Azure Cosmos DB, vous pouvez :
 
 * Commencer à coder avec les [exemples de code .NET Geospatial sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
-* Découvrir l’interrogation géospatiale dans [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
+* Découvrir l’interrogation géospatiale dans [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo#geospatial)
 * En savoir plus sur les [requêtes Azure Cosmos DB](how-to-sql-query.md)
 * En savoir plus sur les [stratégies d’indexation Azure Cosmos DB](index-policy.md)
 

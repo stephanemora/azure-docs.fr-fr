@@ -2,19 +2,19 @@
 title: Personnaliser des clusters HDInsight à l’aide de Bootstrap - Azure
 description: Apprenez à personnaliser des clusters HDInsight à l’aide de Bootstrap.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: f0fe09a6d67d2ad72a1984168b669f34c8d8f3ef
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 2da89e674b967287150b2e8f3a98fc25df2af81e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107403"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878259"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personnalisation de clusters HDInsight à l’aide de Bootstrap
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur l’installation de composants supplémentaires s
 * [Personnalisation des clusters HDInsight à l'aide d'une action de script (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
-Le code PowerShell suivant permet de personnaliser une configuration Hive :
+Le code PowerShell suivant permet de personnaliser une configuration [Apache Hive](https://hive.apache.org/) :
 
 ```powershell
 # hive-site.xml configuration
@@ -106,7 +106,7 @@ $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 # oozie-site.xml configuration
 $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 ```
-Pour plus d’informations, consultez le blog d’Azim Uddin, intitulé [Personnalisation de la création d’un cluster HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+Pour plus d’informations, consultez le blog d’Azim Uddin, intitulé [Personnalisation de la création d’un cluster HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
 ## <a name="use-net-sdk"></a>Utilisation du Kit de développement logiciel (SDK) .NET
 Consultez [Créer des clusters Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
@@ -128,11 +128,11 @@ Vous pouvez utiliser Bootstrap dans un modèle Resource Manager :
 ![HDInsight Hadoop personnalise le modèle Azure Resource Manager de Bootstrap de cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Voir aussi
-* [Créer des clusters Hadoop dans HDInsight][hdinsight-provision-cluster] pour obtenir des instructions sur la création d’un cluster HDInsight à l’aide d’autres options personnalisées.
+* [Créer des clusters Apache Hadoop dans HDInsight][hdinsight-provision-cluster] pour obtenir des instructions sur la création d’un cluster HDInsight à l’aide d’autres options personnalisées.
 * [Développer des scripts d’action de script pour HDInsight][hdinsight-write-script]
-* [Installer et utiliser Spark sur les clusters HDInsight][hdinsight-install-spark]
-* [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install.md)
-* [Installez et utilisez Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md).
+* [Installer et utiliser Apache Spark sur des clusters HDInsight][hdinsight-install-spark]
+* [Installer et utiliser Apache Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install.md).
+* [Installer et utiliser Apache Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
@@ -142,7 +142,7 @@ Vous pouvez utiliser Bootstrap dans un modèle Resource Manager :
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Procédure de création d’un cluster"
 
-## <a name="appendix-powershell-sample"></a>Annexe : exemple PowerShell
+## <a name="appendix-powershell-sample"></a>Annexe : Exemple de code PowerShell
 Ce script PowerShell permet de créer un cluster HDInsight et de personnaliser un paramètre Hive :
 
 ```powershell

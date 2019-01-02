@@ -9,17 +9,16 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0895d31475de5d78c82f3bfedc0765e5a9549339
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960920"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877596"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Détection intelligente des anomalies de type échec
 [Application Insights](app-insights-overview.md) vous avertit automatiquement en temps quasi-réel si une augmentation anormale du taux des requêtes en échec est détectée dans votre application web. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les demandes ayant échoué sont généralement celles dont le code de réponse est supérieur ou égal à 400. Pour vous aider à prioriser et à diagnostiquer le problème, la notification s’accompagne d’une analyse des caractéristiques des requêtes ayant échoué et de la télémétrie connexe. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
@@ -92,7 +91,7 @@ Il existe certains autres indices. Par exemple, le taux d’échec de dépendanc
 
 Pour approfondir vos recherches, les liens de chaque section vous dirigent directement vers une [page de recherche](app-insights-diagnostic-search.md) comportant uniquement les demandes, l’exception, la dépendance ou les journaux de suivi pertinents. Vous pouvez également ouvrir le [portail Azure](https://portal.azure.com), accéder à la ressource Application Insights pour votre application et ouvrir le panneau Échecs.
 
-Dans cet exemple, cliquez sur le lien « View dependency failures details (Afficher les détails sur les échecs de dépendance) » pour ouvrir le panneau de recherche d’Application Insights. Il affiche l’instruction SQL qui contient un exemple de l’origine du problème : des valeurs NULL fournies dans les champs obligatoires ont bloqué la validation pendant l’opération d’enregistrement.
+Dans cet exemple, cliquez sur le lien « View dependency failures details (Afficher les détails sur les échecs de dépendance) » pour ouvrir le panneau de recherche d’Application Insights. Il affiche l’instruction SQL qui contient un exemple de cause racine : des valeurs NULL fournies dans les champs obligatoires ont bloqué la validation pendant l’opération d’enregistrement.
 
 ![Recherche de diagnostic](./media/app-insights-proactive-failure-diagnostics/051.png)
 
@@ -124,11 +123,11 @@ La détection intelligente des anomalies de type échec vient compléter d’aut
 
 *Mais alors, vous examinez mes données ?*
 
-* Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](app-insights-data-retention-privacy.md).
+*  Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](app-insights-data-retention-privacy.md).
 
 *Dois-je m’abonner à cette alerte ?*
 
-* Non. Chaque application qui envoie des données de télémétrie de requête possède la règle d’alerte de la détection intelligente.
+*  Non. Chaque application qui envoie des données de télémétrie de requête possède la règle d’alerte de la détection intelligente.
 
 *Puis-je me désabonner ou obtenir des notifications envoyées à mes collègues ?*
 
@@ -147,7 +146,7 @@ Ces outils de diagnostic vous aident à inspecter les données de télémétrie 
 
 * [Metrics Explorer](app-insights-metrics-explorer.md)
 * [Navigateur de recherche](app-insights-diagnostic-search.md)
-* [Analytics : un puissant langage de requête](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics : un puissant langage de requête](../azure-monitor/log-query/get-started-portal.md)
 
 Les détections intelligentes sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 

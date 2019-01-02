@@ -6,15 +6,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39a938d45c8f15c21b44bb5b04b1429fb4733b5a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033921"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323266"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
 Microsoft s’engage à déployer tous les efforts nécessaires pour garantir en permanence la disponibilité de ses services. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiés dans une ou plusieurs régions. Pour vous aider à faire face à ces rares occurrences, vous trouverez ici quelques conseils généraux pour les services Azure Storage.
@@ -34,16 +34,16 @@ Pour déterminer l’état du service Azure, il est recommandé de s’abonner a
 ## <a name="what-to-do-if-a-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
 Si un ou plusieurs services Azure Storage sont provisoirement indisponibles dans une ou plusieurs régions, deux options s’offrent à vous. Si vous souhaitez un accès immédiat à vos données, envisagez l’Option 2.
 
-### <a name="option-1-wait-for-recovery"></a>Option 1: attente de récupération
+### <a name="option-1-wait-for-recovery"></a>Option 1 : Attendre la récupération
 Dans ce cas, aucune action n’est requise de votre part. Nous travaillons assidûment à la restauration de la disponibilité du service Azure. Vous pouvez analyser l’état actuel du service dans le [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/).
 
-### <a name="option-2-copy-data-from-secondary"></a>Option 2: copie de données à partir de la base de données secondaire
+### <a name="option-2-copy-data-from-secondary"></a>Option 2 : Copier les données à partir de la base de données secondaire
 Si vous avez choisi le [stockage géo-redondant avec accès en lecture (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recommandé) pour vos comptes de stockage, vous bénéficierez d’un accès en lecture à vos données à partir de la région secondaire. Vous pouvez utiliser des outils tels que [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) et la [bibliothèque de déplacement des données Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) pour copier des données de la région secondaire dans un autre compte de stockage situé dans une région non compromise, puis pointer vos applications vers ce compte de stockage pour bénéficier d’un accès en lecture et en écriture.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Que se passe-t-il en cas de basculement d’Azure Storage ?
 Si vous avez choisi le [stockage géo-redondant (GRS)](storage-redundancy-grs.md) ou le [stockage géo-redondant avec accès en lecture (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recommandé), Azure Storage conservera vos données dans deux régions (primaire et secondaire). Azure Storage conserve constamment plusieurs réplicas de vos données dans les deux régions.
 
-Lorsqu’un sinistre régional affecte votre région primaire, nous tentons d’abord de restaurer le service dans la région qui fournit la meilleure combinaison d’objectif de délai de récupération (RTO) et d’objectif de point de récupération (RPO). Selon de la nature de l’incident et son impact, il peut arriver dans de rares circonstances que ne soyons pas en mesure de restaurer la région primaire. À ce stade, nous procéderons à un basculement géographique. La réplication de données inter-régions est un processus asynchrone qui peut nécessiter un certain délai. Il est donc possible que les modifications qui n’ont pas encore été répliquées dans la région secondaire soient perdues.
+Quand un sinistre régional affecte votre région primaire, nous tentons d’abord de restaurer le service dans la région qui fournit la meilleure combinaison d’objectif de délai de récupération (RTO) et d’objectif de point de récupération (RPO). Selon de la nature de l’incident et son impact, il peut arriver dans de rares circonstances que ne soyons pas en mesure de restaurer la région primaire. À ce stade, nous procéderons à un basculement géographique. La réplication de données inter-régions est un processus asynchrone qui peut nécessiter un certain délai. Il est donc possible que les modifications qui n’ont pas encore été répliquées dans la région secondaire soient perdues.
 
 Quelques points relatifs à l’expérience de basculement géographique du stockage :
 

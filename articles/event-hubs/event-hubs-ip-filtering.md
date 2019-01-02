@@ -1,38 +1,36 @@
 ---
-title: Filtres IP Azure Event Hubs | Microsoft Docs
-description: Utilisez le filtrage IP pour bloquer les connexions à Azure Event Hubs à partir d’adresses IP spécifiques.
+title: Règles de pare-feu dans Azure Event Hubs | Microsoft Docs
+description: Utilisez les règles de pare-feu pour autoriser les connexions à Azure Event Hubs à partir d’adresses IP spécifiques.
 services: event-hubs
 documentationcenter: ''
 author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
+ms.custom: seodec18
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408147"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268272"
 ---
-# <a name="use-ip-filters"></a>Utiliser des filtres IP
+# <a name="use-firewall-rules"></a>Utiliser les règles de pare-feu
 
-Pour les scénarios où Azure Event Hubs doit uniquement être accessible à partir de certains sites bien connus, la fonctionnalité *Filtre IP* vous permet de configurer des règles pour refuser ou accepter le trafic en provenance d’adresses IPv4 spécifiques. Par exemple, ces adresses peuvent être celles d’une passerelle NAT d’entreprise.
+Pour les scénarios où Azure Event Hubs doit uniquement être accessible à partir de certains sites bien connus, les règles de pare-feu vous permettent de configurer des règles pour accepter le trafic en provenance d’adresses IPv4 spécifiques. Par exemple, ces adresses peuvent être celles d’une passerelle NAT d’entreprise.
 
 ## <a name="when-to-use"></a>Quand utiliser
 
-Les deux cas d’utilisation importants dans lesquels il est utile de bloquer Event Hubs pour certaines adresses IP sont les suivantes :
-
-- Vos hubs d’événements doivent uniquement recevoir le trafic d’une plage d’adresses IP spécifiée et refuser tout le reste. Par exemple, vous utilisez Event Hubs avec [Azure Express Route][express-route] pour créer des connexions privées à votre infrastructure locale. 
-- Vous devez refuser le trafic en provenance d’adresses IP qui ont été identifiées comme suspectes par l’administrateur Event Hubs.
+Si vous cherchez à configurer votre espace de noms Event Hubs de sorte qu’il puisse recevoir le trafic uniquement en provenance d’une plage spécifiée d’adresses IP et rejeter toutes les autres, vous pouvez utiliser une *règle de pare-feu* pour bloquer les points de terminaison Event Hub à partir des autres adresses IP. Par exemple, vous pouvez utiliser Event Hubs avec [Azure Express Route][express-route] pour créer des connexions privées à votre infrastructure locale.
 
 ## <a name="how-filter-rules-are-applied"></a>Application des règles de filtre
 
 Les règles de filtre IP sont appliquées au niveau de l’espace de noms Event Hubs. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge.
 
-Toute tentative de connexion à partir d’une adresse IP qui correspond à une règle IP de rejet dans l’espace de noms Event Hubs est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP.
+Toute tentative de connexion à partir d’une adresse IP qui ne correspond pas à une règle IP autorisée dans l’espace de noms Event Hubs est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP.
 
 ## <a name="default-setting"></a>Paramètre par défaut
 
@@ -42,68 +40,107 @@ Par défaut, la grille **Filtre IP** du portail pour Event Hubs est vide. Ce pa
 
 Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
 
-Par exemple, si vous souhaitez accepter les adresses dans la plage 70.37.104.0/24 et rejeter tout le reste, la première règle de la grille doit accepter la plage d’adresses 70.37.104.0/24. La règle suivante doit rejeter toutes les adresses à l’aide de la plage 0.0.0.0/0.
+>[!WARNING]
+> La mise en place de pare-feu peut empêcher d’autres services Azure d’interagir avec Event Hubs.
+>
+> Les services Microsoft de confiance ne sont pas pris en charge quand le filtrage d’adresse IP (pare-feu) est implémenté. Ils le seront prochainement.
+>
+> Scénarios courants Azure qui ne fonctionnent pas avec le filtrage d’adresse IP (notez que cette liste **N’EST PAS** exhaustive) :
+> - Azure Monitor
+> - Azure Stream Analytics
+> - Intégration à Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+> - Explorateur de données Azure
+>
+> Les services Microsoft suivants doivent être sur un réseau virtuel :
+> - Azure Web Apps 
+> - Azure Functions
 
-> [!NOTE]
-> Le rejet d’adresses IP est de nature à empêcher d’autres services Azure (comme Azure Stream Analytics, Machines virtuelles Azure ou Device Explorer dans le portail) d’interagir avec Event Hubs.
-
-### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>Création d’une règle de filtre IP avec des modèles Azure Resource Manager
+### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Création d’une règle de pare-feu avec des modèles Azure Resource Manager
 
 > [!IMPORTANT]
-> Les réseaux virtuels sont pris en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau de base. 
+> Les règles de pare-feu sont prises en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau de base.
 
 Le modèle Resource Manager suivant permet d’ajouter une règle de filtre IP à un espace de noms Event Hubs.
 
 Paramètres du modèle :
 
-- **ipFilterRuleName** doit être une chaîne alphanumérique unique qui ne prend pas en compte la casse et qui ne dépasse pas 128 caractères.
-- **ipFilterAction** correspond à l’action **Rejeter** ou **Accepter** à appliquer pour la règle de filtre IP.
 - **ipMask** est une adresse IPv4 unique ou un bloc d’adresses IP en notation CIDR. Par exemple, dans la notation CIDR, 70.37.104.0/24 représente les 256 adresses IPv4 comprises entre 70.37.104.0 et 70.37.104.255, 24 indiquant le nombre de bits de préfixe significatifs pour la plage.
 
+> [!NOTE]
+> Bien qu’il n’existe aucune règle de refus possible, l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.
+> Lorsque vous élaborez des règles de réseau virtuel ou de pare-feu, vous devez modifier ***defaultAction***
+> 
+> from
+> ```json
+> "defaultAction": "Allow"
+> ```
+> to
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "ipFilterRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "ipFilterAction":{  
-             "type":"string",
-             "allowedValues": ["Reject", "Accept"],
-             "metadata":{  
-                "description":"IP Filter Action"
-             }
-          },
-          "IpMask":{  
-             "type":"string",
-             "metadata":{  
-                "description":"IP Mask"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "eventhubNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
       },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.EventHub/Namespaces/IPFilterRules",
-            "properties": {
-                "FilterName":"[parameters('ipFilterRuleName')]",
-                "Action":"[parameters('ipFilterAction')]",              
-                "IpMask": "[parameters('IpMask')]"
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
-    ]
-}
+          ],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Pour déployer le modèle, suivez les instructions pour [Azure Resource Manager][lnk-deploy].

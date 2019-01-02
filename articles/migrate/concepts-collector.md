@@ -4,15 +4,15 @@ description: Fournit des informations sur l’appliance Collector dans Azure Mig
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241189"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255973"
 ---
 # <a name="about-the-collector-appliance"></a>À propos de l’appliance Collector
 
@@ -20,45 +20,35 @@ ms.locfileid: "50241189"
 
 Azure Migrate Collector est une appliance légère qui peut être utilisée pour découvrir un environnement vCenter local dans le cadre d’une évaluation avec le service [Azure Migrate](migrate-overview.md), avant la migration vers Azure.  
 
-## <a name="discovery-methods"></a>Méthodes de découverte
+## <a name="discovery-method"></a>Méthode de détection
 
-Il existe deux options pour l’appliance Collector : découverte unique ou découverte en continu.
+Auparavant, deux options étaient disponibles pour l’appliance collecteur : la détection unique et la détection en continu. Le modèle de détection unique est maintenant déconseillé, car il s’appuyait sur les paramètres de statistiques vCenter Server pour la collecte de données de performance (ce qui nécessitait des paramètres de statistiques de niveau 3) et collectait également des compteurs de moyenne (au lieu de compteurs de pointe), ce qui entraînait un sous-dimensionnement. Le modèle de détection en continu garantit la collecte de données granulaires et entraîne un dimensionnement précis en raison de la collecte de compteurs de pointe. Voici comment cela fonctionne :
 
-### <a name="one-time-discovery"></a>Détection unique
+L’appliance collecteur est connectée en continu au projet Azure Migrate et elle collecte en continu les données de performances des machines virtuelles.
 
-L’appliance Collector communique une fois avec vCenter Server pour rassembler les métadonnées sur les machines virtuelles. À l’aide de cette méthode :
-
-- L’appliance n’est pas connectée en permanence au projet Azure Migrate.
-- Les modifications effectuées dans l’environnement local ne sont pas répercutées dans Azure Migrate au terme de la découverte. Pour répercuter ces modifications, vous devez redécouvrir le même environnement dans le même projet.
-- Quand elle collecte les données de performances relatives à une machine virtuelle, l’appliance s’appuie sur les données de performances historiques stockées dans vCenter Server. Elle collecte l’historique des performances du mois passé.
-- Pour la collecte de l’historique des données de performance, vous devez définir les paramètres de statistiques dans vCenter Server sur le niveau 3. Après avoir défini le niveau sur 3, vous devez attendre au moins un jour pour que vCenter collecte les compteurs de performances. Ainsi, nous vous recommandons d’attendre au moins un jour avant d’exécuter la découverte. Si vous souhaitez évaluer l’environnement en fonction des données de performances d’une semaine ou d’un mois, vous devez patienter en conséquence.
-- Dans cette méthode de découverte, Azure Migrate collecte des données de compteurs de moyenne pour chaque métrique (plutôt que des compteurs de pic), ce qui peut aboutir à un sous-dimensionnement. Nous vous recommandons d’utiliser l’option de découverte en continu pour obtenir des résultats de dimensionnement plus précis.
-
-### <a name="continuous-discovery"></a>Détection continue
-
-L’appliance Collecteur est connectée en permanence au projet Azure Migrate et elle collecte en continu les données de performance des machines virtuelles.
-
-- Le Collecteur profile en permanence l’environnement local pour collecter les données d’utilisation en temps réel toutes les 20 secondes.
+- Le collecteur profile en continu l’environnement local pour collecter les données d’utilisation en temps réel toutes les 20 secondes.
 - L’appliance cumule les échantillons de 20 secondes et crée un point de données unique toutes les 15 minutes.
 - Pour créer le point de données, l’appliance sélectionne la valeur maximale dans les échantillons de 20 secondes et l’envoie à Azure.
 - Ce modèle ne dépend pas des paramètres de statistiques vCenter Server pour collecter les données de performances.
 - Vous pouvez arrêter à tout moment le profilage continu à partir du Collecteur.
 
-Notez que l’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
+**Résultats instantanés :** avec l’application de détection en continu, une fois la détection terminée (au bout de deux heures environ, en fonction du nombre de machines virtuelles), vous pouvez créer immédiatement des évaluations. Étant donné que la collecte des données de performances démarre lorsque vous lancez la découverte, si vous voulez obtenir des résultats instantanément, vous devez sélectionner le critère de dimensionnement *Localement* dans l’évaluation. Pour les évaluations de performances, il est conseillé d’attendre au moins un jour après le lancement de la découverte afin d’obtenir des recommandations de taille fiables.
 
-- Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance et puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
+L’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque, etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
 
-- Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
+- Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications sur le Portail Azure, vous pouvez arrêter la détection de l’appliance, puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
+
+- Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas, même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
 
 > [!NOTE]
-> La fonctionnalité de découverte en continu est en préversion. Nous vous recommandons d’utiliser cette méthode, car elle collecte des données de performances granulaires pour un dimensionnement correct.
+> L’appliance de découverte unique est désormais dépréciée, car son utilisation dépend des paramètres de statistiques vCenter Server concernant la disponibilité des points de données de performances, et nécessite la collecte des données de compteurs de performance moyenne, ce qui a comme résultat d’attribuer une taille insuffisante aux machines virtuelles pour la migration vers Azure.
 
 ## <a name="deploying-the-collector"></a>Déployer le collecteur
 
 Vous déployez l’appliance Collector à l’aide d’un modèle OVF :
 
 - Vous téléchargez le modèle OVF à partir d’un projet Azure Migrate dans le portail Azure. Vous importez le fichier téléchargé dans vCenter Server, pour configurer la machine virtuelle de l’appliance Collector.
-- À partir du modèle OVF, VMware configure une machine virtuelle dotée de 4 cœurs, de 8 Go de RAM et d’un disque de 80 Go. Le système d’exploitation est Windows Server 2012 R2 (64 bits).
+- À partir du modèle OVF, VMware configure une machine virtuelle dotée de 8 cœurs, de 16 Go de RAM et d’un disque de 80 Go. Le système d’exploitation est Windows Server 2016 (64 bits).
 - Quand vous exécutez le collecteur, une série de vérifications de prérequis s’exécute pour vérifier que le collecteur peut se connecter à Azure Migrate.
 
 - [Familiarisez-vous](tutorial-assessment-vmware.md#create-the-collector-vm) avec la création du collecteur.
@@ -68,21 +58,25 @@ Vous déployez l’appliance Collector à l’aide d’un modèle OVF :
 
 Vous devez effectuer quelques vérifications de prérequis pour vous assurer que le Collecteur peut se connecter au service Azure Migrate via Internet et charger des données découvertes.
 
-- **Vérifier la connexion Internet** : le collecteur peut se connecter à Internet directement ou via un proxy.
+- **Vérifier le cloud Azure** : Le collecteur doit connaître le cloud Azure vers lequel vous envisagez d’effectuer la migration.
+    - Sélectionnez Azure Government si vous envisagez d’effectuer une migration vers le cloud Azure Government.
+    - Sélectionnez Azure Global si vous envisagez d’effectuer une migration vers le cloud Azure commercial.
+    - En fonction du cloud spécifié ici, l’appliance envoie les métadonnées détectées aux points de terminaison respectifs.
+- **Vérifier la connexion Internet** : le collecteur peut se connecter à Internet directement ou par le biais d’un proxy.
     - La vérification de prérequis vérifie la connectivité aux [URL requises et facultatives](#connect-to-urls).
     - Si vous avez une connexion directe à Internet, aucune action spécifique n’est nécessaire à part vérifier que le collecteur peut atteindre les URL requises.
     - Si vous vous connectez via un proxy, notez les [exigences ci-dessous](#connect-via-a-proxy).
-- **Vérifier la synchronisation de l’heure** : le Collecteur doit être synchronisé avec le serveur de temps Internet pour que les requêtes envoyées au service soient authentifiées.
+- **Vérifier la synchronisation de l’heure** : le collecteur doit être synchronisé avec le serveur de temps Internet pour que les requêtes envoyées au service soient authentifiées.
     - L’URL portal.azure.com doit être accessible à partir du Collecteur afin que l’heure puisse être validée.
     - Si la machine n’est pas synchronisée, vous devez changer l’heure de l’horloge sur la machine virtuelle Collecteur afin qu’elle corresponde à l’heure actuelle. Pour ce faire, ouvrez une invite d’administrateur sur la machine virtuelle, puis exécutez **w32tm /tz** pour vérifier le fuseau horaire. Exécutez **w32tm /resync** pour synchroniser l’heure.
-- **Vérifier que le service Collecteur est en cours d’exécution** : le service Azure Migrate Collector doit être en cours d’exécution sur la machine virtuelle Collecteur.
+- **Vérifier le service collecteur en cours d’exécution** :  le service Azure Migrate Collector doit être en cours d’exécution sur la machine Collector.
     - Ce service est lancé automatiquement au démarrage de la machine.
     - Si le service n’est pas en cours d’exécution, démarrez-le à partir du Panneau de configuration.
     - Le service Collecteur se connecte à vCenter Server, collecte les données de performances et les métadonnées des machines virtuelles, puis les envoie au service Azure Migrate.
-- **Vérifier que VMware PowerCLI 6.5 est installé** : le module PowerShell VMware PowerCLI 6.5 doit être installé sur la machine virtuelle Collecteur, afin qu’elle puisse communiquer avec vCenter Server.
+- **Vérifier que VMware PowerCLI 6.5 est installé** : le module PowerShell VMware PowerCLI 6.5 doit être installé sur la machine virtuelle Collector, afin qu’elle puisse communiquer avec vCenter Server.
     - Si le collecteur peut accéder aux URL requises pour installer le module, celui-ci est installé automatiquement pendant le déploiement du collecteur.
     - Si le collecteur ne peut pas installer le module pendant le déploiement, vous devez [l’installer manuellement](#install-vwware-powercli-module-manually).
-- **Vérifier la connexion à vCenter Server** : le collecteur doit être en mesure de se connecter à vCenter Server et d’exécuter des requêtes portant sur les machines virtuelles, leurs métadonnées et leurs compteurs de performances. [Vérifiez les prérequis](#connect-to-vcenter-server) pour la connexion.
+- **Vérifier la connexion à vCenter Server** : le collecteur doit être en mesure de se connecter à vCenter Server et d’exécuter des requêtes portant sur les machines virtuelles, leurs métadonnées et leurs compteurs de performances. [Vérifiez les prérequis](#connect-to-vcenter-server) pour la connexion.
 
 
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Se connecter à Internet via un proxy
@@ -117,7 +111,8 @@ Vous validez la vérification de la connectivité en vous connectant à une list
 
 **URL** | **Détails**  | **Vérification du prérequis**
 --- | --- | ---
-*. portal.azure.com | Vérifie la connectivité avec le service Azure et la synchronisation de l’heure. | Accès à l’URL requise.<br/><br/> La vérification du prérequis échoue s’il n’y a pas de connectivité.
+*. portal.azure.com | S’applique à Azure Global. Vérifie la connectivité avec le service Azure et la synchronisation de l’heure. | Accès à l’URL requise.<br/><br/> La vérification du prérequis échoue s’il n’y a pas de connectivité.
+*.portal.azure.us | S’applique uniquement à Azure Government. Vérifie la connectivité avec le service Azure et la synchronisation de l’heure. | Accès à l’URL requise.<br/><br/> La vérification du prérequis échoue s’il n’y a pas de connectivité.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Permet de télécharger le module PowerShell vCenter PowerCLI. | Accès aux URL facultatives.<br/><br/> La vérification du prérequis n’échoue pas.<br/><br/> L’installation automatique du module sur la machine virtuelle Collecteur échoue. Vous devez installer le module manuellement.
 
 
@@ -211,7 +206,7 @@ Une fois l’appliance configurée, vous pouvez exécuter la découverte. Voici 
 
 ### <a name="collected-metadata"></a>Métadonnées collectées
 
-L’appliance Collector découvre les métadonnées statiques suivantes pour les machines virtuelles :
+L’appliance collecteur détecte les métadonnées de configuration suivantes pour chaque machine virtuelle. Les données de configuration relatives à la machine virtuelle sont disponibles une heure après le démarrage de la détection.
 
 - Nom d’affichage de la machine virtuelle (sur vCenter Server)
 - Chemin d’inventaire de la machine virtuelle (hôte/dossier sur vCenter Server)
@@ -224,26 +219,18 @@ L’appliance Collector découvre les métadonnées statiques suivantes pour les
 
 #### <a name="performance-counters"></a>Compteurs de performances
 
-- **Découverte unique** : quand des compteurs sont collectés pour une découverte unique, notez les points suivants :
+ L’appliance collecteur collecte les compteurs de performances suivants pour chaque machine virtuelle à partir de l’hôte ESXi, et ce, à des intervalles de 20 secondes. Ce sont des compteurs vCenter et, bien que la terminologie indique le terme « moyenne », les exemples de 20 secondes sont des compteurs en temps réel. Les données de performances pour les machines virtuelles commencent à être disponibles sur le portail deux heures après le lancement de la détection. Il est vivement recommandé d’attendre au moins un jour avant de créer des évaluations basées sur les performances pour obtenir des recommandations de dimensionnement fiables. Si vous souhaitez des résultats instantanés, vous pouvez créer des évaluations avec un critère de dimensionnement, tel que *localement*, qui ne prend pas en compte les données de performances pour le dimensionnement.
 
-    - La collecte des métadonnées de configuration et leur envoi au projet peuvent prendre jusqu’à 15 minutes.
-    - Une fois les données de configuration collectées, il peut s’écouler une heure avant que les données de performances ne soient disponibles dans le portail.
-    - Une fois les métadonnées disponibles dans le portail, la liste des machines virtuelles s’affiche ; vous pouvez alors commencer à créer des groupes pour l’évaluation.
-- **Découverte en continu** : pour la découverte en continu, notez les points suivants :
-    - Les données de configuration pour la machine virtuelle sont disponibles une heure après le démarrage de la découverte.
-    - Les données de performances commencent à être disponibles au bout de 2 heures.
-    - Après avoir démarré la découverte, attendez au moins un jour que l’appliance profile l’environnement ; vous pourrez ensuite créer des évaluations.
-
-**Compteur** | **Niveau** | **Niveau par appareil** | **Impact sur l’évaluation**
---- | --- | --- | ---
-cpu.usage.average | 1 | N/D | Taille de machine virtuelle recommandée et coût  
-mem.usage.average | 1 | N/D | Taille de machine virtuelle recommandée et coût  
-virtualDisk.read.average | 2 | 2 | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
-virtualDisk.write.average | 2 | 2  | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
-virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
-virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
-net.received.average | 2 | 3 |  Calcule la taille de machine virtuelle                          |
-net.transmitted.average | 2 | 3 | Calcule la taille de machine virtuelle     
+**Compteur** |  **Impact sur l’évaluation**
+--- | ---
+cpu.usage.average | Taille de machine virtuelle recommandée et coût  
+mem.usage.average | Taille de machine virtuelle recommandée et coût  
+virtualDisk.read.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
+virtualDisk.write.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
+virtualDisk.numberReadAveraged.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
+virtualDisk.numberWriteAveraged.average | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
+net.received.average | Calcule la taille de machine virtuelle                          
+net.transmitted.average | Calcule la taille de machine virtuelle     
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Reward Gateway | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Reward Gateway | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Reward Gateway.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d5cda8830b480e9ef9dff18cb3d7b99e1db55590
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0339889228c80cc3675fd7fde52e75cb84521ab6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442793"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840178"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Didacticiel : Intégration d’Azure Active Directory à Reward Gateway
+# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutoriel : Intégration d’Azure Active Directory à Reward Gateway
 
 Dans ce didacticiel, vous allez apprendre à intégrer Reward Gateway à Azure Active Directory (Azure AD).
 
@@ -129,7 +129,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, commencez à configurer une intégration sur le portail Reward Manager. Vous trouverez plus d’informations à l’adresse http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, commencez à configurer une intégration sur le portail Reward Manager. Vous trouverez plus d’informations à l’adresse https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
  
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -139,10 +139,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configurer l'authentification unique](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-1. Pour configurer l’authentification unique côté **Reward Gateway**, commencez à configurer une intégration sur le portail Reward Manager. Utilisez les métadonnées téléchargées pour obtenir votre certificat de signature et chargez-le lors de la configuration. Vous trouverez plus d’informations à l’adresse http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+1. Pour configurer l’authentification unique côté **Reward Gateway**, commencez à configurer une intégration sur le portail Reward Manager. Utilisez les métadonnées téléchargées pour obtenir votre certificat de signature et chargez-le lors de la configuration. Vous trouverez plus d’informations à l’adresse https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 5566ea8b21682c5023afc4af357e1a80e1d37384
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 62924488b776a1a89e1abf492db1881a44585b1a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248469"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997825"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Liaison de table externe pour Azure Functions (expérimental)
 
@@ -49,7 +49,7 @@ Lors de l’attribution d’une liaison, vous pouvez créer une connexion d’AP
 |[Salesforce](https://docs.microsoft.com/azure/connectors/connectors-create-api-salesforce)||x|x
 |[SharePoint](https://docs.microsoft.com/azure/connectors/connectors-create-api-sharepointonline)||x|x
 |[SQL Server](https://docs.microsoft.com/azure/connectors/connectors-create-api-sqlazure)||x|x
-|[Teradata](http://www.teradata.com/products-and-services/azure/products/)||x|x
+|[Teradata](https://www.teradata.com/products-and-services/azure/products/)||x|x
 |UserVoice||x|x
 |Zendesk||x|x
 
@@ -166,7 +166,7 @@ GO
 
 ### <a name="google-sheets-data-source"></a>Source de données Google Sheets
 
-Pour créer une table à utiliser avec cet exemple dans Google Docs, créez une feuille de calcul nommée `Contact`. Le connecteur ne peut pas utiliser le nom d’affichage de la feuille de calcul. Le nom interne (en gras) doit servir en tant que dataSetName, par exemple : `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Ajoutez les noms de colonne `Id`, `LastName`, `FirstName` à la première ligne, puis remplissez les données sur les lignes suivantes.
+Pour créer une table à utiliser avec cet exemple dans Google Docs, créez une feuille de calcul nommée `Contact`. Le connecteur ne peut pas utiliser le nom d’affichage de la feuille de calcul. Le nom interne (en gras) doit être utilisé comme dataSetName, par exemple : `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Ajoutez les noms de colonnes `Id`, `LastName`, `FirstName` à la première ligne, puis remplissez les lignes suivantes avec les données.
 
 ### <a name="salesforce"></a>Salesforce
 

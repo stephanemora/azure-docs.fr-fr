@@ -1,5 +1,5 @@
 ---
-title: Certificats et l’environnement Azure App Service
+title: Certificats et l’environnement App Service - Azure
 description: Explique de nombreux points sur les certificats dans un environnement ASE
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 3d417d560d8a88100f31def27c7db5f9b2493062
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167672"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271893"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificats et l’environnement App Service 
 
@@ -32,8 +33,8 @@ Si vous utilisez un environnement ASE externe, vous pouvez accéder à vos appli
 
 Deux options vous permettent de configurer des certificats avec votre environnement ASE ILB.  Vous pouvez définir un certificat par défaut avec caractères génériques pour l’environnement ASE ILB ou définir des certificats sur chaque application web de l’environnement ASE.  Quel que soit votre choix, les attributs de certificat suivants doivent être configurés correctement :
 
-- **Objet** : Cet attribut doit être défini avec *.[votre-domaine-racine-ici] pour un certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici]
-- **Autre nom de l’objet :** Cet attribut doit inclure à la fois *.[votre-domaine-racine-ici] et *.scm.[votre-domaine-racine-ici] pour le certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici] et [nomapp].scm.[votre-domaine-racine-ici].
+- **Objet :** cet attribut doit être défini avec *.[votre-domaine-racine-ici] pour un certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici]
+- **Autre nom de l’objet :** cet attribut doit inclure à la fois *.[votre-domaine-racine-ici] et *.scm.[votre-domaine-racine-ici] pour le certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici] et [nomapp].scm.[votre-domaine-racine-ici].
 
 Troisième variante, vous pouvez créer un certificat ASE ILB qui inclut les noms de toutes vos applications dans l’autre nom de l’objet du certificat au lieu d’utiliser une référence avec caractères génériques. Le problème avec cette méthode est que vous devez connaître à l’avance les noms des applications que vous placez dans l’environnement ASE ou que vous devez mettre à jour le certificat ASE ILB au fur et à mesure.
 
@@ -78,7 +79,7 @@ Pour charger le certificat sur votre application dans votre environnement ASE :
 
 1. Générez un fichier *.cer* pour votre certificat. 
 2. Accédez à l’application qui nécessite le certificat dans le portail Azure.
-3. Accédez aux paramètres SSL de l’application. Cliquez sur Charger le certificat. Sélectionnez Public. Sélectionnez Ordinateur local. Donnez-lui un nom. Recherchez et sélectionnez votre fichier *.cer*. Sélectionnez Charger. 
+3. Accédez aux paramètres SSL de l’application. Cliquez sur Charger le certificat. Sélectionnez Public. Sélectionnez Ordinateur local. Donnez-lui un nom. Recherchez et sélectionnez votre fichier *.cer*. Sélectionnez Télécharger. 
 4. Copiez l’empreinte numérique.
 5. Accédez à Paramètres de l’application. Créez le paramètre d’application WEBSITE_LOAD_ROOT_CERTIFICATES avec l’empreinte numérique comme valeur. Si vous avez plusieurs certificats, vous pouvez les placer dans le même paramètre, séparés par des virgules et sans espace comme 
 

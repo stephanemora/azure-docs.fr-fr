@@ -5,9 +5,8 @@ keywords: démarrage rapide,langage r,langage de programmation r,didacticiel de 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317668"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278659"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Tutoriel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning Studio
 
@@ -33,7 +32,7 @@ Ce didacticiel de démarrage rapide vous aide à vous lancer rapidement dans l'e
 
 Si Microsoft Azure Machine Learning intègre divers modules d’apprentissage automatique et de manipulation de données très efficaces, le puissant langage R a été décrit comme la lingua franca de l'analyse. Fort heureusement, l’analyse et la manipulation de données dans Azure Machine Learning peuvent être étendues grâce au langage R, qui conjugue à la fois la grande facilité de déploiement d’Azure Machine Learning avec la souplesse et la capacité d’analyse approfondie du langage R.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="forecasting-and-the-dataset"></a>Prévision et jeu de données
 La prévision est une méthode analytique largement répandue et très utile. Elle peut servir à établir des prévisions de ventes d'articles saisonniers, à déterminer les niveaux de stock optimaux ou encore à établir des prévisions sur des variables macroéconomiques. La prévision s'appuie généralement sur des modèles chronologiques.
@@ -45,7 +44,7 @@ Dans ce guide de démarrage rapide, nous allons utiliser les données de product
 Les données utilisées dans cet article et les scripts R peuvent être [téléchargés ici](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). À l’origine, ces données ont été synthétisées à partir des informations disponibles sur le site de l’Université du Wisconsin à l’adresse https://dairymarkets.com.
 
 ### <a name="organization"></a>Organisation
-À travers plusieurs étapes successives, vous allez apprendrez à créer, tester et exécuter du code R d’analyse et de manipulation de données dans l’environnement Azure Machine Learning.  
+À travers plusieurs étapes successives, vous allez apprendre à créer, tester et exécuter du code R d’analyse et de manipulation de données dans l’environnement Azure Machine Learning.  
 
 * Dans un premier temps, nous explorerons les bases de l’utilisation du langage R dans l’environnement Azure Machine Learning Studio.
 * Après quoi, nous examinerons différents aspects de l’E/S de données, du code R et des graphiques dans l’environnement Azure Machine Learning.
@@ -61,7 +60,7 @@ Nous utiliserons RStudio pour développer, tester et déboguer du code R à peti
 ### <a name="the-execute-r-script-module"></a>Module d’exécution de script R
 Dans Machine Learning Studio, les scripts R sont exécutés dans le module [d’exécution de script R][execute-r-script]. Un exemple du module [d’exécution de script R][execute-r-script] dans Machine Learning Studio est illustré dans la figure 1.
 
- ![Langage de programmation R : module Execute R Script sélectionné dans Machine Learning Studio][1]
+ ![Langage de programmation R : module Execute R Script sélectionné dans Machine Learning Studio][1]
 
 *Figure 1 : environnement Machine Learning Studio avec le module d’exécution de script R sélectionné.*
 
@@ -126,7 +125,7 @@ Si, pour l’heure, vous ne comprenez pas la dernière ligne de ce code, poursui
 ### <a name="introduction-to-rstudio"></a>Présentation de RStudio
 RStudio est un environnement de développement intégré (IDE) pour R couramment utilisé. C’est l’outil que j’utiliserai pour modifier, tester et déboguer une partie du code R utilisé dans ce guide de démarrage rapide. Une fois le code R testé et prêt, il suffit de le couper dans l’éditeur RStudio et de le coller dans un module [d’exécution de script R][execute-r-script] de Machine Learning Studio.  
 
-Si vous n'avez pas encore installé le langage de programmation R sur votre ordinateur de bureau, je vous conseille de le faire dès maintenant. Des versions open source du langage R sont disponibles en téléchargement gratuit dans la section CRAN (Comprehensive R Archive Network) du site [http://www.r-project.org/](http://www.r-project.org/). Il existe des versions Windows, Mac OS et Linux/UNIX. Choisissez un site miroir voisin et suivez les instructions de téléchargement. Par ailleurs, le section CRAN contient de nombreux packages d'analyse et de manipulation de données fort utiles.
+Si vous n'avez pas encore installé le langage de programmation R sur votre ordinateur de bureau, je vous conseille de le faire dès maintenant. Des versions open source du langage R sont disponibles en téléchargement gratuit dans la section CRAN (Comprehensive R Archive Network) du site [http://www.r-project.org/](http://www.r-project.org/). Il existe des versions Windows, Mac OS et Linux/UNIX. Choisissez un site miroir voisin et suivez les instructions de téléchargement. Par ailleurs, la section CRAN contient de nombreux packages d'analyse et de manipulation de données fort utiles.
 
 Si vous débutez avec RStudio, téléchargez et installez la version pour ordinateur de bureau. Les versions Windows, Mac OS et Linux/UNIX de RStudio sont disponibles en téléchargement à l’adresse http://www.rstudio.com/products/RStudio/. Suivez les instructions qui vous sont fournies pour installer RStudio sur votre ordinateur de bureau.  
 
@@ -290,7 +289,7 @@ Le comportement de l'entrée Jeu de données 2 est identique à Jeu de données
 
 ### <a name="execute-r-script-outputs"></a>Sorties du module d'exécution de script R
 #### <a name="output-a-dataframe"></a>Sortie d'un tableau de données
-Vous pouvez sortir le contenu d’un tableau de données R sous forme de table rectangulaire via le port du Jeu de données 1 de résultat en utilisant la fonction `maml.mapOutputPort()` . Dans notre script R simple, cette opération est exécutée par la ligne suivante :
+Vous pouvez sortir le contenu d’un tableau de données R sous forme de table rectangulaire via le port du Jeu de données 1 de résultat en utilisant la fonction `maml.mapOutputPort()`. Dans notre script R simple, cette opération est exécutée par la ligne suivante :
 
     maml.mapOutputPort('cadairydata')
 
@@ -1211,7 +1210,7 @@ L'exécution de ce code génère la sortie présentée dans la figure 27 au niv
 
 Ces résultats nous montrent que l’ajout des facteurs saisonniers au modèle a pour effet de réduire sensiblement l’erreur RMS. Fort logiquement, l'erreur RMS au niveau des données d'apprentissage est plus limitée qu'au niveau de la prévision.
 
-## <a id="appendixa"></a>ANNEXE A : guide de RStudio
+## <a id="appendixa"></a>ANNEXE A : Guide RStudio
 RStudio étant très bien documenté, vous trouverez dans cette annexe des liens vers les principales sections de la documentation RStudio, qui vous aideront dans la prise en main du produit.
 
 1. Création de projets
@@ -1228,7 +1227,7 @@ RStudio étant très bien documenté, vous trouverez dans cette annexe des liens
    
    Les fonctionnalités de résolution des problèmes relatifs au point d’arrêt sont documentées à l’adresse https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-## <a id="appendixb"></a>ANNEXE B : informations supplémentaires
+## <a id="appendixb"></a>ANNEXE B : Pour aller plus loin
 Ce didacticiel sur la programmation R couvre les concepts de base de ce qu'il vous faut pour utiliser le langage R avec Azure Machine Learning Studio. Si vous ne connaissez pas le langage R, deux présentations sont disponibles sur le site CRAN :
 
 * « R pour les débutants » d'Emmanuel Paradis constitue un bon point de départ, à l'adresse http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  

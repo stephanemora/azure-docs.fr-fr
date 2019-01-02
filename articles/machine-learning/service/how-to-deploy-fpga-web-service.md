@@ -1,6 +1,7 @@
 ---
-title: Déployer un modèle en tant que service web sur un FPGA avec Azure Machine Learning
-description: Découvrez comment déployer un service web avec un modèle en cours d’exécution sur un FPGA avec Azure Machine Learning.
+title: Déployer des modèles sur des FPGA
+titleSuffix: Azure Machine Learning service
+description: Découvrez comment déployer un service web avec un modèle s’exécutant sur un FPGA avec Azure Machine Learning service pour l’inférence de très faible latence.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,21 +9,22 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 10/29/2018
-ms.openlocfilehash: c6bf3c50958085f45c52ec2fa3cbdfba8adbe35f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 3148d4d63ad1464dbd45c361237ac9cd4ffd485a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711716"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268238"
 ---
-# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Déployer un modèle en tant que service web sur un FPGA avec Azure Machine Learning
+# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Comment déployer un modèle en tant que service web sur un FPGA avec Azure Machine Learning service
 
 Vous pouvez déployer un modèle en tant que service web sur des [FPGA (Field Programmable Gate Arrays)](concept-accelerate-with-fpgas.md).  L’utilisation de FGPA assure une inférence à très faible latence, même avec une taille de lot unique.   
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://aka.ms/AMLfree) avant de commencer.
+- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree) dès aujourd’hui.
 
 - Un espace de travail du service Azure Machine Learning et le kit SDK Azure Machine Learning pour Python installé. Découvrez comment obtenir ces prérequis à l’aide du document [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md).
  
@@ -165,14 +167,6 @@ registered_model.delete()
 
 Les modèles Azure Machine Learning exécutés sur des FPGA fournissent la prise en charge du protocole SSL et l’authentification basée sur la clé. Cela vous permet de restreindre l’accès à votre service et de sécuriser les données envoyées par vos clients. [Découvrez comment sécuriser le service web](how-to-secure-web-service.md).
 
-
-## <a name="sample-notebook"></a>Exemple de notebook
-
-Les concepts de cet article sont illustrés dans le notebook [projet-brainwave/projet-brainwave-quickstart.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/project-brainwave/project-brainwave-quickstart.ipynb).
-
-Consultez ce bloc-notes :
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

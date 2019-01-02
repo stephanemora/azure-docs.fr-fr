@@ -1,21 +1,19 @@
 ---
-title: 'Modèle de conception Azure Cosmos DB : applications de réseaux sociaux | Microsoft Docs'
+title: 'Modèle de conception Azure Cosmos DB : Applications de réseaux sociaux'
 description: Découvrez un modèle de conception destiné aux réseaux sociaux et tirant parti de la souplesse du stockage d’Azure Cosmos DB et d’autres services Azure.
 keywords: applications de réseaux sociaux
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c2911ac65b95ea0a705944fdd8fb9288af28498
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165677"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083969"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
 
@@ -49,14 +47,14 @@ Cet article vous montre comment modéliser les données de votre plateforme soci
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 
@@ -208,15 +206,15 @@ Pour plus d’informations sur Recherche Azure, vous pouvez consulter le documen
 
 ## <a name="the-underlying-knowledge"></a>Les connaissances sous-jacentes
 
-Après avoir stocké ce contenu dont la taille augmente chaque jour, vous pourriez penser : que puis-je faire avec toutes ces informations de mes utilisateurs ?
+Après avoir stocké ce contenu dont la taille augmente chaque jour, vous vous demanderez peut-être : Que puis-je faire avec toutes ces flux d’informations venant de mes utilisateurs ?
 
-La réponse est simple : exploitez-les.
+La réponse est simple : Faites-les travailler et apprenez-en quelque chose.
 
 Que pouvez-vous découvrir ? Voici quelques exemples simples : l’[analyse des sentiments](https://en.wikipedia.org/wiki/Sentiment_analysis), les recommandations de contenu basées sur les préférences d’un utilisateur ou même un modérateur de contenu automatique, qui vérifie que tout le contenu publié par votre réseau social est adapté à un environnement familial.
 
 Maintenant que j’ai votre attention, vous pensez sans doute qu’il vous faut un doctorat en sciences mathématiques pour extraire ces modèles et ces informations de fichiers et de bases de données simples, mais vous avez tort.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), qui fait partie de [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), est un service cloud entièrement géré qui vous permet de créer des workflows à l’aide d’algorithmes dans une interface simple de type glisser-déposer, de coder vos propres algorithmes en [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) ou d’utiliser certaines des API déjà créées et prêtes à l’utilisation telles qu’[Analyse de texte](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), Modérateur de contenu ou [Recommandations](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), qui fait partie de [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), est un service cloud entièrement géré qui vous permet de créer des workflows à l’aide d’algorithmes dans une interface simple de type glisser-déposer, de coder vos propres algorithmes en [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) ou d’utiliser certaines des API déjà créées et prêtes à l’utilisation telles que : [Analyse de texte](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), Modérateur de contenu ou [Recommandations](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 Pour réaliser l’un de ces scénarios d’apprentissage automatique, vous pouvez utiliser [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) afin d’ingérer les informations de différentes sources. Vous pouvez également utiliser [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) pour traiter les informations et générer une sortie qui peut être traitée par Azure Machine Learning.
 

@@ -1,5 +1,5 @@
 ---
-title: Créer un compte Azure Media Services avec l’interface de ligne de commande Azure | Microsoft Docs
+title: Créer un compte Media Services avec l’interface de ligne de commande Azure – Azure | Microsoft Docs
 description: Suivez les étapes de ce démarrage rapide pour créer un compte Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,20 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
-ms.date: 11/11/2018
+ms.custom: seodec18
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: cb49b642137517c0ceef7d2fa01994a554db1f4e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: fc80e2c540279c0a0c8acb575c9e5b1478a46cf8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613157"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133364"
 ---
 # <a name="create-an-azure-media-services-account"></a>Créer un compte Azure Media Services
 
 Pour commencer à chiffrer, coder, analyser, gérer et diffuser en continu du contenu multimédia dans Azure, vous devez créer un compte Media Services. En créant un compte Media Services, vous créez aussi un compte de stockage associé ou en utilisez un existant, situé dans la même région géographique que le compte Media Services.
-
 Cet article décrit les étapes à suivre pour créer un compte Azure Media Services à l’aide d’Azure CLI.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -36,7 +35,7 @@ Cet article décrit les étapes à suivre pour créer un compte Azure Media Serv
 
 ## <a name="set-the-azure-subscription"></a>Configurer l’abonnement Azure
 
-Dans la commande suivante, fournissez l’ID d’abonnement Azure que vous souhaitez utiliser pour le compte Media Services. Vous pouvez afficher la liste des abonnements auxquels vous avez accès à en accédant à [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Dans la commande suivante, fournissez l’ID d’abonnement Azure que vous souhaitez utiliser pour le compte Media Services. Vous pouvez afficher la liste des abonnements auxquels vous avez accès en accédant à [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 ```azurecli
 az account set --subscription mySubscriptionId

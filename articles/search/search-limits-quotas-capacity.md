@@ -1,5 +1,5 @@
 ---
-title: Limites de service d’Azure Search | Microsoft Docs
+title: Limites de service pour les niveaux tarifaires et les références SKU - Recherche Azure
 description: Limites de service permettant de planifier la capacité et limites maximales des requêtes et réponses de la Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: 8abcc90bf72544e6226d6c8487d2951b60ea6d29
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 98902c7a27d769b59b20d4560b2cda21bfcff6c6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802147"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310217"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [provisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base** ou **Standard**.
@@ -23,7 +24,7 @@ Les limites maximales du stockage, des charges de travail et des quantités d’
 
 + Le niveau **De base** fournit des ressources informatiques dédiées aux charges de production à petite échelle.
 
-+ Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau. Le niveau Standard apparaît dans quatre catégories : S1, S2, S3 et S3 HD.
++ Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau. Le niveau Standard se décompose en quatre catégories : S1, S2, S3 et S3 HD.
 
   La catégorie S3 HD (S3 High Density) est conçue pour des charges de travail spécifiques : [une architecture multilocataire](search-modeling-multitenant-saas-applications.md) et de grandes quantités de petits index (un million de documents par index, trois mille index par service). Elle ne fournit pas la [fonctionnalité d’indexeur](search-indexer-overview.md). Dans S3 HD, l’ingestion des données doit tirer parti de l’approche push en appelant des API pour envoyer (push) les données de la source vers l’index. 
 

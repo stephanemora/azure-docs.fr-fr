@@ -1,5 +1,5 @@
 ---
-title: Ingénierie des caractéristiques dans la science des données | Microsoft Docs
+title: Conception de fonctionnalités en science des données - TDSP (Team Data Science Process)
 description: Explique les finalités de la conception de fonctionnalités et fournit des exemples de son rôle dans le processus d'amélioration des données de l'apprentissage automatique.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 80e925fddf1aebd9f699ee8e22b96cc496faeba6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5767399189e4ed5168fbcc083ef9b4830cac1421
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446673"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138955"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingénierie des caractéristiques dans la science des données
 Cet article explique les finalités de l’ingénierie de caractéristiques et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Les exemples utilisés pour illustrer ce processus sont tirés d’Azure Machine Learning Studio. 
@@ -25,10 +25,10 @@ Cette tâche est une étape du [processus TDSP (Team Data Science Process)](http
 
 La conception de fonctionnalités tente d'augmenter la puissance prédictive des algorithmes d'apprentissage en créant des fonctionnalités à partir de données brutes qui facilitent le processus d'apprentissage. L’ingénierie et la sélection de caractéristiques constituent une partie du processus TDSP présenté dans [Qu’est ce que le cycle de vie du processus TDSP (Team Data Science Process) ?](overview.md). La conception et la sélection de fonctionnalités sont des parties de l’étape de **développement de fonctionnalités** du processus TDSP. 
 
-* La **conception de fonctionnalités** : ce processus tente de créer des fonctionnalités supplémentaires pertinentes à partir de fonctionnalités brutes existantes dans les données et d’augmenter la performance de prédiction de l’algorithme d’apprentissage.
-* La **sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d'origine afin de réduire la dimensionnalité du problème d'apprentissage.
+* **Ingénierie des caractéristiques** : ce processus tente de créer des caractéristiques supplémentaires pertinentes à partir de caractéristiques brutes existantes dans les données et d’augmenter la performance de prédiction de l’algorithme d’apprentissage.
+* **Sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d’origine afin de réduire la dimensionnalité du problème de formation.
 
-En général, **l’ingénierie des caractéristiques** s’applique d’abord à la génération de caractéristiques supplémentaires. L’étape de **sélection de caractéristiques** est alors effectuée pour éliminer les caractéristiques inutiles, redondantes ou fortement corrélées.
+En général, l’**ingénierie de caractéristiques** s’applique d’abord à la génération de caractéristiques supplémentaires. L’étape de **sélection de caractéristiques** est alors effectuée pour éliminer les caractéristiques inutiles, redondantes ou fortement corrélées.
 
 Les données d'apprentissage utilisées dans l'apprentissage automatique peuvent souvent être améliorées par l'extraction de fonctionnalités à partir des données brutes collectées. Un exemple de conception de fonctionnalité dans le cadre de l'apprentissage de la classification des images de caractères écrits à la main est la création d'une carte de densité de bits construite à partir des données brutes de distribution de bits. Cette carte peut aider à localiser les bords des caractères plus efficacement que l'utilisation de la distribution brute directement.
 
@@ -49,7 +49,7 @@ En débutant avec Azure Machine Learning, il est plus facile de comprendre corre
 * un exemple de régression [Prédiction du nombre de locations de vélo](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) dans une expérience supervisée, où les valeurs cibles sont connues
 * un exemple de classification d'exploration de texte utilisant le [hachage de caractéristiques](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
-## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exemple 1 : ajouter des caractéristiques temporelles pour un modèle de régression
+## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exemple 1 : ajouter des caractéristiques temporelles pour un modèle de régression
 Nous allons utiliser l'exemple de « prévision de la demande de vélos » dans Azure Machine Learning Studio afin de démontrer comment concevoir des caractéristiques pour une tâche de régression. L'objectif de cette expérience est de prédire la demande de vélos, autrement dit le nombre de locations de vélo pour un mois/un jour/une heure spécifique. Le « jeu de données de location de vélo UCI »est utilisé en tant que données brutes d'entrée. Le jeu de données se base sur des données réelles de la société Capital Bikeshare qui gère un réseau de location de vélos à Washington DC aux États-Unis. Ce jeu de données représente le nombre de locations de vélo pour une heure spécifique d'un jour en 2011 et en 2012 et contient 17 379 lignes et 17 colonnes. L'ensemble des caractéristiques brutes contient des conditions météorologiques (température/humidité/vitesse du vent) et le type de jour (vacances/jour de semaine). Le champ à prédire est le nombre « cnt », qui représente les locations de vélo pour une heure spécifique et qui est compris entre 1 et 977.
 
 Afin de construire des caractéristiques efficaces dans les données d'apprentissage, quatre modèles de régression sont générés à l'aide du même algorithme, mais avec quatre jeux de données d'apprentissage différents. Les quatre jeux de données représentent les mêmes données d'entrée brutes, mais avec un nombre croissant de jeux de caractéristiques. Ces caractéristiques sont regroupées en quatre catégories :

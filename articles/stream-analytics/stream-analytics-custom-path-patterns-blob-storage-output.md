@@ -1,23 +1,24 @@
 ---
-title: Modèles de chemin DateTime personnalisés pour les sorties du stockage Blob d’Azure Stream Analytics (préversion)
-description: ''
+title: Modèles de chemin DateTime pour la sortie du stockage d’objets blob d’Azure Stream Analytics (préversion)
+description: Cet article décrit la fonctionnalité de modèles de chemin DateTime personnalisés pour la sortie de stockage d’objets blob à partir des tâches Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452562"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090776"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Modèles de chemin DateTime personnalisés pour les sorties du stockage Blob d’Azure Stream Analytics (préversion)
 
-Azure Stream Analytics prend en charge l’utilisation de spécificateurs de format date/heure personnalisés dans le chemin de fichier pour les sorties du stockage Blob. Avec les modèles de chemin DateTime personnalisés, vous pouvez spécifier un format de sortie conforme aux conventions Hive Streaming, ce qui permet à Azure Stream Analytics d’envoyer des données à Azure HDInsight et à Azure Databricks pour un traitement en aval. Les modèles de chemin DateTime personnalisés s’implémentent facilement en ajoutant le mot clé `datetime` dans le champ Préfixe de chemin de votre sortie Blob, ainsi que le spécificateur de format. Par exemple : `{datetime:yyyy}`.
+Azure Stream Analytics prend en charge l’utilisation de spécificateurs de format date/heure personnalisés dans le chemin de fichier pour les sorties du stockage Blob. Avec les modèles de chemin DateTime personnalisés, vous pouvez spécifier un format de sortie conforme aux conventions Hive Streaming, ce qui permet à Azure Stream Analytics d’envoyer des données à Azure HDInsight et à Azure Databricks pour un traitement en aval. Les modèles de chemin DateTime personnalisés s’implémentent facilement en ajoutant le mot clé `datetime` dans le champ Préfixe de chemin de votre sortie Blob, ainsi que le spécificateur de format. Par exemple : `{datetime:yyyy}`.
 
 Utilisez ce lien d’accès au [portail Azure](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) pour activer l’indicateur de fonctionnalité qui autorise les modèles de chemin DateTime personnalisés pour les sorties du stockage Blob (préversion). Cette fonctionnalité sera bientôt activée dans le portail principal.
 
@@ -57,11 +58,11 @@ Vous pouvez utiliser le même spécificateur de format plusieurs fois dans le ch
 
 Les modèles de chemin personnalisés pour le stockage Blob peuvent respecter la convention Hive Streaming, selon laquelle les noms de dossier doivent contenir l’étiquette `column=`.
 
-Par exemple : `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}`.
+Par exemple : `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}`.
 
 Une sortie personnalisée vous évite d’avoir à modifier les tables et à ajouter manuellement des partitions aux données de port entre Azure Stream Analytics et Hive. À la place, un grand nombre de dossiers peuvent être ajoutés automatiquement de la façon suivante :
 
-```
+```SQL
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
@@ -75,9 +76,9 @@ Créez un récepteur de sortie Blob avec la configuration suivante :
 
 Le modèle de chemin complet est le suivant :
 
-```
-year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-```
+
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`
+
 
 Quand vous démarrez le travail, une structure de dossiers basée sur le modèle de chemin est automatiquement créée dans votre conteneur d’objets blob. Vous pouvez descendre dans la hiérarchie jusqu’au jour souhaité.
 

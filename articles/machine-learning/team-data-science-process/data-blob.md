@@ -1,6 +1,6 @@
 ---
-title: Traitement des données d’objets blob Azure avec l’analytique avancée | Microsoft Docs
-description: Traitez les données dans un stockage d’objets blob Azure.
+title: Traiter des données d’objets blob Azure avec une analytique avancée - Team Data Science Process
+description: Explorez des données et générez des caractéristiques à partir de données stockées dans Stockage Blob Azure avec une analytique avancée.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442376"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140528"
 ---
 # <a name="heading"></a>Traitement des données d’objets blob Azure avec des analyses de données avancées
 Ce document concerne l’exploration des données et la génération de fonctionnalités à partir de données stockées dans le stockage d’objets blob. 
@@ -130,7 +130,7 @@ Pour générer des fonctionnalités compartimentées, procédez comme suit :
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure et exploitation dans Azure Machine Learning
-Après avoir exploré les données et créé les fonctionnalités nécessaires, vous pouvez charger les données (exemples ou caractéristiques) dans un objet blob Azure et les exploiter dans Azure Machine Learning en procédant comme suit : notez qu’il est également possible de créer d’autres fonctionnalités dans Azure Machine Learning Studio. 
+Après avoir exploré les données et créé les caractéristiques nécessaires, vous pouvez charger les données (échantillonnées ou caractérisées) dans un objet blob Azure et les utiliser dans Azure Machine Learning en effectuant les étapes suivantes : Notez que vous pouvez aussi créer d’autres caractéristiques dans Azure Machine Learning Studio. 
 
 1. Écrivez le bloc de données dans le fichier local.
    

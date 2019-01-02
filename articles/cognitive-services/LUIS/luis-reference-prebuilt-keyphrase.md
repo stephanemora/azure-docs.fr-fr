@@ -1,29 +1,30 @@
 ---
-title: Documentation de référence pour l’entité prédéfinie keyPhrase de LUIS - Azure | Microsoft Docs
+title: Entité prédéfinie keyPhrase
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie keyPhrase dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: a543e60c6e77ed9fdb825ad6cb2a936119677671
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 684bba0c2f0c6fbaf05ce25ce543da413f1b71e2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334582"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141218"
 ---
-# <a name="keyphrase-entity"></a>Entité keyPhrase
+# <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie keyPhrase pour une application LUIS
 KeyPhrase extrait une variété d’expressions clés d’un énoncé. Il est inutile d’ajouter des exemples d’énoncés contenant keyPhrase à l’application. L’entité keyPhrase est prise en charge dans de [nombreuses cultures](luis-language-support.md#languages-supported) dans les fonctionnalités [Analyse de texte](../text-analytics/overview.md). 
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Résolution pour une entité prédéfinie keyPhrase
 L’exemple suivant montre la résolution de l’entité **builtin.keyPhrase**.
 
-```JSON
+```json
 {
   "query": "where is the educational requirements form for the development and engineering group",
   "topScoringIntent": {

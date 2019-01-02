@@ -1,5 +1,5 @@
 ---
-title: Surveillance de l’utilisation et des statistiques dans un service Recherche Azure | Microsoft Docs
+title: Surveillance de l’utilisation et des statistiques dans un service de recherche - Recherche Azure
 description: Suivez la consommation de ressource et la taille de l'index pour Azure Search, un service de recherche cloud hébergé sur Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795107"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314157"
 ---
-# <a name="monitoring-an-azure-search-service"></a>Surveillance d’un service Azure Search
+# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Surveiller un service Recherche Azure dans le Portail Azure
 
 Azure Search propose diverses ressources pour le suivi des performances et de l’utilisation des services de recherche. Il vous donne accès aux mesures, journaux, statistiques d’index et capacités d’analyse étendues sur Power BI. Cet article décrit comment activer les différentes stratégies de surveillance et comment interpréter les données résultantes.
 
@@ -26,9 +27,9 @@ Les mesures vous donnent une visibilité en quasi temps réel sur votre service 
 
 Azure Search collecte les données de trois mesures différentes :
 
-* Latence de recherche : délai nécessaire au service de recherche pour traiter les requêtes de recherche, agrégé par minute.
-* Requêtes de recherche par seconde (QPS) : nombre de requêtes de recherche reçues par seconde, agrégé par minute.
-* Pourcentage de requêtes de recherche limitées : pourcentage de requêtes de recherche qui ont été limitées, agrégé par minute.
+* Latence de recherche : Délai nécessaire au service de recherche pour traiter les requêtes de recherche, agrégé par minute.
+* Requêtes de recherche par seconde (QPS) : Nombre de requêtes de recherche reçues par seconde, agrégé par minute.
+* Pourcentage de requêtes de recherche limitées : Pourcentage de requêtes de recherche limitées, agrégées par minute.
 
 ![Capture d’écran de l’activité RPS][1]
 
@@ -71,7 +72,7 @@ Vous pouvez exporter les journaux des opérations pour votre service et les donn
 ### <a name="enabling-monitoring"></a>Activation de la surveillance
 Ouvrez votre service de recherche Azure dans le [portail Azure](http://portal.azure.com) sous l’option Activer la surveillance.
 
-Choisissez les données que vous souhaitez exporter : journaux, mesures ou les deux. Vous pouvez les copier sur un compte de stockage, les envoyer à un Event Hub ou les exporter vers Log Analytics.
+Choisissez les données à exporter : Journaux, Métriques ou les deux. Vous pouvez les copier sur un compte de stockage, les envoyer à un Event Hub ou les exporter vers Log Analytics.
 
 ![Comment activer la surveillance dans le portail][3]
 
@@ -95,7 +96,7 @@ Chaque objet blob comporte des enregistrements relatifs à l’ensemble de l’o
 | NOM | type | Exemples | Notes |
 | --- | --- | --- | --- |
 | time |Datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
-| ResourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| ResourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | operationName |chaîne |« Query.Search » |Nom de l’opération |
 | operationVersion |chaîne |« 2015-02-28 » |Version d’API utilisée |
 | category |chaîne |« OperationLogs » |constant |
@@ -105,6 +106,7 @@ Chaque objet blob comporte des enregistrements relatifs à l’ensemble de l’o
 | properties |objet |consultez le tableau suivant |Objet contenant des données propres à l’opération |
 
 **Schéma de propriétés**
+
 | NOM | type | Exemples | Notes |
 | --- | --- | --- | --- |
 | Description |chaîne |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
@@ -113,9 +115,10 @@ Chaque objet blob comporte des enregistrements relatifs à l’ensemble de l’o
 | IndexName |chaîne |« testindex » |Nom de l’index associé à l’opération |
 
 #### <a name="metrics-schema"></a>Schéma de mesures
+
 | NOM | type | Exemples | Notes |
 | --- | --- | --- | --- |
-| ResourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| ResourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | metricName |chaîne |« Latency » |Nom de la mesure |
 | time |Datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
 | average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |

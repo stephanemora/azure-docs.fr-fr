@@ -1,5 +1,5 @@
 ---
-title: API REST Speech Service - Speech Service
+title: API REST des services Speech - Services Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser les API REST de reconnaissance vocale et de synthèse vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584857"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338888"
 ---
 # <a name="speech-service-rest-apis"></a>API REST du service Speech
 
@@ -33,7 +34,7 @@ Chaque demande à l’API REST de reconnaissance vocale ou de synthèse vocale n
 | En-têtes d'autorisation pris en charge | Reconnaissance vocale | Synthèse vocale |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | Oui | Non  |
-| Autorisation : Bearer | Oui | Oui |
+| Autorisation : Support | Oui | Oui |
 
 Lorsque vous utilisez l’en-tête `Ocp-Apim-Subscription-Key`, vous devez uniquement fournir votre clé d’abonnement. Par exemple : 
 
@@ -321,9 +322,20 @@ Le transfert en bloc (`Transfer-Encoding: chunked`) peut aider à réduire la la
 Cet exemple de code montre comment envoyer l’audio en bloc. Seul le premier segment doit contenir l’en-tête du fichier audio. `request` est un objet HTTPWebRequest connecté au point de terminaison REST approprié. `audioFile` est le chemin vers un fichier audio sur disque.
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -423,20 +435,10 @@ Il s’agit d’une réponse classique pour la reconnaissance `detailed`.
 
 ## <a name="text-to-speech-api"></a>API Synthèse vocale
 
-Ces régions sont prises en charge pour la synthèse vocale à l’aide de l’API REST. Veillez à sélectionner le point de terminaison correspondant à votre région d’abonnement.
+L’API REST de synthèse vocale prend en charge les voix de synthèse vocale neuronales et standard qui, à leur tour, prennent chacune en charge une langue et un dialecte spécifiques, identifiés par les paramètres régionaux.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-Le service Speech prend en charge la sortie audio 24 kHz en plus de la sortie 16 khz prise en charge par Reconnaissance vocale Bing. Quatre formats de sortie 24 kHz et deux voix 24 kHz sont pris en charge.
-
-### <a name="voices"></a>Voix
-
-| Paramètres régionaux | Langage   | Sexe | Mappage |
-|--------|------------|--------|---------|
-| en-US  | Français | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, Jessa24kRUS) » |
-| en-US  | Français | Masculin   | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, Guy24kRUS) » |
-
-Vous trouverez une liste complète des voix disponibles dans [Langues prises en charge](language-support.md#text-to-speech).
+* Pour obtenir la liste complète des voix, consultez [prise en charge linguistique](language-support.md#text-to-speech).
+* Pour obtenir des informations sur la disponibilité régionale, consultez [régions](regions.md#text-to-speech).
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -451,7 +453,7 @@ Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demand
 
 ### <a name="audio-outputs"></a>Sorties audio
 
-Liste de formats audio pris en charge envoyés dans chaque demande en tant qu’en-tête `X-Microsoft-OutputFormat`. Chaque format indique la vitesse de transmission et le type d’encodage.
+Liste de formats audio pris en charge envoyés dans chaque demande en tant qu’en-tête `X-Microsoft-OutputFormat`. Chaque format indique la vitesse de transmission et le type d’encodage. Le service Speech prend en charge les sorties audio de 24 KHz et 16 KHz.
 
 |||
 |-|-|

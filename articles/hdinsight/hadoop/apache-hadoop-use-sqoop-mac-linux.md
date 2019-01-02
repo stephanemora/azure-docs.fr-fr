@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: bb6ad52f008ddeec5d3ecd3b0fdbc80dbf627101
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1b6a77e78d3385c9dfd4e43e0e4242c870eb8c57
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685920"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012553"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Utiliser Apache Sqoop pour échanger des données entre Apache Hadoop sur HDInsight et SQL Database
 
@@ -160,9 +160,9 @@ Vous pouvez également utiliser Sqoop pour importer et exporter des données à 
 
 Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, consultez les rubriques suivantes :
 
-* [Utilisation d'Oozie avec HDInsight](../hdinsight-use-oozie.md): utilisez l’action Sqoop dans un flux de travail Oozie.
-* [Analyse des données sur les retards de vol avec HDInsight](../hdinsight-analyze-flight-delay-data.md): utilisez Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données SQL Azure.
-* [Téléchargement de données vers HDInsight](../hdinsight-upload-data.md): découvrez d'autres méthodes pour télécharger des données vers HDInsight ou le stockage d'objets blob Azure.
+* [Utiliser Oozie avec HDInsight](../hdinsight-use-oozie.md) : Utilisez l’action Sqoop dans un workflow Oozie.
+* [Analyser des données sur les retards de vol avec HDInsight](../hdinsight-analyze-flight-delay-data.md) : Utilisez Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données SQL Azure.
+* [Chargez des données dans HDInsight](../hdinsight-upload-data.md) : Découvrez d’autres méthodes pour charger des données dans HDInsight ou le stockage Blob Azure.
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
@@ -171,8 +171,8 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

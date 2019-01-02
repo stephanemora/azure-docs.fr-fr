@@ -1,21 +1,22 @@
 ---
-title: À propos des passerelles de réseau virtuel Azure ExpressRoute | Microsoft Docs
-description: En savoir plus sur les passerelles de réseau virtuel pour ExpressRoute.
+title: À propos des passerelles de réseau virtuel ExpressRoute - Azure | Microsoft Docs
+description: En savoir plus sur les passerelles de réseau virtuel pour ExpressRoute. Cet article comprend des informations sur les types et les références SKU de passerelle.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: mialdrid
-ms.openlocfilehash: df0d9c91d1d4f120f934c7375d0c517e3869834e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: dcae78e507597ae2b7f79cc1d6cbb326ee535696
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684764"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076591"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>À propos des passerelles de réseau virtuel pour ExpressRoute
-Une passerelle de réseau virtuel est conçue pour faire circuler le trafic réseau entre les réseaux virtuels Azure et les emplacements locaux. Vous pouvez utiliser une passerelle de réseau virtuel pour le trafic ExpressRoute ou le trafic VPN. Cet article décrit la passerelle de réseau virtuelle ExpressRoute.
+Une passerelle de réseau virtuel est conçue pour faire circuler le trafic réseau entre les réseaux virtuels Azure et les emplacements locaux. Vous pouvez utiliser une passerelle de réseau virtuel pour le trafic ExpressRoute ou le trafic VPN. Cet article se concentre sur les passerelles de réseau virtuel ExpressRoute et contient des informations sur les références (SKU), les performances estimées par référence (SKU) et les types de passerelle.
 
 ## <a name="gateway-types"></a>Types de passerelle
 

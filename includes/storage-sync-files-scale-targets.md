@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 03fe587ede297ac7dea90b7a5fb2d5323f60659e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 00124562d3bc21f9139ae54f022d7893a4eaf11c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628130"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326649"
 ---
 | Ressource | Cible | Limite inconditionnelle |
 |----------|--------------|------------|
@@ -22,7 +22,7 @@ ms.locfileid: "51628130"
 | Serveurs inscrits par le service de synchronisation de stockage | 99 serveurs | Oui |
 | Points de terminaison cloud par groupe de synchronisation | 1 point de terminaison cloud | Oui |
 | Points de terminaison de serveur par groupe de synchronisation | 50 points de terminaison de serveur | Non  |
-| Points de terminaison de serveur par serveur | 33 à 99 points de terminaison de serveur | Oui, mais cela varie en fonction de la configuration (UC, mémoire, volumes, évolution des fichiers, nombre de fichiers, etc.) |
+| Points de terminaison de serveur par serveur | 30 points de terminaison de serveur | Oui |
 | Taille de point de terminaison | 4 Tio | Non  |
 | Objets du système de fichiers (répertoires et fichiers) par groupe de synchronisation | 25 millions d’objets | Non  |
 | Nombre maximal d’objets de système de fichiers (répertoires et fichiers) dans un répertoire | 200 000 objets | Oui |
@@ -30,4 +30,4 @@ ms.locfileid: "51628130"
 | Taille maximale du descripteur de sécurité d’objet (répertoires et fichiers) | 4 Kio | Oui |
 | Taille du fichier | 100 Gio | Non  |
 | Taille minimale d’un fichier à hiérarchiser | 64 Kio | Oui |
-| Sessions de synchronisation simultanées | Agent V4 : la limitation varie selon les ressources système disponibles. <BR> Agent V3 : 2 sessions de synchronisation actives par processeur ou 8 sessions de synchronisation actives maximum par serveur | Oui
+| Sessions de synchronisation simultanées | Agent V4 : La limitation varie selon les ressources système disponibles. <BR> Agent V3 : 2 sessions de synchronisation actives par processeur ou 8 sessions de synchronisation actives maximum par serveur | Oui

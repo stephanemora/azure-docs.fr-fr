@@ -1,6 +1,7 @@
 ---
-title: Utiliser des banques de données dans Azure Machine Learning pour accéder à des données
-description: Guide pratique pour utiliser des banques de données afin d’accéder au stockage de données pendant l’entraînement
+title: Accéder aux données contenues dans des banques de données pour l’entraînement
+titleSuffix: Azure Machine Learning service
+description: Découvrez comment utiliser des magasins de données pour accéder au stockage de données durant l’entraînement avec le service Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ef183397cf7ca3f1f561f6951290b722df31e5ed
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.custom: seodec18
+ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620198"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187141"
 ---
-# <a name="how-to-access-data-during-training"></a>Guide pratique pour accéder aux données pendant l’entraînement
+# <a name="access-data-during-training-from-your-datastores"></a>Accéder aux données durant l’entraînement à partir de vos banques de données
 Utiliser une banque de données pour accéder à vos données et interagir avec elles dans des flux de travail Azure Machine Learning.
 
 Dans le service Azure Machine Learning, la banque de données est une abstraction sur [Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction). La banque de données peut référencer un conteneur d’[objets blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) ou un [partage de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) en tant que stockage sous-jacent. 

@@ -4,10 +4,9 @@ description: Découvrez comment formuler une question de science des données pr
 keywords: problèmes de science des données,questions de science des données, formuler des questions,questions de régression,questions de classification,question précise
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -17,15 +16,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310835"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250975"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Poser une question à laquelle les données permettent de répondre
-## <a name="video-3-data-science-for-beginners-series"></a>Vidéo 3 : série Science des données pour les débutants
+## <a name="video-3-data-science-for-beginners-series"></a>Vidéo 3 : série Science des données pour les débutants
 Découvrez comment formuler un problème de science des données en une question dans la vidéo 3 Science des données pour les débutants. Cette vidéo inclut une comparaison des questions faisant appel aux algorithmes de classification et de régression.
 
 Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
@@ -38,18 +37,18 @@ Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [A
 ## <a name="other-videos-in-this-series"></a>Autres vidéos de cette série
 *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
 
-* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-* Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Vidéo 3 : Poser une question à laquelle les données permettent de répondre
-* Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-* Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Vidéo 1 : [Les 5 questions auxquelles la science des données répond](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 s)*
+* Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Vidéo 3 : Poser une question à laquelle les données permettent de répondre
+* Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
 
-## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcription : Poser une question à laquelle les données permettent de répondre
+## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcription : Poser une question à laquelle les données permettent de répondre
 Bienvenue dans la troisième vidéo de la série « Science des données pour les débutants ».  
 
 Dans celle-ci, nous allons vous donner des conseils pour formuler une question à laquelle les données permettent de répondre.
 
-Pour tirer pleinement parti de cette vidéo, nous vous recommandons de regarder les deux premières vidéos de cette série, « Les 5 questions auxquelles la science des données peut répondre » et « Vos données sont-elles prêtes pour la science des données ? ».
+Pour tirer le meilleur parti de cette vidéo, nous vous recommandons de regarder les deux vidéos précédentes de la série  : « Les 5 questions auxquelles la science des données répond » et « Vos données sont-elles prêtes pour la science des données ? »
 
 ## <a name="ask-a-sharp-question"></a>Poser une question précise
 Comme nous l’avons vu, la science des données est le processus consistant à utiliser des noms (également appelés catégories ou étiquettes) et des nombres pour prédire la réponse à une question. Toutefois, la question ne peut pas avoir n’importe quelle forme. Il doit s’agir d’une *question précise.*
@@ -62,7 +61,7 @@ Si vous lui posez une question vague comme « Que va-t-il arriver à mon action 
 
 Mais si vous lui posez une question précise comme « Quel sera le cours de mon action la semaine prochaine ? », le génie n’aura pas d’autre choix que de vous donner une réponse spécifique et de prédire un cours.
 
-## <a name="examples-of-your-answer-target-data"></a>Exemples de votre réponse : données cibles
+## <a name="examples-of-your-answer-target-data"></a>Exemples de réponse : données cibles
 Une fois que vous avez formulé votre question, vérifiez si vous avez des exemples de la réponse dans vos données.
 
 Si votre question est « Quel sera le cours de mon action la semaine prochaine ? », vous devez vous assurer que vos données incluent l’historique du cours de l’action.

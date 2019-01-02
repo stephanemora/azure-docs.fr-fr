@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 40ec204f105b32c8b7d9e2dda6f6f3c3023b2d44
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0f608dc89d3a9bc8914fc9be142c442246ce13b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495456"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278540"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Permet de créer, de supprimer et de gérer les applications et les types d’application.
@@ -72,7 +72,7 @@ Permet de créer une application Service Fabric à l’aide de la description sp
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-delete"></a>sfctl application delete
@@ -95,7 +95,7 @@ Une application doit être créée avant de pouvoir être supprimée. La suppres
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
@@ -107,7 +107,7 @@ Cette requête renvoie des informations sur l’application système si l’ID d
 
 |Argument|Description|
 | --- | --- |
-| --application-id [Requis] | Identité de l’application. Il s’agit généralement du nom complet de l’application, sans le schéma d’URI « fabric\: ». À compter de la version 6.0, les noms hiérarchiques sont délimités par le caractère « \~ ». Par exemple, si l’application est nommée « fabric\:/myapp/app1 », son identité est « myapp\~app1 » dans les versions 6.0 et ultérieures, et « myapp/app1 » dans les versions précédentes. |
+| --application-id [Requis] | Identité de l’application. Il s’agit généralement du nom complet de l’application, sans le schéma d’URI « fabric\: ». À compter de la version 6.0, les noms hiérarchiques sont délimités par le caractère « \~ ». Par exemple, si une application est nommée « fabric\:/myapp/app1 », son identité est « myapp\~app1 » dans les versions 6.0 et ultérieures, et « myapp/app1 » dans les versions précédentes. |
 | --node-name      [obligatoire] | Nom du nœud. |
 | --include-health-state | Inclut l’état d’intégrité d’une entité. Si ce paramètre est défini sur false ou n’est pas spécifié, l’état d’intégrité retourné est « Inconnu ». Lorsque la valeur est true, la requête s’applique en parallèle au nœud et au service système d’intégrité avant la fusion des résultats. Par conséquent, la requête est plus coûteuse et peut prendre plus de temps. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
@@ -119,7 +119,7 @@ Cette requête renvoie des informations sur l’application système si l’ID d
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-deployed-health"></a>sfctl application deployed-health
@@ -145,7 +145,7 @@ Permet d’obtenir les informations relatives à l’intégrité d’une applica
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-deployed-list"></a>sfctl application deployed-list
@@ -158,7 +158,7 @@ Permet d’obtenir la liste des applications déployées sur un nœud Service F
 |Argument|Description|
 | --- | --- |
 | --node-name [Requis] | Nom du nœud. |
-| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
+| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
 | --include-health-state | Inclut l’état d’intégrité d’une entité. Si ce paramètre est défini sur false ou n’est pas spécifié, l’état d’intégrité retourné est « Inconnu ». Lorsque la valeur est true, la requête s’applique en parallèle au nœud et au service système d’intégrité avant la fusion des résultats. Par conséquent, la requête est plus coûteuse et peut prendre plus de temps. |
 | --max-results | Nombre maximal de résultats à renvoyer dans le cadre des requêtes paginées. Ce paramètre définit la limite supérieure du nombre de résultats renvoyés. Le nombre de résultats renvoyés peut être inférieur au nombre maximal de résultats spécifié s’ils ne tiennent pas dans le message conformément aux restrictions de taille maximale définies dans la configuration. Si ce paramètre est défini sur zéro ou n’est pas spécifié, la requête paginée comprend le nombre maximal de résultats pouvant tenir dans le message renvoyé. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
@@ -170,7 +170,7 @@ Permet d’obtenir la liste des applications déployées sur un nœud Service F
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-health"></a>sfctl application health
@@ -196,7 +196,7 @@ Permet d’obtenir l’état d’intégrité de l’application Service Fabric.
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-info"></a>sfctl application info
@@ -219,7 +219,7 @@ Renvoie les informations sur l’application qui a été créée ou en cours de 
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-list"></a>sfctl application list
@@ -233,7 +233,7 @@ Permet d’obtenir les informations sur les applications qui ont été créées 
 | --- | --- |
 | --application-definition-kind-filter | Permet de filtrer sur ApplicationDefinitionKind, qui est le mécanisme utilisé pour définir une application Service Fabric.  <br> - Default - Valeur par défaut, qui a le même effet que la sélection de « All ». La valeur est égale à 0.  <br> - All - Filtre qui correspond aux entrées ayant n’importe quelle valeur ApplicationDefinitionKind. La valeur est égale à 65535.  <br> - ServiceFabricApplicationDescription - Filtre qui correspond aux entrées dont la valeur d’ApplicationDefinitionKind est égale à ServiceFabricApplicationDescription. La valeur est égale à 1.  <br> - Compose - Filtre qui correspond aux entrées dont la valeur d’ApplicationDefinitionKind est égale à Compose. La valeur est égale à 2. |
 | --application-type-name | Nom du type d’application utilisé pour filtrer les applications à interroger. Cette valeur ne doit pas contenir la version du type d’application. |
-| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
+| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
 | --exclude-application-parameters | Indicateur qui spécifie si les paramètres de l’application doivent être exclus du résultat. |
 | --max-results | Nombre maximal de résultats à renvoyer dans le cadre des requêtes paginées. Ce paramètre définit la limite supérieure du nombre de résultats renvoyés. Le nombre de résultats renvoyés peut être inférieur au nombre maximal de résultats spécifié s’ils ne tiennent pas dans le message conformément aux restrictions de taille maximale définies dans la configuration. Si ce paramètre est défini sur zéro ou n’est pas spécifié, la requête paginée comprend le nombre maximal de résultats pouvant tenir dans le message renvoyé. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
@@ -245,7 +245,7 @@ Permet d’obtenir les informations sur les applications qui ont été créées 
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-load"></a>sfctl application load
@@ -267,7 +267,7 @@ Retourne des informations de chargement concernant l’application qui a été c
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
@@ -290,7 +290,7 @@ La réponse contient le code XML du manifeste de l’application sous forme de c
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
@@ -317,7 +317,7 @@ Permet d’approvisionner un type d’application Service Fabric auprès du clus
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-report-health"></a>sfctl application report-health
@@ -347,7 +347,7 @@ Signale l’état d’intégrité de l’application Service Fabric spécifiée.
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-type"></a>sfctl application type
@@ -361,7 +361,7 @@ Renvoie les informations sur les types d’application qui sont approvisionnés 
 | --- | --- |
 | --application-type-name [Requis] | Nom du type d’application. |
 | --application-type-version | Version du type d’application. |
-| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
+| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
 | --exclude-application-parameters | Indicateur qui spécifie si les paramètres de l’application doivent être exclus du résultat. |
 | --max-results | Nombre maximal de résultats à renvoyer dans le cadre des requêtes paginées. Ce paramètre définit la limite supérieure du nombre de résultats renvoyés. Le nombre de résultats renvoyés peut être inférieur au nombre maximal de résultats spécifié s’ils ne tiennent pas dans le message conformément aux restrictions de taille maximale définies dans la configuration. Si ce paramètre est défini sur zéro ou n’est pas spécifié, la requête paginée comprend le nombre maximal de résultats pouvant tenir dans le message renvoyé. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
@@ -373,7 +373,7 @@ Renvoie les informations sur les types d’application qui sont approvisionnés 
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-type-list"></a>sfctl application type-list
@@ -386,7 +386,7 @@ Renvoie les informations sur les types d’application qui sont approvisionnés 
 |Argument|Description|
 | --- | --- |
 | --application-type-definition-kind-filter | Utilisé pour filtrer sur ApplicationTypeDefinitionKind, qui est le mécanisme utilisé pour définir un type d’application Service Fabric.  <br> - Default - Valeur par défaut, qui a le même effet que la sélection de « All ». La valeur est égale à 0.  <br> - All - Filtre qui correspond aux entrées ayant n’importe quelle valeur ApplicationTypeDefinitionKind. La valeur est égale à 65535.  <br> - ServiceFabricApplicationPackage - Filtre qui correspond aux entrées dont l’argument ApplicationTypeDefinitionKind présente la valeur ServiceFabricApplicationPackage. La valeur est égale à 1.  <br> - Compose - Filtre qui correspond aux entrées dont la valeur ApplicationTypeDefinitionKind est Compose. La valeur est égale à 2. |
-| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
+| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
 | --exclude-application-parameters | Indicateur qui spécifie si les paramètres de l’application doivent être exclus du résultat. |
 | --max-results | Nombre maximal de résultats à renvoyer dans le cadre des requêtes paginées. Ce paramètre définit la limite supérieure du nombre de résultats renvoyés. Le nombre de résultats renvoyés peut être inférieur au nombre maximal de résultats spécifié s’ils ne tiennent pas dans le message conformément aux restrictions de taille maximale définies dans la configuration. Si ce paramètre est défini sur zéro ou n’est pas spécifié, la requête paginée comprend le nombre maximal de résultats pouvant tenir dans le message renvoyé. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
@@ -398,7 +398,7 @@ Renvoie les informations sur les types d’application qui sont approvisionnés 
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-unprovision"></a>sfctl application unprovision
@@ -422,7 +422,7 @@ Cette opération n’est possible que si toutes les instances d’application du
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
@@ -435,22 +435,22 @@ Valide les paramètres de mise à niveau d’application fournis et commence la 
 |Argument|Description|
 | --- | --- |
 | --application-id      [Requis] | Identité de l’application. <br><br> Il s’agit généralement du nom complet de l’application, sans le schéma d’URI « fabric\: ». À compter de la version 6.0, les noms hiérarchiques sont délimités par le caractère « \~ ». Par exemple, si l’application est nommée « fabric\:/myapp/app1 », son identité est « myapp\~app1 » dans les versions 6.0 et ultérieures, et « myapp/app1 » dans les versions précédentes. |
-| --application-version [obligatoire] | Version de l’application cible. |
+| --application-version [obligatoire] | La version du type d’application cible (trouvée dans le manifeste de l’application) pour la mise à niveau de l’application. |
 | --parameters          [obligatoire] | Liste JSON des remplacements de paramètres d’application à appliquer lors de la création de l’application. |
 | --default-service-health-policy | Spécification JSON de la stratégie de contrôle d’intégrité utilisée par défaut pour évaluer l’intégrité d’un type de service. |
 | --failure-action | Action à effectuer lorsqu’une mise à niveau surveillée détecte des violations de stratégie de surveillance ou de stratégie d’intégrité. |
 | --force-restart | Force le redémarrage des processus pendant la mise à jour, même si la version du code n’a pas changé. |
-| --health-check-retry-timeout | Durée pendant laquelle effectuer des tentatives d’évaluation d’intégrité lorsque l’application ou le cluster ne sont pas sains, avant qu’une action d’échec ne soit exécutée. Mesurée en millisecondes.  Valeur par défaut \: PT0H10M0S. |
-| --health-check-stable-duration | Durée pendant laquelle l’application ou le cluster doivent rester sains avant que la mise à niveau ne passe au domaine de mise à niveau suivant. Mesurée en millisecondes.  Valeur par défaut \: PT0H2M0S. |
-| --health-check-wait-duration | Délai d’attente entre l’achèvement d’un domaine de mise à niveau et l’application des stratégies d’intégrité. Mesurée en millisecondes.  Valeur par défaut \: 0. |
+| --health-check-retry-timeout | Délai séparant les tentatives d’exécution des contrôles d’intégrité si l’application ou le cluster n’est pas sain.  Valeur par défaut \: PT0H10M0S. |
+| --health-check-stable-duration | Durée pendant laquelle l’application ou le cluster doivent rester sains avant que la mise à niveau ne passe au domaine de mise à niveau suivant.  Valeur par défaut \: PT0H2M0S. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
+| --health-check-wait-duration | Délai d’attente entre l’achèvement d’un domaine de mise à niveau et le démarrage du processus des contrôles d’intégrité.  Valeur par défaut \: 0. |
 | --max-unhealthy-apps | Pourcentage maximal autorisé d’applications déployées non saines. Représenté par un nombre compris entre 0 et 100. |
 | --mode | Mode utilisé pour surveiller l’intégrité pendant une mise à niveau propagée.  Valeur par défaut \: UnmonitoredAuto. |
 | --replica-set-check-timeout | Durée maximale pendant laquelle bloquer le traitement d’un domaine de mise à niveau et éviter la perte de disponibilité en cas de problèmes inattendus. Mesurée en secondes. |
 | --service-health-policy | Mappage JSON avec stratégie d’intégrité de type de service par nom de type de service. Par défaut, le mappage est vide. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
-| --upgrade-domain-timeout | Durée d’exécution de chaque domaine de mise à niveau avant l’exécution de FailureAction. Mesurée en millisecondes.  Valeur par défaut \: P10675199DT02H48M05.4775807S. |
-| --upgrade-timeout | Durée d’exécution de l’ensemble de la mise à niveau avant l’exécution de FailureAction. Mesurée en millisecondes.  Valeur par défaut \: P10675199DT02H48M05.4775807S. |
-| --warning-as-error | Les avertissements de l’évaluation d’intégrité doivent être considérés comme des erreurs. |
+| --upgrade-domain-timeout | Durée d’exécution de chaque domaine de mise à niveau avant l’exécution de FailureAction.  Valeur par défaut \: P10675199DT02H48M05.4775807S. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
+| --upgrade-timeout | Durée d’exécution de l’ensemble de la mise à niveau avant l’exécution de FailureAction.  Valeur par défaut \: P10675199DT02H48M05.4775807S. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
+| --warning-as-error | Indique si les avertissements sont traités avec le même niveau de gravité que les erreurs. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -459,7 +459,7 @@ Valide les paramètres de mise à niveau d’application fournis et commence la 
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-upgrade-resume"></a>sfctl application upgrade-resume
@@ -482,7 +482,7 @@ Reprend la mise à niveau d’une application Service Fabric manuelle non contr�
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-upgrade-rollback"></a>sfctl application upgrade-rollback
@@ -504,7 +504,7 @@ Annule la mise à niveau de l’application actuelle vers la version précédent
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-upgrade-status"></a>sfctl application upgrade-status
@@ -526,7 +526,7 @@ Renvoie les informations concernant l’état de la dernière mise à niveau d�
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-application-upload"></a>sfctl application upload
@@ -549,7 +549,7 @@ Permet d’afficher éventuellement la progression du chargement pour chaque fic
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 

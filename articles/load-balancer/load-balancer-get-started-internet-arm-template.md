@@ -1,5 +1,6 @@
 ---
-title: Créer un équilibreur de charge public - modèle Azure | Microsoft Docs
+title: Créer un équilibreur de charge public - Modèle Azure
+titlesuffix: Azure Load Balancer
 description: Découvrez comment créer un équilibreur de charge public dans Resource Manager à l’aide d’un modèle
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0ca988fba91cd1d4a97ca376a6f3ff45fae214ac
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c77cdf23e73a174ca68744ea543a41ce0a1de9f7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418974"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095701"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Création d’un équilibreur de charge public à l’aide d’un modèle
 
@@ -34,7 +36,7 @@ ms.locfileid: "50418974"
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Déployer le modèle en un clic
 
-L’exemple de modèle disponible dans le référentiel public utilise un fichier de paramètres contenant les valeurs par défaut utilisées pour générer le scénario décrit ci-dessus. Pour déployer ce modèle en un clic, suivez [ce lien](http://go.microsoft.com/fwlink/?LinkId=544801), cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail.
+L’exemple de modèle disponible dans le référentiel public utilise un fichier de paramètres contenant les valeurs par défaut utilisées pour générer le scénario décrit ci-dessus. Pour déployer ce modèle en un clic, suivez [ce lien](https://go.microsoft.com/fwlink/?LinkId=544801), cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail.
 
 ## <a name="deploy-the-template-by-using-powershell"></a>Déployer le modèle à l’aide de PowerShell
 

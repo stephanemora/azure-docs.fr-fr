@@ -1,5 +1,5 @@
 ---
-title: Autoriser l’accès à l’application de conteneurs DC/OS Azure
+title: (DÉPRÉCIÉ) Autoriser l’accès à l’application de conteneurs DC/OS Azure
 description: Comment autoriser l’accès public aux conteneurs DC/OS dans Azure Container Service.
 services: container-service
 author: sauryadas
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: aedc97335a0b9ad00cf653477b62bf530b556900
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26332277"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996593"
 ---
-# <a name="enable-public-access-to-an-azure-container-service-application"></a>Autoriser l’accès public à une application Azure Container Service
+# <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(DÉPRÉCIÉ) Autoriser l’accès public à une application Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Tous les conteneurs DC/OS du [pool d’agent public](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) ACS sont automatiquement exposés à internet. Par défaut, les ports **80**, **443**, **8080** sont ouverts, et tous les conteneurs (publics) à l’écoute sur ces ports sont accessibles. Cet article vous explique comment ouvrir davantage de ports pour vos applications dans Azure Container Service.
 
@@ -35,9 +37,9 @@ Tout d’abord, il faut ouvrir le port désiré.
    
    | Champ | Description |
    | --- | --- |
-   | Nom |Nom descriptif de la sonde. |
+   | NOM |Nom descriptif de la sonde. |
    | Port |Port du conteneur à tester. |
-   | Chemin |(En mode HTTP) Le chemin relatif du site à la sonde. HTTPS non pris en charge. |
+   | path |(En mode HTTP) Le chemin relatif du site à la sonde. HTTPS non pris en charge. |
    | Intervalle |Intervalle de temps entre les tentatives de la sonde, en secondes. |
    | Seuil de défaillance sur le plan de l’intégrité |Nombre de tentatives consécutives effectuées par la sonde avant de considérer que le conteneur est défectueux. |
 6. De retour sur les propriétés de l’équilibrage de charge de l’agent, cliquez sur **Règles d’équilibrage de la charge**, puis sur **Ajouter**.
@@ -47,12 +49,12 @@ Tout d’abord, il faut ouvrir le port désiré.
    
    | Champ | Description |
    | --- | --- |
-   | Nom |Nom descriptif de l’équilibrage de charge. |
+   | NOM |Nom descriptif de l’équilibrage de charge. |
    | Port |Port entrant public. |
    | Port principal |Port interne public du conteneur vers lequel le trafic est acheminé. |
    | Pool principal |Les conteneurs de ce pool seront les cibles de cet équilibrage de charge. |
    | Sonde |Sonde utilisée pour déterminer si une cible du **pool principal** est saine. |
-   | Persistance de session |Détermine comment le trafic provenant d’un client doit être géré pendant la durée de la session.<br><br>**Aucune** : les demandes successives provenant d’un même client peuvent être gérées par n’importe quel conteneur.<br>**Adresse IP client** : les demandes successives provenant d’une même adresse IP client sont gérées par le même conteneur.<br>**Adresse IP cliente et protocole**: les demandes successives provenant d’une même combinaison d’adresse IP client et de protocole sont gérées par le même conteneur. |
+   | Persistance de session |Détermine comment le trafic provenant d’un client doit être géré pendant la durée de la session.<br><br>**Aucune** : les requêtes successives provenant d’un même client peuvent être gérées par n’importe quel conteneur.<br>**Adresse IP cliente** : les requêtes successives provenant d’une même adresse IP cliente sont gérées par le même conteneur.<br>**Adresse IP cliente et protocole** : les requêtes successives provenant d’une même combinaison d’adresse IP cliente et de protocole sont managées par le même conteneur. |
    | Délai d’inactivité |(TCP uniquement) Durée en minutes pendant laquelle maintenir un client TCP/HTTP ouvert sans faire appel à des messages *keep-alive* . |
 
 ## <a name="add-a-security-rule-portal"></a>Ajouter une règle de sécurité (portail)
@@ -70,7 +72,7 @@ Ensuite, il faut ajouter une règle de sécurité qui achemine le trafic à part
    
    | Champ | Description |
    | --- | --- |
-   | Nom |Nom descriptif de la règle de pare-feu. |
+   | NOM |Nom descriptif de la règle de pare-feu. |
    | Priorité |Rang de priorité de la règle. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée. |
    | Source |Restreindre la plage d’adresses IP entrante pour qu’elle soit autorisée ou interdite par cette règle. Utilisez **Any** (Aucune) pour ne spécifier aucune restriction. |
    | Service |Sélectionner un ensemble de services prédéfinis concerné par cette règle de sécurité. Sinon, utilisez **Personnalisé** pour créer votre propre ensemble de services. |

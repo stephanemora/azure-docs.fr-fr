@@ -1,6 +1,6 @@
 ---
-title: Exemple de stratégie de Gestion des API Azure - Autoriser l’accès à l’aide du jeton Google OAuth | Microsoft Docs
-description: Exemple de stratégie de Gestion des API Azure - Montre comment autoriser l’accès à vos points de terminaison en utilisant Google comme fournisseur de jeton OAuth.
+title: Exemple de stratégie de gestion des API Azure – Autoriser l’accès à l’aide du jeton Google OAuth | Microsoft Docs
+description: Exemple de stratégie de gestion des API Azure – Comment autoriser l’accès à vos points de terminaison en utilisant Google comme fournisseur de jeton OAuth.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 22aed976ef69288aa0e49215a739174786843527
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 430f9e57df163ad345f0740e5bd5beca6e892a4c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284584"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869297"
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>Autoriser l’accès à l’aide du jeton Google OAuth
 

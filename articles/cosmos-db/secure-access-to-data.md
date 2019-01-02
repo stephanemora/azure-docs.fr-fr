@@ -1,20 +1,18 @@
 ---
-title: Sécurisation de l’accès aux données Azure Cosmos DB | Microsoft Docs
+title: Sécuriser l’accès aux données Azure Cosmos DB
 description: Découvrez les concepts du contrôle d’accès dans Azure Cosmos DB, notamment les clés principales, les clés en lecture seule, les utilisateurs et les autorisations.
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1d1bc011de579588567fac3debe9d0b4af5d29f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621443"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878325"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Sécurisation de l’accès aux données d’Azure Cosmos DB
 Cet article fournit une vue d’ensemble de la sécurisation de l’accès aux données stockées dans [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -130,8 +128,8 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 Une ressource d’autorisation Azure Cosmos DB est associée à un utilisateur Azure Cosmos DB.  Chaque utilisateur peut contenir zéro, une ou plusieurs autorisations Azure Cosmos DB.  Une ressource d'autorisation donne accès à un jeton de sécurité dont l'utilisateur a besoin lorsqu'il tente d'accéder à une ressource d'application spécifique.
 Il existe deux niveaux d’accès disponibles qui peuvent être fournis par une ressource d’autorisation :
 
-* Tout : L’utilisateur dispose de toutes les autorisations sur la ressource.
-* Lecture : L’utilisateur peut uniquement lire le contenu de la ressource, mais il ne peut pas procéder à des opérations d’écriture, de mise à jour ou de suppression au niveau de la ressource.
+* Tout : l’utilisateur dispose de toutes les autorisations sur la ressource.
+* Lecture : L’utilisateur peut uniquement lire le contenu de la ressource, il ne peut pas procéder à des opérations d’écriture, de mise à jour ou de suppression au niveau de la ressource.
 
 > [!NOTE]
 > Pour exécuter des procédures stockées Azure Cosmos DB, l’utilisateur doit disposer de toutes les autorisations sur le conteneur dans lequel la procédure stockée est exécutée.
@@ -180,8 +178,8 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 Pour ajouter l’accès en lecture aux comptes Azure Cosmos DB à votre compte d’utilisateur, demandez à un propriétaire d’abonnement d’effectuer les étapes suivantes dans le portail Azure.
 
 1. Ouvrez le portail Azure, puis sélectionnez votre compte Azure Cosmos DB.
-2. Cliquez sur l’onglet **Contrôle d’accès (IAM)**, puis cliquez sur **+ Ajouter**.
-3. Dans le volet **Ajouter des autorisations**, dans la zone **Rôle**, sélectionnez **Rôle de lecteur de compte Cosmos DB**.
+2. Cliquez sur l’onglet **Contrôle d’accès (IAM)**, puis cliquez sur **+ Ajouter une attribution de rôle**.
+3. Dans le volet **Ajouter une attribution de rôle**, dans la zone **Rôle**, sélectionnez **Rôle de lecteur de compte Cosmos DB**.
 4. Dans la zone **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
 5. Dans votre annuaire, sélectionnez l’utilisateur, le groupe ou l’application qui doit recevoir l’accès.  Dans l’annuaire, vous pouvez rechercher des noms d’affichage, des adresses e-mail et des identificateurs d’objet.
     L’utilisateur, le groupe ou l’application s’affiche alors dans la liste des membres sélectionnés.
@@ -195,5 +193,5 @@ Azure Cosmos DB vous permet de rechercher, de sélectionner, de modifier et de s
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur la sécurité de la base de données Azure Cosmos DB, consultez [Sécurité de la base de données Azure Cosmos DB](database-security.md).
+* Pour en savoir plus sur la sécurité de la base de données Azure Cosmos DB, consultez [Azure Cosmos DB : Sécurité de la base de données](database-security.md).
 * Pour savoir comment créer des jetons d’autorisation Azure Cosmos DB, consultez [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Contrôle d’accès aux ressources Azure Cosmos DB).

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321731"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190984"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
 
@@ -27,7 +27,7 @@ Cet article décrit les stratégies de mot de passe et les exigences en matière
 
 Avec une stratégie à deux verrous, **les administrateurs n’ont pas la possibilité d’utiliser des questions de sécurité**.
 
-Une stratégie à deux verrous nécessite deux éléments de données d’authentification, par exemple une adresse de messagerie *et* un numéro de téléphone. Une stratégie à deux verrous s’applique dans les conditions suivantes :
+La stratégie à deux verrous nécessite deux éléments de données d’authentification, par exemple une **adresse e-mail**, une **application d’authentificateur** ou un **numéro de téléphone**. Une stratégie à deux verrous s’applique dans les conditions suivantes :
 
 * Tous les rôles d’administrateur suivants sont concernés :
   * Administrateur du support technique
@@ -80,9 +80,9 @@ Le tableau suivant décrit les paramètres de stratégie de mot de passe disponi
 | --- | --- |
 | Caractères autorisés |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | Caractères non autorisés |<ul><li>Caractères Unicode.</li><li>Espaces.</li><li> Mots de passe forts uniquement</li></ul> |
-| Restrictions de mot de passe |<ul><li>8 caractères minimum et 16 caractères maximum.</li><li>Mots de passe forts uniquement : trois des quatre éléments suivants sont requis :<ul><li>Caractères minuscules.</li><li>Caractères majuscules.</li><li>Nombres (0-9).</li><li>Symboles (voir les restrictions de mot de passe précédentes).</li></ul></li></ul> |
-| Délai d'expiration du mot de passe |<ul><li>Valeur par défaut : **90** jours.</li><li>La valeur peut être configurée à l’aide de l’applet de commande `Set-MsolPasswordPolicy` à partir du module Azure Active Directory pour Windows PowerShell.</li></ul> |
-| Notification d'expiration du mot de passe |<ul><li>Valeur par défaut : **14** jours (avant l’expiration du mot de passe).</li><li>La valeur peut être configurée à l’aide de l’applet de commande `Set-MsolPasswordPolicy`.</li></ul> |
+| Restrictions de mot de passe |<ul><li>8 caractères minimum et 16 caractères maximum.</li><li>Mots de passe forts uniquement : trois des quatre éléments suivants sont requis :<ul><li>Caractères minuscules.</li><li>Caractères majuscules.</li><li>Nombres (0-9).</li><li>Symboles (voir les restrictions de mot de passe précédentes).</li></ul></li></ul> |
+| Délai d'expiration du mot de passe |<ul><li>Valeur par défaut : **90** jours.</li><li>La valeur peut être configurée à l’aide de l’applet de commande `Set-MsolPasswordPolicy` à partir du module Azure Active Directory pour Windows PowerShell.</li></ul> |
+| Notification d'expiration du mot de passe |<ul><li>Valeur par défaut : **14** jours (avant l’expiration du mot de passe).</li><li>La valeur peut être configurée à l’aide de l’applet de commande `Set-MsolPasswordPolicy`.</li></ul> |
 | Expiration du mot de passe |<ul><li>Valeur par défaut : **false** jours (indique que l’expiration du mot de passe est activée).</li><li>La valeur peut être configurée pour des comptes d’utilisateur individuels à l’aide de l’applet de commande `Set-MsolUser`.</li></ul> |
 | Historique de modification du mot de passe |Le dernier mot de passe *ne peut pas* être réutilisé lorsque l’utilisateur modifie un mot de passe. |
 | Historique de réinitialisation du mot de passe | Le dernier mot de passe *peut* être réutilisé lorsque l’utilisateur réinitialise un mot de passe oublié. |

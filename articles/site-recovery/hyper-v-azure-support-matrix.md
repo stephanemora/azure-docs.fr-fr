@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: e389f37448211afc35fb98572161be4fcaea7556
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8c8ba338a7059d6d11f43bda6348aa6e645ab98c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210718"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410157"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -33,8 +33,8 @@ Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d
 
 **Serveur** | **Configuration requise** | **Détails**
 --- | --- | ---
-Hyper-V (exécuté sans Virtual Machine Manager) | Windows Server 2016 (installation de Server Core incluse), Windows Server 2012 R2 avec les dernières mises à jour | Lorsque vous configurez un site Hyper-V dans Site Recovery, le mélange d’ordinateurs hôtes exécutant Windows Server 2016 et 2012 R2 n’est pas pris en charge.<br/><br/> Pour les machines virtuelles situées sur un hôte exécutant Windows Server 2016, la récupération vers un autre emplacement n’est pas prise en charge.
-Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2016 doivent être managés dans Virtual Machine Manager 2016.<br/><br/> Un cloud Virtual Machine Manager combinant des hôtes Hyper-V s’exécutant sur Windows Server 2016 et 2012 R2 n’est actuellement pas pris en charge.<br/><br/> Les environnements qui incluent une mise à niveau d’un serveur Virtual Machine Manager 2012 R2 existant vers 2016 ne sont pas pris en charge.
+Hyper-V (exécuté sans Virtual Machine Manager) | Windows Server 2016 (installation de Server Core incluse), Windows Server 2012 R2 avec les dernières mises à jour | Pour les machines virtuelles situées sur un hôte exécutant Windows Server 2016, la récupération vers un autre emplacement n’est pas prise en charge.<br/><br/> Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md) 
+Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2016 doivent être managés dans Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>Machines virtuelles répliquées
@@ -59,16 +59,16 @@ Ajouter un disque sur la machine virtuelle Hyper-V répliquée | Non pris en cha
 
 **Composant** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
-Réseau hôte : association de cartes réseau | Oui | Oui
+Réseau hôte : Association de cartes réseau | Oui | Oui
 Réseau hôte : VLAN | Oui | Oui
-Réseau hôte : IPv4 | Oui | Oui
+Réseau hôte : IPv4 | OUI | Oui
 Réseau hôte : IPv6 | Non  | Non 
-Réseau de machines virtuelles invitées : association de cartes réseau | Non  | Non 
-Réseau de machines virtuelles invitées : IPv4 | Oui | Oui
-Réseau de machines virtuelles invitées : IPv6 | Non  | Oui
-Réseau de machines virtuelles invitées : IP statique (Windows) | Oui | Oui
-Réseau de machines virtuelles invitées : IP statique (Linux) | Non  | Non 
-Réseau de machines virtuelles invitées : plusieurs cartes réseau | Oui | Oui
+Réseau machines virtuelles invitées : Association de cartes réseau | Non  | Non 
+Réseau machines virtuelles invitées : IPv4 | OUI | Oui
+Réseau machines virtuelles invitées : IPv6 | Non  | Oui
+Réseau machines virtuelles invitées : Adresse IP statique (Windows) | Oui | Oui
+Réseau machines virtuelles invitées : Adresse IP statique (Linux) | Non  | Non 
+Réseau machines virtuelles invitées : Plusieurs cartes réseau | OUI | Oui
 
 
 
@@ -111,8 +111,8 @@ NFS | N/D | N/D
 SMB 3.0 | Non  | Non 
 RDM | N/D | N/D
 Disque > 1 To | Oui, jusqu’à 4,095 Go | Oui, jusqu’à 4,095 Go
-Disque : secteur logique et physique de 4 K | Non pris en charge : 1re génération, 2e génération | Non pris en charge : 1re génération, 2e génération
-Disque : secteur logique de 4 K et physique de 512 octets | OUI |  Oui
+Disque : secteur logique et physique de 4 K | Non pris en charge : Gen 1/Gen 2 | Non pris en charge : Gen 1/Gen 2
+Disque : secteur logique de 4 K et physique de 512 octets | Oui |  Oui
 Gestion des volumes logiques (LVM). LVM est pris en charge uniquement sur des disques de données. Azure ne fournit qu’un seul disque de système d’exploitation. | Oui | OUI
 Volume avec disque à bandes > 1 To | Oui | OUI
 Espaces de stockage | OUI | OUI
@@ -159,7 +159,7 @@ Taille du disque dur virtuel de données | Jusqu’à 4 095 Go | La vérificatio
 Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau. |
 Disque dur virtuel partagé | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 Disque FC | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
-Format de disque dur | Disque dur virtuel (VHD)  <br/><br/> VHDX | Site Recovery convertit automatiquement VHDX en VHD quand vous effectuez un basculement vers Azure. Lorsque vous procédez à une restauration automatique vers un site local, les machines virtuelles continuent d’utiliser le format VHDX.
+Format de disque dur | Disque dur virtuel (VHD)  <br/><br/>  VHDX | Site Recovery convertit automatiquement VHDX en VHD quand vous effectuez un basculement vers Azure. Lorsque vous procédez à une restauration automatique vers un site local, les machines virtuelles continuent d’utiliser le format VHDX.
 BitLocker | Non pris en charge | BitLocker doit être désactivé avant d’activer la réplication pour une machine virtuelle.
 nom de la machine virtuelle | Entre 1 et 63 caractères. Uniquement des lettres, des chiffres et des traits d’union. Le nom de la machine virtuelle doit commencer et se terminer par une lettre ou un chiffre. | Mettez à jour la valeur dans les propriétés de machine virtuelle de Site Recovery.
 Type de machine virtuelle | Génération 1<br/><br/> Génération 2--Windows | Les machines virtuelles de 2e génération avec un type de disque de système d’exploitation de base, qui inclut un ou deux volumes de données au format VHDX et un espace disque inférieur à 300 Go sont prises en charge.<br></br>Les machines virtuelles Linux de 2e génération ne sont pas prises en charge. [Plus d’informations](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
@@ -171,6 +171,9 @@ Type de machine virtuelle | Génération 1<br/><br/> Génération 2--Windows | L
 Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  | Non 
 Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  | Non 
 
+> [!NOTE]
+> Dans le cadre de la réplication de machines virtuelles Hyper-V (gérées avec ou sans SCVMM) du niveau local vers Azure, vous ne pouvez répliquer que sur un seul locataire AD à partir d’un environnement spécifique (site Hyper-V ou SCVMM selon le cas).
+
 
 ## <a name="provider-and-agent"></a>Fournisseur et agent
 
@@ -178,7 +181,7 @@ Pour vous assurer que votre déploiement est compatible avec les paramètres de 
 
 **Name** | **Description** | **Détails**
 --- | --- | --- | --- | ---
-Fournisseur Azure Site Recovery | Coordonne les communications entre les serveurs locaux et Azure <br/><br/> Hyper-V avec Virtual Machine Manager : installé sur les serveurs Virtual Machine Manager<br/><br/> Hyper-V sans Virtual Machine Manager : installé sur les hôtes Hyper-V| Version la plus récente : 5.1.2700.1 (disponible sur le portail Azure)<br/><br/> [Fonctionnalités et correctifs récents](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
+Fournisseur Azure Site Recovery | Coordonne les communications entre les serveurs locaux et Azure <br/><br/> Hyper-V avec Virtual Machine Manager : Installé sur les serveurs Virtual Machine Manager<br/><br/> Hyper-V sans Virtual Machine Manager : Installé sur les hôtes Hyper-V| Version la plus récente : 5.1.2700.1 (disponible dans le portail Azure)<br/><br/> [Fonctionnalités et correctifs récents](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Agent Microsoft Azure Recovery Services | Coordonne la réplication entre les machines virtuelles Hyper-V et Azure<br/><br/> Installé sur des serveurs Hyper-V locaux (avec ou sans serveur Virtual Machine Manager) | Dernier agent disponible sur le portail
 
 

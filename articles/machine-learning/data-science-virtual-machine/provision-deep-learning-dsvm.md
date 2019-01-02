@@ -1,10 +1,12 @@
 ---
-title: Provisionner une machine virtuelle Deep Learning Data Science Virtual Machine dans Azure | Microsoft Docs
+title: Créer une machine virtuelle Data Science Virtual Machine pour le Deep Learning
+titleSuffix: Azure
 description: Configurez et créez une instance Deep Learning Data Science Virtual Machine dans Azure à des fins d’analytique et d’apprentissage automatique.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229660"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078754"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DLVM dans Azure 
 
@@ -36,21 +38,21 @@ Voici les étapes de création d’une instance Deep Learning Virtual Machine :
    
    1. **Concepts de base**
       
-      1. **Name**(Nom) : nom du serveur Data Science que vous créez.
-      2. **Sélectionner le type de système d’exploitation pour l’instance Deep Learning Virtual Machine** : choisissez Windows ou Linux (pour une instance de DSVM ayant une base Windows 2016 ou Ubuntu Linux)
-      2. **Nom d’utilisateur**: identifiant de connexion du compte administrateur.
-      3. **Mot de passe**: mot de passe du compte administrateur.
-      4. **Subscription**(Abonnement) : si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine.
-      5. **Groupe de ressources** : vous pouvez en créer un nouveau ou utiliser un groupe de ressources Azure **vide** existant dans votre abonnement.
-      6. **Location**(Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau 
+      1. **Nom** : nom du serveur de science des données que vous créez.
+      2. **Sélectionner le type de système d’exploitation de la machine virtuelle Deep Learning** : choisissez Windows ou Linux (pour une machine virtuelle DSVM ayant une base Windows 2016 ou Ubuntu Linux).
+      2. **Nom d’utilisateur** : ID de connexion du compte Administrateur.
+      3. **Mot de passe** : mot de passe du compte Administrateur.
+      4. **Abonnement**: Si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine.
+      5. **Groupe de ressources** : vous pouvez en créer un nouveau ou utiliser un groupe de ressources Azure **vide** dans votre abonnement.
+      6. **Lieu** : sélectionnez le centre de données le plus adapté. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau 
       
 > [!NOTE]
 > La machine virtuelle DLVM prend en charge toutes les instances de machine virtuelle GPU de série NC et ND. Lorsque vous approvisionnez la machine virtuelle DLVM, vous devez choisir l’un des emplacements d’Azure qui dispose de processeurs GPU. Dans la page [Azure Products by Region](https://azure.microsoft.com/regions/services/) (Produits Azure par région), consultez les emplacements disponibles et recherchez **Série NC**, **Série NCv2**, **Série NCv3** ou **Série ND** sous **Compute**. 
 
-   2. **Paramètres** : sélectionnez une taille de machine virtuelle GPU de série NC (NC, NCv2 ou NCv3) ou ND qui répond à vos exigences fonctionnelles et à votre budget. Créez un compte de stockage pour votre machine virtuelle.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Paramètres**: sélectionnez une taille de machine virtuelle GPU de série NC (NC, NCv2 ou NCv3) ou ND adaptée à vos exigences fonctionnelles et à votre budget. Créez un compte de stockage pour votre machine virtuelle.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Résumé**: vérifiez que toutes les informations que vous avez saisies sont correctes.
-   5. **Acheter** : cliquez sur **Acheter** pour démarrer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** . 
+   3. **Résumé**: Vérifiez que toutes les informations que vous avez saisies sont correctes.
+   5. **Acheter**: cliquez sur **Acheter** pour commencer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** . 
 
 > [!NOTE]
 > L’approvisionnement prend environ 10 à 20 minutes. L’état de l’approvisionnement est affiché sur le portail Azure.
@@ -77,12 +79,12 @@ La machine virtuelle DLVM Linux est déjà provisionnée avec le serveur X2Go et
 1. Téléchargez et installez le client X2Go pour votre plateforme cliente sur [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Exécutez le client X2Go et sélectionnez **New Session**(Nouvelle session). Une fenêtre de configuration avec plusieurs onglets s’ouvre. Entrez les paramètres de configuration suivants :
    * **Onglet Session**:
-     * **Host**(Hôte) : nom d’hôte ou adresse IP de votre machine virtuelle de science des données Linux.
-     * **Login**(Connexion) : nom d’utilisateur sur la machine virtuelle Linux.
-     * **SSH Port**(Port SSH) : conservez la valeur par défaut 22.
+     * **Hôte** : nom d’hôte ou adresse IP de votre machine virtuelle Data Science VM Linux.
+     * **Connexion** : nom d’utilisateur sur la machine virtuelle Linux.
+     * **Port SSH** : conservez la valeur par défaut (22).
      * **Type de session** : remplacez la valeur par **XFCE**. Les instances Linux de DSVM prennent uniquement en charge XFCE Desktop.
-   * **Onglet Media**(Média) : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
-   * **Shared folders**(Dossiers partagés) : si vous souhaitez que les répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet.
+   * **Onglet Multimédia** : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
+   * **Dossiers partagés** : si vous souhaitez que des répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet.
 
 Une fois connecté à la machine virtuelle à l’aide du client SSH ou du bureau graphique XFCE par le biais du client X2Go, vous pouvez commencer à utiliser les outils installés et configurés sur la machine virtuelle. Sur XFCE, vous pouvez voir les icônes de bureau et raccourcis du menu d’applications de la plupart des outils.
 

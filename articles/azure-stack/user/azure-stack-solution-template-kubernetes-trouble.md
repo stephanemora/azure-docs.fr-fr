@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f7f23a6d645a1d8e16e42e751050d8d91b49e2b3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007823"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956718"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Résoudre les problèmes de votre déploiement Kubernetes sur Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!Note]  
 > Kubernetes sur Azure Stack est en préversion.
@@ -45,10 +45,10 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
 1. Collecter des paramètres d’entrée à partir de l’élément Place de marché.
 
     Entrer les valeurs dont vous avez besoin pour configurer le cluster Kubernetes, y compris :
-    -  **Nom d’utilisateur** : le nom d’utilisateur des machines virtuelles Linux qui font partie du cluster Kubernetes et du déploiement de machines virtuelles (DVM).
-    -  **Clé publique SSH** : la clé utilisée pour l’autorisation sur toutes les machines Linux créées dans le cadre du cluster Kubernetes et du DVM.
-    -  **Principal du service**: l’ID utilisé par le fournisseur cloud d’Azure Kubernetes. Il s’agit de l’ID client identifié en tant qu’ID d’application lorsque vous avez créé votre principal de service. 
-    -  **Secret client** : la clé que vous avez créée au moment de la création de votre principal de service.
+    -  **Nom d’utilisateur :** nom d’utilisateur pour les machines virtuelles Linux qui font partie du cluster Kubernetes et de DVM.
+    -  **Clé publique SSH** : clé utilisée pour l’autorisation sur toutes les machines Linux créées dans le cadre du cluster Kubernetes et de DVM.
+    -  **Principal du service** : ID utilisé par le fournisseur cloud d’Azure Kubernetes. Il s’agit de l’ID client identifié en tant qu’ID d’application lorsque vous avez créé votre principal de service. 
+    -  **Clé secrète client** : clé que vous avez créée au moment de la création de votre principal du service.
 
 2. Créer la machine virtuelle de déploiement et l’extension de script personnalisé.
     -  Créer les machines virtuelles Linux de déploiement au moyen de l’image Linux de la Place de marché, **Ubuntu Server 16. 04-LTS**.
@@ -154,9 +154,9 @@ Pour obtenir des journaux, suivez les étapes ci-dessous :
     | Paramètre           | Description                                                                                                      | Exemples                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -i, --identity-file | Fichier de clé privée RSA pour se connecter à la machine virtuelle principale Kubernetes. La clé doit commencer par `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | -h, --host          | Adresse IP publique ou nom de domaine complet (FQDN) de la machine virtuelle principale du cluster Kubernetes. Le nom de la machine virtuelle commence par `k8s-master-`.                       | IP : 192.168.102.37<br><br>Nom de domaine complet : k8s-12345.local.cloudapp.azurestack.external      |
+    | -h, --host          | Adresse IP publique ou nom de domaine complet (FQDN) de la machine virtuelle principale du cluster Kubernetes. Le nom de la machine virtuelle commence par `k8s-master-`.                       | Adresse IP : 192.168.102.37<br><br>Nom de domaine complet : k8s-12345.local.cloudapp.azurestack.external      |
     | -u, --user          | Nom d’utilisateur de la machine virtuelle principale du cluster Kubernetes. Vous définissez ce nom lorsque vous configurez l’élément de la Place de marché.                                                                    | azureuser                                                                     |
-    | -d, --vmdhost       | Adresse IP publique ou nom de domaine complet du DVM. Le nom de la machine virtuelle commence par `vmd-`.                                                       | IP : 192.168.102.38<br><br>DNS : vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -d, --vmdhost       | Adresse IP publique ou nom de domaine complet du DVM. Le nom de la machine virtuelle commence par `vmd-`.                                                       | Adresse IP : 192.168.102.38<br><br>DNS : vmd-dnsk8-frog.local.cloudapp.azurestack.external |
 
    Lorsque vous ajoutez vos valeurs de paramètres, cela peut ressembler à ce qui suit :
 
@@ -178,6 +178,6 @@ Pour obtenir des journaux, suivez les étapes ci-dessous :
 
 [Déployer Kubernetes sur Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Ajouter un cluster Kubernetes à la Place de marché (pour l’opérateur Azure Stack)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Ajouter un cluster Kubernetes à la Place de marché (pour l’opérateur Azure Stack)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes sur Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

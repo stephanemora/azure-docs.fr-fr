@@ -9,16 +9,16 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: e57fd3747ef9cbd55d073e02bc14816ca949bcd6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 82aebd780b7b821675a6ee891cc81e2b1c6fdafb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046233"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437212"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Définir l’environnement interactif de PySpark pour Visual Studio Code
 
-Les étapes suivantes vous montrent comment installer des packages Python par l’exécution de **HDInsight: PySpark Interactive**.
+Les étapes suivantes vous montrent comment installer des packages Python en exécutant **HDInsight : PySpark Interactive**.
 
 
 ## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>Définir l’environnement interactif de PySpark sur MacOS et Linux
@@ -86,23 +86,23 @@ Si vous utilisez **Python 3.x**, vous devez utiliser la commande **pip3** pour l
     - **python2** et **pysparkkernel** correspondent à **python 2.x**. 
     - **python3** et **pyspark3kernel** correspondent à **python 3.x**. 
 
-8. Redémarrez VS Code puis revenez à l’éditeur de script qui exécute **HDInsight: PySpark Interactive**.
+8. Redémarrez VS Code, puis revenez à l’éditeur de script qui exécute **HDInsight : PySpark Interactive**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 ### <a name="demo"></a>Démonstration
-* HDInsight pour VS Code : [vidéo](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight pour VS Code : [Vidéo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
 * [Utiliser Azure HDInsight Tools pour Visual Studio Code](hdinsight-for-vscode.md)
-* [Utiliser le kit de ressources Azure pour IntelliJ pour créer et soumettre des applications Spark Scala](spark/apache-spark-intellij-tool-plugin.md)
-* [Utiliser le kit de ressources Azure pour IntelliJ pour déboguer des applications Spark à distance via SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Utiliser le kit de ressources Azure pour IntelliJ pour déboguer des applications Spark à distance via VPN](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utiliser HDInsight Tools dans le kit de ressources Azure pour Eclipse pour créer des applications Spark](spark/apache-spark-eclipse-tool-plugin.md)
+* [Utiliser Azure Toolkit for IntelliJ pour créer et soumettre des applications Apache Spark Scala](spark/apache-spark-intellij-tool-plugin.md)
+* [Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance par SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance par VPN](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Utiliser HDInsight Tools dans Azure Toolkit for Eclipse pour créer des applications Apache Spark](spark/apache-spark-eclipse-tool-plugin.md)
 * [Utiliser HDInsight Tools pour IntelliJ avec Hortonworks Sandbox](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](spark/apache-spark-zeppelin-notebook.md)
-* [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
+* [Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight](spark/apache-spark-zeppelin-notebook.md)
+* [Noyaux accessibles à Jupyter Notebook dans un cluster Apache Spark pour HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
-* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Visualiser des données Hive à l’aide de Microsoft Power BI dans Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](hdinsight-connect-hive-zeppelin.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](spark/apache-spark-jupyter-notebook-install-locally.md)
+* [Visualiser des données Apache Hive à l’aide de Microsoft Power BI dans Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](hdinsight-connect-hive-zeppelin.md)

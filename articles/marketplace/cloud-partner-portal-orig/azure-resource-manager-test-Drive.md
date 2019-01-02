@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025257"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139263"
 ---
 <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 =================================
@@ -177,7 +177,7 @@ Vous pouvez utiliser ce paramètre pour identifier de façon unique la session d
 
 Certaines ressources Azure, comme les comptes de stockage ou les noms DNS, exigent des noms globalement uniques.
 
-Cela signifie que chaque fois que la version d’évaluation déploie le modèle Resource Manager, elle crée un **nouveau groupe de ressources avec un nom unique** pour toutes ses ressources **.**\' Par conséquent, il est nécessaire d’utiliser la fonction concaténée [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) avec vos noms variables sur les ID de groupe de ressources pour générer des valeurs uniques aléatoires :
+Autrement dit, chaque fois que la version d’évaluation déploie le modèle Resource Manager, elle crée un **groupe de ressources avec un nom unique** pour toutes ses\' ressources. Par conséquent, il est nécessaire d’utiliser la fonction concaténée [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) avec vos noms variables sur les ID de groupe de ressources pour générer des valeurs uniques aléatoires :
 
       "variables": {
       ...
@@ -298,7 +298,7 @@ Maintenant que vous avez créé votre version d’évaluation, cette section dé
 
 Le premier champ, et également le plus important, consiste à activer/désactiver la version d’évaluation pour votre offre. Lorsque vous sélectionnez **Oui,** le reste du formulaire avec tous les champs obligatoires vous est présenté pour être rempli. Lorsque vous sélectionnez **Non**, le formulaire est désactivé et si vous republiez avec la version d’évaluation désactivée, votre version d’évaluation est supprimée de la production.
 
-Remarque : s’il existe des versions d’évaluation utilisées par des utilisateurs, elles continueront à être exécutées jusqu’à ce que leur session expire.
+Remarque : si des versions d’évaluation sont employées par des utilisateurs, elles continuent à être exécutées jusqu’à ce que leur session expire.
 
 ### <a name="details"></a>Détails
 
@@ -379,20 +379,18 @@ Cliquez sur Enregistrer. La dernière étape consiste à récupérer l’ID de c
 
 ![Détails de l’ID d’application Azure AD](./media/azure-resource-manager-test-drive/subdetails7.png)
 
-Étant donné nous utilisons l’application à déployer sur l’abonnement, nous devons ajouter l’application en tant que collaborateur sur l’abonnement. Voici les instructions à suivre pour ce faire :
+Étant donné nous utilisons l’application à déployer sur l’abonnement, nous devons ajouter l’application en tant que collaborateur sur l’abonnement. Voici les instructions pour le faire :
 
 1. Accédez au panneau Abonnements et sélectionnez l’abonnement approprié que vous utilisez uniquement pour la version d’évaluation.
-2. Cliquez sur Contrôle d’accès (IAM).
-3. Appuyez sur + Ajouter dans le nouveau panneau.
-4. Définissez le rôle Contributeur.
-5. Tapez le nom de l’application AAD et sélectionnez celle-ci pour affecter le rôle.
-6. Cliquez sur Enregistrer.
+1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur l’onglet **Attributions de rôles**.  ![Ajouter un nouveau principal Access Control](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Cliquez sur **Ajouter une attribution de rôle**.
+1. Définissez le rôle **Contributeur**.
+1. Tapez le nom de l’application Azure AD et sélectionnez cette dernière pour assigner le rôle.
+    ![Ajouter les autorisations](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Cliquez sur **Enregistrer**.
 
-![Ajouter un nouveau principal de contrôle d’accès](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Ajouter les autorisations](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
-
-**Clé d’application Azure AD :** *requis* Le champ final consiste à générer une clé d’authentification. Sous Clés, ajoutez une description de la clé, définissez la durée de sorte qu’elle n’expire jamais, puis sélectionnez Enregistrer. Il est **important** de ne pas avoir une clé expirée, faute de quoi votre version d’évaluation en production est arrêtée. Copiez cette valeur et collez-la dans le champ de votre version d’évaluation.
+**Clé d’application Azure AD :** *requis* Le champ final consiste à générer une clé d’authentification. Sous Clés, ajoutez une description de la clé, définissez la durée de sorte qu’elle n’expire jamais, puis sélectionnez Enregistrer. Il est **important** d’éviter d’avoir une clé expirée, car cela arrête votre version d’évaluation en production. Copiez cette valeur et collez-la dans le champ de votre version d’évaluation.
 
 ![Affiche les clés de l’application Azure AD](./media/azure-resource-manager-test-drive/subdetails8.png)
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284878"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185067"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Immersion dans la sécurité de l’authentification directe Azure Active Directory
 
@@ -41,7 +41,7 @@ Voici les aspects clés de cette fonctionnalité relevant de la sécurité :
 - Seuls les ports standard (80 et 443) permettent d’établir une communication sortante des agents d’authentification à Azure AD. Vous n’avez pas besoin d’ouvrir des ports d’entrée sur votre pare-feu. 
   - Le port 443 est utilisé pour toutes les communications sortantes authentifiées.
   - Le port 80 est utilisé uniquement pour télécharger les listes de révocation de certificats (CRL) pour s’assurer que les certificats utilisés par cette fonctionnalité n’ont pas été révoqués.
-  - Pour obtenir la configuration requise pour le réseau complète, consultez [Authentification Azure Active Directory : Démarrage rapide](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
+  - Pour connaître la configuration réseau complète requise, consultez [Authentification directe Azure Active Directory : Démarrage rapide](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 - Les mots de passe fournis par les utilisateurs pendant la connexion sont chiffrés dans le cloud avant que les agents d’authentification locale ne l’est acceptent pour être validés dans l’annuaire Active Directory.
 - Le canal HTTPS entre Azure AD et l’agent d’authentification locale est sécurisé à l’aide de l’authentification mutuelle.
 - Il protège vos comptes utilisateur en toute transparence avec les [stratégies d’accès conditionnel d’Azure AD](../active-directory-conditional-access-azure-portal.md), y compris l’authentification multifacteur (MFA), [en bloquant l’authentification héritée](../conditional-access/conditions.md) et [en filtrant des attaques de mot de passe par recherche exhaustive](../authentication/howto-password-smart-lockout.md).
@@ -49,11 +49,11 @@ Voici les aspects clés de cette fonctionnalité relevant de la sécurité :
 ## <a name="components-involved"></a>Composants impliqués
 
 Pour plus d’informations générales sur la sécurité opérationnelle et la sécurité des données et des services Azure AD, consultez le [Centre de gestion de la confidentialité](https://azure.microsoft.com/support/trust-center/). Les composants suivants sont impliqués lorsque vous utilisez l’authentification directe pour la connexion de l’utilisateur :
-- **Azure AD STS** : service d’émission de jeton de sécurité (STS) sans état qui traite les demandes de connexion et émet des jetons de sécurité pour les navigateurs, les clients ou les services des utilisateurs en fonction des besoins.
-- **Azure Service Bus** : offre une communication cloud avec une messagerie d’entreprise et une communication relayée qui vous aide à connecter des solutions locales au cloud.
-- **Agent d’authentification Azure AD Connect** : composant local qui écoute et répond aux demandes de validation de mot de passe.
-- **Azure SQL Database** : contient des informations sur les agents d’authentification de votre locataire, y compris ses métadonnées et clés de chiffrement.
-- **Active Directory** : annuaire Active Directory local, où sont stockés vos comptes d’utilisateurs et leurs mots de passe.
+- **Azure AD STS** : service d’émission de jeton de sécurité (STS) sans état qui traite les demandes de connexion et émet des jetons de sécurité pour les navigateurs, les clients ou les services des utilisateurs en fonction des besoins.
+- **Azure Service Bus** : offre une communication cloud avec une messagerie d’entreprise et une communication relayée qui vous aide à connecter des solutions locales au cloud.
+- **Agent d’authentification Azure AD Connect** : Un composant local qui écoute et répond aux requêtes de validation de mot de passe.
+- **Azure SQL Database** : contient des informations sur les agents d’authentification de votre locataire, y compris ses métadonnées et clés de chiffrement.
+- **Active Directory** : annuaire Active Directory local, où sont stockés vos comptes d’utilisateurs et leurs mots de passe.
 
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>Installation et inscription des agents d’authentification
 
@@ -97,8 +97,8 @@ Les agents d’authentification suivent la procédure ci-dessous pour s’inscri
 5. Azure AD signe ensuite et renvoie un certificat d’identité numérique à l’agent d’authentification.
     - L’autorité de certification racine dans Azure AD est utilisée pour signer le certificat. 
 
-     >[!NOTE]
-     > Cette autorité de certification ne figure _pas_ dans le magasin des autorités de certification racine reconnues approuvées Windows.
+      > [!NOTE]
+      > Cette autorité de certification ne figure _pas_ dans le magasin des autorités de certification racine reconnues approuvées Windows.
     - L’autorité de certification est utilisée uniquement par la fonctionnalité d’authentification directe. L’autorité de certification est utilisée uniquement pour signer les CSR lors de l’inscription de l’agent d’authentification.
     -  Aucun des autres services Azure AD n’utilise cette autorité de certification.
     - L’objet du certificat (Nom unique ou DN) est défini sur votre ID de locataire. Ce DN est un GUID qui identifie de manière unique votre locataire. Avec ce DN, le certificat ne peut donc être utilisé qu’avec votre locataire.
@@ -207,11 +207,11 @@ Pour mettre à jour automatiquement un agent d’authentification :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
+- [Limitations actuelles](how-to-connect-pta-current-limitations.md) : Découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Démarrage rapide](how-to-connect-pta-quick-start.md) : soyez opérationnel sur l’authentification directe Azure AD.
 - [Migrer à partir d’AD FS vers l’authentification directe](https://aka.ms/adfstoptadpdownload) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
-- [Fonctionnement](how-to-connect-pta-how-it-works.md) : découvrez les principes de fonctionnement de l’authentification directe Azure AD.
-- [Forum aux questions](how-to-connect-pta-faq.md) : trouvez des réponses aux questions fréquemment posées.
-- [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
-- [Authentification unique transparente Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
+- [Fonctionnement](how-to-connect-pta-how-it-works.md) : découvrez les principes de fonctionnement de l’authentification directe Azure AD.
+- [Forum Aux Questions](how-to-connect-pta-faq.md) : obtenez des réponses aux questions fréquemment posées.
+- [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : apprenez à résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
+- [Authentification unique fluide Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.

@@ -1,5 +1,5 @@
 ---
-title: Erreur Aucun abonnement trouvé lorsque vous tentez de vous connecter au portail Azure ou au centre des comptes Azure | Documents Microsoft
+title: Erreur Aucun abonnement trouvé - Connexion au portail Azure | Microsoft Docs
 description: Fournit la solution pour un problème dans lequel le message d’erreur Aucun abonnement trouvé s’affiche lorsque vous vous connectez au portail Azure ou au centre des comptes Azure.
 services: ''
 documentationcenter: ''
@@ -15,20 +15,21 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 584342b3dd223c45495db36ad49d83dece858137
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: cef34d4e22732c2d718daf7ce10c23b25ff4649d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581780"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081300"
 ---
-# <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Erreur Aucun abonnement trouvé dans le portail Azure ou le centre des comptes Azure
+# <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Erreur Aucun abonnement trouvé pour le portail Azure ou le Centre des comptes Azure
 
 Vous pouvez recevoir un message d’erreur « Aucun abonnement trouvé » quand vous essayez de vous connecter au [portail Azure](https://portal.azure.com/) ou au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions). Cet article fournit une solution à ce problème.
 
 ## <a name="symptom"></a>Symptôme
 
-Lorsque vous essayez de vous connecter au [portail Azure](https://portal.azure.com/) ou au [centre des comptes Azure](https://account.windowsazure.com/Subscriptions), vous recevez le message d’erreur suivant : « Aucun abonnement trouvé ».
+Lorsque vous essayez de vous connecter au [portail Azure](https://portal.azure.com/) ou au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions), vous recevez le message d’erreur suivant : « Aucun abonnement trouvé ».
 
 ## <a name="cause"></a>Cause :
 
@@ -36,7 +37,7 @@ Ce problème se produit si vous avez sélectionné le mauvais annuaire ou si vot
 
 ## <a name="solution"></a>Solution
 
-### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Scénario 1 : le message d’erreur est reçu dans le [portail Azure](https://portal.azure.com)
+### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Scénario 1 : Le message d’erreur s’affiche sur le [portail Azure](https://portal.azure.com)
 
 Pour résoudre ce problème :
 
@@ -45,7 +46,7 @@ Pour résoudre ce problème :
   ![Sélectionnez l’annuaire en haut à droite du portail Azure.](./media/billing-no-subscriptions-found/directory-switch.png)
 * Si le répertoire Azure correct est sélectionné, mais que vous recevez néanmoins le message d’erreur, [affectez le rôle Propriétaire à votre compte](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Scénario 2 : le message d’erreur est reçu dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions)
+### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Scénario 2 : Le message d’erreur s’affiche dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions)
 
 Vérifiez que le compte utilisé correspond à l’administrateur du compte. Pour vérifier qui est l’administrateur du compte, procédez comme suit :
 

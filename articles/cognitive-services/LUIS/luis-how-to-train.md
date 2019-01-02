@@ -1,23 +1,24 @@
 ---
-title: Entraîner votre version de LUIS
-titleSuffix: Azure Cognitive Services
+title: Entraîner une application
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: L’entraînement est le processus au cours duquel votre version d’application Language Understanding (LUIS) apprend afin d’améliorer sa compréhension du langage naturel. Formez votre application LUIS après des mises à jour du modèle, telles qu’un ajout, une édition, un étiquetage ou une suppression d’entités, d’intentions ou d’énoncés.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ba450258a03fc21a06476a6bdd81dc5a886056de
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426085"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137622"
 ---
-# <a name="train-your-luis-app-version"></a>Entraîner votre version d’application LUIS
+# <a name="train-your-active-version-of-the-luis-app"></a>Entraîner votre version active de l’application LUIS 
 
 La formation est le processus au cours duquel votre application Language Understanding (LUIS) apprend afin d’améliorer sa compréhension du langage naturel. Formez votre application LUIS après des mises à jour du modèle, telles qu’un ajout, une édition, un étiquetage ou une suppression d’entités, d’intentions ou d’énoncés. 
 

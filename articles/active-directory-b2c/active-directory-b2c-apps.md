@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406515"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721967"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Azure Active Directory B2C
 
@@ -24,9 +24,9 @@ Azure Active Directory (Azure AD) B2C prend en charge l’authentification pour 
 Chaque application qui utilise Azure AD B2C doit être inscrite auprès de votre [locataire Azure AD B2C](active-directory-b2c-get-started.md) dans le [Portail Azure](https://portal.azure.com/). Le processus d’inscription des applications collecte et attribue des valeurs, par exemple :
 
 * Un **ID d’application** qui identifie de manière unique votre application
-* Un **URI de redirection** pouvant être utilisé pour rediriger les réponses vers votre application
+* Une **URL de réponse**  pouvant être utilisé pour rediriger les réponses vers votre application
 
-Chaque requête qui est envoyée à Azure AD B2C spécifie une **stratégie**. Une stratégie contrôle le comportement d’Azure AD. Vous pouvez également utiliser ces points de terminaison pour créer un ensemble d’expériences utilisateur hautement personnalisable. Les stratégies courantes comprennent les stratégies d’inscription, les stratégies de connexion et les stratégies de modification de profil. Si vous n’êtes pas familiarisé avec les stratégies, consultez l’article décrivant [l’infrastructure de stratégie extensible](active-directory-b2c-reference-policies.md) d’Azure AD B2C avant de continuer.
+Chaque requête envoyée à Azure AD B2C spécifie un **flux d’utilisateur**, qui est une stratégie contrôlant le comportement d’Azure AD. Vous pouvez également utiliser ces points de terminaison pour créer un ensemble d’expériences utilisateur hautement personnalisable. Nous fournissons un ensemble de flux d’utilisateur qui vous aident à configurer des stratégies courantes, notamment des stratégies d’inscription, de connexion et de modification de profil. Toutefois, vous pouvez également créer vos propres stratégies personnalisées. Si vous n’êtes pas familiarisé avec les stratégies, consultez l’article décrivant [l’infrastructure de stratégie extensible](active-directory-b2c-reference-policies.md) d’Azure AD B2C avant de continuer.
 
 Le mode d’interaction de chaque application suit un modèle général similaire :
 
@@ -112,9 +112,9 @@ Dans ce flux, l’application exécute des [stratégies](active-directory-b2c-re
 
 ## <a name="current-limitations"></a>Limitations actuelles
 
-Pour l’instant, Azure AD B2C ne prend pas en charge les types d’applications ci-après, mais ces dernières figurent sur la feuille de route. 
+### <a name="application-not-supported"></a>Application non prise en charge 
 
-### <a name="daemonsserver-side-applications"></a>Démons et applications côté serveur
+#### <a name="daemonsserver-side-applications"></a>Démons et applications côté serveur
 
 Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s’authentifier et obtenir des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un utilisateur), et à l’aide du flux des informations d’identification du client OAuth 2.0. Le flux d’informations d’identification du client n’est pas le même que celui avec emprunt d’identité, et celui-ci ne doit pas être utilisé pour l’authentification de serveur à serveur.
 
@@ -122,9 +122,60 @@ Même si le flux d’informations d’identification du client n’est pas pris 
 
 Pour configurer le flux d’informations d’identification du client, consultez [Azure Active Directory v2.0 et le flux d’informations d’identification du client OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Une authentification réussie entraîne la réception d’un jeton mis en forme de telle sorte qu’il peut être utilisé par Azure AD, comme décrit dans la [documentation de référence sur les jetons Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-
-### <a name="web-api-chains-on-behalf-of-flow"></a>Chaînes d’API web (flux On-Behalf-Of)
+#### <a name="web-api-chains-on-behalf-of-flow"></a>Chaînes d’API web (flux On-Behalf-Of)
 
 De nombreuses architectures incluent une API web qui doit appeler une autre API web en aval, toutes deux sécurisées par Azure AD B2C. Ce scénario est courant chez les clients natifs disposant d’une API web principale. Il appelle ensuite un service en ligne Microsoft, tel que l’API Azure AD Graph.
 
 Ce scénario d’API web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of.  Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant.
+
+### <a name="reply-url-values"></a>Valeurs d’URL de réponse
+
+Pour l’instant, les applications qui sont inscrites auprès d’Azure AD B2C sont limitées à un ensemble restreint de valeurs d’URL de réponse. L’URL de réponse pour les services et applications web doit commencer par le schéma `https`, et toutes les valeurs d’URL de réponse doivent partager un même domaine DNS. Par exemple, vous ne pouvez pas inscrire une application web comportant l’une des URL de réponse suivantes :
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+Le système d’inscription compare le nom DNS complet de l’URL de réponse existante au nom DNS de l’URL de réponse que vous ajoutez. La demande d’ajout du nom DNS échoue si l’une des conditions suivantes est remplie :
+
+- Le nom DNS complet de la nouvelle URL de réponse ne correspond pas au nom DNS de l’URL de réponse existante.
+- Le nom DNS complet de la nouvelle URL de réponse n’est pas un sous-domaine de l’URL de réponse existante.
+
+Par exemple, si l’application a cette URL de réponse :
+
+`https://login.contoso.com`
+
+Vous pouvez la compléter comme suit :
+
+`https://login.contoso.com/new`
+
+Dans ce cas, le nom DNS correspond exactement. Vous pouvez aussi définir l’URI suivant :
+
+`https://new.login.contoso.com`
+
+Dans ce cas, vous faites référence à un sous-domaine DNS de login.contoso.com. Si vous voulez disposer d’une application avec login-east.contoso.com et login-west.contoso.com comme URL de réponse, vous devez ajouter ces URL de réponse dans l’ordre suivant :
+
+`https://contoso.com`
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+Vous pouvez ajouter les deux derniers car il s’agit de sous-domaines de la première URL de réponse, contoso.com. 
+
+Lorsque vous créez des applications mobiles/natives, vous définissez un **URI de redirection** au lieu d'une **URL de relecture**. Il existe deux points importants à prendre en considération lors du choix d’un URI de redirection :
+
+- **Unique** : le schéma de l’URI de redirection doit être unique pour chaque application. Dans l’exemple `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` est le schéma. Ce modèle doit être suivi. Si deux applications partagent le même schéma, l’utilisateur voit une boîte de dialogue **Choix d’une application**. Si l’utilisateur effectue un choix incorrect, la connexion échoue.
+- **Complet** : l’URI de redirection doit comporter un schéma et un chemin d’accès. Le chemin d’accès doit contenir au moins une barre oblique après le domaine. Par exemple, `//contoso/` fonctionne et `//contoso` échoue. Vérifiez que l’URI de redirection ne comporte aucun caractère spécial, tel que des traits de soulignement.
+
+### <a name="faulted-apps"></a>Applications ayant généré une erreur
+
+Les applications Azure AD B2C ne doivent PAS être modifiées :
+
+- Sur les autres portails de gestion des applications tels que le  [Portail d’inscription des applications](https://apps.dev.microsoft.com/)
+- À l’aide de l’API Graph ou de PowerShell
+
+Si vous modifiez l’application Azure AD B2C en dehors du portail Azure, elle devient défaillante et n'est plus utilisable avec Azure AD B2C. Vous devez supprimer l’application, puis la recréer.
+
+Pour supprimer l’application, accédez au [Portail d’inscription des applications](https://apps.dev.microsoft.com/), puis supprimez l’application à cet emplacement. Pour que l’application soit visible, vous devez en être le propriétaire (et non simplement un administrateur du locataire).
+

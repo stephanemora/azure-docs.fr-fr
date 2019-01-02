@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/03/2018
+ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712141"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843204"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
@@ -124,7 +124,7 @@ Managed Instance ne peut pas accéder aux partages de fichiers et aux dossiers W
 
 ### <a name="compatibility-levels"></a>Niveaux de compatibilité
 
-- Les niveaux de compatibilité pris en charge sont : 100, 110, 120, 130, 140  
+- Les niveaux de compatibilité pris en charge sont les suivants : 100, 110, 120, 130, 140  
 - Les niveaux de compatibilité inférieurs à 100 ne sont pas pris en charge.
 - Le niveau de compatibilité par défaut est de 140 pour les nouvelles bases de données. Pour les bases de données restaurées, le niveau de compatibilité reste inchangé s’il était de 100 et plus.
 
@@ -145,7 +145,7 @@ Managed Instance ne peut pas accéder aux fichiers, les fournisseurs de chiffrem
 
 ### <a name="collation"></a>Collation
 
-Le classement du serveur est `SQL_Latin1_General_CP1_CI_AS` et ne peut pas être modifié. Consultez [Classements](https://docs.microsoft.com/sql/t-sql/statements/collations).
+Le classement d’instance par défaut est `SQL_Latin1_General_CP1_CI_AS` et peut être spécifié comme paramètre de création. Consultez [Classements](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### <a name="database-options"></a>Options de la base de données
 
@@ -277,7 +277,8 @@ Opérations
 ### <a name="logins--users"></a>Connexions/utilisateurs
 
 - Les connexions SQL créées `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, et `FROM SID` sont prises en charge. Consultez [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Les connexions Windows créées avec la syntaxe `CREATE LOGIN ... FROM WINDOWS` ne sont pas prises en charge.
+- Les connexions Azure Active Directory (AAD) créées avec la syntaxe [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou la syntaxe [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sont prises en charge (**préversion publique**).
+- Les connexions Windows créées avec la syntaxe `CREATE LOGIN ... FROM WINDOWS` ne sont pas prises en charge. Utilisez des utilisateurs et des connexions Azure Active Directory.
 - L’utilisateur Azure Active Directory (Azure AD) qui a créé l’instance dispose de [privilèges d’administrateur illimités](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
 - Les utilisateurs au niveau de la base de données Azure Active Directory (Azure AD) non-administrateurs peuvent être créés à l’aide de la syntaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consultez [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
 
@@ -333,7 +334,7 @@ Pour plus d’informations sur les instructions de restauration, consultez [Inst
 Le Service Broker entre instances n’est pas pris en charge :
 
 - `sys.routes` - Condition préalable : sélectionnez l’adresse à partir de sys.routes. L’adresse doit être LOCAL sur tous les itinéraires. Consultez [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE` -Vous ne pouvez pas `CREATE ROUTE` avec une `ADDRESS` autre que `LOCAL`. Consultez [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `CREATE ROUTE` - vous ne pouvez pas utiliser `CREATE ROUTE` avec `ADDRESS` si la valeur de celle-ci est différente de `LOCAL`. Consultez [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` -Vous ne pouvez pas `ALTER ROUTE` avec une `ADDRESS` autre que `LOCAL`. Consultez [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
 ### <a name="service-key-and-service-master-key"></a>Clé de service et clé principale de service
@@ -425,16 +426,16 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
-Chaque instance gérée a jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne.
+Chaque instance gérée a jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance managée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne.
 
-Par exemple, une instance managée peut avoir un fichier de 1,2 To placé sur un disque de 4 To et 248 fichiers de 1 Go chacun placés sur des disques distincts de 128 Go. Dans cet exemple :
+Par exemple, une instance managée peut contenir un fichier d’une taille de 1,2 To placé sur un disque de 4 To et 248 fichiers (chacun d’une taille de 1 Go) placés sur des disques distincts de 128 Go. Dans cet exemple :
 
-- la taille du stockage total du disque est 1 x 4 To + 248 x 128 Go = 35 To.
-- l’espace total réservé pour les bases de données sur l’instance est 1 x 1,2 To + 248 x 1 Go = 1,4 To.
+- La taille totale du stockage de disque alloué est de 1 x 4 To + 248 x 128 Go = 35 To.
+- L’espace total réservé pour les bases de données sur l’instance est de 1 x 1,2 To + 248 x 1 Go = 1,4 To.
 
-Cet exemple illustre que dans certaines circonstances, en raison d’une distribution très spécifique des fichiers, une instance gérée peut atteindre les 35 To réservés pour le disque Premium Azure attaché quand vous vous y attendez le moins.
+Cet exemple montre que dans certaines circonstances, du fait d’une distribution spécifique des fichiers, une instance managée peut atteindre les 35 To réservés pour le disque Premium Azure attaché sans que vous vous y attendiez.
 
-Dans cet exemple, les bases de données existantes continuent de fonctionner et peuvent croître sans aucun problème tant que de nouveaux fichiers ne sont pas ajoutés. Toutefois, la création ou la restauration de bases de données est impossible, car il n’y a pas suffisamment d’espace pour les nouveaux lecteurs de disque, même si la taille totale de toutes les bases de données n’atteint pas la limite de taille d’instance. L’erreur retournée dans ce cas n’est pas claire.
+Dans cet exemple, les bases de données existantes continuent de fonctionner et peuvent croître sans aucun problème du moment que de nouveaux fichiers ne sont pas ajoutés. Toutefois, la création ou la restauration de bases de données est impossible, car il n’y a pas suffisamment d’espace pour les nouveaux lecteurs de disque, même si la taille totale de toutes les bases de données n’atteint pas la limite de taille d’instance. L’erreur retournée dans ce cas n’est pas claire.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuration incorrecte de la clé SAP au cours d’une restauration de la base de données
 
@@ -443,7 +444,10 @@ Veillez à supprimer le `?` au début de la clé SAP générée à l’aide du p
 
 ### <a name="tooling"></a>Outils
 
-SQL Server Management Studio et SQL Server Data Tools peuvent rencontrer des problèmes lors de l’accès à Managed Instance. Tous les problèmes d’outils seront traités avant la mise à disposition générale.
+SQL Server Management Studio (SSMS) et SQL Server Data Tools (SSDT) peuvent rencontrer des problèmes au moment d’accéder à Managed Instance.
+
+- L’utilisation de connexions et d’utilisateurs Azure AD (**préversion publique**) avec SSDT n’est actuellement pas prise en charge.
+- La création de scripts pour les utilisateurs et les connexions Azure AD (**préversion publique**) n’est pas prise en charge dans SSMS.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Les noms des bases de données sont incorrects dans plusieurs vues, journaux et messages
 
@@ -451,7 +455,7 @@ Plusieurs vues système, compteurs de performances, messages d’erreur, événe
 
 ### <a name="database-mail-profile"></a>Profil de messagerie de base de données
 
-Il ne peut y avoir qu’un seul profil de messagerie de base de données et il doit être appelé `AzureManagedInstance_dbmail_profile`. Il s’agit d’une limitation temporaire qui sera supprimée prochainement.
+Il ne peut y avoir qu’un seul profil de messagerie de base de données et il doit être appelé `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Les journaux des erreurs ne sont pas persistants
 
@@ -461,7 +465,7 @@ Les journaux des erreurs qui sont disponibles dans l’instance managée ne sont
 
 Managed Instance ajoute des informations détaillées dans les journaux des erreurs, dont la plupart ne sont pas pertinentes. La quantité d’informations qui s’y trouvent va être prochainement réduite.
 
-**Solution de contournement** : utilisez une procédure personnalisée permettant de ne pas afficher les entrées non pertinentes des journaux des erreurs. Pour plus d’informations, consultez [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Solution de contournement** : utilisez une procédure personnalisée pour faire en sorte que les journaux des erreurs n’affichent pas les entrées non pertinentes. Pour plus d’informations, consultez [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>L’utilisation de la même étendue de transaction pour deux bases de données appartenant à une même instance n’est pas prise en charge
 
@@ -492,13 +496,13 @@ using (var scope = new TransactionScope())
 
 Même si ce code fonctionne avec les données d’une même instance, il nécessite MSDTC.
 
-**Solution de contournement** : servez-vous de [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) pour utiliser une autre base de données du contexte de connexion au lieu d’utiliser deux connexions.
+**Solution de contournement** : servez-vous de [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) pour utiliser une autre base de données dans le contexte de la connexion au lieu d’utiliser deux connexions.
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Les modules CLR et les serveurs liés n’arrivent pas à référencer l’adresse IP locale
 
-Il arrive que les modules CLR placés dans Managed Instance, et les requêtes distribuées ou serveurs liés faisant référence à une instance actuelle, ne parviennent pas à résoudre l’adresse IP de l’instance locale. Il s’agit d’une erreur temporaire.
+Il arrive que les modules CLR placés dans Managed Instance, et les requêtes distribuées ou serveurs liés faisant référence à une instance actuelle, ne parviennent pas à résoudre l’adresse IP de l’instance locale. Cette erreur est un problème temporaire.
 
-**Solution de contournement** : utilisez des connexions contextuelles dans le module CLR, si possible.
+**Solution de contournement** : utilisez des connexions contextuelles dans le module CLR, si possible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

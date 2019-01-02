@@ -1,6 +1,6 @@
 ---
-title: Échantillonner des données dans le stockage d'objets blob Azure | Microsoft Docs
-description: Échantillonner des données dans le stockage d’objets blob Azure
+title: Échantillonner des données dans le stockage d’objets blob Azure - Processus TDSP (Team Data Science Process)
+description: Échantillonnage des données conservées dans le stockage d’objets blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide de procédures écrites dans Python.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5fe7c11bd21e9c2f432f443a6a8dd5880646a1a2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 0f9795e6a9a451ab1492e62fd54faea5894d99ae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444186"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136492"
 ---
 # <a name="heading"></a>Échantillonner des données dans le stockage d’objets blob Azure
 
@@ -25,7 +25,7 @@ Cet article traite de l’échantillonnage des données conservées dans le stoc
 **Pourquoi échantillonner vos données ?**
 Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus Cortana Analytics consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
 
-Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Télécharger et sous-échantillonner les données
 1. Téléchargez les données du stockage d’objets blob Azure à l’aide du service BLOB en utilisant l’exemple de code suivant : 

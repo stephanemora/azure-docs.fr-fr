@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 05/17/2018
-ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/05/2018
+ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159552"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997603"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Protection avancée contre les menaces pour Azure SQL Database
 
@@ -28,11 +28,11 @@ Protection avancée contre les menaces SQL fournit un ensemble de fonctionnalit�
 
 - [Découverte et classification des données](sql-database-data-discovery-and-classification.md) (actuellement en préversion) offre des fonctionnalités intégrées à Azure SQL Database pour la découverte, la classification, l’étiquetage et la protection des données sensibles dans vos bases de données. Cette fonctionnalité peut être utilisée pour fournir de la visibilité sur l’état de classification de votre base de données et pour suivre l’accès aux données sensibles dans la base de données et en dehors de celle-ci.
 - La fonctionnalité [Évaluation des vulnérabilités](sql-vulnerability-assessment.md) est un service simple à configurer, qui vous permet de découvrir, suivre et de corriger des vulnérabilités de base de données potentielles. Elle offre une visibilité sur votre état de sécurité et inclut des mesures pratiques pour résoudre les problèmes de sécurité et améliorer la protection de votre base de données.
-- La fonctionnalité [Détection des menaces](sql-database-threat-detection.md) détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de votre base de données. Elle surveille en permanence votre base de données pour détecter des activités suspectes et envoie immédiatement des alertes de sécurité en cas de vulnérabilités éventuelles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les alertes générées par la fonctionnalité Détection des menaces fournissent des informations sur les activités suspectes et recommandent l’action à entreprendre pour analyser et atténuer la menace.
+- La fonctionnalité [Détection des menaces](sql-database-threat-detection-overview.md) détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de votre base de données. Elle surveille en permanence votre base de données pour détecter des activités suspectes et envoie immédiatement des alertes de sécurité en cas de vulnérabilités éventuelles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les alertes générées par la fonctionnalité Détection des menaces fournissent des informations sur les activités suspectes et recommandent l’action à entreprendre pour analyser et atténuer la menace.
 
 Il vous suffit d’activer Protection avancée contre les menaces SQL une seule fois pour activer toutes ces fonctionnalités. En un clic, vous pouvez activer Protection avancée contre les menaces sur l’ensemble de votre serveur de base de données, en l’appliquant à toutes les bases de données sur le serveur. 
 
-La tarification Protection avancée contre les menaces reflète celle du niveau Standard d’Azure Security Center à 15 $/nœud/mois, où chaque serveur SQL Database protégé correspond à un seul nœud. Les 60 premiers jours qui suivent l’activation correspondent à la période d’essai gratuit et ne sont donc pas facturés. Pour plus d’informations, consultez la [page de tarification d’Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+La tarification Protection avancée contre les menaces reflète celle du niveau Standard d’Azure Security Center, où chaque serveur SQL Database protégé correspond à un seul nœud. Les ressources nouvellement protégées se qualifient pour un essai gratuit du niveau Standard de Security Center. Pour plus d’informations, consultez la [page de tarification d’Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## <a name="getting-started-with-atp"></a>Prise en main de Protection avancée contre les menaces 
@@ -45,7 +45,7 @@ Activez Protection avancée contre les menaces en accédant à **Protection avan
 ![Activer Protection avancée contre les menaces](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> Le coût d’utilisation de Protection avancée contre les menaces est de 15 $/nœud/mois, où un nœud correspond à l’intégralité du serveur logique SQL. Vous payez donc une seule fois pour protéger toutes les bases de données sur le serveur avec Protection avancée contre les menaces. Les 60 premiers jours correspondent à un essai gratuit.
+> Le coût de la Protection avancée contre les menaces est aligné avec la tarification par nœud du niveau Standard d’Azure Security Center, où un nœud correspond à l’ensemble du serveur logique SQL. Vous payez donc une seule fois pour protéger toutes les bases de données sur le serveur avec Protection avancée contre les menaces. Vous pouvez bénéficier d’une évaluation gratuite de Protection avancée contre les menaces.
 
 ## <a name="2-configure-vulnerability-assessment"></a>2. Configurer la fonctionnalité Évaluation des vulnérabilités
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à iWellnessNow | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory dans iWellnessNow | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iWellnessNow.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: c260b32dc6f659ca4cc1b4c3f59859f75ba999d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b02a5ec5a68743e148bcfef3c631d7777fd0a067
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447371"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871682"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Tutoriel : Intégration d’Azure Active Directory à iWellnessNow
+# <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Didacticiel : Intégration d’Azure Active Directory dans iWellnessNow
 
 Dans ce tutoriel, vous allez apprendre à intégrer iWellnessNow à Azure Active Directory (Azure AD).
 
@@ -114,7 +114,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
     
-    c. Une fois le chargement du **fichier de métadonnées du fournisseur de services** terminé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement remplies dans la zone de texte de la section **Domaine et URL iWellnessNow**, comme indiqué ci-dessous :
+    c. Une fois le chargement du **fichier de métadonnées du fournisseur de services** terminé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement remplies dans la zone de texte de la section **Domaine et URL iWellnessNow**, comme indiqué ci-dessous :
 
     ![Informations d’authentification unique dans Domaine et URL iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url3.png)
 
@@ -179,7 +179,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-an-iwellnessnow-test-user"></a>Créer un utilisateur de test iWellnessNow
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans iWellnessNow. Collaborez avec l’[équipe de support iWellnessNow](mailto:info@iwellnessnow.com) pour ajouter les utilisateurs à la plateforme iWellnessNow. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans iWellnessNow. Collaborez avec l’ [équipe de support iWellnessNow](mailto:info@iwellnessnow.com) pour ajouter les utilisateurs sur la plateforme iWellnessNow. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 6a34bbb5eefac117775c9876f3e4a25d3dade736
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 7f75950a0f61c646d6cf36ea0903ebdefbd336ee
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266269"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138477"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide du Portail Azure
 
@@ -65,10 +65,10 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
 3. Remplissez le formulaire Restaurer avec les informations requises :
 
    ![Azure Database pour MySQL - Informations de restauration ](./media/howto-restore-server-portal/3-restore.png)
-  - **Point de restauration** : sélectionnez le point dans le temps vers lequel vous souhaitez restaurer.
-  - **Serveur cible** : fournissez un nom pour le nouveau serveur.
-  - **Emplacement :** vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
-  - **Niveau tarifaire** : vous ne pouvez pas modifier ces paramètres lorsque vous effectuez une restauration à un point dans le temps. Elle est identique à celle du serveur source. 
+   - **Point de restauration** : sélectionnez le point dans le temps vers lequel vous souhaitez restaurer.
+   - **Serveur cible** : Entrez un nom pour le nouveau serveur.
+   - **Emplacement** : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
+   - **Niveau tarifaire** : vous ne pouvez pas modifier ces paramètres lorsque vous effectuez une restauration à un point dans le temps. Elle est identique à celle du serveur source. 
 
 4. Cliquez sur **OK** pour restaurer le serveur à un point dans le temps. 
 

@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261069"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081538"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 L’option de publication que vous choisissez pour votre offre est directement liée aux conditions d’éligibilité et aux avantages GTM propres à la place de marché. Plus important encore, la sélection de l’option de publication et du type d’offre dans le portail Cloud Partner définit comment les utilisateurs vont interagir avec votre offre sur la place de marché.
 
 Vous pouvez activer des options de publication en sélectionnant un type d’offre, puis en créant une offre de place de marché dans le portail Cloud Partner. Pour ce faire, vous devez comprendre les concepts clés suivants de la place de marché : les options de publication, la configuration et les types d’offre, ainsi que les appels à l’action qui contrôlent comment et où votre offre est présentée dans les vitrines de la place de marché.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >Le tableau ci-dessus décrit comment votre solution ou service correspond à la vitrine, à l’option de publication et au type d’offre utilisés pour présenter votre offre sur la place de marché.
@@ -44,7 +44,7 @@ Avant de sélectionner une option de publication, il est important de comprendre
 
 Les applications de la **Place de marché Azure** sont des solutions techniques de type « module » créées sur ou pour Azure. Les services de conseil de la Place de marché Azure sont des offres de services professionnels qui aident les clients à commencer à utiliser Azure ou à l’utiliser plus.
 
-Les applications **AppSource** sont des solutions métier qui peuvent être créées sur Azure ou créées pour : Dynamics 365, Office 365, Power BI ou Power Apps. Les services de conseil AppSource sont des offres de services professionnels qui aident les clients à commencer à utiliser Dynamics 365 et Power BI ou à les utiliser plus.
+Les applications **AppSource** sont des solutions métier qui peuvent être créées sur Azure ou créées pour : Dynamics 365, Office 365, Power BI ou Power Apps. Les services de conseil AppSource sont des offres de services professionnels qui aident les clients à commencer à utiliser Dynamics 365 et Power BI ou à les utiliser plus.
 
 Une fois que vous vous êtes inscrit pour devenir éditeur et avez reçu l’accès au portail Cloud Partner pour créer, configurer et publier des offres sur la place de marché, vous pouvez :
 
@@ -67,7 +67,7 @@ Les options de publication disponibles offrent un engagement client différenci�
 | **Option de publication**    | **Description**  |
 | :------------------- | :-------------------|
 | **Liste** | Référencement simple de votre application ou service qui permet à un utilisateur de la place de marché de vous demander de le mettre en relation avec le client via l’appel à l’action **Me contacter**. |
-| **Version d’évaluation** | Utilisez la place de marché pour augmenter la visibilité et automatiser le provisionnement de l’expérience d’essai de votre application. Vous permettez ainsi à des utilisateurs potentiels d’utiliser votre application dans l’environnement intégré Microsoft, SaaS ou IaaS, gratuitement pendant une période limitée, avant de l’acheter. Les appels à l’action utilisés pour l’option de publication Essai sont : **Essai gratuit** et **Test Drive**. |
+| **Version d’évaluation** | Utilisez la place de marché pour augmenter la visibilité et automatiser le provisionnement de l’expérience d’essai de votre application. Vous permettez ainsi à des utilisateurs potentiels d’utiliser votre application dans l’environnement intégré Microsoft, SaaS ou IaaS, gratuitement pendant une période limitée, avant de l’acheter. Les appels à l’action utilisés pour l’option de publication de l’essai sont : **Essai gratuit** et **Test Drive**. |
 | **Transaction** | Votre application s’exécute sur Azure et peut être provisionnée en tant que ressource directement dans l’abonnement Azure du client lorsque le client sélectionne l’appel à l’action Obtenir maintenant. Les frais de licence de votre logiciel peuvent éventuellement être réglés et facturés selon le mode et les conditions de paiement choisis par le client. Vous pouvez aussi proposer un accès à durée limitée à votre **Essai logiciel gratuit** (disponible uniquement sur la Place de marché Azure). |
 
 >[!Note]

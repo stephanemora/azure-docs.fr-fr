@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/18/2018
-ms.author: ramamill
-ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162600"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251026"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -148,6 +148,9 @@ Pour éviter toute interruption d’une réplication continue, assurez-vous que 
 7. Où puis-je télécharger les clés d’inscription du coffre ?
 
     Dans le **coffre Recovery Services**, **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**. Dans Serveurs, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
+8. Puis-je cloner un serveur de configuration existant et l’utiliser pour l’orchestration de la réplication ?
+
+    **Non**, l’utilisation d’un composant de serveur de configuration cloné n’est pas prise en charge. 
 
 ## <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement
 

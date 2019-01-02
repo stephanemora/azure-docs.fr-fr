@@ -1,18 +1,19 @@
 ---
-title: Créer et modifier un circuit ExpressRoute avec PowerShell et Azure Resource Manager | Microsoft Docs
-description: Cet article explique comment créer, approvisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute.
+title: 'Créer et modifier un circuit ExpressRoute – PowerShell : Azure | Microsoft Docs'
+description: Créez, approvisionnez, vérifiez, mettez à jour, supprimez et déprovisionnez un circuit ExpressRoute.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: f95bdfe9a61a271825ff9bbe5ca7f84330c98df5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: ff86c87690f5dd4a919929f0deef4af739cbe4d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257450"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105000"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Créer et modifier un circuit ExpressRoute à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -23,7 +24,7 @@ ms.locfileid: "51257450"
 > * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
 >
 
-Cet article explique comment créer un circuit ExpressRoute à l’aide des applets de commande PowerShell et du modèle de déploiement Azure Resource Manager. Cet article vous montre également comment vérifier l’état du circuit, le mettre à jour, le supprimer et annuler son approvisionnement.
+Cet article vous explique comment créer un circuit ExpressRoute à l’aide des cmdlets PowerShell et du modèle de déploiement Azure Resource Manager. Vous pouvez également vérifier l’état d’un circuit, le mettre à jour, le supprimer ou le déprovisionner.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -36,7 +37,7 @@ Avant de commencer la configuration, examinez les [conditions préalables](expre
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Vous connecter à votre compte Azure et sélectionner votre abonnement
 Pour commencer votre configuration, connectez-vous à votre compte Azure. Utilisez les exemples suivants pour faciliter votre connexion :
 
-Si vous utilisez Azure CloudShell, vous n’avez pas besoin exécuter Connect-AzureRmAccount, puisque vous allez vous connecter automatiquement.
+Si vous utilisez Azure CloudShell, vous n’avez pas besoin d’exécuter Connect-AzureRmAccount, puisque vous allez vous connecter automatiquement.
 
 ```azurepowershell
 Connect-AzureRmAccount

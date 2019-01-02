@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: a9849b5c96b38fbfe6fa8ef4a69a1a2d4d6e6f2f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7ebb9d683803a6c5a5a0fa25308b348eeea586c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958072"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097894"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Métriques prises en charge avec Azure Monitor sur Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
 Vous pouvez récupérer vos métriques à partir d’Azure Monitor sur Azure Stack de la même façon que sur le système Azure global. Vous pouvez créer vos métriques sur le portail, les récupérer à partir de l’API REST ou bien les interroger avec PowerShell ou l’interface de ligne de commande.
 
-Les tableaux suivants répertorient les métriques disponibles avec le pipeline de métriques d’Azure Monitor sur Azure Stack. Pour interroger ces métriques et y accéder, vous devez disposer de la version du profil de l’API datant du **01/01/2018**. Pour plus d’informations sur les profils d’API et Azure Stack, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md).
+Les tableaux suivants répertorient les métriques disponibles avec le pipeline de métriques d’Azure Monitor sur Azure Stack. Pour interroger ces métriques et y accéder, vous devez utiliser la version du profil de l’API datant du **01/01/2018**. Pour plus d’informations sur les profils d’API et Azure Stack, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md).
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
@@ -39,7 +39,7 @@ Les tableaux suivants répertorient les métriques disponibles avec le pipeline 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation | Description | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | Capacité utilisée | Octets | Moyenne | Capacité de compte utilisée | Aucune dimension |
-| Transactions | Transactions | Count | Total | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses. | ResponseType, GeoType, ApiName |
+| Transactions | Transactions | Nombre | Total | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses. | ResponseType, GeoType, ApiName |
 | Entrée | Entrée | Octets | Total | Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure. | GeoType, ApiName |
 | Sortie | Sortie | Octets | Total | Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables. | GeoType, ApiName |
 | SuccessServerLatency | Latence du serveur avec requête réussie | Millisecondes | Moyenne | Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency. | GeoType, ApiName |
@@ -51,9 +51,9 @@ Les tableaux suivants répertorient les métriques disponibles avec le pipeline 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation | Description | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | BlobCapacity | Capacité d’objet blob | Octets | Total | Quantité de stockage utilisée par le service BLOB du compte de stockage, en octets. | /BlobType |
-| BlobCount | Nombre d’objets blob | Count | Total | Nombre d’objets blob dans le service BLOB du compte de stockage. | /BlobType |
-| ContainerCount | Nombre de conteneurs d’objets blob | Count | Moyenne | Nombre de conteneurs d’objets blob dans le service BLOB du compte de stockage. | Aucune dimension |
-| Transactions | Transactions | Count | Total | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses. | ResponseType, GeoType, ApiName |
+| BlobCount | Nombre d’objets blob | Nombre | Total | Nombre d’objets blob dans le service BLOB du compte de stockage. | /BlobType |
+| ContainerCount | Nombre de conteneurs d’objets blob | Nombre | Moyenne | Nombre de conteneurs d’objets blob dans le service BLOB du compte de stockage. | Aucune dimension |
+| Transactions | Transactions | Nombre | Total | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses. | ResponseType, GeoType, ApiName |
 | Entrée | Entrée | Octets | Total | Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure. | GeoType, ApiName |
 | Sortie | Sortie | Octets | Total | Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables. | GeoType, ApiName |
 | SuccessServerLatency | Latence du serveur avec requête réussie | Millisecondes | Moyenne | Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency. | GeoType, ApiName |
@@ -65,9 +65,9 @@ Les tableaux suivants répertorient les métriques disponibles avec le pipeline 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation | Description | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | TableCapacity | Capacité de la table | Octets | Moyenne | Quantité de stockage utilisée par le service de Table du compte de stockage, en octets. | Aucune dimension |
-| TableCount | Nombre de tables | Count | Moyenne | Nombre de tables dans le service de Table du compte de stockage. | Aucune dimension |
-| TableEntityCount | Nombre d’entités de table | Count | Moyenne | Nombre d’entités de table dans le service de Table du compte de stockage. | Aucune dimension |
-| Transactions | Transactions | Count | Total | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses. | ResponseType, GeoType, ApiName |
+| TableCount | Nombre de tables | Nombre | Moyenne | Nombre de tables dans le service de Table du compte de stockage. | Aucune dimension |
+| TableEntityCount | Nombre d’entités de table | Nombre | Moyenne | Nombre d’entités de table dans le service de Table du compte de stockage. | Aucune dimension |
+| Transactions | Transactions | Nombre | Total | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses. | ResponseType, GeoType, ApiName |
 | Entrée | Entrée | Octets | Total | Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure. | GeoType, ApiName |
 | Sortie | Sortie | Octets | Total | Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables. | GeoType, ApiName |
 | SuccessServerLatency | Latence du serveur avec requête réussie | Millisecondes | Moyenne | Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency. | GeoType, ApiName |
@@ -79,9 +79,9 @@ Les tableaux suivants répertorient les métriques disponibles avec le pipeline 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation | Description | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | QueueCapacity | Capacité de la file d’attente | Octets | Moyenne | Quantité de stockage utilisée par le service de File d’attente du compte de stockage, en octets. | Aucune dimension |
-| QueueCount | Nombre de files d’attente | Count | Moyenne | Nombre de files d’attente dans le service de File d’attente du compte de stockage. | Aucune dimension |
-| QueueMessageCount | Nombre de messages dans la file d’attente | Count | Moyenne | Nombre approximatif de messages en file d’attente dans le service de File d’attente du compte de stockage. | Aucune dimension |
-| Transactions | Transactions | Count | Total | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses. | ResponseType, GeoType, ApiName |
+| QueueCount | Nombre de files d’attente | Nombre | Moyenne | Nombre de files d’attente dans le service de File d’attente du compte de stockage. | Aucune dimension |
+| QueueMessageCount | Nombre de messages dans la file d’attente | Nombre | Moyenne | Nombre approximatif de messages en file d’attente dans le service de File d’attente du compte de stockage. | Aucune dimension |
+| Transactions | Transactions | Nombre | Total | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses. | ResponseType, GeoType, ApiName |
 | Entrée | Entrée | Octets | Total | Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure. | GeoType, ApiName |
 | Sortie | Sortie | Octets | Total | Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables. | GeoType, ApiName |
 | SuccessServerLatency | Latence du serveur avec requête réussie | Millisecondes | Moyenne | Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency. | GeoType, ApiName |

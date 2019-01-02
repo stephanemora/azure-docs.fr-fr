@@ -1,6 +1,6 @@
 ---
-title: Explorateur de recherche pour l’interrogation des index dans Recherche Azure | Microsoft Docs
-description: Découvrez comment utiliser l’Explorateur de recherche pour interroger des index dans Recherche Azure.
+title: Utiliser l’Explorateur de recherche dans le portail Azure pour l’interrogation des index - Recherche Azure
+description: Utilisez les outils du portail Azure comme l’Explorateur de recherche pour interroger des index dans Recherche Azure. Entrez des termes de recherche ou des chaînes de recherche complètes avec une syntaxe avancée.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: 11f102fcb2a24f9062313f9a3234c29e70a3dfe0
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004131"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315659"
 ---
 # <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Comment utiliser l’Explorateur de recherche pour interroger des index dans Recherche Azure 
 

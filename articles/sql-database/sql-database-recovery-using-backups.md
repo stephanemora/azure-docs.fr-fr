@@ -3,7 +3,7 @@ title: Restaurer une base de données SQL Azure à partir d’une sauvegarde | M
 description: Apprenez-en plus sur la limite de restauration dans le temps, qui vous permet de restaurer une base de données SQL Azure à un point antérieur dans le temps (jusqu’à 35 jours).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: ba6493f77b622a814c970b07fc2a23e7ce1d3624
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4d77f8aad07d2fd4b3e2c4ec42b5b0ec328f779d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987560"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269513"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données SQL Azure à l’aide des sauvegardes automatisées d’une base de données
 
@@ -64,10 +64,10 @@ Pour un abonnement unique, des limitations s’appliquent sur le nombre de requ�
 |Pool élastique (par pool)|4|200|
 ||||
 
-Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Le script [Base de données SQL Azure : récupération de serveur complète](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) est un exemple d'une façon d'accomplir cette tâche.
+Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Le script [Base de données SQL Azure : récupération de serveur complète](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) est un exemple d’une façon d’accomplir cette tâche.
 
 > [!IMPORTANT]
-> Pour effectuer une récupération à l’aide de sauvegardes automatisées, vous devez avoir un rôle de contributeur SQL Server dans l’abonnement, ou être le propriétaire de l’abonnement (voir [RBAC : rôles intégrés](../role-based-access-control/built-in-roles.md)). Vous pouvez effectuer une récupération en utilisant le portail Azure, PowerShell ou l’API REST. Vous ne pouvez pas utiliser Transact-SQL.
+> Pour effectuer une récupération à l’aide de sauvegardes automatisées, vous devez avoir un rôle de collaborateur SQL Server dans l’abonnement ou être le propriétaire de l’abonnement. Voir [Rôles intégrés pour les ressources Azure](../role-based-access-control/built-in-roles.md). Vous pouvez effectuer une récupération en utilisant le portail Azure, PowerShell ou l’API REST. Vous ne pouvez pas utiliser Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
@@ -129,7 +129,7 @@ La géorestauration constitue l’option de récupération par défaut lorsque v
 La restauration dans le temps sur un géo-réplica secondaire n’est pas prise en charge actuellement. La restauration dans le temps peut être effectuée uniquement sur une base de données primaire. Pour plus d’informations sur l’utilisation de la géorestauration pour la récupération suite à une panne, voir [Récupération après une panne](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> La récupération à partir des sauvegardes est la solution de récupération d’urgence la plus élémentaire proposée dans SQL Database, avec le RPO (objectif de point de récupération) et l’ERT (temps de récupération estimé) les plus longs. Pour les solutions utilisant des bases de données de petite taille (par exemple, des bases de données de niveau de service De base ou des bases de données de locataire de petite taille dans des pools élastiques), la géorestauration, qui présente un ERT de 12 heures maximum, constitue dans la plupart des cas une solution de récupération d’urgence convenable. Pour les solutions s’appuyant sur des bases de données de plus grande taille et nécessitant des temps de récupération plus courts, il est recommandé d’utiliser [des groupes de basculement et une géoréplication active](sql-database-geo-replication-overview.md). La géoréplication active offre un objectif de point de récupération et un temps de récupération estimé sensiblement inférieurs, car elle nécessite simplement un basculement vers une base de données secondaire répliquée en continu. Pour plus d’informations sur les choix de continuité d’activité, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
+> La récupération à partir des sauvegardes est la solution de récupération d’urgence la plus élémentaire proposée dans SQL Database, avec le RPO (objectif de point de récupération) et l’ERT (temps de récupération estimé) les plus longs. Pour les solutions utilisant des bases de données de petite taille (par exemple, des bases de données de niveau de service De base ou des bases de données de locataire de petite taille dans des pools élastiques), la géorestauration, qui présente un ERT de 12 heures maximum, constitue dans la plupart des cas une solution de récupération d’urgence convenable. Pour les solutions s’appuyant sur des bases de données de plus grande taille et nécessitant des temps de récupération plus courts, il est recommandé d’utiliser une [géoréplication active](sql-database-active-geo-replication.md) ou des [groupes de basculement automatique](sql-database-auto-failover-group.md). La géoréplication active offre un objectif de point de récupération et un temps de récupération estimé sensiblement inférieurs, car elle nécessite simplement un basculement vers une base de données secondaire répliquée en continu. Les groupes de basculement automatique permettent un basculement automatique pour un groupe de bases de données. Pour plus d’informations sur les choix de continuité d’activité, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Géo-restauration à l’aide du portail Azure
 
@@ -177,4 +177,4 @@ Les sauvegardes automatiques protègent vos bases de données des erreurs utilis
 - Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 - Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 - Pour plus d’informations sur la rétention à long terme, consultez [Rétention à long terme](sql-database-long-term-retention.md).
-- Pour plus d’informations sur les options de récupération plus rapides, consultez [Groupes de basculement et géoréplication active](sql-database-geo-replication-overview.md).
+- Pour découvrir des options de récupération plus rapides, consultez [Géoréplication active](sql-database-active-geo-replication.md) ou [Groupes de basculement automatique](sql-database-auto-failover-group.md).

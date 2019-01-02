@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340441"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259424"
 ---
 # <a name="translator-speech-api"></a>API de traduction de conversation Translator Speech
 
@@ -34,9 +34,9 @@ Pour accéder à l’API de traduction de texte Translator Text, vous devez [vou
 
 Utilisez la clé d’abonnement pour vous authentifier. L’API de traduction de conversation Translator Speech prend en charge deux modes d’authentification :
 
-* **En utilisant un jeton d’accès :** dans votre application, obtenez un jeton d’accès à partir du service de jetons. Utilisez votre clé d’abonnement à l’API de traduction de conversation Translator Speech pour obtenir un jeton d’accès auprès du service d’authentification d’Azure Cognitive Services. Chaque jeton d’accès est valide pendant 10 minutes. Obtenez un nouveau jeton d’accès toutes les 10 minutes, et utilisez-le pour des requêtes répétées pendant 10 minutes.
+* **En utilisant un jeton d’accès :** Dans votre application, obtenez un jeton d’accès à partir du service de jetons. Utilisez votre clé d’abonnement à l’API de traduction de conversation Translator Speech pour obtenir un jeton d’accès auprès du service d’authentification d’Azure Cognitive Services. Chaque jeton d’accès est valide pendant 10 minutes. Obtenez un nouveau jeton d’accès toutes les 10 minutes, et utilisez-le pour des requêtes répétées pendant 10 minutes.
 
-* **En utilisant une clé d’abonnement directement :** dans votre application, passez votre clé d’abonnement en tant que valeur dans l’en-tête `Ocp-Apim-Subscription-Key`.
+* **En utilisant une clé d’abonnement directement :** Dans votre application, passez votre clé d’abonnement en tant que valeur dans l’en-tête `Ocp-Apim-Subscription-Key`.
 
 Traitez votre clé d’abonnement et le jeton d’accès comme des secrets qui doivent être masqués.
 
@@ -89,17 +89,20 @@ Notez que la taille totale du fichier (octets 4-7) et la taille des « data »
 
 Après l’envoi de l’en-tête WAV (RIFF), le client envoie des blocs des données audio. Le client diffuse en général des blocs de taille fixe représentant une durée fixe (par exemple, 100 ms d’audio à la fois).
 
+### <a name="signal-the-end-of-the-utterance"></a>Signaler la fin de l’énoncé
+L’API de traduction de conversation Translator Speech retourne la transcription et la traduction du flux audio au fur et à mesure que vous envoyez les données audio. La transcription finale, la traduction finale et les données audio traduites ne vous sont retournées qu’à la fin de l’énoncé. Dans certains cas, vous pouvez être amené à forcer la fin de l’énoncé. Envoyez 2,5 secondes de silence pour forcer la fin de l’énoncé. 
+
 ### <a name="final-result"></a>Résultat final
 Un résultat final de reconnaissance vocale est généré à la fin d’un énoncé. Le service transmet au client un résultat à l’aide d’un message WebSocket de type Text. Le contenu du message est la sérialisation JSON d’un objet avec les propriétés suivantes :
 
-* `type` : constante de chaîne pour identifier le type de résultat. La valeur est finale pour les résultat finaux.
-* `id` : identificateur de chaîne attribué au résultat de la reconnaissance.
-* `recognition` : texte reconnu dans la langue source. Le texte peut être une chaîne vide en cas d’échec de la reconnaissance.
-* `translation` : texte reconnu traduit dans la langue cible.
-* `audioTimeOffset` : décalage temporel du début de la reconnaissance, exprimé en tics (1 tic = 100 nanosecondes). Le décalage est relatif au début de la diffusion.
-* `audioTimeSize` : durée de la reconnaissance exprimée en tics (100 nanosecondes).
-* `audioStreamPosition` : décalage d’octet du début de la reconnaissance. Le décalage est relatif au début de la diffusion.
-* `audioSizeBytes` : taille en octets de la reconnaissance.
+* `type`: constante de chaîne pour identifier le type de résultat. La valeur est finale pour les résultat finaux.
+* `id`: identificateur de chaîne affecté au résultat de la reconnaissance.
+* `recognition`: texte reconnu dans la langue source. Le texte peut être une chaîne vide en cas d’échec de la reconnaissance.
+* `translation`: texte reconnu traduit dans la langue cible.
+* `audioTimeOffset`: décalage temporel du début de la reconnaissance, exprimé en tics (1 tic = 100 nanosecondes). Le décalage est relatif au début de la diffusion.
+* `audioTimeSize`: durée de la reconnaissance exprimée en tics (100 nanosecondes).
+* `audioStreamPosition`: décalage d’octet du début de la reconnaissance. Le décalage est relatif au début de la diffusion.
+* `audioSizeBytes`: taille en octets de la reconnaissance.
 
 Notez que, par défaut, le positionnement de la reconnaissance dans le flux audio n’est pas inclus dans les résultats. La fonctionnalité `TimingInfo` doit être sélectionnée par le client (voir le paramètre `features`).
 
@@ -123,14 +126,14 @@ Par défaut, les résultats partiels ou intermédiaires de la reconnaissance voc
 
 Le service transmet au client un résultat partiel à l’aide d’un message WebSocket de type Text. Le contenu du message est la sérialisation JSON d’un objet avec les propriétés suivantes :
 
-* `type` : constante de chaîne pour identifier le type de résultat. La valeur est partielle pour les résultats partiels.
-* `id` : identificateur de chaîne attribué au résultat de la reconnaissance.
-* `recognition` : texte reconnu dans la langue source.
-* `translation` : texte reconnu traduit dans la langue cible.
-* `audioTimeOffset` : décalage temporel du début de la reconnaissance, exprimé en tics (1 tic = 100 nanosecondes). Le décalage est relatif au début de la diffusion.
-* `audioTimeSize` : durée de la reconnaissance exprimée en tics (100 nanosecondes).
-* `audioStreamPosition` : décalage d’octet du début de la reconnaissance. Le décalage est relatif au début de la diffusion.
-* `audioSizeBytes` : taille en octets de la reconnaissance.
+* `type`: constante de chaîne pour identifier le type de résultat. La valeur est partielle pour les résultats partiels.
+* `id`: identificateur de chaîne affecté au résultat de la reconnaissance.
+* `recognition`: texte reconnu dans la langue source.
+* `translation`: texte reconnu traduit dans la langue cible.
+* `audioTimeOffset`: décalage temporel du début de la reconnaissance, exprimé en tics (1 tic = 100 nanosecondes). Le décalage est relatif au début de la diffusion.
+* `audioTimeSize`: durée de la reconnaissance exprimée en tics (100 nanosecondes).
+* `audioStreamPosition`: décalage d’octet du début de la reconnaissance. Le décalage est relatif au début de la diffusion.
+* `audioSizeBytes`: taille en octets de la reconnaissance.
 
 Notez que, par défaut, le positionnement de la reconnaissance dans le flux audio n’est pas inclus dans les résultats. La fonctionnalité TimingInfo doit être sélectionnée par le client (voir le paramétrage des fonctionnalités).
 
@@ -155,10 +158,10 @@ Lorsque la fonctionnalité de synthèse vocale est activée (voir le paramètre 
 ### <a name="closing-the-connection"></a>Fermeture de la connexion
 Quand une application cliente a fini de diffuser l’audio et a reçu le dernier résultat final, elle doit fermer la connexion en initiant la séquence de fermeture WebSocket. Il existe des conditions qui amènent le serveur à mettre fin à la connexion. Le client peut recevoir les codes de fermeture WebSocket suivants :
 
-* `1003 - Invalid Message Type` : le serveur met fin à la connexion parce qu’il ne peut pas accepter le type de données reçu. Cela se produit généralement quand l’audio entrant ne commence pas par un en-tête approprié.
-* `1000 - Normal closure` : la connexion a été fermée après exécution de la demande. Le serveur ferme la connexion dans les cas suivants : aucune donnée audio n’a été reçue du client pendant une période prolongée ; un silence a été diffusé pendant une période prolongée ; une session a atteint la durée maximale autorisée (environ 90 minutes).
-* `1001 - Endpoint Unavailable` : indique que le serveur va devenir indisponible. L’application cliente peut tenter de se reconnecter, mais le nombre de tentatives est limité.
-* `1011 - Internal Server Error` : le serveur va fermer la connexion en raison d’une erreur sur le serveur.
+* `1003 - Invalid Message Type`: le serveur met fin à la connexion parce qu’il ne peut pas accepter le type de données reçu. Cela se produit généralement quand l’audio entrant ne commence pas par un en-tête approprié.
+* `1000 - Normal closure`: la connexion a été fermée après exécution de la requête. Le serveur ferme la connexion dans les cas suivants : aucune donnée audio n’a été reçue du client pendant une période prolongée ; un silence a été diffusé pendant une période prolongée ; une session a atteint la durée maximale autorisée (environ 90 minutes).
+* `1001 - Endpoint Unavailable`: indique que le serveur va devenir indisponible. L’application cliente peut tenter de se reconnecter, mais le nombre de tentatives est limité.
+* `1011 - Internal Server Error`: le serveur va fermer la connexion en raison d’une erreur sur le serveur.
 
 ### <a name="parameters"></a>parameters
 
@@ -169,9 +172,9 @@ Quand une application cliente a fini de diffuser l’audio et a reçu le dernier
 |to|(empty)|Spécifie la langue dans laquelle traduire le texte transcrit. La valeur est l’un des identificateurs de langue de l’étendue `text` dans la réponse de l’API Langues.|query|chaîne|
 |features|(empty)   |Ensemble de fonctionnalités séparées par des virgules sélectionnées par le client. Les fonctionnalités disponibles sont les suivantes :<ul><li>`TextToSpeech` : spécifie que le service doit renvoyer l’audio traduit de la dernière phrase traduite.</li><li>`Partial` : spécifie que le service doit renvoyer les résultats intermédiaires de la reconnaissance pendant la diffusion de l’audio vers le service.</li><li>`TimingInfo` : spécifie que le service doit renvoyer les informations de durée associées à chaque reconnaissance.</li></ul>Par exemple, un client doit spécifier `features=partial,texttospeech` pour recevoir les résultats partiels et la synthèse vocale, mais aucune information de durée. Notez que les résultats finaux sont toujours diffusés vers le client.|query|chaîne|
 |voice|(empty)|Identifie la voix à utiliser pour la synthèse vocale du texte traduit. La valeur est l’un des identificateurs de voix de l’étendue de synthèse vocale dans la réponse de l’API Langues. Si aucune voix n’est spécifiée, le système choisit automatiquement quand la fonctionnalité de synthèse vocale est activée.|query|chaîne|
-|format|(empty)|Spécifie le format du flux audio de synthèse vocale renvoyé par le service. Options disponibles :<ul><li>`audio/wav` : flux audio Waveform. Le client doit utiliser l’en-tête WAV pour interpréter correctement le format audio. L’audio WAV pour la synthèse vocale est MIC sur canal unique 16 bits, avec un taux d’échantillonnage de 24 ou 16 kHz.</li><li>`audio/mp3` : Flux audio MP3.</li></ul>La valeur par défaut est `audio/wav`.|query|chaîne|
-|ProfanityAction    |(empty)    |Spécifie comment le service doit traiter les vulgarités reconnues dans l’entrée vocale. Les actions valides sont les suivantes :<ul><li>`NoAction` : les vulgarités restent inchangées.</li><li>`Marked` : les vulgarités sont remplacées par un marqueur. Voir le paramètre `ProfanityMarker`.</li><li>`Deleted` : les vulgarités sont supprimées. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, l’expression `"He is a jackass."` devient `"He is a .".`.</li></ul>La valeur par défaut est Marked.|query|chaîne|
-|ProfanityMarker|(empty)    |Spécifie comment les vulgarités détectées sont traitées quand `ProfanityAction` a la valeur `Marked`. Les options valides sont les suivantes :<ul><li>`Asterisk` : les vulgarités sont remplacées par la chaîne `***`. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, la phrase `"He is a jackass."` devient `"He is a ***.".`.</li><li>`Tag` : toute vulgarité est entourée de balises XML indiquant sa présence. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, la phrase `"He is a jackass."` devient `"He is a <profanity>jackass</profanity>."`.</li></ul>Par défaut, il s’agit de `Asterisk`.|query|chaîne|
+|format|(empty)|Spécifie le format du flux audio de synthèse vocale renvoyé par le service. Options disponibles :<ul><li>`audio/wav`: flux audio Waveform. Le client doit utiliser l’en-tête WAV pour interpréter correctement le format audio. L’audio WAV pour la synthèse vocale est MIC sur canal unique 16 bits, avec un taux d’échantillonnage de 24 ou 16 kHz.</li><li>`audio/mp3`: flux audio MP3.</li></ul>La valeur par défaut est `audio/wav`.|query|chaîne|
+|ProfanityAction    |(empty)    |Spécifie comment le service doit traiter les vulgarités reconnues dans l’entrée vocale. Les actions valides sont les suivantes :<ul><li>`NoAction`: les vulgarités restent inchangées.</li><li>`Marked`: les vulgarités sont remplacées par un marqueur. Voir le paramètre `ProfanityMarker`.</li><li>`Deleted`: les vulgarités sont supprimées. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, l’expression `"He is a jackass."` devient `"He is a .".`.</li></ul>La valeur par défaut est Marked.|query|chaîne|
+|ProfanityMarker|(empty)    |Spécifie comment les vulgarités détectées sont traitées quand `ProfanityAction` a la valeur `Marked`. Les options valides sont les suivantes :<ul><li>`Asterisk`: les vulgarités sont remplacées par la chaîne `***`. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, la phrase `"He is a jackass."` devient `"He is a ***.".`.</li><li>`Tag`: toute vulgarité est entourée de balises XML indiquant sa présence. Par exemple, si le mot `"jackass"` est traité comme une vulgarité, la phrase `"He is a jackass."` devient `"He is a <profanity>jackass</profanity>."`.</li></ul>Par défaut, il s’agit de `Asterisk`.|query|chaîne|
 |Authorization|(empty)  |Spécifie la valeur du jeton du porteur du client. Utilisez le préfixe `Bearer` suivi par la valeur `access_token` renvoyée par le service de jetons d’authentification.|en-tête   |chaîne|
 |Ocp-Apim-Subscription-Key|(empty)|Obligatoire si l’en-tête `Authorization` n’est pas spécifié.|en-tête|chaîne|
 |access_token|(empty)   |Autre manière de passer un jeton d’accès OAuth valide. Le jeton du porteur est généralement fourni avec un en-tête `Authorization`. Certaines bibliothèques WebSocket n’autorisent pas le code client à définir des en-têtes. Dans ce cas, le client peut utiliser le paramètre de requête `access_token` pour passer un jeton valide. Lorsque vous utilisez un jeton d’accès pour l’authentification, si un en-tête `Authorization` n’est pas défini, `access_token` doit être défini. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré. Les clients ne doivent utiliser qu’une seule méthode pour passer le jeton.|query|chaîne|
@@ -179,7 +182,7 @@ Quand une application cliente a fini de diffuser l’audio et a reçu le dernier
 |X-ClientTraceId    |(empty)    |GUID généré par le client utilisé pour suivre une requête. À des fins de résolution appropriée des problèmes, les clients doivent fournir une nouvelle valeur avec chaque demande, et la journaliser.<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-ClientTraceId`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|chaîne|
 |X-CorrelationId|(empty)    |Identificateur généré par le client utilisé pour mettre en corrélation plusieurs canaux dans une conversation. Plusieurs sessions de traduction vocale peuvent être créées pour permettre les conversations entre utilisateurs. Dans un tel scénario, toutes les sessions de traduction vocale utilisent le même ID de corrélation pour relier les canaux. Cela facilite le suivi et les diagnostics. L’identificateur doit être conforme à ceci : `^[a-zA-Z0-9-_.]{1,64}$`<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-CorrelationId`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|chaîne|
 |X-ClientVersion|(empty)    |Identifie la version de l’application cliente. Exemple : « 2.1.0.123 ».<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-ClientVersion`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|chaîne|
-|X-OsPlatform|(empty)   |Identifie le nom et la version du système d’exploitation sur lequel s’exécute l’application cliente. Exemples : « Android 5.0 », « iOs 8.1.3 », « Windows 8.1 ».<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-OsPlatform`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|chaîne|
+|X-OsPlatform|(empty)   |Identifie le nom et la version du système d’exploitation sur lequel s’exécute l’application cliente. Exemples : « Android 5.0 », « iOs 8.1.3 », « Windows 8.1 ».<br/>Au lieu d’utiliser un en-tête, cette valeur peut être passée avec le paramètre de requête `X-OsPlatform`. Si un en-tête et un paramètre de requête sont définis, le paramètre de requête est ignoré.|en-tête|chaîne|
 
 ### <a name="response-messages"></a>Messages de réponse
 

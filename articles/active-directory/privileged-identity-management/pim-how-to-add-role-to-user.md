@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190154"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724942"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Attribuer des rôles d’annuaire Azure AD dans PIM
 
@@ -112,6 +112,41 @@ Suivez ces étapes pour supprimer un utilisateur spécifique d’un rôle d’an
     ![Supprimer un rôle](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     L’attribution de rôle est supprimée.
+
+## <a name="authorization-error-when-assigning-roles"></a>Erreur d’autorisation lors de l’attribution de rôles
+
+Si vous avez récemment activé PIM pour un abonnement et que vous obtenez une erreur d'autorisation lorsque vous essayez de rendre un utilisateur éligible pour un rôle d'annuaire, c'est peut-être parce que le principe du service MS-PIM n'a pas encore les autorisations appropriées. Le principe du service MS-PIM doit avoir le rôle d’[administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) pour affecter des rôles à d’autres personnes. Au lieu d'attendre que le rôle d’administrateur de l’accès utilisateur soit affecté à MS-PIM, vous pouvez l'affecter manuellement.
+
+Suivez ces étapes pour affecter le rôle d’administrateur de l’accès utilisateur au principal du service MS-PIM pour un abonnement.
+
+1. Connectez-vous au portail Azure en tant qu’administrateur général.
+
+1. Sélectionnez **Tous les services**, puis **Abonnements**.
+
+1. Choisissez votre abonnement.
+
+1. Cliquez sur **Contrôle d’accès (IAM)**.
+
+1. Choisissez **Attributions de rôles** pour afficher la liste actuelle des attributions de rôles au niveau de l’étendue de l’abonnement.
+
+   ![Panneau Contrôle d’accès (IAM) pour un abonnement](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. Vérifiez si le rôle d’**administrateur de l’accès utilisateur** est affecté au principal du service **MS-PIM**.
+
+1. Sinon, choisissez **Ajouter une attribution de rôle** pour ouvrir le volet **Ajouter une attribution de rôle**.
+
+1. Dans la liste déroulante **Rôle**, sélectionnez le rôle d’**administrateur de l’accès utilisateur**.
+
+1. Dans la liste **Sélectionner**, recherchez et sélectionnez le principal du service **MS-PIM**.
+
+   ![Ajouter des autorisations pour MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. Choisissez **Enregistrer** pour attribuer le rôle.
+
+   Après quelques instants, vérifiez si le rôle d’administrateur de l’accès utilisateur est affecté au principal du service MS-PIM au niveau de l’abonnement.
+
+   ![Rôle d’administrateur de l’accès utilisateur pour MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

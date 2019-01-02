@@ -10,39 +10,39 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2017
+ms.date: 02/22/2017
 ms.author: cwatson
-ms.openlocfilehash: be74714667c2fed57a797a972ddcd7949cae5933
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 434f717d9590eff39df161a74931477bdf71bb67
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274668"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309564"
 ---
-# <a name="troubleshoot-enterprise-cost-views"></a>Résoudre les problèmes liés aux vues des coûts d’entreprise 
+# <a name="troubleshoot-enterprise-cost-views"></a>Résoudre les problèmes liés aux vues des coûts d’entreprise
 
-Dans les inscriptions d’entreprise, plusieurs paramètres peuvent empêcher les utilisateurs au sein de l’inscription d’afficher les coûts.  Ces paramètres sont gérés par l’administrateur en charge de l’inscription, ou par le partenaire si l’inscription n’a pas été achetée directement auprès de Microsoft.  Cet article vous aide à comprendre quels sont les paramètres et dans quelle mesure ils impactent l’inscription. Ces paramètres sont indépendants des [rôles RBAC Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
-
+Dans les inscriptions d’entreprise, plusieurs paramètres peuvent empêcher les utilisateurs au sein de l’inscription d’afficher les coûts.  Ces paramètres sont gérés par l’administrateur d’inscription. Ou, si l’inscription n’est pas achetée directement via Microsoft, les paramètres sont gérés par le partenaire.  Cet article vous aide à comprendre quels sont les paramètres et dans quelle mesure ils impactent l’inscription. Ces paramètres sont indépendants des rôles de contrôle d’accès en fonction du rôle (RBAC) Azure.
 
 ## <a name="enabling-access-to-costs"></a>Activation de l’accès aux coûts
 
-Voyez-vous un message « Non autorisé » ou *« Les vues des coûts sont désactivées dans votre inscription. »* quand vous recherchez des informations sur les coûts ? ![Non autorisé](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Voyez-vous un message « Non autorisé » ou *« Les vues des coûts sont désactivées dans votre inscription. »* quand vous recherchez des informations sur les coûts ?
+![Capture d’écran affichant « non autorisé » dans le champ Coût actuel, pour l’abonnement.](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
-Cela peut être dû à l’une des raisons suivantes :
+L’une des raisons suivantes peut en être la cause :
 
-1. Vous avez acheté Azure par le biais d’un partenaire d’entreprise qui n’a toujours pas publié de tarifs. Pour que les tarifs soient publiés, contactez votre partenaire afin qu’il mette à jour le paramètre dans le [portail Entreprise](https://ea.azure.com).
-2. Ou bien, si vous êtes client EA Direct, les possibilités sont les suivantes :
-    * Vous êtes propriétaire de compte et votre administrateur en charge de l’inscription a désactivé le paramètre « d’affichage des frais pour l’administrateur de compte ».  
-    * Vous êtes administrateur de service et l’administrateur de votre inscription a désactivé le paramètre « d’affichage des frais pour l’administrateur de service ».
-    * Contactez l’administrateur en charge de votre inscription pour obtenir l’accès. L’administrateur en charge de l’inscription peut visiter le [portal Entreprise](https://ea.azure.com/manage/enrollment) et mettre à jour le paramètre, comme illustré ci-après :
+1. Vous avez acheté Azure par l’intermédiaire d’un partenaire d’entreprise qui n’a pas encore publié de tarifs. Contactez votre partenaire afin qu’il mette à jour le paramètre des tarifs dans [Enterprise portal](https://ea.azure.com).
+2. Si vous êtes client EA Direct, les possibilités sont les suivantes :
+    * Vous êtes propriétaire du compte et l’administrateur en charge de votre inscription a désactivé le paramètre **AO view charges** (Afficher les frais pour le propriétaire du compte).  
+    * Vous êtes administrateur de service et l’administrateur de votre inscription a désactivé le paramètre **DA view charges** (Afficher les frais pour l’administrateur de service).
+    * Contactez l’administrateur en charge de votre inscription pour obtenir l’accès. L’administrateur en charge de l’inscription peut mettre à jour les paramètres dans [Enterprise Portal](https://ea.azure.com/manage/enrollment).
 
-![Paramètres du portail Entreprise](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
+      ![Capture d’écran montrant les paramètres d’Enterprise Portal pour l’affichage des frais.](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
 
+## <a name="asset-is-unavailable"></a>Une ressource est indisponible
 
-## <a name="asset-is-unavailable"></a>En cas d’indisponibilité d’une ressource 
-L’affichage du message d’erreur « La ressource n'est pas disponible » quand vous essayez d’accéder à un abonnement ou à un groupe d’administration signifie que vous n’avez pas le rôle approprié pour afficher cet élément.  
+L’affichage du message d’erreur « La ressource n’est pas disponible » quand vous essayez d’accéder à un abonnement ou à un groupe d’administration signifie que vous n’avez pas le rôle approprié pour afficher cet élément.  
 
-![ressource introuvable](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+![Capture d’écran montrant le message qu’une « ressource n’est pas disponible ».](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
-Contactez l’administrateur de l’abonnement ou du groupe d’administration pour obtenir l’accès.  
-* Pour les abonnements, reportez-vous au document [Contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) afin de déterminer le rôle requis.
+Demandez l’accès à votre administrateur de l’abonnement ou du groupe d’administration Azure. Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et du portail Azure](../role-based-access-control/role-assignments-portal.md).

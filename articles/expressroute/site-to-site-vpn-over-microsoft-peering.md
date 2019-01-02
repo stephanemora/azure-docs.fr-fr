@@ -1,5 +1,5 @@
 ---
-title: Configurer un VPN de site à site via un appairage Microsoft pour Azure ExpressRoute | Microsoft Docs
+title: Configurer un VPN de site à site via un appairage Microsoft - ExpressRoute - Azure | Microsoft Docs
 description: Configurez une connectivité IPsec/IKE vers Azure via un circuit d’appairage Microsoft ExpressRoute à l’aide d’une passerelle VPN de site à site.
 services: expressroute
 author: cherylmc
@@ -7,25 +7,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240904"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094200"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurer un réseau VPN de site à site via l’appairage Microsoft ExpressRoute
 
-Cet article a été conçu pour vous aider à configurer une connectivité chiffrée et sécurisée entre votre réseau local et vos réseaux virtuels Azure via une connexion privée ExpressRoute. La configuration d’un tunnel sécurisé via ExpressRoute permet un échange de données garantissant confidentialité, authenticité et intégrité, notamment grâce à un système anti-relecture.
+Cet article a été conçu pour vous aider à configurer une connectivité chiffrée et sécurisée entre votre réseau local et vos réseaux virtuels Azure via une connexion privée ExpressRoute. Vous pouvez utiliser l’appairage Microsoft pour établir un tunnel VPN IPsec/IKE de site à site entre les réseaux locaux sélectionnés et les réseaux virtuels Azure. La configuration d’un tunnel sécurisé via ExpressRoute permet un échange de données garantissant confidentialité, authenticité et intégrité, notamment grâce à un système anti-relecture.
 
-## <a name="architecture"></a>Architecture
-
-Vous pouvez utiliser l’appairage Microsoft pour établir un tunnel VPN IPsec/IKE de site à site entre les réseaux locaux sélectionnés et les réseaux virtuels Azure.
-
-  >[!NOTE]
+>[!NOTE]
 >Lorsque vous configurez un VPN de site à site via l’appairage Microsoft, la passerelle VPN et la sortie VPN vous sont facturées. Pour plus d’informations, consultez [Tarification Passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+## <a name="architecture"></a>Architecture
+
 
   ![présentation de la connectivité](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 

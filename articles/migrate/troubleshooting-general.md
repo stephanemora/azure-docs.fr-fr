@@ -4,14 +4,14 @@ description: Fournit une vue d'ensemble des problèmes connus dans le service Az
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413331"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259152"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -19,15 +19,15 @@ ms.locfileid: "50413331"
 
 [Azure Migrate](migrate-overview.md) évalue les charges de travail sur site pour la migration vers Azure. Utilisez cet article pour résoudre les problèmes lors du déploiement et de l'utilisation d'Azure Migrate.
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>J’utilise l’OVA de découverte continue, mais les machines virtuelles qui sont supprimées de mon environnement local apparaissent toujours dans le portail.
+### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>J’utilise l’OVA qui assure la découverte continue de mon environnement local, mais les machines virtuelles supprimées de mon environnement local apparaissent toujours dans le portail.
 
-L’appliance de découverte continue collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque, etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
+L’appliance de découverte continue collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque, etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
 
-- Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance et puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
+- Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance, puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
 
    ![Arrêter la découverte](./media/troubleshooting-general/stop-discovery.png)
 
-- Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
+- Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas, même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Échec de la création du projet de migration avec l’erreur *Les demandes doivent comporter des en-têtes d’identité de l’utilisateur*
 
@@ -35,15 +35,44 @@ Ce problème peut se produire pour les utilisateurs qui n’ont pas accès au lo
 
 Dès que vous avez reçu l’e-mail d’invitation, ouvrez-le et cliquez sur le lien à l’intérieur pour accepter l’invitation. Après cela, vous devrez vous déconnecter du Portail Azure et vous reconnecter ; actualiser le navigateur ne fonctionnera pas. Vous pourrez ensuite essayer de créer le projet de migration.
 
+### <a name="i-am-unable-to-export-the-assessment-report"></a>Je ne parviens pas à exporter le rapport d’évaluation.
+
+Si vous ne pouvez pas exporter le rapport d’évaluation à partir du portail, essayez d’utiliser l’API REST ci-dessous pour obtenir une URL de téléchargement pour le rapport d’évaluation.
+
+1. Installez *armclient* sur votre ordinateur (s’il n’y est pas encore) :
+
+  a. Dans la fenêtre d'invite de commandes d’administrateur, exécutez la commande suivante : ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+
+  b. Dans la fenêtre Windows PowerShell d’administrateur, exécutez la commande suivante : ```choco install armclient```
+
+2.  Obtenir l’URL de téléchargement pour le rapport d’évaluation à l’aide de l’API REST Azure Migrate
+
+  a.    Dans la fenêtre Windows PowerShell d’administrateur, exécutez la commande suivante : ```armclient login```
+
+  Cette opération ouvre la fenêtre de connexion Azure où vous devez vous connecter à Azure.
+
+  b.    Dans la même fenêtre PowerShell, exécutez la commande suivante pour obtenir l’URL de téléchargement pour le rapport d’évaluation (remplacez les paramètres d’URI par les valeurs appropriées, exemple d’API de requête ci-dessous).
+
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+
+       Exemple de requête et de sortie :
+
+       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+018_12_16_21/downloadUrl?api-version=2018-02-02
+{
+  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+
+3. Copiez l’URL de la réponse et ouvrez-la dans un navigateur pour télécharger le rapport d’évaluation.
+
+4. Une fois le rapport téléchargé, utilisez Excel pour parcourir le dossier téléchargé et ouvrez le fichier dans Excel pour le consulter.
+
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Les données de performances des disques et cartes réseau affichent des zéros
 
 Cela peut se produire si le niveau de paramétrage des statistiques sur le serveur vCenter est inférieur à 3. Au niveau 3 ou supérieur, vCenter stocke l'historique des performances de la machine virtuelle pour le calcul, le stockage et le réseau. À un niveau inférieur à 3, vCenter ne stocke pas les données de stockage et de réseau, mais uniquement les données d'UC et de mémoire. Dans ce scénario, les données de performances s'affichent comme des zéros dans Azure Migrate, et Azure Migrate fournit une recommandation de taille pour les disques et les réseaux en fonction des métadonnées collectées sur les machines sur site.
 
 Pour activer la collecte des données de performances des disques et du réseau, définissez le niveau de paramétrage des statistiques sur 3. Puis, attendez au moins une journée pour découvrir votre environnement et l'évaluer.
-
-### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>J’ai installé des agents et utilisé la visualisation des dépendances pour créer des groupes. Maintenant, après le basculement, les machines affichent l’action « Installer l’agent » au lieu de « Afficher les dépendances ».
-* Après un basculement planifié ou non planifié, les machines sur site sont désactivées et les machines équivalentes sont lancées dans Azure. Ces machines acquièrent une adresse MAC différente. Elles peuvent acquérir une adresse IP différente selon que l'utilisateur a choisi de conserver ou non l'adresse IP sur site. Si les adresses MAC et IP diffèrent, Azure Migrate n'associe pas les machines sur site avec les données de dépendance Service Map et demande à l'utilisateur d'installer des agents au lieu d'afficher les dépendances.
-* Après un basculement de test, les machines sur site restent activées comme prévu. Les machines équivalentes lancées dans Azure acquièrent une adresse MAC différente et peuvent acquérir une adresse IP différente. À moins que l’utilisateur ne bloque le trafic Log Analytics provenant de ces machines, Azure Migrate n’associe pas les machines locales aux données de dépendance Service Map et demande à l’utilisateur d’installer des agents au lieu d’afficher les dépendances.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>J’ai spécifié une zone géographique Azure ; au moment de la création d’un projet de migration, comment faire pour trouver la région Azure exacte où sont stockées les métadonnées découvertes ?
 
@@ -53,7 +82,7 @@ Vous pouvez accéder à la section **Bases** de la page **Vue d’ensemble** du 
 
 ## <a name="collector-errors"></a>Erreurs du collecteur
 
-### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Échec du déploiement d’Azure Migrate Collector avec l’erreur suivante : le fichier manifeste fourni n’est pas valide : entrée de manifeste OVF non valide.
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Échec du déploiement d’Azure Migrate Collector avec l’erreur : Le fichier manifeste indiqué n'est pas valide : entrée de manifeste OVF non valide.
 
 1. Confirmez que le fichier OVA Azure Migrate Collector est correctement téléchargé en vérifiant sa valeur de hachage. Reportez-vous à cet [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) pour vérifier la valeur de hachage. Si la valeur de hachage ne correspond pas, téléchargez à nouveau le fichier OVA et recommencez le déploiement.
 2. Si vous faites à nouveau face à un échec et que vous utilisez un client VMware vSphere pour le déploiement du fichier OVF, essayez plutôt d’utiliser le client Web vSphere. Si le problème persiste, essayez d’utiliser un autre navigateur web.
@@ -91,7 +120,7 @@ Assurez-vous d'avoir copié et collé les bonnes informations. Pour résoudre le
 7. Vérifiez que l'agent peut se connecter au projet. Dans le cas contraire, vérifiez les paramètres. Si l'agent peut se connecter mais que le collecteur ne le peut pas, contactez le support.
 
 
-### <a name="error-802-date-and-time-synchronization-error"></a>Erreur 802 : Erreur de synchronisation de la date et de l’heure
+### <a name="error-802-date-and-time-synchronization-error"></a>Erreur 802 : erreur de synchronisation de la date et de l’heure
 
 L'horloge du serveur peut être désynchronisée de plus de cinq minutes par rapport à l'heure actuelle. Modifiez l'heure de l'horloge sur la machine virtuelle du collecteur afin qu'elle corresponde à l'heure actuelle, en procédant comme suit :
 
@@ -107,7 +136,7 @@ Le collecteur Azure Migrate télécharge PowerCLI et l’installe sur l’applia
 2. Accédez au répertoire C:\ProgramFiles\ProfilerService\VMWare\Scripts\.
 3. Exécutez le script InstallPowerCLI.ps1.
 
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Erreur UnhandledException une erreur interne s’est produite : System.IO.FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Une erreur interne UnhandledException s’est produite : System.IO.FileNotFoundException
 
 Ce problème peut être lié à l’installation de VMware PowerCLI. Suivez les étapes ci-dessous pour le résoudre :
 
@@ -117,7 +146,7 @@ Ce problème peut être lié à l’installation de VMware PowerCLI. Suivez les 
 
 ### <a name="error-unabletoconnecttoserver"></a>Erreur UnableToConnectToServer
 
-Impossible de se connecter à vCenter Server « Servername.com:9443 » en raison de l’erreur : aucun point de terminaison écoutant sur https://Servername.com:9443/sdk ne pouvait accepter le message.
+Impossible de se connecter à vCenter Server « ServerName.com: 9443 » en raison de l’erreur : Il n’existait pas de point de terminaison à l’écoute sur https://Servername.com:9443/sdk pouvant accepter le message.
 
 Vérifiez que vous exécutez la dernière version de l’appliance du collecteur ; si ce n’est pas le cas, [mettez-la à niveau](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
 
@@ -128,7 +157,11 @@ Si le problème se produit toujours dans la dernière version, cela peut être d
 3. Identifiez le numéro de port correct pour se connecter au serveur vCenter.
 4. Enfin, vérifiez si le serveur vCenter est en cours d’exécution.
 
-## <a name="troubleshoot-dependency-visualization-issues"></a>Résoudre les problèmes de visualisation des dépendances
+## <a name="dependency-visualization-issues"></a>Problèmes de visualisation des dépendances
+
+### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>Je n’arrive pas à trouver la fonctionnalité de visualisation des dépendances pour les projets Azure Government.
+
+Azure Migrate dépend de Service Map pour la fonctionnalité de visualisation des dépendances et, étant donné que Service Map est actuellement indisponible dans Azure Government, cette fonctionnalité n’est pas disponible dans Azure Government.
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>J’ai installé MMA (Microsoft Monitoring Agent) et l’agent de dépendances sur mes machines virtuelles locales, mais les dépendances apparaissent maintenant dans le portail Azure Migrate.
 
@@ -159,7 +192,11 @@ Azure Migrate vous permet de visualiser des dépendances pour une durée maximal
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Je n’arrive pas à visualiser les dépendances de groupes ayant plus de 10 machines virtuelles ?
 Vous pouvez [visualiser les dépendances de groupes](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) ayant 10 machines virtuelles maximum. Si vous avez ce type de groupe, nous vous recommandons de diviser le groupe en groupes plus petits pour visualiser les dépendances.
 
-## <a name="troubleshoot-readiness-issues"></a>Résoudre les problèmes de disponibilité
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>J’ai installé des agents et utilisé la visualisation des dépendances pour créer des groupes. Maintenant, après le basculement, les machines affichent l’action « Installer l’agent » au lieu de « Afficher les dépendances ».
+* Après un basculement planifié ou non planifié, les machines sur site sont désactivées et les machines équivalentes sont lancées dans Azure. Ces machines acquièrent une adresse MAC différente. Elles peuvent acquérir une adresse IP différente selon que l'utilisateur a choisi de conserver ou non l'adresse IP sur site. Si les adresses MAC et IP diffèrent, Azure Migrate n'associe pas les machines sur site avec les données de dépendance Service Map et demande à l'utilisateur d'installer des agents au lieu d'afficher les dépendances.
+* Après un basculement de test, les machines sur site restent activées comme prévu. Les machines équivalentes lancées dans Azure acquièrent une adresse MAC différente et peuvent acquérir une adresse IP différente. À moins que l’utilisateur ne bloque le trafic Log Analytics provenant de ces machines, Azure Migrate n’associe pas les machines locales aux données de dépendance Service Map et demande à l’utilisateur d’installer des agents au lieu d’afficher les dépendances.
+
+## <a name="troubleshoot-azure-readiness-issues"></a>Résoudre les problèmes de disponibilité Azure
 
 **Problème** | **Correctif**
 --- | ---
@@ -173,7 +210,6 @@ Nombre de bits du système d’exploitation non pris en charge | Les machines vi
 Nécessite un abonnement Visual Studio. | Le système d’exploitation de client Windows qui s’exécute dans la machine n’est pris en charge que dans l’abonnement Visual Studio.
 Nous n'avons pas trouvé de machine virtuelle correspondant au niveau de performance de stockage requis | Les performances de stockage (IOPS/débit) requises pour la machine dépassent la prise en charge des machines virtuelles Azure. Réduisez les besoins de stockage de la machine avant la migration.
 Nous n'avons pas trouvé de machine virtuelle correspondant au niveau de performance réseau requis | Les performances réseau (entrée/sortie) requises pour la machine dépassent la prise en charge des machines virtuelles Azure. Réduisez les exigences de mise en réseau de la machine.
-Nous n’avons pas trouvé de machine virtuelle dans le niveau de prix indiqué | Si le niveau de prix défini est Standard, envisagez de réduire la taille de la machine virtuelle avant la migration vers Azure. Si le niveau de dimensionnement est De base, envisagez de faire passer le niveau de prix de l’évaluation à Standard.
 Nous n'avons pas trouvé de machine virtuelle dans l'emplacement spécifié | Utilisez un emplacement cible différent avant la migration.
 Un ou plusieurs disques ne sont pas adaptés | Un ou plusieurs disques attachés à la machine virtuelle ne répondent pas à la configuration requise pour Azure. Pour chaque disque attaché à la machine virtuelle, assurez-vous que la taille du disque est < 4 To, sinon, réduisez la taille du disque avant de migrer vers Azure. Assurez-vous que les performances (IOPS/débit) requises par chaque disque sont prises en charge par [les disques de la machine virtuelle gérée](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits) Azure.   
 Un ou plusieurs adaptateurs réseau ne sont pas adaptés | Supprimez les cartes réseau non utilisées de la machine avant la migration.

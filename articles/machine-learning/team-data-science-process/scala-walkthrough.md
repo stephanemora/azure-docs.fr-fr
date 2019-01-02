@@ -1,5 +1,5 @@
 ---
-title: Science des données à l’aide de Scala et de Spark sur Azure | Microsoft Docs
+title: Science des données à l’aide de Scala et de Spark sur Azure - Team Data Science Process
 description: Comment utiliser Scala pour les tâches d’apprentissage automatique supervisées avec des packages MLlib et Spark ML sur un cluster Azure HDInsight Spark.
 services: machine-learning
 author: marktab
@@ -10,19 +10,19 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 836fdb5da13465d77c6e9e6ede4780f5d4048597
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447161"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135145"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Science des données à l’aide de Scala et Spark sur Azure
-Ce article vous montre comment utiliser Scala pour les tâches d’apprentissage automatique supervisées avec la bibliothèque d’apprentissage automatique évolutif (MLlib) Spark et des packages SparkML sur un cluster Azure HDInsight Spark. Elle vous guide à travers les tâches qui constituent le [processus de science des données](https://aka.ms/datascienceprocess): ingestion et exploration des données, visualisation, conception de fonctionnalités et consommation de modèles. Les modèles de cet article incluent la régression logistique et linéaire, les forêts aléatoires et les arbres GBT (Gradient Boosted Tree), en plus de deux tâches d’apprentissage automatique supervisées courantes :
+Ce article vous montre comment utiliser Scala pour les tâches d’apprentissage automatique supervisées avec la bibliothèque d’apprentissage automatique évolutif (MLlib) Spark et des packages SparkML sur un cluster Azure HDInsight Spark. Elle vous guide à travers les tâches qui constituent le [processus de science des données](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestion et exploration des données, visualisation, conception de fonctionnalités et consommation de modèles. Les modèles de cet article incluent la régression logistique et linéaire, les forêts aléatoires et les arbres GBT (Gradient Boosted Tree), en plus de deux tâches d’apprentissage automatique supervisées courantes :
 
-* Problème de régression : prédiction du montant du pourboire ($) pour une course de taxi
-* Classification binaire : prédiction de la réception d’un pourboire ou non (1/0) pour une course en taxi
+* Problème de régression : prédiction du montant du pourboire ($) pour une course de taxi
+* Classification binaire : prédiction de la réception d’un pourboire ou non (1/0) pour une course en taxi
 
 Le processus de modélisation nécessite une formation et une évaluation sur des jeux de données de test avec des mesures de précision pertinentes. Cet article explique également comment stocker ces modèles dans le stockage d’objets blob Azure et comment noter et évaluer leurs performances de prédiction. Il couvre également les rubriques plus avancées liées à l’optimisation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique. Les données utilisées représentent un échantillon du jeu de données NYC Taxi Trip and Fare 2013 disponible sur GitHub.
 
@@ -41,7 +41,7 @@ Les étapes d’installation et le code présentés dans cet article s’appliqu
 
 ## <a name="prerequisites"></a>Prérequis
 * Vous devez avoir un abonnement Azure. Si vous n’en avez pas, [obtenez une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Vous avez besoin d’un cluster Azure HDInsight 3.4 Spark 1.6 pour effectuer les procédures suivantes. Pour créer un cluster, consultez les instructions de la rubrique dans [Prise en main : Créer Apache Spark sur Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Spécifiez le type et la version du cluster à partir du menu **Sélectionner le type de cluster** .
+* Vous avez besoin d’un cluster Azure HDInsight 3.4 Spark 1.6 pour effectuer les procédures suivantes. Pour créer un cluster, consultez les instructions de l’article [Prise en main : Créer Apache Spark sur Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Spécifiez le type et la version du cluster à partir du menu **Sélectionner le type de cluster** .
 
 ![Configuration de type cluster HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -66,7 +66,7 @@ Vous pouvez télécharger le notebook directement de GitHub sur le serveur de no
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Configuration : contextes Spark et Hive prédéfinis, commandes magiques Spark et bibliothèques Spark
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Configuration : contextes Spark et Hive prédéfinis, commandes magiques Spark et bibliothèques Spark
 ### <a name="preset-spark-and-hive-contexts"></a>Contextes Spark et Hive prédéfinis
     # SET THE START TIME
     import java.util.Calendar
@@ -226,7 +226,7 @@ L’exemple de code suivant spécifie l’emplacement des données d’entrée p
 
 **Output:**
 
-Durée d’exécution de la cellule : 8 secondes.
+Durée d’exécution de la cellule : 8 secondes.
 
 ### <a name="query-the-table-and-import-results-in-a-data-frame"></a>Interrogez la table et importez les résultats dans une trame de données.
 Interrogez ensuite la table pour les données de prix, de passagers et de pourboires, filtrez les données endommagées et éloignées, et imprimez plusieurs lignes.
@@ -411,7 +411,7 @@ Pour l’indexation, utilisez `StringIndexer()`, et pour l’encodage « à chau
 
 **Output:**
 
-Durée d’exécution de la cellule : 4 secondes.
+Durée d’exécution de la cellule : 4 secondes.
 
 ### <a name="sample-and-split-the-data-set-into-training-and-test-fractions"></a>Échantillonner et diviser le jeu de données en fractions de formation et de test
 Ce code crée un échantillonnage aléatoire des données (25 %, dans cet exemple). Bien que cet échantillonnage ne soit pas nécessaire dans cet exemple en raison de la taille du jeu de données, cet article vous montre comment créer un échantillon afin de savoir comment l’utiliser pour vos problèmes en cas de nécessité. Lorsque les échantillons sont volumineux, cela permet de gagner beaucoup de temps pendant l’apprentissage des modèles. Nous divisons ensuite l’échantillon en une partie d’apprentissage (75 %, dans cet exemple) et une partie de test (25 %n dans cet exemple) à utiliser dans la modélisation de la classification et de la régression.
@@ -450,7 +450,7 @@ Nous ajoutons un nombre aléatoire (entre 0 et 1) pour chaque ligne (dans une co
 
 **Output:**
 
-Durée d’exécution de la cellule : 2 secondes.
+Durée d’exécution de la cellule : 2 secondes.
 
 ### <a name="specify-training-variable-and-features-and-then-create-indexed-or-one-hot-encoded-training-and-testing-input-labeled-point-rdds-or-data-frames"></a>Spécifiez la variable de formation et les fonctionnalités puis créez des objets RDD ou trames de données d’entrée libellés de formation et de test indexés ou encodés à chaud.
 Cette section contient le code qui vous montre comment indexer des données textuelles catégorielles en type point étiqueté et les encoder pour vous permettre de former et de tester la régression logistique de MLlib et d’autres modèles de classification. Les objets point étiquetés sont des RDD mis en forme en tant que données d’entrée utilisables par la plupart des algorithmes Machine Learning dans MLlib. Un [point étiqueté](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) est un vecteur local, dense ou fragmenté, associé à un libellé/une réponse.
@@ -493,7 +493,7 @@ Dans ce code, vous spécifiez la variable cible (dépendante) et les fonctionnal
 
 **Output:**
 
-Durée d’exécution de la cellule : 4 secondes.
+Durée d’exécution de la cellule : 4 secondes.
 
 ### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>Automatiquement classer et vectoriser les fonctionnalités et cibles pour une utilisation en tant qu’entrées pour les modèles Machine Learning.
 Utilisez Spark ML pour classer correctement la cible et les fonctionnalités à utiliser dans les fonctions de modélisation en arborescence. Le code effectue deux tâches :
@@ -532,7 +532,7 @@ Voici le code de ces deux tâches.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modèle de classification binaire : Prédire si un pourboire doit être payé ou non
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modèle de classification binaire : Prédire si un pourboire devrait être payé
 Dans cette section, vous créez trois types de modèles de classification binaire pour prédire si un pourboire devrait être payé :
 
 * Un **modèle de régression logistique** à l’aide de la fonction Spark ML `LogisticRegression()`
@@ -723,9 +723,9 @@ Nous créons ensuite un modèle de classification GBT en utilisant la fonction M
 
 **Output:**
 
-Zone sous courbe ROC = 0,9846895479241554
+Zone sous courbe ROC : 0.9846895479241554
 
-## <a name="regression-model-predict-tip-amount"></a>Modèle de régression : prédire le montant du pourboire
+## <a name="regression-model-predict-tip-amount"></a>Modèle de régression : prédire le montant du pourboire
 Dans cette section, vous créez deux types de modèles de régression pour prédire le montant du pourboire :
 
 * Un **modèle de régression linéaire régularisée** à l’aide de la fonction Spark ML `LinearRegression()`. Vous allez enregistrer le modèle et évaluer le modèle de données de test.
@@ -775,7 +775,7 @@ Dans cette section, vous créez deux types de modèles de régression pour préd
 
 **Output:**
 
-Durée d’exécution de la cellule : 13 secondes.
+Durée d’exécution de la cellule : 13 secondes.
 
     # LOAD A SAVED LINEAR REGRESSION MODEL FROM BLOB STORAGE AND SCORE A TEST DATA SET
 
@@ -881,7 +881,7 @@ Créez un modèle de régression GBT à l’aide de la fonction Spark ML `GBTReg
 
 **Output:**
 
-Le R-sqr de test est : 0,7655383534596654
+Le R-sqr de test est : 0.7655383534596654
 
 ## <a name="advanced-modeling-utilities-for-optimization"></a>Utilitaires de modélisation avancée pour l’optimisation
 Dans cette section, vous exécutez les utilitaires Machine Learning que les développeurs utilisent souvent pour l’optimisation du modèle. Plus précisément, vous pouvez optimiser les modèles Machine Learning de trois façons à l’aide du balayage paramétrique et de la validation croisée :
@@ -938,7 +938,7 @@ Fractionnez ensuite les données en ensembles de formation et de validation, uti
 
 **Output:**
 
-Le R-sqr de test est : 0,6226484708501209
+Le R-sqr de test est : 0.6226484708501209
 
 ### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Optimiser le modèle de classification binaire à l’aide de la validation croisée et du balayage hyperparamétrique
 Cette section vous montre comment optimiser un modèle de classification binaire à l’aide de la validation croisée et du balayage hyperparamétrique. Elle utilise la fonction Spark ML `CrossValidator` .
@@ -982,7 +982,7 @@ Cette section vous montre comment optimiser un modèle de classification binaire
 
 **Output:**
 
-Durée d’exécution de la cellule : 33 secondes.
+Durée d’exécution de la cellule : 33 secondes.
 
 ### <a name="optimize-the-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>Optimiser le modèle de régression linéaire à l’aide de code personnalisé de validation croisée et de balayage paramétrique
 Nous optimisons ensuite le modèle à l’aide d’un code personnalisé et identifions les meilleurs paramètres de modèle en utilisant le critère de précision le plus élevé. Puis nous créons le modèle final, évaluons le modèle sur des données de test et enregistrons le modèle dans un stockage d’objets Blob. Enfin, nous chargeons le modèle, notons les données de test et évaluons la précision.
@@ -1097,10 +1097,10 @@ Nous optimisons ensuite le modèle à l’aide d’un code personnalisé et iden
 
 **Output:**
 
-Durée d’exécution de la cellule : 61 secondes.
+Durée d’exécution de la cellule : 61 secondes.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Utiliser des modèles Machine Learning basés sur Spark générés automatiquement avec Scala
-Pour une vue d’ensemble des rubriques qui vous guident à travers les tâches qui constituent le processus de science des données dans Azure, consultez [processus de science des données pour les équipes](https://aka.ms/datascienceprocess).
+Pour une vue d’ensemble des rubriques qui vous guident à travers les tâches qui constituent le processus de science des données dans Azure, consultez [processus de science des données pour les équipes](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) décrit les autres procédures pas à pas complètent illustrant les étapes du processus TDSP pour des scénarios spécifiques. Les procédures pas à pas montrent également comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente.
 

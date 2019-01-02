@@ -1,23 +1,24 @@
 ---
-title: Concepts d’extraction de données dans LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Extraction de données
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Découvrez quel type de données il est possible d’extraire à partir de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 284cc8ec6c2325df069d06039a6a22169c3107e7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638339"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098642"
 ---
-# <a name="data-extraction"></a>Extraction de données
+# <a name="data-extraction-from-intents-and-entities"></a>Extraction de données à partir d’intentions et d’entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
 
 Les données les plus difficiles à extraire sont les données issues du Machine Learning, car il n’y a pas de correspondance de texte à l’exact. L’extraction de données à partir [d’entités](luis-concept-entity-types.md) issues du Machine Learning doit faire partie du [cycle de création](luis-concept-app-iteration.md) jusqu'à ce que vous ayez la certitude de recevoir les données attendues.

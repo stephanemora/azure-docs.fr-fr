@@ -2,19 +2,19 @@
 title: Problèmes courants à résoudre dans Azure Stream Analytics
 description: Cet article décrit plusieurs problèmes courants dans Azure Stream Analytics et les étapes à suivre pour résoudre ces problèmes.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 2fe180873f8f410d80b06d29d16881eb49f7fc2a
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978437"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090973"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problèmes courants dans Stream Analytics et étapes de dépannage
 
@@ -24,9 +24,9 @@ ms.locfileid: "50978437"
  
  Lorsqu’un travail Stream Analytics reçoit un message incorrectement formé d’une entrée, il dépose le message et envoie un avertissement à l’utilisateur. Un symbole d’avertissement s’affiche dans la vignette **Entrées** de votre tâche Stream Analytics. (Ce signe d’avertissement existe tant que la tâche est en cours d’exécution) :
 
-![Vignette Entrées](media/stream-analytics-malformed-events/inputs_tile.png)
+![Vignette d’entrées sur le tableau de bord Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Pour plus d’informations, activez les journaux de diagnostics pour afficher les détails de l’avertissement. Pour les événements d’entrée incorrectement formés, les journaux d’exécution contiennent une entrée avec un message semblable à celui-ci : « Message : impossible de désérialiser le ou les événements d’entrée à partir de la ressource <blob URI> au format json ». 
+Pour plus d’informations, activez les journaux de diagnostics pour afficher les détails de l’avertissement. Pour les événements d’entrée incorrectement formés, les journaux d’exécution contiennent une entrée avec un message semblable à celui-ci : « Message : Impossible de désérialiser le ou les événements d’entrée à partir de la ressource <blob URI> au format json ». 
 
 ### <a name="troubleshooting-steps"></a>Étapes de dépannage
 
@@ -34,7 +34,7 @@ Pour plus d’informations, activez les journaux de diagnostics pour afficher le
 
 2. La vignette Détails de l’entrée affiche un ensemble d’avertissements avec des informations détaillées sur le problème. Voici un exemple de message d’avertissement qui indique la partition, le décalage et les numéros de séquence où se trouvent des données JSON mal formées. 
 
-   ![Message d’avertissement avec décalage](media/stream-analytics-malformed-events/warning_message_with_offset.png)
+   ![Message d’avertissement d’entrée avec décalage](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
 3. Pour obtenir les données JSON dont le format est incorrect, exécutez le code CheckMalformedEvents.cs. Cet exemple est disponible dans le [référentiel des exemples GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Ce code lit l’ID de la partition et le décalage, puis imprime les données situées dans ce décalage. 
 

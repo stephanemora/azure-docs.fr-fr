@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégrer une forêt AD unique avec l’authentification directe (PTA) | Microsoft Docs'
+title: 'Didacticiel :  Intégrer une forêt AD unique avec l’authentification directe (PTA) | Microsoft Docs'
 description: Montre comment configurer un environnement d’identité hybride à l’aide de l’authentification directe.
 services: active-directory
 author: billmath
@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df4a1ef30997bef6b83e66182404d0e2659a5d51
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422302"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165451"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Didacticiel : Intégrer une forêt AD unique avec l’authentification directe (PTA)
+# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Didacticiel :  Intégrer une forêt AD unique avec l’authentification directe (PTA)
 
 ![Créer](media/tutorial-passthrough-authentication/diagram.png)
 
@@ -36,7 +36,7 @@ Voici les conditions préalables requises pour suivre ce didacticiel.
 >
 >Les scripts utilisés créent un environnement Active Directory général avant d’installer Azure AD Connect.  Elles sont pertinentes pour l’ensemble des didacticiels.
 >
-> Des copies des scripts PowerShell utilisés dans ce didacticiel sont disponibles sur Github, [ici](https://github.com/billmath/tutorial-phs).
+> Des copies des scripts PowerShell utilisés dans ce didacticiel sont disponibles sur GitHub, [ici](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 Tout d’abord, pour obtenir un environnement d’identité hybride fonctionnel, il faut créer une machine virtuelle qui sera utilisée en tant que serveur Active Directory local.  
@@ -84,7 +84,7 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 5. Cliquez sur **Installer maintenant**.
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
 7. Acceptez les termes du contrat de licence et cliquez sur **Suivant**.
-8. Sélectionnez **Personnalisé : installer Windows uniquement (avancé)**.
+8. Sélectionnez **Personnalisé :  installer Windows uniquement (avancé)**
 9. Cliquez sur **Suivant**
 10. Une fois l’installation terminée, redémarrez la machine virtuelle, connectez-vous et exécutez les mises à jour Windows pour vous assurer que la machine virtuelle est à jour.  Installez les dernières mises à jour.
 

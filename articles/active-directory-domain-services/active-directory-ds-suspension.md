@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 161a9f1ac517d372884e7606dbd2ef30c910bf6b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443404"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968098"
 ---
 # <a name="suspended-domains"></a>Domaines suspendus
 Quand Azure AD Domain Services (Azure AD DS) ne parvient pas à mettre en service un domaine managé pendant une longue période, ça met ce domaine en état de suspension. Cet article explique pourquoi les domaines managés sont suspendus et comment remédier à la suspension d’un domaine.
@@ -28,7 +28,7 @@ Quand Azure AD Domain Services (Azure AD DS) ne parvient pas à mettre en servic
 
 ## <a name="states-your-managed-domain-can-be-in"></a>Différents états des domaines managés
 
-![Chronologie de la suspension des domaines](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
+![Chronologie de la suspension des domaines](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
 Le graphique ci-dessus décrit les états possibles d’un domaine managé Azure AD DS.
 

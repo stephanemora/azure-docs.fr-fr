@@ -3,7 +3,7 @@ title: Désinstaller l’outil de tâche de base de données élastique
 description: Découvrez comment désinstaller les composants de tâches de base de données élastique à l’aide du portail Azure de PowerShell.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 15313bf0d2d152a8295fb831e62452f8ad63bbeb
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f717c0c656c5a80b14ef09a10cda18bd12500eeb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242447"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869022"
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Désinstallation des composants de Tâches de bases de données élastiques.
 
@@ -37,7 +37,7 @@ Les **Tâches de base de données élastique** peuvent être désinstallées à 
 ## <a name="uninstall--elastic-database-jobs-components-using-powershell"></a>Désinstallez les composants de Tâches de bases de données élastiques à l’aide de PowerShell
 1. Lancez une fenêtre de commande Microsoft Azure PowerShell et accédez au sous-répertoire des outils, sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x : tapez **cd tools**.
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+     PS C :\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 2. Exécutez le script PowerShell .\UninstallElasticDatabaseJobs.ps1.
    
      PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1   PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1

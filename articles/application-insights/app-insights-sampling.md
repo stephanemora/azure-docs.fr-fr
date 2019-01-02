@@ -9,17 +9,16 @@ ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 7fca6ffa9efa3eed9f7c74ee89ad8bb9651494bb
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044703"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877613"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -35,7 +34,7 @@ L’échantillonnage réduit les coûts du trafic et des données, et vous aide 
 * Vous pouvez également définir l’échantillonnage manuellement, sur la page Utilisation et estimation des coûts du portail, dans le fichier .config du Kit de développement logiciel (SDK) ASP.NET ou dans le fichier ApplicationInsights.xml du Kit SDK Java, pour réduire également le trafic réseau.
 * Si vous consignez des événements personnalisés et que vous souhaitez vous assurer qu’un ensemble d’événements soit conservé ou ignoré conjointement, faites en sorte qu’ils aient la même valeur OperationId.
 * Le diviseur d’échantillonnage *n* est signalé dans chaque enregistrement de la propriété `itemCount`, qui dans la recherche s’affiche sous le nom convivial « nombre de demandes » ou « nombre d’événements ». Lorsque l’échantillonnage n’est pas en cours d’utilisation, `itemCount==1`.
-* Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](../log-analytics/query-language/aggregations.md). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
+* Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](../azure-monitor/log-query/aggregations.md). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Types d’échantillonnage
 Il existe trois autres méthodes d’échantillonnage :

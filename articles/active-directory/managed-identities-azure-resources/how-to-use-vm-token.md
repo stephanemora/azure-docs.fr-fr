@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 86830d8a13e4d83ff48bcf7e2f2dfac41d764718
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0355b8cf19209509dca2f3cac93c7abb92a63990
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106480"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323318"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -51,6 +51,7 @@ Une application cliente peut demander un [jeton d’accès pour l’application 
 | [Obtenir un jeton par HTTP](#get-a-token-using-http) | Détails du protocole pour le point de terminaison de jeton d’identités managées pour ressources Azure |
 | [Obtenir un jeton à l’aide de la bibliothèque Microsoft.Azure.Services.AppAuthentication pour .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exemple d’utilisation de la bibliothèque Microsoft.Azure.Services.AppAuthentication à partir d’un client .NET
 | [Obtenir un jeton par C#](#get-a-token-using-c) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client C# |
+| [Obtenir un jeton par le biais de Java](#get-a-token-using-java) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client Java |
 | [Obtenir un jeton par Go](#get-a-token-using-go) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client Go |
 | [Obtenir un jeton par Azure PowerShell](#get-a-token-using-azure-powershell) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client PowerShell |
 | [Obtenir un jeton par CURL](#get-a-token-using-curl) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client Bash/CURL |
@@ -174,6 +175,50 @@ catch (Exception e)
 
 ```
 
+## <a name="get-a-token-using-java"></a>Obtenir un jeton par le biais de Java
+
+Utilisez cette [bibliothèque JSON](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) pour récupérer un jeton à l’aide de Java.
+
+```Java
+import java.io.*;
+import java.net.*;
+import com.fasterxml.jackson.core.*;
+ 
+class GetMSIToken {
+    public static void main(String[] args) throws Exception {
+ 
+        URL msiEndpoint = new URL("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+        HttpURLConnection con = (HttpURLConnection) msiEndpoint.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("Metadata", "true");
+ 
+        if (con.getResponseCode()!=200) {
+            throw new Exception("Error calling managed identity token endpoint.");
+        }
+ 
+        InputStream responseStream = con.getInputStream();
+ 
+        JsonFactory factory = new JsonFactory();
+        JsonParser parser = factory.createParser(responseStream);
+ 
+        while(!parser.isClosed()){
+            JsonToken jsonToken = parser.nextToken();
+ 
+            if(JsonToken.FIELD_NAME.equals(jsonToken)){
+                String fieldName = parser.getCurrentName();
+                jsonToken = parser.nextToken();
+ 
+                if("access_token".equals(fieldName)){
+                    String accesstoken = parser.getValueAsString();
+                    System.out.println("Access Token: " + accesstoken.substring(0,5)+ "..." + accesstoken.substring(accesstoken.length()-5));
+                    return;
+                }
+            }
+        }
+    }
+}
+```
+
 ## <a name="get-a-token-using-go"></a>Obtenir un jeton par Go
 
 ```
@@ -266,14 +311,14 @@ Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?ap
 Exemple d’extraction du jeton d’accès de la réponse :
 ```azurepowershell
 # Get an access token for managed identities for Azure resources
-$response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F `
+$response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' `
                               -Headers @{Metadata="true"}
 $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
 echo "The managed identities for Azure resources access token is $access_token"
 
 # Use the access token to get resource information for the VM
-$vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
+$vmInfoRest = (Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01' -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
 echo "JSON returned from call to get VM info:"
 echo $vmInfoRest
 
@@ -327,7 +372,7 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 
 | Code d’état | Error | Description de l’erreur | Solution |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Demande incorrecte | invalid_resource | AADSTS50001 : L’application nommée *\<URI\>* est introuvable dans le locataire nommé *\<ID DE LOCATAIRE\>*. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.\ | (Linux uniquement) |
+| 400 Demande incorrecte | invalid_resource | AADSTS50001 : L’application nommée *\<URI\>* est introuvable dans le tenant nommé *\<TENANT-ID\>*. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.\ | (Linux uniquement) |
 | 400 Demande incorrecte | bad_request_102 | En-tête de métadonnées requis non spécifié | Le champ d’en-tête de métadonnées `Metadata` est absent de votre requête, ou bien il n’est pas correctement formaté. La valeur spécifiée doit être `true`, en minuscules. Consultez « Exemple de requête » dans la [section REST précédente](#rest) pour avoir un exemple.|
 | 401 Non autorisé | unknown_source | *\<URI\>* de source inconnue | Vérifiez que votre URI de requête HTTP GET est correctement mise en forme. La partie `scheme:host/resource-path` doit être spécifiée comme `http://localhost:50342/oauth2/token`. Consultez « Exemple de requête » dans la [section REST précédente](#rest) pour avoir un exemple.|
 |           | invalid_request | Il manque un paramètre nécessaire à la requête, elle comprend une valeur de paramètre non valide, plus d’un paramètre à la fois, ou bien elle est incorrecte. |  |

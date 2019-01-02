@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/28/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: bb8eb4eae192cf0dd3a3555a3b1209705dd83aaf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583689"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268442"
 ---
-# <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
+# <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
 Les budgets dans Cost Management vous aident à planifier et à suivre la comptabilité de l’organisation. Avec les budgets, vous pouvez prendre en compte les services Azure que vous consommez ou auxquels vous vous abonnez pendant une période spécifique. Ils vous permettent d’informer les autres utilisateurs de leurs dépenses pour gérer les coûts de manière proactive, ainsi que pour superviser la progression des dépenses. En cas de dépassement des seuils budgétaires que vous avez créés, seules des notifications sont déclenchées. Aucune de vos ressources n’est affectée et votre consommation n’est pas arrêtée. Vous pouvez utiliser des budgets pour comparer et suivre les dépenses lors de l’analyse des coûts.
+
+Les budgets mensuels sont évalués par rapport aux dépenses effectuées toutes les quatre heures. Toutefois, les données et les notifications associées aux ressources consommées sont mises à disposition dans un délai de huit heures.  
 
 Les budgets sont automatiquement réinitialisés à la fin d’une période (mensuelle, trimestrielle ou annuelle) pour le même montant lorsque vous sélectionnez une date d’expiration ultérieure. Étant donné qu’ils sont réinitialisés avec le même montant de budget, vous devez créer des budgets distincts quand les montants budgétisés diffèrent pour des périodes ultérieures.
 
@@ -45,7 +47,7 @@ Pour plus d’informations sur l’affectation d’une autorisation d’accès a
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-- Connectez-vous au portail Azure sur http://portal.azure.com.
+- Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Créez un budget dans le portail Azure
 
@@ -57,23 +59,23 @@ Une fois des budgets créés, ils affichent une vue simple de vos dépenses actu
 
 Cliquez sur **Add**.
 
-![Budgets Cost Management](./media/tutorial-acm-create-budgets/budgets01.png)
+![Budgets Cost Management affichés dans le Portail Azure](./media/tutorial-acm-create-budgets/budgets01.png)
 
 Dans la fenêtre **Créer un budget**, entrez un nom de budget et un montant de budget. Choisissez ensuite une période mensuelle, trimestrielle ou annuelle. Ensuite, sélectionnez une date de fin. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Lorsqu’un seuil de budget est atteint, des notifications par e-mail sont normalement reçues en moins de huit heures.
 
 Voici un exemple de création de budget mensuel de 4 500 $. Une alerte par e-mail est générée quand 90 % du budget est atteint.
 
-![Exemple de budget mensuel](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Exemple d’informations affichées dans la zone de création du budget](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
 Quand vous créez un budget trimestriel, il fonctionne de la même façon qu’un budget mensuel. La différence est que le montant du budget pour le trimestre est divisé de manière équitable entre les trois mois du trimestre. Comme vous pouvez l’imaginer, un montant d’un budget annuel est divisé de manière équitable entre les 12 mois de l’année civile.
 
 Les dépenses actuelles par rapport aux budgets sont mises à jour chaque fois que Cost Management reçoit des données de facturation mises à jour. En général, tous les jours.
 
-![Dépenses actuelles par rapport aux budgets](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
+![Exemple d’informations indiquant la dépense actuelle par rapport aux budgets](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
 
 Après avoir créé un budget, il est indiqué dans l’analyse des coûts. L’affichage de votre budget par rapport à la tendance de vos dépenses est l’une des premières étapes quand vous commencez à [analyser vos coûts et vos dépenses](quick-acm-cost-analysis.md).
 
-![Budget indiqué dans l’analyse des coûts](./media/tutorial-acm-create-budgets/cost-analysis.png)
+![Exemple de budget et de dépenses affichés dans l’analyse des coûts](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 Dans l’exemple précédent, vous avez créé un budget pour un abonnement. Toutefois, vous pouvez également créer un budget pour un groupe de ressources. Si vous voulez créer un budget pour un groupe de ressources, accédez à **Gestion des coûts + facturation** &gt; **Abonnements** &gt; sélectionnez un abonnement > **Groupes de ressource** > sélectionnez un groupe de ressources > **Budgets** > puis **Ajouter** un budget.
 
@@ -81,7 +83,7 @@ Dans l’exemple précédent, vous avez créé un budget pour un abonnement. Tou
 
 Selon le niveau d’accès dont vous disposez, vous pouvez modifier un budget pour changer ses propriétés. Dans l’exemple suivant, certaines des propriétés sont en lecture seule, car l’utilisateur dispose uniquement de l’autorisation Contributeur sur l’abonnement. Actuellement, la **Date d’expiration** est désactivée et ne peut pas être modifiée une fois définie.
 
-![Modifier un budget - Autorisation Contributeur](./media/tutorial-acm-create-budgets/edit-budget.png)
+![Exemple de modification de plusieurs propriétés du budget](./media/tutorial-acm-create-budgets/edit-budget.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

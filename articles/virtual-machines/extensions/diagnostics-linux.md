@@ -7,14 +7,14 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994800"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387044"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux
 
@@ -38,9 +38,7 @@ Cette extension fonctionne avec les deux modèles de déploiement d’Azure.
 
 ## <a name="installing-the-extension-in-your-vm"></a>Installation de l’extension dans votre machine virtuelle
 
-Vous pouvez activer cette extension via des applets de commande Azure PowerShell, des scripts Azure CLI ou des modèles de déploiement Azure. Pour plus d’informations, consultez [Fonctionnalités des extensions](features-linux.md).
-
-Le portail Azure ne peut pas être utilisé pour activer ou configurer l’extension de diagnostic Linux 3.0. Au lieu de cela, il installe et configure la version 2.3. Les graphes et les alertes du portail Azure fonctionnent avec les données provenant des deux versions de l’extension.
+Vous pouvez activer cette extension à l’aide des applets de commande Azure PowerShell, de scripts Azure CLI, de modèles ARM ou du portail Azure. Pour plus d’informations, consultez [Fonctionnalités des extensions](features-linux.md).
 
 Ces instructions d’installation et un [exemple de configuration téléchargeable](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configurent l’extension de diagnostic Linux 3.0 pour :
 
@@ -55,7 +53,7 @@ La configuration téléchargeable est seulement un exemple. Modifiez-la selon vo
 
 * **Agent Azure Linux version 2.2.0 ou ultérieure**. La plupart des images de la galerie Linux de machines virtuelles Azure incluent la version 2.2.7 ou ultérieure. Exécutez `/usr/sbin/waagent -version` pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure de l’agent invité, suivez [ces instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) pour le mettre à jour.
 * **Azure CLI**. [Configurez l’environnement Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine.
-* Si vous n’avez pas déjà la commande wget : exécutez `sudo apt-get install wget`.
+* La commande wget, si vous ne l’avez pas encore : Exécutez `sudo apt-get install wget`.
 * Un abonnement Azure et un compte de stockage existants sont utilisés pour stocker les données.
 * La liste des distributions Linux prises en charge est disponible sur le site https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions.
 
@@ -174,7 +172,7 @@ Cette section facultative définit les autres destinations auxquelles l’extens
 Nom | Chaîne utilisée pour référencer ce récepteur ailleurs dans la configuration de l’extension.
 Type | Type du récepteur défini. Détermine les autres valeurs (le cas échéant) dans les instances de ce type.
 
-La version 3.0 de l’extension de diagnostic Linux prend en charge deux types de récepteur : EventHub et JsonBlob.
+La version 3.0 de l’extension de diagnostic Linux prend en charge deux types de récepteur : EventHub et JsonBlob.
 
 #### <a name="the-eventhub-sink"></a>Récepteur EventHub
 
@@ -320,7 +318,7 @@ counter | Avec « class », identifie la métrique spécifique au sein de l’es
 counterSpecifier | Identifie la métrique spécifique au sein de l’espace de noms des métriques Azure.
 condition | (facultatif) Sélectionne une instance spécifique de l’objet auquel s’applique la métrique ou sélectionne l’agrégation sur toutes les instances de cet objet. Pour plus d’informations, consultez les [ `builtin` définitions des métriques](#metrics-supported-by-builtin).
 sampleRate | Intervalle IS 8601 qui définit la fréquence à laquelle des échantillons bruts sont collectés pour cette métrique. S’il n’est pas défini, l’intervalle de collecte est défini par la valeur de [sampleRateInSeconds](#ladcfg). L’échantillonnage le plus court pris en charge est de 15 secondes (PT15S).
-unité | Doit être une des chaînes suivantes : « Count », « Bytes », « Seconds », « Percent », « CountPerSecond », « BytesPerSecond », « Millisecond ». Définit l’unité pour la métrique. Les consommateurs des données collectées attendent des valeurs de données collectées correspondant à cette unité. L’extension de diagnostic Linux ignore ce champ.
+unité | Doit être l’une des chaînes suivantes : « Count », « Bytes », « Seconds », « Percent », « CountPerSecond », « BytesPerSecond », « Millisecond ». Définit l’unité pour la métrique. Les consommateurs des données collectées attendent des valeurs de données collectées correspondant à cette unité. L’extension de diagnostic Linux ignore ce champ.
 displayName | Étiquette (dans la langue spécifiée par les paramètres régionaux associés) à attacher à ces données dans les métriques Azure. L’extension de diagnostic Linux ignore ce champ.
 
 counterSpecifier est un identificateur arbitraire. Les consommateurs de métriques, comme les fonctionnalités de graphe et d’alerte du portail Azure, utilisent counterSpecifier comme « clé » qui identifie une métrique ou une instance de métrique. Pour les métriques `builtin`, nous vous recommandons d’utiliser des valeurs pour counterSpecifier qui commencent par `/builtin/`. Si vous collectez une instance spécifique d’une métrique, nous vous recommandons d’attacher l’identificateur de l’instance à la valeur de counterSpecifier. Voici quelques exemples :
@@ -359,7 +357,7 @@ La collection syslogEventConfiguration a une entrée pour chaque fonction Syslog
 
 Élément | Valeur
 ------- | -----
-sinks | Une liste séparée par des virgules de noms de récepteurs sur lesquels des événements de journaux sont publiés. Tous les événements de journaux correspondant aux restrictions de syslogEventConfiguration sont publiés sur chaque récepteur répertorié. Exemple : « EHforsyslog »
+sinks | Une liste séparée par des virgules de noms de récepteurs sur lesquels des événements de journaux sont publiés. Tous les événements de journaux correspondant aux restrictions de syslogEventConfiguration sont publiés sur chaque récepteur répertorié. Exemple : « EHforsyslog »
 facilityName | Nom de fonction Syslog (comme « LOG\_USER » ou « LOG\_LOCAL0 »). Consultez la section « facility » de la [page du manuel Syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) pour obtenir la liste complète.
 minSeverity | Niveau de gravité Syslog (comme « LOG\_ERR » ou « LOG\_INFO »). Consultez la section « level » de la [page du manuel Syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) pour obtenir la liste complète. L’extension capture les événements envoyés à la fonction à un niveau supérieur ou égal au niveau spécifié.
 

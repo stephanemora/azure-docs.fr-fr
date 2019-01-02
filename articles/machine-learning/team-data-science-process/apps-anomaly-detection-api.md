@@ -1,5 +1,5 @@
 ---
-title: API de détection des anomalies Machine Learning | Microsoft Docs
+title: API de détection des anomalies d’Azure Machine Learning - Team Data Science Process
 description: L’API de détection des anomalies est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
-ms.custom: (previous author=alokkirpal, ms.author=alok)
-ms.openlocfilehash: 485cf6af9f019bc43ee862627db8549240690247
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
+ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443923"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134792"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de détection des anomalies Machine Learning
 ## <a name="overview"></a>Vue d’ensemble
@@ -24,9 +24,9 @@ L’[API de détection des anomalies](https://gallery.cortanaintelligence.com/Ma
 
 Cette API peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
 
-* **Tendances positives et négatives :** par exemple, pendant l’analyse de l’utilisation de la mémoire de l’infrastructure informatique, une tendance à la hausse peut être digne d’intérêt, car elle est susceptible d’être le signe d’une fuite de mémoire.
-* **Changements de la plage de valeurs dynamiques :** par exemple, pendant l’analyse des exceptions déclenchées par un service cloud, tout changement de la plage de valeurs dynamiques peut indiquer une instabilité de l’intégrité du service.
-* **Pics et creux :** par exemple, quand vous analysez le nombre d’échecs de connexion pour un service ou le nombre de validations dans un site de commerce électronique, les pics ou creux d’activité peuvent indiquer un comportement anormal.
+* **Tendances positives et négatives** : par exemple, lors de la surveillance de l’utilisation de la mémoire d’un système informatique, une tendance à la hausse peut être digne d’intérêt, car elle est susceptible d’être le signe d’une fuite de mémoire.
+* **Modifications dans la plage dynamique de valeurs** : par exemple, lors de la surveillance des exceptions déclenchées par un service cloud, tout changement de la plage dynamique de valeurs peut indiquer une instabilité de l’intégrité du service.
+* **Pics et creux** : par exemple, quand vous surveillez le nombre d’échecs de connexion pour un service ou le nombre de validations dans un site de e-commerce, les pics ou les creux d’activité peuvent indiquer un comportement anormal.
 
 Ces détecteurs Machine Learning effectuent le suivi de tels changements de valeurs au fil du temps, signalant les changements en continu au sein de leurs valeurs en tant que résultats d’anomalies. Ils ne nécessitent pas de réglage du seuil ad hoc et leurs notations peuvent être utilisées pour contrôler le taux de faux positifs. L’API de détection des anomalies est utile dans plusieurs scénarios, tels que la surveillance des services via le suivi des indicateurs de performance clés au fil du temps, la surveillance de l’utilisation via des mesures comme le nombre de recherches et le nombre de clics, la surveillance des performances via des compteurs comme la mémoire, les processeurs, le nombre de lectures de fichiers, etc. au fil du temps.
 
@@ -37,9 +37,9 @@ L’offre de détection des anomalies inclut des outils utiles pour bien commenc
 > [!NOTE]
 > Essayez la **solution IT Anomaly Insights** basée sur [cette API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).
 > 
-> Pour déployer cette solution de bout en bout dans votre abonnement Azure <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **ici >**</a>
-> 
->
+<!-- This Solution is no longer available
+> To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
+--> 
 
 ## <a name="api-deployment"></a>Déploiement de l’API
 Pour pouvoir utiliser l’API, vous devez la déployer dans votre abonnement Azure où elle sera hébergée comme un service web Azure Machine Learning.  Vous pouvez effectuer cette opération dans la [galerie Azure AI](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Cette action déploie deux services Web AzureML (et leurs ressources associées) dans votre abonnement Azure : un pour la détection d’anomalies avec détection de saisonnalité et un autre sans détection de saisonnalité.  Une fois le déploiement terminé, vous serez en mesure de gérer vos API à partir de la page [services web AzureML](https://services.azureml.net/webservices/).  Sur cette page, vous pourrez trouver l’emplacement de vos points de terminaison, de vos clés API, ainsi que les exemples de code pour appeler l’API.  Des instructions plus détaillées sont disponibles [ici](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
@@ -108,10 +108,10 @@ L’API de détection des anomalies prend en charge les détecteurs de 3 grandes
 
 | Catégorie de détecteurs | Détecteur | Description | Paramètres d’entrée | Outputs |
 | --- | --- | --- | --- | --- |
-| Détecteurs de pics |Détecteurs TSpike |Détecter des pics et des creux en fonction de l’écart des valeurs par rapport aux premier et troisième quartiles |*tspikedetector.Sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |TSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) |
-| Détecteurs de pics | Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) | |
-| Détecteur de tendances lentes |Détecteur de tendances lentes |Détecter les tendances positives lentes suivant la sensibilité définie |*trenddetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |tscore : nombre flottant représentant le résultat d’anomalies pour une tendance |
-| Détecteurs de changements de niveau | Détecteur de changements de niveau bidirectionnels |Détecter les changements de niveau vers le haut et vers le bas suivant la sensibilité définie |*bileveldetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |rscore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut et vers le bas | |
+| Détecteurs de pics |Détecteurs TSpike |Détecter des pics et des creux en fonction de l’écart des valeurs par rapport aux premier et troisième quartiles |*tspikedetector.sensitivity :* prend une valeur entière comprise entre 1 et 10, par défaut : 3 ; plus la valeur est élevée, moins la sensibilité est importante |TSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) |
+| Détecteurs de pics | Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.sensitivity :* prend une valeur entière comprise entre 1 et 10, par défaut : 3 ; plus la valeur est élevée, moins la sensibilité est importante |ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) | |
+| Détecteur de tendances lentes |Détecteur de tendances lentes |Détecter les tendances positives lentes suivant la sensibilité définie |*trenddetector.sensitivity :* seuil sur le score du détecteur (par défaut : 3,25, 3,25 - 5 est une plage raisonnable pour faire une sélection ; plus la valeur est élevée, moins la sensibilité est importante) |tscore : nombre flottant représentant le résultat d’anomalies pour une tendance |
+| Détecteurs de changements de niveau | Détecteur de changements de niveau bidirectionnels |Détecter les changements de niveau vers le haut et vers le bas suivant la sensibilité définie |*bileveldetector.sensitivity :* seuil sur le score du détecteur (par défaut : 3,25, 3,25 - 5 est une plage raisonnable pour faire une sélection ; plus la valeur est élevée, moins la sensibilité est importante) |rscore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut et vers le bas | |
 
 ### <a name="parameters"></a>parameters
 Le tableau ci-dessous contient des informations plus détaillées sur ces paramètres d’entrée :

@@ -4,7 +4,7 @@ description: Découvrez comment Azure SQL Database prend en charge la continuit�
 keywords: continuité des activités, continuité des activités cloud, récupération d’urgence de base de données, récupération de base de données
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 14fdc0dc12debb32f63d7322c233e06fc2fc0d9e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/10/2018
+ms.openlocfilehash: aecfecda08a6008b931738802bb89054f9d3963c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161532"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274110"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
-Azure SQL Database est une implémentation du dernier moteur de base de données SQL Server stable, configurée et optimisée pour un environnement de cloud Azure. Elle offre une [haute disponibilité](sql-database-high-availability.md) et une résilience aux erreurs susceptibles d’affecter votre processus d’entreprise. La **continuité d’activité** dans Azure SQL Database fait référence aux mécanismes, stratégies et procédures qui permettent aux entreprises de continuer à fonctionner en cas d’interruption affectant notamment leur infrastructure informatique. Dans la plupart des cas, Azure SQL Database gère les événements d’interruption qui peuvent se produire dans l’environnement de cloud et préservent l’exécution de vos processus d’entreprise. Toutefois, certains de ces événements ne peuvent être gérés par SQL Database, notamment dans les cas suivants :
+La **continuité d’activité** dans Azure SQL Database fait référence aux mécanismes, stratégies et procédures qui permettent à votre entreprise de continuer à fonctionner en cas d’interruption affectant notamment son infrastructure informatique. Dans la plupart des cas, Azure SQL Database gère les événements d’interruption qui peuvent se produire dans l’environnement de cloud et préservent l’exécution de vos applications et processus d’entreprise. Toutefois, certains de ces événements ne peuvent être gérés par SQL Database, notamment dans les cas suivants :
 
 - Un utilisateur a accidentellement supprimé ou mis à jour une ligne dans une table.
 - Un attaquant a réussi à supprimer des données ou une base de données.
@@ -48,7 +48,8 @@ Ensuite, vous pouvez en apprendre davantage sur les mécanismes supplémentaires
 - Les [sauvegardes automatisées intégrées](sql-database-automated-backups.md) et la [limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) vous permettent de restaurer l’ensemble de la base de données selon un moment donné au cours des 35 derniers jours.
 - Vous pouvez [restaurer une base de données supprimée](sql-database-recovery-using-backups.md#deleted-database-restore) au point où sa suppression s’est produite si le **serveur logique n’a pas été supprimé**.
 - La [rétention des sauvegardes à long terme](sql-database-long-term-retention.md) vous permet de conserver les sauvegardes sur une période allant jusqu’à 10 ans.
-- Le [groupe de basculement automatique](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) permet à l’application d’effectuer automatiquement une récupération en cas de panne à l’échelle du centre de données.
+- La [géoréplication active](sql-database-active-geo-replication.md) vous permet de créer des réplicas lisibles et d’effectuer un basculement manuel vers n’importe quel réplica en cas de panne de centre de données ou de mise à niveau d’application.
+- Le [groupe de basculement automatique](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) permet à l’application d’effectuer automatiquement une récupération en cas de panne du centre de données.
 
 Chacune de ces fonctionnalités possède des caractéristiques spécifiques concernant le temps de récupération estimé (ERT) et le risque de perte de données pour les transactions récentes. Une fois que vous avez compris ces options, vous pouvez choisir celles qui vous conviennent et, dans la plupart des scénarios, les utiliser ensemble dans différents scénarios. Au moment d’élaborer votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption. Il s’agit de l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également comprendre sur quelle période maximale l’application peut accepter de perdre les mises à jour de données récentes (intervalle de temps) lors de la récupération après l’événement d’interruption. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective).
 
@@ -75,8 +76,7 @@ Utilisez des sauvegardes automatisées et une [limite de restauration dans le te
 - Affiche un faible taux de modification des données (peu de transactions par heure) et accepte une perte de données correspondant à une heure de modifications.
 - Est sensible aux coûts.
 
-Si vous avez besoin d’une récupération plus rapide, utilisez des [groupes de basculement](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
-) (abordés plus loin). Si vous devez être en mesure de récupérer des données remontant à plus de 35 jours, utilisez la [rétention de sauvegardes à long terme](sql-database-long-term-retention.md).
+Si vous avez besoin d’une récupération plus rapide, utilisez la [géoréplication active](sql-database-active-geo-replication.md) ou [les groupes de basculement automatique](sql-database-auto-failover-group.md). Si vous devez être en mesure de récupérer des données remontant à plus de 35 jours, utilisez la [rétention de sauvegardes à long terme](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region"></a>Récupération d’une base de données sur une autre région
 
@@ -84,14 +84,14 @@ Bien que le fait soit rare, un centre de données Azure peut subir une panne. En
 
 - Vous pouvez attendre que votre base de données redevienne disponible une fois la panne réparée au niveau du centre de données. Cette méthode fonctionne pour les applications qui peuvent se permettre d’avoir la base de données déconnectée. C’est le cas, par exemple, d’un projet de développement ou d’une version d’évaluation gratuite sur lesquels vous n’avez pas à travailler en permanence. Lorsqu’un centre de données subit une panne, vous ne savez pas combien de temps cette panne peut durer. Cette méthode fonctionne donc uniquement si vous n’avez pas à travailler sur votre base de données pendant un certain temps.
 - Vous pouvez également restaurer une base de données sur n’importe quel serveur d’une région Azure quelconque à l’aide des [sauvegardes de base de données géo-redondantes](sql-database-recovery-using-backups.md#geo-restore) (ou géorestaurations). La géorestauration utilise une sauvegarde géoredondante en tant que source et peut être mise à profit pour récupérer une base de données même si la base de données ou le centre de données est inaccessible en raison d’une défaillance.
-- Enfin, vous pouvez récupérer rapidement en cas de panne si vous avez configuré un [groupe de basculement automatique](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) pour votre ou vos bases de données. Vous pouvez personnaliser la stratégie de basculement pour utiliser le basculement automatique ou manuel. Le basculement proprement dit ne prend que quelques secondes, mais son activation par le service prend au moins 1 heure. Cela est nécessaire pour s’assurer que le basculement est justifié par l’étendue de la panne. En outre, le basculement peut entraîner une petite perte de données en raison de la nature de la réplication asynchrone. Consultez le tableau précédemment illustré dans cet article pour plus d’informations sur le RTO et le RPO du basculement automatique.
+- Enfin, vous pouvez récupérer rapidement en cas de panne si vous avez configuré des géoréplicas à l’aide de la [géoréplication active](sql-database-active-geo-replication.md) ou d’un [groupe de basculement automatique](sql-database-auto-failover-group.md) pour votre ou vos bases de données. Selon la technologie choisie, vous pouvez utiliser soit le basculement manuel, soit le basculement automatique. Le basculement proprement dit ne prend que quelques secondes, mais son activation par le service prend au moins 1 heure. Cela est nécessaire pour s’assurer que le basculement est justifié par l’étendue de la panne. En outre, le basculement peut entraîner une petite perte de données en raison de la nature de la réplication asynchrone. Consultez le tableau précédemment illustré dans cet article pour plus d’informations sur le RTO et le RPO du basculement automatique.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 > [!IMPORTANT]
 > Pour utiliser la géo-réplication active et les groupes de basculement automatique, vous devez être le propriétaire de l’abonnement ou disposer d’autorisations administratives dans SQL Server. Vous pouvez configurer et effectuer un basculement à l’aide du portail Azure, de PowerShell ou de l’API REST, en utilisant les autorisations d’abonnement Azure ou à l’aide de Transact-SQL en utilisant des autorisations dans SQL Server.
 
-Utilisez des groupes de basculement automatique actifs si votre application répond à l’un des critères suivants :
+Utilisez des groupes de basculement automatique si votre application répond à l’un des critères suivants :
 
 - Est essentielle.
 - A un contrat de niveau de service (SLA) qui n’autorise pas plus de 12 heures d’interruption de service.

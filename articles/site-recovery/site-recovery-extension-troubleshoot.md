@@ -5,14 +5,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7a4ff22bbb4c7c13d8c2feae3638ce8e33a8f7ad
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215036"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845822"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Résoudre les problèmes rencontrés avec les agents Azure Site Recovery
 
@@ -21,39 +21,39 @@ Cet article indique les étapes à suivre pour résoudre les erreurs d’Azure S
 
 ## <a name="azure-site-recovery-extension-time-out"></a>Expiration de l’extension d’Azure Site Recovery  
 
-Message d’erreur : « L’exécution de la tâche a expiré pendant le suivi du démarrage de l’opération d’extension »<br>
-Code d’erreur : « 151076 »
+Message d’erreur : « L’exécution de la tâche a expiré pendant le suivi du démarrage de l’opération d’extension. »<br>
+Code d’erreur : « 151076 »
 
  Azure Site Recovery installe une extension sur la machine virtuelle dans le cadre du travail d’activation de la protection. Il est possible que l’une des conditions suivantes empêche le déclenchement de la protection et entraîne l’échec du travail. Suivez les étapes de dépannage ci-dessous, puis réessayez l’opération :
 
-**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3 : [Impossible de mettre à jour ou de charger l’extension Site Recovery](#the-site-recovery-extension-fails-to-update-or-load)**  
+**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Cause 3 : [Impossible de mettre à jour ou de charger l’extension Site Recovery](#the-site-recovery-extension-fails-to-update-or-load)**  
 
-Message d’erreur : « L’opération d’extension Site Recovery précédente prend plus de temps que prévu. »<br>
-Code d’erreur : « 150066 »<br>
+Message d’erreur : « L’opération d’extension Site Recovery précédente prend plus de temps que prévu. »<br>
+Code d’erreur : « 150066 »<br>
 
-**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3 : [L’état de l’extension Site Recovery est incorrect](#the-site-recovery-extension-fails-to-update-or-load)**  
+**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Cause 3 : [L’état de l’extension Site Recovery est incorrect](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>La protection échoue, car l’agent de machine virtuelle ne répond pas.
 
-Message d’erreur : « L’exécution de la tâche a expiré pendant le suivi du démarrage de l’opération d’extension. »<br>
-Code d’erreur : « 151099 »<br>
+Message d’erreur : « L’exécution de la tâche a expiré pendant le suivi du démarrage de l’opération d’extension. »<br>
+Code d’erreur : « 151099 »<br>
 
 Cette erreur peut se produire si l’agent invité Azure dans la machine virtuelle n’est pas dans l’état prêt.
 Vous pouvez vérifier l’état de l’agent invité Azure dans le [portail Azure](https://portal.azure.com/). Accédez à la machine virtuelle que vous essayez de protéger, puis vérifiez l’état dans « Machine virtuelle > Paramètres > Propriétés > État de l’agent ». La plupart du temps, l’état de l’agent devient prêt après le redémarrage de la machine virtuelle. Toutefois, si le redémarrage n’est pas une option possible ou si vous rencontrez toujours le problème, effectuez les étapes de dépannage suivantes.
 
-**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
-Message d’erreur : « L’exécution de la tâche a expiré pendant le suivi du démarrage de l’opération d’extension. »<br>
-Code d’erreur : « 151095 »<br>
+Message d’erreur : « L’exécution de la tâche a expiré pendant le suivi du démarrage de l’opération d’extension. »<br>
+Code d’erreur : « 151095 »<br>
 
 Cette erreur se produit quand la version de l’agent sur la machine Linux est ancienne. Effectuez l’étape de dépannage suivante.<br>
-  **Cause 1 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+  **Cause 1 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 ## <a name="causes-and-solutions"></a>Causes et solutions
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)
@@ -64,7 +64,7 @@ Il se peut que l’agent de machine virtuelle soit endommagé ou que le service 
 1. Regardez si le service d’agent invité Microsoft Azure s’exécute dans les services de machine virtuelle (services.msc). Essayez de redémarrer le service d’agent invité Microsoft Azure.    
 2. Si le service d’agent invité Microsoft Azure n’apparaît pas dans les services, accédez à **Programmes et fonctionnalités** dans le Panneau de configuration pour déterminer s’il est installé.
 4. Si le service d’agent invité Microsoft Azure figure sous **Programmes et fonctionnalités**, désinstallez-le.
-5. Téléchargez et installez la [dernière version du MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Des droits d’administrateur sont nécessaires pour effectuer l’installation.
+5. Téléchargez et installez la [dernière version du MSI de l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Des droits d’administrateur sont nécessaires pour effectuer l’installation.
 6. Vérifiez que le service d’agent invité Microsoft Azure apparaît dans les services.
 7. Redémarrez le travail de protection.
 

@@ -6,43 +6,64 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: article
-ms.date: 7/11/2018
+ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: d32e6e29c287d140c28206743e36dc025b26158b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 86fdbbacf3e8064afe0aaaaebea1d6ef6c25f9d4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991332"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865823"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Déployer un pare-feu Azure à l’aide d’un modèle
 
-Ce modèle crée un pare-feu et un environnement réseau de test. Le réseau dispose d’un réseau virtuel, doté de trois sous-réseaux : *AzureFirewallSubnet*, *ServersSubnet* et *JumpboxSubnet*. ServersSubnet et JumpboxSubnet sont chacun équipés d’un serveur Windows Server à 2 cœurs.
+Le [modèle Create AzureFirewall sandbox setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) crée un environnement réseau de test avec un pare-feu. Le réseau a un réseau virtuel avec trois sous-réseaux : *AzureFirewallSubnet*, *ServersSubnet* et *JumpboxSubnet*. Les sous-réseaux *ServersSubnet* et *JumpboxSubnet* ont chacun une machine virtuelle Windows Server à deux cœurs.
 
-Le pare-feu se trouve dans AzureFirewallSubnet et est configuré à l’aide d’une collection de règles d’application avec une seule règle qui autorise l’accès à www.microsoft.com.
+Le pare-feu se trouve dans le sous-réseau *AzureFirewallSubnet* et a une collection de règles d’application avec une seule règle qui autorise l’accès à *www.microsoft.com*.
 
-Un itinéraire défini par l’utilisateur est créé : à partir de ServersSubnet, il pointe en direction du trafic réseau via le pare-feu, où les règles de pare-feu sont appliquées.
+Une route définie par l’utilisateur dirige le trafic réseau du sous-réseau *ServersSubnet* à travers le pare-feu, où les règles de pare-feu s’appliquent.
+
+Pour plus d’informations sur le Pare-feu Azure, consultez [Déployer et configurer le Pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md).
+
+## <a name="use-the-template-to-deploy-azure-firewall"></a>Utiliser le modèle pour déployer le Pare-feu Azure
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="template-location"></a>Emplacement du modèle
+**Pour installer et déployer le Pare-feu Azure à l’aide du modèle :**
 
-Le modèle se trouve ici :
+1. Accédez au modèle sur [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox).
+   
+1. Lisez l’introduction et, une fois que vous êtes prêt pour le déploiement, sélectionnez **Déployer sur Azure**.
+   
+1. Connectez-vous au portail Azure si nécessaire. 
 
-[https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox)
+1. Dans le portail, dans la page **Créer un programme d’installation de bac à sable d’AzureFirewall**, tapez ou sélectionnez les valeurs suivantes :
+   
+   - **Groupe de ressources** : Sélectionnez **Créer nouveau**, tapez un nom pour le groupe de ressources et sélectionnez **OK**. 
+   - **Nom du réseau virtuel** : Tapez un nom pour le nouveau réseau virtuel. 
+   - **Nom d’utilisateur administrateur** : Tapez un nom d’utilisateur pour le compte d’utilisateur administrateur.
+   - **Mot de passe administrateur** : Tapez un mot de passe administrateur. 
+   
+1. Lisez les conditions générales, puis cochez la case **J’accepte les conditions générales mentionnées ci-dessus**.
+   
+1. Sélectionnez **Achat**.
+   
+   La création des ressources prend quelques minutes. 
+   
+1. Explorez les ressources créées avec le pare-feu. 
 
-Lisez l’introduction et une fois que vous êtes prêt pour le déploiement, cliquez sur **Déployer sur Azure**.
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
-
-Explorez d’abord les ressources qui ont été créées avec le pare-feu puis, quand vous n’en avez plus besoin, servez-vous de la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources, le pare-feu et toutes les ressources associées.
+Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, le pare-feu et toutes les ressources associées en exécutant la commande PowerShell [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Pour supprimer un groupe de ressources nommé *MyResourceGroup*, exécutez : 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name MyResourceGroup
 ```
+Ne supprimez pas encore le groupe de ressources et le pare-feu si vous voulez continuer avec le tutoriel de supervision du pare-feu. 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Ensuite, vous pouvez surveiller les journaux de Pare-feu Azure :
 
-- [Tutoriel : Surveiller les journaux de Pare-feu Azure](./tutorial-diagnostics.md)
-
+> [!div class="nextstepaction"]
+> [Tutoriel : Superviser les journaux de Pare-feu Azure](./tutorial-diagnostics.md)

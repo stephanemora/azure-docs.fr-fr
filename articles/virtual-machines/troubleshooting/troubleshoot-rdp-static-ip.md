@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: c219b2fb58d46d9280ef5c022140e0499e3ac54c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 81a3064290e0aa720a4fe6b0fa0d8eb13cfe6903
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347479"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141796"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Impossible de connecter un bureau à distance à des machines virtuelles Azure en raison de l’adresse IP statique
 
 Cet article décrit un problème dans lequel vous ne pouvez pas connecter un bureau distant à des machines virtuelles (VM) Windows Azure après qu’une IP statique a été configurée sur la machine virtuelle.
 
-> [!NOTE] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic. 
+> [!NOTE]
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic.
 
-## <a name="symptoms"></a>Symptômes 
+## <a name="symptoms"></a>Symptômes
 
 Au moment d’établir une connexion RDP à une machine virtuelle dans Azure, vous obtenez le message d’erreur général suivant :
 
@@ -47,7 +47,7 @@ Lorsque vous vérifiez la capture d’écran dans les [diagnostics de démarrage
 
 La machine virtuelle a une adresse IP statique qui est définie sur l’interface réseau dans Windows. Cette adresse IP est différente de l’adresse définie dans le portail Azure.
 
-## <a name="solution"></a>Solution 
+## <a name="solution"></a>Solution
 
 Avant de suivre cette procédure, faites en sauvegarde en prenant un instantané du disque du système d’exploitation de la machine virtuelle affectée. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
 
@@ -55,7 +55,7 @@ Pour résoudre ce problème, utilisez la console série pour activer le protocol
 
 ### <a name="use-serial-control"></a>Utiliser le contrôle série
 
-1. Connectez-vous à la [console série et ouvrez une instance CMD](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Connectez-vous à la [console série et ouvrez une instance CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réinitialiser l’interface réseau](reset-network-interface.md).
 2. Vérifiez si le protocole DHCP est désactivé sur l’interface réseau :
 
@@ -63,7 +63,7 @@ Pour résoudre ce problème, utilisez la console série pour activer le protocol
 3. Si le protocole DHCP est désactivé, rétablissez la configuration de votre interface réseau pour utiliser DHCP :
 
         netsh interface ip set address name="<NIC Name>" source=dhc
-        
+
     Par exemple, si l’interface réseau s’appelle « Ethernet 2 », exécutez la commande suivante :
 
         netsh interface ip set address name="Ethernet 2" source=dhc

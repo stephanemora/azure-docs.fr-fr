@@ -1,19 +1,20 @@
 ---
-title: Préparer la mise en production d’une solution Azure IoT Edge | Microsoft Docs
+title: Préparer des appareils et des déploiements pour la production - Azure IoT Edge | Microsoft Docs
 description: Découvrez comment faire passer votre solution Azure IoT Edge du développement à la production, et notamment comment configurer vos appareils avec les certificats nécessaires et élaborer un plan de déploiement des futures mises à jour du code.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 48fd774d6d887a12ed1c1ad9689ca34f5d866367
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: d39a271f33cb86bf870c3a7692c38d780093efa2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585411"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100036"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 

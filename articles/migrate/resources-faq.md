@@ -4,14 +4,14 @@ description: Répond aux questions fréquemment posées sur Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: snehaa
-ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256373"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257792"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -44,11 +44,16 @@ Azure Migrate est un outil de planification de la migration et le planificateur 
 
 **Migration d’Hyper-V vers Azure** : actuellement, Azure Migrate prend en charge seulement l’évaluation de machines virtuelles VMware pour la migration vers Azure. La prise en charge d’Hyper-V fait partie de la feuille de route d’Azure Migrate. Entre-temps, vous pouvez utiliser le planificateur de déploiement Site Recovery. Une fois la prise en charge d’Hyper-V effective dans Azure Migrate, vous pourrez utiliser Azure Migrate pour planifier la migration des charges de travail Hyper-V.
 
-**Récupération d’urgence de VMware/Hyper-V vers Azure** : si vous prévoyez d’effectuer une récupération d'urgence sur Azure Site Recovery (Site Recovery), utilisez le planificateur de déploiement Azure Site Recovery pour la planifier. Le planificateur de déploiement Site Recovery effectue une évaluation approfondie spécifique à Azure Site Recovery de votre environnement local. Il fait des suggestions concernant ce qui est nécessaire pour que Site Recovery réussisse des opérations de récupération d’urgence, comme la réplication et le basculement de vos machines virtuelles.  
+**Récupération d’urgence de VMware/Hyper-V vers Azure** : si vous prévoyez d’effectuer une récupération d'urgence sur Azure Site Recovery (Site Recovery), utilisez le planificateur de déploiement Azure Site Recovery pour la planifier. Le planificateur de déploiement Site Recovery effectue une évaluation approfondie spécifique à Azure Site Recovery de votre environnement local. Il fait des suggestions concernant ce qui est nécessaire pour que Site Recovery réussisse des opérations de récupération d’urgence, comme la réplication et le basculement de vos machines virtuelles.  
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Quelles sont les régions Azure prises en charge par Azure Migrate ?
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quelles sont les zones géographiques Azure prises en charge par Azure Migrate ?
 
-Azure Migrate prend actuellement en charge les USA Est et les USA Centre-Ouest en tant qu’emplacements de projets de migration. Même si vous ne pouvez créer des projets de migration que dans les régions USA Centre-Ouest et USA Est, vous pouvez toujours évaluer vos machines pour [plusieurs emplacements cible](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). L’emplacement du projet est uniquement utilisé pour stocker les données détectées.
+Azure Migrate prend actuellement en charge les États-Unis et Azure Government en tant que zones géographiques de projet. Même si vous ne pouvez créer des projets de migration que dans ces zones, vous pouvez toujours évaluer vos machines pour [plusieurs emplacements cible](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
+
+**Zone géographique** | **Emplacement de stockage des métadonnées**
+--- | ---
+États-Unis | USA Centre-Ouest ou USA Est
+Azure Government | Gouvernement américain - Virginie
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Comment le site local se connecte-t-il à Azure Migrate ?
 
@@ -137,9 +142,12 @@ Vous pouvez découvrir 1 500 machines virtuelles dans un même projet de migrati
 Azure Migrate ne prend actuellement pas en charge les estimation de coût pour l’[offre Accord Entreprise](https://azure.microsoft.com/offers/enterprise-agreement-support/). La solution de contournement consiste à spécifier Paiement à l’utilisation pour l’offre, en précisant manuellement le pourcentage de remise (applicable à l’abonnement) dans le champ « Remise » des propriétés d’évaluation.
 
   ![Remise](./media/resources-faq/discount.png)
-  
 
-## <a name="dependency-visualization"></a>Visualisation des dépendances
+
+## <a name="dependency-visualization"></a>Visualisation de dépendance
+
+> [!NOTE]
+> La fonctionnalité de visualisation de dépendance n’est pas disponible dans Azure Government.
 
 ### <a name="what-is-dependency-visualization"></a>Qu’est-ce que la visualisation des dépendances ?
 
@@ -147,11 +155,11 @@ La visualisation des dépendances vous permet d’évaluer des groupes de machin
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Dois-je payer pour utiliser la fonctionnalité de visualisation des dépendances ?
 
-Non. En savoir plus sur la tarification Azure Migrate [ici](https://azure.microsoft.com/pricing/details/azure-migrate/).
+ Non. En savoir plus sur la tarification Azure Migrate [ici](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>Dois-je installer quelque chose pour la visualisation des dépendances ?
 
-Pour utiliser la visualisation des dépendances, vous devez télécharger et installer des agents sur chaque machine locale que vous souhaitez évaluer. 
+Pour utiliser la visualisation des dépendances, vous devez télécharger et installer des agents sur chaque machine locale que vous souhaitez évaluer.
 
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) doit être installé sur chaque machine.
 - Le programme [Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) doit être installé sur chaque machine.

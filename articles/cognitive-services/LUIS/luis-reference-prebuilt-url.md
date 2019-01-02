@@ -1,23 +1,24 @@
 ---
-title: Documentation de référence pour l’entité prédéfinie URL de LUIS - Azure | Microsoft Docs
+title: Entités prédéfinies d’URL
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie URL dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 62872a3fd3e6e830e25fc4cdba01d1f32b80db91
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 5a1d86c58b6b6b8b54d170459157371e8e73f0e8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446519"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163665"
 ---
-# <a name="url-entity"></a>Entité URL
+# <a name="url-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie URL pour une application LUIS
 L’entité URL extrait des URL avec des noms de domaine ou des adresses IP. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des URL à l’application. L’entité URL est prise en charge uniquement dans la culture `en-us`. 
 
 ## <a name="types-of-urls"></a>Types d’entités URL
@@ -26,7 +27,7 @@ L’entité URL est gérée à partir du dépôt GitHub [Recognizers-text](https
 ## <a name="resolution-for-prebuilt-url-entity"></a>Résolution pour une entité prédéfinie URL
 L’exemple suivant montre la résolution de l’entité **builtin.url**.
 
-```JSON
+```json
 {
   "query": "http://www.luis.ai is a great cognitive services example of artificial intelligence",
   "topScoringIntent": {

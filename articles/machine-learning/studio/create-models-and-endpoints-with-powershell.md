@@ -1,12 +1,11 @@
 ---
-title: Créer plusieurs modèles à partir d’une seule expérience - Azure Machine Learning Studio | Microsoft Docs
+title: Créer plusieurs modèles à partir d’une seule expérience Studio - Azure Machine Learning Studio | Microsoft Docs
 description: Utilisez PowerShell pour créer plusieurs modèles de formation et points de terminaison de service web Machine Learning avec le même algorithme, mais différents jeux de données de formation.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
@@ -16,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f54f9f9ff4b55ef1e2e68f61b709cef6635dc231
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316563"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250261"
 ---
-# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Azure Machine Learning Studio : utiliser PowerShell pour créer de nombreux modèles et points de terminaison de service web à partir d’une expérience
+# <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Utiliser PowerShell pour créer de nombreux modèles et points de terminaison de service web à partir d’une expérience
 
 Voici un problème d’apprentissage automatique courant : vous souhaitez créer un grand nombre de modèles ayant le même flux de travail d’apprentissage et utilisant le même algorithme. Mais vous souhaitez qu’ils aient différents jeux de données d’apprentissage comme entrée. Cet article montre comment procéder dans Azure Machine Learning Studio à l’aide d’une expérience unique.
 
 Supposez par exemple que vous avez une franchise de location de vélos à l’échelle internationale. Vous souhaitez créer un modèle de régression pour prédire la demande en location sur la base de données historiques. Vous avez 1 000 emplacements de location dans le monde et vous avez collecté un jeu de données pour chaque emplacement. Ils comprennent des caractéristiques importantes telles que la date, l’heure, la météo et le trafic qui sont propres à chaque emplacement.
 
-Vous pourriez entraîner votre modèle une fois à l’aide d’une version fusionnée de tous les jeux de données et de tous les emplacements. Toutefois, chacun de vos emplacements a un environnement unique. Une meilleure approche consiste donc à entraîner le modèle de régression séparément à l’aide du jeu de données de chacun. Ainsi, chaque modèle entraîné peut prendre en compte les différences en termes de taille de magasin, de volume, de géographie, de population, de qualité de l’environnement de circulation pour les vélos, et ainsi de suite.
+Vous pourriez former votre modèle une fois à l’aide d’une version fusionnée de tous les jeux de données et de tous les emplacements. Toutefois, chacun de vos emplacements a un environnement unique. Une meilleure approche consiste donc à former le modèle de régression séparément à l’aide du jeu de données de chacun. Ainsi, chaque modèle formé peut prendre en compte les différences en termes de taille de magasin, de volume, de géographie, de population, de qualité de l’environnement de circulation pour les vélos, et ainsi de suite.
 
 Cela pourrait être la meilleure approche, mais vous ne souhaitez pas créer 1 000 expériences d’apprentissage dans Azure Machine Learning représentant chacune un emplacement unique. Cette tâche serait non seulement intensive mais également inefficace, dans la mesure où chaque expérience aurait les mêmes composants, à l’exception du jeu de données d’apprentissage.
 
@@ -53,9 +52,9 @@ L’expérience utilise un module **Import Data** pour importer le jeu de donné
 ![image](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Notez qu’un module **Web Service Output** a été ajouté au module **Train Model**.
-Quand cette expérience est déployée comme service web, le point de terminaison associé à cette sortie retourne le modèle entraîné au format de fichier .ilearner.
+Quand cette expérience est déployée comme service web, le point de terminaison associé à cette sortie retourne le modèle formé au format de fichier .ilearner.
 
-Notez également que vous configurez un paramètre de service web qui définit l’URL utilisée par le module **Import Data**. Cela vous permet d’utiliser le paramètre pour spécifier des jeux de données de formation individuels visant à entraîner le modèle pour chaque emplacement.
+Notez également que vous configurez un paramètre de service web qui définit l’URL utilisée par le module **Import Data**. Cela vous permet d’utiliser le paramètre pour spécifier des jeux de données de formation individuels visant à former le modèle pour chaque emplacement.
 Il existe d’autres façons de procéder. Vous pouvez utiliser une requête SQL avec un paramètre de service web pour obtenir des données à partir d’une base de données SQL Azure. Vous pouvez également utiliser un module **Web Service Input** pour transmettre un jeu de données au service web.
 
 ![image](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
@@ -93,14 +92,14 @@ Ensuite, nous allons exécuter la commande PowerShell suivante :
         Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
     }
 
-Vous avez maintenant créé 10 points de terminaison, qui contiennent tous le même modèle entraîné sur *customer001.csv*. Vous pouvez les afficher dans le portail Azure.
+Vous avez maintenant créé 10 points de terminaison, qui contiennent tous le même modèle formé sur *customer001.csv*. Vous pouvez les afficher dans le portail Azure.
 
 ![image](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Mettre à jour les points de terminaison pour utiliser des jeux de données de formation distincts à l’aide de PowerShell
-L’étape suivante consiste à mettre à jour les points de terminaison avec des modèles entraînés de manière unique d’après les données individuelles de chaque client. Mais tout d’abord, vous devez générer ces modèles à partir du service web **Bike Rental Training**. Revenons au service web **Bike Rental Training** . Vous devez appeler son point de terminaison BES 10 fois avec 10 jeux de données de formation différents pour générer 10 modèles différents. Pour cela, utilisez l’applet de commande PowerShell **InovkeAmlWebServiceBESEndpoint**.
+L’étape suivante consiste à mettre à jour les points de terminaison avec des modèles formés de manière unique d’après les données individuelles de chaque client. Mais tout d’abord, vous devez générer ces modèles à partir du service web **Bike Rental Training**. Revenons au service web **Bike Rental Training** . Vous devez appeler son point de terminaison BES 10 fois avec 10 jeux de données de formation différents pour générer 10 modèles différents. Pour cela, utilisez l’applet de commande PowerShell **InovkeAmlWebServiceBESEndpoint**.
 
-Vous devez également fournir des informations d’identification pour votre compte de stockage d’objets blob dans `$configContent`, à savoir les champs `AccountName`, `AccountKey` et `RelativeLocation`. Le `AccountName` peut être l’un de vos noms de compte, comme illustré dans le **portail Azure** (onglet *Stockage*). Lorsque vous cliquez sur un compte de stockage, sa `AccountKey` est accessible en appuyant sur le bouton **Gérer les clés d’accès** situé au bas de la page et en copiant la *clé d’accès primaire*. Le `RelativeLocation` est le chemin d’accès relatif à votre espace de stockage où sera stocké le nouveau modèle. Par exemple, le chemin `hai/retrain/bike_rental/` dans le script suivant pointe vers un conteneur nommé `hai`, et `/retrain/bike_rental/` sont des sous-dossiers. Actuellement, vous ne pouvez pas créer de sous-dossiers via le portail de l’interface utilisateur, mais il existe [plusieurs explorateurs de stockage Azure](../../storage/common/storage-explorers.md) qui permettent de le faire. Nous vous recommandons de créer un conteneur dans votre stockage pour stocker les nouveaux modèles entraînés (fichiers .ilearner) comme suit : à partir de votre page de stockage, cliquez sur le bouton **Ajouter** en bas et nommez-le `retrain`. En résumé, les modifications nécessaires au script suivant se rapportent à `AccountName`, `AccountKey` et `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+Vous devez également fournir des informations d’identification pour votre compte de stockage d’objets blob dans `$configContent`, à savoir les champs `AccountName`, `AccountKey` et `RelativeLocation`. Le `AccountName` peut être l’un de vos noms de compte, comme illustré dans le **portail Azure** (onglet *Stockage*). Lorsque vous cliquez sur un compte de stockage, sa `AccountKey` est accessible en appuyant sur le bouton **Gérer les clés d’accès** situé au bas de la page et en copiant la *clé d’accès primaire*. Le `RelativeLocation` est le chemin d’accès relatif à votre espace de stockage où sera stocké le nouveau modèle. Par exemple, le chemin `hai/retrain/bike_rental/` dans le script suivant pointe vers un conteneur nommé `hai`, et `/retrain/bike_rental/` sont des sous-dossiers. Actuellement, vous ne pouvez pas créer de sous-dossiers via le portail de l’interface utilisateur, mais il existe [plusieurs explorateurs de stockage Azure](../../storage/common/storage-explorers.md) qui permettent de le faire. Nous vous recommandons de créer un conteneur dans votre stockage pour stocker les nouveaux modèles formés (fichiers .ilearner) comme suit : à partir de votre page de stockage, cliquez sur le bouton **Ajouter** en bas et nommez-le `retrain`. En résumé, les modifications nécessaires au script suivant se rapportent à `AccountName`, `AccountKey` et `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service
@@ -116,7 +115,7 @@ Vous devez également fournir des informations d’identification pour votre com
     }
 
 > [!NOTE]
-> Le point de terminaison BES est le seul mode pris en charge pour cette opération. Vous ne pouvez pas utiliser RRE pour générer des modèles entraînés.
+> Le point de terminaison BES est le seul mode pris en charge pour cette opération. Vous ne pouvez pas utiliser RRE pour générer des modèles formés.
 > 
 > 
 
@@ -135,7 +134,7 @@ Si tout se passe bien, après un certain temps vous devriez voir 10 fichiers .il
         Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
     }
 
-L’exécution devrait être assez rapide. Une fois l’exécution terminée, vous aurez créé 10 points de terminaison de service web prédictifs. Chacun d’eux contiendra un modèle entraîné de façon unique sur le jeu de données propre à un emplacement de location, tout ceci à partir d’une expérience d’entraînement unique. Pour vérifier cela, vous pouvez essayer d’appeler ces points de terminaison à l’aide de l’applet de commande **InvokeAmlWebServiceRRSEndpoint**, en leur fournissant les mêmes données d’entrée. Vous devriez obtenir des résultats de prédiction différents, étant donné que les modèles sont entraînés avec des jeux d’entraînement différents.
+L’exécution devrait être assez rapide. Une fois l’exécution terminée, vous aurez créé 10 points de terminaison de service web prédictifs. Chacun d’eux contiendra un modèle formé de façon unique sur le jeu de données propre à un emplacement de location, tout ceci à partir d’une expérience de formation unique. Pour vérifier cela, vous pouvez essayer d’appeler ces points de terminaison à l’aide de l’applet de commande **InvokeAmlWebServiceRRSEndpoint**, en leur fournissant les mêmes données d’entrée. Vous devriez obtenir des résultats de prédiction différents, étant donné que les modèles sont formés avec des jeux d’apprentissage différents.
 
 ## <a name="full-powershell-script"></a>Script PowerShell complet
 Voici l’intégralité du code source :

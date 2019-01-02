@@ -1,5 +1,5 @@
 ---
-title: Surveiller le cluster DC/OS Azure - Datadog
+title: (DÉCONSEILLÉ) Surveiller le cluster DC/OS Azure - Datadog
 description: Surveillez un cluster Azure Container Service avec Datadog. Utilisez l’interface utilisateur web du contrôleur de domaine/système d’exploitation pour déployer les agents Datadog sur votre cluster.
 services: container-service
 author: sauryadas
@@ -9,19 +9,20 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 029f36e4362704fcec240f6e88da5c96e903c317
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d881a5c0f994b627b4c7c3da362672b3b887cd5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162753"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996160"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Surveiller un cluster DC/OS Azure Container Service avec Datadog
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(DÉCONSEILLÉ) Surveiller un cluster DC/OS Azure Container Service avec Datadog
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Dans cet article, nous allons déployer des agents Datadog sur tous les nœuds d’agent de votre cluster Azure Container Service. Vous aurez besoin d’un compte Datadog pour cette configuration. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 [Déployez](container-service-deployment.md) et [connectez](../container-service-connect.md) un cluster configuré par Azure Container Service. Explorez [l’interface utilisateur Marathon](container-service-mesos-marathon-ui.md). Accédez à [http://datadoghq.com](http://datadoghq.com) pour configurer un compte Datadog. 
 
 ## <a name="datadog"></a>Datadog
@@ -32,7 +33,7 @@ Datadog est un service de surveillance qui regroupe les données de surveillance
 ## <a name="configure-a-datadog-deployment-with-marathon"></a>Configurer un déploiement Datadog avec Marathon
 Ces étapes vous expliquent comment configurer et déployer des applications Datadog dans votre cluster avec Marathon. 
 
-Accédez à l’interface utilisateur de votre contrôleur de domaine/système d’exploitation via [http://localhost:80/](http://localhost:80/). Une fois dans l’interface utilisateur, accédez à Universe « Univers » en bas à gauche de la page, recherchez « Datadog », puis cliquez sur « Installer ».
+Accédez à l’interface utilisateur de votre DC/OS via [http://localhost:80/](http://localhost:80/). Une fois dans l’interface utilisateur, accédez à Universe « Univers » en bas à gauche de la page, recherchez « Datadog », puis cliquez sur « Installer ».
 
 ![Package Datadog dans l’Univers DC/OS](./media/container-service-monitoring/datadog1.png)
 

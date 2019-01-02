@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494241"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278642"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Permet de sélectionner, de gérer et d’utiliser les clusters Service Fabric.
@@ -65,7 +65,7 @@ Obtient une liste des informations sur les versions de code fabric approvisionn�
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-config-versions"></a>sfctl cluster config-versions
@@ -87,7 +87,7 @@ Obtient une liste des informations sur les versions de configuration fabric appr
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-health"></a>sfctl cluster health
@@ -113,7 +113,7 @@ EventsHealthStateFilter permet de filtrer la collecte d’événements de contr�
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-manifest"></a>sfctl cluster manifest
@@ -134,15 +134,15 @@ Obtient le manifeste du cluster Service Fabric. Le manifeste du cluster contient
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 Annule une opération d’erreur induite par l’utilisateur.
 
-Les API suivantes démarrent des opérations d’erreurs qui peuvent être annulées à l’aide de la commande CancelOperation : StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Si force est défini sur false, l’opération induite par l’utilisateur spécifiée est correctement arrêtée et nettoyée.  Si force est défini sur true, la commande va être abandonnée et un état interne peut éventuellement être conservé.  La définition de force sur true doit être utilisée avec précaution. Vous n’êtes pas autorisé à appeler cette API avec force défini sur true tant que cette API n’a pas encore été appelée sur la même commande de test avec force défini sur false, ou sauf si la commande de test a déjà un OperationState OperationState.RollingBack. 
+Les API suivantes démarrent des opérations d’erreurs qui peuvent être annulées à l’aide de la commande CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Si force est défini sur false, l’opération induite par l’utilisateur spécifiée est correctement arrêtée et nettoyée.  Si force est défini sur true, la commande va être abandonnée et un état interne peut éventuellement être conservé.  La définition de force sur true doit être utilisée avec précaution. Vous n’êtes pas autorisé à appeler cette API avec force défini sur true tant que cette API n’a pas encore été appelée sur la même commande de test avec force défini sur false, ou sauf si la commande de test a déjà un OperationState OperationState.RollingBack. 
 
- Clarification \: OperationState.RollingBack signifie que le système nettoiera/nettoie l’état du système interne généré par l’exécution de la commande. Cela ne restaurera pas les données si la commande de test engendre une perte de données.  Par exemple, si vous appelez StartDataLoss, puis cette API, le système nettoiera seulement l’état interne lié à l’exécution de la commande. Il ne restaurera pas les données de la partition cible si la commande a progressé suffisamment pour entraîner une perte de données. 
+Clarification \: OperationState.RollingBack signifie que le système nettoiera/nettoie l’état du système interne généré par l’exécution de la commande.  Cela ne restaurera pas les données si la commande de test engendre une perte de données.  Par exemple, si vous appelez StartDataLoss, puis cette API, le système nettoiera seulement l’état interne lié à l’exécution de la commande. Il ne restaurera pas les données de la partition cible si la commande a progressé suffisamment pour entraîner une perte de données. 
 
 > [!NOTE]
 > Si cette API est appelée avec force == true, l’état interne peut être conservé.
@@ -162,7 +162,7 @@ Les API suivantes démarrent des opérations d’erreurs qui peuvent être annul
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-operation-list"></a>sfctl cluster operation-list
@@ -185,7 +185,7 @@ Obtient la liste des opérations d’erreurs induites par l’utilisateur filtr�
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster provision
@@ -208,7 +208,7 @@ Valide et provisionne le code ou les packages de configuration d’un cluster Se
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-recover-system"></a>sfctl cluster recover-system
@@ -229,7 +229,7 @@ Indique au cluster Service Fabric qu’il doit tenter de récupérer les service
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-report-health"></a>sfctl cluster report-health
@@ -258,13 +258,13 @@ Le rapport doit contenir les informations sur la source du rapport d’intégrit
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 Se connecte à un point de terminaison du cluster Service Fabric.
 
-Si vous vous connectez au cluster sécurisé, vous devez spécifier un chemin d’accès absolu à un fichier de certificat (.crt) et de clé (.key) ou à un seul fichier comportant les deux (.pem). Ne spécifiez pas les deux. Si vous le souhaitez, lorsque vous vous connectez à un cluster sécurisé, spécifiez également un chemin d’accès absolu à un fichier de groupement d’autorités de certification ou à un répertoire de certificats d’autorités de certification approuvés.
+Si vous vous connectez au cluster sécurisé, vous devez spécifier un chemin d’accès absolu à un fichier de certificat (.crt) et de clé (.key) ou à un seul fichier comportant les deux (.pem). Ne spécifiez pas les deux. Si vous le souhaitez, lorsque vous vous connectez à un cluster sécurisé, spécifiez également un chemin d’accès absolu à un fichier de groupement d’autorités de certification ou à un répertoire de certificats d’autorités de certification approuvés. Si vous utilisez un répertoire de certificats d’autorité de certification, le paramètre `c_rehash <directory>` fourni par OpenSSL doit d’abord être exécuté pour calculer les hachages de certificat et créer les liens symboliques appropriés.
 
 ### <a name="arguments"></a>Arguments
 
@@ -285,7 +285,7 @@ Si vous vous connectez au cluster sécurisé, vous devez spécifier un chemin d�
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-show-connection"></a>sfctl cluster show-connection
@@ -298,7 +298,7 @@ Indique le cluster Service Fabric auquel cette instance sfctl est connectée.
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
@@ -321,7 +321,7 @@ Il est possible d’annuler la mise en service du code et de la configuration s�
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-upgrade"></a>sfctl cluster upgrade
@@ -340,19 +340,19 @@ Valide les paramètres de mise à niveau fournis et démarre la mise à niveau d
 | --delta-health-evaluation | Permet l’évaluation de l’intégrité delta plutôt que l’évaluation de l’intégrité absolue après chaque mise à niveau de domaine de mise à niveau. |
 | --delta-unhealthy-nodes | Pourcentage maximal autorisé de dégradation de l’intégrité des nœuds pendant les mises à niveau de clusters.  Valeur par défaut \: 10. <br><br> Le delta est mesuré entre l’état des nœuds au début de la mise à niveau et l’état des nœuds au moment de l’évaluation de l’intégrité. Cette vérification est effectuée après chaque mise à niveau de domaine de mise à niveau afin de vérifier que l’état global du cluster se trouve dans les limites autorisées. |
 | --failure-action | Les valeurs possibles sont \: « Invalid », « Rollback », « Manual ». |
-| --force-restart | Force le redémarrage. |
-| --health-check-retry | Délai d’expiration de la nouvelle tentative de contrôle d’intégrité, en millisecondes. |
-| --health-check-stable | Durée de la stabilité du contrôle d’intégrité mesurée en millisecondes. |
-| --health-check-wait | Durée d’attente du contrôle d’intégrité mesurée en millisecondes. |
-| --replica-set-check-timeout | Délai d’expiration de la vérification du jeu de réplicas de mise à niveau, en secondes. |
+| --force-restart | Force le redémarrage des processus pendant la mise à jour, même si la version du code n’a pas changé. <br><br> La mise à niveau modifie uniquement la configuration ou les données. |
+| --health-check-retry | Délai séparant les tentatives d'exécution des contrôles d'intégrité si l'application ou le cluster n'est pas sain. |
+| --health-check-stable | Durée pendant laquelle l’application ou le cluster doivent rester sains avant que la mise à niveau ne passe au domaine de mise à niveau suivant. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
+| --health-check-wait | Délai d’attente entre l’achèvement d’un domaine de mise à niveau et le démarrage du processus des contrôles d’intégrité. |
+| --replica-set-check-timeout | Durée maximale pendant laquelle bloquer le traitement d’un domaine de mise à niveau et éviter la perte de disponibilité en cas de problèmes inattendus. <br><br> Lorsque ce délai d’attente expire, le traitement du domaine de mise à niveau se poursuit, indépendamment des problèmes de perte de disponibilité. Le délai d’expiration est réinitialisé au début de chaque domaine de mise à niveau. Les valeurs valides sont comprises entre 0 et 42949672925 inclus. |
 | --rolling-upgrade-mode | Les valeurs possibles sont \: « Invalid », « UnmonitoredAuto », « UnmonitoredManual », « Monitored ».  Valeur par défaut \: UnmonitoredAuto. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 | --unhealthy-applications | Pourcentage maximal autorisé d’applications non saines avant signalement d’une erreur. <br><br> Par exemple, pour autoriser 10 % des applications pouvant être défectueuses, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré d’applications pouvant être défectueuses avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins une application pouvant être défectueuse, l’état d’intégrité est Warning. Ce calcul est effectué en divisant le nombre d’applications pouvant être défectueuses par le nombre total d’instances de l’application dans le cluster, à l’exception des types d’applications inclus dans le ApplicationTypeHealthPolicyMap. Le calcul est arrondi pour tolérer la défaillance d’un petit nombre d’applications. |
 | --unhealthy-nodes | Pourcentage maximal autorisé de nœuds non sains avant signalement d’une erreur. <br><br> Par exemple, pour autoriser 10 % de nœuds défectueux, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré de nœuds pouvant être défectueux avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins un nœud pouvant être défectueux, l’état d’intégrité est Warning. Le pourcentage est calculé en divisant le nombre de nœuds défectueux par le nombre total de nœuds du cluster. Le calcul est arrondi pour tolérer une défaillance sur un petit nombre de nœuds. Dans les clusters de grande taille, certains nœuds sont toujours inactifs ou en réparation. Ce pourcentage doit donc être configuré pour tolérer cette condition. |
 | --upgrade-domain-delta-unhealthy-nodes | Pourcentage maximal autorisé de dégradation de l’intégrité des nœuds de domaine de mise à niveau pendant les mises à niveau de clusters.  Valeur par défaut \: 15. <br><br> Le delta est mesuré entre l’état des nœuds de domaine de mise à niveau au début de la mise à niveau et leur état au moment de l’évaluation de l’intégrité. Cette vérification est effectuée après chaque mise à niveau de domaine de mise à niveau (pour l’ensemble des domaines de mise à niveau) afin de vérifier que l’état des domaines de mise à niveau se trouve dans les limites autorisées. |
-| --upgrade-domain-timeout | Délai d’expiration du domaine de mise à niveau, en millisecondes. |
-| --upgrade-timeout | Délai d’expiration de la mise à niveau, en millisecondes. |
-| --warning-as-error | Les avertissements sont traités avec le même niveau de gravité que les erreurs. |
+| --upgrade-domain-timeout | Durée d’exécution de chaque domaine de mise à niveau avant l’exécution de FailureAction. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
+| --upgrade-timeout | Durée d’exécution de l’ensemble de la mise à niveau avant l’exécution de FailureAction. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
+| --warning-as-error | Indique si les avertissements sont traités avec le même niveau de gravité que les erreurs. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -361,7 +361,7 @@ Valide les paramètres de mise à niveau fournis et démarre la mise à niveau d
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-upgrade-resume"></a>sfctl cluster upgrade-resume
@@ -383,7 +383,7 @@ Le cas échéant, effectue le déplacement de la mise à niveau de code de clust
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-upgrade-rollback"></a>sfctl cluster upgrade-rollback
@@ -404,7 +404,7 @@ Restaure la mise à niveau du code ou de la configuration d’un cluster Service
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-upgrade-status"></a>sfctl cluster upgrade-status
@@ -425,7 +425,7 @@ Obtient la progression actuelle de la mise à niveau de cluster en cours. Si auc
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-cluster-upgrade-update"></a>sfctl cluster upgrade-update
@@ -440,20 +440,20 @@ Met à jour les paramètres de mise à niveau d’une mise à niveau du cluster 
 | --delta-health-evaluation | Permet l’évaluation de l’intégrité delta plutôt que l’évaluation de l’intégrité absolue après chaque mise à niveau de domaine de mise à niveau. |
 | --delta-unhealthy-nodes | Pourcentage maximal autorisé de dégradation de l’intégrité des nœuds pendant les mises à niveau de clusters.  Valeur par défaut \: 10. <br><br> Le delta est mesuré entre l’état des nœuds au début de la mise à niveau et l’état des nœuds au moment de l’évaluation de l’intégrité. Cette vérification est effectuée après chaque mise à niveau de domaine de mise à niveau afin de vérifier que l’état global du cluster se trouve dans les limites autorisées. |
 | --failure-action | Les valeurs possibles sont \: « Invalid », « Rollback », « Manual ». |
-| --force-restart | Force le redémarrage. |
-| --health-check-retry | Délai d’expiration de la nouvelle tentative de contrôle d’intégrité, en millisecondes. |
-| --health-check-stable | Durée de la stabilité du contrôle d’intégrité mesurée en millisecondes. |
-| --health-check-wait | Durée d’attente du contrôle d’intégrité mesurée en millisecondes. |
-| --replica-set-check-timeout | Délai d’expiration de la vérification du jeu de réplicas de mise à niveau, en secondes. |
+| --force-restart | Force le redémarrage des processus pendant la mise à jour, même si la version du code n’a pas changé. <br><br> La mise à niveau modifie uniquement la configuration ou les données. |
+| --health-check-retry | Délai séparant les tentatives d'exécution des contrôles d'intégrité si l'application ou le cluster n'est pas sain. |
+| --health-check-stable | Durée pendant laquelle l’application ou le cluster doivent rester sains avant que la mise à niveau ne passe au domaine de mise à niveau suivant. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
+| --health-check-wait | Délai d’attente entre l’achèvement d’un domaine de mise à niveau et le démarrage du processus des contrôles d’intégrité. |
+| --replica-set-check-timeout | Durée maximale pendant laquelle bloquer le traitement d’un domaine de mise à niveau et éviter la perte de disponibilité en cas de problèmes inattendus. <br><br> Lorsque ce délai d’attente expire, le traitement du domaine de mise à niveau se poursuit, indépendamment des problèmes de perte de disponibilité. Le délai d’expiration est réinitialisé au début de chaque domaine de mise à niveau. Les valeurs valides sont comprises entre 0 et 42949672925 inclus. |
 | --rolling-upgrade-mode | Les valeurs possibles sont \: « Invalid », « UnmonitoredAuto », « UnmonitoredManual », « Monitored ».  Valeur par défaut \: UnmonitoredAuto. |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 | --unhealthy-applications | Pourcentage maximal autorisé d’applications non saines avant signalement d’une erreur. <br><br> Par exemple, pour autoriser 10 % des applications pouvant être défectueuses, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré d’applications pouvant être défectueuses avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins une application pouvant être défectueuse, l’état d’intégrité est Warning. Ce calcul est effectué en divisant le nombre d’applications pouvant être défectueuses par le nombre total d’instances de l’application dans le cluster, à l’exception des types d’applications inclus dans le ApplicationTypeHealthPolicyMap. Le calcul est arrondi pour tolérer la défaillance d’un petit nombre d’applications. |
 | --unhealthy-nodes | Pourcentage maximal autorisé de nœuds non sains avant signalement d’une erreur. <br><br> Par exemple, pour autoriser 10 % de nœuds défectueux, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré de nœuds pouvant être défectueux avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins un nœud pouvant être défectueux, l’état d’intégrité est Warning. Le pourcentage est calculé en divisant le nombre de nœuds défectueux par le nombre total de nœuds du cluster. Le calcul est arrondi pour tolérer une défaillance sur un petit nombre de nœuds. Dans les clusters de grande taille, certains nœuds sont toujours inactifs ou en réparation. Ce pourcentage doit donc être configuré pour tolérer cette condition. |
 | --upgrade-domain-delta-unhealthy-nodes | Pourcentage maximal autorisé de dégradation de l’intégrité des nœuds de domaine de mise à niveau pendant les mises à niveau de clusters.  Valeur par défaut \: 15. <br><br> Le delta est mesuré entre l’état des nœuds de domaine de mise à niveau au début de la mise à niveau et leur état au moment de l’évaluation de l’intégrité. Cette vérification est effectuée après chaque mise à niveau de domaine de mise à niveau (pour l’ensemble des domaines de mise à niveau) afin de vérifier que l’état des domaines de mise à niveau se trouve dans les limites autorisées. |
-| --upgrade-domain-timeout | Délai d’expiration du domaine de mise à niveau, en millisecondes. |
+| --upgrade-domain-timeout | Durée d’exécution de chaque domaine de mise à niveau avant l’exécution de FailureAction. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
 | --upgrade-kind | Les valeurs possibles sont \: « Invalid », « Rolling », « Rolling_ForceRestart ».  Valeur par défaut \: Rolling. |
-| --upgrade-timeout | Délai d’expiration de la mise à niveau, en millisecondes. |
-| --warning-as-error | Les avertissements sont traités avec le même niveau de gravité que les erreurs. |
+| --upgrade-timeout | Durée d’exécution de l’ensemble de la mise à niveau avant l’exécution de FailureAction. <br><br> Elle est d’abord interprétée en tant que chaîne représentant une durée ISO 8601. Si cette tentative échoue, elle est interprétée comme un nombre représentant le nombre total de millisecondes. |
+| --warning-as-error | Indique si les avertissements sont traités avec le même niveau de gravité que les erreurs. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -462,8 +462,9 @@ Met à jour les paramètres de mise à niveau d’une mise à niveau du cluster 
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.

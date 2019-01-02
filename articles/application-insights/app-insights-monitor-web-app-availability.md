@@ -9,17 +9,16 @@ ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e8d07922334855a8133cd6271ee98bcfac2243d5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 11a421a30508774d976def8d5836451743ecb6ea
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282609"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270380"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -50,11 +49,11 @@ Ouvrez le panneau de disponibilité et ajoutez un test.
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **L’URL** peut être n’importe quelle page web que vous souhaitez tester, mais elle doit être visible à partir de l’Internet public. L’URL peut contenir une chaîne de requête. Vous pouvez donc, par exemple, tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
-* **Analyser les demandes dépendantes** : si cette option est activée, le test demande des images, des scripts, des fichiers de style et d’autres fichiers qui font partie de la page web de test. Le temps de réponse enregistré inclut le temps qui a été nécessaire pour obtenir ces fichiers. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test. Si l’option n’est pas cochée, le test ne demande que le fichier à l’URL spécifiée.
+* **Analyser les demandes dépendantes** : si cette option est activée, le test demande des images, des scripts, des fichiers de style et d’autres fichiers qui font partie de la page web de test. Le temps de réponse enregistré inclut le temps qui a été nécessaire pour obtenir ces fichiers. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test. Si l’option n’est pas cochée, le test ne demande que le fichier à l’URL spécifiée.
 
-* **Autoriser de nouvelles tentatives**: si cette option est cochée, une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. Nous recommandons cette option. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.
+* **Permettre les nouvelles tentatives** :  si cette option est cochée, une nouvelle tentative de test est effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. Nous recommandons cette option. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.
 
-* **Fréquence de test**: définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec, par défaut, une fréquence de cinq minutes et cinq emplacements de test, votre site sera testé en moyenne une fois par minute.
+* **Fréquence de test** : définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec, par défaut, une fréquence de cinq minutes et cinq emplacements de test, votre site sera testé en moyenne une fois par minute.
 
 * **emplacements de test** sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. Nous recommandons un nombre d’emplacements de test minimum de cinq afin de s’assurer que vous pouvez distinguer les problèmes dans votre site web de vos problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
 
@@ -64,13 +63,13 @@ Ouvrez le panneau de disponibilité et ajoutez un test.
 
 * **Critères de réussite**:
 
-    **Délai d’expiration de test**: diminuez cette valeur pour être averti des réponses lentes. Le test est compté comme une erreur si des réponses de votre site n’ont pas été reçues pendant cette période. Si vous avez sélectionné **Analyser les demandes dépendantes**, l’ensemble des images, fichiers de style, scripts et autres ressources dépendantes ont dû être reçus pendant cette période.
+    **Délai d’expiration du test** : diminuez cette valeur pour être averti des réponses lentes. Le test est compté comme une erreur si des réponses de votre site n’ont pas été reçues pendant cette période. Si vous avez sélectionné **Analyser les demandes dépendantes**, l’ensemble des images, fichiers de style, scripts et autres ressources dépendantes ont dû être reçus pendant cette période.
 
-    **Réponse HTTP**: le code d’état retourné est comptabilisé comme un succès. 200 est le code qui indique qu’une page web normale a été retournée.
+    **Réponse HTTP** : le code d’état retourné est comptabilisé comme un succès. 200 est le code qui indique qu’une page web normale a été retournée.
 
     **Correspondance de contenu**: une chaîne telle que « Bienvenue ! Nous vérifions qu’une correspondance exacte respectant la casse est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser.
 
-* **Seuil de l’emplacement de l’alerte**: nous recommandons un minimum de 3 à 5 emplacements. La relation optimale entre le seuil d’emplacement de l’alerte et le nombre d’emplacements de test est **seuil d’emplacement de l’alerte** = **nombre d’emplacements de test** - 2, avec un minimum de cinq emplacements de test.
+* **Seuil d’emplacement de l’alerte** : nous recommandons un minimum de 3 à 5 emplacements. La relation optimale entre le seuil d’emplacement de l’alerte et le nombre d’emplacements de test est **seuil d’emplacement de l’alerte** = **nombre d’emplacements de test** - 2, avec un minimum de cinq emplacements de test.
 
 ## <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple, si vous analysez un site Web commercial, vous pouvez vérifier que l’ajout d’articles au panier d’achat fonctionne correctement.
@@ -161,8 +160,8 @@ Sélectionnez un test ou emplacement spécifique, ou réduisez la période de te
 
 Outre les résultats bruts, il existe deux mesures de disponibilité dans Metrics Explorer : 
 
-1. Disponibilité : pourcentage des tests qui ont réussi, sur toutes les exécutions de test. 
-2. Durée du test : durée moyenne du test sur toutes les exécutions de test.
+1. Disponibilité : pourcentage des tests qui ont réussi, sur l’ensemble des exécutions de test. 
+2. Durée du test : durée moyenne du test sur toutes les exécutions de test.
 
 Vous pouvez appliquer des filtres sur le nom du test et sur l’emplacement pour analyser les tendances d’un test et/ou d’un emplacement en particulier.
 
@@ -183,7 +182,7 @@ Cliquez sur un point rouge.
 
 * Vérifier la réponse reçue à partir de votre serveur.
 * Diagnostiquer la défaillance à l’aide des données de télémétrie côté serveur corrélées qui ont été collectées pendant le traitement du test de disponibilité en échec.
-* Enregistrer un problème ou un élément de travail dans Git ou VSTS pour suivre le problème. Le bogue contient un lien vers cet événement.
+* Enregistrer un problème ou un élément de travail dans Git ou Azure Boards pour suivre le problème. Le bogue contient un lien vers cet événement.
 * Ouvrir le résultat du test web dans Visual Studio.
 
 Vous pouvez en découvrir plus sur l’expérience de diagnostic des transactions de bout en bout [ici](app-insights-transaction-diagnostics.md).
@@ -203,7 +202,7 @@ La règle d’alerte pour les emplacements de X en dehors de Y est activée par 
 
 ![Créer l’expérience](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-**Important** : avec les [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), le niveau de gravité et les préférences de notification des règles d’alerte des [groupes d’actions](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **doivent être** configurés dans l’expérience d’alertes. Sans les étapes suivantes, vous recevrez les notifications dans le portail uniquement. 
+**Important !** Avec les [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), le niveau de gravité et les préférences de notification des règles d’alerte des [groupes d’actions](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **doivent être** configurés dans l’expérience d’alertes. Sans les étapes suivantes, vous recevrez les notifications dans le portail uniquement. 
 
 1. Après avoir enregistré le test de disponibilité, cliquez sur le nouveau nom de test pour accéder à ses détails. Cliquez sur « Modifier l’alerte », ![Modifier après l’enregistrement](./media/app-insights-monitor-web-app-availability/editaftersave.png)
 
@@ -218,7 +217,7 @@ La règle d’alerte pour les emplacements de X en dehors de Y est activée par 
 ### <a name="alert-on-availability-metrics"></a>Créer une alerte sur les mesures de disponibilité
 À l’aide des [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), vous pouvez créer une alerte sur les mesures de disponibilité des agrégats segmentés et sur la durée des tests :
 
-1. Sélectionnez une ressource Application Insights dans l’expérience Mesures, puis sélectionnez une mesure de disponibilité : ![Sélection des mesures de disponibilité](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+1. Sélectionnez une ressource Application Insights dans l’expérience Mesures, puis sélectionnez une mesure de disponibilité :  ![Sélection des mesures de disponibilité](./media/app-insights-monitor-web-app-availability/selectmetric.png)
 
 2. L’option Configurer les alertes dans le menu vous redirigera vers la nouvelle expérience où vous pouvez sélectionner des tests ou des emplacements spécifiques sur lesquels il est possible de configurer une règle d’alerte. Ici, vous pouvez également configurer les groupes d’actions pour cette règle d’alerte.
     ![Configuration des alertes de disponibilité](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
@@ -282,13 +281,13 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
 ## <a name="automation"></a>Automatisation
 * [Utilisez des scripts PowerShell pour configurer un test de disponibilité](app-insights-powershell.md#add-an-availability-test) automatiquement.
-* Configurez un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) qui est appelé lorsqu’une alerte est déclenchée.
+* Configurez un [webhook](../azure-monitor/platform/alerts-webhooks.md) qui est appelé lorsqu’une alerte est déclenchée.
 
 ## <a name="qna"></a> FAQ
 
 * *Le site me semble OK, mais j’observe des échecs de tests. Pourquoi Application Insights m’envoie-t-il des alertes ?*
 
-    * Est-ce que l’option « Analyser les requêtes dépendantes » est activée pour le test ? Cela entraîne une vérification stricte des ressources telles que les scripts, les images, etc. Ces types de d’échecs peuvent être difficiles à remarquer sur un navigateur. Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement. Pour désensibiliser le test à ces échecs de ressource, il vous suffit de décocher la case « Analyser les requêtes dépendantes » dans la configuration du test. 
+    * Est-ce que l’option « Analyser les requêtes dépendantes » est activée pour le test ? Cela entraîne une vérification stricte des ressources telles que les scripts, les images, etc. Ces types de d’échecs peuvent être difficiles à remarquer sur un navigateur.  Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement. Pour désensibiliser le test à ces échecs de ressource, il vous suffit de décocher la case « Analyser les requêtes dépendantes » dans la configuration du test. 
 
     * Pour réduire la probabilité de bruit des spots réseau temporaires, etc., vérifiez que la case à cocher de configuration « Permettre les nouvelles tentatives pour les échecs des tests web » est activée. Vous pouvez également procéder aux tests à partir de plusieurs emplacements et gérer le seuil de la règle d’alerte en conséquence afin d’empêcher des problèmes propres aux emplacements provoquant des alertes injustifiées.
 
@@ -310,7 +309,7 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
     L’erreur (« violation de protocole... CR doit être suivi par LF ») indique un problème lié au serveur (ou aux dépendances). Il se produit lorsque des en-têtes mal formés sont définis dans la réponse. Ce problème peut être provoqué par des équilibreurs de charge ou des réseaux de distribution de contenu (CDN). Plus précisément, certains en-têtes peuvent ne pas utiliser CRLF pour indiquer la fin de ligne, ce qui enfreint la spécification HTTP et entraîne donc l’échec de la validation au niveau WebRequest .NET. Examinez la réponse pour repérer les en-têtes qui peuvent ne pas être conformes.
     
-    Remarque : l’URL peut ne pas être en échec sur les navigateurs qui présentent une validation approximative des en-têtes HTTP. Consultez ce billet de blog pour obtenir une explication détaillée de ce problème : http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+    Remarque : L’URL peut ne pas être en échec sur les navigateurs qui présentent une validation approximative des en-têtes HTTP. Consultez ce billet de blog pour obtenir une explication détaillée de ce problème : http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
 * *Je ne vois pas les données de télémétrie côté serveur associées pour diagnostiquer les échecs des tests.*
     
@@ -318,7 +317,7 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
 * *Puis-je appeler du code à partir de mon test web ?*
 
-    Non. Les étapes du test doivent se trouver dans le fichier .webtest. Et vous ne pouvez pas appeler d’autres tests web ou utiliser des boucles. En revanche, il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.
+     Non. Les étapes du test doivent se trouver dans le fichier .webtest. Et vous ne pouvez pas appeler d’autres tests web ou utiliser des boucles. En revanche, il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.
 
 * *Le protocole HTTPS est-il pris en charge ?*
 

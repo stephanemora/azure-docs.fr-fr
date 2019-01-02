@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 646c30be171a5aaaa17e40eae3cef6952b2b2747
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bf50dad01cf9893209cc861d29d275ec114966c4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657058"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186155"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -206,7 +206,7 @@ ms.locfileid: "34657058"
 
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
 Le clustering de basculement Windows Server constitue la base d’une installation de SGBD et de SAP ASCS/SCS à haute disponibilité dans Windows.
@@ -235,7 +235,7 @@ Le service Azure Load Balancer fournit un *équilibreur de charge interne* pour 
 
 Déployez l’équilibreur de charge interne dans le groupe de ressources qui contient les nœuds de cluster. Ensuite, configurez toutes les règles de réacheminement de port nécessaires en utilisant les ports de sondage de l’équilibreur de charge interne. Les clients peuvent se connecter avec le nom d’hôte virtuel. Le serveur DNS résout l’adresse IP du cluster. L’équilibreur de charge interne gère le réacheminement de port vers le nœud actif du cluster.
 
-![Figure 1 : Configuration du clustering de basculement Windows Server dans Azure sans disque partagé][sap-ha-guide-figure-1001]
+![Figure 1 : Configuration du clustering de basculement Windows Server dans Azure sans disque partagé][sap-ha-guide-figure-1001]
 
 _**Figure 1 :** Configuration du clustering de basculement Windows Server dans Azure sans disque partagé_
 
@@ -252,7 +252,7 @@ Voici les spécificités de cette architecture :
 * Les services centraux SAP (avec une structure de fichiers et des processus de messages et d’empilement propres) sont séparés des fichiers d’hôte global SAP.
 * Les services centraux SAP s’exécutent sous une instance SAP ASCS/SCS.
 * L’instance SAP ASCS/SCS est en cluster et est accessible à l’aide du nom d’hôte virtuel \<nom d’hôte virtuel ASCS/SCS\>.
-* Les fichiers globaux SAP sont placés sur le partage de fichiers SMB et sont accessibles à l’aide du nom d’hôte \<hôte global SAP\> : \\\\&lt;hôte global SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+* Les fichiers globaux SAP sont placés sur le partage de fichiers SMB et sont accessibles à l’aide du nom d’hôte \<hôte global SAP\> : \\\\&lt;Hôte global SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 * L’instance SAP ASCS/SCS est installée sur un disque local sur les deux nœuds de cluster
 * Le nom de réseau \<nom d’hôte virtuel ASCS/SCS\> est différent de &lt;l’hôte global SAP&gt;.
 
@@ -280,9 +280,9 @@ _**Figure 3 :** Ressources du rôle de cluster SAP &lt;SID&gt; pour l’utilisat
 
 Vous pouvez utiliser un partage de fichiers avec montée en puissance parallèle pour héberger et protéger des fichiers d’hôte global SAP. Un partage de fichiers avec montée en puissance parallèle offre également un service de partage de fichiers SAPMNT hautement disponible.
 
-![Figure 4 : Partage de fichiers avec montée en puissance parallèle utilisé pour protéger les fichiers d’hôte global SAP][sap-ha-guide-figure-8006]
+![Figure 4 : Partage de fichiers avec scale-out utilisé pour protéger les fichiers d’hôte global SAP][sap-ha-guide-figure-8006]
 
-_**Figure 4 :** Partage de fichiers avec montée en puissance parallèle utilisé pour protéger les fichiers d’hôte global SAP_
+_**Figure 4 :** Partage de fichiers avec scale-out utilisé pour protéger les fichiers d’hôte global SAP_
 
 > [!IMPORTANT]
 > Les partages de fichiers avec montée en puissance parallèle sont entièrement pris en charge dans le cloud Microsoft Azure et dans les environnements locaux.
@@ -322,7 +322,7 @@ Si vous souhaitez utiliser un partage de fichiers avec montée en puissance para
 
 > [!IMPORTANT]
 > Vous ne pouvez pas renommer le partage de fichiers SAPMNT, qui pointe vers \<l’hôte global SAP\>. SAP prend en charge uniquement le nom de partage « sapmnt ».
-
+>
 > Pour plus d’informations, reportez-vous au document [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395] (Note SAP n° 2492395 : Le nom de partage sapmnt peut-il être modifié ?).
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configurer des instances SAP ASCS/SCS et un partage de fichiers avec montée en puissance parallèle dans deux clusters
@@ -333,9 +333,9 @@ Vous pouvez déployer des instances SAP ASCS/SCS dans un cluster avec leur propr
 >Dans ce scénario, l’instance SAP ASCS/SCS est configurée pour accéder à l’hôte global SAP à l’aide du chemin d’accès UNC \\\\&lt;hôte global SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 >
 
-![Figure 5 : Instance SAP ASCS/SCS et partage de fichiers avec montée en puissance parallèle dans deux clusters][sap-ha-guide-figure-8007]
+![Figure 5 : Instance SAP ASCS/SCS et partage de fichiers avec scale-out dans deux clusters][sap-ha-guide-figure-8007]
 
-_**Figure 5 :** Une instance SAP ASCS/SCS et un partage de fichiers avec montée en puissance parallèle déployés dans deux clusters_
+_**Figure 5 :** Instance SAP ASCS/SCS et partage de fichiers avec scale-out dans deux clusters_
 
 > [!IMPORTANT]
 > Dans le cloud Azure, chaque cluster utilisé pour les partages de fichiers avec montée en puissance parallèle et SAP doit être déployé dans son propre groupe à haute disponibilité Azure. Ceci garantit une sélection élective distribuée des machines virtuelles du cluster dans toute l’infrastructure Azure sous-jacente.
@@ -360,4 +360,4 @@ Dans ce cas, vous pouvez utiliser une solution SIOS tierce en tant que disque pa
 * [Installation de la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un disque partagé pour une instance SAP (A)SCS][sap-high-availability-installation-wsfc-shared-disk]
 * [Déployer un serveur de fichiers à deux nœuds Storage Spaces Direct réparti pour le stockage UPD dans Azure][deploy-sofs-s2d-in-azure]
 * [Storage Spaces Direct dans Windows Server 2016][s2d-in-win-2016]
-* [Deep dive: Volumes in Storage Spaces Direct][deep-dive-volumes-in-s2d] (Présentation approfondie : les volumes dans les espaces de stockage direct)
+* [Présentation approfondie : volumes dans les espaces de stockage direct][deep-dive-volumes-in-s2d]

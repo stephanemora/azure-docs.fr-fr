@@ -3,7 +3,7 @@ title: Sauvegardes Azure SQL Database automatiques ou géoredondantes | Microsof
 description: SQL Database crée automatiquement une sauvegarde de base de données locale toutes les cinq minutes et utilise le stockage géoredondant avec accès en lecture pour fournir la géoredondance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.date: 12/10/2018
+ms.openlocfilehash: 2d6df569a2b5b813bd832adf5ef2e1d193de9364
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422508"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187566"
 ---
-# <a name="learn-about-automatic-sql-database-backups"></a>En savoir plus sur les sauvegardes automatiques SQL Database
+# <a name="automated-backups"></a>Sauvegardes automatisées
 
-SQL Database crée automatiquement des sauvegardes de base de données et utilise le stockage géoredondant avec accès en lecture (RA-GRS) d’Azure pour fournir la géoredondance. Ces sauvegardes sont créées automatiquement et sans frais supplémentaires. Vous n’avez pas besoin de faire quoi que ce soit pour qu’elles se produisent. Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Si les règles de sécurité nécessitent que vos sauvegardes soient disponibles pendant une période prolongée, vous pouvez configurer une stratégie de rétention des sauvegardes à long terme. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
+SQL Database crée automatiquement des sauvegardes de base de données qui sont conservées entre 7 et 35 jours, et il utilise le stockage géoredondant avec accès en lecture seule (RA-GRS) d’Azure pour garantir leur conservation, même en cas d’indisponibilité du centre de données. Ces sauvegardes sont créées automatiquement et sans frais supplémentaires. Vous n’avez rien à faire pour qu’elles se produisent et vous pouvez [modifier la période de conservation des sauvegardes](#how-to-change-the-pitr-backup-retention-period). Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Si les règles de sécurité nécessitent que vos sauvegardes soient disponibles pendant une période prolongée (jusqu’à 10 ans), vous pouvez configurer une stratégie de [conservation à long terme](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -33,8 +33,8 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
 - Restaure une base de données à un point dans le temps dans la période de rétention. Cette opération crée une base de données dans le même serveur que la base de données d’origine.
 - Restaurer une base de données supprimée sur le moment où elle été supprimée ou tout moment pendant la période de rétention. La base de données supprimée ne peut être restaurée que sur le même serveur où la base de données d’origine a été créée.
-- Restaurer une base de données dans une autre région géographique. Ceci vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre serveur, ni à la base de données. Cette opération crée une base de données sur n’importe quel serveur existant dans le monde entier.
-- Restaurer une base de données à partir d’une sauvegarde à long terme spécifique si la base de données a été configurée avec une stratégie de rétention à long terme. Ceci vous permet de restaurer une ancienne version de la base de données pour répondre à une demande de conformité ou exécuter une ancienne version de l’application. Consultez [Rétention à long terme](sql-database-long-term-retention.md).
+- Restaurer une base de données dans une autre région géographique. La géorestauration vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre serveur, ni à la base de données. Cette opération crée une base de données sur n’importe quel serveur existant dans le monde entier.
+- Restaurer une base de données à partir d’une sauvegarde à long terme spécifique si la base de données a été configurée avec une stratégie de rétention à long terme. La conservation à long terme vous permet de restaurer une ancienne version de la base de données pour répondre à une demande de conformité ou exécuter une ancienne version de l’application. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 - Pour effectuer une restauration, consultez [Restauration de la base de données à partir de la sauvegarde](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -42,16 +42,16 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
 ## <a name="how-long-are-backups-kept"></a>Quelle est la durée de conservation des sauvegardes ?
 
-Chaque base de données SQL a une période de conservation de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du [modèle d’achat et du niveau de service](#pitr-retention-period). Vous pouvez mettre à jour la période de conservation de sauvegarde d’une base de données sur le serveur logique Azure (cette fonctionnalité sera activée prochainement dans Managed Instance). Pour plus d’informations, consultez [Changer la période de conservation de sauvegarde](#how-to-change-backup-retention-period).
+Chaque base de données SQL a une période de conservation de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du [modèle d’achat et du niveau de service](#pitr-retention-period). Vous pouvez mettre à jour la période de conservation des sauvegardes pour une base de données sur le serveur logique Azure. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
 
 Si vous supprimez une base de données, SQL Database conserve les sauvegardes de la même façon que s’il s’agissait d’une base de données en ligne. Par exemple, si vous supprimez une base de données De base dont la période de conservation est de sept jours, une sauvegarde datant de quatre jours est enregistrée pendant encore trois jours.
 
-Si vous souhaitez conserver les sauvegardes plus longtemps que la période de conservation PITR maximale, vous pouvez modifier les propriétés de sauvegarde pour ajouter une ou plusieurs périodes de conservation à long terme à votre base de données. Consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
+Si vous souhaitez conserver les sauvegardes plus longtemps que la période de conservation maximale, vous pouvez modifier les propriétés de sauvegarde pour ajouter une ou plusieurs périodes de conservation à long terme à votre base de données. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 
 > [!IMPORTANT]
 > Si vous supprimez le serveur Azure SQL Server qui héberge les bases de données SQL, tous les pools élastiques et bases de données qui appartiennent au serveur sont également supprimés, sans pouvoir être restaurés. Vous ne pouvez pas restaurer un serveur supprimé. Mais si vous avez configuré la conservation à long terme, les sauvegardes des bases de données avec conservation à long terme ne seront pas supprimées et peuvent être restaurées.
 
-### <a name="pitr-retention-period"></a>Période de rétention de la récupération jusqu’à une date et heure
+### <a name="default-backup-retention-period"></a>Période de conservation des sauvegardes par défaut
 
 #### <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
 
@@ -63,12 +63,10 @@ La période de conservation par défaut pour une base de données créée à l�
 
 #### <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
-Si vous utilisez le [modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md), la période de rétention de sauvegarde par défaut est de 7 jours (tant sur des serveurs logiques que sur des instances managées).
+Si vous utilisez le [modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md), la période de conservation des sauvegardes par défaut est de 7 jours (pour les bases de données uniques, regroupées et dans des instances managées). Pour toutes les bases de données SQL Azure (unique, regroupée et dans des instances managées, vous pouvez [modifier la période de conservation des sauvegardes et la prolonger jusqu’à 35 jours](#how-to-change-the-pitr-backup-retention-period).
 
-- Pour les dates de données uniques et en pool, vous pouvez [modifier la période de rétention de sauvegarde jusqu’à 35 jours](#how-to-change-backup-retention-period).
-- La modification de la période de rétention de sauvegarde n’est pas disponible dans Managed Instance.
-
-Si vous réduisez la période de rétention actuelle, toutes les sauvegardes antérieures à la nouvelle période de rétention ne seront plus disponibles. Si vous augmentez la période de rétention actuelle, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention plus longue soit atteinte.
+> [!WARNING]
+> Si vous réduisez la période de rétention actuelle, toutes les sauvegardes antérieures à la nouvelle période de rétention ne seront plus disponibles. Si vous augmentez la période de rétention actuelle, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention plus longue soit atteinte.
 
 ## <a name="how-often-do-backups-happen"></a>À quelle fréquence les sauvegardes se produisent-elles ?
 
@@ -96,21 +94,24 @@ Si votre base de données est chiffrée à l’aide de TDE, les sauvegardes sont
 
 L’équipe d’ingénieurs Azure SQL Database teste régulièrement et automatiquement la restauration des sauvegardes automatisées de bases de données au sein du service. Lors de la restauration, les bases de données subissent également des vérifications d’intégrité à l’aide de DBCC CHECKDB. Tout problème détecté lors de la vérification d’intégrité est traduit par une alerte envoyée à l’équipe d’ingénieurs. Pour plus d’informations sur l’intégrité des données dans Azure SQL Database, consultez l’article [Intégrité des données dans Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
-## <a name="how-do-automated-backups-impact-my-compliance"></a>Quel est l’impact des sauvegardes automatisées sur ma conformité ?
+## <a name="how-do-automated-backups-impact-compliance"></a>Quel est l’impact des sauvegardes automatisées sur la conformité ?
 
-Lorsque vous migrez votre base de données à partir d’un niveau de service basé sur DTU avec la conservation PITR par défaut de 35 jours, vers un niveau de service basé sur vCore, la conservation PITR est préservée pour garantir que la stratégie de récupération de données de votre application n’est pas compromise. Si la conservation par défaut ne répond pas à vos exigences de conformité, vous pouvez modifier la période de conservation PITR à l’aide de PowerShell ou de l’API REST. Consultez [Change Backup Retention Period](#how-to-change-backup-retention-period) (Modification de la période de conservation) pour plus d’informations.
+Lorsque vous migrez votre base de données à partir d’un niveau de service basé sur DTU avec la conservation PITR par défaut de 35 jours, vers un niveau de service basé sur vCore, la conservation PITR est préservée pour garantir que la stratégie de récupération de données de votre application n’est pas compromise. Si la conservation par défaut ne répond pas à vos exigences de conformité, vous pouvez modifier la période de conservation PITR à l’aide de PowerShell ou de l’API REST. Consultez [Change Backup Retention Period](#how-to-change-the-pitr-backup-retention-period) (Modification de la période de conservation) pour plus d’informations.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="how-to-change-backup-retention-period"></a>Modification de la période de conservation des sauvegardes
+## <a name="how-to-change-the-pitr-backup-retention-period"></a>Comment modifier la période de conservation des sauvegardes PITR ?
 
-> [!Note]
-> La période de rétention de sauvegarde par défaut (7 jours) ne peut pas être modifiée sur Managed Instance.
-
-Vous pouvez modifier la conservation par défaut à l’aide de l’API REST ou de PowerShell. Les valeurs prises en charge sont : 7, 14, 21, 28 ou 35 jours. Les exemples suivants illustrent comment modifier la conservation de récupération jusqu’à une date et heure pour la faire passer à 28 jours.
+Vous pouvez modifier la période de conservation des sauvegardes PITR par défaut à l’aide du Portail Azure, de PowerShell ou de l’API REST. Les valeurs prises en charge sont les suivantes : 7, 14, 21, 28 ou 35 jours. Les exemples suivants illustrent comment modifier la conservation de récupération jusqu’à une date et heure pour la faire passer à 28 jours.
 
 > [!NOTE]
-> Ces API affectent uniquement la période de conservation PITR. Si vous avez configuré la conservation à long terme pour votre base de données, elle ne sera pas affectée. Consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md) pour en savoir plus sur la modification des périodes de conservation à long terme.
+> Ces API affectent uniquement la période de conservation PITR. Si vous avez configuré la conservation à long terme pour votre base de données, elle ne sera pas affectée. Consultez [Conservation à long terme](sql-database-long-term-retention.md) pour en savoir plus sur la modification des périodes de conservation à long terme.
+
+### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Modifier la période de conservation des sauvegardes PITR à l’aide du Portail Azure
+
+Pour modifier la période de conservation des sauvegardes PITR à l’aide du portail Azure, accédez à la base de données dont vous souhaitez modifier la période de rétention et cliquez sur **Vue d’ensemble**.
+
+![Modification PITR sur le Portail Azure](./media/sql-database-automated-backup/configure-backup-retention.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Modifier la période de conservation des sauvegardes PITR et à l’aide de PowerShell
 
@@ -141,7 +142,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 #### <a name="sample-response"></a>Exemple de réponse
 
-Code d’état : 200
+Code d’état : 200
 
 ```json
 {
@@ -154,7 +155,7 @@ Code d’état : 200
 }
 ```
 
-Consultez [API REST de conservation des sauvegardes à long terme](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) pour en savoir plus.
+Pour plus d’informations, consultez [API REST de conservation des sauvegardes](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

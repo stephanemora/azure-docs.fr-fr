@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: 4d9e47d6da45eaba19cbe089de3fdf053c36046a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030675"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077072"
 ---
-# <a name="tutorial-optimize-costs-from-recommendations"></a>Tutoriel : Optimiser les coûts à partir de recommandations
+# <a name="tutorial-optimize-costs-from-recommendations"></a>Didacticiel : Optimiser les coûts à partir de recommandations
 
 Azure Cost Management fonctionne avec Azure Advisor pour fournir des recommandations d’optimisation des coûts. Azure Advisor vous permet d’optimiser et d’améliorer l’efficacité en identifiant les ressources inactives et sous-utilisées. Ce tutoriel vous présente un exemple dans lequel vous identifiez des ressources Azure sous-utilisées, puis vous prenez des mesures pour réduire les coûts.
 
@@ -29,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Vérifier l’action pour vous assurer que la machine virtuelle a été correctement redimensionnée
 
 ## <a name="prerequisites"></a>Prérequis
-Des recommandations sont disponibles pour tous les clients détenant un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Vous devez disposer au moins d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût.
+Des recommandations sont disponibles pour tous les clients détenant un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût.
 
 - Abonnement
 - Groupe de ressources
@@ -43,7 +43,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 Dans le portail Azure, cliquez sur **Gestion des coûts + Facturation** dans la liste des services. Ensuite, dans la liste sous **Gestion des coûts**, sélectionnez **Recommandations du conseiller**. Les recommandations d’Advisor en matière de coûts sont affichées.
 
-![Recommandations d’Advisor](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
+![Recommandations d’Advisor sur la gestion des coûts présentées dans le portail Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
 La liste des recommandations identifie les inefficacités d’utilisation ou affiche des recommandations d’achat qui peuvent vous aider à faire des économies supplémentaires. La valeur **Économies annuelles potentielles** totale affiche le montant total que vous pouvez économiser si vous arrêtez ou libérez toutes vos machines virtuelles qui répondent aux règles de recommandation. Si vous ne voulez pas les arrêter, envisagez de les déplacer vers une référence (SKU) de machine virtuelle moins coûteuse.
 
@@ -59,20 +59,20 @@ Alors que certains scénarios peuvent, par définition, entraîner une faible ut
 
 Dans la liste des recommandations, cliquez sur la recommandation **Ajuster la taille des machines virtuelles sous-exploitées ou les arrêter**. Dans la liste des machines virtuelles candidates, choisissez une machine virtuelle à redimensionner, puis cliquez dessus. Les informations détaillées de la machine virtuelle s’affichent pour vous permettre de vérifier les métriques d’utilisation. La valeur **Économies annuelles potentielles** représente ce que vous pouvez économiser si vous arrêtez ou supprimez la machine virtuelle. Le redimensionnement d’une machine virtuelle vous fera probablement économiser de l’argent, mais vous n’économiserez pas la totalité des économies annuelles potentielles.
 
-![Détails de la recommandation](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
+![Exemple de détails de la recommandation](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
 Dans les informations détaillées de la machine virtuelle, consultez l’utilisation de la machine virtuelle pour vérifier qu’il s’agit d’un candidat approprié pour le redimensionnement.
 
-![Informations détaillées de la machine virtuelle](./media/tutorial-acm-opt-recommendations/vm-details.png)
+![Exemple de détails d’une machine virtuelle montrant l’historique d’utilisation](./media/tutorial-acm-opt-recommendations/vm-details.png)
 
 Notez la taille actuelle de la machine virtuelle. Après avoir vérifié que la machine virtuelle doit être redimensionnée, fermez les informations détaillées de la machine virtuelle afin d’afficher la liste des machines virtuelles.
 
 Dans la liste des candidats à arrêter ou à redimensionner, sélectionnez **Redimensionner la machine virtuelle**.
-![Redimensionner la machine virtuelle](./media/tutorial-acm-opt-recommendations/resize-vm.png)
+![Exemple de recommandation avec l’option permettant de redimensionner la machine virtuelle](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 Ensuite, une liste d’options de redimensionnement disponibles vous est présentée. Choisissez celle qui offre les meilleures performances et la meilleure rentabilité pour votre scénario. Dans l’exemple suivante, l’option choisie effectue le redimensionnement d’un **DS14\_V2** en **DS13\_V2**. Suivre la recommandation fait économiser 551,30 $/mois ou 6 615,60 $/an.
 
-![Choisir une taille](./media/tutorial-acm-opt-recommendations/choose-size.png)
+![Liste d’exemple de tailles de machine virtuelle disponibles parmi lesquelles vous pouvez en choisir une](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
 Après avoir choisi une taille appropriée, cliquez sur **Sélectionner** pour démarrer l’action de redimensionnement.
 
@@ -82,7 +82,7 @@ Le redimensionnement nécessite le redémarrage d’une machine virtuelle en cou
 
 Quand le redimensionnement de la machine virtuelle se termine correctement, une notification Azure s’affiche.
 
-![Notification redimensionnée](./media/tutorial-acm-opt-recommendations/resized-notification.png)
+![Notification de redimensionnement de machine virtuelle effectuée avec succès](./media/tutorial-acm-opt-recommendations/resized-notification.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

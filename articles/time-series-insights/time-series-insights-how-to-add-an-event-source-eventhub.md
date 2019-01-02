@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour ajouter une source d’événement Event Hub à Azure Time Series Insights | Microsoft Docs
-description: Cet article décrit comment ajouter une source d’événement qui est connectée à un Event Hub à votre environnement Time Series Insights.
+title: Ajouter un Event Hub à Azure Time Series Insights - Guide pratique pour ajouter une source d’événement Event Hubs à Azure Time Series Insights | Microsoft Docs
+description: Cet article explique comment ajouter une source d’événement qui est connectée à Azure Event Hubs dans votre environnement Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,101 +9,104 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/21/2017
-ms.openlocfilehash: ce4bf1ab74e4203f0deb7b2984ffa6a66d5efd4a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.date: 11/30/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6e7a6a089681ac9f7c0de5244feb3aea67052f25
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627108"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274205"
 ---
-# <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Ajout d’une source d’événement de Event Hub à l’environnement Time Series Insights
+# <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Ajouter une source d’événement Event Hub à votre environnement Time Series Insights
 
-Cet article décrit comment utiliser le portail Azure pour ajouter une source d’événements qui lit des données à partir d’un Event Hub dans votre environnement Time Series Insights.
+Cet article explique comment utiliser le Portail Azure pour ajouter une source d’événement qui lit des données à partir d’Azure Event Hubs dans votre environnement Azure Time Series Insights.
+
+> [!NOTE]
+> Les étapes décrites dans cet article s’appliquent à la fois aux environnements Time Series Insights - GA et Time Series Insights - Préversion.
 
 ## <a name="prerequisites"></a>Prérequis
-- Créez un environnement Time Series Insights. Pour plus d’informations, consultez [Créer un environnement Azure Time Series Insights](time-series-insights-get-started.md) 
-- Créez un concentrateur d’événements. Pour plus d’informations sur Event Hubs, consultez [Créer un espace de noms Event Hubs et un hub d’événements à l’aide du portail Azure](../event-hubs/event-hubs-create.md)
-- Le concentrateur d’événements doit avoir des événements de message actifs envoyés. Pour plus d’informations, consultez [Envoyer des événements vers Azure Event Hubs à l’aide de .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
-- Créez un groupe de consommateurs dédié dans le concentrateur d’événements pour l’environnement Time Series Insight à utiliser. Chaque source d’événement Time Series Insights doit avoir son propre groupe de consommateurs dédié, qui n’est pas partagé avec d’autres consommateurs. Si plusieurs lecteurs consomment des événements du même groupe de consommateurs, tous les lecteurs sont susceptibles d’obtenir des erreurs. Notez qu’il existe également une limite de 20 groupes de consommateurs par hub d’événements. Pour plus d’informations, consultez [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
 
-### <a name="add-a-consumer-group-to-your-event-hub"></a>Ajouter un groupe de consommateurs à vitre concentrateur d’événements
-Les groupes de consommateurs sont utilisés par les applications pour extraire des données Azure Event Hubs. Fournissez un groupe de consommateurs dédiés, qui sera utilisé par cet environnement Time Series Insights uniquement, pour lire les données de manière fiable à partir de votre concentrateur d’événements.
+- Créez un environnement Time Series Insights. Pour plus d’informations, consultez [Créer un environnement Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+- Créez un hub d’événements. Pour plus d’informations sur Event Hubs, consultez [Créer un espace de noms Event Hubs et un Event Hub à l’aide du portail Azure](../event-hubs/event-hubs-create.md).
+- L’Event Hub doit avoir reçu des événements de message actifs. Pour plus d’informations, consultez [Envoyer des événements vers Azure Event Hubs à l’aide de .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
+- Créez un groupe de consommateurs dédié dans l’Event Hub que l’environnement Time Series Insights peut utiliser. Chaque source d’événement Time Series Insights doit avoir son propre groupe de consommateurs dédié, qui n’est pas partagé avec un autre consommateur. Si plusieurs lecteurs consomment des événements du même groupe de consommateurs, tous les lecteurs sont susceptibles d’obtenir des erreurs. Il existe également une limite de 20 groupes de consommateurs par Event Hub. Pour plus d’informations, consultez le [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
 
-Pour ajouter un nouveau groupe de consommateurs dans votre concentrateur d’événements, procédez comme suit :
-1. Dans le portail Azure, recherchez et ouvrez votre concentrateur d’événements.
+### <a name="add-a-consumer-group-to-your-event-hub"></a>Ajouter un groupe de consommateurs à votre Event Hub
 
-2. Sous le titre **Entités**, sélectionnez **Groupes de consommateurs**.
+Les applications utilisent des groupes de consommateurs pour extraire des données d’Azure Event Hubs. Fournissez un groupe de consommateurs dédié, qui sera utilisé par cet environnement Time Series Insights uniquement, pour lire les données de manière fiable à partir de votre Event Hub.
 
-   ![Concentrateur d’événements - Ajouter un groupe de consommateurs](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+Pour ajouter un groupe de consommateurs dans votre Event Hub :
 
-3. Sélectionnez **+ Groupe de consommateurs** pour ajouter un nouveau groupe de consommateurs. 
+1. Dans le Portail Azure, recherchez et ouvrez votre Event Hub.
 
-4. Sur la page **Groupes de consommateurs**, fournissez un nouveau **nom** unique.  Utilisez le même nom lors de la création d’une source d’événement dans l’environnement Time Series Insights.
+1. Sous **Entités**, sélectionnez **Groupes de consommateurs**, puis **Groupe de consommateurs**.
 
-5. Sélectionnez **Créer** pour créer le nouveau groupe de consommateurs.
+   ![Event Hub - Ajouter un groupe de consommateurs](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+
+1. Sur la page **Groupes de consommateurs**, indiquez une valeur unique pour **Nom**.  Utilisez le même nom lorsque vous créez une source d’événement dans l’environnement Time Series Insights.
+
+1. Sélectionnez **Créer**.
 
 ## <a name="add-a-new-event-source"></a>Ajouter une nouvelle source d’événement
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Recherchez votre environnement Time Series Insights existant. Cliquez sur **Toutes les ressources** dans le menu de gauche du portail Azure. Sélectionnez votre environnement Time Series Insights.
+1. Recherchez votre environnement Time Series Insights existant. Dans le menu de gauche, sélectionnez **Toutes les ressources**, puis sélectionnez votre environnement Time Series Insights.
 
-3. Sous le titre **Topologie de l’environnement**, cliquez sur **Sources d’événements**.
+1. Sous **Topologie de l’environnement**, sélectionnez **Sources d’événements**, puis sélectionnez **Ajouter**.
 
-   ![Sources d’événement + Ajout](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
+   ![Sous Sources d’événements, sélectionnez le bouton Ajouter](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
 
-4. Cliquez sur **+ Ajouter**.
+1. Sous **Nom de la source de l’événement**, indiquez une valeur unique pour cet environnement Time Series Insights, comme **event-stream**.
 
-5. Sous **Nom de la source d’événement**, indiquez un nom unique à cet environnement Time Series Insights, comme **event-stream**.
+1. Pour **Source**, sélectionnez **Event Hub**.
 
-   ![Remplissez les trois premiers paramètres du formulaire.](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
+1. Sélectionnez les valeurs appropriées sous **Option d’importation** :
+   - Si un Event Hub est déjà présent dans l’un de vos abonnements, sélectionnez **Utiliser un Event Hub à partir des abonnements disponibles**. Il s’agit de l’approche la plus simple.
+   - Sélectionnez **Indiquez manuellement les paramètres Event Hub** si l’Event Hub est externe à vos abonnements ou si vous souhaitez choisir des options avancées.
 
-6. Pour **Source**, sélectionnez **Concentrateur d’événements**.
+   ![Dans le volet Nouvelle source d’événements, entrez des valeurs pour les trois premiers paramètres](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
 
-7. Sélectionnez **l’option d’importation** appropriée. 
-   - Choisissez **Utiliser un concentrateur d’événements à partir d’abonnements disponibles** lorsque vous possédez déjà un concentrateur d’événements existant sur l’un de vos abonnements. Il s’agit de l’approche la plus simple.
-   - Choisissez **Fournir des paramètres Event Hub manuellement** lorsque le concentrateur d’événements est externe à vos abonnements, ou que vous souhaitez choisir des options avancées. 
-
-8. Si vous avez sélectionné l’option **Fournir des paramètres Event Hub à partir d’abonnements disponibles**, le tableau suivant décrit chaque propriété requise :
+1. Le tableau suivant décrit les propriétés requises pour l’option **Utiliser un Event Hub à partir des abonnements disponibles** :
 
    ![Détails sur l’abonnement et Event Hub](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
 
    | Propriété | Description |
    | --- | --- |
    | ID d’abonnement | Sélectionnez l’abonnement dans lequel ce Event Hub a été créé.
-   | Espace de noms Service Bus | Sélectionnez l’espace de noms Service Bus qui contient le Event Hub.
-   | Nom du hub d’événements | Sélectionnez le nom du Event Hub.
-   | Nom de la stratégie du hub d’événements | Sélectionnez la stratégie d’accès partagé, qui peut être créée dans l’onglet Configuration du hub d’événements. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **lecture**.
+   | Espace de noms Service Bus | Sélectionnez l’espace de noms Azure Service Bus qui contient l’Event Hub.
+   | Nom du hub d’événements | Sélectionnez le nom de l’Event Hub.
+   | Nom de la stratégie du hub d’événements | Sélectionnez la stratégie d’accès partagé. Vous pouvez créer la stratégie d’accès partagé dans l’onglet **Configurer** de l’Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **lecture**.
    | Clé de la stratégie du Event Hub | La valeur de clé peut être prédéfinie.
-   | Groupe de consommateurs du Event Hub | Groupe de consommateurs qui lit les événements du Event Hub. Il est vivement recommandé d’utiliser un groupe de consommateurs dédié pour votre source d’événements. |
-   | Format de sérialisation de l’événement | JSON est la seule sérialisation disponible à l’heure actuelle. Les messages d’événement doivent respecter ce format, sans quoi aucune donnée ne peut être lue. |
-   | Nom de la propriété d’horodatage | Pour déterminer cette valeur, vous devez comprendre le format du message des données de message envoyées dans le concentrateur d’événements. Cette valeur est le **nom** de la propriété d’événement spécifique dans les données de message que vous souhaitez utiliser en tant qu’horodatage d’un événement. Cette valeur respecte la casse. Lorsque ce champ est vide, **l’heure de mise en file d’attente de l’événement** au sein de l’événement source est utilisée en tant qu’horodatage d’événement. |
+   | Groupe de consommateurs du Event Hub | Groupe de consommateurs qui lit les événements de l’Event Hub. Il est vivement recommandé d’utiliser un groupe de consommateurs dédié pour votre source de l’événement. |
+   | Format de sérialisation de l’événement | Actuellement, JSON est le seul format de sérialisation disponible. Les messages d’événement doivent respecter ce format, sans quoi aucune donnée ne peut être lue. |
+   | Nom de la propriété d’horodatage | Pour déterminer cette valeur, vous devez comprendre le format de message des données de message envoyées dans l’Event Hub. Cette valeur est le **nom** de la propriété d’événement spécifique dans les données de message à utiliser comme horodateur de l’événement. Cette valeur respecte la casse. Lorsque ce champ est vide, l’**heure de mise en file d’attente de l’événement** dans la source de l’événement est utilisée comme timestamp de l’événement. |
 
-
-9. Si vous avez sélectionné l’option **Fournir des paramètres Event Hub manuellement**, le tableau suivant décrit chaque propriété requise :
+1. Le tableau suivant décrit les propriétés requises pour l’option **Indiquez manuellement les paramètres Event Hub** :
 
    | Propriété | Description |
    | --- | --- |
-   | Identifiant d’abonnement | Abonnement dans lequel ce Event Hub a été créé.
+   | ID d’abonnement | Abonnement dans lequel ce Event Hub a été créé.
    | Groupe de ressources | Le groupe de ressources dans lequel ce Event Hub a été créé.
-   | Espace de noms Service Bus | Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un hub d’événements, vous avez également créé un espace de noms Service Bus.
-   | Nom du hub d’événements | Nom de votre Event Hub Lorsque vous avez créé votre Event Hub, vous lui avez également donné un nom spécifique.
-   | Nom de la stratégie du hub d’événements | Stratégie d’accès partagé, qui peut être créée dans l’onglet Configuration du hub d’événements. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **lecture**.
-   | Clé de la stratégie du Event Hub | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Service Bus Tapez la clé primaire ou secondaire ici.
-   | Groupe de consommateurs du Event Hub | Groupe de consommateurs qui lit les événements du Event Hub. Il est vivement recommandé d’utiliser un groupe de consommateurs dédié pour votre source d’événements.
-   | Format de sérialisation de l’événement | JSON est la seule sérialisation disponible à l’heure actuelle. Les messages d’événement doivent respecter ce format, sans quoi aucune donnée ne peut être lue. |
-   | Nom de la propriété d’horodatage | Pour déterminer cette valeur, vous devez comprendre le format du message des données de message envoyées dans le concentrateur d’événements. Cette valeur est le **nom** de la propriété d’événement spécifique dans les données de message que vous souhaitez utiliser en tant qu’horodatage d’un événement. Cette valeur respecte la casse. Lorsque ce champ est vide, **l’heure de mise en file d’attente de l’événement** dans la source d’événement est utilisée comme horodateur de l’événement. |
+   | Espace de noms Service Bus | Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un Event Hub, vous avez créé un espace de noms Service Bus.
+   | Nom du hub d’événements | Nom de votre Event Hub. Lorsque vous avez créé votre Event Hub, vous lui avez également donné un nom spécifique.
+   | Nom de la stratégie du hub d’événements | Stratégie d’accès partagé. Vous pouvez créer une stratégie d’accès partagé dans l’onglet **Configurer** de l’Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **lecture**.
+   | Clé de la stratégie du Event Hub | Clé d’accès partagé qui permet d’authentifier l’accès à l’espace de noms Service Bus. Entrez la clé primaire ou secondaire ici.
+   | Groupe de consommateurs du Event Hub | Groupe de consommateurs qui lit les événements de l’Event Hub. Il est vivement recommandé d’utiliser un groupe de consommateurs dédié pour votre source de l’événement.
+   | Format de sérialisation de l’événement | Actuellement, JSON est le seul format de sérialisation disponible. Les messages d’événement doivent respecter ce format, sans quoi aucune donnée ne peut être lue. |
+   | Nom de la propriété d’horodatage | Pour déterminer cette valeur, vous devez comprendre le format de message des données de message envoyées dans l’Event Hub. Cette valeur est le **nom** de la propriété d’événement spécifique dans les données de message à utiliser comme horodateur de l’événement. Cette valeur respecte la casse. Lorsque ce champ est vide, l’**heure de mise en file d’attente de l’événement** dans la source de l’événement est utilisée comme timestamp de l’événement. |
 
-10. Ajoutez le nom du groupe de consommateurs TSI dédié que vous avez ajouté à votre hub d’événements.
+1. Ajoutez le nom du groupe de consommateurs Time Series Insights dédié que vous avez ajouté à votre Event Hub.
 
-11. Sélectionnez **Créer** pour ajouter la nouvelle source d’événement.
-   
-   ![Cliquez sur Create.](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+1. Sélectionnez **Créer**.
 
-   Après la création de la source d’événement, Time Series Insights démarre automatiquement la diffusion de données dans votre environnement.
+   ![Sélectionner Créer](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
+   Après la création de la source de l’événement, Time Series Insights démarre automatiquement la diffusion en continu des données dans votre environnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Définissez les stratégies d’accès aux données](time-series-insights-data-access.md) pour sécuriser les données.
-- [Envoyez des événements](time-series-insights-send-events.md) à la source d’événement.
-- Accédez à votre environnement dans [l’explorateur Time Series Insights](https://insights.timeseries.azure.com).
+
+* [Définissez les stratégies d’accès aux données](time-series-insights-data-access.md) pour sécuriser les données.
+* [Envoyez des événements](time-series-insights-send-events.md) à la source d’événement.
+* Accédez à votre environnement dans [l’explorateur Time Series Insights](https://insights.timeseries.azure.com).

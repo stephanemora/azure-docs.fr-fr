@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données vers SQL Server sur une machine virtuelle Azure | Microsoft Docs
+title: Déplacer des données vers une machine virtuelle SQL Server - Team Data Science Process
 description: Déplacer des données à partir de fichiers plats ou d'un SQL Server local vers SQL Server sur une machine virtuelle Azure.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 649c98c235adc2435840c6c43d3e2f9d5755265f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: fbc23d53687b908245ffe25bdd418cbe64af080b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446192"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136186"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Déplacer des données vers SQL Server sur une machine virtuelle Azure
 
@@ -26,7 +26,7 @@ Pour la rubrique présentant les options de déplacement de données sur une bas
 
 Le tableau suivant récapitule les options de déplacement de données vers SQL Server sur une machine virtuelle Azure.
 
-| <b>SOURCE</b> | <b>DESTINATION : SQL Server dans les machines virtuelles Azure</b> |
+| <b>SOURCE</b> | <b>DESTINATION : SQL Server sur les machines virtuelles Azure</b> |
 | --- | --- |
 | <b>Fichier plat</b> |1. <a href="#insert-tables-bcp">Utilitaire de copie en bloc à ligne de commande (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Requête SQL Bulk Insert</a><br> 3. <a href="#sql-builtin-utilities">Utilitaires graphiques intégrés dans SQL Server</a> |
 | <b>Serveur SQL Server local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Assistant de déploiement d’une base de données SQL Server sur une machine virtuelle Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportation dans un fichier plat</a><br> 3. <a href="#sql-migration">Assistant Migration de la base de données SQL</a> <br> 4. <a href="#sql-backup">Sauvegarde et restauration de base de données</a><br> |

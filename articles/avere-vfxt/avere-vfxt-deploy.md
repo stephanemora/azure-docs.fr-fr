@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8e265f2bed480f7b40476e09ab8f442aedcc9dd4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164318"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999448"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Déployer le cluster vFXT
 
@@ -306,6 +306,15 @@ Au terme du script, copiez l’adresse IP de gestion nécessaire à l’administ
 
 ![Sortie de ligne de commande du script affichant l’adresse IP de gestion vers la fin](media/avere-vfxt-mgmt-ip.png)
 
+> [!IMPORTANT] 
+> Si vous avez créé un conteneur d’objets Blob, il se peut qu’il soit chiffré avec une clé par défaut qui n’est pas enregistrée hors du cluster. Avant de stocker des données dans le conteneur, vous devez télécharger le fichier de récupération de la clé ou créer votre propre clé de chiffrement et enregistrer le fichier de récupération correspondant dans un emplacement persistant. 
+> 
+> Si vous utilisez la clé par défaut sans télécharger le fichier de récupération, vous risquez de perdre l’accès aux données chiffrées du système de stockage principal des objets Blob si le cluster vFXT est détruit ou perdu.
+>
+> Si votre script affiche des messages `WARNING` (tels que ceux encadrés dans la capture d’écran ci-dessous), suivez les instructions de la rubrique [Configurer le stockage](avere-vfxt-add-storage.md) pour télécharger le fichier de clé ou créer une clé pour votre conteneur d’objets Blob. Utilisez le panneau de configuration Avere pour configurer le cluster.
+
+![Sortie de la ligne de commande du script affichant des messages d’avertissement à propos de la création d’une nouvelle clé de chiffrement](media/avere-vfxt-key-warning.png)
+
 ## <a name="next-step"></a>Étape suivante
 
-Maintenant que le cluster est en cours d’exécution et que vous connaissez son adresse IP de gestion, vous pouvez [vous connecter à l’outil de configuration du cluster](avere-vfxt-cluster-gui.md) pour activer la prise en charge et ajouter un stockage si nécessaire.
+Maintenant que le cluster est en cours d’exécution et que vous connaissez son adresse IP de gestion, vous pouvez [vous connecter à l’outil de configuration du cluster](avere-vfxt-cluster-gui.md) pour activer la prise en charge, ajouter du stockage en cas de besoin ou adresser la clé de chiffrement par défaut à votre nouveau stockage d’objets Blob.

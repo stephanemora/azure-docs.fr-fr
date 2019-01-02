@@ -1,5 +1,5 @@
 ---
-title: Phase d’acquisition de données et de compréhension du cycle de vie du processus TDSP (Team Data Science Process) - Azure | Microsoft Docs
+title: Acquisition de données et présentation du processus Team Data science Process
 description: Objectifs, tâches et livrables associés à la phase d’acquisition des données et de compréhension de vos projets de science des données
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 13cbcead381257c87f17dc8ed6666a1b8964d81a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 77c67c491b3157103b267864417678c83326814c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441570"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141150"
 ---
-# <a name="data-acquisition-and-understanding"></a>Acquisition de données et compréhension
+# <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Acquisition de données et phase de présentation du processus Team Data science Process
 
 Cet article présente les objectifs, tâches et livrables associés à la phase d’acquisition de données et de compréhension du processus TDSP. Ce processus indique un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données. Le cycle de vie expose les principales phases que les projets exécutent généralement, souvent de manière itérative :
 

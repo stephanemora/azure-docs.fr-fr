@@ -1,5 +1,5 @@
 ---
-title: 'Synchronisation Azure AD Connect : Apporter une modification dans la synchronisation Azure AD Connect | Microsoft Docs'
+title: 'Synchronisation Azure AD Connect : modifier la configuration dans la synchronisation Azure AD Connect | Microsoft Docs'
 description: Cet article vous guide dans les changements de configuration d’Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8aa337be2dd3c4209a3095d8733893d78f6cb74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6579e2ced3742eb1a70ccca96b9608fc6da628ee
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310048"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190627"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation Azure AD Connect : modifier la configuration par défaut
 L’objectif de cet article est d’expliquer comment apporter des modifications à la configuration par défaut dans la synchronisation Azure Active Directory (Azure AD) Connect. Elle explique pas à pas la procédure pour les scénarios courants. À la fin, vous serez capable d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.
@@ -60,11 +60,11 @@ Par défaut, le [planificateur](how-to-connect-sync-feature-scheduler.md) s’ex
 2. Sur la page **Description**, entrez les informations suivantes :  
    ![Filtrage des règles entrantes](./media/how-to-connect-sync-change-the-configuration/description2.png)  
    * **Nom** : donnez un nom descriptif à la règle.
-   * **Description** : apportez des précisions pour permettre aux autres utilisateurs de comprendre l’objectif de la règle.
+   * **Description** : texte descriptif permettant aux autres utilisateurs de comprendre l’objet de la règle.
    * **Système connecté** : système dans lequel se trouve l’objet. Dans ce cas, sélectionnez le **Connecteur Active Directory**.
    * **Type d’objet de système connecté/métaverse** : sélectionnez respectivement **Utilisateur** et **Personne**.
-   * **Type de lien** : remplacez cette valeur par **Jointure**.
-   * **Priorité** : indiquez une valeur unique dans le système. Une valeur numérique inférieure indique une priorité plus élevée.
+   * **Type de liaison** : remplacez cette valeur par **Jointure**.
+   * **Précédence** : indiquez une valeur unique dans le système. Une valeur numérique inférieure indique une priorité plus élevée.
    * **Balise** : laissez ce champ vide. Seules les règles par défaut de Microsoft doivent contenir une valeur dans cette zone.
 3. Sur la page **Scoping Filter** (Filtre d’étendue), entrez **givenName ISNOTNULL**.  
    ![Filtre d’étendue des règles entrantes](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
@@ -100,7 +100,7 @@ Ouvrez le **Service de synchronisation** dans le menu **Démarrer**. Les étapes
    3. Utilisez **l’Étendue** pour trouver l’objet que vous souhaitez utiliser dans le but de tester la modification. Sélectionnez l’objet et cliquez sur **Aperçu**. 
    4. Sur le nouvel écran, sélectionnez **Aperçu Validation**.  
    ![Commit preview](./media/how-to-connect-sync-change-the-configuration/commitpreview.png)  
-   La modification est maintenant validée dans le métaverse.
+    La modification est maintenant validée dans le métaverse.
 
 **Afficher l’objet dans le métaverse**  
 
@@ -211,7 +211,7 @@ Avant d’activer la synchronisation de l’attribut UserType, vous devez déter
 
     Si vous choisissez cette approche, vous devez vous assurer que l’attribut désigné est rempli avec la valeur correcte pour tous les objets utilisateur existants dans Active Directory local qui sont synchronisés avec Azure AD avant d’activer la synchronisation de l’attribut UserType.
 
-- Vous avez également la possibilité de dériver la valeur de l’attribut UserType à partir d’autres propriétés. Par exemple, vous voulez synchroniser tous les utilisateurs en tant **qu’Invités** si leur attribut userPrincipalName AD local se termine par l’élément de domaine *@partners.fabrikam123.org*. 
+- Vous avez également la possibilité de dériver la valeur de l’attribut UserType à partir d’autres propriétés. Par exemple, vous voulez synchroniser tous les utilisateurs en tant **qu’Invités** si leur attribut userPrincipalName AD local se termine par l’élément de domaine <em>@partners.fabrikam123.org</em>. 
 
     Comme nous l’avons précisé, Azure AD Connect ne peut pas modifier l’attribut UserType sur des utilisateurs Azure AD existants. Par conséquent, vous devez vous assurer que la logique que vous avez choisie est cohérente avec la manière dont l’attribut UserType est déjà configuré pour tous les utilisateurs Azure AD existants dans votre client.
 
@@ -228,7 +228,7 @@ Les étapes d’activation de la synchronisation de l’attribut UserType peuven
 >[!NOTE]
 > Le reste de cette section décrit ces étapes. Ils sont décrits dans le cadre d’un déploiement d’Azure AD avec une topologie de forêt unique et sans règles de synchronisation personnalisées. En présence d’une topologie à forêts multiples, de règles de synchronisation personnalisées ou d’un serveur de gestion intermédiaire, adaptez les étapes en conséquence.
 
-### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Étape 1 : Désactiver le planificateur de synchronisation et vérifier qu’aucune synchronisation n’est en cours
+### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Étape 1 : Désactiver le planificateur de synchronisation et vérifier qu’aucune synchronisation n’est en cours
 Pour éviter d’exporter des modifications indésirables sur Azure AD, veillez à ce qu’aucune synchronisation ne se produise pendant la mise à jour des règles de synchronisation. Pour désactiver le planificateur de synchronisation intégré :
 
  1. Lancez une session PowerShell sur le serveur Azure AD Connect.
@@ -236,7 +236,7 @@ Pour éviter d’exporter des modifications indésirables sur Azure AD, veillez 
  3. Ouvrez Synchronization Service Manager en accédant au menu **Démarrer** > **Service de synchronisation**.
  4. Accédez à l’onglet **Opérations** et confirmez qu’aucune opération ne possède l’état *En cours*.
 
-### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Étape 2  : ajouter l’attribut source au schéma du connecteur AD local
+### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Étape 2 : Ajouter l’attribut source au schéma du connecteur AD local
 Certains attributs Azure AD ne sont pas importés dans l’espace connecteur AD local. Pour ajouter l’attribut source à la liste des attributs importés :
 
  1. Accédez à l’onglet **Connecteurs** dans Synchronization Service Manager.
@@ -246,7 +246,7 @@ Certains attributs Azure AD ne sont pas importés dans l’espace connecteur AD 
  5. Cliquez sur **OK** pour enregistrer.
 ![Ajouter l’attribut source au schéma du connecteur AD local](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Étape 3 : Ajouter UserType au schéma du Connecteur Azure AD
+### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Étape 3 : Ajouter UserType au schéma du Connecteur Azure AD
 Par défaut, l’attribut UserType n’est pas importé dans l’espace Azure AD Connect. Pour ajouter l’attribut UserType à la liste des attributs importés :
 
  1. Accédez à l’onglet **Connecteurs** dans Synchronization Service Manager.
@@ -257,7 +257,7 @@ Par défaut, l’attribut UserType n’est pas importé dans l’espace Azure AD
 
 ![Ajouter un attribut source au schéma du connecteur Azure AD](./media/how-to-connect-sync-change-the-configuration/usertype2.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Étape 4 : créer une règle de synchronisation de trafic entrant pour transmettre la valeur de l’attribut à partir de l’Active Directory local
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Étape 4 : Créer une règle de synchronisation de trafic entrant pour transmettre la valeur de l’attribut à partir de l’Active Directory local
 La règle de synchronisation du trafic entrant permet de transmettre la valeur de l’attribut au métaverse à partir de l’attribut source d’Active Directory en local :
 
 1. Ouvrez Synchronization Service Manager en accédant au menu **Démarrer** > **Éditeur de règles de synchronisation**.
@@ -289,7 +289,7 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
     | --- | --- | --- | --- | --- |
     | Directement | UserType | extensionAttribute1 | Désactivé | Mettre à jour |
 
-    Autre exemple : vous souhaitez dériver la valeur de l’attribut UserType à partir d’autres propriétés. Par exemple, vous voulez synchroniser tous les utilisateurs en tant qu’Invités si leur attribut userPrincipalName AD local se termine par l’élément de domaine *@partners.fabrikam123.org*. Vous pouvez implémenter une expression de ce type :
+    Autre exemple : vous souhaitez dériver la valeur de l’attribut UserType à partir d’autres propriétés. Par exemple, vous voulez synchroniser tous les utilisateurs en tant qu’Invités si leur attribut userPrincipalName AD local se termine par l’élément de domaine <em>@partners.fabrikam123.org</em>. Vous pouvez implémenter une expression de ce type :
 
     | Type de flux | Attribut cible | Source | Appliquer une seule fois | Type de fusion |
     | --- | --- | --- | --- | --- |
@@ -299,7 +299,7 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
 
 ![Créer une règle de synchronisation de trafic entrant](./media/how-to-connect-sync-change-the-configuration/usertype3.png)
 
-### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Étape 5 : créer une règle de synchronisation de trafic sortant pour transmettre la valeur de l’attribut à Azure AD
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Étape 5 : Créer une règle de synchronisation de trafic sortant pour transmettre la valeur de l’attribut à Azure AD
 La règle de synchronisation du trafic sortant permet de transmettre la valeur de l’attribut à l’attribut UserType dans Azure AD à partir du métaverse :
 
 1. Accédez à l’Éditeur de règles de synchronisation.
@@ -336,7 +336,7 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
 
 ![Créer une règle de synchronisation de trafic sortant](./media/how-to-connect-sync-change-the-configuration/usertype4.png)
 
-### <a name="step-6-run-a-full-synchronization-cycle"></a>Étape 6 : Exécuter un cycle de synchronisation complet
+### <a name="step-6-run-a-full-synchronization-cycle"></a>Étape 6 : Exécuter un cycle complet de synchronisation
 En règle générale, un cycle de synchronisation complet est nécessaire, car nous avons ajouté de nouveaux attributs aux schémas Active Directory et du Connecteur Azure AD, et introduit des règles de synchronisation personnalisées. Il est recommandé de vérifier les modifications avant de les exporter vers Azure AD. 
 
 Vous pouvez procéder comme suit pour vérifier les modifications tandis que vous exécutez manuellement les étapes d’un cycle de synchronisation complète.
@@ -375,7 +375,7 @@ Vous pouvez procéder comme suit pour vérifier les modifications tandis que vou
    2. Dans la boîte de dialogue contextuelle **Rechercher dans l’espace connecteur** :
 
       - Définissez l’**Étendue** sur **En attente d’exportation**.
-      - Cochez les trois cases : **Ajouter**, **Modifier** et **Supprimer**.
+      - Cochez les trois cases : **Ajouter**, **Modifier** et **Supprimer**.
       - Cliquez sur le bouton **Rechercher** pour obtenir la liste d’objets contenant des modifications à exporter. Pour examiner les modifications apportées à un objet donné, double-cliquez sur celui-ci.
       - Vérifiez que les modifications sont correctes.
 
@@ -388,7 +388,7 @@ Vous pouvez procéder comme suit pour vérifier les modifications tandis que vou
 > [!NOTE]
 > Ces étapes ne comprennent pas la synchronisation complète et l’exportation sur le Connecteur Azure AD, qui ne sont pas obligatoires, car les valeurs d’attributs sont transmises uniquement d’Active Directory en local à Azure AD.
 
-### <a name="step-7-re-enable-the-sync-scheduler"></a>Étape 7 : Réactiver le planificateur de synchronisation
+### <a name="step-7-re-enable-the-sync-scheduler"></a>Étape 7 : Réactiver le planificateur de synchronisation
 Réactivez le planificateur de synchronisation intégré :
 
 1. Démarrez une session PowerShell.
@@ -401,5 +401,5 @@ Réactivez le planificateur de synchronisation intégré :
 
 **Rubriques de présentation**
 
-* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)

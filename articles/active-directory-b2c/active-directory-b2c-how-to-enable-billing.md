@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 80ba42d7eab1726c7add6c4c9426b7dde3b55480
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445927"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100053"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Liaison d’un abonnement Azure à un locataire Azure AD B2C
 
 > [!IMPORTANT]
-> Les dernières informations sur la facturation à l’utilisation et la tarification d’Azure AD B2C sont disponibles sur la page suivante : [Azure Active Directory B2C Tarification](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Les dernières informations sur la facturation à l’utilisation et les tarifs d’Azure AD B2C sont disponibles sur la page suivante : [Tarification Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 Les frais d’utilisation pour Azure AD B2C sont facturés à un abonnement Azure. Quand un locataire Azure AD B2C est créé, l’administrateur du locataire doit lier explicitement le locataire Azure AD B2C à un abonnement Azure. Cet article vous montre comment procéder.
 
 > [!NOTE]
-> Un abonnement lié à un locataire Azure AD B2C peut uniquement être utilisé pour la facturation de l’utilisation d’Azure AD B2C. L’abonnement ne peut pas être utilisé pour ajouter d’autres services Azure ou licences Office 365 *au sein du locataire Azure AD B2C*.
+> Un abonnement lié à un locataire Azure AD B2C peut être utilisé pour la facturation de l’utilisation d’Azure AD B2C ou d’autres ressources Azure, y compris des ressources Azure AD B2C supplémentaires.  Il ne peut pas être utilisé pour ajouter d’autres services Azure basés sur une licence ou des licences Office 365 au sein du locataire Azure AD B2C.
 
  Le lien de l’abonnement est obtenu en créant une « ressource » Azure AD B2C dans l’abonnement Azure cible. De nombreuses « ressources » Azure AD B2C peuvent être créées dans à un abonnement Azure, ainsi que d’autres ressources Azure (par exemple, machines virtuelles, stockage de données, LogicApps). Vous pouvez voir toutes les ressources au sein de l’abonnement en accédant au locataire Azure AD auquel l’abonnement est associé.
 

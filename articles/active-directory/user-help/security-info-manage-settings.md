@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4cd88490118343a9a00dbd919d7820f0334df92e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162714"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016144"
 ---
 # <a name="manage-your-security-info-preview"></a>Gérer vos informations de sécurité (préversion)
 
@@ -67,7 +67,7 @@ Si vous perdez votre appareil ou si la sécurité de votre appareil est compromi
 
 3. Dans la zone **Gérer le compte**, sélectionnez **Oublier MFA sur les appareils mémorisés**.
     
-    Choisir cette option signifie que vous allez devoir recommencer le processus d’authentification multifacteur après vous être connecté.
+    Choisir cette option signifie que vous allez devoir recommencer le processus MFA (Multi-Factor Authentication) après vous être connecté.
 
     ![Écran du profil avec le lien d’oubli mis en évidence](media/security-info/security-info-forget.png)
 
@@ -77,7 +77,7 @@ Cet article vous aide à résoudre les problèmes liés à vos informations de s
 
 |Problème|Solution|
 |-------|--------|
-|Je n’ai pas mon téléphone sur moi|Il peut arriver que vous n’ayez pas votre téléphone en permanence avec vous et que vous souhaitiez néanmoins vous connecter à votre compte professionnel ou scolaire. Pour résoudre ce problème, vous pouvez vous connecter avec une autre méthode d’authentification ne nécessitant pas l’utilisation de votre téléphone, par exemple votre adresse e-mail ou votre numéro de téléphone au bureau. Pour ajouter des méthodes supplémentaires à vos informations de sécurité, suivez les étapes décrites dans la section [Changer vos informations](#change-your-info).|
+|Je n’ai pas mon téléphone sur moi|Il peut arriver que vous n’ayez pas votre téléphone en permanence avec vous et que vous souhaitiez néanmoins vous connecter à votre compte professionnel ou scolaire. Pour résoudre ce problème, vous pouvez vous connecter avec une autre méthode d’authentification ne nécessitant pas l’utilisation de votre téléphone, par exemple votre numéro de téléphone au bureau. Pour ajouter des méthodes supplémentaires à vos informations de sécurité, suivez les étapes décrites dans la section [Changer vos informations](#change-your-info).|
 |Mon téléphone a été perdu ou volé|Malheureusement, la perte ou le vol de votre téléphone peut se produire. Dans ce cas, il est fortement recommandé d’en informer votre organisation, afin que le service informatique puisse réinitialiser vos mots de passe d’application et effacer les appareils mémorisés dans votre liste d’appareils de confiance. Vous pouvez également procéder vous-même à l’oubli de vos appareils de confiance en suivant les étapes décrites dans la section [Gérer vos informations de sécurité en cas d’appareil perdu ou d’appareil dont la sécurité est potentiellement compromise](#manage-your-security-info-for-a-lost-or-potentially-compromised-device).|
 |J’ai un nouveau numéro de téléphone|Vous disposez de deux moyens pour résoudre ce problème. Vous pouvez vous connecter à l’aide d’une autre méthode d’authentification qui ne demande pas de numéro de téléphone, comme un e-mail ou, si cette solution n’est pas envisageable, vous pouvez contacter le service informatique de votre organisation pour que celui-ci se charge de l’effacement de vos paramètres. Pour ajouter des méthodes supplémentaires à vos informations de sécurité, suivez les étapes décrites dans la section [Changer vos informations](#change-your-info).|
 |Ma méthode par défaut est incorrecte|Vous pouvez mettre à jour votre méthode par défaut dans vos options de sécurité. Pour de plus amples renseignements, vous pouvez consulter la section [Changer vos informations](#change-your-info).|

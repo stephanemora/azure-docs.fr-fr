@@ -1,5 +1,6 @@
 ---
-title: Créer un équilibreur de charge public avec IPv6 - Azure CLI | Microsoft Docs
+title: Créer un équilibreur de charge public avec IPv6 – Azure CLI
+titlesuffix: Azure Load Balancer
 description: Découvrez comment créer un équilibreur de charge public avec IPv6 à l’aide d’Azure CLI.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: e3d6611c8a5c6faf3d1e070d1bafa2027adfc0cb
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739836"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53142017"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Créer un équilibreur de charge public avec IPv6 à l’aide d’Azure CLI
 
@@ -44,11 +46,11 @@ Les étapes suivantes expliquent comment créer un équilibreur de charge public
 
 Créez et configurez les objets suivants pour déployer un équilibreur de charge :
 
-* **Configuration d’adresses IP frontales** : contient les adresses IP publiques pour le trafic réseau entrant.
-* **Pool d’adresses principales** : contient des interfaces réseau pour que les machines virtuelles puissent recevoir le trafic réseau de l’équilibreur de charge.
-* **Règles d’équilibrage de charge** : contient des règles qui mappent un port public situé sur l’équilibreur de charge à un port du pool d’adresses principales.
-* **Règles NAT entrantes**: contient des règles de traduction d’adresses réseau (NAT) qui mappent un port public situé sur l’équilibreur de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
-* **Sondes** : contient les sondes d’intégrité utilisées pour vérifier la disponibilité des instances de machines virtuelles du pool d’adresses principales.
+* **Configuration d’adresses IP frontales** : Contient les adresses IP publiques pour le trafic réseau entrant.
+* **Pool d’adresses principales** : Contient des interfaces réseau pour que les machines virtuelles puissent recevoir le trafic réseau de l’équilibreur de charge.
+* **Règles d’équilibrage de charge** : Contient des règles qui mappent un port public de l’équilibreur de charge vers un port du pool d’adresses principales.
+* **Règles NAT entrantes** : Contient des règles de traduction d’adresses réseau (NAT) qui mappent un port public situé sur l’équilibreur de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
+* **Sondes** : Contient les sondes d’intégrité utilisées pour vérifier la disponibilité des instances de machines virtuelles du pool d’adresses principales.
 
 ## <a name="set-up-azure-cli"></a>Configuration de l’interface de ligne de commande Azure CLI
 

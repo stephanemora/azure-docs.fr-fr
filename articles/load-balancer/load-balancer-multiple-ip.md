@@ -1,5 +1,6 @@
 ---
-title: Équilibrage de charge sur plusieurs configurations IP dans Azure | Microsoft Docs
+title: Équilibrage de charge sur plusieurs configurations IP dans Azure
+titlesuffix: Azure Load Balancer
 description: Équilibrage de charge sur des configurations IP principales et secondaires.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0f092c471a7908eabe481adc8c722993818840b8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e6aff89fe45220e1642a91e6a2d31a9da422fdea
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219509"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163529"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
 
@@ -56,7 +58,7 @@ Pour plus d’informations sur la création de machines virtuelles avec plusieur
 
 Suivez les étapes ci-dessous pour accomplir le scénario décrit dans cet article.
 
-### <a name="step-1-configure-the-secondary-nics"></a>Étape 1 : Configurer les cartes réseau secondaires
+### <a name="step-1-configure-the-secondary-nics"></a>Étape 1 : Configurer les cartes réseau secondaires
 
 Pour chaque machine virtuelle dans votre réseau virtuel, ajoutez la configuration IP définie pour la carte réseau secondaire :  
 
@@ -80,7 +82,7 @@ Pour chaque machine virtuelle dans votre réseau virtuel, ajoutez la configurati
 
 Lorsque la seconde configuration IP de la carte réseau secondaire est terminée, elle s’affiche dans les paramètres **Configurations IP** de la carte réseau donnée.
 
-### <a name="step-2-create-the-load-balancer"></a>Étape 2 : Créer l’équilibreur de charge
+### <a name="step-2-create-the-load-balancer"></a>Étape 2 : Créer l’équilibreur de charge
 
 Créez votre équilibreur de charge pour la configuration :
 
@@ -96,7 +98,7 @@ Créez votre équilibreur de charge pour la configuration :
 
 Le déploiement de l’équilibreur de charge commence. Cette opération peut prendre plusieurs minutes. Une fois déployé, l’équilibreur de charge s’affiche en tant que ressource dans votre groupe de ressources.
 
-### <a name="step-3-configure-the-front-end-ip-pool"></a>Étape 3 : Configurer le pool d’adresses IP frontal
+### <a name="step-3-configure-the-front-end-ip-pool"></a>Étape 3 : Configurer le pool d’adresses IP frontal
 
 Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adresses IP frontal de votre équilibreur de charge :
 
@@ -128,7 +130,7 @@ Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adres
 
 Une fois le pool frontal configuré, les adresses IP s’affichent dans les paramètres **de configuration IP du frontal** de votre équilibreur de charge. 
     
-### <a name="step-4-configure-the-back-end-pool"></a>Étape 4 : Configurer le pool principal
+### <a name="step-4-configure-the-back-end-pool"></a>Étape 4 : Configurez le pool principal
 
 Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adresses IP principal de votre équilibreur de charge :
         
@@ -154,7 +156,7 @@ Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adres
 
 Une fois le pool principal configuré, les adresses s’affichent dans les paramètres **Pool principal** de votre équilibreur de charge.
 
-### <a name="step-5-configure-the-health-probe"></a>Étape 5 : Configurer la sonde d’intégrité
+### <a name="step-5-configure-the-health-probe"></a>Étape 5 : Configurer la sonde d’intégrité
 
 Configurez une sonde d’intégrité pour votre équilibreur de charge :
 
@@ -166,7 +168,7 @@ Configurez une sonde d’intégrité pour votre équilibreur de charge :
 
 4. Entrez le nom de la sonde d’intégrité (par exemple, **HTTP**). Sélectionnez **OK**.
 
-### <a name="step-6-configure-load-balancing-rules"></a>Étape 6 : Configurer les règles d’équilibrage de charge
+### <a name="step-6-configure-load-balancing-rules"></a>Étape 6 : Configuration des règles d’équilibrage de la charge
 
 Pour chaque site web (contoso.com et fabrikam.com), configurez les règles d’équilibrage de charge :
     
@@ -186,7 +188,7 @@ Pour chaque site web (contoso.com et fabrikam.com), configurez les règles d’�
 
 Une fois les règles configurées, elles s’affichent dans les paramètres **Règles d’équilibrage de charge** de votre équilibreur de charge.
 
-### <a name="step-7-configure-dns-records"></a>Étape 7 : Configurer les enregistrements DNS
+### <a name="step-7-configure-dns-records"></a>Étape 7 : Configurer les enregistrements DNS
 
 La dernière étape consiste à configurer vos enregistrements de ressource DNS pour qu’ils pointent sur les adresses IP frontales respectives de votre équilibreur de charge. Vous pouvez héberger vos domaines dans Azure DNS. Pour plus d’informations sur l’utilisation d’Azure DNS avec un équilibrage de charge, voir [Utiliser Azure DNS avec d’autres services Azure](../dns/dns-for-azure-services.md).
 

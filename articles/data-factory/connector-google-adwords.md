@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 402d4fb0c1eb7c6760f800bdd408e9a4d8161ccc
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2a17bca6f7b95850f84781b5838719617d45bdd2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095964"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077815"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Copier des données de Google AdWords à l’aide d’Azure Data Factory (préversion)
 
@@ -45,10 +45,10 @@ Les propriétés prises en charge pour le service lié Google AdWords sont les s
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **GoogleAdWords** | Oui |
+| Type | La propriété type doit être définie sur : **GoogleAdWords** | Oui |
 | clientCustomerID | ID client du client du compte AdWords pour lequel vous souhaitez extraire des données de rapport.  | Oui |
 | developerToken | Jeton de développeur associé au compte de gestionnaire que vous utilisez pour accorder l’accès à l’API AdWords.  Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie du fichier de définition d’application en tirer (pull) les données lors de la copie des données. Pour plus d’informations, consultez [Stocker les informations d’identification dans le coffre de clés](store-credentials-in-key-vault.md). | Oui |
-| authenticationType | Mécanisme d’authentification OAuth 2.0 utilisé pour l’authentification. ServiceAuthentication ne peut être utilisé que sur un runtime d’intégration auto-hébergé. <br/>Les valeurs autorisées sont : **ServiceAuthentication**, **UserAuthentication** | Oui |
+| authenticationType | Mécanisme d’authentification OAuth 2.0 utilisé pour l’authentification. ServiceAuthentication ne peut être utilisé que sur un runtime d’intégration auto-hébergé. <br/>Les valeurs autorisées sont les suivantes : **ServiceAuthentication**, **UserAuthentication** | Oui |
 | refreshToken | Jeton d’actualisation obtenu depuis Google pour autoriser l’accès à AdWords pour UserAuthentication. Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie du fichier de définition d’application en tirer (pull) les données lors de la copie des données. Pour plus d’informations, consultez [Stocker les informations d’identification dans le coffre de clés](store-credentials-in-key-vault.md). | Non  |
 | clientId | Id client de l’application google utilisée pour acquérir le jeton d’actualisation. Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie du fichier de définition d’application en tirer (pull) les données lors de la copie des données. Pour plus d’informations, consultez [Stocker les informations d’identification dans le coffre de clés](store-credentials-in-key-vault.md). | Non  |
 | clientSecret | Clé secrète client de l’application google utilisée pour acquérir le jeton d’actualisation. Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie du fichier de définition d’application en tirer (pull) les données lors de la copie des données. Pour plus d’informations, consultez [Stocker les informations d’identification dans le coffre de clés](store-credentials-in-key-vault.md). | Non  |
@@ -97,7 +97,12 @@ Les propriétés prises en charge pour le service lié Google AdWords sont les s
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Google AdWords.
 
-Pour copier des données à partir de Google AdWords, définissez la propriété type du jeu de données sur **GoogleAdWordsObject**. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données à partir de Google AdWords, définissez la propriété type du jeu de données sur **GoogleAdWordsObject**. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **GoogleAdWordsObject** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -109,7 +114,8 @@ Pour copier des données à partir de Google AdWords, définissez la propriété
         "linkedServiceName": {
             "referenceName": "<GoogleAdWords linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -125,8 +131,8 @@ Pour copier des données à partir de Google AdWords, définissez le type de sou
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **GoogleAdWordsSource** | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **GoogleAdWordsSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

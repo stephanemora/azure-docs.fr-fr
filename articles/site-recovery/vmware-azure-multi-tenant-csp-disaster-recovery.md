@@ -1,21 +1,20 @@
 ---
-title: Configurer la réplication VMware sur Azure dans un environnement multilocataire à l’aide de Site Recovery et du programme du fournisseur de solutions cloud | Microsoft Docs
-description: Décrit comment créer et gérer des abonnements de locataires via CSP et déployer Azure Site Recovery dans une configuration d’architecture mutualisée
-services: site-recovery
+title: Configurer la récupération d’urgence VMware sur Azure dans un environnement multilocataire avec Site Recovery et le programme du fournisseur de solutions cloud | Microsoft Docs
+description: Décrit comment configurer la récupération d’urgence de VMware dans un environnement multilocataire avec Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354119"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842354"
 ---
-# <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurer la réplication VMware dans un environnement multilocataire avec le programme du fournisseur de solutions cloud
+# <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurer la récupération d'urgence VMware dans un environnement multilocataire avec le programme du fournisseur de solutions cloud
 
 Le [programme CSP](https://partner.microsoft.com/en-US/cloud-solution-provider) met en avant des témoignages de collaboration pour tous les services cloud de Microsoft, notamment Office 365, Enterprise Mobility Suite et Microsoft Azure. Grâce au fournisseur de solutions cloud, les partenaires établissent une relation de bout en bout avec leurs clients et deviennent leur point de contact principal. Les partenaires peuvent déployer des abonnements Azure pour les clients et combiner ces abonnements avec leurs propres offres personnalisées à valeur ajoutée.
 
@@ -40,7 +39,7 @@ Pour configurer la réplication VMware, vous avez besoin d’effectuer les opér
 
     ![La page Informations du compte](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. Ensuite, cliquez sur **Suivant : Abonnements**.
+5. Cliquez ensuite sur **Suivant : Abonnements**.
 6. Dans la page de sélection des abonnements, cochez la case **Microsoft Azure**. Vous pouvez ajouter d’autres abonnements maintenant ou à tout moment.
 7. Sur la page **Révision**, vérifiez les détails du locataire, puis cliquez sur **Envoyer**.
 8. Une fois que vous avez créé le compte locataire, une page de confirmation affichant les détails du compte par défaut et le mot de passe de cet abonnement apparaît. Enregistrez les informations et modifiez le mot de passe ultérieurement si nécessaire, par le biais de la page de connexion au portail Azure.
@@ -73,9 +72,13 @@ Vous pouvez maintenant effectuer et gérer toutes les opérations Site Recovery 
 
       ![La page d’abonnement CSP du locataire](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-      b) Créez maintenant un utilisateur en entrant les informations adéquates et en sélectionnant des autorisations ou en chargeant la liste des utilisateurs dans un fichier CSV.
+    b) Créez maintenant un utilisateur en entrant les informations adéquates et en sélectionnant des autorisations ou en chargeant la liste des utilisateurs dans un fichier CSV.
+    
     c) Une fois que vous avez créé un utilisateur, revenez au portail Azure. Dans la page **Abonnement**, sélectionnez l’abonnement approprié.
-    d) Sélectionnez **Contrôle d’accès (IAM)**, puis cliquez sur **Ajouter** pour ajouter un utilisateur avec le niveau d’accès approprié. Les utilisateurs créés par le biais du portail du fournisseur de solutions cloud apparaissent automatiquement dans la page qui s’ouvre après avoir cliqué sur un niveau d’accès.
+
+    d) Sélectionnez **Contrôle d’accès (IAM)**, puis cliquez sur **Attributions de rôle**.
+
+    (e) Cliquez sur **Ajouter une attribution de rôle** pour ajouter un utilisateur avec le niveau d’accès approprié. Les utilisateurs qui ont été créés via le portail CSP apparaissent sous l’onglet Attributions de rôle.
 
       ![Ajouter un utilisateur](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
@@ -88,9 +91,9 @@ Il existe trois modèles multilocataires principaux :
 
 * **Fournisseur de services d’hébergement partagé (HSP)** : le partenaire possède l’infrastructure physique et utilise des ressources partagées (vCenter, centres de données, stockage physique, etc.) pour héberger les machines virtuelles de plusieurs locataires sur la même infrastructure. Le partenaire peut fournir la gestion de la récupération d’urgence en tant que service géré, ou le locataire peut disposer de la récupération d’urgence en tant que solution en libre-service.
 
-* **Fournisseur de services d’hébergement dédié** : le partenaire possède l’infrastructure physique mais utilise des ressources dédiées (plusieurs vCenter, magasins de données physiques, etc.) pour héberger les machines virtuelles de chaque locataire sur une infrastructure distincte. Le partenaire peut fournir la gestion de la récupération d’urgence en tant que service géré, ou le locataire peut en disposer en tant que solution en libre-service.
+* **Fournisseur de services d’hébergement dédié** : le partenaire possède l’infrastructure physique mais utilise des ressources dédiées (plusieurs vCenter, magasins de données physiques, etc.) pour héberger les machines virtuelles de chaque locataire sur une infrastructure distincte. Le partenaire peut fournir la gestion de la récupération d’urgence en tant que service géré, ou le locataire peut en disposer en tant que solution en libre-service.
 
-* **Fournisseur de services gérés (MSP)** : le client possède l’infrastructure physique qui héberge les machines virtuelles, et le partenaire réalise l’activation et la gestion de la récupération d’urgence.
+* **Fournisseur de services gérés (MSP)** : le client possède l’infrastructure physique qui héberge les machines virtuelles, et le partenaire réalise l’activation et la gestion de la reprise d’activité.
 
 En configurant les abonnements du client comme décrit dans cet article, vous pouvez démarrer rapidement l’activation des clients dans un des modèles d’architecture mutualisée pertinents. Plus d’informations sur les différents modèles d’architecture mutualisée et l’activation locale des contrôles d’accès, consultez [cette page](vmware-azure-multi-tenant-overview.md).
 

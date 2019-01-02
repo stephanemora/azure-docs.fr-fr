@@ -6,23 +6,21 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/17/2018
-ms.openlocfilehash: 8103c06e3fec51316e367de903ed84d0023568bc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/11/2018
+ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308152"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322292"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Accéder à Grafana dans Azure HDInsight
 
 
 [Grafana](https://grafana.com/) est un générateur open source de tableaux de bord et de graphes qui est couramment utilisé. Il est doté de nombreuses fonctionnalités : les utilisateurs peuvent créer des tableaux de bord personnalisables et pouvant être partagés, mais aussi se servir de tableaux de bord basés sur un script/modèle, de l’intégration LDAP, de multiples sources de données, etc.
 
-Actuellement, Grafana est uniquement pris en charge par le type de cluster Interactive Query dans Azure HDInsight.
-
+Actuellement, dans Azure HDInsight, Grafana est pris en charge avec les types de cluster Hbase et Interactive Query.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -76,16 +74,22 @@ Dans cette section, vous allez créer un cluster Interactive Query dans HDInsigh
 ## <a name="access-the-grafana-dashboard"></a>Accéder au tableau de bord Grafana
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+
 2. Sélectionnez **Clusters HDInsight**, puis le nom du cluster que vous avez créé dans la section précédente.
+
 3. Sous **Liens rapides**, cliquez sur **Tableau de bord du cluster**.
 
     ![Portail - Tableau de bord du cluster HDInsight](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "Tableau de bord du cluster HDInsight sur le portail")
 
-4. Dans le tableau de bord, cliquez sur la vignette **Grafana**.
+4. Dans le tableau de bord, cliquez sur la vignette **Grafana**. Vous pouvez également accéder au chemin d’accès `/grafana/` de l’URL de votre cluster. Par exemple : `https://<clustername>.azurehdinsight.net/grafana/`.
+
 5. Entrez les informations d’identification utilisateur du cluster Hadoop.
-6. Le tableau de bord Grafana ressemble à ceci :
+
+6. Le tableau de bord Grafana s’affiche et se présente comme dans cet exemple :
 
     ![Tableau de bord Grafana HDInsight](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "Tableau de bord Grafana HDInsight")
+
+   
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 Après avoir terminé ce tutoriel, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. 
@@ -137,5 +141,3 @@ Si vous voulez en savoir plus sur la création ou la gestion d’un cluster HDIn
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

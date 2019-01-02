@@ -9,16 +9,15 @@ ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 2538bbf32b41e51796e333c11b7af6c091a71ede
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9f58c8c99fa48c0ffb4c76dd9752993b5e7d092e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309087"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994391"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
@@ -75,7 +74,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
     </dependencies>
 ```
 
-* *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>2.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans les [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>2.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans les [artefacts Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?*  Actualisez les dépendances de votre projet.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Si vous utilisez Gradle... <a name="gradle-setup" />
@@ -98,7 +97,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Si vous utilisez Eclipse pour créer un projet Web dynamique...
 Utilisez le [Kit de développement logiciel (SDK) Application Insights pour plug-in Java][eclipse]. Remarque : bien que ce plug-in vous permette d’être opérationnel avec Application Insights plus rapidement (en supposant que vous n’utilisez pas Maven ou Gradle), il ne s’agit pas un système de gestion des dépendances. Par conséquent, la mise à jour du plug-in ne mettra pas automatiquement les bibliothèques d’Application Insights à jour dans votre projet.
 
-* *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `version:'2.0.n'`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans les [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `version:'2.0.n'`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans les [artefacts Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Pour effectuer une mise à jour vers un Kit de développement logiciel (SDK)*, actualisez les dépendances de votre projet.
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Sinon, si vous gérez manuellement les dépendances...
@@ -161,8 +160,8 @@ Si vous le souhaitez, le fichier config peut être hébergé dans n’importe qu
 Le kit de développement logiciel (SDK) d’Application Insights recherche la clé dans cet ordre :
 
 1. Propriété système : -DAPPLICATION_INSIGHTS_IKEY=votre_ikey
-2. Variable d’environnement : APPLICATION_INSIGHTS_IKEY
-3. Fichier de configuration : ApplicationInsights.xml
+2. Variable d’environnement : APPLICATION_INSIGHTS_IKEY
+3. Configuration de l'application : ApplicationInsights.xml
 
 Vous pouvez également [définir la clé dans le code](app-insights-api-custom-events-metrics.md#ikey):
 
@@ -325,7 +324,7 @@ Lorsque vous affichez les propriétés d’une demande, vous voyez les événeme
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
-### <a name="analytics-powerful-query-language"></a>Analytics : un puissant langage de requête
+### <a name="analytics-powerful-query-language"></a>Analytics : Tirez parti d’un puissant langage de requête.
 En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles.  [Analytics](app-insights-analytics.md) est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
 
 ![Exemple d’Analytics](./media/app-insights-java-get-started/025.png)

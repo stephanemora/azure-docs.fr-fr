@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: cb3584101dea4dc8d8d888632175415480a6a1b3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b37626fe899bf7ee49bd71021631e21dc36b3963
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581526"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315615"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Vérifier l’utilisation des services gratuits inclus avec votre compte gratuit Azure 
 
-Vous n’êtes pas facturé pour les services inclus gratuitement avec un compte gratuit Azure, sauf si vous dépassez les limites de ces services. Pour rester dans les limites, vous pouvez utiliser le portail Azure ou votre fichier d’utilisation afin de surveiller et de suivre l’utilisation des services gratuits. 
+Vous n’êtes pas facturé pour les services compris gratuitement dans un compte gratuit Azure, sauf si vous dépassez les limites de ces services. Pour rester dans les limites, vous pouvez utiliser le portail Azure ou votre fichier d’utilisation afin de surveiller et de suivre l’utilisation des services gratuits. 
 
 ## <a name="check-usage-on-the-azure-portal"></a>Vérifier l’utilisation dans le portail Azure
 
-1.  Connectez-vous au [portail Azure]( http://portal.azure.com).
+1.  Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2.  Dans la zone de navigation de gauche, sélectionnez **Tous les services**.
 
@@ -41,7 +41,7 @@ Vous n’êtes pas facturé pour les services inclus gratuitement avec un compte
 
     ![Capture d’écran qui montre des informations essentielles sur l’abonnement](./media/billing-check-usage-of-free-services/subscription-essential-information.png)
 
-6.  Faites défiler vers le bas jusqu’à trouver des informations sur les coûts actuels et prévus. Le coût comprend l’utilisation des services non inclus avec votre compte gratuit et l’utilisation dépassant les limites des services gratuits. 
+6.  Faites défiler vers le bas jusqu’à trouver des informations sur les coûts actuels et prévus. Le coût comprend l’utilisation des services non compris dans votre compte gratuit, et l’utilisation dépassant les limites des services gratuits. 
 
     ![Capture d’écran qui montre des informations sur les coûts d’abonnement](./media/billing-check-usage-of-free-services/subscription-cost-information.png)
 
@@ -49,22 +49,21 @@ Vous n’êtes pas facturé pour les services inclus gratuitement avec un compte
 
     ![Capture d’écran qui montre l’utilisation des services gratuits](./media/billing-check-usage-of-free-services/subscription-usage-free-services.png)
 
-    Le tableau contient les colonnes suivantes :
+    Le tableau comporte les colonnes suivantes :
 
-* **Nom du compteur :** identifie l’unité de mesure du compteur consommé. Pour en savoir plus sur le mappage entre service et compteur, consultez [Présentation du mappage entre les services gratuits et les compteurs](billing-understand-free-service-meter-mapping.md). 
+* **Nom du compteur :** Identifie l’unité de mesure du compteur consommé. Pour en savoir plus sur le mappage entre service et compteur, consultez [Présentation du mappage entre les services gratuits et les compteurs](billing-understand-free-service-meter-mapping.md).
 * **Utilisation/Limite :** utilisation et limite du mois en cours pour le compteur. Ces informations figurent aussi dans la barre d’état.
 * **État :** état d’utilisation du compteur. En fonction de votre modèle d’utilisation, vous pouvez avoir l’un des états suivants :
-  * **Non utilisé :** vous n’avez pas utilisé le compteur, ou l’utilisation pour le compteur n’a pas atteint le système de facturation.
-  * **Dépassement le \<Date> :** vous avez dépassé la limite pour le compteur le \<Date>.
-  * **Dépassement peu probable :** il est peu probable que vous dépassiez la limite pour le compteur.
-  * **Dépassement le \<Date> :** il est probable que vous dépasserez la limite pour le compteur le \<Date>.
-
+  * **Non utilisé :** vous n’avez pas utilisé le compteur, ou l’utilisation du compteur n’a pas atteint le système de facturation.
+  * **Dépassement le \<Date> :** vous avez dépassé la limite du compteur le \<Date>.
+  * **Dépassement peu probable :** il est peu probable que vous dépassiez la limite du compteur.
+  * **Dépassement le \<Date> :** il est probable que vous dépasserez la limite du compteur le \<Date>.
 
 ## <a name="check-usage-through-the-usage-file"></a>Vérifier l’utilisation par le biais du fichier d’utilisation
 
-Votre fichier d’utilisation fournit des informations précises sur votre abonnement Azure. Vous pouvez télécharger votre fichier d’utilisation mensuelle et quotidienne à partir du Centre des comptes Azure. Pour découvrir comment télécharger le fichier d’utilisation et comprendre l’accès requis, consultez [Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md). Pour en savoir plus sur les colonnes du fichier d’utilisation, consultez [Comprendre les termes figurant sur le fichier détaillant les frais d’utilisation Microsoft Azure](billing-understand-your-usage.md). 
+Votre fichier d’utilisation fournit des informations précises sur votre abonnement Azure. Vous pouvez télécharger votre fichier d’utilisation mensuelle et quotidienne à partir du Centre des comptes Azure. Pour découvrir comment télécharger le fichier d’utilisation et comprendre l’accès requis, consultez [Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md). Pour en savoir plus sur les colonnes du fichier d’utilisation, consultez [Comprendre les termes figurant sur le fichier détaillant les frais d’utilisation Microsoft Azure](billing-understand-your-usage.md).
 
-Le fichier d’utilisation contient des informations sur l’utilisation pour les services gratuits et payants. La mention **Gratuit** est ajoutée à la fin du nom du compteur pour les services gratuits. Pour rechercher les compteurs des services gratuits, ouvrez le fichier dans Excel et filtrez la colonne **Catégorie du compteur** pour afficher les cellules qui contiennent le texte **- Gratuit** (utilisez Filtres textuels &rarr; filtre Contient). &nbsp;
+Le fichier d’utilisation contient des informations sur l’utilisation des services gratuits et payants. La mention **Gratuit** est ajoutée à la fin du nom du compteur pour les services gratuits. Pour rechercher les compteurs des services gratuits, ouvrez le fichier dans Excel et filtrez la colonne **Catégorie du compteur** pour afficher les cellules qui contiennent le texte **- Gratuit** (utilisez Filtres textuels &rarr; filtre Contient). &nbsp;
 
 ![Capture d’écran qui montre l’utilisation des services gratuits](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 

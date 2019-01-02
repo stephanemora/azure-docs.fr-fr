@@ -1,19 +1,19 @@
 ---
-title: À propos de la migration dans Azure Site Recovery | Microsoft Docs
-description: Cet article explique comment migrer des machines virtuelles Azure et locales à l’aide du service Azure Site Recovery.
+title: Présentation de la migration de machines locales et de machines virtuelles Azure avec Azure Site Recovery | Microsoft Docs
+description: Cet article explique comment migrer des machines locales et des machines virtuelles Azure IaaS sur Azure à l’aide du service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 329f03c30af167b147e5e45c618e6ec4e58efd3f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9a5c45b66e775ce83625e1f6d9507aaf456c7c7b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49075997"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843986"
 ---
 # <a name="about-migration"></a>À propos de la migration
 
@@ -21,7 +21,7 @@ Lisez cet article pour obtenir une vue d’ensemble rapide de la façon dont le 
 
 Voici ce que vous pouvez migrer avec Site Recovery :
 
-- **Migrer d’un site local vers Azure** : migrez des machines virtuelles Hyper-V, des machines virtuelles VMware et des serveurs physiques locaux vers Azure. Après la migration, les charges de travail en cours d’exécution sur les machines locales seront exécutées sur les machines virtuelles Azure. 
+- **Migrer à partir du site local** : migrer des machines virtuelles Hyper-V, des machines virtuelles VMware et des serveurs physiques locaux vers Azure. Après la migration, les charges de travail en cours d’exécution sur les machines locales seront exécutées sur les machines virtuelles Azure. 
 - **Migrer au sein d’Azure** : migrer des machines virtuelles Azure entre des régions Azure. 
 - **Migrer AWS** : migrer des instances Windows AWS vers des machines virtuelles IaaS Azure. 
 

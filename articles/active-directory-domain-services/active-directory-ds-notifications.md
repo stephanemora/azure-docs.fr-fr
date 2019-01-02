@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: f5049d6092bfc6b3f70ebafdc501e02ad9fe7936
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432673"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958523"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Paramètres de notification dans Azure AD Domain Services
 
@@ -41,7 +41,7 @@ Cette page présente la liste de tous les destinataires des notifications par e-
 
 L’image suivante est un exemple d’une notification par e-mail :
 
-![Exemple de notification par e-mail](.\media\active-directory-domain-services-alerts\email-alert.png)
+![Exemple de notification par e-mail](./media/active-directory-domain-services-alerts/email-alert.png)
 
 Ce message spécifie le domaine managé sur laquelle l’alerte est présente et fournit l’heure de détection et un lien vers la page de contrôle d’intégrité d’Azure AD Domain Services dans le portail Azure.
 

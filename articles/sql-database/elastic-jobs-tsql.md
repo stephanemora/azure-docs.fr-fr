@@ -3,7 +3,7 @@ title: Créer et gérer des travaux de base de données élastique avec Transact
 description: Exécuter des scripts sur plusieurs bases de données avec l’agent de travail de base de données élastique à l’aide de Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3c40c6721651864b9e0d64d4eeda415bfd3e181a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056785"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164515"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
@@ -210,9 +210,9 @@ EXEC jobs.sp_add_jobstep
 @credential_name='myjobcred',
 @target_group_name='PoolGroup',
 @output_type='SqlDatabase',
-@output_credential_name=’myjobcred’,
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’<resultsdb>',
+@output_credential_name='myjobcred',
+@output_server_name='server1.database.windows.net',
+@output_database_name='<resultsdb>',
 @output_table_name='<resutlstable>'
 Create a job to monitor pool performance
 --Connect to the job database specified when creating the job agent
@@ -257,8 +257,8 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 @target_group_name='MasterGroup',
 @output_type='SqlDatabase',
 @output_credential_name='myjobcred',
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’resultsdb',
+@output_server_name='server1.database.windows.net',
+@output_database_name='resultsdb',
 @output_table_name='resutlstable'
 ```
 
@@ -330,7 +330,7 @@ Se connecter à la [*base de données de travail*](elastic-jobs-overview.md#job-
 ```sql
 --Connect to the job database specified when creating the job agent
 
---View top-level execution status for the job named ‘ResultsPoolJob’
+--View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
 ORDER BY start_time DESC
@@ -339,7 +339,7 @@ ORDER BY start_time DESC
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
 ORDER BY start_time DESC
 
---View all execution statuses for job named ‘ResultsPoolsJob’
+--View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' 
 ORDER BY start_time DESC
@@ -644,10 +644,10 @@ S’il est spécifié, le paramètre doit être inclus.
 [ **@command =** ] 'command'  
 La commande doit être un script T-SQL valide. Elle est alors exécutée par cette étape de travail. la commande est nvarchar(max), avec NULL comme valeur par défaut.
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **@credential_name =** ] 'credential_name'  
 Nom des informations d’identification incluses dans l’étendue de la base de données et utilisées pour se connecter à chacune des bases de données cibles au sein du groupe cible lors de l’exécution de cette étape. credential_name est nvarchar(128).
 
-[ **@target_group_name =** ] ‘target-group_name'  
+[ **@target_group_name =** ] 'target-group_name'  
 Nom du groupe cible qui contient les bases de données cibles sur lesquelles l’étape de travail sera exécutée. target_group_name est nvarchar(128).
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -774,10 +774,10 @@ S’il est spécifié, le paramètre doit être inclus.
 [ **@command =** ] 'command'  
 Les commandes doivent être un script T-SQL valide. Elles sont alors exécutées par cette étape de travail. la commande est nvarchar(max), avec NULL comme valeur par défaut.
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **@credential_name =** ] 'credential_name'  
 Nom des informations d’identification incluses dans l’étendue de la base de données et utilisées pour se connecter à chacune des bases de données cibles au sein du groupe cible lors de l’exécution de cette étape. credential_name est nvarchar(128).
 
-[ **@target_group_name =** ] ‘target-group_name'  
+[ **@target_group_name =** ] 'target-group_name'  
 Nom du groupe cible qui contient les bases de données cibles sur lesquelles l’étape de travail sera exécutée. target_group_name est nvarchar(128).
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -1011,14 +1011,14 @@ Ajoute une base de données ou un groupe de bases de données à un groupe cible
 
 ```sql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
-         [ @membership_type = ] ‘membership_type’ ]   
-        [ , [ @target_type = ] ‘target_type’ ]   
-        [ , [ @refresh_credential_name = ] ‘refresh_credential_name’ ]   
-        [ , [ @server_name = ] ‘server_name’ ]   
-        [ , [ @database_name = ] ‘database_name’ ]   
-        [ , [ @elastic_pool_name = ] ‘elastic_pool_name’ ]   
-        [ , [ @shard_map_name = ] ‘shard_map_name’ ]   
-        [ , [ @target_id = ] ‘target_id’ OUTPUT ]
+         [ @membership_type = ] 'membership_type' ]   
+        [ , [ @target_type = ] 'target_type' ]   
+        [ , [ @refresh_credential_name = ] 'refresh_credential_name' ]   
+        [ , [ @server_name = ] 'server_name' ]   
+        [ , [ @database_name = ] 'database_name' ]   
+        [ , [ @elastic_pool_name = ] 'elastic_pool_name' ]   
+        [ , [ @shard_map_name = ] 'shard_map_name' ]   
+        [ , [ @target_id = ] 'target_id' OUTPUT ]
 ```
 
 #### <a name="arguments"></a>Arguments
@@ -1040,10 +1040,10 @@ Nom du serveur logique qui doit être ajouté au groupe cible spécifié. server
 [ **@database_name =** ] 'database_name'  
 Nom de la base de données qui doit être ajoutée au groupe cible spécifié. database_name doit être spécifié lorsque target_type est 'SqlDatabase'. database_name est nvarchar (128), sans valeur par défaut.
 
-[ **@elastic_pool_name =** ] ‘elastic_pool_name'  
+[ **@elastic_pool_name =** ] 'elastic_pool_name'  
 Nom du pool élastique qui doit être ajouté au groupe cible spécifié. elastic_pool_name doit être spécifié lorsque target_type est ‘SqlElasticPool’. elastic_pool_name est nvarchar(128), sans valeur par défaut.
 
-[  **@shard_map_name =** ] 'shard_map_name'  
+[ **@shard_map_name =** ] 'shard_map_name'  
 Nom de l’outil de mappage de partition qui doit être ajouté au groupe cible spécifié. elastic_pool_name doit être spécifié lorsque target_type est 'SqlSqlShardMap'. shard_map_name est nvarchar (128), sans valeur par défaut.
 
 [ **@target_id =** ] target_group_id SORTIE  
@@ -1101,7 +1101,7 @@ Supprime un membre du groupe cible d’un groupe cible.
 
 ```sql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
-        [ , [ @target_id = ] ‘target_id’]
+        [ , [ @target_id = ] 'target_id']
 ```
 
 
@@ -1219,7 +1219,7 @@ Afficher l'historique d'exécution des travaux.
 |**job_version**    |int    |Version du travail (automatiquement mise à jour chaque fois que le travail est modifié).
 |**step_id**    |int|   Identificateur unique (pour ce travail) de l’étape. NULL indique qu’il s’agit de l’exécution du travail parent.
 |**is_active**| bit |Indique si les informations sont actives ou inactives. 1 indique les travaux actifs, et 0 indique qu’ils sont inactifs.
-|**lifecycle**| nvarchar(50)|Valeur qui indique l’état du travail : ‘Created’,‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’,'SucceededWithSkipped’|
+|**lifecycle**| nvarchar(50)|Valeur indiquant l’état du travail :‘Created’, ‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’, ‘SucceededWithSkipped’|
 |**create_time**|   datetime2(7)|   Date et heure de la création du travail.
 |**heure-début** |datetime2(7)|  Date et heure de début de l’exécution du travail. NULL si le travail n’a pas encore été exécuté.
 |**heure-fin**|  datetime2(7)    |Date et heure de fin de l’exécution du travail. NULL si le travail n’a pas encore été exécuté, ou si son exécution n’est pas terminée.

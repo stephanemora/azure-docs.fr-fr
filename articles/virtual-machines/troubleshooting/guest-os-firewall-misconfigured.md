@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ad659cfcf1bfdad440968da5568b993724a5f351
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319178"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137835"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Le pare-feu du système d'exploitation invité de la machine virtuelle Azure est mal configuré
 
@@ -33,7 +33,7 @@ Cet article explique comment corriger un pare-feu de système d'exploitation inv
 
 ## <a name="cause"></a>Cause :
 
-Une configuration incorrecte du pare-feu du système invité peut bloquer certains ou tous les types de trafic réseau vers la machine virtuelle. 
+Une configuration incorrecte du pare-feu du système invité peut bloquer certains ou tous les types de trafic réseau vers la machine virtuelle.
 
 ## <a name="solution"></a>Solution
 
@@ -43,19 +43,19 @@ Pour résoudre ce problème, utilisez la console série ou [réparez la machine 
 
 ## <a name="online-mitigations"></a>Atténuations en ligne
 
-Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Si la console série n’est pas activée sur la machine virtuelle, accédez à la section « Réparer la machine virtuelle en mode hors connexion » de l’article Azure suivant :
+Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Si la console série n’est pas activée sur la machine virtuelle, accédez à la section « Réparer la machine virtuelle en mode hors connexion » de l’article Azure suivant :
 
  [Erreur interne en cas de connexion à une machine virtuelle Azure avec le Bureau à distance](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-Les règles suivantes peuvent être modifiées pour activer l’accès à la machine virtuelle (via RDP) ou faciliter la résolution du problème : 
+Les règles suivantes peuvent être modifiées pour activer l’accès à la machine virtuelle (via RDP) ou faciliter la résolution du problème :
 
-*   Bureau à distance (TCP-In) : il s’agit de la règle standard qui fournit l’accès principal à la machine virtuelle en autorisant RDP dans Azure.
+*   Bureau à distance (TCP-In) : il s’agit de la règle standard qui fournit l’accès principal à la machine virtuelle en autorisant RDP dans Azure.
 
-*   Gestion à distance de Windows (HTTP-In) : cette règle vous permet de vous connecter à la machine virtuelle à l’aide de PowerShell. Dans Azure, ce type d’accès vous permet d'utiliser l’aspect de script et le dépannage à distance.
+*   Gestion à distance de Windows (HTTP-In) : cette règle vous permet de vous connecter à la machine virtuelle à l’aide de PowerShell. Dans Azure, ce type d’accès vous permet d’utiliser l’aspect de script et le dépannage à distance.
 
-*   Partage de fichiers et d’imprimantes (SMB-In) : cette règle permet l’accès au partage réseau comme option de résolution des problèmes.
+*   Partage de fichiers et d’imprimantes (SMB-In) : cette règle permet l’accès au partage réseau comme option de résolution des problèmes.
 
-*   Partage de fichiers et d’imprimantes (demande d’écho – ICMPv4-In) : cette règle vous permet d’effectuer un test ping sur la machine virtuelle. 
+*   Partage de fichiers et d’imprimantes (Requête Echo - ICMPv4-In) : Cette règle permet d’effectuer un test ping sur la machine virtuelle.
 
 Dans l’instance d’accès à la console série, vous pouvez interroger l’état actuel de la règle de pare-feu.
 
@@ -83,7 +83,7 @@ Dans l’instance d’accès à la console série, vous pouvez interroger l’é
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   Pour le dépannage, vous pouvez DÉSACTIVER les profils de pare-feu : 
+*   Pour le dépannage, vous pouvez DÉSACTIVER les profils de pare-feu :
 
     ```cmd
     netsh advfirewall set allprofiles state off

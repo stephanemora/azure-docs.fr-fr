@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 1b6f157ce8a184885fcd1cd6bbde912516916db9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429724"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186121"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimisation de votre environnement avec la solution System Center Operations Manager Health Check (préversion)
 
@@ -99,7 +97,7 @@ Maintenant que le compte d’identification est créé, il doit cibler les serve
 2. Dans l’onglet **Distribution**, cliquez sur **Ajouter** pour **Ordinateurs sélectionnés** et ajoutez le serveur d’administration auquel distribuer le compte.  Cliquez deux fois sur **OK** pour enregistrer vos modifications.
 3. Sous **Configuration d’identification**, cliquez sur **Profils**.
 4. Recherchez *Profil d’évaluation SCOM*.
-5. Le nom du profil doit être : *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
+5. Le nom du profil doit être le suivant : *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
 6. Avec le bouton droit, mettez à jour ses propriétés et ajoutez le nouveau compte d’identification créé précédemment.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL octroyant des autorisations granulaires au compte d’identification
@@ -161,8 +159,8 @@ Par défaut, Microsoft System Center Advisor SCOM Assessment Run Assessment Rule
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Activation de la règle pour un serveur de gestion spécifique
 
 1. Dans l’espace de travail **Création** de la console Operations Manager, recherchez la règle *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* dans le panneau **Règles**.
-2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : serveur de gestion*.
-3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Substitutions** > **Pour un objet spécifique de la classe : serveur de gestion**.
+2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : Serveur d’administration*.
+3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Substitutions** > **Pour un objet spécifique de la classe : Serveur d’administration**.
 4.  Dans la liste de serveurs de gestion disponibles, sélectionnez le serveur de gestion où la règle doit être exécutée.  Il doit s’agir du même serveur d’administration que vous avez configuré précédemment pour y associer le compte d’identification.
 5.  Veillez à modifier la valeur de substitution sur **True** pour la valeur du paramètre **Activé**.<br><br> ![paramètre de substitution](./media/scom-assessment/rule.png)
 
@@ -173,8 +171,8 @@ Par défaut, Microsoft System Center Advisor SCOM Assessment Run Assessment Rule
 L’évaluation est configurée pour s’exécuter toutes les 10 080 minutes (ou sept jours) par défaut. Vous pouvez substituer la valeur par la valeur minimale de 1 440 minutes (ou un jour). La valeur représente l’intervalle de temps minimal requis entre les exécutions d’évaluation successives. Pour substituer l’intervalle, utilisez les étapes ci-dessous.
 
 1. Dans l’espace de travail **Création** de la console Operations Manager, recherchez la règle *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* dans la section **Règles**.
-2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : serveur de gestion*.
-3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Remplacer la règle** > **Pour tous les objets de la classe : serveur de gestion**.
+2. Dans les résultats de la recherche, sélectionnez le résultat qui inclut le texte *Type : Serveur d’administration*.
+3. Cliquez sur la règle avec le bouton droit, puis cliquez sur **Remplacer la règle** > **Pour tous les objets de la classe : Serveur d’administration**.
 4. Modifiez la valeur du paramètre **Intervalle** sur la valeur de l’intervalle souhaité. Dans l’exemple ci-dessous, la valeur est définie sur 1 440 minutes (1 jour).<br><br> ![paramètre d’intervalle](./media/scom-assessment/interval.png)<br>  
 
     Si la valeur est inférieure à 1440 minutes, la règle s’exécute selon un intervalle d’une journée. Dans cet exemple, la règle ignore la valeur de l’intervalle et s’exécute à la fréquence d’un jour.
@@ -238,7 +236,7 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
     ```
 
     >[!NOTE]
-    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](../../log-analytics/log-analytics-queries.md), remplacez la requête ci-dessus par la requête ci-dessous.
+    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](../../azure-monitor/log-query/log-query-overview.md), remplacez la requête ci-dessus par la requête ci-dessous.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +261,7 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
     ```
 
     >[!NOTE]
-    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](../../log-analytics/log-analytics-queries.md), remplacez la requête ci-dessus par la requête ci-dessous.
+    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](../../azure-monitor/log-query/log-query-overview.md), remplacez la requête ci-dessus par la requête ci-dessous.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +302,4 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Rechercher dans les journaux](../../log-analytics/log-analytics-queries.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.
+- [Rechercher dans les journaux](../../azure-monitor/log-query/log-query-overview.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.

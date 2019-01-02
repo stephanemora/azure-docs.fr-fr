@@ -1,6 +1,7 @@
 ---
-title: Guide de résolution des problèmes de déploiement liés au service Azure Machine Learning
-description: Découvrez comment contourner, résoudre et traiter les erreurs courantes de déploiement Docker liées au service Azure Machine Learning.
+title: Guide de résolution des problèmes liés au déploiement
+titleSuffix: Azure Machine Learning service
+description: Découvrez comment contourner, résoudre et dépanner les erreurs courantes de déploiement Docker avec AKS et ACI à l’aide d’Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,18 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
-ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321680"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100512"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Résolution les problèmes de déploiement liés au service Azure Machine Learning
+# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Résoudre les problèmes de déploiement AKS et ACI d’Azure Machine Learning service
 
-Dans cet article, vous allez découvrir comment contourner et résoudre les erreurs courantes de déploiement Docker liées au service Azure Machine Learning.
+Dans cet article, vous allez découvrir comment contourner et résoudre les erreurs courantes de déploiement Docker avec Azure Container Instances (ACI) et Azure Kubernetes Service (AKS) à l’aide d’Azure Machine Learning service.
 
 Quand vous déployez un modèle dans le service Azure Machine Learning, le système effectue une série de tâches. Il s’agit d’une séquence d’événements complexe au cours de laquelle des problèmes surviennent parfois. Les tâches de déploiement sont les suivantes :
 
@@ -117,7 +119,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Déboguer l’image Docker localement
-Le journal Docker n’émet parfois pas suffisamment d’informations sur le problème en cours. Vous pouvez aller plus loin en extrayant l’image Docker générée, en démarrant un conteneur local et en effectuant le débogage directement dans le conteneur actif de manière interactive. Pour démarrer un conteneur local, vous devez disposer d’un moteur Docker en cours d’exécution localement ; votre tâche serait grandement facilitée si l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) est également installé.
+Le journal Docker n’émet parfois pas suffisamment d’informations sur le problème en cours. Vous pouvez aller plus loin en extrayant l’image Docker générée, en démarrant un conteneur local et en effectuant le débogage directement dans le conteneur actif de manière interactive. Pour démarrer un conteneur local, vous devez disposer d’un moteur Docker en cours d’exécution localement ; votre tâche serait grandement facilitée si l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) est également installé.
 
 Nous devons d’abord déterminer l’emplacement de l’image :
 
@@ -216,16 +218,12 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**Remarque** : Ne retournez des messages d’erreur à partir de l’appel `run(input_data)` qu’à des fins de débogage. Pour des raisons de sécurité, évitez cette approche dans un environnement de production.
+**Remarque**: Retournez les messages d’erreur à partir de l’appel `run(input_data)` exclusivement à des fins de débogage. Pour des raisons de sécurité, évitez cette approche dans un environnement de production.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur le déploiement : 
-* [Déployer sur ACI](how-to-deploy-to-aci.md)
+* [Où et comment effectuer un déploiement](how-to-deploy-and-where.md)
 
-* [Déployer sur AKS](how-to-deploy-to-aks.md)
-
-* [Tutoriel, partie 1 : entraîner le modèle](tutorial-train-models-with-aml.md)
-
-* [Tutoriel, partie 2 : déployer le modèle](tutorial-deploy-models-with-aml.md)
+* [Tutoriel : Effectuer l'apprentissage de modèles et les déployer](tutorial-train-models-with-aml.md)

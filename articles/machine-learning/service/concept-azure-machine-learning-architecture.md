@@ -1,6 +1,7 @@
 ---
-title: Fonctionnement du service Azure Machine Learning
-description: Découvrez l’architecture, la terminologie et les concepts relatifs au service Azure Machine Learning. Nous aborderons également le flux de travail général du service, ainsi que les services Azure qui sont utilisés par le service Azure Machine Learning.
+title: 'ML dans le cloud : termes et architecture'
+titleSuffix: Azure Machine Learning service
+description: Découvrez l’architecture, la terminologie et les concepts relatifs au service Azure Machine Learning. Nous aborderons également le workflow général du service, ainsi que les services Azure qui sont utilisés par le service Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,21 +9,22 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 10/24/2018
-ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 3966d4b27f0e3d42f47d84fb5c9f5c8519a27b6c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706804"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184727"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Fonctionnement du service Azure Machine Learning : Architecture et concepts
 
-Ce document décrit l’architecture et les concepts du service Azure Machine Learning. Le diagramme suivant montre les principaux composants du service et illustre le flux de travail général lors de l’utilisation du service : 
+Ce document décrit l’architecture et les concepts du service Azure Machine Learning. Le diagramme suivant montre les principaux composants du service et illustre le workflow général lors de l’utilisation du service : 
 
 [![Architecture et workflow du service Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-Le flux de travail suit généralement ces étapes :
+Le workflow suit généralement ces étapes :
 
 1. Développez les scripts d’entraînement de machine learning avec __Python__.
 1. Créez et configurez une __cible de calcul__.
@@ -33,8 +35,6 @@ Le flux de travail suit généralement ces étapes :
 1. __Créez une image__ et inscrivez-la dans le __registre d’images__. 
 1. __Déployez l’image__ comme un __service web__ dans Azure.
 
-
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 > [!NOTE]
 > Ce document définit les termes et les concepts utilisés par Azure Machine Learning, mais il ne définit pas ceux relatifs à la plateforme Azure. Pour plus d’informations sur la terminologie relative à la plateforme Azure, consultez le [glossaire Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
@@ -65,7 +65,7 @@ Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement 
 
 Le diagramme suivant est une taxonomie de l’espace de travail :
 
-[![Taxonomie de l’espace de travail](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
+[![Taxonomie de l’espace de travail](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="model"></a>Modèle
 
@@ -75,7 +75,7 @@ Un modèle est généré par une exécution effectuée dans Azure Machine Learni
 
 Le service Azure Machine Learning est indépendant de l’architecture. Vous pouvez utiliser n’importe quel framework de machine learning lorsque vous créez un modèle, comme scikit-learn, xgboost, PyTorch, TensorFlow, Chainer ou CNTK.
 
-Pour obtenir un exemple d’apprentissage du modèle, consultez le document [Démarrage rapide : Créer un espace de travail correspondant au service Machine Learning](quickstart-get-started.md).
+Pour obtenir un exemple de l’apprentissage d’un modèle, consultez le [Guide de démarrage rapide : Créer un espace de travail pour le service Machine Learning](quickstart-get-started.md).
 
 ### <a name="model-registry"></a>Registre de modèles
 
@@ -99,8 +99,8 @@ Les images constituent un moyen fiable de déployer un modèle et tous les compo
 
 Deux types d’images peuvent être créés par Azure Machine Learning :
 
-* Image FPGA : utilisée lors du déploiement d’un tableau FPGA dans le cloud Azure.
-* Image Docker : utilisée lors de déploiements sur des cibles de calcul autres que les tableaux FPGA. Par exemple, Azure Container Instances et Azure Kubernetes Service.
+* Image FPGA : Utilisée lors du déploiement d’un tableau FPGA (field programmable gate array) dans le cloud Azure.
+* Image Docker : Utilisée lors du déploiement sur des cibles de calcul autres que les tableaux FPGA. Par exemple, Azure Container Instances et Azure Kubernetes Service.
 
 Pour obtenir un exemple de création d’image, consultez le document [Déployer un modèle de classification d’images dans Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
@@ -148,13 +148,13 @@ Une exécution est un enregistrement qui contient les informations suivantes :
 
 Une exécution est déclenchée lorsque vous envoyez un script pour entraîner un modèle. Une exécution peut avoir zéro, une ou plusieurs exécutions enfants. De fait, l’exécution de niveau supérieur peut avoir deux exécutions enfants, et chacune d’elles peut avoir ses propres exécutions enfants.
 
-Pour obtenir un exemple où sont affichées les exécutions déclenchées par l’entraînement d’un modèle, consultez le document [Démarrage rapide : bien démarrer avec le service Azure Machine Learning](quickstart-get-started.md).
+Pour obtenir un exemple de l’affichage des exécutions produites par l’apprentissage d’un modèle, consultez le [Guide de démarrage rapide : Prise en main d’Azure Machine Learning service](quickstart-get-started.md).
 
 ## <a name="experiment"></a>Expérience
 
 Une expérience est un regroupement d’exécutions provenant d’un script donné. Elle appartient toujours à un espace de travail. Lorsque vous envoyez une exécution, vous fournissez un nom pour l’expérience. Les informations concernant l’exécution sont stockées sous cette expérience. Si vous envoyez une exécution et spécifiez un nom d’expérience qui n’existe pas, une nouvelle expérience portant ce nom est automatiquement créée.
 
-Pour obtenir un exemple d’utilisation d’une expérience, consultez le document [Démarrage rapide : bien démarrer avec le service Azure Machine Learning](quickstart-get-started.md).
+Pour obtenir un exemple de l’utilisation d’une expérience, consultez le [Guide de démarrage rapide : Prise en main d’Azure Machine Learning service](quickstart-get-started.md).
 
 ## <a name="pipeline"></a>Pipeline
 
@@ -169,19 +169,23 @@ Une cible de calcul est une ressource de calcul utilisée pour exécuter votre s
 | Cible de calcul | Formation | Déploiement |
 | ---- |:----:|:----:|
 | Votre ordinateur local | ✓ | &nbsp; |
+| Capacité de calcul Azure Machine Learning | ✓ | &nbsp; |
 | Une machine virtuelle Linux dans Azure</br>(par exemple Data Science Virtual Machine) | ✓ | &nbsp; |
-| Un cluster Azure Batch AI | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Service Analytique Azure Data Lake | ✓ | &nbsp; |
 | Apache Spark pour HDInsight | ✓ | &nbsp; |
-| Azure Container Instance | ✓ | ✓ |
+| Azure Container Instance | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Projet Brainwave</br>(Field programmable gate array) | &nbsp; | ✓ |
 
 Les cibles de calcul sont attachées à un espace de travail. Les cibles de calcul autres que l’ordinateur local sont partagées par les utilisateurs de l’espace de travail.
 
-La plupart des cibles de calcul peuvent être créées directement par le biais de l’espace de travail à l’aide du portail Azure, du SDK Azure Machine Learning ou d’Azure CLI. Si vous disposez de cibles de calcul qui ont été créées par un autre processus (par exemple, via le portail Azure ou Azure CLI), vous pouvez les ajouter (attacher) à votre espace de travail. Certaines cibles de calcul doivent être créées en dehors de l’espace de travail, puis attachées.
+### <a name="managed-and-unmanaged-compute-targets"></a>Cibles de calcul managées et non managées
+
+Les cibles de calcul **managées** sont créées et managées par Azure Machine Learning service. Ces cibles de calcul sont optimisées pour les charges de travail ML. À l’heure actuelle, la __capacité de calcul Azure Machine Learning__ est la seule cible de calcul managée (4 décembre 2018). Il se peut que d’autres cibles de calcul managées soient ajoutées à l’avenir. Les instances de capacité de calcul ML peuvent être créées directement via l’espace de travail à l’aide du Portail Azure, du SDK Azure Machine Learning ou d’Azure CLI. Toutes les autres cibles de calcul doivent être créées hors de l’espace de travail avant d’y être jointes.
+
+Les cibles de calcul **non managées** ne sont pas managées par Azure Machine Learning service. Il se peut que vous deviez les créer hors d’Azure Machine Learning, puis les joindre à votre espace de travail avant utilisation. Il se peut que des étapes supplémentaires soient requises pour ces cibles de calcul afin de maintenir ou d’améliorer les performances des charges de travail ML.
 
 Pour plus d’informations sur la sélection d’une cible de calcul pour l’entraînement, consultez le document [Sélectionner et utiliser une cible de calcul pour entraîner votre modèle](how-to-set-up-training-targets.md).
 
@@ -222,6 +226,6 @@ Les activités peuvent envoyer des notifications via le SDK ou l’interface uti
 
 Cliquez sur les liens suivants pour bien démarrer avec Azure Machine Learning :
 
-* [Qu’est-ce que le service Azure Machine Learning ?](overview-what-is-azure-ml.md)
-* [Démarrage rapide : créer un espace de travail avec Python](quickstart-get-started.md)
-* [Tutoriel : entraîner un modèle](tutorial-train-models-with-aml.md)
+* [Qu’est-ce que le service Azure Machine Learning ?](overview-what-is-azure-ml.md)
+* [Guide de démarrage rapide : Créer un espace de travail avec Python](quickstart-get-started.md)
+* [Tutoriel : Effectuer l'apprentissage d’un modèle](tutorial-train-models-with-aml.md)

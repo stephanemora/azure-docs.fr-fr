@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 69ebe7fde454d2f0e98371406de56f48c9ea97ae
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 24430b1b785a24da06a8ea51594147040e6d5bd6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639123"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190388"
 ---
 # <a name="certify-your-vm-image"></a>Certifier votre image de machine virtuelle
 
@@ -82,4 +82,4 @@ Enfin, cliquez sur **Generate Report** (Générer le rapport) afin de téléchar
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous devez à présent [générer un identificateur Uniform Resource Identifier (URI) pour chaque VHD](./cpp-get-sas-uri.md) que vous soumettez à la place de marché. 
+Vous allez ensuite [générer un identificateur Uniform Resource Identifier (URI) pour chaque VHD](./cpp-get-sas-uri.md) que vous soumettez à la place de marché. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 3ddd2f122de832654be295c5978a88bec702558c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319018"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134435"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Le pare-feu du système d’exploitation invité des machines virtuelles Azure bloque le trafic entrant
 
@@ -31,17 +31,17 @@ Vous ne pouvez pas utiliser une connexion RDP pour vous connecter à une machine
 
 ## <a name="cause"></a>Cause :
 
-### <a name="cause-1"></a>Cause 1 
+### <a name="cause-1"></a>Cause 1
 
 La règle RDP n’est pas configurée pour autoriser le trafic RDP.
 
-### <a name="cause-2"></a>Cause 2 
+### <a name="cause-2"></a>Cause 2
 
 Les profils de pare-feu du système invité sont configurés pour bloquer toutes les connexions entrantes, y compris le trafic RDP.
 
 ![Paramètre de pare-feu](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## <a name="solution"></a>Solution 
+## <a name="solution"></a>Solution
 
 Avant de suivre ces étapes, prenez un instantané du disque système de la machine virtuelle affectée comme sauvegarde. Pour plus d’informations, consultez  [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
 
@@ -49,7 +49,7 @@ Pour résoudre ce problème, utilisez l’une des méthodes dans [Utiliser des o
 
 ### <a name="online-troubleshooting"></a>Résolution des problèmes en ligne
 
-Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Si la console série n’est pas activée sur la machine virtuelle, accédez à [Réparer la machine virtuelle en mode hors connexion](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
+Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Si la console série n’est pas activée sur la machine virtuelle, accédez à [Réparer la machine virtuelle en mode hors connexion](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
 
 #### <a name="mitigation-1"></a>Atténuation 1
 
@@ -80,7 +80,7 @@ Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-c
     ```cmd
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
     ```
-    
+
     Sinon, pour ouvrir la règle Bureau à distance (TCP-In) spécifique, exécutez la commande suivante :
 
     ```cmd
@@ -94,7 +94,7 @@ Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-c
     ```
 
     Une fois que vous avez fini correctement le dépannage et la configuration du pare-feu, réactivez le pare-feu.
-    
+
     > [!Note]
     > Vous n’êtes pas obligé de redémarrer la machine virtuelle pour appliquer ces changements.
 
@@ -112,8 +112,8 @@ Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-c
 
     > [!Note]
     > Les instructions suivantes s’appliquent à la stratégie de pare-feu, en fonction de la façon dont elle est configurée :
-    >    * *BlockInbound* : L’ensemble du trafic entrant est bloqué, sauf si vous avez une règle effective pour autoriser ce trafic.
-    >    * *BlockInboundAlways* : Toutes les règles de pare-feu sont ignorées et l’ensemble du trafic est bloqué.
+    >    * *BlockInbound* : l’ensemble du trafic entrant est bloqué, sauf si vous avez une règle effective pour autoriser ce trafic.
+    >    * *BlockInboundAlways* : toutes les règles de pare-feu sont ignorées et l’ensemble du trafic est bloqué.
 
 2.  Modifiez *DefaultInboundAction* pour définir ces profils sur **Autoriser** le trafic. Pour ce faire, exécutez la commande suivante :
 
@@ -128,11 +128,11 @@ Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-c
     ```
 
     > [!Note]
-    > Vous n’êtes pas obligé de redémarrer la machine virtuelle pour appliquer les changements. 
+    > Vous n’êtes pas obligé de redémarrer la machine virtuelle pour appliquer les changements.
 
 4.  Réessayez d’accéder à votre machine virtuelle via RDP.
 
-### <a name="offline-mitigations"></a>Atténuations hors connexion 
+### <a name="offline-mitigations"></a>Atténuations hors connexion
 
 1.  [Attachez le disque système à une machine virtuelle de récupération](troubleshoot-recovery-disks-portal-windows.md).
 
@@ -159,7 +159,7 @@ Consultez [Activer ou désactiver une règle de pare-feu sur un système d’ex
     robocopy f:\windows\system32\config f:\windows\system32\config.BACK /MT
 
     REM Mount the hive
-    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM 
+    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
 
     REM Delete the keys to block all inbound connection scenario
     REG DELETE "HKLM\BROKENSYSTEM\ControlSet001\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile" /v DoNotAllowExceptions

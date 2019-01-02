@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975888"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434662"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
-Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul lors de l’exécution de votre code. La capacité de votre application est augmentée le cas échéant pour gérer la charge et réduite lorsque le code n’est pas en cours d’exécution. Vous n’avez pas à payer pour des machines virtuelles inactives ni à réserver de la capacité à l’avance.
+Azure Functions s’exécute dans deux modes différents : plan Consommation et plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul lors de l’exécution de votre code. La capacité de votre application est augmentée le cas échéant pour gérer la charge et réduite lorsque le code n’est pas en cours d’exécution. Vous n’avez pas à payer pour des machines virtuelles inactives ni à réserver de la capacité à l’avance.
 
 > [!NOTE]  
 > Pour l’instant, [l’hébergement Linux](functions-create-first-azure-function-azure-cli-linux.md) est uniquement disponible dans un plan App Service.
@@ -68,7 +68,7 @@ Pensez à un plan App Service dans les cas suivants :
 
 L’utilisation d’une machine virtuelle dissocie le coût du nombre d’exécutions, de la durée d’exécution et de la mémoire utilisée. Vous ne payez donc pas plus que le coût de l’instance de machine virtuelle que vous allouez. Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Avec un plan App Service, vous pouvez augmenter manuellement la taille des instances en ajoutant des instances de machine virtuelle, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/web-sites-scale.md). 
+Avec un plan App Service, vous pouvez augmenter manuellement la taille des instances en ajoutant des instances de machine virtuelle, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/web-sites-scale.md). 
 
 Lorsque vous exécutez des fonctions JavaScript dans un plan App Service, vous devez choisir un plan qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans App Service à cœur unique](functions-reference-node.md#considerations-for-javascript-functions).  
 

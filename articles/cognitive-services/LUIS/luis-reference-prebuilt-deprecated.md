@@ -1,26 +1,27 @@
 ---
-title: Documentation de référence pour les entités prédéfinies désapprouvées de LUIS - Azure | Microsoft Docs
+title: Entités prédéfinies dépréciées
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie désapprouvée dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 5f722e9eae45f2df86b8c0831ffd33ad3edd8e5b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 7b294b9c528d0b7a93a3e287b37124a26d0851dd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334106"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138056"
 ---
-# <a name="deprecated-entities"></a>Entités désapprouvées
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entités prédéfinies dépréciées dans une application LUIS
 Les entités prédéfinies suivantes sont désapprouvées et ne peuvent pas être ajoutées à de nouvelles applications LUIS.
 
-* **DateTime** : les applications LUIS existantes qui utilisent **datetime** doivent être migrées vers **datetimev2**, même si l’entité datetime continue à fonctionner dans des applications préexistantes qui l’utilisent.
+* **Datetime** : les applications LUIS existantes qui utilisent **datetime** doivent être migrées vers **datetimev2**, même si l’entité datetime continue à fonctionner dans des applications préexistantes qui l’utilisent.
 * **Geography** : les applications LUIS existantes qui utilisent **geography** seront prises en charge jusqu’au mois de décembre 2018.
 * **Encyclopedia** : les applications LUIS existantes qui utilisent **encyclopedia** seront prises en charge jusqu’au mois de décembre 2018.
 
@@ -42,9 +43,9 @@ Entité prédéfinie   |   Exemple d’énoncé   |   JSON
 **Encyclopedia** est disponible uniquement dans les paramètres régionaux `en-US`.
 
 #### <a name="encyclopedia-subtypes"></a>Sous-types de Encyclopedia
-L’entité intégrée Encyclopedia inclut plus de 100 sous-types dans le tableau suivant : de plus, les entités Encyclopedia mappent souvent à plusieurs types. Par exemple, la requête Ronald Reagan génère ce qui suit : 
+L’entité intégrée Encyclopedia comprend plus de 100 sous-types dans le tableau suivant : De plus, les entités Encyclopedia sont souvent mappées à plusieurs types. Par exemple, la requête Ronald Reagan génère ce qui suit : 
 
-```JSON
+```json
 {
       "entity": "ronald reagan",
       "type": "builtin.encyclopedia.people.person"

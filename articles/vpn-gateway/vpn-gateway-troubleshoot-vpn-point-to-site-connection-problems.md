@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 12/05/2018
 ms.author: genli
-ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238316"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994176"
 ---
-# <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes de connexion de point à site Azure
+# <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
 Cet article répertorie les problèmes de connexion de point à site courants que vous pouvez rencontrer. Il décrit également les causes probables de ces problèmes, ainsi que les solutions possibles.
 
-## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Erreur du client VPN : le certificat est introuvable
+## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Erreur client VPN : impossible de trouver un certificat
 
 ### <a name="symptom"></a>Symptôme
 
@@ -41,7 +41,7 @@ Ce problème se produit si le certificat client est absent de **Certificats - Ut
 
 Pour résoudre ce problème, effectuez les opérations suivantes :
 
-1. Ouvrez le Gestionnaire de certificats : cliquez sur **Démarrer**, saisissez **gérer les certificats d’ordinateur**, puis cliquez sur **gérer les certificats d’ordinateur** dans les résultats de la recherche.
+1. Ouvrez le Gestionnaire de certificats : cliquez sur **Démarrer**, tapez **gérer les certificats d’ordinateur**, puis cliquez sur **gérer les certificats d’ordinateur** dans les résultats de la recherche.
 
 2. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
@@ -58,7 +58,7 @@ Pour en savoir plus sur la façon d’installer le certificat client, consultez 
 > [!NOTE]
 > Lorsque vous importez le certificat client, ne sélectionnez pas l’option **Activer la protection renforcée par clé privée**.
 
-## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Erreur du client VPN : le message reçu était inattendu ou formaté de façon incorrecte
+## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Erreur du client VPN : le message reçu était inattendu ou mis en forme de façon incorrecte
 
 ### <a name="symptom"></a>Symptôme
 
@@ -101,7 +101,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 2. Si les certificats se trouvent déjà dans cet emplacement, essayez de les supprimer et de les réinstaller. Le certificat **azuregateway-*GUID*.cloudapp.net** se trouve dans le package de configuration du client VPN, téléchargé à partir du portail Azure. Vous pouvez vous servir des programmes d’archivage de fichiers afin d’extraire les fichiers du package.
 
-## <a name="file-download-error-target-uri-is-not-specified"></a>Erreur de téléchargement du fichier : L’URI cible n’est pas spécifié
+## <a name="file-download-error-target-uri-is-not-specified"></a>Erreur de téléchargement du fichier : l’URI cible n’est pas spécifié
 
 ### <a name="symptom"></a>Symptôme
 
@@ -117,7 +117,7 @@ Ce problème se produit lorsque le type de passerelle est incorrecte.
 
 Le type de passerelle VPN doit être défini sur la valeur **VPN**, tandis que le type de VPN doit être défini sur la valeur **RouteBased**.
 
-## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>Erreur du client VPN : échec du script VPN personnalisé Azure 
+## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>Erreur du client VPN : échec du script VPN personnalisé Azure 
 
 ### <a name="symptom"></a>Symptôme
 
@@ -150,7 +150,7 @@ Extrayez le package de configuration du client VPN et localisez le fichier .cer.
 5. Redémarrez l'ordinateur. 
 6. Essayez d’installer le client VPN.
 
-## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Erreur du portail Azure : échec de l’enregistrement. Les données de la passerelle VPN ne sont pas valides
+## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Erreur du portail Azure : échec de l’enregistrement. Les données de la passerelle VPN ne sont pas valides
 
 ### <a name="symptom"></a>Symptôme
 
@@ -185,7 +185,7 @@ Vérifiez que les données du certificat ne contiennent pas de caractères non v
     e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
     -----END CERTIFICATE-----
 
-## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Erreur du portail Azure : échec de l’enregistrement de la passerelle VPN. Le nom de la ressource n’est pas valide
+## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Erreur du portail Azure : échec de l’enregistrement de la passerelle VPN. Le nom de la ressource n’est pas valide
 
 ### <a name="symptom"></a>Symptôme
 
@@ -197,7 +197,7 @@ Lorsque vous essayez d’enregistrer les modifications apportées à la passerel
 
 Ce problème se produit car le nom du certificat contient un caractère non valide, comme un espace. 
 
-## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Erreur du portail Azure : téléchargement du fichier de package VPN (Erreur 503)
+## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Erreur du portail Azure : téléchargement du fichier de package VPN (Erreur 503)
 
 ### <a name="symptom"></a>Symptôme
 
@@ -209,7 +209,7 @@ Lorsque vous essayez de télécharger le package de configuration du client VPN,
 
 Cette erreur peut être due à un problème réseau temporaire. Patientez quelques minutes, puis essayez à nouveau de télécharger le package VPN.
 
-## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Mise à niveau de la passerelle VPN Azure, aucun client point à site ne peut se connecter
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Mise à niveau de la passerelle VPN Azure : aucun client point à site ne peut se connecter
 
 ### <a name="cause"></a>Cause :
 
@@ -300,9 +300,9 @@ Ce problème peut se produire si le client VPN n’obtient pas les itinéraires 
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre ce problème, [réinitialisez la passerelle VPN Azure](vpn-gateway-resetgw-classic.md).
+Pour résoudre ce problème, [réinitialisez la passerelle VPN Azure](vpn-gateway-resetgw-classic.md). Pour s’assurer que les nouvelles routes sont utilisées, les clients VPN point à site doivent être retéléchargés une fois que l’homologation de réseaux virtuels a été configurée avec succès.
 
-## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erreur : « La fonction de révocation n'a pas pu vérifier la révocation, car le serveur de révocation était hors connexion (Erreur 0x80092013) ».
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Error: « La fonction de révocation n’a pas pu vérifier la révocation, car le serveur de révocation était hors connexion (Erreur 0x80092013) ».
 
 ### <a name="causes"></a>Causes
 Ce message d’erreur se produit si le client ne peut pas accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et à http://crl4.digicert.com/ssca-sha2-g1.crl.  La vérification de révocation requiert l’accès à ces deux sites.  Ce problème se produit en général sur le client sur lequel un serveur proxy est configuré. Dans certains environnements, si les requêtes ne passent pas par le serveur proxy, celles-ci seront refusées au niveau du pare-feu Edge.
@@ -311,7 +311,7 @@ Ce message d’erreur se produit si le client ne peut pas accéder à http://crl
 
 Vérifiez les paramètres du serveur proxy, assurez-vous que le client peut accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et à http://crl4.digicert.com/ssca-sha2-g1.crl.
 
-## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Erreur du client VPN : La connexion a été empêchée en raison d’une stratégie configurée sur votre serveur RAS/VPN. (Erreur 812)
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Erreur du client VPN : la connexion a été empêchée en raison d’une stratégie configurée sur votre serveur RAS/VPN. (Erreur 812)
 
 ### <a name="cause"></a>Cause :
 
@@ -327,7 +327,7 @@ Assurez-vous que le serveur RADIUS est configuré correctement. Pour plus d’in
 
 Le certificat racine n’a pas été installé. Le certificat racine est installé dans le magasin **Certificats de confiance** du client.
 
-## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>Erreur du client VPN : la connexion à distance n’a pas été établie car les tunnels VPN essayés ont échoué. (Erreur 800) 
+## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>Erreur du client VPN : la connexion à distance n’a pas été établie car les tunnels VPN essayés ont échoué. (Erreur 800) 
 
 ### <a name="cause"></a>Cause :
 
@@ -343,7 +343,7 @@ Mettre à jour le pilote de carte d’interface réseau :
 4. Si Windows ne trouve pas de nouveau pilote, recherchez-en un sur le site Web du fabricant de l’appareil et suivez ses instructions.
 5. Redémarrez l’ordinateur et réessayez de vous connecter.
 
-## <a name="error-file-download-error-target-uri-is-not-specified"></a>Erreur : « Erreur de téléchargement du fichier. L’URI cible n’est pas spécifiée »
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Error: « Erreur de téléchargement du fichier. L’URI cible n’est pas spécifiée »
 
 ### <a name="cause"></a>Cause :
 

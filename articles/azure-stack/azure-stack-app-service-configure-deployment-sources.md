@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: d65c8653bc039b591f1c0fb711dfe68e3fbacd88
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353559"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888509"
 ---
 # <a name="configure-deployment-sources"></a>Configurer des sources de déploiement
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 App Service sur Azure Stack prend en charge le déploiement à la demande à partir de plusieurs fournisseurs de contrôle de code source. Cette fonctionnalité permet aux développeurs d’applications d’effectuer un déploiement directement à partir de leurs référentiels de contrôle de code source. Si les utilisateurs veulent configurer App Service pour se connecter à leurs dépôts, un opérateur cloud doit d’abord configurer l’intégration entre App Service sur Azure Stack et le fournisseur de contrôle de code source.  
 
@@ -38,7 +38,8 @@ En plus du Git local, les fournisseurs de contrôle de code source suivants sont
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Afficher les sources de déploiement dans l’administration App Service
 
 1. Connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external)) en tant qu’administrateur du service.
-2. Accédez à **Fournisseurs de ressources** et sélectionnez **App Service Resource Provider Admin** (Administrateur du fournisseur de ressources App Service).  ![Administrateur du fournisseur de ressources App Service][1]
+2. Accédez à **Tous les Services** et sélectionnez **App Service**.
+    ![Administrateur du fournisseur de ressources App Service][1]
 3. Cliquez sur **Source control configuration** (Configuration du contrôle de code source). Vous pouvez voir la liste de toutes les sources de déploiement configurées.
     ![Configuration du contrôle de code source de l’administrateur du fournisseur de ressources App Service][2]
 
@@ -73,8 +74,8 @@ Vous avez besoin d’un compte BitBucket pour effectuer cette tâche. Vous voudr
 5. Entrez **l’URL de rappel**. Dans un déploiement d’Azure Stack par défaut, l’URL de rappel apparaît sous la forme https://portal.local.azurestack.external/TokenAuthorize. Si l’exécution se déroule sous un autre domaine, remplacez azurestack.local par le nom de votre domaine. L’URL doit respecter la mise en majuscules indiquée ici pour une intégration BitBucket réussie.
 6. Entrez **l’URL**. Cette URL doit être celle du portail Azure Stack, par exemple https://portal.local.azurestack.external.
 7. Sélectionnez les **autorisations** requises :
-    - **Référentiels** : *Lire*
-    - **Webhooks** : *Lire et écrire*
+    - **Référentiels** : *Lire*
+    - **Webhooks** : *Lecture et écriture*
 8. Cliquez sur **Enregistrer**. Cette nouvelle application s’affiche maintenant avec la **clé** et le **secret** sous **OAuth consumers** (Consommateurs OAuth).
     ![Liste des applications BitBucket][9]
 9.  Dans un nouvel onglet ou une nouvelle fenêtre de navigateur, connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external) en tant qu’administrateur du service.

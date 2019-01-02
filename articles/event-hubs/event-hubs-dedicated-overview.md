@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble de la capacité Azure Event Hubs Dedicated | Microsoft Docs
-description: Vue d’ensemble de la capacité Azure Event Hubs Dedicated.
+title: Vue d’ensemble d’Event Hubs Dedicated - Azure Event Hubs | Microsoft Docs
+description: Cet article fournit une vue d’ensemble d’Azure Event Hubs Dedicated, qui offre des déploiements de concentrateurs d’événements à locataire unique.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 68a55d8a16e55e2f5e4b48153f045daa40c9a68c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140484"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091024"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 

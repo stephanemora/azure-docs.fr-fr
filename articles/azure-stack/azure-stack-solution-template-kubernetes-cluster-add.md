@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 61af2c13a7cf395b5a96dc7b7ba63ad4d70dcf36
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 0cac5658d5f6f32795b5988008b3b895024ecc06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333008"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960532"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Ajouter Kubernetes sur la Place de marché Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!note]  
 > Kubernetes sur Azure Stack est en préversion.
@@ -73,10 +73,10 @@ Ajoutez l’image de serveur Ubuntu suivante sur la Place de marché :
 1. Entrez `UbuntuServer`.
 
 1. Sélectionnez la version la plus récente du serveur. Consultez la version complète et assurez-vous que vous avez la version la plus récente :
-    - **Publisher** (Serveur de publication) : Canonical
-    - **Offer** (Offre) : UbuntuServer
+    - **Éditeur** : Canonical
+    - **Offre** : UbuntuServer
     - **Version** : 16.04.201806120
-    - **SKU** : 16.04-LTS
+    - **SKU** : 16.04-LTS
 
 1. Sélectionnez **Télécharger**.
 
@@ -93,9 +93,9 @@ Ajoutez Kubernetes à partir de la Place de marché :
 1. Entrez `Custom Script for Linux`.
 
 1. Sélectionnez le script avec le profil suivant :
-    - **Offer** (Offre) : script personnalisé pour Linux 2.0
-    - **Version** : 2.0.6
-    - **Publisher** (Serveur de publication) : Microsoft Corp
+    - **Offre** : Script personnalisé pour Linux 2.0
+    - **Version** : 2.0.6
+    - **Éditeur** : Microsoft Corp
 
     > [!Note]  
     > Plusieurs versions d’un script personnalisé pour Linux peuvent être répertoriées. Vous devez ajouter la version appropriée. Kubernetes requiert la version appropriée de l’élément.
@@ -120,7 +120,7 @@ Ajoutez Kubernetes à partir de la Place de marché :
     > [!note]  
     > L’affichage de l’élément sur la Place de marché peut prendre jusqu’à cinq minutes.
 
-    ![kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes"></a>Mettre à jour ou supprimer Kubernetes 
 

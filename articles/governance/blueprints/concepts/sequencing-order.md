@@ -1,5 +1,5 @@
 ---
-title: Comprendre la séquence de déploiement dans les blueprints Azure
+title: Comprendre l’ordre de la séquence de déploiement
 description: Découvrez le cycle de vie que traverse un blueprint, ainsi que les détails de chaque phase.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: bd12aabf0ca8f82261e6b3c677d7306ee46c4171
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620593"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308615"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendre la séquence de déploiement dans les blueprints Azure
 

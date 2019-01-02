@@ -1,7 +1,7 @@
 ---
 title: API REST (V4) - C# - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Obtenez des informations REST et des exemples de code pour commencer rapidement à utiliser l’API de traduction de texte Translator Text Microsoft dans Microsoft Cognitive Services sur Azure.
+description: Obtenez des informations REST et des exemples de code C# pour commencer rapidement à utiliser l’API de traduction de texte Translator Text Microsoft dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,18 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 0b468556892bf85dac1fbdd09e7299a793e1e700
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.custom: seodec18
+ms.openlocfilehash: e2bddb6ab2d7aeb801569102fa3387838f6c3104
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646346"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258098"
 ---
-# <a name="qna-maker-rest-api-with-c"></a>API REST de QnA Maker avec C# 
+# <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>Guide pratique pour utiliser l’API REST QnA Maker avec C# 
 <a name="HOLTop"></a>
 
-Cet article explique comment utiliser [l’API QnA Maker Microsoft](../Overview/overview.md) avec C# pour effectuer les opérations suivantes.
+Cet article explique comment utiliser l’[API QnA Maker Microsoft](../Overview/overview.md)  avec C# pour effectuer les opérations suivantes.
 
 - [Créer une base de connaissances](#Create)
 - [Mettre à jour une base de connaissances](#Update)
@@ -37,7 +38,7 @@ Cet article explique comment utiliser [l’API QnA Maker Microsoft](../Overview/
 - [Obtenir l’ensemble actuel d’altérations de mot](#GetAlterations)
 - [Remplacer l’ensemble actuel d’altérations de mot](#PutAlterations)
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -1,19 +1,19 @@
 ---
-title: Installer un serveur cible maître Linux pour le basculement à partir d’Azure vers un site local | Microsoft Docs
-description: Pour reprotéger une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux. Découvrez comment en installer.
+title: Installer un serveur cible maître Linux pour la restauration automatique vers un site local | Microsoft Docs
+description: Découvrez comment configurer un serveur cible maître Linux pour la restauration automatique vers un site local pendant la reprise d’activité de machines virtuelles VMware sur Azure à l’aide d’Azure Site Recovery.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 470d4547a63105e319f072461a4d8f24ebe3dbe8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094120"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833310"
 ---
-# <a name="install-a-linux-master-target-server"></a>Installer un serveur cible maître Linux
+# <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
 
 Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’un serveur cible maître Windows. Si vous avez une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux. Pour savoir comment créer et installer un serveur cible maître Linux, lisez les étapes ci-dessous.
@@ -41,7 +41,7 @@ Créez le serveur cible maître selon les instructions de dimensionnement suivan
 - **RAM** : 6 Go ou plus
 - **Taille du disque de système d’exploitation** : 100 Go ou plus (pour installer le système d’exploitation)
 - **Taille du disque supplémentaire pour le lecteur de conservation** : 1 To
-- **Cœurs d’UC** : 4 cœurs ou plus
+- **Cœurs de processeur** : 4 cœurs ou plus
 
 Les noyaux Ubuntu suivants sont pris en charge.
 

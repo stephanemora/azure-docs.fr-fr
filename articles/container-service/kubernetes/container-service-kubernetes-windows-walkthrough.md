@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Cluster Azure Kubernetes pour Windows'
+title: '(DÉPRÉCIÉ) Démarrage rapide : Cluster Azure Kubernetes pour Windows'
 description: Découvrez rapidement comment créer un cluster Kubernetes pour des conteneurs Windows dans Azure Container Service avec l’interface de ligne de commande Azure.
 services: container-service
 author: dlepow
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 24659f60e44dc306451528cc7bfb823ad14268a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dfc1d2128e1cf3b4d6b4d9e5141116a2b2ff9c0d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946151"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000600"
 ---
-# <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Déployer un cluster Azure Kubernetes pour des conteneurs Windows
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(DÉPRÉCIÉ) Déployer un cluster Azure Kubernetes pour des conteneurs Windows
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide explique en détail comment utiliser Azure CLI pour déployer un cluster [Kubernetes](https://kubernetes.io/docs/home/) dans [Azure Container Service](../container-service-intro.md). Une fois le cluster déployé, vous vous y connectez avec l’outil en ligne de commande Kubernetes `kubectl`, et vous déployez votre premier conteneur Windows.
 

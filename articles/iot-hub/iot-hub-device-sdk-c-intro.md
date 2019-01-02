@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 97f1c9e16ae6be9e6bece69d0923f6290a8cd072
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024713"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339261"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device SDK pour C
 
@@ -75,11 +75,11 @@ Il existe plusieurs outils open source pour vous aider à gérer votre IoT Hub.
 
 * Une application Windows appelée [Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Une extension de Visual Studio Code multiplateforme appelée [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+* Une extension de Visual Studio Code multiplateforme appelée [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (précédemment Azure IoT Toolkit).
 
 * Une interface CLI Python multiplateforme appelée [extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
-Ce didacticiel utilise l’outil graphique *Explorateur d’appareils*. Vous pouvez utiliser l’*extension Azure IoT Toolkit pour VS Code* si vous développez dans VS Code. Vous pouvez également utiliser l’outil d’*extension IoT pour Azure CLI 2.0* si vous préférez utiliser un outil CLI.
+Ce didacticiel utilise l’outil graphique *Explorateur d’appareils*. Vous pouvez utiliser l’*extension Azure IoT Hub Toolkit pour VS Code* si vous développez dans VS Code. Vous pouvez également utiliser l’outil d’*extension IoT pour Azure CLI 2.0* si vous préférez utiliser un outil CLI.
 
 L’outil Explorateur d’appareils utilise les bibliothèques de service Azure IoT pour effectuer diverses fonctions sur IoT Hub, notamment ajouter des appareils. Si vous utilisez l'outil Explorateur d'appareils pour ajouter un appareil, vous obtenez une chaîne de connexion pour votre appareil. Vous avez besoin de cette chaîne de connexion pour exécuter les exemples d'applications.
 
@@ -410,7 +410,7 @@ END_NAMESPACE(WeatherStation);
 
 Les macros **BEGIN\_NAMESPACE** et **END\_NAMESPACE** se servent toutes les deux de l’espace de noms du modèle comme argument. En principe, tous les éléments compris entre ces deux macros sont la définition du ou des modèles et structures de données que les modèles utilisent.
 
-Dans cet exemple, il existe un seul modèle appelé **ContosoAnemometer**. Ce modèle définit deux éléments de données que votre périphérique peut envoyer à IoT Hub : **DeviceId** et **WindSpeed**. Il définit également trois actions (messages) que votre appareil peut recevoir : **TurnFanOn**, **TurnFanOff** et **SetAirResistance**. Chaque élément de données possède un type et chaque action a un nom (et éventuellement, un ensemble de paramètres).
+Dans cet exemple, il existe un seul modèle appelé **ContosoAnemometer**. Ce modèle définit deux éléments de données que votre appareil peut envoyer à IoT Hub : **DeviceId** et **WindSpeed**. Il définit également trois actions (messages) que votre appareil peut recevoir : **TurnFanOn**, **TurnFanOff** et **SetAirResistance**. Chaque élément de données possède un type et chaque action a un nom (et éventuellement, un ensemble de paramètres).
 
 Les données et les actions définis dans le modèle définissent une surface API que vous pouvez utiliser pour envoyer des messages à IoT Hub et répondre aux messages envoyés à l’appareil. Un exemple permet de mieux comprendre l’utilisation de ce modèle.
 

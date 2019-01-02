@@ -1,5 +1,6 @@
 ---
-title: Migrer vers le service Azure Machine Learning
+title: Migrer à partir de Workbench
+titleSuffix: Azure Machine Learning service
 description: Découvrez comment effectuer une mise à niveau ou une migration vers la dernière version du service Azure Machine Learning à partir d’une version antérieure.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 22e7e513c7ec015b070ae37c1dbdd168404ee768
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236582"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140743"
 ---
-# <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrer vers la dernière version du service Azure Machine Learning 
+# <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Migrer depuis Workbench vers la dernière version du service Azure Machine Learning 
 
-**Si vous avez installé l’application Workbench (préversion) et/ou que vous avez des comptes de préversion de gestion des modèles et d’expérimentation, utilisez cet article pour migrer vers la dernière version.**  Si la préversion de Workbench n’est pas installée, ou si vous n’avez pas de compte de gestion des modèles et/ou d’expérimentation, vous n’avez rien à migrer.
+**Si vous avez installé l’application Workbench et/ou que vous avez des comptes de préversion de gestion des modèles et d’expérimentation, utilisez cet article pour migrer vers la dernière version.**  Si la préversion de Workbench n’est pas installée, ou si vous n’avez pas de compte de gestion des modèles et/ou d’expérimentation, vous n’avez rien à migrer.
 
 ## <a name="what-can-i-migrate"></a>Que puis-je migrer ?
 La plupart des artefacts créés dans la première préversion du service Azure Machine Learning sont stockés dans votre propre stockage local ou cloud. Ces artefacts ne disparaîtront pas. Pour migrer, réinscrivez les artefacts auprès du service Azure Machine Learning mis à jour. 
@@ -38,7 +39,7 @@ Le tableau et l’article suivants expliquent ce que vous pouvez faire avec vos 
 |Images inscrites|Non |Recréer l’image Docker de déploiement sous un nouvel espace de travail.|
 |Services web déployés|Non |Aucune. Ils fonctionneront toujours tels quels <br/>ou [les redéployer à l’aide de la version la plus récente](#services).|
 |Comptes de <br/>gestion des modèles et d’expérimentation|Non |[Créer un espace de travail](#resources) à la place.|
-|Interface CLI et SDK Machine Learning|Non |Utiliser la nouvelle interface [CLI](reference-azure-machine-learning-cli.md) et le nouveau [SDK](http://aka.ms/aml-sdk) pour les nouveaux travaux.|
+|Interface CLI et SDK Machine Learning|Non |Utiliser la nouvelle interface [CLI](reference-azure-machine-learning-cli.md) et le nouveau [SDK](https://aka.ms/aml-sdk) pour les nouveaux travaux.|
 
 
 Apprenez-en davantage sur [ce qui a changé dans cette version](overview-what-happened-to-workbench.md).
@@ -62,7 +63,7 @@ Ce nouvel espace de travail constitue la ressource de service de niveau supérie
 
 Au lieu d’être dans un espace de travail dans le cloud, dans la dernière version vos projets sont désormais des répertoires sur votre ordinateur local. Consultez un diagramme de [l’architecture la plus récente](concept-azure-machine-learning-architecture.md). 
 
-Pour continuer à utiliser le répertoire local contenant vos fichiers et scripts, spécifiez le nom du répertoire dans la commande Python [« experiment.submit »](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) ou à l’aide de la commande CLI « az ml project attach ».
+Pour continuer à utiliser le répertoire local contenant vos fichiers et scripts, spécifiez le nom du répertoire dans la commande Python [« experiment.submit »](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) ou à l’aide de la commande CLI « az ml project attach ».
 
 Par exemple : 
 ```python
@@ -75,12 +76,11 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 Pour migrer les services web, redéployez vos modèles à l’aide du nouveau SDK ou de la nouvelle interface CLI sur les nouvelles cibles de déploiement. Il est inutile de changer votre fichier de scoring, vos fichiers de dépendances de fichiers de modèles, votre fichier d’environnement et vos fichiers de schémas d’origine. 
 
-Dans la dernière version, les modèles sont déployés en tant que services web sur des clusters [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) ou [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS). 
+Dans la dernière version, les modèles sont déployés en tant que services web sur des clusters Azure Container Instances (ACI) ou Azure Kubernetes Service (AKS). 
 
 Pour en savoir plus, consultez les articles suivants :
-+ [Déployer sur ACI](how-to-deploy-to-aci.md)
-+ [Déployer sur AKS](how-to-deploy-to-aks.md)
-+ [Tutoriel : Déployer des modèles avec le service Azure Machine Learning](tutorial-deploy-models-with-aml.md)
++ [Où et comment effectuer un déploiement](how-to-deploy-and-where.md)
++ [Tutoriel : Déployer des modèles avec le service Azure Machine Learning](tutorial-deploy-models-with-aml.md)
 
 Quand la [prise en charge de l’interface CLI précédente prendra fin](overview-what-happened-to-workbench.md#timeline), vous ne pourrez plus gérer les services web que vous avez déployés à l’origine avec votre compte de gestion des modèles. Toutefois, ces services web continueront à fonctionner tant qu’Azure Container Service (ACS) sera pris en charge.
 
@@ -108,7 +108,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## <a name="data-preparation-files"></a>Fichiers de préparation des données
-Les fichiers de préparation des données ne sont pas portables sans Workbench. Mais vous pouvez encore préparer un jeu de données de taille quelconque pour la modélisation à l’aide du nouveau SDK de préparation des données Azure Machine Learning ou utiliser Azure Databricks pour les jeux de données volumineux.  [Découvrez comment obtenir le SDK de préparation des données](how-to-data-prep.md). 
+Les fichiers de préparation des données ne sont pas portables sans Workbench. Mais vous pouvez encore préparer un jeu de données de taille quelconque pour la modélisation à l’aide du nouveau SDK de préparation des données Azure Machine Learning ou utiliser Azure Databricks pour les jeux de données volumineux. [Découvrez comment obtenir le SDK de préparation des données](https://aka.ms/data-prep-sdk).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -117,4 +117,4 @@ Pour obtenir un guide de démarrage rapide illustrant comment créer un espace d
 Pour obtenir une expérience plus approfondie de ce workflow, suivez le tutoriel complet qui contient des étapes détaillées pour l’entraînement et le déploiement de modèles avec le service Azure Machine Learning. 
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Entraîner et déployer des modèles](tutorial-train-models-with-aml.md)
+> [Tutoriel : Entraîner et déployer des modèles](tutorial-train-models-with-aml.md)

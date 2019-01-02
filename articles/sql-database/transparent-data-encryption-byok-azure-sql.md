@@ -11,19 +11,19 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 32d1956741f739234a3fdea7034f2f1e33a4c082
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 12/04/2018
+ms.openlocfilehash: 0c819e4efb158baa2150b00368c618c5467a01e0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408223"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966770"
 ---
-# <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption : prise en charge du service Bring Your Own Key
+# <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption : support Bring Your Own Key
 
-La prise en charge de Bring Your Own Key (BYOK) pour [[Transparent Data Encryption (TDE)]](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) vous permet de chiffrer la clé de chiffrement de la base de données (DEK) avec une clé asymétrique appelée protecteur TDE.  Le protecteur TDE est stocké sous votre contrôle dans [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), le système Azure de gestion de clés externes en cloud. Azure Key Vault est le premier service de gestion de clés auquel TDE a intégré la prise en charge de BYOK. La DEK de TDE, stockée dans la page de démarrage d’une base de données, est chiffrée et déchiffrée par le protecteur TDE. Le protecteur TDE est stocké dans Azure Key Vault et ne quitte jamais le coffre de clés. Si l’accès du serveur au coffre de clés est révoqué, une base de données ne peut pas être déchiffrée et lue en mémoire.  Le protecteur TDE est défini au niveau du serveur logique et il est hérité par toutes les bases de données associées à ce serveur.
+La prise en charge de Bring Your Own Key (BYOK) pour [[Transparent Data Encryption (TDE)]](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) vous permet de chiffrer la clé de chiffrement de la base de données (DEK) avec une clé asymétrique appelée protecteur TDE.  Le protecteur TDE est stocké sous votre contrôle dans [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), le système Azure de gestion de clés externes en cloud. Azure Key Vault est le premier service de gestion de clés auquel TDE a intégré la prise en charge de BYOK. La DEK de TDE, stockée dans la page de démarrage d’une base de données, est chiffrée et déchiffrée par le protecteur TDE. Le protecteur TDE est stocké dans Azure Key Vault et ne quitte jamais le coffre de clés. Si l’accès du serveur au coffre de clés est révoqué, une base de données ne peut pas être déchiffrée et lue en mémoire. Pour Azure SQL Database, le protecteur TDE est défini au niveau du serveur logique et il est hérité par toutes les bases de données associées à ce serveur. Pour Azure SQL Managed Instance, le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données *chiffrées* sur cette instance. Le terme *serveur* fait référence à la fois au serveur et à l’instance tout au long de ce document, sauf indication contraire.
 
-Avec la prise en charge de BYOK, les utilisateurs peuvent maintenant contrôler les tâches de gestion de clés, y compris les rotations de clés, les autorisations de coffre de clés, la suppression de clés, ainsi que l’audit et le rapport sur tous les protecteurs TDE à l’aide de la fonctionnalité Azure Key Vault. Key Vault centralise la gestion centrale des clés, utilise des modules de sécurité matériels étroitement surveillés (HSM) et permet la séparation des responsabilités entre la gestion de clés et des données pour aider à répondre aux exigences des réglementations.  
+Avec le support BYOK, les utilisateurs peuvent contrôler les tâches de gestion de clés, y compris les rotations de clés, les autorisations de coffre de clés, la suppression de clés, ainsi que l’audit et le rapport sur tous les protecteurs TDE à l’aide de la fonctionnalité Azure Key Vault. Key Vault centralise la gestion centrale des clés, utilise des modules de sécurité matériels étroitement surveillés (HSM) et permet la séparation des responsabilités entre la gestion de clés et des données pour aider à répondre aux exigences des réglementations.  
 
 TDE avec BYOK vous permet de bénéficier des avantages suivants :
 
@@ -43,36 +43,35 @@ TDE avec BYOK vous permet de bénéficier des avantages suivants :
 Quand TDE est tout d’abord configuré pour utiliser un protecteur TDE de Key Vault, le serveur envoie la clé DEK de chaque base de données prenant en charge TDE à Key Vault pour une requête de clé encapsulée. Key Vault retourne la clé de chiffrement de base de données chiffrée, qui est stockée dans la base de données utilisateur.  
 
 > [!IMPORTANT]
-> Il est important de noter **qu’une fois qu’un protecteur TDE est stocké dans Azure Key Vault, il ne quitte jamais ce dernier**. Le serveur logique peut uniquement envoyer des demandes d’opérations de clé pour le matériel de clé du protecteur TDE au sein de Key Vault, et il **n’accède ni ne met en cache le protecteur TDE**. L’administrateur de Key Vault peut révoquer des autorisations de Key Vault du serveur à tout moment, auquel cas toutes les connexions au serveur sont interrompues.
+> Il est important de noter **qu’une fois qu’un protecteur TDE est stocké dans Azure Key Vault, il ne quitte jamais ce dernier**. Le serveur peut uniquement envoyer des requêtes d’opérations de clé pour le matériel de clé du protecteur TDE au sein de Key Vault. **Il n’accède jamais au protecteur TDE et ne le met jamais en cache**. L’administrateur de Key Vault peut révoquer des autorisations de Key Vault du serveur à tout moment, auquel cas toutes les connexions au serveur sont interrompues.
 
 ## <a name="guidelines-for-configuring-tde-with-byok"></a>Instructions de configuration de TDE avec BYOK
 
 ### <a name="general-guidelines"></a>Instructions générales
 
-- Assurez-vous qu’Azure Key Vault et Azure SQL Database soient dans le même locataire.  Les interactions entre un serveur et un coffre de clés inter-locataires **ne sont pas prises en charge**.
+- Assurez-vous qu’Azure Key Vault et Azure SQL Database/Managed Instance soient dans le même tenant.  Les interactions entre un serveur et un coffre de clés inter-locataires **ne sont pas prises en charge**.
 - Déterminez les abonnements qui vont être utilisés pour les ressources requises : le déplacement ultérieur du serveur entre des abonnements exige une nouvelle configuration de TDE avec des BYOK. En savoir plus sur le [déplacement des ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - Lors de la configuration de TDE avec BYOK, il est important de prendre en compte la charge placée sur le coffre de clés par des opérations répétées de chiffrement/déchiffrement. Par exemple, étant donné que toutes les bases de données associées à un serveur logique utilisent le même protecteur TDE, un basculement de ce serveur déclenchera autant d’opérations de clés sur le coffre qu’il y a de bases de données dans le serveur. Selon notre expérience et les [limites de service de coffre de clés](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits) documentées, nous vous recommandons d’associer au maximum 500 bases de données Standard / Usage général ou 200 bases de données Premium / Critiques pour l'entreprise avec un Azure Key Vault dans un seul abonnement, pour vous assurer une disponibilité toujours élevée lors de l’accès au protecteur TDE dans le coffre.
-- Recommandation : conservez une copie du protecteur TDE en local.  Cela nécessite un appareil HSM pour créer un protecteur TDE localement et un système de dépôt de clé pour stocker une copie locale du protecteur TDE.  En savoir plus sur [comment transférer une clé depuis un module HSM local vers Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+- Recommandé : conservez une copie du protecteur TDE en local.  Cela nécessite un appareil HSM pour créer un protecteur TDE localement et un système de dépôt de clé pour stocker une copie locale du protecteur TDE.  En savoir plus sur [comment transférer une clé depuis un module HSM local vers Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Instructions de configuration de Azure Key Vault
 
-- Créez un coffre de clés en activant la [suppression réversible](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) pour vous protéger des pertes de données engendrées par la suppression accidentelle d’une clé ou d’un coffre de clés.  Vous devez utiliser [PowerShell pour activer la propriété « soft-delete »](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) sur le coffre de clés (cette option n’est pas encore disponible à partir du portail AKV, mais elle est exigée par SQL) :  
+- Créez un coffre de clés en activant la [suppression réversible](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) pour vous protéger des pertes de données engendrées par la suppression accidentelle d’une clé ou d’un coffre de clés.  Vous devez utiliser [PowerShell pour activer la propriété « soft-delete »](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) sur le coffre de clés (cette option n’est pas encore disponible sur le portail AKV, mais elle est exigée par Azure SQL) :  
   - Les ressources ayant fait l’objet d’une suppression réversible sont conservées pendant une durée fixée à 90 jours, à moins qu’elles ne soient récupérées ou vidées.
   - Les actions **recover** et **purge** ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés.
 - Définissez un verrou de ressource sur le coffre de clés pour contrôler les utilisateurs pouvant supprimer cette ressource critique et pour empêcher toute suppression accidentelle ou non autorisée.  [En savoir plus sur les verrous de ressource](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
-- Accorder l’accès du serveur logique au coffre de clés à l’aide de son identité Azure Active Directory (Azure AD).  Lorsque vous utilisez l’interface utilisateur du portail, l’identité Azure AD est automatiquement créée et les autorisations d’accès de coffre de clés sont accordées au serveur.  En utilisant PowerShell pour configurer TDE avec BYOK, l’identité Azure AD doit être créée, et sa création vérifiée une fois terminée. Consultez [Configurer TDE avec BYOK](transparent-data-encryption-byok-azure-sql-configure.md) pour obtenir des instructions détaillées lors de l’utilisation de PowerShell.
+- Accorder l’accès du serveur logique au coffre de clés à l’aide de son identité Azure Active Directory (Azure AD).  Lorsque vous utilisez l’interface utilisateur du portail, l’identité Azure AD est automatiquement créée et les autorisations d’accès de coffre de clés sont accordées au serveur.  En utilisant PowerShell pour configurer TDE avec BYOK, l’identité Azure AD doit être créée, et sa création vérifiée une fois terminée. Consultez [Configurer TDE avec BYOK](transparent-data-encryption-byok-azure-sql-configure.md) et [Configure TDE with BYOK for Managed Instance](http://aka.ms/sqlmibyoktdepowershell) (Configurer TDE avec BYOK pour Managed Instance) pour obtenir des instructions détaillées lors de l’utilisation de PowerShell.
 
   > [!NOTE]
   > Si l’identité Azure AD **est accidentellement supprimée ou si les autorisations du serveur sont révoquées** à l’aide de la stratégie d’accès du coffre de clés, le serveur perd l’accès au coffre de clés et les bases de données chiffrées avec TDE sont supprimées dans les 24 heures.
 
-- Lorsque vous utilisez des pare-feu et des réseaux virtuels avec Azure Key Vault, configurez les éléments suivants : 
-  - Autoriser les services Microsoft approuvés pour contourner ce pare-feu : choisissez OUI. 
-         
-    > [!NOTE] 
-    > Si les bases de données SQL chiffrées avec TDE perdent l’accès au coffre de clés parce qu’elles ne peuvent pas contourner le pare-feu, elles sont supprimées dans les 24 heures.
+- Lorsque vous utilisez des pare-feu et des réseaux virtuels avec Azure Key Vault, vous devez configurer les éléments suivants : - Autoriser les services Microsoft approuvés pour contourner ce pare-feu- choisissez OUI
 
-- Activez l’audit et la création de rapports sur toutes les clés de chiffrement : Key Vault fournit des fichiers journaux faciles à injecter dans d’autres outils de gestion d’événements et d’informations de sécurité (SIEM). Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) est un exemple de service déjà intégré.
+ > [!NOTE]
+ > Si les bases de données SQL chiffrées avec TDE perdent l’accès au coffre de clés parce qu’elles ne peuvent pas contourner le pare-feu, elles sont supprimées dans les 24 heures.
+
+- Activer l’audit et la création de rapports sur toutes les clés de chiffrement : Key Vault fournit des journaux faciles à injecter dans d’autres outils de gestion d’événements et d’informations de sécurité (SIEM). Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) est un exemple de service déjà intégré.
 - Pour garantir la haute disponibilité de bases de données chiffrées, configurez chaque serveur logique avec deux Azure Key Vault se trouvant dans des régions différentes.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Lignes directrices en matière de configuration du protecteur TDE (clé asymétrique)
@@ -170,7 +169,7 @@ Une fois qu’une base de données est chiffrée avec TDE à l’aide d’une cl
 
 Pour restaurer une sauvegarde chiffrée avec un protecteur TDE du coffre de clés, assurez-vous que le matériel de clé est toujours dans le coffre d’origine sous le nom de clé d’origine. Lorsque le protecteur TDE est modifié pour une base de données, les anciennes sauvegardes de la base de données **ne sont pas mises à jour** pour utiliser le nouveau protecteur TDE. Par conséquent, nous vous recommandons de conserver toutes les anciennes versions du protecteur TDE dans le coffre de clés, afin que toutes les sauvegardes de base de données puissent être restaurées.
 
-Si une clé pouvant être nécessaire pour la restauration d’une sauvegarde n’est plus dans le coffre de clés d’origine, le message d’erreur suivant est retourné : « Le serveur cible `<Servername>` n’a pas accès à tous les URI AKV créés entre < Timestamp #1 > et < Timestamp #2 >. Veuillez réessayer l’opération après avoir restauré tous les URI AKV. »
+Si une clé susceptible d’être nécessaire pour la restauration d’une sauvegarde ne se trouve plus dans le coffre de clés d’origine, le message d’erreur suivant est renvoyé : « Le serveur cible `<Servername>` n’a pas accès à tous les URI AKV créés entre <Timestamp #1> et <Timestamp #2>. Veuillez réessayer l’opération après avoir restauré tous les URI AKV. »
 
 Pour contrer cela, exécutez l’applet de commande [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) pour retourner la liste des clés du coffre de clés ajoutées au serveur (sauf si elles ont été supprimées par un utilisateur). Pour garantir la restauration possible de toutes les sauvegardes, vérifiez que le serveur cible pour la sauvegarde dispose d’un accès à toutes ces clés.
 
@@ -182,4 +181,4 @@ Get-AzureRmSqlServerKeyVaultKey `
 
 Pour en savoir plus sur la récupération d’une sauvegarde de base de données SQL, consultez [Récupérer une base de données SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups). Pour en savoir plus sur la récupération d’une sauvegarde pour SQL Data Warehouse, consultez [Récupérer une Azure SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-overview).
 
-Attention particulière pour les fichiers journaux sauvegardés : les fichiers journaux sauvegardés restent chiffrés avec le chiffreur TDE d’origine, même si le protecteur TDE a subi une permutation et si la base de données utilise maintenant un nouveau protecteur TDE.  Lors d’une restauration, les deux clés seront nécessaires pour restaurer la base de données.  Si le fichier journal utilise un protecteur TDE stocké dans Azure Key Vault, cette clé sera nécessaire lors de la restauration, même si entretemps la base de données est passée à un TDE géré par un service.
+Attention particulière pour les journaux sauvegardés : les journaux sauvegardés restent chiffrés avec le chiffreur TDE d’origine, même si le protecteur TDE a subi une permutation et si la base de données utilise maintenant un nouveau protecteur TDE.  Lors d’une restauration, les deux clés seront nécessaires pour restaurer la base de données.  Si le fichier journal utilise un protecteur TDE stocké dans Azure Key Vault, cette clé sera nécessaire lors de la restauration, même si entretemps la base de données est passée à un TDE géré par un service.

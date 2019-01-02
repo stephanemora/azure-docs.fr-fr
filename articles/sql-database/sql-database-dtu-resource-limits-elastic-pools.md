@@ -3,7 +3,7 @@ title: Limites de ressources par DTU d’Azure SQL Database pour les pools élas
 description: Cette page décrit certaines des limites de ressources courantes par DTU pour des pools élastiques dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pools
+ms.subservice: elastic-poolss
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: e3b46620d15f8c08d0da69aef3d8c0920e5ad4ec
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a31a2bc3fa1edc0f4424dde4b5c8934e26669fc0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830070"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873442"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU 
 
@@ -111,7 +111,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 ||||||||
 
 > [!IMPORTANT]
-> Le niveau Premium offre plus de 1 To de stockage dans toutes les régions à l’exception des suivantes : USA Centre-Ouest, Chine Est, USDoDCentral, Allemagne - Centre, USDoDEast, US Gov Sud-Ouest, Allemagne - Nord-Est, US Gov Iowa, Chine Nord. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : USA Centre-Ouest, Chine Est, USDoDCentral, Allemagne Centre, USDoDEast, US Gov Sud-Ouest, Allemagne Nord-Est, US Gov Iowa, Chine Nord. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Si toutes les DTU d’un pool élastique sont utilisées, chaque base de données du pool reçoit une quantité égale de ressources pour traiter les requêtes. Le service de base de données SQL offre un partage équitable des ressources entre les bases de données, garantissant des tranches de temps de calcul égales. Le partage équitable des ressources du pool élastique s’ajoute à n’importe quelle quantité de ressources garantie pour chaque base de données lorsque le nombre minimal de DTU par base de données est défini sur une valeur différente de zéro.
 
@@ -131,7 +131,7 @@ Le tableau suivant décrit les propriétés des bases de données mises en pool.
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez [SQL Database FAQ](sql-database-faq.md) (FAQ de SQL Database) pour obtenir des réponses aux questions fréquemment posées.
-- Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez [Vue d’ensemble des limites de ressources sur un serveur logique](sql-database-resource-limits-logical-server.md).
+- Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez l’article de [vue d’ensemble des limites de ressources sur un serveur logique](sql-database-resource-limits-logical-server.md).
 - Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 - Pour plus d’informations sur les DTU et eDTU, consultez [DTU et eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
 - Pour plus d’informations sur les limites de taille de tempdb, consultez https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

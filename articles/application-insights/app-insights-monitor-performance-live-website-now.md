@@ -9,28 +9,27 @@ ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: abc3d5832cd85cb3297077f2d661ec8fe32fde9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230918"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105289"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumenter des applications web lors de l’exécution avec Application Insights
 
-Vous pouvez instrumenter une application web dynamique avec Azure Application Insights, sans avoir à modifier ou à redéployer votre code. Si vos applications sont hébergées sur un serveur IIS local, installez Status Monitor. S’il s’agit d’applications web Azure ou d’applications qui s’exécutent dans une machine virtuelle Azure, vous pouvez activer l’analyse Application Insights à partir du panneau de configuration Azure. (Des articles distincts sont également consacrés à l’instrumentation des [applications web J2EE actives](app-insights-java-live.md) et [d’Azure Cloud Services](app-insights-cloudservices.md).) Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com) .
+Vous pouvez instrumenter une application web dynamique avec Azure Application Insights, sans avoir à modifier ou à redéployer votre code. Si vos applications sont hébergées sur un serveur IIS local, installez Status Monitor. S’il s’agit d’applications web Azure ou d’applications qui s’exécutent dans une machine virtuelle Azure, vous pouvez activer l’analyse Application Insights à partir du panneau de configuration Azure. (Des articles distincts sont également consacrés à l’instrumentation des [applications web J2EE actives](app-insights-java-live.md) et [d’Azure Cloud Services](app-insights-cloudservices.md).) Cette opération nécessite un abonnement [Microsoft Azure](https://azure.com) .
 
 ![Capture d’écran des graphiques de vue d’ensemble App Insights qui contiennent des informations sur les demandes ayant échoué, le temps de réponse du serveur et les requêtes serveur](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 Vous avez le choix entre trois façons d’appliquer Application Insights à vos applications web .NET :
 
-* **En cours de création :**[ajoutez le Kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web.
-* **En cours d’exécution :** instrumentez votre application web sur le serveur, comme décrit ci-dessous, sans régénérer ni redéployer le code.
-* **Les deux :** intégrez le Kit de développement logiciel (SDK) à votre code d’application web et appliquez également les extensions à l’exécution. Profitez des avantages des deux options.
+* **En cours de création :** [Ajoutez le Kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web.
+* **En cours d’exécution :** Instrumentez votre application web sur le serveur, comme décrit ci-dessous, sans régénérer ni redéployer le code.
+* **Les deux :** Intégrez le Kit de développement logiciel (SDK) à votre code d’application web et appliquez également les extensions à l’exécution. Profitez des avantages des deux options.
 
 Voici un résumé de ce que vous apporte chaque méthode :
 
@@ -120,6 +119,7 @@ Si vous souhaitez procéder à la republication sans ajouter Application Insight
   * Dans le Gestionnaire des services Internet, sélectionnez votre pool d’applications, ouvrez **Paramètres avancés** puis, sous **Modèle de processus**, notez l’identité.
   * Dans le panneau de configuration relatif à la gestion de l’ordinateur, ajoutez cette identité au groupe Utilisateurs de l’Analyseur de performances.
 * Si des services MMA/SCOM (Systems Center Operations Manager) sont installés sur votre serveur, certaines versions peuvent entrer en conflit. Désinstallez à la fois SCOM et Moniteur d’état, puis réinstallez des versions les plus récentes.
+* Les journaux Status Monitor se trouvent par défaut à l’emplacement suivant : C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log
 * Consultez la rubrique [Résolution des problèmes][qna].
 
 ## <a name="system-requirements"></a>Configuration requise
@@ -133,9 +133,9 @@ Prise en charge du système d’exploitation pour Application Insights Status Mo
 
 avec le dernier Service Pack et .NET Framework 4.5
 
-Windows 7, 8, 8.1 et 10 côté client, avec également .NET Framework 4.5
+Côté client : Windows 7, 8, 8.1 et 10, également avec .NET Framework 4.5
 
-Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
+Prise en charge IIS : IIS 7, 7.5, 8, 8.5 (IIS est requis)
 
 ## <a name="automation-with-powershell"></a>Automation avec PowerShell
 Vous pouvez démarrer et arrêter la surveillance à l’aide de PowerShell sur votre serveur IIS.
@@ -152,9 +152,9 @@ Identifiez les applications qui sont surveillées :
 * Affiche l’état de la surveillance Application Insights pour chaque application web (ou l’application nommée) dans ce serveur IIS.
 * Retourne `ApplicationInsightsApplication` pour chaque application :
 
-  * `SdkState==EnabledAfterDeployment` : l’application est surveillée et a été instrumentée lors de l’exécution par l’outil Status Monitor ou par `Start-ApplicationInsightsMonitoring`.
-  * `SdkState==Disabled`: l’application n’est pas instrumentée pour Application Insights. Soit elle n’a jamais été instrumentée, soit la surveillance lors de l’exécution a été désactivée avec l’outil Status Monitor ou avec `Stop-ApplicationInsightsMonitoring`.
-  * `SdkState==EnabledByCodeInstrumentation`: l’application a été instrumentée en ajoutant le Kit de développement logiciel (SDK) au code source. Son Kit de développement logiciel (SDK) ne peut pas être mis à jour ou arrêté.
+  * `SdkState==EnabledAfterDeployment`: L’application est surveillée et a été instrumentée lors de l’exécution par l’outil Status Monitor ou par `Start-ApplicationInsightsMonitoring`.
+  * `SdkState==Disabled`: L’application n’est pas instrumentée pour Application Insights. Soit elle n’a jamais été instrumentée, soit la surveillance lors de l’exécution a été désactivée avec l’outil Status Monitor ou avec `Stop-ApplicationInsightsMonitoring`.
+  * `SdkState==EnabledByCodeInstrumentation`: L’application a été instrumentée en ajoutant le Kit de développement logiciel (SDK) au code source. Son Kit de développement logiciel (SDK) ne peut pas être mis à jour ou arrêté.
   * `SdkVersion` affiche la version utilisée pour surveiller cette application.
   * `LatestAvailableSdkVersion`affiche la version actuellement disponible dans la galerie NuGet. Pour mettre à niveau l’application vers cette version, utilisez `Update-ApplicationInsightsMonitoring`.
 
@@ -187,7 +187,7 @@ Identifiez les applications qui sont surveillées :
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
-* `-Name` : nom d’une application web dans IIS.
+* `-Name`: Nom d’une application web dans IIS.
 * `-InstrumentationKey` (Facultatif.) Permet de modifier la ressource à laquelle la télémétrie de l’application est envoyée.
 * Cette applet de commande :
   * Met à niveau l’application nommée vers la version la plus récente du Kit de développement logiciel (SDK) téléchargée sur cette machine. (Ne fonctionne que si `SdkState==EnabledAfterDeployment`)
@@ -208,7 +208,7 @@ Il s’agit d’une application de bureau que vous installez sur votre serveur w
 * Vous pouvez l’utiliser pour instrumenter une application web qui s’exécute sur votre serveur IIS, même si elle est déjà en cours d’exécution.
 * Vous pouvez également vous en servir pour activer la télémétrie supplémentaire pour les applications web qui ont été [générées avec le Kit de développement logiciel (SDK) Application Insights](app-insights-asp-net.md) au moment de la compilation. 
 
-### <a name="can-i-close-it-after-it-runs"></a>Puis-je le fermer il après son exécution ?
+### <a name="can-i-close-it-after-it-runs"></a>Puis-je le fermer après son exécution ?
 
 Oui. Une fois qu’il a instrumenté les sites web que vous avez sélectionnés, vous pouvez le fermer.
 
@@ -219,8 +219,11 @@ Il ne collecte pas la télémétrie par lui-même. Il configure simplement les a
 Lorsque vous sélectionnez une application web que Status Monitor doit instrumenter :
 
 * Celui-ci télécharge et place les assemblys Application Insights et le fichier .config dans le dossier de fichiers binaires de l’application web.
-* Il modifie `web.config` pour ajouter le module de suivi HTTP Application Insights.
 * Il active le profilage CLR pour collecter les appels de dépendance.
+
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Quelle version du SDK d’Application Insights est installée par Status Monitor ?
+
+À partir de maintenant, Status Monitor peut uniquement installer les versions 2.3 ou 2.4 du SDK d’Application Insights.
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Dois-je exécuter Status Monitor à chaque mise à jour d’une application ?
 
@@ -243,7 +246,7 @@ Pour les applications déjà instrumentées au moment de la compilation :
  * Des appels de dépendances (.NET 4.5) ; des valeurs de retour dans des appels de dépendances (.NET 4.6).
  * Des valeurs d’arborescence des appels de procédure d’exception.
 
-[En savoir plus](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[En savoir plus](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Vidéo
 

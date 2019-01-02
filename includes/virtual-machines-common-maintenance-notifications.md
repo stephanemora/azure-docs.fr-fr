@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 609389460ab18ba947130e64dbe7b599574816a5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981442"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53215990"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Afficher les machines virtuelles sur lesquelles une maintenance est planifiée dans le portail
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser le portail Azure et rechercher les machines virtuelles sur 
 
 4. Sélectionnez et ajoutez les colonnes suivantes :
 
-   **Maintenance** : affiche l’état de maintenance de la machine virtuelle. Les valeurs potentielles sont les suivantes :
+   **Maintenance** : Affiche l’état de maintenance de la machine virtuelle. Les valeurs potentielles sont les suivantes :
       
       | Valeur | Description |
       |-------|-------------|
@@ -41,15 +41,15 @@ Vous pouvez utiliser le portail Azure et rechercher les machines virtuelles sur 
       | - | Votre machine virtuelle ne fait pas partie d’un cycle de maintenance planifiée. |
       
 
-   **Fenêtre Maintenance - Automatique** : affiche la fenêtre de temps dans laquelle vous pouvez démarrer vous-même la maintenance de vos machines virtuelles.
+   **Fenêtre Maintenance - Libre-service** : Affiche la fenêtre de temps dans laquelle vous pouvez démarrer vous-même la maintenance de vos machines virtuelles.
    
-   **Fenêtre Maintenance - Planifiée** : affiche la fenêtre de temps dans laquelle Azure assure la maintenance de votre machine virtuelle pour la terminer. 
+   **Fenêtre Maintenance - Planifiée** : Affiche la fenêtre de temps dans laquelle Azure assure la maintenance de votre machine virtuelle pour la terminer. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notification et alertes dans le portail
 
-Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité Azure. Pour plus d’informations, consultez [Créer des alertes de journal d’activité sur les notifications de service](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité Azure. Pour plus d’informations, consultez [Créer des alertes de journal d’activité sur les notifications de service](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 Veillez à définir le **type d’événement** comme **maintenance planifiée** et les **services** comme **groupes de machines virtuelles identiques** et/ou **machines virtuelles**
     

@@ -1,28 +1,22 @@
 ---
-title: 'Vérification de la connectivité : Guide de dépannage Azure ExpressRoute | Microsoft Docs'
+title: 'Vérifier la connectivité - Guide de dépannage ExpressRoute : Azure| Microsoft Docs'
 description: Cette page fournit des instructions sur le dépannage et la validation de la connectivité de bout en bout d’un circuit ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/26/2017
-ms.author: cherylmc
-ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: rambala
+ms.custom: seodec18
+ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753441"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272808"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
-ExpressRoute, qui étend un réseau local dans le cloud Microsoft par le biais d’une connexion privée qui est facilitée par un fournisseur de connectivité, implique les trois zones de réseau distinctes suivantes :
+Cet article vous permet de vérifier et de résoudre les problèmes de connectivité ExpressRoute. ExpressRoute, qui étend un réseau local dans le cloud Microsoft par le biais d’une connexion privée qui est facilitée par un fournisseur de connectivité, implique les trois zones de réseau distinctes suivantes :
 
 -   Réseau de client
 -   Réseau de fournisseur
@@ -35,7 +29,7 @@ L’objectif de ce document est d’aider l’utilisateur à identifier où (ou 
 >
 >
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le diagramme suivant illustre la connectivité logique d’un réseau de client vers un réseau Microsoft à l’aide d’ExpressRoute.
 [![1]][1]
 
@@ -45,8 +39,8 @@ Selon le modèle de connectivité ExpressRoute (colocalisation Cloud Exchange, c
 
 1.  Appareil de calcul du client (par exemple, un serveur ou un PC)
 2.  CE : routeurs de périphérie du client 
-3.  PE (collaborant avec des CE) : routeurs / commutateurs de périphérie du fournisseur qui collaborent avec des routeurs de périphérie du client. Appelé PE-CE dans ce document.
-4.  PE (collaborant avec des MSEE) : routeurs / commutateurs de périphérie du fournisseur qui collaborent avec des MSEE. Appelé PE-MSEE dans ce document.
+3.  PE (collaborant avec des CE) : routeurs/commutateurs de périphérie du fournisseur qui collaborent avec des routeurs de périphérie du client. Appelé PE-CE dans ce document.
+4.  PE (collaborant avec des MSEE) : routeurs/commutateurs de périphérie du fournisseur qui collaborent avec des MSEE. Appelé PE-MSEE dans ce document.
 5.  MSEE : routeurs ExpressRoute Microsoft Enterprise Edge (MSEE)
 6.  Passerelle de réseau virtuel (VNet)
 7.  Appareil de calcul sur le réseau virtuel Azure
@@ -161,7 +155,7 @@ Voici un exemple de réponse :
     Sku                              : Standard
     Status                           : Enabled
 
-Pour vérifier si un circuit ExpressRoute est opérationnel, portez une attention particulière aux champs suivants : ServiceProviderProvisioningState : Provisioned Status                           : Enabled
+Pour vérifier si un circuit ExpressRoute est opérationnel, portez une attention particulière aux champs suivants : ServiceProviderProvisioningState : État approvisionné                           : activé
 
 >[!NOTE]
 >Si *l'état* est désactivé, contactez le [support Microsoft][Support]. Si *ServiceProviderProvisioningState* n'est pas approvisionné, contactez votre fournisseur de services.
@@ -169,7 +163,7 @@ Pour vérifier si un circuit ExpressRoute est opérationnel, portez une attentio
 >
 
 ## <a name="validate-peering-configuration"></a>Validation de la configuration de l’homologation
-Une fois que le fournisseur de services a terminé l'approvisionnement du circuit ExpressRoute, une configuration de routage peut être créée à travers le circuit ExpressRoute entre des MSEE-PR (4) et des MSEE (5). Chaque circuit ExpressRoute peut avoir un, deux ou trois contextes de routage activés : l'homologation privée Azure (trafic vers des réseaux virtuels privés dans Azure), l'homologation publique Azure (le trafic vers des adresses IP publiques dans Azure) et l'homologation Microsoft (Office 365 et Dynamics 365). Pour plus d’informations sur la création et la modification de la configuration de routage, consultez l’article [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
+Une fois que le fournisseur de services a terminé l'approvisionnement du circuit ExpressRoute, une configuration de routage peut être créée à travers le circuit ExpressRoute entre des MSEE-PR (4) et des MSEE (5). Chaque circuit ExpressRoute peut avoir un, deux ou trois contextes de routage activés : l’homologation privée Azure (trafic vers des réseaux virtuels privés dans Azure), l’homologation publique Azure (le trafic vers des adresses IP publiques dans Azure) et l’homologation Microsoft (Office 365 et Dynamics 365). Pour plus d’informations sur la création et la modification de la configuration de routage, consultez l’article [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Vérification par le biais du portail Azure
 

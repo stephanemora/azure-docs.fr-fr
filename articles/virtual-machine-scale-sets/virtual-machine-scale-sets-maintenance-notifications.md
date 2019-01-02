@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 82a3ce9f899e94a1cc737f2ca2dc1dc79688a224
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140661"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270125"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
@@ -103,9 +103,9 @@ Azure communique une planification de maintenance planifiée en envoyant un e-ma
 4. Sur la page **Ajouter une alerte de journal d’activité**, sélectionnez ou saisissez les informations requises. Sous **Critères**, renseignez les valeurs suivantes :
    - **Catégorie d’événement** : sélectionnez **Service Health**.
    - **Services** : sélectionnez **Groupes de machines virtuelles identiques et Machines virtuelles**.
-   - **Type** : sélectionnez **Maintenance planifiée**. 
+   - **Type** : sélectionnez **Maintenance planifiée**. 
     
-Pour découvrir plus en détail comment configurer des alertes de journal d’activité, consultez [Créer des alertes de journal d’activité](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
+Pour découvrir plus en détail comment configurer des alertes de journal d’activité, consultez [Créer des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts.md).
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Démarrer la maintenance sur votre groupe de machines virtuelles identiques à partir du portail
@@ -189,11 +189,11 @@ Pour plus d’informations sur la haute disponibilité, consultez [Régions et d
 
 **Q : Comment puis-je être averti d’une maintenance planifiée ?**
 
-**R :** Une vague d’opérations de maintenance planifiées commence par une planification sur une ou plusieurs régions Azure. Peu après, une notification par e-mail est envoyée aux propriétaires d’abonnement (un e-mail par abonnement). Vous pouvez ajouter des canaux et des destinataires pour cette notification à l’aide de la fonctionnalité Alertes de journal d’activité. Si vous déployez une machine virtuelle dans une région dans laquelle une maintenance est déjà planifiée, vous ne recevrez pas de notification. Vous devrez dans ce cas consulter l’état de maintenance de la machine virtuelle.
+**R :** Une vague d’opérations de maintenance planifiée commence par une planification sur une ou plusieurs régions Azure. Peu après, une notification par e-mail est envoyée aux propriétaires d’abonnement (un e-mail par abonnement). Vous pouvez ajouter des canaux et des destinataires pour cette notification à l’aide de la fonctionnalité Alertes de journal d’activité. Si vous déployez une machine virtuelle dans une région dans laquelle une maintenance est déjà planifiée, vous ne recevrez pas de notification. Vous devrez dans ce cas consulter l’état de maintenance de la machine virtuelle.
 
 **Q : Je ne vois aucune indication de maintenance planifiée dans le portail, dans PowerShell ou dans l’interface CLI. Est-ce normal ?**
 
-**R :** Les informations relatives à la maintenance planifiée ne sont disponibles pendant une vague d’opérations de maintenance planifiées que pour les machines virtuelles concernées par la maintenance planifiée. Si aucune information ne s’affiche, il est possible que la vague de maintenance soit déjà terminée (ou non démarrée), ou que votre machine virtuelle soit déjà hébergée sur un serveur mis à jour.
+**R :** Les informations relatives à la maintenance planifiée ne sont disponibles pendant une vague d’opérations de maintenance planifiée que pour les machines virtuelles concernées par la maintenance planifiée. Si aucune information ne s’affiche, il est possible que la vague de maintenance soit déjà terminée (ou non démarrée), ou que votre machine virtuelle soit déjà hébergée sur un serveur mis à jour.
 
 **Q : Est-il possible de savoir exactement quand ma machine virtuelle sera affectée ?**
 
@@ -201,7 +201,7 @@ Pour plus d’informations sur la haute disponibilité, consultez [Régions et d
 
 **Q : Combien de temps vous faudra-t-il pour redémarrer ma machine virtuelle ?**
 
-**R :** En fonction de la taille de votre machine virtuelle, le redémarrage peut prendre plusieurs minutes pendant la fenêtre de maintenance en libre-service. Tout redémarrage lancé par Azure pendant la fenêtre de maintenance planifiée dure habituellement 25 minutes environ. Si vous utilisez des services cloud (rôle de travail/web), des groupes de machines virtuelles identiques ou des groupes à haute disponibilité, vous disposez de 30 minutes entre chaque groupe de machines virtuelles (domaine de mise à jour) pendant la fenêtre de maintenance planifiée. 
+**R :**  En fonction de la taille de votre machine virtuelle, le redémarrage peut prendre plusieurs minutes pendant la fenêtre de maintenance en libre-service. Tout redémarrage lancé par Azure pendant la fenêtre de maintenance planifiée dure habituellement 25 minutes environ. Si vous utilisez des services cloud (rôle de travail/web), des groupes de machines virtuelles identiques ou des groupes à haute disponibilité, vous disposez de 30 minutes entre chaque groupe de machines virtuelles (domaine de mise à jour) pendant la fenêtre de maintenance planifiée. 
 
 **Q : Je ne vois aucune information de maintenance sur mes machines virtuelles. Quelle est la cause du problème ?**
 

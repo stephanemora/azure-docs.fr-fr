@@ -1,5 +1,5 @@
 ---
-title: Acheter et configurer un certificat SSL pour Azure App Service | Microsoft Docs
+title: Acheter et configurer un certificat SSL d’Azure | Microsoft Docs
 description: Découvrez comment acheter un certificat App Service et le lier à votre application App Service
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c775798591a3063fdfe6d399c8337aac2e2f207e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351352"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268714"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acheter et configurer un certificat SSL pour Azure App Service
 
@@ -33,7 +34,7 @@ Ce tutoriel vous montre comment sécuriser votre application web en créant (en 
 
 Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
-- [Créer une application App Service](/azure/app-service/)
+- [Création d’une application App Service](/azure/app-service/)
 - [Mapper un nom de domaine à votre application web](app-service-web-tutorial-custom-domain.md) ou [acheter et configurer un nom de domaine dans Azure](custom-dns-web-site-buydomains-web-app.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
@@ -48,7 +49,7 @@ Aidez-vous du tableau suivant pour configurer le certificat. Lorsque vous avez t
 
 | Paramètre | Description |
 |-|-|
-| Nom | Nom convivial de votre certificat App Service. |
+| NOM | Nom convivial de votre certificat App Service. |
 | Nom d’hôte de domaine nu | Cette étape est l’un des points les plus cruciaux du processus d’achat. Utilisez le nom de domaine racine que vous avez mappé à votre application. Ne commencez _pas_ le nom d’hôte par `www`. |
 | Abonnement | Centre de données dans lequel l’application web est hébergée. |
 | Groupe de ressources | Groupe de ressources qui contient le certificat. Vous pouvez utiliser un nouveau groupe de ressources, ou sélectionner le même groupe de ressources que votre application App Service, par exemple. |
@@ -114,7 +115,7 @@ Dans la boîte de dialogue **Liaisons SSL**, configurez la liaison en vous aidan
 |-|-|
 | Nom d’hôte | Nom du domaine pour lequel ajouter une liaison SSL. |
 | Empreinte numérique du certificat privé | Certificat à lier. |
-| Type SSL | <ul><li>**SNI SSL** : plusieurs liaisons SNI SSL peuvent être ajoutées. Cette option permet de sécuriser plusieurs domaines sur la même adresse IP avec plusieurs certificats SSL. La plupart des navigateurs actuels (y compris Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI (plus d’informations sur la prise en charge des navigateurs dans [Indication du nom du serveur](http://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**SSL basé sur IP** : une seule liaison SSL basée sur IP peut être ajoutée. Cette option permet de sécuriser une adresse IP publique dédiée avec un seul certificat SSL. Après avoir configuré la liaison, effectuez les étapes décrites dans [Remapper un enregistrement pour IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| Type SSL | <ul><li>**SNI SSL** : plusieurs liaisons SNI SSL peuvent être ajoutées. Cette option permet de sécuriser plusieurs domaines sur la même adresse IP avec plusieurs certificats SSL. La plupart des navigateurs actuels (y compris Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI (plus d’informations sur la prise en charge des navigateurs dans [Indication du nom du serveur](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**SSL basé sur IP** : une seule liaison SSL basée sur IP peut être ajoutée. Cette option permet de sécuriser une adresse IP publique dédiée avec un seul certificat SSL. Après avoir configuré la liaison, effectuez les étapes décrites dans [Remapper un enregistrement pour IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>Vérifier l’accès HTTPS
 
@@ -124,13 +125,13 @@ Accédez à votre application en utilisant `HTTPS://<domain_name>` au lieu de `H
 
 Si vous devez recréer la clé de votre certificat, sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis sélectionnez **Recréer la clé et synchroniser** dans le volet de navigation de gauche.
 
-Cliquez sur le bouton **Recréer la clé** pour lancer le processus. Ce processus peut prendre de 1 à 10 minutes.
+Cliquez sur le bouton **Renouveler la clé** pour lancer le processus. Ce processus peut prendre de 1 à 10 minutes.
 
 ![insérer une image de renouvellement de clé SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Le renouvellement de la clé de votre certificat remplace le certificat par un nouveau certificat émis par l’autorité de certification.
 
-## <a name="renew-certificate"></a>Renouveler le certificat
+## <a name="renew-certificate"></a>Renouvellement de certificat
 
 Pour activer le renouvellement automatique de votre certificat à tout moment, sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis cliquez sur **Paramètres de renouvellement automatique** dans le volet de navigation de gauche. 
 
@@ -147,15 +148,15 @@ Pour renouveler manuellement le certificat, cliquez sur **Renouvellement manuel*
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Autres ressources
 
 * [Appliquer le protocole HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Appliquer le protocole TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Utiliser un certificat SSL dans votre code d’application dans Azure App Service](app-service-web-ssl-cert-load.md)
-* [Questions fréquentes : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [FORUM AUX QUESTIONS : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

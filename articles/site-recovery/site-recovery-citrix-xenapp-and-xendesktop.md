@@ -5,14 +5,14 @@ author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210310"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310509"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configurer la récupération d’urgence d’un déploiement Citrix XenApp et XenDesktop multiniveau
 
@@ -130,17 +130,17 @@ Un plan de récupération regroupe les machines virtuelles ayant les mêmes exig
 
 1. Ajoutez les machines virtuelles XenApp au Plan de récupération.
 2. Cliquez sur Plans de récupération -> + Plan de récupération. Spécifiez un nom intuitif pour le plan de récupération.
-3. Pour les machines virtuelles VMware : sélectionnez Serveur de processus VMware comme source, Microsoft Azure comme cible et Resource Manager comme modèle de déploiement, puis cliquez sur Sélectionner les éléments.
-4. Pour les machines virtuelles Hyper-V : sélectionnez Serveur VMM comme source, Microsoft Azure comme cible et Resource Manager comme modèle de déploiement, cliquez sur Sélectionner les éléments, puis sélectionnez les machines virtuelles de déploiement XenApp.
+3. Pour les machines virtuelles VMware : sélectionnez Serveur de processus VMware comme source, Microsoft Azure comme cible et Resource Manager comme modèle de déploiement, puis cliquez sur Sélectionner les éléments.
+4. Pour les machines virtuelles Hyper-V : sélectionnez Serveur VMM comme source, Microsoft Azure comme cible et Resource Manager comme modèle de déploiement, cliquez sur Sélectionner les éléments, puis sélectionnez les machines virtuelles de déploiement XenApp.
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>Ajout de machines virtuelles à des groupes de basculement
 
 Vous pouvez personnaliser les plans de récupération pour ajouter des groupes de basculement pour un ordre de démarrage, des scripts ou des actions manuelles spécifiques. Les groupes suivants doivent être ajoutés au plan de récupération.
 
-1. Groupe de basculement 1 : DNS Active Directory
-2. Groupe de basculement 2 : Machines virtuelles SQL Server
-2. Groupe de basculement 3 : Machine virtuelle d’image maîtresse VDA
-3. Groupe de basculement 4 : Delivery Controller et machines virtuelles de serveur StoreFront
+1. Groupe de basculement1 : AD DNS
+2. Groupe de basculement2 : Machines virtuelles SQL Server
+2. Groupe de basculement3 : Machine virtuelle d’image VDA maître
+3. Groupe de basculement4 : Delivery Controller et machines virtuelles de serveur StoreFront
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Ajout de scripts au plan de récupération
@@ -149,16 +149,17 @@ Vous pouvez exécuter des scripts avant ou après un groupe spécifique dans un 
 
 Le plan de récupération personnalisé ressemble à ceci :
 
-1. Groupe de basculement 1 : DNS Active Directory
-2. Groupe de basculement 2 : Machines virtuelles SQL Server
-3. Groupe de basculement 3 : Machine virtuelle d’image maîtresse VDA
+1. Groupe de basculement1 : AD DNS
+2. Groupe de basculement2 : Machines virtuelles SQL Server
+3. Groupe de basculement3 : Machine virtuelle d’image VDA maître
 
    >[!NOTE]     
    >Les étapes 4, 6 et 7 contenant des actions de script ou manuelles s’appliquent uniquement à un environnement XenApp local avec des catalogues MCS/PVS.
 
-4. Action manuelle ou de script de Groupe 3 : Arrêter la machine virtuelle VDA maîtresse. La machine virtuelle VDA maîtresse sera en cours d’exécution en cas de basculement vers Azure. Pour créer des catalogues MCS à l’aide de l’hébergement Azure, la machine virtuelle VDA maîtresse doit être à l’état Arrêtée (désallouée). Arrêtez la machine virtuelle à partir du Portail Azure.
+4. Action manuelle ou de script de Groupe 3 : Arrêter machines virtuelles VDA maîtres.
+Lorsqu’elle est basculée sur Azure, la machine virtuelle VDA maître est en cours d’exécution. Pour créer des catalogues MCS à l’aide de l’hébergement Azure, la machine virtuelle VDA maîtresse doit être à l’état Arrêtée (désallouée). Arrêtez la machine virtuelle à partir du Portail Azure.
 
-5. Groupe de basculement 4 : Delivery Controller et machines virtuelles de serveur StoreFront
+5. Groupe de basculement4 : Delivery Controller et machines virtuelles de serveur StoreFront
 6. Action manuelle ou de script 1 de Groupe 3 :
 
     ***Ajouter une connexion hôte Azure ARM***

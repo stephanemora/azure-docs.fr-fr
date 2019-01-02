@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données vers et depuis un stockage Azure Blob | Microsoft Docs
+title: Déplacer des données vers et depuis Stockage Blob Azure - Processus TDSP (Team Data Science Process)
 description: Déplacer des données vers et depuis Stockage Blob Azure
 services: machine-learning
 author: marktab
@@ -10,17 +10,20 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: fa3fd5dfdd0fbdb8200b0c5c8df512caedbe735c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a37c19ac0d3c053644b2f1f970ef9f84eac2f1df
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441840"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139845"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Déplacer des données vers et depuis Stockage Blob Azure
 
 Le processus Team Data Science nécessite que les données soient reçues ou chargées dans différents environnements de stockage pour y être traitées ou analysées de la façon la plus appropriée à chaque étape du processus.
+
+## <a name="different-technologies-for-moving-data"></a>Différentes technologies de déplacement des données
+
 Les articles suivants décrivent la procédure de déplacement des données vers et depuis le stockage Azure Blob en utilisant des technologies différentes.
 
 * [Explorateur d’Azure Storage](move-data-to-azure-blob-using-azure-storage-explorer.md)
@@ -35,6 +38,8 @@ La méthode la mieux adaptée à vos besoins dépend de votre scénario. L’art
 > 
 > 
 
+## <a name="using-azure-data-factory"></a>Utilisation d’Azure Data Factory
+
 Comme alternative, vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pour : 
 
 * créer et planifier un pipeline qui télécharge les données à partir du stockage d’objets blob Azure, 
@@ -45,7 +50,7 @@ Comme alternative, vous pouvez utiliser [Azure Data Factory](https://azure.micro
 Pour plus d’informations, consultez la page [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Prérequis
-Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de stockage et de la clé de stockage correspondante pour ce compte. Avant de charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage.
+Cet article suppose que vous disposez d’un abonnement Azure, d’un compte de stockage et de la clé de stockage correspondante pour ce compte. Avant de charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage.
 
 * Pour configurer un abonnement Azure, consultez [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).
 * Pour obtenir des instructions sur la création d’un compte de stockage et pour obtenir des informations de compte et de clé, consultez [À propos des comptes de stockage Azure](../../storage/common/storage-create-storage-account.md).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ad6fe023c4e93328331140dc3552ae1afd7c83ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783370"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970626"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,8 +43,8 @@ Si la conformité Azure vous intéresse et que vous désirez savoir comment Azur
 
 Cet article présente les principes de sécurité à prendre en compte dans les deux scénarios de déplacement de données suivants : 
 
-- **Scénario cloud** : dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud managés comme le stockage Azure, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, les services SaaS tels que Salesforce et les protocoles Web tels que FTP et OData. Recherchez une liste complète des sources de données prises en charge dans [Banques de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Scénario hybride** : dans ce scénario, votre source ou votre destination est derrière un pare-feu ou à l’intérieur d’un réseau d’entreprise local. Ou bien, la banque de données est un réseau ou un réseau virtuel (le plus souvent la source) et n’est pas accessible publiquement. Les serveurs de base de données hébergés sur des machines virtuelles sont également inclus dans ce scénario.
+- **Scénario cloud** : Dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud managés comme le stockage Azure, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, les services SaaS tels que Salesforce et les protocoles Web tels que FTP et OData. Recherchez une liste complète des sources de données prises en charge dans [Banques de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Scénario hybride** : Dans ce scénario, votre source ou votre destination se trouve derrière un pare-feu ou à l’intérieur d’un réseau d’entreprise local. Ou bien, la banque de données est un réseau ou un réseau virtuel (le plus souvent la source) et n’est pas accessible publiquement. Les serveurs de base de données hébergés sur des machines virtuelles sont également inclus dans ce scénario.
 
 ## <a name="cloud-scenarios"></a>Scénarios cloud
 
@@ -167,14 +167,14 @@ Le tableau suivant indique les exigences de ports entrants pour le pare-feu Wind
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Requis par la cmdlet de chiffrement PowerShell comme décrit dans la rubrique[Chiffrer des informations d’identification pour des banques de données locales dans Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) et par l’application du gestionnaire des informations d’identification pour définir en toute sécurité les informations d’identification pour les banques de données locales sur le runtime d’intégration auto-hébergé. |
 
-![Configuration requise des ports de la passerelle](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![Configuration requise des ports de la passerelle](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>Configurations IP et mise en liste verte dans des banques de données
 Certaines banques de données dans le cloud exigent également que mettiez sur liste verte l’adresse IP de la machine qui accède au magasin. Vérifiez que l’adresse IP de la machine runtime d’intégration auto-hébergé est mise en liste verte ou configurée correctement dans le pare-feu.
 
 Les banques de données cloud suivantes exigent que vous mettiez sur liste verte l’adresse IP de la machine runtime d’intégration auto-hébergé. Il est possible que certaines de ces banques de données ne requièrent pas par défaut la mise en liste verte des adresses IP. 
 
-- [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
+- [Base de données SQL Azure](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)

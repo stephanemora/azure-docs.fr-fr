@@ -1,6 +1,6 @@
 ---
 title: Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples | Microsoft Docs
-description: 'Cette rubrique décrit comment configurer un canal qui reçoit un flux dynamique à débit binaire unique à partir d’un encodeur local, puis effectue un encodage en temps réel en flux à débit binaire adaptatif avec Media Services. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de streaming à l’aide d’un des protocoles de diffusion en continu adaptatifs suivants : HLS, Smooth Stream, MPEG DASH.'
+description: 'Cette rubrique décrit comment configurer un canal qui reçoit un flux dynamique à débit binaire unique à partir d’un encodeur local, puis effectue un encodage en temps réel en flux à débit binaire adaptatif avec Media Services. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de streaming à l’aide d’un des protocoles de streaming adaptatifs suivants : HLS, Smooth Stream, MPEG DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/29/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262616"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682654"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples.
 
@@ -29,8 +29,8 @@ ms.locfileid: "52262616"
 ## <a name="overview"></a>Vue d’ensemble
 Dans Azure Media Services (AMS), un **canal** représente un pipeline de traitement du contenu vidéo en flux continu. Un **canal** reçoit des flux d’entrée live de l’une des deux manières suivantes :
 
-* Un encodeur local en direct envoie un flux à débit unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). Le canal procède ensuite à l’encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
-* Un encodeur live local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple qui n’est pas activé pour effectuer un encodage live avec AMS. Les flux reçus transitent par les **canaux**sans traitement supplémentaire. Cette méthode est appelée **pass-through**. Vous pouvez utiliser les encodeurs en direct suivants qui produisent un flux Smooth Streaming multidébit : MediaExcel, Ateme, Imagine Communications, Envivio, Cisco et Elemental. Les encodeurs en direct suivants produisent un flux au format RTMP : Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek et Tricaster.  Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour le Live Encoding, mais ce n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+* Un encodeur live local envoie un flux à débit unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). Le canal procède ensuite à l’encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+* Un encodeur live local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple qui n’est pas activé pour effectuer un encodage live avec AMS. Les flux reçus transitent par les **canaux**sans traitement supplémentaire. Cette méthode est appelée **pass-through**. Vous pouvez utiliser les encodeurs live suivants qui produisent un flux Smooth Streaming multidébit : MediaExcel, Ateme, Imagine Communications, Envivio, Cisco et Elemental. Les encodeurs live suivants produisent un flux au format RTMP : Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek et Tricaster.  Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour le Live Encoding, mais ce n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
   
   > [!NOTE]
   > L’utilisation d’une méthode pass-through est le moyen le plus économique de diffuser une vidéo en flux continu.
@@ -80,7 +80,7 @@ Depuis le 25 janvier 2016, Media Services a déployé une mise à jour qui ferme
 Le seuil nominal de la période inutilisée est de 12 heures, mais il est susceptible de changer.
 
 ## <a name="live-encoding-workflow"></a>Flux de travail d’encodage en temps réel
-Le diagramme suivant représente un workflow de streaming en direct où un canal reçoit un flux à débit unique dans l’un des protocoles suivants : RTMP ou Smooth Streaming. Il encode ensuite le flux dans un flux multidébit. 
+Le diagramme suivant représente un workflow de streaming en direct où un canal reçoit un flux à débit unique dans l’un des protocoles suivants : RTMP ou Smooth Streaming. Il encode ensuite le flux dans un flux multidébit. 
 
 ![Flux de travail live][live-overview]
 
@@ -92,7 +92,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 > 
 > 
 
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur local en direct qui peut générer un flux à vitesse **unique** dans l’un des protocoles suivants : RTMP ou Smooth Streaming. 
+1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur live local qui peut générer un flux à débit **unique** dans l’un des protocoles suivants : RTMP ou Smooth Streaming. 
    
     Cette étape peut également être effectuée après la création du canal.
 2. Créez et démarrez un canal. 
@@ -214,18 +214,17 @@ Spécifie la présélection à utiliser par l’encodeur dynamique dans ce canal
 
 Notez que si vous avez besoin de paramètres prédéfinis personnalisés, contactez amslived@microsoft.com.
 
-**Default720p** encode la vidéo dans les 7 couches suivantes.
+**Default720p** encode la vidéo dans les 6 couches suivantes.
 
 #### <a name="output-video-stream"></a>Flux vidéo de sortie
 | Débit binaire | Largeur | Hauteur | IPS max. | Profil | Nom du flux de sortie |
 | --- | --- | --- | --- | --- | --- |
 | 3 500 |1 280 |720 |30 |Élevé |Video_1280x720_3500kbps |
-| 2 200 |960 |540 |30 |Principal |Video_960x540_2200kbps |
-| 1 350 |704 |396 |30 |Principal |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Principal |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Principal |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Ligne de base |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Ligne de base |Video_340x192_200kbps |
+| 2 200 |960 |540 |30 |Élevé |Video_960x540_2200kbps |
+| 1 350 |704 |396 |30 |Élevé |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Élevé |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Élevé |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Élevé |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Flux audio de sortie
 

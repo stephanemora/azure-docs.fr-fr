@@ -1,6 +1,6 @@
 ---
-title: Indexation d’une source de données Azure Cosmos DB pour Recherche Azure | Microsoft Docs
-description: Cet article explique comment créer un indexeur Recherche Azure avec une source de données Azure Cosmos DB.
+title: Indexer une source de données Azure Cosmos DB - Recherche Azure
+description: Analyser une source de données Azure Cosmos DB et ingérer des données dans un index de recherche en texte intégral dans Recherche Azure. Les indexeurs automatisent l’ingestion des données pour les sources de données sélectionnées telles qu’Azure Cosmos DB.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec2018
+ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747539"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311811"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connexion de Cosmos DB à Recherche Azure à l’aide d’indexeurs
 
@@ -73,7 +74,7 @@ Cet article explique comment le faire à l’aide de l’API REST. Si vous optez
 > Pour l’instant, vous ne pouvez pas créer ou modifier de sources de données **MongoDB** à l’aide du portail Azure ou du Kit de développement logiciel (SDK) .NET. Cependant, vous **pouvez** surveiller l’historique d’exécution des indexeurs MongoDB dans le portail.  
 
 <a name="CreateDataSource"></a>
-## <a name="step-1-create-a-data-source"></a>Étape 1 : Création d’une source de données
+## <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
 Pour créer une source de données, effectuez un POST :
 
     POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
@@ -96,17 +97,17 @@ Pour créer une source de données, effectuez un POST :
 Le corps de la requête contient la définition de la source de données, qui doit inclure les champs suivants :
 
 * **name** : choisissez un nom qui représentera votre base de données.
-* **type** : doit être `documentdb`.
+* **type** : Doit être `documentdb`.
 * **credentials**:
   
-  * **connectionString**: obligatoire. Spécifiez les informations de connexion à votre base de données Azure Cosmos DB selon le format suivant : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Pour les collections MongoDB, ajoutez **ApiKind=MongoDb** à la chaîne de connexion : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  * **connectionString** : Requis. Indiquez les informations de connexion à votre base de données Azure Cosmos DB au format suivant : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Pour les collections MongoDB, ajoutez **ApiKind=MongoDb** à la chaîne de connexion : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
   Évitez les numéros de port dans l’URL du point de terminaison. Si vous incluez le numéro de port, Recherche Azure ne peut pas indexer votre base de données Azure Cosmos DB.
 * **container**:
   
-  * **name**: obligatoire. Spécifiez l’ID de la collection de bases de données à indexer.
-  * **query**: facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d'un document JSON arbitraire de manière à ce qu'Azure Search puisse procéder à l'indexation. Pour les collections MongoDB, les requêtes ne sont pas prises en charge. 
-* **dataChangeDetectionPolicy** : recommandé. Consultez la section [Indexation des documents modifiés](#DataChangeDetectionPolicy).
-* **dataDeletionDetectionPolicy**: facultatif. Consultez la section [Indexation des documents supprimés](#DataDeletionDetectionPolicy).
+  * **name** : Requis. Spécifiez l’ID de la collection de bases de données à indexer.
+  * **query** : facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d'un document JSON arbitraire de manière à ce qu'Azure Search puisse procéder à l'indexation. Pour les collections MongoDB, les requêtes ne sont pas prises en charge. 
+* **dataChangeDetectionPolicy** : Recommandé. Consultez la section [Indexation des documents modifiés](#DataChangeDetectionPolicy).
+* **dataDeletionDetectionPolicy** : facultatif. Consultez la section [Indexation des documents supprimés](#DataDeletionDetectionPolicy).
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Utilisation de requêtes pour formater les données indexées
 Vous pouvez spécifier une requête SQL pour aplatir les propriétés ou les tableaux imbriqués, projeter des propriétés JSON et filtrer les données à indexer. 
@@ -145,7 +146,7 @@ Requête d’aplatissage de tableau :
     SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 <a name="CreateIndex"></a>
-## <a name="step-2-create-an-index"></a>Étape 2 : Création d’un index
+## <a name="step-2-create-an-index"></a>Étape 2 : Création d'un index
 Créez un index Azure Search cible si vous n'en possédez pas déjà un. Vous pouvez créer un index avec [l’interface utilisateur du portail Azure](search-create-index-portal.md), [l’API Création d’index](/rest/api/searchservice/create-index) ou la [classe Index](/dotnet/api/microsoft.azure.search.models.index).
 
 L'exemple suivant crée un index avec un champ ID et un champ Description :
@@ -192,7 +193,7 @@ Assurez-vous que le schéma de votre index cible est compatible avec le schéma 
 
 <a name="CreateIndexer"></a>
 
-## <a name="step-3-create-an-indexer"></a>Étape 3 : Création d’un indexeur
+## <a name="step-3-create-an-indexer"></a>Étape 3 : Créer un indexeur
 
 Une fois l'index et la source de données créés, vous êtes prêt à créer l’indexeur :
 

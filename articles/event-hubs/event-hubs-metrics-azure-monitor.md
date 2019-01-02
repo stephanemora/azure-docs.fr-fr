@@ -1,6 +1,6 @@
 ---
-title: Métriques Azure Event Hubs dans Azure Monitor (préversion) | Microsoft Docs
-description: Utilisation d’Event Hubs pour surveiller Event Hubs
+title: Métriques dans Azure Monitor (préversion) - Azure Event Hubs | Microsoft Docs
+description: Cet article fournit des informations sur l’utilisation d’Azure Monitor pour une surveillance d’Azure Event Hubs.
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c59cb8277bee13a83d0bf17c26deef1b8fc8d3e6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 27a9f2619801346660dfedbda3eefe57b41ad6ac
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822841"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094319"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métriques Azure Event Hubs dans Azure Monitor (préversion)
 
@@ -37,13 +38,13 @@ Les métriques sont activées par défaut, et vous pouvez accéder aux 30 dernie
 
 Vous pouvez surveiller les mesures au fil du temps dans le [portail Azure](https://portal.azure.com). L’exemple suivant montre comment afficher les demandes réussies et les demandes entrantes au niveau du compte :
 
-![][1]
+![Affichage des métriques de réussite][1]
 
 Vous pouvez également accéder aux métriques directement via l’espace de noms. Pour ce faire, sélectionnez votre espace de noms, puis **Métriques (préversion)**. Pour afficher les métriques filtrées à l’étendue du concentrateur d’événements, sélectionnez le concentrateur d’événements, puis cliquez sur **Métriques (préversion)**.
 
 Pour les métriques prenant en charge des dimensions, vous devez filtrer avec la valeur de dimension souhaitée, comme dans l’exemple suivant :
 
-![][2]
+![Filtrage avec une valeur de dimension][2]
 
 ## <a name="billing"></a>Facturation
 
@@ -62,34 +63,34 @@ Compte le nombre de requêtes d’opérations de données et de gestion.
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| Demandes entrantes (préversion) | Le nombre de requêtes effectuées auprès de Azure Event Hubs sur une période spécifiée. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName |
-| Requêtes ayant réussi (préversion)   | Le nombre de requêtes réussies auprès de Azure Event Hubs sur une période spécifiée. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName |
-| Erreurs du serveur (préversion) | Le nombre de requêtes non traitées en raison d’une erreur sur Azure Event Hubs sur une période spécifiée. <br/><br/>Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName |
-|Erreurs utilisateur (préversion)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Erreurs de quota dépassé (préversion)|Le nombre de requêtes a dépassé le quota disponible. Consultez [cet article](event-hubs-quotas.md) pour plus d’informations sur les quotas Event Hubs.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+| Demandes entrantes (préversion) | Le nombre de requêtes effectuées auprès de Azure Event Hubs sur une période spécifiée. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName |
+| Requêtes ayant réussi (préversion)   | Le nombre de requêtes réussies auprès de Azure Event Hubs sur une période spécifiée. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName |
+| Erreurs du serveur (préversion) | Le nombre de requêtes non traitées en raison d’une erreur sur Azure Event Hubs sur une période spécifiée. <br/><br/>Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName |
+|Erreurs utilisateur (préversion)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Erreurs de quota dépassé (préversion)|Le nombre de requêtes a dépassé le quota disponible. Consultez [cet article](event-hubs-quotas.md) pour plus d’informations sur les quotas Event Hubs.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ## <a name="throughput-metrics"></a>Métriques de débit
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Demandes limitées (préversion)|Le nombre de demandes qui ont été limitées car l’utilisation d’une unité de débit a été dépassée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|Demandes limitées (préversion)|Le nombre de demandes qui ont été limitées car l’utilisation d’une unité de débit a été dépassée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ## <a name="message-metrics"></a>Métriques de message
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Messages entrants (préversion)|Le nombre d’événements ou de messages envoyés à Event Hubs sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Messages sortants (préversion)|Le nombre d’événements ou de messages récupérés depuis Event Hubs sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Octets entrants (préversion)|Le nombre d’octets envoyés au service Azure Event Hubs sur une période spécifiée.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Octets sortants (préversion)|Le nombre d’octets récupérés depuis le service Azure Event Hubs sur une période spécifiée.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|Messages entrants (préversion)|Le nombre d’événements ou de messages envoyés à Event Hubs sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Messages sortants (préversion)|Le nombre d’événements ou de messages récupérés depuis Event Hubs sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Octets entrants (préversion)|Le nombre d’octets envoyés au service Azure Event Hubs sur une période spécifiée.<br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Octets sortants (préversion)|Le nombre d’octets récupérés depuis le service Azure Event Hubs sur une période spécifiée.<br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ## <a name="connection-metrics"></a>Métriques de connexion
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|ActiveConnections (préversion)|Le nombre de connexions actives sur un espace de noms ainsi que sur une entité.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Ouvertures de connexion (préversion)|Le nombre de connexions ouvertes.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Connexions fermées (préversion)|Le nombre de connexions fermées.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|ActiveConnections (préversion)|Le nombre de connexions actives sur un espace de noms ainsi que sur une entité.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Ouvertures de connexion (préversion)|Le nombre de connexions ouvertes.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Connexions fermées (préversion)|Le nombre de connexions fermées.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ## <a name="event-hubs-capture-metrics"></a>Métriques de capture Event Hubs
 
@@ -97,9 +98,9 @@ Vous pouvez surveiller les métriques de capture Event Hubs lorsque vous activez
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Backlog de capture (préversion)|Le nombre d’octets qui ne sont pas encore être capturés dans la destination choisie.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Messages capturés (préversion)|Le nombre de messages ou d’événements capturés dans la destination choisie sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Octets capturés (préversion)|Le nombre d’octets capturés dans la destination choisie sur une période spécifiée.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|Backlog de capture (préversion)|Le nombre d’octets qui ne sont pas encore capturés dans la destination choisie.<br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Messages capturés (préversion)|Le nombre de messages ou d’événements capturés dans la destination choisie sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Octets capturés (préversion)|Le nombre d’octets capturés dans la destination choisie sur une période spécifiée.<br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensions de mesures
 

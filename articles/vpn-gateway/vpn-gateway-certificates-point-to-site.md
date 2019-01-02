@@ -1,19 +1,19 @@
 ---
-title: 'Générer et exporter des certificats pour les connexions de point à site : PowerShell : Azure | Microsoft Docs'
+title: 'Générer et exporter des certificats pour point à site : PowerShell : Azure | Microsoft Docs'
 description: Créez un certificat racine auto-signé, exportez la clé publique et générez des certificats clients avec PowerShell sous Windows 10 ou Windows Server 2016.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18d705f68ff06621e30c051dac9fb9607fd043ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300934"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850956"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Générer et exporter des certificats pour les connexions de point à site à l’aide de PowerShell
 
@@ -27,7 +27,7 @@ Si vous n’avez pas accès à un ordinateur Windows 10 ou Windows Server 2016
 
 Utilisez la cmdlet New-SelfSignedCertificate pour créer un certificat racine auto-signé. Pour obtenir des informations sur des paramètres supplémentaires, consultez [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Sur un ordinateur sous Windows 10 ou Windows Server 2016, ouvrez une console Windows PowerShell avec élévation de privilèges.
+1. Sur un ordinateur sous Windows 10 ou Windows Server 2016, ouvrez une console Windows PowerShell avec élévation de privilèges. Ces exemples ne fonctionnent pas avec « Essayez-le » Azure Cloud Shell. Vous devez les exécuter localement.
 2. Utilisez l’exemple suivant pour créer le certificat racine auto-signé. L’exemple suivant crée un certificat racine auto-signé nommé « P2SRootCert », automatiquement installé dans « Certificates-Current User\Personal\Certificates ». Vous pouvez afficher le certificat en ouvrant *certmgr.msc* ou *Gérer les certificats utilisateur*.
 
   ```powershell

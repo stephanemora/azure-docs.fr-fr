@@ -3,7 +3,7 @@ title: Utiliser le portail Azure pour créer des alertes SQL Database | Microso
 description: Utilisez le portail Azure pour créer des alertes SQL Database permettant de déclencher des notifications ou Automation lorsque les conditions spécifiées sont remplies.
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978993"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273339"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utiliser le portail Azure pour créer des alertes pour Azure SQL Database et Data Warehouse
 
@@ -38,8 +38,8 @@ Vous pouvez configurer une alerte pour effectuer les opérations suivantes lors 
 Vous pouvez configurer et obtenir des informations sur les règles d’alerte avec
 
 * [Portail Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [interface de ligne de commande (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [interface de ligne de commande (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Créer une règle d’alerte sur une métrique avec le Portail Azure
@@ -48,7 +48,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte av
    
      ![Surveillance](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW UNIQUEMENT** : cliquez sur le graphique **Utilisation DWU**. Sélectionnez **Afficher les alertes classiques**.
+   - **SQL DW UNIQUEMENT** : Cliquez sur le graphique **Utilisation DWU**. Sélectionnez **Afficher les alertes classiques**.
 
 3. Sélectionnez le bouton **Ajouter une alerte de métrique (classique)** et renseignez les champs.
    
@@ -116,6 +116,6 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Consultez une vue d’ensemble de la surveillance Azure](../monitoring-and-diagnostics/monitoring-overview.md) , notamment les types d’informations que vous pouvez collecter et surveiller.
-* Découvrez plus en détail la [configuration des webhooks dans les alertes](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+* Découvrez plus en détail la [configuration des webhooks dans les alertes](../azure-monitor/platform/alerts-webhooks.md).
 * Consultez une [vue d’ensemble des journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) et collecter des métriques détaillées à fréquence élevée sur votre service.
 * Consultez une [vue d’ensemble de la collecte des métriques](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.

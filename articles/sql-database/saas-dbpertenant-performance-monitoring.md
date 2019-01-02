@@ -1,5 +1,5 @@
 ---
-title: 'Application SaaS : Superviser les performances de nombreuses bases de données Azure SQL | Microsoft Docs'
+title: 'Application SaaS : Superviser les performances de nombreuses bases de données Azure SQL | Microsoft Docs'
 description: Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353898"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259135"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
@@ -75,7 +75,7 @@ Si vous avez déjà configuré un lot de clients dans le cadre d’un didacticie
 
 Le script déploie 17 locataires en moins de cinq minutes.
 
-Le script *New-TenantBatch* utilise un ensemble imbriqué ou lié de modèles [Resource Manager](../azure-resource-manager/index.md) qui créent un lot de clients, ce qui a pour effet de copier par défaut la base de données **basetenantdb** sur le serveur de catalogue pour créer de nouvelles bases de données client, puis d’inscrire celles-ci dans le catalogue, avant de les initialiser avec le type de lieu et le nom du client. Ce comportement est cohérent avec la manière dont l’application approvisionne un nouveau locataire. Les modifications apportées à *basetenantdb* sont appliquées aux nouveaux clients approvisionnés par la suite. Pour découvrir comment apporter des modifications de schéma à des bases de données client *existantes*, y compris à la base de données *basetenantdb*, voir le [didacticiel relatif à la gestion de schéma](saas-tenancy-schema-management.md).
+Le script *New-TenantBatch* utilise un ensemble imbriqué ou lié de modèles [Resource Manager](../azure-resource-manager/index.yml) qui créent un lot de clients, ce qui a pour effet de copier par défaut la base de données **basetenantdb** sur le serveur de catalogue pour créer de nouvelles bases de données client, puis d’inscrire celles-ci dans le catalogue, avant de les initialiser avec le type de lieu et le nom du client. Ce comportement est cohérent avec la manière dont l’application approvisionne un nouveau locataire. Les modifications apportées à *basetenantdb* sont appliquées aux nouveaux clients approvisionnés par la suite. Pour découvrir comment apporter des modifications de schéma à des bases de données client *existantes*, y compris à la base de données *basetenantdb*, voir le [didacticiel relatif à la gestion de schéma](saas-tenancy-schema-management.md).
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simuler l’utilisation sur toutes les bases de données de locataire
 

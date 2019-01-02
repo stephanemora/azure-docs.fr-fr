@@ -1,5 +1,5 @@
 ---
-title: Enregistrer des échantillons vocaux afin de créer une voix personnalisée
+title: Enregistrer des échantillons vocaux personnalisés - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Créez une voix personnalisée de qualité production en préparant un script complet, en recrutant des voix professionnelles et en effectuant un enregistrement professionnel.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/5/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 6aaa638504dd441240879050531952b269d02d15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471184"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081079"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Enregistrer des échantillons vocaux pour créer une voix personnalisée
 
@@ -50,7 +51,7 @@ Choisissez une personne dont la voix naturelle vous plaît. Il est possible de c
 > [!TIP]
 > En règle générale, évitez d’utiliser des voix facilement reconnaissables pour créer une voix personnalisée, à moins, bien sûr, que votre objectif est de reproduire une voix célèbre. Les voix plus anonymes sont mieux acceptées par les utilisateurs.
 
-Le principal facteur quant au choix de la voix professionnelle est l’homogénéité. Vos enregistrements doivent donner l’impression qu’ils ont été réalisés le même jour et dans la même pièce. Pour tendre à cet idéal, vous devez suivre de bonnes pratiques en matière d’enregistrement et d’ingénierie. 
+Le principal facteur quant au choix de la voix professionnelle est l’homogénéité. Vos enregistrements doivent donner l’impression qu’ils ont été réalisés le même jour et dans la même pièce. Pour tendre à cet idéal, vous devez suivre de bonnes pratiques en matière d’enregistrement et d’ingénierie.
 
 Votre voix professionnelle représente l’autre moitié de l’équation. Il ou elle doit être en mesure de parler en gardant un niveau constant de débit, de volume et de tonalité. Une parfaite diction est indispensable. L’acteur doit également être capable de contrôler de manière stricte ses variations de tonalité, ses émotions ou ses tics oraux.
 
@@ -71,7 +72,7 @@ Les énoncés de votre script peuvent provenir de n’importe quelle source : f
 
 Vos énoncés ne doivent pas nécessairement provenir de la même source ou du même type de source. Et leurs contenus peuvent être de nature totalement différente. Toutefois, si vous comptez utiliser des expressions spécifiques (par exemple, « Vous vous êtes connecté avec succès ») dans votre application de reconnaissance vocale, veillez à les inclure dans votre script. Vous aiderez ainsi votre acteur à bien prononcer ces expressions. Et si vous décidez d’utiliser un enregistrement à la place d’une synthèse vocale, vous aurez déjà ces expressions dans la même voix.
 
-L’homogénéité est essentielle dans le choix d’une voix professionnelle, mais la variété est le signe d’un bon script. Votre script doit inclure un grand nombre de mots et de phrases variées, avec un large éventail de longueurs, de structures et de tons. Chaque son dans la langue doit être représenté plusieurs fois dans de nombreux contextes (c’est la *couverture phonétique).* 
+L’homogénéité est essentielle dans le choix d’une voix professionnelle, mais la variété est le signe d’un bon script. Votre script doit inclure un grand nombre de mots et de phrases variées, avec un large éventail de longueurs, de structures et de tons. Chaque son dans la langue doit être représenté plusieurs fois dans de nombreux contextes (c’est la *couverture phonétique).*
 
 En outre, le texte doit inclure toutes les représentations d’un son particulier par écrit et placer chaque son à différents endroits dans les phrases. Les phrases déclaratives et les questions doivent être incluses et lues avec l’intonation appropriée.
 
@@ -188,9 +189,9 @@ Enregistrez cinq bonnes secondes de silence avant le premier enregistrement pour
 > [!TIP]
 > Comme vous avez avant tout besoin de la voix de l’acteur, vous pouvez effectuer un enregistrement monophonique (monocanal) de ces lignes. Mais s’il s’agit d’un enregistrement en stéréo, vous pouvez utiliser le second canal pour capturer le son provenant de la salle de contrôle et écouter ainsi les discussions concernant des lignes ou des prises particulières. Supprimez cette piste de la version chargée sur le portail Custom Voice.
 
-Écoutez attentivement, à l’aide d’un casque, les enregistrements de la voix professionnelle. Vous devez obtenir une diction naturelle et une prononciation claire, sans bruits parasites. N’hésitez pas à demander à l’acteur de répéter un énoncé, si vous estimez que ces critères ne sont pas remplis. 
+Écoutez attentivement, à l’aide d’un casque, les enregistrements de la voix professionnelle. Vous devez obtenir une diction naturelle et une prononciation claire, sans bruits parasites. N’hésitez pas à demander à l’acteur de répéter un énoncé, si vous estimez que ces critères ne sont pas remplis.
 
-> [!TIP] 
+> [!TIP]
 > Si vous utilisez un grand nombre d’énoncés, un énoncé unique peut ne pas avoir d’effet notable sur la voix personnalisée finale. Il est parfois préférable de noter simplement les énoncés qui posent problème, puis de les exclure de votre jeu de données pour examiner le résultat final de la voix personnalisée. Vous pourrez toujours retourner en studio afin d’y enregistrer les échantillons manquants.
 
 Pour chaque énoncé, notez sur le script le numéro de la prise ou le code temporel. Demandez également à l’ingénieur du son de marquer si possible chaque énoncé dans les métadonnées ou le « cue sheet » de l’enregistrement.

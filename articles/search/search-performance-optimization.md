@@ -1,6 +1,6 @@
 ---
-title: Considérations sur les performances et l’optimisation de Recherche Azure | Microsoft Docs
-description: Réglage des performances d’Azure Search et configuration d’une mise à l’échelle optimale
+title: Considérations sur les performances et l’optimisation de Recherche Azure - Recherche Azure
+description: Découvrez les techniques et les bonnes pratiques pour optimiser les performances de Recherche Azure et configurer une mise à l’échelle optimale.
 author: LiamCavanagh
 manager: jlembicz
 services: search
@@ -9,14 +9,15 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: 89c0352723f1ed00784250b566902028af853d10
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 0a98e7f05e766d47a5ea9293409a74a6fafbf837
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797760"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310216"
 ---
-# <a name="azure-search-performance-and-optimization-considerations"></a>Considérations sur les performances et l’optimisation d’Azure Search
+# <a name="azure-search-performance-and-optimization-considerations"></a>Considérations sur les performances et l’optimisation de Recherche Azure
 Une expérience de recherche optimale est essentielle à la réussite de nombreuses applications mobiles et web. Du secteur de l’immobilier à celui des véhicules d’occasion en passant par les catalogues en ligne, une recherche rapide et des résultats pertinents affectent l’expérience du client. Ce document a pour but de vous présenter les meilleures pratiques permettant de tirer le meilleur parti d’Azure Search, en particulier dans des scénarios avancés avec des exigences plus complexes en matière d’évolutivité, de prise en charge multilingue ou de classement personnalisé.  En outre, ce document détaille les mécanismes internes et décrit les approches qui fonctionnent efficacement dans les applications clientes réelles.
 
 ## <a name="performance-and-scale-tuning-for-search-services"></a>Réglage des performances et de la mise à l’échelle pour les services de recherche
@@ -42,8 +43,8 @@ Lors de la création de ces charges de travail de test, certaines caractéristiq
 ## <a name="scaling-azure-search-for-high-query-rates-and-throttled-requests"></a>Mise à l’échelle d’Azure Search pour obtenir des taux de requêtes élevés et des requêtes limitées
 Lorsque vous recevez un trop grand nombre de requêtes limitées ou dépassez votre taux de latence cible suite à une charge de requête accrue, vous pouvez essayer de diminuer les taux de latence de deux manières :
 
-1. **Augmenter les réplicas :** un réplica s’apparente à une copie de vos données et permet à la Recherche Azure d’équilibrer la charge des requêtes sur plusieurs copies.  L’intégralité de l’équilibrage de la charge et de la réplication des données entre les réplicas est gérée par Azure Search et vous pouvez à tout moment modifier le nombre de réplicas alloués à votre service.  Vous pouvez allouer jusqu'à 12 réplicas dans un service de recherche Standard, et 3 dans un service de recherche de base. Les réplicas peuvent être ajustés sur le [portail Azure](search-create-service-portal.md) ou via [PowerShell](search-manage-powershell.md).
-2. **Augmenter le niveau de recherche :** la Recherche Azure est fournie avec un certain [nombre de niveaux](https://azure.microsoft.com/pricing/details/search/) et chacun de ces niveaux offre différents niveaux de performances.  Dans certains cas, vous aurez tant de requêtes que le niveau sélectionné est incapable de fournir des taux de latence suffisamment faibles, même lorsque les réplicas sont optimisés.  Dans ce cas, vous pouvez passer à l’un des niveaux de recherche supérieurs tel que le niveau Azure Search S3, parfaitement adapté aux scénarios comportant un grand nombre de documents et des charges de travail de requêtes extrêmement élevées.
+1. **Augmenter les réplicas :**  un réplica s’apparente à une copie de vos données qui permet à la Recherche Azure d’équilibrer la charge des requêtes sur plusieurs copies.  L’intégralité de l’équilibrage de la charge et de la réplication des données entre les réplicas est gérée par Azure Search et vous pouvez à tout moment modifier le nombre de réplicas alloués à votre service.  Vous pouvez allouer jusqu'à 12 réplicas dans un service de recherche Standard, et 3 dans un service de recherche de base. Les réplicas peuvent être ajustés sur le [portail Azure](search-create-service-portal.md) ou via [PowerShell](search-manage-powershell.md).
+2. **Augmenter le niveau de recherche :**  la Recherche Azure est proposée dans [plusieurs niveaux](https://azure.microsoft.com/pricing/details/search/), chacun d’eux offrant des niveaux de performances différents.  Dans certains cas, vous aurez tant de requêtes que le niveau sélectionné est incapable de fournir des taux de latence suffisamment faibles, même lorsque les réplicas sont optimisés.  Dans ce cas, vous pouvez passer à l’un des niveaux de recherche supérieurs tel que le niveau Azure Search S3, parfaitement adapté aux scénarios comportant un grand nombre de documents et des charges de travail de requêtes extrêmement élevées.
 
 ## <a name="scaling-azure-search-for-slow-individual-queries"></a>Mise à l’échelle d’Azure Search pour des requêtes individuelles lentes
 Une requête unique qui prend trop de temps peut également entraîner de faibles taux de latence.  Dans ce cas, l’ajout de réplicas n’améliorera pas les taux de latence.  Il existe alors deux options possibles :
@@ -51,8 +52,8 @@ Une requête unique qui prend trop de temps peut également entraîner de faible
 1. **Augmenter les partitions** Une partition est un mécanisme permettant de répartir vos données sur des ressources supplémentaires.  Pour cette raison, lorsque vous ajoutez une deuxième partition, vos données sont divisées en deux.  Une troisième partition divise votre index en trois, etc.  Cette opération a également pour effet que, dans certains cas, les requêtes lentes s’exécuteront plus rapidement en raison de la parallélisation du calcul.  Il existe quelques exemples dans lesquels cette parallélisation fonctionne très bien avec des requêtes affichant une faible sélectivité.  Il s’agit de requêtes correspondant à de nombreux documents ou lorsque l’utilisation de facettes doit compter un grand nombre de documents.  Dans la mesure où de nombreux calculs sont nécessaires pour évaluer la pertinence des documents ou pour compter le nombre de documents, l’ajout de partitions supplémentaires peut contribuer à fournir des calculs supplémentaires.  
    
    Il peut y avoir un maximum de 12 partitions dans le service de recherche standard, et 1 partition dans le service de recherche de base.  Les réplicas peuvent être ajustés sur le [portail Azure](search-create-service-portal.md) ou via [PowerShell](search-manage-powershell.md).
-2. **Limiter les champs à cardinalité élevée :** Un champ à cardinalité élevée est un champ pouvant être utilisé comme facette ou comme filtre et qui comporte un nombre important de valeurs uniques et, par conséquent, consomme beaucoup de ressources pour calculer les résultats.   Par exemple, la définition d’un champ ID produit ou Description comme un champ pouvant être utilisé comme facette ou comme filtre peut offrir une cardinalité élevée car la plupart des valeurs sont uniques pour chaque document. Dans la mesure du possible, limitez le nombre de champs à cardinalité élevée.
-3. **Augmenter le niveau de recherche :** Choisir un niveau de Recherche Azure supérieur est une autre façon d’améliorer les performances des requêtes lentes.  Chaque niveau supérieur propose également un processeur plus rapide et plus de mémoire, ce qui peut avoir un impact positif sur les performances des requêtes.
+2. **Limiter les champs à cardinalité élevée :** un champ à cardinalité élevée est un champ utilisable comme facette ou comme filtre et contenant un grand nombre de valeurs uniques. Ce champ consomme donc beaucoup de ressources pour calculer les résultats.   Par exemple, la définition d’un champ ID produit ou Description comme un champ pouvant être utilisé comme facette ou comme filtre peut offrir une cardinalité élevée car la plupart des valeurs sont uniques pour chaque document. Dans la mesure du possible, limitez le nombre de champs à cardinalité élevée.
+3. **Augmenter le niveau de recherche :**  choisir un niveau de Recherche Azure supérieur est une autre façon d’améliorer les performances des requêtes lentes.  Chaque niveau supérieur propose également un processeur plus rapide et plus de mémoire, ce qui peut avoir un impact positif sur les performances des requêtes.
 
 ## <a name="scaling-for-availability"></a>Mise à l’échelle pour la disponibilité
 Les réplicas permettent non seulement de réduire la latence des requêtes mais ils peuvent également offrir une plus grande disponibilité.  Avec un seul réplica, attendez-vous à des temps d’arrêt périodiques en raison du redémarrage du serveur après les mises à jour logicielles ou lorsque d’autres événements de maintenance se produisent.  Par conséquent, il est important d’évaluer si votre application requiert une haute disponibilité des recherches (requêtes) ainsi que des écritures (événements d’indexation).  Azure Search offre des options de contrat de niveau de service sur tous les services de recherche payants avec les attributs suivants :

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec The Cloud Security Fabric | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à The Cloud Security Fabric | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et The Cloud Security Fabric.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fe0db2f0c7fea4b24cc23aaa52deb16376012b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422958"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092007"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Tutoriel : Intégration d’Azure Active Directory avec The Cloud Security Fabric
+# <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Tutoriel : Intégration d’Azure Active Directory à The Cloud Security Fabric
 
 Dans ce tutoriel, vous allez apprendre à intégrer The Cloud Security Fabric avec Azure Active Directory (Azure AD).
 
@@ -108,12 +108,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
     ![Informations d’authentification unique dans Domaine et URL The Cloud Security Fabric](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. Dans la zone de texte **URL d’authentification**, tapez l’URL :
+
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
+    
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
@@ -166,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>Créer un utilisateur de test The Cloud Security Fabric
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans The Cloud Security Fabric. Travaillez en collaboration avec [l’équipe de support de The Cloud Security Fabric](mailto:support@cloudlock.com) pour ajouter des utilisateurs à la plateforme The Cloud Security Fabric. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans The Cloud Security Fabric. Travaillez en collaboration avec [l’équipe du support technique The Cloud Security Fabric](mailto:support@cloudlock.com) pour ajouter les utilisateurs à la plateforme The Cloud Security Fabric. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

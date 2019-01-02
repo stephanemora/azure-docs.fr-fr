@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 12/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84068376f35bc4df6672cffcc0ac3438b12edbb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d912f559af98045aaef8fe6fcaa1d83ab5f96bd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979673"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269360"
 ---
 # <a name="model-management-setup"></a>Installation de la gestion des modèles
 
@@ -68,7 +68,7 @@ pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="configuring-docker-on-linux"></a>Configuration de Docker sur Linux
-Pour configurer Docker sur Linux pour une utilisation par des utilisateurs non racine, suivez les instructions fournies ici : [Post-installation steps for Linux (Étapes de post-installation pour Linux)](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
+Pour configurer Docker sur Linux pour des utilisateurs non racine, suivez les instructions fournies ici : [Post-installation steps for Linux (Étapes de post-installation pour Linux)](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
 >[!NOTE]
 > Sur une machine virtuelle DSVM Linux, vous pouvez exécuter le script ci-dessous pour configurer Docker correctement. **Pensez à vous déconnecter et à vous reconnecter après avoir exécuté le script.**
@@ -85,7 +85,7 @@ Dans un premier temps, vous devez configurer votre environnement de déploiement
 
 Pendant la configuration de l’environnement :
 - Vous êtes invité à vous connecter à Azure. Pour vous connecter, utilisez un navigateur web pour ouvrir la page https://aka.ms/devicelogin et entrez le code fourni pour vous authentifier.
-- Pendant le processus d’authentification, vous êtes invité à spécifier le compte avec lequel vous authentifier. Important : Sélectionnez un compte qui dispose d’un abonnement Azure valide et d’autorisations suffisantes pour créer des ressources dans le compte. Une fois la connexion établie, vos informations d’abonnement sont présentées et vous êtes invité à préciser si vous souhaitez continuer avec le compte sélectionné.
+- Pendant le processus d’authentification, vous êtes invité à spécifier le compte avec lequel vous authentifier. Important : sélectionnez un compte qui dispose d’un abonnement Azure valide et d’autorisations suffisantes pour créer des ressources dans le compte. Une fois la connexion établie, vos informations d’abonnement sont présentées et vous êtes invité à préciser si vous souhaitez continuer avec le compte sélectionné.
 
 ### <a name="environment-setup"></a>Configuration de l’environnement
 Pour lancer le processus de configuration, vous devez inscrire quelques fournisseurs d’environnement en entrant les commandes suivantes :

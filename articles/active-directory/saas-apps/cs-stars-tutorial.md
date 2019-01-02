@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à CS Stars | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à CS Stars | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et CS Stars.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 74ecfe50170f35420d3cf5dc5531b0fe1046889d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 14b5f13070554328a47cd80185efb487d887a6d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433848"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832904"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Didacticiel : Intégration d’Azure Active Directory avec CS Stars
+# <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutoriel : Intégration d’Azure Active Directory à CS Stars
 
 Dans ce didacticiel, vous allez apprendre à intégrer CS Stars à Azure Active Directory (Azure AD).
 
@@ -117,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support client CS Stars](http://www.marshclearsight.com/support/). 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support client CS Stars](https://www.marshclearsight.com/support/). 
  
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -127,11 +127,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configurer l’authentification unique](./media/cs-stars-tutorial/tutorial_general_400.png) 
 <CS>
-1. Pour configurer l’authentification unique côté **CS Stars**, vous devez envoyer les **métadonnées XML** téléchargées à [l’équipe du support technique CS Stars](http://www.marshclearsight.com/support/). 
+1. Pour configurer l’authentification unique côté **CS Stars**, vous devez envoyer les **métadonnées XML** téléchargées à [l’équipe du support technique CS Stars](https://www.marshclearsight.com/support/). 
 <CE>
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -169,7 +169,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans CS Stars.
 
-Pour créer un utilisateur dans CS Stars, vous devez contacter [l’équipe du support technique CS Stars](http://www.marshclearsight.com/support/).
+Pour créer un utilisateur dans CS Stars, vous devez contacter [l’équipe du support technique CS Stars](https://www.marshclearsight.com/support/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 

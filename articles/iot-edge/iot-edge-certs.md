@@ -1,6 +1,6 @@
 ---
-title: Présentation des certificats Azure IoT Edge | Microsoft Docs
-description: Découvrez les certificats Azure IoT Edge et les modes d’utilisation.
+title: Certificats pour la sécurité des appareils - Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge utilise un certificat pour valider les appareils, les modules et les appareils de nœud terminal, et pour établir des connexions sécurisées entre eux.
 author: stevebus
 manager: philmea
 ms.author: stevebus
@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ff85f2c9ef708c7cbac9be4933541f063a6c95b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1cf1411e227363e7dc9d54f04d0c630341f55a6e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568588"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099883"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Utilisation détaillée des certificats Azure IoT Edge
 
@@ -51,7 +51,7 @@ Dans tous les cas, le fabricant utilise un certificat d’autorité de certifica
 
 ### <a name="device-ca-certificate"></a>Certificat d’autorité de certification d’appareil
 
-Le certificat d’autorité de certification de l’appareil est généré à partir du certificat d’autorité de certification intermédiaire final (et signé par celui-ci) dans le processus. Ce certificat est installé sur l’appareil Edge, de préférence dans un stockage sécurisé, tel qu’un module de sécurité matériel (HSM). En outre, un certificat d’autorité de certification d’appareil identifie de façon unique un appareil IoT Edge. Pour IoT Edge, le certificat d’autorité de certification d’appareil est capable de délivrer des autres certificats. Par exemple, le certificat d’autorité de certification d’appareil émet des certificats d’appareil feuille servant à authentifier les appareils pour le [service de provisionnement des appareils Azure IoT](..\iot-dps\about-iot-dps.md).
+Le certificat d’autorité de certification de l’appareil est généré à partir du certificat d’autorité de certification intermédiaire final (et signé par celui-ci) dans le processus. Ce certificat est installé sur l’appareil Edge, de préférence dans un stockage sécurisé, tel qu’un module de sécurité matériel (HSM). En outre, un certificat d’autorité de certification d’appareil identifie de façon unique un appareil IoT Edge. Pour IoT Edge, le certificat d’autorité de certification d’appareil est capable de délivrer des autres certificats. Par exemple, le certificat d’autorité de certification d’appareil émet des certificats d’appareil feuille servant à authentifier les appareils pour le [service de provisionnement des appareils Azure IoT](../iot-dps/about-iot-dps.md).
 
 ### <a name="iot-edge-workload-ca"></a>Autorité de certification pour la charge de travail IoT Edge
 

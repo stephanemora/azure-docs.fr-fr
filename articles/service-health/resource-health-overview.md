@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 918ff674e57a14f685c7f9ef2aaaca5ca064976e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309427"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012842"
 ---
 # <a name="azure-resource-health-overview"></a>Vue d’ensemble d’Azure Resource Health
  
@@ -53,7 +53,7 @@ Resource Health fournit des détails supplémentaires sur l’événement et le 
 ![État « Non disponible » pour une machine virtuelle en raison d’un événement de plateforme](./media/resource-health-overview/Unavailable.png)
 
 #### <a name="non-platform-events"></a>Événements hors plateforme
-Les événements hors plateforme sont déclenchés par des actions effectuées par les utilisateurs. Par exemple, l’arrêt d’une machine virtuelle ou l’atteinte du nombre maximal de connexions à un cache Redis.
+Les événements hors plateforme sont déclenchés par des actions effectuées par les utilisateurs. Par exemple, l’arrêt d’une machine virtuelle ou l’utilisation du nombre maximal de connexions à un cache Azure pour Redis.
 
 ![État « Non disponible » pour une machine virtuelle en raison d’un événement hors plateforme](./media/resource-health-overview/Unavailable_NonPlatform.png)
 

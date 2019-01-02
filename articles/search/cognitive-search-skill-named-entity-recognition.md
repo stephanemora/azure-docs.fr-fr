@@ -1,5 +1,5 @@
 ---
-title: Compétence Reconnaissance d’entités nommées de la recherche cognitive (Recherche Azure) | Microsoft Docs
+title: Compétence Reconnaissance d’entités nommées de la recherche cognitive - Recherche Azure
 description: Extrait les entités nommées de personne, de lieu et d’organisation du texte dans un pipeline de recherche cognitive Recherche Azure.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: f9ff3f66f3a73fbaf1a4c2ca280c85f4bde65444
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: e63354152f8821c5ce975563639c8b87fb332bd4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442027"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313987"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités nommées
 
@@ -23,8 +24,10 @@ La compétence **Reconnaissance d’entités nommées** extrait les entités nom
 
 > [!NOTE]
 > <ul>
-> <li>La recherche cognitive est disponible en version préliminaire publique. L’exécution d’ensemble de compétences, ainsi que l’extraction et la normalisation d’images, sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. </li>
-> <li> La compétence de reconnaissance des entités nommées, considérée comme « déconseillée », ne sera officiellement plus gérée à partir du 15 février 2019. Suivez les recommandations formulées sur la page <a href="cognitive-search-skill-deprecated.md">Compétences de Recherche cognitive déconseillées</a> pour migrer vers une compétence pris en charge.</li>
+> <li>
+> À compter du 21 décembre 2018, vous pouvez associer une ressource Cognitive Services à un ensemble de qualifications Recherche Azure. Cela nous permet de commencer la facturation pour l’exécution des ensembles de qualifications. Ce jour-là, nous commencerons également à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents continuera d’être offerte sans frais supplémentaires.>
+> L’exécution des compétences intégrées sera facturée au prix actuel du [paiement à l’utilisation](https://azure.microsoft.com/pricing/details/cognitive-services/) de Cognitive Services. Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits à la page [Tarification Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). En savoir [plus](cognitive-search-attach-cognitive-services.md).</li>
+> <li> La compétence de reconnaissance des entités nommées, considérée comme « déconseillée », ne sera officiellement plus gérée à partir du 15 février 2019. Suivez les recommandations formulées sur la page <a href="cognitive-search-skill-deprecated.md">Compétences de Recherche cognitive déconseillées</a> pour migrer vers une compétence prise en charge</li>
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill

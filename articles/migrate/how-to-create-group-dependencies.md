@@ -4,14 +4,14 @@ description: Explique comment affiner une évaluation à l’aide du mappage de 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: d79513569b53d2b8958f44fbfac3839c91caaff8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634300"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255259"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Affiner un groupe à l’aide du mappage de dépendances de groupe
 
@@ -25,6 +25,9 @@ Cet article décrit comment affiner un groupe en visualisant les dépendances de
 ## <a name="prepare-for-dependency-visualization"></a>Préparer la visualisation des dépendances
 Azure Migrate s’appuie sur la solution Service Map dans Log Analytics pour permettre la visualisation des dépendances des machines.
 
+> [!NOTE]
+> La fonctionnalité de visualisation de dépendance n’est pas disponible dans Azure Government.
+
 ### <a name="associate-a-log-analytics-workspace"></a>Associer un espace de travail Log Analytics
 Pour tirer parti de la visualisation des dépendances, vous pouvez associer un espace de travail Log Analytics, nouveau ou existant, à un projet Azure Migrate. Vous ne pouvez créer ou attacher un espace de travail que dans l’abonnement où le projet de migration est créé.
 
@@ -32,8 +35,9 @@ Pour tirer parti de la visualisation des dépendances, vous pouvez associer un e
 
     ![Associer un espace de travail Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Quand vous créez un espace de travail, vous devez spécifier un nom pour celui-ci. L’espace de travail est ensuite créé dans le même abonnement que le projet de migration et dans une région appartenant à la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que le projet de migration.
-- L’option **Utiliser l’existant** répertorie uniquement les espaces de travail qui sont créés dans les régions où Service Map est disponible. Si vous avez un espace de travail dans une région où Service Map n’est pas disponible, il n’est pas répertorié dans la liste déroulante.
+- Lors de l’association d’un espace de travail, vous avez la possibilité de créer un espace de travail ou d’attacher un espace existant :
+    - Quand vous créez un espace de travail, vous devez spécifier un nom pour celui-ci. L’espace de travail est ensuite créé dans une région appartenant à la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que le projet de migration.
+    - Quand vous attachez un espace de travail existant, vous pouvez choisir parmi tous les espaces de travail disponibles dans le même abonnement que le projet de migration. Notez que seuls les espaces de travail qui ont été créés dans une région où [Service Map est pris en charge](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions) sont listés. Pour être en mesure d’attacher un espace de travail, assurez-vous d’avoir accès en lecture à l’espace de travail.
 
 > [!NOTE]
 > Vous ne pouvez pas changer l’espace de travail associé à un projet de migration.
@@ -63,7 +67,6 @@ Pour installer l’agent sur une machine Linux :
 2. Installez le bundle avec l’argument --install.
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
-
 
 ### <a name="install-the-dependency-agent"></a>Installer l’agent de dépendances
 1. Pour installer l’agent de dépendances sur une machine Windows, double-cliquez sur le fichier d’installation et suivez l’Assistant.

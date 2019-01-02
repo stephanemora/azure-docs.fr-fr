@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163169"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001967"
 ---
 # <a name="configure-storage"></a>Configurer le stockage
 
@@ -19,6 +19,12 @@ Cette étape configure un système de stockage back-end pour votre cluster vFXT.
 
 > [!TIP]
 > Si vous avez utilisé le script prototype `create-cloudbacked-cluster` pour créer un conteneur d’objets blob, ainsi que le cluster Avere vFXT, ce conteneur est opérationnel et vous n’avez pas besoin d’ajouter de stockage.
+>
+> Toutefois, si votre nouveau conteneur d’objets Blob a été chiffré avec une clé de chiffrement par défaut, vous devez télécharger le fichier de récupération de la clé depuis le cluster ou remplacer la clé par défaut par une nouvelle clé avant de stocker des données. La clé par défaut est uniquement enregistrée dans le cluster. Il est impossible de la récupérer si le cluster est perdu ou n’est plus disponible.
+>
+> Une fois que vous êtes connecté au panneau de configuration Avere, cliquez sur l’onglet **Paramètres**, puis choisissez **Système de stockage principal** > **Paramètres de chiffrement Cloud**. Dans la section **Magasin de clés local**, choisissez l’une des options suivantes : 
+> * Utilisez le bouton **Télécharger à nouveau le fichier de récupération** pour obtenir le fichier de récupération associé à la clé existante. Le fichier de récupération est chiffré à l’aide du mot de passe d’administration du cluster. Enregistrez le fichier dans un emplacement fiable. 
+> * Suivez les instructions de la section **Générer une nouvelle clé principale** pour créer une clé de chiffrement que vous contrôlez. Cette option vous permet de spécifier une phrase secrète unique. De plus, vous devez charger et télécharger à nouveau le fichier de récupération pour valider la paire fichier-phrase secrète.
 
 Suivez ces instructions si vous avez utilisé le script prototype `create-minimal-cluster` pour votre cluster, ou si vous souhaitez ajouter du matériel ou un système de stockage basé sur le cloud.
 

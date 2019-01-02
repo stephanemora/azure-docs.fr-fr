@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: faf8852df8b50c43affe32ede0f1e96d0bb80d3d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 25ea4f41ac1fa36c7f9b6f64bc7c4eede4702f38
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821240"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315177"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure
 Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour exporter en toute sécurité de grandes quantités de données à partir du Stockage Blob Azure. Pour pouvoir utiliser ce service, vous devez expédier des lecteurs vides au centre de données Azure. Le service exporte les données de votre compte de stockage vers les lecteurs, puis vous réexpédie ces derniers.
@@ -33,7 +33,7 @@ Avant de créer une tâche d’exportation pour transférer des données à part
         - [Créer un compte FedEX](https://www.fedex.com/en-us/create-account.html), ou 
         - [Créer un compte DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-create-an-export-job"></a>Étape 1 : Créer une tâche d’exportation
+## <a name="step-1-create-an-export-job"></a>Étape 1 : Création d’une tâche d’exportation
 
 Effectuez les étapes suivantes pour créer une tâche d’exportation dans le Portail Azure.
 
@@ -67,8 +67,8 @@ Effectuez les étapes suivantes pour créer une tâche d’exportation dans le P
          ![Exporter tout](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
 
     - Vous pouvez spécifier les conteneurs et objets blob à exporter.
-        - **Pour spécifier un objet blob à exporter** : utilisez le sélecteur **Égal à**. Spécifiez le chemin relatif de l’objet blob, en commençant par le nom du conteneur. Utilisez *$root* pour spécifier le conteneur racine.
-        - **Pour spécifier tous les objets blob commençant par un préfixe** : utilisez le sélecteur **Commence par**. Spécifiez le préfixe, en commençant par une barre oblique « / ». Il peut s'agir du préfixe du nom de conteneur, du nom de conteneur complet, ou du nom de conteneur complet suivi du préfixe du nom d'objet blob. Vous devez indiquer les chemins d’objets blob dans un format valide pour éviter les erreurs de traitement, comme illustré dans cette capture d’écran. Pour plus d’informations, consultez [Exemples de chemins d’objets blob valides](#examples-of-valid-blob-paths). 
+        - **Pour spécifier un objet blob à exporter** : utilisez le sélecteur **Égal à**. Spécifiez le chemin relatif de l’objet blob, en commençant par le nom du conteneur. Utilisez *$root* pour spécifier le conteneur racine.
+        - **Pour spécifier tous les objets blob commençant par un préfixe** : Utilisez le sélecteur **Commence par**. Spécifiez le préfixe, en commençant par une barre oblique « / ». Il peut s'agir du préfixe du nom de conteneur, du nom de conteneur complet, ou du nom de conteneur complet suivi du préfixe du nom d'objet blob. Vous devez indiquer les chemins d’objets blob dans un format valide pour éviter les erreurs de traitement, comme illustré dans cette capture d’écran. Pour plus d’informations, consultez [Exemples de chemins d’objets blob valides](#examples-of-valid-blob-paths). 
    
            ![Exporter les conteneurs et objets blob sélectionnés](./media/storage-import-export-data-from-blobs/export-from-blob5.png) 
 
@@ -99,18 +99,18 @@ Effectuez les étapes suivantes pour créer une tâche d’exportation dans le P
 
     - Cliquez sur **OK** pour créer la tâche d’exportation.
 
-## <a name="step-2-ship-the-drives"></a>Étape 2 : Expédier les disques
+## <a name="step-2-ship-the-drives"></a>Étape 2 : Expédier les disques
 
 Si vous ignorez le nombre de disques dont vous avez besoin, accédez à l’étape [Vérifier le nombre de disques](#check-the-number-of-drives). Si vous connaissez le nombre de disques nécessaires, expédiez-les.
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-3-update-the-job-with-tracking-information"></a>Étape 3 : Mettre à jour la tâche avec les informations de suivi
+## <a name="step-3-update-the-job-with-tracking-information"></a>Étape 3 : Mettre à jour la tâche avec les informations de suivi
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
 
-## <a name="step-4-receive-the-disks"></a>Étape 4 : Recevoir les disques
+## <a name="step-4-receive-the-disks"></a>Étape 4 : Recevoir les disques
 Quand le tableau de bord indique que la tâche a été effectuée, les disques vous sont expédiés. Le numéro de suivi de l’envoi est disponible sur le portail.
 
 1. Une fois que vous avez reçu les disques contenant les données exportées, vous devez obtenir les clés BitLocker pour les déverrouiller. Accédez à la tâche d’exportation dans le Portail Azure. Cliquez sur l’onglet **Import/Export**. 
@@ -127,7 +127,7 @@ L’exportation est effectuée. À ce stade, vous pouvez supprimer la tâche. Si
 
 Cette étape *facultative* vous permet de déterminer le nombre de disques nécessaires pour la tâche d’exportation. Effectuez cette étape sur un système Windows exécutant une [version prise en charge du système d’exploitation](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Téléchargez la version 1 de WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) sur le système Windows. 
+1. [Téléchargez la version 1 de WAImportExport](https://aka.ms/waiev1) sur le système Windows. 
 2. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
 3. Ouvrez une fenêtre PowerShell ou de ligne de commande avec des privilèges d’administrateur. Pour accéder au répertoire du dossier décompressé, exécutez la commande suivante :
     

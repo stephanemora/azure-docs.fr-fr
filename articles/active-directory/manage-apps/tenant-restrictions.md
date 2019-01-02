@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 4a5cb7d15627ac3e48b72567ec3740377b2a0264
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 6989fe88fa17bcd99c99ee3e82d82fb403d1aae4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365668"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096704"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser les Restrictions du client pour gérer l’accès aux applications cloud SaaS
 
 Les organisations de grande taille qui se préoccupent de la sécurité veulent adopter les services cloud, comme Office 365, tout en s’assurant que leurs utilisateurs ne pourront accéder qu’à des ressources approuvées. En général, pour gérer l’accès, les entreprises limitent les noms de domaine ou les adresses IP. Cette approche échoue dans un monde où les applications SaaS sont hébergées dans un cloud public et s’exécutent sur des noms de domaine partagés comme outlook.office.com et login.microsoftonline.com. Le fait de bloquer ces adresses empêche les utilisateurs d’accéder à Outlook sur le web entièrement, au lieu de restreindre simplement leur accès à des identités et des ressources approuvées.
 
-La solution d’Azure Active Directory consiste en une fonctionnalité appelée Restrictions du client. Les Restrictions du client permettent aux organisations de contrôler l’accès aux applications cloud SaaS, en fonction du client Azure AD utilisé par les applications pour l’authentification unique. Par exemple, vous souhaitez peut-être autoriser l’accès aux applications Office 365 de votre organisation, tout en empêchant l’accès aux instances d’autres organisations de ces mêmes applications.  
+La solution d’Azure Active Directory consiste en une fonctionnalité appelée Restrictions du client. Les Restrictions du client permettent aux organisations de contrôler l’accès aux applications cloud SaaS, en fonction du client Azure AD utilisé par les applications pour l’authentification unique. Par exemple, vous souhaitez peut-être autoriser l’accès aux applications Office 365 de votre organisation, tout en empêchant l’accès aux instances d’autres organisations de ces mêmes applications.  
 
 Les Restrictions du client permettent aux organisations de spécifier la liste des clients auxquels leurs utilisateurs sont autorisés à accéder. Dans ce cas, Azure AD accorde uniquement l’accès à ces clients autorisés.
 
@@ -34,13 +34,13 @@ Cet article se concentre sur les Restrictions du client pour Office 365, mais ce
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-La solution comprend les composants suivants : 
+La solution comprend les composants suivants : 
 
-1. **Azure AD** : si le paramètre `Restrict-Access-To-Tenants: <permitted tenant list>` est présent, Azure AD émet uniquement des jetons de sécurité pour les clients autorisés. 
+1. **Azure AD** : si le paramètre `Restrict-Access-To-Tenants: <permitted tenant list>` est présent, Azure AD émet uniquement des jetons de sécurité pour les clients autorisés. 
 
-2. **Infrastructure du serveur proxy local** : un appareil proxy capable d’inspection SSL, configuré pour insérer l’en-tête contenant la liste des clients autorisés dans le trafic destiné à Azure AD. 
+2. **Infrastructure du serveur proxy local** : un appareil proxy capable d’inspection SSL, configuré pour insérer l’en-tête contenant la liste des clients autorisés dans le trafic destiné à Azure AD. 
 
-3. **Logiciel client** : pour prendre en charge les Restrictions du client, le logiciel client doit demander des jetons directement à Azure AD, afin que le trafic puisse être intercepté par l’infrastructure du proxy. Actuellement, les Restrictions du client sont prises en charge par les applications Office 365 basées sur un navigateur et par les clients Office en cas d’utilisation de l’authentification moderne (comme OAuth 2.0). 
+3. **Logiciel client** : pour prendre en charge les Restrictions du client, le logiciel client doit demander des jetons directement à Azure AD, afin que le trafic puisse être intercepté par l’infrastructure du proxy. Actuellement, les Restrictions du client sont prises en charge par les applications Office 365 basées sur un navigateur et par les clients Office en cas d’utilisation de l’authentification moderne (comme OAuth 2.0). 
 
 4. **Authentification moderne** : les services cloud doivent utiliser l’authentification moderne pour utiliser les Restrictions du client et bloquer l’accès à tous les clients non autorisés. Les services cloud Office 365 doivent être configurés pour utiliser les protocoles d’authentification moderne par défaut. Pour plus d’informations sur la prise en charge de l’authentification moderne par Office 365, consultez [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Authentification moderne Office 365 mise à jour).
 
@@ -54,7 +54,7 @@ Deux étapes sont nécessaires pour bien démarrer avec les Restrictions du clie
 
 ### <a name="urls-and-ip-addresses"></a>URL et adresses IP
 
-Pour utiliser les Restrictions du client, vos clients doivent être en mesure de se connecter aux URL AD Azure suivantes pour s’authentifier : login.microsoftonline.com, login.microsoft.com et login.windows.net. En outre, pour accéder à Office 365, vos clients doivent également être en mesure de se connecter aux noms de domaine complets/URL et adresses IP définis dans [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
+Pour utiliser les Restrictions du client, vos clients doivent être en mesure de se connecter aux URL AD Azure suivantes pour s’authentifier : login.microsoftonline.com, login.microsoft.com et login.windows.net. En outre, pour accéder à Office 365, vos clients doivent également être en mesure de se connecter aux noms de domaine complets/URL et adresses IP définis dans [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
 
 ### <a name="proxy-configuration-and-requirements"></a>Configuration du proxy et conditions requises
 
@@ -62,7 +62,7 @@ La configuration suivante est nécessaire pour activer les Restrictions du clien
 
 #### <a name="prerequisites"></a>Prérequis
 
-- Le proxy doit être en mesure d’effectuer l’interception SSL, l’insertion d’en-tête HTTP et de filtrer les destinations à l’aide des noms de domaine complets/URL. 
+- Le proxy doit être en mesure d’effectuer l’interception SSL, l’insertion d’en-tête HTTP et de filtrer les destinations à l’aide des noms de domaine complets/URL. 
 
 - Les clients doivent approuver la chaîne de certificat présentée par le proxy pour les communications SSL. Par exemple, si des certificats d’une infrastructure à clé publique interne sont utilisés, le certificat d’autorité de certificat racine émetteur interne doit être approuvé.
 
@@ -70,16 +70,16 @@ La configuration suivante est nécessaire pour activer les Restrictions du clien
 
 #### <a name="configuration"></a>Configuration
 
-Pour chaque demande entrante sur login.microsoftonline.com, login.microsoft.com et login.windows.net, insérez deux en-têtes HTTP : *Restrict-Access-To-Tenants* et *Restrict-Access-Context*.
+Pour chaque demande entrante sur login.microsoftonline.com, login.microsoft.com et login.windows.net, insérez deux en-têtes HTTP : *Restrict-Access-To-Tenants* et *Restrict-Access-Context*.
 
-Les éléments suivants doivent être inclus dans les en-têtes : 
-- Pour *Restrict-Access-To-Tenants*, une valeur de \<permitted tenant list\> (liste de clients autorisés), qui est une liste séparée par des virgules des clients auxquels vous souhaitez que les utilisateurs puissent accéder. N’importe quel domaine qui est inscrit auprès d’un client peut être utilisé pour identifier le client dans cette liste. Par exemple, pour autoriser l’accès aux clients Contoso et Fabrikam, la paire nom/valeur ressemble à :  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-- Pour *Restrict-Access-Context*, une valeur d’ID de répertoire unique, déclarant quel client définit les Restrictions du client. Par exemple, pour déclarer Contoso en tant que client qui définit la stratégie Restrictions du client, la paire nom/valeur ressemble à :  `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+Les éléments suivants doivent être inclus dans les en-têtes : 
+- Pour *Restrict-Access-To-Tenants*, une valeur de \<permitted tenant list\> (liste de clients autorisés), qui est une liste séparée par des virgules des clients auxquels vous souhaitez que les utilisateurs puissent accéder. N’importe quel domaine qui est inscrit auprès d’un client peut être utilisé pour identifier le client dans cette liste. Par exemple, pour autoriser l’accès aux clients Contoso et Fabrikam, la paire nom/valeur ressemble à :   `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- Pour *Restrict-Access-Context*, une valeur d’ID de répertoire unique, déclarant quel client définit les Restrictions du client. Par exemple, pour déclarer Contoso en tant que client qui définit la stratégie Restrictions du client, la paire nom/valeur ressemble à :  `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
 > Vous trouverez votre ID de répertoire dans le [portail Azure](https://portal.azure.com). Connectez-vous en tant qu’administrateur, sélectionnez **Azure Active Directory**, puis sélectionnez **Propriétés**.
 
-Pour empêcher les utilisateurs d’insérer leur propre en-tête HTTP avec des clients non approuvés, le proxy doit remplacer l’en-tête Restrict-Access-To-Tenants si celui-ci est déjà présent dans la demande entrante. 
+Pour empêcher les utilisateurs d’insérer leur propre en-tête HTTP avec des clients non approuvés, le proxy doit remplacer l’en-tête Restrict-Access-To-Tenants si celui-ci est déjà présent dans la demande entrante. 
 
 Les clients doivent être forcés à utiliser le proxy pour toutes les demandes à login.microsoftonline.com, login.microsoft.com et login.windows.net. Par exemple, si des fichiers PAC sont utilisés pour indiquer aux clients d’utiliser le proxy, les utilisateurs finaux ne doivent pas être en mesure de modifier ou de désactiver les fichiers PAC.
 
@@ -116,7 +116,7 @@ Les Restrictions du client sont actuellement prises en charge par les applicatio
 
 Les clients Outlook et Skype Entreprise qui prennent en charge l’authentification moderne peuvent continuer à utiliser les protocoles hérités sur les clients pour lesquels l’authentification moderne n’est pas activée, contournant ainsi les Restrictions du client. Les applications qui utilisent des protocoles hérités risquent d’être bloquées par les Restrictions du client si elles contactent login.microsoftonline.com, login.microsoft.com ou login.windows.net lors de l’authentification.
 
-Pour Outlook sur Windows, les clients peuvent choisir d’implémenter des restrictions qui empêchent les utilisateurs finaux d’ajouter des comptes de messagerie non approuvés à leurs profils. Par exemple, consultez le paramètre de stratégie de groupe [Empêcher l’ajout de comptes Exchange personnalisés](http://gpsearch.azurewebsites.net/default.aspx?ref=1).
+Pour Outlook sur Windows, les clients peuvent choisir d’implémenter des restrictions qui empêchent les utilisateurs finaux d’ajouter des comptes de messagerie non approuvés à leurs profils. Par exemple, consultez le paramètre de stratégie de groupe [Empêcher l’ajout de comptes Exchange personnalisés](https://gpsearch.azurewebsites.net/default.aspx?ref=1).
 
 ## <a name="testing"></a>Test
 
@@ -126,21 +126,21 @@ Si vous souhaitez tester la fonctionnalité Restrictions du client avant de l’
 
 Fiddler est un proxy de débogage web gratuit qui peut être utilisé pour capturer et modifier le trafic HTTP/HTTPS, notamment l’insertion d’en-têtes HTTP. Pour configurer Fiddler afin de tester les Restrictions du client, procédez comme suit :
 
-1.  [Téléchargez et installez Fiddler](http://www.telerik.com/fiddler).
-2.  Configurez Fiddler pour déchiffrer le trafic HTTPS, conformément à [la documentation d’aide de Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+1.  [Téléchargez et installez Fiddler](https://www.telerik.com/fiddler).
+2.  Configurez Fiddler pour déchiffrer le trafic HTTPS, conformément à [la documentation d’aide de Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 3.  Configurez Fiddler pour insérer les en-têtes *Restrict-Access-To-Tenants* et *Restrict-Access-Context* à l’aide de règles personnalisées :
-  1. Dans l’outil débogueur web Fiddler, sélectionnez le menu **Règles** et sélectionnez **Personnaliser les règles...** pour ouvrir le fichier CustomRules.
-  2. Ajoutez les lignes suivantes au début de la fonction *OnBeforeRequest*. Remplacez le \<domaine du client\> par un domaine enregistré auprès de votre client, par exemple, contoso.onmicrosoft.com. Remplacez \<l’ID de répertoire\> par l’identificateur GUID Azure AD de votre client.
+    1. Dans l’outil débogueur web Fiddler, sélectionnez le menu **Règles** et sélectionnez **Personnaliser les règles...** pour ouvrir le fichier CustomRules.
+    2. Ajoutez les lignes suivantes au début de la fonction *OnBeforeRequest*. Remplacez le \<domaine du client\> par un domaine enregistré auprès de votre client, par exemple, contoso.onmicrosoft.com. Remplacez \<l’ID de répertoire\> par l’identificateur GUID Azure AD de votre client.
 
-  ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
-  ```
+    ```
+    if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
+    ```
 
-  Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Par exemple : 
+    Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Par exemple : 
 
-  ```
-  oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
-  ```
+    ```
+    oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
+    ```
 
 4. Enregistrez et fermez le fichier CustomRules.
 

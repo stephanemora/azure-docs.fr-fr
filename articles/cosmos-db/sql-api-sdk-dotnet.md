@@ -1,10 +1,7 @@
 ---
-title: 'Azure Cosmos DB : API SQL .NET, Kit SDK et ressources | Microsoft Docs'
+title: 'Azure Cosmos DB : API SQL .NET, SDK et ressources'
 description: Tout savoir sur l’API SQL .NET et le Kit de développement logiciel (SDK), y compris les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du Kit de développement logiciel (SDK) .NET Azure Cosmos DB.
-services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,14 +9,14 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f8af635eb7d5449a242f3a7708d865c13bb448
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 715d67a30bbf2c6d1f50ed7c10a013c0d421f48b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162804"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337935"
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK .NET Azure Cosmos DB pour l’API SQL : téléchargement et notes de publication
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Kit de développement logiciel .NET Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +27,7 @@ ms.locfileid: "52162804"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -50,6 +47,24 @@ ms.locfileid: "52162804"
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
+* Aperçu 1 de la [version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) du SDK .NET pour la préversion publique.
+* .NET Standard cible, prenant en charge .NET framework 4.6.1+ et .NET Core 2.0+
+* Nouveau modèle d’objet, avec le CosmosClient de niveau supérieur et les méthodes réparties entre les classes CosmosDatabases, CosmosContainers et CosmosItems appropriées. 
+* Prise en charge des flux. 
+* Mise à jour de CosmosResponseMessage à partir du serveur pour renvoyer le code d’état, et levée d’une seule exception si aucune réponse n’est retournée. 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* Pour les diagnostics de transport direct/TCP, ajout de TransportException, un type d’exception interne du SDK. Lorsqu’il est présent dans les messages d’exception, ce type affiche des informations supplémentaires pour la résolution des problèmes de connectivité client.
+
+* Ajout d’une nouvelle surcharge de constructeur acceptant un HttpMessageHandler, une pile de gestionnaire HTTP à utiliser pour envoyer des demandes HttpClient (par exemple, HttpClientHandler).
+
+* Correction de bogue où un en-tête avec des valeurs null n’est pas traité correctement.
+
+* Validation améliorée du cache de collection.
+
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
 * System.Net.Security mis à jour à 4.3.2.
@@ -101,7 +116,7 @@ ms.locfileid: "52162804"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* Correction du bogue qui apparaît dans certaines conditions de concurrence et qui génère des erreurs « Microsoft.Azure.Documents.NotFoundException : la session de lecture n’est pas disponible pour le jeton de session d’entrée » par intermittence lors de l’utilisation du niveau de cohérence Session.
+* Correction du bogue survenant dans certaines conditions de concurrence, générant des erreurs « Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token » lors de l’utilisation du niveau de cohérence de session.
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -172,7 +187,7 @@ ms.locfileid: "52162804"
 * Correctifs pour augmenter la résistance du Kit de développement logiciel (SDK) au basculement automatique dans certaines conditions.
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
-* Résolution du problème qui provoque parfois une exception WebException : Le nom distant n’a pas pu être résolu.
+* Correction d’un bogue entraînant parfois une erreur WebException: Impossible de résoudre le nom distant.
 * Ajout de la prise en charge permettant de lire directement un document tapé en ajoutant de nouvelles surcharges à l’API ReadDocumentAsync.
 
 ### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1
@@ -205,7 +220,7 @@ ms.locfileid: "52162804"
 * Prise en charge de nouvelles classes et méthodes pour traiter le [flux de modification](change-feed.md) de documents dans une collection.
 * Prise en charge de la continuité des requêtes sur plusieurs partitions et de quelques améliorations des performances pour les requêtes entre partitions.
 * Ajout des méthodes CreateDatabaseIfNotExistsAsync et CreateDocumentCollectionIfNotExistsAsync.
-* Prise en charge de LINQ pour les fonctions système : IsDefined, IsNull et IsPrimitive.
+* Prise en charge LINQ des fonctions système : IsDefined, IsNull et IsPrimitive.
 * Correction du placement automatique des assemblys Microsoft.Azure.Documents.ServiceInterop.dll et DocumentDB.Spatial.Sql.dll dans le dossier bin de l’application lorsque le package NuGet est utilisé avec des projets qui disposent des outils project.json.
 * Prise en charge de l’émission de traces ETW de côté client qui pourraient être utiles dans les scénarios de débogage.
 
@@ -217,7 +232,7 @@ ms.locfileid: "52162804"
 * Divers correctifs de bogues de kits de développement logiciel (SDK).
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Résolution du problème qui provoquait l’exception NotFoundException suivante : la session de lecture n’est pas disponible pour le jeton de session d’entrée. Cette exception se produisait dans certains cas lors de l’interrogation de la région de lecture d’un compte géo-distribué.
+* Correction d’un bogue qui provoquait l’exception NotFoundException suivante : The read session is not available for the input session token. Cette exception se produisait dans certains cas lors de l’interrogation de la région de lecture d’un compte géo-distribué.
 * Exposition de la propriété ResponseStream dans la classe ResourceResponse, qui permet d’accéder directement au flux sous-jacent à partir d’une réponse.
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
@@ -225,7 +240,7 @@ ms.locfileid: "52162804"
 * Résolution du problème qui provoquait la malformation d’un en-tête de clé de partition lors de l’utilisation d’un objet JsonSerializerSettings personnalisé pour la sérialisation des données.
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* Résolution du problème ayant provoqué l’échec des requêtes de longue durée avec l’erreur : le jeton d’autorisation n’est pas valide pour le moment.
+* Correction d’un bogue qui provoquait l’échec des requêtes longues avec l’erreur : Authorization token is not valid at the current time.
 * Résolution du problème qui a supprimé la classe SqlParameterCollection d’origine des requêtes Top/Order-by inter-partition.
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
@@ -260,7 +275,7 @@ ms.locfileid: "52162804"
 * Implémentation des [collections partitionnées](partition-data.md) et des [niveaux de performances définis par l’utilisateur](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Résolu]** L’interrogation du point de terminaison Azure Cosmos DB renvoie : « System.Net.Http.HttpRequestException : Une erreur s’est produite lors de la copie du contenu vers un flux ».
+* **[Résolu]**  L’interrogation du point de terminaison de requêtes Azure Cosmos DB génère : 'System.Net.Http.HttpRequestException: Error while copying content to a stream'.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Extension de la prise en charge de LINQ, y compris de nouveaux opérateurs pour la pagination, les expressions conditionnelles et la comparaison de plages.
@@ -335,6 +350,7 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |7 décembre 2018 |--- |
 | [2.1.3](#2.1.3) |15 octobre 2018 |--- |
 | [2.1.2](#2.1.2) |4 octobre 2018 |--- |
 | [2.1.1](#2.1.1) |27 septembre 2018 |--- |

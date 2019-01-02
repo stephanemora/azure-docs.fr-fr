@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: fee9deb43b4619f26cb9e4c0044b25bd34af93d2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a4c683f6f3a1b321b786569999edac67cfb41892
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126824"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083493"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copier des données de Couchbase avec Azure Data Factory (préversion)
 
@@ -45,7 +45,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Couchbase�
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Couchbase**. | Oui |
+| Type | La propriété type doit être définie sur : **Couchbase** | Oui |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à Couchbase. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
@@ -74,7 +74,13 @@ Les propriétés suivantes sont prises en charge pour le service lié Couchbase�
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section donne la liste des propriétés prises en charge par le jeu de données Couchbase.
 
-Pour copier des données de Couchbase, affectez la valeur **CouchbaseTable** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données de Couchbase, affectez la valeur **CouchbaseTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **CouchbaseTable** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
+
 
 **Exemple**
 
@@ -86,7 +92,8 @@ Pour copier des données de Couchbase, affectez la valeur **CouchbaseTable** à 
         "linkedServiceName": {
             "referenceName": "<Couchbase linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -101,8 +108,8 @@ Pour copier des données de Couchbase, affectez la valeur **CouchbaseSource** au
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **CouchbaseSource**. | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **CouchbaseSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

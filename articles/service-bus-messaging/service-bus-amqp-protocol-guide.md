@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821546"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961142"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -94,7 +94,7 @@ Le conteneur à l’origine du lien demande au conteneur opposé d’accepter un
 
 Des liens sont nommés et associés à des nœuds. Comme indiqué au début, les nœuds sont les entités qui communiquent à l’intérieur d’un conteneur.
 
-Dans Service Bus, un nœud est l’équivalent direct d’une file d’attente, d’une rubrique, d’un abonnement ou d’une sous-file d’attente de lettre morte d’une file d’attente ou d’un abonnement. Le nom de nœud utilisé dans AMQP est donc le nom relatif de l’entité au sein de l’espace de noms Service Bus. Si une file d’attente est nommée `myqueue`, c’est également son nom de nœud AMQP. Un abonnement de rubrique suit la convention de l’API HTTP dans la mesure où il est trié dans la collection de ressources « subscriptions ». Par conséquent, un abonnement **sub** ou une rubrique **mytopic** porte le nom de nœud AMQP **mytopic/subscriptions/sub**.
+Dans Service Bus, un nœud est l’équivalent direct d’une file d’attente, d’une rubrique, d’un abonnement ou d’une sous-file d’attente de lettre morte d’une file d’attente ou d’un abonnement. Le nom de nœud utilisé dans AMQP est donc le nom relatif de l’entité au sein de l’espace de noms Service Bus. Si une file d’attente est nommée `myqueue`, c’est également son nom de nœud AMQP. Un abonnement de rubrique suit la convention de l’API HTTP dans la mesure où il est trié dans la collection de ressources « subscriptions ». Par conséquent, un abonnement **sub** sur une rubrique **mytopic** porte le nom de nœud AMQP **mytopic/subscriptions/sub**.
 
 Le client qui se connecte doit également utiliser un nom de nœud local pour la création de liens. Service Bus n’est pas normatif concernant ces noms de nœud et ne les interprète pas. Les piles de client AMQP 1.0 utilisent en général un schéma pour s’assurer que ces noms de nœud éphémères sont uniques dans le cadre du client.
 
@@ -351,7 +351,7 @@ L’intégration de SASL au protocole AMQP présente deux inconvénients :
 * L’ensemble des informations d’identification et des jetons se limite à la connexion. Une infrastructure de messagerie peut vouloir fournir un contrôle d’accès différencié par entité. Par exemple, en autorisant le porteur d’un jeton à effectuer un envoi vers la file d’attente A, mais pas la file d’attente B. Dans la mesure où le contexte d’autorisation est ancré à la connexion, il est impossible d’utiliser une connexion unique et des jetons d’accès différents pour les files d’attente A et B.
 * Les jetons d’accès sont généralement valides uniquement pour une durée limitée. Cela oblige l’utilisateur à réacquérir régulièrement des jetons et offre la possibilité à l’émetteur du jeton de refuser d’en émettre un nouveau si les autorisations d’accès de l’utilisateur ont été modifiées. Les connexions AMQP peuvent durer longtemps. Le modèle SASL permet uniquement de définir un jeton au moment de la connexion, ce qui signifie que l’infrastructure de messagerie doit déconnecter le client lorsque le jeton a expiré ou accepter le risque lié au fait d’autoriser des communications continues avec un client dont les droits d’accès peuvent avoir été révoqués entre-temps.
 
-La spécification AMQP CBS, implémentée par Service Bus, offre une solution de contournement élégante pour ces deux problèmes : elle permet à un client d’associer des jetons d’accès à chaque nœud et de mettre à jour ces jetons avant leur expiration, sans interrompre le flux de messages.
+La spécification AMQP CBS, implémentée par Service Bus, offre une solution de contournement élégante pour ces deux problèmes : elle permet à un client d’associer des jetons d’accès à chaque nœud et de mettre à jour ces jetons avant leur expiration, sans interrompre le flux de messages.
 
 CBS définit un nœud de gestion virtuel nommé *$cbs*, qui doit être fourni par l’infrastructure de messagerie. Le nœud de gestion accepte les jetons pour le compte de tous les autres nœuds dans l’infrastructure de messagerie.
 
@@ -374,7 +374,7 @@ La propriété *name* identifie l’entité avec laquelle le jeton doit être as
 | amqp:swt |Clé d’authentification Web simple (SWT) |Valeur AMQP (chaîne) |Pris en charge uniquement pour les clés d’authentification web simples SWT émises par AAD/ACS |
 | servicebus.windows.net:sastoken |Jeton SAS Service Bus |Valeur AMQP (chaîne) |- |
 
-Les jetons confèrent des droits. Service Bus connaît trois droits fondamentaux : « Envoyer » autorise l’envoi, « Écouter » autorise la réception, et « Gérer » autorise la manipulation d’entités. Les jetons SWT émis par AAD/ACS incluent explicitement ces droits en tant que revendications. Les jetons SAP Service Bus font référence aux règles configurées sur l’espace de noms ou l’entité. Ces dernières sont configurées avec des droits. Le fait de signer le jeton avec la clé associée à cette règle permet au jeton d’exprimer les droits respectifs. Le jeton associé à une entité à l’aide de *put-token* permet au client connecté d’interagir avec l’entité selon les droits du jeton. Un lien sur lequel le client joue le rôle *d’expéditeur* exige le droit « Envoyer ». Le rôle de *destinataire* exige le droit « Écouter ».
+Les jetons confèrent des droits. Service Bus connaît trois droits fondamentaux : « Envoyer » autorise l’envoi, « Écouter » autorise la réception, et « Gérer » autorise la manipulation d’entités. Les jetons SWT émis par AAD/ACS incluent explicitement ces droits en tant que revendications. Les jetons SAP Service Bus font référence aux règles configurées sur l’espace de noms ou l’entité. Ces dernières sont configurées avec des droits. Le fait de signer le jeton avec la clé associée à cette règle permet au jeton d’exprimer les droits respectifs. Le jeton associé à une entité à l’aide de *put-token* permet au client connecté d’interagir avec l’entité selon les droits du jeton. Un lien sur lequel le client joue le rôle *d’expéditeur* exige le droit « Envoyer ». Le rôle de *destinataire* exige le droit « Écouter ».
 
 Le message de réponse a les valeurs *application-properties* suivantes :
 
@@ -399,7 +399,7 @@ La [fonctionnalité Envoyer via/Transférer l’expéditeur](service-bus-transac
 
 Avec cette fonctionnalité, vous créez un expéditeur et établissez le lien vers l’élément `via-entity`. Lors de l’établissement du lien, des informations supplémentaires sont transmises pour établir la véritable destination des messages/transferts sur ce lien. Une fois que l’attachement a réussi, tous les messages envoyés sur ce lien sont automatiquement transférés vers *l’entité de destination (destination-entity)* par le biais de *l’entité de transition (via-entity)*. 
 
-> Remarque : l’authentification doit être effectuée pour *via-entity* et *destination-entity* avant d’établir ce lien.
+> Remarque : L’authentification doit être effectuée pour *via-entity* et *destination-entity* avant d’établir ce lien.
 
 | Client | | Service Bus |
 | --- | --- | --- |

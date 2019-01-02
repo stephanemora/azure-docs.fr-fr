@@ -1,6 +1,6 @@
 ---
-title: Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue VSTS | Microsoft Docs
-description: Découvrez comment intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue VSTS.
+title: Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue d’Azure Pipelines | Microsoft Docs
+description: Découvrez comment intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue d’Azure Pipelines.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301206"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082949"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue Azure DevOps
 Vous pouvez utiliser l’extension *Azure DevTest Labs Tasks* installée dans Azure DevOps pour intégrer facilement votre pipeline de génération et mise en production CI/CD à Azure DevTest Labs. L’extension installe trois tâches : 
@@ -138,7 +138,7 @@ L’étape suivante du déploiement consiste à créer la machine virtuelle à u
 1. Dans le pipeline de mise en production, sélectionnez **Ajouter des tâches** puis, sous l’onglet **Déployer**, ajoutez une tâche *Azure PowerShell*. Configurez la tâche comme indiqué ci-dessous :
 
    > [!NOTE]
-   > Pour collecter les détails de la machine virtuelle DevTest Labs, consultez [Deploy: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) (Déployer : Azure PowerShell) et exécutez le script.
+   > Pour collecter les détails de la machine virtuelle DevTest Labs, consultez [Deploy: Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3) et exécutez le script.
 
    a. Pour **Type de connexion Azure**, sélectionnez **Azure Resource Manager**.
 

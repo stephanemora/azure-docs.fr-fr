@@ -1,0 +1,167 @@
+---
+title: Authentification
+titleSuffix: Cognitive Services - Azure
+description: 'Pour authentifier une requête auprès d’une ressource Azure Cognitive Services, trois options s’offrent à vous : une clé d’abonnement, un jeton du porteur ou un abonnement multiservice. Cet article décrit chaque méthode et explique comment adresser une requête.'
+services: cognitive-services
+author: erhopf
+manager: cgronlun
+ms.service: cognitive-services
+ms.topic: conceptual
+ms.date: 12/06/2018
+ms.author: erhopf
+ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435767"
+---
+# <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
+
+Chaque requête adressée à un service Azure Cognitive Services doit inclure un en-tête d’authentification. Cet en-tête passe une clé d’abonnement ou un jeton d’accès qui sert à valider votre abonnement à un service ou à un groupe de services. Cet article présente trois façons d’authentifier une requête et les conditions de chaque méthode.
+
+* [Authentification avec une clé d’abonnement monoservice](#authenticate-with-a-single-service-subscription-key)
+* [Authentification avec une clé d’abonnement multiservice](#authenticate-with-a-multi-service-subscription-key)
+* [Authentification avec un jeton](#authenticate-with-an-authentication-token)
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour adresser une requête, vous devez disposer d’un compte Azure et d’un abonnement Azure Cognitive Services. Si vous avez déjà un compte, passez à la section suivante. Si vous n’avez pas de compte, ce guide va vous aider à en créer un en quelques minutes : [Créer un compte Cognitive Services pour Azure](cognitive-services-apis-create-account.md).
+
+## <a name="authentication-headers"></a>En-têtes d’authentification
+
+Passons rapidement en revue les en-têtes d’authentification disponibles en vue d’une utilisation avec Azure Cognitive Services.
+
+| En-tête | Description |
+|--------|-------------|
+| Ocp-Apim-Subscription-Key | Utilisez cet en-tête pour authentifier une requête avec une clé d’abonnement à un service spécifique ou une clé d’abonnement multiservice. Si vous utilisez une clé d’abonnement multiservice, la région de votre abonnement doit être indiquée dans l’en-tête `Ocp-Apim-Subscription-Region`. |
+| Ocp-Apim-Subscription-Region | Cet en-tête n’est nécessaire que si vous utilisez une clé d’abonnement multiservice avec l’[API de traduction de texte Translator Text](./Translator/reference/v3-0-reference.md). Utilisez cet en-tête pour spécifier la région de l’abonnement. |
+| Autorisation | Utilisez cet en-tête si vous utilisez un jeton d’authentification. Les étapes à suivre pour effectuer un échange de jeton sont détaillées dans les sections suivantes. La valeur fournie est au format suivant : `Bearer <TOKEN>`. |
+
+## <a name="authenticate-with-a-single-service-subscription-key"></a>Authentification avec une clé d’abonnement monoservice
+
+La première option consiste à authentifier une requête avec une clé d’abonnement pour un service spécifique, comme Traduction de texte Translator Text. Les clés sont disponibles dans le portail Azure pour chaque ressource que vous avez créée. Pour utiliser une clé d’abonnement pour authentifier une requête, vous devez la passer sous la forme de l’en-tête `Ocp-Apim-Subscription-Key`.
+
+Ces exemples de requêtes montrent comment utiliser l’en-tête `Ocp-Apim-Subscription-Key`. Si vous utilisez ces exemples, n’oubliez pas d’inclure une clé d’abonnement valide.
+
+Voici un exemple d’appel à l’API Recherche Web Bing :
+```cURL
+curl -X GET 'https://api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pembroke%20Corgis' \
+-H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
+```
+
+Voici un exemple d’appel à l’API de traduction de texte Translator Text :
+```cURL
+curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
+-H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' \
+-H 'Content-Type: application/json' \
+--data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
+```
+
+## <a name="authenticate-with-a-multi-service-subscription-key"></a>Authentification avec une clé d’abonnement multiservice
+
+>[!WARNING]
+> À ce stade, les services suivants **ne prennent pas en charge** les clés multiservices : QnA Maker, Speech et Vision personnalisée.
+
+Cette option utilise également une clé d’abonnement pour authentifier les requêtes. La principale différence tient au fait qu’une clé d’abonnement n’est pas liée à un service spécifique. Vous pouvez ainsi utiliser une seule clé pour authentifier des requêtes auprès de plusieurs services Cognitive Services. Pour plus d’informations sur la disponibilité régionale, les fonctionnalités prises en charge et les tarifs, consultez les [tarifs de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
+
+La clé d’abonnement est fournie dans chaque requête sous la forme de l’en-tête `Ocp-Apim-Subscription-Key`.
+
+### <a name="supported-regions"></a>Régions prises en charge
+
+Quand vous utilisez la clé d’abonnement multiservice pour adresser une requête à `api.cognitive.microsoft.com`, vous devez inclure la région dans l’URL. Par exemple : `westus.api.cognitive.microsoft.com`.
+
+Quand vous utilisez la clé d’abonnement multiservice avec l’API de traduction de texte Translator Text, vous devez spécifier la région de l’abonnement avec l’en-tête `Ocp-Apim-Subscription-Region`.
+
+L’authentification multiservice est prise en charge dans ces régions :
+
+| | | |
+|-|-|-|
+| `australiaeast` | `brazilsouth` | `canadacentral` |
+| `centralindia` | `eastasia` | `eastus` |
+| `japaneast` | `northeurope` | `southcentralus` |
+| `southeastasia` | `uksouth` | `westcentralus` |
+| `westeurope` | `westus` | `westus2` |
+
+
+### <a name="sample-requests"></a>Exemples de demandes
+
+Voici un exemple d’appel à l’API Recherche Web Bing :
+
+```cURL
+curl -X GET 'https://YOUR-REGION.api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pembroke%20Corgis' \
+-H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
+```
+
+Voici un exemple d’appel à l’API de traduction de texte Translator Text :
+
+```cURL
+curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
+-H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' \
+-H 'Ocp-Apim-Subscription-Region: YOUR_SUBSCRIPTION_REGION' \
+-H 'Content-Type: application/json' \
+--data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
+```
+
+## <a name="authenticate-with-an-authentication-token"></a>Authentification avec un jeton d’authentification
+
+Certains services Azure Cognitive Services acceptent et, dans certains cas, nécessitent un jeton d’authentification. Les services suivants prennent actuellement en charge les jetons d’authentification :
+
+* API de traduction de texte
+* Services Speech : API REST de reconnaissance vocale
+* Services Speech : API REST de synthèse vocale
+
+>[!NOTE]
+> QnA Maker utilise également l’en-tête Authorization, mais nécessite une clé de point de terminaison. Pour plus d’informations, consultez [QnA Maker : Obtenir des réponses à partir de la base de connaissances](./qnamaker/quickstarts/get-answer-from-kb-using-curl.md).
+
+>[!WARNING]
+> Les services qui prennent en charge les jetons d’authentification peuvent changer au fil du temps. Pensez donc à consulter la référence sur l’API d’un service avant d’utiliser cette méthode d’authentification.
+
+Vous pouvez échanger les clés d’abonnement monoservice et multiservice contre des jetons d’authentification. Les jetons d’authentification sont valides pour une durée de 10 minutes.
+
+Les jetons d’authentification sont incluses dans une requête sous la forme de l’en-tête `Authorization`. La valeur du jeton fournie doit être précédée de `Bearer`. Par exemple : `Bearer YOUR_AUTH_TOKEN`.
+
+### <a name="sample-requests"></a>Exemples de demandes
+
+Utilisez cette URL pour échanger une clé d’abonnement monoservice contre un jeton d’authentification : `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+```cURL
+curl -v -X POST \
+"https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+-H "Content-type: application/x-www-form-urlencoded" \
+-H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+```
+
+Quand vous utilisez une clé d’abonnement multiservice, vous devez utiliser un point de terminaison spécifique à la région pour l’échange de jeton. Utilisez cette URL pour échanger une clé d’abonnement multiservice contre un jeton d’authentification : `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+Ces régions multiservices prennent en charge l’échange de jeton :
+
+| | | |
+|-|-|-|
+| `australiaeast` | `brazilsouth` | `canadacentral` |
+| `centralindia` | `eastasia` | `eastus` |
+| `japaneast` | `northeurope` | `southcentralus` |
+| `southeastasia` | `uksouth` | `westcentralus` |
+| `westeurope` | `westus` | `westus2` |
+
+```cURL
+curl -v -X POST \
+"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+-H "Content-type: application/x-www-form-urlencoded" \
+-H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+```
+
+Après avoir obtenu un jeton d’authentification, vous devez le passer dans chaque requête sous la forme de l’en-tête `Authorization`. Voici un exemple d’appel à l’API de traduction de texte Translator Text :
+
+```cURL
+curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
+-H 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+-H 'Content-Type: application/json' \
+--data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
+```
+
+## <a name="see-also"></a>Voir aussi
+
+* [Qu’est-ce que Cognitive Services ?](welcome.md)
+* [Tarifs de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)
+* [Créer un compte](cognitive-services-apis-create-account.md)
