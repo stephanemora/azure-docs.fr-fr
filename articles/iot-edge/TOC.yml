@@ -14,7 +14,7 @@ items:
   - name: Déployer du code sur un appareil Windows
     href: quickstart.md
   expanded: true
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: Filtrer des données avec Azure Functions
     href: tutorial-deploy-function.md
@@ -46,11 +46,15 @@ items:
     items:
     - name: Présentation des modules Azure IoT Edge
       href: iot-edge-modules.md
-    - name: Développement
-      href: module-development.md
     - name: Propriétés du hub et de l’agent Edge
       href: module-edgeagent-edgehub.md
-  - name: Déploiement de module
+  - name: Développement
+    items:
+    - name: Développer des modules
+      href: module-development.md
+    - name: Environnement de développement
+      href: development-environment.md
+  - name: Déploiement
     items:
     - name: Manifeste de déploiement
       href: module-composition.md
@@ -200,15 +204,15 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: http://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Études de cas techniques
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Vidéos
+  - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 1f56b5e15759bc0c386ecf9649cbc78b611705ad
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: a55b2a1ab6a814d97e750b8b17b20feb2a17e12f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558581"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790212"

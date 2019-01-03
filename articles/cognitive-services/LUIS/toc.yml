@@ -40,35 +40,33 @@ items:
   items:
   - name: Créer une application
     items:
-    - name: 1. Déterminer les intentions d’un utilisateur
+    - name: Déterminer les intentions d’un utilisateur
       href: luis-quickstart-intents-only.md
-    - name: 2. Identifier les intentions courantes
+    - name: Identifier les données utilisateur courantes avec des modèles prédéfinis
       href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 3. Extraire des données au format approprié
-      href: luis-quickstart-intents-regex-entity.md
-    - name: 4. Extraire des correspondances de texte exactes
-      href: luis-quickstart-intent-and-list-entity.md
-    - name: 5. Extraire des données relatives au contexte
-      href: luis-quickstart-intent-and-hier-entity.md
-    - name: 6. Regrouper et extraire les données associées
-      href: luis-tutorial-composite-entity.md
-    - name: 7. Extraire des noms
-      href: luis-quickstart-primary-and-secondary-data.md
-    - name: 8. Extraire des expressions clés
-      href: luis-quickstart-intent-and-key-phrase.md
-    - name: 9. Extraire le sentiment
+    - name: Obtenir des sentiments à partir des énoncés utilisateur
       href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: Obtenir des données correctement mises en forme avec des expressions régulières
+      href: luis-quickstart-intents-regex-entity.md
+    - name: Obtenir des correspondances de texte exactes avec des listes
+      href: luis-quickstart-intent-and-list-entity.md
+    - name: Obtenir des données liées au contexte avec des entités hiérarchiques
+      href: luis-quickstart-intent-and-hier-entity.md
+    - name: Regrouper et extraire les données associées avec des entités composites
+      href: luis-tutorial-composite-entity.md
+    - name: Obtenir des noms avec des entités simples
+      href: luis-quickstart-primary-and-secondary-data.md
   - name: Améliorer l’application
     items:
-    - name: 1. Corriger des prédictions incertaines
+    - name: Corriger des prédictions incertaines
       href: luis-tutorial-review-endpoint-utterances.md
-    - name: 2. Tester des jeux de données par lot
+    - name: Tester des jeux de données par lot
       href: luis-tutorial-batch-testing.md
-    - name: 3. Ajouter des formats d’énoncé courants
+    - name: Ajouter des formats d’énoncé courants
       href: luis-tutorial-pattern.md
-    - name: 4. Extraire des modèles relatifs au contexte
+    - name: Extraire des modèles relatifs au contexte
       href: luis-tutorial-pattern-roles.md
-    - name: 5. Extraire des données de forme libre
+    - name: Extraire des données de forme libre
       href: luis-tutorial-pattern-any.md
   - name: Utiliser bot
     items:
@@ -401,9 +399,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de connaissances
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: e43547c994be9beac717b2644817d9749b298b03
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: eee038c67b910c7bf54e6aa361806c1ef04675ae
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723873"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753231"
