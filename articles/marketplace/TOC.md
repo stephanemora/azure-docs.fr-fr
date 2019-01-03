@@ -19,7 +19,7 @@
 #### [Applications Azure : modèles de solution](./marketplace-solution-templates.md)
 #### [Applications Azure : applications gérées](./marketplace-managed-apps.md)
 #### [Applications SaaS](./marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Conteneurs](./marketplace-containers.md)
+#### [Containers](./marketplace-containers.md)
 #### [Modules IoT Edge](./iot-edge-module.md) 
 #### [Service de conseil](./consulting-services.md)  
 #### [Guide de publication Office 365, Dynamics 365 et Power BI](./appsource-offer-publishing-guide.md)
@@ -196,17 +196,13 @@
 #### [Onglet des informations sur les vitrines](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
 ### [Publier une offre de services de conseil](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
 
-## [Gérer le profil Éditeur](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [Gestion des utilisateurs](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [Conformité RGPD](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
-
 ## Version d’évaluation
 ### [Qu’est-ce qu’une version d’évaluation ?](./cloud-partner-portal-orig/what-is-test-drive.md)
 ### [Version d’évaluation d’Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
 ### [Version d’évaluation hébergée](./cloud-partner-portal-orig/hosted-test-drive.md)
 ### [Version d’évaluation d’application logique](./cloud-partner-portal-orig/logic-app-test-drive.md)
 ### [Transformation des exemples pour la version d’évaluation](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-### [Marketing et bonnes pratiques](./cloud-partner-portal-orig/marketing-and-best-practices.md)
+### [Marketing et meilleures pratiques](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
 ## Gérer les prospects
 ### [Configurer des prospects](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)

@@ -1,18 +1,19 @@
 ---
-title: Azure Disk Encryption avec Azure AD App pour les machines virtuelles IaaS Linux (version précédente) | Microsoft Docs
+title: Azure Disk Encryption avec Azure AD App pour les machines virtuelles IaaS Linux (version précédente)
 description: Cet article fournit des instructions sur l’activation Microsoft Azure Disk Encryption pour les machines virtuelles IaaS Linux.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/19/2018
-ms.openlocfilehash: ffabd1169076ac5f887375c585c8880b587c86a8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 79b7fdd5ba6bd39058a5b892771f550bb872fa70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51637000"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083357"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Activer Azure Disk Encryption pour les machines virtuelles IaaS Linux (version précédente)
 
@@ -91,13 +92,13 @@ Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az-vm-en
     > La syntaxe de la valeur du paramètre disk-encryption-keyvault est la chaîne d’identificateur complet : /subscriptions/[GUID_ID_abonnement]/resourceGroups/[nom_groupe_ressources]/providers/Microsoft.KeyVault/vaults/[nom_coffre_clés]</br> </br>
 La syntaxe de la valeur du paramètre key-encryption-key est l’URI complet de la clé KEK comme dans : https://[nom_coffre_clés].vault.azure.net/keys/[nom_clé_kek]/[ID_unique_clé_kek] 
 
-- **Vérifier que les disques sont chiffrés :** pour vérifier l’état du chiffrement d’une machine virtuelle IaaS, utilisez la commande [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). 
+- **Vérifier que les disques sont chiffrés :** pour vérifier l’état du chiffrement d’une machine virtuelle IaaS, utilisez la commande [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
      ```
 
-- **Désactiver le chiffrement :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). La désactivation du chiffrement est autorisée seulement sur les volumes de données pour les machines virtuelles Linux.
+- **Désactiver le chiffrement :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). La désactivation du chiffrement est autorisée seulement sur les volumes de données pour les machines virtuelles Linux.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type DATA
@@ -120,7 +121,7 @@ Utilisez la commande [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/a
 
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
     ```
-- **Chiffrer une machine virtuelle en cours d’exécution avec la clé KEK pour wrapper le secret client :** Azure Disk Encryption vous permet de spécifier une clé existante de votre coffre de clés pour wrapper les secrets de chiffrement de disque qui ont été générés lors de l’activation du chiffrement. Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. Il peut être nécessaire d’ajouter le paramètre -VolumeType si vous chiffrez des disques de données et non le disque du système d’exploitation. 
+- **Chiffrer une machine virtuelle en cours d’exécution avec une clé KEK pour wrapper le secret client :** Azure Disk Encryption vous permet de spécifier une clé existante de votre coffre de clés pour inclure dans un wrapper les secrets de chiffrement de disque qui ont été générés lors de l’activation du chiffrement. Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. Il peut être nécessaire d’ajouter le paramètre -VolumeType si vous chiffrez des disques de données et non le disque du système d’exploitation. 
 
      ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -142,13 +143,13 @@ Utilisez la commande [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/a
  > La syntaxe de la valeur du paramètre disk-encryption-keyvault est la chaîne d’identificateur complet : /subscriptions/[GUID_ID_abonnement]/resourceGroups/[nom_groupe_ressources]/providers/Microsoft.KeyVault/vaults/[nom_coffre_clés]</br> </br>
 La syntaxe de la valeur du paramètre key-encryption-key est l’URI complet de la clé KEK comme dans : https://[nom_coffre_clés].vault.azure.net/keys/[nom_clé_kek]/[ID_unique_clé_kek] 
     
-- **Vérifier que les disques sont chiffrés :** pour vérifier l’état du chiffrement d’une machine virtuelle IaaS, utilisez l’applet de commande [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus). 
+- **Vérifier que les disques sont chiffrés :** pour vérifier l’état du chiffrement d’une machine virtuelle IaaS, utilisez l’applet de commande [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus). 
     
      ```azurepowershell-interactive 
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName MySecureRg -VMName MySecureVM
      ```
     
-- **Désactiver le chiffrement de disque :** pour désactiver le chiffrement, utilisez l’applet de commande [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). La désactivation du chiffrement est autorisée seulement sur les volumes de données pour les machines virtuelles Linux.
+- **Désactiver le chiffrement de disque :** pour désactiver le chiffrement, utilisez l’applet de commande [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). La désactivation du chiffrement est autorisée seulement sur les volumes de données pour les machines virtuelles Linux.
      
      ```azurepowershell-interactive 
      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
@@ -184,7 +185,7 @@ Le paramètre **EncryptFormatAll** réduit le temps de chiffrement des disques d
  Après l’exécution de cette commande, tous les lecteurs qui ont été montés précédemment sont formatés. La couche de chiffrement est ensuite démarrée sur le lecteur qui est maintenant vide. Quand cette option est sélectionnée, le disque de ressources éphémère attaché à la machine virtuelle est également chiffré. Si le disque éphémère est réinitialisé, il est reformaté et rechiffré par la solution Azure Disk Encryption dès que l’occasion s’en présente.
 
 >[!WARNING]
-> EncryptFormatAll ne doit pas être utilisé quand des données indispensables se trouvent sur les volumes de données d’une machine virtuelle. Vous pouvez exclure des disques du chiffrement en les démontant. Vous devez d’abord essayer EncryptFormatAll sur une machine virtuelle de test, comprendre le paramètre de la fonctionnalité et son implication, avant de l’essayer sur la machine virtuelle de production. L’option EncryptFormatAll formate le disque de données et toutes ses données seront perdues. Avant de continuer, vérifiez que les disques que vous voulez exclure sont correctement démontés. </br></br>
+> EncryptFormatAll ne doit pas être utilisé quand des données indispensables se trouvent sur les volumes de données d’une machine virtuelle. Vous pouvez exclure des disques du chiffrement en les démontant. Vous devez d’abord essayer EncryptFormatAll sur une machine virtuelle de test, comprendre le paramètre de la fonctionnalité et son implication, avant de l’essayer sur la machine virtuelle de production. L’option EncryptFormatAll formate le disque de données et toutes ses données seront perdues. Avant de continuer, vérifiez que les disques que vous souhaitez exclure sont correctement démontés. </br></br>
  >Si vous définissez ce paramètre lors de la mise à jour des paramètres de chiffrement, il peut entraîner un redémarrage avant le chiffrement proprement dit. Dans ce cas, vous pouvez aussi supprimer du fichier fstab le disque que vous ne voulez pas formater. De même, vous devez ajouter la partition que vous voulez chiffrer-formater au fichier fstab avant de lancer l’opération de chiffrement. 
 
 ### <a name="bkmk_EFACriteria"> </a> Critères pour EncryptFormatAll
@@ -210,7 +211,7 @@ Pour utiliser l’option EncryptFormatAll, utilisez un modèle Azure Resource Ma
 ### <a name="bkmk_EFAPSH"> </a> Utiliser le paramètre EncryptFormatAll avec une applet de commande PowerShell
 Utilisez l’applet de commande [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) avec le [paramètre EncryptFormatAll](https://www.powershellgallery.com/packages/AzureRM/5.0.0). 
 
-**Chiffrer une machine virtuelle en cours d’exécution avec un secret client et EncryptFormatAll :** à titre d’exemple, le script ci-dessous initialise vos variables et exécute l’applet de commande Set-AzureRmVMDiskEncryptionExtension avec le paramètre EncryptFormatAll. Les prérequis sont que le groupe de ressources, la machine virtuelle, le coffre de clés, l’application AAD et le secret client doivent déjà avoir été créés. Remplacez MySecureRg, MySecureVM, MySecureVault, My-AAD-client-ID et My-AAD-client-secret par vos valeurs.
+**Chiffrer une machine virtuelle en cours d’exécution avec EncryptFormatAll :** à titre d’exemple, le script ci-dessous initialise vos variables et exécute l’applet de commande Set-AzureRmVMDiskEncryptionExtension avec le paramètre EncryptFormatAll. Les prérequis sont que le groupe de ressources, la machine virtuelle, le coffre de clés, l’application AAD et le secret client doivent déjà avoir été créés. Remplacez MySecureRg, MySecureVM, MySecureVault, My-AAD-client-ID et My-AAD-client-secret par vos valeurs.
   
    ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -338,7 +339,7 @@ Contrairement à la syntaxe de PowerShell, l’interface CLI ne nécessite pas q
 
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion;
     ```
-- **Chiffrer une machine virtuelle en cours d’exécution avec la clé KEK pour wrapper le secret client :** Azure Disk Encryption vous permet de spécifier une clé existante de votre coffre de clés pour wrapper les secrets de chiffrement de disque qui ont été générés lors de l’activation du chiffrement. Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. Le paramètre -VolumeType est défini pour les disques de données et non pas pour le disque du système d’exploitation. Si la machine virtuelle a déjà été chiffrée avec un type de volume « OS » ou « All », le paramètre -VolumeType doit être remplacé par All afin que le système d’exploitation et le nouveau disque de données soient inclus.
+- **Chiffrer une machine virtuelle en cours d’exécution avec une clé KEK pour wrapper le secret client :** Azure Disk Encryption vous permet de spécifier une clé existante de votre coffre de clés pour inclure dans un wrapper les secrets de chiffrement de disque qui ont été générés lors de l’activation du chiffrement. Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. Le paramètre -VolumeType est défini pour les disques de données et non pas pour le disque du système d’exploitation. Si la machine virtuelle a déjà été chiffrée avec un type de volume « OS » ou « All », le paramètre -VolumeType doit être remplacé par All afin que le système d’exploitation et le nouveau disque de données soient inclus.
 
      ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -366,12 +367,12 @@ Vous pouvez désactiver le chiffrement avec Azure PowerShell, Azure CLI ou un mo
 >[!IMPORTANT]
 >La désactivation du chiffrement avec Azure Disk Encryption sur les machines virtuelles Linux est prise en charge seulement pour les volumes de données. Elle n’est pas prise en charge sur les volumes de données ou de système d’exploitation si le volume du système d’exploitation a été chiffré.  
 
-- **Désactiver le chiffrement de disque avec Azure PowerShell :** pour désactiver le chiffrement, utilisez l’applet de commande [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). 
+- **Désactiver le chiffrement de disque avec Azure PowerShell :** pour désactiver le chiffrement, utilisez l’applet de commande [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). 
      ```azurepowershell-interactive
      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' [--volume-type {ALL, DATA, OS}]
      ```
 
-- **Désactiver le chiffrement avec Azure CLI :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). 
+- **Désactiver le chiffrement avec Azure CLI :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
      ```

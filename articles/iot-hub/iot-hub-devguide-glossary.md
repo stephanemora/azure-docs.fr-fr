@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7599fbe05b99466ed1d1a3db17156888cf9ea353
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227144"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338286"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -27,7 +27,7 @@ La gestion automatique des appareils dans Azure IoT Hub automatise une grande pa
 ## <a name="automatic-device-configuration"></a>Configuration automatique des appareils
 Le backend de la solution peut utiliser des [configurations automatiques des appareils](iot-hub-auto-device-config.md) pour affecter des propriétés souhaitées à un ensemble de [jumeaux d’appareil](#device-twin) et signaler l’état à l’aide de métriques système et de métriques personnalisées. 
 
-## <a name="azure-classic-cli"></a>Azure classic CLI
+## <a name="azure-classic-cli"></a>Azure Classic CLI
 [Azure CLI Classic](../cli-install-nodejs.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, et servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI doit être uniquement utilisée pour les déploiements classiques.
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -40,8 +40,8 @@ Des kits _device SDK_ sont disponibles pour plusieurs langages et permettent de 
 ## <a name="azure-iot-service-sdks"></a>Kits Azure IoT service SDK
 Des kits _service SDK_ sont disponibles pour plusieurs langages et permettent de créer des [applications principales](#back-end-app) qui interagissent avec un hub IoT. Les didacticiels sur IoT Hub expliquent comment utiliser ces kits service SDK. Le code source et des informations supplémentaires sur les Kits de développement logiciel de services sont disponibles dans ce [dépôt](https://github.com/Azure/azure-iot-sdks) GitHub.
 
-## <a name="azure-iot-toolkit"></a>Azure IoT Toolkit
-Le [kit de ressources Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) est une extension multiplateforme, open-source Visual Studio Code, qui vous permet de gérer Azure IoT Hub et des périphériques dans VS Code. Avec le kit de ressources Azure IoT, les développeurs IoT peuvent développer des projets IoT dans VS Code en toute simplicité.
+## <a name="azure-iot-hub-toolkit"></a>Azure IoT Hub Toolkit
+Le [kit de ressources Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anciennement Azure IoT Toolkit) est une extension multiplateforme, open-source Visual Studio Code, qui vous permet de gérer Azure IoT Hub et des périphériques dans VS Code. Avec le kit de ressources Azure IoT Hub, les développeurs IoT peuvent développer des projets IoT dans VS Code en toute simplicité.
 
 ## <a name="azure-portal"></a>Portail Azure
 Le [portail Microsoft Azure](https://portal.azure.com) permet de configurer et de gérer l’ensemble de vos ressources Azure. Son contenu est organisé à l’aide de _panneaux_.
