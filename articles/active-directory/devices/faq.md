@@ -108,14 +108,14 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 ---
 
 **Q : Mes utilisateurs peuvent-ils se connecter à des appareils joints à Azure AD qui ont été supprimés ou désactivés dans Azure AD ?**
-**R: ** Oui. Windows a mis en cache les fonctionnalités d’ouverture de session pour permettre aux utilisateurs précédemment connectés d’accéder au poste de travail rapidement, même sans connectivité réseau. Quand un appareil est supprimé ou désactivé dans Azure AD, ce fait n’est pas connu par l’appareil Windows. Ainsi, les utilisateurs précédemment connectés peuvent continuer à accéder au poste de travail avec l’ouverture de session mise en cache. Cependant, comme l’appareil est supprimé ou désactivé, les utilisateurs ne peuvent pas accéder aux ressources protégées par l’accès conditionnel basé sur l’appareil. 
+**R:** Oui. Windows a mis en cache les fonctionnalités d’ouverture de session pour permettre aux utilisateurs précédemment connectés d’accéder au poste de travail rapidement, même sans connectivité réseau. Quand un appareil est supprimé ou désactivé dans Azure AD, ce fait n’est pas connu par l’appareil Windows. Ainsi, les utilisateurs précédemment connectés peuvent continuer à accéder au poste de travail avec l’ouverture de session mise en cache. Cependant, comme l’appareil est supprimé ou désactivé, les utilisateurs ne peuvent pas accéder aux ressources protégées par l’accès conditionnel basé sur l’appareil. 
 
 Les utilisateurs qui ne sont pas déjà connectés ne peuvent pas accéder à l’appareil, car il n’existe pas d’ouverture de session mise en cache activée pour eux. 
 
 ---
 
 **Q : Les utilisateurs désactivés ou supprimés peuvent-ils se connecter à des appareils joints à Azure AD ?**
-**R: ** Oui, mais uniquement pour une durée limitée. Quand un utilisateur est supprimé ou désactivé dans Azure AD, ce fait n’est pas connu immédiatement par l’appareil Windows. Ainsi, les utilisateurs précédemment connectés peuvent accéder au poste de travail avec l’ouverture de session mise en cache. Une fois que l’état de l’utilisateur est indiqué à l’appareil (généralement en moins de 4 heures), Windows bloque l’accès de cet utilisateur au poste de travail. Quand l’utilisateur est supprimé ou désactivé dans Azure AD, tous ses jetons sont révoqués, et il ne peut donc plus accéder à aucune ressource. 
+**R:** Oui, mais uniquement pour une durée limitée. Quand un utilisateur est supprimé ou désactivé dans Azure AD, ce fait n’est pas connu immédiatement par l’appareil Windows. Ainsi, les utilisateurs précédemment connectés peuvent accéder au poste de travail avec l’ouverture de session mise en cache. Une fois que l’état de l’utilisateur est indiqué à l’appareil (généralement en moins de 4 heures), Windows bloque l’accès de cet utilisateur au poste de travail. Quand l’utilisateur est supprimé ou désactivé dans Azure AD, tous ses jetons sont révoqués, et il ne peut donc plus accéder à aucune ressource. 
 
 Les utilisateurs supprimés ou désactivés qui ne se sont pas connectés auparavant ne peuvent pas accéder à un appareil, car il n’existe pas d’ouverture de session mise en cache activée pour eux. 
 
