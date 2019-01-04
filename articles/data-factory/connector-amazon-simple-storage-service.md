@@ -18,7 +18,7 @@ ms.lasthandoff: 12/08/2018
 ms.locfileid: "53103283"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copie de données d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
 > * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Version actuelle](connector-amazon-simple-storage-service.md)
 
