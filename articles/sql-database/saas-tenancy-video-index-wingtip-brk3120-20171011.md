@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: billgib
+ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ad1ae537038c84aac7bebe40a1db124521933f3d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163971"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608900"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vidéo indexée et annotée pour l’application SaaS multi-locataire à l’aide d’Azure SQL Database
 
 Cet article est un index annoté dans les emplacements de temps d’une vidéo de 81 minutes sur les modèles ou motifs de location SaaS. Cet article vous permet de faire défiler la vidéo en avant ou en arrière jusqu’à la partie qui vous intéresse. La vidéo explique les options de conception importantes pour une application de base de données multi-locataire sur Azure SQL Database. La vidéo inclut des démonstrations, des guides de code de gestion et propose plus d'informations basées sur l’expérience que n'en contient notre documentation écrite.
 
 La vidéo amplifie les informations de notre documentation écrite, par exemple : 
-- *Doc conceptuel :* [Modèles de client de base de données SaaS mutualisée][saas-concept-design-patterns-563e]
+- *Doc conceptuel :* Modèles de client de base de données SaaS mutualisée[saas-concept-design-patterns-563e]
 - *Didacticiels :* [Application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 La vidéo et les articles décrivent les différentes phases de création d’une application multi-locataire sur Azure SQL Database dans le cloud. Des fonctionnalités spéciales de Azure SQL Database facilitent le développement et la mise en œuvre des applications multi-locataires, toutes les deux plus faciles à gérer et fonctionnant de façon fiable.
@@ -294,7 +294,7 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 - [Billet de blog, 22 mai 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Doc conceptuel :* [Modèles de client de base de données SaaS mutualisée][saas-concept-design-patterns-563e]
+- *Doc conceptuel :* Modèles de client de base de données SaaS mutualisée[saas-concept-design-patterns-563e]
 
 - *Didacticiels :* [Application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 

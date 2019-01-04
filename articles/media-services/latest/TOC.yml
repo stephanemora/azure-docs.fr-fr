@@ -28,8 +28,14 @@ items:
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Migrer de v2 vers v3
-    href: migrate-from-v2-to-v3.md
+  - name: Comptes
+    items:
+    - name: Migrer de v2 vers v3
+      href: migrate-from-v2-to-v3.md
+    - name: Quotas et limitations
+      href: limits-quotas-constraints.md
+    - name: Comptes de stockage
+      href: storage-account-concept.md
   - name: Entités
     href: entities-overview.md
     items:
@@ -79,15 +85,21 @@ items:
       href: live-event-states-billing.md
     - name: Latence
       href: live-event-latency.md
-  - name: Comptes de stockage
-    href: storage-account-concept.md
+  - name: Azure Media Player
+    href: use-azure-media-player.md
 - name: Procédures
   items:
-  - name: Créer un compte - CLI
-    href: create-account-cli-how-to.md
-  - name: Accéder aux API - CLI
-    href: access-api-cli-how-to.md
-  - name: Télécharger
+  - name: Prise en main
+    items:
+    - name: Créer un compte - CLI
+      href: create-account-cli-how-to.md
+    - name: Accéder aux API - CLI
+      href: access-api-cli-how-to.md
+    - name: Mettre à l’échelle les unités réservées Multimédia - CLI
+      href: media-reserved-units-cli-how-to.md
+  - name: Configurer Postman
+    href: media-rest-apis-with-postman.md
+  - name: Téléchargement de contenu
     items:
     - name: À partir de HTTP - .NET
       href: job-input-from-http-how-to.md
@@ -95,6 +107,22 @@ items:
       href: job-input-from-local-file-how-to.md
     - name: À partir d’un fichier local - REST
       href: upload-files-rest-how-to.md
+  - name: Encodage de contenu
+    items:
+    - name: Personnaliser les présélections de transformation - .NET
+      href: customize-encoder-presets-how-to.md
+  - name: Utiliser Event Grid
+    items:
+    - name: Surveiller les événements - Portail
+      href: monitor-events-portal-how-to.md
+    - name: Surveiller les événements - CLI
+      href: job-state-events-cli-how-to.md
+  - name: Protéger du contenu
+    items:
+    - name: Avec AES-128 - .NET
+      href: protect-with-aes128.md
+    - name: Avec DRM - .NET
+      href: protect-with-drm.md
   - name: Création de filtres
     items:
     - name: Avec .NET
@@ -103,26 +131,6 @@ items:
       href: filters-dynamic-manifest-rest-howto.md
     - name: Avec l’interface CLI
       href: filters-dynamic-manifest-cli-howto.md
-  - name: Encoder
-    items:
-    - name: Personnaliser les paramètres de transformation prédéfinis - .NET Core
-      href: customize-encoder-presets-how-to.md
-  - name: Utiliser Event Grid
-    items:
-    - name: Surveiller les événements - Portail
-      href: monitor-events-portal-how-to.md
-    - name: Surveiller les événements - CLI
-      href: job-state-events-cli-how-to.md
-  - name: Protéger
-    items:
-    - name: Avec AES-128 - .NET
-      href: protect-with-aes128.md
-    - name: Avec DRM - .NET
-      href: protect-with-drm.md
-  - name: Configurer Postman
-    href: media-rest-apis-with-postman.md
-  - name: Mettre à l’échelle les unités réservées Multimédia - CLI
-    href: media-reserved-units-cli-how-to.md
 - name: Informations de référence
   items:
   - name: Spécification OpenAPI (Swagger)
@@ -181,13 +189,11 @@ items:
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Notes de publication
     href: release-notes.md
-  - name: Quotas et limitations
-    href: limits-quotas-constraints.md
   - name: Forum Aux Questions
     href: frequently-asked-questions.md
-ms.openlocfilehash: 660052b4e82f6e005c096b5ac1edd7a80c2d5339
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 9acf8f3ce9f5886d5f61087a58d863047bd0b605
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744970"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014520"
