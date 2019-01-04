@@ -1,5 +1,5 @@
 ---
-title: Gestion des modèles Azure Time Series Insights - Guide pratique pour gérer un environnement Azure Time Series Insights à l'aide de modèles Azure Resource Manager | Microsoft Docs
+title: Guide pratique pour gérer un environnement Azure Time Series Insights à l’aide de modèles Azure Resource Manager | Microsoft Docs
 description: Cet article explique comment gérer un environnement Azure Time Series Insights par programme à l’aide d’Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 70f82c19bced7618027379fcf9451348ac2591eb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9200b3b8cd85bfd94bbc4c66cccb35b78a97aaff
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270618"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554688"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Créer des ressources Time Series Insights à l’aide de modèles Azure Resource Manager
 

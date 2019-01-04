@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273339"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634607"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utiliser le portail Azure pour créer des alertes pour Azure SQL Database et Data Warehouse
 
@@ -46,13 +46,13 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte av
 1. Sur le [portail](https://portal.azure.com/), localisez la ressource que vous souhaitez surveiller et sélectionnez-la.
 2. Sélectionnez **Alertes (classiques)** dans la section SURVEILLANCE. Le texte et l’icône peuvent varier légèrement pour les différentes ressources.  
    
-     ![Surveillance](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
+     ![Surveillance](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **SQL DW UNIQUEMENT** : Cliquez sur le graphique **Utilisation DWU**. Sélectionnez **Afficher les alertes classiques**.
 
 3. Sélectionnez le bouton **Ajouter une alerte de métrique (classique)** et renseignez les champs.
    
-    ![Ajouter une alerte](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
+    ![Ajouter une alerte](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **Nommez** votre règle d’alerte, puis choisissez une **Description** qui indique également les adresses électroniques de notification.
 5. Sélectionnez la **Métrique** que vous souhaitez surveiller, puis choisissez une **Condition** et une valeur de **Seuil** pour la métrique. Choisissez également la **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche. Par exemple, si vous utilisez la période « PT5M » et que votre alerte recherche une utilisation de l’UC supérieure à 80 %, elle se déclenche quand l’utilisation **moyenne** de l’UC est supérieure à 80 % depuis cinq minutes. Après le premier déclenchement, elle se déclenchera à nouveau si l’utilisation moyenne de l’UC reste au-dessous de 80 % pendant cinq minutes. La mesure de l’UC se produit toutes les minutes. Consultez le tableau ci-dessous pour connaître les fenêtres de temps prises en charge et le type d’agrégation que chaque alerte utilise, puisque toutes les alertes n’utilisent pas la valeur moyenne.   
 6. Cochez **Propriétaires de messagerie...** si vous souhaitez que les administrateurs et les coadministrateurs reçoivent un courrier électronique lorsque l’alerte se déclenche.
@@ -117,5 +117,5 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 ## <a name="next-steps"></a>Étapes suivantes
 * [Consultez une vue d’ensemble de la surveillance Azure](../monitoring-and-diagnostics/monitoring-overview.md) , notamment les types d’informations que vous pouvez collecter et surveiller.
 * Découvrez plus en détail la [configuration des webhooks dans les alertes](../azure-monitor/platform/alerts-webhooks.md).
-* Consultez une [vue d’ensemble des journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) et collecter des métriques détaillées à fréquence élevée sur votre service.
+* Consultez une [vue d’ensemble des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md) et collecter des métriques détaillées à fréquence élevée sur votre service.
 * Consultez une [vue d’ensemble de la collecte des métriques](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.

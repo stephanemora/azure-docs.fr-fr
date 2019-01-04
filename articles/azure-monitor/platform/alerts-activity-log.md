@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 5657cfb40e9017918f5842c573895872940b307a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273699"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579326"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d'activité avec Azure Monitor  
 
@@ -96,7 +96,7 @@ Procédez comme suit :
     Vous pouvez activer, désactiver, modifier ou supprimer une règle. [En savoir plus](#view-and-manage-activity-log-alert-rules-in-azure-portal) sur la gestion des règles de journal d’activité.
 
 
-Sinon, pour bien comprendre les conditions dans lesquelles des règles d’alerte peuvent être créées sur le journal d’activité, il est possible d’explorer ou de filtrer les événements par le biais du [Journal d’activité dans le portail Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). Dans Azure Monitor - Journal d’activité, il est possible de filtrer ou de rechercher l’événement requis, puis de créer une alerte à l’aide du bouton **Ajouter une alerte de journal d’activité**. Poursuivez ensuite jusqu’à l’étape 4 comme indiqué dans le didacticiel ci-dessus.
+Sinon, pour bien comprendre les conditions dans lesquelles des règles d’alerte peuvent être créées sur le journal d’activité, il est possible d’explorer ou de filtrer les événements par le biais du [Journal d’activité dans le portail Azure](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). Dans Azure Monitor - Journal d’activité, il est possible de filtrer ou de rechercher l’événement requis, puis de créer une alerte à l’aide du bouton **Ajouter une alerte de journal d’activité**. Poursuivez ensuite jusqu’à l’étape 4 comme indiqué dans le didacticiel ci-dessus.
     
  ![ ajouter une alerte du journal d’activité](media/alerts-activity-log/add-activity-log.png)
     
@@ -223,4 +223,4 @@ Le fichier *sampleActivityLogAlert.parameters.json* contient les valeurs communi
 - [Schéma de webhook des journaux d’activité](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 - [Présentation des journaux d’activité](../../azure-monitor/platform/activity-log-alerts.md) 
 - En savoir plus sur les [groupes d’actions](../../azure-monitor/platform/action-groups.md).  
-- En savoir plus sur les [notifications sur l’intégrité du service](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- En savoir plus sur les [notifications sur l’intégrité du service](../../azure-monitor/platform/service-notifications.md).

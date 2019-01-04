@@ -10,22 +10,22 @@ ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: 0d53c8355fadf53c81676a1fe3c71f8e0b046630
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e95b20a12fafa9d1dbcbd641ce1c9f2674314489
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126566"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606433"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Déployer et appeler des API personnalisées à partir de workflows dans Azure Logic Apps
 
-Après avoir [créé des API personnalisées](./logic-apps-create-api-app.md) à utiliser dans des workflows d’application logique, vous devez déployer vos API avant de pouvoir les appeler. Vous pouvez déployer vos API en tant [qu’applications web](../app-service/app-service-web-overview.md). Toutefois, envisagez de les déployer sous la forme [d’applications API](../app-service/app-service-web-tutorial-rest-api.md) pour simplifier votre travail lorsque vous générez, hébergez et consommez des API dans le cloud et en local. Vous n’avez pas besoin de modifier le code dans vos API. Il vous suffit de déployer votre code dans une application API. Vous pouvez héberger vos API sur [Azure App Service](../app-service/app-service-web-overview.md), une offre PaaS (Platform-as-a-Service) qui fournit un hébergement d’API simple et hautement évolutif.
+Après avoir [créé des API personnalisées](./logic-apps-create-api-app.md) à utiliser dans des workflows d’application logique, vous devez déployer vos API avant de pouvoir les appeler. Vous pouvez déployer vos API en tant [qu’applications web](../app-service/overview.md). Toutefois, envisagez de les déployer sous la forme [d’applications API](../app-service/app-service-web-tutorial-rest-api.md) pour simplifier votre travail lorsque vous générez, hébergez et consommez des API dans le cloud et en local. Vous n’avez pas besoin de modifier le code dans vos API. Il vous suffit de déployer votre code dans une application API. Vous pouvez héberger vos API sur [Azure App Service](../app-service/overview.md), une offre PaaS (Platform-as-a-Service) qui fournit un hébergement d’API simple et hautement évolutif.
 
 Même si vous pouvez appeler n’importe quelle API à partir d’une application logique, vous bénéficierez d’une expérience optimale si vous ajoutez des [métadonnées OpenAPI (auparavant Swagger](http://swagger.io/specification/) décrivant les opérations et paramètres de votre API. Ce fichier OpenAPI simplifie l’intégration de votre API aux applications logiques et améliore son fonctionnement avec ces dernières.
 
 ## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>Déployer votre API en tant qu’application web ou application API
 
-Pour pouvoir appeler votre API personnalisée à partir d’une application logique, déployez votre API en tant qu’application web ou application API sur Azure App Service. Par ailleurs, pour vous assurer de la lisibilité du fichier OpenAPI par le Concepteur Logic Apps, définissez les propriétés de définition d’API et activez le [partage des ressources cross-origin (CORS)](../app-service/app-service-web-overview.md) pour votre application web ou votre application API.
+Pour pouvoir appeler votre API personnalisée à partir d’une application logique, déployez votre API en tant qu’application web ou application API sur Azure App Service. Par ailleurs, pour vous assurer de la lisibilité du fichier OpenAPI par le Concepteur Logic Apps, définissez les propriétés de définition d’API et activez le [partage des ressources cross-origin (CORS)](../app-service/overview.md) pour votre application web ou votre application API.
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre application web ou votre application API.
 

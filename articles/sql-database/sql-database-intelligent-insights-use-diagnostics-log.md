@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: a0eac4344f1294ad2eddd4e05520c1f030a0c4d7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1464b2685e0ae084de3679e8a8fea36a3cf19c4b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278217"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599142"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utiliser le journal de diagnostic Intelligent Insights des performances d’Azure SQL Database
 
-Cette page fournit des informations sur l’utilisation du journal de diagnostic des performances d’Azure SQL Database généré par [Intelligent Insights](sql-database-intelligent-insights.md), son format et les données qu’il contient pour vos besoins de développement. Vous pouvez envoyer ce journal de diagnostic à [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
+Cette page fournit des informations sur l’utilisation du journal de diagnostic des performances d’Azure SQL Database généré par [Intelligent Insights](sql-database-intelligent-insights.md), son format et les données qu’il contient pour vos besoins de développement. Vous pouvez envoyer ce journal de diagnostic à [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 ## <a name="log-header"></a>En-tête du journal
 

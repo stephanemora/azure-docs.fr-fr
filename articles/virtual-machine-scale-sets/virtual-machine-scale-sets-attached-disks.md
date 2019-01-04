@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 2a1f79656fa70b4fa895235aff177ca47dc29664
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 8d086a159b8014873beb53bec433798b0cc0c8c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413640"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000204"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
 Pour développer votre espace de stockage, les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent en charge les instances de machine virtuelle avec des disques de données associés. Vous pouvez associer des disques de données lorsque le groupe identique est créé ou sur un groupe identique existant.
@@ -97,7 +97,7 @@ Les disques de données spécifiés dans le modèle de groupe identique sont tou
 
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
-La prise en charge des disques gérés Azure et des disques de données associés de groupe identique ests disponible dans les versions [ _2016-04-30-preview_ ](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) et ultérieures de l’APi Microsoft.Compute.API.
+La prise en charge des disques gérés Azure et des disques de données associés de groupe identique ests disponible dans les versions [ _2016-04-30-preview_ ](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) et ultérieures de l’APi Microsoft.Compute.API.
 
 La prise en charge du portail Azure pour les disques de données associés dans des groupes identiques est initialement limitée. Selon vos besoins, vous pouvez utiliser des modèles Azure, la CLI, PowerShell, des kits de développement logiciel (SDK) et l’API REST pour gérer les disques associés.
 

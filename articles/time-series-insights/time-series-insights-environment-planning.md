@@ -1,5 +1,5 @@
 ---
-title: Planification Azure Time Series Insights - Planifier l’échelle de votre environnement Azure Time Series Insights | Microsoft Docs
+title: Planifier la mise à l’échelle de votre environnement Azure Time Series Insights | Microsoft Docs
 description: Cet article explique comment suivre les meilleures pratiques pour planifier un environnement Azure Time Series Insights, notamment la capacité de stockage, la conservation des données, la capacité d’entrée, le monitoring et la récupération d'urgence (BCDR).
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 6541363eb2ac19cfa4359fe85bde5fa39157055e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ce31b22dcbf3fbe79192647e9a21983911e77a9c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273763"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556031"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planifier votre environnement Azure Time Series Insights
 
@@ -29,7 +29,7 @@ Cet article explique comment planifier votre environnement Azure Time Series Ins
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 Pour commencer à utiliser Time Series Insights, il est conseillé de connaître la quantité de données à transmettre à la minute ainsi que la durée de stockage de vos données.  
 

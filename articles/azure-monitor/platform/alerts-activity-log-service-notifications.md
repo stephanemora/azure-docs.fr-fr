@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: bb427575d7cff69f0db778c5eb0e0bdf0671d8dd
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343279"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583729"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Créer des alertes de journal d’activité sur les notifications de service
 ## <a name="overview"></a>Vue d’ensemble
@@ -196,7 +196,7 @@ Une fois l’alerte créée, elle apparaît dans la section **Alertes** du panne
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [configurer des notifications de Webhook pour les systèmes de gestion de problème existants](../../service-health/service-health-alert-webhook-guide.md).
-- En savoir plus sur les [notifications sur l’intégrité du service](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- En savoir plus sur les [notifications sur l’intégrité du service](../../azure-monitor/platform/service-notifications.md).
 - En savoir plus sur la [limitation du débit des notifications](../../azure-monitor/platform/alerts-rate-limiting.md).
 - Consultez le [schéma webhook des alertes de journal d’activité](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Obtenez une [vue d’ensemble des alertes du journal d’activité](../../azure-monitor/platform/alerts-overview.md) et découvrez comment recevoir des alertes. 

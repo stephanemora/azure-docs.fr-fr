@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 76355723baa7727c0dda10ace449603d6ebefbe1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bfa5cc9a5c04d4c6a692d9a70844f2ec0c35e132
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435852"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579173"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Créer des alertes de métrique de journaux dans Azure Monitor  
 
 ## <a name="overview"></a>Vue d’ensemble
-Azure Monitor prend en charge le [type d’alerte de métrique](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md), qui présente certains avantages par rapport aux [alertes classiques](../../azure-monitor/platform/alerts-classic-portal.md). Des métriques sont disponibles pour une [longue liste de services Azure](../../azure-monitor/platform/metrics-supported.md). Cet article explique comment utiliser un sous-ensemble pour une ressource - `Microsoft.OperationalInsights/workspaces`. 
+Azure Monitor prend en charge le [type d’alerte de métrique](../../azure-monitor/platform/alerts-metric-near-real-time.md), qui présente certains avantages par rapport aux [alertes classiques](../../azure-monitor/platform/alerts-classic-portal.md). Des métriques sont disponibles pour une [longue liste de services Azure](../../azure-monitor/platform/metrics-supported.md). Cet article explique comment utiliser un sous-ensemble pour une ressource - `Microsoft.OperationalInsights/workspaces`. 
 
 Vous pouvez utiliser des alertes de métrique sur des journaux Log Analytics courants, extraits en tant que métriques dans le cadre des métriques à partir de journaux, notamment des ressources dans Azure ou en local. Les solutions Log Analytics prises en charge sont répertoriées ci-dessous :
 - [Les compteurs de performance](../../azure-monitor/platform/data-sources-performance-counters.md) pour les machines Windows et Linux
@@ -51,7 +51,7 @@ Avant que la métrique pour des journaux rassemblés sur des données Log Analyt
 4. **Solutions Log Analytics configurées pour envoyer des journaux** : une solution Log Analytics doit avoir les journaux/données correspondant aux [métriques prises en charge pour les espaces de travail Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) activés. Par exemple, le compteur *% Available Memory* (% de mémoire disponible) doit d’abord être configuré dans la solution [Compteurs de performances](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configuration d’une alerte de métrique pour des journaux
- Des alertes de métrique peuvent être créées et gérées à l’aide du Portail Azure, des modèles Resource Manager, de l’API REST, de PowerShell et d’Azure CLI. Étant donné que les alertes de métrique pour des journaux sont une variante des alertes de métrique, une fois que les conditions préalables sont remplies, une alerte de métrique pour des journaux peut être créée pour l’espace de travail Log Analytics spécifié. Toutes les caractéristiques et fonctionnalités des [alertes de métrique](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) sont également applicables aux alertes de métrique pour des journaux, notamment le schéma de charge utile, les limites de quota applicables et les prix facturés.
+ Des alertes de métrique peuvent être créées et gérées à l’aide du Portail Azure, des modèles Resource Manager, de l’API REST, de PowerShell et d’Azure CLI. Étant donné que les alertes de métrique pour des journaux sont une variante des alertes de métrique, une fois que les conditions préalables sont remplies, une alerte de métrique pour des journaux peut être créée pour l’espace de travail Log Analytics spécifié. Toutes les caractéristiques et fonctionnalités des [alertes de métrique](../../azure-monitor/platform/alerts-metric-near-real-time.md) sont également applicables aux alertes de métrique pour des journaux, notamment le schéma de charge utile, les limites de quota applicables et les prix facturés.
 
 Pour des exemples et des informations détaillées, consultez [Creating and managing metric alerts](https://aka.ms/createmetricalert) (Création et gestion des alertes de métrique). Pour les alertes de métrique pour des journaux, suivez les instructions relatives à la gestion des alertes de métrique et vérifiez les points suivants :
 - La cible de l’alerte de métrique est un *espace de travail Log Analytics* valide.

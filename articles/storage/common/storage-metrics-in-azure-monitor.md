@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 27523a3746e3afe649df3fcf78975b501a922ff8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957297"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994434"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
 
@@ -25,7 +25,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez y accéder à partir du [Portail Azure](https://portal.azure.com), des API d’Azure Monitor (REST et .NET) et des solutions d’analyse comme Event Hubs. Pour plus d’informations, voir [Mesures Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Les mesures sont activées par défaut et vous pouvez accéder aux 93 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) dans Azure Monitor.
+Les mesures sont activées par défaut et vous pouvez accéder aux 93 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) dans Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Accéder aux mesures dans le portail Azure
 
@@ -332,14 +332,14 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| UsedCapacity | Quantité de stockage utilisée par le compte de stockage. Pour les comptes de stockage standard, il s’agit de la somme de la capacité utilisée par les objets blob, tables, fichiers et files d’attente. Pour les comptes de stockage Premium et les comptes de stockage Blob, elle équivaut à BlobCapacity. <br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Exemple de valeur : 1 024 |
+| UsedCapacity | Quantité de stockage utilisée par le compte de stockage. Pour les comptes de stockage standard, il s’agit de la somme de la capacité utilisée par les objets blob, tables, fichiers et files d’attente. Pour les comptes de stockage Premium et les comptes de stockage Blob, elle équivaut à BlobCapacity. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="blob-storage"></a>Stockage d'objets blob
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Exemple de valeur : 1 024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
-| BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Exemple de valeur : 1 024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
+| BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
+| BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
 | ContainerCount    | Nombre de conteneurs dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="table-storage"></a>Stockage de tables

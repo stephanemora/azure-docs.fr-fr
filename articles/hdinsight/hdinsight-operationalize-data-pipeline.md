@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436158"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744443"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Rendre un pipeline d’analytique de données opérationnel
 
@@ -551,7 +551,7 @@ Comme vous pouvez le voir, la majeure partie du coordinateur consiste en une sim
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    Un coordinateur est responsable de la planification d’actions pendant la plage de dates comprise entre `start` et `end`, en fonction de l’intervalle spécifié par l’attribut `frequency`. Chaque action planifiée exécute à son tour le workflow tel qu’il est configuré. Dans la définition ci-dessus, le coordinateur est configuré pour exécuter des actions entre le 1er janvier 2017 et le 5 janvier 2017. La fréquence est définie sur un jour par l’expression de fréquence `${coord:days(1)}` en [Langage d’expression Oozie](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation). En conséquence, le coordinateur planifie une action (et, par conséquent, le workflow) une fois par jour. Pour les plages de dates passées, comme dans cet exemple, l’action s’exécutera sans délai. Le début de la date à partir de laquelle une action doit s’exécuter s’appelle *l’heure nominale*. Par exemple, pour traiter les données du 1er janvier 2017, le coordinateur planifiera une action associée à une heure nominale de 2017-01-01T00:00:00 GMT.
+    Un coordinateur est responsable de la planification d’actions pendant la plage de dates comprise entre `start` et `end`, en fonction de l’intervalle spécifié par l’attribut `frequency`. Chaque action planifiée exécute à son tour le workflow tel qu’il est configuré. Dans la définition ci-dessus, le coordinateur est configuré pour exécuter des actions entre le 1er janvier 2017 et le 5 janvier 2017. La fréquence est définie sur un jour par l’expression de fréquence `${coord:days(1)}` en [Langage d’expression Oozie](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation). En conséquence, le coordinateur planifie une action (et, par conséquent, le workflow) une fois par jour. Pour les plages de dates passées, comme dans cet exemple, l’action s’exécutera sans délai. Le début de la date à partir de laquelle une action doit s’exécuter s’appelle *l’heure nominale*. Par exemple, pour traiter les données du 1er janvier 2017, le coordinateur planifiera une action associée à une heure nominale de 2017-01-01T00:00:00 GMT.
 
 * Point 2 : dans la plage de dates du workflow, l’élément `dataset` indique l’endroit, dans HDFS, où rechercher les données d’une plage de dates donnée et configure la manière dont Oozie détermine si les données sont prêtes ou non pour le traitement.
 
@@ -651,6 +651,6 @@ Pour exécuter le pipeline avec un coordinateur, procédez de la même manière 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Documentation d’Apache Oozie](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Documentation d’Apache Oozie](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

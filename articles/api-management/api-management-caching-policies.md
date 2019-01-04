@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 48b0085e52c1752c0b5ecc89ce229a5a82f74345
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 52bdeb5fe517430497c57a5c34b822df5933e3ff
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310434"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608883"
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -118,8 +118,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 | cache-preference               | Choisissez entre les valeurs suivantes de l’attribut :<br />- `internal` pour utiliser le cache Gestion des API intégré ;<br />- `external` pour utiliser le cache externe (voir [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md)),<br />- `prefer-external` pour utiliser un cache externe (si configuré) ou un cache interne sinon. | Non        | `prefer-external` |
 | downstream-caching-type        | Cet attribut doit avoir l’une des valeurs suivantes.<br /><br /> - none : la mise en cache en aval n’est pas autorisée.<br />- private : la mise en cache privée en aval est autorisée.<br />- public : la mise en cache privée et partagée en aval est autorisée.                                                                                                          | Non        | Aucun              |
 | must-revalidate                | Lorsque la mise en cache en aval est activée, cet attribut active ou désactive la directive de contrôle de cache `must-revalidate` dans les réponses de la passerelle.                                                                                                                                                                                                                      | Non        | true              |
-| vary-by-developer              | Attribut défini sur `true` pour mettre en cache des réponses par [clé d’abonnement](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | Oui      |                   |
-| vary-by-developer-groups       | Attribut défini sur `true` pour mettre en cache des réponses par [groupe d’utilisateurs](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Oui      |                   |  
+| vary-by-developer              | Attribut défini sur `true` pour mettre en cache des réponses par [clé d’abonnement](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | Oui      |         False          |
+| vary-by-developer-groups       | Attribut défini sur `true` pour mettre en cache des réponses par [groupe d’utilisateurs](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Oui      |       False            |  
 
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  

@@ -2,20 +2,17 @@
 title: Résoudre les problèmes de connexion à la base de données Azure Database pour MySQL | Microsoft Docs
 description: Découvrez comment résoudre les problèmes de connexion à Azure Database pour MySQL.
 keywords: connexion mysql,chaîne de connexion,problèmes de connectivité,erreur temporaire,erreur de connexion
-services: mysql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 901c8f0c903a7e26e82d89209ea4b0ec69057d23
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6bc804c9cbf141f5b0e36a92e4f386a6540f583c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165404"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540926"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour MySQL
 
@@ -51,7 +48,7 @@ Si l’application échoue de façon permanente à se connecter à la base de do
 
 * Configuration du pare-feu côté serveur : assurez-vous que le pare-feu côté serveur d’Azure Database pour MySQL est configuré pour autoriser les connexions côté client, y compris les serveurs proxy et les passerelles.
 * Configuration du pare-feu côté client : le pare-feu côté client doit autoriser les connexions à votre serveur de base de données. Les adresses IP et les ports du serveur auxquels vous ne pouvez pas vous connecter doivent être autorisés ainsi que les noms d’application telles que MySQL sur certains pare-feu.
-* Erreur utilisateur : il se peut que vous ayez effectué une erreur de saisie des paramètres de connexion, comme le nom du serveur dans la chaîne de connexion ou un suffixe *@servername* manquant dans le nom de l’utilisateur.
+* Erreur utilisateur : il se peut que vous ayez fait une erreur lors de la saisie des paramètres de connexion, comme le nom du serveur dans la chaîne de connexion ou un suffixe *@servername* manquant dans le nom de l’utilisateur.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants
 

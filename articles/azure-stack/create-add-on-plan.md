@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 07/30/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e84e72157726311281994b0e287eda7dfc4b144a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076788"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716751"
 ---
 # <a name="azure-stack-add-on-plans"></a>Plans de module complémentaire de Azure Stack
 
@@ -32,7 +32,7 @@ La meilleure solution est parfois de tout regrouper dans un seul plan. Mais vous
 Le fait que les plans d’extension contribuent à rendre les utilisateurs conscients de leur utilisation des ressources constitue une autre raison de les utiliser. Pour ce faire, vous pouvez commencer avec un plan de base qui inclut des quotas relativement petits (selon les services requis). Ensuite, alors les utilisateurs atteignent une pleine capacité, ils sont avertis de leur consommation des ressources allouées en fonction de leur plan attribué. Dès lors, les utilisateurs peuvent sélectionner un plan d’extension qui fournit les ressources supplémentaires.
 
 > [!NOTE]
-> Lorsque vous ne souhaitez pas utiliser un plan d’extension pour étendre un quota, vous pouvez également choisir de [modifier la configuration d’origine du quota](azure-stack-quota-types.md#to-edit-a-quota). 
+> Lorsque vous ne souhaitez pas utiliser un plan d’extension pour étendre un quota, vous pouvez également choisir de [modifier la configuration d’origine du quota](azure-stack-quota-types.md#edit-a-quota). 
 
 Lorsqu’un utilisateur ajoute un plan d’extension à son abonnement existant à une offre, les ressources supplémentaires peuvent prendre une heure à s’afficher. 
 

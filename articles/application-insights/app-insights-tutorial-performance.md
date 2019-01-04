@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 669d5995b66322a2a6ad346643444d5a46c4b6f8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42812869"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744409"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rechercher et diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights
 
@@ -35,7 +35,7 @@ Pour suivre ce didacticiel :
 - Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
     - Développement web et ASP.NET
     - Développement Azure
-- Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](app-insights-asp-net.md).
+- Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](../azure-monitor/app/asp-net.md).
 - [Activer le profileur Application Insights](app-insights-profiler.md#installation) pour votre application.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure

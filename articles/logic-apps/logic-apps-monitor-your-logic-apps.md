@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e06bf20a04c6a57ae5988d4cc334ec7a3cdd4bf1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434254"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543854"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Surveiller l’état, configurer la journalisation des diagnostics et activer les alertes pour Azure Logic Apps
 
@@ -62,7 +62,7 @@ Pour obtenir des notifications concernant des échecs ou d’autres problèmes �
    ![Détails de l’étape](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Tous les détails et événements d’exécution sont chiffrés dans le service Logic Apps. Ils sont déchiffrés uniquement quand un utilisateur demande à consulter ces données. Vous pouvez également contrôler l’accès à ces événements avec le [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/overview.md).
+   > Tous les détails et événements d’exécution sont chiffrés dans le service Logic Apps. Il sont déchiffrés uniquement quand un utilisateur demande à consulter ces données. Vous pouvez également contrôler l’accès à ces événements avec le [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/overview.md).
 
 6. Pour obtenir des détails sur un événement déclencheur spécifique, revenez au volet **Vue d’ensemble**. Sous **Historique du déclencheur**, sélectionnez l’événement déclencheur. Vous pouvez maintenant examiner des détails tels que les entrées et sorties, par exemple :
 
@@ -130,7 +130,7 @@ Pour rechercher et afficher dans votre application logique des événements tels
 5. Dans la page de résultats, dans la barre de gauche, choisissez la plage de temps que vous souhaitez afficher.
 Pour affiner votre requête en ajoutant un filtre, choisissez **+Ajouter**.
 
-   ![Choisir une plage de temps pour les résultats de la requête](media/logic-apps-monitor-your-logic-apps/query-results.png)
+   ![Choisir un plage de temps pour les résultats de la requête](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
 6. Sous **Ajouter des filtres**, entrez le nom du filtre afin de trouver le filtre souhaité. Sélectionnez le filtre, puis choisissez **+Ajouter**.
 
@@ -143,7 +143,7 @@ Pour affiner votre requête en ajoutant un filtre, choisissez **+Ajouter**.
 
    ![Sélectionner la valeur de filtre, choisir « Appliquer »](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-8. Revenez à présent à la requête que vous créez. Votre requête est mise à jour avec le filtre et la valeur sélectionnés. Vos résultats précédents sont à présent également filtrés.
+8. Revenez à présent à la requête que vous créez. Votre requête est mis à jour avec le filtre et la valeur sélectionnés. Vos résultats précédents sont à présent également filtrés.
 
    ![Revenir à votre requête avec les résultats filtrés](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
@@ -156,7 +156,7 @@ Pour affiner votre requête en ajoutant un filtre, choisissez **+Ajouter**.
 Avec Azure Log Analytics, vous pouvez étendre le mode d’utilisation des données de diagnostic de votre application logique avec d’autres services Azure, par exemple : 
 
 * [Archivage des journaux de diagnostic Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Diffuser en continu les journaux de diagnostic vers Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+* [Diffuser en continu les journaux de diagnostic vers Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
 Vous pouvez ensuite obtenir une surveillance en temps réel en utilisant les ressources de télémétrie et d’analyse d’autres services, tels que [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) et [Power BI](../azure-monitor/platform/powerbi.md). Par exemple : 
 

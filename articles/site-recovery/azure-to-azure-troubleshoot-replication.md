@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4a18e009f7defc8d41846b867f9b7a65d2b853dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842337"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993329"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure en cours
 
@@ -78,8 +78,8 @@ Cette option n’est possible que si l’activité des données de disque est in
 
 #### <a name="network-latency-to-cache-storage-account-"></a>Latence du réseau pour le compte de stockage de cache :
  Site Recovery envoie les données répliquées au compte de stockage de cache et le problème peut se produire si le chargement des données à partir de la machine virtuelle dans le compte de stockage de cache est plus lent que 4 Mo en 3 secondes. Pour vérifier si des problèmes sont liés à la latence, utilisez [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) pour charger des données de la machine virtuelle dans le compte de stockage de cache.<br>
-Si la latence est élevée, vérifiez si vous utilisez une appliance virtuelle réseau pour contrôler le trafic réseau sortant à partir des machines virtuelles. L’appliance peut être limitée si tout le trafic de réplication passe par elle. Nous vous recommandons de créer un point de terminaison de service réseau dans votre réseau virtuel pour « Stockage » afin que le trafic de réplication n’atteigne pas l’appliance virtuelle réseau. Reportez-vous à la [configuration des appliances virtuelles réseau](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+Si la latence est élevée, vérifiez si vous utilisez une appliance virtuelle réseau pour contrôler le trafic réseau sortant à partir des machines virtuelles. L’appliance peut être limitée si tout le trafic de réplication passe par elle. Nous vous recommandons de créer un point de terminaison de service réseau dans votre réseau virtuel pour « Stockage » afin que le trafic de réplication n’atteigne pas l’appliance virtuelle réseau. Reportez-vous à la [configuration des appliances virtuelles réseau](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
 
 #### <a name="network-connectivity"></a>Connectivité réseau
 Pour que la réplication Site Recovery fonctionne, une connectivité sortante vers des URL ou des plages d’adresses IP spécifiques est nécessaire à partir de la machine virtuelle. Si votre machine virtuelle se trouve derrière un pare-feu ou utilise des règles de groupe de sécurité réseau pour contrôler la connectivité sortante, vous pouvez rencontrer l’un des problèmes ci-après.</br>
-Reportez-vous à [Connectivité sortante pour les URL Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) pour vous assurer que toutes les URL sont connectées 
+Reportez-vous à [Connectivité sortante pour les URL Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) pour vous assurer que toutes les URL sont connectées 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f382aab5a00030b922fb890e82110454e7f3839
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c0f4af863162d004b6a557f8c7a04e31ee66d9b7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384494"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713554"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Installer et utiliser Apache Solr sur les clusters HDInsight Windows
 
@@ -38,7 +38,7 @@ L’exemple de script utilisé dans cette rubrique crée un cluster Solr Windows
 * [Développer des scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-solr"></a>Présentation de Solr
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> est une plateforme de recherche d’entreprise qui permet d’effectuer de puissantes opérations de recherche en texte intégral sur des données. Alors que Hadoop permet de stocker et de gérer de grandes quantités de données, Apache Solr fournit les fonctionnalités de recherche nécessaires pour les récupérer rapidement.
+<a href="https://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> est une plateforme de recherche d’entreprise qui permet d’effectuer de puissantes opérations de recherche en texte intégral sur des données. Alors que Hadoop permet de stocker et de gérer de grandes quantités de données, Apache Solr fournit les fonctionnalités de recherche nécessaires pour les récupérer rapidement.
 
 ## <a name="install-solr-using-portal"></a>Installer Solr à l’aide du portail
 1. Démarrez la création d’un cluster à l’aide de l’option **CRÉATION PERSONNALISÉE** , comme décrit dans [Création de clusters Apache Hadoop dans HDInsight](hdinsight-provision-clusters.md).

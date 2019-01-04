@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c1a778a006c7743b6ea19062d79cff3cfeaba3d8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343154"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713266"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Guide d’exécution de Fonctions durables en tant que WebJobs
 
-[Azure Functions](../functions-overview.md) et l’extension [Fonctions durables](durable-functions-overview.md) reposent sur le [SDK WebJobs](../../app-service/web-sites-create-web-jobs.md). L’élément `JobHost` dans le SDK WebJobs correspond au runtime dans Azure Functions. Si vous devez contrôler le comportement `JobHost` en fonction de paramètres impossibles dans Azure Functions, vous pouvez développer et exécuter Fonctions durables en vous appuyant sur le SDK WebJobs. Vous pouvez ensuite exécuter votre extension Fonctions durables dans un Azure WebJob ou dans un emplacement où est exécutée une application de console.
+[Azure Functions](../functions-overview.md) et l’extension [Fonctions durables](durable-functions-overview.md) reposent sur le [SDK WebJobs](../../app-service/webjobs-create.md). L’élément `JobHost` dans le SDK WebJobs correspond au runtime dans Azure Functions. Si vous devez contrôler le comportement `JobHost` en fonction de paramètres impossibles dans Azure Functions, vous pouvez développer et exécuter Fonctions durables en vous appuyant sur le SDK WebJobs. Vous pouvez ensuite exécuter votre extension Fonctions durables dans un Azure WebJob ou dans un emplacement où est exécutée une application de console.
 
 L’exemple de chaînage Fonctions durables est disponible dans les versions de SDK WebJobs : téléchargez ou clonez le [référentiel Fonctions durables](https://github.com/azure/azure-functions-durable-extension/), puis accédez au dossier *samples\\webjobssdk\\chaining*.
 

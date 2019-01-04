@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 73c65aa5c95887c8b1f6eb5e4cf91e19815eba15
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256388"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741876"
 ---
 # <a name="translator-speech-api-languages"></a>API de traduction de conversation Translator Speech : Langues
 
@@ -27,7 +27,7 @@ Vous pouvez trouver des exemples de code illustrant l’utilisation de l’API p
 
 ## <a name="implementation-notes"></a>Remarques relatives à l’implémentation
 
-GET /languages 
+### <a name="get-languages"></a>GET /languages 
 
 Un vaste éventail de langues sont disponibles pour la transcription la parole, la traduction du texte transcrit et la production d’une synthèse vocale de la traduction.
 

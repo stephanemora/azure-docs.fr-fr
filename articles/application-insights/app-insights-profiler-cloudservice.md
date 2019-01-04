@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bb70bf56efac28029401b69ee4f87c2738c52e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 28e21180fde50d19154830694cd4959795ae9d5c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721848"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789379"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profiler des services cloud Azure en production avec Application Insights
 
 Vous pouvez également déployer Application Insights Profiler sur ces services :
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Applications Service Fabric](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Machines virtuelles](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -30,7 +30,7 @@ Application Insights Profiler est installé avec l’extension Windows Azure Dia
 
 ## <a name="enable-profiler-for-your-azure-cloud-service"></a>Activer le profileur pour votre service cloud Azure
 1. Vérifiez que vous utilisez [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou version ultérieure.  Il suffit de confirmer que les fichiers *ServiceConfiguration\*.cscfg* ont une valeur `osFamily` au moins égale à « 5 ».
-1. Ajouter le [kit de développement logiciel (SDK) Application Insights à un service cloud](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Ajouter le [kit de développement logiciel (SDK) Application Insights à un service cloud](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Effectuer le suivi des requêtes avec Application Insights :
 
     Pour les rôles web ASP.Net, Application Insights peut suivre automatiquement les requêtes.
@@ -63,7 +63,7 @@ Application Insights Profiler est installé avec l’extension Windows Azure Dia
       </WadCfg>
       ```
 
-    >   **REMARQUE :** Si le fichier *diagnostics.wadcfgx* contient également un autre récepteur de type `ApplicationInsights`, ces trois clés d’instrumentation doivent correspondre :  
+    >   **REMARQUE :** Si le fichier diagnostics.wadcfgx* contient également un autre récepteur de type `ApplicationInsights`, ces trois clés d’instrumentation doivent correspondre :  
     >  * La clé qui est utilisée par votre application.  
     >  * La clé qui est utilisée par le récepteur `ApplicationInsights`.  
     >  * La clé qui est utilisée par le récepteur `ApplicationInsightsProfiler`.  

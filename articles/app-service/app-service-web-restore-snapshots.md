@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
-ms.openlocfilehash: 174fbd8f3e4c652c25a78911185ef8a98a80bb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260036"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726559"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restauration d’une application dans Azure à partir d’un instantané
-Cet article explique comment restaurer une application dans [Azure App Service](../app-service/app-service-web-overview.md) à partir d’un instantané. Vous pouvez utiliser l’un des instantanés de votre application pour restaurer cette dernière à un état antérieur. Il n’est pas nécessaire d’activer la sauvegarde d’instantanés : la plateforme enregistre automatiquement un instantané de toutes les applications dans le cadre de la récupération de données.
+Cet article explique comment restaurer une application dans [Azure App Service](../app-service/overview.md) à partir d’un instantané. Vous pouvez utiliser l’un des instantanés de votre application pour restaurer cette dernière à un état antérieur. Il n’est pas nécessaire d’activer la sauvegarde d’instantanés : la plateforme enregistre automatiquement un instantané de toutes les applications dans le cadre de la récupération de données.
 
-Les instantanés sont des copies fantômes incrémentielles qui offrent plusieurs avantages par rapport à des [sauvegardes](web-sites-backup.md) classiques :
+Les instantanés sont des copies fantômes incrémentielles qui offrent plusieurs avantages par rapport à des [sauvegardes](manage-backup.md) classiques :
 - Aucune erreur de copie de fichier imputable au verrouillage de fichier.
 - Aucune limite de taille de stockage.
 - Aucune configuration nécessaire.

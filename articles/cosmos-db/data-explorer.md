@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c1af73d57255b3c74bbab4c69767d1756b24a6da
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140749"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541572"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Utiliser l’explorateur Azure Cosmos DB pour gérer vos données 
 
@@ -51,4 +51,4 @@ Pour le moment, l’expérience **Ouvrir en mode plein écran** qui vous permet 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez découvert comment démarrer avec l’explorateur Azure Cosmos DB pour gérer vos données, vous pouvez :
 
-* Commencer à définir des [requêtes](sql-api-query-reference.md) à l’aide de la syntaxe SQL, et faire de la [programmation côté serveur](programming.md) en vous servant de procédures stockées, d’UDF et de déclencheurs. 
+* Commencer à définir des [requêtes](sql-api-query-reference.md) à l’aide de la syntaxe SQL, et faire de la [programmation côté serveur](stored-procedures-triggers-udfs.md) en vous servant de procédures stockées, d’UDF et de déclencheurs. 

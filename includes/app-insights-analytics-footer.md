@@ -4,15 +4,15 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: edd7492dba1352484e1a1e5c361c8041bcd966b0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 669aac4903b2de03fe845193b55e6538a3bf9d6c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572088"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53730213"
 ---
 ## <a name="analytics"></a>Analytics
-* [Vue d'ensemble](../articles/application-insights/app-insights-analytics.md)
+* [Vue d'ensemble](../articles/azure-monitor/app/analytics.md)
 * [Visite guidée des analyses](../articles/application-insights/app-insights-analytics-tour.md)
   * Démarrer ici. Didacticiel couvrant les fonctionnalités principales.
 * [Requêtes](../articles/application-insights/app-insights-analytics-reference.md)
@@ -25,5 +25,5 @@ ms.locfileid: "51572088"
   * Utilisation d’Analytics.
 * [Référence sur le langage](../articles/application-insights/app-insights-analytics-reference.md)
   * Référence sur une page.
-* [Dépannage](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+* [Dépannage](../articles/azure-monitor/app/analytics-troubleshooting.md)
 

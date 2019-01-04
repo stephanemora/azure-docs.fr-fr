@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310536"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631938"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyseurs pour le traitement de texte dans Recherche Azure
 
@@ -76,7 +76,7 @@ Si une recherche ne renvoie pas les résultats attendus, cela est très probable
 
 ### <a name="compare-english-analyzers"></a>Comparer les analyseurs en anglais
 
-La [démonstration de l’analyseur Recherche](http://alice.unearth.ai/) est une application de démonstration tierce qui présente une comparaison côte à côte de l’analyseur Lucene standard, de l’analyseur linguistique anglais de Lucene et de l’outil de traitement en langage naturel anglais de Microsoft. L’index est fixe et contient du texte issu d’un article populaire. Pour chaque recherche que vous effectuez, les résultats de chaque analyseur sont affichés dans des volets adjacents, ce qui vous donne une idée de la façon dont chaque analyseur traite la même chaîne. 
+La [démonstration de l’analyseur Recherche](https://alice.unearth.ai/) est une application de démonstration tierce qui présente une comparaison côte à côte de l’analyseur Lucene standard, de l’analyseur linguistique anglais de Lucene et de l’outil de traitement en langage naturel anglais de Microsoft. L’index est fixe et contient du texte issu d’un article populaire. Pour chaque recherche que vous effectuez, les résultats de chaque analyseur sont affichés dans des volets adjacents, ce qui vous donne une idée de la façon dont chaque analyseur traite la même chaîne. 
 
 ## <a name="examples"></a>Exemples
 
@@ -244,13 +244,13 @@ Les champs qui contiennent des chaînes dans différentes langues peuvent utilis
 
 + Lisez notre explication détaillée du [Fonctionnement de la recherche en texte intégral dans Recherche Azure](search-lucene-query-architecture.md). Cet article utilise des exemples pour expliquer les comportements qui, au premier abord, peuvent sembler contraires à la logique.
 
-+ Essayez une syntaxe de requête supplémentaire à partir de la section Exemple [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) ou à partir de la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) dans l’Explorateur de recherche du portail.
++ Essayez une syntaxe de requête supplémentaire à partir de la section Exemple [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) ou à partir de la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) dans l’Explorateur de recherche du portail.
 
 + Découvrez comment appliquer des [analyseurs lexicaux propres au langage](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configurez des analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) pour un traitement minimal ou pour un traitement spécialisé sur certains champs.
 
-+ [Comparez les analyseurs standard et les analyseurs anglais](http://alice.unearth.ai/) dans des volets adjacents sur ce site web de démonstration. 
++ [Comparez les analyseurs standard et les analyseurs anglais](https://alice.unearth.ai/) dans des volets adjacents sur ce site web de démonstration. 
 
 ## <a name="see-also"></a>Voir aussi
 

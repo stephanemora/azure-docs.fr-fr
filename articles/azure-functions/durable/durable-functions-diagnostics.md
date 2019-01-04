@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b297be16110e24342b224f7f89c2a3c0c44229a9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341404"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713229"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostics dans Fonctions durables (Azure Functions)
 
@@ -25,7 +25,7 @@ Il existe plusieurs options permettant de diagnostiquer les problèmes avec [Fon
 
 [Application Insights](../../application-insights/app-insights-overview.md) est la méthode recommandée pour les diagnostics et la surveillance dans Azure Functions. Il en va de même pour Fonctions durables. Pour obtenir une vue d’ensemble montrant comment tirer parti d’Application Insights dans votre application de fonction, consultez [Surveiller l’exécution des fonctions Azure](../functions-monitoring.md).
 
-L’extension Fonctions durables d’Azure émet également des *événements de suivi* vous permettant de tracer l’exécution de bout en bout d’une orchestration. Ces événements sont accessibles et interrogés à l’aide de l’outil [Application Insights Analytics](../../application-insights/app-insights-analytics.md) dans le portail Azure.
+L’extension Fonctions durables d’Azure émet également des *événements de suivi* vous permettant de tracer l’exécution de bout en bout d’une orchestration. Ces événements sont accessibles et interrogés à l’aide de l’outil [Application Insights Analytics](../../azure-monitor/app/analytics.md) dans le portail Azure.
 
 ### <a name="tracking-data"></a>Suivi des données
 

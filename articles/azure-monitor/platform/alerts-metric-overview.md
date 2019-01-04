@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: cf315718377210e13a6634c0eaf8caab158bcc4d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24d0965fa2a88bc844a81c7430d46c071a9b874b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342219"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580040"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -93,7 +93,7 @@ Pour les alertes de métrique, vous êtes généralement informé en moins de 5�
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Types de ressources pris en charge pour les alertes de métrique
 
-Vous trouverez la liste complète des types de ressources pris en charge dans cet [article](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Vous trouverez la liste complète des types de ressources pris en charge dans cet [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à savoir si les alertes de métrique prennent en charge tous les types de ressources que vous utilisez, le tableau suivant répertorie les types de ressources pris en charge par les alertes de métrique classiques et indique s'ils sont actuellement pris en charge ou non.
 

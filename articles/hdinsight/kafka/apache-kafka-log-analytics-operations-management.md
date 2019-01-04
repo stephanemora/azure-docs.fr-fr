@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: bd8bfb8775bc9c988bb7484ac25f189c3ff46991
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 69eaa0028f1115cafbd1ed28b66940d7faaed062
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317277"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608543"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyser les journaux pour Apache Kafka sur HDInsight
 
@@ -30,7 +30,7 @@ Les étapes permettant d’activer Log Analytics pour HDInsight sont les mêmes 
 
 3. Configurez le cluster Kafka pour utiliser Log Analytics. Pour plus d’informations, consultez le document [Utiliser Log Analytics pour surveiller HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Vous pouvez également configurer le cluster pour utiliser Log Analytics à l’aide de l’applet de commande `Enable-AzureRmHDInsightOperationsManagementSuite`. Cette applet de commande requiert les informations suivantes :
     >
     > * Le nom du cluster HDInsight.
@@ -38,7 +38,7 @@ Les étapes permettant d’activer Log Analytics pour HDInsight sont les mêmes 
     > * La clé primaire de la connexion Log Analytics. Pour trouver la clé primaire, ouvrez l’espace de travail dans le portail Azure, puis sélectionnez __Paramètres avancés__ dans le menu de gauche. Dans Paramètres avancés, sélectionnez __Sources connectées__>__Serveurs Linux__.
 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Un délai de 20 minutes peut s’écouler avant que les données soient disponibles pour Log Analytics.
 
 ## <a name="query-logs"></a>Journaux des requêtes
@@ -57,7 +57,7 @@ Les étapes permettant d’activer Log Analytics pour HDInsight sont les mêmes 
 
     * Octets sortants par seconde : `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Remplacez les valeurs de la requête par les informations spécifiques à votre cluster. Par exemple, `ClusterName_s` doit être définie sur le nom de votre cluster. La valeur `HostName_s` doit être définie sur le nom de domaine d’un nœud de travail dans le cluster.
 
     Vous pouvez également entrer `*` pour rechercher tous les types consignés. Actuellement, les fichiers journaux suivants sont disponibles pour les requêtes :

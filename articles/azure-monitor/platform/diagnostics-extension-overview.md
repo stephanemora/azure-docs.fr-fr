@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338156"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789754"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Présentation de l’extension Azure Diagnostics
 L’extension Azure Diagnostics est un agent au sein d’Azure qui permet la collecte de données de diagnostic d’une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et Worker Azure Cloud Service (classique), les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric. Les autres services Azure ont des méthodes de diagnostic différentes. Consultez [Vue d’ensemble du monitoring dans Azure](../../azure-monitor/overview.md).
@@ -42,7 +42,7 @@ L’extension Azure Diagnostics peut collecter les types de données suivants :
 ## <a name="data-storage"></a>Stockage des données
 L’extension stocke ses données dans un [compte de stockage Azure](diagnostics-extension-to-storage.md) que vous spécifiez.
 
-Vous pouvez également les envoyer vers [Application Insights](../../application-insights/app-insights-cloudservices.md). Vous pouvez également les diffuser en continu vers [Event Hub](../../event-hubs/event-hubs-about.md), ce qui vous permet ensuite de les envoyer vers des services de surveillance non Azure.
+Vous pouvez également les envoyer vers [Application Insights](../../azure-monitor/app/cloudservices.md). Vous pouvez également les diffuser en continu vers [Event Hub](../../event-hubs/event-hubs-about.md), ce qui vous permet ensuite de les envoyer vers des services de surveillance non Azure.
 
 ### <a name="azure-monitor"></a>Azure Monitor
 Vous avez aussi la possibilité d’envoyer vos données vers Azure Monitor. Pour le moment, ce récepteur s’applique uniquement aux compteurs de performances. Vous permet d’envoyer les compteurs de performances collectés sur votre machine virtuelle, groupe de machines virtuelles identiques (VMSS) ou service cloud à Azure Monitor sous la forme de métriques personnalisées. Le récepteur Azure Monitor prend en charge ce qui suit :
@@ -66,7 +66,7 @@ Choisissez le service sur lequel vous voulez collecter des diagnostics et utilis
 
 Pour des rubriques plus avancées, voir
 
-* [Utilisation des diagnostics avec Application Insights pour Cloud Services](../../application-insights/app-insights-cloudservices.md)
+* [Utilisation des diagnostics avec Application Insights pour Cloud Services](../../azure-monitor/app/cloudservices.md)
 * [Assurer le suivi du flux dans une application Cloud Services avec les diagnostics Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [Utilisation de PowerShell pour configurer les diagnostics sur Cloud Services](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

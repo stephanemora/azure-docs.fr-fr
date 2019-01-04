@@ -1,21 +1,18 @@
 ---
 title: Accéder aux journaux du serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 description: Cet article décrit comment accéder aux journaux du serveur dans Azure Database pour MySQL à l’aide de l’utilitaire de ligne de commande Azure CLI.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e3940f07ab97eb2ad03c347c39bf2412a8497f5e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978452"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547029"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux du serveur à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux du serveur Azure Database pour MySQL à l’aide d’Azure CLI, l’utilitaire de ligne de commande Azure.
@@ -28,7 +25,7 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>Configuration de la journalisation pour Azure Database pour MySQL
 Vous pouvez configurer le serveur afin d’accéder au journal des requêtes lentes MySQL, comme suit :
 1. Activez la journalisation en définissant le paramètre **journal\_des requêtes\_lentes** sur ON.
-2. Réglez les autres paramètres tels que **durée\_longue\_d’une requête** et **instructions\_admin\_lentes\_du journal**.
+2. Réglez les autres paramètres tels que **durée\_longue\_d’une requête**  et  **instructions\_admin\_lentes\_du journal**.
 
 Pour savoir comment définir la valeur de ces paramètres via Azure CLI, consultez [Comment configurer les paramètres du serveur](howto-configure-server-parameters-using-cli.md). 
 

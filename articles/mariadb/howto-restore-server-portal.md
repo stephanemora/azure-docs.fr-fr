@@ -3,17 +3,15 @@ title: Guide pratique pour restaurer un serveur dans Azure Database for MariaDB
 description: Cet article décrit comment restaurer un serveur dans Azure Database for MariaDB à l’aide du portail Azure.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 899f0bfa3075c92ac31e2b4f5fab9093a1dc6806
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999036"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548752"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database for MariaDB à l’aide du portail Azure
 
@@ -67,8 +65,8 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
 
    ![Azure Database for MariaDB - Informations de restauration ](./media/howto-restore-server-portal/3-restore.png)
   - **Point de restauration** : sélectionnez le point dans le temps vers lequel vous souhaitez restaurer.
-  - **Serveur cible** : fournissez un nom pour le nouveau serveur.
-  - **Emplacement :** vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
+  - **Serveur cible** : Entrez un nom pour le nouveau serveur.
+  - **Emplacement** : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
   - **Niveau tarifaire** : vous ne pouvez pas modifier ces paramètres lorsque vous effectuez une restauration à un point dans le temps. Elle est identique à celle du serveur source. 
 
 4. Cliquez sur **OK** pour restaurer le serveur à un point dans le temps. 

@@ -1,5 +1,5 @@
 ---
-title: Mise à l’échelle d’Azure Time Series Insights - Comment mettre à l’échelle votre environnement Azure Time Series Insights | Microsoft Docs
+title: Mise à l’échelle de votre environnement Azure Time Series Insights | Microsoft Docs
 description: Cet article explique comment mettre à l’échelle votre environnement Azure Time Series Insights. Utilisez le portail Azure pour augmenter ou réduire la capacité d’une référence SKU tarifaire.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 1adb93d935e16bdce23e35e306592a9575967452
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ee695798dc8a2a19d5cd3d94cbf43e0b58065f84
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271859"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556677"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Mise à l’échelle de votre environnement Time Series Insights
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 17c1cce5c20570f36505ce67a472280b03ef8f0e
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991588"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744527"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Démarrer l’analyse de votre application web ASP.NET Core
 
@@ -33,7 +33,7 @@ Pour suivre ce guide de démarrage rapide :
 - [Installez le kit de développement (SDK) .NET Core 2.0](https://www.microsoft.com/net/core)
 - Vous avez besoin d’un abonnement Azure et d’une application web .NET Core existante.
 
-Si vous ne disposez pas d’une application web ASP.NET Core, vous pouvez utiliser notre guide pas à pas pour [créer une application ASP.NET Core et ajouter Application Insights](app-insights-asp-net-core.md).
+Si vous ne disposez pas d’une application web ASP.NET Core, vous pouvez utiliser notre guide pas à pas pour [créer une application ASP.NET Core et ajouter Application Insights](../azure-monitor/app/asp-net-core.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -53,7 +53,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
     | Paramètres        |  Valeur           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
+   | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application web ASP.NET | Type de l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
@@ -117,7 +117,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    ![Graphique des métriques de serveur](./media/app-insights-dotnetcore-quick-start/009-Black.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les didacticiels, ne supprimez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées par ce démarrage rapide dans le portail Azure.
 

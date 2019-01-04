@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 3053e136ab08c38d9460d60f64464a17f6f61574
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ee483c19aa59ca98226f77a5e56b1ee4eb4dede5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824079"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543408"
 ---
 # <a name="monitor-batch-solutions"></a>Solutions Monitor Batch
 
@@ -26,7 +26,7 @@ Pour une vue d’ensemble des composants et services Azure disponibles permettan
 
 ## <a name="subscription-level-monitoring"></a>Surveillance au niveau de l’abonnement
 
-Au niveau de l’abonnement, qui inclut les comptes Batch, le [journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) collecte les données des événements opérationnels dans [plusieurs catégories](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log).
+Au niveau de l’abonnement, qui inclut les comptes Batch, le [journal d’activité Azure](../azure-monitor/platform/activity-logs-overview.md) collecte les données des événements opérationnels dans [plusieurs catégories](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
 
 Plus précisément, pour les comptes Batch, le journal d’activité collecte les événements liés à la gestion des clés et à la création ou la suppression de comptes.
 
@@ -34,7 +34,7 @@ L’une des méthodes pour récupérer des événements dans votre journal d’a
 
 ## <a name="batch-account-level-monitoring"></a>Surveillance au niveau du compte Batch
 
-Surveillez chaque compte Batch à l’aide des fonctionnalités d’[Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-collection.md#metrics) et éventuellement des [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) pour les ressources au niveau du compte Batch, comme les pools, les travaux et les tâches. Collectez et utilisez ces données manuellement ou par programmation pour surveiller les activités dans votre compte Batch et diagnostiquer les problèmes. Pour plus d’informations, consultez [Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance](batch-diagnostics.md).
+Surveillez chaque compte Batch à l’aide des fonctionnalités d’[Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-collection.md#metrics) et éventuellement des [journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md) pour les ressources au niveau du compte Batch, comme les pools, les travaux et les tâches. Collectez et utilisez ces données manuellement ou par programmation pour surveiller les activités dans votre compte Batch et diagnostiquer les problèmes. Pour plus d’informations, consultez [Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance](batch-diagnostics.md).
  
 > [!NOTE]
 > Les métriques sont disponibles par défaut dans votre compte Batch sans configuration supplémentaire, et elles ont un historique roulant de 30 jours. Vous devez activer la journalisation des diagnostics pour un compte Batch. Le stockage ou le traitement des données du journal de diagnostic peut induire des frais supplémentaires. 

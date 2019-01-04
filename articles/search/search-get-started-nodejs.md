@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: 81fa7e34c2cacf1ee8613c080d55225ffc37cdfc
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0b36ee9aa54f0d8dd3d246d6c5a96e767326d2d8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311080"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634675"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Prise en main d’Azure Search dans Node.js
 > [!div class="op_single_selector"]
@@ -25,12 +25,12 @@ ms.locfileid: "53311080"
 
 Apprenez à créer une application de recherche Node.js personnalisée, qui utilise Azure Search pour ses fonctionnalités de recherche. Ce didacticiel utilise l’ [API REST du service Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) pour créer les objets et opérations utilisés dans cet exercice.
 
-Nous avons utilisé [Node.js](https://Nodejs.org) et NPM, [Sublime Text 3](http://www.sublimetext.com/3) et Windows PowerShell sur Windows 8.1 pour développer et tester ce code.
+Nous avons utilisé [Node.js](https://Nodejs.org) et NPM, [Sublime Text 3](https://www.sublimetext.com/3) et Windows PowerShell sur Windows 8.1 pour développer et tester ce code.
 
 Pour exécuter cet exemple, vous devez disposer d’un service Azure Search auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com). Consultez [Création d’un service Azure Search dans le portail](search-create-service-portal.md) pour obtenir des instructions pas-à-pas.
 
 ## <a name="about-the-data"></a>À propos des données
-Cet exemple d'application utilise des données de l’ [USGS (United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments importants, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
+Cet exemple d'application utilise des données de l’ [USGS (United States Geological Services)](https://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments importants, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
 
 Dans cette application, le programme **DataIndexer** crée et charge l'index à l'aide d'une construction de type [Index](https://msdn.microsoft.com/library/azure/dn798918.aspx) , en récupérant le jeu de données USGS filtré à partir d'une base de données SQL Azure publique. Les informations d'identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Aucune configuration supplémentaire n'est nécessaire.
 

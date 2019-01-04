@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: fae4fffbe9e4b0be0f2edacf3e86b6268cc58608
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 39525c7e25e247504429ea36210986a5e3300cc1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384647"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537169"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gérer le service Protection DDos Standard Azure à l’aide du portail Azure
 
@@ -157,7 +157,7 @@ La fonctionnalité Rapports de prévention des attaques utilise les données de 
 6. Sélectionnez **Activer les diagnostics pour collecter le journal DDoSMitigationReports**, puis sélectionnez autant d’options que nécessaire parmi les suivantes :
 
     - **Archivage dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de diagnostic](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Diffuser sur un hub d’événements** : permet à un récepteur de journal de sélectionner les journaux à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de diagnostic sur un hub d’événements](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Diffuser sur un hub d’événements** : permet à un récepteur de journal de sélectionner les journaux à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de diagnostic sur un hub d’événements](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Envoyer à Log Analytics** : écrit les journaux dans le service Azure Log Analytics. Pour en savoir plus sur cette option, consultez [Collecte des journaux à utiliser dans Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Le rapport incrémentiel et le rapport de prévention incluent tous les deux les champs suivants :
@@ -179,7 +179,7 @@ Les journaux de flux de prévention des attaques vous permettent de passer en re
 6. Sélectionnez **Activer les diagnostics pour collecter le journal DDoSMitigationFlowLogs**, puis sélectionnez autant d’options que nécessaire parmi les suivantes :
 
     - **Archivage dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de diagnostic](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Diffuser sur un hub d’événements** : permet à un récepteur de journal de sélectionner les journaux à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de diagnostic sur un hub d’événements](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Diffuser sur un hub d’événements** : permet à un récepteur de journal de sélectionner les journaux à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de diagnostic sur un hub d’événements](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Envoyer à Log Analytics** : écrit les journaux dans le service Azure Log Analytics. Pour en savoir plus sur cette option, consultez [Collecte des journaux à utiliser dans Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Pour afficher les données des journaux de flux dans le tableau de bord d’analyse Azure, vous pouvez importer l’exemple de tableau de bord à partir de https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: af20d84cbead84e3a9fa5b6ea93661814e42a851
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5ff6e29fc4d7607c44541c7947404a0bc0301207
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325403"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581485"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour VM Scale Sets
 Vous pouvez diminuer ou augmenter la taille des instances dans VM Scale Sets en fonction de certains seuils de métriques de performances, selon une planification périodique ou à une date donnée. Vous pouvez également configurer des e-mails et des webhooks de notification pour les actions de mise à l’échelle. Cette procédure pas à pas présente un exemple de configuration de ces objets à l’aide d’un modèle Resource Manager sur un groupe de machines virtuelles identiques (VM Scale Set).
@@ -242,7 +242,7 @@ Suivez ces liens pour en savoir plus sur la mise à l’échelle automatique.
 
 [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](autoscale-best-practices.md)
 
-[Gérer les paramètres de mise à l’échelle automatique à l’aide de PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings)
+[Gérer les paramètres de mise à l’échelle automatique à l’aide de PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 
 [Gérer les paramètres de mise à l’échelle automatique à l’aide de la CLI](cli-samples.md#autoscale)
 

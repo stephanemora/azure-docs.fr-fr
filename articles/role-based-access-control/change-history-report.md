@@ -15,16 +15,16 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967893"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541555"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle
 
-Vous avez parfois besoin d’informations sur les modifications du contrôle d’accès en fonction du rôle (RBAC), par exemple à des fins d’audit ou de dépannage. Quand un utilisateur apporte des changements à des attributions ou des définitions de rôle au sein de vos abonnements, ceux-ci sont journalisés dans la catégorie [Journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Vous pouvez afficher les journaux d’activité pour voir tous les changements RBAC des 90 derniers jours.
+Vous avez parfois besoin d’informations sur les modifications du contrôle d’accès en fonction du rôle (RBAC), par exemple à des fins d’audit ou de dépannage. Quand un utilisateur apporte des changements à des attributions ou des définitions de rôle au sein de vos abonnements, ceux-ci sont journalisés dans la catégorie [Journal d’activité Azure](../azure-monitor/platform/activity-logs-overview.md). Vous pouvez afficher les journaux d’activité pour voir tous les changements RBAC des 90 derniers jours.
 
 ## <a name="operations-that-are-logged"></a>Opérations journalisées
 

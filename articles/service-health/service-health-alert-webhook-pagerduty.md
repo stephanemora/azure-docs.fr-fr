@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: bd3bcd575e8e0f60d5d8f9640aa7b0ed4935249e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: eba81e0d0a5b178aec6f712abaae2b566bc54316
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273219"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583441"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Configurer des alertes sur l’intégrité de service avec PagerDuty
 
@@ -54,11 +54,11 @@ Cet article vous explique comment configurer les notifications sur l’intégrit
 
 1. À définir dans la liste des **Actions** :
 
-    a. **Type d’action :** *Webhook*
+    a. **Type d’action :** *Webhook*
 
     b. **Détails :** l’**URL d’intégration** PagerDuty précédemment enregistrée.
 
-    c. **Nom :** nom, alias ou identificateur du Webhook.
+    c. **Nom :** nom, alias ou identificateur du webhook.
 
 1. Quand vous avez terminé, sélectionnez **Enregistrer** pour créer l’alerte.
 
@@ -71,11 +71,11 @@ Cet article vous explique comment configurer les notifications sur l’intégrit
 
 1. À ajouter à la liste des **Actions** :
 
-    a. **Type d’action :** *Webhook*
+    a. **Type d’action :** *Webhook*
 
     b. **Détails :** l’**URL d’intégration** PagerDuty précédemment enregistrée.
 
-    c. **Nom :** nom, alias ou identificateur du Webhook.
+    c. **Nom :** nom, alias ou identificateur du webhook.
 
 1. Quand vous avez terminé, sélectionnez **Enregistrer** pour mettre à jour le groupe d’actions.
 
@@ -98,5 +98,5 @@ Cet article vous explique comment configurer les notifications sur l’intégrit
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [configurer des notifications de Webhook pour les systèmes de gestion de problème existants](service-health-alert-webhook-guide.md).
 - Consultez le [schéma webhook des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- En savoir plus sur les [notifications sur l’intégrité du service](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- En savoir plus sur les [notifications sur l’intégrité du service](../azure-monitor/platform/service-notifications.md).
 - En savoir plus sur les [groupes d’actions](../azure-monitor/platform/action-groups.md).

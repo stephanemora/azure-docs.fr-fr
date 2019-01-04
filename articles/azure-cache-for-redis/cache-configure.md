@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: c95c40404bb52f739c407eca3c0d48be5e0a86e6
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ff6a3f32d9163be01483e8b8c743caa4e5bb573c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262433"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581247"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 Cette rubrique décrit les configurations disponibles pour vos instances de cache Azure pour Redis. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de cache Azure pour Redis.
@@ -359,7 +359,7 @@ Cliquez sur **Règles d’alerte** pour configurer des alertes en fonction des m
 Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../azure-monitor/platform/data-collection.md#metrics), puis supprimées. Pour prolonger vos mesures de cache sur plus de 30 jours, cliquez sur **Diagnostics** pour [configurer le compte de stockage](cache-how-to-monitor.md#export-cache-metrics) utilisé pour stocker les diagnostics de cache.
 
 >[!NOTE]
->En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser vers un Hub d’événements ou les envoyer vers Log Analytics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+>En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser vers un Hub d’événements ou les envoyer vers Log Analytics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 

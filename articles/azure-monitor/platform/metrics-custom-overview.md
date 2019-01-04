@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 2b3e8877713fde088be2147bbfa8969e351a3f06
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: aacfc98a9132a59c90a8f67d5a3877b75fa59dfe
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325391"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605583"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métriques personnalisées dans Azure Monitor
 
@@ -25,7 +25,7 @@ Les métriques personnalisées peuvent être envoyées à Azure Monitor à l’a
 - Instrumenter votre application en utilisant le SDK Azure Application Insights et envoyer des données de télémétrie personnalisées à Azure Monitor 
 - Installer l’extension Microsoft Azure Diagnostics (WAD) sur votre [machine virtuelle Azure](collect-custom-metrics-guestos-resource-manager-vm.md), votre [groupe de machines virtuelles identiques](collect-custom-metrics-guestos-resource-manager-vmss.md), votre [machine virtuelle classique](collect-custom-metrics-guestos-vm-classic.md) ou votre [instance Cloud Services classique](collect-custom-metrics-guestos-vm-cloud-service-classic.md), et envoyer des compteurs de performances à Azure Monitor 
 - Installer [l’agent InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) sur votre machine virtuelle Linux Azure et envoyer les métriques à l’aide du plug-in de sortie Azure Monitor
-- Envoyer des métriques personnalisées [directement à l’API REST Azure Monitor](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md) : `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`
+- Envoyer des métriques personnalisées [directement à l’API REST Azure Monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md) : `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`
 
 Lorsque vous envoyez des métriques personnalisées à Azure Monitor, chaque point de données (ou valeur) rapporté doit inclure les informations qui suivent.
 
@@ -193,6 +193,6 @@ Vous pouvez utiliser les métriques personnalisées à partir de différents ser
  - [Groupe de machines virtuelles identiques](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Machines virtuelles Azure (Classic)](collect-custom-metrics-guestos-vm-classic.md)
  - [Machine virtuelle Linux utilisant l’agent Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [API REST](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md)
+ - [API REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Services cloud (classiques)](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

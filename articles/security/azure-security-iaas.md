@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 42958576a127fee5e0a275e53203edd4e4dee6f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321458"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540250"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 
@@ -137,7 +137,7 @@ Parfois, une machine virtuelle consomme trop de ressources, ce qui peut poser pr
 
 Nous vous recommandons d’utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) pour obtenir plus de visibilité sur l’intégrité de vos ressources. Fonctionnalités d’Azure Monitor :
 
-- [Fichiers journaux de diagnostic des ressources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) : effectuent le monitoring des ressources de machines virtuelles et identifient les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances.
+- [Fichiers journaux de diagnostic des ressources](../azure-monitor/platform/diagnostic-logs-overview.md) : effectuent le monitoring des ressources de machines virtuelles et identifient les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances.
 - [Extension Azure Diagnostics](../azure-monitor/platform/diagnostics-extension-overview.md) : offre des fonctionnalités de monitoring et de diagnostic pour les machines virtuelles Windows. Vous pouvez activer ces fonctionnalités en intégrant l’extension dans le [modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Les organisations qui ne surveillent pas les performances des machines virtuelles ne peuvent pas déterminer si certaines variations de performances sont normales ou pas. Si une machine virtuelle consomme davantage de ressources que la normale, cela peut être le signe d’une attaque provenant d’une ressource externe ou d’un processus compromis en cours d’exécution sur la machine virtuelle.

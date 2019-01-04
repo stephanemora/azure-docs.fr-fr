@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7c2a1c586b4d6f5f9f6e34a091702a35f994544f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012757"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726627"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utiliser Azure Data Lake Tools pour Visual Studio avec le Bac à sable (sandbox) Hortonworks
 
@@ -60,13 +60,13 @@ Assurez-vous que le Bac à sable (sandbox) Hortonworks est en cours d’exécuti
 
     ![Capture d’écran de la boîte de dialogue avec le bouton Mettre à jour en surbrillance](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Le processus de mise à jour utilise Ambari pour remplacer la configuration du Bac à sable (sandbox) Hortonworks par celle attendue par Data Lake Tools pour Visual Studio.
 
 6. Une fois la validation terminée, sélectionnez **Terminer** pour achever la configuration.
     ![Capture d’écran de la boîte de dialogue avec le bouton Terminer en surbrillance](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-     >[!NOTE]
+     >[!NOTE]  
      > Selon la vitesse de votre environnement de développement et la quantité de mémoire allouée à la machine virtuelle, la configuration et la validation des services peuvent prendre quelques minutes.
 
 Une fois ces étapes accomplies, une entrée **HDInsight local cluster** apparaît dans la section **HDInsight** de l’Explorateur de serveurs.
@@ -99,7 +99,7 @@ Hive fournit un langage de requête de type SQL (HiveQL) pour le traitement des 
 
     Quand **État du travail** passe à **Terminé**, un graphe orienté acyclique (DAG) s’affiche. Ce diagramme décrit le chemin d’exécution déterminé par Tez lors du traitement de la requête Hive. Tez est le moteur d’exécution par défaut pour Hive sur le cluster local.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Apache Tez est également le moteur par défaut lorsque vous utilisez des clusters HDInsight basés sur Linux. Il n’est pas le moteur par défaut pour HDInsight basé sur Windows. Pour l’utiliser dans cette configuration, vous devez ajouter la ligne `set hive.execution.engine = tez;` au début de votre requête Hive.
 
     Utilisez le lien **Sortie de la tâche** pour afficher la sortie. En l’occurrence, il s’agit de 823, soit le nombre de lignes contenues dans la table sample_08. Vous pouvez afficher des informations de diagnostic sur la tâche à l’aide des liens **Journal de la tâche** et **Download YARN Log (Télécharger le journal YARN)**.
@@ -110,7 +110,7 @@ Hive fournit un langage de requête de type SQL (HiveQL) pour le traitement des 
 
     Une requête interactive affiche le journal de sortie généré lors du traitement dans la fenêtre **HiveServer2 Output** (Sortie HiveServer2).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Ces informations sont identiques à celles accessibles via le lien **Journal du travail** une fois le travail terminé.
 
     ![Capture d’écran du journal de sortie](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)

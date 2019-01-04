@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3a0b92e2c2a588fa8ef7edcddaa8c692780814f0
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388239"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721561"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQ sur les performances des applications web Azure dans Azure
 
@@ -163,7 +163,7 @@ Pour plus d’informations, consultez [Configurer des applications web dans App 
 
 L’équilibrage de charge Azure comporte un paramètre de délai d’inactivité par défaut de quatre minutes. Il s’agit généralement d’un délai de réponse raisonnable pour une demande web. Si votre application web requiert un traitement en arrière-plan, nous vous recommandons d’utiliser des tâches Azure WebJob. L’application web Azure peut appeler des tâches WebJob et être avertie lorsque le traitement en arrière-plan est terminé. Vous pouvez choisir parmi plusieurs méthodes pour utiliser des tâches WebJob, y compris des files d’attente et des déclencheurs.
 
-Les tâches WebJob sont conçues pour le traitement en arrière-plan. Vous pouvez effectuer autant de traitement en arrière-plan que vous le souhaitez dans une tâche WebJob. Pour plus d’informations sur les tâches WebJob, consultez [Exécuter des tâches en arrière-plan avec des tâches WebJob](web-sites-create-web-jobs.md).
+Les tâches WebJob sont conçues pour le traitement en arrière-plan. Vous pouvez effectuer autant de traitement en arrière-plan que vous le souhaitez dans une tâche WebJob. Pour plus d’informations sur les tâches WebJob, consultez [Exécuter des tâches en arrière-plan avec des tâches WebJob](webjobs-create.md).
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>Les applications ASP.NET Core hébergées dans App Service cessent parfais de répondre. Comment résoudre ce problème ?
 

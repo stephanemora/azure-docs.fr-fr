@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: da638064b2ead1cd860f3b4f96ffa88026aab4ff
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ff030b9bb9158f3bac0e52a596a2054989301afd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101170"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719596"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Créer une application LUIS par programmation à l’aide de Node.js
 
@@ -26,7 +26,7 @@ LUIS fournit une API de programmation qui fait tout ce que le site web [LUIS](lu
 
 * Connectez-vous au site web [LUIS](luis-reference-regions.md) et recherchez votre [clé de création](luis-concept-keys.md#authoring-key) dans les paramètres du compte. Cette clé vous permet d’appeler les API de création.
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-* Ce tutoriel commence par un volume partagé de cluster pour les fichiers journaux d’une société fictive de requêtes d’utilisateurs. Téléchargez-le [ici](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* Ce tutoriel commence par un volume partagé de cluster pour les fichiers journaux d’une société fictive de requêtes d’utilisateurs. Téléchargez-le [ici](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installez la dernière version de Node.js avec NPM. Téléchargez-la [ici](https://nodejs.org/en/download/).
 * **[Recommandé]**  Visual Studio Code pour IntelliSense et le débogage, à télécharger gratuitement [ici](https://code.visualstudio.com/).
 
@@ -40,7 +40,7 @@ Ouvrez le fichier `IoT.csv` . Il contient un journal des requêtes d’utilisate
 Vous voyez que la colonne **RequestType** pourrait représenter des intentions et que la colonne **Request** montre un exemple d’énoncé. Les autres champs pourraient être des entités s’ils sont présents dans l’énoncé. Puisque vous avez des intentions, des entités et des exemples d’énoncés, vous remplissez les conditions préalables pour créer un exemple d’application simple.
 
 ## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>Étapes pour générer une application LUIS à partir de données externes à LUIS
-Pour générer une nouvelle application LUIS à partir du fichier source, commencez par analyser les données du fichier CSV, puis convertissez-les à un format que vous pourrez charger dans LUIS à l’aide de l’API de création. Dans les données analysées, recueillez des informations sur les intentions et les entités présentes. Effectuez ensuite des appels d’API pour créer l’application, puis ajoutez des intentions et des entités qui ont été collectées à partir des données analysées. Une fois que vous avez créé l’application LUIS, vous pouvez ajouter les exemples d’énoncés à partir des données analysées. Vous pouvez voir ce flux dans la dernière partie du code suivant. Copiez ou [téléchargez](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/index.js) ce code et enregistrez-le dans `index.js`.
+Pour générer une nouvelle application LUIS à partir du fichier source, commencez par analyser les données du fichier CSV, puis convertissez-les à un format que vous pourrez charger dans LUIS à l’aide de l’API de création. Dans les données analysées, recueillez des informations sur les intentions et les entités présentes. Effectuez ensuite des appels d’API pour créer l’application, puis ajoutez des intentions et des entités qui ont été collectées à partir des données analysées. Une fois que vous avez créé l’application LUIS, vous pouvez ajouter les exemples d’énoncés à partir des données analysées. Vous pouvez voir ce flux dans la dernière partie du code suivant. Copiez ou [téléchargez](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js) ce code et enregistrez-le dans `index.js`.
 
    [!code-javascript[Node.js code for calling the steps to build a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/index.js)]
 
@@ -70,33 +70,33 @@ Par exemple, l’entrée « Allumer les lumières » est mappée à ce fichier
         }
 ```
 
-Dans cet exemple, le `intentName` provient de la requête de l’utilisateur sous l’en-tête de colonne **Requête** dans le fichier CSV, et le `entityName` provient des autres colonnes avec les informations sur la clé. Par exemple, s’il y a une entrée pour **Opération** ou pour **Appareil** et que ce string apparaît également dans la requête proprement dite, elle peut être étiquetée comme entité. Le code suivant illustre ce processus d’analyse. Vous pouvez le copier ou le [télécharger](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_parse.js) et l’enregistrer sous `_parse.js`.
+Dans cet exemple, le `intentName` provient de la requête de l’utilisateur sous l’en-tête de colonne **Requête** dans le fichier CSV, et le `entityName` provient des autres colonnes avec les informations sur la clé. Par exemple, s’il y a une entrée pour **Opération** ou pour **Appareil** et que ce string apparaît également dans la requête proprement dite, elle peut être étiquetée comme entité. Le code suivant illustre ce processus d’analyse. Vous pouvez le copier ou le [télécharger](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_parse.js) et l’enregistrer sous `_parse.js`.
 
    [!code-javascript[Node.js code for parsing a CSV file to extract intents, entities, and labeled utterances](~/samples-luis/examples/build-app-programmatically-csv/_parse.js)]
 
 
 
 ## <a name="create-the-luis-app"></a>Créer l’application LUIS
-Une fois que les données ont été analysées dans JSON, ajoutez-les à une application LUIS. Le code suivant crée l’application LUIS. Copiez-le ou [téléchargez-le](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_create.js), puis enregistrez-le dans `_create.js`.
+Une fois que les données ont été analysées dans JSON, ajoutez-les à une application LUIS. Le code suivant crée l’application LUIS. Copiez-le ou [téléchargez-le](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_create.js), puis enregistrez-le dans `_create.js`.
 
    [!code-javascript[Node.js code for creating a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/_create.js)]
 
 
 ## <a name="add-intents"></a>Ajouter des intentions
-Une fois que vous avez une application, vous devez lui assigner des intentions. Le code suivant crée l’application LUIS. Copiez-le ou [téléchargez-le](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_intents.js), puis enregistrez-le dans `_intents.js`.
+Une fois que vous avez une application, vous devez lui assigner des intentions. Le code suivant crée l’application LUIS. Copiez-le ou [téléchargez-le](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_intents.js), puis enregistrez-le dans `_intents.js`.
 
    [!code-javascript[Node.js code for creating a series of intents](~/samples-luis/examples/build-app-programmatically-csv/_intents.js)]
 
 
 ## <a name="add-entities"></a>Ajouter des entités
-Le code suivant ajoute les entités à l’application LUIS. Copiez-le ou [téléchargez-le](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_entities.js), puis enregistrez-le dans `_entities.js`.
+Le code suivant ajoute les entités à l’application LUIS. Copiez-le ou [téléchargez-le](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_entities.js), puis enregistrez-le dans `_entities.js`.
 
    [!code-javascript[Node.js code for creating entities](~/samples-luis/examples/build-app-programmatically-csv/_entities.js)]
    
 
 
 ## <a name="add-utterances"></a>Ajouter des énoncés
-Une fois que les entités et les intentions ont été définies dans l’application LUIS, vous pouvez ajouter les énoncés. Le code suivant utilise l’API [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09), qui vous permet d’ajouter jusqu'à 100 énoncés à la fois.  Copiez-le ou [téléchargez-le](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js), puis enregistrez-le dans `_upload.js`.
+Une fois que les entités et les intentions ont été définies dans l’application LUIS, vous pouvez ajouter les énoncés. Le code suivant utilise l’API [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09), qui vous permet d’ajouter jusqu'à 100 énoncés à la fois.  Copiez-le ou [téléchargez-le](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_upload.js), puis enregistrez-le dans `_upload.js`.
 
    [!code-javascript[Node.js code for adding utterances](~/samples-luis/examples/build-app-programmatically-csv/_upload.js)]
 

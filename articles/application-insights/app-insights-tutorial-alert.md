@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 39e2f136e30ebb6dcfc003c435382f3384af1052
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4b608f9237b9f7f98173168e055b5e83635bc2d7
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23659342"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753759"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Surveiller et alerter sur l’intégrité des applications avec Azure Application Insights
 
@@ -27,14 +27,14 @@ Azure Application Insights vous permet de surveiller votre application et d’en
 > * Utiliser une application logique pour envoyer des données de télémétrie brutes selon une planification.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
 - Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
     - Développement web et ASP.NET
     - Développement Azure
-    - Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](app-insights-asp-net.md). 
+    - Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](../azure-monitor/app/asp-net.md). 
 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
@@ -88,7 +88,7 @@ En plus d’envoyer d’alertes à partir d’un test de disponibilité, vous po
 ## <a name="proactively-send-information"></a>Envoyer des informations de façon proactive
 Des alertes sont créées en réaction à un ensemble spécifique de problèmes identifiés dans votre application, et vous réservez généralement des alertes pour les conditions critiques nécessitant une réponse immédiate.  Vous pouvez recevoir de façon proactive les informations relatives à votre application grâce à une logique d’application qui s’exécute automatiquement selon une planification.  Par exemple, un message électronique peut être envoyé chaque jour aux administrateurs, avec des informations brutes sur les problèmes qui nécessitent un examen plus approfondi.
 
-Pour plus d’informations sur la création d’une application logique avec Application Insights, consultez [Automatiser les processus Application Insights en utilisant Logic Apps](automate-with-logic-apps.md)
+Pour plus d’informations sur la création d’une application logique avec Application Insights, consultez [Automatiser les processus Application Insights en utilisant Logic Apps](../azure-monitor/app/automate-with-logic-apps.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris à créer des alertes en cas de problèmes, passez à l’étape suivante du didacticiel pour apprendre à analyser la façon dont les utilisateurs interagissent avec votre application.

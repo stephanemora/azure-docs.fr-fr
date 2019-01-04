@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310995"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974707"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 ##  <a name="introduction"></a>Introduction
 ### <a name="overview"></a>Vue d'ensemble
-Pour aider les clients actuels et futurs d’Azure à comprendre et à utiliser les différentes fonctionnalités liées à la sécurité disponibles dans la plateforme Azure et autour de celle-ci, Microsoft a développé une série de livres blancs, de présentations de sécurité, de meilleures pratiques et de listes de vérification.
+Pour aider les clients actuel et futurs d’Azure à comprendre et à utiliser les différentes fonctionnalités liées à la sécurité disponibles dans la plateforme Azure et autour de celle-ci, Microsoft a développé une série de livres blancs, de présentations de sécurité, de meilleures pratiques et de listes de vérification.
 Les rubriques sont aussi précises que variées et sont mises à jour régulièrement. Ce document fait partie de cette série, comme décrit dans la section Résumé ci-après.
 
 ### <a name="azure-platform"></a>Plateforme Azure
@@ -70,7 +70,7 @@ Les utilisateurs, groupes et applications de ce répertoire peuvent gérer les r
 
 - Les utilisateurs d’Azure AD n’ont pas accès aux emplacements ou aux ressources physiques, et il leur est donc impossible de contourner les vérifications de stratégie RBAC logique stipulées ci-après.
 
-Pour les diagnostics et les besoins de maintenance, un modèle opérationnel qui fait appel à un système d’élévation des privilèges immédiat est nécessaire et utilisé. Azure AD Privileged Identity Management (PIM) introduit le concept d’administrateur éligible. Les [administrateurs](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) éligibles doivent être des utilisateurs qui nécessitent un accès privilégié de temps à autre, mais pas tous les jours. Ce rôle reste inactif jusqu’à ce que l’utilisateur ait besoin d’un tel accès ; dans ce cas, il complète un processus d’activation et devient administrateur actif pour une durée prédéterminée.
+Pour les diagnostics et les besoins de maintenance, un modèle opérationnel qui fait appel à un système d’élévation des privilèges immédiat est nécessaire et utilisé. Azure AD Privileged Identity Management (PIM) introduit le concept d’administrateur éligible. Les [administrateurs](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) éligibles doivent être des utilisateurs qui nécessitent un accès privilégié de temps à autres, mais pas tous les jours. Ce rôle reste inactif jusqu’à ce l’utilisateur ait besoin d’un tel accès ; dans ce cas, il complète un processus d’activation et devient administrateur actif pour une durée prédéterminée.
 
 ![Azure AD Privileged Identity Management](./media/azure-isolation/azure-isolation-fig2.png)
 
@@ -121,7 +121,7 @@ Les services professionnels avec des certifications vérifiées telles que ISO/I
 
 Si vous supprimez des données, Microsoft Azure supprime les données, y compris les copies mises en cache ou de sauvegarde. Pour les services dans l’étendue, cette suppression aura lieu dans les 90 jours suivant la fin de la période de rétention. (Les services dans l’étendue sont définis dans la section Data Processing Terms (Conditions relatives au traitement des données) de nos [conditions Microsoft Online Services](https://aka.ms/Online-Services-Terms).)
 
-Si un lecteur de disque utilisé pour le stockage rencontre une défaillance matérielle, il est [effacé ou détruit](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) de façon sûre avant que Microsoft ne le renvoie au fabricant pour effectuer un remplacement ou une réparation. Les données sur le lecteur sont remplacées pour vous assurer qu’elles ne peuvent pas être récupérées par quelque moyen que ce soit.
+Si un lecteur de disque utilisé pour le stockage rencontre une défaillance matérielle, il est [effacé ou détruit](https://microsoft.com/trustcenter/privacy/you-own-your-data) de façon sûre avant que Microsoft ne le renvoie au fabricant pour effectuer un remplacement ou une réparation. Les données sur le lecteur sont remplacées pour vous assurer qu’elles ne puissent pas être récupérées par quelque moyen que ce soit.
 
 ## <a name="compute-isolation"></a>Isolation du calcul
 Microsoft Azure propose divers services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise. Ces services et instances de calcul offrent une isolation à plusieurs niveaux pour sécuriser les données sans compromettre la flexibilité de la configuration exigée par les clients.
@@ -238,7 +238,7 @@ Le chiffrement en transit est un mécanisme de protection des données transmise
 -   Le [chiffrement côté client](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), pour chiffrer les données avant leur transfert vers Storage et les déchiffrer après leur transfert à partir de Storage.
 
 #### <a name="encryption-at-rest"></a>Chiffrement au repos
-Pour de nombreuses organisations, le [chiffrement des données au repos](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Trois fonctionnalités Azure fournissent un chiffrement des données « au repos ».
+Pour de nombreuses organisations, le [chiffrement des données au repos](https://docs.microsoft.com/azure/security/azure-isolation) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Trois fonctionnalités Azure fournissent un chiffrement des données « au repos ».
 
 -   [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans Azure Storage.
 
@@ -335,7 +335,7 @@ La couche derrière les passerelles est appelée « back-end ». C’est ici q
 En règle générale, le système back-end ne communique pas en sortie avec d’autres systèmes pour des raisons de sécurité. Cela est réservé aux systèmes de la couche front-end (passerelle). Les machines au niveau de la passerelle ont des privilèges limités sur les machines du back-end pour réduire la surface d’attaque comme un mécanisme de défense en profondeur.
 
 ### <a name="isolation-by-machine-function-and-access"></a>Isolation par accès et fonction de machines
-SQL Azure se compose de services s’exécutant sur différentes fonctions de machines. SQL Azure est divisé entre des environnements « front-end » (passerelle/gestion) et une base de données cloud « back-end », en partant du principe que le trafic entre uniquement dans le back-end, mais n’en sort pas. L’environnement front-end peut communiquer avec d’autres services du monde extérieur, et en général a uniquement des autorisations limitées dans le back-end (suffisamment pour appeler les points d’entrée qu’il doit appeler).
+SQL Azure se compose de services s’exécutant sur différentes fonctions de machines. SQL Azure est divisé entre des environnement « front-end » (passerelle/gestion) et une base de données cloud « back-end », en partant du principe que le trafic entre uniquement dans le back-end, mais n’en sort pas. L’environnement front-end peut communiquer avec d’autres services du monde extérieur, et en général a uniquement des autorisations limitées dans le back-end (suffisamment pour appeler les points d’entrée qu’il doit appeler).
 
 ## <a name="networking-isolation"></a>Isolation du réseau
 Le déploiement Azure comporte plusieurs couches d’isolation réseau. Le schéma suivant montre les différentes couches d’isolation réseau fournies aux clients par Azure. Ces couches sont natives à la fois sur la plateforme Azure elle-même et dans les fonctionnalités définies par le client. Issue d’Internet, la protection DDoS Azure offre une isolation contre les attaques à grande échelle menées contre Azure. Les adresses IP publiques (points de terminaison) définies par les clients constituent la couche d’isolation suivante et servent à déterminer quel trafic peut traverser le service cloud pour atteindre le réseau virtuel. L’isolement du réseau virtuel Azure natif garantit l’isolement complet de tous les autres réseaux et la circulation du trafic uniquement au moyen des méthodes et des chemins d’accès configurés par l’utilisateur. Ces chemins d’accès et méthodes constituent la couche suivante, où les groupes de sécurité réseau, le routage défini par l’utilisateur et les appliances virtuelles réseau peuvent servir à créer des limites d’isolation afin de protéger les déploiements d’applications dans le réseau protégé.

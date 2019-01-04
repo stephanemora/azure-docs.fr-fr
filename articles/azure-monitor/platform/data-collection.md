@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: fdf8d8977651c868c9f534dc61e3d1a77a43e672
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 84ab63d145d9726fad83b7b2337542fef5c8743d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435944"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718960"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Supervision des données collectées par Azure Monitor
 [Azure Monitor](../overview.md) est un service qui vous permet de surveiller vos applications et les ressources dont elles dépendent. Au cœur de cette fonction se trouve le stockage de données de télémétrie et d’autres données tirées des ressources supervisées. Cet article décrit de manière exhaustive la façon dont ces données sont stockées et utilisées par Azure Monitor.
@@ -86,7 +86,7 @@ Les **métriques de plateforme** sont créées par des ressources Azure et vous 
 Les **métriques d’application** sont créées par Application Insights pour vos applications supervisées et vous aident à détecter les problèmes de performances et à suivre les tendances dans l’utilisation de votre application. Cela inclut des valeurs comme _Temps de réponse du serveur_ et _Exceptions du navigateur_.
 
 Les **métriques personnalisées** sont des métriques que vous définissez en plus de la métrique standard, et qui sont automatiquement disponibles. Les métriques personnalisées doivent être créées pour une ressource unique dans la même région que cette ressource. Vous pouvez créer des métriques personnalisées à l’aide des méthodes suivantes :
-    - [Définition de métriques personnalisées dans votre application](../../application-insights/app-insights-api-custom-events-metrics.md) sous la supervision d’Application Insights. Ces métriques complètent l’ensemble standard de métriques d’application.
+    - [Définition de métriques personnalisées dans votre application](../../azure-monitor/app/api-custom-events-metrics.md) sous la supervision d’Application Insights. Ces métriques complètent l’ensemble standard de métriques d’application.
     - Publication de métriques personnalisées à partir de vos machines virtuelles Windows à l’aide de l’[extension de diagnostics Windows](../../azure-monitor/platform/diagnostics-extension-overview.md).
     - Publication de métriques personnalisées à partir de vos machines virtuelles Linux à l’aide de l’[agent InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/).
     - Écriture de métriques personnalisées à partir d’un service Azure à l’aide de l’API de métriques personnalisées.
@@ -100,8 +100,8 @@ Les tâches que vous pouvez effectuer avec les métriques sont les suivantes :
 - Configurer une [règle d’alerte sur les métriques](alerts-metric.md) qui envoie une notification ou prend [une action de façon automatique](action-groups.md) lorsque la métrique dépasse le seuil défini.
 - Utiliser la [mise à l’échelle automatique](../../azure-monitor/platform/autoscale-overview.md) pour augmenter ou diminuer les ressources si une métrique dépasse le seuil défini.
 - Acheminer les métriques vers Log Analytics pour analyser les données métriques avec les données de journal et pour stocker les valeurs métriques pendant plus de 93 jours. 
-- Transmettre en continu les métriques vers un [Event Hub](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) pour les acheminer vers [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) ou vers des systèmes externes.
-- [Archivez](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion.
+- Transmettre en continu les métriques vers un [Event Hub](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) pour les acheminer vers [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) ou vers des systèmes externes.
+- [Archivez](../../azure-monitor/learn/tutorial-archive-data.md) l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion.
 - Accéder à des valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) ou l’[API REST](../../azure-monitor/platform/rest-api-walkthrough.md).
 
 
@@ -129,7 +129,7 @@ Les journaux sont particulièrement utiles pour combiner des données provenant 
 ### <a name="sources-of-log-data"></a>Sources de données de journal
 Azure Monitor peut collecter des données de journal à partir de diverses sources au sein d’Azure et de ressources locales. Les sources des données de journal sont les suivantes :
 
-- [Journaux d’activité](collect-activity-logs.md) provenant de ressources Azure qui incluent des informations sur leur configuration et leur intégrité et [journaux de diagnostic](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) qui fournissent des informations sur leur fonctionnement.
+- [Journaux d’activité](collect-activity-logs.md) provenant de ressources Azure qui incluent des informations sur leur configuration et leur intégrité et [journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) qui fournissent des informations sur leur fonctionnement.
 - Agents sur les machines virtuelles [Windows](agent-windows.md) et [Linux](../learn/quick-collect-linux-computer.md) qui envoient les données de télémétrie du système d’exploitation invité et des applications à Azure Monitor en fonction des [sources de données](data-sources.md) que vous configurez.
 - Données d’application collectées par [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Données fournissant des informations sur une application ou un service spécifique à partir de [solutions de supervision](../insights/solutions.md) ou de fonctionnalités telles que Container Insights, VM Insights ou Resource Group Insights.
@@ -156,7 +156,7 @@ Les tâches réalisables avec les journaux sont les suivantes :
 Toutes les données de journal dans Azure Monitor sont récupérées en utilisant une [requête de journal](../log-query/log-query-overview.md) écrite dans le [langage de requête Data Explorer](../log-query/get-started-queries.md), qui vous permet de rapidement récupérer, consolider et analyser les données collectées. Utilisez [Log Analytics](../log-query/portals.md) pour écrire et tester des requêtes dans le Portail Azure. Vous pouvez afficher les résultats de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations. Vous pouvez également récupérer les journaux à l’aide de l’[API REST Azure Monitoring](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
-> Les données Application Insights sont stockées dans une partition autre que les données de journal dans Azure Monitor. Les mêmes fonctionnalités que les autres données de journal sont prises en charge, mais vous devez utiliser la [console Application Insights](/application-insights/app-insights-analytics.md) ou l’[API Application Insights](https://dev.applicationinsights.io/) pour accéder à ces données. Vous pouvez utiliser une [requête interressources](../log-query/cross-workspace-query.md) pour analyser les données d’application ainsi que d’autres données de journal.
+> Les données Application Insights sont stockées dans une partition autre que les données de journal dans Azure Monitor. Les mêmes fonctionnalités que les autres données de journal sont prises en charge, mais vous devez utiliser la [console Application Insights](/azure-monitor/app/analytics.md) ou l’[API Application Insights](https://dev.applicationinsights.io/) pour accéder à ces données. Vous pouvez utiliser une [requête interressources](../log-query/cross-workspace-query.md) pour analyser les données d’application ainsi que d’autres données de journal.
 
 ![Journaux](media/data-collection/logs.png)
 
@@ -176,7 +176,7 @@ Pour une explication de cette fonctionnalité, voir [Créer des alertes de métr
 ## <a name="stream-data-to-external-systems"></a>Transmettre des données en continu vers les systèmes externes
 En plus d’utiliser les outils dans Azure pour analyser les données de supervision, vous aurez peut-être besoin de transférer ces données vers un outil externe, comme un produit SIEM (Security Information and Event Management). Ce transfert est le plus souvent effectué directement à partir des ressources supervisées au travers d’[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 
 
-Pour obtenir des conseils concernant les différents types de données de surveillance, voir [Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+Pour obtenir des conseils concernant les différents types de données de surveillance, voir [Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

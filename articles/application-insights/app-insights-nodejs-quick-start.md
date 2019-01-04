@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: c2202a194c3912bd9a8b8f534df792e6f1a3543b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991593"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998691"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Démarrer l’analyse de votre application web Node.js
 
@@ -49,7 +49,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
     | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
+   | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application Node.js | Type de l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
@@ -124,9 +124,9 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    ![Graphique des métriques de serveur](./media/app-insights-nodejs-quick-start/009-Black.png)
 
-Pour plus d’informations sur l’analyse de Node.js, consultez la [documentation supplémentaire sur Application Insights pour Node.js](app-insights-nodejs.md).
+Pour plus d’informations sur l’analyse de Node.js, consultez la [documentation supplémentaire sur Application Insights pour Node.js](../azure-monitor/app/nodejs.md).
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les didacticiels, ne supprimez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées par ce démarrage rapide dans le portail Azure.
 

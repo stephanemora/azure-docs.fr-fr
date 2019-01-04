@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3d048618fef04b630366b3f575e420b329f102cb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315832"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597662"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Haute disponibilité de vos données avec Apache Kafka sur HDInsight
 
@@ -26,7 +26,7 @@ Un domaine d’erreur est un regroupement logique de matériel sous-jacent dans 
 
 Chaque région Azure possède un certain nombre de domaines d’erreur. Pour obtenir la liste des domaines et le nombre de domaines d’erreur qu’ils contiennent, consultez la documentation [Groupes à haute disponibilité](../../virtual-machines/windows/regions-and-availability.md#availability-sets).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kafka n’est pas informé des domaines d’erreur. Lorsque vous créez une rubrique dans Kafka, ce dernier peut stocker tous les réplicas de partition dans le même domaine d’erreur. Pour résoudre ce problème, HDInsight fournit [l’outil de rééquilibrage de partitions Kafka](https://github.com/hdinsight/hdinsight-kafka-tools).
 
 ## <a name="when-to-rebalance-partition-replicas"></a>Quand rééquilibrer les réplicas de partition
@@ -39,7 +39,7 @@ Pour garantir la haute disponibilité de vos données Kafka, vous devez rééqui
 
 ## <a name="replication-factor"></a>Facteur de réplication
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Il est recommandé d’utiliser une région Azure qui contient les trois domaines d’erreur, et un facteur de réplication de 3.
 
 Si vous devez utiliser une région qui contient uniquement deux domaines d’erreur, utilisez un facteur de réplication de 4 afin de répartir uniformément les réplicas sur les domaines d’erreur.

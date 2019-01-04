@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
-ms.openlocfilehash: 5ca4535afb44238380cb6db55953072598130fae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: eb71161c9191e29d3248b2c64fd9cc0fa76c92a2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582358"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545142"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Mesures Azure Relay dans Azure Monitor (préversion)
 Les métriques Azure Relay indiquent l’état des ressources d’un abonnement Azure. Avec un ensemble complet de données de métriques, vous pouvez évaluer l’intégrité globale des ressources Relay, non seulement au niveau de l’espace de noms, mais également au niveau de l’entité. Ces statistiques peuvent être importantes, car elles vous aident à surveiller l’état d’Azure Relay. Les métriques peuvent également vous aider à résoudre les problèmes constituant des causes premières sans avoir à contacter le support technique Azure.
@@ -33,7 +33,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder à ces métriques depuis le [portail Azure](https://portal.azure.com), ou utiliser les API d’Azure Monitor (REST et .Net) et les solutions d’analyse comme Operation Management Suite et Event Hub. Pour plus d’informations, consultez [Supervision des données collectées par Azure Monitor](../azure-monitor/platform/data-collection.md).
 
-Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) dans Azure Monitor.
+Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) dans Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Accéder aux métriques dans le portail
 
@@ -60,24 +60,24 @@ Toutes les valeurs de métriques sont envoyées à Azure Monitor toutes les minu
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| ListenerConnections-Success (préversion) | Nombre de connexions réussies de l’écouteur vers Azure Relay au cours d’une période spécifiée. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|ListenerConnections-ClientError (préversion)|Nombre d’erreurs du client sur les connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|ListenerConnections-ServerError (préversion)|Nombre d’erreurs du serveur sur les connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|SenderConnections-Success (préversion)|Nombre de connexions réussies de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|SenderConnections-ClientError (préversion)|Nombre d’erreurs du client sur les connexions de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|SenderConnections-ServerError (préversion)|Nombre d’erreurs du serveur sur les connexions de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|ListenerConnections-TotalRequests (préversion)|Nombre total de connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|SenderConnections-TotalRequests (préversion)|Demandes de connexion effectuées par les expéditeurs sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|ActiveConnections (préversion)|Nombre de connexions actives au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|ActiveListeners (préversion)|Nombre d’écouteurs actifs au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|ListenerDisconnects (préversion)|Nombre d’écouteurs déconnectés au cours d’une période spécifiée.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|SenderDisconnects (préversion)|Nombre d’expéditeurs déconnectés au cours d’une période spécifiée.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+| ListenerConnections-Success (préversion) | Nombre de connexions réussies de l’écouteur vers Azure Relay au cours d’une période spécifiée. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|ListenerConnections-ClientError (préversion)|Nombre d’erreurs du client sur les connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|ListenerConnections-ServerError (préversion)|Nombre d’erreurs du serveur sur les connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|SenderConnections-Success (préversion)|Nombre de connexions réussies de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|SenderConnections-ClientError (préversion)|Nombre d’erreurs du client sur les connexions de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|SenderConnections-ServerError (préversion)|Nombre d’erreurs du serveur sur les connexions de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|ListenerConnections-TotalRequests (préversion)|Nombre total de connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|SenderConnections-TotalRequests (préversion)|Demandes de connexion effectuées par les expéditeurs sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|ActiveConnections (préversion)|Nombre de connexions actives au cours d’une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|ActiveListeners (préversion)|Nombre d’écouteurs actifs au cours d’une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|ListenerDisconnects (préversion)|Nombre d’écouteurs déconnectés au cours d’une période spécifiée.<br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|SenderDisconnects (préversion)|Nombre d’expéditeurs déconnectés au cours d’une période spécifiée.<br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ## <a name="memory-usage-metrics"></a>Mesures d’utilisation de la mémoire
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|BytesTransferred (préversion)|Nombre d’octets transférés au cours d’une période spécifiée.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|BytesTransferred (préversion)|Nombre d’octets transférés au cours d’une période spécifiée.<br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensions de mesures
 

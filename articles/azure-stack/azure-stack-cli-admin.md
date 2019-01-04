@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: e9309f8cb46b31ded46b705308465ac6f6c89204
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c2827a4badd61aeb8de556795834dee39769e85e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585184"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554501"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Activer Azure CLI pour les utilisateurs d’Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez fournir le certificat racine de l’autorité de certification aux utilisateurs d’Azure Stack afin qu’ils puissent utiliser Azure CLI sur leurs machines de développement. Les utilisateurs ont besoin du certificat pour gérer des ressources à l’aide de l’interface CLI.
 
@@ -38,7 +38,7 @@ Les sections suivantes expliquent comment obtenir ces valeurs.
 Vous pouvez trouver le certificat racine de l’autorité de certification Azure Stack dans le kit de développement et sur une machine virtuelle locataire exécutée dans l’environnement du kit de développement. Pour exporter le certificat racine Azure Stack au format PEM, connectez-vous à votre kit de développement ou à la machine virtuelle du locataire, et exécutez le script suivant :
 
 ```powershell
-$label = "AzureStackSelfSignedRootCert"
+$label = "<Your Azure Stack CA root certificate name>"
 Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)

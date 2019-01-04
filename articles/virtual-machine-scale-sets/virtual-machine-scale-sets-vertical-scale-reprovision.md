@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: b961dadbe8743f1485ef0d13a44a1bb0f3ce32b5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 6cd42675fa70f338fd4e1223d6a48bf8c6773915
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321373"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579309"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Mise à l’échelle verticale avec des groupes de machines virtuelles identiques
 Cet article décrit comment mettre à l’échelle verticalement des [jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/) Azure avec ou sans réapprovisionnement. Pour mettre à l’échelle verticalement des machines virtuelles qui n’appartiennent pas à des groupes de machines virtuelles identiques, consultez [Mettre à l’échelle verticalement une machine virtuelle Azure avec Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -119,7 +119,7 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 
 Pour plus d’informations sur la création d’alertes, consultez les articles suivants :
 
-* [Exemples de démarrage rapide Azure Monitor PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
+* [Exemples de démarrage rapide Azure Monitor PowerShell](../azure-monitor/platform/powershell-quickstart-samples.md)
 * [Exemples de démarrage rapide de l’interface de ligne de commande multiplateforme Azure Monitor](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Résumé
